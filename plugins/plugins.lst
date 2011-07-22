@@ -1,0 +1,39 @@
+## PlayOnLinux default plugin list
+## Copyright (C) 2007-2011 PlayOnLinux Team
+## Version 1 /2010-09-01/
+## Version 4 /2011-07-07/
+
+##Lines begining with # was ignored
+##syntax:
+##uid;plugin_file.pol;install_dir;status;version_human;version
+##	uid 		= unique ID
+##	plugin_file.pol = name of plugin file (found in $PLAYONLINUX/plugins/)
+##	install_dir	= in which directory the plugin is finaly installed ($POL_USER_ROOT/plugins/??)
+##	status		= enable or disable
+##	version_human	= version of plugin
+##	version		= integer number used for determine if this plugin should be update (never decrease this value!)
+##	linux compatible = bool 1/0
+##	mac compatiblle = bool 1/0
+
+##example:
+#offlinepol;OfflinePlayOnLinux_0.3.pol;Offline PlayOnLinux;disable;0.3;4
+#awc;AdvancedWineConfiguration_3.5.1.pol;Advanced Wine Configuration;enable;3.5.1;17
+##
+
+## in fact empty line is also ignored because it's more easy to read =)
+##
+
+#Offline PlayOnLinux
+offlineplayonlinux;OfflinePlayOnLinux_0.6.pol;Offline PlayOnLinux;disable;0.6;5;1;0
+
+#Capture
+capture;Capture.pol;Capture;enable;2.2;6;1;0
+
+#Transgaming Cedega
+cedega;TransgamingCedega_0.3.pol;Transgaming Cedega;disable;0.3;1;1;0
+
+#Wine Import
+import;WineImport_0.3.pol;Wine Import;enable;0.4;2;1;0
+
+#Wine Look
+look;WineLook_0.4.pol;Wine Look;enable;0.4;1;1;1

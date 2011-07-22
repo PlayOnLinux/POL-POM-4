@@ -1,0 +1,73 @@
+#!/bin/bash
+
+# Copyright (C) 2007-2010 PlayOnLinux Team
+# Copyright (C) 2007 Pâris Quentin
+# Copyright (C) 2009 Łukasz Wojniłowicz
+
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
+
+if [ "$PLAYONLINUX" = "" ]
+then
+exit 0
+fi
+source "$PLAYONLINUX/lib/sources"
+
+[ "$POL_OS" == "Linux" ] && TRACKER="1"
+[ "$POL_OS" == "Mac" ] && TRACKER="4"
+
+# $1 = Nom de l'application
+#export TITLE="$1"
+export POL_SCRIPT_FAILED="NO" # Sinon on va tourner en rond
+
+POL_DEBUG_TITLE="$(eval_gettext "Report a bug")"
+export TITLE="$POL_DEBUG_TITLE"
+
+POL_SetupWindow_Init
+
+POL_SetupWindow_free_presentation "$POL_DEBUG_TITLE" "$(eval_gettext "This wizard can report a bug in an application officially supported by PlayOnLinux.")"
+if [ "$LOGTITLE" = "" ]
+then
+POL_SetupWindow_menu_num "$(eval_gettext "What kind of problem do you have?")" "$POL_DEBUG_TITLE" "$(eval_gettext "My problem concerns PlayOnLinux itself")~$(eval_gettext "I have a problem with a software")" "~"
+PROBLEM_TYPE="$APP_ANSWER"
+if [ "$PROBLEM_TYPE" = "1" ]
+then
+	LNG_NO_JOIN="$(eval_gettext "Don't join any log file")"
+	LIST="$LNG_NO_JOIN"
+	cd "$POL_USER_ROOT/logs"
+	for file in *
+	do
+		LIST="$LIST~$file"
+	done
+	POL_SetupWindow_menu "$(eval_gettext "Choose the log file corresponding to your software.")" "$POL_DEBUG_TITLE" "$LIST" "~"
+	[ "$APP_ANSWER" = "$LNG_NO_JOIN" ] || LOGTITLE="$APP_ANSWER"
+fi
+fi
+POL_SetupWindow_textbox "$(eval_gettext "Please give a very short description")" "$POL_DEBUG_TITLE"
+BUGTITLE="$APP_ANSWER"
+POL_SetupWindow_textbox_multiline "$(eval_gettext "Detailed description:")" "$POL_DEBUG_TITLE"
+DESCRIPTION="$APP_ANSWER
+
+[code language%3Dconsole]$(cat "$POL_USER_ROOT/logs/$LOGTITLE/$LOGTITLE.log")[/code]"
+
+POL_Website_login
+POL_Website_Init
+contenu="$(cat "$LOGFILE")"
+POL_Website_Request "http://bugs.playonlinux.com/en/new-$TRACKER.html" "priority=2&tracker=$TRACKER&title=[Bug report] $BUGTITLE&message=$DESCRIPTION&submit=Send"
+POL_Website_Close
+POL_Website_logout
+POL_SetupWindow_message "$(eval_gettext "Thank you !\n\nYour report has been sent.\n\nWe will do our best to send you an answer by mail very soon")" "$TITLE"
+
+POL_SetupWindow_Close
+

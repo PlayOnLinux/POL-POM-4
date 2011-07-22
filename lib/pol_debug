@@ -1,0 +1,125 @@
+#!/bin/bash
+
+# Copyright (C) 2007-2010 PlayOnLinux Team
+# Copyright (C) 2010 Pâris Quentin
+
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
+
+
+POL_LOGS="$REPERTOIRE/logs"
+LOGFILE="/dev/null" # By default, don't log anything
+Get_CurrentDate()
+{
+	date "+%D %T"
+}
+POL_Debug_Init()
+{
+	if [ "$TITLE" = "" ]
+	then
+		echo "E. TITLE variable not set."
+	else
+		LOGTITLE="${TITLE}_$(date +%s)"
+		mkdir -p "$POL_LOGS/$LOGTITLE"
+		DEBUGGING="$POL_LOGS/$LOGTITLE/"
+		LOGFILE="$DEBUGGING/$LOGTITLE.log"
+	fi
+	POL_Debug_Header
+}
+POL_Debug_Package()
+{
+	cd "$POL_LOGS"
+	tar czvf "$LOGTITLE.tar.bz2" "$LOGTITLE"
+}
+POL_Debug_Header()
+{
+	if [ "$WINETRICKS_PKG" ]
+	then
+		WINETRICKS="winetricks packages : $WINETRICKS"
+	fi
+	cat << EOF >> "$LOGFILE"
+PlayOnLinux debbuging tool (v$VERSION)
+-----------------------------------------------
+Debugging: $TITLE
+Date: $(Get_CurrentDate)
+
+> uname -a
+  $(uname -a)
+> lsb_release -a
+  $(lsbrelease -a 2> /dev/null)
+> wine --version (Be careful, this version might not be the version used in the script! Read the content of this file for more information)
+  $(wine --version)
+> glxinfo \| grep rendering
+  $(glxinfo | grep rendering 2> /dev/null)
+> glxinfo \| grep renderer
+  $(glxinfo | grep renderer 2> /dev/null)
+> export
+  $(export)
+
+$1
+EOF
+}
+POL_Debug_Message()
+{
+	echo "$(Get_CurrentDate) - Message: $1" >> "$LOGFILE"
+	echo "Message: $1"
+}
+POL_Debug_Warning()
+{
+	echo "$(Get_CurrentDate) - Warning: $1" >> "$LOGFILE"
+	echo "Warning: $1"
+}
+POL_Debug_Error()
+{
+	echo "$(Get_CurrentDate) - Error: $1" >> "$LOGFILE"
+	echo "Error: $1"
+	POL_SetupWindow_message "Error: $1" "$TITLE" # La on affiche quand même 
+	export POL_SCRIPT_FAILED="YES"
+}
+POL_Debug_Fatal()
+{
+	echo "$(Get_CurrentDate) - Fatal: $1" >> "$LOGFILE"
+	echo "Fatal: $1"
+	POL_SetupWindow_message "Fatal: $1" "$TITLE" # La on affiche quand même 
+	export POL_SCRIPT_FAILED="YES"
+	POL_SetupWindow_Close
+	exit 1
+}
+POL_Debug_lspci()
+{
+	lspci > "$DEBUGGING/lspci.log"
+}
+POL_Debug_cpuinfo()
+{
+	cat /proc/cpuinfo > "$DEBUGGING/cpuinfo.log"
+}
+POL_Debug_glxinfo()
+{
+	glxinfo > "$DEBUGGING/glxinfo.log"
+}
+POL_Debug_MarkShortcut()
+{
+	echo "#DebugMark-$LOGTITLE"
+}
+POL_Debug_App()
+{
+    cat << EOF >> "$LOGFILE"
+Debugging application: $TITLE
+Date: $(Get_CurrentDate)
+
+Type bug: $1
+
+Comment: $2
+EOF
+}

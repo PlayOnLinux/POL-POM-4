@@ -1,0 +1,203 @@
+#!/bin/bash
+
+# Copyright (C) 2007-2010 PlayOnLinux Team
+# Copyright (C) 2008 Pâris Quentin
+# Copyright (C) 2009 Łukasz Wojniłowicz
+
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
+
+if [ "$PLAYONLINUX" = "" ]
+then
+exit 0
+fi
+source "$PLAYONLINUX/lib/sources"
+
+pol_winecfg()
+{
+	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing processes in the prefix...")" "$(eval_gettext "PlayOnLinux Application Configurator")"
+	wineserver -k
+	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Starting Wine configuration')" "$(eval_gettext "PlayOnLinux Application Configurator")"
+	winecfg
+}
+pol_kprocess()
+{
+	if [ "$FIRSTARGUMENT" != "" ]; then	
+		POL_SetupWindow_Init
+	fi
+		
+	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing processes in the prefix...")" "$(eval_gettext "PlayOnLinux Application Configurator")"
+	sleep 1
+	wineserver -k
+	sleep 1
+
+	if [ "$FIRSTARGUMENT" != "" ]; then	
+		POL_SetupWindow_Close
+	fi
+	
+}
+pol_regedit()
+{
+	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing processes in the prefix...")" "$(eval_gettext "PlayOnLinux Application Configurator")"
+	wineserver -k
+	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Starting regedit')" "$(eval_gettext "PlayOnLinux Application Configurator")"
+	regedit
+}
+pol_wineboot()
+{
+	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing processes in the prefix...")" "$(eval_gettext "PlayOnLinux Application Configurator")"
+	wineserver -k
+	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Simulating Windows reboot')" "$(eval_gettext "PlayOnLinux Application Configurator")"
+	wineboot
+}
+pol_awinecfg()
+{
+	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing processes in the prefix...")" "$(eval_gettext "PlayOnLinux Application Configurator")"
+	wineserver -k
+	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Starting Advanced Wine Configuration')" "$(eval_gettext "PlayOnLinux Application Configurator")"
+	bash "$REPERTOIRE/plugins/Advanced Wine Configuration/scripts/menu"
+}
+pol_winetricks()
+{
+	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing processes in the prefix...")" "$(eval_gettext "PlayOnLinux Application Configurator")"
+	wineserver -k
+	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Starting WineTricks plug-in')" "$(eval_gettext "PlayOnLinux Application Configurator")"
+	bash "$REPERTOIRE/plugins/WineTricks/scripts/menu" "$FIRSTARGUMENT"
+}
+pol_scfg()
+{
+	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing processes in the prefix...")" "$(eval_gettext "PlayOnLinux Application Configurator")"
+	wineserver -k
+	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Starting specific Wine configurator')" "$(eval_gettext "PlayOnLinux Application Configurator")"
+	bash "$REPERTOIRE/configurations/configurators/$APP"
+}
+pol_changeicon()
+{
+	
+	if [ "$FIRSTARGUMENT" != "" ]; then	
+
+	    (convert "$FIRSTARGUMENT" -geometry 32X32 "$REPERTOIRE/icones/32/$APP" && (touch "$REPERTOIRE/icones/32/tmp" && sleep 1 && rm "$REPERTOIRE/icones/32/tmp")&)&
+	    exit
+	else
+	    cd "$HOME/.local/share/icons/"
+	    POL_SetupWindow_browse "$(eval_gettext "Please select an icon file")" "$(eval_gettext "Icon selection")" 
+	    iconame=$(basename "$APP_ANSWER")
+	    extensionwithoutcase=${iconame##*.}
+	    extension=`echo "$extensionwithoutcase" | tr '[:upper:]' '[:lower:]'`
+	    if [ "$iconame" != "" ] && [ "$extension" = ico ] || [ "$extension" = xpm ] || [ "$extension" = png ] || [ "$extension" = jpg ] || [ "$extension" = jpeg ] || [ "$extension" = bmp ]; then
+	    convert "$APP_ANSWER" -geometry 32X32 "$REPERTOIRE/icones/32/$APP"
+	    else
+	    POL_SetupWindow_message_image "$extension $(eval_gettext "is not an icon extension")" "$(eval_gettext "Bad file extension")" "$PLAYONLINUX/themes/tango/warning.png"
+	    return
+	    fi
+	fi
+	touch "$REPERTOIRE/icones/32/tmp"
+	sleep 1
+	rm "$REPERTOIRE/icones/32/tmp"
+}
+
+LNG_CONFIGURE=$(eval_gettext "Configure Wine")
+LNG_REGISTRY=$(eval_gettext "Registry Editor")
+LNG_KPROCESS=$(eval_gettext "Kill all prefix processes")
+LNG_UPDATEPREFIX=$(eval_gettext "Update wineprefix")
+LNG_WINDOWS_REBOOT=$(eval_gettext "Simulate Windows reboot")
+LNG_APLUGIN=$(eval_gettext "Use Advanced Wine Configuration plugin")
+LNG_POLCFG=$(eval_gettext "Use PlayOnLinux's configurator for")
+	
+LNG_CHANGEICON=$(eval_gettext 'Change the icon')
+LNG_WINETRICKS=$(eval_gettext "Use WineTricks")
+
+main_menu()
+{
+	ITEMS="$LNG_CONFIGURE~$LNG_REGISTRY~$LNG_KPROCESS~$LNG_UPDATEPREFIX~$LNG_WINDOWS_REBOOT~$LNG_CHANGEICON"
+	if [ "-e" "$REPERTOIRE/plugins/Advanced Wine Configuration" ]
+	then
+		ITEMS+="~$LNG_APLUGIN"
+	fi
+
+	if [ "-e" "$REPERTOIRE/plugins/WineTricks" ]
+	then
+		ITEMS+="~$LNG_WINETRICKS"
+	fi
+
+	if [ "-e" "$REPERTOIRE/configurations/configurators/$APP" ]
+	then
+		ITEMS+="~$LNG_POLCFG $APP"
+	fi
+	POL_SetupWindow_menu "$(eval_gettext "Please choose an action to perform")" "$(eval_gettext "PlayOnLinux Application Configurator")" "$ITEMS" "~"
+	redirect_to_pol_configure_function "$APP_ANSWER"
+}
+redirect_to_pol_configure_function()
+{
+	if [ "$1" = "$LNG_CONFIGURE" ] 
+	then
+		pol_winecfg
+	elif [ "$1" = "$LNG_REGISTRY" ] 
+	then
+		pol_regedit
+	elif [ "$1" = "$LNG_KPROCESS" -o "$1" = "KillApp" ] # Encoding problem ! Be careful	
+	then
+		pol_kprocess
+	elif [ "$1" = "$LNG_UPDATEPREFIX" ] 
+	then
+		POL_SetupWindow_prefixcreate
+	elif [ "$1" = "$LNG_WINDOWS_REBOOT" ] 
+	then
+		pol_wineboot
+	elif [ "$1" = "$LNG_APLUGIN" ] 
+	then
+		pol_awinecfg
+	elif [ "$1" = "$LNG_POLCFG $APP" ] 
+	then
+		pol_scfg
+	elif [ "$1" = "IconChange" ] || [ "$1" = "$LNG_CHANGEICON" ]
+	then
+		pol_changeicon
+	elif [ "$1" = "$LNG_WINETRICKS" ] 
+	then
+		pol_winetricks
+	fi
+}
+
+APP="$1"
+FUNCTIONTORUN="$2"	#0-run menu; other-run remotely
+FIRSTARGUMENT="$3"	#argument for function run remotely
+prefixe=$(detect_wineprefix "$1")
+wineversion=$(detect_wineversion "$1")
+
+if [ "$wineversion" != "" ]
+then
+    export PATH="$REPERTOIRE/WineVersions/$wineversion/usr/bin/:$PATH"
+    export LD_LIBRARY_PATH="$REPERTOIRE/WineVersions/$wineversion/usr/lib/wine/:$LD_LIBRARY_PATH"
+fi
+export WINEPREFIX="$prefixe"
+
+
+if [ "$FUNCTIONTORUN" != "" ]
+then
+    redirect_to_pol_configure_function "$FUNCTIONTORUN"
+else
+
+    POL_SetupWindow_Init
+    POL_SetupWindow_free_presentation "$(eval_gettext "PlayOnLinux Application Configurator")" "$(eval_gettext "Welcome to PlayOnLinux's Application Configurator.\nThis wizard will help you to configure: ")$1 $(eval_gettext "\n\nThe following Wine prefix will be updated: ")$prefixe $(eval_gettext "\n\nBe careful! PlayOnLinux will need to kill all the programs running in this prefix!")"
+    while [ 1 ]
+    do
+        main_menu
+        sleep 1
+    done
+    #Why there is something after an infinite while loop?
+    #We will never here!
+    POL_SetupWindow_Close
+fi
+exit

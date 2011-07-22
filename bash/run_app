@@ -1,0 +1,124 @@
+#!/bin/bash
+
+# Copyright (C) 2011 Pâris Quentin
+
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
+
+# This script is called when POL/POM runs a program.
+[ "$PLAYONLINUX" = "" ] && exit 0
+source "$PLAYONLINUX/lib/sources"
+
+
+debug_menu()
+{
+	POL_SetupWindow_menu_num "$PACKAGE failed to run. What do you want to do ?" "$TITLE" "Show me the log file~Show me the full report~Send the report to $TITLE~Nothing" "~"
+	ACTION="$APP_ANSWER"
+	echo $ACTION
+	if [ "$ACTION" = "0" ]
+	then
+		debug_log
+	fi
+	if [ "$ACTION" = "1" ]
+	then
+		debug_fulllog
+	fi
+	
+	if [ "$ACTION" = "3" ]
+	then
+		POL_SetupWindow_Close
+		exit
+	fi
+	if [ "$ACTION" = "2" ]
+	then
+		debug_sendtopom
+	fi
+	debug_menu
+}
+debug_log()
+{
+	POL_SetupWindow_file "Log file" "$TITLE" "$LOGFILE.e"
+}
+debug_fulllog()
+{
+	POL_SetupWindow_file "Log file" "$TITLE" "$LOGFILE"
+}
+debug_sendtopom()
+{
+	[ "$POL_OS" == "Linux" ] && TRACKER="1"
+	[ "$POL_OS" == "Mac" ] && TRACKER="4"
+	
+	POL_SetupWindow_textbox_multiline "Please add everything that could help us." "$TITLE"
+	echo "$APP_ANSWER" >> "$LOGFILE"
+	POL_Website_login
+	POL_Website_Init
+	contenu="$(cat "$LOGFILE")"
+	POL_Website_Request "http://bugs.playonlinux.com/en/new-$TRACKER.html" "priority=2&tracker=$TRACKER&title=$PACKAGE crashed while running&message=$contenu&submit=Send"
+	POL_Website_Close
+	POL_Website_logout
+	POL_SetupWindow_message "Thank you !\n\nYour report has been sent.\n\nWe will do our best to send you an answer very soon" "$TITLE"
+	
+	POL_SetupWindow_Close
+	exit
+	#POL_Website_Login
+}
+TITLE="$APPLICATION_TITLE"
+
+
+if [ "$1" ]
+then
+PACKAGE="$1"
+else
+POL_SetupWindow_Init
+POL_SetupWindow_games "Please choose a software to run" "$TITLE"
+PACKAGE="$APP_ANSWER"
+POL_SetupWindow_Close
+fi
+
+cd "$REPERTOIRE/configurations/installed"
+LOGFILE="$REPERTOIRE/tmp/errors_$PACKAGE.log"
+echo "[b]File :[/b]$PACKAGE" > "$LOGFILE"
+echo "[b]Date :[/b] $(Get_CurrentDate)" >> "$LOGFILE"
+echo "[b]PlayOnMac Version :[/b] $VERSION" >> "$LOGFILE"
+echo "[b]File content :[/b]" >> "$LOGFILE"
+echo "[code language%3Dplayonlinux]" >> "$LOGFILE"
+cat "$PACKAGE" >> "$LOGFILE"
+echo "[/code]" >> "$LOGFILE"
+
+echo "[b]Output :[/b]" >> "$LOGFILE"
+
+
+bash "$PACKAGE"
+
+
+if [ ! "$?" = "0" ]
+then 
+
+
+	POL_SetupWindow_Init
+	POL_SetupWindow_wait_next_signal "$TITLE debugger is starting ..." "$TITLE"
+	rm "$LOGFILE.e"
+	cat "$PACKAGE" | sed s/"export WINEDEBUG"/"#export WINEDEBUG"/ > /tmp/debug
+
+	bash /tmp/debug 2>> "$LOGFILE.e" >> "$LOGFILE.e"
+	echo "[code language%3Dconsole]" >> "$LOGFILE"
+	cat "$LOGFILE.e" >> "$LOGFILE"
+	echo "[/code]" >> "$LOGFILE"
+
+	echo "[b]Other :[/b]" >> "$LOGFILE"
+	
+	sleep 2
+	debug_menu	
+	POL_SetupWindow_Close
+fi

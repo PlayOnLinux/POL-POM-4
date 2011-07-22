@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# Copyright (C) 2007-2010 PlayOnLinux Team
+# Copyright (C) 2011 Pâris Quentin
+
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
+
+# This is the startup script
+
+[ "$PLAYONLINUX" = "" ] && exit 0
+source "$PLAYONLINUX/lib/sources" 
+
+# POL / POM won't work without that 
+construire_repertoire_personnel
+
+# Initialize link between python and bash
+touch "$POL_USER_ROOT/configurations/guis/index_$POL_ID"
+
+# Cleanup old gui files
+"$PLAYONLINUX/bash/delete_gui_files"
+
+# Plugins
+install_plugins
+
+# Root
+if [ `id -u` = 0 ]
+then
+	POL_SetupWindow_Init
+ 	POL_SetupWindow_question "$(eval_gettext "You are running $APPLICATION_TITLE as root.\n\n")$(eval_gettext "Please note that it is very dangerous to run Wine programs as root: you are vulnerable to viruses and other bad stuff.\n\n")$(eval_gettext "PlayOnLinux is not reponsable for any damage to your system.\n\n")$(eval_gettext "Are you sure you want to start PlayOnLinux?")" "$(eval_gettext "Warning!")"
+	POL_SetupWindow_Close
+	if [ "$APP_ANSWER" = "FALSE" ]
+	then
+		exit
+	fi
+fi
+
+# First use ?
+[ ! -e "$POL_USER_ROOT/configurations/first_use" ] && bash "$PLAYONLINUX/bash/first_use"

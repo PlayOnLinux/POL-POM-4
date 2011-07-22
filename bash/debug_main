@@ -1,0 +1,63 @@
+#!/bin/bash
+
+# Copyright (C) 2007-2010 PlayOnLinux Team
+# Copyright (C) 2007 Pâris Quentin
+# Copyright (C) 2009 Łukasz Wojniłowicz
+
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
+
+if [ "$PLAYONLINUX" = "" ]
+then
+exit 0
+fi
+source "$PLAYONLINUX/lib/sources"
+
+# $1 = Nom de l'application
+#export TITLE="$1"
+
+POL_DEBUG_TITLE="$(eval_gettext "Report a bug")"
+
+POL_SetupWindow_Init
+
+POL_SetupWindow_free_presentation "$POL_DEBUG_TITLE" "$(eval_gettext "This wizard can report a bug in an application officially supported by PlayOnLinux.")"
+
+POL_SetupWindow_menu "$(eval_gettext "What type of problem occurs?")" "$POL_DEBUG_TITLE" "$(eval_gettext "The application does not start")~$(eval_gettext "Graphic problem")~$(eval_gettext "Unable to use a feature")~$(eval_gettext "Error message")~$(eval_gettext "Other")" "~"
+POL_DEBUG_TYPE_BUG="$APP_ANSWER"
+
+POL_SetupWindow_textbox "$(eval_gettext "Problem description:")" "$POL_DEBUG_TITLE"
+POL_DEBUG_COMMENT_BUG="$APP_ANSWER"
+
+if [ "$POL_DEBUG_TYPE_BUG" = "$(eval_gettext "The application does not start")" ]; then
+    POL_DEBUG_TYPE_BUG="The application does not start"
+elif [ "$POL_DEBUG_TYPE_BUG" = "$(eval_gettext "Graphic problem")" ]; then
+    POL_DEBUG_TYPE_BUG="Graphic problem"
+elif [ "$POL_DEBUG_TYPE_BUG" = "$(eval_gettext "Unable to use a feature")" ]; then
+    POL_DEBUG_TYPE_BUG="Unable to use a feature"
+elif [ "$POL_DEBUG_TYPE_BUG" = "$(eval_gettext "Error message")" ]; then
+    POL_DEBUG_TYPE_BUG="Error message"
+else
+    POL_DEBUG_TYPE_BUG="Other"
+fi
+
+#POL_Debug_Init
+
+#POL_Debug_Header
+
+#POL_Debug_App "$POL_DEBUG_TYPE_BUG" "$POL_DEBUG_COMMENT_BUG"
+
+POL_SetupWindow_message "$(eval_gettext "Bug report generated.")" "$POL_DEBUG_TITLE"
+
+POL_SetupWindow_Close
+

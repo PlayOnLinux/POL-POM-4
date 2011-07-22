@@ -1,0 +1,80 @@
+#!/bin/bash
+
+# Copyright (C) 2007-2010 PlayOnLinux Team
+# Copyright (C) 2007 Pâris Quentin
+
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
+
+if [ "$PLAYONLINUX" = "" ]
+then
+	exit 0
+fi
+
+source "$PLAYONLINUX/lib/sources" 
+
+#if [ ! "$OFFLINE" == "1" ]
+#then
+#	menu=$($PYTHON "$PLAYONLINUX/python/install.py" | tail -n 1);
+#fi
+menu="$1"
+if [ "$menu" = "ExecLiveInstall" -o "$OFFLINE" == "1" ]
+then
+	if [ "$installbis" = "$LNG_MAIN_INSTALL_LIVE" ]
+	then
+		bash "$PLAYONLINUX/bash/manual_install"
+	fi
+	exit
+fi
+if [ "$?" != 0 ]
+then
+	exit	
+fi
+#check_network "playonlinux.com" --quiet
+if [ $? == 0 ]
+then
+	if [ ! "$menu" = "" ]
+	then
+		export TITLE="$menu"
+		type="$(echo $menu | cut -d ':' -f1)"
+		#echo $type
+		if [ "$type" = "get" ]
+		then
+			id=$(echo "$menu" | cut -d ":" -f2)
+		
+			#POL_SetupWindow_Init ""
+			#POL_SetupWindow_free_presentation "Install a non-validated script" "PlayOnLinux is going to execute a non-validated script.\n\nThese scripts have not been checked by PlayOnLinux validators. Please ensure you know what you are doing !"
+			rm "$REPERTOIRE/install"
+			wget "$SITE/V3_data/repository/get_file_n.php?version=PlayOn$POL_OS-$VERSION&id=$id" -O "$REPERTOIRE/install" -q
+			#POL_SetupWindow_licence "Here the source code of the script. Check it carrefully" "Non validated script" "$REPERTOIRE/install"
+			#POL_SetupWindow_Close
+
+			
+
+			if [ -e "$REPERTOIRE/install" ]
+			then
+				POL_Bash "$REPERTOIRE/install"
+			fi
+			exit
+		fi
+		menu=${menu//" "/"%20"}
+		rm "$REPERTOIRE/install"
+		wget "$SITE/V3_data/repository/get_file.php?version=playonlinux-$VERSION&id=$menu" -O "$REPERTOIRE/install" -q
+		if [ -e "$REPERTOIRE/install" ]
+		then
+			POL_Bash "$REPERTOIRE/install"
+		fi
+	fi
+fi
+

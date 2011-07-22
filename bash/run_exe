@@ -1,0 +1,113 @@
+#!/bin/bash
+
+# Copyright (C) 2007-2010 PlayOnLinux Team
+# Copyright (C) 2011 Pâris Quentin
+
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+# This script run automatically a .exe file
+[ "$PLAYONLINUX" = "" ] && exit 
+source "$PLAYONLINUX/lib/sources"
+
+TITRE="Automatic installation"
+TITLE="$TITRE"
+
+POL_Debug_Init
+
+install_wizard()
+{
+POL_SetupWindow_free_presentation "$TITRE" "Welcome to $APPLICATION_TITLE assistant.\nIt will help you to install $file on your computer"
+POL_SetupWindow_textbox "What is the name of you program ?" "$TITRE"
+PRGM_NAME="$APP_ANSWER"
+#PRGM_NAME="Notepad++"
+PREFIX_NAME=`echo "$PRGM_NAME"| tr -c [[a-zA-Z0-9]\.] '_'`
+echo "$md5:$PREFIX_NAME" >> $md5file
+select_prefix "$REPERTOIRE/wineprefix/$PREFIX_NAME"
+POL_SetupWindow_prefixcreate
+POL_SetupWindow_wait_next_signal "$APPLICATION_TITLE is installing $PRGM_NAME" "$TITRE"
+POL_Wine "$line"
+POL_SetupWindow_detect_exit
+POL_SetupWindow_shortcut_creator
+POL_SetupWindow_message "Installation finished." "$TITRE"
+}
+
+run_wizard()
+{
+POL_SetupWindow_wait_next_signal "$APPLICATION_TITLE is running your program" "$TITRE"
+PREFIX_NAME="$(cat $md5file | grep $md5 | cut -d ':' -f2)"
+select_prefix "$REPERTOIRE/wineprefix/$PREFIX_NAME"
+sleep 2
+wine "$line" &
+sleep 2
+POL_SetupWindow_detect_exit
+}
+
+
+
+POL_SetupWindow_Init # Quoi qu'il arrive on ouvre la fenêtre
+
+
+if [ ! -e "$REPERTOIRE/configurations/first_use" ] # PlayOn* pas initialisé ? Alors on attend que ce soit fini
+then
+	POL_SetupWindow_wait_next_signal "$(eval_gettext "Waiting for the first-assistant to be finished")" "$TITRE"
+	sleep 1
+	#bash "$PLAYONLINUX/bash/first_use" & #### Fixme ! La ya des test à faire !
+fi
+while [ ! -e "$REPERTOIRE/configurations/first_use" ]
+do
+	sleep 1
+done
+
+if [ ! "$1" = "" ] # Si on a double cliqué sur un .exe, on le prend
+then
+file=$(basename "$1")
+line="$1"
+else
+exit 1
+fi
+
+POL_SetupWindow_wait_next_signal "$APPLICATION_TITLE is analysing your application" "$APPLICATION_TITLE" # Calcul de la somme md5 pour savoir quoi faire
+sleep 5 #Pour être sur que le fichier md5 est bien téléchargé
+md5=$(POL_MD5_file "$line")
+md5file="$REPERTOIRE/configurations/md5"
+md5scripts="$REPERTOIRE/configurations/listes/md5sums"
+md5sreplace=$(cat $md5scripts | grep $md5 | sed s/" $md5"/""/)
+
+if [ ! "$(cat $md5scripts | grep $md5)" = "" ] # Le programme est connu, on propose le bon script
+then
+		POL_SetupWindow_question "$(eval_gettext "We have detected that the program you want to install is :")\n\n$md5sreplace\n\n$(eval_gettext "Do you want $APPLICATION_TITLE to install it automatically for you ?")" "$TITRE"
+		if [ "$APP_ANSWER" = "TRUE" ]
+		then
+			POL_SetupWindow_Close
+			export POL_SELECTED_FILE="$line"
+			bash "$PLAYONLINUX/bash/install" "$md5sreplace"
+			exit 0
+		fi
+fi
+
+if [ ! "$(cat $md5file | grep $md5)" = "" ] # Le programme a déjà été lancé
+then
+	POL_SetupWindow_question "$(eval_gettext "$APPLICATION_TITLE has already run this program.\nDo you want to keep the old settings ?")" "$TITRE"
+	if [ "$APP_ANSWER" = "TRUE" ]
+	then
+		run_wizard
+		POL_SetupWindow_Close
+		exit 0
+	fi	
+fi
+
+install_wizard # Finalement, on l'installe
+POL_SetupWindow_Close
+exit 0

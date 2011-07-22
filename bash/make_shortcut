@@ -1,0 +1,104 @@
+#!/bin/bash
+
+# Copyright (C) 2011 Pâris Quentin
+
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
+
+# This script makes shortcut of programs
+
+[ "$PLAYONLINUX" = "" ] && exit 0
+source "$PLAYONLINUX/lib/sources" 
+
+
+TITLE="$APPLICATION_TITLE packager"
+
+if [ "$POL_OS" == "Mac" ]
+then
+	
+POL_SetupWindow_Init
+POL_SetupWindow_free_presentation "$TITLE" "$(eval_gettext "Welcome to PlayOnMac packager.\n\nThis tool will help you to make a .app for a PlayOnMac software.\n\nThe .app will be placed on your desktop")"
+if [ "$1" ]
+then
+PACKAGE="$1"
+else
+POL_SetupWindow_games "$(eval_gettext "Please choose a software to package")" "$TITLE"
+PACKAGE="$APP_ANSWER"
+fi
+
+POL_SetupWindow_message "$(eval_gettext "There is two kind of packages\n\nPlayOnMac package: This package will only work on your computer. \nTherefore, it will not take more space on your hard drive.\n\nStand-alone package: In this package, PlayOnMac will include all files\nneeded to run your software.\nThis package will work without PlayOnMac.\n\nPlease note that 3D is not yet supported for stand-alone packages")" "$TITLE"
+DIRAPP="$HOME/Desktop/$PACKAGE.app"
+shortname="$(printf $PACKAGE | tr -c [[a-zA-Z0-9]\.] '_')"
+POL_SetupWindow_menu_num "$(eval_gettext "What kind of Package do yo want?\n\n")" "$TITLE"  "$(eval_gettext "PlayOnMac package")~$(eval_gettext "Stand-alone package")" "~"
+KIND_OF_PACKAGE="$APP_ANSWER"
+if [ "$KIND_OF_PACKAGE"  = "0" ]
+then
+	POL_SetupWindow_wait_next_signal "$(eval_gettext "Building package...")" "$TITLE"
+	make_skeleton "$PACKAGE"
+	make_icon "$PACKAGE"
+	make_pom_script "$PACKAGE"
+	make_plist "$PACKAGE" "$shortname"
+fi
+if [ "$KIND_OF_PACKAGE" = "1" ]
+then
+	prefix="$(detect_wineprefix "$PACKAGE")"
+	wversion="$(detect_wineversion "$PACKAGE")"
+	
+
+
+	echo $prefix
+	make_skeleton "$PACKAGE" 
+	make_icon "$PACKAGE"
+	make_standalone_script "$PACKAGE" "$prefix"
+	make_plist "$PACKAGE" "$shortname"
+	
+	POL_SetupWindow_wait_next_signal "$(eval_gettext "Copying virtual drive")" "$TITLE"
+	cp -R -p "$prefix" "$DIRAPP/Contents/Resources/virtual_drive"
+	sleep 2
+	if [ ! -e "$REPERTOIRE/WineVersions/$wversion/" ]
+	then
+		wversion=""
+	fi
+	POL_SetupWindow_wait_next_signal "Including wine" "$TITLE"
+	if [ "$wversion" = "" ]
+	then
+		cp -R -p "$PLAYONLINUX/../unix/wine" "$DIRAPP/Contents/Resources/wine"
+	else
+		cp -R -p "$REPERTOIRE/WineVersions/$wversion/" "$DIRAPP/Contents/Resources/wine"
+	fi
+	cp "$PLAYONLINUX"/../unix/tools/lib/* "$DIRAPP/Contents/Resources/wine/lib/"
+	
+fi
+POL_SetupWindow_message "$(eval_gettext "The package has been placed on your desktop")" "$TITLE"
+POL_SetupWindow_Close
+
+else
+	POL_SetupWindow_Init
+	POL_SetupWindow_free_presentation "$TITLE" "$(eval_gettext "Welcome to PlayOnLinux shortcut creator.\n\nThis tool will help you to make a shortcut for a PlayOnLinux software.\n\nThe shortcut will be placed on your desktop")"
+	if [ "$1" ]
+	then
+	PACKAGE="$1"
+	else
+	POL_SetupWindow_games "$(eval_gettext "Please choose a software")" "$TITLE"
+	PACKAGE="$APP_ANSWER"
+	fi
+	
+	if [ -f "$REPERTOIRE/icones/full_size/$PACKAGE" ]; then # L'icone existe...
+		iconPath="$REPERTOIRE/icones/full_size/$PACKAGE"
+	else
+		iconPath="$PLAYONLINUX/etc/playonlinux.png"
+	fi
+	generer_icone "$iconPath" "$PACKAGE" "$DESKTOP" "$PLAYONLINUX/playonlinux --run \"$PACKAGE\""
+	POL_SetupWindow_Close
+fi

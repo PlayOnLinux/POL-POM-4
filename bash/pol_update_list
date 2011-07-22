@@ -1,0 +1,86 @@
+#!/bin/bash
+
+# Copyright (C) 2007-2010 PlayOnLinux Team
+# Copyright (C) 2009 Pâris Quentin
+
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
+
+
+# This script calls maj_check to update POL
+[ "$PLAYONLINUX" = "" ] && exit 0
+source "$PLAYONLINUX/lib/sources"
+
+config_maj()
+{
+	read line
+	if [ ! "$line" = "" ]
+	then
+		file=$(echo "$line" | cut -d "/" -f 1)
+		content=$(echo "$line" | cut -d "/" -f 2)
+		download_icon=$(echo "$line" | cut -d "/" -f 3)
+		download_min=$(echo "$line" | cut -d "/" -f 4)
+		#download_des=$(echo "$line" | cut -d "/" -f 5)
+
+		echo "$content" >> "$file"
+		if [ ! "$file" = "10" ] # If not in beta file
+		then
+			echo "$content" >> "search"
+		fi
+
+		if [ "$download_icon" = 1 ]
+		then
+			if [ ! -e "../icones/$content" ]
+			then
+				wget "$SITE/V2_data/icones/$content" -q -O "../icones/$content"
+			fi
+			taille=$(du "../icones/$content")
+			taille=${taille:0:1}
+			if [ "$taille" = "0" ]
+			then
+				rm "../icones/$content"
+			fi
+		fi
+
+		config_maj
+	fi
+}
+maj_check ()
+{
+		clean_tmp
+		mkdir -p "$REPERTOIRE/configurations/listes/"
+		cd "$REPERTOIRE/configurations/listes"
+		rm -f * 2> /dev/null
+		touch 0 1 2 3 4 5 6 7 8 9 10 rate download search POL_Functions
+		wget $SITE/V3_data/repository/getf.php -O- -q > POL_Functions
+			
+		if [ "$POL_OS" = "Linux" ]
+		then
+			if [ "$DOSBOX_SUPPORT" = "1" ]
+			then
+				wget "$SITE/V3_data/repository/get_list.php?dosbox=1" -O- -q | config_maj
+			fi
+			wget "$SITE/V3_data/repository/get_list.php" -O- -q | config_maj
+			wget "$SITE/V3_data/repository/get_top?by=download" -O- -q > download
+			wget "$SITE/V3_data/repository/get_top" -O- -q > rate
+			wget "$SITE/V3_data/repository/get_md5_list.php?playonlinux=1" -O- -q > md5sums
+		else
+			wget "$SITE/V3_data/repository/get_list.php?playonmac=1" -O- -q | config_maj
+           	wget "$SITE/V3_data/repository/get_top?by=download&playonmac=1" -O- -q > download
+           	wget "$SITE/V3_data/repository/get_top?playonmac=1" -O- -q > rate
+			wget "$SITE/V3_data/repository/get_md5_list.php?playonmac=1" -O- -q > md5sums
+		fi
+}
+
+maj_check

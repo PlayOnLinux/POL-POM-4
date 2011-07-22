@@ -1,0 +1,240 @@
+#!/bin/bash
+
+# Copyright (C) 2007-2010 PlayOnLinux Team
+# Copyright (C) 2011 Pâris Quentin
+
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
+
+# PlayOnLinux / PlayOnMac 4 manual installation
+[ "$PLAYONLINUX" = "" ] && exit 
+source "$PLAYONLINUX/lib/sources"
+
+TITLE="$(eval_gettext 'Manual installation')"
+POL_Debug_Init
+run_autorun()
+{
+	POL_Debug_Message "Scanning autorun : $1"		
+	NUMSTEP="3"
+	open=$(grep "open" -i "$1")
+	open=${open//" = "/"="}
+	
+	icon=$(grep "icon" -i "$1")
+	icon=${icon//" = "/"="}
+
+	name=$(grep "Name" -i "$1")
+	name=${name//" = "/"="}
+
+	SetupIs=$(echo "$open" | cut -d\= -f2)
+	NameIs=$(echo $name | cut -d\= -f2)
+	IconIs=$(echo "$icon" | cut -d\= -f2)
+
+	if [ ! "$SetupIs" = "" ]
+	then
+		SetupIsNum=${#SetupIs}
+		SetupIs=${SetupIs:0:$(( SetupIsNum -1 ))}
+	else
+		POL_SetupWindow_message "$(eval_gettext 'No setup location found in autorun.inf')" "$(eval_gettext 'Autorun')"
+		POL_SetupWindow_Close
+		exit 0
+	fi
+	
+	if [ ! "$NameIs" = "" ]
+	then
+		NameIsNum=${#NameIs}
+		NameIs=${NameIs:0:$(( NameIsNum -1 ))}
+	fi
+
+	if [ ! "$IconIs" = "" ]
+	then
+		IconIsNum=${#IconIs}
+		IconIs=${IconIs:0:$(( IconIsNum -1 ))}
+	fi
+	cdromDirIs="$MEDIA_DIR/$(echo $1 | cut -d / -f3)"
+	if [ "$IconIs" = "" ]
+	then
+		$IconIs = "null"
+	fi
+	echo $IconIs
+	icon_test=`ls "$cdromDirIs" | grep $IconIs -i`
+	echo $icon_test
+	if [ "$icon_test" = "" ]
+	then
+		IconIs="$PLAYONLINUX/etc/playonlinux.png"
+	else
+		IconIs="$cdromDirIs/$icon_test"		
+	fi
+	if [  ! "$(echo $IconIs | grep '.exe$')" = "" ]
+	then
+		IconIs="$PLAYONLINUX/etc/playonlinux.png"
+	fi
+	POL_Debug_Message $cdromDirIs
+	POL_Debug_Message "Setup path	 : $cdromDirIs/$SetupIs"
+	POL_Debug_Message "CD name 	 : $cdromDirIs/$NameIs"
+	POL_Debug_Message "Icon		 : $IconIs"
+	POL_Debug_Message "WinePrefix  	 : $Prefix"
+
+
+	SETUP_PATH="$cdromDirIs/$SetupIs"
+
+}
+
+
+POL_SetupWindow_Init
+POL_SetupWindow_free_presentation "$(eval_gettext 'Manual installation')" "$(eval_gettext "Welcome to $APPLICATION_TITLE's manual installation wizard.\n\nThis script will allow you to install any program on $APPLICATION and use it with all the tools\n\nWarning: We are unable to guarantee that your application will work perfectly.")"
+
+LNG_LI_NEW="$(eval_gettext "Install a program in a new virtual drive")"
+LNG_LI_PATCH="$(eval_gettext "Edit or update an existing application")"
+
+POL_SetupWindow_menu "$(eval_gettext "What would you like to do?")" "$(eval_gettext 'Manual installation')" "$LNG_LI_NEW~$LNG_LI_PATCH" "~"
+menu="$APP_ANSWER"
+if [ "$menu" = "" ]
+then
+	POL_Debug_Error "No action chosen"
+	POL_SetupWindow_Close
+	exit 0
+fi
+if [ "$menu" = "$LNG_LI_NEW" ]
+then
+	POL_SetupWindow_textbox "$(eval_gettext "Please type a name for your application's virtual drive.\nThis name shouldn't contain spaces.")" "$TITLE"
+	select_prefixe "$REPERTOIRE/wineprefix/$APP_ANSWER"
+fi
+if [ "$menu" = "$LNG_LI_PATCH" ]
+then
+	POL_SetupWindow_prefix_selector
+	select_prefixe "$APP_ANSWER"
+fi
+
+if [ "$WINEPREFIX" = "" ]
+then
+	POL_Debug_Error "No name chosen"
+	POL_SetupWindow_Close
+	exit 1
+fi
+
+
+LNG_WC_ASSWV=$(eval_gettext "Use another version of Wine")
+LNG_WC_CONFWINE=$(eval_gettext "Configure Wine")
+LNG_WC_USEWT=$(eval_gettext "Install some libraries")
+ITEMS="$LNG_WC_ASSWV~$LNG_WC_CONFWINE~$LNG_WC_USEWT"
+
+POL_SetupWindow_checkbox_list "$(eval_gettext "What would you like to do before installation?") $(eval_gettext "If you don't know, unselect all")" "$TITLE" "$ITEMS" "~"
+WHATTORUNBEFORE="$APP_ANSWER"
+
+#Running AssignWine
+if [ "$(echo $WHATTORUNBEFORE | grep -o "$LNG_WC_ASSWV")" == "$LNG_WC_ASSWV" ]
+then
+	WINEVERSIONLIST="System"
+	WINEVERSIONDIRLIST=$(find "$REPERTOIRE/WineVersions/"* -maxdepth 0 -type d)
+	for single in $WINEVERSIONDIRLIST ; do
+	  singleparsed=${single##*/}
+	  WINEVERSIONLIST=`echo $WINEVERSIONLIST~$singleparsed`
+	done
+
+	POL_SetupWindow_menu_list "$(eval_gettext "Which version of Wine would you like to use?")" "$TITLE" "$WINEVERSIONLIST" "~"
+	WINEVERSIONLIVE="$APP_ANSWER"
+	if [ "$WINEVERSIONLIVE" = "System" ]
+	then
+		WINEVERSIONLIVE="--reset"
+	fi
+	Use_WineVersion "$WINEVERSIONLIVE"
+fi
+
+POL_SetupWindow_prefixcreate
+
+#Running WineConfiguration
+if [ "$(echo $WHATTORUNBEFORE | grep -o "$LNG_WC_CONFWINE")" == "$LNG_WC_CONFWINE" ]
+then
+	POL_SetupWindow_wait_next_signal "$(eval_gettext "Configure Wine")" "$(eval_gettext 'Manual installation')"
+	winecfg
+fi
+
+#Running WineTricks
+if [ "$(echo $WHATTORUNBEFORE | grep -o "$LNG_WC_USEWT")" == "$LNG_WC_USEWT" ]
+then
+	POL_Call_list
+fi
+
+
+[ "$POL_OS" == "Mac" ] && MEDIA_DIR="/Volumes"
+[ "$POL_OS" == "Linux" ] && MEDIA_DIR="/media"
+
+A_LIST=""
+i=0
+POL_SetupWindow_wait_next_signal "$(eval_gettext 'Looking for runnable CD-ROMs')" "$TITLE"
+cd "$MEDIA_DIR"
+
+for device in *
+do
+	AutorunInf=$(ls "$MEDIA_DIR/$device" | grep -i "autorun.inf")
+	POL_Debug_Message "Autorun : Checking $device..."
+	if [ ! "$AutorunInf" = "" ]
+	then
+		POL_Debug_Message "Autorun : Found $MEDIA_DIR/$device/$AutorunInf"
+		if [ $i = 0 ]
+		then
+			A_LIST="$MEDIA_DIR/$device/$AutorunInf"
+			B_LIST="CD-ROM : $device"
+		else
+			A_LIST="$A_LIST#$MEDIA_DIR/$device/$AutorunInf"
+			B_LIST="$B_LIST#CD-ROM : $device"
+		fi
+		i=$(( i+1 ))
+	fi
+done
+POL_Debug_Message "Autorun : Found $i media"
+
+LNG_MANUAL_FILE="$(eval_gettext "Select another file")"
+
+if [ ! "$i" = "0" ]
+then
+
+A_LIST="$A_LIST#MANUAL"
+B_LIST="$B_LIST#$LNG_MANUAL_FILE"
+
+POL_SetupWindow_menu_num "$(eval_gettext 'Please choose a way to install your program')" "$TITLE" "$B_LIST" "#"
+N="$APP_ANSWER"
+POL_Debug_Message "Action $N choosen"
+CHOICE="$(cut -d "#" -f$(( N + 1 )) <<< "$A_LIST")"
+fi
+
+if [ "$CHOICE" = "MANUAL" ] || [ "$i" = "0" ]
+then
+	cd "$HOME"
+	POL_SetupWindow_browse "$(eval_gettext "Please select the install file to run.")" "$(eval_gettext $TITLE)"
+	SETUP_PATH="$APP_ANSWER"
+else
+	run_autorun "$CHOICE"
+fi
+
+if [ "$SETUP_PATH" = "" ]
+then
+	POL_SetupWindow_message "$(eval_gettext "You must choose a file!")" "$(eval_gettext 'Manual installation')"
+	POL_SetupWindow_Close
+	exit 1
+fi
+WORKINGSETUP_PATH=$(dirname "$SETUP_PATH")
+cd "$WORKINGSETUP_PATH"
+POL_SetupWindow_wait "$(eval_gettext '$APPLICATION_TITLE is installing your application...')" "$TITLE"
+extension=$(echo "$SETUP_PATH" | sed 's/.*\.//g')
+if [ "$extension" = "msi" ]
+then
+POL_Wine msiexec /i "$SETUP_PATH"
+else
+POL_Wine "$SETUP_PATH"
+fi 
+
+POL_SetupWindow_message "$(eval_gettext 'Please do not press Next until the installation has been completed.')" "$TITLE"
+POL_SetupWindow_shortcut_creator
+POL_SetupWindow_Close

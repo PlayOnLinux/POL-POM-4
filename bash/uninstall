@@ -1,0 +1,55 @@
+#!/bin/bash
+
+# Copyright (C) 2007-2011 PlayOnLinux Team
+# Copyright (C) 2007-2011 Pâris Quentin
+
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
+
+[ "$PLAYONLINUX" = "" ] && exit 0
+source "$PLAYONLINUX/lib/sources"
+
+if [ "$1" = "" ]
+then
+	echo "Argument is missing"
+	exit
+fi
+
+echo "$@"
+NOM_JEU="$REPERTOIRE/configurations/installed/$1"
+POL_SetupWindow_Init "$PLAYONLINUX/resources/images/setups/delete/top.png" "$PLAYONLINUX/resources/images/setups/delete/left.jpg"
+if [ -e "$NOM_JEU" ]
+then
+	application_prefixe=$(detect_wineprefix "$1")
+	delete_var=$1
+	POL_SetupWindow_free_presentation "$(eval_gettext '$APPLICATION_TITLE Uninstaller')" "$(eval_gettext "This wizard will help you to uninstall: ")$delete_var\n$(eval_gettext "Click Next to continue.")"
+	
+	# Icones
+	rm -f "$REPERTOIRE/icones/32/$1"
+	rm -f "$REPERTOIRE/icones/full_size/$1"
+	
+	# Shortcut
+	rm -f "$REPERTOIRE/configurations/installed/$1"
+	rm -f "$HOME/.local/share/applications/$1.desktop"
+	rm -f "$DESKTOP/$1.desktop"
+	
+	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Uninstalling...')" "$(eval_gettext '$APPLICATION_TITLE Uninstaller')" 
+	sleep 1
+	POL_SetupWindow_detect_exit
+	clean_wineprefix $application_prefixe
+	POL_SetupWindow_message "$delete_var$(eval_gettext ' has been uninstalled successfully.')" "$(eval_gettext '$APPLICATION_TITLE Uninstaller')"
+else
+	POL_SetupWindow_message "$(eval_gettext "Cannot find the shortcut")" "$(eval_gettext 'Error')"
+fi
+POL_SetupWindow_Close
