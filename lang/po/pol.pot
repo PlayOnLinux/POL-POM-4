@@ -217,7 +217,7 @@ msgstr ""
 
 #: bash/bug_report:42
 #, sh-format
-msgid "What kind of problem do you have ?"
+msgid "What kind of problem do you have?"
 msgstr ""
 
 #: bash/bug_report:46
@@ -257,7 +257,7 @@ msgstr ""
 msgid "Graphic problem"
 msgstr ""
 
-#: bash/debug_main:36 lib/interface_v3:875 python/install.py:299
+#: bash/debug_main:36 lib/interface_v3:883 python/install.py:299
 #: python/options.py:121
 #, sh-format
 msgid "Other"
@@ -296,7 +296,7 @@ msgstr ""
 
 #: bash/expert/Executer:32
 #, sh-format
-msgid "This wizard will help you run an unofficial PlayOnLinux Script."
+msgid "This wizard will help you to run an unofficial PlayOnLinux Script."
 msgstr ""
 
 #: bash/expert/Executer:34
@@ -325,14 +325,14 @@ msgstr ""
 msgid "Microsoft fonts aren't installed; I'll install them for you."
 msgstr ""
 
-#: bash/first_use:33
+#: bash/first_use:33 bash/first_use:54
 #, sh-format
 msgid "\\nPlease make sure you are connected to the Internet."
 msgstr ""
 
 #: bash/first_use:34
 #, sh-format
-msgid " Licence translated in your language "
+msgid " Licence translated into your language "
 msgstr ""
 
 #: bash/first_use:35
@@ -369,11 +369,6 @@ msgstr ""
 #: bash/first_use:54
 #, sh-format
 msgid "The PlayOnLinux website is unavailable."
-msgstr ""
-
-#: bash/first_use:54
-#, sh-format
-msgid "\\nPlease make sure you are connected to Internet."
 msgstr ""
 
 #: bash/first_use:65
@@ -456,7 +451,7 @@ msgstr ""
 
 #: bash/install_wver:29
 #, sh-format
-msgid "This wizard will help you install Wine: "
+msgid "This wizard will help you to install Wine: "
 msgstr ""
 
 #: bash/install_wver:29
@@ -481,7 +476,7 @@ msgstr ""
 
 #: bash/killall:30
 #, sh-format
-msgid "Are you sure you want to shut down all active PlayOnLinux applications?"
+msgid "Are you sure you want to shutdown all active PlayOnLinux applications?"
 msgstr ""
 
 #: bash/make_shortcut:31
@@ -530,6 +525,24 @@ msgstr ""
 #: bash/make_shortcut:66
 #, sh-format
 msgid "Copying virtual drive"
+msgstr ""
+
+#: bash/make_shortcut:83
+#, sh-format
+msgid "The package has been placed on your desktop"
+msgstr ""
+
+#: bash/make_shortcut:88
+#, sh-format
+msgid ""
+"Welcome to PlayOnLinux shortcut creator.\\n\\nThis tool will help you to "
+"make a shortcut for a PlayOnLinux software.\\n\\nThe shortcut will be placed "
+"on your desktop"
+msgstr ""
+
+#: bash/make_shortcut:93
+#, sh-format
+msgid "Please choose a software"
 msgstr ""
 
 #: bash/manual_install:24 bash/manual_install:95 bash/manual_install:100
@@ -835,7 +848,7 @@ msgstr ""
 #, sh-format
 msgid ""
 "Welcome to PlayOnLinux's Application Configurator.\\nThis wizard will help "
-"you configure: "
+"you to configure: "
 msgstr ""
 
 #: bash/polconfigurator:193
@@ -867,7 +880,7 @@ msgstr ""
 
 #: bash/startup:41
 #, sh-format
-msgid "PlayOnLinux is not reponsible for any damage to your system.\\n\\n"
+msgid "PlayOnLinux is not reponsable for any damage to your system.\\n\\n"
 msgstr ""
 
 #: bash/startup:41
@@ -892,14 +905,14 @@ msgstr ""
 msgid "System architecture: "
 msgstr ""
 
-#: bash/system_info:64 bash/system_info:93
+#: bash/system_info:64
 #, sh-format
 msgid "Your graphics card: "
 msgstr ""
 
 #: bash/system_info:65
 #, sh-format
-msgid "Graphics card driver: "
+msgid "Graphic card driver: "
 msgstr ""
 
 #: bash/system_info:67
@@ -919,17 +932,17 @@ msgstr ""
 
 #: bash/system_info:76
 #, sh-format
-msgid "MiB"
+msgid "MB"
 msgstr ""
 
 #: bash/system_info:77
 #, sh-format
-msgid "Content of app launcher: \\n"
+msgid "App launcher content: \\n"
 msgstr ""
 
 #: bash/system_info:83
 #, sh-format
-msgid "Content of terminal output: \\n"
+msgid "Terminal output content: \\n"
 msgstr ""
 
 #: bash/system_info:86
@@ -957,6 +970,11 @@ msgstr ""
 msgid "Your computer's name: "
 msgstr ""
 
+#: bash/system_info:93
+#, sh-format
+msgid "Your graphic card: "
+msgstr ""
+
 #: bash/system_info:94
 #, sh-format
 msgid "Your distribution: "
@@ -982,7 +1000,7 @@ msgstr ""
 msgid "Free space on your hard drives:"
 msgstr ""
 
-#: bash/uninstall:36 bash/uninstall:47 bash/uninstall:51 lib/applications:191
+#: bash/uninstall:36 bash/uninstall:47 bash/uninstall:51 lib/applications:203
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
 msgstr ""
@@ -994,10 +1012,10 @@ msgstr ""
 
 #: bash/uninstall:36
 #, sh-format
-msgid "This wizard will help you uninstall: "
+msgid "This wizard will help you to uninstall: "
 msgstr ""
 
-#: bash/uninstall:47 lib/applications:191
+#: bash/uninstall:47 lib/applications:203
 #, sh-format
 msgid "Uninstalling..."
 msgstr ""
@@ -1017,22 +1035,22 @@ msgstr ""
 msgid "Error"
 msgstr ""
 
-#: lib/applications:189
+#: lib/applications:201
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr ""
 
-#: lib/applications:264
+#: lib/applications:276
 #, sh-format
 msgid "Scanning the virtual drive ..."
 msgstr ""
 
-#: lib/applications:266
+#: lib/applications:278
 #, sh-format
 msgid "I don't want to make another shortcut"
 msgstr ""
 
-#: lib/applications:267 python/guiv3.py:141
+#: lib/applications:279 python/guiv3.py:141
 #, sh-format
 msgid "Browse"
 msgstr ""
@@ -1062,8 +1080,8 @@ msgstr ""
 #: lib/check_depend:61
 #, sh-format
 msgid ""
-"You don't seem to have 3D acceleration!\\nWe advise you install and enable "
-"it."
+"You don't seem to have 3D acceleration!\\nWe advise you to install and to "
+"enable it."
 msgstr ""
 
 #: lib/check_depend:65
@@ -1103,61 +1121,49 @@ msgstr ""
 msgid "This wizard will help you install "
 msgstr ""
 
-#: lib/interface_v3:44
-#, sh-format
-msgid "Welcome to PlayOnLinux's Installation Wizard."
-msgstr ""
-
-#: lib/interface_v3:44
-#, sh-format
-msgid ""
-"\\n\\nPlayOnLinux is not responsible for the anything that might happen as a "
-"result of using these scripts.\\n\\n"
-msgstr ""
-
 #: lib/interface_v3:547 lib/interface_v3:556 lib/interface_v3:569
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr ""
 
-#: lib/interface_v3:853
+#: lib/interface_v3:861
 #, sh-format
-msgid "Please wait while PlayOnLinux is simulating a Windows reboot"
+msgid "Please wait while $APPLICATION_TITLE is simulating a Windows reboot"
 msgstr ""
 
-#: lib/interface_v3:874
+#: lib/interface_v3:882
 #, sh-format
-msgid "Where is your CD-ROM mounted?"
+msgid "Where is mounted your CD-ROM?"
 msgstr ""
 
-#: lib/interface_v3:896
+#: lib/interface_v3:904
 #, sh-format
 msgid "Error: Unable to find the CD-ROM!"
 msgstr ""
 
-#: lib/interface_v3:916
+#: lib/interface_v3:924
 #, sh-format
 msgid "Unable to find version: "
 msgstr ""
 
-#: lib/interface_v3:922 lib/interface_v3:923 lib/interface_v3:966
+#: lib/interface_v3:930 lib/interface_v3:931 lib/interface_v3:974
 #, sh-format
 msgid "Downloading Wine: "
 msgstr ""
 
-#: lib/interface_v3:933
+#: lib/interface_v3:941
 #, sh-format
 msgid "The download seems to have failed."
 msgstr ""
 
-#: lib/interface_v3:936 lib/interface_v3:974
+#: lib/interface_v3:944 lib/interface_v3:982
 #, sh-format
 msgid "Extracting Wine..."
 msgstr ""
 
-#: lib/interface_v3:960
+#: lib/interface_v3:968
 #, sh-format
-msgid "Unable to find the version :"
+msgid "Unable to find the version:"
 msgstr ""
 
 #: lib/main:59
@@ -1222,7 +1228,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2011-07-23 01:01:44+02:00\n"
+"POT-Creation-Date: 2011-07-23 02:01:05+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
