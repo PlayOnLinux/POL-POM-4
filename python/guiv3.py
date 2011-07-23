@@ -442,7 +442,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 				self.octetsLoadedN = round(self.octetsLoadedB, 1)
 				self.tailleFichierN = round(self.tailleFichierB, 1)
 
-				self.estimation_txt = str(self.octetsLoadedN) + " "+_("of")+" " + str(self.tailleFichierN) + " "+_("MiB downloaded")		
+				self.estimation_txt = str(self.octetsLoadedN) + " "+_("of")+" " + str(self.tailleFichierN) + " "+_("MB downloaded")		
 				self.txtEstimation.SetLabel(self.estimation_txt)
 				if(self.downloader.finished == True):
 					if(self.downloader.failed == True):

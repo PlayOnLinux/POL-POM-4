@@ -216,7 +216,7 @@ class Onglets(wx.Notebook):
 		    self.list_game = wx.TreeCtrl(self.panelApps, 111, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT|Variables.widget_borders, size=(550, 400), pos=(10,30))
 		    self.list_game.SetImageList(self.images)
 		    self.list_game.SetSpacing(0);
-		    self.version = wx.StaticText(self.panelApps, -1, _("Version :"),(10,440))
+		    self.version = wx.StaticText(self.panelApps, -1, _("Version:"),(10,440))
 
 		    self.MenuVer = wx.ComboBox(self.panelApps, 112)
 		    self.VersionsLoad()
