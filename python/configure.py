@@ -151,7 +151,7 @@ class Onglets(wx.Notebook):
 		self.AddGeneralElement("Wine version","wineversion",self.Get_versions(),self.Get_versions(),2)
 		
 		
-		self.configurator_title = wx.StaticText(self.panelGeneral, -1, _(""), (10,430), wx.DefaultSize)
+		self.configurator_title = wx.StaticText(self.panelGeneral, -1, "", (10,430), wx.DefaultSize)
 		self.configurator_title.SetFont(self.fontTitle)
 		self.configurator_button = wx.Button(self.panelGeneral, 106, _("Run configuration wizard"), pos=(15,460))
 		
