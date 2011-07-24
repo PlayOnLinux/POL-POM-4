@@ -127,13 +127,21 @@ class MainWindow(wx.Frame):
 	self.winever_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/etc/menu/wine.png"))
 	self.expertmenu.AppendItem(self.winever_item)
 
-	self.wineserv_item = wx.MenuItem(self.expertmenu, 115, _("Close all"))
-	self.wineserv_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/etc/menu/wineserver.png"))
-	self.expertmenu.AppendItem(self.wineserv_item)
+	self.wineprefix_item = wx.MenuItem(self.expertmenu, 111, _("Manage virtual drives"))
+	self.wineprefix_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/etc/menu/prefix-manager.png"))
+	self.expertmenu.AppendItem(self.wineprefix_item)
+
+	self.expertmenu.AppendSeparator()
 
 	self.run_item = wx.MenuItem(self.expertmenu, 108, _("Run a local script"))
 	self.run_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/etc/menu/run.png"))
 	self.expertmenu.AppendItem(self.run_item)
+		
+	self.wineserv_item = wx.MenuItem(self.expertmenu, 115, _("Close all "+os.environ["APPLICATION_TITLE"]+" software"))
+	self.wineserv_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/etc/menu/wineserver.png"))
+	self.expertmenu.AppendItem(self.wineserv_item)
+
+	self.expertmenu.AppendSeparator()
 
 	self.polshell_item = wx.MenuItem(self.expertmenu, 109, _(os.environ["APPLICATION_TITLE"]+" console"))
 	self.polshell_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/etc/menu/polshell.png"))
@@ -262,6 +270,7 @@ class MainWindow(wx.Frame):
 	wx.EVT_MENU(self, 108,  self.Executer)
 	wx.EVT_MENU(self, 109,  self.PolShell)
 	wx.EVT_MENU(self, 110,  self.BugReport)
+	wx.EVT_MENU(self, 111,  self.ManagePrefix)
 	wx.EVT_MENU(self, 115,  self.killall)
 	wx.EVT_MENU(self, 120,  self.Autorun)
 	wx.EVT_MENU(self, 121,  self.Configure)
@@ -465,6 +474,9 @@ class MainWindow(wx.Frame):
 
   def BugReport(self, event):
     os.system("bash \""+Variables.playonlinux_env+"/bash/bug_report\"&")
+
+  def ManagePrefix(self, event):
+    os.system("bash \""+Variables.playonlinux_env+"/bash/prefix_manager\" &")
 
   def PolShell(self, event):
     #Variables.run_x_server()

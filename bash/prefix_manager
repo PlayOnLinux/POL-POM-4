@@ -64,7 +64,7 @@ second_loop ()
 	dont_loop="false"
 	POL_SetupWindow_menu_num "$(eval_gettext "What do you want to do ? ($PREFIX)")" "$TITLE" "$(eval_gettext "Make a new shortcut")~$(eval_gettext "Delete this virtual drive")~$(eval_gettext "Choose another virtual drive")" "~"
 	CHOICE="$APP_ANSWER"
-	[ "$CHOICE" = "0" ] && POL_SetupWindow_shortcut_creator
+	[ "$CHOICE" = "0" ] && export WINEPREFIX="$POL_USER_ROOT/wineprefix/$PREFIX" && POL_SetupWindow_shortcut_creator
 	[ "$CHOICE" = "1" ] && delete_wineprefix "$PREFIX" && dont_loop="true"
 	[ "$CHOICE" = "2" ] && dont_loop="true"
 	
