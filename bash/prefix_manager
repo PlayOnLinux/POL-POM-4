@@ -1,0 +1,77 @@
+#!/bin/bash
+
+# Copyright (C) 2007-2010 PlayOnLinux Team
+# Copyright (C) 2011 Pâris Quentin
+
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
+
+# This is the prefix manager script
+
+[ "$PLAYONLINUX" = "" ] && exit 0
+source "$PLAYONLINUX/lib/sources" 
+TITLE="$(eval_gettext "Virtual drive manager")"
+
+delete_wineprefix ()
+{
+	POL_SetupWindow_question "$(eval_gettext "Are you sure you want to delelete the following folder:\n\n$POL_USER_ROOT/wineprefix/$1")" "$TITLE"
+	if [ "$APP_ANSWER" = "TRUE" ] 
+	then
+		POL_SetupWindow_wait "$(eval_gettext "Please wait while $APPLICATION_TITLE is deleting the prefix ...")" "$TITLE"
+		rm -rf "$POL_USER_ROOT/wineprefix/$1"
+	fi
+}
+main_loop()
+{
+cd "$POL_USER_ROOT/wineprefix"
+rm -rf "$POL_USER_ROOT/tmp/cache/icons/prefixes"
+mkdir -p "$POL_USER_ROOT/tmp/cache/icons/prefixes"
+LNG_FINISH="$(eval_gettext "I have finished")"
+
+# On génère gentiment les icones
+CHAINE=""
+for file in *
+do
+	cp "$file/icon" "$POL_USER_ROOT/tmp/cache/icons/prefixes/$file" 2> /dev/null || cp "$PLAYONLINUX/resources/images/icones/virtual_drive.png" "$POL_USER_ROOT/tmp/cache/icons/prefixes/$file"
+	[ "$CHAINE" = "" ] && CHAINE="$file" || CHAINE="$CHAINE~$file"
+done
+cp "$PLAYONLINUX/resources/images/icones/finish.png" "$POL_USER_ROOT/tmp/cache/icons/prefixes"
+
+
+POL_SetupWindow_icon_menu "$(eval_gettext "Please choose a virtual drive to manage")" "$TITLE"  "$LNG_FINISH~$CHAINE" "~" "$POL_USER_ROOT/tmp/cache/icons/prefixes" "finish.png~$CHAINE"
+PREFIX="$APP_ANSWER"
+if [ "$PREFIX" = "$LNG_FINISH" ]
+then
+	POL_SetupWindow_Close
+	exit 0
+fi
+second_loop
+main_loop
+}
+second_loop ()
+{
+	dont_loop="false"
+	POL_SetupWindow_menu_num "$(eval_gettext "What do you want to do ? ($PREFIX)")" "$TITLE" "$(eval_gettext "Make a new shortcut")~$(eval_gettext "Delete this virtual drive")~$(eval_gettext "Choose another virtual drive")" "~"
+	CHOICE="$APP_ANSWER"
+	[ "$CHOICE" = "0" ] && POL_SetupWindow_shortcut_creator
+	[ "$CHOICE" = "1" ] && delete_wineprefix "$PREFIX" && dont_loop="true"
+	[ "$CHOICE" = "2" ] && dont_loop="true"
+	
+	[ "$dont_loop" = "false" ] && second_loop
+}
+POL_SetupWindow_Init
+
+main_loop
+POL_SetupWindow_Close
+exit 0
