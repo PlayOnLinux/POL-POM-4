@@ -124,31 +124,31 @@ class MainWindow(wx.Frame):
 	self.expertmenu = wx.Menu()
 
 	self.winever_item = wx.MenuItem(self.expertmenu, 107, _("Manage Wine versions"))
-	self.winever_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/etc/menu/wine.png"))
+	self.winever_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/wine.png"))
 	self.expertmenu.AppendItem(self.winever_item)
 
 	self.wineprefix_item = wx.MenuItem(self.expertmenu, 111, _("Manage virtual drives"))
-	self.wineprefix_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/etc/menu/prefix-manager.png"))
+	self.wineprefix_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/prefix-manager.png"))
 	self.expertmenu.AppendItem(self.wineprefix_item)
 
 	self.expertmenu.AppendSeparator()
 
 	self.run_item = wx.MenuItem(self.expertmenu, 108, _("Run a local script"))
-	self.run_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/etc/menu/run.png"))
+	self.run_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/run.png"))
 	self.expertmenu.AppendItem(self.run_item)
 		
 	self.wineserv_item = wx.MenuItem(self.expertmenu, 115, _("Close all "+os.environ["APPLICATION_TITLE"]+" software"))
-	self.wineserv_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/etc/menu/wineserver.png"))
+	self.wineserv_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/wineserver.png"))
 	self.expertmenu.AppendItem(self.wineserv_item)
 
 	self.expertmenu.AppendSeparator()
 
 	self.polshell_item = wx.MenuItem(self.expertmenu, 109, _(os.environ["APPLICATION_TITLE"]+" console"))
-	self.polshell_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/etc/menu/polshell.png"))
+	self.polshell_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/polshell.png"))
 	self.expertmenu.AppendItem(self.polshell_item)
 	
 	self.bug_item = wx.MenuItem(self.expertmenu, 110, _("Report a bug"))
-	self.bug_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/etc/menu/bug.png"))
+	self.bug_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/bug.png"))
 	self.expertmenu.AppendItem(self.bug_item)
 	
 
@@ -247,7 +247,7 @@ class MainWindow(wx.Frame):
 	self.toolbar.AddSeparator()
 	self.toolbar.AddLabelTool(wx.ID_ADD, _("Install"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/install.png"))
 	self.toolbar_remove = self.toolbar.AddLabelTool(wx.ID_DELETE, _("Remove"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/delete.png"))
-	#self.toolbar.AddLabelTool(120, _("CD-ROM"), wx.Bitmap(Variables.playonlinux_env+"/etc/menu/cdrom.png"))
+	#self.toolbar.AddLabelTool(120, _("CD-ROM"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/cdrom.png"))
 	
 	self.toolbar.AddSeparator()
 	self.toolbar.AddLabelTool(121, _("Configure"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/configure.png"))
@@ -323,27 +323,27 @@ class MainWindow(wx.Frame):
 	self.GameListPopUpMenu = wx.Menu()
 
 	self.ConfigureWine = wx.MenuItem(self.GameListPopUpMenu, 230, _("Configure Wine"))
-	self.ConfigureWine.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/etc/menu/run.png"))
+	self.ConfigureWine.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/run.png"))
 	self.GameListPopUpMenu.AppendItem(self.ConfigureWine)
 
 	self.RegistryEditor = wx.MenuItem(self.GameListPopUpMenu, 231, _("Registry Editor"))
-	self.RegistryEditor.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/etc/menu/regedit.png"))
+	self.RegistryEditor.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/regedit.png"))
 	self.GameListPopUpMenu.AppendItem(self.RegistryEditor)
 
 	self.GotoAppDir = wx.MenuItem(self.GameListPopUpMenu, 232, _("Open the application's directory"))
-	self.GotoAppDir.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/etc/onglet/user-desktop.png"))
+	self.GotoAppDir.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/folder-wine.png"))
 	self.GameListPopUpMenu.AppendItem(self.GotoAppDir)
 
 	self.ChangeIcon = wx.MenuItem(self.GameListPopUpMenu, 233, _("Set the icon"))
-	self.ChangeIcon.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/etc/playonlinux16.png"))
+	self.ChangeIcon.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/change_icon.png"))
 	self.GameListPopUpMenu.AppendItem(self.ChangeIcon)
 
 	self.ChangeIcon = wx.MenuItem(self.GameListPopUpMenu, 234, _("Remove"))
-	self.ChangeIcon.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/etc/menu/options.png"))
+	self.ChangeIcon.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/delete.png"))
 	self.GameListPopUpMenu.AppendItem(self.ChangeIcon)
 
 	self.ChangeIcon = wx.MenuItem(self.GameListPopUpMenu, 235, _("Close this application"))
-	self.ChangeIcon.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/etc/menu/wineserver.png"))
+	self.ChangeIcon.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/wineserver.png"))
 	self.GameListPopUpMenu.AppendItem(self.ChangeIcon)
 
 	self.PopupMenu(self.GameListPopUpMenu, event.GetPoint())
