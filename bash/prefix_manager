@@ -38,7 +38,7 @@ cd "$POL_USER_ROOT/wineprefix"
 rm -rf "$POL_USER_ROOT/tmp/cache/icons/prefixes"
 mkdir -p "$POL_USER_ROOT/tmp/cache/icons/prefixes"
 LNG_FINISH="$(eval_gettext "I have finished")"
-
+LNG_CREATE="$(eval_gettext "Create a new virtual drive")"
 # On génère gentiment les icones
 CHAINE=""
 for file in *
@@ -47,16 +47,28 @@ do
 	[ "$CHAINE" = "" ] && CHAINE="$file" || CHAINE="$CHAINE~$file"
 done
 cp "$PLAYONLINUX/resources/images/icones/finish.png" "$POL_USER_ROOT/tmp/cache/icons/prefixes"
+cp "$PLAYONLINUX/resources/images/icones/add.png" "$POL_USER_ROOT/tmp/cache/icons/prefixes"
 
 
-POL_SetupWindow_icon_menu "$(eval_gettext "Please choose a virtual drive to manage")" "$TITLE"  "$LNG_FINISH~$CHAINE" "~" "$POL_USER_ROOT/tmp/cache/icons/prefixes" "finish.png~$CHAINE"
+POL_SetupWindow_icon_menu "$(eval_gettext "Please choose a virtual drive to manage")" "$TITLE"  "$LNG_FINISH~$LNG_CREATE~$CHAINE" "~" "$POL_USER_ROOT/tmp/cache/icons/prefixes" "finish.png~add.png~$CHAINE"
 PREFIX="$APP_ANSWER"
+
 if [ "$PREFIX" = "$LNG_FINISH" ]
 then
 	POL_SetupWindow_Close
 	exit 0
 fi
+if [ "$PREFIX" = "$LNG_CREATE" ]
+then
+	POL_SetupWindow_textbox "$(eval_gettext "Please choose a name for your virtual drive\nThis name should not contain spaces")" "$TITLE"
+	NAME=`printf "$APP_ANSWER"| tr -c [[a-zA-Z0-9]\.] '_'`
+	export WINEPREFIX="$POL_USER_ROOT/wineprefix/$NAME"
+	POL_SetupWindow_prefixcreate
+	
+elif [ ! "$PREFIX" = "" ]
+then
 second_loop
+fi
 main_loop
 }
 second_loop ()
