@@ -289,7 +289,7 @@ POL_Wine_GetRegValue()
 {
 	# Example : POL_Wine_GetReg_Value Multisampling
 	[ "$WINEPREFIX" = "" ] && POL_Debug_Fatal "POL_Wine_GetRegValue : WINEPREFIX not set"
-	value="$(cat "$WINEPREFIX/user.reg" | grep "$1" | head -n 1 | tr -d "\"" | cut -d\= -f2)"
+	value="$(cat "$WINEPREFIX/user.reg" 2> /dev/null | grep "$1" | head -n 1 | tr -d "\"" | cut -d\= -f2)"
 	[ "$value" = "" ] && printf "default" || printf "$value"
 }
 

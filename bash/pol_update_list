@@ -22,7 +22,7 @@
 [ "$PLAYONLINUX" = "" ] && exit 0
 source "$PLAYONLINUX/lib/sources"
 
-config_maj()
+config_maj() # Celle ci est exécuté à chaque ligne (wget | config_maj), elle traite tout
 {
 	read line
 	if [ ! "$line" = "" ]
@@ -58,7 +58,12 @@ config_maj()
 }
 maj_check ()
 {
-		clean_tmp
+	#clean_tmp
+	WEB_TIMESTAMP="$(wget "$SITE/update_mark.txt" -O- -q > /dev/null)"
+	LAST_TIMESTAMP="$(cat "$POL_USER_ROOT/configurations/update_mark.txt")"
+	if [ ! "$WEB_TIMESTAMP" = "" ] && [ ! "$WEB_TIMESTAMP" = "$LAST_TIMESTAMP" ] # On évite les mises à jours inutiles
+	then
+		POL_Debug_Message "Updating list"
 		mkdir -p "$REPERTOIRE/configurations/listes/"
 		cd "$REPERTOIRE/configurations/listes"
 		rm -f * 2> /dev/null
@@ -81,6 +86,10 @@ maj_check ()
            	wget "$SITE/V3_data/repository/get_top?playonmac=1" -O- -q > rate
 			wget "$SITE/V3_data/repository/get_md5_list.php?playonmac=1" -O- -q > md5sums
 		fi
+		printf "$WEB_TIMESTAMP" > "$POL_USER_ROOT/configurations/update_mark.txt"
+	else
+		POL_Debug_Message "List is up to date"
+	fi
 }
 
 maj_check

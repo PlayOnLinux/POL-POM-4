@@ -371,3 +371,20 @@ POL_Browser()
 {
 	POL_Open "$@"
 }
+POL_OpenShell()
+{
+	cd "$POL_USER_ROOT/configurations/installed"
+	cat "$1" | grep PATH > "$POL_USER_ROOT/tmp/env_bash"
+	cat "$1" | grep WINEPREFIX >> "$POL_USER_ROOT/tmp/env_bash"
+	cat << EOF >> "$POL_USER_ROOT/tmp/env_bash"
+export PLAYONLINUX="$PLAYONLINUX"
+export PATH
+export LD_LIBRARY_PATH
+cd "$WINEPREFIX/drive_c"
+echo "You are in $1 wine environement"
+echo "Type source \"\\\$PLAYONLINUX/lib/sources\" to load $APPLICATION_TITLE libraries"
+
+bash
+EOF
+	xterm -e bash "$POL_USER_ROOT/tmp/env_bash" -T "$APPLICATION_TITLE"
+}

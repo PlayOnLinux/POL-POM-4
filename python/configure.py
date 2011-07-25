@@ -18,15 +18,12 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
 
-from asyncore import dispatcher
-import wxversion, os, getopt, sys, urllib, signal, socket, string
+import os, sys, string
 import wx, time
-import webbrowser, shutil
-import threading, time, codecs
-from select import select
 #from subprocess import Popen,PIPE
 
 import wine_versions
+import lib.playonlinux as playonlinux
 import lib.Variables as Variables
 import lib.lng as lng
 
@@ -71,28 +68,21 @@ class Onglets(wx.Notebook):
 		os.system("bash "+Variables.playonlinux_env+"/bash/installpolpackages \""+self.s_title+"\" POL_Install_"+self.available_packages_[self.Menu.GetSelection()]+" &")
 		
 	def AddGeneralChamp(self, title, shortname, value, num):
-		self.general_elements[shortname+"_text"] = wx.StaticText(self.panelGeneral, -1, title,pos=(15,315+num*40))
-		self.general_elements[shortname] = wx.TextCtrl(self.panelGeneral, 200+num, value, pos=(300,315+num*40), size=(150,20))
+		self.general_elements[shortname+"_text"] = wx.StaticText(self.panelGeneral, -1, title,pos=(15,319+num*40))
+		self.general_elements[shortname] = wx.TextCtrl(self.panelGeneral, 200+num, value, pos=(300,319+num*40), size=(150,20))
 	#	self.general_elements[shortname].SetValue(value)
 
 	def AddGeneralElement(self, title, shortname, elements, wine, num):
-		elements.insert(0,"System")
-		wine.insert(0,"System")
+		if(shortname == "wineversion"):
+			elements.insert(0,"System")
+			wine.insert(0,"System")
 		self.general_elements[shortname+"_text"] = wx.StaticText(self.panelGeneral, -1, title,pos=(15,319+num*40))
 		
 		self.general_elements[shortname] = wx.ComboBox(self.panelGeneral, 200+num, style=wx.CB_READONLY,pos=(300,315+num*40))
 		self.general_elements[shortname].AppendItems(elements)
 		self.general_elements[shortname].SetValue(elements[0])
 
-	def Get_versions(self):
-		installed_versions = os.listdir(Variables.playonlinux_rep+"/WineVersions/")
-		installed_versions.sort(key=wine_versions.keynat)
-		installed_versions.reverse()
-		try:
-			installed_versions.remove("installed")
-		except:
-			pass
-		return installed_versions
+
 		
 	def General(self, nom):
 		self.panelGeneral = wx.Panel(self, -1)
@@ -147,13 +137,14 @@ class Onglets(wx.Notebook):
 		self.killall_texte.Wrap(110)
 		self.killall_texte.SetFont(self.caption_font)
 		
-		self.AddGeneralChamp("Name","name",self.s_title,1)
-		self.AddGeneralElement("Wine version","wineversion",self.Get_versions(),self.Get_versions(),2)
+		self.AddGeneralChamp(_("Name"),"name",self.s_title,1)
+		self.AddGeneralElement(_("Wine version"),"wineversion",playonlinux.Get_versions(),playonlinux.Get_versions(),2)
+		self.AddGeneralElement(_("Virtual drive"),"wineprefix",playonlinux.Get_Drives(),playonlinux.Get_Drives(),3)
 		
 		
-		self.configurator_title = wx.StaticText(self.panelGeneral, -1, "", (10,430), wx.DefaultSize)
+		self.configurator_title = wx.StaticText(self.panelGeneral, -1, "", (10,474), wx.DefaultSize)
 		self.configurator_title.SetFont(self.fontTitle)
-		self.configurator_button = wx.Button(self.panelGeneral, 106, _("Run configuration wizard"), pos=(15,460))
+		self.configurator_button = wx.Button(self.panelGeneral, 106, _("Run configuration wizard"), pos=(15,504))
 		
 		
 		wx.EVT_BUTTON(self, 100, self.evt_winecfg)
@@ -166,6 +157,7 @@ class Onglets(wx.Notebook):
 		
 		wx.EVT_TEXT(self, 201, self.setname)
 		wx.EVT_COMBOBOX(self, 202, self.assign)
+		wx.EVT_COMBOBOX(self, 203, self.assignPrefix)
 		
 	def Packages(self, nom):
 		self.panelPackages = wx.Panel(self, -1)
@@ -219,6 +211,8 @@ class Onglets(wx.Notebook):
 			self.configurator_title.Hide()
 			self.configurator_button.Hide()	
 		self.configurator_title.SetLabel(self.s_title+" specific configuration")
+		
+		self.general_elements["wineprefix"].SetValue(playonlinux.getPrefix(self.s_title))
 			
 	def change_settings(self, event):
 		param = event.GetId()
@@ -239,7 +233,14 @@ class Onglets(wx.Notebook):
 		if(param == 401):
 			self.change_DirectInput_settings("MouseWarpOverride")
 		
-	
+	def misc_button(self, event):
+		param = event.GetId()
+		if(param == 402):
+			playonlinux.open_folder(self.s_title)			
+		if(param == 403):
+			os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command \""+self.s_title+"\" POL_OpenShell \""+self.s_title+"\" &")
+			
+			
 	def AddDisplayElement(self, title, shortname, elements, wine, num):
 		elements.insert(0,"Default")
 		wine.insert(0,"default")
@@ -261,7 +262,10 @@ class Onglets(wx.Notebook):
 		self.display_elements[shortname].SetValue(wine[0])
 		wx.EVT_COMBOBOX(self, 400+num,  self.change_settings)
 
-		
+	def AddMiscButton(self, title, shortname, num):
+		self.display_elements[shortname+"_text"] = wx.Button(self.panelMisc, 400+num, title,pos=(15,19+num*40))
+		wx.EVT_BUTTON(self, 400+num,  self.misc_button)
+					
 	def Display(self, nom):
 		self.display_elements = {}
 		self.panelDisplay = wx.Panel(self, -1)
@@ -287,12 +291,20 @@ class Onglets(wx.Notebook):
 		self.txtMisc.SetFont(self.fontTitle)
 		
 		self.AddMiscElement(_("Mouse warp override"),"MouseWarpOverride",["Enabled","Disabled","Force"],["enable","disable","force"],1)
+		self.AddMiscButton(_("Open program's directory"),"folder",2)
+		self.AddMiscButton(_("Open a shell"),"shell",3)
+		
+		
 		self.AddPage(self.panelMisc, nom)
 		
 	def assign(self, event):
 		version = self.general_elements["wineversion"].GetValue()
 		wine_versions.SetWineVersion(self.s_title, version)
-	
+		
+	def assignPrefix(self, event):
+		drive = self.general_elements["wineprefix"].GetValue()
+		playonlinux.SetWinePrefix(self.s_title, drive)
+				
 	def setname(self, event):
 		new_name = self.general_elements["name"].GetValue()
 		if(not os.path.exists(Variables.playonlinux_rep+"configurations/installed/"+new_name)):

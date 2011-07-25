@@ -30,48 +30,25 @@ import os, getopt, sys, urllib, signal, string, time, webbrowser, gettext, local
 import wx
 	
 import lib.Variables as Variables, lib.lng as lng
+import lib.playonlinux as playonlinux
 import guiv3 as gui, install, options, wine_versions as wver, sp, configure, threading
-
-def convertVersionToInt(version): # Codé par MulX en Bash, adapté en python par Tinou
-	
-
-	#rajouter pour les vesions de dev -> la version stable peut sortir
-	#les personnes qui utilise la version de dev sont quand même informé d'une MAJ
-	#ex 3.8.1 < 3.8.2-dev < 3.8.2
-	if("dev" in version or "beta" in version or "alpha" in version or "rc" in version):
-		version = string.split(version,"-")
-		version = version[0]
-		versionDev = -5
-	else:
-		versionDev = 0
-		
-	version_s = string.split(version,".")
-	#on fait des maths partie1 elever au cube et multiplier par 1000
-	try:
-		versionP1 = int(version_s[0])*int(version_s[0])*int(version_s[0])*1000
-	except:
-		versionP1 = 0
-	try:
-		versionP2 = int(version_s[1])*int(version_s[1])*100
-	except:
-		versionP2 = 0
-	try:
-		versionP3 = int(version_s[2])*10
-	except:
-		versionP3 = 0
-	return(versionDev + versionP1 + versionP2 + versionP3)
 
 class POLWeb(threading.Thread):
 	def __init__(self):
 		threading.Thread.__init__(self)
 		self.sendToStatusBarStr = ""
+		self.sendAlertStr = None
 		self.Gauge = False
 		self.WebVersion = ""
 		self.Show = False
+		
 	def sendToStatusBar(self, message, gauge):
 		self.sendToStatusBarStr = message
 		self.Gauge = gauge
 		self.Show = True
+
+	def sendAlert(self, message):
+		self.sendAlertStr = message
 			
 	def LastVersion(self):
 		if(os.environ["POL_OS"] == "Mac"):
@@ -89,8 +66,9 @@ class POLWeb(threading.Thread):
 			self.sendToStatusBar(_("Refreshing "+os.environ["APPLICATION_TITLE"]), True)
 			os.system("bash \""+Variables.playonlinux_env+"/bash/pol_update_list\"")
 		
-		if(convertVersionToInt(os.environ["VERSION"]) < convertVersionToInt(self.WebVersion)):
+		if(playonlinux.convertVersionToInt(os.environ["VERSION"]) < playonlinux.convertVersionToInt(self.WebVersion)):
 			self.sendToStatusBar(_("An updated version of "+os.environ["APPLICATION_TITLE"]+" is available")+" ("+self.WebVersion+")",False)
+			self.sendAlert(_("An updated version of "+os.environ["APPLICATION_TITLE"]+" is available")+" ("+self.WebVersion+")")
 		else:
 			self.Show = False
 
@@ -104,6 +82,7 @@ class MainWindow(wx.Frame):
 
 	self.updater = POLWeb()
 	self.updater.start()
+	self.sendAlertStr = None
 	
 	self.list_game = wx.TreeCtrl(self, 105, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT)	
 	self.list_game.SetSpacing(0);
@@ -318,6 +297,9 @@ class MainWindow(wx.Frame):
 		self.sb.Show()
 	else:
 		self.sb.Hide()	
+	if(self.updater.sendAlertStr != self.sendAlertStr):
+		wx.MessageBox(self.updater.sendAlertStr, os.environ["APPLICATION_TITLE"])
+		self.sendAlertStr = self.updater.sendAlertStr
 		
   def RMBInGameList(self, event):
 	self.GameListPopUpMenu = wx.Menu()
@@ -370,28 +352,9 @@ class MainWindow(wx.Frame):
 		print("bash \""+Variables.playonlinux_rep+"/plugins/"+plugin+"/scripts/menu\" "+game_exec+"&")
 		
   def GoToAppDir(self, event):
-		game_exec = self.list_game.GetItemText(self.list_game.GetSelection())
-		self.read = open(Variables.playonlinux_rep+"configurations/installed/"+game_exec,"r").readlines()
-
-		if not len(self.read):
-			return
-
-		self.i = 0;
-		while(self.i < len(self.read)):
-			if("cd \"" in self.read[self.i]):
-				break
-			self.i += 1
-
-		if len(self.read) == (self.i):
-			return
-
-		AppDir = self.read[self.i][3:]
-		if AppDir != "":
-			if(os.environ["POL_OS"] == "Mac"):
-				os.system("open "+AppDir)
-			else:
-				os.system("xdg-open "+AppDir)
-			
+		self.game_exec = self.list_game.GetItemText(self.list_game.GetSelection())
+		playonlinux.open_folder(self.game_exec)
+		
   def ChangeIcon(self, event):
 		self.IconDir = Variables.homedir+"/.local/share/icons/"
 		self.SupprotedIconExt = "All|*.xpm;*.XPM;*.png;*.PNG;*.ico;*.ICO;*.jpg;*.JPG;*.jpeg;*.JPEG;*.bmp;*.BMP\
