@@ -142,9 +142,9 @@ class Onglets(wx.Notebook):
 		self.AddGeneralElement(_("Virtual drive"),"wineprefix",playonlinux.Get_Drives(),playonlinux.Get_Drives(),3)
 		
 		
-		self.configurator_title = wx.StaticText(self.panelGeneral, -1, "", (10,474), wx.DefaultSize)
+		self.configurator_title = wx.StaticText(self.panelGeneral, -1, "", (10,504), wx.DefaultSize)
 		self.configurator_title.SetFont(self.fontTitle)
-		self.configurator_button = wx.Button(self.panelGeneral, 106, _("Run configuration wizard"), pos=(15,504))
+		self.configurator_button = wx.Button(self.panelGeneral, 106, _("Run configuration wizard"), pos=(15,534))
 		
 		
 		wx.EVT_BUTTON(self, 100, self.evt_winecfg)
