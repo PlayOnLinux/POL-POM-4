@@ -120,17 +120,21 @@ class MainWindow(wx.Frame):
 	self.wineserv_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/wineserver.png"))
 	self.expertmenu.AppendItem(self.wineserv_item)
 
-	self.expertmenu.AppendSeparator()
-
 	self.polshell_item = wx.MenuItem(self.expertmenu, 109, _(os.environ["APPLICATION_TITLE"]+" console"))
 	self.polshell_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/polshell.png"))
 	self.expertmenu.AppendItem(self.polshell_item)
+
+	self.expertmenu.AppendSeparator()
+
+	self.pol_online = wx.MenuItem(self.expertmenu, 112, os.environ["APPLICATION_TITLE"]+" online")
+	self.pol_online.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/playonlinux_online.png"))
+	self.expertmenu.AppendItem(self.pol_online)
 	
 	self.bug_item = wx.MenuItem(self.expertmenu, 110, _("Report a bug"))
 	self.bug_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/bug.png"))
 	self.expertmenu.AppendItem(self.bug_item)
 	
-
+	
 	self.optionmenu = wx.Menu()
 
 #	self.option_item = wx.MenuItem(self.expertmenu, 210, _("General"))
@@ -250,6 +254,8 @@ class MainWindow(wx.Frame):
 	wx.EVT_MENU(self, 109,  self.PolShell)
 	wx.EVT_MENU(self, 110,  self.BugReport)
 	wx.EVT_MENU(self, 111,  self.ManagePrefix)
+	wx.EVT_MENU(self, 112,  self.POLOnline)
+	
 	wx.EVT_MENU(self, 115,  self.killall)
 	wx.EVT_MENU(self, 120,  self.Autorun)
 	wx.EVT_MENU(self, 121,  self.Configure)
@@ -440,6 +446,9 @@ class MainWindow(wx.Frame):
 
   def ManagePrefix(self, event):
     os.system("bash \""+Variables.playonlinux_env+"/bash/prefix_manager\" &")
+
+  def POLOnline(self, event):
+    os.system("bash \""+Variables.playonlinux_env+"/bash/playonlinux_online\" &")
 
   def PolShell(self, event):
     #Variables.run_x_server()

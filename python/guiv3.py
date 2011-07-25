@@ -136,6 +136,8 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 		# Buttons
 		self.CancelButton = wx.Button(self.footer, wx.ID_CANCEL, _("Cancel"), pos=(430,0),size=(85,37))
 		self.NextButton = wx.Button(self.footer, wx.ID_FORWARD, _("Next"), pos=(340,0),size=(85,37))
+		self.BackButton = wx.Button(self.footer, wx.ID_FORWARD, _("Back"), pos=(250,0),size=(85,37))
+		
 		self.NoButton = wx.Button(self.footer, wx.ID_NO, _("No"), pos=(430,0),size=(85,37))
 		self.YesButton = wx.Button(self.footer, wx.ID_YES, _("Yes"), pos=(340,0), size=(85,37))
 		self.browse = wx.Button(self.panel, 103, _("Browse"), size=(130,25))
@@ -189,6 +191,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 		self.CancelButton.Hide()
 		self.MainPanel.Hide()
 		self.NextButton.Hide()
+		self.BackButton.Hide()
 		self.NoButton.Hide()
 		self.YesButton.Hide()
 		self.browse.Hide()

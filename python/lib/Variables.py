@@ -32,7 +32,7 @@ if (os.environ["POL_OS"] == "Linux"):
 # Variables mixtes
 os.environ["POL_USER_ROOT"] = os.environ["REPERTOIRE"]
 os.environ["TITRE"] = "PlayOnMac"
-os.environ["SITE"] = "http://repository.playonmac.org"
+os.environ["SITE"] = "http://repository.playonlinux.com"
 os.environ["VERSION"] = "4.0-dev"
 os.environ["POL_ID"] = str(random.randint(1,100000000))
 os.environ["WINEPREFIX"] = os.environ["REPERTOIRE"]+"/wineprefix/default"
