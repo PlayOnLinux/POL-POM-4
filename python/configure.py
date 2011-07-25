@@ -239,6 +239,18 @@ class Onglets(wx.Notebook):
 			playonlinux.open_folder(self.s_title)			
 		if(param == 403):
 			os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command \""+self.s_title+"\" POL_OpenShell \""+self.s_title+"\" &")
+		if(param == 404):
+			self.FileDialog = wx.FileDialog(self)
+			self.FileDialog.SetDirectory("~")
+			self.supported_files = "All|*.exe;*.EXE;*.msi;*.MSI\
+			\|Windows executable (*.exe)|*.exe;*.EXE\
+			\|Windows install file (*.msi)|*.msi;*MSI"
+			self.FileDialog.SetWildcard(self.supported_files)
+			self.FileDialog.ShowModal()
+			if(self.FileDialog.GetPath() != ""):
+				os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command \""+self.s_title+"\" POL_AutoWine \""+self.FileDialog.GetPath().encode('utf-8')+"\" &")
+		if(param == 405):
+			os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command --init \""+self.s_title+"\" POL_SetupWindow_shortcut_creator &")
 			
 			
 	def AddDisplayElement(self, title, shortname, elements, wine, num):
@@ -293,7 +305,8 @@ class Onglets(wx.Notebook):
 		self.AddMiscElement(_("Mouse warp override"),"MouseWarpOverride",["Enabled","Disabled","Force"],["enable","disable","force"],1)
 		self.AddMiscButton(_("Open program's directory"),"folder",2)
 		self.AddMiscButton(_("Open a shell"),"shell",3)
-		
+		self.AddMiscButton(_("Run a .exe file in this virtual drive"),"exerun",4)
+		self.AddMiscButton(_("Make a new shortcut from this virtual drive"),"newshort",5)
 		
 		self.AddPage(self.panelMisc, nom)
 		

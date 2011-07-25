@@ -556,6 +556,17 @@ POL_Call_list ()
 	IFS="$old"
 }
 
+POL_AutoWine ()
+{
+	SETUP_PATH="$@"
+	extension=$(echo "$SETUP_PATH" | sed 's/.*\.//g')
+	if [ "$extension" = "msi" ]
+	then
+		POL_Wine msiexec /i "$SETUP_PATH"
+	else
+		POL_Wine $SETUP_PATH
+	fi
+}
 POL_Wine ()
 {
 	POL_Debug_Message "Running wine"

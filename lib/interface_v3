@@ -806,7 +806,7 @@ POL_SetupWindow_shortcut()
 
 POL_SetupWindow_Close ()
 {
-	if [ "$POL_SCRIPT_FAILED" = "YES" ] && [ ! "$LOGTITLE" = "" ]
+	if [ "$POL_SCRIPT_FAILED" = "YES" ] && [ ! "$LOGTITLE" = "" ] && [ ! "$DEBUGGING" = "" ]
 	then
 		POL_SetupWindow_question "$(eval_gettext "An error occured during the installation process\n\nDo you want to send the bug to $APPLICATION_TITLE ?")" "$TITLE"
 		if [ "$APP_ANSWER" = "TRUE" ]

@@ -24,10 +24,15 @@
 [ "$PLAYONLINUX" = "" ] && exit 0
 source "$PLAYONLINUX/lib/sources"
 
+[ "$1" == "--init" ] && INIT="TRUE" && shift
+
+[ "$INIT" = "TRUE" ] && POL_SetupWindow_Init
 WINEVERSION="$(detect_wineversion "$1")"
 export WINEPREFIX="$(detect_wineprefix "$1")"
 export TITLE="$1"
 shift
 #[ "$WINEVERSION" = "" ] || Use_WineVersion $WINEVERSION
 "$@"
+
+[ "$INIT" = "TRUE" ] && POL_SetupWindow_Close
 exit
