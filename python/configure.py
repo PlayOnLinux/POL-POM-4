@@ -384,7 +384,6 @@ class MainWindow(wx.Frame):
 		self.onglets.Packages(_("Install packages"))
 		self.onglets.Display(_("Display"))
 		self.onglets.Miscellaneous(_("Miscellaneous"))
-
 		self.panelFenp.SetSizer(self.sizer)
 		self.panelFenp.SetAutoLayout(True)
 		self.list_software()
@@ -435,11 +434,11 @@ class MainWindow(wx.Frame):
 		for prefix in self.prefixes:
 			if(os.path.isdir(Variables.playonlinux_rep+"wineprefix/"+prefix)):
 				self.last_prefix = self.list_game.AppendItem(root, prefix, self.i)
-			
+				
 				if(os.path.exists(Variables.playonlinux_rep+"/wineprefix/"+prefix+"/icon")):
 					self.file_icone = Variables.playonlinux_rep+"/wineprefix/"+prefix+"/icon"
 				else:
-					self.file_icone = Variables.playonlinux_env+"/resources/images/icones/virtual_drive.png"
+					self.file_icone = Variables.playonlinux_env+"/resources/images/menu/prefix-manager.png"
 
 				try:
 					self.bitmap = wx.Image(self.file_icone)
@@ -448,6 +447,8 @@ class MainWindow(wx.Frame):
 					self.images.Add(self.bitmap)
 				except:
 					pass
+				
+				self.list_game.SetItemBold(self.last_prefix, True)
 				
 				for game in self.games: #METTRE EN 32x32
 					if(playonlinux.getPrefix(game).lower() == prefix.lower()):
