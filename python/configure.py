@@ -367,7 +367,7 @@ class MainWindow(wx.Frame):
 		else:
 			self.panel_size = wx.DefaultSize
 			
-		self.list_game = wx.TreeCtrl(self.panelFenp, 900, size = self.panel_size, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT)	
+		self.list_game = wx.TreeCtrl(self.panelFenp, 900, size = self.panel_size, style=wx.TR_FULL_ROW_HIGHLIGHT|wx.TR_HIDE_ROOT)	
 		self.list_game.SetSpacing(0);
 		self.list_game.SetImageList(self.images)
 	
@@ -384,7 +384,7 @@ class MainWindow(wx.Frame):
 		self.onglets.Packages(_("Install packages"))
 		self.onglets.Display(_("Display"))
 		self.onglets.Miscellaneous(_("Miscellaneous"))
-		
+
 		self.panelFenp.SetSizer(self.sizer)
 		self.panelFenp.SetAutoLayout(True)
 		self.list_software()
@@ -394,7 +394,10 @@ class MainWindow(wx.Frame):
 		self.change_program(shortcut)
 		
 	def change_program_to_selection(self, event):
-		self.change_program(self.list_game.GetItemText(self.list_game.GetSelection()))
+		parent =  self.list_game.GetItemText(self.list_game.GetItemParent(self.list_game.GetSelection()))
+		print parent
+		if(parent != "#ROOT#"):
+			self.change_program(self.list_game.GetItemText(self.list_game.GetSelection()))
 		
 	def change_program(self, new_prgm):
 		if(self.no_config_yet == True):
@@ -411,30 +414,61 @@ class MainWindow(wx.Frame):
 		self.games = os.listdir(Variables.playonlinux_rep+"configurations/installed/")
 		self.games.sort()
 
+		self.prefixes = os.listdir(Variables.playonlinux_rep+"wineprefix/")
+		self.prefixes.sort()
+		
 		try:
 			self.games.remove(".DS_Store")
 		except:
 			pass
 	
+		try:
+			self.prefixes.remove(".DS_Store")
+		except:
+			pass
+				
 		self.list_game.DeleteAllItems()
 		self.images.RemoveAll()
-		root = self.list_game.AddRoot("")
+		root = self.list_game.AddRoot("#ROOT#")
+		
 		self.i = 0
-		for game in self.games: #METTRE EN 32x32
-			if(os.path.exists(Variables.playonlinux_rep+"/icones/32/"+game)):
-				self.file_icone = Variables.playonlinux_rep+"/icones/32/"+game
-			else:
-				self.file_icone = Variables.playonlinux_env+"/etc/playonlinux32.png"
+		for prefix in self.prefixes:
+			if(os.path.isdir(Variables.playonlinux_rep+"wineprefix/"+prefix)):
+				self.last_prefix = self.list_game.AppendItem(root, prefix, self.i)
+			
+				if(os.path.exists(Variables.playonlinux_rep+"/wineprefix/"+prefix+"/icon")):
+					self.file_icone = Variables.playonlinux_rep+"/wineprefix/"+prefix+"/icon"
+				else:
+					self.file_icone = Variables.playonlinux_env+"/resources/images/icones/virtual_drive.png"
 
-			try:
-				self.bitmap = wx.Image(self.file_icone)
-				self.bitmap.Rescale(16,16,wx.IMAGE_QUALITY_HIGH)
-				self.bitmap = self.bitmap.ConvertToBitmap()
-				self.images.Add(self.bitmap)
-			except:
-				pass
-			item = self.list_game.AppendItem(root, game, self.i)
-			self.i += 1
+				try:
+					self.bitmap = wx.Image(self.file_icone)
+					self.bitmap.Rescale(16,16,wx.IMAGE_QUALITY_HIGH)
+					self.bitmap = self.bitmap.ConvertToBitmap()
+					self.images.Add(self.bitmap)
+				except:
+					pass
+				
+				for game in self.games: #METTRE EN 32x32
+					if(playonlinux.getPrefix(game).lower() == prefix.lower()):
+						if(os.path.exists(Variables.playonlinux_rep+"/icones/32/"+game)):
+							self.file_icone = Variables.playonlinux_rep+"/icones/32/"+game
+						else:
+							self.file_icone = Variables.playonlinux_env+"/etc/playonlinux32.png"
+
+						try:
+							self.bitmap = wx.Image(self.file_icone)
+							self.bitmap.Rescale(16,16,wx.IMAGE_QUALITY_HIGH)
+							self.bitmap = self.bitmap.ConvertToBitmap()
+							self.images.Add(self.bitmap)
+						except:
+							pass
+						self.i += 1
+						item = self.list_game.AppendItem(self.last_prefix, game, self.i)
+				
+				self.i += 1
+		
+		self.list_game.ExpandAll()
 	
 	def app_Close(self, event):
 		self.Destroy()
