@@ -117,8 +117,14 @@ def getPrefix(shortcut): # Get prefix name from shortcut
 	prefix = string.split(fichier[i],"\"")
 	prefix = prefix[1].replace("//","/")
 	prefix = string.split(prefix,"/")
-	prefix = prefix[6]
-	
+	try:
+		if(os.environ["POL_OS"] == "Mac"):
+			prefix = prefix[6]
+		else:
+			prefix = prefix[5]
+	except:
+		prefix = ""
+		
 	return prefix
 	
 	
