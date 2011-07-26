@@ -33,15 +33,21 @@ class Onglets(wx.Notebook):
 	def __init__(self, parent, s_title):
 		self.notebook = wx.Notebook.__init__(self, parent, -1)
 		self.s_title = s_title
+		self.s_prefix = playonlinux.getPrefix(self.s_title)
+		self.s_isPrefix = False
 		self.changing = False
 		
 	def ChangeTitle(self, new_title):
 		self.s_title = new_title
+		self.s_prefix = playonlinux.getPrefix(self.s_title)
 		self.general_elements["name"].SetValue(new_title)
 		self.changing = True
 
 	def winebash(self, command):
-		os.system("bash "+Variables.playonlinux_env+"/bash/winebash \""+self.s_title+"\" "+command+" &")
+		if(self.s_isPrefix == True):
+			os.system("bash "+Variables.playonlinux_env+"/bash/winebash --prefix \""+self.s_prefix+"\" "+command+" &")
+		else:
+			os.system("bash "+Variables.playonlinux_env+"/bash/winebash \""+self.s_title+"\" "+command+" &")
 		
 	def evt_winecfg(self, event):
 		self.winebash("winecfg")
@@ -65,8 +71,11 @@ class Onglets(wx.Notebook):
 		os.system("bash \""+Variables.playonlinux_rep+"/configurations/configurators/"+self.s_title+"\" &")
 				
 	def install_package(self, event):
-		os.system("bash "+Variables.playonlinux_env+"/bash/installpolpackages \""+self.s_title+"\" POL_Install_"+self.available_packages_[self.Menu.GetSelection()]+" &")
-		
+		if(self.s_isPrefix == False):
+			os.system("bash "+Variables.playonlinux_env+"/bash/installpolpackages \""+self.s_title+"\" POL_Install_"+self.available_packages_[self.Menu.GetSelection()]+" &")
+		else:
+			os.system("bash "+Variables.playonlinux_env+"/bash/installpolpackages --prefix \""+self.s_prefix+"\" POL_Install_"+self.available_packages_[self.Menu.GetSelection()]+" &")
+					
 	def AddGeneralChamp(self, title, shortname, value, num):
 		self.general_elements[shortname+"_text"] = wx.StaticText(self.panelGeneral, -1, title,pos=(15,319+num*40))
 		self.general_elements[shortname] = wx.TextCtrl(self.panelGeneral, 200+num, value, pos=(300,319+num*40), size=(150,20))
@@ -186,16 +195,58 @@ class Onglets(wx.Notebook):
 		self.AddPage(self.panelPackages, nom)
 	
 	def change_Direct3D_settings(self, param):
-		os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command \""+self.s_title+"\" POL_Wine_Direct3D "+param+" "+self.display_elements[param].GetValue()+" &")
+		if(self.s_isPrefix == False):
+			os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command \""+self.s_title+"\" POL_Wine_Direct3D "+param+" "+self.display_elements[param].GetValue()+" &")
+		else:
+			os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command --prefix \""+self.s_prefix+"\" POL_Wine_Direct3D "+param+" "+self.display_elements[param].GetValue()+" &")
 
 	def change_DirectInput_settings(self, param):
-		os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command \""+self.s_title+"\" POL_Wine_DirectInput "+param+" "+self.display_elements[param].GetValue()+" &")
+		if(self.s_isPrefix == False):
+			os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command \""+self.s_title+"\" POL_Wine_DirectInput "+param+" "+self.display_elements[param].GetValue()+" &")
+		else:
+			os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command --prefix \""+self.s_prefix+"\" POL_Wine_DirectInput "+param+" "+self.display_elements[param].GetValue()+" &")
 			
 	def get_current_settings(self, param):
-		value = os.popen("bash "+Variables.playonlinux_env+"/bash/POL_Command \""+self.s_title+"\" POL_Wine_GetRegValue "+param,'r').read()
+		if(self.s_isPrefix == False):
+			value = os.popen("bash "+Variables.playonlinux_env+"/bash/POL_Command \""+self.s_title+"\" POL_Wine_GetRegValue "+param,'r').read()
+		else:
+			value = os.popen("bash "+Variables.playonlinux_env+"/bash/POL_Command --prefix \""+self.s_prefix+"\" POL_Wine_GetRegValue "+param,'r').read()
+			
+		
 		self.display_elements[param].SetValue(value)
 		
-	def UpdateValues(self):
+	def UpdateValues(self, selection):
+		if(self.s_isPrefix == False):
+			self.ChangeTitle(selection)
+			self.general_elements["wineversion"].SetValue(wine_versions.GetWineVersion(selection))
+			self.general_elements["wineversion"].Show()
+			self.general_elements["wineprefix"].Show()
+			self.general_elements["name"].Show()
+			self.general_elements["wineversion_text"].Show()
+			self.general_elements["wineprefix_text"].Show()
+			self.general_elements["name_text"].Show()
+			
+			self.general_elements["wineprefix"].SetValue(playonlinux.getPrefix(self.s_title))
+			if(os.path.exists(Variables.playonlinux_rep+"configurations/configurators/"+self.s_title)):
+				self.configurator_title.Show()
+				self.configurator_button.Show()
+			else:
+				self.configurator_title.Hide()
+				self.configurator_button.Hide()
+			self.configurator_title.SetLabel(self.s_title+" specific configuration")
+				
+		else:
+			self.s_prefix = selection
+			self.s_title = selection
+			self.general_elements["wineversion"].Hide()
+			self.general_elements["wineprefix"].Hide()
+			self.general_elements["name"].Hide()
+			self.general_elements["wineversion_text"].Hide()
+			self.general_elements["wineprefix_text"].Hide()
+			self.general_elements["name_text"].Hide()
+		
+		self.Refresh()
+		
 		self.get_current_settings("UseGLSL")
 		self.get_current_settings("DirectDrawRenderer")
 		self.get_current_settings("VideoMemorySize")
@@ -204,15 +255,9 @@ class Onglets(wx.Notebook):
 		self.get_current_settings("Multisampling")
 		self.get_current_settings("StrictDrawOrdering")
 		self.get_current_settings("MouseWarpOverride")
-		if(os.path.exists(Variables.playonlinux_rep+"configurations/configurators/"+self.s_title)):
-			self.configurator_title.Show()
-			self.configurator_button.Show()
-		else:
-			self.configurator_title.Hide()
-			self.configurator_button.Hide()	
-		self.configurator_title.SetLabel(self.s_title+" specific configuration")
+
 		
-		self.general_elements["wineprefix"].SetValue(playonlinux.getPrefix(self.s_title))
+		
 			
 	def change_settings(self, event):
 		param = event.GetId()
@@ -238,7 +283,11 @@ class Onglets(wx.Notebook):
 		if(param == 402):
 			playonlinux.open_folder(self.s_title)			
 		if(param == 403):
-			os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command \""+self.s_title+"\" POL_OpenShell \""+self.s_title+"\" &")
+			if(self.s_isPrefix == False):
+				os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command \""+self.s_title+"\" POL_OpenShell \""+self.s_title+"\" &")
+			else:
+				os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command --prefix \""+self.s_prefix+"\" POL_OpenShell &")
+				
 		if(param == 404):
 			self.FileDialog = wx.FileDialog(self)
 			self.FileDialog.SetDirectory("~")
@@ -248,10 +297,16 @@ class Onglets(wx.Notebook):
 			self.FileDialog.SetWildcard(self.supported_files)
 			self.FileDialog.ShowModal()
 			if(self.FileDialog.GetPath() != ""):
-				os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command \""+self.s_title+"\" POL_AutoWine \""+self.FileDialog.GetPath().encode('utf-8')+"\" &")
+				if(self.s_isPrefix == False):
+					os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command --prefix \""+self.s_prefix+"\" POL_AutoWine \""+self.FileDialog.GetPath().encode('utf-8')+"\" &")
+				else:
+					os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command \""+self.s_title+"\" POL_AutoWine \""+self.FileDialog.GetPath().encode('utf-8')+"\" &")
+					
 		if(param == 405):
-			os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command --init \""+self.s_title+"\" POL_SetupWindow_shortcut_creator &")
-			
+			if(self.s_isPrefix == False):
+				os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command --init \""+self.s_title+"\" POL_SetupWindow_shortcut_creator &")
+			else:
+				os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command --init --prefix \""+self.s_prefix+"\" POL_SetupWindow_shortcut_creator &")
 			
 	def AddDisplayElement(self, title, shortname, elements, wine, num):
 		elements.insert(0,"Default")
@@ -340,6 +395,7 @@ class Onglets(wx.Notebook):
 			try:
 					os.rename(Variables.playonlinux_rep+"configurations/installed/"+self.s_title,Variables.playonlinux_rep+"configurations/installed/"+new_name)
 					self.s_title = new_name
+					self.s_prefix = playonlinux.getPrefix(self.s_title)
 			except:
 				pass
 			
@@ -355,6 +411,7 @@ class MainWindow(wx.Frame):
 	def __init__(self,parent,id,title,shortcut):
 		wx.Frame.__init__(self, parent, -1, title, size = (700, 650), style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX)
 		self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
+		self.SetTitle(os.environ["APPLICATION_TITLE"]+_(" configuration"))
 		self.panelFenp = wx.Panel(self, -1)
 		self.sizer = wx.BoxSizer()   
 		
@@ -392,22 +449,38 @@ class MainWindow(wx.Frame):
 		wx.EVT_TREE_SEL_CHANGED(self, 900, self.change_program_to_selection)
 		self.change_program(shortcut)
 		
+		self.timer = wx.Timer(self, 1)
+		self.Bind(wx.EVT_TIMER, self.AutoReload, self.timer)
+		self.timer.Start(1000)
+		self.oldreload = None
+		self.oldimg = None
+	
+	def AutoReload(self, event):
+		reload = os.listdir(Variables.playonlinux_rep+"/configurations/installed")
+		if(reload != self.oldreload):
+			self.list_software()
+			self.oldreload = reload
+
+		reloadimg = os.listdir(Variables.playonlinux_rep+"/icones/32")
+		if(reloadimg != self.oldimg):
+			self.list_software()
+			self.oldimg = reloadimg
+			
 	def change_program_to_selection(self, event):
 		parent =  self.list_game.GetItemText(self.list_game.GetItemParent(self.list_game.GetSelection()))
-		print parent
-		if(parent != "#ROOT#"):
-			self.change_program(self.list_game.GetItemText(self.list_game.GetSelection()))
+		if(parent == "#ROOT#"):
+			self.onglets.s_isPrefix = True
+		else:
+			self.onglets.s_isPrefix = False
+			
+		self.change_program(self.list_game.GetItemText(self.list_game.GetSelection()))
 		
 	def change_program(self, new_prgm):
 		if(self.no_config_yet == True):
 			self.sizer.Add(self.onglets, 12, wx.EXPAND, 0)
 			self.no_config_yet = False
 			
-		self.new_program = new_prgm
-		self.SetTitle(self.new_program+_(" configuration"))
-		self.onglets.ChangeTitle(self.new_program)
-		self.onglets.general_elements["wineversion"].SetValue(wine_versions.GetWineVersion(self.new_program))
-		self.onglets.UpdateValues()
+		self.onglets.UpdateValues(new_prgm)
 	
 	def list_software(self):
 		self.games = os.listdir(Variables.playonlinux_rep+"configurations/installed/")

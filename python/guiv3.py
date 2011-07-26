@@ -212,7 +212,6 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 		self.MCheckBox.Hide()	
 		self.PCheckBox.Hide()	
 		self.NextButton.Enable(True)
-		self.Refresh()
 		self.login.Hide()
 		self.loginbox.Hide()
 		self.password.Hide()
@@ -220,6 +219,8 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 		self.register.Hide()
 		self.MCheckBox.SetValue(False)
 		self.PCheckBox.SetValue(False)
+		self.Refresh()
+		
 		
 	def POL_register(self, event):
 		if(os.environ["POL_OS"] == "Mac"): 

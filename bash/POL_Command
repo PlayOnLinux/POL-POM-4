@@ -27,8 +27,15 @@ source "$PLAYONLINUX/lib/sources"
 [ "$1" == "--init" ] && INIT="TRUE" && shift
 
 [ "$INIT" = "TRUE" ] && POL_SetupWindow_Init
-WINEVERSION="$(detect_wineversion "$1")"
-export WINEPREFIX="$(detect_wineprefix "$1")"
+
+if [ "$1" = "--prefix" ]
+then
+	shift
+	export PREFIXNAME="$1"
+	export WINEPREFIX="$REPERTOIRE/wineprefix/$1"
+else
+	export WINEPREFIX="$(detect_wineprefix "$1")"
+fi
 export TITLE="$1"
 shift
 #[ "$WINEVERSION" = "" ] || Use_WineVersion $WINEVERSION
