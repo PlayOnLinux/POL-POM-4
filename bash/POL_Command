@@ -41,5 +41,8 @@ shift
 #[ "$WINEVERSION" = "" ] || Use_WineVersion $WINEVERSION
 "$@"
 
-[ "$INIT" = "TRUE" ] && POL_SetupWindow_Close
+if [ "$INIT" = "TRUE" ]
+then
+POL_SetupWindow_Close
+fi
 exit

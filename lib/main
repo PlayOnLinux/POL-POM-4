@@ -375,18 +375,17 @@ POL_OpenShell()
 {
 	if [ "$1" = "" ]
 	then
-		cat << EOF >> "$POL_USER_ROOT/tmp/env_bash"
-	export PLAYONLINUX="$PLAYONLINUX"
-	export WINEPREFIX="$WINEPREFIX"
-	cd "$WINEPREFIX/drive_c"
-	echo "You are in $CURRENT_PREFIX wine environement"
-	echo "Type source \"\\\$PLAYONLINUX/lib/sources\" to load $APPLICATION_TITLE libraries"
+		cat << EOF > "$POL_USER_ROOT/tmp/env_bash"
+export PLAYONLINUX="$PLAYONLINUX"
+export WINEPREFIX="$WINEPREFIX"
+cd "$WINEPREFIX/drive_c"
+echo "You are in $PREFIXNAME virtual drive environement"
+echo "Type source \"\\\$PLAYONLINUX/lib/sources\" to load $APPLICATION_TITLE libraries"
 
-	bash
-	EOF
+bash
+EOF
 	
-		
-	else
+else
 	cd "$POL_USER_ROOT/configurations/installed"
 	cat "$1" | grep PATH > "$POL_USER_ROOT/tmp/env_bash"
 	cat "$1" | grep WINEPREFIX >> "$POL_USER_ROOT/tmp/env_bash"
@@ -395,7 +394,7 @@ export PLAYONLINUX="$PLAYONLINUX"
 export PATH
 export LD_LIBRARY_PATH
 cd "$WINEPREFIX/drive_c"
-echo "You are in $1 wine environement"
+echo "You are in $1's virtual drive environement"
 echo "Type source \"\\\$PLAYONLINUX/lib/sources\" to load $APPLICATION_TITLE libraries"
 
 bash

@@ -225,8 +225,9 @@ class Onglets(wx.Notebook):
 			self.general_elements["wineversion_text"].Show()
 			self.general_elements["wineprefix_text"].Show()
 			self.general_elements["name_text"].Show()
-			
 			self.general_elements["wineprefix"].SetValue(playonlinux.getPrefix(self.s_title))
+			self.display_elements["folder_button"].SetLabel(_("Open program's directory"))
+			
 			if(os.path.exists(Variables.playonlinux_rep+"configurations/configurators/"+self.s_title)):
 				self.configurator_title.Show()
 				self.configurator_button.Show()
@@ -244,6 +245,8 @@ class Onglets(wx.Notebook):
 			self.general_elements["wineversion_text"].Hide()
 			self.general_elements["wineprefix_text"].Hide()
 			self.general_elements["name_text"].Hide()
+			self.display_elements["folder_button"].SetLabel(_("Open virtual drive's directory"))
+			
 		
 		self.Refresh()
 		
@@ -281,12 +284,15 @@ class Onglets(wx.Notebook):
 	def misc_button(self, event):
 		param = event.GetId()
 		if(param == 402):
-			playonlinux.open_folder(self.s_title)			
+			if(self.s_isPrefix == False):
+				playonlinux.open_folder(self.s_title)
+			else:
+				playonlinux.open_folder_prefix(self.s_prefix)
 		if(param == 403):
 			if(self.s_isPrefix == False):
 				os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command \""+self.s_title+"\" POL_OpenShell \""+self.s_title+"\" &")
 			else:
-				os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command --prefix \""+self.s_prefix+"\" POL_OpenShell &")
+				os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command --prefix \""+self.s_prefix+"\" POL_OpenShell&")
 				
 		if(param == 404):
 			self.FileDialog = wx.FileDialog(self)
@@ -297,7 +303,7 @@ class Onglets(wx.Notebook):
 			self.FileDialog.SetWildcard(self.supported_files)
 			self.FileDialog.ShowModal()
 			if(self.FileDialog.GetPath() != ""):
-				if(self.s_isPrefix == False):
+				if(self.s_isPrefix == True):
 					os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command --prefix \""+self.s_prefix+"\" POL_AutoWine \""+self.FileDialog.GetPath().encode('utf-8')+"\" &")
 				else:
 					os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command \""+self.s_title+"\" POL_AutoWine \""+self.FileDialog.GetPath().encode('utf-8')+"\" &")
@@ -330,7 +336,9 @@ class Onglets(wx.Notebook):
 		wx.EVT_COMBOBOX(self, 400+num,  self.change_settings)
 
 	def AddMiscButton(self, title, shortname, num):
-		self.display_elements[shortname+"_text"] = wx.Button(self.panelMisc, 400+num, title,pos=(15,19+num*40))
+		self.display_elements[shortname+"_button"] = wx.Button(self.panelMisc, 400+num, "",pos=(15,19+num*40),size=(400,30))
+		self.display_elements[shortname+"_button"].SetLabel(title)
+		
 		wx.EVT_BUTTON(self, 400+num,  self.misc_button)
 					
 	def Display(self, nom):
@@ -358,7 +366,7 @@ class Onglets(wx.Notebook):
 		self.txtMisc.SetFont(self.fontTitle)
 		
 		self.AddMiscElement(_("Mouse warp override"),"MouseWarpOverride",["Enabled","Disabled","Force"],["enable","disable","force"],1)
-		self.AddMiscButton(_("Open program's directory"),"folder",2)
+		self.AddMiscButton(_(""),"folder",2)
 		self.AddMiscButton(_("Open a shell"),"shell",3)
 		self.AddMiscButton(_("Run a .exe file in this virtual drive"),"exerun",4)
 		self.AddMiscButton(_("Make a new shortcut from this virtual drive"),"newshort",5)

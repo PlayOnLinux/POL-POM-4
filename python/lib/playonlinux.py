@@ -77,7 +77,14 @@ def open_folder(software):
 		else:
 			os.system("xdg-open "+AppDir)
 			
-			
+def open_folder_prefix(software):
+	AppDir = os.environ["POL_USER_ROOT"]+"/wineprefix/"+software
+	if AppDir != "":
+		if(os.environ["POL_OS"] == "Mac"):
+			os.system("open "+AppDir)
+		else:
+			os.system("xdg-open "+AppDir)
+									
 def convertVersionToInt(version): # Code par MulX en Bash, adapte en python par Tinou
 	#rajouter pour les vesions de dev -> la version stable peut sortir
 	#les personnes qui utilise la version de dev sont quand même informé d'une MAJ
