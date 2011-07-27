@@ -455,14 +455,14 @@ class MainWindow(wx.Frame):
     os.system("bash \""+Variables.playonlinux_env+"/bash/expert/PolShell\"&")
 
   def Configure(self, event):
-    game_exec = self.list_game.GetItemText(self.list_game.GetSelection()) 
-    if(game_exec == ""):
-		wx.MessageBox(_("Please select a program."), os.environ["APPLICATION_TITLE"], wx.OK)
-    else:
-		configureFrame = configure.MainWindow(None, -1, game_exec+_(" configuration"),game_exec)
+	game_exec = self.list_game.GetItemText(self.list_game.GetSelection()) 
+	if(game_exec == ""):
+		configureFrame = configure.MainWindow(None, -1, os.environ["APPLICATION_TITLE"]+_(" configuration"),"default",True)
+	else:
+		configureFrame = configure.MainWindow(None, -1, os.environ["APPLICATION_TITLE"]+_(" configuration"),game_exec,False)
 		#self.SetTopWindow(installFrame)
-		configureFrame.Center(wx.BOTH)
-		configureFrame.Show(True)
+	configureFrame.Center(wx.BOTH)
+	configureFrame.Show(True)
 
     #os.system("bash \""+Variables.playonlinux_env+"/bash/polconfigurator\" \""+game_exec+"\"&")
 

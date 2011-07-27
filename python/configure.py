@@ -30,11 +30,8 @@ import lib.lng as lng
 
 class Onglets(wx.Notebook):
 	# Classe dérivée du wx.Notebook
-	def __init__(self, parent, s_title):
+	def __init__(self, parent):
 		self.notebook = wx.Notebook.__init__(self, parent, -1)
-		self.s_title = s_title
-		self.s_prefix = playonlinux.getPrefix(self.s_title)
-		self.s_isPrefix = False
 		self.changing = False
 		
 	def ChangeTitle(self, new_title):
@@ -146,7 +143,7 @@ class Onglets(wx.Notebook):
 		self.killall_texte.Wrap(110)
 		self.killall_texte.SetFont(self.caption_font)
 		
-		self.AddGeneralChamp(_("Name"),"name",self.s_title,1)
+		self.AddGeneralChamp(_("Name"),"name","",1)
 		self.AddGeneralElement(_("Wine version"),"wineversion",playonlinux.Get_versions(),playonlinux.Get_versions(),2)
 		self.AddGeneralElement(_("Virtual drive"),"wineprefix",playonlinux.Get_Drives(),playonlinux.Get_Drives(),3)
 		
@@ -246,7 +243,8 @@ class Onglets(wx.Notebook):
 			self.general_elements["wineprefix_text"].Hide()
 			self.general_elements["name_text"].Hide()
 			self.display_elements["folder_button"].SetLabel(_("Open virtual drive's directory"))
-			
+			self.configurator_title.Hide()
+			self.configurator_button.Hide()
 		
 		self.Refresh()
 		
@@ -416,15 +414,21 @@ class Onglets(wx.Notebook):
 
 	
 class MainWindow(wx.Frame):
-	def __init__(self,parent,id,title,shortcut):
+	def __init__(self,parent,id,title,shortcut, isPrefix = False):
 		wx.Frame.__init__(self, parent, -1, title, size = (700, 650), style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX)
 		self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
 		self.SetTitle(os.environ["APPLICATION_TITLE"]+_(" configuration"))
 		self.panelFenp = wx.Panel(self, -1)
 		self.sizer = wx.BoxSizer()   
 		
-		self.onglets = Onglets(self.panelFenp, shortcut)
-		
+		self.onglets = Onglets(self.panelFenp)
+		if(isPrefix == True):
+			self.onglets.s_isPrefix = True
+			self.onglets.s_prefix = shortcut
+		else:
+			self.onglets.s_isPrefix = False
+			self.onglets.s_title = shortcut
+			
 		self.images = wx.ImageList(16, 16)
 		
 		if(os.environ["POL_OS"] == "Mac"):
@@ -437,13 +441,8 @@ class MainWindow(wx.Frame):
 		self.list_game.SetImageList(self.images)
 	
 		self.sizer.Add(self.list_game, 1, wx.EXPAND, 0)
+		self.sizer.Add(self.onglets, 3, wx.EXPAND, 0)
 
-		if(shortcut != ""):
-			self.sizer.Add(self.onglets, 3, wx.EXPAND, 0)
-			self.no_config_yet = False
-		else:
-			self.no_config_yet = True
-			
 		self.sizer.Layout()
 		self.onglets.General(_("General"))
 		self.onglets.Packages(_("Install packages"))
@@ -455,7 +454,7 @@ class MainWindow(wx.Frame):
 		wx.EVT_BUTTON(self, wx.ID_APPLY, self.apply_settings)
 		wx.EVT_BUTTON(self, wx.ID_CLOSE, self.app_Close)
 		wx.EVT_TREE_SEL_CHANGED(self, 900, self.change_program_to_selection)
-		self.change_program(shortcut)
+		self.change_program(shortcut,isPrefix)
 		
 		self.timer = wx.Timer(self, 1)
 		self.Bind(wx.EVT_TIMER, self.AutoReload, self.timer)
@@ -481,13 +480,11 @@ class MainWindow(wx.Frame):
 		else:
 			self.onglets.s_isPrefix = False
 			
-		self.change_program(self.list_game.GetItemText(self.list_game.GetSelection()))
+		self.change_program(self.list_game.GetItemText(self.list_game.GetSelection()),self.onglets.s_isPrefix)
 		
-	def change_program(self, new_prgm):
-		if(self.no_config_yet == True):
-			self.sizer.Add(self.onglets, 12, wx.EXPAND, 0)
-			self.no_config_yet = False
-			
+	def change_program(self, new_prgm,isPrefix = False):
+		if(isPrefix == True):
+			self.onglets.s_isPrefix = True
 		self.onglets.UpdateValues(new_prgm)
 	
 	def list_software(self):
@@ -496,6 +493,9 @@ class MainWindow(wx.Frame):
 
 		self.prefixes = os.listdir(Variables.playonlinux_rep+"wineprefix/")
 		self.prefixes.sort()
+		
+		self.games_item = {}
+		self.prefixes_item = {}
 		
 		try:
 			self.games.remove(".DS_Store")
@@ -514,7 +514,7 @@ class MainWindow(wx.Frame):
 		self.i = 0
 		for prefix in self.prefixes:
 			if(os.path.isdir(Variables.playonlinux_rep+"wineprefix/"+prefix)):
-				self.last_prefix = self.list_game.AppendItem(root, prefix, self.i)
+				self.prefixes_item[prefix] = self.list_game.AppendItem(root, prefix, self.i)
 				
 				if(os.path.exists(Variables.playonlinux_rep+"/wineprefix/"+prefix+"/icon")):
 					self.file_icone = Variables.playonlinux_rep+"/wineprefix/"+prefix+"/icon"
@@ -529,7 +529,7 @@ class MainWindow(wx.Frame):
 				except:
 					pass
 				
-				self.list_game.SetItemBold(self.last_prefix, True)
+				self.list_game.SetItemBold(self.prefixes_item[prefix], True)
 				
 				for game in self.games: #METTRE EN 32x32
 					if(playonlinux.getPrefix(game).lower() == prefix.lower()):
@@ -546,10 +546,14 @@ class MainWindow(wx.Frame):
 						except:
 							pass
 						self.i += 1
-						item = self.list_game.AppendItem(self.last_prefix, game, self.i)
+						self.games_item[game] = self.list_game.AppendItem(self.prefixes_item[prefix], game, self.i)
 				
 				self.i += 1
 		
+		if(self.onglets.s_isPrefix == True):
+			self.list_game.SelectItem(self.prefixes_item[self.onglets.s_prefix])
+		else:
+			self.list_game.SelectItem(self.games_item[self.onglets.s_title])
 		self.list_game.ExpandAll()
 	
 	def app_Close(self, event):
