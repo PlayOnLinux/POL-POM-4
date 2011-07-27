@@ -264,6 +264,26 @@ POL_Wine_Direct3D ()
 	fi
 	wineserver -k
 }
+POL_Wine_DirectSound ()
+{
+	# default remove the key
+	[ "$WINEPREFIX" = "" ] && POL_Debug_Fatal "POL_Wine_DirectSound : WINEPREFIX not set"
+	
+	wineserver -k
+	if [ "$2" = "default" ]
+	then
+		echo "[HKEY_CURRENT_USER\Software\Wine\DirectSound]" > "$REPERTOIRE/tmp/wine.reg"
+		echo "\"$1\"=-" >> "$REPERTOIRE/tmp/wine.reg"
+		wine regedit "$REPERTOIRE/tmp/wine.reg"
+		rm -f "$REPERTOIRE/tmp/wine.reg"
+	else
+		echo "[HKEY_CURRENT_USER\Software\Wine\DirectSound]" > "$REPERTOIRE/tmp/wine.reg"
+		echo "\"$1\"=\"$2\"" >> "$REPERTOIRE/tmp/wine.reg"
+		wine regedit "$REPERTOIRE/tmp/wine.reg"
+		rm -f "$REPERTOIRE/tmp/wine.reg"
+	fi
+	wineserver -k
+}
 POL_Wine_DirectInput ()
 {
 	# Example :: UseGLSL [default / enabled / disabled]
