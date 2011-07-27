@@ -33,6 +33,7 @@ class Onglets(wx.Notebook):
 	def __init__(self, parent):
 		self.notebook = wx.Notebook.__init__(self, parent, -1)
 		self.changing = False
+		self.typing = False
 		
 	def ChangeTitle(self, new_title):
 		self.s_title = new_title
@@ -74,17 +75,17 @@ class Onglets(wx.Notebook):
 			os.system("bash "+Variables.playonlinux_env+"/bash/installpolpackages --prefix \""+self.s_prefix+"\" POL_Install_"+self.available_packages_[self.Menu.GetSelection()]+" &")
 					
 	def AddGeneralChamp(self, title, shortname, value, num):
-		self.general_elements[shortname+"_text"] = wx.StaticText(self.panelGeneral, -1, title,pos=(15,319+num*40))
-		self.general_elements[shortname] = wx.TextCtrl(self.panelGeneral, 200+num, value, pos=(300,319+num*40), size=(150,20))
+		self.general_elements[shortname+"_text"] = wx.StaticText(self.panelGeneral, -1, title,pos=(15,19+num*40))
+		self.general_elements[shortname] = wx.TextCtrl(self.panelGeneral, 200+num, value, pos=(300,19+num*40), size=(150,20))
 	#	self.general_elements[shortname].SetValue(value)
 
 	def AddGeneralElement(self, title, shortname, elements, wine, num):
 		if(shortname == "wineversion"):
 			elements.insert(0,"System")
 			wine.insert(0,"System")
-		self.general_elements[shortname+"_text"] = wx.StaticText(self.panelGeneral, -1, title,pos=(15,319+num*40))
+		self.general_elements[shortname+"_text"] = wx.StaticText(self.panelGeneral, -1, title,pos=(15,19+num*40))
 		
-		self.general_elements[shortname] = wx.ComboBox(self.panelGeneral, 200+num, style=wx.CB_READONLY,pos=(300,315+num*40))
+		self.general_elements[shortname] = wx.ComboBox(self.panelGeneral, 200+num, style=wx.CB_READONLY,pos=(300,15+num*40))
 		self.general_elements[shortname].AppendItems(elements)
 		self.general_elements[shortname].SetValue(elements[0])
 
@@ -105,52 +106,15 @@ class Onglets(wx.Notebook):
 		self.txtGeneral = wx.StaticText(self.panelGeneral, -1, _("General"), (10,10), wx.DefaultSize)
 		self.txtGeneral.SetFont(self.fontTitle)
 		
-		self.winecfg_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/winecfg.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
-		self.winecfg = wx.BitmapButton(self.panelGeneral, id=100, bitmap=self.winecfg_image,pos=(30, 50), size = (self.winecfg_image.GetWidth()+5, self.winecfg_image.GetHeight()+5))
-		self.winecfg_texte = wx.StaticText(self.panelGeneral, -1, _("Configure Wine"), (30,156), (115,30),wx.ALIGN_CENTER)
-		self.winecfg_texte.Wrap(110)
-		self.winecfg_texte.SetFont(self.caption_font)
-		
-		self.regedit_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/regedit.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
-		self.regedit = wx.BitmapButton(self.panelGeneral, id=101, bitmap=self.regedit_image,pos=(166, 50), size = (self.regedit_image.GetWidth()+5, self.regedit_image.GetHeight()+5))
-		self.regedit_texte = wx.StaticText(self.panelGeneral, -1, _("Registry Editor"), (166,156), (115,30),wx.ALIGN_CENTER)
-		self.regedit_texte.Wrap(110)
-		self.regedit_texte.SetFont(self.caption_font)
+		self.AddGeneralButton(_("Make a new shortcut from this virtual drive"),"newshort",1)		
+		self.AddGeneralChamp(_("Name"),"name","",2)
+		self.AddGeneralElement(_("Wine version"),"wineversion",playonlinux.Get_versions(),playonlinux.Get_versions(),3)
+		self.AddGeneralElement(_("Virtual drive"),"wineprefix",playonlinux.Get_Drives(),playonlinux.Get_Drives(),4)
 		
 		
-		self.wineboot_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/wineboot.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
-		self.wineboot = wx.BitmapButton(self.panelGeneral, id=102, bitmap=self.wineboot_image,pos=(302, 50), size = (self.wineboot_image.GetWidth()+5, self.wineboot_image.GetHeight()+5))		
-		self.wineboot_texte = wx.StaticText(self.panelGeneral, -1, _("Windows reboot"), (302,156), (130,30),wx.ALIGN_CENTER)
-		self.wineboot_texte.Wrap(110)
-		self.wineboot_texte.SetFont(self.caption_font)
-
-		self.cmd_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/cmd.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
-		self.cmd = wx.BitmapButton(self.panelGeneral, id=103, bitmap=self.cmd_image,pos=(30, 196), size = (self.cmd_image.GetWidth()+5, self.cmd_image.GetHeight()+5))
-		self.cmd_texte = wx.StaticText(self.panelGeneral, -1, _("Command prompt"), (30,302), (115,30),wx.ALIGN_CENTER)
-		self.cmd_texte.Wrap(115)
-		self.cmd_texte.SetFont(self.caption_font)
-
-		self.taskmgr_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/taskmgr.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
-		self.taskmgr = wx.BitmapButton(self.panelGeneral, id=104, bitmap=self.taskmgr_image,pos=(166, 196), size = (self.taskmgr_image.GetWidth()+5, self.taskmgr_image.GetHeight()+5))
-		self.taskmgr_texte = wx.StaticText(self.panelGeneral, -1, _("Task manager"), (166,302), (115,30),wx.ALIGN_CENTER)
-		self.taskmgr_texte.Wrap(110)
-		self.taskmgr_texte.SetFont(self.caption_font)
-
-
-		self.killall_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/killall.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
-		self.killall = wx.BitmapButton(self.panelGeneral, id=105, bitmap=self.killall_image,pos=(302, 196), size = (self.killall_image.GetWidth()+5, self.killall_image.GetHeight()+5))		
-		self.killall_texte = wx.StaticText(self.panelGeneral, -1, _("Kill processes"), (302,302), (130,30),wx.ALIGN_CENTER)
-		self.killall_texte.Wrap(110)
-		self.killall_texte.SetFont(self.caption_font)
-		
-		self.AddGeneralChamp(_("Name"),"name","",1)
-		self.AddGeneralElement(_("Wine version"),"wineversion",playonlinux.Get_versions(),playonlinux.Get_versions(),2)
-		self.AddGeneralElement(_("Virtual drive"),"wineprefix",playonlinux.Get_Drives(),playonlinux.Get_Drives(),3)
-		
-		
-		self.configurator_title = wx.StaticText(self.panelGeneral, -1, "", (10,504), wx.DefaultSize)
+		self.configurator_title = wx.StaticText(self.panelGeneral, -1, "", (10,234), wx.DefaultSize)
 		self.configurator_title.SetFont(self.fontTitle)
-		self.configurator_button = wx.Button(self.panelGeneral, 106, _("Run configuration wizard"), pos=(15,534))
+		self.configurator_button = wx.Button(self.panelGeneral, 106, _("Run configuration wizard"), pos=(15,264))
 		
 		
 		wx.EVT_BUTTON(self, 100, self.evt_winecfg)
@@ -161,17 +125,71 @@ class Onglets(wx.Notebook):
 		wx.EVT_BUTTON(self, 105, self.evt_killall)
 		wx.EVT_BUTTON(self, 106, self.evt_config)
 		
-		wx.EVT_TEXT(self, 201, self.setname)
-		wx.EVT_COMBOBOX(self, 202, self.assign)
-		wx.EVT_COMBOBOX(self, 203, self.assignPrefix)
-		
+		wx.EVT_TEXT(self, 202, self.setname)
+		wx.EVT_COMBOBOX(self, 203, self.assign)
+		wx.EVT_COMBOBOX(self, 204, self.assignPrefix)
+
+	def Wine(self, nom):
+		self.panelWine = wx.Panel(self, -1)
+		self.AddPage(self.panelWine, nom)
+		# Les polices
+		self.txtGeneral = wx.StaticText(self.panelWine, -1, "Wine", (10,10), wx.DefaultSize)
+		self.txtGeneral.SetFont(self.fontTitle)
+
+		self.winecfg_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/winecfg.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
+		self.winecfg = wx.BitmapButton(self.panelWine, id=100, bitmap=self.winecfg_image,pos=(30, 50), size = (self.winecfg_image.GetWidth()+5, self.winecfg_image.GetHeight()+5))
+		self.winecfg_texte = wx.StaticText(self.panelWine, -1, _("Configure Wine"), (30,156), (115,30),wx.ALIGN_CENTER)
+		self.winecfg_texte.Wrap(110)
+		self.winecfg_texte.SetFont(self.caption_font)
+
+		self.regedit_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/regedit.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
+		self.regedit = wx.BitmapButton(self.panelWine, id=101, bitmap=self.regedit_image,pos=(166, 50), size = (self.regedit_image.GetWidth()+5, self.regedit_image.GetHeight()+5))
+		self.regedit_texte = wx.StaticText(self.panelWine, -1, _("Registry Editor"), (166,156), (115,30),wx.ALIGN_CENTER)
+		self.regedit_texte.Wrap(110)
+		self.regedit_texte.SetFont(self.caption_font)
+
+
+		self.wineboot_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/wineboot.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
+		self.wineboot = wx.BitmapButton(self.panelWine, id=102, bitmap=self.wineboot_image,pos=(302, 50), size = (self.wineboot_image.GetWidth()+5, self.wineboot_image.GetHeight()+5))		
+		self.wineboot_texte = wx.StaticText(self.panelWine, -1, _("Windows reboot"), (302,156), (130,30),wx.ALIGN_CENTER)
+		self.wineboot_texte.Wrap(110)
+		self.wineboot_texte.SetFont(self.caption_font)
+
+		self.cmd_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/cmd.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
+		self.cmd = wx.BitmapButton(self.panelWine, id=103, bitmap=self.cmd_image,pos=(30, 196), size = (self.cmd_image.GetWidth()+5, self.cmd_image.GetHeight()+5))
+		self.cmd_texte = wx.StaticText(self.panelWine, -1, _("Command prompt"), (30,302), (115,30),wx.ALIGN_CENTER)
+		self.cmd_texte.Wrap(115)
+		self.cmd_texte.SetFont(self.caption_font)
+
+		self.taskmgr_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/taskmgr.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
+		self.taskmgr = wx.BitmapButton(self.panelWine, id=104, bitmap=self.taskmgr_image,pos=(166, 196), size = (self.taskmgr_image.GetWidth()+5, self.taskmgr_image.GetHeight()+5))
+		self.taskmgr_texte = wx.StaticText(self.panelWine, -1, _("Task manager"), (166,302), (115,30),wx.ALIGN_CENTER)
+		self.taskmgr_texte.Wrap(110)
+		self.taskmgr_texte.SetFont(self.caption_font)
+
+		self.killall_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/killall.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
+		self.killall = wx.BitmapButton(self.panelWine, id=105, bitmap=self.killall_image,pos=(302, 196), size = (self.killall_image.GetWidth()+5, self.killall_image.GetHeight()+5))		
+		self.killall_texte = wx.StaticText(self.panelWine, -1, _("Kill processes"), (302,302), (130,30),wx.ALIGN_CENTER)
+		self.killall_texte.Wrap(110)
+		self.killall_texte.SetFont(self.caption_font)
+
+
+		wx.EVT_BUTTON(self, 100, self.evt_winecfg)
+		wx.EVT_BUTTON(self, 101, self.evt_regedit)
+		wx.EVT_BUTTON(self, 102, self.evt_wineboot)
+		wx.EVT_BUTTON(self, 103, self.evt_cmd)
+		wx.EVT_BUTTON(self, 104, self.evt_taskmgr)
+		wx.EVT_BUTTON(self, 105, self.evt_killall)
+		wx.EVT_BUTTON(self, 106, self.evt_config)
+
+				
 	def Packages(self, nom):
 		self.panelPackages = wx.Panel(self, -1)
 		self.txtPackages = wx.StaticText(self.panelPackages, -1, _(nom), (10,10), wx.DefaultSize)
 		self.txtPackages.SetFont(self.fontTitle)
 
-		self.Menu = wx.ListBox(self.panelPackages, 99, pos=(15,45),size=(430,470), style=Variables.widget_borders)
-		self.PackageButton = wx.Button(self.panelPackages, 98, _("Install"), pos=(15,530))
+		self.Menu = wx.ListBox(self.panelPackages, 99, pos=(15,45),size=(430,235), style=Variables.widget_borders)
+		self.PackageButton = wx.Button(self.panelPackages, 98, _("Install"), pos=(10,295))
 		
 		try : 
 			self.available_packages = open(Variables.playonlinux_rep+"/configurations/listes/POL_Functions","r").read()
@@ -188,6 +206,7 @@ class Onglets(wx.Notebook):
 		#$REPERTOIRE/configurations/listes/
 		wx.EVT_LISTBOX_DCLICK(self, 99, self.install_package)
 		wx.EVT_BUTTON(self, 98, self.install_package)
+		
 		
 		self.AddPage(self.panelPackages, nom)
 	
@@ -306,7 +325,7 @@ class Onglets(wx.Notebook):
 				else:
 					os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command \""+self.s_title+"\" POL_AutoWine \""+self.FileDialog.GetPath().encode('utf-8')+"\" &")
 					
-		if(param == 405):
+		if(param == 201):
 			if(self.s_isPrefix == False):
 				os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command --init \""+self.s_title+"\" POL_SetupWindow_shortcut_creator &")
 			else:
@@ -338,7 +357,13 @@ class Onglets(wx.Notebook):
 		self.display_elements[shortname+"_button"].SetLabel(title)
 		
 		wx.EVT_BUTTON(self, 400+num,  self.misc_button)
-					
+
+	def AddGeneralButton(self, title, shortname, num):
+		self.general_elements[shortname+"_button"] = wx.Button(self.panelGeneral, 200+num, "",pos=(15,9+num*40),size=(400,30))
+		self.general_elements[shortname+"_button"].SetLabel(title)
+
+		wx.EVT_BUTTON(self, 200+num,  self.misc_button)
+								
 	def Display(self, nom):
 		self.display_elements = {}
 		self.panelDisplay = wx.Panel(self, -1)
@@ -367,7 +392,6 @@ class Onglets(wx.Notebook):
 		self.AddMiscButton(_(""),"folder",2)
 		self.AddMiscButton(_("Open a shell"),"shell",3)
 		self.AddMiscButton(_("Run a .exe file in this virtual drive"),"exerun",4)
-		self.AddMiscButton(_("Make a new shortcut from this virtual drive"),"newshort",5)
 		
 		self.AddPage(self.panelMisc, nom)
 		
@@ -378,9 +402,13 @@ class Onglets(wx.Notebook):
 	def assignPrefix(self, event):
 		drive = self.general_elements["wineprefix"].GetValue()
 		playonlinux.SetWinePrefix(self.s_title, drive)
+	
+	def ReleaseTyping(self, event):
+		self.typing = False
 				
 	def setname(self, event):
 		new_name = self.general_elements["name"].GetValue()
+		self.typing = True
 		if(not os.path.exists(Variables.playonlinux_rep+"configurations/installed/"+new_name)):
 			try:
 				os.rename(Variables.playonlinux_rep+"icones/32/"+self.s_title,Variables.playonlinux_rep+"icones/32/"+new_name)
@@ -407,21 +435,25 @@ class Onglets(wx.Notebook):
 			
 			
 				
-			if(self.changing == False):
-				self.Parent.Parent.list_software()
-			else:
-				self.changing = False
+			#if(self.changing == False):
+			#	self.Parent.Parent.list_software()
+			#else:
+			#	self.changing = False
 
 	
 class MainWindow(wx.Frame):
 	def __init__(self,parent,id,title,shortcut, isPrefix = False):
-		wx.Frame.__init__(self, parent, -1, title, size = (700, 650), style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX)
+		wx.Frame.__init__(self, parent, -1, title, size = (700, 450), style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX)
 		self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
 		self.SetTitle(os.environ["APPLICATION_TITLE"]+_(" configuration"))
-		self.panelFenp = wx.Panel(self, -1)
-		self.sizer = wx.BoxSizer()   
+		#self.panelFenp = wx.Panel(self, -1)
+	
+		self.splitter = wx.SplitterWindow(self, -1)
 		
-		self.onglets = Onglets(self.panelFenp)
+		self.onglets = Onglets(self.splitter)
+		
+		
+		
 		if(isPrefix == True):
 			self.onglets.s_isPrefix = True
 			self.onglets.s_prefix = shortcut
@@ -431,28 +463,39 @@ class MainWindow(wx.Frame):
 			
 		self.images = wx.ImageList(16, 16)
 		
-		if(os.environ["POL_OS"] == "Mac"):
-			self.panel_size = (220,650)
-		else:
-			self.panel_size = wx.DefaultSize
+		#if(os.environ["POL_OS"] == "Mac"):
+		#	self.panel_size = (220,650)
+		#else:
+		#self.panel_size = wx.DefaultSize
 			
-		self.list_game = wx.TreeCtrl(self.panelFenp, 900, size = self.panel_size, style=wx.TR_HIDE_ROOT)	
+		
+		
+		self.list_game = wx.TreeCtrl(self.splitter, 900, size = wx.DefaultSize, style=wx.TR_HIDE_ROOT)	
 		self.list_game.SetSpacing(0);
 		self.list_game.SetImageList(self.images)
-	
-		self.sizer.Add(self.list_game, 1, wx.EXPAND, 0)
-		self.sizer.Add(self.onglets, 3, wx.EXPAND, 0)
+		
+		self.splitter.SplitVertically(self.list_game,self.onglets)
+		self.splitter.SetSashPosition(200)
+		#self.sizer = wx.BoxSizer()   
+		#self.sizer.Add(self.list_game, 1, wx.EXPAND, 0)
+		#self.sizer.Add(self.onglets, 3, wx.EXPAND, 0)
 
-		self.sizer.Layout()
+		#self.sizer.Layout()
+		#self.panelFenp.SetSizer(self.sizer)
+		
 		self.onglets.General(_("General"))
+		self.onglets.Wine("Wine")
 		self.onglets.Packages(_("Install packages"))
 		self.onglets.Display(_("Display"))
 		self.onglets.Miscellaneous(_("Miscellaneous"))
-		self.panelFenp.SetSizer(self.sizer)
-		self.panelFenp.SetAutoLayout(True)
+		
+		#self.panelFenp.SetAutoLayout(True)
 		self.list_software()
 		wx.EVT_BUTTON(self, wx.ID_APPLY, self.apply_settings)
 		wx.EVT_BUTTON(self, wx.ID_CLOSE, self.app_Close)
+		self.onglets.panelGeneral.Bind(wx.EVT_LEFT_UP, self.onglets.ReleaseTyping)
+		#self.onglets.Bind(wx.EVT_LEFT_UP, self.onglets.ReleaseTyping)
+		
 		wx.EVT_TREE_SEL_CHANGED(self, 900, self.change_program_to_selection)
 		self.change_program(shortcut,isPrefix)
 		
@@ -463,15 +506,16 @@ class MainWindow(wx.Frame):
 		self.oldimg = None
 	
 	def AutoReload(self, event):
-		reload = os.listdir(Variables.playonlinux_rep+"/configurations/installed")
-		if(reload != self.oldreload):
-			self.list_software()
-			self.oldreload = reload
+		if(self.onglets.typing == False):
+			reload = os.listdir(Variables.playonlinux_rep+"/configurations/installed")
+			if(reload != self.oldreload):
+				self.list_software()
+				self.oldreload = reload
 
-		reloadimg = os.listdir(Variables.playonlinux_rep+"/icones/32")
-		if(reloadimg != self.oldimg):
-			self.list_software()
-			self.oldimg = reloadimg
+			reloadimg = os.listdir(Variables.playonlinux_rep+"/icones/32")
+			if(reloadimg != self.oldimg):
+				self.list_software()
+				self.oldimg = reloadimg
 			
 	def change_program_to_selection(self, event):
 		parent =  self.list_game.GetItemText(self.list_game.GetItemParent(self.list_game.GetSelection()))
