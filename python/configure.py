@@ -436,7 +436,7 @@ class MainWindow(wx.Frame):
 		else:
 			self.panel_size = wx.DefaultSize
 			
-		self.list_game = wx.TreeCtrl(self.panelFenp, 900, size = self.panel_size, style=wx.TR_FULL_ROW_HIGHLIGHT|wx.TR_HIDE_ROOT)	
+		self.list_game = wx.TreeCtrl(self.panelFenp, 900, size = self.panel_size, style=wx.TR_HIDE_ROOT)	
 		self.list_game.SetSpacing(0);
 		self.list_game.SetImageList(self.images)
 	
@@ -549,12 +549,13 @@ class MainWindow(wx.Frame):
 						self.games_item[game] = self.list_game.AppendItem(self.prefixes_item[prefix], game, self.i)
 				
 				self.i += 1
+
+		self.list_game.ExpandAll()
 		
 		if(self.onglets.s_isPrefix == True):
 			self.list_game.SelectItem(self.prefixes_item[self.onglets.s_prefix])
 		else:
 			self.list_game.SelectItem(self.games_item[self.onglets.s_title])
-		self.list_game.ExpandAll()
 	
 	def app_Close(self, event):
 		self.Destroy()
