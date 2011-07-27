@@ -372,7 +372,7 @@ class Onglets(wx.Notebook):
 		self.txtDisplay.SetFont(self.fontTitle)
 		
 		self.AddPage(self.panelDisplay, nom)
-		self.AddDisplayElement(_("GSLS Support"),"UseGLSL",["Enabled","Disabled"],["enabled","disabled"],1)
+		self.AddDisplayElement(_("GLSL Support"),"UseGLSL",["Enabled","Disabled"],["enabled","disabled"],1)
 		self.AddDisplayElement(_("Direct Draw Renderer"),"DirectDrawRenderer",["GDI","OpenGL"],["gdi","opengl"],2)
 		self.AddDisplayElement(_("Video memory size"),"VideoMemorySize",["32","64","128","256","384","512","768","1024","2048","3072","4096"],["32","64","128","256","384","512","768","1024","2048","3072","4096"],3)
 		self.AddDisplayElement(_("Offscreen rendering mode"),"OffscreenRenderingMode",["fbo","backbuffer","pbuffer"],["fbo","backbuffer","pbuffer"],4)
