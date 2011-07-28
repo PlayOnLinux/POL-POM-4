@@ -23,7 +23,7 @@ source "$PLAYONLINUX/lib/sources"
 
 debug_menu()
 {
-	POL_SetupWindow_menu_num "$PACKAGE failed to run. What do you want to do ?" "$TITLE" "Show me the log file~Show me the full report~Send the report to $TITLE~Nothing" "~"
+	POL_SetupWindow_menu_num "$PACKAGE $(eval_gettext "failed to run.") $(eval_gettext "What do you want to do ?")" "$TITLE" "$(eval_gettext "Show me the log file")~$(eval_gettext "Show me the full report")~$(application_title "Send the report to us")~$(application_title "Nothing")" "~"
 	ACTION="$APP_ANSWER"
 	echo $ACTION
 	if [ "$ACTION" = "0" ]
@@ -59,7 +59,8 @@ debug_sendtopom()
 	[ "$POL_OS" == "Linux" ] && TRACKER="1"
 	[ "$POL_OS" == "Mac" ] && TRACKER="4"
 	
-	POL_SetupWindow_textbox_multiline "Please add everything that could help us." "$TITLE"
+	POL_SetupWindow_textbox_multiline "$(eval_gettext "Please add everything that could help us.")" "$TITLE"
+	[ "$APP_ANSWER" = "" ] && POL_SetupWindow_message "$(eval_gettext "Please enter a description")" "$TITLE" && POL_SetupWindow_Close
 	echo "$APP_ANSWER" >> "$LOGFILE"
 	POL_Website_login
 	POL_Website_Init
@@ -67,7 +68,7 @@ debug_sendtopom()
 	POL_Website_Request "http://bugs.playonlinux.com/en/new-$TRACKER.html" "priority=2&tracker=$TRACKER&title=$PACKAGE crashed while running&message=$contenu&submit=Send"
 	POL_Website_Close
 	POL_Website_logout
-	POL_SetupWindow_message "Thank you !\n\nYour report has been sent.\n\nWe will do our best to send you an answer very soon" "$TITLE"
+	POL_SetupWindow_message "$(eval_gettext "Thank you !\n\nYour report has been sent.\n\nWe will do our best to send you an answer very soon by mail\n\n")" "$TITLE"
 	
 	POL_SetupWindow_Close
 	exit
@@ -81,7 +82,7 @@ then
 PACKAGE="$1"
 else
 POL_SetupWindow_Init
-POL_SetupWindow_games "Please choose a software to run" "$TITLE"
+POL_SetupWindow_games "$(eval_gettext "Please choose a software to run")" "$TITLE"
 PACKAGE="$APP_ANSWER"
 POL_SetupWindow_Close
 fi
