@@ -18,7 +18,7 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
 
-import os, sys, string
+import os, sys, string, shutil
 import wx, time
 #from subprocess import Popen,PIPE
 
@@ -475,7 +475,7 @@ class MainWindow(wx.Frame):
 		self.control_game = wx.Panel(self.splitter_list, -1)
 		
 		self.AddPrefix = wx.Button(self.control_game, 1001, _("New"), pos=(0,0))
-		self.DelPrefix = wx.Button(self.control_game, 1002, _("Remove"), pos=(80,0))
+		self.DelPrefix = wx.Button(self.control_game, 1002, _("Remove"), pos=(100,0))
 		
 		wx.EVT_BUTTON(self, 1001, self.NewPrefix)
 		wx.EVT_BUTTON(self, 1002, self.DeletePrefix)
@@ -508,14 +508,27 @@ class MainWindow(wx.Frame):
 		self.timer.Start(1000)
 		self.oldreload = None
 		self.oldimg = None
+		self.oldpref = None
 	
 	def NewPrefix(self, event):
-		print "New prefix"
+		self.name = wx.GetTextFromUser(_("Choose the name of the virtual drive"))
+		os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command --init --prefix \""+self.name+"\" POL_SetupWindow_prefixcreate &")
 			
 	def DeletePrefix(self, event):
-		if(wx.YES == wx.MessageBox(_("Are you sure you want to delete "+self.onglets.s_prefix+" virtual drive ?").decode("utf-8"), style=wx.YES_NO | wx.ICON_QUESTION)):
-			print "Yes"
-		
+		if(self.onglets.s_isPrefix == True):
+			if(self.onglets.s_prefix == "default"):
+				wx.MessageBox(_("This virtual drive is protected"))
+			else:
+				if(wx.YES == wx.MessageBox(_("Are you sure you want to delete "+self.onglets.s_prefix+" virtual drive ?").decode("utf-8"), style=wx.YES_NO | wx.ICON_QUESTION)):
+					mylist = os.listdir(Variables.playonlinux_rep+"/configurations/installed")
+					for element in mylist:
+						if(playonlinux.getPrefix(element).lower() == self.onglets.s_prefix.lower()):
+							os.remove(Variables.playonlinux_rep+"/configurations/installed/"+element)
+					shutil.rmtree(Variables.playonlinux_rep+"/wineprefix/"+self.onglets.s_prefix)
+		else:
+				if(wx.YES == wx.MessageBox(_("Are you sure you want to delete "+self.onglets.s_title+" ?").decode("utf-8"), style=wx.YES_NO | wx.ICON_QUESTION)):
+					os.remove(Variables.playonlinux_rep+"/configurations/installed/"+self.onglets.s_title)
+				
 	def AutoReload(self, event):
 		if(self.onglets.typing == False):
 			reload = os.listdir(Variables.playonlinux_rep+"/configurations/installed")
@@ -527,6 +540,11 @@ class MainWindow(wx.Frame):
 			if(reloadimg != self.oldimg):
 				self.list_software()
 				self.oldimg = reloadimg
+				
+			reloadpref = os.listdir(Variables.playonlinux_rep+"/wineprefix")
+			if(reloadpref != self.oldpref):
+				self.list_software()
+				self.oldpref = reloadpref
 			
 	def change_program_to_selection(self, event):
 		parent =  self.list_game.GetItemText(self.list_game.GetItemParent(self.list_game.GetSelection()))

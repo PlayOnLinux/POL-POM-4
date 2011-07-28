@@ -106,9 +106,9 @@ class MainWindow(wx.Frame):
 	self.winever_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/wine.png"))
 	self.expertmenu.AppendItem(self.winever_item)
 
-	self.wineprefix_item = wx.MenuItem(self.expertmenu, 111, _("Manage virtual drives"))
-	self.wineprefix_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/prefix-manager.png"))
-	self.expertmenu.AppendItem(self.wineprefix_item)
+	#self.wineprefix_item = wx.MenuItem(self.expertmenu, 111, _("Manage virtual drives"))
+	#self.wineprefix_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/prefix-manager.png"))
+	#self.expertmenu.AppendItem(self.wineprefix_item)
 
 	self.expertmenu.AppendSeparator()
 
