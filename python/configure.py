@@ -448,7 +448,7 @@ class MainWindow(wx.Frame):
 		self.SetTitle(os.environ["APPLICATION_TITLE"]+_(" configuration"))
 		#self.panelFenp = wx.Panel(self, -1)
 	
-		self.splitter = wx.SplitterWindow(self, -1)
+		self.splitter = wx.SplitterWindow(self, -1, style=wx.SP_NOBORDER)
 		
 		self.onglets = Onglets(self.splitter)
 		
@@ -469,32 +469,36 @@ class MainWindow(wx.Frame):
 		#self.panel_size = wx.DefaultSize
 			
 		
+		self.splitter_list = wx.SplitterWindow(self.splitter, -1, style=wx.SP_NOBORDER)
 		
-		self.list_game = wx.TreeCtrl(self.splitter, 900, size = wx.DefaultSize, style=wx.TR_HIDE_ROOT)	
+		self.list_game = wx.TreeCtrl(self.splitter_list, 900, size = wx.DefaultSize, style=wx.TR_HIDE_ROOT)	
+		self.control_game = wx.Panel(self.splitter_list, -1)
+		
+		self.AddPrefix = wx.Button(self.control_game, 1001, _("New"), pos=(0,0))
+		self.DelPrefix = wx.Button(self.control_game, 1002, _("Remove"), pos=(80,0))
+		
+		wx.EVT_BUTTON(self, 1001, self.NewPrefix)
+		wx.EVT_BUTTON(self, 1002, self.DeletePrefix)
+		
+		self.splitter_list.SplitHorizontally(self.list_game, self.control_game)
+		self.splitter_list.SetSashPosition(423)
+		self.splitter_list.SetSashGravity(0.94)
+		
 		self.list_game.SetSpacing(0);
 		self.list_game.SetImageList(self.images)
 		
-		self.splitter.SplitVertically(self.list_game,self.onglets)
+		self.splitter.SplitVertically(self.splitter_list,self.onglets)
 		self.splitter.SetSashPosition(200)
-		#self.sizer = wx.BoxSizer()   
-		#self.sizer.Add(self.list_game, 1, wx.EXPAND, 0)
-		#self.sizer.Add(self.onglets, 3, wx.EXPAND, 0)
-
-		#self.sizer.Layout()
-		#self.panelFenp.SetSizer(self.sizer)
-		
+	
 		self.onglets.General(_("General"))
 		self.onglets.Wine("Wine")
 		self.onglets.Packages(_("Install packages"))
 		self.onglets.Display(_("Display"))
 		self.onglets.Miscellaneous(_("Miscellaneous"))
 		
-		#self.panelFenp.SetAutoLayout(True)
 		self.list_software()
-		wx.EVT_BUTTON(self, wx.ID_APPLY, self.apply_settings)
-		wx.EVT_BUTTON(self, wx.ID_CLOSE, self.app_Close)
+
 		self.onglets.panelGeneral.Bind(wx.EVT_LEFT_UP, self.onglets.ReleaseTyping)
-		#self.onglets.Bind(wx.EVT_LEFT_UP, self.onglets.ReleaseTyping)
 		
 		wx.EVT_TREE_SEL_CHANGED(self, 900, self.change_program_to_selection)
 		self.change_program(shortcut,isPrefix)
@@ -505,6 +509,13 @@ class MainWindow(wx.Frame):
 		self.oldreload = None
 		self.oldimg = None
 	
+	def NewPrefix(self, event):
+		print "New prefix"
+			
+	def DeletePrefix(self, event):
+		if(wx.YES == wx.MessageBox(_("Are you sure you want to delete "+self.onglets.s_prefix+" virtual drive ?").decode("utf-8"), style=wx.YES_NO | wx.ICON_QUESTION)):
+			print "Yes"
+		
 	def AutoReload(self, event):
 		if(self.onglets.typing == False):
 			reload = os.listdir(Variables.playonlinux_rep+"/configurations/installed")
