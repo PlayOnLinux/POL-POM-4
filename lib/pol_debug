@@ -72,26 +72,26 @@ EOF
 }
 POL_Debug_Message()
 {
-	echo "$(Get_CurrentDate) - Message: $1" >> "$LOGFILE"
-	echo "Message: $1"
+	echo "$(Get_CurrentDate) - [${FUNCNAME[1]}] Message: $1" >> "$LOGFILE"
+	echo "[${FUNCNAME[1]}] Message: $1"
 }
 POL_Debug_Warning()
 {
-	echo "$(Get_CurrentDate) - Warning: $1" >> "$LOGFILE"
-	echo "Warning: $1"
+	echo "$(Get_CurrentDate) - [${FUNCNAME[1]}] Warning: $1" >> "$LOGFILE"
+	echo "[${FUNCNAME[1]}] Warning: $1"
 }
 POL_Debug_Error()
 {
-	echo "$(Get_CurrentDate) - Error: $1" >> "$LOGFILE"
-	echo "Error: $1"
+	echo "$(Get_CurrentDate) - [${FUNCNAME[1]}] Error: $1" >> "$LOGFILE"
+	echo "[${FUNCNAME[1]}] Error: $1"
 	POL_SetupWindow_message "Error: $1" "$TITLE" # La on affiche quand même 
 	export POL_SCRIPT_FAILED="YES"
 }
 POL_Debug_Fatal()
 {
-	echo "$(Get_CurrentDate) - Fatal: $1" >> "$LOGFILE"
+	echo "$(Get_CurrentDate) - [${FUNCNAME[1]}] Fatal: $1" >> "$LOGFILE"
 	echo "Fatal: $1"
-	POL_SetupWindow_message "Fatal: $1" "$TITLE" # La on affiche quand même 
+	POL_SetupWindow_message "[${FUNCNAME[1]}] Fatal: $1" "$TITLE" # La on affiche quand même 
 	export POL_SCRIPT_FAILED="YES"
 	POL_SetupWindow_Close
 	exit 1

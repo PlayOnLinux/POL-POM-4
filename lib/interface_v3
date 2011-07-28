@@ -17,7 +17,7 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
 
-GenId() # On génère un ID unique pour notre fenêtre
+POL_Tools_GenID() # On génère un ID unique pour notre fenêtre
 {
 	N_LETTRES=50
 
@@ -633,13 +633,6 @@ POL_SetupWindow_make_shortcut()
 	fi
 }
 
-POL_Applications_InsertBeforeWine()
-{
-	# 1 = Application
-	# 2 = Commandes to insert
-	insert_before_launching_wine "$@"
-}
-
 POL_SetupError()
 {
 	POL_SetupWindow_message "$1\n\nAborting." "Error"
@@ -651,6 +644,8 @@ POL_ExtractIcon()
 {
 	# 1 = Exe
 	# 2 = Destination
+
+	POL_SetupWindow_warning "Function is deprecated"
 	
 	mkdir -p "$REPERTOIRE/tmp/win32Icon"
 	cd "$REPERTOIRE/tmp/win32Icon"
@@ -737,6 +732,11 @@ POL_SetupWindow_auto_shortcut()
 }
 POL_SetupWindow_shortcut()
 {
+	POL_SetupWindow_warning "POL_SetupWindow_shortcut is deprecated"
+	POL_Shortcut "$@"
+}
+POL_shortcut()
+{
 	# 1 = Binaire
 	# 2 = Nom du raccourcis
 	# 3 = Eventuel Icone
@@ -788,6 +788,7 @@ POL_SetupWindow_shortcut()
 	echo "#!/bin/bash" > "$REPERTOIRE/configurations/installed/$NOMICONE_"
 	echo "export WINEPREFIX=\"$WINEPREFIX\"" >> "$REPERTOIRE/configurations/installed/$NOMICONE_"
 	echo "export WINEDEBUG=\"-all\"" >> "$REPERTOIRE/configurations/installed/$NOMICONE_"
+	[ ! "$LOGTITLE" = "" ] && echo "POL_Log=$LOGTITLE" >> "$REPERTOIRE/configurations/installed/$NOMICONE_"
 	echo "cd \"$WINEPREFIX/drive_c/$binary_dir\"" >> "$REPERTOIRE/configurations/installed/$NOMICONE_"
 	echo "wine \"$Binaire\" $SpecialArg \$@" >> "$REPERTOIRE/configurations/installed/$NOMICONE_"
 	chmod +x "$REPERTOIRE/configurations/installed/$NOMICONE_"
@@ -821,10 +822,6 @@ exit
 EOF
 }
 
-POL_SetupWindow_Quit ()
-{
-	POL_SetupWindow_Close "$@"
-}
 POL_SetupWindow_Init ()
 {
 	if [ "$1" = "" ]
@@ -852,10 +849,6 @@ EOF
 
 }
 
-POL_SetupWindow_Open ()
-{
-	POL_SetupWindow_Init "$@"
-}
 POL_SetupWindow_reboot ()
 {
 	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Please wait while $APPLICATION_TITLE is simulating a Windows reboot')" "Wine"
@@ -1049,6 +1042,8 @@ POL_SetupWindow_InitWithImages ()
 }
 
 
+
+## Mac OS .app
 make_skeleton()
 {
 	mkdir -p "$DIRAPP"
@@ -1238,6 +1233,7 @@ make_plist()
 </plist>
 EOF
 }
+## End Mac OS
 POL_SetupWindow_login ()
 {
 	cat << EOF > "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
@@ -1414,7 +1410,7 @@ POL_Download ()
 	# 1 - URL
 	# 2 - MD5 SUM
 	URL="$1"
-	FICHIER=${URL##*/}
+	FICHIER="${URL##*/}"
 	if [ "$URL" = "" ]
 	then
 		POL_Debug_Error "POL_Download - URL is missing !"
@@ -1431,5 +1427,35 @@ POL_Download ()
 				POL_Debug_Error "POL_Download - MD5 sum mismatch !"
 			fi
 		fi	
+	fi
+}
+POL_Download_Resource ()
+{
+	POL_Debug_Message "Downloading resource $1"
+	# 1 - URL
+	# 2 - MD5 SUM
+	URL="$1"
+	FICHIER="${URL##*/}"
+	cd "$POL_USER_ROOT/ressources"
+	if [ -e "$FICHIER" ] || [ ! "$(POL_MD5_file "$FICHIER")" = "$2" ]
+	then
+		if [ "$URL" = "" ]
+		then
+			POL_Debug_Error "POL_Download - URL is missing !"
+		else
+			rm "$FICHIER"
+			POL_SetupWindow_download "$(eval_gettext "Please wait while $APLICATION_TITLE is downloading:") $FILENAME" "$TITLE" "$URL"
+			if [ "$2" = "" ]
+			then
+				POL_Debug_Warning "POL_Download - MD5 is missing !"
+			else
+				LOCAL_MD5="$(POL_MD5_file "$FICHIER")"
+				if [ ! "$2" = "$LOCAL_MD5" ]
+				then
+					POL_SetupWindow_message "Error ! Files mismatch\n\nLocal : $LOCAL_MD5\nServer : $2"
+					POL_Debug_Error "POL_Download - MD5 sum mismatch !"
+				fi
+			fi	
+		fi
 	fi
 }
