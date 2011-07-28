@@ -584,7 +584,7 @@ POL_AutoWine ()
 	then
 		POL_Wine msiexec /i "$SETUP_PATH"
 	else
-		wine "$SETUP_PATH"
+		POL_Wine "$SETUP_PATH"
 	fi
 }
 POL_Wine ()
