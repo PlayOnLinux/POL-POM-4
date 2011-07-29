@@ -24,6 +24,7 @@ import wx, time
 
 import wine_versions
 import lib.playonlinux as playonlinux
+import lib.wine as wine
 import lib.Variables as Variables
 import lib.lng as lng
 
@@ -223,13 +224,13 @@ class Onglets(wx.Notebook):
 			os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command --prefix \""+self.s_prefix+"\" POL_Wine_DirectInput "+param+" "+self.display_elements[param].GetValue()+" &")
 			
 	def get_current_settings(self, param):
-		if(self.s_isPrefix == False):
-			value = os.popen("bash "+Variables.playonlinux_env+"/bash/POL_Command \""+self.s_title+"\" POL_Wine_GetRegValue "+param,'r').read()
-		else:
-			value = os.popen("bash "+Variables.playonlinux_env+"/bash/POL_Command --prefix \""+self.s_prefix+"\" POL_Wine_GetRegValue "+param,'r').read()
-			
+		#if(self.s_isPrefix == False):
+		#	value = os.popen("bash "+Variables.playonlinux_env+"/bash/POL_Command \""+self.s_title+"\" POL_Wine_GetRegValue "+param,'r').read()
+		#else:
+		#	value = os.popen("bash "+Variables.playonlinux_env+"/bash/POL_Command --prefix \""+self.s_prefix+"\" POL_Wine_GetRegValue "+param,'r').read()
+		self.display_elements[param].SetValue(self.settings[param])	
 		
-		self.display_elements[param].SetValue(value)
+		#self.display_elements[param].SetValue(value)
 		
 	def UpdateValues(self, selection):
 		if(self.s_isPrefix == False):
@@ -266,7 +267,8 @@ class Onglets(wx.Notebook):
 			self.configurator_button.Hide()
 		
 		self.Refresh()
-		
+		self.settings = wine.LoadRegValues(self.s_prefix,{"UseGLSL","DirectDrawRenderer","VideoMemorySize","OffscreenRenderingMode","RenderTargetModeLock","Multisampling","StrictDrawOrdering","MouseWarpOverride"})
+		#print self.settings
 		self.get_current_settings("UseGLSL")
 		self.get_current_settings("DirectDrawRenderer")
 		self.get_current_settings("VideoMemorySize")
@@ -452,8 +454,6 @@ class MainWindow(wx.Frame):
 		
 		self.onglets = Onglets(self.splitter)
 		
-		
-		
 		if(isPrefix == True):
 			self.onglets.s_isPrefix = True
 			self.onglets.s_prefix = shortcut
@@ -462,12 +462,6 @@ class MainWindow(wx.Frame):
 			self.onglets.s_title = shortcut
 			
 		self.images = wx.ImageList(16, 16)
-		
-		#if(os.environ["POL_OS"] == "Mac"):
-		#	self.panel_size = (220,650)
-		#else:
-		#self.panel_size = wx.DefaultSize
-			
 		
 		self.splitter_list = wx.SplitterWindow(self.splitter, -1, style=wx.SP_NOBORDER)
 		
