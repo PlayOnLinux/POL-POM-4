@@ -19,6 +19,7 @@
 
 select_prefixe ()
 {
+	POL_Debug_Warning "Deprecated function ! Use POL_Wine_SelectPrefix"
 	export WINEPREFIX="$1"
 	export DOSPREFIX="$1" # For dosbox support
 }
@@ -308,6 +309,9 @@ POL_Wine_DirectInput ()
 POL_Wine_GetRegValue()
 {
 	# Example : POL_Wine_GetReg_Value Multisampling
+	#
+	# Read http://wiki.winehq.org/UsefulRegistryKeys
+	
 	[ "$WINEPREFIX" = "" ] && POL_Debug_Fatal "POL_Wine_GetRegValue : WINEPREFIX not set"
 	value="$(cat "$WINEPREFIX/user.reg" 2> /dev/null | grep "$1" | head -n 1 | tr -d "\"" | cut -d\= -f2)"
 	[ "$value" = "" ] && printf "default" || printf "$value"
@@ -592,4 +596,62 @@ POL_Wine ()
 	POL_Debug_Message "Running wine"
 	wine "$@" >> "$LOGFILE" 2>> "$LOGFILE"
 	[ "$?" = "0" ] || POL_Debug_Error "Wine crashed"
+}
+POL_Wine_SelectPrefix()
+{
+	export WINEPREFIX=`printf "$1"| tr -c [[a-zA-Z0-9]\.] '_'`
+	export DOSPREFIX="$WINEPREFIX"
+}
+POL_Wine_PrefixExists()
+{
+	PREFNAME=`printf "$1"| tr -c [[a-zA-Z0-9]\.] '_'`
+	[ -d "$POL_USER_ROOT/wineprefix/$PREFNAME" ] && echo "True" || echo "False"
+}
+
+POL_Wine_OverrideDLL()
+{
+	mode=$1
+	[ "$mode" = "disabled" ] && unset mode
+	shift
+ 
+	cat << EOF > "$POL_USER_ROOT/tmp/override-dll.reg"
+REGEDIT4
+ 
+[HKEY_CURRENT_USER\\Software\\Wine\\DllOverrides]
+EOF
+ 
+	while test "$1" != ""
+	do
+		echo "\"*$1\"=\"$mode\"" >> "$POL_USER_ROOT/tmp/override-dll.reg"
+		shift
+	done
+ 
+	POL_Debug_Message "Overriting DLLs"
+	POL_SetupWindow_wait_next_signal "Please wait" "$TITLE"
+	wine regedit "$POL_USER_ROOT/tmp/override-dll.reg"
+	POL_SetupWindow_detect_exit
+}
+
+POL_Wine_OverrideDLL_App()
+{
+	APP="$1"
+	MODE="$2"
+	DLL="$3"
+
+	cd "$POL_USER_ROOT/ressources"
+	[ -e "$POL_USER_ROOT/ressources/app_dll_override.reg" ] && rm app_dll_override.reg
+
+	echo "REGEDIT4" > app_dll_override.reg
+	echo "" >> app_dll_override.reg
+	echo "[HKEY_CURRENT_USER\\Software\\Wine\\AppDefaults\\$APP\\DllOverrides]" >> app_dll_override.reg
+	until [ "$DLL" == "" ]; do
+		if [ "$DLL" = "comctl32" ]; then
+			rm -rf "$WINEPREFIX/winsxs/manifests/x86_microsoft.windows.common-controls_6595b64144ccf1df_6.0.2600.2982_none_deadbeef.manifest"
+		fi
+		echo "\"$DLL\"=\"$MODE\"" >> app_dll_override.reg
+		shift
+		DLL="$3"
+	done
+	regedit app_dll_override.reg
+	rm app_dll_override.reg
 }

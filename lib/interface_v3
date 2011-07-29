@@ -1459,3 +1459,15 @@ POL_Download_Resource ()
 		fi
 	fi
 }
+POL_SetupWindow_VMS ()
+{
+	[ "$WINEPREFIX" = "" ] && POL_Debug_Fatal "WINEPREFIX is not set !"
+	VMS="$(POL_Config_Read VMS)"
+	if [ "$VMS" = "" ]
+	then
+		POL_SetupWindow_menu "$(eval_gettext "How much memory does your graphics board have?")" "$TITLE" "32~64~128~256~384~512~768~1024~2048~3072~4096" "~"
+		VMS="$APP_ANSWER"
+		POL_Config_Write VMS $APP_ANSWER
+	fi
+	POL_Wine_Direct3D "VideoMemorySize" "$VMS"
+}
