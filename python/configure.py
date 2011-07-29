@@ -267,7 +267,7 @@ class Onglets(wx.Notebook):
 			self.configurator_button.Hide()
 		
 		self.Refresh()
-		self.elements = {"UseGLSL","DirectDrawRenderer","VideoMemorySize","OffscreenRenderingMode","RenderTargetModeLock","Multisampling","StrictDrawOrdering","MouseWarpOverride"}
+		self.elements = ["UseGLSL","DirectDrawRenderer","VideoMemorySize","OffscreenRenderingMode","RenderTargetModeLock","Multisampling","StrictDrawOrdering","MouseWarpOverride"]
 		self.settings = wine.LoadRegValues(self.s_prefix,self.elements)
 		#print self.settings
 		self.get_current_settings("UseGLSL")
