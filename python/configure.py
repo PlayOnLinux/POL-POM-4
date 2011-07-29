@@ -33,7 +33,6 @@ class Onglets(wx.Notebook):
 	# Classe dérivée du wx.Notebook
 	def __init__(self, parent):
 		self.notebook = wx.Notebook.__init__(self, parent, -1)
-		self.changing = False
 		self.typing = False
 		
 	def ChangeTitle(self, new_title):
@@ -233,6 +232,7 @@ class Onglets(wx.Notebook):
 		#self.display_elements[param].SetValue(value)
 		
 	def UpdateValues(self, selection):
+		#print "Test"
 		if(self.s_isPrefix == False):
 			self.ChangeTitle(selection)
 			self.general_elements["wineversion"].SetValue(wine_versions.GetWineVersion(selection))
@@ -267,7 +267,8 @@ class Onglets(wx.Notebook):
 			self.configurator_button.Hide()
 		
 		self.Refresh()
-		self.settings = wine.LoadRegValues(self.s_prefix,{"UseGLSL","DirectDrawRenderer","VideoMemorySize","OffscreenRenderingMode","RenderTargetModeLock","Multisampling","StrictDrawOrdering","MouseWarpOverride"})
+		self.elements = {"UseGLSL","DirectDrawRenderer","VideoMemorySize","OffscreenRenderingMode","RenderTargetModeLock","Multisampling","StrictDrawOrdering","MouseWarpOverride"}
+		self.settings = wine.LoadRegValues(self.s_prefix,self.elements)
 		#print self.settings
 		self.get_current_settings("UseGLSL")
 		self.get_current_settings("DirectDrawRenderer")
@@ -495,7 +496,7 @@ class MainWindow(wx.Frame):
 		self.onglets.panelGeneral.Bind(wx.EVT_LEFT_UP, self.onglets.ReleaseTyping)
 		
 		wx.EVT_TREE_SEL_CHANGED(self, 900, self.change_program_to_selection)
-		self.change_program(shortcut,isPrefix)
+		#self.change_program(shortcut,isPrefix)
 		
 		self.timer = wx.Timer(self, 1)
 		self.Bind(wx.EVT_TIMER, self.AutoReload, self.timer)
@@ -529,16 +530,16 @@ class MainWindow(wx.Frame):
 			if(reload != self.oldreload):
 				self.list_software()
 				self.oldreload = reload
-
-			reloadimg = os.listdir(Variables.playonlinux_rep+"/icones/32")
-			if(reloadimg != self.oldimg):
-				self.list_software()
-				self.oldimg = reloadimg
-				
-			reloadpref = os.listdir(Variables.playonlinux_rep+"/wineprefix")
-			if(reloadpref != self.oldpref):
-				self.list_software()
-				self.oldpref = reloadpref
+			else:
+				reloadimg = os.listdir(Variables.playonlinux_rep+"/icones/32")
+				if(reloadimg != self.oldimg):
+					self.list_software()
+					self.oldimg = reloadimg
+				else:
+					reloadpref = os.listdir(Variables.playonlinux_rep+"/wineprefix")
+					if(reloadpref != self.oldpref):
+						self.list_software()
+						self.oldpref = reloadpref
 			
 	def change_program_to_selection(self, event):
 		parent =  self.list_game.GetItemText(self.list_game.GetItemParent(self.list_game.GetSelection()))
