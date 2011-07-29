@@ -59,9 +59,11 @@ config_maj() # Celle ci est exécuté à chaque ligne (wget | config_maj), elle 
 maj_check ()
 {
 	#clean_tmp
+	touch "$POL_USER_ROOT/configurations/update_mark.txt"
 	WEB_TIMESTAMP="$(wget "$SITE/update_mark.txt" -O- -q 2> /dev/null)"
 	LAST_TIMESTAMP="$(cat "$POL_USER_ROOT/configurations/update_mark.txt")"
 
+	
 	if [ ! "$WEB_TIMESTAMP" = "" ] && [ ! "$WEB_TIMESTAMP" = "$LAST_TIMESTAMP" ] # On évite les mises à jours inutiles
 	then
 		POL_Debug_Message "Web version : $WEB_TIMESTAMP"
