@@ -392,7 +392,7 @@ class Onglets(wx.Notebook):
 		self.txtMisc.SetFont(self.fontTitle)
 		
 		self.AddMiscElement(_("Mouse warp override"),"MouseWarpOverride",["Enabled","Disabled","Force"],["enable","disable","force"],1)
-		self.AddMiscButton(_(""),"folder",2)
+		self.AddMiscButton("","folder",2)
 		self.AddMiscButton(_("Open a shell"),"shell",3)
 		self.AddMiscButton(_("Run a .exe file in this virtual drive"),"exerun",4)
 		
