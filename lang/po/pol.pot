@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2011-07-31 15:25:43+02:00\n"
+"POT-Creation-Date: 2011-07-31 15:48:21+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -273,7 +273,7 @@ msgstr ""
 msgid "Graphic problem"
 msgstr ""
 
-#: bash/debug_main:36 lib/interface_v3:876 python/install.py:299
+#: bash/debug_main:36 lib/interface_v3:874 python/install.py:299
 #: python/options.py:121
 #, sh-format
 msgid "Other"
@@ -597,6 +597,11 @@ msgstr ""
 msgid ""
 "Please type a name for your application's virtual drive.\\nThis name "
 "shouldn't contain spaces."
+msgstr ""
+
+#: bash/manual_install:115
+#, sh-format
+msgid "Please choose a program"
 msgstr ""
 
 #: bash/manual_install:127
@@ -1236,52 +1241,52 @@ msgstr ""
 msgid "This wizard will help you install "
 msgstr ""
 
-#: lib/interface_v3:547 lib/interface_v3:556 lib/interface_v3:569
+#: lib/interface_v3:545 lib/interface_v3:554 lib/interface_v3:567
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr ""
 
-#: lib/interface_v3:854
+#: lib/interface_v3:852
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a Windows reboot"
 msgstr ""
 
-#: lib/interface_v3:875
+#: lib/interface_v3:873
 #, sh-format
 msgid "Where is mounted your CD-ROM?"
 msgstr ""
 
-#: lib/interface_v3:877
+#: lib/interface_v3:875
 #, sh-format
 msgid "Refresh"
 msgstr ""
 
-#: lib/interface_v3:901
+#: lib/interface_v3:899
 #, sh-format
 msgid "Error: Unable to find the CD-ROM!"
 msgstr ""
 
-#: lib/interface_v3:921
+#: lib/interface_v3:919
 #, sh-format
 msgid "Unable to find version: "
 msgstr ""
 
-#: lib/interface_v3:927 lib/interface_v3:928 lib/interface_v3:971
+#: lib/interface_v3:925 lib/interface_v3:926 lib/interface_v3:969
 #, sh-format
 msgid "Downloading Wine: "
 msgstr ""
 
-#: lib/interface_v3:938
+#: lib/interface_v3:936
 #, sh-format
 msgid "The download seems to have failed."
 msgstr ""
 
-#: lib/interface_v3:941 lib/interface_v3:979
+#: lib/interface_v3:939 lib/interface_v3:977
 #, sh-format
 msgid "Extracting Wine..."
 msgstr ""
 
-#: lib/interface_v3:965
+#: lib/interface_v3:963
 #, sh-format
 msgid "Unable to find the version:"
 msgstr ""
@@ -1484,31 +1489,39 @@ msgstr ""
 msgid "Show virtual drives"
 msgstr ""
 
+#: python/guiv3.py:167
+msgid "Login: "
+msgstr ""
+
+#: python/guiv3.py:168
+msgid "Password: "
+msgstr ""
+
 #: python/guiv3.py:171
 msgid "Register"
 msgstr ""
 
-#: python/guiv3.py:449
+#: python/guiv3.py:450
 msgid "MB downloaded"
 msgstr ""
 
-#: python/guiv3.py:449
+#: python/guiv3.py:450
 msgid "of"
 msgstr ""
 
-#: python/guiv3.py:842
+#: python/guiv3.py:854
 msgid "Create a shortcut :"
 msgstr ""
 
-#: python/guiv3.py:850
+#: python/guiv3.py:862
 msgid "Do you want a shortcut for "
 msgstr ""
 
-#: python/guiv3.py:853
+#: python/guiv3.py:865
 msgid "On your desktop"
 msgstr ""
 
-#: python/guiv3.py:854
+#: python/guiv3.py:866
 msgid "In your menu"
 msgstr ""
 
