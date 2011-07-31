@@ -541,16 +541,16 @@ class MainWindow(wx.Frame):
 			if(reload != self.oldreload):
 				self.list_software()
 				self.oldreload = reload
-			else:
-				reloadimg = os.listdir(Variables.playonlinux_rep+"/icones/32")
-				if(reloadimg != self.oldimg):
-					self.list_software()
-					self.oldimg = reloadimg
-				else:
-					reloadpref = os.listdir(Variables.playonlinux_rep+"/wineprefix")
-					if(reloadpref != self.oldpref):
-						self.list_software()
-						self.oldpref = reloadpref
+			
+			reloadimg = os.listdir(Variables.playonlinux_rep+"/icones/32")
+			if(reloadimg != self.oldimg):
+				self.list_software()
+				self.oldimg = reloadimg
+			
+			reloadpref = os.listdir(Variables.playonlinux_rep+"/wineprefix")
+			if(reloadpref != self.oldpref):
+				self.list_software()
+				self.oldpref = reloadpref
 			
 	def change_program_to_selection(self, event):
 		parent =  self.list_game.GetItemText(self.list_game.GetItemParent(self.list_game.GetSelection()))
