@@ -874,12 +874,16 @@ POL_SetupWindow_cdrom ()
 		
 	LNG_WINE_ASKFORCDROM=$(eval_gettext "Where is mounted your CD-ROM?")
 	LNG_OTHER=$(eval_gettext "Other")
-	POL_SetupWindow_menu "$LNG_WINE_ASKFORCDROM" "CD-ROM" "$LIST_DEVICES_$LNG_OTHER" "~"		
+	LNG_REFRESH=$(eval_gettext "Refresh")
+	POL_SetupWindow_menu "$LNG_WINE_ASKFORCDROM" "CD-ROM" "$LIST_DEVICES_$LNG_OTHER~$LNG_REFRESH" "~"		
 	CDROM="$APP_ANSWER"
 	if [ "$CDROM" = "$LNG_OTHER" ]
 	then
 		POL_SetupWindow_textbox "$LNG_WINE_ASKFORCDROM" "CD-ROM" "$DEVICES/cdrom"
 		CDROM="$APP_ANSWER"
+	elif [ "$CDROM" = "$LNG_REFRESH" ]
+	then
+		POL_SetupWindow_cdrom
 	else
 		CDROM="$DEVICES/$CDROM"
 	fi
