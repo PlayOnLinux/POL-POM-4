@@ -104,7 +104,7 @@ touch "$LOGFILE.e"
 if [ "$(cat "$PACKAGE" | grep 'export WINEDEBUG="-all"')" = "" ]
 then
 	echo "Debugger is starting"
-	xterm -T "$(eval_gettext "$APPLICATION_TITLE debugger")" -e "tail -f \"$LOGFILE.e\"" &
+	xterm -T "$(eval_gettext "$APPLICATION_TITLE debugger")" -e "echo \"Writting log to $LOGFILE.e\" && echo \"\" && sleep 1 && tail -f \"$LOGFILE.e\"" &
 fi
 
 bash "$PACKAGE" 2>> "$LOGFILE.e" >> "$LOGFILE.e"
