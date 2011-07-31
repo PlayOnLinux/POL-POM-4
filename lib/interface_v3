@@ -668,7 +668,7 @@ POL_SetupWindow_auto_shortcut()
 	# 3 = Nom du raccourics
 	# 4 = Icone
 	# 5 = Eventuel argument
-	POL_SetupWindow_warning "POL_SetupWindow_auto_shortcut is deprecated"
+	POL_Debug_warning "POL_SetupWindow_auto_shortcut is deprecated"
 	Binaire="$2"
 	SpecialArg="$5"
 	
@@ -1323,7 +1323,7 @@ EOF
 
 POL_Website_login()
 {
-	POL_SetupWindow_login "Connect to your PlayOnMac account" "$TITLE" 
+	POL_SetupWindow_login "$(eval_gettext "Connect to your $APPLICATION_TITLE account")" "$TITLE" 
 	POL_Website_check_login
 }
 POL_Website_logout()
