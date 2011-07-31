@@ -330,3 +330,16 @@ POL_Config_Read ()
 {
 	cat "$POL_USER_ROOT/playonlinux.cfg" 2> /dev/null | grep "^$1" | cut -d\= -f2
 }
+
+POL_System_TmpCreate()
+{
+	# 1 : TmpName
+	mkdir -p "$POL_USER_ROOT/tmp/$1"
+	export POL_System_TmpDir="$POL_USER_ROOT/tmp/$1"
+	export POL_System_TmpName="$1"
+}
+POL_System_TmpDelete()
+{
+	# Sans arguments
+	[ ! "$POL_System_TmpName" = "" ] && rm -rf POL_System_TmpDir="$POL_USER_ROOT/tmp/$POL_System_TmpName" || POL_Debug_Warning "POL_System_TmpName is not defined !"
+}
