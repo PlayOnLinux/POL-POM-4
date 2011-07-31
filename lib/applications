@@ -140,9 +140,9 @@ detect_wineversion()
 	then
 		if [ "$POL_OS" == "Linux" ]
 		then
-			fichier=$(cat "$fichier" | grep PATH | tail -n 1 | sed s/"//"/"/"/ | cut -d'/' -f6)
+			fichier=$(cat "$fichier" | grep PATH | tail -n 1 | sed s/'\/\//\/'/ | cut -d'/' -f6)
 		else
-			fichier=$(cat "$fichier" | grep PATH | tail -n 1 | sed s/"//"/"/"/ | cut -d'/' -f7)
+			fichier=$(cat "$fichier" | grep PATH | tail -n 1 | sed s/'\/\//\/'/ | cut -d'/' -f7)
 		fi
 	fi
 	echo $fichier
