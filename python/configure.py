@@ -469,8 +469,8 @@ class MainWindow(wx.Frame):
 		self.list_game = wx.TreeCtrl(self.splitter_list, 900, size = wx.DefaultSize, style=wx.TR_HIDE_ROOT)	
 		self.control_game = wx.Panel(self.splitter_list, -1)
 		
-		self.AddPrefix = wx.Button(self.control_game, 1001, _("New"), pos=(0,0),size=(105,30))
-		self.DelPrefix = wx.Button(self.control_game, 1002, _("Remove"), pos=(100,0), size=(105,30))
+		self.AddPrefix = wx.Button(self.control_game, 1001, _("New"), pos=(0,0),size=(95+10*Variables.windows_add_playonmac,30))
+		self.DelPrefix = wx.Button(self.control_game, 1002, _("Remove"), pos=(100,0), size=(95+10*Variables.windows_add_playonmac,30))
 		
 		wx.EVT_BUTTON(self, 1001, self.NewPrefix)
 		wx.EVT_BUTTON(self, 1002, self.DeletePrefix)
