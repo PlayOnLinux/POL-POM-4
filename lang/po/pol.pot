@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2011-07-31 15:48:21+02:00\n"
+"POT-Creation-Date: 2011-07-31 18:03:11+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -490,11 +490,6 @@ msgstr ""
 msgid "Please wait..."
 msgstr ""
 
-#: bash/killall:30
-#, sh-format
-msgid "Are you sure you want to shutdown all active PlayOnLinux applications?"
-msgstr ""
-
 #: bash/make_shortcut:31
 #, sh-format
 msgid ""
@@ -943,6 +938,16 @@ msgstr ""
 
 #: bash/run_app:26
 #, sh-format
+msgid "Nothing"
+msgstr ""
+
+#: bash/run_app:26
+#, sh-format
+msgid "Send the report to us"
+msgstr ""
+
+#: bash/run_app:26
+#, sh-format
 msgid "Show me the full report"
 msgstr ""
 
@@ -958,7 +963,7 @@ msgstr ""
 
 #: bash/run_app:26
 #, sh-format
-msgid "failed to run."
+msgid "crashed."
 msgstr ""
 
 #: bash/run_app:62
@@ -981,6 +986,13 @@ msgstr ""
 #: bash/run_app:85
 #, sh-format
 msgid "Please choose a software to run"
+msgstr ""
+
+#: bash/run_app:121
+#, sh-format
+msgid ""
+"The program you run crashed.\\n\\nYou need to enable debugging to get more "
+"details.\\nPlease go to configure menu"
 msgstr ""
 
 #: bash/run_exe:64
