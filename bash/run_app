@@ -23,7 +23,7 @@ source "$PLAYONLINUX/lib/sources"
 
 debug_menu()
 {
-	POL_SetupWindow_menu_num "$PACKAGE $(eval_gettext "failed to run.") $(eval_gettext "What do you want to do ?")" "$TITLE" "$(eval_gettext "Show me the log file")~$(eval_gettext "Show me the full report")~$(application_title "Send the report to us")~$(application_title "Nothing")" "~"
+	POL_SetupWindow_menu_num "$PACKAGE $(eval_gettext "crashed.") $(eval_gettext "What do you want to do ?")" "$TITLE" "$(eval_gettext "Show me the log file")~$(eval_gettext "Show me the full report")~$(eval_gettext "Send the report to us")~$(eval_gettext "Nothing")" "~"
 	ACTION="$APP_ANSWER"
 	echo $ACTION
 	if [ "$ACTION" = "0" ]
@@ -98,8 +98,16 @@ cat "$PACKAGE" >> "$LOGFILE"
 echo "[/code]" >> "$LOGFILE"
 
 echo "[b]Output :[/b]" >> "$LOGFILE"
+rm "$LOGFILE.e" 2> /dev/null
+touch "$LOGFILE.e"
 
-bash "$PACKAGE"
+if [ "$(cat "$PACKAGE" | grep 'export WINEDEBUG="-all"')" = "" ]
+then
+	echo "Debugger is starting"
+	xterm -T "$(eval_gettext "$APPLICATION_TITLE debugger")" -e "tail -f \"$LOGFILE.e\"" &
+fi
+
+bash "$PACKAGE" 2>> "$LOGFILE.e" >> "$LOGFILE.e"
 
 
 if [ ! "$?" = "0" ]
@@ -107,11 +115,11 @@ then
 
 
 	POL_SetupWindow_Init
-	POL_SetupWindow_wait_next_signal "$TITLE debugger is starting ..." "$TITLE"
-	rm "$LOGFILE.e"
-	cat "$PACKAGE" | sed s/"export WINEDEBUG"/"#export WINEDEBUG"/ > /tmp/debug
-
-	bash /tmp/debug 2>> "$LOGFILE.e" >> "$LOGFILE.e"
+	POL_SetupWindow_wait_next_signal "$(eval_gettext "$APPLICATION_TITLE debugger is starting...")" "$TITLE"
+	if [ ! "$(cat "$PACKAGE" | grep 'export WINEDEBUG="-all"')" = "" ]
+	then
+		POL_SetupWindow_message "$(eval_gettext "The program you runned crashed.\n\nYou need to enable debugging to get more details.\nPlease go to configure menu")" "$TITLE"
+	else
 	echo "[code language%3Dconsole]" >> "$LOGFILE"
 	cat "$LOGFILE.e" >> "$LOGFILE"
 	echo "[/code]" >> "$LOGFILE"
@@ -120,5 +128,6 @@ then
 	
 	sleep 2
 	debug_menu	
+	fi
 	POL_SetupWindow_Close
 fi
