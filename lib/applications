@@ -133,14 +133,16 @@ detect_wineprefix()
 }
 detect_wineversion()
 {
-	file="$REPERTOIRE/configurations/installed/$1"
-	if [ -e "$file" ]
+	fichier="$REPERTOIRE/configurations/installed/$1"
+	fichier=${fichier//"\""/""}
+	fichier=${fichier//"//"/"/"}
+	if [ -e "$fichier" ]
 	then
 		if [ "$POL_OS" == "Linux" ]
 		then
-			fichier=$(cat "$file" | grep PATH | tail -n 1 | cut -d'/' -f6)
+			fichier=$(cat "$fichier" | grep PATH | tail -n 1 | cut -d'/' -f6)
 		else
-			fichier=$(cat "$file" | grep PATH | tail -n 1 | cut -d'/' -f7)
+			fichier=$(cat "$fichier" | grep PATH | tail -n 1 | cut -d'/' -f7)
 		fi
 	fi
 	echo $fichier
