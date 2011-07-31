@@ -164,8 +164,8 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 		
 		
 		# Login
-		self.login = wx.StaticText(self.panel, -1, "Login : ",pos=(20,120),size=(460,20))
-		self.password = wx.StaticText(self.panel, -1, "Password : ",pos=(20,150),size=(460,20))
+		self.login = wx.StaticText(self.panel, -1, _("Login: "),pos=(20,120),size=(460,20))
+		self.password = wx.StaticText(self.panel, -1, _("Password: "),pos=(20,150),size=(460,20))
 		self.loginbox =  wx.TextCtrl(self.panel, -1, "",size=(250,22),pos=(100,115))
 		self.passbox =  wx.TextCtrl(self.panel, -1, "",size=(250,22),pos=(100,145), style=wx.TE_PASSWORD)
 		self.register = wx.HyperlinkCtrl(self.panel, 303, _("Register"), "", pos=(20,180))
@@ -433,6 +433,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 		else:
 			self.MenuGames.Show()
 			self.Menu.Hide()
+		self.Refresh()
 					
 	def AutoReload(self, event):
 		if(self.downloading == True):
@@ -580,6 +581,10 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 								self.cut = self.fichier[5].replace("\n","")
 								self.areaList = string.split(self.fichier[4].replace("\n",""),self.cut)
 							
+								self.space=self.fichier[2].count("\\n")+1
+								
+								self.Menu.SetPosition((20,85+self.space*16))
+								
 								self.Menu.Clear()
 								self.Menu.InsertItems(self.areaList,0)
 								self.Menu.Select(0)
@@ -633,6 +638,9 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 								
 
 								self.scrolled_panel.Show()
+								self.space=self.fichier[2].count("\\n")+1
+								
+								self.scrolled_panel.SetPosition((20,85+self.space*16))
 								
 								self.cut = self.fichier[5].replace("\n","")
 								self.areaList = string.split(self.fichier[4].replace("\n",""),self.cut)
@@ -743,6 +751,10 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
 								self.add_games()
 								self.MenuGames.Show()
+								
+								self.space=self.fichier[2].count("\\n")+1
+								
+								self.Menu.SetPosition((20,85+self.space*16))
 								
 								self.Menu.Clear()
 								self.areaList = os.listdir(Variables.playonlinux_rep+"/wineprefix/")

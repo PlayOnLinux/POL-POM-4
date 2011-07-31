@@ -112,7 +112,7 @@ then
 fi
 if [ "$menu" = "$LNG_LI_PATCH" ]
 then
-	POL_SetupWindow_prefix_selector
+	POL_SetupWindow_prefix_selector "$(eval_gettext "Please choose a program")"
 	select_prefixe "$APP_ANSWER"
 fi
 
@@ -129,7 +129,7 @@ LNG_WC_CONFWINE=$(eval_gettext "Configure Wine")
 LNG_WC_USEWT=$(eval_gettext "Install some libraries")
 ITEMS="$LNG_WC_ASSWV~$LNG_WC_CONFWINE~$LNG_WC_USEWT"
 
-POL_SetupWindow_checkbox_list "$(eval_gettext "What would you like to do before installation?") $(eval_gettext "If you don't know, unselect all")" "$TITLE" "$ITEMS" "~"
+POL_SetupWindow_checkbox_list "$(eval_gettext "What would you like to do before installation?")\n$(eval_gettext "If you don't know, unselect all")" "$TITLE" "$ITEMS" "~"
 WHATTORUNBEFORE="$APP_ANSWER"
 
 #Running AssignWine

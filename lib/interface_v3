@@ -513,9 +513,7 @@ POL_SetupWindow_prefix_selector ()
 MsgIn
 get_prefixes
 $1
-$2
-$3
-$4
+$TITLE
 $TIMESTAMP
 EOF
 	MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$') 
