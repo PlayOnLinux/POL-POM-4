@@ -118,7 +118,7 @@ then
 	POL_SetupWindow_wait_next_signal "$(eval_gettext "$APPLICATION_TITLE debugger is starting...")" "$TITLE"
 	if [ ! "$(cat "$PACKAGE" | grep 'export WINEDEBUG="-all"')" = "" ]
 	then
-		POL_SetupWindow_message "$(eval_gettext "The program you runned crashed.\n\nYou need to enable debugging to get more details.\nPlease go to configure menu")" "$TITLE"
+		POL_SetupWindow_message "$(eval_gettext "The program you run crashed.\n\nYou need to enable debugging to get more details.\nPlease go to configure menu")" "$TITLE"
 	else
 	echo "[code language%3Dconsole]" >> "$LOGFILE"
 	cat "$LOGFILE.e" >> "$LOGFILE"
