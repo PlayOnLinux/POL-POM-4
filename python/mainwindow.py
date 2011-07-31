@@ -355,7 +355,7 @@ class MainWindow(wx.Frame):
 	try :
 		os.system("bash \""+Variables.playonlinux_rep+"/plugins/"+plugin+"/scripts/menu\" \""+game_exec+"\"&")
 	except : 
-		print("bash \""+Variables.playonlinux_rep+"/plugins/"+plugin+"/scripts/menu\" "+game_exec+"&")
+		pass
 		
   def GoToAppDir(self, event):
 		self.game_exec = self.list_game.GetItemText(self.list_game.GetSelection())
@@ -429,9 +429,11 @@ class MainWindow(wx.Frame):
 	    
 	
   def Options(self, event):
-    print("Running options")
-    onglet=event.GetId()-210
-    self.optionFrame = options.MainWindow(self, -1, _("{0} settings").format(os.environ["APPLICATION_TITLE"]), onglet)
+    onglet=event.GetId()
+    if(onglet == 211):
+    	self.optionFrame = options.MainWindow(self, -1, _("{0} settings").format(os.environ["APPLICATION_TITLE"]), 2)
+    if(onglet == 214):
+    	self.optionFrame = options.MainWindow(self, -1, _("{0} settings").format(os.environ["APPLICATION_TITLE"]), 1)
     self.optionFrame.Center(wx.BOTH)
     self.optionFrame.Show(True)
 
