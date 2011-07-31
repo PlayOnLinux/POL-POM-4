@@ -60,7 +60,7 @@ class POLWeb(threading.Thread):
 	def run(self):
 		self.WebVersion = self.LastVersion()
 		
-		if(self.WebVersion == "" or 1==1):
+		if(self.WebVersion == ""):
 			self.sendToStatusBar(_('{0} website is unavailable. Please check your connexion').format(os.environ["APPLICATION_TITLE"]), False)
 		else:
 			self.sendToStatusBar(_("Refreshing "+os.environ["APPLICATION_TITLE"]), True)
