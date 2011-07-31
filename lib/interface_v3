@@ -732,10 +732,10 @@ POL_SetupWindow_auto_shortcut()
 }
 POL_SetupWindow_shortcut()
 {
-	POL_SetupWindow_warning "POL_SetupWindow_shortcut is deprecated"
+	POL_Debug_Warning "POL_SetupWindow_shortcut is deprecated"
 	POL_Shortcut "$@"
 }
-POL_shortcut()
+POL_Shortcut()
 {
 	# 1 = Binaire
 	# 2 = Nom du raccourcis

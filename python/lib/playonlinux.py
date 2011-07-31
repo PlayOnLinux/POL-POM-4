@@ -26,6 +26,44 @@ def GetWineVersion(game):
 		
 	return(version)
 		
+def GetDebugState(game):
+	cfile = Variables.playonlinux_rep+"configurations/installed/"+game
+	try:
+		fichier = open(cfile,"r").readlines()
+	except:
+		return True
+	
+	for line in fichier:
+		line = line.replace("\n","")
+		if(line == 'export WINEDEBUG="-all"'):
+			return False
+		if(line == 'export WINEDEBUG=""'):
+			return True
+	return False
+
+def SetDebugState(game, state):
+	cfile = Variables.playonlinux_rep+"configurations/installed/"+game
+	try:
+		fichier = open(cfile,"r").readlines()
+	except:
+		return False
+
+	lines = []
+	for line in fichier:
+		line = line.replace("\n","")
+		if('export WINEDEBUG=' in line):
+			if(state == True):
+				line = 'export WINEDEBUG=""'
+			else:
+				line = 'export WINEDEBUG="-all"'
+		lines.append(line)
+	
+	fichier_write = open(cfile,"w")
+
+	i = 0	
+	while(i < len(lines)): # On ecrit
+		fichier_write.write(lines[i]+"\n")
+		i+=1
 		
 def keynat(string):
     r'''A natural sort helper function for sort() and sorted()
