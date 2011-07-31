@@ -60,17 +60,17 @@ class POLWeb(threading.Thread):
 	def run(self):
 		self.WebVersion = self.LastVersion()
 		
-		if(self.WebVersion == ""):
-			self.sendToStatusBar(_(os.environ["APPLICATION_TITLE"]+" website is unavailable. Please check your connexion"), False)
+		if(self.WebVersion == "" or 1==1):
+			self.sendToStatusBar(_('{0} website is unavailable. Please check your connexion').format(os.environ["APPLICATION_TITLE"]), False)
 		else:
 			self.sendToStatusBar(_("Refreshing "+os.environ["APPLICATION_TITLE"]), True)
 			os.system("bash \""+Variables.playonlinux_env+"/bash/pol_update_list\"")
 		
-		if(playonlinux.convertVersionToInt(os.environ["VERSION"]) < playonlinux.convertVersionToInt(self.WebVersion)):
-			self.sendToStatusBar(_("An updated version of "+os.environ["APPLICATION_TITLE"]+" is available")+" ("+self.WebVersion+")",False)
-			self.sendAlert(_("An updated version of "+os.environ["APPLICATION_TITLE"]+" is available")+" ("+self.WebVersion+")")
-		else:
-			self.Show = False
+			if(playonlinux.convertVersionToInt(os.environ["VERSION"]) < playonlinux.convertVersionToInt(self.WebVersion)):
+				self.sendToStatusBar(_('An updated version of {0} is available').format(os.environ["APPLICATION_TITLE"])+" ("+self.WebVersion+")",False)
+				self.sendAlert(_('An updated version of {0} is available').format(os.environ["APPLICATION_TITLE"])+" ("+self.WebVersion+")")
+			else:
+				self.Show = False
 
 		    
 class MainWindow(wx.Frame):
@@ -116,11 +116,11 @@ class MainWindow(wx.Frame):
 	self.run_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/run.png"))
 	self.expertmenu.AppendItem(self.run_item)
 		
-	self.wineserv_item = wx.MenuItem(self.expertmenu, 115, _("Close all "+os.environ["APPLICATION_TITLE"]+" software"))
+	self.wineserv_item = wx.MenuItem(self.expertmenu, 115, _('Close all {0} software').format(os.environ["APPLICATION_TITLE"]))
 	self.wineserv_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/wineserver.png"))
 	self.expertmenu.AppendItem(self.wineserv_item)
 
-	self.polshell_item = wx.MenuItem(self.expertmenu, 109, _(os.environ["APPLICATION_TITLE"]+" console"))
+	self.polshell_item = wx.MenuItem(self.expertmenu, 109, _('{0} console').format(os.environ["APPLICATION_TITLE"]))
 	self.polshell_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/polshell.png"))
 	self.expertmenu.AppendItem(self.polshell_item)
 
@@ -155,7 +155,7 @@ class MainWindow(wx.Frame):
 
 	
 	self.help_menu = wx.Menu()
-	self.help_menu.Append(wx.ID_ABOUT, "About "+os.environ["APPLICATION_TITLE"])
+	self.help_menu.Append(wx.ID_ABOUT, _('About {0}').format(os.environ["APPLICATION_TITLE"]))
 
 	self.pluginsmenu = wx.Menu()
 
@@ -431,7 +431,7 @@ class MainWindow(wx.Frame):
   def Options(self, event):
     print("Running options")
     onglet=event.GetId()-210
-    self.optionFrame = options.MainWindow(self, -1, _(os.environ["APPLICATION_TITLE"]+" Settings"), onglet)
+    self.optionFrame = options.MainWindow(self, -1, _("{0} settings").format(os.environ["APPLICATION_TITLE"]), onglet)
     self.optionFrame.Center(wx.BOTH)
     self.optionFrame.Show(True)
 
@@ -457,9 +457,9 @@ class MainWindow(wx.Frame):
   def Configure(self, event):
 	game_exec = self.list_game.GetItemText(self.list_game.GetSelection()) 
 	if(game_exec == ""):
-		configureFrame = configure.MainWindow(None, -1, os.environ["APPLICATION_TITLE"]+_(" configuration"),"default",True)
+		configureFrame = configure.MainWindow(None, -1, _("{0} configuration").format(os.environ["APPLICATION_TITLE"]),"default",True)
 	else:
-		configureFrame = configure.MainWindow(None, -1, os.environ["APPLICATION_TITLE"]+_(" configuration"),game_exec,False)
+		configureFrame = configure.MainWindow(None, -1, _("{0} configuration").format(os.environ["APPLICATION_TITLE"]),game_exec,False)
 		#self.SetTopWindow(installFrame)
 	configureFrame.Center(wx.BOTH)
 	configureFrame.Show(True)
@@ -499,7 +499,7 @@ class MainWindow(wx.Frame):
    
 
   def InstallMenu(self, event):
-    installFrame = install.InstallWindow(None, -1, os.environ["APPLICATION_TITLE"]+" Install menu")
+    installFrame = install.InstallWindow(None, -1, _('{0} install menu').format(os.environ["APPLICATION_TITLE"]))
     #self.SetTopWindow(installFrame)
     installFrame.Center(wx.BOTH)
     installFrame.Show(True)
@@ -512,7 +512,7 @@ class MainWindow(wx.Frame):
     os.system("bash \""+Variables.playonlinux_env+"/bash/autorun\"&")
 
   def WineVersion(self, event):
-    wversion = wver.MainWindow(None, -1, os.environ["APPLICATION_TITLE"]+" wine versions manager")
+    wversion = wver.MainWindow(None, -1, _('{0} wine versions manager').format(os.environ["APPLICATION_TITLE"]))
     wversion.Center(wx.BOTH)
     wversion.Show(True)
 	#os.system("bash \""+Variables.playonlinux_env+"/bash/wineversion\"&")
@@ -525,7 +525,7 @@ class MainWindow(wx.Frame):
 
 
   def ClosePol(self, event):
-    if(wx.YES == wx.MessageBox(_("Are you sure you want to close all "+os.environ["APPLICATION_TITLE"]+" Windows ?").decode("utf-8"), style=wx.YES_NO | wx.ICON_QUESTION)):
+    if(wx.YES == wx.MessageBox(_('Are you sure you want to close all {0} Windows ?').format(os.environ["APPLICATION_TITLE"]).decode("utf-8"), style=wx.YES_NO | wx.ICON_QUESTION)):
 		os.remove(Variables.playonlinux_rep+"/configurations/guis/index_"+os.environ["POL_ID"])
 		os._exit(0)
     return None

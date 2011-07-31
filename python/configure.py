@@ -448,7 +448,7 @@ class MainWindow(wx.Frame):
 	def __init__(self,parent,id,title,shortcut, isPrefix = False):
 		wx.Frame.__init__(self, parent, -1, title, size = (700, 450), style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX)
 		self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
-		self.SetTitle(os.environ["APPLICATION_TITLE"]+_(" configuration"))
+		self.SetTitle(_('{0} configuration').format(os.environ["APPLICATION_TITLE"]))
 		#self.panelFenp = wx.Panel(self, -1)
 	
 		self.splitter = wx.SplitterWindow(self, -1, style=wx.SP_NOBORDER)

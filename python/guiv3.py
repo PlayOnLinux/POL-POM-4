@@ -123,7 +123,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
 		
 		# Text
-		self.titre_header = wx.StaticText(self.header, -1, _(os.environ["APPLICATION_TITLE"]+" Wizard"),pos=(5,5), size=(340,356))
+		self.titre_header = wx.StaticText(self.header, -1, _('{0} Wizard').format(os.environ["APPLICATION_TITLE"]),pos=(5,5), size=(340,356))
 		self.titre_header.SetFont(self.fontTitre)
 		self.texte = wx.StaticText(self.panel, -1, "",pos=(20,80),size=(480,275))
 		self.texte_bis = wx.StaticText(self.panel, -1, "",size=(480,30))
