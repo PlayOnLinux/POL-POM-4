@@ -59,11 +59,10 @@ config_maj() # Celle ci est exécuté à chaque ligne (wget | config_maj), elle 
 maj_check ()
 {
 	#clean_tmp
-	touch "$POL_USER_ROOT/configurations/update_mark.txt"
 	WEB_TIMESTAMP="$(wget "$SITE/update_mark.txt" -O- -q 2> /dev/null)"
-	LAST_TIMESTAMP="$(cat "$POL_USER_ROOT/configurations/update_mark.txt")"
+	LAST_TIMESTAMP="$(POL_Config_Read LAST_TIMESTAMP)"
 
-	
+	wget "$SITE/V3_data/repository/getf.php" -O- -q > "$REPERTOIRE/configurations/listes/POL_Functions"
 	if [ ! "$WEB_TIMESTAMP" = "" ] && [ ! "$WEB_TIMESTAMP" = "$LAST_TIMESTAMP" ] # On évite les mises à jours inutiles
 	then
 		POL_Debug_Message "Web version : $WEB_TIMESTAMP"
@@ -73,14 +72,9 @@ maj_check ()
 		cd "$REPERTOIRE/configurations/listes"
 		rm -f * 2> /dev/null
 		touch 0 1 2 3 4 5 6 7 8 9 10 rate download search POL_Functions
-		wget $SITE/V3_data/repository/getf.php -O- -q > POL_Functions
-			
+					
 		if [ "$POL_OS" = "Linux" ]
 		then
-			if [ "$DOSBOX_SUPPORT" = "1" ]
-			then
-				wget "$SITE/V3_data/repository/get_list.php?dosbox=1" -O- -q | config_maj
-			fi
 			wget "$SITE/V3_data/repository/get_list.php" -O- -q | config_maj
 			wget "$SITE/V3_data/repository/get_top?by=download" -O- -q > download
 			wget "$SITE/V3_data/repository/get_top" -O- -q > rate
@@ -91,7 +85,7 @@ maj_check ()
            	wget "$SITE/V3_data/repository/get_top?playonmac=1" -O- -q > rate
 			wget "$SITE/V3_data/repository/get_md5_list.php?playonmac=1" -O- -q > md5sums
 		fi
-		printf "$WEB_TIMESTAMP" > "$POL_USER_ROOT/configurations/update_mark.txt"
+		POL_Config_Write LAST_TIMESTAMP "$WEB_TIMESTAMP"
 	else
 		POL_Debug_Message "List is up to date"
 	fi
