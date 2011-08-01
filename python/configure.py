@@ -34,6 +34,7 @@ class Onglets(wx.Notebook):
 	def __init__(self, parent):
 		self.notebook = wx.Notebook.__init__(self, parent, -1)
 		self.typing = False
+		self.changing_selection = False
 		
 	def ChangeTitle(self, new_title):
 		self.s_title = new_title
@@ -422,7 +423,10 @@ class Onglets(wx.Notebook):
 				
 	def setname(self, event):
 		new_name = self.general_elements["name"].GetValue()
-		self.typing = True
+		if(self.changing_selection == False):
+			self.typing = True
+		else:
+			self.changing_selection = False
 		if(not os.path.exists(Variables.playonlinux_rep+"configurations/installed/"+new_name)):
 			try:
 				os.rename(Variables.playonlinux_rep+"icones/32/"+self.s_title,Variables.playonlinux_rep+"icones/32/"+new_name)
@@ -538,8 +542,9 @@ class MainWindow(wx.Frame):
 					
 		self.onglets.s_isPrefix = True
 		self.change_program("default",True)
+		self.onglets.changing_selection = True
 		self.list_game.SelectItem(self.prefixes_item["default"])
-		self.onglets.typing = False
+		
 		
 	def AutoReload(self, event):
 		if(self.onglets.typing == False):
