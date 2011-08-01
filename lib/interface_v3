@@ -40,7 +40,8 @@ export POL_SetupWindow_ID=$$ # Au moins 100000 fois plus logique, et plus simple
 
 POL_SetupWindow_presentation ()
 {
-	POL_SetupWindow_free_presentation "$(eval_gettext "Welcome to $APPLICATION_TITLE's Installation Wizard.")" "$(eval_gettext 'This wizard will help you install ')$1$(eval_gettext ' on your computer.')\n\n$(eval_gettext 'This program was created by: ')$2\n($3)\n\n$(eval_gettext 'This installation program is provided by: ')$4\n\n$1$(eval_gettext ' will be installed in: ')$REPERTOIRE/wineprefix/$5$(eval_gettext "\n\n$APPLICATION_TITLE is not responsable for anything that might happen as a result of using these scripts.\n\n")$(eval_gettext 'Click Next to start')"
+	[ "$3" = "" ] || url="($3)" 
+	POL_SetupWindow_free_presentation "$(eval_gettext "Welcome to $APPLICATION_TITLE's Installation Wizard.")" "$(eval_gettext 'This wizard will help you install ')$1$(eval_gettext ' on your computer.')\n\n$(eval_gettext 'This program was created by: ')$2\n$url\n\n$(eval_gettext 'This installation program is provided by: ')$4\n\n$1$(eval_gettext ' will be installed in: ')$REPERTOIRE/wineprefix/$5$(eval_gettext "\n\n$APPLICATION_TITLE is not responsable for anything that might happen as a result of using these scripts.\n\n")$(eval_gettext 'Click Next to start')"
 
 }
 POL_SetupWindow_free_presentation ()
