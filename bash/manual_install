@@ -90,6 +90,20 @@ run_autorun()
 
 }
 
+ManualInstall_ScriptInit ()
+{
+	## $SCRIPTPATH
+	cat << EOF > "$SCRIPTPATH"
+#!/bin/bash
+# Auto-generated script : $SCRIPTPATH
+# Les trucs entre { } doivent être remplacés par POL Online
+
+[ "\$PLAYONLINUX" = "" ] && exit 
+source "\$PLAYONLINUX/lib/sources"
+POL_SetupWindow_Init
+POL_SetupWindow_presentation "{SCRIPT_NAME}" "{SCRIPT_EDITEUR}" "{SCRIPT_URL}" "$USER" "$PREFIXNAME"
+EOF
+}
 
 POL_SetupWindow_Init
 POL_SetupWindow_free_presentation "$(eval_gettext 'Manual installation')" "$(eval_gettext "Welcome to $APPLICATION_TITLE's manual installation wizard.\n\nThis script will allow you to install any program on $APPLICATION and use it with all the tools\n\nWarning: We are unable to guarantee that your application will work perfectly.")"
@@ -108,19 +122,33 @@ fi
 if [ "$menu" = "$LNG_LI_NEW" ]
 then
 	POL_SetupWindow_textbox "$(eval_gettext "Please type a name for your application's virtual drive.\nThis name shouldn't contain spaces.")" "$TITLE"
-	select_prefixe "$REPERTOIRE/wineprefix/$APP_ANSWER"
+	PREFIXNAME="$APP_ANSWER"
+	SCRIPTPATH="$POL_USER_ROOT/scripts/$APP_ANSWER"
+	SCRIPTNAME="$APP_ANSWER"
+	ManualInstall_ScriptInit
+	echo "POL_Wine_SelectPrefix \"$PREFIXNAME\"" >> "$SCRIPTPATH"
+	POL_Wine_SelectPrefix "$PREFIXNAME"
 fi
 if [ "$menu" = "$LNG_LI_PATCH" ]
 then
 	POL_SetupWindow_prefix_selector "$(eval_gettext "Please choose a program")"
-	select_prefixe "$APP_ANSWER"
+	PREFIXNAME="$APP_ANSWER"
+	SCRIPTPATH="$POL_USER_ROOT/scripts/$APP_ANSWER"
+	SCRIPTNAME="$APP_ANSWER"
+	
+	ManualInstall_ScriptInit
+	echo "POL_Wine_SelectPrefix \"$PREFIXNAME\"" >> "$SCRIPTPATH"
+	
+	echo "[ \"\$(POL_Wine_PrefixExists \"$PREFIXNAME\")\" = \"True\" ] || exit 0" >> "$SCRIPTPATH"
+	
+
+	POL_Wine_SelectPrefix "$APP_ANSWER"
 fi
 
 if [ "$WINEPREFIX" = "" ]
 then
-	POL_Debug_Error "No name chosen"
-	POL_SetupWindow_Close
-	exit 1
+	rm "$SCRIPTPATH"
+	POL_Debug_Fatal "No name chosen"
 fi
 
 
@@ -149,21 +177,68 @@ then
 		WINEVERSIONLIVE="--reset"
 	fi
 	Use_WineVersion "$WINEVERSIONLIVE"
+	echo "Use_WineVersion \"$WINEVERSIONLIVE\"" >> "$SCRIPTPATH"
 fi
 
 POL_SetupWindow_prefixcreate
+echo "POL_SetupWindow_prefixcreate" >> "$SCRIPTPATH"
 
 #Running WineConfiguration
 if [ "$(echo $WHATTORUNBEFORE | grep -o "$LNG_WC_CONFWINE")" == "$LNG_WC_CONFWINE" ]
 then
 	POL_SetupWindow_wait_next_signal "$(eval_gettext "Configure Wine")" "$(eval_gettext 'Manual installation')"
-	winecfg
+	cd "$WINEPREFIX"
+	ls
+	cp user.reg user.org
+	cp system.reg system.org
+	
+	wine winecfg
+
+# La je sens qu'on va bien s'amuser comme des petits fous :)
+# En fait on oublit cette idée ! Trop de trucs utilisateurs merdiques
+	cat << EOF >> /dev/null 
+cat << END1 > "\$REPERTOIRE/tmp/user.diff"
+$(diff user.org user.reg)
+END1
+
+cat << END2 > "\$REPERTOIRE/tmp/system.diff"
+$(diff system.org system.reg)
+END2
+
+cd "\$WINEPREFIX"
+mv user.reg user.org
+mv system.reg system.org
+
+patch -p0 < "\$REPERTOIRE/tmp/user.diff"
+patch -p0 < "\$REPERTOIRE/tmp/system.diff"
+
+mv user.org user.reg
+mv system.org system.reg
+EOF
 fi
 
 #Running WineTricks
 if [ "$(echo $WHATTORUNBEFORE | grep -o "$LNG_WC_USEWT")" == "$LNG_WC_USEWT" ]
 then
-	POL_Call_list
+	[ "$WINEPREFIX" == "" ] && POL_Debug_Fatal "WINEPREFIX is not set"
+	wineserver -k
+	ITEMS=$(wget $SITE/V3_data/repository/getf.php -O-)
+	POL_SetupWindow_checkbox_list "$(eval_gettext "Please make your choice")" "$APPLICATION_TITLE" "$ITEMS" "/"
+ 
+	old="$IFS"
+	IFS=/
+	set "$APP_ANSWER"
+ 
+	for i in $*
+	do
+		POL_Debug_Message "POL_Call_list is calling $i"
+		IFS="$old"
+		POL_Call "$i"
+		echo "POL_Call \"$i\"" >> "$SCRIPTPATH"
+		
+		IFS=/
+	done
+	IFS="$old"
 fi
 
 
@@ -212,29 +287,49 @@ fi
 if [ "$CHOICE" = "MANUAL" ] || [ "$i" = "0" ]
 then
 	cd "$HOME"
-	POL_SetupWindow_browse "$(eval_gettext "Please select the install file to run.")" "$(eval_gettext $TITLE)"
+	POL_SetupWindow_browse "$(eval_gettext "Please select the install file to run.")"  "$TITLE"
+	echo "POL_SetupWindow_browse \"\$(eval_gettext \"Please select the install file.\")\" \"\$TITLE\"" >> "$SCRIPTPATH"
+	
 	SETUP_PATH="$APP_ANSWER"
+	echo "SETUP_PATH=\"\$APP_ANSWER\"" >> "$SCRIPTPATH"
+	
 else
 	run_autorun "$CHOICE"
+	echo "POL_SetupWindow_cdrom" >> "$SCRIPTPATH"
+	echo "POL_SetupWindow_check_cdrom \"$SetupIs\"" >> "$SCRIPTPATH"
+	echo "SETUP_PATH=\"\$CDROM/$SetupIs\"" >> "$SCRIPTPATH"
+	
 fi
 
 if [ "$SETUP_PATH" = "" ]
 then
-	POL_SetupWindow_message "$(eval_gettext "You must choose a file!")" "$(eval_gettext 'Manual installation')"
+	rm "$SCRIPTPATH"
+	POL_SetupWindow_message "$(eval_gettext "You must choose a file!")" "$TITLE"
 	POL_SetupWindow_Close
 	exit 1
 fi
 WORKINGSETUP_PATH=$(dirname "$SETUP_PATH")
 cd "$WORKINGSETUP_PATH"
 POL_SetupWindow_wait "$(eval_gettext '$APPLICATION_TITLE is installing your application...')" "$TITLE"
+echo "POL_SetupWindow_wait \"\$(eval_gettext '$APPLICATION_TITLE is installing your application...')\" \"\$TITLE\"" >> "$SCRIPTPATH"
+
 extension=$(echo "$SETUP_PATH" | sed 's/.*\.//g')
 if [ "$extension" = "msi" ]
 then
 POL_Wine msiexec /i "$SETUP_PATH"
+echo "POL_Wine msiexec /i \"\$SETUP_PATH\"" >> "$SCRIPTPATH"
+
 else
 POL_Wine "$SETUP_PATH"
+echo "POL_Wine \"\$SETUP_PATH\"" >> "$SCRIPTPATH"
 fi 
 
 POL_SetupWindow_message "$(eval_gettext 'Please do not press Next until the installation has been completed.')" "$TITLE"
+echo "POL_SetupWindow_message \"\$(eval_gettext 'Please do not press Next until the installation has been completed.')\" \"\$TITLE\"" >> "$SCRIPTPATH"
 POL_SetupWindow_shortcut_creator
+
+cat "$POL_USER_ROOT/tmp/shortcuts" >> "$SCRIPTPATH"
 POL_SetupWindow_Close
+echo "POL_SetupWindow_Close"  >> "$SCRIPTPATH"
+echo "exit"  >> "$SCRIPTPATH"
+exit

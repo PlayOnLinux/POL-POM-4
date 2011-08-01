@@ -296,6 +296,7 @@ POL_SetupWindow_shortcut_creator()
 		POL_SetupWindow_textbox "$(eval_gettext "Please choose a shortcut name for $EXE_FILE")" "$TITLE"
 		TITRE="$APP_ANSWER"
 		POL_SetupWindow_shortcut "$EXE_FILE" "$TITRE"
+		echo "POL_SetupWindow_shortcut \"$EXE_FILE\" \"$TITRE\"" >> "$POL_USER_ROOT/tmp/shortcuts"
 		POL_SetupWindow_shortcut_creator
 	fi
 }
@@ -365,6 +366,7 @@ POL_System_TmpDelete()
 
 POL_Shortcut_GetPrefix()
 {
+	[ "$1" = "" ] && POL_Debug_Error "No shortcut specified"
 	fichier="$REPERTOIRE/configurations/installed/$1"
 	#fichier=${fichier//"\""/""}
 	#fichier=${fichier//"//"/"/"}
@@ -378,6 +380,7 @@ POL_Shortcut_GetPrefix()
 }
 POL_Shortcut_GetVersion()
 {
+	[ "$1" = "" ] && POL_Debug_Error "No shortcut specified"
 	fichier="$REPERTOIRE/configurations/installed/$1"
 	#fichier=${fichier//"\""/""}
 	#fichier=${fichier//"//"/"/"}
