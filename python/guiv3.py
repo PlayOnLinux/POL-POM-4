@@ -313,12 +313,12 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 		self.NextButton.Enable(False)
 
 	def release_menugame(self,event):
-		self.SendBash("MSG_VALUE="+self.MenuGames.GetItemText(self.MenuGames.GetSelection()))
+		self.SendBash("MSG_VALUE="+self.MenuGames.GetItemText(self.MenuGames.GetSelection()).encode("utf-8"))
 		self.NextButton.Enable(False)
 		
 	def release_menuprefixes(self,event):
 		if(self.PCheckBox.IsChecked() == False): # Alors il faut renvoyer le prefix
-			self.SendBash("MSG_VALUE=1;"+self.MenuGames.GetItemText(self.MenuGames.GetSelection()))
+			self.SendBash("MSG_VALUE=1;"+self.MenuGames.GetItemText(self.MenuGames.GetSelection()).encode("utf-8"))
 		else:
 			self.SendBash("MSG_VALUE=2;"+self.areaList[self.Menu.GetSelection()])
 			
@@ -381,7 +381,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 			self.bitmap.Rescale(22,22,wx.IMAGE_QUALITY_HIGH)
 			self.bitmap = self.bitmap.ConvertToBitmap()
 			self.images.Add(self.bitmap)
-			self.MenuGames.AppendItem(self.root, game.encode("utf-8"), self.i)
+			self.MenuGames.AppendItem(self.root, game, self.i)
 			self.i = self.i+1
 							
 							
