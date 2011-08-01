@@ -295,8 +295,8 @@ POL_SetupWindow_shortcut_creator()
 	then
 		POL_SetupWindow_textbox "$(eval_gettext "Please choose a shortcut name for $EXE_FILE")" "$TITLE"
 		TITRE="$APP_ANSWER"
-		POL_SetupWindow_shortcut "$EXE_FILE" "$TITRE"
-		echo "POL_SetupWindow_shortcut \"$EXE_FILE\" \"$TITRE\"" >> "$POL_USER_ROOT/tmp/shortcuts"
+		POL_Shortcut "$EXE_FILE" "$TITRE"
+		echo "POL_Shortcut \"$EXE_FILE\" \"$TITRE\"" >> "$POL_USER_ROOT/tmp/shortcuts"
 		POL_SetupWindow_shortcut_creator
 	fi
 }

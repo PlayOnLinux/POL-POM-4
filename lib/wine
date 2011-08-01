@@ -656,3 +656,8 @@ POL_Wine_OverrideDLL_App()
 	regedit app_dll_override.reg
 	rm app_dll_override.reg
 }
+POL_Wine_WaitExit ()
+{
+	POL_SetupWindow_wait "$(eval_gettext "Please wait...")" "$TITLE"
+	wineserver -w
+}

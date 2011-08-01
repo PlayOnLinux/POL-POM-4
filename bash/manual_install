@@ -21,6 +21,9 @@
 [ "$PLAYONLINUX" = "" ] && exit 
 source "$PLAYONLINUX/lib/sources"
 
+INSTALL_NUMBER="$(POL_Config_Read MANUAL_INSTALL_INCREMENT)"
+INSTALL_NUMBER=$(( INSTALL_NUMBER + 1 ))
+POL_Config_Write MANUAL_INSTALL_INCREMENT $INSTALL_NUMBER
 TITLE="$(eval_gettext 'Manual installation')"
 POL_Debug_Init
 run_autorun()
@@ -101,7 +104,8 @@ ManualInstall_ScriptInit ()
 [ "\$PLAYONLINUX" = "" ] && exit 
 source "\$PLAYONLINUX/lib/sources"
 POL_SetupWindow_Init
-POL_SetupWindow_presentation "{SCRIPT_NAME}" "{SCRIPT_EDITEUR}" "{SCRIPT_URL}" "$USER" "$PREFIXNAME"
+POL_Debug_Init
+POL_SetupWindow_presentation "{SCRIPT_NAME}" "{SCRIPT_EDITEUR}" "{SCRIPT_URL}" "{SCRIPT_USER}" "$PREFIXNAME"
 EOF
 }
 
@@ -123,8 +127,8 @@ if [ "$menu" = "$LNG_LI_NEW" ]
 then
 	POL_SetupWindow_textbox "$(eval_gettext "Please type a name for your application's virtual drive.\nThis name shouldn't contain spaces.")" "$TITLE"
 	PREFIXNAME="$APP_ANSWER"
-	SCRIPTPATH="$POL_USER_ROOT/scripts/$APP_ANSWER"
-	SCRIPTNAME="$APP_ANSWER"
+	SCRIPTPATH="$POL_USER_ROOT/scripts/${APP_ANSWER}_${INSTALL_NUMBER}"
+	SCRIPTNAME="${APP_ANSWER}_${INSTALL_NUMBER}"
 	ManualInstall_ScriptInit
 	echo "POL_Wine_SelectPrefix \"$PREFIXNAME\"" >> "$SCRIPTPATH"
 	POL_Wine_SelectPrefix "$PREFIXNAME"
@@ -133,8 +137,8 @@ if [ "$menu" = "$LNG_LI_PATCH" ]
 then
 	POL_SetupWindow_prefix_selector "$(eval_gettext "Please choose a program")"
 	PREFIXNAME="$APP_ANSWER"
-	SCRIPTPATH="$POL_USER_ROOT/scripts/$APP_ANSWER"
-	SCRIPTNAME="$APP_ANSWER"
+	SCRIPTPATH="$POL_USER_ROOT/scripts/${APP_ANSWER}_${INSTALL_NUMBER}"
+	SCRIPTNAME="${APP_ANSWER}_${INSTALL_NUMBER}"
 	
 	ManualInstall_ScriptInit
 	echo "POL_Wine_SelectPrefix \"$PREFIXNAME\"" >> "$SCRIPTPATH"
@@ -324,8 +328,11 @@ POL_Wine "$SETUP_PATH"
 echo "POL_Wine \"\$SETUP_PATH\"" >> "$SCRIPTPATH"
 fi 
 
-POL_SetupWindow_message "$(eval_gettext 'Please do not press Next until the installation has been completed.')" "$TITLE"
-echo "POL_SetupWindow_message \"\$(eval_gettext 'Please do not press Next until the installation has been completed.')\" \"\$TITLE\"" >> "$SCRIPTPATH"
+#POL_SetupWindow_message "$(eval_gettext 'Please do not press Next until the installation has been completed.')" "$TITLE"
+#echo "POL_SetupWindow_message \"\$(eval_gettext 'Please do not press Next until the installation has been completed.')\" \"\$TITLE\"" >> "$SCRIPTPATH"
+POL_Wine_WaitExit
+echo "POL_Wine_WaitExit" >> "$SCRIPTPATH"
+rm "$POL_USER_ROOT/tmp/shortcuts" 2> /dev/null
 POL_SetupWindow_shortcut_creator
 
 cat "$POL_USER_ROOT/tmp/shortcuts" >> "$SCRIPTPATH"
