@@ -427,6 +427,7 @@ class Onglets(wx.Notebook):
 			self.typing = True
 		else:
 			self.changing_selection = False
+			
 		if(not os.path.exists(Variables.playonlinux_rep+"configurations/installed/"+new_name)):
 			try:
 				os.rename(Variables.playonlinux_rep+"icones/32/"+self.s_title,Variables.playonlinux_rep+"icones/32/"+new_name)
@@ -542,7 +543,6 @@ class MainWindow(wx.Frame):
 					
 		self.onglets.s_isPrefix = True
 		self.change_program("default",True)
-		self.onglets.changing_selection = True
 		self.list_game.SelectItem(self.prefixes_item["default"])
 		
 		
@@ -569,10 +569,11 @@ class MainWindow(wx.Frame):
 			self.onglets.s_isPrefix = True
 		else:
 			self.onglets.s_isPrefix = False
-			
+		
 		self.change_program(self.list_game.GetItemText(self.list_game.GetSelection()),self.onglets.s_isPrefix)
 		
 	def change_program(self, new_prgm,isPrefix = False):
+		self.onglets.changing_selection = True
 		if(isPrefix == True):
 			self.onglets.s_isPrefix = True
 		self.onglets.UpdateValues(new_prgm)
