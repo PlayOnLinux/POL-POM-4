@@ -19,7 +19,7 @@
 
 POL_Tools_GenID() # On génère un ID unique pour notre fenêtre
 {
-	N_LETTRES=50
+	N_LETTRES="$1"
 
 	if [ "$1" != "" ]
 	then
@@ -35,7 +35,6 @@ POL_Tools_GenID() # On génère un ID unique pour notre fenêtre
 	printf ${ALPHA:$CHIFFRE:1};
 	(( i=i+1 ))
 	done
-	exit 0
 }
 export POL_SetupWindow_ID=$$ # Au moins 100000 fois plus logique, et plus simple
 
@@ -534,9 +533,9 @@ EOF
 		VALUE="$(echo $MESSAGE_TER | cut -d";" -f2)" 
 		if [ "$KINDOF" = "2" ]
 		then
-			export APP_ANSWER="$POL_USER_ROOT/wineprefix/$VALUE"
+			export APP_ANSWER="$VALUE"
 		else
-			export APP_ANSWER="$(detect_wineprefix "$VALUE")"
+			export APP_ANSWER="$(POL_Shortcut_GetPrefix "$VALUE")"
 		fi
 	fi
 }

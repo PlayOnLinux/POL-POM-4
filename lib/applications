@@ -362,3 +362,30 @@ POL_System_TmpDelete()
 	# Sans arguments
 	[ ! "$POL_System_TmpName" = "" ] && rm -rf "$POL_USER_ROOT/tmp/$POL_System_TmpName" || POL_Debug_Warning "POL_System_TmpName is not defined !"
 }
+
+POL_Shortcut_GetPrefix()
+{
+	fichier="$REPERTOIRE/configurations/installed/$1"
+	#fichier=${fichier//"\""/""}
+	#fichier=${fichier//"//"/"/"}
+	if [ -e "$fichier" ]
+	then
+		fichier="$(cat "$fichier" | grep WINEPREFIX | tail -n 1 | sed s/'\/\//\/'/)"
+		fichier="${fichier/"$POL_USER_ROOT"/""}"
+		fichier="$(printf "$fichier" | cut -d "/" -f2)"
+	fi
+	printf "$fichier" | tr -d \"
+}
+POL_Shortcut_GetVersion()
+{
+	fichier="$REPERTOIRE/configurations/installed/$1"
+	#fichier=${fichier//"\""/""}
+	#fichier=${fichier//"//"/"/"}
+	if [ -e "$fichier" ]
+	then
+		fichier="$(cat "$fichier" | grep PATH | tail -n 1 | sed s/'\/\//\/'/)"
+		fichier="${fichier/"$POL_USER_ROOT"/""}"
+		fichier="$(printf "$fichier" | cut -d "/" -f2)"
+	fi
+	printf "$fichier" | tr -d \"
+}
