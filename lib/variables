@@ -35,7 +35,7 @@ fi
 export POL_TERM="xterm"
 
 ### Desktop
-[ ! "$DESKTOP" ] && [ "$(which xdg-user-dir)" ] && export DESKTOP="$(xdg-user-dir DESKTOP)" || export DESKTOP="$HOME/Desktop"
+[ "$(which xdg-user-dir)" ] && export DESKTOP="$(xdg-user-dir DESKTOP)" || export DESKTOP="$HOME/Desktop"
 
 ### Language
 export TEXTDOMAINDIR="$PLAYONLINUX/lang/locale/"
