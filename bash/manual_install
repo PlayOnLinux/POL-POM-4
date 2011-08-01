@@ -178,9 +178,10 @@ then
 	WINEVERSIONLIVE="$APP_ANSWER"
 	if [ "$WINEVERSIONLIVE" = "System" ]
 	then
-		WINEVERSIONLIVE="--reset"
-	fi
+		WINEVERSIONLIVE=""
+	else
 	Use_WineVersion "$WINEVERSIONLIVE"
+	fi
 	echo "Use_WineVersion \"$WINEVERSIONLIVE\"" >> "$SCRIPTPATH"
 fi
 
@@ -346,7 +347,7 @@ fi
 POL_Wine_WaitExit
 echo "POL_Wine_WaitExit" >> "$SCRIPTPATH"
 rm "$POL_USER_ROOT/tmp/shortcuts" 2> /dev/null
-POL_SetupWindow_shortcut_creator
+POL_SetupWindow_shortcut_creator "$WINEVERSIONLIVE"
 
 cat "$POL_USER_ROOT/tmp/shortcuts" >> "$SCRIPTPATH"
 POL_SetupWindow_Close
