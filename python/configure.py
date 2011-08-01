@@ -39,6 +39,7 @@ class Onglets(wx.Notebook):
 	def ChangeTitle(self, new_title):
 		self.s_title = new_title
 		self.s_prefix = playonlinux.getPrefix(self.s_title)
+		self.changing_selection = True
 		self.general_elements["name"].SetValue(new_title)
 		self.changing = True
 
