@@ -636,7 +636,7 @@ class MainWindow(wx.Frame):
 		if(self.onglets.s_isPrefix == True):
 			self.list_game.SelectItem(self.prefixes_item[self.onglets.s_prefix])
 		else:
-			self.list_game.SelectItem(self.games_item[self.onglets.s_title])
+			self.list_game.SelectItem(self.games_item[self.onglets.s_title.encode("utf-8")])
 	
 	def app_Close(self, event):
 		self.Destroy()
