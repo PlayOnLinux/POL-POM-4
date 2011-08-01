@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2011-07-31 18:03:11+02:00\n"
+"POT-Creation-Date: 2011-08-01 16:01:21+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -209,7 +209,7 @@ msgstr ""
 #: Detour plugin:6
 msgid "Operation done"
 msgstr ""
-#: bash/bug_report:34 bash/debug_main:30 python/mainwindow.py:133
+#: bash/bug_report:34 bash/debug_main:30 python/mainwindow.py:146
 #, sh-format
 msgid "Report a bug"
 msgstr ""
@@ -228,7 +228,7 @@ msgstr ""
 
 #: bash/bug_report:42
 #, sh-format
-msgid "My problem concerns PlayOnLinux itself"
+msgid "My problem concerns $APPLICATION_TITLE itself"
 msgstr ""
 
 #: bash/bug_report:42
@@ -305,7 +305,7 @@ msgid "Bug report generated."
 msgstr ""
 
 #: bash/expert/Executer:27 bash/expert/Executer:32 bash/expert/Executer:34
-#: python/mainwindow.py:115
+#: python/mainwindow.py:128
 #, sh-format
 msgid "Run a local script"
 msgstr ""
@@ -460,9 +460,34 @@ msgstr ""
 msgid "Default virtual drive configuration"
 msgstr ""
 
-#: bash/first_use:161
+#: bash/first_use:155
+#, sh-format
+msgid "$APPLICATION_TITLE is making a virtual windows hard drive"
+msgstr ""
+
+#: bash/first_use:160 bash/first_use:165
+#, sh-format
+msgid "$APPLICATION_TITLE first use"
+msgstr ""
+
+#: bash/first_use:160
+#, sh-format
+msgid "It appears it is the first time you are using $APPLICATION_TITLE."
+msgstr ""
+
+#: bash/first_use:160
 #, sh-format
 msgid "Please ensure you are connected to the internet."
+msgstr ""
+
+#: bash/first_use:160
+#, sh-format
+msgid "This wizard will help you prepare $APPLICATION_TITLE environement"
+msgstr ""
+
+#: bash/first_use:165
+#, sh-format
+msgid "Thank you for using $APPLICATION_TITLE"
 msgstr ""
 
 #: bash/install_wver:29
@@ -472,7 +497,7 @@ msgstr ""
 
 #: bash/install_wver:29
 #, sh-format
-msgid "on the PlayOnLinux environment."
+msgid "on the $APPLICATION_TITLE environment."
 msgstr ""
 
 #: bash/install_wver:33
@@ -485,9 +510,25 @@ msgstr ""
 msgid "Failed to install Wine."
 msgstr ""
 
+#: bash/installpolpackages:26 bash/polconfigurator:26 bash/winebash:26
+#, sh-format
+msgid "$APPLICATION_TITLE Application Configurator"
+msgstr ""
+
 #: bash/installpolpackages:26 bash/killall:33 bash/winebash:26
 #, sh-format
 msgid "Please wait..."
+msgstr ""
+
+#: bash/killall:30
+#, sh-format
+msgid ""
+"Are you sure you want to shutdown all active $APPLICATION_TITLE applications?"
+msgstr ""
+
+#: bash/make_shortcut:25
+#, sh-format
+msgid "$APPLICATION_TITLE packager"
 msgstr ""
 
 #: bash/make_shortcut:31
@@ -556,8 +597,8 @@ msgstr ""
 msgid "Please choose a software"
 msgstr ""
 
-#: bash/manual_install:24 bash/manual_install:95 bash/manual_install:100
-#: bash/manual_install:159 bash/manual_install:223
+#: bash/manual_install:24 bash/manual_install:109 bash/manual_install:114
+#: bash/manual_install:189
 #, sh-format
 msgid "Manual installation"
 msgstr ""
@@ -572,102 +613,116 @@ msgstr ""
 msgid "No setup location found in autorun.inf"
 msgstr ""
 
-#: bash/manual_install:97
+#: bash/manual_install:109
+#, sh-format
+msgid ""
+"Welcome to $APPLICATION_TITLE manual installation wizard.\\n\\nThis script "
+"will allow you to install any program on $APPLICATION and use it with all "
+"the tools\\n\\nWarning: We are unable to guarantee that your application "
+"will work perfectly."
+msgstr ""
+
+#: bash/manual_install:111
 #, sh-format
 msgid "Install a program in a new virtual drive"
 msgstr ""
 
-#: bash/manual_install:98
+#: bash/manual_install:112
 #, sh-format
 msgid "Edit or update an existing application"
 msgstr ""
 
-#: bash/manual_install:100
+#: bash/manual_install:114
 #, sh-format
 msgid "What would you like to do?"
 msgstr ""
 
-#: bash/manual_install:110
+#: bash/manual_install:124
 #, sh-format
 msgid ""
 "Please type a name for your application's virtual drive.\\nThis name "
 "shouldn't contain spaces."
 msgstr ""
 
-#: bash/manual_install:115
+#: bash/manual_install:134
 #, sh-format
 msgid "Please choose a program"
 msgstr ""
 
-#: bash/manual_install:127
+#: bash/manual_install:155
 #, sh-format
 msgid "Use another version of Wine"
 msgstr ""
 
-#: bash/manual_install:128 bash/manual_install:159 bash/polconfigurator:110
-#: python/configure.py:148 python/mainwindow.py:313 python/mainwindow.py:344
+#: bash/manual_install:156 bash/manual_install:189 bash/polconfigurator:110
+#: python/configure.py:148 python/mainwindow.py:324 python/mainwindow.py:355
 #, sh-format
 msgid "Configure Wine"
 msgstr ""
 
-#: bash/manual_install:129
+#: bash/manual_install:157
 #, sh-format
 msgid "Install some libraries"
 msgstr ""
 
-#: bash/manual_install:132
+#: bash/manual_install:160
 #, sh-format
 msgid "If you don't know, unselect all"
 msgstr ""
 
-#: bash/manual_install:132
+#: bash/manual_install:160
 #, sh-format
 msgid "What would you like to do before installation?"
 msgstr ""
 
-#: bash/manual_install:145
+#: bash/manual_install:173
 #, sh-format
 msgid "Which version of Wine would you like to use?"
 msgstr ""
 
-#: bash/manual_install:175
+#: bash/manual_install:226 lib/wine:567
+#, sh-format
+msgid "Please make your choice"
+msgstr ""
+
+#: bash/manual_install:250
 #, sh-format
 msgid "Looking for runnable CD-ROMs"
 msgstr ""
 
-#: bash/manual_install:198
+#: bash/manual_install:273
 #, sh-format
 msgid "Select another file"
 msgstr ""
 
-#: bash/manual_install:206
+#: bash/manual_install:281
 #, sh-format
 msgid "Please choose a way to install your program"
 msgstr ""
 
-#: bash/manual_install:215
+#: bash/manual_install:290
 #, sh-format
 msgid "Please select the install file to run."
 msgstr ""
 
-#: bash/manual_install:223
+#: bash/manual_install:307
 #, sh-format
 msgid "You must choose a file!"
 msgstr ""
 
-#: bash/manual_install:229
+#: bash/manual_install:313
 #, sh-format
 msgid "$APPLICATION_TITLE is installing your application..."
 msgstr ""
 
-#: bash/manual_install:238
+#: bash/manual_install:327
 #, sh-format
 msgid "Please do not press Next until the installation has been completed."
 msgstr ""
 
 #: bash/playonlinux-pkg:25
 #, sh-format
-msgid "PlayOnLinux package manager: "
+msgid "$APPLICATION_TITLE package manager: "
 msgstr ""
 
 #: bash/playonlinux-pkg:39
@@ -763,20 +818,23 @@ msgstr ""
 msgid "Logout"
 msgstr ""
 
+#: bash/playonlinux_online:41
+#, sh-format
+msgid "You are connected to $APPLICATION_TITLE online"
+msgstr ""
+
+#: bash/playonlinux_online:51
+#, sh-format
+msgid ""
+"You have been successfully logged out of $APPLICATION_TITLE Online\\nYou can "
+"safely close this window"
+msgstr ""
+
 #: bash/polconfigurator:29 bash/polconfigurator:40 bash/polconfigurator:52
 #: bash/polconfigurator:59 bash/polconfigurator:66 bash/polconfigurator:73
 #: bash/polconfigurator:80
 #, sh-format
 msgid "Killing processes in the prefix..."
-msgstr ""
-
-#: bash/polconfigurator:29 bash/polconfigurator:31 bash/polconfigurator:40
-#: bash/polconfigurator:52 bash/polconfigurator:54 bash/polconfigurator:59
-#: bash/polconfigurator:61 bash/polconfigurator:66 bash/polconfigurator:68
-#: bash/polconfigurator:73 bash/polconfigurator:75 bash/polconfigurator:80
-#: bash/polconfigurator:82 bash/polconfigurator:138 bash/polconfigurator:193
-#, sh-format
-msgid "PlayOnLinux Application Configurator"
 msgstr ""
 
 #: bash/polconfigurator:31
@@ -829,8 +887,8 @@ msgstr ""
 msgid "is not an icon extension"
 msgstr ""
 
-#: bash/polconfigurator:111 python/configure.py:154 python/mainwindow.py:317
-#: python/mainwindow.py:350
+#: bash/polconfigurator:111 python/configure.py:154 python/mainwindow.py:328
+#: python/mainwindow.py:361
 #, sh-format
 msgid "Registry Editor"
 msgstr ""
@@ -878,62 +936,13 @@ msgstr ""
 #: bash/polconfigurator:193
 #, sh-format
 msgid ""
-"Welcome to PlayOnLinux's Application Configurator.\\nThis wizard will help "
-"you to configure: "
-msgstr ""
-
-#: bash/polconfigurator:193
-#, sh-format
-msgid ""
-"\\n\\nBe careful! PlayOnLinux will need to kill all the programs running in "
-"this prefix!"
+"Welcome to $APPLICATION_TITLE Application Configurator.\\nThis wizard will "
+"help you to configure: "
 msgstr ""
 
 #: bash/polconfigurator:193
 #, sh-format
 msgid "\\n\\nThe following Wine prefix will be updated: "
-msgstr ""
-
-#: bash/prefix_manager:24
-#, sh-format
-msgid "Virtual drive manager"
-msgstr ""
-
-#: bash/prefix_manager:40
-#, sh-format
-msgid "I have finished"
-msgstr ""
-
-#: bash/prefix_manager:41
-#, sh-format
-msgid "Create a new virtual drive"
-msgstr ""
-
-#: bash/prefix_manager:53
-#, sh-format
-msgid "Please choose a virtual drive to manage"
-msgstr ""
-
-#: bash/prefix_manager:63
-#, sh-format
-msgid ""
-"Please choose a name for your virtual drive\\nThis name should not contain "
-"spaces"
-msgstr ""
-
-#: bash/prefix_manager:77
-#, sh-format
-msgid "Choose another virtual drive"
-msgstr ""
-
-#: bash/prefix_manager:77
-#, sh-format
-msgid "Delete this virtual drive"
-msgstr ""
-
-#: bash/prefix_manager:77
-#, sh-format
-msgid "Make a new shortcut"
 msgstr ""
 
 #: bash/run_app:26
@@ -1007,7 +1016,7 @@ msgstr ""
 
 #: bash/startup:41
 #, sh-format
-msgid "Are you sure you want to start PlayOnLinux?"
+msgid "Are you sure you want to start $APPLICATION_TITLE?"
 msgstr ""
 
 #: bash/startup:41
@@ -1025,6 +1034,11 @@ msgstr ""
 #: bash/startup:41
 #, sh-format
 msgid "Warning!"
+msgstr ""
+
+#: bash/startup:41
+#, sh-format
+msgid "You are running $APPLICATION_TITLE as root.\\n\\n"
 msgstr ""
 
 #: bash/system_info:62 bash/system_info:88
@@ -1132,7 +1146,7 @@ msgstr ""
 msgid "Free space on your hard drives:"
 msgstr ""
 
-#: bash/uninstall:36 bash/uninstall:47 bash/uninstall:51 lib/applications:202
+#: bash/uninstall:36 bash/uninstall:47 bash/uninstall:51 lib/applications:204
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
 msgstr ""
@@ -1147,7 +1161,7 @@ msgstr ""
 msgid "This wizard will help you to uninstall: "
 msgstr ""
 
-#: bash/uninstall:47 lib/applications:202
+#: bash/uninstall:47 lib/applications:204
 #, sh-format
 msgid "Uninstalling..."
 msgstr ""
@@ -1162,27 +1176,27 @@ msgstr ""
 msgid "Cannot find the shortcut"
 msgstr ""
 
-#: bash/uninstall:53 lib/interface_v3:99
+#: bash/uninstall:53 lib/interface_v3:98
 #, sh-format
 msgid "Error"
 msgstr ""
 
-#: lib/applications:200
+#: lib/applications:202
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr ""
 
-#: lib/applications:275
+#: lib/applications:277
 #, sh-format
 msgid "Scanning the virtual drive ..."
 msgstr ""
 
-#: lib/applications:277
+#: lib/applications:279
 #, sh-format
 msgid "I don't want to make another shortcut"
 msgstr ""
 
-#: lib/applications:278 python/guiv3.py:143
+#: lib/applications:280 python/guiv3.py:143
 #, sh-format
 msgid "Browse"
 msgstr ""
@@ -1202,7 +1216,7 @@ msgstr ""
 msgid "Program: "
 msgstr ""
 
-#: lib/check_depend:38 lib/interface_v3:97
+#: lib/check_depend:38 lib/interface_v3:96
 #, sh-format
 msgid ""
 "One or more program(s) are missing. Please install them and run the script "
@@ -1223,37 +1237,37 @@ msgid ""
 "supported."
 msgstr ""
 
-#: lib/interface_v3:44
+#: lib/interface_v3:43
 #, sh-format
 msgid " on your computer."
 msgstr ""
 
-#: lib/interface_v3:44
+#: lib/interface_v3:43
 #, sh-format
 msgid " will be installed in: "
 msgstr ""
 
-#: lib/interface_v3:44
+#: lib/interface_v3:43
 #, sh-format
 msgid "Click Next to start"
 msgstr ""
 
-#: lib/interface_v3:44
+#: lib/interface_v3:43
 #, sh-format
 msgid "This installation program is provided by: "
 msgstr ""
 
-#: lib/interface_v3:44
+#: lib/interface_v3:43
 #, sh-format
 msgid "This program was created by: "
 msgstr ""
 
-#: lib/interface_v3:44
+#: lib/interface_v3:43
 #, sh-format
 msgid "This wizard will help you install "
 msgstr ""
 
-#: lib/interface_v3:545 lib/interface_v3:554 lib/interface_v3:567
+#: lib/interface_v3:544 lib/interface_v3:553 lib/interface_v3:567
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr ""
@@ -1268,7 +1282,7 @@ msgstr ""
 msgid "Where is mounted your CD-ROM?"
 msgstr ""
 
-#: lib/interface_v3:875
+#: lib/interface_v3:875 python/install.py:135
 #, sh-format
 msgid "Refresh"
 msgstr ""
@@ -1323,9 +1337,9 @@ msgstr ""
 msgid "Installing plugin: "
 msgstr ""
 
-#: lib/main:233 lib/main:238 lib/main:243 lib/main:248 lib/main:253
-#: lib/main:258 lib/main:264 lib/main:269 lib/main:274 lib/main:279
-#: lib/main:284 lib/main:289
+#: lib/main:234 lib/main:239 lib/main:244 lib/main:249 lib/main:254
+#: lib/main:259 lib/main:265 lib/main:270 lib/main:275 lib/main:280
+#: lib/main:285 lib/main:290
 #, sh-format
 msgid "This function is disabled in the PlayOnlinux environment."
 msgstr ""
@@ -1379,8 +1393,8 @@ msgstr ""
 msgid "Kill processes"
 msgstr ""
 
-#: python/configure.py:199 python/install.py:134 python/mainwindow.py:97
-#: python/mainwindow.py:231
+#: python/configure.py:199 python/install.py:134 python/mainwindow.py:110
+#: python/mainwindow.py:244
 msgid "Install"
 msgstr ""
 
@@ -1432,7 +1446,7 @@ msgstr ""
 msgid "Run a .exe file in this virtual drive"
 msgstr ""
 
-#: python/configure.py:462 python/mainwindow.py:462 python/mainwindow.py:464
+#: python/configure.py:462 python/mainwindow.py:473 python/mainwindow.py:475
 msgid "{0} configuration"
 msgstr ""
 
@@ -1440,8 +1454,8 @@ msgstr ""
 msgid "New"
 msgstr ""
 
-#: python/configure.py:484 python/mainwindow.py:98 python/mainwindow.py:232
-#: python/mainwindow.py:329 python/wine_versions.py:186
+#: python/configure.py:484 python/mainwindow.py:111 python/mainwindow.py:245
+#: python/mainwindow.py:340 python/wine_versions.py:186
 msgid "Remove"
 msgstr ""
 
@@ -1569,7 +1583,7 @@ msgstr ""
 msgid "Graphics"
 msgstr ""
 
-#: python/install.py:299 python/mainwindow.py:144 python/options.py:431
+#: python/install.py:299 python/mainwindow.py:157 python/options.py:431
 msgid "Internet"
 msgstr ""
 
@@ -1609,125 +1623,125 @@ msgstr ""
 msgid "An updated version of {0} is available"
 msgstr ""
 
-#: python/mainwindow.py:96 python/mainwindow.py:229
+#: python/mainwindow.py:109 python/mainwindow.py:242
 msgid "Run"
 msgstr ""
 
-#: python/mainwindow.py:100
+#: python/mainwindow.py:113
 msgid "Donate"
 msgstr ""
 
-#: python/mainwindow.py:101
+#: python/mainwindow.py:114
 msgid "Exit"
 msgstr ""
 
-#: python/mainwindow.py:105
+#: python/mainwindow.py:118
 msgid "Manage Wine versions"
 msgstr ""
 
-#: python/mainwindow.py:119
+#: python/mainwindow.py:132
 msgid "Close all {0} software"
 msgstr ""
 
-#: python/mainwindow.py:123
+#: python/mainwindow.py:136
 msgid "{0} console"
 msgstr ""
 
-#: python/mainwindow.py:158
+#: python/mainwindow.py:171
 msgid "About {0}"
 msgstr ""
 
-#: python/mainwindow.py:188 python/mainwindow.py:192
+#: python/mainwindow.py:201 python/mainwindow.py:205
 msgid "Plugin manager"
 msgstr ""
 
-#: python/mainwindow.py:217
+#: python/mainwindow.py:230
 msgid "File"
 msgstr ""
 
-#: python/mainwindow.py:218
+#: python/mainwindow.py:231
 msgid "Tools"
 msgstr ""
 
-#: python/mainwindow.py:219
+#: python/mainwindow.py:232
 msgid "Settings"
 msgstr ""
 
-#: python/mainwindow.py:220 python/options.py:434
+#: python/mainwindow.py:233 python/options.py:434
 msgid "Plugins"
 msgstr ""
 
-#: python/mainwindow.py:236 python/options.py:325
+#: python/mainwindow.py:249 python/options.py:325
 msgid "Configure"
 msgstr ""
 
-#: python/mainwindow.py:237
+#: python/mainwindow.py:250
 msgid "Shortcut"
 msgstr ""
 
-#: python/mainwindow.py:321
+#: python/mainwindow.py:332
 msgid "Open the application's directory"
 msgstr ""
 
-#: python/mainwindow.py:325
+#: python/mainwindow.py:336
 msgid "Set the icon"
 msgstr ""
 
-#: python/mainwindow.py:333
+#: python/mainwindow.py:344
 msgid "Close this application"
 msgstr ""
 
-#: python/mainwindow.py:347
+#: python/mainwindow.py:358
 msgid "KillApp"
 msgstr ""
 
-#: python/mainwindow.py:434 python/mainwindow.py:436
+#: python/mainwindow.py:445 python/mainwindow.py:447
 msgid "{0} settings"
 msgstr ""
 
-#: python/mainwindow.py:504
+#: python/mainwindow.py:515
 msgid "{0} install menu"
 msgstr ""
 
-#: python/mainwindow.py:517
+#: python/mainwindow.py:521
 msgid "{0} wine versions manager"
 msgstr ""
 
-#: python/mainwindow.py:530
+#: python/mainwindow.py:534
 msgid "Are you sure you want to close all {0} Windows ?"
 msgstr ""
 
-#: python/mainwindow.py:543
+#: python/mainwindow.py:547
 msgid "Run your Windows programs on "
 msgstr ""
 
-#: python/mainwindow.py:544
+#: python/mainwindow.py:548
 msgid ""
 "(C) PlayOnLinux and PlayOnMac team 2011\n"
 "Under GPL licence version 3"
 msgstr ""
 
-#: python/mainwindow.py:545
+#: python/mainwindow.py:549
 msgid "Developer and Website: "
 msgstr ""
 
-#: python/mainwindow.py:546
+#: python/mainwindow.py:550
 msgid "Scriptors: "
 msgstr ""
 
-#: python/mainwindow.py:547
+#: python/mainwindow.py:551
 msgid "Packager: "
 msgstr ""
 
-#: python/mainwindow.py:548
+#: python/mainwindow.py:552
 msgid "Icons:"
 msgstr ""
 
-#: python/mainwindow.py:549
+#: python/mainwindow.py:553
 msgid "The following people contributed to this program: "
 msgstr ""
 
-#: python/mainwindow.py:550
+#: python/mainwindow.py:554
 msgid "Translation made on Launchpad:"
 msgstr ""
 
