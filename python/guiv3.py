@@ -381,7 +381,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 			self.bitmap.Rescale(22,22,wx.IMAGE_QUALITY_HIGH)
 			self.bitmap = self.bitmap.ConvertToBitmap()
 			self.images.Add(self.bitmap)
-			self.MenuGames.AppendItem(self.root, game, self.i)
+			self.MenuGames.AppendItem(self.root, game.encode("utf-8"), self.i)
 			self.i = self.i+1
 							
 							
