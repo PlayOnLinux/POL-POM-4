@@ -593,7 +593,7 @@ POL_AutoWine ()
 }
 POL_Wine ()
 {
-	POL_Debug_Message "Running wine"
+	POL_Debug_Message "Running wine $@"
 	wine "$@" >> "$LOGFILE" 2>> "$LOGFILE"
 	[ "$?" = "0" ] || POL_Debug_Error "Wine crashed"
 }

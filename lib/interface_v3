@@ -593,7 +593,7 @@ POL_SetupWindow_AutoApp()
 	shortname=`echo "$1" | tr -c [[a-zA-Z0-9]\.] '_'`
 	PACKAGE="$1"
 	DIRAPP="$HOME/Desktop/$PACKAGE.app"
-	POL_SetupWindow_wait_next_signal ""$(eval_gettext "Making shortcut...")"" "$TITLE"
+	POL_SetupWindow_wait_next_signal "$(eval_gettext "Making shortcut...")" "$TITLE"
 	make_skeleton "$PACKAGE"
 	make_icon "$PACKAGE"
 	make_pom_script "$PACKAGE"
