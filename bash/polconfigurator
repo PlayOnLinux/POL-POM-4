@@ -23,12 +23,12 @@ then
 exit 0
 fi
 source "$PLAYONLINUX/lib/sources"
-
+TITLE="$(eval_gettext '$APPLICATION_TITLE Application Configurator')"
 pol_winecfg()
 {
-	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing processes in the prefix...")" "$(eval_gettext "PlayOnLinux Application Configurator")"
+	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing processes in the prefix...")" "$TITLE"
 	wineserver -k
-	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Starting Wine configuration')" "$(eval_gettext "PlayOnLinux Application Configurator")"
+	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Starting Wine configuration')" "$TITLE"
 	wine winecfg
 }
 pol_kprocess()
@@ -37,7 +37,7 @@ pol_kprocess()
 		POL_SetupWindow_Init
 	fi
 		
-	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing processes in the prefix...")" "$(eval_gettext "PlayOnLinux Application Configurator")"
+	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing processes in the prefix...")" ""
 	sleep 1
 	wineserver -k
 	sleep 1
@@ -49,37 +49,37 @@ pol_kprocess()
 }
 pol_regedit()
 {
-	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing processes in the prefix...")" "$(eval_gettext "PlayOnLinux Application Configurator")"
+	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing processes in the prefix...")" "$TITLE"
 	wineserver -k
-	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Starting regedit')" "$(eval_gettext "PlayOnLinux Application Configurator")"
+	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Starting regedit')" "$TITLE"
 	wine regedit
 }
 pol_wineboot()
 {
-	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing processes in the prefix...")" "$(eval_gettext "PlayOnLinux Application Configurator")"
+	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing processes in the prefix...")" "$TITLE"
 	wineserver -k
-	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Simulating Windows reboot')" "$(eval_gettext "PlayOnLinux Application Configurator")"
+	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Simulating Windows reboot')" "$TITLE"
 	wine wineboot
 }
 pol_awinecfg()
 {
-	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing processes in the prefix...")" "$(eval_gettext "PlayOnLinux Application Configurator")"
+	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing processes in the prefix...")" "$TITLE"
 	wineserver -k
-	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Starting Advanced Wine Configuration')" "$(eval_gettext "PlayOnLinux Application Configurator")"
+	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Starting Advanced Wine Configuration')" "$TITLE"
 	bash "$REPERTOIRE/plugins/Advanced Wine Configuration/scripts/menu"
 }
 pol_winetricks()
 {
-	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing processes in the prefix...")" "$(eval_gettext "PlayOnLinux Application Configurator")"
+	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing processes in the prefix...")" "$TITLE"
 	wineserver -k
-	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Starting WineTricks plug-in')" "$(eval_gettext "PlayOnLinux Application Configurator")"
+	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Starting WineTricks plug-in')" "$TITLE"
 	bash "$REPERTOIRE/plugins/WineTricks/scripts/menu" "$FIRSTARGUMENT"
 }
 pol_scfg()
 {
-	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing processes in the prefix...")" "$(eval_gettext "PlayOnLinux Application Configurator")"
+	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing processes in the prefix...")" "$TITLE"
 	wineserver -k
-	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Starting specific Wine configurator')" "$(eval_gettext "PlayOnLinux Application Configurator")"
+	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Starting specific Wine configurator')" "$TITLE"
 	bash "$REPERTOIRE/configurations/configurators/$APP"
 }
 pol_changeicon()
@@ -135,7 +135,7 @@ main_menu()
 	then
 		ITEMS+="~$LNG_POLCFG $APP"
 	fi
-	POL_SetupWindow_menu "$(eval_gettext "Please choose an action to perform")" "$(eval_gettext "PlayOnLinux Application Configurator")" "$ITEMS" "~"
+	POL_SetupWindow_menu "$(eval_gettext "Please choose an action to perform")" "$TITLE" "$ITEMS" "~"
 	redirect_to_pol_configure_function "$APP_ANSWER"
 }
 redirect_to_pol_configure_function()
@@ -190,7 +190,7 @@ then
 else
 
     POL_SetupWindow_Init
-    POL_SetupWindow_free_presentation "$(eval_gettext "PlayOnLinux Application Configurator")" "$(eval_gettext "Welcome to PlayOnLinux's Application Configurator.\nThis wizard will help you to configure: ")$1 $(eval_gettext "\n\nThe following Wine prefix will be updated: ")$prefixe $(eval_gettext "\n\nBe careful! PlayOnLinux will need to kill all the programs running in this prefix!")"
+    POL_SetupWindow_free_presentation "$TITLE" "$(eval_gettext 'Welcome to $APPLICATION_TITLE Application Configurator.\nThis wizard will help you to configure: ')$1 $(eval_gettext "\n\nThe following Wine prefix will be updated: ")$prefixe $(eval_gettext "\n\nBe careful! $APPLICATION_TITLE will need to kill all the programs running in this prefix!")"
     while [ 1 ]
     do
         main_menu

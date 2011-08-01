@@ -38,7 +38,7 @@ install_plugins
 if [ `id -u` = 0 ]
 then
 	POL_SetupWindow_Init
- 	POL_SetupWindow_question "$(eval_gettext "You are running $APPLICATION_TITLE as root.\n\n")$(eval_gettext "Please note that it is very dangerous to run Wine programs as root: you are vulnerable to viruses and other bad stuff.\n\n")$(eval_gettext "PlayOnLinux is not reponsable for any damage to your system.\n\n")$(eval_gettext "Are you sure you want to start PlayOnLinux?")" "$(eval_gettext "Warning!")"
+ 	POL_SetupWindow_question "$(eval_gettext 'You are running $APPLICATION_TITLE as root.\n\n')$(eval_gettext "Please note that it is very dangerous to run Wine programs as root: you are vulnerable to viruses and other bad stuff.\n\n")$(eval_gettext "PlayOnLinux is not reponsable for any damage to your system.\n\n")$(eval_gettext 'Are you sure you want to start $APPLICATION_TITLE?')" "$(eval_gettext "Warning!")"
 	POL_SetupWindow_Close
 	if [ "$APP_ANSWER" = "FALSE" ]
 	then

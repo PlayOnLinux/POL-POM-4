@@ -26,7 +26,7 @@ source "$PLAYONLINUX/lib/sources"
 
 POL_SetupWindow_Init
 version=$1
-POL_SetupWindow_free_presentation "Wine $1" "$(eval_gettext "This wizard will help you to install Wine: ")$version $(eval_gettext "on the PlayOnLinux environment.")"
+POL_SetupWindow_free_presentation "Wine $1" "$(eval_gettext "This wizard will help you to install Wine: ")$version $(eval_gettext 'on the $APPLICATION_TITLE environment.')"
 rm -f "$REPERTOIRE/WineVersions/failed" "$REPERTOIRE/WineVersions/installed"
 POL_SetupWindow_install_wine "$1"
 if [ -e "$REPERTOIRE/WineVersions/installed" ] ; then

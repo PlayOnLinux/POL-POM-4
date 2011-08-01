@@ -132,7 +132,7 @@ class InstallWindow(wx.Frame):
 		self.content = wx.html.HtmlWindow(self.panelFenp, 107, style=Variables.widget_borders, pos=(220,311), size=(562,222))
 		self.button = wx.Button(self.panelFenp, wx.ID_CLOSE, _("Cancel"), pos=(576, 540), size=(100,35))
 		self.install_button = wx.Button(self.panelFenp, wx.ID_APPLY, _("Install"), pos=(683, 540), size=(100,35))
-		#self.update_button = wx.Button(self.panelFenp, wx.ID_REFRESH, _("Refresh"), pos=(470, 540), size=(100,35))
+		self.update_button = wx.Button(self.panelFenp, wx.ID_REFRESH, _("Refresh"), pos=(470, 540), size=(100,35))
 		self.install_button.Enable(False)
 		
 		self.new_panel = wx.Panel(self.panelFenp, -1, pos=(220,311), style=Variables.widget_borders, size=self.new_size)
@@ -154,7 +154,7 @@ class InstallWindow(wx.Frame):
 		wx.EVT_TREE_SEL_CHANGED(self, 106, self.AppsDetails)
 		wx.EVT_BUTTON(self, wx.ID_CLOSE, self.closeapp)
 		wx.EVT_BUTTON(self, wx.ID_APPLY, self.installapp)
-		#wx.EVT_BUTTON(self, wx.ID_REFRESH, self.UpdatePol)
+		wx.EVT_BUTTON(self, wx.ID_REFRESH, self.UpdatePol)
 		wx.EVT_CLOSE(self, self.closeapp)
 		wx.EVT_TREE_ITEM_ACTIVATED(self, 106, self.installapp)
 		wx.EVT_TEXT(self, 110, self.search)
@@ -236,7 +236,7 @@ class InstallWindow(wx.Frame):
 
 	def UpdatePol(self, event):
 		self.DelApps()
-		os.system("bash \""+Variables.playonlinux_env+"/bash/check_maj\"&")
+		self.Parent.updater.check()
 	
 	def installapp(self, event):
 		if(self.live == 1):

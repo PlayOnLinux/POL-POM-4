@@ -57,7 +57,7 @@ class POLWeb(threading.Thread):
 			fichier_online="version2"
 		return os.popen('wget -q "$SITE/'+fichier_online+'.php?v=$VERSION" -T 10 -O-','r').read()
 	
-	def run(self):
+	def real_check(self):
 		self.WebVersion = self.LastVersion()
 		
 		if(self.WebVersion == ""):
@@ -71,6 +71,19 @@ class POLWeb(threading.Thread):
 				self.sendAlert(_('An updated version of {0} is available').format(os.environ["APPLICATION_TITLE"])+" ("+self.WebVersion+")")
 			else:
 				self.Show = False
+		
+		self.wantcheck = False
+			
+	def check(self):
+		self.wantcheck = True	
+			
+	def run(self):
+		self.check()
+		while(1):
+			if(self.wantcheck == True):
+				self.real_check()
+			time.sleep(1)
+		
 
 		    
 class MainWindow(wx.Frame):
@@ -243,7 +256,6 @@ class MainWindow(wx.Frame):
 	wx.EVT_MENU(self, wx.ID_ADD,  self.InstallMenu)
 	wx.EVT_MENU(self, wx.ID_ABOUT,  self.About)
 	wx.EVT_MENU(self,  wx.ID_EXIT,  self.ClosePol)
-	wx.EVT_MENU(self,  wx.ID_REFRESH,  self.UpdatePol)
 	wx.EVT_MENU(self,  wx.ID_DELETE,  self.UninstallGame)
 	
 
@@ -257,7 +269,6 @@ class MainWindow(wx.Frame):
 	wx.EVT_MENU(self, 112,  self.POLOnline)
 	
 	wx.EVT_MENU(self, 115,  self.killall)
-	wx.EVT_MENU(self, 120,  self.Autorun)
 	wx.EVT_MENU(self, 121,  self.Configure)
 	wx.EVT_MENU(self, 122,  self.Package)
 
@@ -501,18 +512,11 @@ class MainWindow(wx.Frame):
    
 
   def InstallMenu(self, event):
-    installFrame = install.InstallWindow(None, -1, _('{0} install menu').format(os.environ["APPLICATION_TITLE"]))
+    installFrame = install.InstallWindow(self, -1, _('{0} install menu').format(os.environ["APPLICATION_TITLE"]))
     #self.SetTopWindow(installFrame)
     installFrame.Center(wx.BOTH)
     installFrame.Show(True)
 	
-    
-  def UpdatePol(self, event):
-    os.system("bash \""+Variables.playonlinux_env+"/bash/check_maj\"&")
-  
-  def Autorun(self, event):
-    os.system("bash \""+Variables.playonlinux_env+"/bash/autorun\"&")
-
   def WineVersion(self, event):
     wversion = wver.MainWindow(None, -1, _('{0} wine versions manager').format(os.environ["APPLICATION_TITLE"]))
     wversion.Center(wx.BOTH)

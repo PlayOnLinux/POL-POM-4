@@ -23,7 +23,7 @@
 source "$PLAYONLINUX/lib/sources"
 
 POL_SetupWindow_Init
-POL_SetupWindow_wait_next_signal "$(eval_gettext "Please wait...")" "$(eval_gettext "$APPLICATION_TITLE Application Configurator")"
+POL_SetupWindow_wait_next_signal "$(eval_gettext "Please wait...")" "$(eval_gettext '$APPLICATION_TITLE Application Configurator')"
 sleep 2
 if [ "$1" = "--prefix" ]
 then

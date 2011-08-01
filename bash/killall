@@ -27,7 +27,7 @@ source "$PLAYONLINUX/lib/sources"
 
 cd "$REPERTOIRE/wineprefix"
 POL_SetupWindow_Init
-POL_SetupWindow_question "$(eval_gettext "Are you sure you want to shutdown all active $APPLICATION_TITLE applications?")" "$APPLICATION_TITLE"
+POL_SetupWindow_question "$(eval_gettext 'Are you sure you want to shutdown all active $APPLICATION_TITLE applications?')" "$APPLICATION_TITLE"
 if [ "$APP_ANSWER" = "TRUE" ]
 then
 	POL_SetupWindow_wait_next_signal  "$(eval_gettext 'Please wait...')" "$APPLICATION_TITLE"

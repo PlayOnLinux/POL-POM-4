@@ -39,7 +39,7 @@ POL_SetupWindow_Init
 POL_SetupWindow_free_presentation "$POL_DEBUG_TITLE" "$(eval_gettext "This wizard can report a bug in an application officially supported by PlayOnLinux.")"
 if [ "$LOGTITLE" = "" ]
 then
-POL_SetupWindow_menu_num "$(eval_gettext "What kind of problem do you have?")" "$POL_DEBUG_TITLE" "$(eval_gettext "My problem concerns PlayOnLinux itself")~$(eval_gettext "I have a problem with a software")" "~"
+POL_SetupWindow_menu_num "$(eval_gettext "What kind of problem do you have?")" "$POL_DEBUG_TITLE" "$(eval_gettext 'My problem concerns $APPLICATION_TITLE itself')~$(eval_gettext "I have a problem with a software")" "~"
 PROBLEM_TYPE="$APP_ANSWER"
 if [ "$PROBLEM_TYPE" = "1" ]
 then

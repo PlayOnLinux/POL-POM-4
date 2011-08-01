@@ -152,17 +152,16 @@ install_x11()
 install_prefix()
 {
 	STEP_TITLE="$(eval_gettext "Default virtual drive configuration")"
-	POL_SetupWindow_wait_next_signal "$(eval_gettext "$APPLICATION_TITLE is making a virtual windows hard drive")" "$STEP_TITLE" 
+	POL_SetupWindow_wait_next_signal "$(eval_gettext '$APPLICATION_TITLE is making a virtual windows hard drive')" "$STEP_TITLE" 
 	select_prefix "$REPERTOIRE/wineprefix/default"
 	wineboot
-	POL_SetupWindow_detect_exit
 }
 POL_SetupWindow_Init
-POL_SetupWindow_free_presentation "$(eval_gettext "$APPLICATION_TITLE first use")" "$(eval_gettext "It appears it is the first time you are using $APPLICATION_TITLE.")\n$(eval_gettext "This wizard will help you prepare $APPLICATION_TITLE environement")\n$(eval_gettext "Please ensure you are connected to the internet.")"
+POL_SetupWindow_free_presentation "$(eval_gettext '$APPLICATION_TITLE first use')" "$(eval_gettext 'It appears it is the first time you are using $APPLICATION_TITLE.')\n$(eval_gettext 'This wizard will help you prepare $APPLICATION_TITLE environement')\n$(eval_gettext "Please ensure you are connected to the internet.")"
 
 [ "$POL_OS" == "Mac" ] && [ ! -e "/Applications/Utilities/XQuartz.app" ] && [ "$OSX_VERSION" = "10" ] &&  install_x11
 install_fonts
 install_prefix
-POL_SetupWindow_message "$(eval_gettext "Thank you for using $APPLICATION_TITLE")" "$(eval_gettext "$APPLICATION_TITLE first use")"
+POL_SetupWindow_message "$(eval_gettext 'Thank you for using $APPLICATION_TITLE')" "$(eval_gettext '$APPLICATION_TITLE first use')"
 POL_SetupWindow_Close
 touch "$REPERTOIRE/configurations/first_use"

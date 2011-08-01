@@ -22,10 +22,10 @@ export OLDDIR="$PWD"
 [ "$PLAYONLINUX" = "" ] && exit 0
 source "$PLAYONLINUX/lib/sources"
 
-echo "$(eval_gettext 'PlayOnLinux package manager: ')$VERSION"
+echo "$(eval_gettext '$APPLICATION_TITLE package manager: ')$VERSION"
 if [ "$1" = "--version" ]
 then
-	echo "PlayOnLinux $VERSION"
+	echo "$APPLICATION_TITLE $VERSION"
 	exit 0
 fi
 if [ "$3" = "-g" -o "$3" = "--gui" ]

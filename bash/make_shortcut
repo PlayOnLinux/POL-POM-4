@@ -22,7 +22,7 @@
 source "$PLAYONLINUX/lib/sources" 
 
 
-TITLE="$APPLICATION_TITLE packager"
+TITLE="$(eval_gettext '$APPLICATION_TITLE packager')"
 
 if [ "$POL_OS" == "Mac" ]
 then
