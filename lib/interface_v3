@@ -1473,3 +1473,60 @@ POL_SetupWindow_VMS ()
 	fi
 	POL_Wine_Direct3D "VideoMemorySize" "$VMS"
 }
+
+POL_SetupWindow_InstallMethod()
+{
+	[ "$1" = "" ] && POL_Debug_Fatal "No method in list"
+	STR=""
+	ICO=""
+	LNG_STEAM="$(eval_gettext "Use Steam Store version")"
+	LNG_LOCAL="$(eval_gettext "Use a setup file in my computer")"
+	LNG_CDROM="$(eval_gettext "Use CD-ROM(s)")"
+	LNG_DVD="$(eval_gettext "Use DVD-ROM(s)")"
+	LNG_DOWNLOAD="$(eval_gettext "Download the program")"
+	
+	if [ ! "$(printf "$1" | grep LOCAL)" = "" ] 
+	then 
+		STR="$STR~$LNG_LOCAL"
+		ICO="$ICO~browse.png"
+	fi
+	if [ ! "$(printf "$1" | grep CD)" = "" ] 
+	then 
+		STR="$STR~$LNG_CDROM"
+		ICO="$ICO~cdrom.png"
+	fi
+	if [ ! "$(printf "$1" | grep DVD)" = "" ] 
+	then 
+		STR="$STR~$LNG_DVD"
+		ICO="$ICO~cdrom.png"
+	fi
+	if [ ! "$(printf "$1" | grep STEAM)" = "" ] 
+	then 
+		STR="$STR~$LNG_STEAM"
+		ICO="$ICO~download.png"
+	fi
+	if [ ! "$(printf "$1" | grep DOWNLOAD)" = "" ] 
+	then 
+		STR="$STR~$LNG_DOWNLOAD"
+		ICO="$ICO~download.png"
+	fi
+	
+	STR="${STR:1}"
+	ICO="${ICO:1}"
+	
+	mkdir -p "$POL_USER_ROOT/tmp/cache/icons/InstallMethod"
+	cp "$PLAYONLINUX/resources/images/icones/browse.png" "$POL_USER_ROOT/tmp/cache/icons/InstallMethod"
+	cp "$PLAYONLINUX/resources/images/icones/cdrom.png" "$POL_USER_ROOT/tmp/cache/icons/InstallMethod"
+	cp "$PLAYONLINUX/resources/images/icones/download.png" "$POL_USER_ROOT/tmp/cache/icons/InstallMethod"
+	
+	POL_SetupWindow_icon_menu "$(eval_gettext "Please choose an installation method")" "$TITLE"  "$STR" "~" "$POL_USER_ROOT/tmp/cache/icons/InstallMethod" "$ICO"
+	
+	[ "$APP_ANSWER" = "$LNG_LOCAL" ] && INSTALL_METHOD="LOCAL"
+	[ "$APP_ANSWER" = "$LNG_STEAM" ] && INSTALL_METHOD="STEAM"
+	[ "$APP_ANSWER" = "$LNG_DOWNLOAD" ] && INSTALL_METHOD="DOWNLOAD"
+	[ "$APP_ANSWER" = "$LNG_DVD" ] && INSTALL_METHOD="DVD"
+	[ "$APP_ANSWER" = "$LNG_CDROM" ] && INSTALL_METHOD="CD"
+	
+	
+	POL_Debug_Message "Install method : $INSTALL_METHOD"
+}
