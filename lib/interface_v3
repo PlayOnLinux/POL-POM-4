@@ -1345,7 +1345,7 @@ cat << EOF > "$REPERTOIRE/login_info"
 .playonmac.com	TRUE	/	FALSE	0	login	$POL_LOGIN
 EOF
 }
-POL_Website_urlencode()
+POL_Website_urlencode() # Un peu violente celle la
 {
 arg="$@"
 i="0"
@@ -1358,6 +1358,15 @@ while [ "$i" -lt ${#arg} ]; do
         fi
         i=$((i+1))
 done
+}
+POL_Website_urlparse()
+{
+	# & %26
+	# = %3D
+	chars="$1"
+	chars="${chars//"&"/\%26}"
+	chars="${chars//"="/%3D}"
+	echo "$chars"
 }
 POL_Website_Close()
 {

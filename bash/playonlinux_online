@@ -46,8 +46,8 @@ send_script()
 	LIST="${LIST:1}"
 	POL_SetupWindow_menu "$(eval_gettext "Choose the file corresponding to your program.")" "$TITLE" "$LIST" "~"
 	SCRIPTFILE="$APP_ANSWER"
-	SCRIPT="$(cat "$SCRIPTFILE")"
-	SCRIPT="POL_Website_urlencode "$SCRIPT""
+	script="$(cat "$SCRIPTFILE")"
+	script="$(POL_Website_urlparse "$script")"
 	POL_SetupWindow_question "$(eval_gettext "Does your program run?")" "$TITLE"
 	if [ "$APP_ANSWER" = "TRUE" ]
 	then
@@ -69,22 +69,25 @@ $FEATURE
 		
 Wine configuration :
 $APP_ANSWER"
-SCRIPT="$(echo $SCRIPT | sed s/{SCRIPT_NAME}/"$SCRIPTTITLE"/)"
-SCRIPT="$(echo $SCRIPT | sed s/{SCRIPT_EDITEUR}/"$EDITOR"/)"
-SCRIPT="$(echo $SCRIPT | sed s/{SCRIPT_URL}/"$URL"/)"
-SCRIPT="$(echo $SCRIPT | sed s/{SCRIPT_USER}/"$POL_LOGIN"/)"
+
+
+script="${script/'{SCRIPT_NAME}'/$SCRIPTTITLE}"
+script="${script/'{SCRIPT_EDITEUR}'/$EDITOR}"
+script="${script/'{SCRIPT_URL}'/$URL}"
+script="${script/'{SCRIPT_USER}'/$POL_LOGIN}"
 
 [ "$POL_OS" == "Mac" ] && repos="playonmac"
 [ "$POL_OS" == "Linux" ] && repos="playonlinux"
 POL_Website_Request "http://www.$repos.com/repository/new.php" "name=Generated $SCRIPTTITLE&send=Add"
 
-POL_SetupWindow_message "Debug : premiere requete faite" "$TITLE"
+#POL_SetupWindow_message "Debug : premiere requete faite" "$TITLE"
 SCRIPT_ID="$(POL_Website_Result | grep '<input type="hidden" name="id"'| cut -d"\"" -f16)"
 
 POL_Debug_Message "SCRIPT ID generated : $SCRIPT_ID"
 
-POL_Website_Request "http://www.$repos.com/repository/edit.php" "name=Generated $SCRIPTTITLE $SCRIPT_ID&cat=$CATEGORY&dosbox=0&message=$SCRIPT&description=$DESCRIPTION&send=Edit&id=$SCRIPT_ID"
-echo "name=Generated $SCRIPTTITLE $SCRIPT_ID&cat=$CATEGORY&dosbox=0&message=$SCRIPT&description=$DESCRIPTION&send=Edit&id=$SCRIPT_ID"
+POL_Website_Request "http://www.$repos.com/repository/edit.php" "name=Generated $SCRIPTTITLE $SCRIPT_ID&cat=$CATEGORY&dosbox=0&message=$script&description=$DESCRIPTION&send=Edit&id=$SCRIPT_ID"
+#POL_Website_Result
+echo "name=Generated $SCRIPTTITLE $SCRIPT_ID&cat=$CATEGORY&dosbox=0&message=$script&description=$DESCRIPTION&send=Edit&id=$SCRIPT_ID"
 	else
 		POL_SetupWindow_message "$(eval_gettext "You must be able to run this program!")" "$TITLE"
 	fi
@@ -114,8 +117,8 @@ main_menu()
 	main_menu
 }
 POL_SetupWindow_Init
-#POL_Website_login
-#POL_Website_Init
+POL_Website_login
+POL_Website_Init
 main_menu
 
 exit 0
