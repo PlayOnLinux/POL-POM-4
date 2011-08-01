@@ -299,9 +299,22 @@ then
 	
 else
 	run_autorun "$CHOICE"
-	echo "POL_SetupWindow_cdrom" >> "$SCRIPTPATH"
-	echo "POL_SetupWindow_check_cdrom \"$SetupIs\"" >> "$SCRIPTPATH"
-	echo "SETUP_PATH=\"\$CDROM/$SetupIs\"" >> "$SCRIPTPATH"
+	cat <<ENDCDROM >> "$SCRIPTPATH"
+POL_SetupWindow_InstallMethod LOCAL,CD
+if [ "\$INSTALL_METHOD" = "CD" ]
+then
+	POL_SetupWindow_cdrom
+	POL_SetupWindow_check_cdrom "$SetupIs"
+	SETUP_PATH="\$CDROM/$SetupIs"
+fi
+
+if [ "\$INSTALL_METHOD" = "LOCAL" ]
+then
+	POL_SetupWindow_browse "\$(eval_gettext "Please select the install file.")" "\$TITLE"
+	SETUP_PATH="\$APP_ANSWER"
+fi
+ENDCDROM
+
 	
 fi
 
