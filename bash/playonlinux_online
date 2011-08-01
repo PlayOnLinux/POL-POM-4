@@ -86,8 +86,10 @@ SCRIPT_ID="$(POL_Website_Result | grep '<input type="hidden" name="id"'| cut -d"
 POL_Debug_Message "SCRIPT ID generated : $SCRIPT_ID"
 
 POL_Website_Request "http://www.$repos.com/repository/edit.php" "name=Generated $SCRIPTTITLE $SCRIPT_ID&cat=$CATEGORY&dosbox=0&message=$script&description=$DESCRIPTION&send=Edit&id=$SCRIPT_ID"
+
+POL_Website_GET "http://www.$repos.com/repository/state.php?sur=1&id=$SCRIPT_ID&state=0"
 #POL_Website_Result
-echo "name=Generated $SCRIPTTITLE $SCRIPT_ID&cat=$CATEGORY&dosbox=0&message=$script&description=$DESCRIPTION&send=Edit&id=$SCRIPT_ID"
+#echo "name=Generated $SCRIPTTITLE $SCRIPT_ID&cat=$CATEGORY&dosbox=0&message=$script&description=$DESCRIPTION&send=Edit&id=$SCRIPT_ID"
 	else
 		POL_SetupWindow_message "$(eval_gettext "You must be able to run this program!")" "$TITLE"
 	fi
