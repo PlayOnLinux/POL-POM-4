@@ -1341,6 +1341,8 @@ cat << EOF > "$REPERTOIRE/login_info"
 
 .playonlinux.com	TRUE	/	FALSE	0	pass	$(POL_MD5 $POL_PASSWORD)
 .playonlinux.com	TRUE	/	FALSE	0	login	$POL_LOGIN
+.playonmac.com	TRUE	/	FALSE	0	pass	$(POL_MD5 $POL_PASSWORD)
+.playonmac.com	TRUE	/	FALSE	0	login	$POL_LOGIN
 EOF
 }
 POL_Website_urlencode()
