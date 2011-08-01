@@ -592,7 +592,7 @@ POL_SetupWindow_AutoApp()
 	shortname=`echo "$1" | tr -c [[a-zA-Z0-9]\.] '_'`
 	PACKAGE="$1"
 	DIRAPP="$HOME/Desktop/$PACKAGE.app"
-	POL_SetupWindow_wait_next_signal "Building package ..." "$TITLE"
+	POL_SetupWindow_wait_next_signal ""$(eval_gettext "Making shortcut...")"" "$TITLE"
 	make_skeleton "$PACKAGE"
 	make_icon "$PACKAGE"
 	make_pom_script "$PACKAGE"
@@ -1379,12 +1379,12 @@ POL_Website_Result()
 }
 POL_Website_check_login()
 {
-	POL_SetupWindow_wait_next_signal "Connecting ..." "$TITLE"
+	POL_SetupWindow_wait_next_signal "$(eval_gettext "Connecting...")" "$TITLE"
 
 	result="$(wget -q http://repository.playonmac.org/V3_data/repository/check_login.php?l=$POL_LOGIN\&p=$POL_PASSWORD -O-)"
 	if [ "$result" = "0" ]
 	then
-		POL_SetupWindow_message "Failed to connect !\nPlease ensure that your login and your password are valid." "$TITLE"
+		POL_SetupWindow_message "$(eval_gettext "Failed to connect !\nPlease ensure that your login and your password are valid.")" "$TITLE"
 		POL_Website_login
 	fi
 }
@@ -1480,6 +1480,7 @@ POL_SetupWindow_InstallMethod()
 	STR=""
 	ICO=""
 	LNG_STEAM="$(eval_gettext "Use Steam Store version")"
+	LNG_STEAM_DEMO="$(eval_gettext "Use Steam Store demo version")"
 	LNG_LOCAL="$(eval_gettext "Use a setup file in my computer")"
 	LNG_CDROM="$(eval_gettext "Use CD-ROM(s)")"
 	LNG_DVD="$(eval_gettext "Use DVD-ROM(s)")"
@@ -1505,6 +1506,11 @@ POL_SetupWindow_InstallMethod()
 		STR="$STR~$LNG_STEAM"
 		ICO="$ICO~download.png"
 	fi
+	if [ ! "$(printf "$1" | grep STEAM_DEMO)" = "" ] 
+	then 
+		STR="$STR~$LNG_STEAM_DEMO"
+		ICO="$ICO~download.png"
+	fi
 	if [ ! "$(printf "$1" | grep DOWNLOAD)" = "" ] 
 	then 
 		STR="$STR~$LNG_DOWNLOAD"
@@ -1523,6 +1529,7 @@ POL_SetupWindow_InstallMethod()
 	
 	[ "$APP_ANSWER" = "$LNG_LOCAL" ] && INSTALL_METHOD="LOCAL"
 	[ "$APP_ANSWER" = "$LNG_STEAM" ] && INSTALL_METHOD="STEAM"
+	[ "$APP_ANSWER" = "$LNG_STEAM_DEMO" ] && INSTALL_METHOD="STEAM_DEMO"
 	[ "$APP_ANSWER" = "$LNG_DOWNLOAD" ] && INSTALL_METHOD="DOWNLOAD"
 	[ "$APP_ANSWER" = "$LNG_DVD" ] && INSTALL_METHOD="DVD"
 	[ "$APP_ANSWER" = "$LNG_CDROM" ] && INSTALL_METHOD="CD"

@@ -166,8 +166,8 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 		# Login
 		self.login = wx.StaticText(self.panel, -1, _("Login: "),pos=(20,120),size=(460,20))
 		self.password = wx.StaticText(self.panel, -1, _("Password: "),pos=(20,150),size=(460,20))
-		self.loginbox =  wx.TextCtrl(self.panel, -1, "",size=(250,22),pos=(100,115))
-		self.passbox =  wx.TextCtrl(self.panel, -1, "",size=(250,22),pos=(100,145), style=wx.TE_PASSWORD)
+		self.loginbox =  wx.TextCtrl(self.panel, -1, "",size=(250,22),pos=(200,115))
+		self.passbox =  wx.TextCtrl(self.panel, -1, "",size=(250,22),pos=(200,145), style=wx.TE_PASSWORD)
 		self.register = wx.HyperlinkCtrl(self.panel, 303, _("Register"), "", pos=(20,180))
 		self.register.SetNormalColour(wx.Colour(0,0,0))
 		
