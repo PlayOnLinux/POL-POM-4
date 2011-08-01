@@ -1484,6 +1484,14 @@ POL_SetupWindow_VMS ()
 		POL_Config_Write VMS $APP_ANSWER
 	fi
 	POL_Wine_Direct3D "VideoMemorySize" "$VMS"
+	if [ ! "$1" = "" ]
+	then
+		if [ $VMS -lt $1 ]
+		then
+			POL_Debug_Warning "$(eval_gettext "Video card does not have enough memory")" "$TITLE"
+			POL_SetupWindow_Message "$(eval_gettext "Your video card does not have enough memory!\nIt might prevent the game from working")" "$TITLE"
+		fi
+	fi
 }
 
 POL_SetupWindow_InstallMethod()
