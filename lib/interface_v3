@@ -643,7 +643,7 @@ POL_ExtractIcon()
 	# 1 = Exe
 	# 2 = Destination
 
-	POL_SetupWindow_warning "Function is deprecated"
+	POL_Debug_Warning "Function is deprecated"
 	
 	mkdir -p "$REPERTOIRE/tmp/win32Icon"
 	cd "$REPERTOIRE/tmp/win32Icon"
