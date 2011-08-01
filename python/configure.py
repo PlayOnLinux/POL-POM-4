@@ -534,6 +534,8 @@ class MainWindow(wx.Frame):
 		else:
 				if(wx.YES == wx.MessageBox(_("Are you sure you want to delete "+self.onglets.s_title+" ?").decode("utf-8"), style=wx.YES_NO | wx.ICON_QUESTION)):
 					os.remove(Variables.playonlinux_rep+"/configurations/installed/"+self.onglets.s_title)
+		self.change_program("default")
+		self.list_game.SelectItem(self.prefixes_item["default"])
 				
 	def AutoReload(self, event):
 		if(self.onglets.typing == False):
