@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2011-08-01 16:01:21+02:00\n"
+"POT-Creation-Date: 2011-08-02 11:44:35+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -273,8 +273,8 @@ msgstr ""
 msgid "Graphic problem"
 msgstr ""
 
-#: bash/debug_main:36 lib/interface_v3:874 python/install.py:299
-#: python/options.py:121
+#: bash/debug_main:36 bash/playonlinux_online:61 lib/interface_v3:875
+#: python/install.py:299 python/options.py:121
 #, sh-format
 msgid "Other"
 msgstr ""
@@ -515,7 +515,7 @@ msgstr ""
 msgid "$APPLICATION_TITLE Application Configurator"
 msgstr ""
 
-#: bash/installpolpackages:26 bash/killall:33 bash/winebash:26
+#: bash/installpolpackages:26 bash/killall:33 bash/winebash:26 lib/wine:661
 #, sh-format
 msgid "Please wait..."
 msgstr ""
@@ -597,23 +597,23 @@ msgstr ""
 msgid "Please choose a software"
 msgstr ""
 
-#: bash/manual_install:24 bash/manual_install:109 bash/manual_install:114
-#: bash/manual_install:189
+#: bash/manual_install:27 bash/manual_install:113 bash/manual_install:118
+#: bash/manual_install:194
 #, sh-format
 msgid "Manual installation"
 msgstr ""
 
-#: bash/manual_install:48
+#: bash/manual_install:51
 #, sh-format
 msgid "Autorun"
 msgstr ""
 
-#: bash/manual_install:48
+#: bash/manual_install:51
 #, sh-format
 msgid "No setup location found in autorun.inf"
 msgstr ""
 
-#: bash/manual_install:109
+#: bash/manual_install:113
 #, sh-format
 msgid ""
 "Welcome to $APPLICATION_TITLE manual installation wizard.\\n\\nThis script "
@@ -622,102 +622,97 @@ msgid ""
 "will work perfectly."
 msgstr ""
 
-#: bash/manual_install:111
+#: bash/manual_install:115
 #, sh-format
 msgid "Install a program in a new virtual drive"
 msgstr ""
 
-#: bash/manual_install:112
+#: bash/manual_install:116
 #, sh-format
 msgid "Edit or update an existing application"
 msgstr ""
 
-#: bash/manual_install:114
+#: bash/manual_install:118
 #, sh-format
 msgid "What would you like to do?"
 msgstr ""
 
-#: bash/manual_install:124
+#: bash/manual_install:128
 #, sh-format
 msgid ""
 "Please type a name for your application's virtual drive.\\nThis name "
 "shouldn't contain spaces."
 msgstr ""
 
-#: bash/manual_install:134
+#: bash/manual_install:138
 #, sh-format
 msgid "Please choose a program"
 msgstr ""
 
-#: bash/manual_install:155
+#: bash/manual_install:159
 #, sh-format
 msgid "Use another version of Wine"
 msgstr ""
 
-#: bash/manual_install:156 bash/manual_install:189 bash/polconfigurator:110
-#: python/configure.py:148 python/mainwindow.py:324 python/mainwindow.py:355
+#: bash/manual_install:160 bash/manual_install:194 bash/polconfigurator:110
+#: python/configure.py:150 python/mainwindow.py:324 python/mainwindow.py:355
 #, sh-format
 msgid "Configure Wine"
 msgstr ""
 
-#: bash/manual_install:157
+#: bash/manual_install:161
 #, sh-format
 msgid "Install some libraries"
 msgstr ""
 
-#: bash/manual_install:160
+#: bash/manual_install:164
 #, sh-format
 msgid "If you don't know, unselect all"
 msgstr ""
 
-#: bash/manual_install:160
+#: bash/manual_install:164
 #, sh-format
 msgid "What would you like to do before installation?"
 msgstr ""
 
-#: bash/manual_install:173
+#: bash/manual_install:177
 #, sh-format
 msgid "Which version of Wine would you like to use?"
 msgstr ""
 
-#: bash/manual_install:226 lib/wine:567
+#: bash/manual_install:231 lib/wine:567
 #, sh-format
 msgid "Please make your choice"
 msgstr ""
 
-#: bash/manual_install:250
+#: bash/manual_install:255
 #, sh-format
 msgid "Looking for runnable CD-ROMs"
 msgstr ""
 
-#: bash/manual_install:273
+#: bash/manual_install:278
 #, sh-format
 msgid "Select another file"
 msgstr ""
 
-#: bash/manual_install:281
+#: bash/manual_install:286
 #, sh-format
 msgid "Please choose a way to install your program"
 msgstr ""
 
-#: bash/manual_install:290
+#: bash/manual_install:295
 #, sh-format
 msgid "Please select the install file to run."
 msgstr ""
 
-#: bash/manual_install:307
+#: bash/manual_install:325
 #, sh-format
 msgid "You must choose a file!"
 msgstr ""
 
-#: bash/manual_install:313
+#: bash/manual_install:331
 #, sh-format
 msgid "$APPLICATION_TITLE is installing your application..."
-msgstr ""
-
-#: bash/manual_install:327
-#, sh-format
-msgid "Please do not press Next until the installation has been completed."
 msgstr ""
 
 #: bash/playonlinux-pkg:25
@@ -810,20 +805,142 @@ msgstr ""
 
 #: bash/playonlinux_online:39
 #, sh-format
+msgid ""
+"If you have successfully installed a program with 'Install a non-listed"
+"\\nsoftware' button, it will allow you to add this program in our list"
+msgstr ""
+
+#: bash/playonlinux_online:39
+#, sh-format
+msgid "This tools will allow you to help us :"
+msgstr ""
+
+#: bash/playonlinux_online:39
+#, sh-format
+msgid ""
+"We're going to ask you some questions, please be as much accurate as"
+"\\npossible"
+msgstr ""
+
+#: bash/playonlinux_online:47
+#, sh-format
+msgid "Choose the file corresponding to your program."
+msgstr ""
+
+#: bash/playonlinux_online:51
+#, sh-format
+msgid "Does your program run?"
+msgstr ""
+
+#: bash/playonlinux_online:54
+#, sh-format
+msgid "What is the title of your program?"
+msgstr ""
+
+#: bash/playonlinux_online:56
+#, sh-format
+msgid "What is the editor of your program?"
+msgstr ""
+
+#: bash/playonlinux_online:58
+#, sh-format
+msgid "What is the editor website of your program?"
+msgstr ""
+
+#: bash/playonlinux_online:61 python/install.py:299
+#, sh-format
+msgid "Accessories"
+msgstr ""
+
+#: bash/playonlinux_online:61 python/install.py:299
+#, sh-format
+msgid "Development"
+msgstr ""
+
+#: bash/playonlinux_online:61 python/install.py:299
+#, sh-format
+msgid "Education"
+msgstr ""
+
+#: bash/playonlinux_online:61 python/install.py:299
+#, sh-format
+msgid "Games"
+msgstr ""
+
+#: bash/playonlinux_online:61 python/install.py:299
+#, sh-format
+msgid "Graphics"
+msgstr ""
+
+#: bash/playonlinux_online:61 python/install.py:299 python/mainwindow.py:157
+#: python/options.py:431
+#, sh-format
+msgid "Internet"
+msgstr ""
+
+#: bash/playonlinux_online:61 python/install.py:299
+#, sh-format
+msgid "Multimedia"
+msgstr ""
+
+#: bash/playonlinux_online:61 python/install.py:299
+#, sh-format
+msgid "Office"
+msgstr ""
+
+#: bash/playonlinux_online:61 python/install.py:325
+#, sh-format
+msgid "Patches"
+msgstr ""
+
+#: bash/playonlinux_online:61
+#, sh-format
+msgid "Select a category for your program"
+msgstr ""
+
+#: bash/playonlinux_online:61 python/install.py:326
+#, sh-format
+msgid "Testing"
+msgstr ""
+
+#: bash/playonlinux_online:64
+#, sh-format
+msgid ""
+"What feature of your program does not work?\\nIf everything works, please "
+"mention it"
+msgstr ""
+
+#: bash/playonlinux_online:66
+#, sh-format
+msgid "Write any change you made to wine configuration here:"
+msgstr ""
+
+#: bash/playonlinux_online:94
+#, sh-format
+msgid "You must be able to run this program!"
+msgstr ""
+
+#: bash/playonlinux_online:99
+#, sh-format
 msgid "Run one of your personal scripts"
 msgstr ""
 
-#: bash/playonlinux_online:40
+#: bash/playonlinux_online:100
+#, sh-format
+msgid "Send to us a working script generated by manual installation"
+msgstr ""
+
+#: bash/playonlinux_online:101
 #, sh-format
 msgid "Logout"
 msgstr ""
 
-#: bash/playonlinux_online:41
+#: bash/playonlinux_online:102
 #, sh-format
-msgid "You are connected to $APPLICATION_TITLE online"
+msgid "You are connected to $APPLICATION_TITLE online as $POL_LOGIN"
 msgstr ""
 
-#: bash/playonlinux_online:51
+#: bash/playonlinux_online:116
 #, sh-format
 msgid ""
 "You have been successfully logged out of $APPLICATION_TITLE Online\\nYou can "
@@ -887,7 +1004,7 @@ msgstr ""
 msgid "is not an icon extension"
 msgstr ""
 
-#: bash/polconfigurator:111 python/configure.py:154 python/mainwindow.py:328
+#: bash/polconfigurator:111 python/configure.py:156 python/mainwindow.py:328
 #: python/mainwindow.py:361
 #, sh-format
 msgid "Registry Editor"
@@ -1176,7 +1293,7 @@ msgstr ""
 msgid "Cannot find the shortcut"
 msgstr ""
 
-#: bash/uninstall:53 lib/interface_v3:98
+#: bash/uninstall:53 lib/interface_v3:99
 #, sh-format
 msgid "Error"
 msgstr ""
@@ -1216,7 +1333,7 @@ msgstr ""
 msgid "Program: "
 msgstr ""
 
-#: lib/check_depend:38 lib/interface_v3:96
+#: lib/check_depend:38 lib/interface_v3:97
 #, sh-format
 msgid ""
 "One or more program(s) are missing. Please install them and run the script "
@@ -1237,82 +1354,87 @@ msgid ""
 "supported."
 msgstr ""
 
-#: lib/interface_v3:43
+#: lib/interface_v3:44
 #, sh-format
 msgid " on your computer."
 msgstr ""
 
-#: lib/interface_v3:43
+#: lib/interface_v3:44
 #, sh-format
 msgid " will be installed in: "
 msgstr ""
 
-#: lib/interface_v3:43
+#: lib/interface_v3:44
 #, sh-format
 msgid "Click Next to start"
 msgstr ""
 
-#: lib/interface_v3:43
+#: lib/interface_v3:44
 #, sh-format
 msgid "This installation program is provided by: "
 msgstr ""
 
-#: lib/interface_v3:43
+#: lib/interface_v3:44
 #, sh-format
 msgid "This program was created by: "
 msgstr ""
 
-#: lib/interface_v3:43
+#: lib/interface_v3:44
 #, sh-format
 msgid "This wizard will help you install "
 msgstr ""
 
-#: lib/interface_v3:544 lib/interface_v3:553 lib/interface_v3:567
+#: lib/interface_v3:545 lib/interface_v3:554 lib/interface_v3:568
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr ""
 
-#: lib/interface_v3:852
+#: lib/interface_v3:596
+#, sh-format
+msgid "Making shortcut..."
+msgstr ""
+
+#: lib/interface_v3:853
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a Windows reboot"
 msgstr ""
 
-#: lib/interface_v3:873
+#: lib/interface_v3:874
 #, sh-format
 msgid "Where is mounted your CD-ROM?"
 msgstr ""
 
-#: lib/interface_v3:875 python/install.py:135
+#: lib/interface_v3:876 python/install.py:135
 #, sh-format
 msgid "Refresh"
 msgstr ""
 
-#: lib/interface_v3:899
+#: lib/interface_v3:900
 #, sh-format
 msgid "Error: Unable to find the CD-ROM!"
 msgstr ""
 
-#: lib/interface_v3:919
+#: lib/interface_v3:920
 #, sh-format
 msgid "Unable to find version: "
 msgstr ""
 
-#: lib/interface_v3:925 lib/interface_v3:926 lib/interface_v3:969
+#: lib/interface_v3:926 lib/interface_v3:927 lib/interface_v3:970
 #, sh-format
 msgid "Downloading Wine: "
 msgstr ""
 
-#: lib/interface_v3:936
+#: lib/interface_v3:937
 #, sh-format
 msgid "The download seems to have failed."
 msgstr ""
 
-#: lib/interface_v3:939 lib/interface_v3:977
+#: lib/interface_v3:940 lib/interface_v3:978
 #, sh-format
 msgid "Extracting Wine..."
 msgstr ""
 
-#: lib/interface_v3:963
+#: lib/interface_v3:964
 #, sh-format
 msgid "Unable to find the version:"
 msgstr ""
@@ -1349,137 +1471,137 @@ msgstr ""
 msgid "Setting Program Files var"
 msgstr ""
 
-#: python/configure.py:109 python/configure.py:499
+#: python/configure.py:111 python/configure.py:505
 msgid "General"
 msgstr ""
 
-#: python/configure.py:112
+#: python/configure.py:114
 msgid "Make a new shortcut from this virtual drive"
 msgstr ""
 
-#: python/configure.py:113
+#: python/configure.py:115
 msgid "Name"
 msgstr ""
 
-#: python/configure.py:114
+#: python/configure.py:116
 msgid "Wine version"
 msgstr ""
 
-#: python/configure.py:115
+#: python/configure.py:117
 msgid "Virtual drive"
 msgstr ""
 
-#: python/configure.py:117
+#: python/configure.py:119
 msgid "Enable debugging"
 msgstr ""
 
-#: python/configure.py:123
+#: python/configure.py:125
 msgid "Run configuration wizard"
 msgstr ""
 
-#: python/configure.py:161
+#: python/configure.py:163
 msgid "Windows reboot"
 msgstr ""
 
-#: python/configure.py:167
+#: python/configure.py:169
 msgid "Command prompt"
 msgstr ""
 
-#: python/configure.py:173
+#: python/configure.py:175
 msgid "Task manager"
 msgstr ""
 
-#: python/configure.py:179
+#: python/configure.py:181
 msgid "Kill processes"
 msgstr ""
 
-#: python/configure.py:199 python/install.py:134 python/mainwindow.py:110
+#: python/configure.py:201 python/install.py:134 python/mainwindow.py:110
 #: python/mainwindow.py:244
 msgid "Install"
 msgstr ""
 
-#: python/configure.py:255
+#: python/configure.py:257
 msgid "Open program's directory"
 msgstr ""
 
-#: python/configure.py:276
+#: python/configure.py:278
 msgid "Open virtual drive's directory"
 msgstr ""
 
-#: python/configure.py:389
+#: python/configure.py:391
 msgid "GLSL Support"
 msgstr ""
 
-#: python/configure.py:390
+#: python/configure.py:392
 msgid "Direct Draw Renderer"
 msgstr ""
 
-#: python/configure.py:391
+#: python/configure.py:393
 msgid "Video memory size"
 msgstr ""
 
-#: python/configure.py:392
+#: python/configure.py:394
 msgid "Offscreen rendering mode"
 msgstr ""
 
-#: python/configure.py:393
+#: python/configure.py:395
 msgid "Render target mode lock"
 msgstr ""
 
-#: python/configure.py:394
+#: python/configure.py:396
 msgid "Multisampling"
 msgstr ""
 
-#: python/configure.py:395
+#: python/configure.py:397
 msgid "Strict Draw Ordering"
 msgstr ""
 
-#: python/configure.py:405
+#: python/configure.py:407
 msgid "Mouse warp override"
 msgstr ""
 
-#: python/configure.py:407
+#: python/configure.py:409
 msgid "Open a shell"
 msgstr ""
 
-#: python/configure.py:408
+#: python/configure.py:410
 msgid "Run a .exe file in this virtual drive"
 msgstr ""
 
-#: python/configure.py:462 python/mainwindow.py:473 python/mainwindow.py:475
+#: python/configure.py:468 python/mainwindow.py:473 python/mainwindow.py:475
 msgid "{0} configuration"
 msgstr ""
 
-#: python/configure.py:483
+#: python/configure.py:489
 msgid "New"
 msgstr ""
 
-#: python/configure.py:484 python/mainwindow.py:111 python/mainwindow.py:245
+#: python/configure.py:490 python/mainwindow.py:111 python/mainwindow.py:245
 #: python/mainwindow.py:340 python/wine_versions.py:186
 msgid "Remove"
 msgstr ""
 
-#: python/configure.py:501
+#: python/configure.py:507
 msgid "Install packages"
 msgstr ""
 
-#: python/configure.py:502
+#: python/configure.py:508
 msgid "Display"
 msgstr ""
 
-#: python/configure.py:503
+#: python/configure.py:509
 msgid "Miscellaneous"
 msgstr ""
 
-#: python/configure.py:520
+#: python/configure.py:526
 msgid "Choose the name of the virtual drive"
 msgstr ""
 
-#: python/configure.py:526
+#: python/configure.py:533
 msgid "This virtual drive is protected"
 msgstr ""
 
-#: python/configure.py:528 python/configure.py:535
+#: python/configure.py:535 python/configure.py:542
 msgid "Are you sure you want to delete "
 msgstr ""
 
@@ -1563,52 +1685,12 @@ msgstr ""
 msgid "Install a non-listed program"
 msgstr ""
 
-#: python/install.py:299
-msgid "Accessories"
-msgstr ""
-
-#: python/install.py:299
-msgid "Development"
-msgstr ""
-
-#: python/install.py:299
-msgid "Education"
-msgstr ""
-
-#: python/install.py:299
-msgid "Games"
-msgstr ""
-
-#: python/install.py:299
-msgid "Graphics"
-msgstr ""
-
-#: python/install.py:299 python/mainwindow.py:157 python/options.py:431
-msgid "Internet"
-msgstr ""
-
-#: python/install.py:299
-msgid "Multimedia"
-msgstr ""
-
-#: python/install.py:299
-msgid "Office"
-msgstr ""
-
 #: python/install.py:323
 msgid "Highest rated"
 msgstr ""
 
 #: python/install.py:324
 msgid "Most downloaded"
-msgstr ""
-
-#: python/install.py:325
-msgid "Patches"
-msgstr ""
-
-#: python/install.py:326
-msgid "Testing"
 msgstr ""
 
 #: python/mainwindow.py:64
