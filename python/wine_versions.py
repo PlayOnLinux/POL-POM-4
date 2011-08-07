@@ -156,6 +156,8 @@ class getVersions(threading.Thread):
 					time.sleep(1)
 					self.thread_message = "Err"
 					self.versions = ["Wine packages website is unavailable"]
+					socket.setdefaulttimeout(None)
+					
 			else:
 				time.sleep(0.2)
 

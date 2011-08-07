@@ -44,7 +44,6 @@ class Download(threading.Thread):
 		
 	def download(self):
 		try:
-			socket.setdefaulttimeout(None)
 			urllib.urlretrieve(self.url, self.local, reporthook = self.onHook)
 		except:
 			self.failed = True
