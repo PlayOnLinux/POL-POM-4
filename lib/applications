@@ -381,7 +381,7 @@ POL_System_SetArch()
 	fi
 	if [ "$1" == "amd64" ]
 	then
-		[ "$MACHTYPE" == "x86_64-pc-linux-gnu" ] && export POL_ARCH="amd64" || POL_DebugFatal "amd64 is not supported by your system"
+		[ "$MACHTYPE" == "x86_64-pc-linux-gnu" ] && export POL_ARCH="amd64" || POL_Debug_Fatal "amd64 is not supported by your system"
 	fi	
 }
 POL_Shortcut_GetPrefix()

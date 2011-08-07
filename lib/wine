@@ -595,6 +595,7 @@ POL_Wine_InstallVersion()
 	OLDPATH="$PWD"
 	WINE_SECTION="$ARCH_PREFIX-$POL_ARCH"
 	WINEDIR="$REPERTOIRE/wine/$WINE_SECTION"
+	touch "$WINEDIR/installing"
 	if [ ! -e "$WINEDIR/$POL_WINEVERSION" ]
 	then
 		
@@ -625,6 +626,7 @@ POL_Wine_InstallVersion()
 		fi
 		rm "$WINE_ADDRESS"
 	fi
+	rm "$WINEDIR/installing"
 	
 }
 POL_Wine_AutoSetVersionEnv()
@@ -633,7 +635,7 @@ POL_Wine_AutoSetVersionEnv()
 	WINVERSION="$(POL_Config_PrefixRead "VERSION")"
 	POL_ARCH="$(POL_Config_PrefixRead "ARC")"
 	
-	POL_WineSetVersionEnv
+	POL_Wine_SetVersionEnv
 }
 POL_Wine_SetVersionEnv()
 {
