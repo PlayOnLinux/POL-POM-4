@@ -128,7 +128,6 @@ class getVersions(threading.Thread):
 				try :
 					socket.setdefaulttimeout(timeout)
 
-
 					url = os.environ["WINE_SITE"]+"/"+wfolder+".lst"
 					
 					#print(url)
