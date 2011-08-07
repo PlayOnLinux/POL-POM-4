@@ -131,6 +131,14 @@ construire_repertoire_personnel ()
 	mkdir -p "$REPERTOIRE/icones/full_size"
 	mkdir -p "$REPERTOIRE/icones/32"
 	mkdir -p "$REPERTOIRE/WineVersions"
+	if [ "$POL_OS" == "Linux" ]
+	then
+	mkdir -p "$REPERTOIRE/wine/linux-x86"
+	mkdir -p "$REPERTOIRE/wine/linux-amd64"
+	else
+	mkdir -p "$REPERTOIRE/wine/darwin-x86"
+	mkdir -p "$REPERTOIRE/wine/darwin-amd64"
+	fi
 	mkdir -p "$REPERTOIRE/plugins"
 	mkdir -p "$REPERTOIRE/configurations/guis"
 	mkdir -p "$REPERTOIRE/configurations/configurators"
@@ -363,6 +371,7 @@ POL_MD5_file ()
 		cat "$1" | md5sum | awk '{print $1}'
 	fi
 }
+
 POL_Open()
 {
 	[ "$POL_OS" == "Mac" ] && open "$@"

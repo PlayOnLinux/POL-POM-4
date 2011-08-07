@@ -468,34 +468,9 @@ Set_SoundEmulDriver ()
 }
 Use_WineVersion()
 {
-	POL_Debug_Message "Using wineversion : $1"
-	OLDPATH="$PWD"
-	cd "$REPERTOIRE/WineVersions"
-	VERSIONTAPER="$1"
-	if [ "$VERSIONTAPER" = "--reset" ]
-	then
-		export PATH="$PATH_ORIGIN"
-		export LD_LIBRARY_PATH="$LD_PATH_ORIGIN"
-	else
-		if [ ! -e "$REPERTOIRE/WineVersions/$VERSIONTAPER" ]
-		then
-			POL_Debug_Message "Wine $1 not installed"
-		 	POL_SetupWindow_install_wine "$VERSIONTAPER"
-		else
-			POL_Debug_Message "\"$REPERTOIRE/WineVersions/$VERSIONTAPER\" exists"
-		fi
-		if [ "$POL_OS" == "Mac" ]
-		then
-			export PATH="$REPERTOIRE/WineVersions/$VERSIONTAPER/bin/:$PATH"
-			export LD_LIBRARY_PATH="$REPERTOIRE/WineVersions/$VERSIONTAPER/lib/:$LD_LIBRARY_PATH"
-		else
-			export PATH="$REPERTOIRE/WineVersions/$VERSIONTAPER/usr/bin/:$PATH"
-			export LD_LIBRARY_PATH="$REPERTOIRE/WineVersions/$VERSIONTAPER/usr/lib/:$LD_LIBRARY_PATH"
-		fi
-	fi
-	cd "$OLDPATH"
+	POL_Debug_Warning "Function is deprecated. Use export WINEVERSION instead"
+	export POL_WINEVERSION="$1"
 }
-
 
 POL_LoadVar_PROGRAMFILES()
 {
@@ -593,7 +568,8 @@ POL_AutoWine ()
 }
 POL_Wine ()
 {
-	POL_Debug_Message "Running wine $@"
+	POL_Debug_Message "Running wine "$@""
+	POL_Wine_AutoSetVersionEnv
 	wine "$@" >> "$LOGFILE" 2>> "$LOGFILE"
 	[ "$?" = "0" ] || POL_Debug_Error "Wine crashed"
 }
@@ -608,7 +584,118 @@ POL_Wine_PrefixExists()
 	PREFNAME=`printf "$1"| tr -c [[a-zA-Z0-9]\.] '_'`
 	[ -d "$POL_USER_ROOT/wineprefix/$PREFNAME" ] && echo "True" || echo "False"
 }
+POL_Wine_InstallVersion()
+{
+	[ ! "$1" = "" ] && export POL_WINEVERSION="$1"
+	[ "$POL_WINEVERSION" = "" ] && POL_Debug_Fatal "No POL_WINEVERSION set"
+	[ "$POL_ARCH" = "" ] && POL_System_SetArch "auto"
+	POL_Debug_Message "Installing wine version path: $POL_WINEVERSION, $POL_ARCH"
+	[ "$POL_OS" = "Mac" ] && ARCH_PREFIX="darwin"
+	[ "$POL_OS" = "Linux" ] && ARCH_PREFIX="linux"
+	OLDPATH="$PWD"
+	WINE_SECTION="$ARCH_PREFIX-$POL_ARCH"
+	WINEDIR="$REPERTOIRE/wine/$WINE_SECTION"
+	if [ ! -e "$WINEDIR/$POL_WINEVERSION" ]
+	then
+		
+		WINE_ADDRESS=$(wget "$WINE_SITE/$WINE_SECTION.lst" -O- | grep ";$POL_WINEVERSION;" | tail -n 1 | cut -d ";" -f1)
+		if [ "$WINE_ADDRESS" = "" ]
+		then
+		 POL_SetupWindow_message "$(eval_gettext "Unable to find version: ")$POL_WINEVERSION" "Wine $1"
+		 POL_SetupWindow_Close
+		 exit
+		fi
 
+		cd "$REPERTOIRE/tmp"
+		POL_SetupWindow_download "$(eval_gettext "Downloading Wine: ")$VERSIONENTRER" "Wine" "$WINE_SITE/$WINE_SECTION/$WINE_ADDRESS"
+		POL_SetupWindow_wait_next_signal "$(eval_gettext "Downloading Wine: ")$POL_WINEVERSION" "Wine"
+		sleep 1
+		sha1=$(wget "$WINE_SITE/$WINE_SECTION/$WINE_ADDRESS.sha1" -O- | awk '{print $1}')
+		sha1_file=$(shasum "./$WINE_ADDRESS" | awk '{print $1}')
+		echo "Server sha1 : $sha1"
+		echo "Client sha1 : $sha1_file"
+
+		POL_SetupWindow_detect_exit
+		if [ ! "$sha1" = "$sha1_file" ]
+		then
+			POL_SetupWindow_message "$(eval_gettext 'The download seems to have failed.')" "Wine $1"
+		else
+			POL_SetupWindow_wait "$(eval_gettext 'Extracting Wine...')" "Wine $1"
+			"$PLAYONLINUX/playonlinux-pkg" -i "$WINE_ADDRESS"
+		fi
+		rm "$WINE_ADDRESS"
+	fi
+	
+}
+POL_Wine_AutoSetVersionEnv()
+{
+	[ "$WINEPREFIX" = "" ] && POL_DebugFatal "WINEPREFIX is not set!"
+	WINVERSION="$(POL_Config_PrefixRead "VERSION")"
+	POL_ARCH="$(POL_Config_PrefixRead "ARC")"
+	
+	POL_WineSetVersionEnv
+}
+POL_Wine_SetVersionEnv()
+{
+	[ ! "$1" = "" ] && export POL_WINEVERSION="$1"
+	[ "$POL_WINEVERSION" = "" ] && POL_Debug_Fatal "No POL_WINEVERSION set"
+	[ "$POL_ARCH" = "" ] && POL_System_SetArch "auto"
+	POL_Debug_Message "Setting wine version path: $POL_WINEVERSION, $POL_ARCH"
+	[ "$POL_OS" = "Mac" ] && ARCH_PREFIX="darwin"
+	[ "$POL_OS" = "Linux" ] && ARCH_PREFIX="linux"
+	OLDPATH="$PWD"
+	WINEDIR="$REPERTOIRE/wine/$ARCH_PREFIX-$POL_ARCH"
+	mkdir -p "$WINEDIR"
+	cd "$WINEDIR"
+
+	if [ "$POL_WINEVERSION" = "--reset" ]
+	then
+		export PATH="$PATH_ORIGIN"
+		export LD_LIBRARY_PATH="$LD_PATH_ORIGIN"
+	else
+		if [ ! -e "$WINEDIR/$POL_WINEVERSION" ]
+		then
+			POL_Debug_Message "Wine $POL_WINEVERSION not installed"
+		 	POL_Wine_InstallVersion "$POL_WINEVERSION"
+		else
+			POL_Debug_Message "\"$WINEDIR/$POL_WINEVERSION\" exists"
+		fi
+		export PATH="$WINEDIR/$POL_WINEVERSION/bin/:$PATH"
+		export LD_LIBRARY_PATH="$WINEDIR/$POL_WINEVERSION/lib/:$LD_LIBRARY_PATH"
+		
+	fi
+	cd "$OLDPATH"
+}
+POL_Wine_PrefixCreate()
+{
+	# 1 - Wineversion
+	POL_SetupWindow_wait "$(eval_gettext 'Please wait while the virtual drive is being created...')" "$TITLE"
+	[ "$POL_ARCH" = "" ] && POL_System_SetArch "auto"
+	[ "$WINEPREFIX" = "" ] && POL_Debug_Fatal "WINEPREFIX is not set!"
+	if [ -e "$WINEPREFIX" ]
+	then
+		[ ! "$1" = "" ] && export POL_WINEVERSION="$1"
+		[ ! "$POL_WINEVERSION" = "" ] && POL_Wine_SetVersion "$POL_WINEVERSION"
+	else
+		[ "$1" = "" ] || export POL_WINEVERSION="$1"
+		if [ "$POL_WINEVERSION" = "" ]
+		then
+			wine wineboot
+			if [ -e "$WINEPREFIX/drive_c/windows/syswow64" ] # It is a 64 bits prefix
+			then
+				POL_Config_PrefixWrite "ARCH" "amd64"
+			else
+				POL_Config_PrefixWrite "ARCH" "x86"
+			fi
+		else
+			POL_Wine_InstallVersion "$POL_WINEVERSION"
+			POL_Config_PrefixWrite "ARCH" "$POL_ARCH"
+			POL_Config_PrefixWrite "VERSION" "$POL_WINEVERSION"
+			POL_Wine_SetVersionEnv
+			wine wineboot
+		fi
+	fi
+}
 POL_Wine_OverrideDLL()
 {
 	mode=$1

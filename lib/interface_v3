@@ -1479,7 +1479,7 @@ POL_SetupWindow_VMS ()
 	VMS="$(POL_Config_Read VMS)"
 	if [ "$VMS" = "" ]
 	then
-		POL_SetupWindow_menu "$(eval_gettext "How much memory does your graphics board have?")" "$TITLE" "32~64~128~256~384~512~768~1024~2048~3072~4096" "~"
+		POL_SetupWindow_menu "$(eval_gettext "How much memory does your graphics board have?")" "$TITLE" "64-128-256-320-384-512-640-768-896-1024-1536-1792-2048-3072-4096" "-"
 		VMS="$APP_ANSWER"
 		POL_Config_Write VMS $APP_ANSWER
 	fi

@@ -341,18 +341,18 @@ POL_Config_Read ()
 
 POL_Config_PrefixWrite ()
 {
-	cat "$POL_USER_ROOT/playonlinux.cfg" 2> /dev/null | grep -v "^$2" > "$POL_USER_ROOT/tmp/newcfg"
-	echo "$2=$3" >> "$POL_USER_ROOT/tmp/newcfg"
-	mv "$POL_USER_ROOT/tmp/newcfg" "$POL_USER_ROOT/wineprefix/$1/splayonlinux.cfg"
+	cat "$WINEPREFIX/playonlinux.cfg" 2> /dev/null | grep -v "^$1" > "$POL_USER_ROOT/tmp/newcfg"
+	echo "$1=$2" >> "$POL_USER_ROOT/tmp/newcfg"
+	mv "$POL_USER_ROOT/tmp/newcfg" "$WINEPREFIX/playonlinux.cfg"
 }
 POL_Config_PrefixDelete ()
 {
-	cat "$POL_USER_ROOT/playonlinux.cfg" 2> /dev/null | grep -v "^$2" > "$POL_USER_ROOT/tmp/newcfg"
-	mv "$POL_USER_ROOT/tmp/newcfg" "$POL_USER_ROOT/wineprefix/$1/playonlinux.cfg"
+	cat "$WINEPREFIX/playonlinux.cfg" 2> /dev/null | grep -v "^$1" > "$POL_USER_ROOT/tmp/newcfg"
+	mv "$POL_USER_ROOT/tmp/newcfg" "$WINEPREFIX/playonlinux.cfg"
 }
 POL_Config_PrefixRead ()
 {
-	cat "$POL_USER_ROOT/wineprefix/$1/playonlinux.cfg" 2> /dev/null | grep "^$2" | cut -d\= -f2
+	cat "$WINEPREFIX/playonlinux.cfg" 2> /dev/null | grep "^$1" | cut -d\= -f2
 }
 
 POL_System_TmpCreate()
@@ -368,7 +368,22 @@ POL_System_TmpDelete()
 	# Sans arguments
 	[ ! "$POL_System_TmpName" = "" ] && rm -rf "$POL_USER_ROOT/tmp/$POL_System_TmpName" || POL_Debug_Warning "POL_System_TmpName is not defined !"
 }
-
+POL_System_SetArch()
+{
+	# Auto, x86, amd64
+	if [ "$1" == "auto" ]
+	then
+		[ "$MACHTYPE" == "x86_64-pc-linux-gnu" ] && export POL_ARCH="amd64" || export POL_ARCH="x86"
+	fi
+	if [ "$1" == "x86" ]
+	then
+		export POL_ARCH="x86"
+	fi
+	if [ "$1" == "amd64" ]
+	then
+		[ "$MACHTYPE" == "x86_64-pc-linux-gnu" ] && export POL_ARCH="amd64" || POL_DebugFatal "amd64 is not supported by your system"
+	fi	
+}
 POL_Shortcut_GetPrefix()
 {
 	[ "$1" = "" ] && POL_Debug_Error "No shortcut specified"
