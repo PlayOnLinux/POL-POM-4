@@ -252,7 +252,7 @@ get_existing_POL_SetupWindow_shortcut_creator()
 	do
 		if [ ! "$(cat "$file" | grep $WINEPREFIX)" = "" ]
 		then
-			cat "$file" | grep "wine " | awk '{print $2}' | tr -d "\""
+			cat "$file" | grep "POL_Wine " | awk '{print $2}' | tr -d "\""
 		fi
 	done
 }
