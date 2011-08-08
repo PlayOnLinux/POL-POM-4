@@ -34,7 +34,7 @@ timeout = 2
 #socket.setdefaulttimeout(timeout)
 
 def SetWineVersion(game, version):
-	cfile = Variables.playonlinux_rep+"configurations/installed/"+game
+	cfile = Variables.playonlinux_rep+"shortcuts/"+game
 	fichier = open(cfile,"r").readlines()
 	i = 0
 	line = []
@@ -61,7 +61,7 @@ def SetWineVersion(game, version):
 		i+=1
 		
 def GetWineVersion(game):
-	cfile = Variables.playonlinux_rep+"configurations/installed/"+game
+	cfile = Variables.playonlinux_rep+"shortcuts/"+game
 	fichier = open(cfile,"r").readlines()
 	i = 0
 	line = ""

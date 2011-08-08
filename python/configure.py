@@ -95,7 +95,7 @@ class Onglets(wx.Notebook):
 		self.general_elements[shortname].SetValue(elements[0])
 
 
-		
+	
 	def General(self, nom):
 		self.panelGeneral = wx.Panel(self, -1)
 		self.AddPage(self.panelGeneral, nom)
@@ -113,7 +113,7 @@ class Onglets(wx.Notebook):
 		
 		self.AddGeneralButton(_("Make a new shortcut from this virtual drive"),"newshort",1)		
 		self.AddGeneralChamp(_("Name"),"name","",2)
-		self.AddGeneralElement(_("Wine version"),"wineversion",playonlinux.Get_versions(),playonlinux.Get_versions(),3)
+		self.AddGeneralElement(_("Wine version"),"wineversion",[],[],3)
 		self.AddGeneralElement(_("Virtual drive"),"wineprefix",playonlinux.Get_Drives(),playonlinux.Get_Drives(),4)
 		
 		self.general_elements["debug_text"] = wx.StaticText(self.panelGeneral, -1, _("Enable debugging") ,pos=(15,19+5*40))
@@ -239,20 +239,34 @@ class Onglets(wx.Notebook):
 		self.display_elements[param].SetValue(self.settings[param])	
 		
 		#self.display_elements[param].SetValue(value)
-		
+	
+	def UpdateVersions(self, arch):
+		elements = playonlinux.Get_versions(arch)
+		self.general_elements["wineversion"].Clear()
+		if(arch == 'x86'):
+			self.general_elements["wineversion"].Append("System")
+		self.general_elements["wineversion"].AppendItems(elements)
+		version = playonlinux.GetSettings('VERSION',self.s_prefix)
+		if(version == ''):
+			self.general_elements["wineversion"].SetValue('System')
+		else:
+			self.general_elements["wineversion"].SetValue(version)
+			
 	def UpdateValues(self, selection):
 		#print "Test"
 		if(self.s_isPrefix == False):
 			self.ChangeTitle(selection)
-			self.general_elements["wineversion"].SetValue(wine_versions.GetWineVersion(selection))
-			self.general_elements["wineversion"].Show()
+			#self.general_elements["wineversion"].SetValue(wine_versions.GetWineVersion(selection))
+			#self.general_elements["wineversion"].Show()
 			self.general_elements["wineprefix"].Show()
-			self.general_elements["name"].Show()
-			self.general_elements["wineversion_text"].Show()
+			#self.general_elements["name"].Show()
+			#self.general_elements["wineversion_text"].Show()
 			self.general_elements["wineprefix_text"].Show()
 			self.general_elements["debug_text"].Show()
 			self.general_elements["debug_check"].Show()
-			self.general_elements["name_text"].Show()
+			self.general_elements["name"].SetEditable(True)
+			
+			#self.general_elements["name_text"].Show()
 			self.general_elements["wineprefix"].SetValue(playonlinux.getPrefix(self.s_title))
 			self.display_elements["folder_button"].SetLabel(_("Open program's directory"))
 			self.general_elements["debug_check"].SetValue(playonlinux.GetDebugState(self.s_title))
@@ -267,14 +281,17 @@ class Onglets(wx.Notebook):
 		else:
 			self.s_prefix = selection
 			self.s_title = selection
-			self.general_elements["wineversion"].Hide()
+			#self.general_elements["wineversion"].Hide()
 			self.general_elements["wineprefix"].Hide()
-			self.general_elements["name"].Hide()
-			self.general_elements["wineversion_text"].Hide()
+			#self.general_elements["name"].Hide()
+			self.general_elements["name"].SetEditable(False)
+			self.general_elements["name"].SetValue(self.s_prefix)
+			
+			#self.general_elements["wineversion_text"].Hide()
 			self.general_elements["wineprefix_text"].Hide()
 			self.general_elements["debug_text"].Hide()
 			self.general_elements["debug_check"].Hide()
-			self.general_elements["name_text"].Hide()
+			#self.general_elements["name_text"].Hide()
 			self.display_elements["folder_button"].SetLabel(_("Open virtual drive's directory"))
 			self.configurator_title.Hide()
 			self.configurator_button.Hide()
@@ -292,7 +309,8 @@ class Onglets(wx.Notebook):
 		self.get_current_settings("StrictDrawOrdering")
 		self.get_current_settings("MouseWarpOverride")
 
-	
+		self.arch = playonlinux.GetSettings('ARCH',self.s_prefix)
+		self.UpdateVersions(self.arch)
 		
 			
 	def change_settings(self, event):
@@ -413,8 +431,10 @@ class Onglets(wx.Notebook):
 		
 	def assign(self, event):
 		version = self.general_elements["wineversion"].GetValue()
-		wine_versions.SetWineVersion(self.s_title, version)
-		
+		if(version != 'System'):
+			playonlinux.SetSettings('VERSION',version,self.s_prefix)
+		else:
+			playonlinux.DeleteSettings('VERSION',self.s_prefix)
 	def assignPrefix(self, event):
 		drive = self.general_elements["wineprefix"].GetValue()
 		playonlinux.SetWinePrefix(self.s_title, drive)
@@ -429,7 +449,7 @@ class Onglets(wx.Notebook):
 		else:
 			self.changing_selection = False
 			
-		if(not os.path.exists(Variables.playonlinux_rep+"configurations/installed/"+new_name)):
+		if(not os.path.exists(Variables.playonlinux_rep+"shortcuts/"+new_name)):
 			try:
 				os.rename(Variables.playonlinux_rep+"icones/32/"+self.s_title,Variables.playonlinux_rep+"icones/32/"+new_name)
 			except:
@@ -447,7 +467,7 @@ class Onglets(wx.Notebook):
 				pass				
 		
 			try:
-					os.rename(Variables.playonlinux_rep+"configurations/installed/"+self.s_title,Variables.playonlinux_rep+"configurations/installed/"+new_name)
+					os.rename(Variables.playonlinux_rep+"shortcuts/"+self.s_title,Variables.playonlinux_rep+"shortcuts/"+new_name)
 					self.s_title = new_name
 					self.s_prefix = playonlinux.getPrefix(self.s_title)
 			except:
@@ -533,14 +553,14 @@ class MainWindow(wx.Frame):
 				wx.MessageBox(_("This virtual drive is protected"))
 			else:
 				if(wx.YES == wx.MessageBox(_("Are you sure you want to delete "+self.onglets.s_prefix+" virtual drive ?").decode("utf-8"), style=wx.YES_NO | wx.ICON_QUESTION)):
-					mylist = os.listdir(Variables.playonlinux_rep+"/configurations/installed")
+					mylist = os.listdir(Variables.playonlinux_rep+"/shortcuts")
 					for element in mylist:
 						if(playonlinux.getPrefix(element).lower() == self.onglets.s_prefix.lower()):
-							os.remove(Variables.playonlinux_rep+"/configurations/installed/"+element)
+							os.remove(Variables.playonlinux_rep+"/shortcuts/"+element)
 					shutil.rmtree(Variables.playonlinux_rep+"/wineprefix/"+self.onglets.s_prefix)
 		else:
 				if(wx.YES == wx.MessageBox(_("Are you sure you want to delete "+self.onglets.s_title+" ?").decode("utf-8"), style=wx.YES_NO | wx.ICON_QUESTION)):
-					os.remove(Variables.playonlinux_rep+"/configurations/installed/"+self.onglets.s_title)
+					os.remove(Variables.playonlinux_rep+"/shortcuts/"+self.onglets.s_title)
 					
 		self.onglets.s_isPrefix = True
 		self.change_program("default",True)
@@ -549,7 +569,7 @@ class MainWindow(wx.Frame):
 		
 	def AutoReload(self, event):
 		if(self.onglets.typing == False):
-			reload = os.listdir(Variables.playonlinux_rep+"/configurations/installed")
+			reload = os.listdir(Variables.playonlinux_rep+"/shortcuts")
 			if(reload != self.oldreload):
 				self.list_software()
 				self.oldreload = reload
@@ -580,7 +600,7 @@ class MainWindow(wx.Frame):
 		self.onglets.UpdateValues(new_prgm)
 	
 	def list_software(self):
-		self.games = os.listdir(Variables.playonlinux_rep+"configurations/installed/")
+		self.games = os.listdir(Variables.playonlinux_rep+"shortcuts/")
 		self.games.sort()
 
 		self.prefixes = os.listdir(Variables.playonlinux_rep+"wineprefix/")

@@ -153,9 +153,116 @@ install_prefix()
 {
 	STEP_TITLE="$(eval_gettext "Default virtual drive configuration")"
 	POL_SetupWindow_wait_next_signal "$(eval_gettext '$APPLICATION_TITLE is making a virtual windows hard drive')" "$STEP_TITLE" 
-	select_prefix "$REPERTOIRE/wineprefix/default"
-	wineboot
+	POL_Wine_SelectPrefix "default"
+	POL_Wine_PrefixCreate
 }
+POL_Shortcut_GetOLDPrefix()
+{
+	[ "$1" = "" ] && POL_Debug_Error "No shortcut specified"
+	fichier="$REPERTOIRE/configurations/installed/$1"
+	#fichier=${fichier//"\""/""}
+	#fichier=${fichier//"//"/"/"}
+	if [ -e "$fichier" ]
+	then
+		fichier="$(cat "$fichier" | grep WINEPREFIX | tail -n 1 | sed s/'\/\//\/'/)"
+		fichier="${fichier/"$POL_USER_ROOT"/""}"
+		fichier="$(printf "$fichier" | cut -d "/" -f2)"
+	fi
+	printf "$fichier" | tr -d \"
+}
+POL_Shortcut_GetOLDVersion()
+{
+	[ "$1" = "" ] && POL_Debug_Error "No shortcut specified"
+	fichier="$REPERTOIRE/configurations/installed/$1"
+	#fichier=${fichier//"\""/""}
+	#fichier=${fichier//"//"/"/"}
+	if [ -e "$fichier" ]
+	then
+		fichier="$(cat "$fichier" | grep PATH | tail -n 1 | sed s/'\/\//\/'/)"
+		fichier="${fichier/"$POL_USER_ROOT"/""}"
+		fichier="$(printf "$fichier" | cut -d "/" -f2)"
+	fi
+	printf "$fichier" | tr -d \"
+}
+migrate_oldpol()
+{
+	if [ -e "$POL_USER_ROOT/configurations/installed" ]
+	then
+		# On commence par les raccourcis
+		POL_Debug_Message "Upgrading shortcuts"
+		
+		cd "$POL_USER_ROOT/configurations/installed"
+		for shortcut in *
+		do
+			POL_Debug_Message "Updating shortcut : $shortcut"
+			sVERSION="$(POL_Shortcut_GetOLDVersion "$shortcut")"
+			sPREFIX="$(POL_Shortcut_GetOLDPrefix "$shortcut")"
+			sTITLE="$shortcut"
+			sWINE="$(cat "$shortcut" | grep '^wine')"
+			sWINE="${sWINE/wine/POL_Wine}"
+			sWINEPREFIX="$(cat "$shortcut" | grep '^export WINEPREFIX')"
+			sCD="$(cat "$shortcut" | grep '^cd')"
+		
+			cat <<EOF > "$POL_USER_ROOT/shortcuts/$shortcut"
+#!/bin/bash
+[ "\$PLAYONLINUX" = "" ] && exit 0
+source "\$PLAYONLINUX/lib/sources"
+$sWINEPREFIX
+export WINEDEBUG="-all"
+$sCD
+$sWINE
+EOF
+			chmod +x  "$POL_USER_ROOT/shortcuts/$shortcut"
+			if [ ! "$sVERSION" = "" ]
+			then
+				POL_Debug_Message "Setting shortcut $sTITLE, prefix $sPREFIX to version $sVERSION"
+				export WINEPREFIX="$POL_USER_ROOT/wineprefix/$sPREFIX"
+				POL_Wine_SetVersionPrefix "$sVERSION"
+			fi
+		done
+		
+		
+		POL_Debug_Message "Upgrading virtual drives"
+		cd "$POL_USER_ROOT/wineprefix"
+		for prefix in *
+		do
+			POL_Debug_Message "Updating $prefix"
+			export WINEPREFIX="$POL_USER_ROOT/wineprefix/$prefix"
+			[ "$(POL_Config_PrefixRead ARCH)" = "" ] && POL_Config_PrefixWrite "ARCH" "x86"
+		done
+	
+		if [ -e "$POL_USER_ROOT/WineVersions" ]
+		then
+		
+		POL_Debug_Message "Upgrading wine versions"
+		cd "$POL_USER_ROOT/WineVersions"
+		[ "$POL_OS" = "Mac" ] && vprefix="darwin-"
+		[ "$POL_OS" = "Linux" ] && vprefix="linux-"
+		new_vroot="$POL_USER_ROOT/wine/${vprefix}x86"
+		mkdir -p "$new_vroot"
+		for version in *
+		do
+			POL_Debug_Message "Updating $version"
+			mv "$POL_USER_ROOT/WineVersions/$version" "$new_vroot/"
+		done
+		rmdir "$POL_USER_ROOT/WineVersions"
+		
+		if [ "$POL_OS" = "Linux" ]
+		then
+			cd "$new_vroot"
+			for version in *
+			do
+				POL_Debug_Message "Removing /usr in path $version"
+				cd "$new_vroot/$version"
+				mv usr/* ./
+				rmdir usr
+			done
+		fi
+	fi
+	mv "$POL_USER_ROOT/configurations/installed" "$POL_USER_ROOT/configurations/installed.backup" 
+	fi
+}
+migrate_oldpol
 POL_SetupWindow_Init
 POL_SetupWindow_free_presentation "$(eval_gettext '$APPLICATION_TITLE first use')" "$(eval_gettext 'It appears it is the first time you are using $APPLICATION_TITLE.')\n$(eval_gettext 'This wizard will help you prepare $APPLICATION_TITLE environement')\n$(eval_gettext "Please ensure you are connected to the internet.")"
 
@@ -164,4 +271,4 @@ install_fonts
 install_prefix
 POL_SetupWindow_message "$(eval_gettext 'Thank you for using $APPLICATION_TITLE')" "$(eval_gettext '$APPLICATION_TITLE first use')"
 POL_SetupWindow_Close
-touch "$REPERTOIRE/configurations/first_use"
+$(POL_Config_Write FIRST_USE TRUE)

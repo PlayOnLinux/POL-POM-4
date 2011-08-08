@@ -87,7 +87,7 @@ PACKAGE="$APP_ANSWER"
 POL_SetupWindow_Close
 fi
 
-cd "$REPERTOIRE/configurations/installed"
+cd "$REPERTOIRE/shortcuts"
 LOGFILE="$REPERTOIRE/tmp/errors_$PACKAGE.log"
 echo "[b]File :[/b]$PACKAGE" > "$LOGFILE"
 echo "[b]Date :[/b] $(Get_CurrentDate)" >> "$LOGFILE"

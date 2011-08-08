@@ -21,6 +21,7 @@ if (os.environ["POL_OS"] == "Mac"):
 	windows_add_size = 20;
 	windows_add_playonmac = 1;
 	widget_borders = wx.SIMPLE_BORDER
+	os_name = "darwin"
 	
 # Variables PlayOnLinux
 if (os.environ["POL_OS"] == "Linux"):
@@ -29,7 +30,7 @@ if (os.environ["POL_OS"] == "Linux"):
 	windows_add_size = 0;
 	windows_add_playonmac = 0;
 	widget_borders = wx.RAISED_BORDER
-	
+	os_name = "linux"
 	
 # Variables mixtes
 os.environ["POL_USER_ROOT"] = os.environ["REPERTOIRE"]

@@ -375,7 +375,11 @@ installer_wine_version ()
 {
 	POL_SetupWindow_install_wine "$@"
 }
-Set_WineVersion_Assign()
+Set_WineVersion_Assign ()
+{
+	POL_Debug_Warning "Feature deprecated"
+}
+Set_WineVersion_Assign_BACK()
 {
 	OLD_PWD="$PWD"
 	POL_Debug_Message "Assign $2 to wine $1"
@@ -570,7 +574,12 @@ POL_Wine ()
 {
 	POL_Debug_Message "Running wine "$@""
 	POL_Wine_AutoSetVersionEnv
-	wine "$@" >> "$LOGFILE" 2>> "$LOGFILE"
+	if [ "$LOGFILE" = "/dev/null" ]
+	then
+		wine "$@"
+	else
+		wine "$@" >> "$LOGFILE" 2>> "$LOGFILE"
+	fi	
 	[ "$?" = "0" ] || POL_Debug_Error "Wine crashed"
 }
 POL_Wine_SelectPrefix()
@@ -631,11 +640,10 @@ POL_Wine_InstallVersion()
 }
 POL_Wine_AutoSetVersionEnv()
 {
-	[ "$WINEPREFIX" = "" ] && POL_DebugFatal "WINEPREFIX is not set!"
-	WINVERSION="$(POL_Config_PrefixRead "VERSION")"
-	POL_ARCH="$(POL_Config_PrefixRead "ARC")"
-	
-	POL_Wine_SetVersionEnv
+	[ "$WINEPREFIX" = "" ] && POL_Debug_Fatal "WINEPREFIX is not set!"
+	POL_WINEVERSION="$(POL_Config_PrefixRead "VERSION")"
+	POL_ARCH="$(POL_Config_PrefixRead "ARCH")"
+	[ "$POL_WINEVERSION" = "" ] && POL_Debug_Message "POL_WINEVERSION is not set" || POL_Wine_SetVersionEnv
 }
 POL_Wine_SetVersionEnv()
 {
@@ -668,6 +676,13 @@ POL_Wine_SetVersionEnv()
 	fi
 	cd "$OLDPATH"
 }
+POL_Wine_SetVersionPrefix()
+{
+	[ ! "$1" = "" ] && export POL_WINEVERSION="$1"
+	[ "$WINEPREFIX" = "" ] && POL_Debug_Fatal "WINEPREFIX is not set!"
+
+	POL_Config_PrefixWrite "VERSION" "$POL_WINEVERSION"	
+}
 POL_Wine_PrefixCreate()
 {
 	# 1 - Wineversion
@@ -689,12 +704,14 @@ POL_Wine_PrefixCreate()
 			else
 				POL_Config_PrefixWrite "ARCH" "x86"
 			fi
+			POL_LoadVar_PROGRAMFILES
 		else
 			POL_Wine_InstallVersion "$POL_WINEVERSION"
 			POL_Config_PrefixWrite "ARCH" "$POL_ARCH"
 			POL_Config_PrefixWrite "VERSION" "$POL_WINEVERSION"
 			POL_Wine_SetVersionEnv
 			wine wineboot
+			POL_LoadVar_PROGRAMFILES
 		fi
 	fi
 }

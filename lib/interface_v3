@@ -557,10 +557,12 @@ POL_SetupWindow_oldprefixcreate ()
 }
 POL_SetupWindow_prefixcreate ()
 {
-	POL_Debug_Message "Creating prefix : $WINEPREFIX"
-	POL_SetupWindow_normalprefixcreate
-	POL_LoadVar_PROGRAMFILES
-	sleep 5 # Pour que les fichiers .reg soient crées
+	POL_Debug_Warning "Very deprecated ! Use POL_Wine_PrefixCreate"
+	POL_Wine_PrefixCreate "$@"
+	#POL_Debug_Message "Creating prefix : $WINEPREFIX"
+	#POL_SetupWindow_normalprefixcreate
+	#POL_LoadVar_PROGRAMFILES
+	#sleep 5 # Pour que les fichiers .reg soient crées
 }
 POL_SetupWindow_normalprefixcreate()
 {
@@ -711,12 +713,14 @@ POL_SetupWindow_auto_shortcut()
 	fi
 
 	## On génère le binaire 
-	echo "#!/bin/bash" > "$REPERTOIRE/configurations/installed/$NOMICONE_"
-	echo "export WINEPREFIX=\"$REPERTOIRE/wineprefix/$1\"" >> "$REPERTOIRE/configurations/installed/$NOMICONE_"
-	echo "export WINEDEBUG=\"-all\"" >> "$REPERTOIRE/configurations/installed/$NOMICONE_"
-	echo "cd \"$REPERTOIRE/wineprefix/$1/drive_c/$binary_dir\"" >> "$REPERTOIRE/configurations/installed/$NOMICONE_"
-	echo "wine \"$Binaire\" $SpecialArg \$@" >> "$REPERTOIRE/configurations/installed/$NOMICONE_"
-	chmod +x "$REPERTOIRE/configurations/installed/$NOMICONE_"
+	echo "#!/bin/bash" > "$REPERTOIRE/shortcuts/$NOMICONE_"
+	echo "[ \"\$PLAYONLINUX\" = \"\" ] && exit 0" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
+	echo "source \"\$PLAYONLINUX/lib/sources\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
+	echo "export WINEPREFIX=\"$REPERTOIRE/wineprefix/$1\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
+	echo "export WINEDEBUG=\"-all\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
+	echo "cd \"$REPERTOIRE/wineprefix/$1/drive_c/$binary_dir\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
+	echo "POL_Wine \"$Binaire\" $SpecialArg \$@" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
+	chmod +x "$REPERTOIRE/shortcuts/$NOMICONE_"
 	if [ "$POL_OS" = "Mac" ]
 	then
 		POL_SetupWindow_AutoApp "$3" "$1"
@@ -784,13 +788,15 @@ POL_Shortcut()
 	fi
 
 	## On génère le binaire 
-	echo "#!/bin/bash" > "$REPERTOIRE/configurations/installed/$NOMICONE_"
-	echo "export WINEPREFIX=\"$WINEPREFIX\"" >> "$REPERTOIRE/configurations/installed/$NOMICONE_"
-	echo "export WINEDEBUG=\"-all\"" >> "$REPERTOIRE/configurations/installed/$NOMICONE_"
-	[ ! "$LOGTITLE" = "" ] && echo "POL_Log=$LOGTITLE" >> "$REPERTOIRE/configurations/installed/$NOMICONE_"
-	echo "cd \"$WINEPREFIX/drive_c/$binary_dir\"" >> "$REPERTOIRE/configurations/installed/$NOMICONE_"
-	echo "wine \"$Binaire\" $SpecialArg \$@" >> "$REPERTOIRE/configurations/installed/$NOMICONE_"
-	chmod +x "$REPERTOIRE/configurations/installed/$NOMICONE_"
+	echo "#!/bin/bash" > "$REPERTOIRE/shortcuts/$NOMICONE_"
+	echo "[ \"\$PLAYONLINUX\" = \"\" ] && exit 0" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
+	echo "source \"\$PLAYONLINUX/lib/sources\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
+	echo "export WINEPREFIX=\"$WINEPREFIX\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
+	echo "export WINEDEBUG=\"-all\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
+	[ ! "$LOGTITLE" = "" ] && echo "POL_Log=$LOGTITLE" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
+	echo "cd \"$WINEPREFIX/drive_c/$binary_dir\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
+	echo "POL_Wine \"$Binaire\" $SpecialArg \$@" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
+	chmod +x "$REPERTOIRE/shortcuts/$NOMICONE_"
 	if [ "$POL_OS" = "Mac" ]
 	then
 		POL_SetupWindow_AutoApp "$2"	
@@ -1089,10 +1095,10 @@ fi
 export PATH="\$SCRIPTDIR/../Resources/wine/bin:\$PATH"
 export LD_LIBRARY_PATH="\$SCRIPTDIR/../Resources/wine/lib:\$LD_LIBRARY_PATH"
 export WINEPREFIX="\$SCRIPTDIR/../Resources/virtual_drive"
-$(cat "$REPERTOIRE/configurations/installed/$1" | grep "cd " | sed s/$substitute/'\$SCRIPTDIR\/..\/Resources\/virtual_drive'/)
+$(cat "$REPERTOIRE/shortcuts/$1" | grep "cd " | sed s/$substitute/'\$SCRIPTDIR\/..\/Resources\/virtual_drive'/)
 shift
-#$(cat "$REPERTOIRE/configurations/installed/$1" | grep "wine " | sed s/$substitute2// | sed s/$substitute//) &
-wine "$(basename "$(cat "$REPERTOIRE/configurations/installed/$1" | grep "wine " | cut -d \" -f2)")" \$@ &
+#$(cat "$REPERTOIRE/shortcuts/$1" | grep "wine " | sed s/$substitute2// | sed s/$substitute//) &
+wine "$(basename "$(cat "$REPERTOIRE/shortcuts/$1" | grep "wine " | cut -d \" -f2)")" \$@ &
 
 EOF3
 
@@ -1110,12 +1116,6 @@ EOF
 osascript /tmp/message.applescript
 }
 
-run_xquartz()
-{
-	"/opt/X11/bin/XQuartz"&
-	sleep 5
-	quartz-wm&
-}
 
 export PLAYONLINUX="$PLAYONLINUX"
 export LANG="$(defaults read -g AppleLocale).utf-8"
@@ -1123,7 +1123,11 @@ export POL_LANG="$(defaults read -g AppleLocale | cut -d _ -f1)"
 export REPERTOIRE="$REPERTOIRE"
 export PLAYONMAC="\$PLAYONLINUX"
 export POL_USER_ROOT="\$REPERTOIRE"
+export NOGETTEXT="TRUE"
+export POL_OS="Mac"
 
+
+source "\$PLAYONLINUX/lib/sources"
 dir=\$(dirname "\$0")
 cd "\$dir"
 #[ "\$(cat "\$REPERTOIRE/configurations/options/applex")" = "1" ] && export FORCE_NATIVE_X="TRUE"
@@ -1151,9 +1155,9 @@ fi
 
 #[ ! "\$FORCE_NATIVE_X" = "TRUE" ] && [ ! "\$OSX_TOO_OLD" = "TRUE" ] && run_xquartz
 export PATH="\$PLAYONLINUX/../unix/wine/bin:\$PLAYONLINUX/../unix/image_magick/bin:\$PLAYONLINUX/../unix/tools/bin/:\$PATH"
-export LD_LIBRARY_PATH="\$PLAYONLINUX/../unix/wine/lib:\$PLAYONLINUX/../unix/tools/lib:/usr/X11/lib:\$LD_LIBRARY_PATH"
+export LD_LIBRARY_PATH="\$PLAYONLINUX/../unix/wine/lib:\$PLAYONLINUX/../unix/tools/lib/ld:/usr/X11/lib:\$LD_LIBRARY_PATH"
 
-cd "\$REPERTOIRE/configurations/installed"
+cd "\$REPERTOIRE/shortcuts"
 shift
 bash "$1" \$@ &
 EOF2

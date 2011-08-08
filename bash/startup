@@ -24,13 +24,10 @@ source "$PLAYONLINUX/lib/sources"
 
 # POL / POM won't work without that 
 construire_repertoire_personnel
-
 # Initialize link between python and bash
 touch "$POL_USER_ROOT/configurations/guis/index_$POL_ID"
-
 # Cleanup old gui files
-"$PLAYONLINUX/bash/delete_gui_files"
-
+"$PLAYONLINUX/bash/delete_gui_files" &
 # Plugins
 install_plugins
 
@@ -47,4 +44,4 @@ then
 fi
 
 # First use ?
-[ ! -e "$POL_USER_ROOT/configurations/first_use" ] && bash "$PLAYONLINUX/bash/first_use"
+[ "$(POL_Config_Read FIRST_USE)" = "" ] && bash "$PLAYONLINUX/bash/first_use"

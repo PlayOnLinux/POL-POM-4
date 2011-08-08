@@ -21,14 +21,14 @@
 
 install_plugins () # Install defaults plugin into home directory
 {
-	
+	POL_Debug_Message "Plugins"
 	#declaration de variables locale
 	#le P c'est pour euh POL/Package/?
 	local Puid Pfichier PinstDir PplugStatus PverStr Pversion plugStatus
 	#la le U par contre c'est pour user
 	local Uuid Ufichier UinstDir UplugStatus UverStr Uversion Uligne
 	# _2 parce que avant c'était pas pareil 
-	readonly ULST=$POL_USER_ROOT/configurations/plugins_2
+	readonly ULST="$POL_USER_ROOT/configurations/plugins_2"
 	touch $ULST
 
 	#lecture du fichier ligne/ligne
@@ -120,7 +120,7 @@ install_plugins () # Install defaults plugin into home directory
 construire_repertoire_personnel ()
 {
 	mkdir -p "$REPERTOIRE/wineprefix/"
-	mkdir -p "$REPERTOIRE/configurations/installed/"
+	mkdir -p "$REPERTOIRE/shortcuts/"
 	mkdir -p "$REPERTOIRE/configurations/options/"
 	mkdir -p "$REPERTOIRE/configurations/icones/"
 	mkdir -p "$REPERTOIRE/configurations/messages_shown/"
@@ -396,7 +396,7 @@ bash
 EOF
 	
 else
-	cd "$POL_USER_ROOT/configurations/installed"
+	cd "$POL_USER_ROOT/shortcuts/"
 	cat "$1" | grep PATH > "$POL_USER_ROOT/tmp/env_bash"
 	cat "$1" | grep WINEPREFIX >> "$POL_USER_ROOT/tmp/env_bash"
 	cat << EOF >> "$POL_USER_ROOT/tmp/env_bash"

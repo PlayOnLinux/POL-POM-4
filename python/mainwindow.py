@@ -392,7 +392,7 @@ class MainWindow(wx.Frame):
 
   def Select(self, event):
 	game_exec = self.list_game.GetItemText(self.list_game.GetSelection())
-	self.read = open(Variables.playonlinux_rep+"configurations/installed/"+game_exec,"r").readlines()
+	self.read = open(Variables.playonlinux_rep+"shortcuts/"+game_exec,"r").readlines()
 	self.i = 0;
 	self.wine_present = False;
 	while(self.i < len(self.read)):
@@ -407,7 +407,7 @@ class MainWindow(wx.Frame):
 		webbrowser.open("http://www.playonlinux.com/en/donate.html")
 	
   def Reload(self, event):
-	 self.games = os.listdir(Variables.playonlinux_rep+"configurations/installed/")
+	 self.games = os.listdir(Variables.playonlinux_rep+"shortcuts/")
 	 self.games.sort()
 	 try:
 	 	self.games.remove(".DS_Store")
@@ -492,7 +492,11 @@ class MainWindow(wx.Frame):
 	self.StatusRead()
 	fichier_index = os.environ["REPERTOIRE"]+"/configurations/guis/index_"+os.environ["POL_ID"]
 	#print(fichier_index)
-	message = open(fichier_index,'r').read()
+	try:
+		message = open(fichier_index,'r').read()
+	except:
+		open(fichier_index,'a').write('')
+		message = open(fichier_index,'r').read()
 	message = string.split(message, "\n")
 	if(message[0] == "Open"):
 		self.frame = gui.POL_SetupFrame(os.environ["APPLICATION_TITLE"],message[1].replace("\n",""),message[2].replace("\n",""),message[3].replace("\n",""),message[4].replace("\n",""))
@@ -500,7 +504,7 @@ class MainWindow(wx.Frame):
 		self.frame.Show(True)
 		open(fichier_index,'w').write("Wait")
 
-	reload = os.listdir(Variables.playonlinux_rep+"/configurations/installed")
+	reload = os.listdir(Variables.playonlinux_rep+"/shortcuts")
 	if(reload != self.oldreload):
 		self.Reload(self)
 		self.oldreload = reload
@@ -527,7 +531,7 @@ class MainWindow(wx.Frame):
     game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8")
     if(game_exec != ""):
 		os.system("bash "+Variables.playonlinux_env+"/bash/run_app \""+game_exec+"\"&")
-		#os.system("cd \""+Variables.playonlinux_rep+"/configurations/installed/\"  && bash \""+game_exec+"\"&")
+		#os.system("cd \""+Variables.playonlinux_rep+"/shortcuts/\"  && bash \""+game_exec+"\"&")
 
 
   def ClosePol(self, event):

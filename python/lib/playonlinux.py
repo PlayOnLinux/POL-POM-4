@@ -7,7 +7,7 @@ import Variables, os, string
 
 
 def GetWineVersion(game):
-	cfile = Variables.playonlinux_rep+"configurations/installed/"+game
+	cfile = Variables.playonlinux_rep+"shortcuts/"+game
 	fichier = open(cfile,"r").readlines()
 	i = 0
 	line = ""
@@ -25,9 +25,81 @@ def GetWineVersion(game):
 		version = version[1]
 		
 	return(version)
+
+def GetSettings(setting, prefix='_POL_'):
+	if(prefix == "_POL_"):
+		cfile = Variables.playonlinux_rep+"/playonlinux.cfg"
+	else:
+		cfile = Variables.playonlinux_rep+"/wineprefix/"+prefix+"/playonlinux.cfg"
 		
+	fichier = open(cfile,"r").readlines()
+	i = 0
+	line = ""
+	while(i < len(fichier)):
+		fichier[i] = fichier[i].replace("\n","")
+		if(setting+"=" in fichier[i]):
+			line = fichier[i]
+			break
+		i += 1
+	try:
+		line = string.split(line,"=")
+		return(line[1])
+	except:
+		return("")
+
+def SetSettings(setting, value, prefix='_POL_'):
+	if(prefix == "_POL_"):
+		cfile = Variables.playonlinux_rep+"/playonlinux.cfg"
+	else:
+		cfile = Variables.playonlinux_rep+"/wineprefix/"+prefix+"/playonlinux.cfg"
+
+	fichier = open(cfile,"r").readlines()
+	i = 0
+	line = []
+	found = False
+	while(i < len(fichier)):
+		fichier[i] = fichier[i].replace("\n","")
+		if(setting+"=" in fichier[i]):
+			line.append(setting+"="+value)
+			found = True
+		else:
+			line.append(fichier[i])
+		i += 1
+	if(found == False):
+		line.append(setting+"="+value)
+		
+	fichier_write = open(cfile,"w")
+
+	i = 0	
+	while(i < len(line)): # On ecrit
+		fichier_write.write(line[i]+"\n")
+		i+=1
+
+def DeleteSettings(setting, prefix='_POL_'):
+	if(prefix == "_POL_"):
+		cfile = Variables.playonlinux_rep+"/playonlinux.cfg"
+	else:
+		cfile = Variables.playonlinux_rep+"/wineprefix/"+prefix+"/playonlinux.cfg"
+
+	fichier = open(cfile,"r").readlines()
+	i = 0
+	line = []
+	found = False
+	while(i < len(fichier)):
+		fichier[i] = fichier[i].replace("\n","")
+		if(setting+"=" not in fichier[i]):
+			line.append(fichier[i])
+		i += 1
+
+	fichier_write = open(cfile,"w")
+
+	i = 0	
+	while(i < len(line)): # On ecrit
+		fichier_write.write(line[i]+"\n")
+		i+=1
+								
 def GetDebugState(game):
-	cfile = Variables.playonlinux_rep+"configurations/installed/"+game
+	cfile = Variables.playonlinux_rep+"shortcuts/"+game
 	try:
 		fichier = open(cfile,"r").readlines()
 	except:
@@ -42,7 +114,7 @@ def GetDebugState(game):
 	return False
 
 def SetDebugState(game, state):
-	cfile = Variables.playonlinux_rep+"configurations/installed/"+game
+	cfile = Variables.playonlinux_rep+"shortcuts/"+game
 	try:
 		fichier = open(cfile,"r").readlines()
 	except:
@@ -94,7 +166,7 @@ def keynat(string):
     return r
 
 def open_folder(software):
-	read = open(Variables.playonlinux_rep+"configurations/installed/"+software,"r").readlines()
+	read = open(Variables.playonlinux_rep+"shortcuts/"+software,"r").readlines()
 
 	if not len(read):
 		return
@@ -151,7 +223,7 @@ def convertVersionToInt(version): # Code par MulX en Bash, adapte en python par 
 	return(versionDev + versionP1 + versionP2 + versionP3)
 	
 def getPrefix(shortcut): # Get prefix name from shortcut
-	fichier = open(os.environ["POL_USER_ROOT"]+"/configurations/installed/"+shortcut,'r').read()
+	fichier = open(os.environ["POL_USER_ROOT"]+"/shortcuts/"+shortcut,'r').read()
 	fichier = string.split(fichier,"\n")
 	i = 0
 	while(i < len(fichier)):
@@ -174,8 +246,8 @@ def getPrefix(shortcut): # Get prefix name from shortcut
 	return prefix
 	
 	
-def Get_versions():
-	installed_versions = os.listdir(Variables.playonlinux_rep+"/WineVersions/")
+def Get_versions(arch='x86'):
+	installed_versions = os.listdir(Variables.playonlinux_rep+"/wine/"+Variables.os_name+"-"+arch+"/")
 	installed_versions.sort(key=keynat)
 	installed_versions.reverse()
 	try:
@@ -191,7 +263,7 @@ def Get_Drives():
 	
 	
 def SetWinePrefix(game, prefix):
-	cfile = Variables.playonlinux_rep+"configurations/installed/"+game
+	cfile = Variables.playonlinux_rep+"shortcuts/"+game
 	fichier = open(cfile,"r").readlines()
 	i = 0
 	line = []

@@ -28,9 +28,10 @@ then
 	exit 0
 fi
 
+rm index_*
 for file in *
 do 
-	if [ "$(ps aux | grep $file | grep -v grep)" = "" ] && [[ ! $file == *index_* ]]
+	if [ "$(ps aux | grep $file | grep -v grep)" = "" ] #&& [[ ! $file == *index_* ]]
 	then
 		rm $file;
 	fi

@@ -38,11 +38,17 @@ export POL_TERM="xterm"
 [ "$(which xdg-user-dir)" ] && export DESKTOP="$(xdg-user-dir DESKTOP)" || export DESKTOP="$HOME/Desktop"
 
 ### Language
+if [ ! "$NOGETTEXT" = "TRUE" ]
+then
+
 export TEXTDOMAINDIR="$PLAYONLINUX/lang/locale/"
 export TEXTDOMAIN="pol"
 . gettext.sh
 eval_gettext > /dev/null || eval_gettext() { printf "$@"; }
- 
+
+else
+	eval_gettext() { printf "$@"; }
+fi
 ### POL Proxy Settings
 if [ -e "$REPERTOIRE/configurations/options/proxy" ]
 then

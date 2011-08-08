@@ -337,14 +337,14 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         #self.Destroy()
 
 	def add_games(self):
-		self.games = os.listdir(Variables.playonlinux_rep+"configurations/installed/")
+		self.games = os.listdir(Variables.playonlinux_rep+"shortcuts/")
 		self.games.sort()
 		self.images.RemoveAll()
 		self.MenuGames.DeleteAllItems()
 		self.root = self.MenuGames.AddRoot("")
 		self.i = 0
 		for game in self.games: 
-			self.file = Variables.playonlinux_rep+"configurations/installed/"+game
+			self.file = Variables.playonlinux_rep+"shortcuts/"+game
 			fichier = open(self.file,"r").read()
 
 			if("wine " in fichier):

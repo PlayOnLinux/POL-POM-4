@@ -98,12 +98,14 @@ creer_lanceur_base ()
 		# Pour verifier la taille des icones, il faudrait utiliser "identify", mais ce programme n'est pas toujours fournis.
 	fi
 	
-	echo "#!/bin/bash" > "$REPERTOIRE/configurations/installed/$NOMICONE_"
-	echo "export WINEPREFIX=\"$REPERTOIRE/wineprefix/$1\"" >> "$REPERTOIRE/configurations/installed/$NOMICONE_"
-	echo "export WINEDEBUG=\"-all\"" >> "$REPERTOIRE/configurations/installed/$NOMICONE_"
-	echo "cd \"$REPERTOIRE/wineprefix/$1/drive_c/$2\"" >> "$REPERTOIRE/configurations/installed/$NOMICONE_"
-	echo "wine \"$Binaire\" $SpecialArg \$@" >> "$REPERTOIRE/configurations/installed/$NOMICONE_"
-	chmod +x "$REPERTOIRE/configurations/installed/$NOMICONE_"
+	echo "#!/bin/bash" > "$REPERTOIRE/shortcuts/$NOMICONE_"
+	echo "[ \"\$PLAYONLINUX\" = \"\" ] && exit 0" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
+	echo "source \"\$PLAYONLINUX/lib/sources\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
+	echo "export WINEPREFIX=\"$REPERTOIRE/wineprefix/$1\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
+	echo "export WINEDEBUG=\"-all\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
+	echo "cd \"$REPERTOIRE/wineprefix/$1/drive_c/$2\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
+	echo "POL_Wine \"$Binaire\" $SpecialArg \$@" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
+	chmod +x "$REPERTOIRE/shortcuts/$NOMICONE_"
 }
 
 POL_Shortcut_InsertBeforeWine ()
@@ -114,14 +116,14 @@ POL_Shortcut_InsertBeforeWine ()
 	Application="$1"
 	CommandesToInsert="$2"
 
-	mv "$REPERTOIRE/configurations/installed/${Application}" "$REPERTOIRE/configurations/installed/${Application}".bak
-	perl -ne "s/^(wine.*)/${CommandesToInsert}\n\1/;print" "$REPERTOIRE/configurations/installed/${Application}".bak > "$REPERTOIRE/configurations/installed/${Application}"
-	rm "$REPERTOIRE/configurations/installed/${Application}".bak
+	mv "$REPERTOIRE/shortcuts/${Application}" "$REPERTOIRE/shortcuts/${Application}".bak
+	perl -ne "s/^(wine.*)/${CommandesToInsert}\n\1/;print" "$REPERTOIRE/shortcuts/${Application}".bak > "$REPERTOIRE/shortcuts/${Application}"
+	rm "$REPERTOIRE/shortcuts/${Application}".bak
 }
 
 detect_wineprefix()
 {
-	file="$REPERTOIRE/configurations/installed/$1"
+	file="$REPERTOIRE/shortcuts/$1"
 	if [ -e "$file" ]
 	then	
 		fichier=$(cat "$file" | grep WINEPREFIX)
@@ -133,23 +135,14 @@ detect_wineprefix()
 }
 detect_wineversion()
 {
-	fichier="$REPERTOIRE/configurations/installed/$1"
-	#fichier=${fichier//"\""/""}
-	#fichier=${fichier//"//"/"/"}
-	if [ -e "$fichier" ]
-	then
-		if [ "$POL_OS" == "Linux" ]
-		then
-			fichier=$(cat "$fichier" | grep PATH | tail -n 1 | sed s/'\/\//\/'/ | cut -d'/' -f6)
-		else
-			fichier=$(cat "$fichier" | grep PATH | tail -n 1 | sed s/'\/\//\/'/ | cut -d'/' -f7)
-		fi
-	fi
-	echo $fichier
+	wineprefixback="$WINEPREFIX"
+	export WINEPREFIX="$(detect_wineprefix "$1")"
+	POL_Config_PrefixRead "VERSION"
+	export WINEPREFIX="$wineprefixback"
 }
 detect_appdir()
 {
-	file="$REPERTOIRE/configurations/installed/$1"
+	file="$REPERTOIRE/shortcuts/$1"
 	if [ -e "$file" ]
 	then	
 	fichier=`cat "$file" | grep "cd \""`
@@ -159,7 +152,7 @@ detect_appdir()
 }
 detect_appexec()
 {
-	file="$REPERTOIRE/configurations/installed/$1"
+	file="$REPERTOIRE/shortcuts/$1"
 	if [ -e "$file" ]
 	then	
 	fichier=`cat "$file" | grep "wine " | cut -d'"' -f2`
@@ -173,7 +166,7 @@ clean_wineprefix()
 	[ "$1" = "$REPERTOIRE/Library/PlayOnMac/" ] && exit
 
 	# Préfixe (chemin complet)
-	cd "$REPERTOIRE/configurations/installed/"
+	cd "$REPERTOIRE/shortcuts/"
 	# Ça aussi, j'ai pas utilisé $REPERTOIRE volontairment (question de sécu, si $REPERTOIRE est vide ou mal défini, ça peut faire mal)
 	[ "$POL_OS" = "Linux" ] && TEST=${1//".PlayOnLinux/wineprefix/"/""}
 	[ "$POL_OS" = "Mac" ] && TEST=${1//"Library/PlayOnMac/wineprefix/"/""}
@@ -254,7 +247,7 @@ POL_Browser ()
 
 get_existing_POL_SetupWindow_shortcut_creator()
 {
-	cd "$REPERTOIRE/configurations/installed"
+	cd "$REPERTOIRE/shortcuts"
 	for file in *
 	do
 		if [ ! "$(cat "$file" | grep $WINEPREFIX)" = "" ]
@@ -387,26 +380,12 @@ POL_System_SetArch()
 POL_Shortcut_GetPrefix()
 {
 	[ "$1" = "" ] && POL_Debug_Error "No shortcut specified"
-	fichier="$REPERTOIRE/configurations/installed/$1"
+	fichier="$REPERTOIRE/shortcuts/$1"
 	#fichier=${fichier//"\""/""}
 	#fichier=${fichier//"//"/"/"}
 	if [ -e "$fichier" ]
 	then
 		fichier="$(cat "$fichier" | grep WINEPREFIX | tail -n 1 | sed s/'\/\//\/'/)"
-		fichier="${fichier/"$POL_USER_ROOT"/""}"
-		fichier="$(printf "$fichier" | cut -d "/" -f2)"
-	fi
-	printf "$fichier" | tr -d \"
-}
-POL_Shortcut_GetVersion()
-{
-	[ "$1" = "" ] && POL_Debug_Error "No shortcut specified"
-	fichier="$REPERTOIRE/configurations/installed/$1"
-	#fichier=${fichier//"\""/""}
-	#fichier=${fichier//"//"/"/"}
-	if [ -e "$fichier" ]
-	then
-		fichier="$(cat "$fichier" | grep PATH | tail -n 1 | sed s/'\/\//\/'/)"
 		fichier="${fichier/"$POL_USER_ROOT"/""}"
 		fichier="$(printf "$fichier" | cut -d "/" -f2)"
 	fi
