@@ -613,7 +613,8 @@ POL_SetupWindow_make_shortcut()
 	# 6 = Ignoré (question de compatibilité avec les versions < 2.0)
 	# 7 = Eventuel argument
 	creer_lanceur_base "$@"
-
+	if [ ! "$(POL_Config_Read NO_DESKTOP_ICON)" = "TRUE" ] 
+	then
 	if [ "$POL_OS" = "Mac" ] # Ouai, la c'est complètement différent sous linux et sous mac
 	then
 		if [ "$5" = "" ]
@@ -631,6 +632,7 @@ POL_SetupWindow_make_shortcut()
 			iconPath="$PLAYONLINUX/etc/playonlinux.png"
 		fi
 		generer_icone "$iconPath" "$NOMICONE_" "$DESKTOP" "$PLAYONLINUX/playonlinux --run \"$NOMICONE_\"" "$NOMICONE_"
+	fi
 	fi
 }
 
@@ -721,6 +723,8 @@ POL_SetupWindow_auto_shortcut()
 	echo "cd \"$REPERTOIRE/wineprefix/$1/drive_c/$binary_dir\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
 	echo "POL_Wine \"$Binaire\" $SpecialArg \$@" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
 	chmod +x "$REPERTOIRE/shortcuts/$NOMICONE_"
+	if [ ! "$(POL_Config_Read NO_DESKTOP_ICON)" = "TRUE" ] 
+	then
 	if [ "$POL_OS" = "Mac" ]
 	then
 		POL_SetupWindow_AutoApp "$3" "$1"
@@ -731,6 +735,7 @@ POL_SetupWindow_auto_shortcut()
 			iconPath="$PLAYONLINUX/etc/playonlinux.png"
 		fi
 		generer_icone "$iconPath" "$NOMICONE_" "$DESKTOP" "$PLAYONLINUX/playonlinux --run \"$NOMICONE_\""
+	fi
 	fi
 }
 POL_SetupWindow_shortcut()
@@ -797,6 +802,8 @@ POL_Shortcut()
 	echo "cd \"$WINEPREFIX/drive_c/$binary_dir\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
 	echo "POL_Wine \"$Binaire\" $SpecialArg \$@" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
 	chmod +x "$REPERTOIRE/shortcuts/$NOMICONE_"
+	if [ ! "$(POL_Config_Read NO_DESKTOP_ICON)" = "TRUE" ] 
+	then
 	if [ "$POL_OS" = "Mac" ]
 	then
 		POL_SetupWindow_AutoApp "$2"	
@@ -807,6 +814,7 @@ POL_Shortcut()
 			iconPath="$PLAYONLINUX/etc/playonlinux.png"
 		fi
 		generer_icone "$iconPath" "$NOMICONE_" "$DESKTOP" "$PLAYONLINUX/playonlinux --run \"$NOMICONE_\""
+	fi
 	fi
 }
 
