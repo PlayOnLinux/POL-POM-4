@@ -27,7 +27,7 @@ then
 fi
 
 echo "$@"
-NOM_JEU="$REPERTOIRE/configurations/installed/$1"
+NOM_JEU="$REPERTOIRE/shortcuts/$1"
 POL_SetupWindow_Init "$PLAYONLINUX/resources/images/setups/delete/top.png" "$PLAYONLINUX/resources/images/setups/delete/left.jpg"
 if [ -e "$NOM_JEU" ]
 then
@@ -40,7 +40,7 @@ then
 	rm -f "$REPERTOIRE/icones/full_size/$1"
 	
 	# Shortcut
-	rm -f "$REPERTOIRE/configurations/installed/$1"
+	rm -f "$REPERTOIRE/shortcuts/$1"
 	rm -f "$HOME/.local/share/applications/$1.desktop"
 	rm -f "$DESKTOP/$1.desktop"
 	
