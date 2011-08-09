@@ -377,7 +377,11 @@ installer_wine_version ()
 }
 Set_WineVersion_Assign ()
 {
-	POL_Debug_Warning "Feature deprecated"
+	prefixold="$WINEPREFIX"
+	POL_Debug_Warning "Feature deprecated !"
+	export WINEPREFIX="$(POL_Shortcut_GetPrefix "$POL_USER_ROOT/wineprefix/$2")"
+	POL_Wine_SetVersionPrefix "$1"
+	export WINEPREFIX="$prefixold"
 }
 Set_WineVersion_Assign_BACK()
 {
