@@ -482,7 +482,7 @@ Use_WineVersion()
 
 POL_LoadVar_PROGRAMFILES()
 {
-	PROGRAMFILES=`wine cmd /c echo "%ProgramFiles%" |tr -d '\015' | tr -d '\012'`
+	PROGRAMFILES=`POL_Wine cmd /c echo "%ProgramFiles%" |tr -d '\015' | tr -d '\012'`
 	if [ "${PROGRAMFILES}" = "%ProgramFiles%" ] 
 	then # Var is not defined by wine
 		export PROGRAMFILES="Program Files"
@@ -732,8 +732,7 @@ POL_Wine_PrefixCreate()
 			POL_Wine_InstallVersion "$POL_WINEVERSION"
 			POL_Config_PrefixWrite "ARCH" "$POL_ARCH"
 			POL_Config_PrefixWrite "VERSION" "$POL_WINEVERSION"
-			POL_Wine_SetVersionEnv
-			wine wineboot
+			POL_Wine wineboot
 			POL_LoadVar_PROGRAMFILES
 		fi
 	fi
