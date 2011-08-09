@@ -591,6 +591,7 @@ POL_Wine_SelectPrefix()
 	PREFNAME=`printf "$1"| tr -c [[a-zA-Z0-9]\.] '_'`
 	export WINEPREFIX="$POL_USER_ROOT/wineprefix/$PREFNAME"
 	export DOSPREFIX="$WINEPREFIX"
+	export POL_WINEVERSION="$(POL_Config_PrefixRead VERSION)"
 }
 POL_Wine_PrefixExists()
 {
