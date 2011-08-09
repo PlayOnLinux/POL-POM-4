@@ -727,6 +727,7 @@ POL_Wine_PrefixCreate()
 			fi
 			POL_LoadVar_PROGRAMFILES
 		else
+			mkdir -p "$WINEPREFIX"
 			POL_Debug_Message "Using wine $POL_WINEVERSION"
 			POL_Wine_InstallVersion "$POL_WINEVERSION"
 			POL_Config_PrefixWrite "ARCH" "$POL_ARCH"
