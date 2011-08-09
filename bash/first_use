@@ -186,6 +186,7 @@ POL_Shortcut_GetOLDVersion()
 }
 migrate_oldpol()
 {
+	rmdir "$POL_USER_ROOT/configurations/installed" 2> /dev/null
 	if [ -e "$POL_USER_ROOT/configurations/installed" ]
 	then
 		# On commence par les raccourcis
