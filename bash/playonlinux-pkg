@@ -92,7 +92,7 @@ then
 		$error_c "$(eval_gettext "This file: ")$2$(eval_gettext " isn't a valid PlayOnLinux package!")"
 		exit
 	fi
-	rm "$TMP/pkg/" -r 2> /dev/null
+	rm -r "$TMP/pkg/" 2> /dev/null
 	mkdir -p "$TMP/pkg/"
 	cp "$2" "$TMP/pkg"
 	cd "$TMP/pkg"
@@ -111,7 +111,7 @@ then
 	echo "$(eval_gettext "Running...")"
 	export SCRIPT_DIRECTORY="$TMP/pkg/files/"
 	bash "$TMP/pkg/playonlinux/main"
-	rm "$TMP/pkg/" -r 2> /dev/null
+	rm -r "$TMP/pkg/" 2> /dev/null
 	echo "$(eval_gettext "Cleaning...")"
 fi
 exit 0
