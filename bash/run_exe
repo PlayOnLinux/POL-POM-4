@@ -35,10 +35,9 @@ PRGM_NAME="$APP_ANSWER"
 PREFIX_NAME=`echo "$PRGM_NAME"| tr -c [[a-zA-Z0-9]\.] '_'`
 echo "$md5:$PREFIX_NAME" >> $md5file
 select_prefix "$REPERTOIRE/wineprefix/$PREFIX_NAME"
-POL_SetupWindow_prefixcreate
-POL_SetupWindow_wait_next_signal "$APPLICATION_TITLE is installing $PRGM_NAME" "$TITRE"
+POL_Wine_PrefixCreate
+POL_SetupWindow_wait "$APPLICATION_TITLE is installing $PRGM_NAME" "$TITRE"
 POL_Wine "$line"
-POL_SetupWindow_detect_exit
 POL_SetupWindow_shortcut_creator
 POL_SetupWindow_message "Installation finished." "$TITRE"
 }
