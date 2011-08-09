@@ -992,8 +992,10 @@ POL_SetupWindow_install_wine_mac ()
 }
 POL_SetupWindow_install_wine ()
 {
-	[ "$POL_OS" == "Linux" ] && POL_SetupWindow_install_wine_linux "$@"
-	[ "$POL_OS" == "Mac" ] && POL_SetupWindow_install_wine_mac "$@"
+	POL_Debug_Warning "Function deprecated"
+	POL_Wine_InstallVersion "$@"
+#	[ "$POL_OS" == "Linux" ] && POL_SetupWindow_install_wine_linux "$@"
+#	[ "$POL_OS" == "Mac" ] && POL_SetupWindow_install_wine_mac "$@"
 	
 }
 POL_GetSetupImages () # ( optional : --erase ) 
