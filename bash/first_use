@@ -261,6 +261,7 @@ EOF
 	fi
 	mv "$POL_USER_ROOT/configurations/installed" "$POL_USER_ROOT/configurations/installed.backup" 
 	fi
+	export POL_WINEVERSION=""
 }
 migrate_oldpol
 POL_SetupWindow_Init

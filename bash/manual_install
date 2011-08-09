@@ -168,7 +168,7 @@ WHATTORUNBEFORE="$APP_ANSWER"
 if [ "$(echo $WHATTORUNBEFORE | grep -o "$LNG_WC_ASSWV")" == "$LNG_WC_ASSWV" ]
 then
 	WINEVERSIONLIST="System"
-	WINEVERSIONDIRLIST=$(find "$REPERTOIRE/WineVersions/"* -maxdepth 0 -type d)
+	WINEVERSIONDIRLIST=$(find "$REPERTOIRE/wine/x86/"* -maxdepth 0 -type d)
 	for single in $WINEVERSIONDIRLIST ; do
 	  singleparsed=${single##*/}
 	  WINEVERSIONLIST=`echo $WINEVERSIONLIST~$singleparsed`
@@ -181,8 +181,9 @@ then
 		WINEVERSIONLIVE=""
 	else
 	Use_WineVersion "$WINEVERSIONLIVE"
+	export POL_WINEVERSION="$WINEVERSIONLIVE"
 	fi
-	echo "Use_WineVersion \"$WINEVERSIONLIVE\"" >> "$SCRIPTPATH"
+	echo "export POL_WINEVERSION=\"$WINEVERSIONLIVE\"" >> "$SCRIPTPATH"
 fi
 
 POL_SetupWindow_prefixcreate
