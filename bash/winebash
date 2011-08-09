@@ -40,7 +40,7 @@ if [ "$1" = "wineserver" ]
 then
 	wineserver -k
 else
-	wine $@ &
+	POL_Wine $@ &
 fi
 POL_SetupWindow_Close
 exit
