@@ -306,7 +306,7 @@ POL_Call()
 	then	
 		OLD_PC_DIR="$PWD"
 		cd "$REPERTOIRE/tmp/"
-		wget -q "$SITE/V3_data/repository/get_file.php?version=playonlinux-$VERSION&id=$1" -O- > "$1"
+		wget -q "$SITE/V4_data/repository/get_file.php?version=playonlinux-$VERSION&id=$1" -O- > "$1"
 		POL_Source "$@"
 		cd "$OLD_PC_DIR"
 	fi

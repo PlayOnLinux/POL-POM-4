@@ -56,7 +56,7 @@ then
 			#POL_SetupWindow_Init ""
 			#POL_SetupWindow_free_presentation "Install a non-validated script" "PlayOnLinux is going to execute a non-validated script.\n\nThese scripts have not been checked by PlayOnLinux validators. Please ensure you know what you are doing !"
 			rm "$REPERTOIRE/install"
-			wget "$SITE/V3_data/repository/get_file_n.php?version=PlayOn$POL_OS-$VERSION&id=$id" -O "$REPERTOIRE/install" -q
+			wget "$SITE/V4_data/repository/get_file_n.php?version=PlayOn$POL_OS-$VERSION&id=$id" -O "$REPERTOIRE/install" -q
 			#POL_SetupWindow_licence "Here the source code of the script. Check it carrefully" "Non validated script" "$REPERTOIRE/install"
 			#POL_SetupWindow_Close
 
@@ -70,7 +70,7 @@ then
 		fi
 		menu=${menu//" "/"%20"}
 		rm "$REPERTOIRE/install"
-		wget "$SITE/V3_data/repository/get_file.php?version=playonlinux-$VERSION&id=$menu" -O "$REPERTOIRE/install" -q
+		wget "$SITE/V4_data/repository/get_file.php?version=playonlinux-$VERSION&id=$menu" -O "$REPERTOIRE/install" -q
 		if [ -e "$REPERTOIRE/install" ]
 		then
 			POL_Bash "$REPERTOIRE/install"

@@ -75,15 +75,15 @@ maj_check ()
 					
 		if [ "$POL_OS" = "Linux" ]
 		then
-			wget "$SITE/V3_data/repository/get_list.php" -O- -q | config_maj
-			wget "$SITE/V3_data/repository/get_top?by=download" -O- -q > download
-			wget "$SITE/V3_data/repository/get_top" -O- -q > rate
-			wget "$SITE/V3_data/repository/get_md5_list.php?playonlinux=1" -O- -q > md5sums
+			wget "$SITE/V4_data/repository/get_list.php" -O- -q | config_maj
+			wget "$SITE/V4_data/repository/get_top?by=download" -O- -q > download
+			wget "$SITE/V4_data/repository/get_top" -O- -q > rate
+			wget "$SITE/V4_data/repository/get_md5_list.php?playonlinux=1" -O- -q > md5sums
 		else
-			wget "$SITE/V3_data/repository/get_list.php?playonmac=1" -O- -q | config_maj
-           	wget "$SITE/V3_data/repository/get_top?by=download&playonmac=1" -O- -q > download
-           	wget "$SITE/V3_data/repository/get_top?playonmac=1" -O- -q > rate
-			wget "$SITE/V3_data/repository/get_md5_list.php?playonmac=1" -O- -q > md5sums
+			wget "$SITE/V4_data/repository/get_list.php?playonmac=1" -O- -q | config_maj
+           	wget "$SITE/V4_data/repository/get_top?by=download&playonmac=1" -O- -q > download
+           	wget "$SITE/V4_data/repository/get_top?playonmac=1" -O- -q > rate
+			wget "$SITE/V4_data/repository/get_md5_list.php?playonmac=1" -O- -q > md5sums
 		fi
 		POL_Config_Write LAST_TIMESTAMP "$WEB_TIMESTAMP"
 	else

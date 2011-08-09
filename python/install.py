@@ -76,7 +76,7 @@ class getDescription(threading.Thread):
 
 					# Description
 					try :
-						url = os.environ["SITE"]+'/V3_data/repository/get_description.php?id='+self.getDescription.replace(" ","%20")
+						url = os.environ["SITE"]+'/V4_data/repository/get_description.php?id='+self.getDescription.replace(" ","%20")
 						req = urllib2.Request(url)
 						handle = urllib2.urlopen(req)
 						self.htmlContent = handle.read()
@@ -88,7 +88,7 @@ class getDescription(threading.Thread):
 
 					# Stars
 					try :
-						url = os.environ["SITE"]+'/V3_data/repository/stars.php?n='+self.getDescription.replace(" ","%20")
+						url = os.environ["SITE"]+'/V4_data/repository/stars.php?n='+self.getDescription.replace(" ","%20")
 						req = urllib2.Request(url)
 						handle = urllib2.urlopen(req)
 						self.stars = handle.read()
