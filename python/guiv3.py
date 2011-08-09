@@ -337,17 +337,17 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         #self.Destroy()
 
 	def add_games(self):
-		self.games = os.listdir(Variables.playonlinux_rep+"shortcuts/")
+		self.games = os.listdir(Variables.playonlinux_rep+"/shortcuts/")
 		self.games.sort()
 		self.images.RemoveAll()
 		self.MenuGames.DeleteAllItems()
 		self.root = self.MenuGames.AddRoot("")
 		self.i = 0
 		for game in self.games: 
-			self.file = Variables.playonlinux_rep+"shortcuts/"+game
+			self.file = Variables.playonlinux_rep+"/shortcuts/"+game
 			fichier = open(self.file,"r").read()
 
-			if("wine " in fichier):
+			if("POL_Wine " in fichier):
 				if(os.path.exists(Variables.playonlinux_rep+"/icones/32/"+game)):
 					self.file_icone = Variables.playonlinux_rep+"/icones/32/"+game
 				else:
