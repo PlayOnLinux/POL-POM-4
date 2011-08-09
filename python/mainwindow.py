@@ -63,7 +63,7 @@ class POLWeb(threading.Thread):
 		if(self.WebVersion == ""):
 			self.sendToStatusBar(_('{0} website is unavailable. Please check your connexion').format(os.environ["APPLICATION_TITLE"]), False)
 		else:
-			self.sendToStatusBar(_("Refreshing "+os.environ["APPLICATION_TITLE"]), True)
+			self.sendToStatusBar(_("Refreshing {0}").format(os.environ["APPLICATION_TITLE"]), True)
 			os.system("bash \""+Variables.playonlinux_env+"/bash/pol_update_list\"")
 		
 			if(playonlinux.convertVersionToInt(os.environ["VERSION"]) < playonlinux.convertVersionToInt(self.WebVersion)):
@@ -618,6 +618,10 @@ class PlayOnLinuxApp(wx.App):
 		
 		if(file_extension == "exe" or file_extension == "EXE"):
 			os.system("bash \"$PLAYONLINUX/bash/run_exe\" \""+filename+"\" &")
+		
+		if(file_extension == "pol" or file_extension == "POL"):
+			if(wx.YES == wx.MessageBox(_('Are you sure you want to  want to install {0} package?').format(filename).decode("utf-8"), style=wx.YES_NO | wx.ICON_QUESTION)):
+				os.system("bash \"$PLAYONLINUX/bash/playonlinux-pkg\" -i \""+filename+"\" &")
 			
 	def MacReopenApp(self):
 		#sys.exit()

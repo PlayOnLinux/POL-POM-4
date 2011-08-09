@@ -696,7 +696,7 @@ POL_Wine_PrefixCreate()
 	if [ -e "$WINEPREFIX" ]
 	then
 		[ ! "$1" = "" ] && export POL_WINEVERSION="$1"
-		[ ! "$POL_WINEVERSION" = "" ] && POL_Wine_SetVersion "$POL_WINEVERSION"
+		[ ! "$POL_WINEVERSION" = "" ] && POL_Wine_SetVersionPrefix "$POL_WINEVERSION"
 	else
 		[ "$1" = "" ] || export POL_WINEVERSION="$1"
 		if [ "$POL_WINEVERSION" = "" ]
