@@ -636,7 +636,7 @@ POL_Wine_InstallVersion()
 			POL_SetupWindow_message "$(eval_gettext 'The download seems to have failed.')" "Wine $1"
 		else
 			POL_SetupWindow_wait "$(eval_gettext 'Extracting Wine...')" "Wine $1"
-			"$PLAYONLINUX/playonlinux-pkg" -i "$WINE_ADDRESS"
+			"$PLAYONLINUX/playonlinux-pkg" -i "$PWD/$WINE_ADDRESS"
 		fi
 		rm "$WINE_ADDRESS"
 	fi
