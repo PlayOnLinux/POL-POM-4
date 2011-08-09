@@ -54,9 +54,7 @@ try :
 except:
 	os.environ["LD_LIBRARY_PATH"] = ""
 
-os.environ["PATH_ORIGIN"] = os.environ["PATH"]
-os.environ["LD_PATH_ORIGIN"] = os.environ["LD_LIBRARY_PATH"]
-os.environ["DYLDPATH_ORIGIN"] = os.environ["DYLD_LIBRARY_PATH"]
+
 
 
 if (os.environ["POL_OS"] == "Mac"):
@@ -68,7 +66,10 @@ if (os.environ["POL_OS"] == "Mac"):
 	
 	os.environ["DYLD_LIBRARY_PATH"] = os.environ["PLAYONLINUX"]+"/../unix/tools/lib/dyld:" + os.environ["PLAYONLINUX"]+"/../unix/image_magick/lib:"+ os.environ["DYLD_LIBRARY_PATH"]
 
-
+os.environ["PATH_ORIGIN"] = os.environ["PATH"]
+os.environ["LD_PATH_ORIGIN"] = os.environ["LD_LIBRARY_PATH"]
+os.environ["DYLDPATH_ORIGIN"] = os.environ["DYLD_LIBRARY_PATH"]
+	
 playonlinux_env = os.environ["PLAYONLINUX"]
 playonlinux_rep = os.environ["REPERTOIRE"]
 version = os.environ["VERSION"]
