@@ -29,7 +29,7 @@ pol_winecfg()
 	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing processes in the prefix...")" "$TITLE"
 	wineserver -k
 	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Starting Wine configuration')" "$TITLE"
-	wine winecfg
+	POL_Wine winecfg
 }
 pol_kprocess()
 {
@@ -52,14 +52,14 @@ pol_regedit()
 	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing processes in the prefix...")" "$TITLE"
 	wineserver -k
 	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Starting regedit')" "$TITLE"
-	wine regedit
+	POL_Wine regedit
 }
 pol_wineboot()
 {
 	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing processes in the prefix...")" "$TITLE"
 	wineserver -k
 	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Simulating Windows reboot')" "$TITLE"
-	wine wineboot
+	POL_Wine wineboot
 }
 pol_awinecfg()
 {
@@ -182,7 +182,7 @@ then
     export LD_LIBRARY_PATH="$REPERTOIRE/WineVersions/$wineversion/usr/lib/wine/:$LD_LIBRARY_PATH"
 fi
 export WINEPREFIX="$prefixe"
-Use_WineVersion "$wineversion"
+#Use_WineVersion "$wineversion"
 
 if [ "$FUNCTIONTORUN" != "" ]
 then
