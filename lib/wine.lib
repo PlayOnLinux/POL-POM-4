@@ -17,160 +17,20 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
 
-select_prefixe ()
-{
-	POL_Debug_Warning "Deprecated function ! Use POL_Wine_SelectPrefix"
-	export WINEPREFIX="$1"
-	export DOSPREFIX="$1" # For dosbox support
-}
-select_prefix ()
-{
-	select_prefixe "$@"
-}
-
-read_prefixes()
-{
-	cd "$REPERTOIRE/wineprefix"
-	LIST_FILE=""
-	for file in *
-	do	
-		if [ "$LIST_FILE" = "" ]
-		then
-			LIST_FILE="$file" 
-		else
-			LIST_FILE+="~$file"
-		fi
-	done
-	echo $LIST_FILE
-}
-
-set_user_dir()
-{
-cat << EOF > /tmp/pol_user.reg
-REGEDIT4
-
-[HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer]
-
-[HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced]
-
-[HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Shell Folders]
-"AppData"="C:\\\\windows\\\\profiles\\\\$USER\\\\Application Data"
-"Cache"="C:\\\\windows\\\\profiles\\\\$USER\\\\Local Settings\\\\Temporary Internet Files"
-"Cookies"="C:\\\\windows\\\\profiles\\\\$USER\\\\Cookies"
-"Desktop"="C:\\\\windows\\\\profiles\\\\$USER\\\\Desktop"
-"Favorites"="C:\\\\windows\\\\profiles\\\\$USER\\\\Favorites"
-"Fonts"="C:\\\\windows\\\\Fonts"
-"History"="C:\\\\windows\\\\profiles\\\\$USER\\\\Local Settings\\\\History"
-"Local AppData"="C:\\\\windows\\\\profiles\\\\$USER\\\\Local Settings\\\\Application Data"
-"My Music"="C:\\\\windows\\\\profiles\\\\$USER\\\\My Music"
-"My Pictures"="C:\\\\windows\\\\profiles\\\\$USER\\\\My Pictures"
-"My Videos"="C:\\\\windows\\\\profiles\\\\$USER\\\\My Videos"
-"NetHood"="C:\\\\windows\\\\profiles\\\\$USER\\\\Network Hood"
-"Personal"="C:\\\\windows\\\\profiles\\\\$USER\\\\My documents"
-"PrintHood"="C:\\\\windows\\\\profiles\\\\$USER\\\\Printing Hood"
-"Programs"="C:\\\\windows\\\\profiles\\\\$USER\\\\Start Menu\\\\Programs"
-"Recent"="C:\\\\windows\\\\profiles\\\\$USER\\\\Recent"
-"SendTo"="C:\\\\windows\\\\profiles\\\\$USER\\\\SendTo"
-"Start Menu"="C:\\\\windows\\\\profiles\\\\$USER\\\\Start Menu"
-"StartUp"="C:\\\\windows\\\\profiles\\\\$USER\\\\Start Menu\\\\Programs\\\\StartUp"
-"Templates"="C:\\\\windows\\\\profiles\\\\$USER\\\\Templates"
-
-[HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\User Shell Folders]
-"AppData"="%USERPROFILE%\\\\Application Data"
-"Cache"="%USERPROFILE%\\\\Local Settings\\\\Temporary Internet Files"
-"Cookies"="%USERPROFILE%\\\\Cookies"
-"Desktop"="%USERPROFILE%\\\\Desktop"
-"Favorites"="%USERPROFILE%\\\\Favorites"
-"Fonts"="C:\\\\windows\\\\Fonts"
-"History"="%USERPROFILE%\\\\Local Settings\\\\Historique"
-"Local AppData"="%USERPROFILE%\\\\Local Settings\\\\Application Data"
-"My Music"="%USERPROFILE%\\\\My Music"
-"My Pictures"="%USERPROFILE%\\\\My Pictures"
-"My Videos"="%USERPROFILE%\\\\My Videos"
-"NetHood"="%USERPROFILE%\\\\Network Hood"
-"Personal"="%USERPROFILE%\\\\My Documents"
-"PrintHood"="%USERPROFILE%\\\\Printing hood"
-"Programs"="%USERPROFILE%\\\\Start Menu\\\\Programs"
-"Recent"="%USERPROFILE%\\\\Recent"
-"SendTo"="%USERPROFILE%\\\\SendTo"
-"Start Menu"="%USERPROFILE%\\\\Start Menu"
-"StartUp"="%USERPROFILE%\\\\Start Menu\\\\Programs\\\\StartUp"
-"Templates"="%USERPROFILE%\\\\Templates"
-
-[HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer]
-
-[HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Desktop]
-
-[HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Desktop\\Namespace]
-
-[HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Desktop\\Namespace\\{450D8FBA-AD25-11D0-98A8-0800361B1103}]
-@="My Documents"
-
-[HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Desktop\\Namespace\\{645FF040-5081-101B-9F08-00AA002F954E}]
-@="Trash"
-
-[HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Desktop\\Namespace\\{9D20AAE8-0625-44B0-9CA7-71889C2254D9}]
-@="/"
-
-[HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer]
-
-[HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\Namespace]
-
-[HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\MyComputer\\Namespace\\{21EC2020-3AEA-1069-A2DD-08002B30309D}]
-@="Control Panel"
-
-[HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Shell Folders]
-"Common AppData"="C:\\\\windows\\\\profiles\\\\All Users\\\\Application Data"
-"Common Desktop"="C:\\\\windows\\\\profiles\\\\All Users\\\\Desktop"
-"Common Documents"="C:\\\\windows\\\\profiles\\\\All Users\\\\Documents"
-"Common Programs"="C:\\\\windows\\\\profiles\\\\All Users\\\\Start Menu\\\\Programs"
-"Common Start Menu"="C:\\\\windows\\\\profiles\\\\All Users\\\\Start Menu"
-"Common StartUp"="C:\\\\windows\\\\profiles\\\\All Users\\\\Start Menu\\\\Programs\\\\StartUp"
-"Common Templates"="C:\\\\windows\\\\profiles\\\\All Users\\\\Templates"
-"Favorites"="C:\\\\windows\\\\profiles\\\\All Users\\\\Favorites"
-
-[HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\User Shell Folders]
-"Common AppData"="%ALLUSERSPROFILE%\\\\Application Data"
-"Common Desktop"="%ALLUSERSPROFILE%\\\\Desktop"
-"Common Documents"="%ALLUSERSPROFILE%\\\\Documents"
-"Common Programs"="%ALLUSERSPROFILE%\\\\Start Menu\\\\Programs"
-"Common Start Menu"="%ALLUSERSPROFILE%\\\\Start Menu"
-"Common StartUp"="%ALLUSERSPROFILE%\\\\Start Menu\\\\Programs\\\\StartUp"
-"Common Templates"="%ALLUSERSPROFILE%\\\\Templates"
-"Favorites"="%ALLUSERSPROFILE%\\\\Favorites"
-EOF
-wine regedit /tmp/pol_user.reg
-}
-
-set_programfile_dir()
-{
-	#made by cendre, edited by tinou
-	#email:cendrev3v3@gmail.com
-	if [ ! "$WINEPREFIX" ]
-	then
-		export WINEPREFIX="$HOME/.wine"
-	fi
-	REG="$REPERTOIRE/tmp/reg.reg"
-	echo "$(eval_gettext "Setting Program Files var")"
-	rm -f "$REG"
-	cat <<EOF > "$REG"
-[HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion]
-"ProgramFilesDir"="C:\\\\Program Files"
-EOF
-	wine regedit "$REG"
-	rm -f "$REG"
-	wine wineprefixcreate
-	#fi
-	
-	#rm -rf $REG
-}
-
+# wine.lib
+# --------
+#
+# This lib contains wine's api
 
 Set_OS ()
 {
+	# Set fake windows OS
+	# Usage: Set_OS [1] [2]
+	#
+	# 1 : Possible values : vista, win2003, winxp, win2k, winnt, winme, win98, win95, win31
+	# 2 : Service Pack : sp3, sp3, sp2
 	POL_Debug_Message "Setting Windows OS to $1 $2"
-	# 1 : Valeurs possibles : vista, win2003, winxp, win2k, winnt, winme, win98, win95, win31
-	# 2 : Service Pack : sp3, fixme
+	
 	if [ ! "$1" = "" ]
 	then
 		echo "[HKEY_CURRENT_USER\Software\Wine]" > "$REPERTOIRE/tmp/makeos.reg"
@@ -198,7 +58,8 @@ EOF
 
 Set_Managed ()
 {
-	# On ou Off
+	# Let the windows manager to control wine 
+	# Usage: Set_Managed (On|Off)
 	if [ "$1" = "On" ]
 	then
 		echo "[HKEY_CURRENT_USER\Software\Wine\X11 Driver]" > "$REPERTOIRE/tmp/managed.reg"
@@ -217,6 +78,10 @@ Set_Managed ()
 
 Set_SoundDriver () 
 {
+	# Set the sound driver
+	# Usage: Set_SoundDriver [Driver]
+	# Disabled in Mac OS
+	
 	if [ ! "$1" = "" ] && [ "$POL_OS" = "Linux" ]
 	then
 		echo "[HKEY_CURRENT_USER\Software\Wine\Drivers]" > "$REPERTOIRE/tmp/alsa.reg"
@@ -225,29 +90,14 @@ Set_SoundDriver ()
 		rm -f "$REPERTOIRE/tmp/alsa.reg"
 	fi
 }
-Set_GLSL ()
-{
-	POL_Debug_Warning "Set_GLSL depracted, please use POL_Wine_Direct3D UseGLSL"
-	# On ou Off
-	if [ "$1" = "On" ] || [ "$1" == "enabled" ]
-	then
-		echo "[HKEY_CURRENT_USER\Software\Wine\Direct3D]" > "$REPERTOIRE/tmp/glsl.reg"
-		echo "\"UseGLSL\"=\"enabled\"" >> "$REPERTOIRE/tmp/glsl.reg"
-		wine regedit "$REPERTOIRE/tmp/glsl.reg"
-		rm -f "$REPERTOIRE/tmp/glsl.reg"
-	fi
-	if [ "$1" = "Off" ] || [ "$1" == "disabled" ]
-	then
-		echo "[HKEY_CURRENT_USER\Software\Wine\Direct3D]" > "$REPERTOIRE/tmp/glsl.reg"
-		echo "\"UseGLSL\"=\"disabled\"" >> "$REPERTOIRE/tmp/glsl.reg"
-		wine regedit "$REPERTOIRE/tmp/glsl.reg"
-		rm -f "$REPERTOIRE/tmp/glsl.reg"
-	fi
-}
+
 POL_Wine_Direct3D ()
 {
-	# Example :: UseGLSL [default / enabled / disabled]
-	# default remove the key
+	# Change a Direct3D value in registry
+	# Usage POL_Wine_Direct3D Key Value
+	
+	# Example :: POL_Wine_Direct3D UseGLSL [default / enabled / disabled]
+	# default : remove the key
 	[ "$WINEPREFIX" = "" ] && POL_Debug_Fatal "POL_Wine_Direct3D : WINEPREFIX not set"
 	
 	wineserver -k
@@ -267,7 +117,7 @@ POL_Wine_Direct3D ()
 }
 POL_Wine_DirectSound ()
 {
-	# default remove the key
+	# Same that POL_Wine_Direct3D, but for DirectSound
 	[ "$WINEPREFIX" = "" ] && POL_Debug_Fatal "POL_Wine_DirectSound : WINEPREFIX not set"
 	
 	wineserver -k
@@ -287,8 +137,7 @@ POL_Wine_DirectSound ()
 }
 POL_Wine_DirectInput ()
 {
-	# Example :: UseGLSL [default / enabled / disabled]
-	# default remove the key
+	# Same that POL_Wine_Direct3D, but for DirectInput
 	[ "$WINEPREFIX" = "" ] && POL_Debug_Fatal "POL_Wine_DirectInput : WINEPREFIX not set"
 	
 	wineserver -k
@@ -308,6 +157,7 @@ POL_Wine_DirectInput ()
 }
 POL_Wine_GetRegValue()
 {
+	# Get a value in registry
 	# Example : POL_Wine_GetReg_Value Multisampling
 	#
 	# Read http://wiki.winehq.org/UsefulRegistryKeys
@@ -321,6 +171,8 @@ POL_Wine_GetRegValue()
 
 Set_DXGrab ()
 {
+	# Enable or disable DXGrab
+	# Usage: Set_DXGrab (On|Off)
 	# On ou Off
 	if [ "$1" = "On" ]
 	then
@@ -339,7 +191,9 @@ Set_DXGrab ()
 }
 Set_Iexplore ()
 {
-	# Simule la présence d'ie6
+	# Make a fake IE6 installation
+	# Usage: Set_Iexplore
+	
 	echo "[HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer]" > "$REPERTOIRE/tmp/ie.reg"
 	echo "\"Version\"=\"6.0.2900.2180\"" >> "$REPERTOIRE/tmp/ie.reg"
 	wine regedit "$REPERTOIRE/tmp/ie.reg"
@@ -347,6 +201,9 @@ Set_Iexplore ()
 }
 Set_Desktop ()
 {
+	# Set a desktop environement
+	# Usage: Set_Desktop (on|off) [width] [height]
+	
 	echo "[HKEY_CURRENT_USER\Software\Wine\X11 Driver]" > "$REPERTOIRE/tmp/DesktopRoot.reg"
 	if [ "$1" = "On" ]
 	then
@@ -359,73 +216,11 @@ Set_Desktop ()
 		wine regedit "$REPERTOIRE/tmp/DesktopRoot.reg"
 		rm -f "$REPERTOIRE/tmp/DesktopRoot.reg"
 }
-fonts_to_prefixe ()
-{
-	OLDDIR="$PWD"
-	cd "$WINEPREFIX/drive_c/windows/"
-	rm -rf ./Fonts
-	ln -s "$REPERTOIRE/fonts" ./Fonts
-	cd "$OLDDIR"
-}
-fonts_to_prefix ()
-{
-	fonts_to_prefixe "$@"
-}
-installer_wine_version ()
-{
-	POL_SetupWindow_install_wine "$@"
-}
-Set_WineVersion_Assign ()
-{
-	prefixold="$WINEPREFIX"
-	POL_Debug_Warning "Feature deprecated !"
-	export WINEPREFIX="$(POL_Shortcut_GetPrefix "$POL_USER_ROOT/wineprefix/$2")"
-	POL_Wine_SetVersionPrefix "$1"
-	export WINEPREFIX="$prefixold"
-}
-Set_WineVersion_Assign_BACK()
-{
-	OLD_PWD="$PWD"
-	POL_Debug_Message "Assign $2 to wine $1"
-	cd "$REPERTOIRE/WineVersions"
-	VERSIONTAPER="$1"
-	JEU="$2"	
-	if [ "$VERSIONTAPER" = "--reset" ]
-	then
-		export PATH=$VRAIPATH
-	else
-		if [ "$VERSIONTAPER" = "" ]
-		then
-			POL_Debug_Error "No wineversion selected"
-		fi
-		
-		if [ ! -e "$REPERTOIRE/WineVersions/$VERSIONTAPER" ]
-		then
-			POL_Debug_Message "Wine $1 not installed"
-			POL_SetupWindow_install_wine "$VERSIONTAPER"
-		fi
-		if [ -e "$REPERTOIRE/configurations/installed/$JEUX" ]
-		then
-			FICHIER="$REPERTOIRE/tmp/nouveaulanceur"
-			echo "#!/bin/bash" > "$FICHIER"
-			if [ "$POL_OS" = "Linux" ]
-			then
-				echo "PATH=\"$REPERTOIRE/WineVersions/$VERSIONTAPER/usr/bin/:\$PATH\"" >> "$FICHIER"
-				echo "LD_LIBRARY_PATH=\"$REPERTOIRE/WineVersions/$VERSIONTAPER/usr/lib/:\$LD_LIBRARY_PATH\"" >> "$FICHIER"
-			else
-				echo "PATH=\"$REPERTOIRE/WineVersions/$VERSIONTAPER/bin/:\$PATH\"" >> "$FICHIER"
-				echo "LD_LIBRARY_PATH=\"$REPERTOIRE/WineVersions/$VERSIONTAPER/lib/:\$LD_LIBRARY_PATH\"" >> "$FICHIER"
-			fi
-			cat "$REPERTOIRE/configurations/installed/$JEU" | grep -v "PATH" | grep -v "#\!/bin/bash" >> "$FICHIER"
-			mv "$REPERTOIRE/tmp/nouveaulanceur" "$REPERTOIRE/configurations/installed/$JEU"
-			chmod +x "$REPERTOIRE/configurations/installed/$JEU"
-		fi
-	fi
-	cd "$OLD_PWD"
-}
 
 Set_SoundSampleRate ()
 {
+	# Set Sound sample rate
+	# Usage: Set_SoundSampleRate [value]
 	# values can be: 48000, 44100, 22050, 16000, 11025, 8000
 	if [ ! "$1" = "" ]
 	then
@@ -438,6 +233,8 @@ Set_SoundSampleRate ()
 
 Set_SoundBitsPerSample ()
 {
+	# Set Sound bits per sample rate
+	# Usage: Set_SoundBitsPerSaple [value]
 	# values: 8, 16
 	if [ "$1" != "" ]
 	then
@@ -448,12 +245,22 @@ Set_SoundBitsPerSample ()
 	fi
 }
 
-
+POL_Wine_InstallFonts()
+{
+	# Install microsoft fonts
+	# Usage: POL_Wine_InstallFonts
+	OLDDIR="$PWD"
+	cd "$WINEPREFIX/drive_c/windows/"
+	rm -rf ./Fonts
+	ln -s "$REPERTOIRE/fonts" ./Fonts
+	cd "$OLDDIR"	
+}
 
 
 Set_SoundHardwareAcceleration ()
 {
-	# Full , Standard , Basic , Emulation
+	# Set sound driver hardware acceleration
+	# Values : Full, Standard, Basic, Emulation
 	if [ ! "$1" = "" ]
 	then
 		echo "[HKEY_CURRENT_USER\Software\Wine\DirectSound]" > "$REPERTOIRE/tmp/sndSoundHardwareAcceleration.reg"
@@ -465,7 +272,8 @@ Set_SoundHardwareAcceleration ()
 
 Set_SoundEmulDriver ()
 {
-	# Y , N
+	# Set sound emul driver 
+	# Usage: Set_SoundEmulDriver(Y|N)
 	if [ ! "$1" = "" ]
 	then
 		echo "[HKEY_CURRENT_USER\Software\Wine\DirectSound]" > "$REPERTOIRE/tmp/sndSoundEmulDriver.reg"
@@ -474,14 +282,11 @@ Set_SoundEmulDriver ()
 		rm -f "$REPERTOIRE/tmp/sndSoundEmulDriver.reg"
 	fi
 }
-Use_WineVersion()
-{
-	POL_Debug_Warning "Function is deprecated. Use export WINEVERSION instead"
-	export POL_WINEVERSION="$1"
-}
 
 POL_LoadVar_PROGRAMFILES()
 {
+	# Get Program Files folder name and store it to PROGRAMFILES variable
+	# Usage: POL_LoadVar_PROGRAMFILES
 	PROGRAMFILES=`POL_Wine cmd /c echo "%ProgramFiles%" |tr -d '\015' | tr -d '\012'`
 	if [ "${PROGRAMFILES}" = "%ProgramFiles%" ] 
 	then # Var is not defined by wine
@@ -504,6 +309,9 @@ EOF
 
 POL_LoadVar_Device ()
 {
+	# Get GPU device id and vendor id
+	# Results are stored in VendorID and DeviceID variables
+	
 	POL_Debug_Message "Gettings GPU informations"
 	if [ "$POL_OS" = "Linux" ]
 	then
@@ -522,49 +330,34 @@ POL_LoadVar_Device ()
 }
 POL_Wine_SetVideoDriver()
 {
-		POL_LoadVar_Device
-        cd "$WINEPREFIX/drive_c/windows/temp/"
-        if [ "$VENDORID" == "10de" ]; then
-                DRVID="nv4_disp.dll"
-        elif [ "$VENDORID" == "1002" ]; then
-                DRVID="ati2dvag.dll"
-        elif [ "$VENDORID" == "8086" ]; then
-                DRVID="ig4icd32.dll"
-        else
-                DRVID="vga.dll"
-        fi
-		cat << EOF > "$POL_USER_ROOT/tmp/VGA_ID_fix.reg"
+	# Set wine video driver
+	# Usage POL_Wine_SetVideoDriver
+	POL_LoadVar_Device
+	cd "$WINEPREFIX/drive_c/windows/temp/"
+	if [ "$VENDORID" == "10de" ]; then
+		DRVID="nv4_disp.dll"
+	elif [ "$VENDORID" == "1002" ]; then
+		DRVID="ati2dvag.dll"
+	elif [ "$VENDORID" == "8086" ]; then
+		DRVID="ig4icd32.dll"
+	else
+		DRVID="vga.dll"
+	fi
+	cat << EOF > "$POL_USER_ROOT/tmp/VGA_ID_fix.reg"
 [HKEY_CURRENT_USER\\Software\\Wine\\Direct3D]
 "VideoPCIVendorID"="dword:0000$VendorID"
 "VideoPCIDeviceID"="dword:0000$DeviceID"
 "VideoDriver"="$DRVID"
 EOF
-		regedit "$POL_USER_ROOT/tmp/VGA_ID_fix.reg"
+	regedit "$POL_USER_ROOT/tmp/VGA_ID_fix.reg"
 }
 
-POL_Call_list ()
-{
-	[ "$WINEPREFIX" == "" ] && POL_Debug_Fatal "POL_Call_list : WINEPREFIX is not set"
-	wineserver -k
-	ITEMS=$(wget $SITE/V4_data/repository/getf.php -O-)
-	POL_SetupWindow_checkbox_list "$(eval_gettext "Please make your choice")" "$APPLICATION_TITLE" "$ITEMS" "/"
- 
-	old="$IFS"
-	IFS=/
-	set "$APP_ANSWER"
- 
-	for i in $*
-	do
-		POL_Debug_Message "POL_Call_list is calling $i"
-		IFS="$old"
-		POL_Call "$i"
-		IFS=/
-	done
-	IFS="$old"
-}
+
 
 POL_AutoWine ()
 {
+	# Detect if the file is a .exe or a .msi file and run it with POL_Wine
+	# Same usage than "wine"
 	SETUP_PATH="$@"
 	extension=$(echo "$SETUP_PATH" | sed 's/.*\.//g')
 	if [ "$extension" = "msi" ]
@@ -576,6 +369,8 @@ POL_AutoWine ()
 }
 POL_Wine ()
 {
+	# Run the good wineversion and store the result to a logfile
+	# Same usage than "wine"
 	POL_Debug_Message "Running wine-$POL_WINEVERSION "$@""
 	POL_Wine_AutoSetVersionEnv
 	if [ "$LOGFILE" = "/dev/null" ]
@@ -588,6 +383,8 @@ POL_Wine ()
 }
 POL_Wine_SelectPrefix()
 {
+	# Select a wineprefix and remove unexpected chars
+	# Usage: POL_Wine_SelectPrefix [prefixname]
 	PREFNAME=`printf "$1"| tr -c [[a-zA-Z0-9]\.] '_'`
 	export WINEPREFIX="$POL_USER_ROOT/wineprefix/$PREFNAME"
 	export DOSPREFIX="$WINEPREFIX"
@@ -595,11 +392,16 @@ POL_Wine_SelectPrefix()
 }
 POL_Wine_PrefixExists()
 {
+	# Checks if a prefix exists
+	# Usage: POL_Wine_PrefixExists
+	# Return True or False
 	PREFNAME=`printf "$1"| tr -c [[a-zA-Z0-9]\.] '_'`
 	[ -d "$POL_USER_ROOT/wineprefix/$PREFNAME" ] && echo "True" || echo "False"
 }
 POL_Wine_InstallVersion()
 {
+	# Install a wineverison
+	# Usage: POL_Wine_InstallVersion [VERSION]
 	[ ! "$1" = "" ] && export POL_WINEVERSION="$1"
 	[ "$POL_WINEVERSION" = "" ] && POL_Debug_Fatal "No POL_WINEVERSION set"
 	[ "$POL_ARCH" = "" ] && POL_System_SetArch "auto"
@@ -645,6 +447,8 @@ POL_Wine_InstallVersion()
 }
 POL_Wine_AutoSetVersionEnv()
 {
+	# Get the current prefix's version and set PATH environement variable
+	# Usage: POL_Wine_AutoSetVersionEnv
 	[ "$WINEPREFIX" = "" ] && POL_Debug_Fatal "WINEPREFIX is not set!"
 	POL_WINEVERSION="$(POL_Config_PrefixRead "VERSION")"
 	POL_Debug_Message "Reading version : $POL_WINEVERSION"
@@ -655,6 +459,8 @@ POL_Wine_AutoSetVersionEnv()
 }
 POL_Wine_SetVersionEnv()
 {
+	# Usage: POL_Wine_SetWineVersion [VERSION]
+	# Get first argument's wine version and set PATH environement variable
 	[ ! "$1" = "" ] && export POL_WINEVERSION="$1"
 	[ "$POL_WINEVERSION" = "" ] && POL_Debug_Warning "No POL_WINEVERSION set, assuming it is reset"
 	[ "$POL_WINEVERSION" = "" ] && export POL_WINEVERSION="--reset"
@@ -691,6 +497,8 @@ POL_Wine_SetVersionEnv()
 }
 POL_Wine_SetVersionPrefix()
 {
+	# Usage: POL_Wine_SetVersionPrefix [VERSION]
+	# Change a prefix wine version
 	[ ! "$1" = "" ] && export POL_WINEVERSION="$1"
 	[ "$WINEPREFIX" = "" ] && POL_Debug_Fatal "WINEPREFIX is not set!"
 
@@ -698,7 +506,8 @@ POL_Wine_SetVersionPrefix()
 }
 POL_Wine_PrefixCreate()
 {
-	# 1 - Wineversion
+	# Create a wineprefix
+	# Usage: POL_Wine_PrefixCreate [VERSION]
 	POL_Debug_Message "Creating prefix ($1)..."
 	POL_SetupWindow_wait "$(eval_gettext 'Please wait while the virtual drive is being created...')" "$TITLE"
 	[ "$POL_ARCH" = "" ] && POL_System_SetArch "auto"
@@ -736,9 +545,11 @@ POL_Wine_PrefixCreate()
 			POL_LoadVar_PROGRAMFILES
 		fi
 	fi
+	sleep 3 # We wait 3 seconds, so that we are sure that .reg file are created
 }
 POL_Wine_OverrideDLL()
 {
+	# Override DLLs
 	mode=$1
 	[ "$mode" = "disabled" ] && unset mode
 	shift
@@ -786,6 +597,17 @@ POL_Wine_OverrideDLL_App()
 }
 POL_Wine_WaitExit ()
 {
+	# Lock bash commands until wine is exited
 	POL_SetupWindow_wait "$(eval_gettext "Please wait...")" "$TITLE"
 	wineserver -w
+}
+
+
+
+POL_Wine_reboot ()
+{
+	# Simulate windows reboot
+	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Please wait while $APPLICATION_TITLE is simulating a Windows reboot')" "Wine"
+	wine wineboot
+	POL_SetupWindow_detect_exit
 }

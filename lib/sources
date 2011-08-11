@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Copyright (C) 2007-2010 PlayOnLinux Team
-# Copyright (C) 2007 Pâris Quentin
+# Copyright (C) 2007-2011 PlayOnLinux Team
+# Copyright (C) 2007-2011 Pâris Quentin
 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -20,11 +20,12 @@ if [ ! "$INCLUDED" ]
 then
 	INCLUDED="1" # On évite l'inclusion en boucle
 	source "$PLAYONLINUX/lib/variables"
-	source "$PLAYONLINUX/lib/check_depend"
-	source "$PLAYONLINUX/lib/applications"
-	source "$PLAYONLINUX/lib/main"
-	source "$PLAYONLINUX/lib/interface_v3"
-	source "$PLAYONLINUX/lib/wine"
-	source "$PLAYONLINUX/lib/plugins"
-	source "$PLAYONLINUX/lib/pol_debug"
+	source "$PLAYONLINUX/lib/debug.lib"
+	source "$PLAYONLINUX/lib/deprecated.lib"
+	source "$PLAYONLINUX/lib/playonlinux.lib"
+	source "$PLAYONLINUX/lib/plugins.lib"
+	source "$PLAYONLINUX/lib/scripts.lib"
+	source "$PLAYONLINUX/lib/setupwindow.lib"
+	source "$PLAYONLINUX/lib/website.lib"
+	source "$PLAYONLINUX/lib/wine.lib"
 fi

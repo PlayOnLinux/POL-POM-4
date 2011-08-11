@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Copyright (C) 2007-2010 PlayOnLinux Team
-# Copyright (C) 2010 Pâris Quentin
+# Copyright (C) 2007-2011 PlayOnLinux Team
+# Copyright (C) 2007-2011 Pâris Quentin
 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,33 +17,45 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
 
+# debug.lib
+# ---------
+#
+# This lib contains PlayOnLinux's debug API 
+ 
+POL_LOGS="$REPERTOIRE/logs" # Where are logfile stored
+LOGFILE="/dev/null"  # By default, don't log anything
 
-POL_LOGS="$REPERTOIRE/logs"
-LOGFILE="/dev/null" # By default, don't log anything
+
 Get_CurrentDate()
 {
+	# Return the current date
 	date "+%D %T"
 }
 POL_Debug_Init()
 {
+	# Init debugging API. 
+	# By calling this function in a script, PlayOnLinux will be able to store all debug information in a logfile,
+	# so that the user can send it to us
+	# Usage : POL_Debug_Init
+	
 	if [ "$TITLE" = "" ]
 	then
-		echo "E. TITLE variable not set."
+		POL_Debug_Fatal "\$TITLE must be set to use debugging API" 
 	else
 		LOGTITLE="${TITLE}_$(date +%s)"
 		mkdir -p "$POL_LOGS/$LOGTITLE"
 		DEBUGGING="$POL_LOGS/$LOGTITLE/"
 		LOGFILE="$DEBUGGING/$LOGTITLE.log"
+		POL_Debug_Header
 	fi
-	POL_Debug_Header
-}
-POL_Debug_Package()
-{
-	cd "$POL_LOGS"
-	tar czvf "$LOGTITLE.tar.bz2" "$LOGTITLE"
 }
 POL_Debug_Header()
 {
+	# This function permits us to have access to information about the user's computer, 
+	# so that we can help him easily
+	# This function is automaticaly called by POL_Debug_Init, you should not use it
+	# Usage : POL_Debug_Header
+	
 	if [ "$WINETRICKS_PKG" ]
 	then
 		WINETRICKS="winetricks packages : $WINETRICKS"
@@ -72,16 +84,26 @@ EOF
 }
 POL_Debug_Message()
 {
+	# Use this function to say something to the person who read the log file
+	# Usage : POL_Debug_Message [MESSAGE]
+	
 	echo "$(Get_CurrentDate) - [${FUNCNAME[1]}] Message: $1" >> "$LOGFILE"
 	echo "[${FUNCNAME[1]}] Message: $1"
 }
 POL_Debug_Warning()
 {
+	# Use this function if you have found a problem that should not have consequences
+	# Usage : POL_Debug_Warning [MESSAGE]
+	
 	echo "$(Get_CurrentDate) - [${FUNCNAME[1]}] Warning: $1" >> "$LOGFILE"
 	echo "[${FUNCNAME[1]}] Warning: $1"
 }
 POL_Debug_Error()
 {
+	# Use this function if a problem occured. 
+	# At the end of the script, the user will be able to report a bug to playonlinux's bug tracker
+	# Usage : POL_Debug_Error [MESSAGE]
+	
 	echo "$(Get_CurrentDate) - [${FUNCNAME[1]}] Error: $1" >> "$LOGFILE"
 	echo "[${FUNCNAME[1]}] Error: $1"
 	POL_SetupWindow_message "Error: $1" "$TITLE" # La on affiche quand même 
@@ -89,6 +111,10 @@ POL_Debug_Error()
 }
 POL_Debug_Fatal()
 {
+	# Use this function if a strong problem occured
+	# The effect is the same that POL_Debug_Error, except that the script will end
+	# Usage : POL_Debug_Fatal [MESSAGE]
+	
 	echo "$(Get_CurrentDate) - [${FUNCNAME[1]}] Fatal: $1" >> "$LOGFILE"
 	echo "[${FUNCNAME[1]}] Fatal: $1"
 	POL_SetupWindow_message "[${FUNCNAME[1]}] Fatal: $1" "$TITLE" # La on affiche quand même 
@@ -98,28 +124,23 @@ POL_Debug_Fatal()
 }
 POL_Debug_lspci()
 {
+	# Get information about PCI cards in one's computer
+	# Usage : POL_Debug_lspci
+	
 	lspci > "$DEBUGGING/lspci.log"
 }
 POL_Debug_cpuinfo()
 {
+	# Get information about cpu in one's computer
+	# Usage : POL_Debug_cpuinfo
+	
 	cat /proc/cpuinfo > "$DEBUGGING/cpuinfo.log"
 }
 POL_Debug_glxinfo()
 {
+	# Get information about glx in one's computer
+	# Usage : POL_Debug_glxinfo
+	
 	glxinfo > "$DEBUGGING/glxinfo.log"
 }
-POL_Debug_MarkShortcut()
-{
-	echo "#DebugMark-$LOGTITLE"
-}
-POL_Debug_App()
-{
-    cat << EOF >> "$LOGFILE"
-Debugging application: $TITLE
-Date: $(Get_CurrentDate)
 
-Type bug: $1
-
-Comment: $2
-EOF
-}

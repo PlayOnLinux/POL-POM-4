@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Copyright (C) 2007-2010 PlayOnLinux Team
-# Copyright (C) 2007 Pâris Quentin
+# Copyright (C) 2007-2011 Pâris Quentin
 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -16,15 +16,25 @@
 # You should have received a copy of the GNU General Public License along
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
-MISSING=""
+
+# depend.lib
+# ----------
+#
+# This is an internal lib
+# It permits playonlinux to check if one's computer has all programs needed installed
+# Scriptors should not use this lib
+
+MISSING="" # Contains missing programs.
 
 missing ()
 {
+	# Tells that a program is missing
 	echo "$1$(eval_gettext " is missing. Please install it")"
-	#exit 1
 }
 check_one ()
 {
+	# Checks if a program exist
+	# Usage : check_one [PROGRAM] [PACKAGE]
 	if [ ! "$(which $1)" ]
 	then
 		MISSING+="$(eval_gettext "Program: ")$1$(eval_gettext ", package: ")$2\n"
@@ -33,6 +43,8 @@ check_one ()
 }
 manque ()
 {
+	# Tells the user if a program is missing
+	# Usage : manque
 	if [ "$MANQUE" = "true" ]
 	then
 		printf "$(eval_gettext "One or more program(s) are missing. Please install them and run the script again.")\n\n$MISSING\n\n"
@@ -41,19 +53,20 @@ manque ()
 }
 programmes_check () 
 {
+	# Checks if every program needed is installed
 	check_one wget "wget"
 	check_one wine "wine"
 	check_one unzip "unzip"
-	#check_one ar "binutils" 
 	check_one xterm "xterm"
 	check_one convert "imagemagick"
 	check_one cabextract "cabextract" 
 	check_one gpg "gnupg"
-	#check_one lzma "lzma"
 	manque
 }
 acceleration_check () 
 {
+	# Checks if 3D acceleration is supported
+	
 	check_one glxinfo "mesa-utils"
 	manque
 	if [ "$(glxinfo | grep "direct rendering" | tail -n 1)" != "direct rendering: Yes" ] && [ "$(which glxinfo)" ]
@@ -67,6 +80,7 @@ acceleration_check ()
 }
 cfg_check ()
 {
+	# Check acceleration and programs
 	programmes_check
 	if [ ! "$TMP_ACC_CHECK" ]
 	then 

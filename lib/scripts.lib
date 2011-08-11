@@ -1,0 +1,356 @@
+#!/bin/bash
+
+# Copyright (C) 2007-2011 PlayOnLinux Team
+# Copyright (C) 2007-2011 Pâris Quentin
+
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
+
+# scripts.lib
+# -----------
+#
+# This lib contains useful tools for scriptors
+
+POL_Shortcut_InsertBeforeWine ()
+{
+	# Insert a command into a script just before running wine
+	# Usage: POL_Shortcut_InsertBeforeWine [Application] [Line to insert]
+	
+	Application="$1"
+	CommandesToInsert="$2"
+
+	mv "$REPERTOIRE/shortcuts/${Application}" "$REPERTOIRE/shortcuts/${Application}".bak
+	perl -ne "s/^(POL_Wine.*)/${CommandesToInsert}\n\1/;print" "$REPERTOIRE/shortcuts/${Application}".bak > "$REPERTOIRE/shortcuts/${Application}"
+	rm "$REPERTOIRE/shortcuts/${Application}".bak
+}
+
+POL_Open()
+{
+	# Extended xdg-open function, works for mac
+	# Usage : POL_Open whatever you want
+	
+	POL_Open "$@"
+	[ "$POL_OS" == "Mac" ] && open "$@"
+	[ "$POL_OS" == "Linux" ] && xdg-open "$@"
+}
+POL_Browser ()
+{
+	# Open default's user browser
+	# Usage : POL_Brower [URL]
+	POL_Open "$@"
+}
+POL_System_TmpCreate()
+{
+	# Create a temporary directory for a script
+	# Usage: POL_System_TmpCreate [tmp_name]
+	
+	[ "$1" = "" ] && POL_Debug_Fatal "TmpName not defined !"
+	mkdir -p "$POL_USER_ROOT/tmp/$1"
+	export POL_System_TmpDir="$POL_USER_ROOT/tmp/$1"
+	export POL_System_TmpName="$1"
+}
+POL_System_TmpDelete()
+{
+	# Delete the temporary directory created before
+	# Usage: POL_System_TmpDelete
+	
+	[ ! "$POL_System_TmpName" = "" ] && rm -rf "$POL_USER_ROOT/tmp/$POL_System_TmpName" || POL_Debug_Warning "POL_System_TmpName is not defined !"
+}
+POL_System_SetArch()
+{
+	# Set the architecture to use for the current script
+	# Usage: POL_System_SetArch (auto|x86|amd64)
+	# If amd64 is specified and not supported, the script will end
+	
+	# Auto, x86, amd64
+	if [ "$1" == "auto" ]
+	then
+		[ "$MACHTYPE" == "x86_64-pc-linux-gnu" ] && export POL_ARCH="amd64" || export POL_ARCH="x86"
+	fi
+	if [ "$1" == "x86" ]
+	then
+		export POL_ARCH="x86"
+	fi
+	if [ "$1" == "amd64" ]
+	then
+		[ "$MACHTYPE" == "x86_64-pc-linux-gnu" ] && export POL_ARCH="amd64" || POL_Debug_Fatal "amd64 is not supported by your system"
+	fi	
+}
+POL_Shortcut_GetPrefix()
+{
+	# Get a prefixname from a shortcut
+	# Usage: POL_Shortcut_GetPrefix [Shortcut]
+	
+	[ "$1" = "" ] && POL_Debug_Error "No shortcut specified"
+	fichier="$REPERTOIRE/shortcuts/$1"
+	if [ -e "$fichier" ]
+	then
+		fichier="$(cat "$fichier" | grep WINEPREFIX | tail -n 1 | sed s/'\/\//\/'/)"
+		fichier="${fichier/"$POL_USER_ROOT"/""}"
+		fichier="$(printf "$fichier" | cut -d "/" -f2)"
+	fi
+	printf "$fichier" | tr -d \"
+}
+
+
+POL_GetLocalIcon()
+{
+	# Get a local icon and add it into playonlinux
+	# Usage: POL_GetLocalIcon [PlayOnLinux's shortcut] [icon name]
+	
+	convert "$HOME/.local/share/icons/$2" -geometry 32X32 "$REPERTOIRE/icones/32/$1"
+	convert "$HOME/.local/share/icons/$2" "$REPERTOIRE/icones/full_size/$1"
+}
+
+POL_ExtractIcon()
+{
+	# Extract the icon of a .exe file
+	# Usage: POL_ExtractIcon [.exe file] [output image file]
+
+	POL_Debug_Warning "Function is deprecated"
+	
+	mkdir -p "$REPERTOIRE/tmp/win32Icon"
+	cd "$REPERTOIRE/tmp/win32Icon"
+	wrestool -x -t14 "$1" &> icons-brut
+
+	icotool -x "icons-brut" -o "$REPERTOIRE/tmp/win32Icon/"
+	find . -name "*32x32x32.png" > icons-list
+	find . -name "*32x32x16.png" >> icons-list
+	find . -name "*32x32x8.png" >> icons-list
+	find . -name "*32x32x4.png" >> icons-list
+	ICON_FILE=$(cat "icons-list" | head -n 1)
+	[ "$ICON_FILE" != "" ] && [ -s "$ICON_FILE" ] && cp "$ICON_FILE" "$2" || POL_Debug_Warning "Icon was not extracted"
+
+	rm -r "$REPERTOIRE/tmp/win32Icon"
+}
+
+POL_Shortcut()
+{
+	# Make a shortcut 
+	# Usage: POL_Shortcut [binary] [shortcut name] [playonlinux website icon] [argument]
+	# If playonlinux website icon is not specified, playonlinux will try to extract it from the program
+
+	Binaire="$1"
+	SpecialArg="$4"
+	
+	if [ "$2" = "" ]
+	then
+		NOMICONE_="$1"
+	else
+		NOMICONE_="$2"
+	fi
+	
+	mkdir -p "$REPERTOIRE/icones/32"
+	mkdir -p "$REPERTOIRE/icones/full_size"
+	
+	ICON_WEB_NAME="$3"
+	ICON_OK=0
+
+	## On chope le dossier du binaire
+	cd "$WINEPREFIX" || POL_Debug_Fatal "Prefixe $WINEPREFIX does not exists"
+	cd drive_c || POL_Debug_Fatal "drive_c folder does not exists"
+	binary_path=$(find ./ -iname "$Binaire" | tail -n 1)
+	binary_dir=$(dirname "$binary_path")
+	Binaire=$(basename "$binary_path")
+	[ "$binary_dir" = "" ] && POL_Debug_Fatal "Can't find $Binaire"
+
+	if [ -n "$ICON_WEB_NAME" ]; then
+		if [ ! "$OFFLINE" = "1" ]; then # On peut le télécharger...
+			wget -q "$SITE/icones/$ICON_WEB_NAME" -O- > "$REPERTOIRE/icones/full_size/$NOMICONE_" || rm "$REPERTOIRE/icones/full_size/$NOMICONE_"  # On prend l'icone full size
+		fi
+		
+		if [ -f "$REPERTOIRE/icones/full_size/$NOMICONE_" ]; then
+			convert -resize 32 "$REPERTOIRE/icones/full_size/$NOMICONE_" "$REPERTOIRE/icones/32/$NOMICONE_" # On fabrique l'icone 32*32
+			ICON_OK=1
+		fi
+	elif [ "$ICON_OK" -ne 1 ]; then # Pas d'incone sur le web => Création à partir de l'exe...
+		echo "No internet icon..."
+		
+		POL_ExtractIcon "$WINEPREFIX/drive_c/$binary_dir/$Binaire" "$REPERTOIRE/icones/32/$NOMICONE_"
+			
+		# On ne crée pas d'icone "full_size", parce que les résolutions des icones windows ne sont pas suffisantes tout le temps.
+		# Pour verifier la taille des icones, il faudrait utiliser "identify", mais ce programme n'est pas toujours fournis.
+	fi
+
+	## On génère le binaire 
+	echo "#!/bin/bash" > "$REPERTOIRE/shortcuts/$NOMICONE_"
+	echo "[ \"\$PLAYONLINUX\" = \"\" ] && exit 0" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
+	echo "source \"\$PLAYONLINUX/lib/sources\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
+	echo "export WINEPREFIX=\"$WINEPREFIX\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
+	echo "export WINEDEBUG=\"-all\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
+	[ ! "$LOGTITLE" = "" ] && echo "POL_Log=$LOGTITLE" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
+	echo "cd \"$WINEPREFIX/drive_c/$binary_dir\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
+	echo "POL_Wine \"$Binaire\" $SpecialArg \$@" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
+	chmod +x "$REPERTOIRE/shortcuts/$NOMICONE_"
+	if [ ! "$(POL_Config_Read NO_DESKTOP_ICON)" = "TRUE" ] 
+	then
+	if [ "$POL_OS" = "Mac" ]
+	then
+		POL_SetupWindow_AutoApp "$2"	
+	else
+		if [ -f "$REPERTOIRE/icones/full_size/$NOMICONE_" ]; then # L'icone existe...
+			iconPath="$REPERTOIRE/icones/full_size/$NOMICONE_"
+		else
+			iconPath="$PLAYONLINUX/etc/playonlinux.png"
+		fi
+		generer_icone "$iconPath" "$NOMICONE_" "$DESKTOP" "$PLAYONLINUX/playonlinux --run \"$NOMICONE_\""
+	fi
+	fi
+}
+
+POL_Call() 
+{
+	# Call a function in PlayOnLinux website
+	# Usage: POL_Call [function name]
+	
+	POL_Debug_Message "Calling $1"
+	if [ ! "$1" = "" ]
+	then	
+		OLD_PC_DIR="$PWD"
+		cd "$REPERTOIRE/tmp/"
+		wget -q "$SITE/V4_data/repository/get_file.php?version=playonlinux-$VERSION&id=$1" -O- > "$1"
+		POL_Source "$@"
+		cd "$OLD_PC_DIR"
+	fi
+}
+POL_Call_list ()
+{
+	# Make a list so that the user can choose functions to install
+	# Usage: POL_Call_List
+	
+	[ "$WINEPREFIX" == "" ] && POL_Debug_Fatal "POL_Call_list : WINEPREFIX is not set"
+	wineserver -k
+	ITEMS=$(wget $SITE/V4_data/repository/getf.php -O-)
+	POL_SetupWindow_checkbox_list "$(eval_gettext "Please make your choice")" "$APPLICATION_TITLE" "$ITEMS" "/"
+ 
+	old="$IFS"
+	IFS=/
+	set "$APP_ANSWER"
+ 
+	for i in $*
+	do
+		POL_Debug_Message "POL_Call_list is calling $i"
+		IFS="$old"
+		POL_Call "$i"
+		IFS=/
+	done
+	IFS="$old"
+}
+
+POL_Tools_GenID()
+{
+	# Generate a random string
+	# Usage: POL_Tools_GenID
+	
+	N_LETTRES="$1"
+
+	if [ "$1" != "" ]
+	then
+	N_LETTRES=$1
+	fi
+	ALPHA='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'
+
+	MOT=""
+	i=0
+	while ((i < $N_LETTRES));
+	do
+	CHIFFRE=$(( $RANDOM % ${#ALPHA}));
+	printf ${ALPHA:$CHIFFRE:1};
+	(( i=i+1 ))
+	done
+}
+POL_Download ()
+{
+	# Download a file and place it in the current directory
+	# Usage: POL_Download [URL] [MD5]
+	
+	POL_Debug_Message "Downloading $1"
+
+	URL="$1"
+	FICHIER="${URL##*/}"
+	if [ "$URL" = "" ]
+	then
+		POL_Debug_Error "POL_Download - URL is missing !"
+	else
+		POL_SetupWindow_download "$(eval_gettext "Please wait while $APLICATION_TITLE is downloading:") $FILENAME" "$TITLE" "$URL"
+		if [ "$2" = "" ]
+		then
+			POL_Debug_Warning "POL_Download - MD5 is missing !"
+		else
+			LOCAL_MD5="$(POL_MD5_file "$FICHIER")"
+			if [ ! "$2" = "$LOCAL_MD5" ]
+			then
+				POL_SetupWindow_message "Error ! Files mismatch\n\nLocal : $LOCAL_MD5\nServer : $2"
+				POL_Debug_Error "POL_Download - MD5 sum mismatch !"
+			fi
+		fi	
+	fi
+}
+POL_Download_Resource ()
+{
+	# Download a file and place it in the resource directory (if it does not exist)
+	# Usage: POL_Resource [URL] [MD5]
+	
+	POL_Debug_Message "Downloading resource $1"
+	# 1 - URL
+	# 2 - MD5 SUM
+	URL="$1"
+	FICHIER="${URL##*/}"
+	cd "$POL_USER_ROOT/ressources"
+	if [ -e "$FICHIER" ] || [ ! "$(POL_MD5_file "$FICHIER")" = "$2" ]
+	then
+		if [ "$URL" = "" ]
+		then
+			POL_Debug_Error "POL_Download - URL is missing !"
+		else
+			rm "$FICHIER"
+			POL_SetupWindow_download "$(eval_gettext "Please wait while $APLICATION_TITLE is downloading:") $FILENAME" "$TITLE" "$URL"
+			if [ "$2" = "" ]
+			then
+				POL_Debug_Warning "POL_Download - MD5 is missing !"
+			else
+				LOCAL_MD5="$(POL_MD5_file "$FICHIER")"
+				if [ ! "$2" = "$LOCAL_MD5" ]
+				then
+					POL_SetupWindow_message "Error ! Files mismatch\n\nLocal : $LOCAL_MD5\nServer : $2"
+					POL_Debug_Error "POL_Download - MD5 sum mismatch !"
+				fi
+			fi	
+		fi
+	fi
+}
+
+POL_MD5 ()
+{
+	if [ "$POL_OS" == "Mac" ]
+	then
+		printf "$1" | md5
+	fi
+	if [ "$POL_OS" == "Linux" ]
+	then
+		printf "$1" | md5sum | awk '{print $1}'
+	fi
+}
+POL_MD5_file ()
+{
+	if [ "$POL_OS" == "Mac" ]
+	then
+		cat "$1" | md5
+	fi
+	if [ "$POL_OS" == "Linux" ]
+	then
+		cat "$1" | md5sum | awk '{print $1}'
+	fi
+}
+
