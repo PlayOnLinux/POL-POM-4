@@ -33,7 +33,7 @@ construire_repertoire_personnel ()
 	# Usage : construire_repertoire_personnel
 	# Warning ! This function is essential. setupwindow.lib will not work if theses directories are not built
 	
-	mkdir -p "$REPERTOIRE/wineprefix/"
+	mkdir -p "$REPERTOIRE/wineprefix/default/"
 	mkdir -p "$REPERTOIRE/shortcuts/"
 	mkdir -p "$REPERTOIRE/configurations/options/"
 	mkdir -p "$REPERTOIRE/configurations/icones/"
