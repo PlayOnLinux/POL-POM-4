@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Copyright (C) 2007-2010 PlayOnLinux Team
-# Copyright (C) 2011 Pâris Quentin
+# Copyright (C) 2007-2011 Pâris Quentin
 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -116,11 +116,17 @@ to the file name or packaging format." >> "$REPERTOIRE/tmp/licence"
 
 install_x11()
 {
+	if [ "$OSX_VERSION" = "9" ]
+	then
+		XQuartzUrl="http://xquartz.macosforge.org/downloads/Leopard/X11-$XQUARTZ_VERSION.dmg"
+	else
+		XQuartzUrl="http://xquartz.macosforge.org/downloads/SL/XQuartz-$XQUARTZ_VERSION.dmg"
+	fi
 	STEP_TITLE="XQuartz"
 	POL_SetupWindow_menu_num "$(eval_gettext "To ensure that your game will be compatible, PlayOnMac must install XQuartz")" "$STEP_TITLE" "$(eval_gettext "Please download XQuartz for me")~$(eval_gettext "I've downloaded the file by myself") (XQuartz-$XQUARTZ_VERSION.dmg)~$(eval_gettext "Don't install XQuartz for the moment")" "~"
 	if [ "$APP_ANSWER" = "0" ]
 	then
-		POL_SetupWindow_download "$(eval_gettext "Downloading XQuartz")" "$STEP_TITLE" "http://xquartz.macosforge.org/downloads/SL/XQuartz-$XQUARTZ_VERSION.dmg"
+		POL_SetupWindow_download "$(eval_gettext "Downloading XQuartz")" "$STEP_TITLE" "$XQuartzUrl"
 		got_xquartz="true"
 	fi
 	if [ "$APP_ANSWER" = "1" ]

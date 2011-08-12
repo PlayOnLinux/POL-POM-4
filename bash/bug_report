@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # Copyright (C) 2007-2010 PlayOnLinux Team
-# Copyright (C) 2007 Pâris Quentin
-# Copyright (C) 2009 Łukasz Wojniłowicz
+# Copyright (C) 2007-2011 Pâris Quentin
 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -18,10 +17,8 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
 
-if [ "$PLAYONLINUX" = "" ]
-then
-exit 0
-fi
+# PlayOnLinux bug report script
+[ "$PLAYONLINUX" = "" ] && exit 0
 source "$PLAYONLINUX/lib/sources"
 
 [ "$POL_OS" == "Linux" ] && TRACKER="1"
