@@ -26,7 +26,6 @@ class Lang(object):
 
 class iLang(object):
 	def __init__(self):
-		try:
 			languages = os.listdir(Variables.playonlinux_env+'/lang/locale')
 			
 			langid = wx.LANGUAGE_DEFAULT
@@ -38,5 +37,3 @@ class iLang(object):
 			
 			mytranslation = gettext.translation(domain, localedir, [mylocale.GetCanonicalName()], fallback = True)
 			mytranslation.install()
-		except:
-			pass
