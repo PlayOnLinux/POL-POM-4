@@ -45,6 +45,6 @@ then
 	"./$NAME" "$@"
 else
 	cd "$(dirname "$0")/python"
-	python mainwindow.py "$@"
+	"$PYTHON" mainwindow.py "$@"
 fi
 exit $?
