@@ -371,6 +371,11 @@ POL_Wine ()
 {
 	# Run the good wineversion and store the result to a logfile
 	# Same usage than "wine"
+	if [ "$1" == "--ignore-errors" ]
+	then
+		NoErrors="True"
+		shift
+	fi
 	POL_Debug_Message "Running wine-$POL_WINEVERSION "$@""
 	POL_Wine_AutoSetVersionEnv
 	if [ "$LOGFILE" = "/dev/null" ]
@@ -379,7 +384,10 @@ POL_Wine ()
 	else
 		wine "$@" >> "$LOGFILE" 2>> "$LOGFILE"
 	fi	
-	[ "$?" = "0" ] || POL_Debug_Error "$(eval_gettext "Wine seems to have crashed\n\nIf you're program is running, just ignore this message")"
+	if [ ! "$NoErrors" = "True" ]
+	then
+		[ "$?" = "0" ] || POL_Debug_Error "$(eval_gettext "Wine seems to have crashed\n\nIf you're program is running, just ignore this message")"
+	fi
 }
 POL_Wine_SelectPrefix()
 {

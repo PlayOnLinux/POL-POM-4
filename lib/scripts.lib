@@ -283,7 +283,7 @@ POL_Download ()
 	then
 		POL_Debug_Error "POL_Download - URL is missing !"
 	else
-		POL_SetupWindow_download "$(eval_gettext "Please wait while $APLICATION_TITLE is downloading:") $FILENAME" "$TITLE" "$URL"
+		POL_SetupWindow_download "$(eval_gettext "Please wait while $APPLICATION_TITLE is downloading:") $FILENAME" "$TITLE" "$URL"
 		if [ "$2" = "" ]
 		then
 			POL_Debug_Warning "POL_Download - MD5 is missing !"
@@ -315,7 +315,7 @@ POL_Download_Resource ()
 			POL_Debug_Error "POL_Download - URL is missing !"
 		else
 			rm "$FICHIER"
-			POL_SetupWindow_download "$(eval_gettext "Please wait while $APLICATION_TITLE is downloading:") $FILENAME" "$TITLE" "$URL"
+			POL_SetupWindow_download "$(eval_gettext "Please wait while $APPLICATION_TITLE is downloading:") $FILENAME" "$TITLE" "$URL"
 			if [ "$2" = "" ]
 			then
 				POL_Debug_Warning "POL_Download - MD5 is missing !"
