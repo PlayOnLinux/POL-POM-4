@@ -105,12 +105,12 @@ POL_Wine_Direct3D ()
 	then
 		echo "[HKEY_CURRENT_USER\Software\Wine\Direct3D]" > "$REPERTOIRE/tmp/wine.reg"
 		echo "\"$1\"=-" >> "$REPERTOIRE/tmp/wine.reg"
-		wine regedit "$REPERTOIRE/tmp/wine.reg"
+		POL_Wine regedit "$REPERTOIRE/tmp/wine.reg"
 		rm -f "$REPERTOIRE/tmp/wine.reg"
 	else
 		echo "[HKEY_CURRENT_USER\Software\Wine\Direct3D]" > "$REPERTOIRE/tmp/wine.reg"
 		echo "\"$1\"=\"$2\"" >> "$REPERTOIRE/tmp/wine.reg"
-		wine regedit "$REPERTOIRE/tmp/wine.reg"
+		POL_Wine regedit "$REPERTOIRE/tmp/wine.reg"
 		rm -f "$REPERTOIRE/tmp/wine.reg"
 	fi
 	wineserver -k
@@ -125,12 +125,12 @@ POL_Wine_DirectSound ()
 	then
 		echo "[HKEY_CURRENT_USER\Software\Wine\DirectSound]" > "$REPERTOIRE/tmp/wine.reg"
 		echo "\"$1\"=-" >> "$REPERTOIRE/tmp/wine.reg"
-		wine regedit "$REPERTOIRE/tmp/wine.reg"
+		POL_Wine regedit "$REPERTOIRE/tmp/wine.reg"
 		rm -f "$REPERTOIRE/tmp/wine.reg"
 	else
 		echo "[HKEY_CURRENT_USER\Software\Wine\DirectSound]" > "$REPERTOIRE/tmp/wine.reg"
 		echo "\"$1\"=\"$2\"" >> "$REPERTOIRE/tmp/wine.reg"
-		wine regedit "$REPERTOIRE/tmp/wine.reg"
+		POL_Wine regedit "$REPERTOIRE/tmp/wine.reg"
 		rm -f "$REPERTOIRE/tmp/wine.reg"
 	fi
 	wineserver -k
@@ -145,12 +145,12 @@ POL_Wine_DirectInput ()
 	then
 		echo "[HKEY_CURRENT_USER\Software\Wine\DirectInput]" > "$REPERTOIRE/tmp/wine.reg"
 		echo "\"$1\"=-" >> "$REPERTOIRE/tmp/wine.reg"
-		wine regedit "$REPERTOIRE/tmp/wine.reg"
+		POL_Wine regedit "$REPERTOIRE/tmp/wine.reg"
 		rm -f "$REPERTOIRE/tmp/wine.reg"
 	else
 		echo "[HKEY_CURRENT_USER\Software\Wine\DirectInput]" > "$REPERTOIRE/tmp/wine.reg"
 		echo "\"$1\"=\"$2\"" >> "$REPERTOIRE/tmp/wine.reg"
-		wine regedit "$REPERTOIRE/tmp/wine.reg"
+		POL_Wine regedit "$REPERTOIRE/tmp/wine.reg"
 		rm -f "$REPERTOIRE/tmp/wine.reg"
 	fi
 	wineserver -k
@@ -178,14 +178,14 @@ Set_DXGrab ()
 	then
 		echo "[HKEY_CURRENT_USER\Software\Wine\X11 Driver]" > "$REPERTOIRE/tmp/managed.reg"
 		echo "\"DXGrab\"=\"Y\"" >> "$REPERTOIRE/tmp/managed.reg"
-		wine regedit "$REPERTOIRE/tmp/managed.reg"
+		POL_Wine regedit "$REPERTOIRE/tmp/managed.reg"
 		rm -f "$REPERTOIRE/tmp/managed.reg"
 	fi
 	if [ "$1" = "Off" ]
 	then
 		echo "[HKEY_CURRENT_USER\Software\Wine\X11 Driver]" > "$REPERTOIRE/tmp/managed.reg"
 		echo "\"DXGrab\"=\"N\"" >> "$REPERTOIRE/tmp/managed.reg"
-		wine regedit "$REPERTOIRE/tmp/managed.reg"
+		POL_Wine regedit "$REPERTOIRE/tmp/managed.reg"
 		rm -f "$REPERTOIRE/tmp/managed.reg"
 	fi
 }
@@ -196,7 +196,7 @@ Set_Iexplore ()
 	
 	echo "[HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer]" > "$REPERTOIRE/tmp/ie.reg"
 	echo "\"Version\"=\"6.0.2900.2180\"" >> "$REPERTOIRE/tmp/ie.reg"
-	wine regedit "$REPERTOIRE/tmp/ie.reg"
+	POL_Wine regedit "$REPERTOIRE/tmp/ie.reg"
 	rm -f "$REPERTOIRE/tmp/ie.reg"
 }
 Set_Desktop ()
@@ -213,7 +213,7 @@ Set_Desktop ()
 	then
 		echo "\"Desktop\"=\"-1\"" >> "$REPERTOIRE/tmp/DesktopRoot.reg"
 	fi
-		wine regedit "$REPERTOIRE/tmp/DesktopRoot.reg"
+		POL_Wine regedit "$REPERTOIRE/tmp/DesktopRoot.reg"
 		rm -f "$REPERTOIRE/tmp/DesktopRoot.reg"
 }
 
@@ -226,7 +226,7 @@ Set_SoundSampleRate ()
 	then
 		echo "[HKEY_CURRENT_USER\Software\Wine\DirectSound]" > "$REPERTOIRE/tmp/sndSampleRate.reg"
 		echo "\"DefaultSampleRate\"=\"$1\"" >> "$REPERTOIRE/tmp/sndSampleRate.reg"
-		wine regedit "$REPERTOIRE/tmp/sndSampleRate.reg"
+		POL_Wine regedit "$REPERTOIRE/tmp/sndSampleRate.reg"
 		rm -f "$REPERTOIRE/tmp/sndSampleRate.reg"
 	fi
 }
@@ -240,7 +240,7 @@ Set_SoundBitsPerSample ()
 	then
 		echo "[HKEY_CURRENT_USER\Software\Wine\DirectSound]" > "$REPERTOIRE/tmp/sndBitsPerSample.reg"
 		echo "\"DefaultBitsPerSample\"=\"$1\"" >> "$REPERTOIRE/tmp/sndBitsPerSample.reg"
-		wine regedit "$REPERTOIRE/tmp/sndBitsPerSample.reg"
+		POL_Wine regedit "$REPERTOIRE/tmp/sndBitsPerSample.reg"
 		rm -f "$REPERTOIRE/tmp/sndBitsPerSample.reg"
 	fi
 }
@@ -265,7 +265,7 @@ Set_SoundHardwareAcceleration ()
 	then
 		echo "[HKEY_CURRENT_USER\Software\Wine\DirectSound]" > "$REPERTOIRE/tmp/sndSoundHardwareAcceleration.reg"
 		echo "\"HardwareAcceleration\"=\"$1\"" >> "$REPERTOIRE/tmp/sndSoundHardwareAcceleration.reg"
-		wine regedit "$REPERTOIRE/tmp/sndSoundHardwareAcceleration.reg"
+		POL_Wine regedit "$REPERTOIRE/tmp/sndSoundHardwareAcceleration.reg"
 		rm -f "$REPERTOIRE/tmp/SoundHardwareAcceleration.reg"
 	fi
 } 
@@ -278,7 +278,7 @@ Set_SoundEmulDriver ()
 	then
 		echo "[HKEY_CURRENT_USER\Software\Wine\DirectSound]" > "$REPERTOIRE/tmp/sndSoundEmulDriver.reg"
 		echo "\"EmulDriver\"=\"$1\"" >> "$REPERTOIRE/tmp/sndSoundEmulDriver.reg"
-		wine regedit "$REPERTOIRE/tmp/sndSoundEmulDriver.reg"
+		POL_Wine regedit "$REPERTOIRE/tmp/sndSoundEmulDriver.reg"
 		rm -f "$REPERTOIRE/tmp/sndSoundEmulDriver.reg"
 	fi
 }
@@ -303,7 +303,7 @@ Set_WineWindowTitle ()
 [HKEY_CURRENT_USER\\Software\\Wine\\Explorer]
 "Desktop"="$1"
 EOF
-	wine regedit "$REG"
+	POL_Wine regedit "$REG"
 	rm -f "$REG"
 }
 

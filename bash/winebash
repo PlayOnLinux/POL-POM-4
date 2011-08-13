@@ -30,13 +30,11 @@ if [ "$1" = "--prefix" ]
 then
 	shift
 	export WINEPREFIX="$REPERTOIRE/wineprefix/$1"
-	WINEVERSION=""
 else
-	WINEVERSION="$(detect_wineversion "$1")"
 	export WINEPREFIX="$(detect_wineprefix "$1")"
 fi
 shift
-[ "$WINEVERSION" = "" ] || Use_WineVersion $WINEVERSION
+#[ "$WINEVERSION" = "" ] || POL_WINE$WINEVERSION
 if [ "$1" = "wineserver" ]
 then
 	wineserver -k
