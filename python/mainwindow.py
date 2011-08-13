@@ -535,7 +535,7 @@ class MainWindow(wx.Frame):
 
 
   def ClosePol(self, event):
-    if(wx.YES == wx.MessageBox(_('Are you sure you want to close all {0} Windows ?').format(os.environ["APPLICATION_TITLE"]).decode("utf-8"), style=wx.YES_NO | wx.ICON_QUESTION)):
+    if(wx.YES == wx.MessageBox(_('Are you sure you want to close all {0} Windows?').format(os.environ["APPLICATION_TITLE"]).decode("utf-8"), style=wx.YES_NO | wx.ICON_QUESTION)):
 		os.remove(Variables.playonlinux_rep+"/configurations/guis/index_"+os.environ["POL_ID"])
 		os._exit(0)
     return None
