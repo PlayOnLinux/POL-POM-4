@@ -333,6 +333,9 @@ POL_Download_Resource ()
 
 POL_MD5 ()
 {
+	# Give the md5 sum of a string
+	# Usage: POL_MD5 <string>
+	
 	if [ "$POL_OS" == "Mac" ]
 	then
 		printf "$1" | md5
@@ -344,6 +347,8 @@ POL_MD5 ()
 }
 POL_MD5_file ()
 {
+	# Give the md5 sum of a file
+	# Usage: POL_MD5_file <file>
 	if [ "$POL_OS" == "Mac" ]
 	then
 		cat "$1" | md5
@@ -354,3 +359,85 @@ POL_MD5_file ()
 	fi
 }
 
+POL_System_ExtractSingleFile ()
+{
+	# This function has been written by hifi
+	# Extract a single file from an archive, with a progressbar
+	# Usage: POL_System_ExtractSingleFile <archive> <file> <destination>
+	
+    local archive="$1"
+    local file="$2"
+    local dest="$3"
+
+    local archivename=`basename "$archive"`
+    local filename=`basename "$file"`
+    local szpid
+    local szip=`which 7z`
+
+    POL_Debug_Message "Extracting single file : \"$archive\", \"$file\", \"$dest\""
+
+    if [ "$szip" == "" ]; then
+        POL_Debug_Fatal "$(eval_gettext '7z not installed, please check that you have 7zip installed and try again')"
+        return 1
+    fi
+
+    local size=`"$szip" l -slt "$archive" "$file" | grep '^Size' | cut -d' ' -f3`
+
+    if [ "$size" == "" ]; then
+        POL_Debug_Error "$(eval_gettext 'Failed to locate ${dest} from ${archive}')"
+        return 1
+    fi
+
+    POL_SetupWindow_pulsebar "$(eval_gettext 'Extracting ${filename} from ${archivename}')" "$TITLE"
+
+    rm -f "$dest"
+    "$szip" e -so "$archive" "$file" 2>/dev/null 1>"$dest" & szpid=$!
+
+    while kill -0 $szpid 2>/dev/null; do
+        #POL_SetupWindow_pulse $(((`stat -c%s "$dest"` * 100) / "$size")) # Does not work for Mac OS
+		sleep 1
+		POL_SetupWindow_pulse $(((`ls -l "$dest" | awk '{print $5}'` * 100) / $size))
+    done
+
+    POL_SetupWindow_pulse 100
+
+    #if [ `stat -c%s "$dest"` != "$size" ]; then
+	if [ `ls -l "$dest" | awk '{print $5}'` != "$size" ]; then
+        POL_Debug_Error "$(eval_gettext 'Extracted file size does not match!')"
+        return 1
+    fi
+
+    return 0
+}
+POL_System_cp ()
+{
+	# Extract a single file with a progressbar
+	# Usage: POL_System_cp <file> <destination>
+	
+    local file="$1"
+    local dest="$2"
+    local filename=`basename "$file"`
+	#local szpid
+    POL_Debug_Message "Copying single file : \"$archive\", \"$file\", \"$dest\""
+
+	local size="$(ls -l $file | awk '{print $5}')"
+
+    POL_SetupWindow_pulsebar "$(eval_gettext 'Copying ${filename}')" "$TITLE"
+
+    rm -f "$dest"
+    cp "$file" "$dest" 2>/dev/null & szpid=$!
+
+    while kill -0 $szpid 2>/dev/null; do
+		sleep 0.3
+		POL_SetupWindow_pulse $(((`ls -l "$dest" | awk '{print $5}'` * 100) / $size))
+    done
+
+    POL_SetupWindow_pulse 100
+
+    if [ "`ls -l "$dest" | awk '{print $5}'`" != "$size" ]; then
+        POL_Debug_Error "$(eval_gettext 'File size does not match!')"
+        return 1
+    fi
+
+    return 0
+}

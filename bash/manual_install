@@ -69,9 +69,7 @@ run_autorun()
 	then
 		$IconIs = "null"
 	fi
-	echo $IconIs
 	icon_test=`ls "$cdromDirIs" | grep $IconIs -i`
-	echo $icon_test
 	if [ "$icon_test" = "" ]
 	then
 		IconIs="$PLAYONLINUX/etc/playonlinux.png"
@@ -186,7 +184,7 @@ then
 	echo "export POL_WINEVERSION=\"$WINEVERSIONLIVE\"" >> "$SCRIPTPATH"
 fi
 
-POL_SetupWindow_prefixcreate
+POL_Wine_PrefixCreate
 echo "POL_SetupWindow_prefixcreate" >> "$SCRIPTPATH"
 
 #Running WineConfiguration
@@ -327,7 +325,7 @@ then
 	POL_SetupWindow_Close
 	exit 1
 fi
-WORKINGSETUP_PATH=$(dirname "$SETUP_PATH")
+WORKINGSETUP_PATH="$cdromDirIs/$NameIs"
 cd "$WORKINGSETUP_PATH"
 POL_SetupWindow_wait "$(eval_gettext '$APPLICATION_TITLE is installing your application...')" "$TITLE"
 echo "POL_SetupWindow_wait \"\$(eval_gettext '$APPLICATION_TITLE is installing your application...')\" \"\$TITLE\"" >> "$SCRIPTPATH"
