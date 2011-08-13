@@ -569,7 +569,13 @@ class PlayOnLinuxApp(wx.App):
 		lng.iLang()
 		close = False
 		exe_present = False
+		if(os.popen("id -u").read() == "0"):
+			wx.MessageBox(_("{0} is not supposed to be run as root. Sorry").format(os.environ["APPLICATION_TITLE"]))
+			sys.exit()
+			
+		
 		for f in  sys.argv[1:]:
+			
 			self.MacOpenFile(f)
 			if(".exe" in f or ".EXE" in f):
 				exe_present = True
@@ -622,7 +628,15 @@ class PlayOnLinuxApp(wx.App):
 		if(file_extension == "pol" or file_extension == "POL"):
 			if(wx.YES == wx.MessageBox(_('Are you sure you want to  want to install {0} package?').format(filename).decode("utf-8"), style=wx.YES_NO | wx.ICON_QUESTION)):
 				os.system("bash \"$PLAYONLINUX/bash/playonlinux-pkg\" -i \""+filename+"\" &")
+	
+	def MacOpenURL(self, url):
+		if(os.environ["POL_OS"] == "Mac" and "playonlinux://" in url):
+			wx.MessageBox("You are trying to open a script design for PlayOnLinux! It might not work as expected")
+		if(os.environ["POL_OS"] == "Linux" and "playonmac://" in url):
+			wx.MessageBox("You are trying to open a script design for PlayOnMac! It might not work as expected")
 			
+		os.system("bash \"$PLAYONLINUX/bash/playonlinux-url_handler\" \""+url+"\" &")
+		
 	def MacReopenApp(self):
 		#sys.exit()
 		self.BringWindowToFront()
