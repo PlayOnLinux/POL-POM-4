@@ -123,7 +123,8 @@ install_x11()
 		XQuartzUrl="http://xquartz.macosforge.org/downloads/SL/XQuartz-$XQUARTZ_VERSION.dmg"
 	fi
 	STEP_TITLE="XQuartz"
-	POL_SetupWindow_menu_num "$(eval_gettext 'To ensure that your game will be compatible, PlayOnMac must install XQuartz')" "$STEP_TITLE" "$(eval_gettext "Please download XQuartz for me")~$(eval_gettext "I've downloaded the file by myself") (XQuartz-$XQUARTZ_VERSION.dmg)~$(eval_gettext "Don't install XQuartz for the moment")" "~"
+	XQuartz_Message=$(eval_gettext 'To ensure that your game will be compatible, PlayOnMac must install XQuartz')
+	POL_SetupWindow_menu_num "$XQuartz_Message" "$STEP_TITLE" "$(eval_gettext "Please download XQuartz for me")~$(eval_gettext "I've downloaded the file by myself") (XQuartz-$XQUARTZ_VERSION.dmg)~$(eval_gettext "Don't install XQuartz for the moment")" "~"
 	if [ "$APP_ANSWER" = "0" ]
 	then
 		POL_SetupWindow_download "$(eval_gettext "Downloading XQuartz")" "$STEP_TITLE" "$XQuartzUrl"
