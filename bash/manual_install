@@ -113,6 +113,8 @@ POL_SetupWindow_free_presentation "$(eval_gettext 'Manual installation')" "$(eva
 LNG_LI_NEW="$(eval_gettext "Install a program in a new virtual drive")"
 LNG_LI_PATCH="$(eval_gettext "Edit or update an existing application")"
 
+POL_System_SetArch "x86"
+
 POL_SetupWindow_menu "$(eval_gettext "What would you like to do?")" "$(eval_gettext 'Manual installation')" "$LNG_LI_NEW~$LNG_LI_PATCH" "~"
 menu="$APP_ANSWER"
 if [ "$menu" = "" ]
@@ -166,13 +168,13 @@ WHATTORUNBEFORE="$APP_ANSWER"
 if [ "$(echo $WHATTORUNBEFORE | grep -o "$LNG_WC_ASSWV")" == "$LNG_WC_ASSWV" ]
 then
 	WINEVERSIONLIST="System"
-	WINEVERSIONDIRLIST=$(find "$REPERTOIRE/wine/x86/"* -maxdepth 0 -type d)
+	WINEVERSIONDIRLIST=$(find "$REPERTOIRE/wine/$OS_NAME-$POL_ARCH/"* -maxdepth 0 -type d)
 	for single in $WINEVERSIONDIRLIST ; do
 	  singleparsed=${single##*/}
 	  WINEVERSIONLIST=`echo $WINEVERSIONLIST~$singleparsed`
 	done
 
-	POL_SetupWindow_menu_list "$(eval_gettext "Which version of Wine would you like to use?")" "$TITLE" "$WINEVERSIONLIST" "~"
+	POL_SetupWindow_menu "$(eval_gettext "Which version of Wine would you like to use?")" "$TITLE" "$WINEVERSIONLIST" "~"
 	WINEVERSIONLIVE="$APP_ANSWER"
 	if [ "$WINEVERSIONLIVE" = "System" ]
 	then

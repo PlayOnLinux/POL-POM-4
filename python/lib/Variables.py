@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # Copyright (C) 2007-2010 PlayOnLinux Team
 
-import os, random
+import os, random, sys
 import wx
 
 # Un ptit check
@@ -9,8 +9,9 @@ try :
 	os.environ["POL_OS"]
 except :
 	print "ERROR ! Please define POL_OS environement var first."
-	exit
-# Variables mixte 1 (Ben ouai, ya un ordre ...)
+	sys.exit
+	
+# Variables mixte 1
 os.environ["PLAYONLINUX"] = os.path.realpath(os.path.realpath(__file__)+"/../../../")
 	
 # Variables PlayOnMac
@@ -31,6 +32,11 @@ if (os.environ["POL_OS"] == "Linux"):
 	windows_add_playonmac = 0;
 	widget_borders = wx.RAISED_BORDER
 	os_name = "linux"
+
+if(os.environ["MACHTYPE"] == "x86_64-pc-linux-gnu"):
+	os.environ["AMD64_COMPATIBLE"] = "True"
+else:
+	os.environ["AMD64_COMPATIBLE"] = "False"
 	
 # Variables mixtes
 os.environ["POL_USER_ROOT"] = os.environ["REPERTOIRE"]
@@ -39,7 +45,8 @@ os.environ["SITE"] = "http://repository.playonlinux.com"
 os.environ["VERSION"] = "4.0-dev"
 os.environ["POL_ID"] = str(random.randint(1,100000000))
 os.environ["WINEPREFIX"] = os.environ["REPERTOIRE"]+"/wineprefix/default"
-os.environ["WINE_SITE"] = "http://ks383805.kimsufi.com/wine/binaries/" # Temporary 
+os.environ["WINE_SITE"] = "http://ks383805.kimsufi.com/wine/binaries/" # Temporary
+os.environ["OS_NAME"] = os_name 
 homedir = os.environ["HOME"]
 
 # Si DYLD_LIBRARY_PATH n'existe pas, on la defini pour etre sur	
