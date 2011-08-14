@@ -425,8 +425,7 @@ POL_Wine_InstallVersion()
 	then
 		
 		WINE_ADDRESS=$(wget "$WINE_SITE/$WINE_SECTION.lst" -O- | grep ";$POL_WINEVERSION;" | tail -n 1 | cut -d ";" -f1)
-		POL_Debug_Message "--->$WINE_ADDRESS<---"
-		if [ "$WINE_ADRESSS" = "" ] && [ "$POL_ARCH" = "amd64" ]
+		if [ "$WINE_ADDRESSS" = "" ] && [ "$POL_ARCH" = "amd64" ]
 		then
 			POL_Debug_Warning "Wine $1 amd64 does not exist. Switching to x86"
 			POL_System_SetArch "x86"
