@@ -149,6 +149,9 @@ class MainWindow(wx.Frame):
 	self.bug_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/bug.png"))
 	self.expertmenu.AppendItem(self.bug_item)
 	
+	self.chat_item = wx.MenuItem(self.expertmenu, 111, _("{0} messenger").format(os.environ["APPLICATION_TITLE"]))
+	self.chat_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/people.png"))
+	self.expertmenu.AppendItem(self.chat_item)
 	
 	self.optionmenu = wx.Menu()
 
@@ -267,7 +270,7 @@ class MainWindow(wx.Frame):
 	wx.EVT_MENU(self, 108,  self.Executer)
 	wx.EVT_MENU(self, 109,  self.PolShell)
 	wx.EVT_MENU(self, 110,  self.BugReport)
-	wx.EVT_MENU(self, 111,  self.ManagePrefix)
+	wx.EVT_MENU(self, 111,  self.OpenIrc)
 	wx.EVT_MENU(self, 112,  self.POLOnline)
 	
 	wx.EVT_MENU(self, 115,  self.killall)
@@ -463,9 +466,6 @@ class MainWindow(wx.Frame):
 
   def BugReport(self, event):
     os.system("bash \""+Variables.playonlinux_env+"/bash/bug_report\"&")
-
-  def ManagePrefix(self, event):
-    os.system("bash \""+Variables.playonlinux_env+"/bash/prefix_manager\" &")
 
   def POLOnline(self, event):
     os.system("bash \""+Variables.playonlinux_env+"/bash/playonlinux_online\" &")
