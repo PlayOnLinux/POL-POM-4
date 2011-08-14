@@ -28,6 +28,7 @@ die() ## PHP function copy
 export PYTHON="python"
 export POL_OS="Linux"
 export UBUNTU_MENUPROXY=0 
+export MACHTYPE
 
 [ "$PLAYONLINUX" = "" ] || die "You are already in a PlayOnLinux environement" 
 
