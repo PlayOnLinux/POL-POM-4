@@ -32,7 +32,7 @@ import wx
 import lib.Variables as Variables, lib.lng as lng
 import lib.playonlinux as playonlinux
 import guiv3 as gui, install, options, wine_versions as wver, sp, configure, threading
-
+import irc as ircgui
 class POLWeb(threading.Thread):
 	def __init__(self):
 		threading.Thread.__init__(self)
@@ -89,6 +89,8 @@ class POLWeb(threading.Thread):
 class MainWindow(wx.Frame):
   def __init__(self,parent,id,title):
 	wx.Frame.__init__(self, parent, 1000, title, size = (430, 430))
+
+		
 	self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
 	self.timer = wx.Timer(self, 1)
 	self.images = wx.ImageList(32, 32)
@@ -367,6 +369,11 @@ class MainWindow(wx.Frame):
 		os.system("bash \""+Variables.playonlinux_rep+"/plugins/"+plugin+"/scripts/menu\" \""+game_exec+"\"&")
 	except : 
 		pass
+		
+  def OpenIrc(self, event):
+	self.irc = ircgui.IrcClient(self)
+	self.irc.Center(wx.BOTH)
+	self.irc.Show(True)
 		
   def GoToAppDir(self, event):
 		self.game_exec = self.list_game.GetItemText(self.list_game.GetSelection())
