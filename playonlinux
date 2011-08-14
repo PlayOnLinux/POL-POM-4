@@ -39,10 +39,9 @@ fi
 if [ "$1" == "--run" ]
 then
 	shift
-	cd "$HOME/.PlayOnLinux/configurations/installed"
 	NAME="$1"
 	shift
-	"./$NAME" "$@"
+	./playonlinux-bash "$HOME/.PlayOnLinux/shortcuts/$NAME" "$@"
 else
 	cd "$(dirname "$0")/python"
 	"$PYTHON" mainwindow.py "$@"
