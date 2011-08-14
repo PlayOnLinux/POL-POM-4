@@ -74,7 +74,7 @@ POL_System_SetArch()
 	# If amd64 is specified and not supported, the script will end
 	
 	# Auto, x86, amd64
-	if [ "$1" == "auto" ]
+	if [ ! "$1" == "x86" ] && [ ! "$1" == "amd64" ]
 	then
 		[ "$MACHTYPE" == "x86_64-pc-linux-gnu" ] && export POL_ARCH="amd64" || export POL_ARCH="x86"
 	fi

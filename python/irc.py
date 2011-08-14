@@ -34,12 +34,6 @@ class Onglets(wx.Notebook):
 	def __init__(self, parent):
 		self.notebook = wx.Notebook.__init__(self, parent, -1)
 
-
-
-		
-
-		
-
 	def getSettings(self): # Faudra revoir ça dans une future version
 		irc_settings = {}
 	
