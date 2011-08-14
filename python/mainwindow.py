@@ -144,14 +144,15 @@ class MainWindow(wx.Frame):
 	self.pol_online = wx.MenuItem(self.expertmenu, 112, os.environ["APPLICATION_TITLE"]+" online")
 	self.pol_online.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/playonlinux_online.png"))
 	self.expertmenu.AppendItem(self.pol_online)
-	
+
+	self.chat_item = wx.MenuItem(self.expertmenu, 111, _("{0} messenger").format(os.environ["APPLICATION_TITLE"]))
+	self.chat_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/people.png"))
+	self.expertmenu.AppendItem(self.chat_item)
+		
 	self.bug_item = wx.MenuItem(self.expertmenu, 110, _("Report a bug"))
 	self.bug_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/bug.png"))
 	self.expertmenu.AppendItem(self.bug_item)
 	
-	self.chat_item = wx.MenuItem(self.expertmenu, 111, _("{0} messenger").format(os.environ["APPLICATION_TITLE"]))
-	self.chat_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/people.png"))
-	self.expertmenu.AppendItem(self.chat_item)
 	
 	self.optionmenu = wx.Menu()
 

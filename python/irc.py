@@ -166,7 +166,7 @@ class Onglets(wx.Notebook):
 		self.panels_main.SetSizer(self.sizerMain)
 		self.panel.SetAutoLayout(True)
 
-		self.AddPage(self.panel, nom, imageId=1)
+		self.AddPage(self.panel, nom)
 		self.field.Bind(wx.EVT_KEY_UP, self.EventKey)
 		self.nickname.Bind(wx.EVT_KEY_UP, self.NicknameKey)
 		#self.channel.Bind(wx.EVT_KEY_UP, self.EventChannel)
