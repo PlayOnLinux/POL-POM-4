@@ -42,7 +42,7 @@ else:
 os.environ["POL_USER_ROOT"] = os.environ["REPERTOIRE"]
 os.environ["TITRE"] = "PlayOnMac"
 os.environ["SITE"] = "http://repository.playonlinux.com"
-os.environ["VERSION"] = "4.0"
+os.environ["VERSION"] = "4.0.1"
 os.environ["POL_ID"] = str(random.randint(1,100000000))
 os.environ["WINEPREFIX"] = os.environ["REPERTOIRE"]+"/wineprefix/default"
 os.environ["WINE_SITE"] = "http://www.playonlinux.com/wine/binaries/"
