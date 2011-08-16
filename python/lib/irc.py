@@ -453,10 +453,10 @@ class IRCClient(threading.Thread):
 
 			if(self.kicked.lower() == self.Nick.lower()):
 				if(self.chan == self.chanAutoJoin):
-					self.status_messages.append(self.html_convert(self.sender," has been kicked your from the chat : "+self.raison,"#FF0000","#FF0000",True))
+					self.status_messages.append(self.html_convert(self.sender," has kicked you from the chat : "+self.raison,"#FF0000","#FF0000",True))
 					self.stop()
 				else :
-					self.messages[self.chan_index].append(self.html_convert(self.sender," has been kicked your from "+self.chan+" : "+self.raison,"#FF0000","#FF0000",True))
+					self.messages[self.chan_index].append(self.html_convert(self.sender," has kicked you from "+self.chan+" : "+self.raison,"#FF0000","#FF0000",True))
 					self.leave_chan(self.chan)
 			else :
 				self.messages[self.index].append(self.html_convert(self.sender," has been kicked "+self.kicked+" from "+self.chan+" : "+self.raison,"#888888","#888888",True))
