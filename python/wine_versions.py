@@ -214,7 +214,8 @@ class Onglets(wx.Notebook):
 class MainWindow(wx.Frame):
 	  def __init__(self,parent,id,title):
 	    self.download32 = getVersions("x86")
-	    self.download64 = getVersions("amd64")
+	    if(os.environ["AMD64_COMPATIBLE"] == "True"):
+	    	self.download64 = getVersions("amd64")
 	    
 	    wx.Frame.__init__(self, parent, -1, title, size = (592, 588+Variables.windows_add_size), style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX)
 	    self.timer = wx.Timer(self, 1)
@@ -226,17 +227,23 @@ class MainWindow(wx.Frame):
 	    #self.sizer.Add(self.onglets, 15, wx.EXPAND|wx.ALL, 2)
 
 	    self.getVersions("x86")
-	    self.getVersions("amd64")	
+	    if(os.environ["AMD64_COMPATIBLE"] == "True"):
+	    	self.getVersions("amd64")	
 	    #self.panel.SetSizer(self.sizer)
 	    #self.panel.SetAutoLayout(True)
 
 	    self.onglets.liste_versions()
-	    self.onglets.liste_versions("amd64")
+	    if(os.environ["AMD64_COMPATIBLE"] == "True"):
+	    	self.onglets.liste_versions("amd64")
 	    self.oldreload32=""
-	    self.oldreload64=""
+	
+	    if(os.environ["AMD64_COMPATIBLE"] == "True"):
+	    	self.oldreload64=""
 	    
 	    self.oldversions32 = []
-	    self.oldversions64 = []
+	
+	    if(os.environ["AMD64_COMPATIBLE"] == "True"):
+	    	self.oldversions64 = []
 
 	    #self.button = wx.Button(self.panels_buttons, wx.ID_CLOSE, _("Close"), pos=(510, 5), size=wx.DefaultSize)
 
@@ -257,7 +264,8 @@ class MainWindow(wx.Frame):
 
 	  def AutoReload(self, event):
 		reload32 = os.listdir(Variables.playonlinux_rep+"/wine/"+os_pref+"-x86")
-		reload64 = os.listdir(Variables.playonlinux_rep+"/wine/"+os_pref+"-amd64")
+		if(os.environ["AMD64_COMPATIBLE"] == "True"):
+			reload64 = os.listdir(Variables.playonlinux_rep+"/wine/"+os_pref+"-amd64")
 		if(self.download32.thread_message == "Ok" or self.download32.thread_message == "Err"):
 			self.onglets.new_panel["x86"].Hide()
 			self.WriteVersion()
@@ -267,20 +275,20 @@ class MainWindow(wx.Frame):
 			if(self.download32.thread_message != "Wait"):
 				self.onglets.new_panel["x86"].Show()
 				
-		
-		if(self.download64.thread_message == "Ok" or self.download64.thread_message == "Err"):
-			self.onglets.new_panel["amd64"].Hide()
-			self.WriteVersion("amd64")
-			self.download64.thread_message = "Wait"
-
-		else:
-			if(self.download64.thread_message != "Wait"):
-				self.onglets.new_panel["amd64"].Show()
+			 
+		if(os.environ["AMD64_COMPATIBLE"] == "True"):
+			if(self.download64.thread_message == "Ok" or self.download64.thread_message == "Err"):
+				self.onglets.new_panel["amd64"].Hide()
+				self.WriteVersion("amd64")
+				self.download64.thread_message = "Wait"
+			else:
+				if(self.download64.thread_message != "Wait"):
+					self.onglets.new_panel["amd64"].Show()
 				
-
-		if(reload64 != self.oldreload64):
-			self.getVersions("amd64")
-			self.oldreload64 = reload64
+		if(os.environ["AMD64_COMPATIBLE"] == "True"):
+			if(reload64 != self.oldreload64):
+				self.getVersions("amd64")
+				self.oldreload64 = reload64
 
 		if(reload32 != self.oldreload32):
 			self.getVersions()
@@ -289,8 +297,9 @@ class MainWindow(wx.Frame):
 		if(self.download32.versions != self.oldversions32):
 			self.oldversions32 = self.download32.versions[:]
 
-		if(self.download64.versions != self.oldversions64):
-			self.oldversions64 = self.download64.versions[:]
+		if(os.environ["AMD64_COMPATIBLE"] == "True"):
+			if(self.download64.versions != self.oldversions64):
+				self.oldversions64 = self.download64.versions[:]
 
 
 
@@ -394,7 +403,8 @@ class MainWindow(wx.Frame):
 
 	  def closeapp(self, event):
 		self.download32.thread_running = False
-		self.download64.thread_running = False
+		if(os.environ["AMD64_COMPATIBLE"] == "True"):
+			self.download64.thread_running = False
 
 		self.Destroy()   
 
