@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-07-31 18:03+0200\n"
+"POT-Creation-Date: 2011-08-15 15:23+0200\n"
 "PO-Revision-Date: 2011-07-05 23:54+0000\n"
 "Last-Translator: Şâkir Aşçı <sakirasci@gmail.com>\n"
 "Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-08-01 13:32+0000\n"
-"X-Generator: Launchpad (build 13543)\n"
+"X-Launchpad-Export-Date: 2011-08-16 18:28+0000\n"
+"X-Generator: Launchpad (build 13697)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -192,10 +192,6 @@ msgstr "DirectDraw işleme kipi seçilsin mi?"
 msgid "Activate GLSL Support?"
 msgstr "GLSL Desteği etkinleştirilsin mi?"
 
-#: Advanced Wine Configuration Plugin:12
-msgid "How much memory does your graphics board have?"
-msgstr "Ekran kartınızın ne kadar belleği var?"
-
 #: Advanced Wine Configuration Plugin:13
 msgid "Choose Offscreen Rendering Mode?"
 msgstr "Ekran dışı işleme kipi seçilsin mi?"
@@ -231,12 +227,12 @@ msgstr "Bir uygulama seçin"
 msgid "Operation done"
 msgstr "İşlem tamamlandı"
 
-#: bash/bug_report:34 bash/debug_main:30 python/mainwindow.py:133
+#: bash/bug_report:31 python/mainwindow.py:152
 #, sh-format
 msgid "Report a bug"
 msgstr "Hata bildir"
 
-#: bash/bug_report:39 bash/debug_main:34
+#: bash/bug_report:36
 #, sh-format
 msgid ""
 "This wizard can report a bug in an application officially supported by "
@@ -245,91 +241,50 @@ msgstr ""
 "Bu sihirbaz yanlızca PlayOnLİnux'un desteklediği uygulamasının hatalarını "
 "bildirir."
 
-#: bash/bug_report:42
+#: bash/bug_report:39
 #, sh-format
 msgid "I have a problem with a software"
 msgstr ""
 
-#: bash/bug_report:42
+#: bash/bug_report:39
 #, sh-format
-msgid "My problem concerns PlayOnLinux itself"
+msgid "My problem concerns $APPLICATION_TITLE itself"
 msgstr ""
 
-#: bash/bug_report:42
+#: bash/bug_report:39
 #, sh-format
 msgid "What kind of problem do you have?"
 msgstr ""
 
-#: bash/bug_report:46
+#: bash/bug_report:43
 #, sh-format
 msgid "Don't join any log file"
 msgstr ""
 
-#: bash/bug_report:53
+#: bash/bug_report:50
 #, sh-format
 msgid "Choose the log file corresponding to your software."
 msgstr ""
 
-#: bash/bug_report:57
+#: bash/bug_report:54
 #, sh-format
 msgid "Please give a very short description"
 msgstr ""
 
-#: bash/bug_report:59
+#: bash/bug_report:56
 #, sh-format
 msgid "Detailed description:"
 msgstr ""
 
-#: bash/bug_report:70
+#: bash/bug_report:67
 #, sh-format
 msgid ""
 "Thank you !\\n\\nYour report has been sent.\\n\\nWe will do our best to send "
 "you an answer by mail very soon"
 msgstr ""
 
-#: bash/debug_main:36 bash/debug_main:48
-#, sh-format
-msgid "Error message"
-msgstr "Hata mesajı"
-
-#: bash/debug_main:36 bash/debug_main:44
-#, sh-format
-msgid "Graphic problem"
-msgstr "Grafik sorunu"
-
-#: bash/debug_main:36 lib/interface_v3:874 python/install.py:299
-#: python/options.py:121
-#, sh-format
-msgid "Other"
-msgstr "Diğer"
-
-#: bash/debug_main:36 bash/debug_main:42
-#, sh-format
-msgid "The application does not start"
-msgstr "Uygulama başlatılamıyor"
-
-#: bash/debug_main:36 bash/debug_main:46
-#, sh-format
-msgid "Unable to use a feature"
-msgstr "Özellik çalıştırılamıyor"
-
-#: bash/debug_main:36
-#, sh-format
-msgid "What type of problem occurs?"
-msgstr "Ne tür sorunlar oluşuyor?"
-
-#: bash/debug_main:39
-#, sh-format
-msgid "Problem description:"
-msgstr "Hata açıklaması:"
-
-#: bash/debug_main:60
-#, sh-format
-msgid "Bug report generated."
-msgstr "Hata raporu oluşturuldu."
-
 #: bash/expert/Executer:27 bash/expert/Executer:32 bash/expert/Executer:34
-#: python/mainwindow.py:115
+#: python/mainwindow.py:130
 #, sh-format
 msgid "Run a local script"
 msgstr "Yerel bir betik çalıştır"
@@ -443,83 +398,115 @@ msgstr "Yükleniyor: "
 msgid "Microsoft fonts have been installed successfully."
 msgstr "Microsoft fontları başarıyla yüklendi."
 
-#: bash/first_use:120
+#: bash/first_use:126
+#, sh-format
+msgid ""
+"To ensure that your games will be compatible, PlayOnMac must install XQuartz"
+msgstr ""
+
+#: bash/first_use:127
 #, sh-format
 msgid "Don't install XQuartz for the moment"
 msgstr ""
 
-#: bash/first_use:120
+#: bash/first_use:127
 #, sh-format
 msgid "I've downloaded the file by myself"
 msgstr ""
 
-#: bash/first_use:120
+#: bash/first_use:127
 #, sh-format
 msgid "Please download XQuartz for me"
 msgstr ""
 
-#: bash/first_use:120
-#, sh-format
-msgid ""
-"To ensure that your game will be compatible, PlayOnMac must install XQuartz"
-msgstr ""
-
-#: bash/first_use:123
+#: bash/first_use:130
 #, sh-format
 msgid "Downloading XQuartz"
 msgstr ""
 
-#: bash/first_use:128
+#: bash/first_use:135
 #, sh-format
 msgid "Where is"
 msgstr ""
 
-#: bash/first_use:135
+#: bash/first_use:142
 #, sh-format
 msgid "Installing XQuartz..."
 msgstr ""
 
-#: bash/first_use:148
+#: bash/first_use:155
 #, sh-format
 msgid ""
 "Unable to install XQuartz ! You must install it to improve games "
 "compatibility"
 msgstr ""
 
-#: bash/first_use:154
+#: bash/first_use:161
 #, sh-format
 msgid "Default virtual drive configuration"
 msgstr ""
 
-#: bash/first_use:161
+#: bash/first_use:162
+#, sh-format
+msgid "$APPLICATION_TITLE is making a virtual windows hard drive"
+msgstr ""
+
+#: bash/first_use:276 bash/first_use:281
+#, sh-format
+msgid "$APPLICATION_TITLE first use"
+msgstr ""
+
+#: bash/first_use:276
+#, sh-format
+msgid "It appears it is the first time you are using $APPLICATION_TITLE."
+msgstr ""
+
+#: bash/first_use:276
 #, sh-format
 msgid "Please ensure you are connected to the internet."
 msgstr ""
 
-#: bash/install_wver:29
+#: bash/first_use:276
+#, sh-format
+msgid "This wizard will help you prepare $APPLICATION_TITLE environement"
+msgstr ""
+
+#: bash/first_use:281
+#, sh-format
+msgid "Thank you for using $APPLICATION_TITLE"
+msgstr ""
+
+#: bash/install_wver:30
 #, sh-format
 msgid "This wizard will help you to install Wine: "
 msgstr ""
 
-#: bash/install_wver:29
+#: bash/install_wver:30
 #, sh-format
-msgid "on the PlayOnLinux environment."
-msgstr "PlayOnLinux ortamı üzerinde"
+msgid "on the $APPLICATION_TITLE environment."
+msgstr ""
 
-#: bash/install_wver:33
+#: bash/installpolpackages:26 bash/polconfigurator:26 bash/winebash:27
 #, sh-format
-msgid "Wine has been installed successfully."
-msgstr "Wine kurulumu başarılı."
+msgid "$APPLICATION_TITLE Application Configurator"
+msgstr ""
 
-#: bash/install_wver:35
-#, sh-format
-msgid "Failed to install Wine."
-msgstr "Wine kurulumu başarısız"
-
-#: bash/installpolpackages:26 bash/killall:33 bash/winebash:26
+#: bash/installpolpackages:26 bash/killall:33 bash/winebash:27
+#: lib/wine.lib:617
 #, sh-format
 msgid "Please wait..."
 msgstr "Lütfen bekleyin..."
+
+#: bash/killall:30
+#, sh-format
+msgid ""
+"Are you sure you want to shutdown all active $APPLICATION_TITLE applications?"
+msgstr ""
+
+#: bash/make_shortcut:25
+#, sh-format
+msgid "$APPLICATION_TITLE packager"
+msgstr ""
 
 #: bash/make_shortcut:31
 #, sh-format
@@ -536,12 +523,11 @@ msgstr ""
 #: bash/make_shortcut:40
 #, sh-format
 msgid ""
-"There is two kind of packages\\n\\nPlayOnMac package: This package will only "
-"work on your computer. \\nTherefore, it will not take more space on your "
-"hard drive.\\n\\nStand-alone package: In this package, PlayOnMac will "
+"There are two kind of packages\\n\\nPlayOnMac package: this package will "
+"only work on your computer. \\nTherefore, it will not take more space on "
+"your hard drive.\\n\\nStand-alone package: in this package, PlayOnMac will "
 "include all files\\nneeded to run your software.\\nThis package will work "
-"without PlayOnMac.\\n\\nPlease note that 3D is not yet supported for stand-"
-"alone packages"
+"without PlayOnMac."
 msgstr ""
 
 #: bash/make_shortcut:43
@@ -587,119 +573,128 @@ msgstr ""
 msgid "Please choose a software"
 msgstr ""
 
-#: bash/manual_install:24 bash/manual_install:95 bash/manual_install:100
-#: bash/manual_install:159 bash/manual_install:223
+#: bash/manual_install:27 bash/manual_install:111 bash/manual_install:118
+#: bash/manual_install:195
 #, sh-format
 msgid "Manual installation"
 msgstr "El ile kurulum"
 
-#: bash/manual_install:48
+#: bash/manual_install:51
 #, sh-format
 msgid "Autorun"
 msgstr "Otomatik çalıştır"
 
-#: bash/manual_install:48
+#: bash/manual_install:51
 #, sh-format
 msgid "No setup location found in autorun.inf"
 msgstr "autorun.inf dosyasında kur konumu bulunamadı"
 
-#: bash/manual_install:97
+#: bash/manual_install:111
+#, sh-format
+msgid ""
+"Welcome to $APPLICATION_TITLE manual installation wizard.\\n\\nThis script "
+"will allow you to install any program on $APPLICATION and use it with all "
+"the tools\\n\\nWarning: We are unable to guarantee that your application "
+"will work perfectly."
+msgstr ""
+
+#: bash/manual_install:113
 #, sh-format
 msgid "Install a program in a new virtual drive"
 msgstr ""
 
-#: bash/manual_install:98
+#: bash/manual_install:114
 #, sh-format
 msgid "Edit or update an existing application"
 msgstr ""
 
-#: bash/manual_install:100
+#: bash/manual_install:118
 #, sh-format
 msgid "What would you like to do?"
 msgstr "Ne yapmak istersiniz?"
 
-#: bash/manual_install:110
+#: bash/manual_install:128
 #, sh-format
 msgid ""
 "Please type a name for your application's virtual drive.\\nThis name "
 "shouldn't contain spaces."
 msgstr ""
 
-#: bash/manual_install:115
+#: bash/manual_install:138
 #, sh-format
 msgid "Please choose a program"
 msgstr ""
 
-#: bash/manual_install:127
+#: bash/manual_install:159
 #, sh-format
 msgid "Use another version of Wine"
 msgstr ""
 
-#: bash/manual_install:128 bash/manual_install:159 bash/polconfigurator:110
-#: python/configure.py:148 python/mainwindow.py:313 python/mainwindow.py:344
+#: bash/manual_install:160 bash/manual_install:195 bash/polconfigurator:110
+#: python/configure.py:150 python/mainwindow.py:330 python/mainwindow.py:361
 #, sh-format
 msgid "Configure Wine"
 msgstr "Wine'ı Yapılandır"
 
-#: bash/manual_install:129
+#: bash/manual_install:161
 #, sh-format
 msgid "Install some libraries"
 msgstr ""
 
-#: bash/manual_install:132
+#: bash/manual_install:164
 #, sh-format
 msgid "If you don't know, unselect all"
 msgstr ""
 
-#: bash/manual_install:132
+#: bash/manual_install:164
 #, sh-format
 msgid "What would you like to do before installation?"
 msgstr "Kurulumdan önce ne yapmak istersiniz?"
 
-#: bash/manual_install:145
+#: bash/manual_install:177
 #, sh-format
 msgid "Which version of Wine would you like to use?"
 msgstr "Hangi sürüm Wine kullanmak istersiniz?"
 
-#: bash/manual_install:175
+#: bash/manual_install:232 lib/scripts.lib:235
+#, sh-format
+msgid "Please make your choice"
+msgstr ""
+
+#: bash/manual_install:256
 #, sh-format
 msgid "Looking for runnable CD-ROMs"
 msgstr "Çalıştırılabilir CD-ROM'lar aranıyor"
 
-#: bash/manual_install:198
+#: bash/manual_install:279
 #, sh-format
 msgid "Select another file"
 msgstr ""
 
-#: bash/manual_install:206
+#: bash/manual_install:287
 #, sh-format
 msgid "Please choose a way to install your program"
 msgstr ""
 
-#: bash/manual_install:215
+#: bash/manual_install:296
 #, sh-format
 msgid "Please select the install file to run."
 msgstr "Lütfen çalıştırmak için kur dosyasını seçin."
 
-#: bash/manual_install:223
+#: bash/manual_install:326
 #, sh-format
 msgid "You must choose a file!"
 msgstr "Bir dosya seçmelisiniz!"
 
-#: bash/manual_install:229
+#: bash/manual_install:332
 #, sh-format
 msgid "$APPLICATION_TITLE is installing your application..."
 msgstr ""
 
-#: bash/manual_install:238
-#, sh-format
-msgid "Please do not press Next until the installation has been completed."
-msgstr "Lütfen kurulum tamamlanana kadar İleri tuşuna basmayın."
-
 #: bash/playonlinux-pkg:25
 #, sh-format
-msgid "PlayOnLinux package manager: "
-msgstr "PlayOnLinux paket yöneticisi: "
+msgid "$APPLICATION_TITLE package manager: "
+msgstr ""
 
 #: bash/playonlinux-pkg:39
 #, sh-format
@@ -787,12 +782,152 @@ msgstr ""
 
 #: bash/playonlinux_online:39
 #, sh-format
+msgid ""
+"If you have successfully installed a program with 'Install a non-listed\\"
+"nsoftware' button, it will allow you to add this program in our list"
+msgstr ""
+
+#: bash/playonlinux_online:39
+#, sh-format
+msgid "This tools will allow you to help us :"
+msgstr ""
+
+#: bash/playonlinux_online:39
+#, sh-format
+msgid ""
+"We're going to ask you some questions, please be as much accurate as\\"
+"npossible"
+msgstr ""
+
+#: bash/playonlinux_online:47
+#, sh-format
+msgid "Choose the file corresponding to your program."
+msgstr ""
+
+#: bash/playonlinux_online:51
+#, sh-format
+msgid "Does your program run?"
+msgstr ""
+
+#: bash/playonlinux_online:54
+#, sh-format
+msgid "What is the title of your program?"
+msgstr ""
+
+#: bash/playonlinux_online:56
+#, sh-format
+msgid "What is the editor of your program?"
+msgstr ""
+
+#: bash/playonlinux_online:58
+#, sh-format
+msgid "What is the editor website of your program?"
+msgstr ""
+
+#: bash/playonlinux_online:61 python/install.py:299
+#, sh-format
+msgid "Accessories"
+msgstr "Donatılar"
+
+#: bash/playonlinux_online:61 python/install.py:299
+#, sh-format
+msgid "Development"
+msgstr "Geliştirme"
+
+#: bash/playonlinux_online:61 python/install.py:299
+#, sh-format
+msgid "Education"
+msgstr "Eğitim"
+
+#: bash/playonlinux_online:61 python/install.py:299
+#, sh-format
+msgid "Games"
+msgstr "Oyunlar"
+
+#: bash/playonlinux_online:61 python/install.py:299
+#, sh-format
+msgid "Graphics"
+msgstr "Grafikler"
+
+#: bash/playonlinux_online:61 python/install.py:299 python/mainwindow.py:163
+#: python/options.py:431
+#, sh-format
+msgid "Internet"
+msgstr "Genelağ"
+
+#: bash/playonlinux_online:61 python/install.py:299
+#, sh-format
+msgid "Multimedia"
+msgstr "Çoklu ortam"
+
+#: bash/playonlinux_online:61 python/install.py:299
+#, sh-format
+msgid "Office"
+msgstr "Ofis"
+
+#: bash/playonlinux_online:61 lib/setupwindow.lib:634 python/install.py:299
+#: python/options.py:121
+#, sh-format
+msgid "Other"
+msgstr "Diğer"
+
+#: bash/playonlinux_online:61 python/install.py:325
+#, sh-format
+msgid "Patches"
+msgstr "Yamalar"
+
+#: bash/playonlinux_online:61
+#, sh-format
+msgid "Select a category for your program"
+msgstr ""
+
+#: bash/playonlinux_online:61 python/install.py:326
+#, sh-format
+msgid "Testing"
+msgstr "Sınanıyor"
+
+#: bash/playonlinux_online:64
+#, sh-format
+msgid ""
+"What feature of your program does not work?\\nIf everything works, please "
+"mention it"
+msgstr ""
+
+#: bash/playonlinux_online:66
+#, sh-format
+msgid "Write any change you made to wine configuration here:"
+msgstr ""
+
+#: bash/playonlinux_online:94
+#, sh-format
+msgid "You must be able to run this program!"
+msgstr ""
+
+#: bash/playonlinux_online:99
+#, sh-format
 msgid "Run one of your personal scripts"
 msgstr ""
 
-#: bash/playonlinux_online:40
+#: bash/playonlinux_online:100
+#, sh-format
+msgid "Send to us a working script generated by manual installation"
+msgstr ""
+
+#: bash/playonlinux_online:101
 #, sh-format
 msgid "Logout"
+msgstr ""
+
+#: bash/playonlinux_online:102
+#, sh-format
+msgid "You are connected to $APPLICATION_TITLE online as $POL_LOGIN"
+msgstr ""
+
+#: bash/playonlinux_online:116
+#, sh-format
+msgid ""
+"You have been successfully logged out of $APPLICATION_TITLE Online\\nYou can "
+"safely close this window"
 msgstr ""
 
 #: bash/polconfigurator:29 bash/polconfigurator:40 bash/polconfigurator:52
@@ -801,15 +936,6 @@ msgstr ""
 #, sh-format
 msgid "Killing processes in the prefix..."
 msgstr "Ön ekteki süreçler sonlandırılıyor..."
-
-#: bash/polconfigurator:29 bash/polconfigurator:31 bash/polconfigurator:40
-#: bash/polconfigurator:52 bash/polconfigurator:54 bash/polconfigurator:59
-#: bash/polconfigurator:61 bash/polconfigurator:66 bash/polconfigurator:68
-#: bash/polconfigurator:73 bash/polconfigurator:75 bash/polconfigurator:80
-#: bash/polconfigurator:82 bash/polconfigurator:138 bash/polconfigurator:193
-#, sh-format
-msgid "PlayOnLinux Application Configurator"
-msgstr "PlayOnLinux Uygulama Yapılandırıcı"
 
 #: bash/polconfigurator:31
 #, sh-format
@@ -861,8 +987,8 @@ msgstr "Kötü dosya uzantısı"
 msgid "is not an icon extension"
 msgstr "bir simge uzantısı değil"
 
-#: bash/polconfigurator:111 python/configure.py:154 python/mainwindow.py:317
-#: python/mainwindow.py:350
+#: bash/polconfigurator:111 python/configure.py:156 python/mainwindow.py:334
+#: python/mainwindow.py:367
 #, sh-format
 msgid "Registry Editor"
 msgstr "Kayıt Defteri Düzenleyicisi"
@@ -910,65 +1036,14 @@ msgstr "Lütfen gerçekleştirmek için bir hareket seçin"
 #: bash/polconfigurator:193
 #, sh-format
 msgid ""
-"Welcome to PlayOnLinux's Application Configurator.\\nThis wizard will help "
-"you to configure: "
+"Welcome to $APPLICATION_TITLE Application Configurator.\\nThis wizard will "
+"help you to configure: "
 msgstr ""
-
-#: bash/polconfigurator:193
-#, sh-format
-msgid ""
-"\\n\\nBe careful! PlayOnLinux will need to kill all the programs running in "
-"this prefix!"
-msgstr ""
-"\\n\\nDikkatli olun! PlayOnLinux bu ön ekte çalışan tüm programları "
-"sonlandırmayı isteyecek!"
 
 #: bash/polconfigurator:193
 #, sh-format
 msgid "\\n\\nThe following Wine prefix will be updated: "
 msgstr "\\n\\nBu Wine ön eki güncellenmiş olacak: "
-
-#: bash/prefix_manager:24
-#, sh-format
-msgid "Virtual drive manager"
-msgstr ""
-
-#: bash/prefix_manager:40
-#, sh-format
-msgid "I have finished"
-msgstr ""
-
-#: bash/prefix_manager:41
-#, sh-format
-msgid "Create a new virtual drive"
-msgstr ""
-
-#: bash/prefix_manager:53
-#, sh-format
-msgid "Please choose a virtual drive to manage"
-msgstr ""
-
-#: bash/prefix_manager:63
-#, sh-format
-msgid ""
-"Please choose a name for your virtual drive\\nThis name should not contain "
-"spaces"
-msgstr ""
-
-#: bash/prefix_manager:77
-#, sh-format
-msgid "Choose another virtual drive"
-msgstr ""
-
-#: bash/prefix_manager:77
-#, sh-format
-msgid "Delete this virtual drive"
-msgstr ""
-
-#: bash/prefix_manager:77
-#, sh-format
-msgid "Make a new shortcut"
-msgstr ""
 
 #: bash/run_app:26
 #, sh-format
@@ -1029,27 +1104,27 @@ msgid ""
 "details.\\nPlease go to configure menu"
 msgstr ""
 
-#: bash/run_exe:64
+#: bash/run_exe:63
 #, sh-format
 msgid "Waiting for the first-assistant to be finished"
 msgstr ""
 
-#: bash/run_exe:90
+#: bash/run_exe:89
 #, sh-format
 msgid "We have detected that the program you want to install is :"
 msgstr ""
 
-#: bash/startup:41
+#: bash/startup:38
 #, sh-format
-msgid "Are you sure you want to start PlayOnLinux?"
-msgstr "PlayOnLinux'u başlatmak istiyor musunuz?"
+msgid "Are you sure you want to start $APPLICATION_TITLE?"
+msgstr ""
 
-#: bash/startup:41
+#: bash/startup:38
 #, sh-format
 msgid "PlayOnLinux is not reponsable for any damage to your system.\\n\\n"
 msgstr ""
 
-#: bash/startup:41
+#: bash/startup:38
 #, sh-format
 msgid ""
 "Please note that it is very dangerous to run Wine programs as root: you are "
@@ -1058,10 +1133,15 @@ msgstr ""
 "Wine programlarını kök dizininde çalıştırmak tehlikeli olabilir: virüs ve "
 "zararlı yazılımlara maruz kalabilirsiniz."
 
-#: bash/startup:41
+#: bash/startup:38
 #, sh-format
 msgid "Warning!"
 msgstr "Uyarı!"
+
+#: bash/startup:38
+#, sh-format
+msgid "You are running $APPLICATION_TITLE as root.\\n\\n"
+msgstr ""
 
 #: bash/system_info:62 bash/system_info:88
 #, sh-format
@@ -1168,77 +1248,63 @@ msgstr "PlayOnLinux tarafından kullanılan Wine sürümü: "
 msgid "Free space on your hard drives:"
 msgstr "Sabit disklerinizdeki boş alan:"
 
-#: bash/uninstall:36 bash/uninstall:47 bash/uninstall:51 lib/applications:202
+#: bash/uninstall:25 bash/uninstall:52 bash/uninstall:56
+#: lib/playonlinux.lib:656
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
 msgstr ""
 
-#: bash/uninstall:36
+#: bash/uninstall:30
+#, sh-format
+msgid "Please select a program to uninstall"
+msgstr ""
+
+#: bash/uninstall:41
 #, sh-format
 msgid "Click Next to continue."
 msgstr "Devam etmek için İleriye tıklayın."
 
-#: bash/uninstall:36
+#: bash/uninstall:41
 #, sh-format
 msgid "This wizard will help you to uninstall: "
 msgstr ""
 
-#: bash/uninstall:47 lib/applications:202
+#: bash/uninstall:52 lib/playonlinux.lib:656
 #, sh-format
 msgid "Uninstalling..."
 msgstr "Kaldırılıyor..."
 
-#: bash/uninstall:51
+#: bash/uninstall:56
 #, sh-format
 msgid " has been uninstalled successfully."
 msgstr " kaldırılması başarılı."
 
-#: bash/uninstall:53
+#: bash/uninstall:58
 #, sh-format
 msgid "Cannot find the shortcut"
 msgstr "Kısayol bulunamadı"
 
-#: bash/uninstall:53 lib/interface_v3:99
+#: bash/uninstall:58 lib/setupwindow.lib:143
 #, sh-format
 msgid "Error"
 msgstr "Hata"
 
-#: lib/applications:200
-#, sh-format
-msgid "Do you want to delete the virtual drive:"
-msgstr ""
-
-#: lib/applications:275
-#, sh-format
-msgid "Scanning the virtual drive ..."
-msgstr ""
-
-#: lib/applications:277
-#, sh-format
-msgid "I don't want to make another shortcut"
-msgstr ""
-
-#: lib/applications:278 python/guiv3.py:143
-#, sh-format
-msgid "Browse"
-msgstr "Gözat"
-
-#: lib/check_depend:23
+#: lib/depend.lib:32
 #, sh-format
 msgid " is missing. Please install it"
 msgstr ""
 
-#: lib/check_depend:30
+#: lib/depend.lib:40
 #, sh-format
 msgid ", package: "
 msgstr ", paket: "
 
-#: lib/check_depend:30
+#: lib/depend.lib:40
 #, sh-format
 msgid "Program: "
 msgstr "Program: "
 
-#: lib/check_depend:38 lib/interface_v3:97
+#: lib/depend.lib:50 lib/setupwindow.lib:141
 #, sh-format
 msgid ""
 "One or more program(s) are missing. Please install them and run the script "
@@ -1247,14 +1313,14 @@ msgstr ""
 "Bir ya da daha fazla sayıda program bulunamadı. Lütfen bunları kurun ve "
 "betiği tekrar çalıştırın."
 
-#: lib/check_depend:61
+#: lib/depend.lib:74
 #, sh-format
 msgid ""
 "You don't seem to have 3D acceleration!\\nWe advise you to install and to "
 "enable it."
 msgstr ""
 
-#: lib/check_depend:65
+#: lib/depend.lib:78
 #, sh-format
 msgid ""
 "Warning: glxinfo is missing! PlayOnLinux can't detect if 3D acceleration is "
@@ -1263,249 +1329,373 @@ msgstr ""
 "Uyarı: glxinfo kayıp! PlayOnLinux 3D hızlandırmanın desteklendiğini tesbit "
 "edemez."
 
-#: lib/interface_v3:44
-#, sh-format
-msgid " on your computer."
-msgstr " bilgisayarınızda"
-
-#: lib/interface_v3:44
-#, sh-format
-msgid " will be installed in: "
-msgstr " kurulacağı yer: "
-
-#: lib/interface_v3:44
-#, sh-format
-msgid "Click Next to start"
-msgstr "Başlamak için İleriyi tıklayın"
-
-#: lib/interface_v3:44
-#, sh-format
-msgid "This installation program is provided by: "
-msgstr "Bu kurulum programını sağlayan: "
-
-#: lib/interface_v3:44
-#, sh-format
-msgid "This program was created by: "
-msgstr "Bu programı oluşturan: "
-
-#: lib/interface_v3:44
-#, sh-format
-msgid "This wizard will help you install "
-msgstr "Bu sihirbazın sağlayacağı kurulum: "
-
-#: lib/interface_v3:545 lib/interface_v3:554 lib/interface_v3:567
+#: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
+#: lib/wine.lib:528
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr ""
 
-#: lib/interface_v3:852
+#: lib/deprecated.lib:427 lib/wine.lib:626
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a Windows reboot"
 msgstr ""
 
-#: lib/interface_v3:873
-#, sh-format
-msgid "Where is mounted your CD-ROM?"
-msgstr ""
-
-#: lib/interface_v3:875
-#, sh-format
-msgid "Refresh"
-msgstr "Yenile"
-
-#: lib/interface_v3:899
-#, sh-format
-msgid "Error: Unable to find the CD-ROM!"
-msgstr "Hata: CD-ROM bulunamadı!"
-
-#: lib/interface_v3:919
-#, sh-format
-msgid "Unable to find version: "
-msgstr "Bulunamayan sürüm: "
-
-#: lib/interface_v3:925 lib/interface_v3:926 lib/interface_v3:969
-#, sh-format
-msgid "Downloading Wine: "
-msgstr "İndirilen Wine: "
-
-#: lib/interface_v3:936
-#, sh-format
-msgid "The download seems to have failed."
-msgstr "İndirme başarısız oldu."
-
-#: lib/interface_v3:939 lib/interface_v3:977
-#, sh-format
-msgid "Extracting Wine..."
-msgstr "Wine açılıyor..."
-
-#: lib/interface_v3:963
-#, sh-format
-msgid "Unable to find the version:"
-msgstr ""
-
-#: lib/main:59
-#, sh-format
-msgid "Checking plugin: "
-msgstr "Eklenti kontrol ediliyor: "
-
-#: lib/main:84
-#, sh-format
-msgid "New: "
-msgstr "Yeni: "
-
-#: lib/main:84
-#, sh-format
-msgid "Updating plugin. Previous: "
-msgstr "Eklenti güncelleştiriliyor. Önceki: "
-
-#: lib/main:103
-#, sh-format
-msgid "Installing plugin: "
-msgstr "Eklenti yükleniyor: "
-
-#: lib/main:233 lib/main:238 lib/main:243 lib/main:248 lib/main:253
-#: lib/main:258 lib/main:264 lib/main:269 lib/main:274 lib/main:279
-#: lib/main:284 lib/main:289
-#, sh-format
-msgid "This function is disabled in the PlayOnlinux environment."
-msgstr "Bu özellik PlayOnLinux sisteminde engellenmiştir."
-
-#: lib/wine:154
+#: lib/deprecated.lib:559
 #, sh-format
 msgid "Setting Program Files var"
 msgstr "Program Dosyaları değişkenleri ayarlanıyor"
 
-#: python/configure.py:109 python/configure.py:499
+#: lib/playonlinux.lib:166 lib/playonlinux.lib:171 lib/playonlinux.lib:176
+#: lib/playonlinux.lib:181 lib/playonlinux.lib:186 lib/playonlinux.lib:191
+#: lib/playonlinux.lib:197 lib/playonlinux.lib:202 lib/playonlinux.lib:207
+#: lib/playonlinux.lib:212 lib/playonlinux.lib:217 lib/playonlinux.lib:222
+#, sh-format
+msgid "This function is disabled in the PlayOnlinux environment."
+msgstr "Bu özellik PlayOnLinux sisteminde engellenmiştir."
+
+#: lib/playonlinux.lib:532
+#, sh-format
+msgid "Making shortcut..."
+msgstr ""
+
+#: lib/playonlinux.lib:654
+#, sh-format
+msgid "Do you want to delete the virtual drive:"
+msgstr ""
+
+#: lib/plugins.lib:64
+#, sh-format
+msgid "Checking plugin: "
+msgstr "Eklenti kontrol ediliyor: "
+
+#: lib/plugins.lib:89
+#, sh-format
+msgid "New: "
+msgstr "Yeni: "
+
+#: lib/plugins.lib:89
+#, sh-format
+msgid "Updating plugin. Previous: "
+msgstr "Eklenti güncelleştiriliyor. Önceki: "
+
+#: lib/plugins.lib:108
+#, sh-format
+msgid "Installing plugin: "
+msgstr "Eklenti yükleniyor: "
+
+#: lib/scripts.lib:380
+#, sh-format
+msgid ""
+"7z not installed, please check that you have 7zip installed and try again"
+msgstr ""
+
+#: lib/scripts.lib:387
+#, sh-format
+msgid "Failed to locate ${dest} from ${archive}"
+msgstr ""
+
+#: lib/scripts.lib:391
+#, sh-format
+msgid "Extracting ${filename} from ${archivename}"
+msgstr ""
+
+#: lib/scripts.lib:406
+#, sh-format
+msgid "Extracted file size does not match!"
+msgstr ""
+
+#: lib/scripts.lib:425
+#, sh-format
+msgid "Copying ${filename}"
+msgstr ""
+
+#: lib/scripts.lib:438
+#, sh-format
+msgid "File size does not match!"
+msgstr ""
+
+#: lib/setupwindow.lib:78
+#, sh-format
+msgid " on your computer."
+msgstr " bilgisayarınızda"
+
+#: lib/setupwindow.lib:78
+#, sh-format
+msgid " will be installed in: "
+msgstr " kurulacağı yer: "
+
+#: lib/setupwindow.lib:78
+#, sh-format
+msgid "Click Next to start"
+msgstr "Başlamak için İleriyi tıklayın"
+
+#: lib/setupwindow.lib:78
+#, sh-format
+msgid "This installation program is provided by: "
+msgstr "Bu kurulum programını sağlayan: "
+
+#: lib/setupwindow.lib:78
+#, sh-format
+msgid "This program was created by: "
+msgstr "Bu programı oluşturan: "
+
+#: lib/setupwindow.lib:78
+#, sh-format
+msgid "This wizard will help you install "
+msgstr "Bu sihirbazın sağlayacağı kurulum: "
+
+#: lib/setupwindow.lib:633
+#, sh-format
+msgid "Where is mounted your CD-ROM?"
+msgstr ""
+
+#: lib/setupwindow.lib:635 python/install.py:135
+#, sh-format
+msgid "Refresh"
+msgstr "Yenile"
+
+#: lib/setupwindow.lib:662
+#, sh-format
+msgid "Error: Unable to find the CD-ROM!"
+msgstr "Hata: CD-ROM bulunamadı!"
+
+#: lib/setupwindow.lib:840 lib/setupwindow.lib:949
+#, sh-format
+msgid "Scanning the virtual drive ..."
+msgstr ""
+
+#: lib/setupwindow.lib:854
+#, sh-format
+msgid "How much memory does your graphics board have?"
+msgstr "Ekran kartınızın ne kadar belleği var?"
+
+#: lib/setupwindow.lib:863
+#, sh-format
+msgid "Video card does not have enough memory"
+msgstr ""
+
+#: lib/setupwindow.lib:864
+#, sh-format
+msgid ""
+"Your video card does not have enough memory!\\nIt might prevent the game "
+"from working"
+msgstr ""
+
+#: lib/setupwindow.lib:878
+#, sh-format
+msgid "Use Steam Store version"
+msgstr ""
+
+#: lib/setupwindow.lib:879
+#, sh-format
+msgid "Use Steam Store demo version"
+msgstr ""
+
+#: lib/setupwindow.lib:880
+#, sh-format
+msgid "Use a setup file in my computer"
+msgstr ""
+
+#: lib/setupwindow.lib:881
+#, sh-format
+msgid "Use CD-ROM(s)"
+msgstr ""
+
+#: lib/setupwindow.lib:882
+#, sh-format
+msgid "Use DVD-ROM(s)"
+msgstr ""
+
+#: lib/setupwindow.lib:883
+#, sh-format
+msgid "Download the program"
+msgstr ""
+
+#: lib/setupwindow.lib:924
+#, sh-format
+msgid "Please choose an installation method"
+msgstr ""
+
+#: lib/setupwindow.lib:951
+#, sh-format
+msgid "I don't want to make another shortcut"
+msgstr ""
+
+#: lib/setupwindow.lib:952 python/guiv3.py:143
+#, sh-format
+msgid "Browse"
+msgstr "Gözat"
+
+#: lib/website.lib:122
+#, sh-format
+msgid "Connecting..."
+msgstr ""
+
+#: lib/website.lib:127
+#, sh-format
+msgid ""
+"Failed to connect !\\nPlease ensure that your login and your password are "
+"valid."
+msgstr ""
+
+#: lib/wine.lib:390
+#, sh-format
+msgid ""
+"Wine seems to have crashed\\n\\nIf you're program is running, just ignore "
+"this message"
+msgstr ""
+
+#: lib/wine.lib:436
+#, sh-format
+msgid "Unable to find version: "
+msgstr "Bulunamayan sürüm: "
+
+#: lib/wine.lib:442 lib/wine.lib:443
+#, sh-format
+msgid "Downloading Wine: "
+msgstr "İndirilen Wine: "
+
+#: lib/wine.lib:453
+#, sh-format
+msgid "The download seems to have failed."
+msgstr "İndirme başarısız oldu."
+
+#: lib/wine.lib:455
+#, sh-format
+msgid "Extracting Wine..."
+msgstr "Wine açılıyor..."
+
+#: python/configure.py:111 python/configure.py:525
 msgid "General"
 msgstr "Genel"
 
-#: python/configure.py:112
+#: python/configure.py:114
 msgid "Make a new shortcut from this virtual drive"
 msgstr ""
 
-#: python/configure.py:113
+#: python/configure.py:115
 msgid "Name"
 msgstr ""
 
-#: python/configure.py:114
+#: python/configure.py:116
 msgid "Wine version"
 msgstr ""
 
-#: python/configure.py:115
+#: python/configure.py:117
 msgid "Virtual drive"
 msgstr ""
 
-#: python/configure.py:117
+#: python/configure.py:119
 msgid "Enable debugging"
 msgstr ""
 
-#: python/configure.py:123
+#: python/configure.py:125
 msgid "Run configuration wizard"
 msgstr ""
 
-#: python/configure.py:161
+#: python/configure.py:163
 msgid "Windows reboot"
 msgstr ""
 
-#: python/configure.py:167
+#: python/configure.py:169
 msgid "Command prompt"
 msgstr ""
 
-#: python/configure.py:173
+#: python/configure.py:175
 msgid "Task manager"
 msgstr ""
 
-#: python/configure.py:179
+#: python/configure.py:181
 msgid "Kill processes"
 msgstr ""
 
-#: python/configure.py:199 python/install.py:134 python/mainwindow.py:97
-#: python/mainwindow.py:231
+#: python/configure.py:201 python/install.py:134 python/mainwindow.py:112
+#: python/mainwindow.py:250 python/wine_versions.py:203
 msgid "Install"
 msgstr "Kur"
 
-#: python/configure.py:255
+#: python/configure.py:271
 msgid "Open program's directory"
 msgstr ""
 
-#: python/configure.py:276
+#: python/configure.py:295
 msgid "Open virtual drive's directory"
 msgstr ""
 
-#: python/configure.py:389
+#: python/configure.py:409
 msgid "GLSL Support"
 msgstr ""
 
-#: python/configure.py:390
+#: python/configure.py:410
 msgid "Direct Draw Renderer"
 msgstr ""
 
-#: python/configure.py:391
+#: python/configure.py:411
 msgid "Video memory size"
 msgstr ""
 
-#: python/configure.py:392
+#: python/configure.py:412
 msgid "Offscreen rendering mode"
 msgstr ""
 
-#: python/configure.py:393
+#: python/configure.py:413
 msgid "Render target mode lock"
 msgstr ""
 
-#: python/configure.py:394
+#: python/configure.py:414
 msgid "Multisampling"
 msgstr ""
 
-#: python/configure.py:395
+#: python/configure.py:415
 msgid "Strict Draw Ordering"
 msgstr ""
 
-#: python/configure.py:405
+#: python/configure.py:425
 msgid "Mouse warp override"
 msgstr ""
 
-#: python/configure.py:407
+#: python/configure.py:427
 msgid "Open a shell"
 msgstr ""
 
-#: python/configure.py:408
+#: python/configure.py:428
 msgid "Run a .exe file in this virtual drive"
 msgstr ""
 
-#: python/configure.py:462 python/mainwindow.py:462 python/mainwindow.py:464
+#: python/configure.py:488 python/mainwindow.py:481 python/mainwindow.py:483
 msgid "{0} configuration"
 msgstr ""
 
-#: python/configure.py:483
+#: python/configure.py:509
 msgid "New"
 msgstr "Yeni"
 
-#: python/configure.py:484 python/mainwindow.py:98 python/mainwindow.py:232
-#: python/mainwindow.py:329 python/wine_versions.py:186
+#: python/configure.py:510 python/mainwindow.py:113 python/mainwindow.py:251
+#: python/mainwindow.py:346 python/wine_versions.py:202
 msgid "Remove"
 msgstr "Kaldır"
 
-#: python/configure.py:501
+#: python/configure.py:527
 msgid "Install packages"
 msgstr ""
 
-#: python/configure.py:502
+#: python/configure.py:528
 msgid "Display"
 msgstr ""
 
-#: python/configure.py:503
+#: python/configure.py:529
 msgid "Miscellaneous"
 msgstr ""
 
-#: python/configure.py:520
+#: python/configure.py:546
 msgid "Choose the name of the virtual drive"
 msgstr ""
 
-#: python/configure.py:526
+#: python/configure.py:553
 msgid "This virtual drive is protected"
 msgstr ""
 
-#: python/configure.py:528 python/configure.py:535
+#: python/configure.py:555 python/configure.py:562
 msgid "Are you sure you want to delete "
 msgstr ""
 
@@ -1589,38 +1779,6 @@ msgstr "Ara: "
 msgid "Install a non-listed program"
 msgstr ""
 
-#: python/install.py:299
-msgid "Accessories"
-msgstr "Donatılar"
-
-#: python/install.py:299
-msgid "Development"
-msgstr "Geliştirme"
-
-#: python/install.py:299
-msgid "Education"
-msgstr "Eğitim"
-
-#: python/install.py:299
-msgid "Games"
-msgstr "Oyunlar"
-
-#: python/install.py:299
-msgid "Graphics"
-msgstr "Grafikler"
-
-#: python/install.py:299 python/mainwindow.py:144 python/options.py:431
-msgid "Internet"
-msgstr "Genelağ"
-
-#: python/install.py:299
-msgid "Multimedia"
-msgstr "Çoklu ortam"
-
-#: python/install.py:299
-msgid "Office"
-msgstr "Ofis"
-
 #: python/install.py:323
 msgid "Highest rated"
 msgstr "En yüksek oy alan"
@@ -1629,147 +1787,171 @@ msgstr "En yüksek oy alan"
 msgid "Most downloaded"
 msgstr "En çok indirilen"
 
-#: python/install.py:325
-msgid "Patches"
-msgstr "Yamalar"
+#: python/irc.py:132
+msgid "Send"
+msgstr ""
 
-#: python/install.py:326
-msgid "Testing"
-msgstr "Sınanıyor"
+#: python/irc.py:133
+msgid "Connect"
+msgstr ""
+
+#: python/irc.py:134
+msgid "Disconnect"
+msgstr ""
+
+#: python/irc.py:223
+msgid "Join a channel"
+msgstr ""
+
+#: python/irc.py:253
+msgid "Messenger"
+msgstr ""
 
 #: python/mainwindow.py:64
 msgid "{0} website is unavailable. Please check your connexion"
 msgstr ""
 
 #: python/mainwindow.py:66
-msgid "Refreshing "
+msgid "Refreshing {0}"
 msgstr ""
 
 #: python/mainwindow.py:70 python/mainwindow.py:71
 msgid "An updated version of {0} is available"
 msgstr ""
 
-#: python/mainwindow.py:96 python/mainwindow.py:229
+#: python/mainwindow.py:111 python/mainwindow.py:248
 msgid "Run"
 msgstr "Çalıştır"
 
-#: python/mainwindow.py:100
+#: python/mainwindow.py:115
 msgid "Donate"
 msgstr "Bağış"
 
-#: python/mainwindow.py:101
+#: python/mainwindow.py:116
 msgid "Exit"
 msgstr "Çıkış"
 
-#: python/mainwindow.py:105
+#: python/mainwindow.py:120
 msgid "Manage Wine versions"
 msgstr "Wine sürümlerini yönet"
 
-#: python/mainwindow.py:119
+#: python/mainwindow.py:134
 msgid "Close all {0} software"
 msgstr ""
 
-#: python/mainwindow.py:123
+#: python/mainwindow.py:138
 msgid "{0} console"
 msgstr ""
 
-#: python/mainwindow.py:158
+#: python/mainwindow.py:148
+msgid "{0} messenger"
+msgstr ""
+
+#: python/mainwindow.py:177
 msgid "About {0}"
 msgstr ""
 
-#: python/mainwindow.py:188 python/mainwindow.py:192
+#: python/mainwindow.py:207 python/mainwindow.py:211
 msgid "Plugin manager"
 msgstr "Eklenti yöneticisi"
 
-#: python/mainwindow.py:217
+#: python/mainwindow.py:236
 msgid "File"
 msgstr "Dosya"
 
-#: python/mainwindow.py:218
+#: python/mainwindow.py:237
 msgid "Tools"
 msgstr "Araçlar"
 
-#: python/mainwindow.py:219
+#: python/mainwindow.py:238
 msgid "Settings"
 msgstr "Ayarlar"
 
-#: python/mainwindow.py:220 python/options.py:434
+#: python/mainwindow.py:239 python/options.py:434
 msgid "Plugins"
 msgstr "Eklentiler"
 
-#: python/mainwindow.py:236 python/options.py:325
+#: python/mainwindow.py:255 python/options.py:325
 msgid "Configure"
 msgstr "Yapılandır"
 
-#: python/mainwindow.py:237
+#: python/mainwindow.py:256
 msgid "Shortcut"
 msgstr ""
 
-#: python/mainwindow.py:321
+#: python/mainwindow.py:338
 msgid "Open the application's directory"
 msgstr "Uygulamanın dizinini aç"
 
-#: python/mainwindow.py:325
+#: python/mainwindow.py:342
 msgid "Set the icon"
 msgstr "Simge belirle"
 
-#: python/mainwindow.py:333
+#: python/mainwindow.py:350
 msgid "Close this application"
 msgstr "Bu uygulamayı kapat"
 
-#: python/mainwindow.py:347
+#: python/mainwindow.py:364
 msgid "KillApp"
 msgstr "KillApp"
 
-#: python/mainwindow.py:434 python/mainwindow.py:436
+#: python/mainwindow.py:456 python/mainwindow.py:458
 msgid "{0} settings"
 msgstr ""
 
-#: python/mainwindow.py:504
+#: python/mainwindow.py:527
 msgid "{0} install menu"
 msgstr ""
 
-#: python/mainwindow.py:517
+#: python/mainwindow.py:533
 msgid "{0} wine versions manager"
 msgstr ""
 
-#: python/mainwindow.py:530
-msgid "Are you sure you want to close all {0} Windows ?"
+#: python/mainwindow.py:546
+msgid "Are you sure you want to close all {0} Windows?"
 msgstr ""
 
-#: python/mainwindow.py:543
+#: python/mainwindow.py:559
 msgid "Run your Windows programs on "
 msgstr ""
 
-#: python/mainwindow.py:544
+#: python/mainwindow.py:560
 msgid ""
 "(C) PlayOnLinux and PlayOnMac team 2011\n"
 "Under GPL licence version 3"
 msgstr ""
 
-#: python/mainwindow.py:545
+#: python/mainwindow.py:561
 msgid "Developer and Website: "
 msgstr "Geliştirici ve genelağ sayfası: "
 
-#: python/mainwindow.py:546
+#: python/mainwindow.py:562
 msgid "Scriptors: "
 msgstr "Betikçiler: "
 
-#: python/mainwindow.py:547
+#: python/mainwindow.py:563
 msgid "Packager: "
 msgstr "Paketçi: "
 
-#: python/mainwindow.py:548
+#: python/mainwindow.py:564
 msgid "Icons:"
 msgstr ""
 
-#: python/mainwindow.py:549
+#: python/mainwindow.py:565
 msgid "The following people contributed to this program: "
 msgstr "Aşağıdaki insanlar bu programa katkıda bulunmuşlardır: "
 
-#: python/mainwindow.py:550
+#: python/mainwindow.py:566
 msgid "Translation made on Launchpad:"
 msgstr "Launchpad üzerinden yapılan çeviriler:"
+
+#: python/mainwindow.py:581
+msgid "{0} is not supposed to be run as root. Sorry"
+msgstr ""
+
+#: python/mainwindow.py:637
+msgid "Are you sure you want to  want to install {0} package?"
+msgstr ""
 
 #: python/options.py:99
 msgid "Default programs"
@@ -1873,1636 +2055,14 @@ msgstr ""
 "Değişikliklerin geçerli olması için PlayOnLinux'ü tekrar başlatmak "
 "zorundasınız."
 
-#: python/wine_versions.py:182
+#: python/wine_versions.py:199
 msgid "Installed Wine versions: "
 msgstr "Kurulu olan Wine sürümleri: "
 
-#: python/wine_versions.py:183
+#: python/wine_versions.py:200
 msgid "Available Wine versions: "
 msgstr "Kullanılabilir Wine sürümleri: "
 
-#: python/wine_versions.py:187
-msgid "Add"
-msgstr "Ekle"
-
-#: python/wine_versions.py:191
+#: python/wine_versions.py:207
 msgid "Wine versions"
 msgstr "Wine sürümleri"
-
-#: python/wine_versions.py:215 python/wine_versions.py:223
-msgid "My Applications"
-msgstr "Uygulamalarım"
-
-#: python/wine_versions.py:219
-msgid "Version:"
-msgstr ""
-
-#~ msgid ""
-#~ "You don't seem to have 3D acceleration !\n"
-#~ "We advise you install and enable it."
-#~ msgstr ""
-#~ "3B hızlandırma özelliğiniz yok.\n"
-#~ "Bu özelliği kurmanızı ve etkinleştirmenizi öneririz."
-
-#~ msgid "Missing program :"
-#~ msgstr "Kayıp program :"
-
-#~ msgid "The game you want to run isn't installed."
-#~ msgstr "Çalıştırmak istediğiniz oyun kurulu değil."
-
-#~ msgid ""
-#~ "Installation failed\n"
-#~ "The game might already be installed."
-#~ msgstr ""
-#~ "Kurulum başarısız oldu.\n"
-#~ "Oyun zaten kurulu olabilir."
-
-#~ msgid "You haven't installed any games."
-#~ msgstr "Herhangi bir oyun kurmadınız."
-
-#, sh-format
-#~ msgid "Error : Unable to find the CD-ROM !"
-#~ msgstr "Hata : CD- ROM Bulunamadı !"
-
-#~ msgid "Please wait while the icon is downloaded."
-#~ msgstr "Simge indirilirken lütfen bekleyin."
-
-#, sh-format
-#~ msgid "The website of PlayOnLinux is unavailable."
-#~ msgstr "PlayOnLinux web sitesine erişilemiyor."
-
-#, sh-format
-#~ msgid "Please assure you are connected to internet."
-#~ msgstr "Lütfen İnternet bağlantınızı kontrol edin."
-
-#~ msgid "Do you want a shortcut on your desktop ?"
-#~ msgstr "Masaüstünüzde bir kısayol istiyor musunuz?"
-
-#~ msgid "Do you want a shortcut in your menu ?"
-#~ msgstr "Uygulamalar Menüsünde kısayol istiyor musunuz?"
-
-#~ msgid "Network is available."
-#~ msgstr "Ağ erişilebilir."
-
-#~ msgid "Network is available, but some packets have failed"
-#~ msgstr "Ağ erişilebilir ama bazı veri paketleri kaybediliyor."
-
-#~ msgid "Checking network.."
-#~ msgstr "Ağı denetliyor.."
-
-#~ msgid "The updates have been successfully installed."
-#~ msgstr "Güncellemeler başarıyla kuruldu."
-
-#~ msgid "Update"
-#~ msgstr "Güncelle"
-
-#~ msgid "You must choose a program"
-#~ msgstr "Bir program seçmek zorundasınız."
-
-#~ msgid "An updated version of PlayOnLinux is available."
-#~ msgstr "PlayOnLinux'un daha güncel bir sürümü mevcut."
-
-#~ msgid "What do you want to install ?"
-#~ msgstr "Ne yüklemek istersiniz ?"
-
-#~ msgid "What do you want to uninstall ?"
-#~ msgstr "Neyi kaldırmak istersiniz ?"
-
-#~ msgid "Uninstall"
-#~ msgstr "Kaldır"
-
-#~ msgid "Which game do you want to play? ?"
-#~ msgstr "Hangi oyunu oynamak istiyorsunuz?"
-
-#~ msgid "Theme"
-#~ msgstr "Tema"
-
-#~ msgid "Your system :"
-#~ msgstr "Sizin sisteminiz:"
-
-#~ msgid "Your kernel :"
-#~ msgstr "Sizin kerneliniz:"
-
-#~ msgid "Reset"
-#~ msgstr "Sıfırla"
-
-#~ msgid "Wine version installed :"
-#~ msgstr "Yüklü wine sürümü:"
-
-#~ msgid "Your user login :"
-#~ msgstr "Kullanıcı adınız:"
-
-#~ msgid "Your distribution :"
-#~ msgstr "Linux dağıtımınız:"
-
-#~ msgid "Your distribution version :"
-#~ msgstr "Linux dağıtımınızın sürümü:"
-
-#~ msgid "Your computer's name :"
-#~ msgstr "Bilgisayarınızın adı:"
-
-#~ msgid "Your video card :"
-#~ msgstr "Ekran kartınız:"
-
-#~ msgid "Language"
-#~ msgstr "Dil"
-
-#~ msgid "About"
-#~ msgstr "Hakkında"
-
-#~ msgid "Help"
-#~ msgstr "Yardım"
-
-#~ msgid "Panels"
-#~ msgstr "Paneller"
-
-#~ msgid "Repository"
-#~ msgstr "Depo"
-
-#~ msgid "Edit"
-#~ msgstr "Düzenle"
-
-#~ msgid "Download finished"
-#~ msgstr "İndirme tamamlandı"
-
-#, sh-format
-#~ msgid "Warning"
-#~ msgstr "Uyarı"
-
-#, sh-format
-#~ msgid "Downloading"
-#~ msgstr "İndiriliyor"
-
-#~ msgid "Updating"
-#~ msgstr "Güncelleniyor"
-
-#~ msgid "Step"
-#~ msgstr "Adım"
-
-#~ msgid "Download"
-#~ msgstr "İndir"
-
-#~ msgid "Install a package"
-#~ msgstr "Bir paketi kur"
-
-#~ msgid "Application"
-#~ msgstr "Uygulama"
-
-#~ msgid "Session"
-#~ msgstr "Oturum"
-
-#~ msgid "Text"
-#~ msgstr "Metin"
-
-#, sh-format
-#~ msgid "Question"
-#~ msgstr "Soru"
-
-#~ msgid "Close all"
-#~ msgstr "Tümünü kapat"
-
-#, sh-format
-#~ msgid ""
-#~ "Microsoft fonts aren't installed; I'll install them for you. Please assure "
-#~ "you are connected to the internet."
-#~ msgstr ""
-#~ "Microsoft fontları yüklü değil; bunlar yüklenecek. Lütfen Internet'e bağlı "
-#~ "olduğunuzdan emin."
-
-#, sh-format
-#~ msgid "Creating Wine prefix"
-#~ msgstr "Wine öneki oluşturuluyor"
-
-#~ msgid "Choose your preferred language."
-#~ msgstr "Tercih ettiğiniz dili seçin."
-
-#~ msgid "Please wait while the fonts are downloaded..."
-#~ msgstr "Fontlar indiriliyor lütfen bekleyiniz..."
-
-#~ msgid "Downloading wine"
-#~ msgstr "Wine indiriliyor"
-
-#~ msgid "Installation succeeded."
-#~ msgstr "Yükleme başarılı oldu."
-
-#~ msgid "Informations"
-#~ msgstr "Bilgiler"
-
-#~ msgid "Choose a Sound Driver? (Values : oss, alsa - Default : alsa)"
-#~ msgstr "Ses sürücü seçimi? (Değerler : oss, alsa - ön tanımlı : alsa)"
-
-#, sh-format
-#~ msgid "Where is your CD-ROM mounted?"
-#~ msgstr "CD-ROM nereye bağlandı?"
-
-#~ msgid "Please mount the CD-ROM"
-#~ msgstr "Lütfen CD-ROM'u bağlayın"
-
-#~ msgid ""
-#~ "No patch\n"
-#~ "Try updating PlayOnLinux."
-#~ msgstr ""
-#~ "Yama yok\n"
-#~ "PlayOnLinux'u güncellemeyi deneyin"
-
-#~ msgid ""
-#~ "Installation faild\n"
-#~ "Unable to find the game's script.\n"
-#~ "Try to update $TITRE"
-#~ msgstr ""
-#~ "Kurulum başarısız\n"
-#~ "Oyunun betiği bulunamadı\n"
-#~ "$TITRE güncellemeyi deneyin"
-
-#~ msgid "Do you want to check for updates on the PlayOnLinux website ?"
-#~ msgstr ""
-#~ "Güncellemeler için PlayOnLinux websitesini kontrol etmek ister misiniz?"
-
-#~ msgid "You did not select any games!"
-#~ msgstr "Herhangi bir oyun seçmediniz!"
-
-#~ msgid "Choose the language you want"
-#~ msgstr "İstediğiniz dili seçin"
-
-#~ msgid ""
-#~ "Your system's language does not exist in PlayOnLinux.\n"
-#~ "Please choose another one"
-#~ msgstr ""
-#~ "Sistem dili PlayOnLinux'ta mevcut değil\n"
-#~ "Lütfen başka bir dili seçin"
-
-#~ msgid "Choose the theme you want"
-#~ msgstr "İstediğiniz temayı seçin"
-
-#~ msgid "Please wait while the wine prefix is updated"
-#~ msgstr "Lütfen wine öneki güncellenirken bekleyin"
-
-#~ msgid "Update the wineprefix"
-#~ msgstr "Wine önekini güncelle"
-
-#~ msgid "Install DirectX"
-#~ msgstr "DirectX kur"
-
-#~ msgid "This file is not a valid PlayOnLinux script"
-#~ msgstr "Bu dosya uygun bir PlayOnLinux betiği değil"
-
-#, sh-format
-#~ msgid "Kill wineserver process"
-#~ msgstr "Wine süreçlerini öldür"
-
-#~ msgid ""
-#~ "No game.\n"
-#~ "Try updating PlayOnLinux."
-#~ msgstr ""
-#~ "Oyun yok.\n"
-#~ "PlayOnLinux'u güncellemeyi deneyin."
-
-#~ msgid ""
-#~ "No expansions.\n"
-#~ "Try to update PlayOnLinux."
-#~ msgstr ""
-#~ "Genişlemeler yok.\n"
-#~ "PlayOnLinux'u güncellemeyi deneyin."
-
-#~ msgid "Please wait while the updates are downloaded..."
-#~ msgstr "Güncellemeler yüklenirken lütfen bekleyiniz..."
-
-#~ msgid ""
-#~ "Welcome to PlayOnLinux.\n"
-#~ "You need to set some options\n"
-#~ "Make sure you are connected to the internet."
-#~ msgstr ""
-#~ "PlayOnLinux'a Hoşgeldiniz.\n"
-#~ "Bazı seçenekleri ayarlamanız gerekiyor\n"
-#~ "İnternete bağlı olduğunuzdan emin olun."
-
-#~ msgid ""
-#~ "The current language is : $LANG. This language exists in PlayOnLinux. Would "
-#~ "you like to use it? ?"
-#~ msgstr ""
-#~ "Kullandığınız dil: $LANG. Bu dil PlayOnLinux'da bulunmaktadır. Kullanmak "
-#~ "ister misiniz?"
-
-#~ msgid "Please wait: creating PlayOnLinux's directions"
-#~ msgstr "Lütfen bekleyin: PlayOnLinux konumları oluşturuluyor"
-
-#~ msgid "Configure wine"
-#~ msgstr "Wine yapılandırması"
-
-#~ msgid "Run a non-official script"
-#~ msgstr "Gayri resmi bir betik çalıştır"
-
-#~ msgid "Manage wine versions"
-#~ msgstr "Wine sürümlerini yönet"
-
-#~ msgid "Please wait : installing wine version ..."
-#~ msgstr "Lütfen bekleyin: Wine sürümü kuruluyor ..."
-
-#~ msgid "To which game do you want to apply this modification?"
-#~ msgstr "Bu uyarlamayı hangi oyuna uygulamak istersiniz?"
-
-#~ msgid "Which wine version do you want to use ?"
-#~ msgstr "Hangi wine sürümünü kullanmak istersiniz?"
-
-#~ msgid "You must choose which version you want to download."
-#~ msgstr "Hangi sürümü indirmek istediğinizi seçmelisiniz."
-
-#~ msgid "This version has already been installed"
-#~ msgstr "Bu sürüm zaten kurulu"
-
-#~ msgid ""
-#~ "This add-on allows you to have more than one wine version simultaneously."
-#~ msgstr ""
-#~ "Bu eklenti aynı anda birden çok wine sürümüne sahip olmanıza imkan tanır"
-
-#~ msgid ""
-#~ "The version of wine has been successfully downloaded.\n"
-#~ "I'm' now going to install it."
-#~ msgstr ""
-#~ "Wine sürümü başarıyla indirildi.\n"
-#~ "Şimdi yükleyeceğim."
-
-#~ msgid "The session has been reset."
-#~ msgstr "Oturum yeniden başlatıldı."
-
-#~ msgid "No wine version installed"
-#~ msgstr "Kurulu wine sürümü yok"
-
-#~ msgid "Choose which version you want to uninstall."
-#~ msgstr "Hangi sürümü kaldırmak istediğinizi seçin."
-
-#~ msgid "Which wine version should I download?"
-#~ msgstr "Hangi wine sürümünü indirmeliyim?"
-
-#~ msgid "Assign a wineversion for a program"
-#~ msgstr "Bir program için bir winesürümü atayın"
-
-#~ msgid "Uninstall a wineversion"
-#~ msgstr "Bir wine sürümünü silin"
-
-#~ msgid "Unassign a wineversion"
-#~ msgstr "Bir wine sürümü atamasını geri alın"
-
-#~ msgid "Install a wineversion"
-#~ msgstr "Bir wine sürümü kurun"
-
-#~ msgid "To which game do you want to apply the modification ?"
-#~ msgstr "Uyarlamayı hangi oyuna uygulamak istersiniz?"
-
-#~ msgid "System language :"
-#~ msgstr "Sistem dili:"
-
-#~ msgid "Test results"
-#~ msgstr "Sınama sonuçları"
-
-#~ msgid "Exemple "
-#~ msgstr "Örnek "
-
-#~ msgid "Glxgears did not produce any results."
-#~ msgstr "Glxgears herhangi bir sonuç üretmedi."
-
-#~ msgid "Space remaining on your hard disks :"
-#~ msgstr "Sabit sürücülerinizde kalan boş alan :"
-
-#~ msgid "Wine version used by PlayOnLinux :"
-#~ msgstr "PlayOnLinux'un kullandığı wine sürümü :"
-
-#~ msgid "Information about a game"
-#~ msgstr "Bir oyun hakkında bilgi"
-
-#~ msgid "Welcome on WineBooster, an optimization's script for Wine"
-#~ msgstr "Wine için bir iyileştirme skripti olan WineBooster'a hoş geldiniz"
-
-#~ msgid "You have"
-#~ msgstr "Sahip olduklarınız"
-
-#~ msgid "You must restart PlayOnLinux for the changes to take effect"
-#~ msgstr ""
-#~ "Değişikliklerin etkili olabilmesi için PlayOnLinux yeniden başlatılmalı"
-
-#~ msgid ""
-#~ "Which version of Windows would you like to use? (Values : vista, win2003, "
-#~ "winxp, win2k, winnt, winme, win98, win95, win31 - Default : winxp )"
-#~ msgstr ""
-#~ "Windows'un hangi sürümünü kullanmak istersiniz? (Değerler : vista, win2003, "
-#~ "winxp, win2k, winnt, winme, win98, win95, win31 - Varsayılan : winxp )"
-
-#~ msgid ""
-#~ "Choose DirectDraw Renderer Mode? (Values : opengl, gdi - Default : gdi)"
-#~ msgstr ""
-#~ "DirectDraw işleme kipi seçilecek mi? (Değerler : opengl, gdi - Varsayılan : "
-#~ "gdi)"
-
-#~ msgid "Created by GNU_Raziel"
-#~ msgstr "GNU_Raziel tarafından oluşturulmuştur"
-
-#~ msgid "If you does not know what to choose, LEAVE DEFAULTS !!!"
-#~ msgstr "Ne seçileceğini bilmiyorsanız, OLDUĞU GİBİ BIRAKIN !!!"
-
-#~ msgid "How much memory does your graphics board have? (Default : 64)"
-#~ msgstr "Grafik kartınız ne kadar hafızaya sahip? (Varsayılan : 64)"
-
-#~ msgid "Activate GLSL Support? (Default : N)"
-#~ msgstr "GLSL desteği aktifleştirilecek mi? (Varsayılan: H)"
-
-#~ msgid "Activate PixelShader Mode? (Default : N)"
-#~ msgstr "PixelShader kipi aktifleştirilecek mi? (Varsayılan: H)"
-
-#~ msgid "Activate VertexShader Mode? (Default : N)"
-#~ msgstr "VertexShader kipi aktifleştirilecek mi? (Varsayılan: H)"
-
-#~ msgid "Action"
-#~ msgstr "Eylem"
-
-#~ msgid ""
-#~ "Choose Offscreen Rendering Mode? (Values : backbuffer, pbuffer, fbo - "
-#~ "Default : backbuffer)"
-#~ msgstr ""
-#~ "Ekran dışı işleme kipi seçilecek mi? (Değerler : backbuffer, pbuffer, fbo - "
-#~ "Default : backbuffer)"
-
-#~ msgid "If you patched a game, you should probably select no."
-#~ msgstr "Eğer bir oyunu yamaladıysanız, hayırı seçmeniz gerekebilir."
-
-#~ msgid "Do you want to create a shortcut to the application in PlayOnLinux ?"
-#~ msgstr "Uygulamanın kısayolunu PlayOnLinux içinde oluşturmak ister misiniz?"
-
-#~ msgid "Choose the file to exec the game."
-#~ msgstr "Oyunu yürütmek için dosyayı seçin."
-
-#~ msgid "Please type a name for your shortcut."
-#~ msgstr "Lütfen kısayolunuz için bir isim yazın."
-
-#~ msgid "You have to choose a file !"
-#~ msgstr "Bir dosya seçmelisiniz !"
-
-#~ msgid "Please choose the file to execute"
-#~ msgstr "Lütfen yürütmek istediğiniz dosyayı seçin"
-
-#~ msgid "This codename already exists in PlayOnLinux."
-#~ msgstr "Bu kod ad zaten PlayOnLinux içinde tanımlı."
-
-#, sh-format
-#~ msgid "Please make a choice"
-#~ msgstr "Lütfen bir seçim yapın"
-
-#~ msgid "Please wait while the installation of the game is prepared"
-#~ msgstr "Lütfen oyun kurulumu hazırlanırken bekleyin"
-
-#~ msgid "Please wait while the game is downloaded..."
-#~ msgstr "Lütfen oyun indirilirken bekleyin ..."
-
-#~ msgid "Please wait while the library are downloaded..."
-#~ msgstr "Lütfen kütüphane indirilirken bekleyin ..."
-
-#~ msgid ""
-#~ "Welcome to PolScriptCreator.\n"
-#~ "This tools may help you to build basic scripts. The scripts will be saved on "
-#~ "your Desktop. Thanks to Christhaal."
-#~ msgstr ""
-#~ "PolScriptCreator'a Hoş Geldiniz.\n"
-#~ "Bu araç size basit skriptler yapmanızda yardımcı olabilir. Skriptler "
-#~ "masaüstünüze kaydedilecektir. Christhaal'a teşekkürler."
-
-#~ msgid "Keep the actual git ? (Values : Y ou N - Default : N)"
-#~ msgstr "Varolan git korunsun mu ? (Değerler : E veya H - Varsayılan : H)"
-
-#~ msgid ""
-#~ "Welcome on WineGIT, a GIT compilation and installation script for WineVersion"
-#~ msgstr ""
-#~ "Bir GIT derlemesi ve Wine sürümü için kurulum betiği olan WİneGIT'e hoş "
-#~ "geldiniz"
-
-#~ msgid "Please give a new name for installed git (example : git-06242007)"
-#~ msgstr "Lütfen kurulu GIT için yeni bir isim verin (Örnek : git-08302010)"
-
-#~ msgid "Please use ANOTHER name for the last git"
-#~ msgstr "Lütfen son GIT için BAŞKA bir isim kullanın"
-
-#~ msgid "Please choose a valid PlayOnLinux file to run"
-#~ msgstr "Lütfen, çalıştırmak için geçerli bir PlayOnLinux dosyası seçin"
-
-#~ msgid "Please choose an application to install"
-#~ msgstr "Lütfen kurulacak bir uygulama seçin"
-
-#~ msgid ""
-#~ "Do you want to add a \"PlayOnLinux\" menu item to your GNOME or KDE menu ? "
-#~ "?\n"
-#~ "It will contain all the application shorcuts you create."
-#~ msgstr ""
-#~ "\"PlayOnLinux\" menü öğesini GNOME veya KDE menünüze eklemek ister misiniz ? "
-#~ "?\n"
-#~ "Bu öğe, oluşturduğunuz tüm uygulama kısayollarını içerecektir."
-
-#~ msgid "Do you want to disable the \"PlayOnLinux\" menu ?"
-#~ msgstr "\"PlayOnLinux\" menüsünü etkisizleştirmek istiyor musunuz?"
-
-#~ msgid "This name already exist !!"
-#~ msgstr "Bu isim zaten kullanılıyor !!"
-
-#~ msgid "You did not specify a name !!"
-#~ msgstr "Bir isim belirtmediniz !!"
-
-#~ msgid "git download, please wait..."
-#~ msgstr "git indirmesi, lütfen bekleyin..."
-
-#~ msgid "Please wait while the installer is downloaded..."
-#~ msgstr "Lütfen kurucu indirilirken bekleyin..."
-
-#~ msgid "Installation successfull"
-#~ msgstr "Kurulum başarılı"
-
-#, sh-format
-#~ msgid "Installation wizard"
-#~ msgstr "Kurulum sihirbazı"
-
-#~ msgid "downloaded"
-#~ msgstr "indirildi"
-
-#~ msgid "Finish"
-#~ msgstr "Bitir"
-
-#, sh-format
-#~ msgid "Finished"
-#~ msgstr "Bitti"
-
-#~ msgid "The logo are made by Crystal Project"
-#~ msgstr "Simge, Crystal Project tarafından yapılmıştır"
-
-#~ msgid "Run your Windows programs on Linux !"
-#~ msgstr "Windows uygulamalarınızı Linux üzerinde çalıştırın !"
-
-#~ msgid "Edit an application already installed"
-#~ msgstr "Önceden kurulmuş bir uygulamayı düzenle"
-
-#~ msgid "What is the prefix of your program ?"
-#~ msgstr "Programınızın öneki nedir ?"
-
-#, sh-format
-#~ msgid "Install a program in a new prefix"
-#~ msgstr "Yeni bir öneke bir program kur"
-
-#, sh-format
-#~ msgid "Install a .pol package"
-#~ msgstr "Bir .pol paketi yükle"
-
-#~ msgid "Dosbox application"
-#~ msgstr "Dosbox uygulaması"
-
-#~ msgid ""
-#~ "(C) PlayOnLinux team 2008\n"
-#~ "Under GPL licence version 3"
-#~ msgstr ""
-#~ "(C) PlayOnLinux takımı 2008\n"
-#~ "GPL lisans sürümü 3 ile dağıtılır"
-
-#~ msgid "Windows designed by asimov"
-#~ msgstr "Pencereler asimov tarafından tasarlanmıştır"
-
-#~ msgid "Remove a wine version"
-#~ msgstr "Bir wine sürümünü kaldır"
-
-#~ msgid "Put back the default wine version to a program"
-#~ msgstr "Varsayılan wine sürümünü bir programa geri yükle"
-
-#~ msgid "Assign a wine version to a programm"
-#~ msgstr "Bir wine sürümünü bir programa ata"
-
-#, sh-format
-#~ msgid "Delete a prefix"
-#~ msgstr "Bir ön ek sil"
-
-#~ msgid "Choose an action to do"
-#~ msgstr "Yapılacak bir eylem seçin"
-
-#~ msgid "Install a wine version"
-#~ msgstr "Bir wine sürümü yükle"
-
-#~ msgid "Install Wine GIT"
-#~ msgstr "Wine GIT yükle"
-
-#~ msgid "I'm going to test your 3D hardware. It will take about 2 minutes"
-#~ msgstr "3B donanımınızı sınayacağım. İşlem 2 dakika kadar sürecektir."
-
-#~ msgid "Which program do you want to edit ?"
-#~ msgstr "Hangi programı düzenlemek istersiniz ?"
-
-#, sh-format
-#~ msgid "Unable to find the file"
-#~ msgstr "Dosya bulunamadı"
-
-#~ msgid "Setup "
-#~ msgstr "Ayar "
-
-#~ msgid "Unable to find the game you are trying to uninstall"
-#~ msgstr "Kaldırmaya çalıştığınız oyun bulunamadı"
-
-#~ msgid "A CD-ROM has been found on your drive"
-#~ msgstr "Sürücünüzde bir CD-ROM bulundu"
-
-#~ msgid "Name "
-#~ msgstr "İsim "
-
-#~ msgid "Where do you want to install this CD-ROM?"
-#~ msgstr "Bu CD-ROM'u nereye kurmak istersiniz?"
-
-#~ msgid "recomended"
-#~ msgstr "önerilen"
-
-#~ msgid "You are not connected on the internet."
-#~ msgstr "Genel ağa bağlı değilsiniz."
-
-#~ msgid ""
-#~ "This script will allow you to install any game on PlayOnLinux and use it "
-#~ "with all the tools (WineBooster, WineMaster, WineConfig, etc) as if it had "
-#~ "been installed with an official script. Warning: We are unable to guarantee "
-#~ "that your game will work perfectly."
-#~ msgstr ""
-#~ "Bu skript ile herhangi bir oyunu PlayOnLinux içerisine kurabilir ve resmi "
-#~ "olarak tanınıyorsa tüm araçlarla (WineBooster, WineMaster, WineConfig, vb) "
-#~ "kullanabilirsiniz. Uyarı: Oyununuzun kusursuzca çalışacağı garanti edilemez."
-
-#~ msgid "Emulate DirectSound Driver? (Default : N)"
-#~ msgstr "DirectSound öykünmesi yapılsın mı? (Varsayılan : H)"
-
-#~ msgid "Authorize your WM to manage Windows? ( Default : Y )"
-#~ msgstr ""
-#~ "Pencereleri yönetmek için sizin pencere yöneticiniz kullanılsın mı? ( "
-#~ "Varsayılan : E )"
-
-#~ msgid ""
-#~ "Select resolution for Wine's Windows (DOES NOT CHANGE IN-GAME RESOLUTION "
-#~ "!!)? (Example : 1024x768 - Default : 0 = FullScreen)"
-#~ msgstr ""
-#~ "Wine pencere çözünürlüğünü seçilsin mi (OYUN İÇİ ÇÖZÜNÜRLÜĞÜ DEĞİŞTİRMEZ "
-#~ "!!)? (Örnek : 1024x768 - Varsayılan : 0 = TamEkran)"
-
-#~ msgid ""
-#~ "Choose Render Target Lock Mode? (Values : auto, readdraw, readtex, texdraw, "
-#~ "textex, disabled - Default : auto)"
-#~ msgstr ""
-#~ "İşleme Hedefi Kilit Kipini seçmek ister misiniz? (Değerler : auto, readdraw, "
-#~ "readtex, texdraw, textex, disabled - Varsayılan : auto)"
-
-#~ msgid ""
-#~ "Authorize DirectX to prevent the Wine mouse from going offscreen? ( Default "
-#~ ": N )"
-#~ msgstr ""
-#~ "Wine faresinin ekran dışına çıkmasını önlemek için DirectX yetkilendirilsin "
-#~ "mi? ( Varsayılan : H )"
-
-#~ msgid "Please choose a theme"
-#~ msgstr "Lütfen bir tema seçin"
-
-#~ msgid "Your theme have been successfully applied"
-#~ msgstr "Temanız başarıyla uygulandı"
-
-#~ msgid "Advanced wine configuration"
-#~ msgstr "Gelişmiş wine yapılandırması"
-
-#~ msgid "The list of programs has been successfully updated"
-#~ msgstr "Program listesi başarıyla güncellendi"
-
-#~ msgid "The prefix has been successfully updated"
-#~ msgstr "Ön ek başarıyla güncellendi"
-
-#~ msgid "Wine theme"
-#~ msgstr "Wine teması"
-
-#~ msgid "PlayOnLinux debugger"
-#~ msgstr "PlayOnLinux hata ayıklayıcı"
-
-#~ msgid "Click on download to start."
-#~ msgstr "Başlamak için indirmeye tıklatın."
-
-#~ msgid "Choose a repository to enable / disable"
-#~ msgstr "Etkinleştirmek / Pasifleştirmek için bir depo seçiniz"
-
-#, sh-format
-#~ msgid "The file is not a valid PlayOnLinux package"
-#~ msgstr "Bu dosya geçerli bir PlayOnLinux paketi değil"
-
-#~ msgid "Are you sure you want to delete that prefixe ?"
-#~ msgstr "Bu ön eki silmek istediğinize emin misiniz?"
-
-#~ msgid "The prefix has been deleted"
-#~ msgstr "Ön ek silindi"
-
-#~ msgid "Would you like to make a new shortcut in PlayOnLinux"
-#~ msgstr "PlayOnLinux içerisinde yeni bir kısayol oluşturmak istermisiniz"
-
-#~ msgid "Close"
-#~ msgstr "Kapat"
-
-#~ msgid "Search :"
-#~ msgstr "Ara :"
-
-#~ msgid "autorun has been found"
-#~ msgstr "otomatik çalıştırma bulundu"
-
-#, sh-format
-#~ msgid "Choose the prefix"
-#~ msgstr "Ön eki seçin"
-
-#~ msgid "No autorun support found"
-#~ msgstr "Otomatik çalıştırma desteği bulunamadı"
-
-#, sh-format
-#~ msgid "Shortcut creation"
-#~ msgstr "Kısayol oluşturulması"
-
-#~ msgid "Defaults programs"
-#~ msgstr "Varsayılan programlar"
-
-#~ msgid "Browser"
-#~ msgstr "Tarayıcı"
-
-#~ msgid "Terminal"
-#~ msgstr "Uçbirim"
-
-#~ msgid "Password"
-#~ msgstr "Şifre"
-
-#~ msgid "Login"
-#~ msgstr "Giriş"
-
-#~ msgid "Port"
-#~ msgstr "Bağlantı Noktası"
-
-#~ msgid "Offline Mode"
-#~ msgstr "Çevrimdışı Kipi"
-
-#~ msgid "Enable Offline mode"
-#~ msgstr "Çevrimdışı kipini etkinleştir"
-
-#~ msgid "Default Nickname"
-#~ msgstr "Varsayılan rumuz"
-
-#~ msgid "Add PlayOnLinux menu in your panel"
-#~ msgstr "playOnLinux menüsünü panelinize ekleyin"
-
-#~ msgid "PlayOnLinux Settings"
-#~ msgstr "PlayOnLinux Ayarları"
-
-#~ msgid "Messenger"
-#~ msgstr "Hızlı Mesajlaşma Aracı"
-
-#~ msgid "Apply"
-#~ msgstr "Uygula"
-
-#, sh-format
-#~ msgid "You are in offline mode"
-#~ msgstr "Çevrimdışı kiptesiniz"
-
-#~ msgid "Environment"
-#~ msgstr "Ortam"
-
-#~ msgid "System"
-#~ msgstr "Sistem"
-
-#~ msgid "This assistant will help you to install "
-#~ msgstr "Bu asistan kurulumda size yardımcı olacak "
-
-#~ msgid "Plugins manager"
-#~ msgstr "Eklenti yöneticisi"
-
-#~ msgid "Are yo sure you want to delete the plugin"
-#~ msgstr "Eklentiyi silmek istediğinize emin misiniz"
-
-#~ msgid "Are yo sure you want to install the plugin"
-#~ msgstr "Eklentiyi kurmak istediğinize emin misiniz"
-
-#~ msgid "No more alert me"
-#~ msgstr "Beni daha fazla uyarma"
-
-#~ msgid "Welcome in PlayOnLinux Installation Wizard"
-#~ msgstr "PlayOnLinux Kurulum Sihirbazına Hoş Geldiniz"
-
-#, sh-format
-#~ msgid "PlayOnLinux Wizard"
-#~ msgstr "PlayOnLinux Sihirbaz"
-
-#~ msgid "Click on next to start"
-#~ msgstr "Başlamak için ileriyi tıklatın"
-
-#~ msgid "This program is made by "
-#~ msgstr "Bu programı oluşturan "
-
-#~ msgid "This installation program is provided by "
-#~ msgstr "Bu kurulum programını sağlayan "
-
-#~ msgid " will be installed in "
-#~ msgstr " bu konuma kurulacak "
-
-#~ msgid "Please wait while the wine prefix is created..."
-#~ msgstr "Lütfen, wine ön eki oluşturulurken bekleyin..."
-
-#, sh-format
-#~ msgid "has been uninstalled successfully"
-#~ msgstr "başarıyla kaldırıldı"
-
-#~ msgid "has been installed successfully"
-#~ msgstr "başarıyla kuruldu"
-
-#, sh-format
-#~ msgid "PlayOnLinux Uninstaller"
-#~ msgstr "PlayOnLinux Kaldırıcı"
-
-#~ msgid "Click on next to continue"
-#~ msgstr "Devam etmek için ileriyi tıklatın"
-
-#, sh-format
-#~ msgid "Downloading updates..."
-#~ msgstr "Güncellemeler indiriliyor..."
-
-#~ msgid "PlayOnLinux update"
-#~ msgstr "PlayOnLinux güncellemesi"
-
-#, sh-format
-#~ msgid "Wine prefix configuration"
-#~ msgstr "Wine ön ek yapılandırması"
-
-#~ msgid "Disconnect"
-#~ msgstr "Bağlantıyı kes"
-
-#~ msgid "Connect"
-#~ msgstr "Bağlan"
-
-#, sh-format
-#~ msgid "PlayOnLinux is installing your application"
-#~ msgstr "PlayOnLinux uygulamanızı kuruyor"
-
-#~ msgid "Welcome in PlayOnLinux autorun assistant."
-#~ msgstr "PlayOnLinux otomatik çalıştır yardımcısına hoş geldiniz."
-
-#~ msgid "Send"
-#~ msgstr "Gönder"
-
-#~ msgid "Looking for runnable CD-ROM"
-#~ msgstr "Çalıştırılabilir CD-ROM için bakılıyor"
-
-#~ msgid "This wizard will help you to install a directx patch in playonlinux"
-#~ msgstr ""
-#~ "Bu sihirbaz playonlinux için directx yamasını kurmanızda yardımcı olur"
-
-#, sh-format
-#~ msgid "Please wait while PlayOnLinux is simulating a Windows reboot"
-#~ msgstr ""
-#~ "Lütfen, PlayOnLinux Windows yeniden başlatma işlemini taklit ederken biraz "
-#~ "bekleyin"
-
-#~ msgid "Welcome in PlayOnLinux manual Installation"
-#~ msgstr "PlayOnLinux el ile kurulum aracına hoş geldiniz"
-
-#~ msgid "This name shouldn't contain spaces."
-#~ msgstr "Bu isim boşluklar içeremez"
-
-#~ msgid "PlayOnLinux is installing your application ..."
-#~ msgstr "PlayOnLinux uygulamanızı kuruyor ..."
-
-#~ msgid "Please press Next only when installation is fully complete."
-#~ msgstr "İleri tuşuna sadece kurulum tamamıyla bittiğinde basın."
-
-#~ msgid "Choose a valid PlayOnLinux script to run"
-#~ msgstr "Çalıştırmak için geçerli bir PlayOnLinux skripti seçin"
-
-#~ msgid "Wine Versions"
-#~ msgstr "Wine Sürümleri"
-
-#, sh-format
-#~ msgid "Wineserver killed"
-#~ msgstr "Wineserver sonlandırıldı"
-
-#~ msgid "Extracting wine ..."
-#~ msgstr "Wine genişletiliyor ..."
-
-#~ msgid "Available Wine Versions :"
-#~ msgstr "Kullanılabilir Wine Sürümleri :"
-
-#~ msgid "Installed Wine Versions :"
-#~ msgstr "Kurulu Wine Sürümleri :"
-
-#, sh-format
-#~ msgid ""
-#~ "Welcome in PlayOnLinux first use assistant. Please ensure you are connected "
-#~ "to the Internet."
-#~ msgstr ""
-#~ "PlayOnLinux ilk kullanım yardımcısına hoş geldiniz. Lütfen genel ağa bağlı "
-#~ "olduğunuzdan emin olun."
-
-#, sh-format
-#~ msgid "First use of PlayOnLinux"
-#~ msgstr "PlayOnLinux ilk kullanımı"
-
-#~ msgid "Wine has been installed successfully"
-#~ msgstr "Wine başarıyla kuruldu"
-
-#~ msgid ""
-#~ "This wizard will help you to install wine $version in PlayOnLinux environment"
-#~ msgstr ""
-#~ "Bu sihirbaz wine $version sürümünü PlayOnLinux ortamına kurmanızda size "
-#~ "yardımcı olacaktır"
-
-#~ msgid "No description."
-#~ msgstr "Açıklama yok."
-
-#, sh-format
-#~ msgid "PlayOnLinux application list update"
-#~ msgstr "PlayOnLinux uygulama listesi güncellemesi"
-
-#~ msgid "Installing Microsoft Fonts. Please wait..."
-#~ msgstr "Microsoft yazı biçimleri kuruluyor. Lütfen bekleyin..."
-
-#, sh-format
-#~ msgid "Microsoft Fonts has been installed successfully"
-#~ msgstr "Microsoft yazı biçimleri başarıyla kuruldu"
-
-#, sh-format
-#~ msgid "Please read and accept this"
-#~ msgstr "Lütfen bunu okuyun ve onaylayın"
-
-#~ msgid "Refresh the repository"
-#~ msgstr "Depoyu yenile"
-
-#, sh-format
-#~ msgid "Installing"
-#~ msgstr "Kuruluyor"
-
-#~ msgid "Enable PlayOnLinux Messenger"
-#~ msgstr "PlayOnLinux anlık ileti aracını etkinleştir"
-
-#~ msgid "Join a channel"
-#~ msgstr "Bir kanala katıl"
-
-#~ msgid "This wizard will help you to configure :"
-#~ msgstr "Şu yapılandırmayı oluşturmanızda yardımcı olur :"
-
-#~ msgid "Configure this application"
-#~ msgstr "Bu uygulamayı yapılandır"
-
-#~ msgid "PlayOnLinux applications configurator"
-#~ msgstr "PlayOnLinux uygulama yapılandırıcı"
-
-#~ msgid "Welcome into PlayOnLinux applications configurator."
-#~ msgstr "PlayOnLinux uygulama yapılandırıcıya hoş geldiniz."
-
-#~ msgid "The following wine prefix will be updated :"
-#~ msgstr "Şu wine ön eki güncellenecek :"
-
-#~ msgid "Running advanced wine configurator"
-#~ msgstr "Gelişmiş wine yapılandırıcı çalışıyor"
-
-#~ msgid "Running regedit"
-#~ msgstr "Kayıt defteri düzenleyici çalışıyor"
-
-#~ msgid "Running wine configurator"
-#~ msgstr "Wine yapılandırıcı çalışıyor"
-
-#~ msgid "Running specific wine configurator"
-#~ msgstr "Özel wine yapılandırıcı çalışıyor"
-
-#~ msgid "Use advanced wine configuration plugin"
-#~ msgstr "Gelişmiş wine yapılandırma eklentisi kullan"
-
-#~ msgid ""
-#~ "Be carreful ! PlayOnLinux will need to kill all the programs running in this "
-#~ "prefix !"
-#~ msgstr ""
-#~ "Dikkatli olun ! PlayOnLinux bu ön ekte çalışan tüm programları sonlandırmak "
-#~ "zorunda !"
-
-#~ msgid "Please choose an action"
-#~ msgstr "Lütfen bir hareket seçin"
-
-#~ msgid "Kill all the prefix process"
-#~ msgstr "Tüm ön ek işlemlerini sonlandır"
-
-#~ msgid "Killing process in the prefix .."
-#~ msgstr "Ön ekteki işlem sonlandırılıyor .."
-
-#~ msgid ""
-#~ "Are you sure you want to close all the PlayOnLinux applications opened ?"
-#~ msgstr ""
-#~ "Tüm açık PlayOnLinux uygulamalarını kapatmak istediğinizden emin misiniz ?"
-
-#~ msgid ""
-#~ "Do you want to configure your prefix before installing your application ?"
-#~ msgstr "Uygulamayı kurmadan önce ön ekinizi yapılandırmak ister misiniz ?"
-
-#~ msgid "Go to the application directory"
-#~ msgstr "Uygulama klasörüne git"
-
-#~ msgid "What do you want to do before installation ?"
-#~ msgstr "Kurulumdan önce ne yapmak istersiniz ?"
-
-#~ msgid "Wine GIT"
-#~ msgstr "Wine GIT"
-
-#~ msgid "Please choose a name for the shortcut"
-#~ msgstr "Lütfen kısayol için bir isim seçin"
-
-#~ msgid "Please choose a type of application to install"
-#~ msgstr "Lütfen kurulum için uygulamanın türünü seçin"
-
-#, sh-format
-#~ msgid "In a new prefix"
-#~ msgstr "Yeni bir ön ekte"
-
-#~ msgid ""
-#~ "Please type a code name for the wine prefix of your game. This name "
-#~ "shouldn't contain spaces."
-#~ msgstr ""
-#~ "Oyununuzun wine ön eki için lütfen bir takma ad girin. Bu ad boşluk "
-#~ "içermemelidir."
-
-#~ msgid "git's compilation and installation, please wait..."
-#~ msgstr "GIT'in derlenmesi ve kurulumu, lütfen bekleyin..."
-
-#, sh-format
-#~ msgid "In an existing prefix (add-on)"
-#~ msgstr "Varoln bir ön ekte (eklenti)"
-
-#, sh-format
-#~ msgid "In the following prefix"
-#~ msgstr "Bu ön ekinde"
-
-#~ msgid "PlayOnLinux is not responsible of your way to use these scripts"
-#~ msgstr "PlayOnLinux, bu skriptleri kullanma amacınızdan sorumlu değildir"
-
-#~ msgid "Automatically connect to IRC at PlayOnLinux startup"
-#~ msgstr "PlayOnLinux başlangıcında IRC'ye otomatik olarak bağlan"
-
-#~ msgid "Default Wine Version to run wine programs with PlayOnLinux"
-#~ msgstr ""
-#~ "Wine programlarını PlayOnLinux ile çalıştırmak için varsayılan wine sürümü"
-
-#~ msgid "Do you really want to uninstall $delete_var ?"
-#~ msgstr "Kaldırmak istediğinizden emin misiniz: $delete_var ?"
-
-#~ msgid "Warm users when I run a game"
-#~ msgstr "Bir oyun çalıştırdığımda kullanıcıları bilgilendir"
-
-#~ msgid "Play a sound when I receive a private message"
-#~ msgstr "Özel bir mesaj aldığımda ses çal"
-
-#~ msgid "Install a .pol package or an unsupported application"
-#~ msgstr "Bir .pol paketi veya desteklenmeyen bir uygulama kur"
-
-#~ msgid "Do you want to delete the prefix : $prefix"
-#~ msgstr "Ön eki silmek istiyor musunuz : $prefix"
-
-#~ msgid "This assistant will help you to uninstall $delete_var."
-#~ msgstr "Bu yardımcı $delete_var öğesini kaldırmanızda size yardımcı olur."
-
-#~ msgid "The patch will be applied in :"
-#~ msgstr "Yama buraya uygulanacak :"
-
-#~ msgid ""
-#~ "This wizard will help you to execute a non-official PlayOnLinux Script"
-#~ msgstr ""
-#~ "Bu sihirbaz gayriresmi PlayOnLinux skripti çalıştırmanızda size yardımcı "
-#~ "olacak"
-
-#~ msgid "Please type a name for the wine prefix of your application."
-#~ msgstr "Lütfen uygulamanızın wine ön eki için bir isim girin."
-
-#~ msgid "It will help you to help an application from a CD-ROM."
-#~ msgstr "Bu, size bir uygulamayı CD-ROM'dan kurmanızda yardımcı olacaktır."
-
-#~ msgid ""
-#~ "Warning ! Before killing the wineserver, please assure that there are no "
-#~ "wine applications running.\n"
-#~ "\n"
-#~ "Are you sure you want to kill the wineserver ?"
-#~ msgstr ""
-#~ "Uyarı ! Wineserver sonlandırması yapmadan önce çalışan bir wine uygulaması "
-#~ "olmadığından emin olun.\n"
-#~ "\n"
-#~ "Wineserver sonlandırılsın mı ?"
-
-#, sh-format
-#~ msgid "start installation a specified script"
-#~ msgstr "tanımlı skript kurulumunu başlat"
-
-#~ msgid ""
-#~ "(C) PlayOnLinux team 2007-2010\n"
-#~ "Under GPL licence version 3"
-#~ msgstr ""
-#~ "(C) PlayOnLinux team 2007-2010\n"
-#~ "Under GPL licence version 3"
-
-#, sh-format
-#~ msgid "print current version and exit"
-#~ msgstr "sürüm bilgisini göster ve çık"
-
-#, sh-format
-#~ msgid "use this switch to run an already installed software"
-#~ msgstr "önceden kurulmuş yazılımı çalıştırmak için bu seçeneği kullanın"
-
-#, sh-format
-#~ msgid "use this switch to update PlayOnLinux script repository"
-#~ msgstr "PlayOnLinux deposunu güncellemek için bu seçeneği kullanın"
-
-#, sh-format
-#~ msgid ""
-#~ "This program is intended to be used by automatic scripts for manage "
-#~ "PlayOnLinux."
-#~ msgstr ""
-#~ "Bu program PlayOnLinux'u yönetiminde otomatik skripler ile kullanılması için "
-#~ "düşünülmüştür."
-
-#~ msgid "Content of app launcher :"
-#~ msgstr "Uygulama başlatıcı içeriği :"
-
-#~ msgid "Content of terminal output :"
-#~ msgstr "Uç birim çıktı içeriği :"
-
-#, sh-format
-#~ msgid "Message"
-#~ msgstr "Mesaj"
-
-#~ msgid "Running WineTricks plug-in"
-#~ msgstr "Çalışan WineTricks eklentisi"
-
-#~ msgid "System architecture :"
-#~ msgstr "Sistem mimarisi :"
-
-#~ msgid "Graphic card driver :"
-#~ msgstr "Grafik kartı sürücüsü :"
-
-#~ msgid "Compiz in background :"
-#~ msgstr "Arkaplandaki compiz :"
-
-#, sh-format
-#~ msgid "Field"
-#~ msgstr "Alan"
-
-#~ msgid "Unable to find the version :"
-#~ msgstr "Sürüm bulunamadı :"
-
-#~ msgid "Executable file :"
-#~ msgstr "Çalıştırılabilir dosya :"
-
-#~ msgid "Version :"
-#~ msgstr "Sürüm :"
-
-#, sh-format
-#~ msgid "The download seems to have failed"
-#~ msgstr "İndirme başarısız görünüyor"
-
-#~ msgid "Translation was made on launchpad:"
-#~ msgstr "Launchpad üzerinden yapılan çeviri:"
-
-#, sh-format
-#~ msgid ""
-#~ "Please type a name for your application's Wine prefix.\\nThis name shouldn't "
-#~ "contain spaces."
-#~ msgstr ""
-#~ "Lütfen uygulamanızın Wine ön eki için bir isim girin.\\nBu isim boşluklar "
-#~ "içermemelidir."
-
-#, sh-format
-#~ msgid "What is your program's prefix?"
-#~ msgstr "Programınızın ön eki nedir?"
-
-#, sh-format
-#~ msgid "Are you sure you want to delete this prefix?"
-#~ msgstr "Bu ön eki silmek istediğinizden emin misiniz?"
-
-#, sh-format
-#~ msgid "The prefix has been deleted."
-#~ msgstr "Ön ek silindi."
-
-#, sh-format
-#~ msgid ""
-#~ "Would you like to create a shortcut to the application in PlayOnLinux?\\nIf "
-#~ "you patched a game, you should probably select no."
-#~ msgstr ""
-#~ "Uygulamanın kısayolunu playonlinux içerisinde oluşturmak ister misiniz?\\"
-#~ "nEğer sadece oyun yaması yüklediyseniz büyük olasılıkla hayırı seçmeniz "
-#~ "gerekebilir."
-
-#, sh-format
-#~ msgid "Select the program's executable file."
-#~ msgstr "Programın çalıştırılabilir dosyasını seçin."
-
-#, sh-format
-#~ msgid ""
-#~ "Welcome to PlayOnLinux's manual installation wizard.\\n\\nThis script will "
-#~ "allow you to install any program on PlayOnLinux and use it with all the "
-#~ "tools (WineConfig, AdvancedWineConfiguration, Capture, etc.) as if it had "
-#~ "been installed with an official script.\\n\\nWarning: We are unable to "
-#~ "guarantee that your application will work perfectly."
-#~ msgstr ""
-#~ "PlayOnLinux el ile kurulum sihirbazına hoş geldiniz.\\n\\nBu betik herhangi "
-#~ "bir programı PlayOnLinux'a kurmanıza yardımcı olacak ve çeşitli araçlar "
-#~ "(WineConfig, AdvancedWineConfiguration, Görüntü Yakala, vb.) ile sanki resmi "
-#~ "betik vasıtasıyla kurulum yapmışcasına kullanmanızı sağlayacaktır. \\n\\"
-#~ "nUyarı: Uygulamanızın tam anlamıyla çalışacağını garanti edemeyiz."
-
-#, sh-format
-#~ msgid "Edit an existing application"
-#~ msgstr "Varolan bir uygulamayı ekle"
-
-#, sh-format
-#~ msgid "Please choose a name for the shortcut."
-#~ msgstr "Lütfen kısayol için bir isim seçin."
-
-#, sh-format
-#~ msgid "Installer: "
-#~ msgstr "Yükleyici: "
-
-#, sh-format
-#~ msgid "Assign a Wine version to a program"
-#~ msgstr "Bir Wine sürümünü program ile ilişkilendir"
-
-#, sh-format
-#~ msgid "PlayOnLinux is installing your application..."
-#~ msgstr "PlayOnLinux uygulamanızı yüklüyor..."
-
-#, sh-format
-#~ msgid "A CD-ROM has been found in your drive.\\n\\nName: "
-#~ msgstr "Sürücünüzde bir CD-ROM bulundu.\\n\\nİsim: "
-
-#, sh-format
-#~ msgid "recommended"
-#~ msgstr "önerilen"
-
-#, sh-format
-#~ msgid "No autorun support found!"
-#~ msgstr "Otomatik çalıştır desteği bulunamadı!"
-
-#, sh-format
-#~ msgid ""
-#~ "Welcome to PlayOnLinux's autorun wizard.\\nIt will help you install an "
-#~ "application from a CD-ROM.\\n\\n"
-#~ msgstr ""
-#~ "PlayOnLinux otomatik çalıştır sihirbazına hoş geldiniz.\\nBu sihirbaz ile "
-#~ "bir CD-ROM'dan uygulama kurabileceksiniz.\\n\\n"
-
-#, sh-format
-#~ msgid "autoruns have been found"
-#~ msgstr "otomatik çalıştır dosyaları bulundu"
-
-#, sh-format
-#~ msgid "This wizard will help you run an unofficial PlayOnLinux Script."
-#~ msgstr ""
-#~ "Bu sihirbaz, size desteklenmeyen bir PlayOnLinux betiği çalıştımanızda "
-#~ "yardımcı olacak."
-
-#, sh-format
-#~ msgid "The PlayOnLinux repository needs to be updated."
-#~ msgstr "PlayOnLinux deposunun güncellenmesi gerekiyor."
-
-#, sh-format
-#~ msgid "You are in offline mode."
-#~ msgstr "Çevrimdışı kiptesiniz."
-
-#, sh-format
-#~ msgid ""
-#~ "Are you sure you want to shut down all active PlayOnLinux applications?"
-#~ msgstr ""
-#~ "Tüm aktif PlayOnLinux uygulamalarını kapatmak istediğinizden emin misiniz?"
-
-#, sh-format
-#~ msgid "This wizard will help you install Wine: "
-#~ msgstr "Bu sihirbazın size yardımcı olacağı Wine: "
-
-#, sh-format
-#~ msgid "Please choose a type of application to install."
-#~ msgstr "Lütfen kurmak istediğiniz uygulama türünü seçin."
-
-#, sh-format
-#~ msgid ""
-#~ "Warning! This operation could make Wine applications unstable, whether they "
-#~ "were launched by PlayOnLinux or not. Please make sure there are no Wine "
-#~ "applications running before you continue.\\n\\nAre you sure you want to kill "
-#~ "the wineserver?"
-#~ msgstr ""
-#~ "Uyarı! Uygulamanız ister PlayOnLinux ile çalıştırılsın ister "
-#~ "çalıştırılmasın; bu işlem Wine uygulamalarını kararsız hale getirebilir. "
-#~ "Lütfen devam etmeden önce çalışan bir Wine süreci olmadığından emin olun.\\"
-#~ "n\\nWineserver sonlandırılsın mı?"
-
-#, sh-format
-#~ msgid ""
-#~ "Welcome to PlayOnLinux's Application Configurator.\\nThis wizard will help "
-#~ "you configure: "
-#~ msgstr ""
-#~ "PlayOnLinux Uygulama Yapılandırıcısı'na hoş geldiniz.\\nBu sihirbaz şu "
-#~ "yapılandırmada yardımcı olacak: "
-
-#, sh-format
-#~ msgid "MiB"
-#~ msgstr "MiB"
-
-#, sh-format
-#~ msgid "Content of app launcher: \\n"
-#~ msgstr "Uygulama başlatıcı içeriği: \\n"
-
-#, sh-format
-#~ msgid "Content of terminal output: \\n"
-#~ msgstr "Uçbirim çıktı içeriği: \\n"
-
-#, sh-format
-#~ msgid "Graphics card driver: "
-#~ msgstr "Grafik kartı sürücüsü: "
-
-#, sh-format
-#~ msgid "Would you like a shortcut on your desktop?"
-#~ msgstr "Masaüstünüzde kısayol oluşturmak ister misiniz?"
-
-#, sh-format
-#~ msgid "The program you want to run isn't installed: "
-#~ msgstr "Çalıştırmayı istediğiniz program kurulu değil: "
-
-#, sh-format
-#~ msgid "This wizard will help you uninstall: "
-#~ msgstr "Bu sihirbazın sağlayacağı program kaldırması: "
-
-#, sh-format
-#~ msgid "Would you like a shortcut in your menu?"
-#~ msgstr "Menünüzde kısayol oluşturmak ister misiniz?"
-
-#, sh-format
-#~ msgid "Do you want to delete the prefix: "
-#~ msgstr "Bu ön eki silmek ister misiniz? "
-
-#, sh-format
-#~ msgid "Please mount the CD-ROM: "
-#~ msgstr "Lütfen bir CD takın: "
-
-#, sh-format
-#~ msgid ""
-#~ "You don't seem to have 3D acceleration!\\nWe advise you install and enable "
-#~ "it."
-#~ msgstr ""
-#~ "3D hızlandırmaya sahip değilsiniz!\\nKurup etkinleştirmenizi öneririz."
-
-#, sh-format
-#~ msgid " is missing. Please install it before running PlayOnLinux."
-#~ msgstr " kayıp. Lütfen PlayOnLinux'u çalıştırmadan önce bunu kurun."
-
-#, sh-format
-#~ msgid "Welcome to PlayOnLinux's Installation Wizard."
-#~ msgstr "PlayOnLinux Kurulum Sihirbazına Hoş Geldiniz."
-
-#, sh-format
-#~ msgid ""
-#~ "\\n\\nPlayOnLinux is not responsible for the way you use these scripts.\\n\\n"
-#~ msgstr ""
-#~ "\\n\\nPlayOnLinux bu betikleri kullanım amacınızdan sorumlu değildir.\\n\\n"
-
-#, sh-format
-#~ msgid "Please wait while the Wine prefix is being created..."
-#~ msgstr "Wine ön eki oluşturulurken lütfen bekleyin..."
-
-#, sh-format
-#~ msgid " Licence translated in your language "
-#~ msgstr " Sözleşme sizin dilinize çevrildi "
-
-#, sh-format
-#~ msgid "Welcome to PlayOnLinux's First Use Wizard."
-#~ msgstr "PlayOnLinux ilk kullanım sihirbazına hoş geldiniz."
-
-#, sh-format
-#~ msgid "Wine version server temporary unavailable.\\nPlease try again later."
-#~ msgstr ""
-#~ "Wine versiyonuna ait sunucuya şu an ulaşılamamaktadır. Lütfen daha sonra "
-#~ "tekrar deneyiniz."
-
-#, sh-format
-#~ msgid "Following server is no longer available:\\n\\n"
-#~ msgstr "Listelenen sunucular ulaşılabilir değildir:\\n\\n"
-
-#, sh-format
-#~ msgid "Following file is no longer available on server:\\n\\n"
-#~ msgstr "Listelenen dosya sunucuda bulunmamaktadır:\\n\\n"
-
-#, sh-format
-#~ msgid "Download failure"
-#~ msgstr "İndirme hatası"
-
-#, sh-format
-#~ msgid ", and press \"OK\" when you are ready"
-#~ msgstr ", hazır olduğunuzda \"Tamam\"a tıklayınız"
-
-#, sh-format
-#~ msgid "You must choose which Wine version you want to download."
-#~ msgstr "Hangi Wine versiyonunu indirmek istediğinizi seçmelisiniz."
-
-#, sh-format
-#~ msgid "PlayOnLinux is not reponsible for any damage to your system.\\n\\n"
-#~ msgstr ""
-#~ "PlayOnLinux sisteminize gelebilecek herhangi bir zarardan sorumlu değildir."
-
-#, sh-format
-#~ msgid "You are running PlayOnLinux as root.\\n\\n"
-#~ msgstr "PlayOnLinux programını kök dizininde çalıştırıyorsunuz."
-
-#~ msgid "Are you sure you want to delete Wine: "
-#~ msgstr "Wine'ı silmek istediğinize emin misiniz? "
-
-#, sh-format
-#~ msgid "Press Enter to choose default file: "
-#~ msgstr "Varsayılan dosyayı seçmek için Enter'a basın: "
-
-#, sh-format
-#~ msgid "to confirm your choices."
-#~ msgstr "tercihlerinizi onaylamak için."
-
-#, sh-format
-#~ msgid "Waiting: "
-#~ msgstr "Bekliyor: "
-
-#, sh-format
-#~ msgid "Please answer following question, and validate with the 'ENTER' key."
-#~ msgstr ""
-#~ "Lütfen takibeden soruyu cevaplandırın ve 'ENTER' tuşuna basarak onaylayın."
-
-#, sh-format
-#~ msgid "Completion: "
-#~ msgstr "Tamamlanma: "
-
-#, sh-format
-#~ msgid "Done"
-#~ msgstr "Tamamlandı"
-
-#, sh-format
-#~ msgid "Press a key to continue."
-#~ msgstr "Devam etmek için bir tuşa basın."
-
-#, sh-format
-#~ msgid "Oops, no application installed!"
-#~ msgstr "Ahhh, herhangi bir uygulama kurulu değil!"
-
-#, sh-format
-#~ msgid "\tstart installing the specified script."
-#~ msgstr "\tbelirtilmiş betiği kurmaya başla."
-
-#, sh-format
-#~ msgid "\tlist software installed with PlayOnLinux."
-#~ msgstr "\tPlayOnLinux ile kurulmuş yazılımları listele."
-
-#, sh-format
-#~ msgid "\tupdate the PlayOnLinux script repository."
-#~ msgstr "\tPlayOnLinux betik deposunu güncelle."
-
-#, sh-format
-#~ msgid "\trun an existing application."
-#~ msgstr "\tvarolan bir uygulamayı çalıştır."
-
-#, sh-format
-#~ msgid "Currently installed applications:"
-#~ msgstr "Halihazırda kurulu olan uygulamalar:"
-
-#, sh-format
-#~ msgid "\tremove an existing application."
-#~ msgstr "\tvarolan bir uygulamayı kaldır."
-
-#, sh-format
-#~ msgid "\tperform search into the script repository."
-#~ msgstr "\tbetik deposunun içerisinde arama yap."
-
-#, sh-format
-#~ msgid "Search result(s): "
-#~ msgstr "Arama sonucu(sonuçları): "
-
-#~ msgid "Create a shortcut: "
-#~ msgstr "Bir kısayol oluştur: "
-
-#~ msgid "Your are using a development version, be careful."
-#~ msgstr "Dikkatli olun, bir geliştirme sürümü kullanıyorsunuz."
-
-#~ msgid "Icons are provided by the Tango Desktop Project"
-#~ msgstr "Simgeler Tango Masaüstü Projesi tarafından sağlanmıştır"
-
-#~ msgid "Do not alert me anymore"
-#~ msgstr "Artık bana uyarı verme"
-
-#~ msgid "Please wait while the software is being downloaded..."
-#~ msgstr "Yazılım indirilirken lütfen bekleyiniz..."
-
-#~ msgid "Download complete"
-#~ msgstr "İndirme tamamlandı"
-
-#, sh-format
-#~ msgid "\tprint current version and exit."
-#~ msgstr "\tşu anki sürümü yazdır ve çık."
-
-#~ msgid "Run your Windows programs on Linux!"
-#~ msgstr "Windows programlarınızı Linux üzerinde çalıştırın!"
-
-#~ msgid "Click Download to start."
-#~ msgstr "Başlamak için indire tıklayın."
-
-#, sh-format
-#~ msgid ""
-#~ "Please note:\\nThe CD or DVD protection of this game doesn't work correctly "
-#~ "with Wine.\\nYou will not be able to play this game without deactivating "
-#~ "this protection!\\nPlayOnLinux cannot be held responsible for your use of "
-#~ "these patches.\\n\\nThank you."
-#~ msgstr ""
-#~ "Lütfen not alın:\\nBu oyunun CD veya DVD koruması Wine ile düzgün "
-#~ "çalışmamaktadır.\\nBu korumayı kaldırmadan oyunu oynayamazsınız!\\"
-#~ "nPlayOnLinux, sizin bu yamaları kullanmanız halinde sorumlu tutulamaz.\\n\\"
-#~ "nTeşekkürler."
-
-#, sh-format
-#~ msgid "Would you like a shortcut for: "
-#~ msgstr "Bunun için bir kısayol ister misiniz: "
-
-#, sh-format
-#~ msgid "Type: '1' for Yes or '2' for No. Your answer: "
-#~ msgstr "Evet için '1' veya Hayır için '2' yazın. Cevabınız: "
-
-#, sh-format
-#~ msgid "Type: '1' if you agree or '2' if you do not. Your answer: "
-#~ msgstr "Eğer kabul ediyorsanız '1', etmiyorsanız '2' yazın. Cevabınız: "
-
-#, sh-format
-#~ msgid "Type: '1' for continue or '2' to cancel. Your answer: "
-#~ msgstr "Eğer devam ediyorsanız '1', iptal ediyorsanız '2' yazın. Cevabınız: "
-
-#, sh-format
-#~ msgid "Type: "
-#~ msgstr "Tür: "
-
-#, sh-format
-#~ msgid " for entry: "
-#~ msgstr " için girdi: "
-
-#, sh-format
-#~ msgid "Press: "
-#~ msgstr "Basın: "
-
-#, sh-format
-#~ msgid "Processing: "
-#~ msgstr "İşleniyor: "
-
-#, sh-format
-#~ msgid ""
-#~ "This program is intended to be used by automatic scripts to manage "
-#~ "PlayOnLinux."
-#~ msgstr ""
-#~ "Bu program PlayOnLinux'u yönetmek için otomatik betikler ile kullanılıyor "
-#~ "olmalıdır."
-
-#~ msgid "MiB downloaded"
-#~ msgstr "MiB indirildi"
-
-#~ msgid "Under GPL licence version 3."
-#~ msgstr "GPL lisansı sürüm 3 ile dağıtılmaktadır."
-
-#, sh-format
-#~ msgid ""
-#~ "The search needs an updated repository.\\nIf the results seem outdated, "
-#~ "please run an update."
-#~ msgstr ""
-#~ "Arama, güncellenmiş bir depoya ihtiyaç duyuyor.\\nEğer sonuçlar eski "
-#~ "görünüyorsa,lütfen bir güncelleme çalıştırın."
-
-#~ msgid "You seem to be using the Offline PlayOnLinux plugin."
-#~ msgstr "Çevrimdışı bir PlayOnLinux eklentisi çalıştırıyorsunuz."
-
-#~ msgid "Internal error when starting GUI. Please file a bug report ASAP!"
-#~ msgstr ""
-#~ "Grafiksel Kullanıcı Arabirimi başlatılırken dahili bir hata oluştu. Lütfen "
-#~ "EN KISA ZAMANDA bir hata bildirimi yapın!"
-
-#~ msgid "Version: "
-#~ msgstr "Sürüm: "
-
-#, sh-format
-#~ msgid ""
-#~ "\\n\\nPlayOnLinux is not responsible for the anything that might happen as a "
-#~ "result of using these scripts.\\n\\n"
-#~ msgstr ""
-#~ "\\n\\nPlayOnLinux bu scriptlerin kullanımı sonucu olabilecek hiçbir şeyin "
-#~ "sorumlusu değildir.\\n\\n"
-
-#~ msgid "PlayOnMac Wizard"
-#~ msgstr "PlayOnMac Sihirbazı"
-
-#, sh-format
-#~ msgid "Please choose components to be installed"
-#~ msgstr "Lütfen kurulacak öğeleri seçin"
-
-#, sh-format
-#~ msgid "You must choose a component to be installed"
-#~ msgstr "Kurmak için bir öğe seçmelisiniz"
-
-#, sh-format
-#~ msgid "Error during the execution of winetricks"
-#~ msgstr "winetricks başlatılırken hata"
-
-#~ msgid "You do not seem to be connected to the Internet."
-#~ msgstr "Genelağa bağlı görünmüyorsunuz."
-
-#, sh-format
-#~ msgid "Please make sure you are connected to the Internet."
-#~ msgstr "\\nLütfen genelağa bağlı olduğunuzdan emin olun."
-
-#, sh-format
-#~ msgid "\\nPlease make sure you are connected to Internet."
-#~ msgstr "\\nLütfen genelağa bağlı olduğunuzdan emin olun."
