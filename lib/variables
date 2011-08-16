@@ -17,20 +17,6 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
 
-### POL Wine version
-if [ -e "$REPERTOIRE/configurations/options/env" ]
-then
-	source "$REPERTOIRE/configurations/options/env"
-	if [ ! "$WINEVERSION" = "" ]
-	then
-		if [ ! "$WINEVERSION" = "System" ]
-		then
-			export PATH="$REPERTOIRE/WineVersions/$WINEVERSION/usr/bin:$VRAIPATH"
-			export LD_LIBRARY_PATH="$REPERTOIRE/WineVersions/$WINEVERSION/usr/lib:$VRAILDPATH"
-		fi
-	fi
-fi	
-
 ### Terminal
 export POL_TERM="xterm"
 

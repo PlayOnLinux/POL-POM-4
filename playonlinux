@@ -46,5 +46,9 @@ then
 else
 	cd "$(dirname "$0")/python"
 	"$PYTHON" mainwindow.py "$@"
+	if [ ! "$?" = "0" ]
+	then
+		python2.6 mainwindow.py "$@" || python2.5 mainwindow.py "$@"
+	fi
 fi
 exit $?
