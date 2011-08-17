@@ -39,6 +39,7 @@ fi
 
 if [ "$1" == "--run" ]
 then
+	cd "$(dirname "$0")"
 	shift
 	NAME="$1"
 	shift
