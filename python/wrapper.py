@@ -70,7 +70,13 @@ while(True):
 	time.sleep(1)
 	if(prog.proc.returncode == None):
 		fichier_index = os.environ["REPERTOIRE"]+"/configurations/guis/index_"+polid
-		message = open(fichier_index,'r').read()
+		fichier_index = os.environ["REPERTOIRE"]+"/configurations/guis/index_"+os.environ["POL_ID"]
+		#print(fichier_index)
+		try:
+			message = open(fichier_index,'r').read()
+		except:
+			open(fichier_index,'a').write('')
+			message = open(fichier_index,'r').read()
 		message = string.split(message, "\n")
 		if(message[0] == "Open"):
 			pid_to_open = message[1]
