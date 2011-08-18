@@ -189,7 +189,7 @@ POL_Shortcut()
 	echo "source \"\$PLAYONLINUX/lib/sources\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
 	echo "export WINEPREFIX=\"$WINEPREFIX\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
 	echo "export WINEDEBUG=\"-all\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
-	[ ! "$LOGTITLE" = "" ] && echo "POL_Log=$LOGTITLE" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
+	[ ! "$LOGTITLE" = "" ] && echo "POL_Log=\"$LOGTITLE\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
 	echo "cd \"$WINEPREFIX/drive_c/$binary_dir\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
 	echo "POL_Wine \"$Binaire\" $SpecialArg \$@" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
 	chmod +x "$REPERTOIRE/shortcuts/$NOMICONE_"

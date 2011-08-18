@@ -31,7 +31,7 @@ export TEXTDOMAINDIR="$PLAYONLINUX/lang/locale/"
 export TEXTDOMAIN="pol"
 . gettext.sh
 eval_gettext > /dev/null || eval_gettext() { printf "$@"; }
-
+which shasum > /dev/null || shasum () { sha1sum "$@"; }
 else
 	eval_gettext() { printf "$@"; }
 fi

@@ -61,6 +61,9 @@ DESCRIPTION="$APP_ANSWER
 POL_Website_login
 POL_Website_Init
 contenu="$(cat "$LOGFILE")"
+DESCRIPTION="$(POL_Website_urlparse "$DESCRIPTION")"
+BUGTITLE="$(POL_Website_urlparse "$BUGTITLE")"
+
 POL_Website_Request "http://bugs.playonlinux.com/en/new-$TRACKER.html" "priority=2&tracker=$TRACKER&title=[Bug report] $BUGTITLE&message=$DESCRIPTION&submit=Send"
 POL_Website_Close
 POL_Website_logout

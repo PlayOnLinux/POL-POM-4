@@ -65,6 +65,8 @@ debug_sendtopom()
 	POL_Website_login
 	POL_Website_Init
 	contenu="$(cat "$LOGFILE")"
+	PACKAGE="$(POL_Website_urlparse "$PACKAGE")"
+	contenu="$(POL_Website_urlparse "$contenu")"
 	POL_Website_Request "http://bugs.playonlinux.com/en/new-$TRACKER.html" "priority=2&tracker=$TRACKER&title=$PACKAGE crashed while running&message=$contenu&submit=Send"
 	POL_Website_Close
 	POL_Website_logout

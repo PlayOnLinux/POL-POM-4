@@ -58,13 +58,13 @@ POL_SetupWindow_detect_exit
 POL_SetupWindow_Init # Quoi qu'il arrive on ouvre la fenêtre
 
 
-if [ ! -e "$REPERTOIRE/configurations/first_use" ] # PlayOn* pas initialisé ? Alors on attend que ce soit fini
+if [ "$(POL_Config_Read FIRST_USE)" = "" ] # PlayOn* pas initialisé ? Alors on attend que ce soit fini
 then
 	POL_SetupWindow_wait_next_signal "$(eval_gettext "Waiting for the first-assistant to be finished")" "$TITRE"
 	sleep 1
 	#bash "$PLAYONLINUX/bash/first_use" & #### Fixme ! La ya des test à faire !
 fi
-while [ ! -e "$REPERTOIRE/configurations/first_use" ]
+while [ "$(POL_Config_Read FIRST_USE)" = "" ]
 do
 	sleep 1
 done
