@@ -27,6 +27,7 @@ then
 	cd "$CURDIR"
 	CURDIR="$(pwd)"
 	cd python
+	export MACHTYPE
 	python wrapper.py "$CURDIR/bash/$(basename "$0")" "$@"
 else
 	bash "$PLAYONLINUX/bash/$(basename "$0")" "$@"
