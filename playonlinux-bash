@@ -35,6 +35,7 @@ then
 	cd "$CURDIR"
 	CURDIR="$(pwd)"
 	cd python
+	export MACHTYPE
 	python wrapper.py "$SCRIPTNAME" "$@"
 else
 	bash "$SCRIPTNAME" "$@"
