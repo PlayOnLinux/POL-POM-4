@@ -88,7 +88,7 @@ POL_Debug_Message()
 	# Usage : POL_Debug_Message [MESSAGE]
 	
 	echo "$(Get_CurrentDate) - [${FUNCNAME[1]}] Message: $1" >> "$LOGFILE"
-	echo "[${FUNCNAME[1]}] Message: $1"
+	echo "[${FUNCNAME[1]}] Message: $1" 1>&2
 }
 POL_Debug_Warning()
 {
@@ -96,7 +96,7 @@ POL_Debug_Warning()
 	# Usage : POL_Debug_Warning [MESSAGE]
 	
 	echo "$(Get_CurrentDate) - [${FUNCNAME[1]}] Warning: $1" >> "$LOGFILE"
-	echo "[${FUNCNAME[1]}] Warning: $1"
+	echo "[${FUNCNAME[1]}] Warning: $1" 1>&2
 }
 POL_Debug_Error()
 {
@@ -105,7 +105,7 @@ POL_Debug_Error()
 	# Usage : POL_Debug_Error [MESSAGE]
 	
 	echo "$(Get_CurrentDate) - [${FUNCNAME[1]}] Error: $1" >> "$LOGFILE"
-	echo "[${FUNCNAME[1]}] Error: $1"
+	echo "[${FUNCNAME[1]}] Error: $1" 1>&2
 	POL_SetupWindow_message "Error: $1" "$TITLE" # La on affiche quand même 
 	export POL_SCRIPT_FAILED="YES"
 }
@@ -116,7 +116,7 @@ POL_Debug_Fatal()
 	# Usage : POL_Debug_Fatal [MESSAGE]
 	
 	echo "$(Get_CurrentDate) - [${FUNCNAME[1]}] Fatal: $1" >> "$LOGFILE"
-	echo "[${FUNCNAME[1]}] Fatal: $1"
+	echo "[${FUNCNAME[1]}] Fatal: $1" 1>&2
 	POL_SetupWindow_message "[${FUNCNAME[1]}] Fatal: $1" "$TITLE" # La on affiche quand même 
 	export POL_SCRIPT_FAILED="YES"
 	POL_SetupWindow_Close

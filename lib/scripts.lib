@@ -39,8 +39,7 @@ POL_Open()
 {
 	# Extended xdg-open function, works for mac
 	# Usage : POL_Open whatever you want
-	
-	POL_Open "$@"
+
 	[ "$POL_OS" == "Mac" ] && open "$@"
 	[ "$POL_OS" == "Linux" ] && xdg-open "$@"
 }
