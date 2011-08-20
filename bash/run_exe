@@ -86,7 +86,7 @@ md5sreplace=$(cat $md5scripts | grep $md5 | sed s/" $md5"/""/)
 
 if [ ! "$(cat $md5scripts | grep $md5)" = "" ] # Le programme est connu, on propose le bon script
 then
-		POL_SetupWindow_question "$(eval_gettext "We have detected that the program you want to install is :")\n\n$md5sreplace\n\n$(eval_gettext "Do you want $APPLICATION_TITLE to install it automatically for you ?")" "$TITRE"
+		POL_SetupWindow_question "$(eval_gettext "We have detected that the program you want to install is :")\n\n$md5sreplace\n\n$(eval_gettext 'Do you want $APPLICATION_TITLE to install it automatically for you?')" "$TITRE"
 		if [ "$APP_ANSWER" = "TRUE" ]
 		then
 			POL_SetupWindow_Close
