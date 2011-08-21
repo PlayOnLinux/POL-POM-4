@@ -287,7 +287,7 @@ POL_LoadVar_PROGRAMFILES()
 {
 	# Get Program Files folder name and store it to PROGRAMFILES variable
 	# Usage: POL_LoadVar_PROGRAMFILES
-	PROGRAMFILES=`POL_Wine cmd /c echo "%ProgramFiles%" |tr -d '\015' | tr -d '\012'`
+	PROGRAMFILES=`POL_Wine --keep-output cmd /c echo "%ProgramFiles%" |tr -d '\015' | tr -d '\012'`
 	if [ "${PROGRAMFILES}" = "%ProgramFiles%" ] 
 	then # Var is not defined by wine
 		export PROGRAMFILES="Program Files"
@@ -371,6 +371,11 @@ POL_Wine ()
 {
 	# Run the good wineversion and store the result to a logfile
 	# Same usage than "wine"
+	if [ "$1" == "--keep-output" ]
+	then
+		KeepOutput="True"
+		shift
+	fi
 	if [ "$1" == "--ignore-errors" ]
 	then
 		NoErrors="True"
@@ -379,7 +384,7 @@ POL_Wine ()
 	POL_Wine_AutoSetVersionEnv
 	POL_Debug_Message "Running wine-$POL_WINEVERSION "$@""
 	
-	if [ "$LOGFILE" = "/dev/null" ]
+	if [ "$LOGFILE" = "/dev/null" ] || [ "$KeepOutput" = "True" ]
 	then
 		wine "$@"
 	else
