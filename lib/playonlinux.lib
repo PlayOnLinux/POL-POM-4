@@ -419,7 +419,8 @@ make_icon()
 {
 	# Generate the icon for the package in $DIRAPP
 	# Usage : make_icon [icon_name]
-	rm /tmp/icon.png
+	rm "/tmp/icon.png"
+	cd "/tmp"
 	if [ -e "$REPERTOIRE/icones/full_size/$1" ]
 	then
 		icon_app="$REPERTOIRE/icones/full_size/$1"

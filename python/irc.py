@@ -172,8 +172,8 @@ class Onglets(wx.Notebook):
 		wx.EVT_BUTTON(self,  128,  self.EventClose)
 		wx.EVT_TREE_ITEM_ACTIVATED(self, 126, self.AddNick)
 		#wx.EVT_TREE_ITEM_ACTIVATED(self, 127, self.filtrer)
-		self.disconnect.Enable(False)
-		self.EventStart(self)
+		#self.disconnect.Enable(False)
+		#self.EventStart(self)
 		
 	def AddNick(self, event):
 		self.buddy_txt = self.buddy.GetItemText(self.buddy.GetSelection()).encode("utf-8")
@@ -199,7 +199,6 @@ class Onglets(wx.Notebook):
 		#del irc.names[index]
 		#del irc.endnames[index]
 		#del irc.chans[index]
-
 		irc.leave_chan(self.window.GetItemText(self.window.GetSelection()).lower())
 
 		self.window.Delete(self.window.GetSelection())
@@ -266,8 +265,9 @@ class IrcClient(wx.Frame):
     self.timer.Start(200)
 
   def CloseIRC(self, event):
-	self.onglets.EventStop(self)
-	self.Destroy()
+	if(wx.YES == wx.MessageBox(_('Are you sure you want to this window?').format(os.environ["APPLICATION_TITLE"]).decode("utf-8"), style=wx.YES_NO | wx.ICON_QUESTION)):
+		self.onglets.EventStop(self)
+		self.Destroy()
 	
   def change_irc_window(self, event):
 	#self.irc_user_list(self)

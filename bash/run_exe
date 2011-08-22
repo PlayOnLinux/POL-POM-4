@@ -77,7 +77,7 @@ else
 exit 1
 fi
 
-POL_SetupWindow_wait_next_signal "$APPLICATION_TITLE is analysing your application" "$APPLICATION_TITLE" # Calcul de la somme md5 pour savoir quoi faire
+POL_SetupWindow_wait_next_signal "$(eval_gettext '$APPLICATION_TITLE is analysing your application')" "$APPLICATION_TITLE" # Calcul de la somme md5 pour savoir quoi faire
 sleep 5 #Pour être sur que le fichier md5 est bien téléchargé
 md5=$(POL_MD5_file "$line")
 md5file="$REPERTOIRE/configurations/md5"

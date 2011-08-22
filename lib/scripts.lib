@@ -116,8 +116,6 @@ POL_ExtractIcon()
 {
 	# Extract the icon of a .exe file
 	# Usage: POL_ExtractIcon [.exe file] [output image file]
-
-	POL_Debug_Warning "Function is deprecated"
 	
 	mkdir -p "$REPERTOIRE/tmp/win32Icon"
 	cd "$REPERTOIRE/tmp/win32Icon"
@@ -130,10 +128,48 @@ POL_ExtractIcon()
 	find . -name "*32x32x4.png" >> icons-list
 	ICON_FILE=$(cat "icons-list" | head -n 1)
 	[ "$ICON_FILE" != "" ] && [ -s "$ICON_FILE" ] && cp "$ICON_FILE" "$2" || POL_Debug_Warning "Icon was not extracted"
-
+	[ "$ICON_FILE" != "" ] && [ -s "$ICON_FILE" ] && [ ! "$3" = "" ] && cp "$ICON_FILE" "$3"
 	rm -r "$REPERTOIRE/tmp/win32Icon"
 }
+POL_ExtractBiggestIcon()
+{
+	# Extract the biggest icon of a .exe file
+	# Usage: POL_ExtractCustomIcon [.exe file] [output image file] [size]
+	mkdir -p "$REPERTOIRE/tmp/win32Icon"
+	cd "$REPERTOIRE/tmp/win32Icon"
+	wrestool -x -t14 "$1" &> icons-brut
 
+	icotool -x "icons-brut" -o "$REPERTOIRE/tmp/win32Icon/"
+
+	find . -name "*256x256x32.png" > icons-list
+	find . -name "*256x256x16.png" >> icons-list
+	find . -name "*256x256x8.png" >> icons-list
+	find . -name "*256x256x4.png" >> icons-list
+	
+	find . -name "*128x128x32.png" >> icons-list
+	find . -name "*128x128x16.png" >> icons-list
+	find . -name "*128x128x8.png" >> icons-list
+	find . -name "*128x128x4.png" >> icons-list
+	
+	find . -name "*96x96x32.png" >> icons-list
+	find . -name "*96x96x16.png" >> icons-list
+	find . -name "*96x96x8.png" >> icons-list
+	find . -name "*96x96x4.png" >> icons-list
+
+	find . -name "*48x48x32.png" >> icons-list
+	find . -name "*48x48x16.png" >> icons-list
+	find . -name "*48x48x8.png" >> icons-list
+	find . -name "*48x48x4.png" >> icons-list
+		
+	find . -name "*32x32x32.png" >> icons-list
+	find . -name "*32x32x16.png" >> icons-list
+	find . -name "*32x32x8.png" >> icons-list
+	find . -name "*32x32x4.png" >> icons-list
+	
+	ICON_FILE=$(cat "icons-list" | head -n 1)
+	[ "$ICON_FILE" != "" ] && [ -s "$ICON_FILE" ] && cp "$ICON_FILE" "$2" || POL_Debug_Warning "Icon was not extracted"
+	rm -r "$REPERTOIRE/tmp/win32Icon"
+}
 POL_Shortcut()
 {
 	# Make a shortcut 
@@ -177,9 +213,7 @@ POL_Shortcut()
 		echo "No internet icon..."
 		
 		POL_ExtractIcon "$WINEPREFIX/drive_c/$binary_dir/$Binaire" "$REPERTOIRE/icones/32/$NOMICONE_"
-			
-		# On ne crée pas d'icone "full_size", parce que les résolutions des icones windows ne sont pas suffisantes tout le temps.
-		# Pour verifier la taille des icones, il faudrait utiliser "identify", mais ce programme n'est pas toujours fournis.
+		POL_ExtractBiggestIcon "$WINEPREFIX/drive_c/$binary_dir/$Binaire" "$REPERTOIRE/icones/full_size/$NOMICONE_"
 	fi
 
 	## On génère le binaire 
@@ -196,7 +230,7 @@ POL_Shortcut()
 	then
 	if [ "$POL_OS" = "Mac" ]
 	then
-		POL_SetupWindow_AutoApp "$2"	
+		POL_SetupWindow_AutoApp "$NOMICONE_"	
 	else
 		if [ -f "$REPERTOIRE/icones/full_size/$NOMICONE_" ]; then # L'icone existe...
 			iconPath="$REPERTOIRE/icones/full_size/$NOMICONE_"

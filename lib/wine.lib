@@ -389,11 +389,13 @@ POL_Wine ()
 		wine "$@"
 	else
 		wine "$@" >> "$LOGFILE" 2>> "$LOGFILE"
-	fi	
+	fi
+	errors="$?"
 	if [ ! "$NoErrors" = "True" ]
 	then
 		[ "$?" = "0" ] || POL_Debug_Error "$(eval_gettext "Wine seems to have crashed\n\nIf you're program is running, just ignore this message")"
 	fi
+	return $errors
 }
 POL_Wine_SelectPrefix()
 {
@@ -567,6 +569,7 @@ POL_Wine_PrefixCreate()
 		fi
 	fi
 	sleep 3 # We wait 3 seconds, so that we are sure that .reg file are created
+	POL_LoadVar_PROGRAMFILES
 }
 POL_Wine_OverrideDLL()
 {
