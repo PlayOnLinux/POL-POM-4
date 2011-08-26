@@ -115,7 +115,10 @@ then
 	xterm -T "$(eval_gettext "$APPLICATION_TITLE debugger")" -e "echo \"Writting log to $LOGFILE.e\" && echo \"\" && sleep 1 && tail -f \"$LOGFILE.e\"" &
 fi
 
+
+$(POL_Config_Read PRE_RUNNING)
 bash "$PACKAGE" 2>> "$LOGFILE.e" >> "$LOGFILE.e"
+$(POL_Config_Read POST_RUNNING)
 
 
 if [ ! "$?" = "0" ]

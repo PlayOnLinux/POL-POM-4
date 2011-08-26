@@ -37,7 +37,11 @@ class Onglets(wx.Notebook):
 	def getSettings(self): # Faudra revoir ça dans une future version
 		irc_settings = {}
 	
-		irc_settings['NICKNAME'] = os.popen("printf $USER").read()+"-pol"
+		if(os.environ["POL_OS"] == "Linux"):
+			irc_settings['NICKNAME'] = os.environ["USER"]+"-pol"
+		else:
+			irc_settings['NICKNAME'] = os.environ["USER"]+"-pom"
+			
 		irc_settings['AUTOCONNECT'] = "0"
 		irc_settings['ALERT'] = "0"
 		irc_settings["PLAYSOUND"] = "1" 
