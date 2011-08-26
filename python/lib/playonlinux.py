@@ -31,8 +31,12 @@ def GetSettings(setting, prefix='_POL_'):
 		cfile = Variables.playonlinux_rep+"/playonlinux.cfg"
 	else:
 		cfile = Variables.playonlinux_rep+"/wineprefix/"+prefix+"/playonlinux.cfg"
+	
+	try:
+		fichier = open(cfile,"r").readlines()
+	except:
+		return("")
 		
-	fichier = open(cfile,"r").readlines()
 	i = 0
 	line = ""
 	while(i < len(fichier)):

@@ -51,7 +51,6 @@ then
 	
 	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Uninstalling...')" "$(eval_gettext '$APPLICATION_TITLE Uninstaller')" 
 	sleep 1
-	POL_SetupWindow_detect_exit
 	clean_wineprefix $application_prefixe
 	POL_SetupWindow_message "$delete_var$(eval_gettext ' has been uninstalled successfully.')" "$(eval_gettext '$APPLICATION_TITLE Uninstaller')"
 else

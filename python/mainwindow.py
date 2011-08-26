@@ -369,7 +369,7 @@ class MainWindow(wx.Frame):
         self.RConfigure(_("Registry Editor"), "nothing")
 
   def run_plugin(self, event):
-	game_exec = self.list_game.GetItemText(self.list_game.GetSelection())
+	game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8")
 	plugin=self.plugin_list[event.GetId()-300]
 	try :
 		os.system("bash \""+Variables.playonlinux_rep+"/plugins/"+plugin+"/scripts/menu\" \""+game_exec+"\"&")
@@ -382,7 +382,7 @@ class MainWindow(wx.Frame):
 	self.irc.Show(True)
 		
   def GoToAppDir(self, event):
-		self.game_exec = self.list_game.GetItemText(self.list_game.GetSelection())
+		self.game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8")
 		playonlinux.open_folder(self.game_exec)
 		
   def ChangeIcon(self, event):
@@ -404,7 +404,7 @@ class MainWindow(wx.Frame):
 			#Pop-up menu for game list: ending
 
   def Select(self, event):
-	game_exec = self.list_game.GetItemText(self.list_game.GetSelection())
+	game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8")
 	self.read = open(Variables.playonlinux_rep+"shortcuts/"+game_exec,"r").readlines()
 	self.i = 0;
 	self.wine_present = False;
@@ -446,7 +446,7 @@ class MainWindow(wx.Frame):
 
   def RConfigure(self, function_to_run, firstargument):
 		"""Starts polconfigurator remotely."""
-		game_exec = self.list_game.GetItemText(self.list_game.GetSelection())
+		game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8")
 		if(game_exec != ""):
 			os.system("bash \""+Variables.playonlinux_env+"/bash/polconfigurator\" \""+game_exec+"\" \""+function_to_run+"\" \""+firstargument+"\"&")
 	
@@ -478,7 +478,7 @@ class MainWindow(wx.Frame):
     os.system("bash \""+Variables.playonlinux_env+"/bash/expert/PolShell\"&")
 
   def Configure(self, event):
-	game_exec = self.list_game.GetItemText(self.list_game.GetSelection()) 
+	game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8")
 	if(game_exec == ""):
 		configureFrame = configure.MainWindow(None, -1, _("{0} configuration").format(os.environ["APPLICATION_TITLE"]),"default",True)
 	else:
@@ -491,11 +491,11 @@ class MainWindow(wx.Frame):
 
   def Package(self, event):
     game_exec = self.list_game.GetItemText(self.list_game.GetSelection())
-    os.system("bash \""+Variables.playonlinux_env+"/bash/make_shortcut\" \""+game_exec+"\"&")
+    os.system("bash \""+Variables.playonlinux_env+"/bash/make_shortcut\" \""+game_exec.encode("utf-8")+"\"&")
 
   def UninstallGame(self, event):
     game_exec = self.list_game.GetItemText(self.list_game.GetSelection())
-    os.system("bash \""+Variables.playonlinux_env+"/bash/uninstall\" \""+game_exec+"\"&")
+    os.system("bash \""+Variables.playonlinux_env+"/bash/uninstall\" \""+game_exec.encode("utf-8")+"\"&")
 
 
   def AutoReload(self, event):

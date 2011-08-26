@@ -310,6 +310,9 @@ class Onglets(wx.Notebook):
 		self.get_current_settings("MouseWarpOverride")
 
 		self.arch = playonlinux.GetSettings('ARCH',self.s_prefix)
+		if(self.arch == ""):
+			self.arch = "x86"
+			
 		self.UpdateVersions(self.arch)
 		
 			
@@ -552,14 +555,14 @@ class MainWindow(wx.Frame):
 			if(self.onglets.s_prefix == "default"):
 				wx.MessageBox(_("This virtual drive is protected"))
 			else:
-				if(wx.YES == wx.MessageBox(_("Are you sure you want to delete "+self.onglets.s_prefix+" virtual drive ?").decode("utf-8"), style=wx.YES_NO | wx.ICON_QUESTION)):
+				if(wx.YES == wx.MessageBox(_("Are you sure you want to delete "+self.onglets.s_prefix.encode("utf-8")+" virtual drive ?").decode("utf-8"), style=wx.YES_NO | wx.ICON_QUESTION)):
 					mylist = os.listdir(Variables.playonlinux_rep+"/shortcuts")
 					for element in mylist:
 						if(playonlinux.getPrefix(element).lower() == self.onglets.s_prefix.lower()):
 							os.remove(Variables.playonlinux_rep+"/shortcuts/"+element)
 					shutil.rmtree(Variables.playonlinux_rep+"/wineprefix/"+self.onglets.s_prefix)
 		else:
-				if(wx.YES == wx.MessageBox(_("Are you sure you want to delete "+self.onglets.s_title+" ?").decode("utf-8"), style=wx.YES_NO | wx.ICON_QUESTION)):
+				if(wx.YES == wx.MessageBox(_("Are you sure you want to delete "+self.onglets.s_title.encode("utf-8")+" ?").decode("utf-8"), style=wx.YES_NO | wx.ICON_QUESTION)):
 					os.remove(Variables.playonlinux_rep+"/shortcuts/"+self.onglets.s_title)
 					
 		self.onglets.s_isPrefix = True
@@ -665,7 +668,7 @@ class MainWindow(wx.Frame):
 		self.list_game.ExpandAll()
 		
 		if(self.onglets.s_isPrefix == True):
-			self.list_game.SelectItem(self.prefixes_item[self.onglets.s_prefix])
+			self.list_game.SelectItem(self.prefixes_item[self.onglets.s_prefix.encode("utf-8")])
 		else:
 			self.list_game.SelectItem(self.games_item[self.onglets.s_title.encode("utf-8")])
 	

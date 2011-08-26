@@ -26,7 +26,7 @@ POL_Shortcut_InsertBeforeWine ()
 {
 	# Insert a command into a script just before running wine
 	# Usage: POL_Shortcut_InsertBeforeWine [Application] [Line to insert]
-	
+	POL_Debug_Message "Inserting before POL_Wine : $2" 
 	Application="$1"
 	CommandesToInsert="$2"
 
@@ -40,6 +40,7 @@ POL_Open()
 	# Extended xdg-open function, works for mac
 	# Usage : POL_Open whatever you want
 
+	POL_Debug_Message "Opening : $@"
 	[ "$POL_OS" == "Mac" ] && open "$@"
 	[ "$POL_OS" == "Linux" ] && xdg-open "$@"
 }
@@ -73,6 +74,7 @@ POL_System_SetArch()
 	# If amd64 is specified and not supported, the script will end
 	
 	# Auto, x86, amd64
+
 	if [ ! "$1" == "x86" ] && [ ! "$1" == "amd64" ]
 	then
 		[ "$MACHTYPE" == "x86_64-pc-linux-gnu" ] && export POL_ARCH="amd64" || export POL_ARCH="x86"
@@ -85,6 +87,8 @@ POL_System_SetArch()
 	then
 		[ "$MACHTYPE" == "x86_64-pc-linux-gnu" ] && export POL_ARCH="amd64" || POL_Debug_Fatal "amd64 is not supported by your system"
 	fi	
+	
+	POL_Debug_Message "POL_ARCH set to $POL_ARCH"
 }
 POL_Shortcut_GetPrefix()
 {
@@ -178,7 +182,6 @@ POL_Shortcut()
 
 	Binaire="$1"
 	SpecialArg="$4"
-	
 	if [ "$2" = "" ]
 	then
 		NOMICONE_="$1"
@@ -195,9 +198,10 @@ POL_Shortcut()
 	## On chope le dossier du binaire
 	cd "$WINEPREFIX" || POL_Debug_Fatal "Prefixe $WINEPREFIX does not exists"
 	cd drive_c || POL_Debug_Fatal "drive_c folder does not exists"
-	binary_path=$(find ./ -iname "$Binaire" | tail -n 1)
-	binary_dir=$(dirname "$binary_path")
-	Binaire=$(basename "$binary_path")
+	binary_path="$(find ./ -iname "$Binaire" | tail -n 1)"
+	binary_dir="$(dirname "$binary_path")"
+	Binaire="$(basename "$binary_path")"
+	
 	[ "$binary_dir" = "" ] && POL_Debug_Fatal "Can't find $Binaire"
 
 	if [ -n "$ICON_WEB_NAME" ]; then
@@ -216,13 +220,17 @@ POL_Shortcut()
 		POL_ExtractBiggestIcon "$WINEPREFIX/drive_c/$binary_dir/$Binaire" "$REPERTOIRE/icones/full_size/$NOMICONE_"
 	fi
 
+	if [ "$Binaire" = "" ]
+	then
+		POL_Debug_Fatal "Binary $Binaire not found!"
+	fi
 	## On génère le binaire 
 	echo "#!/bin/bash" > "$REPERTOIRE/shortcuts/$NOMICONE_"
 	echo "[ \"\$PLAYONLINUX\" = \"\" ] && exit 0" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
 	echo "source \"\$PLAYONLINUX/lib/sources\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
 	echo "export WINEPREFIX=\"$WINEPREFIX\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
 	echo "export WINEDEBUG=\"-all\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
-	[ ! "$LOGTITLE" = "" ] && echo "POL_Log=\"$LOGTITLE\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
+	[ ! "$LOGTITLE" = "" ] && echo "#POL_Log=$LOGTITLE" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
 	echo "cd \"$WINEPREFIX/drive_c/$binary_dir\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
 	echo "POL_Wine \"$Binaire\" $SpecialArg \$@" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
 	chmod +x "$REPERTOIRE/shortcuts/$NOMICONE_"
@@ -240,6 +248,7 @@ POL_Shortcut()
 		generer_icone "$iconPath" "$NOMICONE_" "$DESKTOP" "$PLAYONLINUX/playonlinux --run \"$NOMICONE_\""
 	fi
 	fi
+	POL_Debug_Message "Shortcut created: $Binaire $NOMICONE_"
 }
 
 POL_Call() 
@@ -253,7 +262,13 @@ POL_Call()
 		OLD_PC_DIR="$PWD"
 		cd "$REPERTOIRE/tmp/"
 		wget -q "$SITE/V4_data/repository/get_file.php?version=playonlinux-$VERSION&id=$1" -O- > "$1"
-		POL_Source "$@"
+		polMd5="$(POL_MD5_file "$1")"
+		if [ "$polMd5" = "68b329da9893e34099c7d8ad5cb9c940" ] || [ "$polMd5" = "0f1b63a74ab217a19270be0df9e0590d" ] # Empty file
+		then
+			POL_Debug_Error "Function $1 does not exist!"
+		else
+			POL_Source "$@"
+		fi
 		cd "$OLD_PC_DIR"
 	fi
 }
@@ -316,7 +331,7 @@ POL_Download ()
 	then
 		POL_Debug_Error "POL_Download - URL is missing !"
 	else
-		POL_SetupWindow_download "$(eval_gettext "Please wait while $APPLICATION_TITLE is downloading:") $FILENAME" "$TITLE" "$URL"
+		POL_SetupWindow_download "$(eval_gettext 'Please wait while $APPLICATION_TITLE is downloading:') $FICHIER" "$TITLE" "$URL"
 		if [ "$2" = "" ]
 		then
 			POL_Debug_Warning "POL_Download - MD5 is missing !"
@@ -341,14 +356,14 @@ POL_Download_Resource ()
 	URL="$1"
 	FICHIER="${URL##*/}"
 	cd "$POL_USER_ROOT/ressources"
-	if [ -e "$FICHIER" ] || [ ! "$(POL_MD5_file "$FICHIER")" = "$2" ]
+	if [ ! -e "$FICHIER" ] || [ ! "$(POL_MD5_file "$FICHIER")" = "$2" ]
 	then
 		if [ "$URL" = "" ]
 		then
 			POL_Debug_Error "POL_Download - URL is missing !"
 		else
 			rm "$FICHIER"
-			POL_SetupWindow_download "$(eval_gettext "Please wait while $APPLICATION_TITLE is downloading:") $FILENAME" "$TITLE" "$URL"
+			POL_SetupWindow_download "$(eval_gettext "Please wait while $APPLICATION_TITLE is downloading:") $FICHIER" "$TITLE" "$URL"
 			if [ "$2" = "" ]
 			then
 				POL_Debug_Warning "POL_Download - MD5 is missing !"

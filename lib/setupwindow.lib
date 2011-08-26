@@ -969,11 +969,6 @@ POL_SetupWindow_shortcut_creator()
 		TITRE="$APP_ANSWER"
 		POL_Shortcut "$EXE_FILE" "$TITRE"
 		echo "POL_Shortcut \"$EXE_FILE\" \"$TITRE\"" >> "$POL_USER_ROOT/tmp/shortcuts"
-		if [ ! "$1" = "" ]
-		then
-			Set_WineVersion_Assign "$1" "$TITRE"
-		fi
-		echo "Set_WineVersion_Assign \"$1\" \"$TITRE\"" >> "$POL_USER_ROOT/tmp/shortcuts"
 		POL_SetupWindow_shortcut_creator
 	fi
 }

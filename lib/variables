@@ -24,17 +24,19 @@ export POL_TERM="xterm"
 [ "$(which xdg-user-dir)" ] && export DESKTOP="$(xdg-user-dir DESKTOP)" || export DESKTOP="$HOME/Desktop"
 
 ### Language
-if [ ! "$NOGETTEXT" = "TRUE" ]
+if [ ! "$NOGETTEXT" = "TRUE" ] || [ "$(POL_Config_Read NOGETTEXT)" = "TRUE" ]
 then
 
 export TEXTDOMAINDIR="$PLAYONLINUX/lang/locale/"
 export TEXTDOMAIN="pol"
 . gettext.sh
 eval_gettext > /dev/null || eval_gettext() { printf "$@"; }
-which shasum > /dev/null || shasum () { sha1sum "$@"; }
 else
 	eval_gettext() { printf "$@"; }
 fi
+
+which shasum > /dev/null || shasum () { sha1sum "$@"; }
+
 ### POL Proxy Settings
 if [ -e "$REPERTOIRE/configurations/options/proxy" ]
 then
@@ -70,6 +72,8 @@ EXIT_MISSING=2
 EXIT_ERROR=255
 EXIT_SUCCES=0
 
+# Default architecture
+export POL_ARCH="x86"
 
 # Divers trucs
 export IGNORE_ICON_DIR="false"	

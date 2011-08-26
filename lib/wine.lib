@@ -622,7 +622,8 @@ POL_Wine_OverrideDLL_App()
 POL_Wine_WaitExit ()
 {
 	# Lock bash commands until wine is exited
-	POL_SetupWindow_wait "$(eval_gettext "Please wait...")" "$TITLE"
+	[ "$1" = "" ] && message="$(eval_gettext "Please wait...")" || message="$(eval_gettext 'Please wait while $1 is installed...')"
+	POL_SetupWindow_wait "$message" "$TITLE"
 	wineserver -w
 }
 

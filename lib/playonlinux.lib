@@ -163,62 +163,74 @@ EOF
 
 sudo ()
 {
+	POL_Debug_Fatal "The script tried to use sudo"
 	echo "$(eval_gettext "This function is disabled in the PlayOnlinux environment.")"
 	return 1
 }
 gksudo ()
 {
+	POL_Debug_Fatal "The script tried to use sudo"
 	echo "$(eval_gettext "This function is disabled in the PlayOnlinux environment.")"
 	return 1
 }
 gksu ()
 {
+	POL_Debug_Fatal "The script tried to use sudo"
 	echo "$(eval_gettext "This function is disabled in the PlayOnlinux environment.")"
 	return 1
 }
 su ()
 {
+	POL_Debug_Fatal "The script tried to use sudo"
 	echo "$(eval_gettext "This function is disabled in the PlayOnlinux environment.")"
 	return 1
 }
 kdesu ()
 {
+	POL_Debug_Fatal "The script tried to use sudo"
 	echo "$(eval_gettext "This function is disabled in the PlayOnlinux environment.")"
 	return 1
 }
 kdesudo ()
 {
+	POL_Debug_Fatal "The script tried to use sudo"
     echo "$(eval_gettext "This function is disabled in the PlayOnlinux environment.")"
 	return 1
 }
 
 /usr/bin/sudo ()
 {
+	POL_Debug_Fatal "The script tried to use sudo"
 	echo "$(eval_gettext "This function is disabled in the PlayOnlinux environment.")"
 	return 1
 }
 /usr/bin/gksudo ()
 {
+	POL_Debug_Fatal "The script tried to use sudo"
 	echo "$(eval_gettext "This function is disabled in the PlayOnlinux environment.")"
 	return 1
 }
 /usr/bin/gksu ()
 {
+	POL_Debug_Fatal "The script tried to use sudo"
 	echo "$(eval_gettext "This function is disabled in the PlayOnlinux environment.")"
 	return 1
 }
 /usr/bin/su ()
 {
+	POL_Debug_Fatal "The script tried to use sudo"
 	echo "$(eval_gettext "This function is disabled in the PlayOnlinux environment.")"
 	return 1
 }
 /usr/bin/kdesu ()
 {
+	POL_Debug_Fatal "The script tried to use sudo"
 	echo "$(eval_gettext "This function is disabled in the PlayOnlinux environment.")"
 	return 1
 }
 /usr/bin/kdesudo ()
 {
+	POL_Debug_Fatal "The script tried to use sudo"
     echo "$(eval_gettext "This function is disabled in the PlayOnlinux environment.")"
 	return 1
 }
@@ -274,7 +286,7 @@ POL_Bash ()
 	if [ "$(POL_GPG_auth_script "$1")" = "TRUE" ]
 	then
 		cd "$OLD_DIR"
-		echo "POL GPG : Good signature - $TITLE"
+		POL_Debug_Message "POL GPG : Good signature - $TITLE"
 		bash "$@"
 	else
 		cd "$OLD_DIR"
@@ -295,12 +307,13 @@ POL_Source ()
 	if [ "$(POL_GPG_auth_script "$1")" = "TRUE" ]
 	then
 		cd "$OLD_DIR"
-		echo "POL GPG : Good signature"
+		POL_Debug_Message "POL GPG : Good signature"
 		source "$@"
 	else
 		cd "$OLD_DIR"
 		POL_SetupWindow_message "Warning !!\n\nThe signature of the script you are trying to run is NOT valid\n\n$APPLICATION_TITLE has not approved this script and will not be responsible from it.\nPlease ensure you know what you are doing !" "$TITLE"
 		POL_SetupWindow_licence "Here the source code of the script. Check it carrefully" "External library" "$PWD/$1"
+		
 		source "$@"
 	fi
 
@@ -356,7 +369,7 @@ export WINEPREFIX="\$SCRIPTDIR/../Resources/virtual_drive"
 $(cat "$REPERTOIRE/shortcuts/$1" | grep "cd " | sed s/$substitute/'\$SCRIPTDIR\/..\/Resources\/virtual_drive'/)
 shift
 #$(cat "$REPERTOIRE/shortcuts/$1" | grep "wine " | sed s/$substitute2// | sed s/$substitute//) &
-wine "$(basename "$(cat "$REPERTOIRE/shortcuts/$1" | grep "wine " | cut -d \" -f2)")" \$@ &
+wine "$(basename "$(cat "$REPERTOIRE/shortcuts/$1" | grep "POL_Wine " | cut -d \" -f2)")" \$@ &
 
 EOF3
 

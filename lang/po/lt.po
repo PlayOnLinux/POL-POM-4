@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2011-08-15 15:23+0200\n"
-"PO-Revision-Date: 2011-01-07 07:26+0000\n"
-"Last-Translator: Mantas Kriaučiūnas <mantas@akl.lt>\n"
+"PO-Revision-Date: 2011-08-22 12:55+0000\n"
+"Last-Translator: Sigitas Kalinas <skalinas@gmail.com>\n"
 "Language-Team: Lithuanian <lt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-08-16 18:28+0000\n"
-"X-Generator: Launchpad (build 13697)\n"
+"X-Launchpad-Export-Date: 2011-08-26 13:16+0000\n"
+"X-Generator: Launchpad (build 13794)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -24,19 +24,19 @@ msgstr "Kuriai programai norite pritaikyti pakeitimus?"
 #: Capture plugin:3
 msgid ""
 "This plugin wil allow you to capture you applications under PlayOnLinux"
-msgstr "Papildinys leis rašyti programas naudojant PlayOnLinux"
+msgstr "Papildinys leis užfiksuoti programų vaizdus naudojant PlayOnLinux"
 
 #: Capture plugin:4
 msgid "Capture menu (OpenGL)"
-msgstr ""
+msgstr "Vaizdo fiksavimo meniu (OpenGL)"
 
 #: Capture plugin:5
 msgid "Capture menu (not OpenGL)"
-msgstr ""
+msgstr "Vaizdo fiksavimo meniu (be OpenGL)"
 
 #: Capture plugin:6
 msgid "Begin the capture of an application"
-msgstr "Pradėti programos įrašinėjimą"
+msgstr "Pradėti programos vaizdų fiksavimą"
 
 #: Capture plugin:7
 msgid "Play a captured file"
@@ -52,20 +52,20 @@ msgid ""
 "Press Next then click on the window\\nyou want to capture.\\nCapture will "
 "start automatically after 5 seconds.\\nOnly video will be captured."
 msgstr ""
-"Spauskite Toliau ir langą,\\nkurį norite rašyti.\\nRašymas prasidės "
-"automatiškai po 5 sekundžių.\\nBus rašomas tik vaizdas."
+"Spauskite Sekantis ir langą,\\nkurį norite užfiksuoti.\\nVaizdo fiksavimas "
+"prasidės automatiškai po 5 sekundžių.\\nBus fiksuojamas tik vaizdas."
 
 #: Capture plugin:10
 msgid "Capture will begin..."
-msgstr ""
+msgstr "Prasidės vaizdo fiksavimas..."
 
 #: Capture plugin:11
 msgid "Press <SHIFT>+F8 to start or stop capture"
-msgstr "Norint pradėti ar sustabdyti rašymą, spauskite <SHIFT>+F8"
+msgstr "Norint pradėti ar sustabdyti vaizdo fiksavimą, spauskite <SHIFT>+F8"
 
 #: Capture plugin:12
 msgid "Press <SHIFT>+F8 to stop capture"
-msgstr "Norint sustabdyti rašymą, spauskite <SHIFT>+F8"
+msgstr "Norint sustabdyti vaizdo fiksavimą, spauskite <SHIFT>+F8"
 
 #: Capture plugin:13
 msgid "Capture in progress..."
@@ -89,11 +89,11 @@ msgstr "Pasirinkite įrašytą failą konvertavimui"
 
 #: Capture plugin:18
 msgid "You must choose a capture to read"
-msgstr ""
+msgstr "Pasirinkite vaizdo fiksavimą skaitymui"
 
 #: Capture plugin:19
 msgid "You must choose a capture to convert"
-msgstr ""
+msgstr "Pasirinkite vaizdo fiksavimą konvertavimui"
 
 #: Capture plugin:20
 msgid "Please wait while the PlayOnLinux logo is created..."
@@ -107,6 +107,8 @@ msgstr "Pridėti PlayOnLinux logotipą į savo vaizdo įrašą?"
 msgid ""
 "Warning: For correct video encoding,\\nresolution MUST be a multiple of 16"
 msgstr ""
+"Įspėjimas: Siekiant tinkamai užkoduoti vaizdą,\\nraiška TURI būti dauginė iš "
+"16"
 
 #: Capture plugin:23
 msgid ""
@@ -137,6 +139,8 @@ msgid ""
 "Define your encoding options \\n (leave defaults if you do not know what to "
 "do)"
 msgstr ""
+"Nustatykite kodavimo parinktis \\n (palikite numatytuosius, jei nežinote, ką "
+"daryti)"
 
 #: Capture plugin:28
 msgid "Please wait while your video is being encoded..."
@@ -163,6 +167,8 @@ msgid ""
 "Welcome in Advanced Wine Configuration, an optimization’s system for Wine "
 "created by GNU_Raziel. If you does not know what to choose, LEAVE DEFAULTS"
 msgstr ""
+"Tai išplėstinis Wine konfigūravimas, pagal GNU_Raziel sukurta Wine "
+"optimizavimo sistema. Jei nežinote, ką pasirinkti, PALIKITE NUMATYTUOSIUS"
 
 #: Advanced Wine Configuration Plugin:8
 msgid "Choose a game"
@@ -203,7 +209,7 @@ msgstr "Optimizavimas atliktas"
 #: Detour plugin:3
 msgid ""
 "Welcome in Detour, a plugin witch enable you to create post-install shorcuts."
-msgstr ""
+msgstr "Detour įskiepis leidžia sukurti programų nuorodas po jų įdiegimo."
 
 #: Detour plugin:5
 msgid "Choose an application"
@@ -224,41 +230,43 @@ msgid ""
 "This wizard can report a bug in an application officially supported by "
 "PlayOnLinux."
 msgstr ""
+"Šis vedlys gali pranešti apie klaidą programoje, kurią oficialiai palaiko "
+"PlayOnLinux."
 
 #: bash/bug_report:39
 #, sh-format
 msgid "I have a problem with a software"
-msgstr ""
+msgstr "Turiu problemų su programine įranga"
 
 #: bash/bug_report:39
 #, sh-format
 msgid "My problem concerns $APPLICATION_TITLE itself"
-msgstr ""
+msgstr "Problema susijusi su pačia $APPLICATION_TITLE"
 
 #: bash/bug_report:39
 #, sh-format
 msgid "What kind of problem do you have?"
-msgstr ""
+msgstr "Kokių problemų turite?"
 
 #: bash/bug_report:43
 #, sh-format
 msgid "Don't join any log file"
-msgstr ""
+msgstr "Negalima prisijungti prie jokio žurnalo failo"
 
 #: bash/bug_report:50
 #, sh-format
 msgid "Choose the log file corresponding to your software."
-msgstr ""
+msgstr "Pasirinkite žurnalo failą, atitinkantį jūsų programinę įrangą."
 
 #: bash/bug_report:54
 #, sh-format
 msgid "Please give a very short description"
-msgstr ""
+msgstr "Pateikite labai trumpą aprašymą"
 
 #: bash/bug_report:56
 #, sh-format
 msgid "Detailed description:"
-msgstr ""
+msgstr "Išsamus aprašymas:"
 
 #: bash/bug_report:67
 #, sh-format
@@ -276,7 +284,7 @@ msgstr "Paleisti lokalų skriptą"
 #: bash/expert/Executer:32
 #, sh-format
 msgid "This wizard will help you to run an unofficial PlayOnLinux Script."
-msgstr ""
+msgstr "Šis vedlys padės paleisti neoficialų PlayOnLinux skriptą."
 
 #: bash/expert/Executer:34
 #, sh-format
@@ -312,7 +320,7 @@ msgstr "\\nĮsitikinkite ar esate prisijungęs prie interneto."
 #: bash/first_use:34
 #, sh-format
 msgid " Licence translated into your language "
-msgstr ""
+msgstr " Licencija išversta į jūsų kalbą "
 
 #: bash/first_use:35
 #, sh-format
@@ -334,6 +342,8 @@ msgid ""
 "you may not redistribute them in modified form,\\nincluding changes to the "
 "file name or packaging format."
 msgstr ""
+"Galite nemokamai atsisiųsti šiuos šriftus ir naudoti juos savo reikmėms,\\"
+"nbet negalite jų keisti,\\nįskaitant failo pavadinimą ir paketo formatą."
 
 #: bash/first_use:39
 #, sh-format
@@ -380,36 +390,37 @@ msgstr "Microsoft šriftai įdiegti sėkmingai."
 msgid ""
 "To ensure that your games will be compatible, PlayOnMac must install XQuartz"
 msgstr ""
+"Siekiant užtikrinti žaidimų suderinamumą, PlayOnMac turi įdiegti XQuartz"
 
 #: bash/first_use:127
 #, sh-format
 msgid "Don't install XQuartz for the moment"
-msgstr ""
+msgstr "XQuartz dabar nediegti"
 
 #: bash/first_use:127
 #, sh-format
 msgid "I've downloaded the file by myself"
-msgstr ""
+msgstr "Pats atsisiunčiau failą"
 
 #: bash/first_use:127
 #, sh-format
 msgid "Please download XQuartz for me"
-msgstr ""
+msgstr "Atsiųsti man XQuartz"
 
 #: bash/first_use:130
 #, sh-format
 msgid "Downloading XQuartz"
-msgstr ""
+msgstr "XQuartz siunčiamas"
 
 #: bash/first_use:135
 #, sh-format
 msgid "Where is"
-msgstr ""
+msgstr "Kur yra"
 
 #: bash/first_use:142
 #, sh-format
 msgid "Installing XQuartz..."
-msgstr ""
+msgstr "Diegiama XQuartz..."
 
 #: bash/first_use:155
 #, sh-format
@@ -417,11 +428,13 @@ msgid ""
 "Unable to install XQuartz ! You must install it to improve games "
 "compatibility"
 msgstr ""
+"Negalima įdiegti XQuartz ! Turite jį įdiegti, siekiant pagerinti žaidimų "
+"suderinamumą"
 
 #: bash/first_use:161
 #, sh-format
 msgid "Default virtual drive configuration"
-msgstr ""
+msgstr "Numatytoji virtualaus disko konfigūracija"
 
 #: bash/first_use:162
 #, sh-format
@@ -436,49 +449,50 @@ msgstr ""
 #: bash/first_use:276
 #, sh-format
 msgid "It appears it is the first time you are using $APPLICATION_TITLE."
-msgstr ""
+msgstr "Atrodo, kad pirmą kartą naudojate $APPLICATION_TITLE."
 
 #: bash/first_use:276
 #, sh-format
 msgid "Please ensure you are connected to the internet."
-msgstr ""
+msgstr "Įsitikinkite, kad esate prisijungęs prie interneto."
 
 #: bash/first_use:276
 #, sh-format
 msgid "This wizard will help you prepare $APPLICATION_TITLE environement"
-msgstr ""
+msgstr "Šis vedlys padės parengti $APPLICATION_TITLE aplinką"
 
 #: bash/first_use:281
 #, sh-format
 msgid "Thank you for using $APPLICATION_TITLE"
-msgstr ""
+msgstr "Dėkui, kad naudojate $APPLICATION_TITLE"
 
 #: bash/install_wver:30
 #, sh-format
 msgid "This wizard will help you to install Wine: "
-msgstr ""
+msgstr "Šis vedlys padės įdiegti Wine: "
 
 #: bash/install_wver:30
 #, sh-format
 msgid "on the $APPLICATION_TITLE environment."
-msgstr ""
+msgstr "$APPLICATION_TITLE aplinkoje."
 
 #: bash/installpolpackages:26 bash/polconfigurator:26 bash/winebash:27
 #, sh-format
 msgid "$APPLICATION_TITLE Application Configurator"
-msgstr ""
+msgstr "$APPLICATION_TITLE programos konfigūratorius"
 
 #: bash/installpolpackages:26 bash/killall:33 bash/winebash:27
 #: lib/wine.lib:617
 #, sh-format
 msgid "Please wait..."
-msgstr "Prašome palaukti..."
+msgstr "Palaukite..."
 
 #: bash/killall:30
 #, sh-format
 msgid ""
 "Are you sure you want to shutdown all active $APPLICATION_TITLE applications?"
 msgstr ""
+"Ar tikrai norite išjungti visas veikiančias $APPLICATION_TITLE programas?"
 
 #: bash/make_shortcut:25
 #, sh-format
@@ -510,32 +524,32 @@ msgstr ""
 #: bash/make_shortcut:43
 #, sh-format
 msgid "PlayOnMac package"
-msgstr ""
+msgstr "PlayOnMac paketas"
 
 #: bash/make_shortcut:43
 #, sh-format
 msgid "Stand-alone package"
-msgstr ""
+msgstr "Nesusietas paketas"
 
 #: bash/make_shortcut:43
 #, sh-format
 msgid "What kind of Package do yo want?\\n\\n"
-msgstr ""
+msgstr "Kokio paketo norite?\\n\\n"
 
 #: bash/make_shortcut:47
 #, sh-format
 msgid "Building package..."
-msgstr ""
+msgstr "Kuriamas paketas..."
 
 #: bash/make_shortcut:66
 #, sh-format
 msgid "Copying virtual drive"
-msgstr ""
+msgstr "Virtualaus disko kopijavimas"
 
 #: bash/make_shortcut:83
 #, sh-format
 msgid "The package has been placed on your desktop"
-msgstr ""
+msgstr "Paketas patalpintas darbastalyje"
 
 #: bash/make_shortcut:88
 #, sh-format
@@ -544,11 +558,13 @@ msgid ""
 "make a shortcut for a PlayOnLinux software.\\n\\nThe shortcut will be placed "
 "on your desktop"
 msgstr ""
+"Čia PlayOnLinux nuorodų kūrėjas.\\n\\nŠis įrankis padės padaryti nuorodą "
+"PlayOnLinux programai.\\n\\nNuoroda bus sukurta jūsų darbastalyje"
 
 #: bash/make_shortcut:93
 #, sh-format
 msgid "Please choose a software"
-msgstr ""
+msgstr "Pasirinkite programinę įrangą"
 
 #: bash/manual_install:27 bash/manual_install:111 bash/manual_install:118
 #: bash/manual_install:195
@@ -578,12 +594,12 @@ msgstr ""
 #: bash/manual_install:113
 #, sh-format
 msgid "Install a program in a new virtual drive"
-msgstr ""
+msgstr "Įdiegti programą naujame virtualiame diske"
 
 #: bash/manual_install:114
 #, sh-format
 msgid "Edit or update an existing application"
-msgstr ""
+msgstr "Keisti ar atnaujinti esamą programą"
 
 #: bash/manual_install:118
 #, sh-format
@@ -600,12 +616,12 @@ msgstr ""
 #: bash/manual_install:138
 #, sh-format
 msgid "Please choose a program"
-msgstr ""
+msgstr "Pasirinkite programą"
 
 #: bash/manual_install:159
 #, sh-format
 msgid "Use another version of Wine"
-msgstr ""
+msgstr "Naudoti kitą Wine versiją"
 
 #: bash/manual_install:160 bash/manual_install:195 bash/polconfigurator:110
 #: python/configure.py:150 python/mainwindow.py:330 python/mainwindow.py:361
@@ -616,12 +632,12 @@ msgstr "Konfigūruoti Wine"
 #: bash/manual_install:161
 #, sh-format
 msgid "Install some libraries"
-msgstr ""
+msgstr "Įdiegti kai kurias bibliotekas"
 
 #: bash/manual_install:164
 #, sh-format
 msgid "If you don't know, unselect all"
-msgstr ""
+msgstr "Jei nežinote, viską atžymėkite"
 
 #: bash/manual_install:164
 #, sh-format
@@ -636,7 +652,7 @@ msgstr "Kokią Wine veriją noėtumėte naudoti?"
 #: bash/manual_install:232 lib/scripts.lib:235
 #, sh-format
 msgid "Please make your choice"
-msgstr ""
+msgstr "Pasirinkite"
 
 #: bash/manual_install:256
 #, sh-format
@@ -646,12 +662,12 @@ msgstr "Ieškoma paleidžiamų CD-ROM diskų"
 #: bash/manual_install:279
 #, sh-format
 msgid "Select another file"
-msgstr ""
+msgstr "Pažymėti kitą failą"
 
 #: bash/manual_install:287
 #, sh-format
 msgid "Please choose a way to install your program"
-msgstr ""
+msgstr "Pasirinkite programos diegimo būdą"
 
 #: bash/manual_install:296
 #, sh-format
@@ -734,7 +750,7 @@ msgstr "Šis failas: "
 #: bash/playonlinux-pkg:86
 #, sh-format
 msgid " does not exist!"
-msgstr ""
+msgstr " nėra!"
 
 #: bash/playonlinux-pkg:99
 #, sh-format
@@ -756,6 +772,7 @@ msgstr "Vyksta valymas..."
 msgid ""
 "This is the list of the scripts you sent to us. You can run one of them"
 msgstr ""
+"Tai skriptų sąrašas, kurį atsiuntėte mums. Galite paleisti vieną iš jų"
 
 #: bash/playonlinux_online:39
 #, sh-format
@@ -763,11 +780,13 @@ msgid ""
 "If you have successfully installed a program with 'Install a non-listed\\"
 "nsoftware' button, it will allow you to add this program in our list"
 msgstr ""
+"Jei sėkmingai įdiegėte programą su mygtuku \"Įdiegti programinę įrangą\\n ne "
+"iš sąrašo\", galite pridėti programą mūsų sąraše"
 
 #: bash/playonlinux_online:39
 #, sh-format
 msgid "This tools will allow you to help us :"
-msgstr ""
+msgstr "Šie įrankiai Jums leis padėti mums :"
 
 #: bash/playonlinux_online:39
 #, sh-format
@@ -779,17 +798,17 @@ msgstr ""
 #: bash/playonlinux_online:47
 #, sh-format
 msgid "Choose the file corresponding to your program."
-msgstr ""
+msgstr "Pasirinkite programos failą."
 
 #: bash/playonlinux_online:51
 #, sh-format
 msgid "Does your program run?"
-msgstr ""
+msgstr "Ar paleidote programą?"
 
 #: bash/playonlinux_online:54
 #, sh-format
 msgid "What is the title of your program?"
-msgstr ""
+msgstr "Koks programos pavadinimas?"
 
 #: bash/playonlinux_online:56
 #, sh-format
@@ -856,7 +875,7 @@ msgstr "Pataisos"
 #: bash/playonlinux_online:61
 #, sh-format
 msgid "Select a category for your program"
-msgstr ""
+msgstr "Pasirinkite programos kategoriją"
 
 #: bash/playonlinux_online:61 python/install.py:326
 #, sh-format
@@ -869,6 +888,7 @@ msgid ""
 "What feature of your program does not work?\\nIf everything works, please "
 "mention it"
 msgstr ""
+"Kokia programos funkcija neveikia?\\nJei viskas veikia, nurodykite tai"
 
 #: bash/playonlinux_online:66
 #, sh-format
@@ -893,7 +913,7 @@ msgstr ""
 #: bash/playonlinux_online:101
 #, sh-format
 msgid "Logout"
-msgstr ""
+msgstr "Atsijungti"
 
 #: bash/playonlinux_online:102
 #, sh-format
@@ -993,7 +1013,7 @@ msgstr "Naudokite Išplėstinės Wine Konfigūracijos įskiepį"
 #: bash/polconfigurator:116
 #, sh-format
 msgid "Use PlayOnLinux's configurator for"
-msgstr ""
+msgstr "PlayOnLinux konfiguratorių naudok"
 
 #: bash/polconfigurator:118
 #, sh-format
@@ -1025,7 +1045,7 @@ msgstr ""
 #: bash/run_app:26
 #, sh-format
 msgid "Nothing"
-msgstr ""
+msgstr "Nieko"
 
 #: bash/run_app:26
 #, sh-format
@@ -1040,7 +1060,7 @@ msgstr ""
 #: bash/run_app:26
 #, sh-format
 msgid "Show me the log file"
-msgstr ""
+msgstr "Parodyti žurnalo failą"
 
 #: bash/run_app:26
 #, sh-format
@@ -1055,12 +1075,12 @@ msgstr ""
 #: bash/run_app:62
 #, sh-format
 msgid "Please add everything that could help us."
-msgstr ""
+msgstr "Pridėkite viską, kad mums padėtumėte."
 
 #: bash/run_app:63
 #, sh-format
 msgid "Please enter a description"
-msgstr ""
+msgstr "Parašykite aprašymą"
 
 #: bash/run_app:71
 #, sh-format
@@ -1139,7 +1159,7 @@ msgstr "Jūsų vaizdo plokštė: "
 #: bash/system_info:65
 #, sh-format
 msgid "Graphic card driver: "
-msgstr ""
+msgstr "Vaizdo plokštės tvarkyklė: "
 
 #: bash/system_info:67
 #, sh-format
@@ -1149,7 +1169,7 @@ msgstr "OpenGL: "
 #: bash/system_info:68
 #, sh-format
 msgid "Compiz in background: "
-msgstr ""
+msgstr "Compiz fone: "
 
 #: bash/system_info:76
 #, sh-format
@@ -1159,7 +1179,7 @@ msgstr "Vykdomasis failas: "
 #: bash/system_info:76
 #, sh-format
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #: bash/system_info:77
 #, sh-format
@@ -1199,7 +1219,7 @@ msgstr "Jūsų kompiuterio vardas: "
 #: bash/system_info:93
 #, sh-format
 msgid "Your graphic card: "
-msgstr ""
+msgstr "Jūsų vaizdo plokštė: "
 
 #: bash/system_info:94
 #, sh-format
@@ -1230,27 +1250,27 @@ msgstr "Laisva vieta jūsų kietuosiuose diskuose:"
 #: lib/playonlinux.lib:656
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
-msgstr ""
+msgstr "$APPLICATION_TITLE Triniklis"
 
 #: bash/uninstall:30
 #, sh-format
 msgid "Please select a program to uninstall"
-msgstr ""
+msgstr "Pasirinkite programą, kurią norite pašalinti"
 
 #: bash/uninstall:41
 #, sh-format
 msgid "Click Next to continue."
-msgstr "Jei norite tęsti, spauskite Toliau."
+msgstr "Jei norite tęsti, spauskite Sekantis."
 
 #: bash/uninstall:41
 #, sh-format
 msgid "This wizard will help you to uninstall: "
-msgstr ""
+msgstr "Šis vedlys padės pašalinti: "
 
 #: bash/uninstall:52 lib/playonlinux.lib:656
 #, sh-format
 msgid "Uninstalling..."
-msgstr "Trinama..."
+msgstr "Šalinama..."
 
 #: bash/uninstall:56
 #, sh-format
@@ -1339,7 +1359,7 @@ msgstr ""
 #: lib/playonlinux.lib:654
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
-msgstr ""
+msgstr "Ar norite pašalinti virtualų diską:"
 
 #: lib/plugins.lib:64
 #, sh-format
@@ -1405,7 +1425,7 @@ msgstr " bus įdiegtas: "
 #: lib/setupwindow.lib:78
 #, sh-format
 msgid "Click Next to start"
-msgstr "Spauskite Toliau, jei norite pradėti"
+msgstr "Spauskite Sekantis, jei norite pradėti"
 
 #: lib/setupwindow.lib:78
 #, sh-format
@@ -1492,7 +1512,7 @@ msgstr ""
 #: lib/setupwindow.lib:924
 #, sh-format
 msgid "Please choose an installation method"
-msgstr ""
+msgstr "Pasirinkite diegimo būdą"
 
 #: lib/setupwindow.lib:951
 #, sh-format
@@ -1675,7 +1695,7 @@ msgstr ""
 
 #: python/configure.py:555 python/configure.py:562
 msgid "Are you sure you want to delete "
-msgstr ""
+msgstr "Ar esate įsitikinęs, kad norite pašalinti "
 
 #: python/guiv3.py:126
 msgid "{0} Wizard"
@@ -1767,15 +1787,15 @@ msgstr "Daugiausiai siuntimų"
 
 #: python/irc.py:132
 msgid "Send"
-msgstr ""
+msgstr "Siųsti"
 
 #: python/irc.py:133
 msgid "Connect"
-msgstr ""
+msgstr "Prisijungti"
 
 #: python/irc.py:134
 msgid "Disconnect"
-msgstr ""
+msgstr "Atsijungti"
 
 #: python/irc.py:223
 msgid "Join a channel"
@@ -1887,7 +1907,7 @@ msgstr ""
 
 #: python/mainwindow.py:546
 msgid "Are you sure you want to close all {0} Windows?"
-msgstr ""
+msgstr "Ar tikrai norite uždaryti visus {0} langus?"
 
 #: python/mainwindow.py:559
 msgid "Run your Windows programs on "
@@ -1913,7 +1933,7 @@ msgstr ""
 
 #: python/mainwindow.py:564
 msgid "Icons:"
-msgstr ""
+msgstr "Piktogramos:"
 
 #: python/mainwindow.py:565
 msgid "The following people contributed to this program: "

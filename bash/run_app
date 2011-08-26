@@ -93,19 +93,25 @@ cd "$REPERTOIRE/shortcuts"
 LOGFILE="$REPERTOIRE/tmp/errors_$PACKAGE.log"
 echo "[b]File :[/b]$PACKAGE" > "$LOGFILE"
 echo "[b]Date :[/b] $(Get_CurrentDate)" >> "$LOGFILE"
-echo "[b]PlayOnMac Version :[/b] $VERSION" >> "$LOGFILE"
+echo "[b]$APPLICATION_TITLE Version :[/b] $VERSION" >> "$LOGFILE"
 echo "[b]File content :[/b]" >> "$LOGFILE"
 echo "[code language%3Dplayonlinux]" >> "$LOGFILE"
 cat "$PACKAGE" >> "$LOGFILE"
 echo "[/code]" >> "$LOGFILE"
-
+debugFile="$(cat "$PACKAGE" | grep "#POL_Log" | cut -d= -f2)"
+if [ ! "$debugFile" = "" ]
+then
+	echo "[b]Install output $debugFile:[/b]" >> "$LOGFILE"
+	
+	cat "$POL_USER_ROOT/logs/$debugFile/$debugFile.log" >> "$LOGFILE"
+fi
 echo "[b]Output :[/b]" >> "$LOGFILE"
 rm "$LOGFILE.e" 2> /dev/null
 touch "$LOGFILE.e"
 
 if [ "$(cat "$PACKAGE" | grep 'export WINEDEBUG="-all"')" = "" ]
 then
-	echo "Debugger is starting"
+	POL_Debug_Message "Debugger is starting"
 	xterm -T "$(eval_gettext "$APPLICATION_TITLE debugger")" -e "echo \"Writting log to $LOGFILE.e\" && echo \"\" && sleep 1 && tail -f \"$LOGFILE.e\"" &
 fi
 
@@ -122,14 +128,14 @@ then
 	then
 		POL_SetupWindow_message "$(eval_gettext "The program you run crashed.\n\nYou need to enable debugging to get more details.\nPlease go to configure menu")" "$TITLE"
 	else
-	echo "[code language%3Dconsole]" >> "$LOGFILE"
-	cat "$LOGFILE.e" >> "$LOGFILE"
-	echo " [/code]" >> "$LOGFILE"
+		echo "[code language%3Dconsole]" >> "$LOGFILE"
+		cat "$LOGFILE.e" >> "$LOGFILE"
+		echo " [/code]" >> "$LOGFILE"
 
-	echo "[b]Other :[/b]" >> "$LOGFILE"
+		echo "[b]Other :[/b]" >> "$LOGFILE"
 	
-	sleep 2
-	debug_menu	
+		sleep 2
+		debug_menu	
 	fi
 	POL_SetupWindow_Close
 fi

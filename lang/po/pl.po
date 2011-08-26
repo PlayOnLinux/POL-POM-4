@@ -11,14 +11,14 @@ msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
 "POT-Creation-Date: 2011-08-15 15:23+0200\n"
-"PO-Revision-Date: 2011-07-31 11:28+0000\n"
-"Last-Translator: Łukasz Szeremeta <Unknown>\n"
+"PO-Revision-Date: 2011-08-19 12:32+0000\n"
+"Last-Translator: Adam Maćkowiak <Unknown>\n"
 "Language-Team: pl_PL.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-08-16 18:28+0000\n"
-"X-Generator: Launchpad (build 13697)\n"
+"X-Launchpad-Export-Date: 2011-08-26 13:16+0000\n"
+"X-Generator: Launchpad (build 13794)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -131,12 +131,16 @@ msgid ""
 "Define your encoding options for pass 1 \\n (leave defaults if you do not "
 "know what to do)"
 msgstr ""
+"Wybierz opcje kodowania dla fazy pierwszej \\n (zostaw wartości domyślne "
+"jeśli nie wiesz co wybrać)"
 
 #: Capture plugin:26
 msgid ""
 "Define your encoding options for pass 2 \\n (leave defaults if you do not "
 "know what to do)"
 msgstr ""
+"Wybierz opcje kodowania dla fazy drugiej \\n (zostaw wartości domyślne jeśli "
+"nie wiesz co wybrać)"
 
 #: Capture plugin:27
 msgid ""
@@ -247,7 +251,7 @@ msgstr "Mam problem z oprogramowaniem"
 #: bash/bug_report:39
 #, sh-format
 msgid "My problem concerns $APPLICATION_TITLE itself"
-msgstr ""
+msgstr "Mój problem dotyczy $APPLICATION_TITLE"
 
 #: bash/bug_report:39
 #, sh-format
@@ -280,6 +284,8 @@ msgid ""
 "Thank you !\\n\\nYour report has been sent.\\n\\nWe will do our best to send "
 "you an answer by mail very soon"
 msgstr ""
+"Dziękujemy!\\n\\Raport został wysłany.\\n\\nZrobimy co w naszej mocy aby "
+"odpowiedzieć jak najszybciej"
 
 #: bash/expert/Executer:27 bash/expert/Executer:32 bash/expert/Executer:34
 #: python/mainwindow.py:130
@@ -398,7 +404,7 @@ msgstr "Czcionki Microsoft zostały zainstalowane pomyślnie."
 #, sh-format
 msgid ""
 "To ensure that your games will be compatible, PlayOnMac must install XQuartz"
-msgstr ""
+msgstr "Aby gry działały poprawnie, PlayOnMac musi zainstalować XQuartz"
 
 #: bash/first_use:127
 #, sh-format
@@ -408,22 +414,22 @@ msgstr "Nie należy instalować XQuartz w tej chwili"
 #: bash/first_use:127
 #, sh-format
 msgid "I've downloaded the file by myself"
-msgstr ""
+msgstr "Już pobrałem plik"
 
 #: bash/first_use:127
 #, sh-format
 msgid "Please download XQuartz for me"
-msgstr ""
+msgstr "Pobierz XQuartz"
 
 #: bash/first_use:130
 #, sh-format
 msgid "Downloading XQuartz"
-msgstr ""
+msgstr "Pobieranie XQuartz"
 
 #: bash/first_use:135
 #, sh-format
 msgid "Where is"
-msgstr ""
+msgstr "Gdzie jest"
 
 #: bash/first_use:142
 #, sh-format
@@ -447,17 +453,18 @@ msgstr "Domyślna konfiguracja wirtualnego dysku"
 #: bash/first_use:162
 #, sh-format
 msgid "$APPLICATION_TITLE is making a virtual windows hard drive"
-msgstr ""
+msgstr "$APPLICATION_TITLE tworzy wirtualny dysk twardy Windows"
 
 #: bash/first_use:276 bash/first_use:281
 #, sh-format
 msgid "$APPLICATION_TITLE first use"
-msgstr ""
+msgstr "Pierwsze uruchomienie $APPLICATION_TITLE"
 
 #: bash/first_use:276
 #, sh-format
 msgid "It appears it is the first time you are using $APPLICATION_TITLE."
 msgstr ""
+"Wygląda na to że $APPLICATION_TITLE został uruchomiony po raz pierwszy."
 
 #: bash/first_use:276
 #, sh-format
@@ -467,12 +474,12 @@ msgstr "Upewnij się, czy jesteś podłączony do Internetu."
 #: bash/first_use:276
 #, sh-format
 msgid "This wizard will help you prepare $APPLICATION_TITLE environement"
-msgstr ""
+msgstr "Ten kreator pomoże ci przygotować środowisko $APPLICATION_TITLE"
 
 #: bash/first_use:281
 #, sh-format
 msgid "Thank you for using $APPLICATION_TITLE"
-msgstr ""
+msgstr "Dziękujemy za wypróbowanie $APPLICATION_TITLE"
 
 #: bash/install_wver:30
 #, sh-format
@@ -482,12 +489,12 @@ msgstr "Ten kreator pomoże Ci zainstalować Wine: "
 #: bash/install_wver:30
 #, sh-format
 msgid "on the $APPLICATION_TITLE environment."
-msgstr ""
+msgstr "w środowisku $APPLICATION_TITLE."
 
 #: bash/installpolpackages:26 bash/polconfigurator:26 bash/winebash:27
 #, sh-format
 msgid "$APPLICATION_TITLE Application Configurator"
-msgstr ""
+msgstr "Konfiguracja aplikacji $APPLICATION_TITLE"
 
 #: bash/installpolpackages:26 bash/killall:33 bash/winebash:27
 #: lib/wine.lib:617
@@ -499,12 +506,12 @@ msgstr "Proszę czekać..."
 #, sh-format
 msgid ""
 "Are you sure you want to shutdown all active $APPLICATION_TITLE applications?"
-msgstr ""
+msgstr "Zamknąć wszystkie uruchomione aplikacje $APPLICATION_TITLE?"
 
 #: bash/make_shortcut:25
 #, sh-format
 msgid "$APPLICATION_TITLE packager"
-msgstr ""
+msgstr "Menadżer pakietów $APPLICATION_TITLE"
 
 #: bash/make_shortcut:31
 #, sh-format
@@ -512,11 +519,13 @@ msgid ""
 "Welcome to PlayOnMac packager.\\n\\nThis tool will help you to make a .app "
 "for a PlayOnMac software.\\n\\nThe .app will be placed on your desktop"
 msgstr ""
+"Witaj w Menadżerze pakietów PlayOnMac.\\n\\nTo narzędzie utworzy plik .app "
+"programu PlayOnMac.\\n\\nPlik .app będzie widoczny na pulpicie"
 
 #: bash/make_shortcut:36
 #, sh-format
 msgid "Please choose a software to package"
-msgstr ""
+msgstr "Wybierz program do paczkowania"
 
 #: bash/make_shortcut:40
 #, sh-format
@@ -527,36 +536,41 @@ msgid ""
 "include all files\\nneeded to run your software.\\nThis package will work "
 "without PlayOnMac."
 msgstr ""
+"Istnieją dwa rodzaje paczek\\n\\Paczka PlayOnMac: ta paczka będzie działać "
+"tylko na twoim komputerze. \\nDzięki temu nie będzie zajmować miejsca na "
+"twoim dysku twardym.\\n\\nSamodzielna paczka: ta paczka będzie zawierać "
+"wszystkie pliki\\npotrzebne do uruchomienia programu.\\nTa paczka będzie "
+"działać bez PlayOnMac"
 
 #: bash/make_shortcut:43
 #, sh-format
 msgid "PlayOnMac package"
-msgstr ""
+msgstr "Paczka PlayOnMac"
 
 #: bash/make_shortcut:43
 #, sh-format
 msgid "Stand-alone package"
-msgstr ""
+msgstr "Samodzielna paczka"
 
 #: bash/make_shortcut:43
 #, sh-format
 msgid "What kind of Package do yo want?\\n\\n"
-msgstr ""
+msgstr "Jaką paczkę utworzyć?\\n\\n"
 
 #: bash/make_shortcut:47
 #, sh-format
 msgid "Building package..."
-msgstr ""
+msgstr "Budowanie paczki..."
 
 #: bash/make_shortcut:66
 #, sh-format
 msgid "Copying virtual drive"
-msgstr ""
+msgstr "Kopiowanie wirtualnego dysku"
 
 #: bash/make_shortcut:83
 #, sh-format
 msgid "The package has been placed on your desktop"
-msgstr ""
+msgstr "Paczka została zapisana na pulpicie"
 
 #: bash/make_shortcut:88
 #, sh-format
@@ -565,11 +579,13 @@ msgid ""
 "make a shortcut for a PlayOnLinux software.\\n\\nThe shortcut will be placed "
 "on your desktop"
 msgstr ""
+"Witaj w kreatorze skrótów PlayOnLinux.\\n\\nTo narzędzie utworzy skrót do "
+"programu PlayOnLinux.\\n\\nSkrót będzie widoczny na pulpicie"
 
 #: bash/make_shortcut:93
 #, sh-format
 msgid "Please choose a software"
-msgstr ""
+msgstr "Wybierz program"
 
 #: bash/manual_install:27 bash/manual_install:111 bash/manual_install:118
 #: bash/manual_install:195
@@ -597,16 +613,20 @@ msgid ""
 "the tools\\n\\nWarning: We are unable to guarantee that your application "
 "will work perfectly."
 msgstr ""
+"Witaj w kreatorze ręcznej instalacji $APPLICATION_TITLE.\\n\\nTen skrypt "
+"umożliwi ci zainstalowanie każdego programu na $APPLICATION.\\n\\"
+"nOstrzeżenie: Nie możemy zagwarantować że aplikacja będzie działać "
+"prawidłowo."
 
 #: bash/manual_install:113
 #, sh-format
 msgid "Install a program in a new virtual drive"
-msgstr ""
+msgstr "Zainstaluj program na nowym wirualnym dysku twardym"
 
 #: bash/manual_install:114
 #, sh-format
 msgid "Edit or update an existing application"
-msgstr ""
+msgstr "Edytuj lub zaktualizuj zainstalowaną aplikację"
 
 #: bash/manual_install:118
 #, sh-format
@@ -619,11 +639,13 @@ msgid ""
 "Please type a name for your application's virtual drive.\\nThis name "
 "shouldn't contain spaces."
 msgstr ""
+"Wpisz nazwę nowego wirtualnego dysku twardego.\\nNazwa nie powinna zawierać "
+"spacji."
 
 #: bash/manual_install:138
 #, sh-format
 msgid "Please choose a program"
-msgstr ""
+msgstr "Wybierz program"
 
 #: bash/manual_install:159
 #, sh-format
@@ -639,12 +661,12 @@ msgstr "Skonfiguruj Wine"
 #: bash/manual_install:161
 #, sh-format
 msgid "Install some libraries"
-msgstr ""
+msgstr "Zainstaluj biblioteki wymagane przez program"
 
 #: bash/manual_install:164
 #, sh-format
 msgid "If you don't know, unselect all"
-msgstr ""
+msgstr "Jeśli nie wiesz, co należy zaznaczyć, nie zaznaczaj nic"
 
 #: bash/manual_install:164
 #, sh-format
@@ -659,7 +681,7 @@ msgstr "Jakiej wersji Wine chcesz użyć?"
 #: bash/manual_install:232 lib/scripts.lib:235
 #, sh-format
 msgid "Please make your choice"
-msgstr ""
+msgstr "Wybierz biblioteki do instalacji"
 
 #: bash/manual_install:256
 #, sh-format
@@ -669,7 +691,7 @@ msgstr "Poszukiwanie auto-uruchomiającego nośnika CD/DVD"
 #: bash/manual_install:279
 #, sh-format
 msgid "Select another file"
-msgstr ""
+msgstr "Wybierz inny plik"
 
 #: bash/manual_install:287
 #, sh-format
@@ -689,12 +711,12 @@ msgstr "Musisz wskazać plik!"
 #: bash/manual_install:332
 #, sh-format
 msgid "$APPLICATION_TITLE is installing your application..."
-msgstr ""
+msgstr "$APPLICATION_TITLE instaluje twoją aplikację..."
 
 #: bash/playonlinux-pkg:25
 #, sh-format
 msgid "$APPLICATION_TITLE package manager: "
-msgstr ""
+msgstr "Menadżer pakietów $APPLICATION_TITLE: "
 
 #: bash/playonlinux-pkg:39
 #, sh-format
@@ -757,7 +779,7 @@ msgstr "Ten plik: "
 #: bash/playonlinux-pkg:86
 #, sh-format
 msgid " does not exist!"
-msgstr ""
+msgstr " nie istnieje."
 
 #: bash/playonlinux-pkg:99
 #, sh-format
@@ -778,7 +800,7 @@ msgstr "Czyszczenie..."
 #, sh-format
 msgid ""
 "This is the list of the scripts you sent to us. You can run one of them"
-msgstr ""
+msgstr "Oto lista skryptów wysłanych do nas. Możesz uruchomić jeden z nich"
 
 #: bash/playonlinux_online:39
 #, sh-format
@@ -786,11 +808,13 @@ msgid ""
 "If you have successfully installed a program with 'Install a non-listed\\"
 "nsoftware' button, it will allow you to add this program in our list"
 msgstr ""
+"Jeżeli poprawnie zainstalowałeś program za pomocą\\n\"zainstaluj program "
+"którego nie ma na liście\" możesz dodać ten program do naszej listy"
 
 #: bash/playonlinux_online:39
 #, sh-format
 msgid "This tools will allow you to help us :"
-msgstr ""
+msgstr "To narzędzie pozwoli ci nam pomóc:"
 
 #: bash/playonlinux_online:39
 #, sh-format
@@ -798,31 +822,33 @@ msgid ""
 "We're going to ask you some questions, please be as much accurate as\\"
 "npossible"
 msgstr ""
+"Musisz odpowiedzieć na kilka pytać, prosimy o udzielanie jak\\"
+"nnajdokładniejszych odpowiedzi"
 
 #: bash/playonlinux_online:47
 #, sh-format
 msgid "Choose the file corresponding to your program."
-msgstr ""
+msgstr "Wybierz plik twojego programu."
 
 #: bash/playonlinux_online:51
 #, sh-format
 msgid "Does your program run?"
-msgstr ""
+msgstr "Czy program się uruchamia?"
 
 #: bash/playonlinux_online:54
 #, sh-format
 msgid "What is the title of your program?"
-msgstr ""
+msgstr "Jaka jest nazwa programu?"
 
 #: bash/playonlinux_online:56
 #, sh-format
 msgid "What is the editor of your program?"
-msgstr ""
+msgstr "Kto jest twórcą aplikacji?"
 
 #: bash/playonlinux_online:58
 #, sh-format
 msgid "What is the editor website of your program?"
-msgstr ""
+msgstr "Jaki jest adres strony tej aplikacji?"
 
 #: bash/playonlinux_online:61 python/install.py:299
 #, sh-format
@@ -879,7 +905,7 @@ msgstr "Aktualizacje"
 #: bash/playonlinux_online:61
 #, sh-format
 msgid "Select a category for your program"
-msgstr ""
+msgstr "Wybierz kategorię programu"
 
 #: bash/playonlinux_online:61 python/install.py:326
 #, sh-format
@@ -892,36 +918,38 @@ msgid ""
 "What feature of your program does not work?\\nIf everything works, please "
 "mention it"
 msgstr ""
+"Jaka funkcja programu nie działa?\\nJeśli wszystko działa, napisz o tym"
 
 #: bash/playonlinux_online:66
 #, sh-format
 msgid "Write any change you made to wine configuration here:"
 msgstr ""
+"Napisz zmiany w konfiguracji wine wymagane do uruchomienia aplikacji:"
 
 #: bash/playonlinux_online:94
 #, sh-format
 msgid "You must be able to run this program!"
-msgstr ""
+msgstr "Musisz być w stanie uruchomić ten program!"
 
 #: bash/playonlinux_online:99
 #, sh-format
 msgid "Run one of your personal scripts"
-msgstr ""
+msgstr "Uruchom jeden z twoich skryptów"
 
 #: bash/playonlinux_online:100
 #, sh-format
 msgid "Send to us a working script generated by manual installation"
-msgstr ""
+msgstr "Wyślij nam skrypt wygenerowany przez kreatora instalacji ręcznej"
 
 #: bash/playonlinux_online:101
 #, sh-format
 msgid "Logout"
-msgstr ""
+msgstr "Wyloguj"
 
 #: bash/playonlinux_online:102
 #, sh-format
 msgid "You are connected to $APPLICATION_TITLE online as $POL_LOGIN"
-msgstr ""
+msgstr "Jesteś połączony do $APPLICATION_TITLE online jako $POL_LOGIN"
 
 #: bash/playonlinux_online:116
 #, sh-format
@@ -929,6 +957,8 @@ msgid ""
 "You have been successfully logged out of $APPLICATION_TITLE Online\\nYou can "
 "safely close this window"
 msgstr ""
+"Wylogowanie z $APPLICATION_TITLE Online wykonane pomyslnie\\nMożesz teraz "
+"zamknąć to okno"
 
 #: bash/polconfigurator:29 bash/polconfigurator:40 bash/polconfigurator:52
 #: bash/polconfigurator:59 bash/polconfigurator:66 bash/polconfigurator:73
@@ -1039,6 +1069,8 @@ msgid ""
 "Welcome to $APPLICATION_TITLE Application Configurator.\\nThis wizard will "
 "help you to configure: "
 msgstr ""
+"Witaj w konfiguratorze aplikacji $APPLICATION_TITLE.\\nTen kreator pomoże ci "
+"skonfigurować: "
 
 #: bash/polconfigurator:193
 #, sh-format
@@ -1048,22 +1080,22 @@ msgstr "\\n\\nNastępujące środowisko Wine zostanie zaktualizowane: "
 #: bash/run_app:26
 #, sh-format
 msgid "Nothing"
-msgstr ""
+msgstr "Nic"
 
 #: bash/run_app:26
 #, sh-format
 msgid "Send the report to us"
-msgstr ""
+msgstr "Wyślij raport"
 
 #: bash/run_app:26
 #, sh-format
 msgid "Show me the full report"
-msgstr ""
+msgstr "Pokaż pełny raport"
 
 #: bash/run_app:26
 #, sh-format
 msgid "Show me the log file"
-msgstr ""
+msgstr "Pokaż log"
 
 #: bash/run_app:26
 #, sh-format
@@ -1073,17 +1105,17 @@ msgstr "Co chcesz zrobić?"
 #: bash/run_app:26
 #, sh-format
 msgid "crashed."
-msgstr ""
+msgstr "uległ awarii."
 
 #: bash/run_app:62
 #, sh-format
 msgid "Please add everything that could help us."
-msgstr ""
+msgstr "Napisz wszystko co może być pomocne."
 
 #: bash/run_app:63
 #, sh-format
 msgid "Please enter a description"
-msgstr ""
+msgstr "Wpisz opis"
 
 #: bash/run_app:71
 #, sh-format
@@ -1091,11 +1123,13 @@ msgid ""
 "Thank you !\\n\\nYour report has been sent.\\n\\nWe will do our best to send "
 "you an answer very soon by mail\\n\\n"
 msgstr ""
+"Dziękujemy!\\n\\nRaport został wysłany.\\n\\nZrobimy wszystko żeby "
+"odpowiedzieć ci mailem jak najszybciej\\n\\n"
 
 #: bash/run_app:85
 #, sh-format
 msgid "Please choose a software to run"
-msgstr ""
+msgstr "Wybierz program który chcesz uruchomić"
 
 #: bash/run_app:121
 #, sh-format
@@ -1103,6 +1137,8 @@ msgid ""
 "The program you run crashed.\\n\\nYou need to enable debugging to get more "
 "details.\\nPlease go to configure menu"
 msgstr ""
+"Program, który był uruchomiony uległ awarii.\\n\\nMusisz włączyć debugowanie "
+"aby uzyskać więcej informacji.\\bMożesz to zrobić w menu konfiguracji"
 
 #: bash/run_exe:63
 #, sh-format
@@ -1112,17 +1148,19 @@ msgstr ""
 #: bash/run_exe:89
 #, sh-format
 msgid "We have detected that the program you want to install is :"
-msgstr ""
+msgstr "Wykryto że program który chcesz zainstalować to:"
 
 #: bash/startup:38
 #, sh-format
 msgid "Are you sure you want to start $APPLICATION_TITLE?"
-msgstr ""
+msgstr "Na pewno uruchomić $APPLICATION_TITLE?"
 
 #: bash/startup:38
 #, sh-format
 msgid "PlayOnLinux is not reponsable for any damage to your system.\\n\\n"
 msgstr ""
+"PlayOnLinux nie ponosi odpowiedzialności za jakiekolwiek uszkodzenia "
+"systemu.\\n\\n"
 
 #: bash/startup:38
 #, sh-format
@@ -1141,7 +1179,7 @@ msgstr "Uwaga!"
 #: bash/startup:38
 #, sh-format
 msgid "You are running $APPLICATION_TITLE as root.\\n\\n"
-msgstr ""
+msgstr "Uruchamiasz $APPLICATION_TITLE jako administrator.\\n\\n"
 
 #: bash/system_info:62 bash/system_info:88
 #, sh-format
@@ -1161,7 +1199,7 @@ msgstr "Twoja karta graficzna: "
 #: bash/system_info:65
 #, sh-format
 msgid "Graphic card driver: "
-msgstr ""
+msgstr "Sterownik karty graficznej: "
 
 #: bash/system_info:67
 #, sh-format
@@ -1181,17 +1219,17 @@ msgstr "Plik wykonywalny: "
 #: bash/system_info:76
 #, sh-format
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #: bash/system_info:77
 #, sh-format
 msgid "App launcher content: \\n"
-msgstr ""
+msgstr "Zawartość aktywatora: \\n"
 
 #: bash/system_info:83
 #, sh-format
 msgid "Terminal output content: \\n"
-msgstr ""
+msgstr "Zawartość danych wyjściowych w terminalu: \\n"
 
 #: bash/system_info:86
 #, sh-format
@@ -1221,7 +1259,7 @@ msgstr "Nazwa twojego komputera: "
 #: bash/system_info:93
 #, sh-format
 msgid "Your graphic card: "
-msgstr ""
+msgstr "Twoja karta graficzna: "
 
 #: bash/system_info:94
 #, sh-format
@@ -1252,12 +1290,12 @@ msgstr "Wolna przestrzeń na dyskach twardych:"
 #: lib/playonlinux.lib:656
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
-msgstr ""
+msgstr "Deinstalator $APPLICATION_TITLE"
 
 #: bash/uninstall:30
 #, sh-format
 msgid "Please select a program to uninstall"
-msgstr ""
+msgstr "Wybierz program który chcesz odinstalować"
 
 #: bash/uninstall:41
 #, sh-format
@@ -1267,7 +1305,7 @@ msgstr "Wciśnij Dalej aby kontynuować"
 #: bash/uninstall:41
 #, sh-format
 msgid "This wizard will help you to uninstall: "
-msgstr ""
+msgstr "Ten kreator pomoże ci odinstalować: "
 
 #: bash/uninstall:52 lib/playonlinux.lib:656
 #, sh-format
@@ -1293,6 +1331,7 @@ msgstr "Błąd"
 #, sh-format
 msgid " is missing. Please install it"
 msgstr ""
+" jest niezainstalowany. Ten składnik jest wymagany, proszę go zainstalować"
 
 #: lib/depend.lib:40
 #, sh-format
@@ -1319,6 +1358,8 @@ msgid ""
 "You don't seem to have 3D acceleration!\\nWe advise you to install and to "
 "enable it."
 msgstr ""
+"Nie wykryto akceleracji 3D!\\nRadzimy ją włączyć (zazwyczaj wymaga to "
+"zainstalowania odpowiedniego sterownika)."
 
 #: lib/depend.lib:78
 #, sh-format
@@ -1333,12 +1374,13 @@ msgstr ""
 #: lib/wine.lib:528
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
-msgstr ""
+msgstr "Proszę czekać, wirtualny dysk twardy jest tworzony..."
 
 #: lib/deprecated.lib:427 lib/wine.lib:626
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a Windows reboot"
 msgstr ""
+"Proszę czekać, $APPLICATION_TITLE symuluje ponowne uruchomienie Windows"
 
 #: lib/deprecated.lib:559
 #, sh-format
@@ -1356,12 +1398,12 @@ msgstr "Ta funkcja jest wyłączona w środowisku PlayOnLinux"
 #: lib/playonlinux.lib:532
 #, sh-format
 msgid "Making shortcut..."
-msgstr ""
+msgstr "Tworzenie skrótu..."
 
 #: lib/playonlinux.lib:654
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
-msgstr ""
+msgstr "Czy chcesz usunąć wirtualny dysk twardy:"
 
 #: lib/plugins.lib:64
 #, sh-format
@@ -1387,32 +1429,32 @@ msgstr "Instalacja wtyczki: "
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
-msgstr ""
+msgstr "7z nie jest zainstalowany, zainstaluj 7zip i spróbuj ponownie"
 
 #: lib/scripts.lib:387
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
-msgstr ""
+msgstr "Nie udało się znaleźć ${dest} z ${archive}"
 
 #: lib/scripts.lib:391
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
-msgstr ""
+msgstr "Rozpakowywanie ${filename} z ${archivename}"
 
 #: lib/scripts.lib:406
 #, sh-format
 msgid "Extracted file size does not match!"
-msgstr ""
+msgstr "Rozmiar rozpakowanych plików się nie zgadza"
 
 #: lib/scripts.lib:425
 #, sh-format
 msgid "Copying ${filename}"
-msgstr ""
+msgstr "Kopiowanie ${filename}"
 
 #: lib/scripts.lib:438
 #, sh-format
 msgid "File size does not match!"
-msgstr ""
+msgstr "Rozmiar pliku się nie zgadza!"
 
 #: lib/setupwindow.lib:78
 #, sh-format
@@ -1447,7 +1489,7 @@ msgstr "Kreator pomoże w instalacji "
 #: lib/setupwindow.lib:633
 #, sh-format
 msgid "Where is mounted your CD-ROM?"
-msgstr ""
+msgstr "Gdzie jest zamontowany CD-ROM?"
 
 #: lib/setupwindow.lib:635 python/install.py:135
 #, sh-format
@@ -1462,7 +1504,7 @@ msgstr "Błąd: nie można odnaleźć CD-ROM!"
 #: lib/setupwindow.lib:840 lib/setupwindow.lib:949
 #, sh-format
 msgid "Scanning the virtual drive ..."
-msgstr ""
+msgstr "Przeszukiwanie wirtualnego dysku..."
 
 #: lib/setupwindow.lib:854
 #, sh-format
@@ -1472,7 +1514,7 @@ msgstr "Ile pamięci ma twoja karta graficzna?"
 #: lib/setupwindow.lib:863
 #, sh-format
 msgid "Video card does not have enough memory"
-msgstr ""
+msgstr "Karta graficzna nie ma wystarczającej ilości pamięci"
 
 #: lib/setupwindow.lib:864
 #, sh-format
@@ -1480,46 +1522,48 @@ msgid ""
 "Your video card does not have enough memory!\\nIt might prevent the game "
 "from working"
 msgstr ""
+"Twoja karta graficzna nie ma wystarczającej ilości pamięci!\\nTo może "
+"uniemożliwić uruchomienie gry"
 
 #: lib/setupwindow.lib:878
 #, sh-format
 msgid "Use Steam Store version"
-msgstr ""
+msgstr "Użyj wersji Steam"
 
 #: lib/setupwindow.lib:879
 #, sh-format
 msgid "Use Steam Store demo version"
-msgstr ""
+msgstr "Użyj wersji demo Steam"
 
 #: lib/setupwindow.lib:880
 #, sh-format
 msgid "Use a setup file in my computer"
-msgstr ""
+msgstr "Użyj pliku instalacyjnego znajdującego się moim komputerze"
 
 #: lib/setupwindow.lib:881
 #, sh-format
 msgid "Use CD-ROM(s)"
-msgstr ""
+msgstr "Użyj płyt(y) CD-ROM"
 
 #: lib/setupwindow.lib:882
 #, sh-format
 msgid "Use DVD-ROM(s)"
-msgstr ""
+msgstr "Użyj płyt(y) DVD-ROM"
 
 #: lib/setupwindow.lib:883
 #, sh-format
 msgid "Download the program"
-msgstr ""
+msgstr "Pobierz program"
 
 #: lib/setupwindow.lib:924
 #, sh-format
 msgid "Please choose an installation method"
-msgstr ""
+msgstr "Wybierz metodę instalacji"
 
 #: lib/setupwindow.lib:951
 #, sh-format
 msgid "I don't want to make another shortcut"
-msgstr ""
+msgstr "Nie chcę tworzyć kolejnego skrótu"
 
 #: lib/setupwindow.lib:952 python/guiv3.py:143
 #, sh-format
@@ -1529,7 +1573,7 @@ msgstr "Przeglądaj"
 #: lib/website.lib:122
 #, sh-format
 msgid "Connecting..."
-msgstr ""
+msgstr "Łączenie..."
 
 #: lib/website.lib:127
 #, sh-format
@@ -1537,6 +1581,8 @@ msgid ""
 "Failed to connect !\\nPlease ensure that your login and your password are "
 "valid."
 msgstr ""
+"Nie udało się nawiązać połączenia!\\nUpewnij się że twój login i hasło są "
+"poprawne."
 
 #: lib/wine.lib:390
 #, sh-format
@@ -1544,6 +1590,8 @@ msgid ""
 "Wine seems to have crashed\\n\\nIf you're program is running, just ignore "
 "this message"
 msgstr ""
+"Wykryto potencjalną awarię wine\\n\\nJeśli program wciąż działa, zignoruj tą "
+"wiadomość"
 
 #: lib/wine.lib:436
 #, sh-format
@@ -1571,43 +1619,43 @@ msgstr "Ogólne"
 
 #: python/configure.py:114
 msgid "Make a new shortcut from this virtual drive"
-msgstr ""
+msgstr "Utwórz skrót do tego wirtualnego dysku twardego"
 
 #: python/configure.py:115
 msgid "Name"
-msgstr ""
+msgstr "Nazwa"
 
 #: python/configure.py:116
 msgid "Wine version"
-msgstr ""
+msgstr "Wersja wine"
 
 #: python/configure.py:117
 msgid "Virtual drive"
-msgstr ""
+msgstr "Dysk wirtualny"
 
 #: python/configure.py:119
 msgid "Enable debugging"
-msgstr ""
+msgstr "Włącz debugowanie"
 
 #: python/configure.py:125
 msgid "Run configuration wizard"
-msgstr ""
+msgstr "Uruchom kreator konfiguracji"
 
 #: python/configure.py:163
 msgid "Windows reboot"
-msgstr ""
+msgstr "Symuluj ponowne uruchomienie Windows"
 
 #: python/configure.py:169
 msgid "Command prompt"
-msgstr ""
+msgstr "Wiersz poleceń"
 
 #: python/configure.py:175
 msgid "Task manager"
-msgstr ""
+msgstr "Menadżer zadań"
 
 #: python/configure.py:181
 msgid "Kill processes"
-msgstr ""
+msgstr "Zakończ wszystkie procesy"
 
 #: python/configure.py:201 python/install.py:134 python/mainwindow.py:112
 #: python/mainwindow.py:250 python/wine_versions.py:203
@@ -1616,27 +1664,27 @@ msgstr "Zainstaluj"
 
 #: python/configure.py:271
 msgid "Open program's directory"
-msgstr ""
+msgstr "Otwórz katalog aplikacji"
 
 #: python/configure.py:295
 msgid "Open virtual drive's directory"
-msgstr ""
+msgstr "Otwórz katalog wirtualnego dysku twardego"
 
 #: python/configure.py:409
 msgid "GLSL Support"
-msgstr ""
+msgstr "Wsparcie dla GLSL"
 
 #: python/configure.py:410
 msgid "Direct Draw Renderer"
-msgstr ""
+msgstr "Renderer Direct Draw"
 
 #: python/configure.py:411
 msgid "Video memory size"
-msgstr ""
+msgstr "Rozmiar pamięci video"
 
 #: python/configure.py:412
 msgid "Offscreen rendering mode"
-msgstr ""
+msgstr "Tryb renderowania pozaekranowego"
 
 #: python/configure.py:413
 msgid "Render target mode lock"
@@ -1644,27 +1692,27 @@ msgstr ""
 
 #: python/configure.py:414
 msgid "Multisampling"
-msgstr ""
+msgstr "Multisampling"
 
 #: python/configure.py:415
 msgid "Strict Draw Ordering"
-msgstr ""
+msgstr "Ścisła kolejność rysowania"
 
 #: python/configure.py:425
 msgid "Mouse warp override"
-msgstr ""
+msgstr "Wymuszenie przenoszenia kursora myszy"
 
 #: python/configure.py:427
 msgid "Open a shell"
-msgstr ""
+msgstr "Uruchom powłokę"
 
 #: python/configure.py:428
 msgid "Run a .exe file in this virtual drive"
-msgstr ""
+msgstr "Uruchom plik .exe na tym wirtualnym dysku twardym"
 
 #: python/configure.py:488 python/mainwindow.py:481 python/mainwindow.py:483
 msgid "{0} configuration"
-msgstr ""
+msgstr "{0} konfiguracja"
 
 #: python/configure.py:509
 msgid "New"
@@ -1677,23 +1725,23 @@ msgstr "Usuń"
 
 #: python/configure.py:527
 msgid "Install packages"
-msgstr ""
+msgstr "Zainstaluj pakiet oprogramowania"
 
 #: python/configure.py:528
 msgid "Display"
-msgstr ""
+msgstr "Grafika"
 
 #: python/configure.py:529
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Różne"
 
 #: python/configure.py:546
 msgid "Choose the name of the virtual drive"
-msgstr ""
+msgstr "Wybierz nazwę wirtualnego dysku twardego"
 
 #: python/configure.py:553
 msgid "This virtual drive is protected"
-msgstr ""
+msgstr "Ten wirtualny dysk twardy jest chroniony"
 
 #: python/configure.py:555 python/configure.py:562
 msgid "Are you sure you want to delete "
@@ -1701,7 +1749,7 @@ msgstr "Czy jesteś pewny, że chcesz usunąć "
 
 #: python/guiv3.py:126
 msgid "{0} Wizard"
-msgstr ""
+msgstr "{0} Kreator"
 
 #: python/guiv3.py:137 python/install.py:133
 msgid "Cancel"
@@ -1713,7 +1761,7 @@ msgstr "Dalej"
 
 #: python/guiv3.py:139
 msgid "Back"
-msgstr ""
+msgstr "Wstecz"
 
 #: python/guiv3.py:141
 msgid "No"
@@ -1729,23 +1777,23 @@ msgstr "Zgadzam się"
 
 #: python/guiv3.py:151
 msgid "Show virtual drives"
-msgstr ""
+msgstr "Pokarz wirtualne dyski"
 
 #: python/guiv3.py:167
 msgid "Login: "
-msgstr ""
+msgstr "Login: "
 
 #: python/guiv3.py:168
 msgid "Password: "
-msgstr ""
+msgstr "Hasło: "
 
 #: python/guiv3.py:171
 msgid "Register"
-msgstr ""
+msgstr "Zarejestruj"
 
 #: python/guiv3.py:450
 msgid "MB downloaded"
-msgstr ""
+msgstr "MB pobrano"
 
 #: python/guiv3.py:450
 msgid "of"
@@ -1777,7 +1825,7 @@ msgstr "Szukaj: "
 
 #: python/install.py:149
 msgid "Install a non-listed program"
-msgstr ""
+msgstr "Zainstaluj program którego nie ma na liście"
 
 #: python/install.py:323
 msgid "Highest rated"
@@ -1789,35 +1837,35 @@ msgstr "Najczęściej pobierane"
 
 #: python/irc.py:132
 msgid "Send"
-msgstr ""
+msgstr "Wyślij"
 
 #: python/irc.py:133
 msgid "Connect"
-msgstr ""
+msgstr "Połącz"
 
 #: python/irc.py:134
 msgid "Disconnect"
-msgstr ""
+msgstr "Rozłącz"
 
 #: python/irc.py:223
 msgid "Join a channel"
-msgstr ""
+msgstr "Dołącz do kanału"
 
 #: python/irc.py:253
 msgid "Messenger"
-msgstr ""
+msgstr "Czat IRC"
 
 #: python/mainwindow.py:64
 msgid "{0} website is unavailable. Please check your connexion"
-msgstr ""
+msgstr "Strona {0} jest niedostępna. Sprawdź połączenie z internetem"
 
 #: python/mainwindow.py:66
 msgid "Refreshing {0}"
-msgstr ""
+msgstr "Odświeżanie {0}"
 
 #: python/mainwindow.py:70 python/mainwindow.py:71
 msgid "An updated version of {0} is available"
-msgstr ""
+msgstr "Nowsza wersja {0} jest dostępna"
 
 #: python/mainwindow.py:111 python/mainwindow.py:248
 msgid "Run"
@@ -1837,19 +1885,19 @@ msgstr "Zarządzanie wersjami Wine"
 
 #: python/mainwindow.py:134
 msgid "Close all {0} software"
-msgstr ""
+msgstr "Zamknij wszystkie programy {0}"
 
 #: python/mainwindow.py:138
 msgid "{0} console"
-msgstr ""
+msgstr "konsola {0}"
 
 #: python/mainwindow.py:148
 msgid "{0} messenger"
-msgstr ""
+msgstr "komunikator {0}"
 
 #: python/mainwindow.py:177
 msgid "About {0}"
-msgstr ""
+msgstr "O {0}"
 
 #: python/mainwindow.py:207 python/mainwindow.py:211
 msgid "Plugin manager"
@@ -1877,7 +1925,7 @@ msgstr "Konfiguruj"
 
 #: python/mainwindow.py:256
 msgid "Shortcut"
-msgstr ""
+msgstr "Aktywator"
 
 #: python/mainwindow.py:338
 msgid "Open the application's directory"
@@ -1897,29 +1945,31 @@ msgstr "Zabij program"
 
 #: python/mainwindow.py:456 python/mainwindow.py:458
 msgid "{0} settings"
-msgstr ""
+msgstr "Ustawiania {0}"
 
 #: python/mainwindow.py:527
 msgid "{0} install menu"
-msgstr ""
+msgstr "Menu instalacji {0}"
 
 #: python/mainwindow.py:533
 msgid "{0} wine versions manager"
-msgstr ""
+msgstr "Menadżer wersji wine {0}"
 
 #: python/mainwindow.py:546
 msgid "Are you sure you want to close all {0} Windows?"
-msgstr ""
+msgstr "Zamknąć wszystkie okna {0}?"
 
 #: python/mainwindow.py:559
 msgid "Run your Windows programs on "
-msgstr ""
+msgstr "Uruchamiaj programy Windows na "
 
 #: python/mainwindow.py:560
 msgid ""
 "(C) PlayOnLinux and PlayOnMac team 2011\n"
 "Under GPL licence version 3"
 msgstr ""
+"(C) zespół PlayOnLinux i PlayOnMac 2011\n"
+"Licencja GPL, wersja 3"
 
 #: python/mainwindow.py:561
 msgid "Developer and Website: "
@@ -1935,7 +1985,7 @@ msgstr "Pakiety: "
 
 #: python/mainwindow.py:564
 msgid "Icons:"
-msgstr ""
+msgstr "Ikony:"
 
 #: python/mainwindow.py:565
 msgid "The following people contributed to this program: "
@@ -1947,11 +1997,11 @@ msgstr "Tłumaczenie dzięki Launchpad:"
 
 #: python/mainwindow.py:581
 msgid "{0} is not supposed to be run as root. Sorry"
-msgstr ""
+msgstr "{0} nie powinien być uruchamiany przez administratora."
 
 #: python/mainwindow.py:637
 msgid "Are you sure you want to  want to install {0} package?"
-msgstr ""
+msgstr "Zainstalować paczkę {0}?"
 
 #: python/options.py:99
 msgid "Default programs"
