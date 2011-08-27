@@ -23,9 +23,10 @@ source "$PLAYONLINUX/lib/sources"
 
 debug_menu()
 {
-	POL_SetupWindow_menu_num "$PACKAGE $(eval_gettext "crashed.") $(eval_gettext "What do you want to do ?")" "$TITLE" "$(eval_gettext "Show me the log file")~$(eval_gettext "Show me the full report")~$(eval_gettext "Send the report to us")~$(eval_gettext "Nothing")" "~"
+	POL_SetupWindow_menu_num "$PACKAGE $(eval_gettext "crashed.") $(eval_gettext "What do you want to do ?")" "$TITLE" "$(eval_gettext "Show me the log file")~$(eval_gettext "Show me the full report")~$(eval_gettext "Send the report to us")~$(eval_gettext "Send to pastebin")~$(eval_gettext "Nothing")" "~"
 	ACTION="$APP_ANSWER"
-	echo $ACTION
+	
+	
 	if [ "$ACTION" = "0" ]
 	then
 		debug_log
@@ -34,8 +35,16 @@ debug_menu()
 	then
 		debug_fulllog
 	fi
-	
 	if [ "$ACTION" = "3" ]
+	then
+		contenu="$(cat "$LOGFILE")"
+		PACKAGE="$(POL_Website_urlparse "$PACKAGE")"
+		contenu="$(POL_Website_urlparse "$contenu")"
+		pastebinurl="$(echo "$contenu" | pastebin)"
+		POL_Browser "$pastebinurl"
+		POL_SetupWindow_message "Pastebin url : $pastebinurl" "$TITLE"
+	fi
+	if [ "$ACTION" = "4" ]
 	then
 		POL_SetupWindow_Close
 		exit
@@ -45,6 +54,15 @@ debug_menu()
 		debug_sendtopom
 	fi
 	debug_menu
+}
+pastebin()
+{
+	INPUT="$(</dev/stdin)"
+
+	querystring="paste_private=0&paste_code=${INPUT}&paste_name=${PACKAGE}&paste_email=&paste_format="
+
+	#post data to pastebin.com API
+	curl -d "${querystring}" http://pastebin.com/api_public.php
 }
 debug_log()
 {
@@ -59,8 +77,8 @@ debug_sendtopom()
 	[ "$POL_OS" == "Linux" ] && TRACKER="1"
 	[ "$POL_OS" == "Mac" ] && TRACKER="4"
 	
-	POL_SetupWindow_textbox_multiline "$(eval_gettext "Please add everything that could help us.")" "$TITLE"
-	[ "$APP_ANSWER" = "" ] && POL_SetupWindow_message "$(eval_gettext "Please enter a description")" "$TITLE" && POL_SetupWindow_Close
+	POL_SetupWindow_textbox_multiline "$(eval_gettext "Please enter everything that might help us in english.\nIf you are not accurate, your bug will be closed")" "$TITLE"
+	[ "$APP_ANSWER" = "" ] && POL_SetupWindow_message "$(eval_gettext "Please enter a description in english.\nIf you are not accurate, your bug will be closed")" "$TITLE" && POL_SetupWindow_Close
 	echo "$APP_ANSWER" >> "$LOGFILE"
 	POL_Website_login
 	POL_Website_Init
@@ -118,15 +136,13 @@ fi
 
 $(POL_Config_Read PRE_RUNNING)
 bash "$PACKAGE" 2>> "$LOGFILE.e" >> "$LOGFILE.e"
-$(POL_Config_Read POST_RUNNING)
-
 
 if [ ! "$?" = "0" ]
 then 
 
 
 	POL_SetupWindow_Init
-	POL_SetupWindow_wait_next_signal "$(eval_gettext "$APPLICATION_TITLE debugger is starting...")" "$TITLE"
+	POL_SetupWindow_wait_next_signal "$(eval_gettext '$APPLICATION_TITLE debugger is starting...')" "$TITLE"
 	if [ ! "$(cat "$PACKAGE" | grep 'export WINEDEBUG="-all"')" = "" ]
 	then
 		POL_SetupWindow_message "$(eval_gettext "The program you run crashed.\n\nYou need to enable debugging to get more details.\nPlease go to configure menu")" "$TITLE"
@@ -142,3 +158,4 @@ then
 	fi
 	POL_SetupWindow_Close
 fi
+$(POL_Config_Read POST_RUNNING)
