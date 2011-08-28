@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2011-08-28 23:52:01+02:00\n"
+"POT-Creation-Date: 2011-08-28 23:54:02+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -461,7 +461,7 @@ msgid "$APPLICATION_TITLE Application Configurator"
 msgstr ""
 
 #: bash/installpolpackages:26 bash/killall:33 bash/winebash:27
-#: lib/wine.lib:625
+#: lib/wine.lib:626
 #, sh-format
 msgid "Please wait..."
 msgstr ""
@@ -1321,7 +1321,7 @@ msgstr ""
 msgid "Please wait while the virtual drive is being created..."
 msgstr ""
 
-#: lib/deprecated.lib:427 lib/wine.lib:635
+#: lib/deprecated.lib:427 lib/wine.lib:636
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a Windows reboot"
 msgstr ""
@@ -1556,8 +1556,9 @@ msgstr ""
 msgid "Extracting Wine..."
 msgstr ""
 
-#: lib/wine.lib:625
-msgid "Please wait while $1 is installed..."
+#: lib/wine.lib:626
+#, sh-format
+msgid "Please wait while $SOFTNAME is installed..."
 msgstr ""
 
 #: python/configure.py:111 python/configure.py:528
