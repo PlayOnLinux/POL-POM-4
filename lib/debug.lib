@@ -87,16 +87,16 @@ POL_Debug_Message()
 	# Use this function to say something to the person who read the log file
 	# Usage : POL_Debug_Message [MESSAGE]
 	
-	echo "$(Get_CurrentDate) - [${FUNCNAME[1]}] Message: $1" >> "$LOGFILE"
-	echo "[${FUNCNAME[1]}] Message: $1" 1>&2
+	echo "$(Get_CurrentDate) - [${FUNCNAME[1]}] Message: $@" >> "$LOGFILE"
+	echo "[${FUNCNAME[1]}] Message: $@" 1>&2
 }
 POL_Debug_Warning()
 {
 	# Use this function if you have found a problem that should not have consequences
 	# Usage : POL_Debug_Warning [MESSAGE]
 	
-	echo "$(Get_CurrentDate) - [${FUNCNAME[1]}] Warning: $1" >> "$LOGFILE"
-	echo "[${FUNCNAME[1]}] Warning: $1" 1>&2
+	echo "$(Get_CurrentDate) - [${FUNCNAME[1]}] Warning: $@" >> "$LOGFILE"
+	echo "[${FUNCNAME[1]}] Warning: $@" 1>&2
 }
 POL_Debug_Error()
 {
@@ -104,9 +104,9 @@ POL_Debug_Error()
 	# At the end of the script, the user will be able to report a bug to playonlinux's bug tracker
 	# Usage : POL_Debug_Error [MESSAGE]
 	
-	echo "$(Get_CurrentDate) - [${FUNCNAME[1]}] Error: $1" >> "$LOGFILE"
-	echo "[${FUNCNAME[1]}] Error: $1" 1>&2
-	POL_SetupWindow_message "Error: $1" "$TITLE" # La on affiche quand même 
+	echo "$(Get_CurrentDate) - [${FUNCNAME[1]}] Error: $@" >> "$LOGFILE"
+	echo "[${FUNCNAME[1]}] Error: $@" 1>&2
+	POL_SetupWindow_message "Error: $@" "$TITLE" # La on affiche quand même 
 	export POL_SCRIPT_FAILED="YES"
 }
 POL_Debug_Fatal()
@@ -115,9 +115,9 @@ POL_Debug_Fatal()
 	# The effect is the same that POL_Debug_Error, except that the script will end
 	# Usage : POL_Debug_Fatal [MESSAGE]
 	
-	echo "$(Get_CurrentDate) - [${FUNCNAME[1]}] Fatal: $1" >> "$LOGFILE"
-	echo "[${FUNCNAME[1]}] Fatal: $1" 1>&2
-	POL_SetupWindow_message "[${FUNCNAME[1]}] Fatal: $1" "$TITLE" # La on affiche quand même 
+	echo "$(Get_CurrentDate) - [${FUNCNAME[1]}] Fatal: $@" >> "$LOGFILE"
+	echo "[${FUNCNAME[1]}] Fatal: $@" 1>&2
+	POL_SetupWindow_message "[${FUNCNAME[1]}] Fatal: $@" "$TITLE" # La on affiche quand même 
 	export POL_SCRIPT_FAILED="YES"
 	POL_SetupWindow_Close
 	exit 1

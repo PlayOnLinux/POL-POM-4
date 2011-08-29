@@ -395,6 +395,7 @@ POL_Wine ()
 	then
 		[ "$?" = "0" ] || POL_Debug_Error "$(eval_gettext "Wine seems to have crashed\n\nIf you're program is running, just ignore this message")"
 	fi
+	POL_Debug_Message "Wine return: $errors"
 	return $errors
 }
 POL_Wine_SelectPrefix()
@@ -402,6 +403,7 @@ POL_Wine_SelectPrefix()
 	# Select a wineprefix and remove unexpected chars
 	# Usage: POL_Wine_SelectPrefix [prefixname]
 	PREFNAME=`printf "$1"| tr -c [[a-zA-Z0-9]\.] '_'`
+	POL_Debug_Message "Selecting prefix: $PREFIXNAME"
 	export WINEPREFIX="$POL_USER_ROOT/wineprefix/$PREFNAME"
 	export DOSPREFIX="$WINEPREFIX"
 	export POL_WINEVERSION="$(POL_Config_PrefixRead VERSION)"
@@ -474,11 +476,8 @@ POL_Wine_AutoSetVersionEnv()
 	# Usage: POL_Wine_AutoSetVersionEnv
 	[ "$WINEPREFIX" = "" ] && POL_Debug_Fatal "WINEPREFIX is not set!"
 	POL_WINEVERSION="$(POL_Config_PrefixRead "VERSION")"
-	POL_Debug_Message "Reading version : $POL_WINEVERSION"
-	POL_Debug_Message "wineprefix : $WINEPREFIX"
-	
 	POL_ARCH="$(POL_Config_PrefixRead "ARCH")"
-	[ "$POL_WINEVERSION" = "" ] && POL_Debug_Message "POL_WINEVERSION is not set" || POL_Wine_SetVersionEnv
+	[ "$POL_WINEVERSION" = "" ] || POL_Wine_SetVersionEnv
 }
 POL_Wine_SetVersionEnv()
 {
