@@ -213,9 +213,7 @@ POL_Shortcut()
 			convert -resize 32 "$REPERTOIRE/icones/full_size/$NOMICONE_" "$REPERTOIRE/icones/32/$NOMICONE_" # On fabrique l'icone 32*32
 			ICON_OK=1
 		fi
-	elif [ "$ICON_OK" -ne 1 ]; then # Pas d'incone sur le web => Création à partir de l'exe...
-		echo "No internet icon..."
-		
+	elif [ "$ICON_OK" -ne 1 ]; then # Pas d'incone sur le web => Création à partir de l'exe...	
 		POL_ExtractIcon "$WINEPREFIX/drive_c/$binary_dir/$Binaire" "$REPERTOIRE/icones/32/$NOMICONE_"
 		POL_ExtractBiggestIcon "$WINEPREFIX/drive_c/$binary_dir/$Binaire" "$REPERTOIRE/icones/full_size/$NOMICONE_"
 	fi
@@ -373,7 +371,8 @@ POL_Download_Resource ()
 				LOCAL_MD5="$(POL_MD5_file "$FICHIER")"
 				if [ ! "$2" = "$LOCAL_MD5" ]
 				then
-					POL_SetupWindow_message "Error ! Files mismatch\n\nLocal : $LOCAL_MD5\nServer : $2"
+					SERVER_MD5="$2"
+					POL_SetupWindow_message "$(eval_gettext 'Error ! Files mismatch\n\nLocal : $LOCAL_MD5\nServer : $SERVER_MD5')"
 					POL_Debug_Error "POL_Download - MD5 sum mismatch !"
 				fi
 			fi	
