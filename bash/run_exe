@@ -28,29 +28,29 @@ POL_Debug_Init
 
 install_wizard()
 {
-POL_SetupWindow_free_presentation "$TITRE" "Welcome to $APPLICATION_TITLE assistant.\nIt will help you to install $file on your computer"
-POL_SetupWindow_textbox "What is the name of you program ?" "$TITRE"
+POL_SetupWindow_free_presentation "$TITRE" "$(eval_gettext 'Welcome to $APPLICATION_TITLE assistant.\nIt will help you to install $file on your computer.\n\nBe careful! This program is not officially supported by $APPLICATION_TITLE.\nTherefore, it might not work as expected')"
+POL_SetupWindow_textbox "$(eval_gettext 'What is the name of you program?')" "$TITRE"
 PRGM_NAME="$APP_ANSWER"
 #PRGM_NAME="Notepad++"
 PREFIX_NAME=`echo "$PRGM_NAME"| tr -c [[a-zA-Z0-9]\.] '_'`
 echo "$md5:$PREFIX_NAME" >> $md5file
 select_prefix "$REPERTOIRE/wineprefix/$PREFIX_NAME"
 POL_Wine_PrefixCreate
-POL_SetupWindow_wait "$APPLICATION_TITLE is installing $PRGM_NAME" "$TITRE"
+POL_SetupWindow_wait "$(eval_gettext '$APPLICATION_TITLE is installing $PRGM_NAME')" "$TITRE"
 POL_Wine "$line"
+POL_Wine_WaitExit
 POL_SetupWindow_shortcut_creator
-POL_SetupWindow_message "Installation finished." "$TITRE"
+POL_SetupWindow_message "$(eval_gettext 'Installation finished.')" "$TITRE"
 }
 
 run_wizard()
 {
-POL_SetupWindow_wait_next_signal "$APPLICATION_TITLE is running your program" "$TITRE"
+POL_SetupWindow_wait_next_signal "$(eval_gettext '$APPLICATION_TITLE is running your program')" "$TITRE"
 PREFIX_NAME="$(cat $md5file | grep $md5 | cut -d ':' -f2)"
 select_prefix "$REPERTOIRE/wineprefix/$PREFIX_NAME"
 sleep 2
-wine "$line" &
+POL_Wine "$line" &
 sleep 2
-POL_SetupWindow_detect_exit
 }
 
 
@@ -60,7 +60,7 @@ POL_SetupWindow_Init # Quoi qu'il arrive on ouvre la fenêtre
 
 if [ "$(POL_Config_Read FIRST_USE)" = "" ] # PlayOn* pas initialisé ? Alors on attend que ce soit fini
 then
-	POL_SetupWindow_wait_next_signal "$(eval_gettext "Waiting for the first-assistant to be finished")" "$TITRE"
+	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Waiting for the first-assistant to be finished')" "$TITRE"
 	sleep 1
 	#bash "$PLAYONLINUX/bash/first_use" & #### Fixme ! La ya des test à faire !
 fi
@@ -98,7 +98,7 @@ fi
 
 if [ ! "$(cat $md5file | grep $md5)" = "" ] # Le programme a déjà été lancé
 then
-	POL_SetupWindow_question "$(eval_gettext "$APPLICATION_TITLE has already run this program.\nDo you want to keep the old settings ?")" "$TITRE"
+	POL_SetupWindow_question "$(eval_gettext '$APPLICATION_TITLE has already run this program.\nDo you want to keep the old settings ?')" "$TITRE"
 	if [ "$APP_ANSWER" = "TRUE" ]
 	then
 		run_wizard

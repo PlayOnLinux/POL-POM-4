@@ -334,12 +334,13 @@ POL_Download ()
 		POL_SetupWindow_download "$(eval_gettext 'Please wait while $APPLICATION_TITLE is downloading:') $FICHIER" "$TITLE" "$URL"
 		if [ "$2" = "" ]
 		then
-			POL_Debug_Warning "POL_Download - MD5 is missing !"
+			POL_Debug_Warning "POL_Download - MD5 is missing!"
 		else
 			LOCAL_MD5="$(POL_MD5_file "$FICHIER")"
 			if [ ! "$2" = "$LOCAL_MD5" ]
 			then
-				POL_SetupWindow_message "Error ! Files mismatch\n\nLocal : $LOCAL_MD5\nServer : $2"
+				SERVER_MD5="$2"
+				POL_SetupWindow_message "$(eval_gettext 'Error ! Files mismatch\n\nLocal : $LOCAL_MD5\nServer : $SERVER_MD5')"
 				POL_Debug_Error "POL_Download - MD5 sum mismatch !"
 			fi
 		fi	

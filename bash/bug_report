@@ -33,7 +33,7 @@ export TITLE="$POL_DEBUG_TITLE"
 
 POL_SetupWindow_Init
 
-POL_SetupWindow_free_presentation "$POL_DEBUG_TITLE" "$(eval_gettext "This wizard can report a bug in an application officially supported by PlayOnLinux.")"
+POL_SetupWindow_free_presentation "$POL_DEBUG_TITLE" "$(eval_gettext "This wizard will help you to report a bug about an officially supported program.")"
 if [ "$LOGTITLE" = "" ]
 then
 POL_SetupWindow_menu_num "$(eval_gettext "What kind of problem do you have?")" "$POL_DEBUG_TITLE" "$(eval_gettext 'My problem concerns $APPLICATION_TITLE itself')~$(eval_gettext "I have a problem with a software")" "~"

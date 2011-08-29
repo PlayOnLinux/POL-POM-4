@@ -194,36 +194,10 @@ if [ "$(echo $WHATTORUNBEFORE | grep -o "$LNG_WC_CONFWINE")" == "$LNG_WC_CONFWIN
 then
 	POL_SetupWindow_wait_next_signal "$(eval_gettext "Configure Wine")" "$(eval_gettext 'Manual installation')"
 	cd "$WINEPREFIX"
-	ls
-	cp user.reg user.org
-	cp system.reg system.org
-	
-	wine winecfg
-
-# La je sens qu'on va bien s'amuser comme des petits fous :)
-# En fait on oublit cette idée ! Trop de trucs utilisateurs merdiques
-	cat << EOF >> /dev/null 
-cat << END1 > "\$REPERTOIRE/tmp/user.diff"
-$(diff user.org user.reg)
-END1
-
-cat << END2 > "\$REPERTOIRE/tmp/system.diff"
-$(diff system.org system.reg)
-END2
-
-cd "\$WINEPREFIX"
-mv user.reg user.org
-mv system.reg system.org
-
-patch -p0 < "\$REPERTOIRE/tmp/user.diff"
-patch -p0 < "\$REPERTOIRE/tmp/system.diff"
-
-mv user.org user.reg
-mv system.org system.reg
-EOF
+	POL_Wine winecfg
 fi
 
-#Running WineTricks
+#Running POL_Calls
 if [ "$(echo $WHATTORUNBEFORE | grep -o "$LNG_WC_USEWT")" == "$LNG_WC_USEWT" ]
 then
 	[ "$WINEPREFIX" == "" ] && POL_Debug_Fatal "WINEPREFIX is not set"
@@ -253,7 +227,7 @@ fi
 
 A_LIST=""
 i=0
-POL_SetupWindow_wait_next_signal "$(eval_gettext 'Looking for runnable CD-ROMs')" "$TITLE"
+POL_SetupWindow_wait "$(eval_gettext 'Looking for runnable CD-ROMs')" "$TITLE"
 cd "$MEDIA_DIR"
 
 for device in *
@@ -274,7 +248,7 @@ do
 		i=$(( i+1 ))
 	fi
 done
-POL_Debug_Message "Autorun : Found $i media"
+POL_Debug_Message "Autorun: Found $i media"
 
 LNG_MANUAL_FILE="$(eval_gettext "Select another file")"
 
@@ -343,8 +317,6 @@ POL_Wine "$SETUP_PATH"
 echo "POL_Wine \"\$SETUP_PATH\"" >> "$SCRIPTPATH"
 fi 
 
-#POL_SetupWindow_message "$(eval_gettext 'Please do not press Next until the installation has been completed.')" "$TITLE"
-#echo "POL_SetupWindow_message \"\$(eval_gettext 'Please do not press Next until the installation has been completed.')\" \"\$TITLE\"" >> "$SCRIPTPATH"
 POL_Wine_WaitExit
 echo "POL_Wine_WaitExit" >> "$SCRIPTPATH"
 rm "$POL_USER_ROOT/tmp/shortcuts" 2> /dev/null

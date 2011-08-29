@@ -119,12 +119,14 @@ install_x11()
 	if [ "$OSX_VERSION" = "9" ]
 	then
 		XQuartzUrl="http://xquartz.macosforge.org/downloads/Leopard/X11-$XQUARTZ_VERSION.dmg"
+		FilePrefix="X11"
 	else
 		XQuartzUrl="http://xquartz.macosforge.org/downloads/SL/XQuartz-$XQUARTZ_VERSION.dmg"
+		FilePrefix="XQuartz"
 	fi
 	STEP_TITLE="XQuartz"
 	XQuartz_Message="$(eval_gettext "To ensure that your games will be compatible, PlayOnMac must install XQuartz")"
-	POL_SetupWindow_menu_num "$XQuartz_Message" "$STEP_TITLE" "$(eval_gettext "Please download XQuartz for me")~$(eval_gettext "I've downloaded the file by myself") (XQuartz-$XQUARTZ_VERSION.dmg)~$(eval_gettext "Don't install XQuartz for the moment")" "~"
+	POL_SetupWindow_menu_num "$XQuartz_Message" "$STEP_TITLE" "$(eval_gettext "Please download XQuartz for me")~$(eval_gettext "I've downloaded the file by myself") ($FilePrefix-$XQUARTZ_VERSION.dmg)~$(eval_gettext "Don't install XQuartz for the moment")" "~"
 	if [ "$APP_ANSWER" = "0" ]
 	then
 		POL_SetupWindow_download "$(eval_gettext "Downloading XQuartz")" "$STEP_TITLE" "$XQuartzUrl"
@@ -132,7 +134,7 @@ install_x11()
 	fi
 	if [ "$APP_ANSWER" = "1" ]
 	then
-		POL_SetupWindow_browse "$(eval_gettext "Where is") XQuartz-$XQUARTZ_VERSION.dmg ?" "$STEP_TITLE"
+		POL_SetupWindow_browse "$(eval_gettext "Where is") $FilePrefix-$XQUARTZ_VERSION.dmg ?" "$STEP_TITLE"
 		cd "$(dirname "$APP_ANSWER")"
 		got_xquartz="true"
 	fi
@@ -140,20 +142,21 @@ install_x11()
 	if [ "$got_xquartz" = "true" ]
 	then
 		POL_SetupWindow_wait_next_signal "$(eval_gettext "Installing XQuartz...")" "$STEP_TITLE"
-		open XQuartz-$XQUARTZ_VERSION.dmg
-		while [ ! -d "/Volumes/XQuartz-$XQUARTZ_VERSION" ]
+		open $FilePrefix-$XQUARTZ_VERSION.dmg
+		while [ ! -d "/Volumes/$FilePrefix-$XQUARTZ_VERSION" ]
 		do
 			sleep 1
 		done
-		/System/Library/CoreServices/Installer.app/Contents/MacOS/Installer /Volumes/XQuartz-$XQUARTZ_VERSION/XQuartz.pkg
-		umount /Volumes/XQuartz-$XQUARTZ_VERSION
+		/System/Library/CoreServices/Installer.app/Contents/MacOS/Installer /Volumes/$FilePrefix-$XQUARTZ_VERSION/$FilePrefix.pkg
+		umount /Volumes/$FilePrefix-$XQUARTZ_VERSION
 	fi
 	
 
-	if [ ! -d "/opt/X11" ] || [ -L "/opt/X11" ]
+	if [ ! -e "/Applications/Utilities/XQuartz.app" ] && [ "$OSX_VERSION" = "10" ]
 	then
-		POL_SetupWindow_message "$(eval_gettext "Unable to install XQuartz ! You must install it to improve games compatibility")" "$STEP_TITLE"
+		POL_SetupWindow_message "$(eval_gettext "Unable to install XQuartz! You must install it to improve games compatibility.")" "$STEP_TITLE"
 	fi
+	POL_SetupWindow_message "$(eval_gettext "XQuartz has been installed. You might need to reboot your computer")" "$STEP_TITLE"
 }
 
 install_prefix()
@@ -276,6 +279,8 @@ POL_SetupWindow_Init
 POL_SetupWindow_free_presentation "$(eval_gettext '$APPLICATION_TITLE first use')" "$(eval_gettext 'It appears it is the first time you are using $APPLICATION_TITLE.')\n$(eval_gettext 'This wizard will help you prepare $APPLICATION_TITLE environement')\n$(eval_gettext "Please ensure you are connected to the internet.")"
 
 [ "$POL_OS" == "Mac" ] && [ ! -e "/Applications/Utilities/XQuartz.app" ] && [ "$OSX_VERSION" = "10" ] &&  install_x11
+[ "$POL_OS" == "Mac" ] && [ "$OSX_VERSION" = "9" ] &&  install_x11
+
 install_fonts
 install_prefix
 POL_SetupWindow_message "$(eval_gettext 'Thank you for using $APPLICATION_TITLE')" "$(eval_gettext '$APPLICATION_TITLE first use')"

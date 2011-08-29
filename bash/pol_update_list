@@ -70,7 +70,7 @@ maj_check ()
 		POL_Debug_Message "Updating list"
 		mkdir -p "$REPERTOIRE/configurations/listes/"
 		cd "$REPERTOIRE/configurations/listes"
-		rm -f * 2> /dev/null
+		rm -f "$REPERTOIRE/configurations/listes/"* 2> /dev/null
 		touch 0 1 2 3 4 5 6 7 8 9 10 rate download search
 		mv "$REPERTOIRE/configurations/POL_Functions" "$REPERTOIRE/configurations/listes/POL_Functions"
 					

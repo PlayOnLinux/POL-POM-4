@@ -18,10 +18,7 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
 
-if [ "$PLAYONLINUX" = "" ]
-then
-exit 0
-fi
+[ "$PLAYONLINUX" = "" ] && exit 0
 source "$PLAYONLINUX/lib/sources"
 TITLE="$(eval_gettext '$APPLICATION_TITLE Application Configurator')"
 pol_winecfg()
@@ -149,24 +146,9 @@ redirect_to_pol_configure_function()
 	elif [ "$1" = "$LNG_KPROCESS" -o "$1" = "KillApp" ] # Encoding problem ! Be careful	
 	then
 		pol_kprocess
-	elif [ "$1" = "$LNG_UPDATEPREFIX" ] 
-	then
-		POL_SetupWindow_prefixcreate
-	elif [ "$1" = "$LNG_WINDOWS_REBOOT" ] 
-	then
-		pol_wineboot
-	elif [ "$1" = "$LNG_APLUGIN" ] 
-	then
-		pol_awinecfg
-	elif [ "$1" = "$LNG_POLCFG $APP" ] 
-	then
-		pol_scfg
 	elif [ "$1" = "IconChange" ] || [ "$1" = "$LNG_CHANGEICON" ]
 	then
 		pol_changeicon
-	elif [ "$1" = "$LNG_WINETRICKS" ] 
-	then
-		pol_winetricks
 	fi
 }
 
@@ -174,30 +156,8 @@ APP="$1"
 FUNCTIONTORUN="$2"	#0-run menu; other-run remotely
 FIRSTARGUMENT="$3"	#argument for function run remotely
 prefixe=$(detect_wineprefix "$1")
-wineversion=$(detect_wineversion "$1")
-
-if [ "$wineversion" != "" ]
-then
-    export PATH="$REPERTOIRE/WineVersions/$wineversion/usr/bin/:$PATH"
-    export LD_LIBRARY_PATH="$REPERTOIRE/WineVersions/$wineversion/usr/lib/wine/:$LD_LIBRARY_PATH"
-fi
 export WINEPREFIX="$prefixe"
-#Use_WineVersion "$wineversion"
 
-if [ "$FUNCTIONTORUN" != "" ]
-then
-    redirect_to_pol_configure_function "$FUNCTIONTORUN"
-else
+redirect_to_pol_configure_function "$FUNCTIONTORUN"
 
-    POL_SetupWindow_Init
-    POL_SetupWindow_free_presentation "$TITLE" "$(eval_gettext 'Welcome to $APPLICATION_TITLE Application Configurator.\nThis wizard will help you to configure: ')$1 $(eval_gettext "\n\nThe following Wine prefix will be updated: ")$prefixe $(eval_gettext "\n\nBe careful! $APPLICATION_TITLE will need to kill all the programs running in this prefix!")"
-    while [ 1 ]
-    do
-        main_menu
-        sleep 1
-    done
-    #Why there is something after an infinite while loop?
-    #We will never here!
-    POL_SetupWindow_Close
-fi
 exit

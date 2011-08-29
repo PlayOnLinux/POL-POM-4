@@ -17,64 +17,31 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
 
-if [ "$PLAYONLINUX" = "" ]
-then
-	exit 0
-fi
-
+[ "$PLAYONLINUX" = "" ] && exit 0
 source "$PLAYONLINUX/lib/sources" 
 
-#if [ ! "$OFFLINE" == "1" ]
-#then
-#	menu=$($PYTHON "$PLAYONLINUX/python/install.py" | tail -n 1);
-#fi
 menu="$1"
-if [ "$menu" = "ExecLiveInstall" -o "$OFFLINE" == "1" ]
+if [ "$menu" = "ExecLiveInstall" ]
 then
-	if [ "$installbis" = "$LNG_MAIN_INSTALL_LIVE" ]
-	then
-		bash "$PLAYONLINUX/bash/manual_install"
-	fi
+	bash "$PLAYONLINUX/bash/manual_install"
 	exit
 fi
-if [ "$?" != 0 ]
+
+if [ ! "$menu" = "" ]
 then
-	exit	
-fi
-#check_network "playonlinux.com" --quiet
-if [ $? == 0 ]
-then
-	if [ ! "$menu" = "" ]
+	export TITLE="$menu"
+	type="$(echo $menu | cut -d ':' -f1)"
+	if [ "$type" = "get" ]
 	then
-		export TITLE="$menu"
-		type="$(echo $menu | cut -d ':' -f1)"
-		#echo $type
-		if [ "$type" = "get" ]
-		then
-			id=$(echo "$menu" | cut -d ":" -f2)
-		
-			#POL_SetupWindow_Init ""
-			#POL_SetupWindow_free_presentation "Install a non-validated script" "PlayOnLinux is going to execute a non-validated script.\n\nThese scripts have not been checked by PlayOnLinux validators. Please ensure you know what you are doing !"
-			rm "$REPERTOIRE/install"
-			wget "$SITE/V4_data/repository/get_file_n.php?version=PlayOn$POL_OS-$VERSION&id=$id" -O "$REPERTOIRE/install" -q
-			#POL_SetupWindow_licence "Here the source code of the script. Check it carrefully" "Non validated script" "$REPERTOIRE/install"
-			#POL_SetupWindow_Close
-
-			
-
-			if [ -e "$REPERTOIRE/install" ]
-			then
-				POL_Bash "$REPERTOIRE/install"
-			fi
-			exit
-		fi
-		menu=${menu//" "/"%20"}
+		id=$(echo "$menu" | cut -d ":" -f2)
 		rm "$REPERTOIRE/install"
-		wget "$SITE/V4_data/repository/get_file.php?version=playonlinux-$VERSION&id=$menu" -O "$REPERTOIRE/install" -q
-		if [ -e "$REPERTOIRE/install" ]
-		then
-			POL_Bash "$REPERTOIRE/install"
-		fi
+		wget "$SITE/V4_data/repository/get_file_n.php?version=PlayOn$POL_OS-$VERSION&id=$id" -O "$REPERTOIRE/install" -q
+		[ -e "$REPERTOIRE/install" ] && POL_Bash "$REPERTOIRE/install"
+		exit
 	fi
+	menu=${menu//" "/"%20"}
+	rm "$REPERTOIRE/install"
+	wget "$SITE/V4_data/repository/get_file.php?version=playonlinux-$VERSION&id=$menu" -O "$REPERTOIRE/install" -q
+	[ -e "$REPERTOIRE/install" ] && POL_Bash "$REPERTOIRE/install"
 fi
 
