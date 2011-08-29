@@ -348,14 +348,15 @@ POL_Download ()
 POL_Download_Resource ()
 {
 	# Download a file and place it in the resource directory (if it does not exist)
-	# Usage: POL_Resource [URL] [MD5]
-	
+	# Usage: POL_Resource [URL] [MD5] (Folder)
+
 	POL_Debug_Message "Downloading resource $1"
 	# 1 - URL
 	# 2 - MD5 SUM
 	URL="$1"
 	FICHIER="${URL##*/}"
-	cd "$POL_USER_ROOT/ressources"
+	mkdir -p "$POL_USER_ROOT/ressources/$3"
+	cd "$POL_USER_ROOT/ressources/$3"
 	if [ ! -e "$FICHIER" ] || [ ! "$(POL_MD5_file "$FICHIER")" = "$2" ]
 	then
 		if [ "$URL" = "" ]
