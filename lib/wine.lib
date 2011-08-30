@@ -479,7 +479,7 @@ POL_Wine_AutoSetVersionEnv()
 	[ "$WINEPREFIX" = "" ] && POL_Debug_Fatal "WINEPREFIX is not set!"
 	POL_WINEVERSION="$(POL_Config_PrefixRead "VERSION")"
 	POL_ARCH="$(POL_Config_PrefixRead "ARCH")"
-	[ "$POL_WINEVERSION" = "" ]@ || POL_Wine_SetVersionEnv
+	[ "$POL_WINEVERSION" = "" ] || POL_Wine_SetVersionEnv
 }
 POL_Wine_SetVersionEnv()
 {
