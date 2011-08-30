@@ -250,9 +250,11 @@ POL_Wine_InstallFonts()
 	# Install microsoft fonts
 	# Usage: POL_Wine_InstallFonts
 	OLDDIR="$PWD"
+	POL_Debug_Message "Installing microsoft fonts"
+	rm "$WINEPREFIX/drive_c/windows/Fonts" 2> /dev/null # It's a symlink? If yes, remove it
 	mkdir -p "$WINEPREFIX/drive_c/windows/Fonts"
 	cd "$WINEPREFIX/drive_c/windows/Fonts"
-	cp "$POL_USER_ROOT/fonts/*" ./
+	cp "$POL_USER_ROOT/fonts/"* ./
 	cd "$OLDDIR"	
 }
 
