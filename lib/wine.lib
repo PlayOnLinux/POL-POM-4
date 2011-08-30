@@ -250,9 +250,9 @@ POL_Wine_InstallFonts()
 	# Install microsoft fonts
 	# Usage: POL_Wine_InstallFonts
 	OLDDIR="$PWD"
-	cd "$WINEPREFIX/drive_c/windows/"
-	rm -rf ./Fonts
-	ln -s "$REPERTOIRE/fonts" ./Fonts
+	mkdir -p "$WINEPREFIX/drive_c/windows/Fonts"
+	cd "$WINEPREFIX/drive_c/windows/Fonts"
+	cp "$POL_USER_ROOT/fonts/*" ./
 	cd "$OLDDIR"	
 }
 
@@ -621,10 +621,16 @@ POL_Wine_OverrideDLL_App()
 POL_Wine_WaitExit ()
 {
 	# Lock bash commands until wine is exited
+	if [ "$1" = "--force-input" ] 
+	then
+		forceInput="true"
+		shift
+	fi
 	SOFTNAME="$1"
 	[ "$1" = "" ] && message="$(eval_gettext "Please wait...")" || message="$(eval_gettext 'Please wait while $SOFTNAME is installed...')"
 	POL_SetupWindow_wait "$message" "$TITLE"
 	wineserver -w || POL_SetupWindow_Message "$(eval_gettext 'Press next only when the installation process is finished')" "$TITLE"
+	[ "$forceInput" = "true" ] && POL_SetupWindow_Message "$(eval_gettext 'Press next only when the installation process is finished')" "$TITLE"
 }
 
 

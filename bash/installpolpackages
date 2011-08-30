@@ -36,7 +36,7 @@ shift
 export POL_WINEVERSION="$(POL_Config_PrefixRead VERSION)"
 
 POL_Wine_AutoSetVersionEnv
-POL_Call "$1"
+POL_Call "$1" --force
 
 POL_SetupWindow_Close
 exit
