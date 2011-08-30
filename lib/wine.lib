@@ -631,8 +631,8 @@ POL_Wine_WaitExit ()
 	SOFTNAME="$1"
 	[ "$1" = "" ] && message="$(eval_gettext "Please wait...")" || message="$(eval_gettext 'Please wait while $SOFTNAME is installed...')"
 	POL_SetupWindow_wait "$message" "$TITLE"
-	wineserver -w || POL_SetupWindow_Message "$(eval_gettext 'Press next only when the installation process is finished')" "$TITLE"
-	[ "$forceInput" = "true" ] && POL_SetupWindow_Message "$(eval_gettext 'Press next only when the installation process is finished')" "$TITLE"
+	wineserver -w || POL_SetupWindow_message "$(eval_gettext 'Press next only when the installation process is finished')" "$TITLE"
+	[ "$forceInput" = "true" ] && POL_SetupWindow_message "$(eval_gettext 'Press next only when the installation process is finished')" "$TITLE"
 }
 
 

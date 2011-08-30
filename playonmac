@@ -25,6 +25,13 @@ die() ## PHP function copy
 }
 [ "$(uname -s)" = "Darwin" ] || die "This script must be run on a Darwin system"
 
+if [ "$1" == "--version" ]
+then
+	cd "$(dirname "$0")"
+	version="$(cat python/lib/Variables.py | grep 'os.environ\["VERSION"\] = ' | cut -d = -f2 | tr -d \" | tr -d " ")"
+	die "PlayOnMac $version"
+fi
+
 export PYTHON="python"
 export POL_OS="Mac"
 

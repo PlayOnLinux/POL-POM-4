@@ -23,6 +23,14 @@ die() ## PHP function copy
 	echo "$@"
 	exit
 }
+
+if [ "$1" == "--version" ]
+then
+	cd "$(dirname "$0")"
+	version="$(cat python/lib/Variables.py | grep 'os.environ\["VERSION"\] = ' | cut -d = -f2 | tr -d \" | tr -d " ")"
+	die "PlayOnLinux $version"
+fi
+
 [ "$(uname -s)" = "Linux" ] || die "This script must be run on a linux system"
 
 export PYTHON="python"
