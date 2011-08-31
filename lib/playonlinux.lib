@@ -557,14 +557,14 @@ generer_icone ()
 	# "Equivalent" of POL_SetupWindow_AutoApp for linux
 	# Usage: generer_icone [icon image file] [name of the file] [directory] [software to run]
 	
-	ICONE=$1
-	NOMICONE=$2
+	ICONE="$1"
+	NOMICONE="$2"
 	NOMCOURT="$NOMICONE"
-	PLACE=$3
-	EXECUTER=$4
+	PLACE="$3"
+	EXECUTER="$4"
 	
-	mkdir -p $PLACE
-	cd $PLACE
+	mkdir -p "$PLACE"
+	cd "$PLACE"
 	echo "[Desktop Entry]" > "$NOMCOURT.desktop"
 	echo "Encoding=UTF-8" >> "$NOMCOURT.desktop"
 	echo "Name=$NOMICONE" >> "$NOMCOURT.desktop"
