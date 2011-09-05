@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2011-09-02 19:00+0200\n"
-"PO-Revision-Date: 2011-09-01 23:47+0000\n"
+"POT-Creation-Date: 2011-09-03 19:00+0200\n"
+"PO-Revision-Date: 2011-09-03 16:56+0000\n"
 "Last-Translator: rob <linuxned@gmail.com>\n"
 "Language-Team: nl_NL.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-03 04:31+0000\n"
+"X-Launchpad-Export-Date: 2011-09-04 04:36+0000\n"
 "X-Generator: Launchpad (build 13830)\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -251,6 +251,7 @@ msgstr "Bewerking voltooid"
 #: PlayOnLinux_Scripts/Crysis_2_:50
 #: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_:50
 #: PlayOnLinux_Scripts/Dead_Rising_2_:50 PlayOnLinux_Scripts/Dead_Space_:50
+#: PlayOnLinux_Scripts/Deus_Ex___Human_Revolution_:53
 #: PlayOnLinux_Scripts/Devil_May_Cry_4_:51 PlayOnLinux_Scripts/DiRT_3_:52
 #: PlayOnLinux_Scripts/Divinity_II___The_Dragon_Knight_Saga_:57
 #: PlayOnLinux_Scripts/Dragon_Age_2_:53
@@ -294,6 +295,7 @@ msgstr "Voer spelschijf in in schijfstation\\nindien nog niet gedaan."
 #: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_:62
 #: PlayOnLinux_Scripts/Dead_Rising_2_:62 PlayOnLinux_Scripts/Dead_Space_:62
 #: PlayOnLinux_Scripts/Dead_Space_2_:85
+#: PlayOnLinux_Scripts/Deus_Ex___Human_Revolution_:65
 #: PlayOnLinux_Scripts/Devil_May_Cry_4_:63 PlayOnLinux_Scripts/DiRT_3_:64
 #: PlayOnLinux_Scripts/Divinity_II___The_Dragon_Knight_Saga_:73
 #: PlayOnLinux_Scripts/Dragon_Age_2_:65
@@ -307,7 +309,7 @@ msgstr "Voer spelschijf in in schijfstation\\nindien nog niet gedaan."
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:66
 #, sh-format
 msgid "Please select the setup file to run:"
-msgstr "Selecteer een instelbestand om uit te voeren:"
+msgstr "Selecteer een installatiebestand om uit te voeren:"
 
 #: PlayOnLinux_Scripts/Age_Of_Empires_II___The_Age_of_Kings_:53
 #: PlayOnLinux_Scripts/Alice___Madness_Returns_:65
@@ -787,12 +789,14 @@ msgstr "$TITLE is geïnstalleerd"
 #, sh-format
 msgid "If the setup request DirectX installation, answer no."
 msgstr ""
+"Wanneer de spelinstallatie vraagt om de installatie van DirectX, antwoord "
+"dan met nee."
 
 #: PlayOnLinux_Scripts/Dragon_Age_2_:106
 #: PlayOnLinux_Scripts/Dragon_Age_2_Demo_:104
 #, sh-format
 msgid "$TITLE_CONFIG will be started\\nClose it after your hardwares"
-msgstr ""
+msgstr "$TITLE_CONFIG zal gestart worden\\nSluit het af na uw hardware"
 
 #: PlayOnLinux_Scripts/Dragon_Age_2_Patch_1.03_:24
 #: PlayOnLinux_Scripts/Dragon_Age_Patch_1.04_:24
@@ -804,7 +808,7 @@ msgstr "Welkom in het patch $PVERSION installatieprogramma voor $TITLE"
 #: PlayOnLinux_Scripts/Dragon_Age_2___DLC_:23
 #, sh-format
 msgid "Welcome in the DLCs Installer for $TITLE"
-msgstr ""
+msgstr "Welkom in het DLC-installatieprogramma voor $TITLE"
 
 #: PlayOnLinux_Scripts/Dragon_Age_2___DLC_:41
 #: PlayOnLinux_Scripts/Fallout_3___DLC_:39
@@ -815,17 +819,19 @@ msgstr "Selecteer een DLC om te installeren"
 #: PlayOnLinux_Scripts/Dragon_Age_2___DLC_:46
 #, sh-format
 msgid "DLC for $TITLE has been\\ninstalled successfully."
-msgstr ""
+msgstr "DLC voor $TITLE\\nis geïnstalleerd."
 
 #: PlayOnLinux_Scripts/Dragon_Age___Awakening_:64
 #, sh-format
 msgid "This addon automatically patch the game to version 1.03"
-msgstr ""
+msgstr "Deze addon werkt het spel automatisch bij naar versie 1.03"
 
 #: PlayOnLinux_Scripts/Dragon_Age___Origins_:56
 #, sh-format
 msgid "When game setup will ask for next DVD\\nclick on \\\"Forward\\\""
 msgstr ""
+"Wanneer de spelinstallatie vraagt om de volgende dvd\\nklik op \\\"Doorgaan\\"
+"\""
 
 #: PlayOnLinux_Scripts/Fallout_3___DLC_:22
 #, sh-format
@@ -848,6 +854,11 @@ msgstr "$TITLE is geïnstalleerd"
 #, sh-format
 msgid "Please wait..."
 msgstr "Een moment geduld…"
+
+#: PlayOnLinux_Scripts/POL_Function_OverrideDLL_:28
+#, sh-format
+msgid "Please wait"
+msgstr ""
 
 #: PlayOnLinux_Scripts/POL_Function_RootCommand_:8
 #, sh-format
@@ -891,15 +902,10 @@ msgstr "DirectX 9 dlls wordt geïnstalleerd…"
 msgid "Please wait while Desura is downloaded..."
 msgstr "Een moment geduld, Desura wordt gedownload…"
 
-#: PlayOnLinux_Scripts/POL_Install_dinput8_:13
-#, sh-format
-msgid "Installing dinput8 DLL..."
-msgstr "dinput8 DLL wordt geïnstalleerd…"
-
 #: PlayOnLinux_Scripts/POL_Install_dsound_:11
 #, sh-format
 msgid "Installing Dsound DLL..."
-msgstr ""
+msgstr "Dsound DLL wordt geïnstalleerd…"
 
 #: PlayOnLinux_Scripts/POL_Install_gecko_:101
 #, sh-format
@@ -946,7 +952,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_quartz_:13
 #, sh-format
 msgid "Installing quartz DLL..."
-msgstr ""
+msgstr "Quartz DLL wordt geïnstalleerd…"
 
 #: PlayOnLinux_Scripts/POL_Install_steam_:24
 #, sh-format
@@ -1046,12 +1052,12 @@ msgstr ""
 #: PlayOnLinux_Scripts/Runes_Of_Magic_:33
 #, sh-format
 msgid "You can download $TITLE install file here:"
-msgstr ""
+msgstr "U kunt het $TITLE-installatiebestand hier downloaden:"
 
 #: PlayOnLinux_Scripts/Runes_Of_Magic_:34
 #, sh-format
 msgid "Where is $TITLEs"
-msgstr ""
+msgstr "Waar is $TITLEs"
 
 #: PlayOnLinux_Scripts/Sonic_Fan_Remix_:37
 #, sh-format
@@ -1474,7 +1480,7 @@ msgstr "Automatisch uitvoeren"
 #: bash/manual_install:51
 #, sh-format
 msgid "No setup location found in autorun.inf"
-msgstr "Geen instellokatie gevonden in autorun.inf"
+msgstr "Geen installatielocatie gevonden in autorun.inf"
 
 #: bash/manual_install:111
 #, sh-format
@@ -2480,7 +2486,7 @@ msgstr "Steam Store-demoversie gebruiken"
 #: lib/setupwindow.lib:880
 #, sh-format
 msgid "Use a setup file in my computer"
-msgstr "Gebruik een instelbestand op mijn computer"
+msgstr "Gebruik een installatiebestand op mijn computer"
 
 #: lib/setupwindow.lib:881
 #, sh-format
