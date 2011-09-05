@@ -391,7 +391,7 @@ osascript /tmp/message.applescript
 
 
 export PLAYONLINUX="$PLAYONLINUX"
-export LANG="$(defaults read -g AppleLocale).utf-8"
+export LANG="$(defaults read -g AppleLocale).UTF-8"
 export POL_LANG="$(defaults read -g AppleLocale | cut -d _ -f1)"
 export REPERTOIRE="$REPERTOIRE"
 export PLAYONMAC="\$PLAYONLINUX"
