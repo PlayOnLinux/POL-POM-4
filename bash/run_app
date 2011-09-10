@@ -23,7 +23,7 @@ source "$PLAYONLINUX/lib/sources"
 
 debug_menu()
 {
-	POL_SetupWindow_menu_num "$PACKAGE $(eval_gettext "crashed.") $(eval_gettext "What do you want to do ?")" "$TITLE" "$(eval_gettext "Show me the log file")~$(eval_gettext "Show me the full report")~$(eval_gettext "Send the report to us")~$(eval_gettext "Send to pastebin")~$(eval_gettext "Nothing")" "~"
+	POL_SetupWindow_menu_num "$PACKAGE $(eval_gettext "crashed.") $(eval_gettext "What do you want to do ?")" "$TITLE" "$(eval_gettext "Show me the log file")~$(eval_gettext "Show me the full report")~$(eval_gettext "Send to pastebin")~$(eval_gettext "Nothing")" "~"
 	ACTION="$APP_ANSWER"
 	
 	
@@ -35,7 +35,7 @@ debug_menu()
 	then
 		debug_fulllog
 	fi
-	if [ "$ACTION" = "3" ]
+	if [ "$ACTION" = "2" ]
 	then
 		contenu="$(cat "$LOGFILE")"
 		PACKAGE="$(POL_Website_urlparse "$PACKAGE")"
@@ -44,14 +44,10 @@ debug_menu()
 		POL_Browser "$pastebinurl"
 		POL_SetupWindow_message "Pastebin url : $pastebinurl" "$TITLE"
 	fi
-	if [ "$ACTION" = "4" ]
+	if [ "$ACTION" = "3" ]
 	then
 		POL_SetupWindow_Close
 		exit
-	fi
-	if [ "$ACTION" = "2" ]
-	then
-		debug_sendtopom
 	fi
 	debug_menu
 }
