@@ -336,11 +336,11 @@ POL_Wine_SetVideoDriver()
 	# Usage POL_Wine_SetVideoDriver
 	POL_LoadVar_Device
 	cd "$WINEPREFIX/drive_c/windows/temp/"
-	if [ "$VENDORID" == "10de" ]; then
+	if [ "$VendorID" == "10de" ]; then
 		DRVID="nv4_disp.dll"
-	elif [ "$VENDORID" == "1002" ]; then
+	elif [ "$VendorID" == "1002" ]; then
 		DRVID="ati2dvag.dll"
-	elif [ "$VENDORID" == "8086" ]; then
+	elif [ "$VendorID" == "8086" ]; then
 		DRVID="ig4icd32.dll"
 	else
 		DRVID="vga.dll"
