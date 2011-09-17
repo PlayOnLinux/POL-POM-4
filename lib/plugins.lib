@@ -120,7 +120,7 @@ install_plugins ()
 		echo "$Puid;$Pfichier;$PinstDir;$plugStatus;$PverStr;$Pversion" >> $ULST
 	fi
 	#est voilà on continue .... et moi j'ai fait cramer mes patates
-	done < $PLAYONLINUX/plugins/plugins.lst
+	done < "$PLAYONLINUX/plugins/plugins.lst"
 }
 
 #### This part of the script load plugins libs
