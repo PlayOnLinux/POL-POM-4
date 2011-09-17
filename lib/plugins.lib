@@ -83,7 +83,7 @@ install_plugins ()
 
 			#chk version
 			#si la version du P est la même ou plus old que l'U on passe au plugin suivant
-			[ $Pversion -gt $Uversion ] || continue
+			[ "$Pversion" -gt "$Uversion" ] || continue
 
 			#bon ben la c'est sur le gus a vieux truc
 				[ "$SILENT" = "TRUE" ] || POL_Debug_Message "   -->$(eval_gettext 'Updating plugin. Previous: ')'$UverStr'/$Uversion. $(eval_gettext 'New: ')'$PverStr'/$Pversion."
