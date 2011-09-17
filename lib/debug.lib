@@ -77,7 +77,7 @@ Date: $(Get_CurrentDate)
 > glxinfo \| grep renderer
   $(glxinfo | grep renderer 2> /dev/null)
 > export
-  $(export)
+  $(export | grep -v http_proxy)
 
 $1
 EOF

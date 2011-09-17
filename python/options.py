@@ -446,12 +446,6 @@ class MainWindow(wx.Frame):
     self.Destroy()
 
   def apply_settings(self, event):
-    #Navigateur
-    open(Variables.playonlinux_rep+"/configurations/options/navigator","w").write(self.onglets.Navigator.GetValue())
-    #Terminal
-    open(Variables.playonlinux_rep+"/configurations/options/terminal","w").write(self.onglets.Term.GetValue())
-
-    open(Variables.playonlinux_rep+"/configurations/options/rmtemp","w").write(str(int(self.onglets.TmpAutoRemove.GetValue())))
     if(self.onglets.ProxyAdresse.GetValue().replace("http://","") and self.onglets.ProxyPort.GetValue()):
 	    self.chaine = "PROXY_ENABLED="+str(int(self.onglets.ProxyCheck.IsChecked()))+"\nPROXY_ADRESS="+self.onglets.ProxyAdresse.GetValue().replace("http://","")+"\n"+"PROXY_PORT="+self.onglets.ProxyPort.GetValue()+"\n"
 	    if(self.onglets.ProxyLogin.GetValue() and self.onglets.ProxyPass.GetValue()):
@@ -462,19 +456,6 @@ class MainWindow(wx.Frame):
 	   
     open(Variables.playonlinux_rep+"/configurations/options/proxy","w").write(self.chaine)
 
-
-    if(self.onglets.Desktop.GetValue()):
-	self.desk = self.onglets.Desktop.GetValue().encode('utf-8')
-    else:
-	self.desk = os.popen("printf $HOME").read()+"/Desktop/"
-
-    if(self.onglets.Panel.IsChecked() == 1):
-	os.system("bash \""+Variables.playonlinux_env+"/bash/panel\" --build")	
-    else:
-	os.system("bash \""+Variables.playonlinux_env+"/bash/panel\" --rm")
-	
-    self.env_chaine = "DESKTOP="+self.desk+"\nWINEVERSION="+self.onglets.WineVersion.GetValue()
-    open(Variables.playonlinux_rep+"/configurations/options/env",'w').write(self.env_chaine)
     wx.MessageBox(_("You must restart PlayOnLinux for the changes to take effect."), "PlayOnLinux", wx.OK)
     self.Destroy()
 
