@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2011-09-14 19:00+0200\n"
-"PO-Revision-Date: 2011-09-14 17:10+0000\n"
-"Last-Translator: Hector A. Mantellini <Unknown>\n"
+"POT-Creation-Date: 2011-09-15 19:00+0200\n"
+"PO-Revision-Date: 2011-09-15 13:33+0000\n"
+"Last-Translator: Beto1917 <Unknown>\n"
 "Language-Team: es_ES.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-15 04:45+0000\n"
-"X-Generator: Launchpad (build 13921)\n"
+"X-Launchpad-Export-Date: 2011-09-16 04:32+0000\n"
+"X-Generator: Launchpad (build 13955)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -809,6 +809,7 @@ msgstr "$TITLE se ha instalado con exito"
 #, sh-format
 msgid "If the setup request DirectX installation, answer no."
 msgstr ""
+"Si el instalador requiere la instalación de DirectX, responda \"no\"."
 
 #: PlayOnLinux_Scripts/Dragon_Age_2_:106
 #: PlayOnLinux_Scripts/Dragon_Age_2_Demo_:104
@@ -1149,7 +1150,7 @@ msgstr "Tengo un problema con un programa"
 #: bash/bug_report:39
 #, sh-format
 msgid "My problem concerns $APPLICATION_TITLE itself"
-msgstr ""
+msgstr "Mi problema afecta propiamente a $APPLICATION_TITLE"
 
 #: bash/bug_report:39
 #, sh-format
@@ -2103,6 +2104,8 @@ msgid ""
 "$APPLICATION_TITLE has already run this program.\\nDo you want to keep the "
 "old settings ?"
 msgstr ""
+"$APPLICATION_TITLE ya ejecutó este programa.\\Desea conservar la "
+"configuración anterior?"
 
 #: bash/startup:38
 #, sh-format
@@ -2176,12 +2179,12 @@ msgstr "MB"
 #: bash/system_info:77
 #, sh-format
 msgid "App launcher content: \\n"
-msgstr ""
+msgstr "Contenido del lanzador de aplicaciones: \\n"
 
 #: bash/system_info:83
 #, sh-format
 msgid "Terminal output content: \\n"
-msgstr ""
+msgstr "Contenido de la salida de la terminal: \\n"
 
 #: bash/system_info:86
 #, sh-format
@@ -2385,6 +2388,7 @@ msgstr "Por favor, espere mientras  $APPLICATION_TITLE se descarga:"
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
+"Error! Los archivos no coinciden\\n\\n : $LOCAL_MD5\\nServidor: $SERVER_MD5"
 
 #: lib/scripts.lib:429
 #, sh-format
@@ -2655,7 +2659,7 @@ msgstr "Soporta GLSL"
 
 #: python/configure.py:413
 msgid "Direct Draw Renderer"
-msgstr ""
+msgstr "renderizador Direct Draw"
 
 #: python/configure.py:414
 msgid "Video memory size"
