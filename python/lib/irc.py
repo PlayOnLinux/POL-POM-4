@@ -39,7 +39,7 @@ class IRCClient(threading.Thread):
 			self.connexion.connect((self.serveur, self.port))	
 			self.ircconnected = True
 			self.connexion.send('NICK' + ' ' + self.Nick + '\r\n')
-			self.realname = os.environ["APPLICATION_TITLE"]+" Client "+os.popen("printf \"$VERSION\"","r").read()
+			self.realname = os.environ["APPLICATION_TITLE"]+" Client "+os.environ["VERSION"]
 			self.connexion.send('USER' + ' PlayOnLinux ' + self.Nick + ' ' + self.serveur + ' :' + self.realname + '\r\n')
 		except: 
 			if(self.freenode_tried == False):
@@ -59,7 +59,7 @@ class IRCClient(threading.Thread):
   def getSettings(self):
 	irc_settings = {}
 	
-	irc_settings['NICKNAME'] = os.popen("printf $USER").read()+"-pol"
+	irc_settings['NICKNAME'] = os.environ["USER"]+"-pol"
 	irc_settings['AUTOCONNECT'] = "0"
 	irc_settings['ALERT'] = "0"
 	irc_settings["PLAYSOUND"] = "1" 
@@ -281,7 +281,7 @@ class IRCClient(threading.Thread):
 
   def traiter(self, line):
     self.line = string.split(line, " ") # On parse la ligne mot par mot
-    if(os.popen("printf \"$POL_DEBUG\"","r").read() == "TRUE"):
+    if(os.environ["POL_DEBUG"] == "TRUE"):
 	print self.line
     # On répond aux pings
     if(self.line[0] and len(self.line) > 1):
