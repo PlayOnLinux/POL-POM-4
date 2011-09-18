@@ -93,48 +93,6 @@ class Onglets(wx.Notebook):
 		self.images_onglets.Add(wx.Bitmap(Variables.playonlinux_env+"/etc/onglet/package-x-generic.png"));
    		self.SetImageList(self.images_onglets)
 
-	def General(self, nom):
-		self.panelGeneral = wx.Panel(self, -1)
-		self.fontTitle = wx.Font(12, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, False, "", wx.FONTENCODING_DEFAULT)
-		self.txtPrograms = wx.StaticText(self.panelGeneral, -1, _("Default programs"), (0,0), wx.DefaultSize)
-		self.txtPrograms.SetFont(self.fontTitle)
-		
-		self.FontNavigator = wx.StaticText(self.panelGeneral, -1, _("Default browser"), (10,30), wx.DefaultSize)
-		if(os.path.exists(Variables.playonlinux_rep+"/configurations/options/navigator")):
-			default_navigator = open(Variables.playonlinux_rep+"/configurations/options/navigator","r").read()
-		else:
-			default_navigator = "Default"
-
-		self.Navigator = wx.ComboBox(self.panelGeneral, -1, value=default_navigator, choices=["Default","firefox","konqueror","opera"], pos=(20,50))
-		self.buttonTestN = wx.Button(self.panelGeneral, 110, _("Test"), pos=(230,50), size=(80,27))
-		
-		self.FontTerm = wx.StaticText(self.panelGeneral, -1, _("Default terminal"), (10,100), wx.DefaultSize)
-
-		if(os.path.exists(Variables.playonlinux_rep+"/configurations/options/terminal")):
-			default_terminal = open(Variables.playonlinux_rep+"/configurations/options/terminal","r").read()
-		else:
-			default_terminal = "xterm"
-		self.Term = wx.ComboBox(self.panelGeneral, -1, value=default_terminal, choices=os.listdir(Variables.playonlinux_env+"/bash/terminals"), pos=(20,120),style=wx.CB_READONLY)
-		self.buttonTestT = wx.Button(self.panelGeneral, 111, _("Test"), pos=(230,120), size=(80,27))
-
-
-		self.txtOther = wx.StaticText(self.panelGeneral, -1, _("Other"), (0,180), wx.DefaultSize)
-		self.txtOther.SetFont(self.fontTitle)
-
-		self.FontNavigator = wx.StaticText(self.panelGeneral, -1, _("Temp directory"), (10,210), wx.DefaultSize)
-		self.TmpAutoRemove = wx.CheckBox(self.panelGeneral, -1, _("Automatically empty temp directory"),pos=(20,230))
-		
-		if(os.path.exists(Variables.playonlinux_rep+"/configurations/options/rmtemp")):
-			if(open(Variables.playonlinux_rep+"/configurations/options/rmtemp",'r').read() == '1'):
-				self.TmpAutoRemove.SetValue(1)
-		else:
-			self.TmpAutoRemove.SetValue(1)
-		self.AddPage(self.panelGeneral, nom, imageId=0)
-		wx.EVT_BUTTON(self, 110, self.browser_test)
-		wx.EVT_BUTTON(self, 111, self.term_test)
-
-	#def get_lng_name(self, lng):
-	#	return os.popen("cat "+Variables.playonlinux_env+"/lang/"+lng+" | grep LNGFILENAME").read().replace("\n","").replace("\"","").replace("export LNGFILENAME=","")
 	
 	def browser_test(self, event):
 		if(self.Navigator.GetValue() == "Default"):
@@ -203,77 +161,7 @@ class Onglets(wx.Notebook):
 			self.ProxyPass.Enable(False)
 			self.ProxyPort.Enable(False)
 
-	def Wine(self, nom):
-		env_settings = {}
-		
-		env_settings['DESKTOP'] = os.popen("printf $HOME").read()+"/Desktop/"
-		env_settings['WINEVERSION'] = "System"
 
-		if(os.path.exists(Variables.playonlinux_rep+"/configurations/options/env")):
-			envfile = open(Variables.playonlinux_rep+"/configurations/options/env","r").readlines()
-			self.i = 0
-			
-			while(self.i < len(envfile)):
-				line_parsed = string.split(envfile[self.i].replace("\n","").replace("\r",""),"=")
-				env_settings[line_parsed[0]] = line_parsed[1]
-				self.i += 1
-
-
-		self.panelWine = wx.Panel(self, -1)
-		self.txtWine = wx.StaticText(self.panelWine, -1, _("Wine"), (0,0), wx.DefaultSize)
-		self.txtWine.SetFont(self.fontTitle)
-		self.txtWVer = wx.StaticText(self.panelWine, -1, _("Default Wine version for PlayOnLinux programs: "), (10,30), wx.DefaultSize)
-		wine_ver = os.listdir(Variables.playonlinux_rep+"/WineVersions/")
-		self.i = 0
-		wine_ver_bis = []
-		while(self.i < len(wine_ver)):
-			if(os.path.isdir(Variables.playonlinux_rep+"/WineVersions/"+wine_ver[self.i])):
-				wine_ver_bis.append(wine_ver[self.i])
-			self.i += 1
-		wine_ver = wine_ver_bis[:]
-		wine_ver.sort()
-		wine_ver.insert(0, "System")
-		self.WineVersion = wx.ComboBox(self.panelWine, -1, value=env_settings['WINEVERSION'], choices=wine_ver, pos=(20,50))
-
-		self.txtDesktop = wx.StaticText(self.panelWine, -1, _("Desktop"), (0,100), wx.DefaultSize)
-		self.txtPanel = wx.StaticText(self.panelWine, -1, _("PlayOnLinux menu"), (10,130), wx.DefaultSize)
-		self.Panel = wx.CheckBox(self.panelWine, -1, _("Add the PlayOnLinux menu to your panel"),pos=(20,150))
-		if(os.path.exists(os.popen("printf $HOME").read()+"/.config/menus/applications-merged/playonlinux-Programmes.menu")):
-			self.Panel.SetValue(1)
-		self.txtPanel = wx.StaticText(self.panelWine, -1, _("Desktop directory"), (10,190), wx.DefaultSize)
-		self.Desktop = wx.TextCtrl(self.panelWine, -1, env_settings['DESKTOP'] ,pos=(20,210),size=(300,27))
-
-
-		self.txtDesktop.SetFont(self.fontTitle)
-		self.AddPage(self.panelWine, nom, imageId=3)
-
-	
-
-	def System(self, nom):
-		self.panelSystem = wx.Panel(self, -1)
-		self.panels_buttons_system = wx.Panel(self.panelSystem, -1)
-
-		self.sizerSystem = wx.BoxSizer(wx.VERTICAL) 
-
-		self.txtGLX = wx.TextCtrl(self.panelSystem, -1, style=wx.TE_MULTILINE)		
-
-		self.sizerSystem.Add(self.txtGLX, 9, wx.EXPAND|wx.ALL, 2)
-    		self.sizerSystem.Add(self.panels_buttons_system, 1, wx.EXPAND|wx.ALL, 2)
-		
-		self.GlxInfo = wx.Button(self.panels_buttons_system, 100, "GLXInfos", pos=(0,0))
-		self.xOrg = wx.Button(self.panels_buttons_system, 101, "xorg.conf", pos=(100,0))
-		self.glxGears = wx.Button(self.panels_buttons_system, 102, "3D Test", pos=(200,0))
-		self.glxGears = wx.Button(self.panels_buttons_system, 103, "System", pos=(300,0))
-
-		self.panelSystem.SetSizer(self.sizerSystem)
-   		self.panelSystem.SetAutoLayout(True)
-
-		self.AddPage(self.panelSystem, nom, imageId=4)
-			
-		wx.EVT_BUTTON(self, 100, self.glxinfo)
-		wx.EVT_BUTTON(self, 101, self.xorg)
-		wx.EVT_BUTTON(self, 102, self.glxgears)
-		wx.EVT_BUTTON(self, 103, self.system_info)
 
 	def LoadPlugins(self):
 		self.pluginlist.DeleteAllItems()
