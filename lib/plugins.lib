@@ -54,6 +54,7 @@ install_plugins ()
 		Plinux=$(cut -d';' -f7 <<< $ligne)
 		Pmac=$(cut -d';' -f8 <<< $ligne)
 
+
 		# On complique un peu le truc (07/07/2011)
 		install="false"
 		[ "$POL_OS" = "Linux" ] && [ "$Plinux" = "1" ] && install="true"
@@ -80,10 +81,13 @@ install_plugins ()
 			UplugStatus=$(cut -d';' -f4 <<< $Uligne)
 			UverStr=$(cut -d';' -f5 <<< $Uligne)
 			Uversion=$(cut -d';' -f6 <<< $Uligne)
+			#using let to replace automaticly invalid number by 0 
+			let "Uversion = Uversion"
+			let "Pversion = Pversion"
 
 			#chk version
 			#si la version du P est la même ou plus old que l'U on passe au plugin suivant
-			[ "$Pversion" -gt "$Uversion" ] || continue
+			[ $Pversion -gt $Uversion ] || continue
 
 			#bon ben la c'est sur le gus a vieux truc
 				[ "$SILENT" = "TRUE" ] || POL_Debug_Message "   -->$(eval_gettext 'Updating plugin. Previous: ')'$UverStr'/$Uversion. $(eval_gettext 'New: ')'$PverStr'/$Pversion."
