@@ -307,8 +307,8 @@ class MainWindow(wx.Frame):
     self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
     self.panelFenp = wx.Panel(self, -1)
     self.panels_buttons = wx.Panel(self.panelFenp, -1)
-    self.Apply = wx.Button(self.panels_buttons, wx.ID_APPLY, pos=(400,0))
-    self.Close = wx.Button(self.panels_buttons, wx.ID_CLOSE, pos=(305,0))
+    self.Apply = wx.Button(self.panels_buttons, wx.ID_APPLY, _("Apply"), pos=(400,0))
+    self.Close = wx.Button(self.panels_buttons, wx.ID_CLOSE, _("Cancel"), pos=(305,0))
     self.sizer = wx.BoxSizer(wx.VERTICAL)   
     self.onglets = Onglets(self.panelFenp)
 
