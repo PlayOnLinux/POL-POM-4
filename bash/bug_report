@@ -51,13 +51,23 @@ then
 	[ "$APP_ANSWER" = "$LNG_NO_JOIN" ] || LOGTITLE="$APP_ANSWER"
 fi
 fi
-POL_SetupWindow_textbox "$(eval_gettext "Please give a very short description")" "$POL_DEBUG_TITLE"
+POL_SetupWindow_textbox "$(eval_gettext "Please give a very short description (title, english only)")" "$POL_DEBUG_TITLE"
 BUGTITLE="$APP_ANSWER"
-POL_SetupWindow_textbox_multiline "$(eval_gettext "Detailed description:")" "$POL_DEBUG_TITLE"
+POL_SetupWindow_textbox_multiline "$(eval_gettext "Please explain your problem clearly (english only):")" "$POL_DEBUG_TITLE"
+
+if [ "$LOG_TITLE" = "" ]
+then
+DESCRIPTION="$APP_ANSWER"
+else
 DESCRIPTION="$APP_ANSWER
 
 [code language%3Dconsole]$(cat "$POL_USER_ROOT/logs/$LOGTITLE/$LOGTITLE.log")[/code]"
-
+fi
+if [ "$BUG_TITLE" = "" ] || [ "$DESCRIPTION" = "" ]
+then
+	POL_SetupWindow_message "$(eval_gettext 'Sorry, we need a detailed description.')" "$TITLE"
+	POL_SetupWindow_Close
+fi
 POL_Website_login
 POL_Website_Init
 contenu="$(cat "$LOGFILE")"
