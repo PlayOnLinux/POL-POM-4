@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-09-16 19:00+0200\n"
-"PO-Revision-Date: 2011-09-12 07:12+0000\n"
-"Last-Translator: Aymeric <os2mule@gmail.com>\n"
+"POT-Creation-Date: 2011-09-17 19:00+0200\n"
+"PO-Revision-Date: 2011-09-17 12:51+0000\n"
+"Last-Translator: Adam M. <adydas95@gmail.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-17 04:32+0000\n"
+"X-Launchpad-Export-Date: 2011-09-18 04:36+0000\n"
 "X-Generator: Launchpad (build 13955)\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -253,6 +253,7 @@ msgstr "Operace provedena"
 #: PlayOnLinux_Scripts/Dragon_Age_2_:53
 #: PlayOnLinux_Scripts/Dragon_Age___Awakening_:44
 #: PlayOnLinux_Scripts/Dragon_Age___Origins_:50
+#: PlayOnLinux_Scripts/Duke_Nukem_Forever_:55
 #: PlayOnLinux_Scripts/Fallout_3_:49
 #: PlayOnLinux_Scripts/Fallout___New_Vegas_:83
 #: PlayOnLinux_Scripts/Grand_Theft_Auto___San_Andreas_:48
@@ -299,6 +300,7 @@ msgstr "Vložte prosím herní medium do mechaniky\\npokud jste již neučinili.
 #: PlayOnLinux_Scripts/Dragon_Age_2_:65
 #: PlayOnLinux_Scripts/Dragon_Age___Awakening_:56
 #: PlayOnLinux_Scripts/Dragon_Age___Origins_:71
+#: PlayOnLinux_Scripts/Duke_Nukem_Forever_:73
 #: PlayOnLinux_Scripts/Fallout_3_:70
 #: PlayOnLinux_Scripts/Fallout___New_Vegas_:95
 #: PlayOnLinux_Scripts/Grand_Theft_Auto___San_Andreas_:60
@@ -843,6 +845,22 @@ msgstr "Tento doplněk automaticky povýší hru na verzi 1.03"
 msgid "When game setup will ask for next DVD\\nclick on \\\"Forward\\\""
 msgstr "Pokud se vás hra zeptá na další DVD\\nklikněte na \\\"Další\"\\\""
 
+#: PlayOnLinux_Scripts/Duke_Nukem_Forever_:61
+#: PlayOnLinux_Scripts/Duke_Nukem_Forever_:66 PlayOnLinux_Scripts/Portal_2_:56
+#: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_:100
+#, sh-format
+msgid ""
+"Do not forget to close Steam when downloading\\nis finished, so that "
+"$APPLICATION_TITLE can continue\\nto install your game."
+msgstr ""
+"Nezapomeňte zavřít Steam až se stahování ukončí,\\naby aplikace "
+"$APPLICATION_TITLE mohla pokračovat\\nv instalaci hry."
+
+#: PlayOnLinux_Scripts/Duke_Nukem_Forever_:100
+#, sh-format
+msgid "Downloading wine fix..."
+msgstr ""
+
 #: PlayOnLinux_Scripts/Fallout_3___DLC_:22
 #, sh-format
 msgid "Welcome in the DLC Installer for $TITLE"
@@ -1047,14 +1065,6 @@ msgstr "Odstranit Game For Windows Live..."
 msgid "Game For Windows Live is not installed\\nskipping uninstall routine."
 msgstr "Game For Windows Live není nainstalováno\\npřeskočení odinstalace."
 
-#: PlayOnLinux_Scripts/Portal_2_:56
-#: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_:100
-#, sh-format
-msgid ""
-"Do not forget to close Steam when downloading\\nis finished, so that "
-"$APPLICATION_TITLE can continue\\nto install your game."
-msgstr ""
-
 #: PlayOnLinux_Scripts/Runes_Of_Magic_:33
 #, sh-format
 msgid "You can download $TITLE install file here:"
@@ -1075,24 +1085,22 @@ msgstr "Stahování $TITLE freeware..."
 msgid "Waiting for users commands..."
 msgstr "Čekání na příkazy uživatele"
 
-#: PlayOnLinux_Scripts/Steam_:47
+#: PlayOnLinux_Scripts/Steam_:48
 #, sh-format
 msgid "Please choose a virtual drive name"
 msgstr "Prosím vyberte jméno virtuální mechaniky"
 
-#: PlayOnLinux_Scripts/Steam_:67
+#: PlayOnLinux_Scripts/Steam_:68
 #, sh-format
 msgid "Downloading $TITLE"
 msgstr "Stahování $TITLE"
 
-#: PlayOnLinux_Scripts/Steam_:84
+#: PlayOnLinux_Scripts/Steam_:85
 #, sh-format
 msgid ""
-"If you want to install $TITLE in another virtual drive\\nRun this script "
+"If you want to install $TITLE in another virtual drive\\nRun this installer "
 "again"
 msgstr ""
-"Pokud chcete instalovat $TITLE v jiné virtuální mechanice\\nSpusťte tento "
-"skript znovu"
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_:127
 #, sh-format
@@ -1106,7 +1114,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_:90
 #, sh-format
 msgid "When the game setup will ask for next disk\\nclick on \"Forward\""
-msgstr ""
+msgstr "Až herní instalátor požádá o další disk,\\nklikněte na \"Vpřed\""
 
 #: bash/bug_report:31 python/mainwindow.py:152
 #, sh-format
