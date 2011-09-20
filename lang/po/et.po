@@ -6,15 +6,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-09-17 19:00+0200\n"
-"PO-Revision-Date: 2011-03-11 06:45+0000\n"
-"Last-Translator: lyyser <Unknown>\n"
+"Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
+"POT-Creation-Date: 2011-09-18 19:00+0200\n"
+"PO-Revision-Date: 2011-09-18 11:09+0000\n"
+"Last-Translator: Mihkel Tõnnov <mihhkel@gmail.com>\n"
 "Language-Team: Estonian <et@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-18 04:36+0000\n"
+"X-Launchpad-Export-Date: 2011-09-19 04:36+0000\n"
 "X-Generator: Launchpad (build 13955)\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -144,7 +144,7 @@ msgstr ""
 
 #: Advanced Wine Configuration Plugin:4
 msgid "Choose an option to modify"
-msgstr ""
+msgstr "Vali, mida muuta"
 
 #: Advanced Wine Configuration Plugin:5
 msgid "All"
@@ -159,10 +159,13 @@ msgid ""
 "Welcome in Advanced Wine Configuration, an optimization’s system for Wine "
 "created by GNU_Raziel. If you does not know what to choose, LEAVE DEFAULTS"
 msgstr ""
+"Tere tulemast Wine täppishäälestuse nõustajat kasutama! Selle Wine "
+"optimeerimise süsteemi tegi GNU_Raziel. Kui sa ei tea, mida valida, USALDA "
+"VAIKEVALIKUID."
 
 #: Advanced Wine Configuration Plugin:8
 msgid "Choose a game"
-msgstr ""
+msgstr "Vali rakendus"
 
 #: Advanced Wine Configuration Plugin:9
 msgid "You did not select a game"
@@ -170,15 +173,15 @@ msgstr ""
 
 #: Advanced Wine Configuration Plugin:10
 msgid "Choose DirectDraw Renderer Mode?"
-msgstr ""
+msgstr "DirectDraw renderdusrežiim:"
 
 #: Advanced Wine Configuration Plugin:11
 msgid "Activate GLSL Support?"
-msgstr ""
+msgstr "GLSL-i tugi:"
 
 #: Advanced Wine Configuration Plugin:13
 msgid "Choose Offscreen Rendering Mode?"
-msgstr ""
+msgstr "Ekraanivälise renderdamise režiim:"
 
 #: Advanced Wine Configuration Plugin:14
 msgid "Choose Render Target Lock Mode?"
@@ -186,15 +189,15 @@ msgstr ""
 
 #: Advanced Wine Configuration Plugin:15
 msgid "Activate Multisampling support?"
-msgstr ""
+msgstr "Multidiskreetimise tugi:"
 
 #: Advanced Wine Configuration Plugin:16
 msgid "Activate the mouse warp override?"
-msgstr ""
+msgstr "Hiire kõverduse alistamine:"
 
 #: Advanced Wine Configuration Plugin:17
 msgid "Optimisation done"
-msgstr ""
+msgstr "Optimeeritud."
 
 #: Detour plugin:3
 msgid ""
@@ -223,7 +226,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Borderlands_:47 PlayOnLinux_Scripts/Brink_:48
 #: PlayOnLinux_Scripts/Bulletstorm_:50
 #: PlayOnLinux_Scripts/Call_of_Duty___Black_Ops_:49
-#: PlayOnLinux_Scripts/Cars_2_:44
+#: PlayOnLinux_Scripts/Cars_2_:44 PlayOnLinux_Scripts/CivCity_Rome_:52
 #: PlayOnLinux_Scripts/Clive_Barker_s_Jericho_:58
 #: PlayOnLinux_Scripts/Command_And_Conquer___Red_Alert_3_:54
 #: PlayOnLinux_Scripts/Command_And_Conquer___Red_Alert_3___Uprising_:52
@@ -241,10 +244,12 @@ msgstr ""
 #: PlayOnLinux_Scripts/Fallout_3_:49
 #: PlayOnLinux_Scripts/Fallout___New_Vegas_:83
 #: PlayOnLinux_Scripts/Grand_Theft_Auto___San_Andreas_:48
-#: PlayOnLinux_Scripts/Mass_Effect_:49 PlayOnLinux_Scripts/Portal_2_:50
+#: PlayOnLinux_Scripts/Mass_Effect_:49 PlayOnLinux_Scripts/Mass_Effect_2_:48
+#: PlayOnLinux_Scripts/Portal_2_:50
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:46
-#: PlayOnLinux_Scripts/The_Next_BIG_Thing_:46
+#: PlayOnLinux_Scripts/The_Next_BIG_Thing_:47
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_:84
+#: PlayOnLinux_Scripts/Warhammer_40_000___Space_Marine_:55
 #, sh-format
 msgid "Please insert game media into your disk drive\\nif not already done."
 msgstr ""
@@ -289,9 +294,10 @@ msgstr ""
 #: PlayOnLinux_Scripts/Fallout___New_Vegas_:95
 #: PlayOnLinux_Scripts/Grand_Theft_Auto___San_Andreas_:60
 #: PlayOnLinux_Scripts/LIMBO_:64 PlayOnLinux_Scripts/Magicka_:69
-#: PlayOnLinux_Scripts/Mass_Effect_:61 PlayOnLinux_Scripts/Portal_2_:63
+#: PlayOnLinux_Scripts/Mass_Effect_:61 PlayOnLinux_Scripts/Mass_Effect_2_:78
+#: PlayOnLinux_Scripts/Portal_2_:63
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:66
-#: PlayOnLinux_Scripts/The_Next_BIG_Thing_:62
+#: PlayOnLinux_Scripts/The_Next_BIG_Thing_:63
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_:107
 #, sh-format
 msgid "Please select the setup file to run:"
@@ -333,7 +339,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Dragon_Age___Origins_:122
 #: PlayOnLinux_Scripts/Fallout_3_:109
 #: PlayOnLinux_Scripts/Fallout___New_Vegas_:133
-#: PlayOnLinux_Scripts/The_Next_BIG_Thing_:102
+#: PlayOnLinux_Scripts/The_Next_BIG_Thing_:103
 #, sh-format
 msgid ""
 "You must disable anti-piracy protections of this game\\nif you want to play "
@@ -395,6 +401,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:31
 #: PlayOnLinux_Scripts/Bioshock_Patch_1.1_:30
 #: PlayOnLinux_Scripts/Borderlands_Patch_1.41_:50
+#: PlayOnLinux_Scripts/CivCity_Rome_Patch_1.1_:28
 #: PlayOnLinux_Scripts/Command_And_Conquer_3_Patch_1.09_:31
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Kane_s_Wrath_:33
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Kane_s_Wrath_Patch_1.02_:31
@@ -408,6 +415,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Dragon_Age___Awakening_:28
 #: PlayOnLinux_Scripts/Fallout_3_Patch_1.07_:28
 #: PlayOnLinux_Scripts/Fallout_3___DLC_:27
+#: PlayOnLinux_Scripts/Mass_Effect_2___Patch_1.02_:28
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_Patch_1.35_:51
 #, sh-format
 msgid "Game is not installed."
@@ -418,6 +426,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Patch_1.02_:44
 #: PlayOnLinux_Scripts/Bioshock_Patch_1.1_:44
 #: PlayOnLinux_Scripts/Borderlands_Patch_1.41_:64
+#: PlayOnLinux_Scripts/CivCity_Rome_Patch_1.1_:42
 #: PlayOnLinux_Scripts/Command_And_Conquer_3_Patch_1.09_:45
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Kane_s_Wrath_Patch_1.02_:45
 #: PlayOnLinux_Scripts/Command_And_Conquer___Red_Alert_3_Patch_1.12_:43
@@ -427,6 +436,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Dragon_Age_2_Patch_1.03_:43
 #: PlayOnLinux_Scripts/Dragon_Age_Patch_1.04_:43
 #: PlayOnLinux_Scripts/Fallout_3_Patch_1.07_:42
+#: PlayOnLinux_Scripts/Mass_Effect_2___Patch_1.02_:42
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_Patch_1.35_:65
 #, sh-format
 msgid "Steam have is own automatic update system."
@@ -441,12 +451,14 @@ msgstr ""
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:46
 #: PlayOnLinux_Scripts/Bioshock_Patch_1.1_:53
 #: PlayOnLinux_Scripts/Borderlands_Patch_1.41_:73
+#: PlayOnLinux_Scripts/CivCity_Rome_Patch_1.1_:51
 #: PlayOnLinux_Scripts/Command_And_Conquer_3_Patch_1.09_:64
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Kane_s_Wrath_Patch_1.02_:64
 #: PlayOnLinux_Scripts/Command_And_Conquer___Red_Alert_3_Patch_1.12_:52
 #: PlayOnLinux_Scripts/Dragon_Age_2_Patch_1.03_:52
 #: PlayOnLinux_Scripts/Dragon_Age_Patch_1.04_:53
 #: PlayOnLinux_Scripts/Fallout_3_Patch_1.07_:51
+#: PlayOnLinux_Scripts/Mass_Effect_2___Patch_1.02_:51
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_Patch_1.35_:74
 #, sh-format
 msgid "Select patch to execute"
@@ -457,11 +469,13 @@ msgstr ""
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Patch_1.02_:60
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:65
 #: PlayOnLinux_Scripts/Bioshock_Patch_1.1_:62
+#: PlayOnLinux_Scripts/CivCity_Rome_Patch_1.1_:59
 #: PlayOnLinux_Scripts/Command_And_Conquer_3_Patch_1.09_:80
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Kane_s_Wrath_Patch_1.02_:79
 #: PlayOnLinux_Scripts/Command_And_Conquer___Red_Alert_3_Patch_1.12_:67
 #: PlayOnLinux_Scripts/Dragon_Age_Patch_1.04_:60
 #: PlayOnLinux_Scripts/Fallout_3_Patch_1.07_:72
+#: PlayOnLinux_Scripts/Mass_Effect_2___Patch_1.02_:58
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_Patch_1.35_:89
 #, sh-format
 msgid ""
@@ -520,6 +534,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_:56
 #: PlayOnLinux_Scripts/Dead_Space_2_:66
 #: PlayOnLinux_Scripts/Dragon_Age___Origins_:58
+#: PlayOnLinux_Scripts/Mass_Effect_2_:56
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_:92
 #, sh-format
 msgid "Please insert media 2 into your disk drive\\nif not already done."
@@ -632,6 +647,7 @@ msgstr ""
 
 #: PlayOnLinux_Scripts/Borderlands_:59 PlayOnLinux_Scripts/Borderlands_:60
 #: PlayOnLinux_Scripts/Fallout_3_:56 PlayOnLinux_Scripts/Fallout_3_:57
+#: PlayOnLinux_Scripts/Mass_Effect_2_:64 PlayOnLinux_Scripts/Mass_Effect_2_:65
 #, sh-format
 msgid "Normal version"
 msgstr ""
@@ -646,6 +662,21 @@ msgstr ""
 msgid ""
 "Wait while the patch is downloading...\\nThis operation can take time, "
 "depending of you connexion."
+msgstr ""
+
+#: PlayOnLinux_Scripts/CivCity_Rome_:58
+#, sh-format
+msgid "Warning: GameShadow wont"
+msgstr ""
+
+#: PlayOnLinux_Scripts/CivCity_Rome_Patch_1.1_:23
+#: PlayOnLinux_Scripts/Dragon_Age_2_Patch_1.03_:24
+#: PlayOnLinux_Scripts/Dragon_Age_Patch_1.04_:24
+#: PlayOnLinux_Scripts/Fallout_3_Patch_1.07_:23
+#: PlayOnLinux_Scripts/Mass_Effect_2___Patch_1.02_:23
+#: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_Patch_1.35_:46
+#, sh-format
+msgid "Welcome in the patch $PVERSION installer for $TITLE"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Command_And_Conquer_3_Patch_1.09_:51
@@ -673,7 +704,7 @@ msgstr ""
 #: python/guiv3.py:141
 #, sh-format
 msgid "No"
-msgstr ""
+msgstr "Ei"
 
 #: PlayOnLinux_Scripts/Counter_Strike___Source_:52
 #, sh-format
@@ -696,7 +727,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Team_Fortress_2_:58 python/guiv3.py:142
 #, sh-format
 msgid "Yes"
-msgstr ""
+msgstr "Jah"
 
 #: PlayOnLinux_Scripts/Crysis_2_Patch_1.9_and_HiRes_Texture_Pack_:52
 #: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_Patch_1.02_:52
@@ -767,14 +798,6 @@ msgstr ""
 msgid "$TITLE_CONFIG will be started\\nClose it after your hardwares"
 msgstr ""
 
-#: PlayOnLinux_Scripts/Dragon_Age_2_Patch_1.03_:24
-#: PlayOnLinux_Scripts/Dragon_Age_Patch_1.04_:24
-#: PlayOnLinux_Scripts/Fallout_3_Patch_1.07_:23
-#: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_Patch_1.35_:46
-#, sh-format
-msgid "Welcome in the patch $PVERSION installer for $TITLE"
-msgstr ""
-
 #: PlayOnLinux_Scripts/Dragon_Age_2___DLC_:23
 #, sh-format
 msgid "Welcome in the DLCs Installer for $TITLE"
@@ -797,6 +820,7 @@ msgid "This addon automatically patch the game to version 1.03"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Dragon_Age___Origins_:56
+#: PlayOnLinux_Scripts/Mass_Effect_2_:54
 #, sh-format
 msgid "When game setup will ask for next DVD\\nclick on \\\"Forward\\\""
 msgstr ""
@@ -804,6 +828,8 @@ msgstr ""
 #: PlayOnLinux_Scripts/Duke_Nukem_Forever_:61
 #: PlayOnLinux_Scripts/Duke_Nukem_Forever_:66 PlayOnLinux_Scripts/Portal_2_:56
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_:100
+#: PlayOnLinux_Scripts/Warhammer_40_000___Space_Marine_:61
+#: PlayOnLinux_Scripts/Warhammer_40_000___Space_Marine_:65
 #, sh-format
 msgid ""
 "Do not forget to close Steam when downloading\\nis finished, so that "
@@ -818,6 +844,16 @@ msgstr ""
 #: PlayOnLinux_Scripts/Fallout_3___DLC_:22
 #, sh-format
 msgid "Welcome in the DLC Installer for $TITLE"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Mass_Effect_2_:64
+#, sh-format
+msgid "Digital Deluxe version"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Mass_Effect_2_:64
+#, sh-format
+msgid "Which edition do you have?"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Microsoft_Money_2005_:33
@@ -1104,15 +1140,20 @@ msgstr ""
 
 #: bash/bug_report:54
 #, sh-format
-msgid "Please give a very short description"
+msgid "Please give a very short description (title, english only)"
 msgstr ""
 
 #: bash/bug_report:56
 #, sh-format
-msgid "Detailed description:"
+msgid "Please explain your problem clearly (english only):"
 msgstr ""
 
-#: bash/bug_report:70
+#: bash/bug_report:68
+#, sh-format
+msgid "Sorry, we need a detailed description."
+msgstr ""
+
+#: bash/bug_report:80
 #, sh-format
 msgid ""
 "Thank you !\\n\\nYour report has been sent.\\n\\nWe will do our best to send "
@@ -1123,7 +1164,7 @@ msgstr ""
 #: python/mainwindow.py:130
 #, sh-format
 msgid "Run a local script"
-msgstr ""
+msgstr "Käivita kohalik skript"
 
 #: bash/expert/Executer:32
 #, sh-format
@@ -1138,28 +1179,28 @@ msgstr ""
 #: bash/expert/Executer:43
 #, sh-format
 msgid "Error!"
-msgstr "Viga!"
+msgstr "Viga"
 
 #: bash/expert/Executer:43
 #, sh-format
 msgid "File not found!"
-msgstr "Faili ei leitud!"
+msgstr "Faili ei leitud."
 
 #: bash/first_use:33 bash/first_use:50 bash/first_use:54 bash/first_use:65
 #: bash/first_use:84 bash/first_use:108
 #, sh-format
 msgid "Microsoft fonts"
-msgstr ""
+msgstr "Microsofti fondid"
 
 #: bash/first_use:33
 #, sh-format
 msgid "Microsoft fonts aren't installed; I'll install them for you."
-msgstr ""
+msgstr "Microsofti fondid pole paigaldatud; paigaldatakse."
 
 #: bash/first_use:33 bash/first_use:54
 #, sh-format
 msgid "\\nPlease make sure you are connected to the Internet."
-msgstr ""
+msgstr "\\nVaata, et internetiühendus toimiks."
 
 #: bash/first_use:34
 #, sh-format
@@ -1172,12 +1213,14 @@ msgid ""
 "These fonts were provided by Microsoft\\n\"in the interest of cross-platform "
 "compatibility\"."
 msgstr ""
+"Microsoft pakkus neid fonte\\n\"platvormidevahelise ühilduvuse huvides\"."
 
 #: bash/first_use:36
 #, sh-format
 msgid ""
 "This is no longer the case, but they are still available from third parties."
 msgstr ""
+"Enam see ei kehti, kuid kolmandatelt osapooltelt on nad endiselt saadaval."
 
 #: bash/first_use:38
 #, sh-format
@@ -1186,46 +1229,49 @@ msgid ""
 "you may not redistribute them in modified form,\\nincluding changes to the "
 "file name or packaging format."
 msgstr ""
+"Võid need fondid vabalt alla laadida ja neid enda tarbeks kasutada,\\nkuid "
+"ei või neid muudetud kujul edasi levitada,\\nsh muudetud failinimedega või "
+"teisiti pakendatult."
 
 #: bash/first_use:39
 #, sh-format
 msgid " Original licence "
-msgstr ""
+msgstr " Algne litsents "
 
 #: bash/first_use:50
 #, sh-format
 msgid "Please read and accept the following:"
-msgstr ""
+msgstr "Palun loe läbi ja nõustu järgnevaga:"
 
 #: bash/first_use:54
 #, sh-format
 msgid "The PlayOnLinux website is unavailable."
-msgstr ""
+msgstr "PlayOnLinuxi veebileht pole saadaval."
 
 #: bash/first_use:65
 #, sh-format
 msgid "Downloading fonts"
-msgstr ""
+msgstr "Fontide allalaadimine"
 
 #: bash/first_use:70 bash/first_use:71 bash/first_use:77 bash/first_use:78
 #, sh-format
 msgid "Downloading: "
-msgstr ""
+msgstr "Allalaadimine: "
 
 #: bash/first_use:84
 #, sh-format
 msgid "Installing fonts"
-msgstr ""
+msgstr "Fontide paigaldamine"
 
 #: bash/first_use:89 bash/first_use:90 bash/first_use:97 bash/first_use:98
 #, sh-format
 msgid "Installing: "
-msgstr ""
+msgstr "Paigaldamine: "
 
 #: bash/first_use:108
 #, sh-format
 msgid "Microsoft fonts have been installed successfully."
-msgstr ""
+msgstr "Microsofti fondid on edukalt paigaldatud."
 
 #: bash/first_use:128
 #, sh-format
@@ -1298,7 +1344,7 @@ msgstr ""
 #: bash/first_use:279
 #, sh-format
 msgid "Please ensure you are connected to the internet."
-msgstr ""
+msgstr "Vaata, et internetiühendus toimiks."
 
 #: bash/first_use:279
 #, sh-format
@@ -1313,7 +1359,7 @@ msgstr ""
 #: bash/install_wver:26
 #, sh-format
 msgid "This wizard will help you to install Wine: "
-msgstr ""
+msgstr "Selle nõustaja abil paigaldatakse Wine "
 
 #: bash/install_wver:26
 #, sh-format
@@ -1361,12 +1407,12 @@ msgstr ""
 #: bash/make_shortcut:43
 #, sh-format
 msgid "PlayOnMac package"
-msgstr ""
+msgstr "PlayOnMaci pakett"
 
 #: bash/make_shortcut:43
 #, sh-format
 msgid "Stand-alone package"
-msgstr ""
+msgstr "Iseseisev pakett"
 
 #: bash/make_shortcut:43
 #, sh-format
@@ -1376,7 +1422,7 @@ msgstr ""
 #: bash/make_shortcut:47
 #, sh-format
 msgid "Building package..."
-msgstr ""
+msgstr "Paketi loomine..."
 
 #: bash/make_shortcut:66
 #, sh-format
@@ -1410,12 +1456,12 @@ msgstr "Käsitsi paigaldamine"
 #: bash/manual_install:51
 #, sh-format
 msgid "Autorun"
-msgstr ""
+msgstr "Automaatkäivitus"
 
 #: bash/manual_install:51
 #, sh-format
 msgid "No setup location found in autorun.inf"
-msgstr ""
+msgstr "Autorun.inf ei nimeta paigaldaja asukohta"
 
 #: bash/manual_install:111
 #, sh-format
@@ -1439,7 +1485,7 @@ msgstr ""
 #: bash/manual_install:118
 #, sh-format
 msgid "What would you like to do?"
-msgstr "Mida te sooviksite teha?"
+msgstr "Vali soovitud toiming"
 
 #: bash/manual_install:128
 #, sh-format
@@ -1462,7 +1508,7 @@ msgstr ""
 #: python/configure.py:150 python/mainwindow.py:332 python/mainwindow.py:363
 #, sh-format
 msgid "Configure Wine"
-msgstr ""
+msgstr "Wine seadistamine"
 
 #: bash/manual_install:161
 #, sh-format
@@ -1477,12 +1523,12 @@ msgstr ""
 #: bash/manual_install:164
 #, sh-format
 msgid "What would you like to do before installation?"
-msgstr ""
+msgstr "Vali soovitud paigalduseelsed toimingud."
 
 #: bash/manual_install:177
 #, sh-format
 msgid "Which version of Wine would you like to use?"
-msgstr ""
+msgstr "Vali Wine versioon, mida kasutada."
 
 #: bash/manual_install:206 lib/scripts.lib:281
 #, sh-format
@@ -1507,12 +1553,12 @@ msgstr ""
 #: bash/manual_install:270
 #, sh-format
 msgid "Please select the install file to run."
-msgstr ""
+msgstr "Vali paigaldusfail, mis käivitada."
 
 #: bash/manual_install:300
 #, sh-format
 msgid "You must choose a file!"
-msgstr ""
+msgstr "Fail tuleb valida."
 
 #: bash/manual_install:306
 #, sh-format
@@ -1522,38 +1568,38 @@ msgstr ""
 #: bash/playonlinux-pkg:25
 #, sh-format
 msgid "$APPLICATION_TITLE package manager: "
-msgstr ""
+msgstr "$APPLICATION_TITLE'i paketihaldur: "
 
 #: bash/playonlinux-pkg:39
 #, sh-format
 msgid "Usage: "
-msgstr ""
+msgstr "Kasutamine: "
 
 #: bash/playonlinux-pkg:40
 #, sh-format
 msgid "\tChoose a file"
-msgstr ""
+msgstr "\tFaili valimine"
 
 #: bash/playonlinux-pkg:40 bash/playonlinux-pkg:41 bash/playonlinux-pkg:42
 #: bash/playonlinux-pkg:43
 #, sh-format
 msgid " or "
-msgstr ""
+msgstr " või "
 
 #: bash/playonlinux-pkg:41
 #, sh-format
 msgid "\tExtract the package"
-msgstr ""
+msgstr "\tPaketi lahtipakkimine"
 
 #: bash/playonlinux-pkg:42
 #, sh-format
 msgid "\tInstall the package"
-msgstr ""
+msgstr "\tPaketi paigaldamine"
 
 #: bash/playonlinux-pkg:43
 #, sh-format
 msgid "\tShow this message"
-msgstr ""
+msgstr "\tSelle teate näitamine"
 
 #: bash/playonlinux-pkg:47
 #, sh-format
@@ -1574,33 +1620,33 @@ msgstr ""
 #: bash/playonlinux-pkg:108
 #, sh-format
 msgid " isn't a valid PlayOnLinux package!"
-msgstr ""
+msgstr " pole sobiv PlayOnLinuxi pakett."
 
 #: bash/playonlinux-pkg:69 bash/playonlinux-pkg:86 bash/playonlinux-pkg:92
 #: bash/playonlinux-pkg:103 bash/playonlinux-pkg:108
 #, sh-format
 msgid "This file: "
-msgstr ""
+msgstr "Faili "
 
 #: bash/playonlinux-pkg:86
 #, sh-format
 msgid " does not exist!"
-msgstr ""
+msgstr " pole olemas."
 
 #: bash/playonlinux-pkg:99
 #, sh-format
 msgid "Extracting: "
-msgstr ""
+msgstr "Lahtipakkimine: "
 
 #: bash/playonlinux-pkg:111 bash/playonlinux_online:34
 #, sh-format
 msgid "Running..."
-msgstr ""
+msgstr "Käivitamine..."
 
 #: bash/playonlinux-pkg:115
 #, sh-format
 msgid "Cleaning..."
-msgstr ""
+msgstr "Puhastamine..."
 
 #: bash/playonlinux_online:30
 #, sh-format
@@ -1655,43 +1701,43 @@ msgstr ""
 #: bash/playonlinux_online:61 python/install.py:299
 #, sh-format
 msgid "Accessories"
-msgstr ""
+msgstr "Tarvikud"
 
 #: bash/playonlinux_online:61 python/install.py:299
 #, sh-format
 msgid "Development"
-msgstr ""
+msgstr "Arendus"
 
 #: bash/playonlinux_online:61 python/install.py:299
 #, sh-format
 msgid "Education"
-msgstr ""
+msgstr "Haridus"
 
 #: bash/playonlinux_online:61 python/install.py:299
 #, sh-format
 msgid "Games"
-msgstr ""
+msgstr "Mängud"
 
 #: bash/playonlinux_online:61 python/install.py:299
 #, sh-format
 msgid "Graphics"
-msgstr ""
+msgstr "Graafika"
 
 #: bash/playonlinux_online:61 python/install.py:299 python/mainwindow.py:163
 #: python/options.py:431
 #, sh-format
 msgid "Internet"
-msgstr ""
+msgstr "Internet"
 
 #: bash/playonlinux_online:61 python/install.py:299
 #, sh-format
 msgid "Multimedia"
-msgstr ""
+msgstr "Multimeedia"
 
 #: bash/playonlinux_online:61 python/install.py:299
 #, sh-format
 msgid "Office"
-msgstr ""
+msgstr "Kontoritöö"
 
 #: bash/playonlinux_online:61 lib/setupwindow.lib:634 python/install.py:299
 #: python/options.py:121
@@ -1702,7 +1748,7 @@ msgstr "Muu"
 #: bash/playonlinux_online:61 python/install.py:325
 #, sh-format
 msgid "Patches"
-msgstr ""
+msgstr "Lapid"
 
 #: bash/playonlinux_online:61
 #, sh-format
@@ -1712,7 +1758,7 @@ msgstr ""
 #: bash/playonlinux_online:61 python/install.py:326
 #, sh-format
 msgid "Testing"
-msgstr ""
+msgstr "Katsetuseks"
 
 #: bash/playonlinux_online:64
 #, sh-format
@@ -1744,7 +1790,7 @@ msgstr ""
 #: bash/playonlinux_online:101
 #, sh-format
 msgid "Logout"
-msgstr ""
+msgstr "Logi välja"
 
 #: bash/playonlinux_online:102
 #, sh-format
@@ -1763,32 +1809,32 @@ msgstr ""
 #: bash/polconfigurator:77
 #, sh-format
 msgid "Killing processes in the prefix..."
-msgstr ""
+msgstr "Prefiksi protsesside tapmine..."
 
 #: bash/polconfigurator:28
 #, sh-format
 msgid "Starting Wine configuration"
-msgstr ""
+msgstr "Wine seadistuse käivitamine"
 
 #: bash/polconfigurator:51
 #, sh-format
 msgid "Starting regedit"
-msgstr ""
+msgstr "Registriredaktori käivitamine"
 
 #: bash/polconfigurator:58
 #, sh-format
 msgid "Simulating Windows reboot"
-msgstr ""
+msgstr "Windowsi taaskäivituse simuleerimine"
 
 #: bash/polconfigurator:65
 #, sh-format
 msgid "Starting Advanced Wine Configuration"
-msgstr ""
+msgstr "Wine täppishäälestuse käivitamine"
 
 #: bash/polconfigurator:72
 #, sh-format
 msgid "Starting WineTricks plug-in"
-msgstr ""
+msgstr "WineTricksi käivitamine"
 
 #: bash/polconfigurator:79
 #, sh-format
@@ -1798,48 +1844,48 @@ msgstr ""
 #: bash/polconfigurator:91
 #, sh-format
 msgid "Icon selection"
-msgstr ""
+msgstr "Ikoonivalik"
 
 #: bash/polconfigurator:91
 #, sh-format
 msgid "Please select an icon file"
-msgstr ""
+msgstr "Vali ikoonifail"
 
 #: bash/polconfigurator:98
 #, sh-format
 msgid "Bad file extension"
-msgstr ""
+msgstr "Sobimatu faililaiend"
 
 #: bash/polconfigurator:98
 #, sh-format
 msgid "is not an icon extension"
-msgstr ""
+msgstr "ei ole ikoonifailide laiend"
 
 #: bash/polconfigurator:108 python/configure.py:156 python/mainwindow.py:336
 #: python/mainwindow.py:369
 #, sh-format
 msgid "Registry Editor"
-msgstr "Registri muutja"
+msgstr "Registriredaktor"
 
 #: bash/polconfigurator:109
 #, sh-format
 msgid "Kill all prefix processes"
-msgstr ""
+msgstr "Kõigi prefiksi protsesside tapmine"
 
 #: bash/polconfigurator:110
 #, sh-format
 msgid "Update wineprefix"
-msgstr ""
+msgstr "Wine-prefiksi uuendamine"
 
 #: bash/polconfigurator:111
 #, sh-format
 msgid "Simulate Windows reboot"
-msgstr ""
+msgstr "Windowsi taaskäivituse simuleerimine"
 
 #: bash/polconfigurator:112
 #, sh-format
 msgid "Use Advanced Wine Configuration plugin"
-msgstr ""
+msgstr "Wine täppishäälestuse plugina kasutamine"
 
 #: bash/polconfigurator:113
 #, sh-format
@@ -1849,17 +1895,17 @@ msgstr ""
 #: bash/polconfigurator:115
 #, sh-format
 msgid "Change the icon"
-msgstr ""
+msgstr "Ikooni muutmine"
 
 #: bash/polconfigurator:116
 #, sh-format
 msgid "Use WineTricks"
-msgstr ""
+msgstr "WineTricksi kasutamine"
 
 #: bash/polconfigurator:135
 #, sh-format
 msgid "Please choose an action to perform"
-msgstr ""
+msgstr "Palun vali soovitud toiming"
 
 #: bash/run_app:26
 #, sh-format
@@ -2004,7 +2050,7 @@ msgstr ""
 #: bash/startup:38
 #, sh-format
 msgid "Warning!"
-msgstr ""
+msgstr "Hoiatus!"
 
 #: bash/startup:38
 #, sh-format
@@ -2014,42 +2060,42 @@ msgstr ""
 #: bash/system_info:62 bash/system_info:88
 #, sh-format
 msgid "Your system: "
-msgstr ""
+msgstr "Süsteem: "
 
 #: bash/system_info:63
 #, sh-format
 msgid "System architecture: "
-msgstr ""
+msgstr "Arhitektuur: "
 
 #: bash/system_info:64
 #, sh-format
 msgid "Your graphics card: "
-msgstr ""
+msgstr "Videokaart: "
 
 #: bash/system_info:65
 #, sh-format
 msgid "Graphic card driver: "
-msgstr ""
+msgstr "Videokaardi draiver: "
 
 #: bash/system_info:67
 #, sh-format
 msgid "OpenGL: "
-msgstr ""
+msgstr "OpenGL: "
 
 #: bash/system_info:68
 #, sh-format
 msgid "Compiz in background: "
-msgstr ""
+msgstr "Compiz taustal: "
 
 #: bash/system_info:76
 #, sh-format
 msgid "Executable file: "
-msgstr ""
+msgstr "Käivitatav fail: "
 
 #: bash/system_info:76
 #, sh-format
 msgid "MB"
-msgstr ""
+msgstr "MB"
 
 #: bash/system_info:77
 #, sh-format
@@ -2064,57 +2110,57 @@ msgstr ""
 #: bash/system_info:86
 #, sh-format
 msgid "System information:"
-msgstr "Süsteemi info:"
+msgstr "Süsteemiteave:"
 
 #: bash/system_info:89
 #, sh-format
 msgid "Your kernel: "
-msgstr ""
+msgstr "Kernel: "
 
 #: bash/system_info:90
 #, sh-format
 msgid "System language: "
-msgstr ""
+msgstr "Süsteemi keel: "
 
 #: bash/system_info:91
 #, sh-format
 msgid "Your username: "
-msgstr "Sinu kasutajanimi: "
+msgstr "Kasutajanimi: "
 
 #: bash/system_info:92
 #, sh-format
 msgid "Your computer's name: "
-msgstr "Sinu arvuti nimi: "
+msgstr "Arvuti nimi: "
 
 #: bash/system_info:93
 #, sh-format
 msgid "Your graphic card: "
-msgstr ""
+msgstr "Videokaart: "
 
 #: bash/system_info:94
 #, sh-format
 msgid "Your distribution: "
-msgstr ""
+msgstr "Distributsioon: "
 
 #: bash/system_info:95
 #, sh-format
 msgid "Your distribution version: "
-msgstr ""
+msgstr "Distro versioon: "
 
 #: bash/system_info:96
 #, sh-format
 msgid "Current Wine version: "
-msgstr ""
+msgstr "Wine versioon: "
 
 #: bash/system_info:97
 #, sh-format
 msgid "Wine version used by PlayOnLinux: "
-msgstr ""
+msgstr "PlayOnLinuxi kasutatav Wine versioon: "
 
 #: bash/system_info:98
 #, sh-format
 msgid "Free space on your hard drives:"
-msgstr "Kõvaketta vaba maht:"
+msgstr "Vaba ruum kõvaketastel:"
 
 #: bash/uninstall:25 bash/uninstall:52 bash/uninstall:55
 #: lib/playonlinux.lib:670
@@ -2130,7 +2176,7 @@ msgstr ""
 #: bash/uninstall:41
 #, sh-format
 msgid "Click Next to continue."
-msgstr ""
+msgstr "Jätkamiseks klõpsa \"Edasi\"."
 
 #: bash/uninstall:41
 #, sh-format
@@ -2140,12 +2186,12 @@ msgstr ""
 #: bash/uninstall:52 lib/playonlinux.lib:670
 #, sh-format
 msgid "Uninstalling..."
-msgstr "Eemaldan..."
+msgstr "Eemaldamine..."
 
 #: bash/uninstall:55
 #, sh-format
 msgid " has been uninstalled successfully."
-msgstr ""
+msgstr " on edukalt eemaldatud."
 
 #: bash/uninstall:57
 #, sh-format
@@ -2165,7 +2211,7 @@ msgstr ""
 #: lib/depend.lib:40
 #, sh-format
 msgid ", package: "
-msgstr ""
+msgstr ", pakett: "
 
 #: lib/depend.lib:40
 #, sh-format
@@ -2178,6 +2224,7 @@ msgid ""
 "One or more program(s) are missing. Please install them and run the script "
 "again."
 msgstr ""
+"Mõnda vajalikku programmi ei leitud. Paigalda puuduolevad ja proovi uuesti."
 
 #: lib/depend.lib:74
 #, sh-format
@@ -2203,6 +2250,7 @@ msgstr ""
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a Windows reboot"
 msgstr ""
+"Palun oota, kuni $APPLICATION_TITLE Windowsi taaskäivitust simuleerib."
 
 #: lib/deprecated.lib:559
 #, sh-format
@@ -2227,22 +2275,22 @@ msgstr ""
 msgid "Do you want to delete the virtual drive:"
 msgstr ""
 
-#: lib/plugins.lib:64
+#: lib/plugins.lib:65
 #, sh-format
 msgid "Checking plugin: "
-msgstr ""
+msgstr "Plugina kontroll: "
 
-#: lib/plugins.lib:89
+#: lib/plugins.lib:93
 #, sh-format
 msgid "New: "
-msgstr ""
+msgstr "Uus: "
 
-#: lib/plugins.lib:89
+#: lib/plugins.lib:93
 #, sh-format
 msgid "Updating plugin. Previous: "
-msgstr ""
+msgstr "Plugina uuendamine. Vana: "
 
-#: lib/plugins.lib:108
+#: lib/plugins.lib:112
 #, sh-format
 msgid "Installing plugin: "
 msgstr ""
@@ -2291,32 +2339,32 @@ msgstr ""
 #: lib/setupwindow.lib:78
 #, sh-format
 msgid " on your computer."
-msgstr ""
+msgstr " sinu arvutisse."
 
 #: lib/setupwindow.lib:78
 #, sh-format
 msgid " will be installed in: "
-msgstr ""
+msgstr " paigaldatakse järgnevasse asukohta: "
 
 #: lib/setupwindow.lib:78
 #, sh-format
 msgid "Click Next to start"
-msgstr ""
+msgstr "Alustamiseks klõpsa \"Edasi\"."
 
 #: lib/setupwindow.lib:78
 #, sh-format
 msgid "This installation program is provided by: "
-msgstr ""
+msgstr "Paigaldusprogrammi autor: "
 
 #: lib/setupwindow.lib:78
 #, sh-format
 msgid "This program was created by: "
-msgstr ""
+msgstr "Programmi on autor: "
 
 #: lib/setupwindow.lib:78
 #, sh-format
 msgid "This wizard will help you install "
-msgstr ""
+msgstr "Selle nõustaja abil paigaldatakse "
 
 #: lib/setupwindow.lib:633
 #, sh-format
@@ -2326,7 +2374,7 @@ msgstr ""
 #: lib/setupwindow.lib:635 python/install.py:135
 #, sh-format
 msgid "Refresh"
-msgstr ""
+msgstr "Värskenda"
 
 #: lib/setupwindow.lib:662
 #, sh-format
@@ -2341,7 +2389,7 @@ msgstr ""
 #: lib/setupwindow.lib:854
 #, sh-format
 msgid "How much memory does your graphics board have?"
-msgstr ""
+msgstr "Videokaardi mälu hulk (MiB):"
 
 #: lib/setupwindow.lib:863
 #, sh-format
@@ -2408,7 +2456,7 @@ msgstr ""
 #: lib/website.lib:122
 #, sh-format
 msgid "Connecting..."
-msgstr ""
+msgstr "Ühendumine..."
 
 #: lib/website.lib:127
 #, sh-format
@@ -2442,7 +2490,7 @@ msgstr ""
 #: lib/wine.lib:466
 #, sh-format
 msgid "Extracting Wine..."
-msgstr ""
+msgstr "Wine lahtipakkimine..."
 
 #: lib/wine.lib:632
 #, sh-format
@@ -2456,7 +2504,7 @@ msgstr ""
 
 #: python/configure.py:111 python/configure.py:528
 msgid "General"
-msgstr ""
+msgstr "Üldine"
 
 #: python/configure.py:114
 msgid "Make a new shortcut from this virtual drive"
@@ -2464,11 +2512,11 @@ msgstr ""
 
 #: python/configure.py:115
 msgid "Name"
-msgstr ""
+msgstr "Nimi"
 
 #: python/configure.py:116
 msgid "Wine version"
-msgstr ""
+msgstr "Wine versioon"
 
 #: python/configure.py:117
 msgid "Virtual drive"
@@ -2501,23 +2549,23 @@ msgstr ""
 #: python/configure.py:201 python/install.py:134 python/mainwindow.py:112
 #: python/mainwindow.py:250 python/wine_versions.py:203
 msgid "Install"
-msgstr ""
+msgstr "Paigalda uus"
 
 #: python/configure.py:271
 msgid "Open program's directory"
-msgstr ""
+msgstr "Ava rakenduse kataloog"
 
 #: python/configure.py:295
 msgid "Open virtual drive's directory"
-msgstr ""
+msgstr "Ava virtuaalketta kataloog"
 
 #: python/configure.py:412
 msgid "GLSL Support"
-msgstr ""
+msgstr "GLSL-i tugi"
 
 #: python/configure.py:413
 msgid "Direct Draw Renderer"
-msgstr ""
+msgstr "DirectDraw renderdusrežiim"
 
 #: python/configure.py:414
 msgid "Video memory size"
@@ -2553,16 +2601,16 @@ msgstr ""
 
 #: python/configure.py:491 python/mainwindow.py:483 python/mainwindow.py:485
 msgid "{0} configuration"
-msgstr ""
+msgstr "{0}i seadistus"
 
 #: python/configure.py:512
 msgid "New"
-msgstr ""
+msgstr "Uus"
 
 #: python/configure.py:513 python/mainwindow.py:113 python/mainwindow.py:251
 #: python/mainwindow.py:348 python/wine_versions.py:202
 msgid "Remove"
-msgstr ""
+msgstr "Eemalda"
 
 #: python/configure.py:530
 msgid "Install packages"
@@ -2586,7 +2634,7 @@ msgstr ""
 
 #: python/configure.py:558 python/configure.py:565
 msgid "Are you sure you want to delete "
-msgstr ""
+msgstr "Kas tahad kindlasti kustutada "
 
 #: python/guiv3.py:126
 msgid "{0} Wizard"
@@ -2594,7 +2642,7 @@ msgstr ""
 
 #: python/guiv3.py:137 python/install.py:133
 msgid "Cancel"
-msgstr ""
+msgstr "Loobu"
 
 #: python/guiv3.py:138
 msgid "Next"
@@ -2602,11 +2650,11 @@ msgstr "Edasi"
 
 #: python/guiv3.py:139
 msgid "Back"
-msgstr ""
+msgstr "Tagasi"
 
 #: python/guiv3.py:150
 msgid "I Agree"
-msgstr ""
+msgstr "Nõus"
 
 #: python/guiv3.py:151
 msgid "Show virtual drives"
@@ -2618,7 +2666,7 @@ msgstr ""
 
 #: python/guiv3.py:168
 msgid "Password: "
-msgstr ""
+msgstr "Parool: "
 
 #: python/guiv3.py:171
 msgid "Register"
@@ -2626,11 +2674,11 @@ msgstr ""
 
 #: python/guiv3.py:450
 msgid "MB downloaded"
-msgstr ""
+msgstr "MB alla laaditud"
 
 #: python/guiv3.py:450
 msgid "of"
-msgstr ""
+msgstr "/"
 
 #: python/guiv3.py:854
 msgid "Create a shortcut :"
@@ -2642,31 +2690,31 @@ msgstr ""
 
 #: python/guiv3.py:865
 msgid "On your desktop"
-msgstr ""
+msgstr "Töölauale"
 
 #: python/guiv3.py:866
 msgid "In your menu"
-msgstr ""
+msgstr "Menüüsse"
 
 #: python/install.py:84
 msgid "No description"
-msgstr ""
+msgstr "Kirjeldus puudub"
 
 #: python/install.py:125
 msgid "Search: "
-msgstr ""
+msgstr "Otsing: "
 
 #: python/install.py:149
 msgid "Install a non-listed program"
-msgstr ""
+msgstr "Paigalda .pol-paketi paigaldamine"
 
 #: python/install.py:323
 msgid "Highest rated"
-msgstr ""
+msgstr "Hinnatuimad"
 
 #: python/install.py:324
 msgid "Most downloaded"
-msgstr ""
+msgstr "Allalaadituimad"
 
 #: python/irc.py:136
 msgid "Send"
@@ -2689,7 +2737,7 @@ msgid "Messenger"
 msgstr ""
 
 #: python/irc.py:272
-msgid "Are you sure you want to this window?"
+msgid "Are you sure you want to close this window?"
 msgstr ""
 
 #: python/mainwindow.py:64
@@ -2702,23 +2750,23 @@ msgstr ""
 
 #: python/mainwindow.py:70 python/mainwindow.py:71
 msgid "An updated version of {0} is available"
-msgstr ""
+msgstr "Saadaval on {0}i uuem versioon."
 
 #: python/mainwindow.py:111 python/mainwindow.py:248
 msgid "Run"
-msgstr ""
+msgstr "Käivita"
 
 #: python/mainwindow.py:115
 msgid "Donate"
-msgstr ""
+msgstr "Annetamine"
 
 #: python/mainwindow.py:116
 msgid "Exit"
-msgstr ""
+msgstr "Välju"
 
 #: python/mainwindow.py:120
 msgid "Manage Wine versions"
-msgstr ""
+msgstr "Wine versioonide haldamine"
 
 #: python/mainwindow.py:134
 msgid "Close all {0} software"
@@ -2734,31 +2782,31 @@ msgstr ""
 
 #: python/mainwindow.py:177
 msgid "About {0}"
-msgstr ""
+msgstr "{0}i info"
 
 #: python/mainwindow.py:207 python/mainwindow.py:211
 msgid "Plugin manager"
-msgstr ""
+msgstr "Pluginahaldur"
 
 #: python/mainwindow.py:236
 msgid "File"
-msgstr ""
+msgstr "Programm"
 
 #: python/mainwindow.py:237
 msgid "Tools"
-msgstr ""
+msgstr "Tööriistad"
 
 #: python/mainwindow.py:238
 msgid "Settings"
-msgstr ""
+msgstr "Seaded"
 
 #: python/mainwindow.py:239 python/options.py:434
 msgid "Plugins"
-msgstr ""
+msgstr "Pluginad"
 
 #: python/mainwindow.py:255 python/options.py:325
 msgid "Configure"
-msgstr ""
+msgstr "Seadista"
 
 #: python/mainwindow.py:256
 msgid "Shortcut"
@@ -2766,23 +2814,23 @@ msgstr ""
 
 #: python/mainwindow.py:340
 msgid "Open the application's directory"
-msgstr ""
+msgstr "Ava rakenduse kataloog"
 
 #: python/mainwindow.py:344
 msgid "Set the icon"
-msgstr ""
+msgstr "Muuda ikooni"
 
 #: python/mainwindow.py:352
 msgid "Close this application"
-msgstr ""
+msgstr "Sulge rakendus"
 
 #: python/mainwindow.py:366
 msgid "KillApp"
-msgstr ""
+msgstr "Tapa rakendus"
 
 #: python/mainwindow.py:458 python/mainwindow.py:460
 msgid "{0} settings"
-msgstr ""
+msgstr "{0}i seaded"
 
 #: python/mainwindow.py:529
 msgid "{0} install menu"
@@ -2790,11 +2838,11 @@ msgstr ""
 
 #: python/mainwindow.py:535
 msgid "{0} wine versions manager"
-msgstr ""
+msgstr "{0}i Wine versioonihaldur"
 
 #: python/mainwindow.py:548
 msgid "Are you sure you want to close all {0} Windows?"
-msgstr ""
+msgstr "Kas tahad kindlasti kõik {0}i aknad sulgeda?"
 
 #: python/mainwindow.py:561
 msgid "Run your Windows programs on "
@@ -2808,119 +2856,119 @@ msgstr ""
 
 #: python/mainwindow.py:563
 msgid "Developer and Website: "
-msgstr ""
+msgstr "Arendus ja koduleht: "
 
 #: python/mainwindow.py:564
 msgid "Scriptors: "
-msgstr ""
+msgstr "Skriptimine: "
 
 #: python/mainwindow.py:565
 msgid "Packager: "
-msgstr ""
+msgstr "Pakendaja: "
 
 #: python/mainwindow.py:566
 msgid "Icons:"
-msgstr ""
+msgstr "Ikoonid:"
 
 #: python/mainwindow.py:567
 msgid "The following people contributed to this program: "
-msgstr ""
+msgstr "Kaasa aitasid: "
 
 #: python/mainwindow.py:568
 msgid "Translation made on Launchpad:"
-msgstr ""
+msgstr "Tõlgitud Launchpadis:"
 
 #: python/mainwindow.py:583
 msgid "{0} is not supposed to be run as root. Sorry"
-msgstr ""
+msgstr "Vabandust, kuid {0} pole mõeldud juurkasutajana käivitamiseks."
 
 #: python/mainwindow.py:639
 msgid "Are you sure you want to  want to install {0} package?"
-msgstr ""
+msgstr "Kas soovid kindlasti {0}i paketi paigaldada?"
 
 #: python/options.py:99
 msgid "Default programs"
-msgstr ""
+msgstr "Vaikimisi programmid"
 
 #: python/options.py:102
 msgid "Default browser"
-msgstr ""
+msgstr "Vaikimisi veebilehitseja"
 
 #: python/options.py:109 python/options.py:118
 msgid "Test"
-msgstr ""
+msgstr "Proovi"
 
 #: python/options.py:111
 msgid "Default terminal"
-msgstr ""
+msgstr "Vaikimisi terminal"
 
 #: python/options.py:124
 msgid "Temp directory"
-msgstr ""
+msgstr "Ajutine kataloog"
 
 #: python/options.py:125
 msgid "Automatically empty temp directory"
-msgstr ""
+msgstr "Ajutise kataloogi automaatne tühjendamine"
 
 #: python/options.py:155
 msgid "Proxy configuration"
-msgstr ""
+msgstr "Puhverserveri seaded"
 
 #: python/options.py:176
 msgid "Set a proxy"
-msgstr ""
+msgstr "Puhverserveri kasutamine"
 
 #: python/options.py:179
 msgid "Proxy address"
-msgstr ""
+msgstr "Aadress"
 
 #: python/options.py:182
 msgid "Proxy port"
-msgstr ""
+msgstr "Port"
 
 #: python/options.py:185
 msgid "Proxy login"
-msgstr ""
+msgstr "Kasutajanimi"
 
 #: python/options.py:188
 msgid "Proxy password"
-msgstr ""
+msgstr "Parool"
 
 #: python/options.py:223
 msgid "Wine"
-msgstr ""
+msgstr "Wine"
 
 #: python/options.py:225
 msgid "Default Wine version for PlayOnLinux programs: "
-msgstr ""
+msgstr "Vaikimisi Wine versioon PlayOnLinuxi programmidele: "
 
 #: python/options.py:238
 msgid "Desktop"
-msgstr ""
+msgstr "Töölaud"
 
 #: python/options.py:239
 msgid "PlayOnLinux menu"
-msgstr ""
+msgstr "PlayOnLinuxi menüü"
 
 #: python/options.py:240
 msgid "Add the PlayOnLinux menu to your panel"
-msgstr ""
+msgstr "PlayOnLinuxi menüü lisamine paneelile"
 
 #: python/options.py:243
 msgid "Desktop directory"
-msgstr ""
+msgstr "Töölauakataloog"
 
 #: python/options.py:305
 msgid "Installed plugins"
-msgstr ""
+msgstr "Paigaldatud pluginad"
 
 #: python/options.py:326 python/options.py:384
 msgid "Enable"
-msgstr ""
+msgstr "Luba"
 
 #: python/options.py:327
 msgid "Choose a plugin"
-msgstr ""
+msgstr "Vali plugin"
 
 #: python/options.py:352
 msgid "Are you sure you want to install: "
@@ -2932,19 +2980,19 @@ msgstr ""
 
 #: python/options.py:381
 msgid "Disable"
-msgstr ""
+msgstr "Keela"
 
-#: python/options.py:478
+#: python/options.py:459
 msgid "You must restart PlayOnLinux for the changes to take effect."
 msgstr ""
 
 #: python/wine_versions.py:199
 msgid "Installed Wine versions: "
-msgstr ""
+msgstr "Paigaldatud Wine versioonid: "
 
 #: python/wine_versions.py:200
 msgid "Available Wine versions: "
-msgstr ""
+msgstr "Saadaolevad Wine versioonid: "
 
 #: python/wine_versions.py:207
 msgid "Wine versions"
