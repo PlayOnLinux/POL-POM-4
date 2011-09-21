@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2011-09-18 19:00+0200\n"
-"PO-Revision-Date: 2011-09-18 05:08+0000\n"
+"POT-Creation-Date: 2011-09-19 19:00+0200\n"
+"PO-Revision-Date: 2011-09-19 04:48+0000\n"
 "Last-Translator: Aymeric <os2mule@gmail.com>\n"
 "Language-Team: es_ES.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-19 04:37+0000\n"
-"X-Generator: Launchpad (build 13955)\n"
+"X-Launchpad-Export-Date: 2011-09-20 04:37+0000\n"
+"X-Generator: Launchpad (build 13980)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -1826,7 +1826,7 @@ msgid "Graphics"
 msgstr "Gráficos"
 
 #: bash/playonlinux_online:61 python/install.py:299 python/mainwindow.py:163
-#: python/options.py:431
+#: python/options.py:319
 #, sh-format
 msgid "Internet"
 msgstr "Internet"
@@ -1842,7 +1842,6 @@ msgid "Office"
 msgstr "Oficina"
 
 #: bash/playonlinux_online:61 lib/setupwindow.lib:634 python/install.py:299
-#: python/options.py:121
 #, sh-format
 msgid "Other"
 msgstr "Otro"
@@ -2778,7 +2777,7 @@ msgstr "¿Está seguro de que desea eliminar "
 msgid "{0} Wizard"
 msgstr "{0} Asistente"
 
-#: python/guiv3.py:137 python/install.py:133
+#: python/guiv3.py:137 python/install.py:133 python/options.py:311
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -2939,11 +2938,11 @@ msgstr "Herramientas"
 msgid "Settings"
 msgstr "Opciones"
 
-#: python/mainwindow.py:239 python/options.py:434
+#: python/mainwindow.py:239 python/options.py:322
 msgid "Plugins"
 msgstr "Complementos"
 
-#: python/mainwindow.py:255 python/options.py:325
+#: python/mainwindow.py:255 python/options.py:213
 msgid "Configure"
 msgstr "Configurar"
 
@@ -3027,103 +3026,59 @@ msgstr "{0} no debe ser ejecutado como root. Lo siento"
 msgid "Are you sure you want to  want to install {0} package?"
 msgstr "¿Está seguro que desea instalar el paquete {0}?"
 
-#: python/options.py:99
-msgid "Default programs"
-msgstr "Programas predeterminados"
-
-#: python/options.py:102
-msgid "Default browser"
-msgstr "Navegador predeterminado"
-
-#: python/options.py:109 python/options.py:118
-msgid "Test"
-msgstr "Prueba"
-
-#: python/options.py:111
-msgid "Default terminal"
-msgstr "Terminal predeterminada"
-
-#: python/options.py:124
-msgid "Temp directory"
-msgstr "Directorio temporal"
-
-#: python/options.py:125
-msgid "Automatically empty temp directory"
-msgstr "Vaciar el directorio temporal automáticamente"
-
-#: python/options.py:155
+#: python/options.py:113
 msgid "Proxy configuration"
 msgstr "Configuración de proxy"
 
-#: python/options.py:176
+#: python/options.py:134
 msgid "Set a proxy"
 msgstr "Establer un proxy"
 
-#: python/options.py:179
+#: python/options.py:137
 msgid "Proxy address"
 msgstr "Dirección del proxy"
 
-#: python/options.py:182
+#: python/options.py:140
 msgid "Proxy port"
 msgstr "Puerto proxy"
 
-#: python/options.py:185
+#: python/options.py:143
 msgid "Proxy login"
 msgstr "Login del proxy"
 
-#: python/options.py:188
+#: python/options.py:146
 msgid "Proxy password"
 msgstr "Contraseña del proxy"
 
-#: python/options.py:223
-msgid "Wine"
-msgstr "Wine"
-
-#: python/options.py:225
-msgid "Default Wine version for PlayOnLinux programs: "
-msgstr "Versión de Wine por defecto para programas de PlayOnLinux: "
-
-#: python/options.py:238
-msgid "Desktop"
-msgstr "Escritorio"
-
-#: python/options.py:239
-msgid "PlayOnLinux menu"
-msgstr "Menú PlayOnLinux"
-
-#: python/options.py:240
-msgid "Add the PlayOnLinux menu to your panel"
-msgstr "Agregue el menú de PlayOnLinux a su panel"
-
-#: python/options.py:243
-msgid "Desktop directory"
-msgstr "Directorio del Escritorio"
-
-#: python/options.py:305
+#: python/options.py:193
 msgid "Installed plugins"
 msgstr "Complementos instalados"
 
-#: python/options.py:326 python/options.py:384
+#: python/options.py:214 python/options.py:272
 msgid "Enable"
 msgstr "Habilitar"
 
-#: python/options.py:327
+#: python/options.py:215
 msgid "Choose a plugin"
 msgstr "Elija un complemento"
 
-#: python/options.py:352
+#: python/options.py:240
 msgid "Are you sure you want to install: "
 msgstr "Está seguro de querer instalar: "
 
-#: python/options.py:360
+#: python/options.py:248
 msgid "Are you sure you want to delete: "
 msgstr "Está seguro de querer eliminar: "
 
-#: python/options.py:381
+#: python/options.py:269
 msgid "Disable"
 msgstr "Desactivar"
 
-#: python/options.py:459
+#: python/options.py:310
+msgid "Apply"
+msgstr ""
+
+#: python/options.py:347
 msgid "You must restart PlayOnLinux for the changes to take effect."
 msgstr "Debe reiniciar PlayOnLinux para que los cambios hagan efecto."
 
@@ -3138,3 +3093,48 @@ msgstr "Versiones de Wine disponibles: "
 #: python/wine_versions.py:207
 msgid "Wine versions"
 msgstr "Versiones de Wine"
+
+#~ msgid "Test"
+#~ msgstr "Prueba"
+
+#~ msgid "Temp directory"
+#~ msgstr "Directorio temporal"
+
+#~ msgid "Automatically empty temp directory"
+#~ msgstr "Vaciar el directorio temporal automáticamente"
+
+#~ msgid "Desktop directory"
+#~ msgstr "Directorio del Escritorio"
+
+#~ msgid "PlayOnLinux menu"
+#~ msgstr "Menú PlayOnLinux"
+
+#~ msgid "Desktop"
+#~ msgstr "Escritorio"
+
+#~ msgid "Default programs"
+#~ msgstr "Programas predeterminados"
+
+#~ msgid "Default browser"
+#~ msgstr "Navegador predeterminado"
+
+#~ msgid "Default terminal"
+#~ msgstr "Terminal predeterminada"
+
+#~ msgid "Wine"
+#~ msgstr "Wine"
+
+#~ msgid "Default Wine version for PlayOnLinux programs: "
+#~ msgstr "Versión de Wine por defecto para programas de PlayOnLinux: "
+
+#~ msgid "Add the PlayOnLinux menu to your panel"
+#~ msgstr "Agregue el menú de PlayOnLinux a su panel"
+
+#~ msgid "Please give a very short description"
+#~ msgstr "Deme una descripción muy corta"
+
+#~ msgid "Detailed description:"
+#~ msgstr "Descripción detallada"
+
+#~ msgid "Are you sure you want to this window?"
+#~ msgstr "¿Está usted seguro de que quiere esta ventana?"

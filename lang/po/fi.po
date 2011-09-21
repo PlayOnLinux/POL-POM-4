@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-09-18 19:00+0200\n"
-"PO-Revision-Date: 2011-09-18 05:07+0000\n"
-"Last-Translator: Aymeric <os2mule@gmail.com>\n"
+"POT-Creation-Date: 2011-09-19 19:00+0200\n"
+"PO-Revision-Date: 2011-09-20 03:03+0000\n"
+"Last-Translator: Tuomas Lähteenmäki <Unknown>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-19 04:36+0000\n"
-"X-Generator: Launchpad (build 13955)\n"
+"X-Launchpad-Export-Date: 2011-09-20 04:36+0000\n"
+"X-Generator: Launchpad (build 13980)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -170,7 +170,7 @@ msgstr "Et valinnut peliä"
 
 #: Advanced Wine Configuration Plugin:10
 msgid "Choose DirectDraw Renderer Mode?"
-msgstr ""
+msgstr "Valitse 2D-grafiikan piirtämistila (DirectDraw)"
 
 #: Advanced Wine Configuration Plugin:11
 msgid "Activate GLSL Support?"
@@ -186,11 +186,11 @@ msgstr ""
 
 #: Advanced Wine Configuration Plugin:15
 msgid "Activate Multisampling support?"
-msgstr ""
+msgstr "Aktivoi reunanpehmennys-tuki"
 
 #: Advanced Wine Configuration Plugin:16
 msgid "Activate the mouse warp override?"
-msgstr ""
+msgstr "Aktivoi mouse warp ohitus?"
 
 #: Advanced Wine Configuration Plugin:17
 msgid "Optimisation done"
@@ -1144,6 +1144,8 @@ msgstr ""
 #, sh-format
 msgid "When the game setup will ask for next disk\\nclick on \"Forward\""
 msgstr ""
+"Kun pelin asennusohjelma kysyy seuraavaa levyä\r\n"
+"Paina \"Seuraava\""
 
 #: bash/bug_report:31 python/mainwindow.py:152
 #, sh-format
@@ -1187,17 +1189,17 @@ msgstr "Valitse ohjelman lokitiedosto."
 #: bash/bug_report:54
 #, sh-format
 msgid "Please give a very short description (title, english only)"
-msgstr ""
+msgstr "Ole hyvä ja anna lyhyt kuvaus (Otsikko, vain englanniksi)"
 
 #: bash/bug_report:56
 #, sh-format
 msgid "Please explain your problem clearly (english only):"
-msgstr ""
+msgstr "Selittäkää vika selkeästi (vain englanniksi):"
 
 #: bash/bug_report:68
 #, sh-format
 msgid "Sorry, we need a detailed description."
-msgstr ""
+msgstr "Anteeksi, mutta me tarvitsemme yksityiskohtaisen kuvauksen."
 
 #: bash/bug_report:80
 #, sh-format
@@ -1719,6 +1721,7 @@ msgstr "Puhdistetaan..."
 msgid ""
 "This is the list of the scripts you sent to us. You can run one of them"
 msgstr ""
+"Tämä on luettelo lähettämistäsi skripteistä. Voit suorittaa yhden niistä"
 
 #: bash/playonlinux_online:39
 #, sh-format
@@ -1742,7 +1745,7 @@ msgstr ""
 #: bash/playonlinux_online:47
 #, sh-format
 msgid "Choose the file corresponding to your program."
-msgstr ""
+msgstr "Valitse oikea tiedosto ohjelmaasi."
 
 #: bash/playonlinux_online:51
 #, sh-format
@@ -1757,12 +1760,12 @@ msgstr "Mikä on sinun ohjelmasi otsikko?"
 #: bash/playonlinux_online:56
 #, sh-format
 msgid "What is the editor of your program?"
-msgstr ""
+msgstr "Kuka on ohjelman kehittäjä?"
 
 #: bash/playonlinux_online:58
 #, sh-format
 msgid "What is the editor website of your program?"
-msgstr ""
+msgstr "Mikä on ohjelman kotisivu osoite?"
 
 #: bash/playonlinux_online:61 python/install.py:299
 #, sh-format
@@ -1790,7 +1793,7 @@ msgid "Graphics"
 msgstr "Grafiikka"
 
 #: bash/playonlinux_online:61 python/install.py:299 python/mainwindow.py:163
-#: python/options.py:431
+#: python/options.py:319
 #, sh-format
 msgid "Internet"
 msgstr "Internet"
@@ -1806,7 +1809,6 @@ msgid "Office"
 msgstr "Toimisto"
 
 #: bash/playonlinux_online:61 lib/setupwindow.lib:634 python/install.py:299
-#: python/options.py:121
 #, sh-format
 msgid "Other"
 msgstr "Muut"
@@ -1832,6 +1834,8 @@ msgid ""
 "What feature of your program does not work?\\nIf everything works, please "
 "mention it"
 msgstr ""
+"Mitkä ominaisuudett ohjelmassasi eivät toimi?\r\n"
+"Jos kaikki toimii, ole hyvä ja mainitse siitä."
 
 #: bash/playonlinux_online:66
 #, sh-format
@@ -1974,7 +1978,7 @@ msgstr "Käytä WineTricksiä"
 #: bash/polconfigurator:135
 #, sh-format
 msgid "Please choose an action to perform"
-msgstr ""
+msgstr "Valitse suoritettava toiminto"
 
 #: bash/run_app:26
 #, sh-format
@@ -2012,6 +2016,8 @@ msgid ""
 "Please enter everything that might help us in english.\\nIf you are not "
 "accurate, your bug will be closed"
 msgstr ""
+"Ole hyvä ja anna kaikki tiedot englanniksi.\r\n"
+"Jos et ole tarkkana, sinun ilmoittamasi virheilmoitus suljetaan."
 
 #: bash/run_app:77
 #, sh-format
@@ -2019,6 +2025,7 @@ msgid ""
 "Please enter a description in english.\\nIf you are not accurate, your bug "
 "will be closed"
 msgstr ""
+"Anna kuvaus englanniksi. Jos et ole tarkkana virheilmoitus suljetaan."
 
 #: bash/run_app:87
 #, sh-format
@@ -2060,6 +2067,12 @@ msgid ""
 "on your computer.\\n\\nBe careful! This program is not officially supported "
 "by $APPLICATION_TITLE.\\nTherefore, it might not work as expected"
 msgstr ""
+"Tervetuloa $APPLICATION_TITLE avustajaan.\r\n"
+"Se auttaa sinua asentamaan $file tiedoston tietokoneellesi.\r\n"
+"\r\n"
+"Ole varovainen! Tämä ohjelma ei virallisesti tuettu $APPLICATION_TITLE "
+"versio.\r\n"
+"Se ei ehkä toimi odotetulla tavalla."
 
 #: bash/run_exe:32
 #, sh-format
@@ -2095,6 +2108,7 @@ msgstr "$APPLICATION_TITLE analisoi ohjelmaa"
 #, sh-format
 msgid "Do you want $APPLICATION_TITLE to install it automatically for you?"
 msgstr ""
+"Haluatko että $APPLICATION_TITLE asentaa sen automaattisesti sinulle?"
 
 #: bash/run_exe:89
 #, sh-format
@@ -2111,7 +2125,7 @@ msgstr ""
 #: bash/startup:38
 #, sh-format
 msgid "Are you sure you want to start $APPLICATION_TITLE?"
-msgstr ""
+msgstr "Oletko varma että haluat käynnistää $APPLICATION_TITLE ohjelman?"
 
 #: bash/startup:38
 #, sh-format
@@ -2246,7 +2260,7 @@ msgstr "Vapaa kiintolevytila:"
 #: lib/playonlinux.lib:670
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
-msgstr ""
+msgstr "$APPLICATION_TITLE ohjelman poistaja"
 
 #: bash/uninstall:30
 #, sh-format
@@ -2313,6 +2327,8 @@ msgid ""
 "You don't seem to have 3D acceleration!\\nWe advise you to install and to "
 "enable it."
 msgstr ""
+"Sinulla ei näytä olevan 3D-kiihdytystä!\r\n"
+"Me pyydämme sinua asentamaan ja aktivoimaan se."
 
 #: lib/depend.lib:78
 #, sh-format
@@ -2320,6 +2336,7 @@ msgid ""
 "Warning: glxinfo is missing! PlayOnLinux can't detect if 3D acceleration is "
 "supported."
 msgstr ""
+"Varoitus: glxinfo puuttuu! PlayOnLinux ei voi havaita tuettua 3D-kiihdytystä."
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
 #: lib/wine.lib:536
@@ -2331,6 +2348,7 @@ msgstr "Odota hetki kun virtuaaliasemaa luodaan..."
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a Windows reboot"
 msgstr ""
+"Odota hetki kun $APPLICATION_TITLE simuloi Windowsin uudelleenkäynnistymistä."
 
 #: lib/deprecated.lib:559
 #, sh-format
@@ -2343,7 +2361,7 @@ msgstr ""
 #: lib/playonlinux.lib:222 lib/playonlinux.lib:228 lib/playonlinux.lib:234
 #, sh-format
 msgid "This function is disabled in the PlayOnlinux environment."
-msgstr ""
+msgstr "Tämä ominaisuus on poistettu käytöstä PlayOnLinux ympäristössä."
 
 #: lib/playonlinux.lib:546
 #, sh-format
@@ -2378,18 +2396,24 @@ msgstr "Asennetaan lisäosa: "
 #: lib/scripts.lib:332
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
-msgstr ""
+msgstr "Odota hetki kun $APPLICATION_TITLE on latautumassa:"
 
 #: lib/scripts.lib:341 lib/scripts.lib:375
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
+"Virhe! Tiedostot eivät täsmää \r\n"
+"\r\n"
+"Paikallinen: $LOCAL_MD5\r\n"
+"Palvelin: $SERVER_MD5"
 
 #: lib/scripts.lib:429
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
 msgstr ""
+"7z ei ole asennettu, ole hyvä ja tarkista että 7zip ohjelma on asennettu ja "
+"yritä uudelleen."
 
 #: lib/scripts.lib:436
 #, sh-format
@@ -2404,7 +2428,7 @@ msgstr ""
 #: lib/scripts.lib:455
 #, sh-format
 msgid "Extracted file size does not match!"
-msgstr ""
+msgstr "Puretun tiedoston koko ei oikea!"
 
 #: lib/scripts.lib:474
 #, sh-format
@@ -2482,6 +2506,8 @@ msgid ""
 "Your video card does not have enough memory!\\nIt might prevent the game "
 "from working"
 msgstr ""
+"Sinun nöytönohjaimessasi ei ole tarpeeksi muistia!\r\n"
+"Se voi estää pelin toiminnan."
 
 #: lib/setupwindow.lib:878
 #, sh-format
@@ -2496,7 +2522,7 @@ msgstr "Käytä Steamin kaupan kokeiluversiota"
 #: lib/setupwindow.lib:880
 #, sh-format
 msgid "Use a setup file in my computer"
-msgstr ""
+msgstr "Käytä asennustiedostoa tietokoneelta"
 
 #: lib/setupwindow.lib:881
 #, sh-format
@@ -2531,7 +2557,7 @@ msgstr "Selaa"
 #: lib/website.lib:29
 #, sh-format
 msgid "Connect to your $APPLICATION_TITLE account"
-msgstr ""
+msgstr "Yhdistä $APPLICATION_TITLE tiliin"
 
 #: lib/website.lib:122
 #, sh-format
@@ -2544,6 +2570,8 @@ msgid ""
 "Failed to connect !\\nPlease ensure that your login and your password are "
 "valid."
 msgstr ""
+"Yhteys epäonnistui !\r\n"
+"Varmista, että käyttäjätunnuksesi ja salasanasi ovat oikeita."
 
 #: lib/wine.lib:398
 #, sh-format
@@ -2551,11 +2579,14 @@ msgid ""
 "Wine seems to have crashed\\n\\nIf you're program is running, just ignore "
 "this message"
 msgstr ""
+"Wine näyttää kaatuneen.\r\n"
+"\r\n"
+"Jos ohjelma on vielä päällä. Unohda tämä viesti."
 
 #: lib/wine.lib:447
 #, sh-format
 msgid "Unable to find version: "
-msgstr ""
+msgstr "Versiota ei löydy: "
 
 #: lib/wine.lib:453 lib/wine.lib:454
 #, sh-format
@@ -2565,12 +2596,12 @@ msgstr "Ladataan Wineä: "
 #: lib/wine.lib:464
 #, sh-format
 msgid "The download seems to have failed."
-msgstr ""
+msgstr "Lataus on epäonnistunut."
 
 #: lib/wine.lib:466
 #, sh-format
 msgid "Extracting Wine..."
-msgstr ""
+msgstr "Puretaan Wineä..."
 
 #: lib/wine.lib:632
 #, sh-format
@@ -2588,7 +2619,7 @@ msgstr "Yleiset"
 
 #: python/configure.py:114
 msgid "Make a new shortcut from this virtual drive"
-msgstr ""
+msgstr "Luo uusi pikakuvake tähän virtuaaliasemaan."
 
 #: python/configure.py:115
 msgid "Name"
@@ -2645,11 +2676,11 @@ msgstr "GLSL-tuki"
 
 #: python/configure.py:413
 msgid "Direct Draw Renderer"
-msgstr ""
+msgstr "2-ulotteisen grafiikan piirtäminen"
 
 #: python/configure.py:414
 msgid "Video memory size"
-msgstr ""
+msgstr "Videomuistin koko"
 
 #: python/configure.py:415
 msgid "Offscreen rendering mode"
@@ -2720,7 +2751,7 @@ msgstr "Oletko varma että haluat poistaa "
 msgid "{0} Wizard"
 msgstr "{0} Ohjattu toiminto"
 
-#: python/guiv3.py:137 python/install.py:133
+#: python/guiv3.py:137 python/install.py:133 python/options.py:311
 msgid "Cancel"
 msgstr "Peruuta"
 
@@ -2858,7 +2889,7 @@ msgstr "{0} konsoli"
 
 #: python/mainwindow.py:148
 msgid "{0} messenger"
-msgstr ""
+msgstr "{0} viestittäjä"
 
 #: python/mainwindow.py:177
 msgid "About {0}"
@@ -2880,11 +2911,11 @@ msgstr "Työkalut"
 msgid "Settings"
 msgstr "Asetukset"
 
-#: python/mainwindow.py:239 python/options.py:434
+#: python/mainwindow.py:239 python/options.py:322
 msgid "Plugins"
 msgstr "Lisäosat"
 
-#: python/mainwindow.py:255 python/options.py:325
+#: python/mainwindow.py:255 python/options.py:213
 msgid "Configure"
 msgstr "Asetukset"
 
@@ -2906,7 +2937,7 @@ msgstr "Sulje sovellus"
 
 #: python/mainwindow.py:366
 msgid "KillApp"
-msgstr ""
+msgstr "Tapa ohjelma"
 
 #: python/mainwindow.py:458 python/mainwindow.py:460
 msgid "{0} settings"
@@ -2966,103 +2997,59 @@ msgstr ""
 msgid "Are you sure you want to  want to install {0} package?"
 msgstr "Oletko varma että haluat asentaa {0} paketin?"
 
-#: python/options.py:99
-msgid "Default programs"
-msgstr "Oletusohjelmat"
-
-#: python/options.py:102
-msgid "Default browser"
-msgstr "Oletusselain"
-
-#: python/options.py:109 python/options.py:118
-msgid "Test"
-msgstr "Testaa"
-
-#: python/options.py:111
-msgid "Default terminal"
-msgstr "Oletuspääte"
-
-#: python/options.py:124
-msgid "Temp directory"
-msgstr "Temp hakemisto"
-
-#: python/options.py:125
-msgid "Automatically empty temp directory"
-msgstr "Tyhjennä automaattisesti temp hakemisto"
-
-#: python/options.py:155
+#: python/options.py:113
 msgid "Proxy configuration"
 msgstr "Välityspalvelimen määritys"
 
-#: python/options.py:176
+#: python/options.py:134
 msgid "Set a proxy"
 msgstr "Määritä välityspalvelin"
 
-#: python/options.py:179
+#: python/options.py:137
 msgid "Proxy address"
 msgstr "Välityspalvelimen osoite"
 
-#: python/options.py:182
+#: python/options.py:140
 msgid "Proxy port"
 msgstr "Välityspalvelimen portti"
 
-#: python/options.py:185
+#: python/options.py:143
 msgid "Proxy login"
 msgstr "Proxyyn kirjautuminen"
 
-#: python/options.py:188
+#: python/options.py:146
 msgid "Proxy password"
 msgstr "Välityspalvelimen salasana"
 
-#: python/options.py:223
-msgid "Wine"
-msgstr "Wine"
-
-#: python/options.py:225
-msgid "Default Wine version for PlayOnLinux programs: "
-msgstr "Winen oletusversio PlayOnLinuxin ohjelmille: "
-
-#: python/options.py:238
-msgid "Desktop"
-msgstr "Työpöytä"
-
-#: python/options.py:239
-msgid "PlayOnLinux menu"
-msgstr "PlayOnLinux-valikko"
-
-#: python/options.py:240
-msgid "Add the PlayOnLinux menu to your panel"
-msgstr "Lisää PlayOnLinux-valikko paneeliin"
-
-#: python/options.py:243
-msgid "Desktop directory"
-msgstr "Työpöydän hakemisto"
-
-#: python/options.py:305
+#: python/options.py:193
 msgid "Installed plugins"
 msgstr "Asennetut lisäosat"
 
-#: python/options.py:326 python/options.py:384
+#: python/options.py:214 python/options.py:272
 msgid "Enable"
 msgstr "Salli"
 
-#: python/options.py:327
+#: python/options.py:215
 msgid "Choose a plugin"
 msgstr "Valitse lisäosa"
 
-#: python/options.py:352
+#: python/options.py:240
 msgid "Are you sure you want to install: "
 msgstr "Haluatko varmasti asentaa: "
 
-#: python/options.py:360
+#: python/options.py:248
 msgid "Are you sure you want to delete: "
 msgstr "Haluatko varmasti poistaa: "
 
-#: python/options.py:381
+#: python/options.py:269
 msgid "Disable"
 msgstr "Poista käytöstä"
 
-#: python/options.py:459
+#: python/options.py:310
+msgid "Apply"
+msgstr ""
+
+#: python/options.py:347
 msgid "You must restart PlayOnLinux for the changes to take effect."
 msgstr "Ota muutokset käyttöön käynnistämällä PlayOnLinux uudelleen."
 
@@ -3077,3 +3064,45 @@ msgstr "Saatavilla olevat Winen versiot: "
 #: python/wine_versions.py:207
 msgid "Wine versions"
 msgstr "Winen versiot"
+
+#~ msgid "Default programs"
+#~ msgstr "Oletusohjelmat"
+
+#~ msgid "PlayOnLinux menu"
+#~ msgstr "PlayOnLinux-valikko"
+
+#~ msgid "Add the PlayOnLinux menu to your panel"
+#~ msgstr "Lisää PlayOnLinux-valikko paneeliin"
+
+#~ msgid "Default browser"
+#~ msgstr "Oletusselain"
+
+#~ msgid "Default terminal"
+#~ msgstr "Oletuspääte"
+
+#~ msgid "Default Wine version for PlayOnLinux programs: "
+#~ msgstr "Winen oletusversio PlayOnLinuxin ohjelmille: "
+
+#~ msgid "Test"
+#~ msgstr "Testaa"
+
+#~ msgid "Desktop directory"
+#~ msgstr "Työpöydän hakemisto"
+
+#~ msgid "Desktop"
+#~ msgstr "Työpöytä"
+
+#~ msgid "Wine"
+#~ msgstr "Wine"
+
+#~ msgid "Temp directory"
+#~ msgstr "Temp hakemisto"
+
+#~ msgid "Automatically empty temp directory"
+#~ msgstr "Tyhjennä automaattisesti temp hakemisto"
+
+#~ msgid "Please give a very short description"
+#~ msgstr "Anna lyhyt yhteenveto"
+
+#~ msgid "Detailed description:"
+#~ msgstr "Yksityiskohtainen kuvaus"

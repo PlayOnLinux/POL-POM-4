@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: MulX\n"
-"POT-Creation-Date: 2011-09-18 19:00+0200\n"
+"POT-Creation-Date: 2011-09-19 19:00+0200\n"
 "PO-Revision-Date: 2010-08-26 04:00+0000\n"
 "Last-Translator: Quentin PÂRIS <launchpad@playonlinux.com>\n"
 "Language-Team: el_EL.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-19 04:36+0000\n"
-"X-Generator: Launchpad (build 13955)\n"
+"X-Launchpad-Export-Date: 2011-09-20 04:36+0000\n"
+"X-Generator: Launchpad (build 13980)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -1717,7 +1717,7 @@ msgid "Graphics"
 msgstr "Γραφικά"
 
 #: bash/playonlinux_online:61 python/install.py:299 python/mainwindow.py:163
-#: python/options.py:431
+#: python/options.py:319
 #, sh-format
 msgid "Internet"
 msgstr "Ιντερνετ"
@@ -1733,7 +1733,6 @@ msgid "Office"
 msgstr "Γραφείο"
 
 #: bash/playonlinux_online:61 lib/setupwindow.lib:634 python/install.py:299
-#: python/options.py:121
 #, sh-format
 msgid "Other"
 msgstr "Άλλο"
@@ -2633,7 +2632,7 @@ msgstr ""
 msgid "{0} Wizard"
 msgstr ""
 
-#: python/guiv3.py:137 python/install.py:133
+#: python/guiv3.py:137 python/install.py:133 python/options.py:311
 msgid "Cancel"
 msgstr "Άκυρο"
 
@@ -2793,11 +2792,11 @@ msgstr "Εργαλεία"
 msgid "Settings"
 msgstr "Ρυθμίσεις"
 
-#: python/mainwindow.py:239 python/options.py:434
+#: python/mainwindow.py:239 python/options.py:322
 msgid "Plugins"
 msgstr "Plugins"
 
-#: python/mainwindow.py:255 python/options.py:325
+#: python/mainwindow.py:255 python/options.py:213
 msgid "Configure"
 msgstr "Προσαρμογή"
 
@@ -2879,103 +2878,59 @@ msgstr ""
 msgid "Are you sure you want to  want to install {0} package?"
 msgstr ""
 
-#: python/options.py:99
-msgid "Default programs"
-msgstr "Voreingestellte Programme"
-
-#: python/options.py:102
-msgid "Default browser"
-msgstr "Προεπιλεγμένος περιηγητής"
-
-#: python/options.py:109 python/options.py:118
-msgid "Test"
-msgstr "Δοκιμή"
-
-#: python/options.py:111
-msgid "Default terminal"
-msgstr "Προεπιλεγμένο τερματικό"
-
-#: python/options.py:124
-msgid "Temp directory"
-msgstr "Προσωρινός κατάλογος"
-
-#: python/options.py:125
-msgid "Automatically empty temp directory"
-msgstr "Αυτόματο άδειασμα του προσωρινού καταλόγου"
-
-#: python/options.py:155
+#: python/options.py:113
 msgid "Proxy configuration"
 msgstr "Προσαρμογή διαμεσολαβητή"
 
-#: python/options.py:176
+#: python/options.py:134
 msgid "Set a proxy"
 msgstr "Ορισμός ενός διαμεσολαβητή"
 
-#: python/options.py:179
+#: python/options.py:137
 msgid "Proxy address"
 msgstr "Διεύθυνση διαμεσολαβητή"
 
-#: python/options.py:182
+#: python/options.py:140
 msgid "Proxy port"
 msgstr ""
 
-#: python/options.py:185
+#: python/options.py:143
 msgid "Proxy login"
 msgstr ""
 
-#: python/options.py:188
+#: python/options.py:146
 msgid "Proxy password"
 msgstr ""
 
-#: python/options.py:223
-msgid "Wine"
-msgstr ""
-
-#: python/options.py:225
-msgid "Default Wine version for PlayOnLinux programs: "
-msgstr ""
-
-#: python/options.py:238
-msgid "Desktop"
-msgstr "Επιφάνεια εργασίας"
-
-#: python/options.py:239
-msgid "PlayOnLinux menu"
-msgstr "PlayOnLinux μενού"
-
-#: python/options.py:240
-msgid "Add the PlayOnLinux menu to your panel"
-msgstr ""
-
-#: python/options.py:243
-msgid "Desktop directory"
-msgstr "Κατάλογος επιφάνειας εργασίας"
-
-#: python/options.py:305
+#: python/options.py:193
 msgid "Installed plugins"
 msgstr "Εγκατεστημένα plugins"
 
-#: python/options.py:326 python/options.py:384
+#: python/options.py:214 python/options.py:272
 msgid "Enable"
 msgstr "Ενεργοποίηση"
 
-#: python/options.py:327
+#: python/options.py:215
 msgid "Choose a plugin"
 msgstr "Επιλέξτε ένα plugin"
 
-#: python/options.py:352
+#: python/options.py:240
 msgid "Are you sure you want to install: "
 msgstr ""
 
-#: python/options.py:360
+#: python/options.py:248
 msgid "Are you sure you want to delete: "
 msgstr ""
 
-#: python/options.py:381
+#: python/options.py:269
 msgid "Disable"
 msgstr "Απενεργοποίηση"
 
-#: python/options.py:459
+#: python/options.py:310
+msgid "Apply"
+msgstr ""
+
+#: python/options.py:347
 msgid "You must restart PlayOnLinux for the changes to take effect."
 msgstr ""
 
@@ -2990,3 +2945,30 @@ msgstr ""
 #: python/wine_versions.py:207
 msgid "Wine versions"
 msgstr ""
+
+#~ msgid "Test"
+#~ msgstr "Δοκιμή"
+
+#~ msgid "Temp directory"
+#~ msgstr "Προσωρινός κατάλογος"
+
+#~ msgid "Automatically empty temp directory"
+#~ msgstr "Αυτόματο άδειασμα του προσωρινού καταλόγου"
+
+#~ msgid "Desktop"
+#~ msgstr "Επιφάνεια εργασίας"
+
+#~ msgid "PlayOnLinux menu"
+#~ msgstr "PlayOnLinux μενού"
+
+#~ msgid "Desktop directory"
+#~ msgstr "Κατάλογος επιφάνειας εργασίας"
+
+#~ msgid "Default terminal"
+#~ msgstr "Προεπιλεγμένο τερματικό"
+
+#~ msgid "Default browser"
+#~ msgstr "Προεπιλεγμένος περιηγητής"
+
+#~ msgid "Default programs"
+#~ msgstr "Voreingestellte Programme"

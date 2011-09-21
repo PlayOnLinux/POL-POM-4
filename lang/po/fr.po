@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2011-09-18 19:00+0200\n"
-"PO-Revision-Date: 2011-09-18 10:03+0000\n"
-"Last-Translator: Quentin PÂRIS <launchpad@playonlinux.com>\n"
+"POT-Creation-Date: 2011-09-19 19:00+0200\n"
+"PO-Revision-Date: 2011-09-19 04:47+0000\n"
+"Last-Translator: Yves MATHIEU <MisterY_vonvon@hotmail.com>\n"
 "Language-Team: fr_FR.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-19 04:36+0000\n"
-"X-Generator: Launchpad (build 13955)\n"
+"X-Launchpad-Export-Date: 2011-09-20 04:36+0000\n"
+"X-Generator: Launchpad (build 13980)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -1786,7 +1786,7 @@ msgid "Graphics"
 msgstr "Graphisme"
 
 #: bash/playonlinux_online:61 python/install.py:299 python/mainwindow.py:163
-#: python/options.py:431
+#: python/options.py:319
 #, sh-format
 msgid "Internet"
 msgstr "Internet"
@@ -1802,7 +1802,6 @@ msgid "Office"
 msgstr "Bureautique"
 
 #: bash/playonlinux_online:61 lib/setupwindow.lib:634 python/install.py:299
-#: python/options.py:121
 #, sh-format
 msgid "Other"
 msgstr "Autre"
@@ -2728,7 +2727,7 @@ msgstr "Êtes-vous sûr de vouloir supprimer "
 msgid "{0} Wizard"
 msgstr "Assistant {0}"
 
-#: python/guiv3.py:137 python/install.py:133
+#: python/guiv3.py:137 python/install.py:133 python/options.py:311
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -2890,11 +2889,11 @@ msgstr "Outils"
 msgid "Settings"
 msgstr "Options"
 
-#: python/mainwindow.py:239 python/options.py:434
+#: python/mainwindow.py:239 python/options.py:322
 msgid "Plugins"
 msgstr "Greffons"
 
-#: python/mainwindow.py:255 python/options.py:325
+#: python/mainwindow.py:255 python/options.py:213
 msgid "Configure"
 msgstr "Configurer"
 
@@ -2978,103 +2977,59 @@ msgstr "{0} ne devrait pas être lancé en tant que super-utilisateur. Désolé"
 msgid "Are you sure you want to  want to install {0} package?"
 msgstr "Êtes-vous sur de vouloir installé le paquet {0} ?"
 
-#: python/options.py:99
-msgid "Default programs"
-msgstr "Programmes par défaut"
-
-#: python/options.py:102
-msgid "Default browser"
-msgstr "Navigateur par défaut"
-
-#: python/options.py:109 python/options.py:118
-msgid "Test"
-msgstr "Test"
-
-#: python/options.py:111
-msgid "Default terminal"
-msgstr "Terminal par défaut"
-
-#: python/options.py:124
-msgid "Temp directory"
-msgstr "Répertoire temporaire"
-
-#: python/options.py:125
-msgid "Automatically empty temp directory"
-msgstr "Vider le répertoire temporaire automatiquement"
-
-#: python/options.py:155
+#: python/options.py:113
 msgid "Proxy configuration"
 msgstr "Configuration du serveur mandataire (« proxy »)"
 
-#: python/options.py:176
+#: python/options.py:134
 msgid "Set a proxy"
 msgstr "Utiliser un serveur mandataire (« proxy »)"
 
-#: python/options.py:179
+#: python/options.py:137
 msgid "Proxy address"
 msgstr "Adresse du serveur mandataire (« proxy »)"
 
-#: python/options.py:182
+#: python/options.py:140
 msgid "Proxy port"
 msgstr "Port du serveur mandataire (« proxy »)"
 
-#: python/options.py:185
+#: python/options.py:143
 msgid "Proxy login"
 msgstr "Identifiant du serveur mandataire (« proxy »)"
 
-#: python/options.py:188
+#: python/options.py:146
 msgid "Proxy password"
 msgstr "Mot de passe du serveur mandataire (« proxy »)"
 
-#: python/options.py:223
-msgid "Wine"
-msgstr "Wine"
-
-#: python/options.py:225
-msgid "Default Wine version for PlayOnLinux programs: "
-msgstr "Version de Wine par défaut pour les programmes PlayOnLinux : "
-
-#: python/options.py:238
-msgid "Desktop"
-msgstr "Bureau"
-
-#: python/options.py:239
-msgid "PlayOnLinux menu"
-msgstr "Menu PlayOnLinux"
-
-#: python/options.py:240
-msgid "Add the PlayOnLinux menu to your panel"
-msgstr "Ajouter le menu PlayOnLinux à votre tableau de bord"
-
-#: python/options.py:243
-msgid "Desktop directory"
-msgstr "Répertoire du bureau"
-
-#: python/options.py:305
+#: python/options.py:193
 msgid "Installed plugins"
 msgstr "Greffons installés"
 
-#: python/options.py:326 python/options.py:384
+#: python/options.py:214 python/options.py:272
 msgid "Enable"
 msgstr "Activer"
 
-#: python/options.py:327
+#: python/options.py:215
 msgid "Choose a plugin"
 msgstr "Choisissez un greffon"
 
-#: python/options.py:352
+#: python/options.py:240
 msgid "Are you sure you want to install: "
 msgstr "Êtes-vous sûr de vouloir installer : "
 
-#: python/options.py:360
+#: python/options.py:248
 msgid "Are you sure you want to delete: "
 msgstr "Êtes-vous sûr de vouloir supprimer : "
 
-#: python/options.py:381
+#: python/options.py:269
 msgid "Disable"
 msgstr "Désactiver"
 
-#: python/options.py:459
+#: python/options.py:310
+msgid "Apply"
+msgstr ""
+
+#: python/options.py:347
 msgid "You must restart PlayOnLinux for the changes to take effect."
 msgstr "Vous devez redémarrer PlayOnLinux pour appliquer les changements."
 
@@ -3089,3 +3044,45 @@ msgstr "Versions de Wine disponibles : "
 #: python/wine_versions.py:207
 msgid "Wine versions"
 msgstr "Versions Wine"
+
+#~ msgid "Test"
+#~ msgstr "Test"
+
+#~ msgid "Temp directory"
+#~ msgstr "Répertoire temporaire"
+
+#~ msgid "Automatically empty temp directory"
+#~ msgstr "Vider le répertoire temporaire automatiquement"
+
+#~ msgid "Desktop"
+#~ msgstr "Bureau"
+
+#~ msgid "Desktop directory"
+#~ msgstr "Répertoire du bureau"
+
+#~ msgid "Default terminal"
+#~ msgstr "Terminal par défaut"
+
+#~ msgid "Default browser"
+#~ msgstr "Navigateur par défaut"
+
+#~ msgid "Default programs"
+#~ msgstr "Programmes par défaut"
+
+#~ msgid "PlayOnLinux menu"
+#~ msgstr "Menu PlayOnLinux"
+
+#~ msgid "Wine"
+#~ msgstr "Wine"
+
+#~ msgid "Add the PlayOnLinux menu to your panel"
+#~ msgstr "Ajouter le menu PlayOnLinux à votre tableau de bord"
+
+#~ msgid "Default Wine version for PlayOnLinux programs: "
+#~ msgstr "Version de Wine par défaut pour les programmes PlayOnLinux : "
+
+#~ msgid "Please give a very short description"
+#~ msgstr "Merci de donner une très courte description"
+
+#~ msgid "Detailed description:"
+#~ msgstr "Description détaillée"

@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2011-09-18 19:00+0200\n"
+"POT-Creation-Date: 2011-09-19 19:00+0200\n"
 "PO-Revision-Date: 2011-01-06 17:20+0000\n"
 "Last-Translator: Yaron <sh.yaron@gmail.com>\n"
 "Language-Team: he_HE.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-19 04:36+0000\n"
-"X-Generator: Launchpad (build 13955)\n"
+"X-Launchpad-Export-Date: 2011-09-20 04:36+0000\n"
+"X-Generator: Launchpad (build 13980)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -1732,7 +1732,7 @@ msgid "Graphics"
 msgstr "גרפיקה"
 
 #: bash/playonlinux_online:61 python/install.py:299 python/mainwindow.py:163
-#: python/options.py:431
+#: python/options.py:319
 #, sh-format
 msgid "Internet"
 msgstr "אינטרנט"
@@ -1748,7 +1748,6 @@ msgid "Office"
 msgstr "יישומים משרדיים"
 
 #: bash/playonlinux_online:61 lib/setupwindow.lib:634 python/install.py:299
-#: python/options.py:121
 #, sh-format
 msgid "Other"
 msgstr "אחר"
@@ -2649,7 +2648,7 @@ msgstr ""
 msgid "{0} Wizard"
 msgstr ""
 
-#: python/guiv3.py:137 python/install.py:133
+#: python/guiv3.py:137 python/install.py:133 python/options.py:311
 msgid "Cancel"
 msgstr "ביטול"
 
@@ -2809,11 +2808,11 @@ msgstr "כלים"
 msgid "Settings"
 msgstr "הגדרות"
 
-#: python/mainwindow.py:239 python/options.py:434
+#: python/mainwindow.py:239 python/options.py:322
 msgid "Plugins"
 msgstr "תוספים"
 
-#: python/mainwindow.py:255 python/options.py:325
+#: python/mainwindow.py:255 python/options.py:213
 msgid "Configure"
 msgstr "Configure"
 
@@ -2895,103 +2894,59 @@ msgstr ""
 msgid "Are you sure you want to  want to install {0} package?"
 msgstr ""
 
-#: python/options.py:99
-msgid "Default programs"
-msgstr "תכניות בררת המחדל"
-
-#: python/options.py:102
-msgid "Default browser"
-msgstr "דפדפן בררת המחדל"
-
-#: python/options.py:109 python/options.py:118
-msgid "Test"
-msgstr "בדיקה"
-
-#: python/options.py:111
-msgid "Default terminal"
-msgstr "מסוף בררת המחדל"
-
-#: python/options.py:124
-msgid "Temp directory"
-msgstr "Temp directory"
-
-#: python/options.py:125
-msgid "Automatically empty temp directory"
-msgstr "Automatically empty temp directory"
-
-#: python/options.py:155
+#: python/options.py:113
 msgid "Proxy configuration"
 msgstr "Proxy configuration"
 
-#: python/options.py:176
+#: python/options.py:134
 msgid "Set a proxy"
 msgstr "Set a proxy"
 
-#: python/options.py:179
+#: python/options.py:137
 msgid "Proxy address"
 msgstr "Proxy address"
 
-#: python/options.py:182
+#: python/options.py:140
 msgid "Proxy port"
 msgstr "פתחת המתווך"
 
-#: python/options.py:185
+#: python/options.py:143
 msgid "Proxy login"
 msgstr "שם הכניסה למתווך"
 
-#: python/options.py:188
+#: python/options.py:146
 msgid "Proxy password"
 msgstr "ססמת המתווך"
 
-#: python/options.py:223
-msgid "Wine"
-msgstr "Wine"
-
-#: python/options.py:225
-msgid "Default Wine version for PlayOnLinux programs: "
-msgstr "גרסת ה־Wine כבררת מחדל עבור תכניות ה־PlayOnLinux שלך: "
-
-#: python/options.py:238
-msgid "Desktop"
-msgstr "Desktop"
-
-#: python/options.py:239
-msgid "PlayOnLinux menu"
-msgstr "PlayOnLinux menu"
-
-#: python/options.py:240
-msgid "Add the PlayOnLinux menu to your panel"
-msgstr "הוספת התפריט של PlayOnLinux ללוח שלך"
-
-#: python/options.py:243
-msgid "Desktop directory"
-msgstr "Desktop directory"
-
-#: python/options.py:305
+#: python/options.py:193
 msgid "Installed plugins"
 msgstr "Installed plugins"
 
-#: python/options.py:326 python/options.py:384
+#: python/options.py:214 python/options.py:272
 msgid "Enable"
 msgstr "Enable"
 
-#: python/options.py:327
+#: python/options.py:215
 msgid "Choose a plugin"
 msgstr "Choose a plugin"
 
-#: python/options.py:352
+#: python/options.py:240
 msgid "Are you sure you want to install: "
 msgstr "האם באמת ברצונך להתקין את: "
 
-#: python/options.py:360
+#: python/options.py:248
 msgid "Are you sure you want to delete: "
 msgstr "האם באמת ברצונך למחוק את: "
 
-#: python/options.py:381
+#: python/options.py:269
 msgid "Disable"
 msgstr "נטרול"
 
-#: python/options.py:459
+#: python/options.py:310
+msgid "Apply"
+msgstr ""
+
+#: python/options.py:347
 msgid "You must restart PlayOnLinux for the changes to take effect."
 msgstr "עליך להפעיל מחדש את PlayOnLinux כדי שהשינויים ייכנסו לתוקף."
 
@@ -3006,3 +2961,39 @@ msgstr "גרסאות ה־Wine הזמינות: "
 #: python/wine_versions.py:207
 msgid "Wine versions"
 msgstr "גרסאות Wine"
+
+#~ msgid "Temp directory"
+#~ msgstr "Temp directory"
+
+#~ msgid "Automatically empty temp directory"
+#~ msgstr "Automatically empty temp directory"
+
+#~ msgid "Desktop"
+#~ msgstr "Desktop"
+
+#~ msgid "PlayOnLinux menu"
+#~ msgstr "PlayOnLinux menu"
+
+#~ msgid "Desktop directory"
+#~ msgstr "Desktop directory"
+
+#~ msgid "Default programs"
+#~ msgstr "תכניות בררת המחדל"
+
+#~ msgid "Default browser"
+#~ msgstr "דפדפן בררת המחדל"
+
+#~ msgid "Test"
+#~ msgstr "בדיקה"
+
+#~ msgid "Default terminal"
+#~ msgstr "מסוף בררת המחדל"
+
+#~ msgid "Add the PlayOnLinux menu to your panel"
+#~ msgstr "הוספת התפריט של PlayOnLinux ללוח שלך"
+
+#~ msgid "Default Wine version for PlayOnLinux programs: "
+#~ msgstr "גרסת ה־Wine כבררת מחדל עבור תכניות ה־PlayOnLinux שלך: "
+
+#~ msgid "Wine"
+#~ msgstr "Wine"
