@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2011-09-26 19:00+0200\n"
-"PO-Revision-Date: 2011-09-21 04:48+0000\n"
-"Last-Translator: Aymeric <os2mule@gmail.com>\n"
+"POT-Creation-Date: 2011-09-27 19:00+0200\n"
+"PO-Revision-Date: 2011-09-27 15:15+0000\n"
+"Last-Translator: Alejandro Pérez <alexperezalonso@gmail.com>\n"
 "Language-Team: es_ES.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-27 04:35+0000\n"
-"X-Generator: Launchpad (build 14028)\n"
+"X-Launchpad-Export-Date: 2011-09-28 04:33+0000\n"
+"X-Generator: Launchpad (build 14049)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -313,7 +313,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Grand_Theft_Auto___San_Andreas_:60
 #: PlayOnLinux_Scripts/LIMBO_:64 PlayOnLinux_Scripts/Magicka_:69
 #: PlayOnLinux_Scripts/Mass_Effect_:61 PlayOnLinux_Scripts/Mass_Effect_2_:78
-#: PlayOnLinux_Scripts/Portal_2_:63
+#: PlayOnLinux_Scripts/Mozilla_Firefox_:151 PlayOnLinux_Scripts/Portal_2_:63
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:66
 #: PlayOnLinux_Scripts/The_Next_BIG_Thing_:63
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_:107
@@ -334,7 +334,9 @@ msgstr "Por favor selecciona el fichero de instalación a ejecutar:"
 #: PlayOnLinux_Scripts/Command_And_Conquer___Red_Alert_3_Patch_1.12_:68
 #: PlayOnLinux_Scripts/Divinity_II___The_Dragon_Knight_Saga_:75
 #: PlayOnLinux_Scripts/Fallout_3_:72 PlayOnLinux_Scripts/Magicka_:71
-#: PlayOnLinux_Scripts/Mass_Effect_:63 PlayOnLinux_Scripts/Sonic_Fan_Remix_:41
+#: PlayOnLinux_Scripts/Mass_Effect_:63
+#: PlayOnLinux_Scripts/Mozilla_Firefox_:152
+#: PlayOnLinux_Scripts/Sonic_Fan_Remix_:41
 #, sh-format
 msgid "Installation in progress..."
 msgstr "Instalación en curso ..."
@@ -846,7 +848,7 @@ msgstr "Por favor, espere mientras  $TITLE se descarga..."
 msgid "Installing $TITLE"
 msgstr "Instalando $TITLE"
 
-#: PlayOnLinux_Scripts/Diablo_II_:41
+#: PlayOnLinux_Scripts/Diablo_II_:41 PlayOnLinux_Scripts/Mozilla_Firefox_:208
 #, sh-format
 msgid "$TITLE has been installed successfully."
 msgstr "$TITLE se ha instalado con exito"
@@ -928,7 +930,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Mass_Effect_2_:64
 #, sh-format
 msgid "Which edition do you have?"
-msgstr ""
+msgstr "¿Qué edición tienes?"
 
 #: PlayOnLinux_Scripts/Microsoft_Money_2005_:33
 #, sh-format
@@ -939,6 +941,36 @@ msgstr "¿Dónde está el archivo de instalación de $TITLE?"
 #, sh-format
 msgid "$TITLE has been successfully installed"
 msgstr "$TITLE se ha instalado con exito"
+
+#: PlayOnLinux_Scripts/Mozilla_Firefox_:59
+#, sh-format
+msgid "Which language version would you like to install?"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Mozilla_Firefox_:142
+#, sh-format
+msgid "installation in progress..."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Mozilla_Firefox_:158
+#, sh-format
+msgid "Check which components do you want to install additionally:"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Mozilla_Firefox_:184
+#, sh-format
+msgid "Installing $PLUGIN_NAME_FLASH..."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Mozilla_Firefox_:191
+#, sh-format
+msgid "Installing $PLUGIN_NAME_SHOCKWAVE..."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Mozilla_Firefox_:197
+#, sh-format
+msgid "Installing $PLUGIN_NAME_JAVA..."
+msgstr ""
 
 #: PlayOnLinux_Scripts/POL_Function_FontsSmoothRGB_:1
 #: bash/installpolpackages:26 bash/killall:29 bash/winebash:27
@@ -1030,12 +1062,12 @@ msgstr "Instalando librerias"
 #: PlayOnLinux_Scripts/POL_Install_mono26_:15
 #, sh-format
 msgid "Downloading Mono 2.6..."
-msgstr ""
+msgstr "Descargando Mono 2.6..."
 
 #: PlayOnLinux_Scripts/POL_Install_mono26_:21
 #, sh-format
 msgid "Installing Mono 2.6..."
-msgstr ""
+msgstr "Instalando Mono 2.6..."
 
 #: PlayOnLinux_Scripts/POL_Install_msxml3_:15
 #, sh-format
@@ -1250,7 +1282,7 @@ msgstr ""
 #: bash/bug_report:56
 #, sh-format
 msgid "Please explain your problem clearly (english only):"
-msgstr ""
+msgstr "Por favor, explique claramente su problema (inglés solamente):"
 
 #: bash/bug_report:68
 #, sh-format
@@ -2911,7 +2943,7 @@ msgstr "Messenger"
 
 #: python/irc.py:272
 msgid "Are you sure you want to close this window?"
-msgstr ""
+msgstr "¿Está seguro que desea cerrar esta ventana?"
 
 #: python/mainwindow.py:64
 msgid "{0} website is unavailable. Please check your connexion"
@@ -3112,7 +3144,7 @@ msgstr "Desactivar"
 
 #: python/options.py:310
 msgid "Apply"
-msgstr ""
+msgstr "Aplicar"
 
 #: python/options.py:347
 msgid "You must restart PlayOnLinux for the changes to take effect."
