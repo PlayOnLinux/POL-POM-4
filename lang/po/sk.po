@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2011-09-27 19:00+0200\n"
-"PO-Revision-Date: 2011-09-27 19:00+0000\n"
+"POT-Creation-Date: 2011-09-28 19:00+0200\n"
+"PO-Revision-Date: 2011-09-28 12:59+0000\n"
 "Last-Translator: Prescott_SK <prescott66@gmail.com>\n"
 "Language-Team: sk_SK.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-28 04:33+0000\n"
+"X-Launchpad-Export-Date: 2011-09-29 04:33+0000\n"
 "X-Generator: Launchpad (build 14049)\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -24,7 +24,7 @@ msgstr "Na ktorú aplikáciu chcete aplikovať modifikáciu?"
 #: Capture plugin:3
 msgid ""
 "This plugin wil allow you to capture you applications under PlayOnLinux"
-msgstr "Tento plugin Vám umožní zachytiť Vaše aplikácie v PlayOnLinux"
+msgstr "Tento zásuvný modul Vám umožní zachytiť Vaše aplikácie v PlayOnLinux"
 
 #: Capture plugin:4
 msgid "Capture menu (OpenGL)"
@@ -213,7 +213,8 @@ msgstr "Optimalizácia dokončená"
 msgid ""
 "Welcome in Detour, a plugin witch enable you to create post-install shorcuts."
 msgstr ""
-"Vitajte v Detour, plugine, ktorý Vám umožní vytvoriť po-inštalačné odkazy."
+"Vitajte v Detour, zásuvnom module, ktorý Vám umožní vytvoriť po-inštalačné "
+"odkazy."
 
 #: Detour plugin:5
 msgid "Choose an application"
@@ -313,6 +314,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:66
 #: PlayOnLinux_Scripts/The_Next_BIG_Thing_:63
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_:107
+#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1.1_:58
 #, sh-format
 msgid "Please select the setup file to run:"
 msgstr "Prosím, zvoľte inštalačný súbor na spustenie"
@@ -329,10 +331,12 @@ msgstr "Prosím, zvoľte inštalačný súbor na spustenie"
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Tiberium_Wars__Kane_Edition__:108
 #: PlayOnLinux_Scripts/Command_And_Conquer___Red_Alert_3_Patch_1.12_:68
 #: PlayOnLinux_Scripts/Divinity_II___The_Dragon_Knight_Saga_:75
-#: PlayOnLinux_Scripts/Fallout_3_:72 PlayOnLinux_Scripts/Magicka_:71
-#: PlayOnLinux_Scripts/Mass_Effect_:63
+#: PlayOnLinux_Scripts/Fallout_3_:72 PlayOnLinux_Scripts/Google_SketchUp_:41
+#: PlayOnLinux_Scripts/Magicka_:71 PlayOnLinux_Scripts/Mass_Effect_:63
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:152
 #: PlayOnLinux_Scripts/Sonic_Fan_Remix_:41
+#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1.1_:49
+#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1.1_:59
 #, sh-format
 msgid "Installation in progress..."
 msgstr "Prebieha inštalácia..."
@@ -385,8 +389,8 @@ msgid ""
 "Click on \"Forward\" ONLY when Steam game installation\\nwill be finished or "
 "you will have to redo the installation."
 msgstr ""
-"Kliknite na \\\"Dopredu\\\" IBA ak bude inštalácia Steam hry dokončená,\\"
-"ninak budete musieť inštaláciu zopakovať."
+"Kliknite na \\\"Ďalej\\\" IBA ak bude inštalácia Steam hry dokončená,\\ninak "
+"budete musieť inštaláciu zopakovať."
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_:67
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_:70
@@ -437,6 +441,7 @@ msgstr "Vitajte v inštalátore opravy $PVERSION pre $TITLE"
 #: PlayOnLinux_Scripts/Fallout_3___DLC_:27
 #: PlayOnLinux_Scripts/Mass_Effect_2___Patch_1.02_:28
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_Patch_1.35_:51
+#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1.1_:24
 #, sh-format
 msgid "Game is not installed."
 msgstr "Hra nie je nainštalovaná"
@@ -458,6 +463,7 @@ msgstr "Hra nie je nainštalovaná"
 #: PlayOnLinux_Scripts/Fallout_3_Patch_1.07_:42
 #: PlayOnLinux_Scripts/Mass_Effect_2___Patch_1.02_:42
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_Patch_1.35_:65
+#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1.1_:36
 #, sh-format
 msgid "Steam have is own automatic update system."
 msgstr "Steam má svoj vlastný systém automatických aktualizácií."
@@ -682,8 +688,8 @@ msgid ""
 "Click on \"Forward\" ONLY when the game installation is finished\\nor you "
 "will have to redo the installation."
 msgstr ""
-"Kliknite na \\\"Dopredu\\\" IBA ak je inštalácia hry dokončená,\\ninak "
-"budete musieť spustiť inštaláciu odznova."
+"Kliknite na \\\"Ďalej\\\" IBA ak je inštalácia hry dokončená,\\ninak budete "
+"musieť spustiť inštaláciu odznova."
 
 #: PlayOnLinux_Scripts/Borderlands_:59 PlayOnLinux_Scripts/Fallout_3_:56
 #, sh-format
@@ -740,6 +746,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Fallout_3_Patch_1.07_:23
 #: PlayOnLinux_Scripts/Mass_Effect_2___Patch_1.02_:23
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_Patch_1.35_:46
+#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1.1_:21
 #, sh-format
 msgid "Welcome in the patch $PVERSION installer for $TITLE"
 msgstr "Vitajte v inštalátore opravy $PVERSION pre $TITLE"
@@ -842,7 +849,9 @@ msgstr "Prosím čakajte, kým sa nestiahne $TITLE..."
 msgid "Installing $TITLE"
 msgstr "Inštaluje sa $TITLE"
 
-#: PlayOnLinux_Scripts/Diablo_II_:41 PlayOnLinux_Scripts/Mozilla_Firefox_:208
+#: PlayOnLinux_Scripts/Diablo_II_:41 PlayOnLinux_Scripts/Google_SketchUp_:50
+#: PlayOnLinux_Scripts/Mozilla_Firefox_:208
+#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1.1_:67
 #, sh-format
 msgid "$TITLE has been installed successfully."
 msgstr "Hra $TITLE bola úspešne nainštalovaná."
@@ -894,7 +903,7 @@ msgstr "Tento doplnok automaticky vynoví hru na verziu 1.03"
 #: PlayOnLinux_Scripts/Mass_Effect_2_:54
 #, sh-format
 msgid "When game setup will ask for next DVD\\nclick on \\\"Forward\\\""
-msgstr "Ak herný inštalátor vypýta ďalšie DVD\\nkliknite na \\\"Dopredu\\\""
+msgstr "Ak herný inštalátor vypýta ďalšie DVD\\nkliknite na \\\"Ďalej\\\""
 
 #: PlayOnLinux_Scripts/Duke_Nukem_Forever_:100
 #, sh-format
@@ -938,39 +947,39 @@ msgstr "$TITLE bol úspešne nainštalovaný"
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:59
 #, sh-format
 msgid "Which language version would you like to install?"
-msgstr ""
+msgstr "Ktorú jazykovú verziu chcete nainštalovať?"
 
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:142
 #, sh-format
 msgid "installation in progress..."
-msgstr ""
+msgstr "Prebieha inštalácia..."
 
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:158
 #, sh-format
 msgid "Check which components do you want to install additionally:"
-msgstr ""
+msgstr "Označte, ktoré súčasti chcete dodatočne nainštalovať:"
 
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:184
 #, sh-format
 msgid "Installing $PLUGIN_NAME_FLASH..."
-msgstr ""
+msgstr "Inštaluje sa $PLUGIN_NAME_FLASH..."
 
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:191
 #, sh-format
 msgid "Installing $PLUGIN_NAME_SHOCKWAVE..."
-msgstr ""
+msgstr "Inštaluje sa $PLUGIN_NAME_SHOCKWAVE..."
 
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:197
 #, sh-format
 msgid "Installing $PLUGIN_NAME_JAVA..."
-msgstr ""
+msgstr "Inštaluje sa $PLUGIN_NAME_JAVA..."
 
 #: PlayOnLinux_Scripts/POL_Function_FontsSmoothRGB_:1
 #: bash/installpolpackages:26 bash/killall:29 bash/winebash:27
 #: lib/wine.lib:632
 #, sh-format
 msgid "Please wait..."
-msgstr "Prosím čakajte..."
+msgstr "Prosím, čakajte..."
 
 #: PlayOnLinux_Scripts/POL_Function_OverrideDLL_:28
 #, sh-format
@@ -1230,7 +1239,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_:90
 #, sh-format
 msgid "When the game setup will ask for next disk\\nclick on \"Forward\""
-msgstr "Ak si herný inštalátor vypýta ďalší disk\\nkliknite na \"Dopredu\""
+msgstr "Ak si herný inštalátor vypýta ďalší disk\\nkliknite na \"Ďalej\""
 
 #: bash/bug_report:31 python/mainwindow.py:152
 #, sh-format
@@ -1817,8 +1826,8 @@ msgid ""
 "If you have successfully installed a program with 'Install a non-listed\\"
 "nsoftware' button, it will allow you to add this program in our list"
 msgstr ""
-"Ak ste úspešne nainštalovali program cez tlačidlo 'Nainštalovať\\nsoftvér, "
-"ktorý nie je v zozname', umožní Vám pridať tento program do nášho zoznamu"
+"Ak ste úspešne nainštalovali program cez tlačidlo 'Nainštalovať\\nprogram "
+"mimo zoznamu', umožní Vám pridať tento program do nášho zoznamu"
 
 #: bash/playonlinux_online:39
 #, sh-format
@@ -1995,7 +2004,7 @@ msgstr "Spúšťa sa rozšírená konfigurácia Wine"
 #: bash/polconfigurator:72
 #, sh-format
 msgid "Starting WineTricks plug-in"
-msgstr "Spúšťa sa plugin WineTricks"
+msgstr "Spúšťa sa zásuvný modul WineTricks"
 
 #: bash/polconfigurator:79
 #, sh-format
@@ -2046,7 +2055,7 @@ msgstr "Simulovať reštartovanie Windowsu"
 #: bash/polconfigurator:112
 #, sh-format
 msgid "Use Advanced Wine Configuration plugin"
-msgstr "Použiť rozšírený plugin konfigurácie Wine"
+msgstr "Použiť rozšírený zásuvný modul konfigurácie Wine"
 
 #: bash/polconfigurator:113
 #, sh-format
@@ -2459,7 +2468,7 @@ msgstr "Chcete zmazať vyrtuálnu jednotku:"
 #: lib/plugins.lib:65
 #, sh-format
 msgid "Checking plugin: "
-msgstr "Kontroluje sa plugin: "
+msgstr "Kontroluje sa zásuvný modul: "
 
 #: lib/plugins.lib:93
 #, sh-format
@@ -2469,12 +2478,12 @@ msgstr "Nový: "
 #: lib/plugins.lib:93
 #, sh-format
 msgid "Updating plugin. Previous: "
-msgstr "Aktualizuje sa plugin. Predošlý: "
+msgstr "Aktualizuje sa zásuvný modul. Predošlý: "
 
 #: lib/plugins.lib:112
 #, sh-format
 msgid "Installing plugin: "
-msgstr "Inštaluje sa plugin: "
+msgstr "Inštaluje sa zásuvný modul: "
 
 #: lib/scripts.lib:332
 #, sh-format
@@ -2770,7 +2779,7 @@ msgstr "Zámok režimu cieľového vykresľovača"
 
 #: python/configure.py:417
 msgid "Multisampling"
-msgstr ""
+msgstr "Viac-vzorkovanie(Multisampling)"
 
 #: python/configure.py:418
 msgid "Strict Draw Ordering"
@@ -2895,7 +2904,7 @@ msgstr "Hľadať: "
 
 #: python/install.py:149
 msgid "Install a non-listed program"
-msgstr "Nainštalovať program, ktorý nie je v zozname"
+msgstr "Nainštalovať program mimo zoznamu"
 
 #: python/install.py:323
 msgid "Highest rated"
@@ -2923,7 +2932,7 @@ msgstr "Pripojiť sa ku kanálu"
 
 #: python/irc.py:256 python/mainwindow.py:257
 msgid "Messenger"
-msgstr ""
+msgstr "Komunikátor"
 
 #: python/irc.py:272
 msgid "Are you sure you want to close this window?"
@@ -2931,7 +2940,7 @@ msgstr "Naozaj chcete zavrieť toto okno?"
 
 #: python/mainwindow.py:64
 msgid "{0} website is unavailable. Please check your connexion"
-msgstr "{0} webstránka nie je dostupná. Prosím, skontrolujte Vaše pripojenie"
+msgstr "Webstránka {0} nie je dostupná. Skontrolujte Vaše pripojenie"
 
 #: python/mainwindow.py:66
 msgid "Refreshing {0}"
@@ -2947,7 +2956,7 @@ msgstr "Spustiť"
 
 #: python/mainwindow.py:115
 msgid "Donate"
-msgstr "Prispejte"
+msgstr "Prispieť"
 
 #: python/mainwindow.py:116
 msgid "Exit"
@@ -2967,7 +2976,7 @@ msgstr "{0} konzola"
 
 #: python/mainwindow.py:148
 msgid "{0} messenger"
-msgstr ""
+msgstr "{0} komunikátor"
 
 #: python/mainwindow.py:177
 msgid "About {0}"
@@ -2975,7 +2984,7 @@ msgstr "O programe {0}"
 
 #: python/mainwindow.py:207 python/mainwindow.py:211
 msgid "Plugin manager"
-msgstr "Správca pluginov"
+msgstr "Správca zásuvných modulov"
 
 #: python/mainwindow.py:236
 msgid "File"
@@ -2991,7 +3000,7 @@ msgstr "Nastavenia"
 
 #: python/mainwindow.py:239 python/options.py:322
 msgid "Plugins"
-msgstr "Pluginy"
+msgstr "Zásuvné moduly"
 
 #: python/mainwindow.py:255 python/options.py:213
 msgid "Configure"
@@ -3103,7 +3112,7 @@ msgstr "Proxy heslo"
 
 #: python/options.py:193
 msgid "Installed plugins"
-msgstr "Nainštalované pluginy"
+msgstr "Nainštalované zásuvné moduly"
 
 #: python/options.py:214 python/options.py:272
 msgid "Enable"
@@ -3111,7 +3120,7 @@ msgstr "Zapnúť"
 
 #: python/options.py:215
 msgid "Choose a plugin"
-msgstr "Zvoliť plugin"
+msgstr "Zvoľte zásuvný modul"
 
 #: python/options.py:240
 msgid "Are you sure you want to install: "

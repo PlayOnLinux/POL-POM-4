@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2011-09-27 19:00+0200\n"
-"PO-Revision-Date: 2011-09-27 15:15+0000\n"
-"Last-Translator: Alejandro Pérez <alexperezalonso@gmail.com>\n"
+"POT-Creation-Date: 2011-09-28 19:00+0200\n"
+"PO-Revision-Date: 2011-09-28 05:53+0000\n"
+"Last-Translator: CaArRi <Unknown>\n"
 "Language-Team: es_ES.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-09-28 04:33+0000\n"
+"X-Launchpad-Export-Date: 2011-09-29 04:33+0000\n"
 "X-Generator: Launchpad (build 14049)\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -317,6 +317,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:66
 #: PlayOnLinux_Scripts/The_Next_BIG_Thing_:63
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_:107
+#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1.1_:58
 #, sh-format
 msgid "Please select the setup file to run:"
 msgstr "Por favor selecciona el fichero de instalación a ejecutar:"
@@ -333,10 +334,12 @@ msgstr "Por favor selecciona el fichero de instalación a ejecutar:"
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Tiberium_Wars__Kane_Edition__:108
 #: PlayOnLinux_Scripts/Command_And_Conquer___Red_Alert_3_Patch_1.12_:68
 #: PlayOnLinux_Scripts/Divinity_II___The_Dragon_Knight_Saga_:75
-#: PlayOnLinux_Scripts/Fallout_3_:72 PlayOnLinux_Scripts/Magicka_:71
-#: PlayOnLinux_Scripts/Mass_Effect_:63
+#: PlayOnLinux_Scripts/Fallout_3_:72 PlayOnLinux_Scripts/Google_SketchUp_:41
+#: PlayOnLinux_Scripts/Magicka_:71 PlayOnLinux_Scripts/Mass_Effect_:63
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:152
 #: PlayOnLinux_Scripts/Sonic_Fan_Remix_:41
+#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1.1_:49
+#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1.1_:59
 #, sh-format
 msgid "Installation in progress..."
 msgstr "Instalación en curso ..."
@@ -441,6 +444,7 @@ msgstr "Bienvenido al instalador del parche $PVERSION para $TITLE"
 #: PlayOnLinux_Scripts/Fallout_3___DLC_:27
 #: PlayOnLinux_Scripts/Mass_Effect_2___Patch_1.02_:28
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_Patch_1.35_:51
+#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1.1_:24
 #, sh-format
 msgid "Game is not installed."
 msgstr "Juego no instalado."
@@ -462,6 +466,7 @@ msgstr "Juego no instalado."
 #: PlayOnLinux_Scripts/Fallout_3_Patch_1.07_:42
 #: PlayOnLinux_Scripts/Mass_Effect_2___Patch_1.02_:42
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_Patch_1.35_:65
+#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1.1_:36
 #, sh-format
 msgid "Steam have is own automatic update system."
 msgstr "Steam tiene su propio sistema de actualización automático"
@@ -745,6 +750,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Fallout_3_Patch_1.07_:23
 #: PlayOnLinux_Scripts/Mass_Effect_2___Patch_1.02_:23
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_Patch_1.35_:46
+#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1.1_:21
 #, sh-format
 msgid "Welcome in the patch $PVERSION installer for $TITLE"
 msgstr "Bienvenido al instalador del parche $PVERSION para $TITLE"
@@ -848,7 +854,9 @@ msgstr "Por favor, espere mientras  $TITLE se descarga..."
 msgid "Installing $TITLE"
 msgstr "Instalando $TITLE"
 
-#: PlayOnLinux_Scripts/Diablo_II_:41 PlayOnLinux_Scripts/Mozilla_Firefox_:208
+#: PlayOnLinux_Scripts/Diablo_II_:41 PlayOnLinux_Scripts/Google_SketchUp_:50
+#: PlayOnLinux_Scripts/Mozilla_Firefox_:208
+#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1.1_:67
 #, sh-format
 msgid "$TITLE has been installed successfully."
 msgstr "$TITLE se ha instalado con exito"
@@ -950,27 +958,27 @@ msgstr ""
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:142
 #, sh-format
 msgid "installation in progress..."
-msgstr ""
+msgstr "Instalación en progreso..."
 
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:158
 #, sh-format
 msgid "Check which components do you want to install additionally:"
-msgstr ""
+msgstr "Compruebe que componentes desea instalar adicionalmente:"
 
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:184
 #, sh-format
 msgid "Installing $PLUGIN_NAME_FLASH..."
-msgstr ""
+msgstr "Instalando $PLUGIN_NAME_FLASH..."
 
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:191
 #, sh-format
 msgid "Installing $PLUGIN_NAME_SHOCKWAVE..."
-msgstr ""
+msgstr "Instalando $PLUGIN_NAME_SHOCKWAVE..."
 
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:197
 #, sh-format
 msgid "Installing $PLUGIN_NAME_JAVA..."
-msgstr ""
+msgstr "Instalando $PLUGIN_NAME_JAVA..."
 
 #: PlayOnLinux_Scripts/POL_Function_FontsSmoothRGB_:1
 #: bash/installpolpackages:26 bash/killall:29 bash/winebash:27
@@ -1094,7 +1102,7 @@ msgstr "Por favor espere mientras Steam se descarga..."
 #: PlayOnLinux_Scripts/POL_Install_vbrun6_:12
 #, sh-format
 msgid "Installing Visual Basic runtime"
-msgstr ""
+msgstr "Instalando Visual Basic runtime"
 
 #: PlayOnLinux_Scripts/POL_Install_vcrun2005_:19
 #: PlayOnLinux_Scripts/POL_Install_vcrun2005_:21
@@ -1218,6 +1226,10 @@ msgid ""
 "If you want to install $TITLE in another virtual drive\\nRun this installer "
 "again"
 msgstr ""
+"If you want to install $TITLE in another virtual drive\\nRun this installer "
+"again\r\n"
+"Si desea instalar $TITLE en otra unidad virtual\\nEjecute este instalador "
+"otra vez"
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_:127
 #, sh-format
