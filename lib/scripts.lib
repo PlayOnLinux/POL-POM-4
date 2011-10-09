@@ -333,6 +333,9 @@ POL_Download ()
 		if [ "$2" = "" ]
 		then
 			POL_Debug_Warning "POL_Download - MD5 is missing!"
+		elif [ "$2" = "NO_MD5" ]
+		then
+			POL_Debug_Message "Skipping MD5 checksum control"		    
 		else
 			LOCAL_MD5="$(POL_MD5_file "$FICHIER")"
 			if [ ! "$2" = "$LOCAL_MD5" ]
