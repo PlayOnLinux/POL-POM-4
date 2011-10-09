@@ -687,8 +687,11 @@ POL_GetSetupImages () # ( optional : --erase )
 	fi	
 	mkdir -p "$POL_USER_ROOT/configurations/setups/$name"
 	cd "$POL_USER_ROOT/configurations/setups/$name"
-
-	if [ "$1" == "--force" ] || [ ! -e "top" ]
+    
+    if [ "$top" == "" ]
+    then
+        export POL_SetupWindow_TopImage="$PLAYONLINUX/etc/setups/default/top.png"
+	elif [ "$1" == "--force" ] || [ ! -e "top" ]
 	then
 		wget -q --timeout=10 "$top" -O top 2> /dev/null && POL_SetupWindow_TopImage="$PWD/top" || export POL_SetupWindow_TopImage="$PLAYONLINUX/etc/setups/default/top.png"
 		if [ "$POL_SetupWindow_TopImage" = "$PLAYONLINUX/etc/setups/default/top.png" ]
@@ -699,7 +702,10 @@ POL_GetSetupImages () # ( optional : --erase )
 		POL_SetupWindow_TopImage="$PWD/top"
 	fi
 
-	if [ "$1" == "--force" ] || [ ! -e "left" ]
+    if [ "$left" == "" ]
+    then
+        export POL_SetupWindow_LeftImage="$PLAYONLINUX/etc/setups/default/left.jpg"
+	elif [ "$1" == "--force" ] && [ "$left" != "" ] || [ ! -e "left" ]
 	then
 		wget -q --timeout=10 "$left" -O left 2> /dev/null && POL_SetupWindow_LeftImage="$PWD/left" || export POL_SetupWindow_LeftImage="$PLAYONLINUX/etc/setups/default/left.jpg"
 		if [ "$POL_SetupWindow_LeftImage" = "$PLAYONLINUX/etc/setups/default/left.jpg" ]
