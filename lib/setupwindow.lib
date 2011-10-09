@@ -705,7 +705,7 @@ POL_GetSetupImages () # ( optional : --erase )
     if [ "$left" == "" ]
     then
         export POL_SetupWindow_LeftImage="$PLAYONLINUX/etc/setups/default/left.jpg"
-	elif [ "$1" == "--force" ] && [ "$left" != "" ] || [ ! -e "left" ]
+	elif [ "$1" == "--force" ] || [ ! -e "left" ]
 	then
 		wget -q --timeout=10 "$left" -O left 2> /dev/null && POL_SetupWindow_LeftImage="$PWD/left" || export POL_SetupWindow_LeftImage="$PLAYONLINUX/etc/setups/default/left.jpg"
 		if [ "$POL_SetupWindow_LeftImage" = "$PLAYONLINUX/etc/setups/default/left.jpg" ]
