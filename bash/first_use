@@ -80,7 +80,6 @@ to the file name or packaging format." >> "$REPERTOIRE/tmp/licence"
 			POL_SetupWindow_pulse 100
 			sleep 1
 			PULSE=1
-			POL_SetupWindow_detect_exit
 			POL_SetupWindow_pulsebar "$(eval_gettext 'Installing fonts')" "$(eval_gettext 'Microsoft fonts')"
 
 			for font in $FONTS_INSTALLER

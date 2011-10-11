@@ -458,7 +458,6 @@ POL_Wine_InstallVersion()
 			echo "Server sha1 : $sha1"
 			echo "Client sha1 : $sha1_file"
 
-			POL_SetupWindow_detect_exit
 			if [ ! "$sha1" = "$sha1_file" ]
 			then
 				POL_SetupWindow_message "$(eval_gettext 'The download seems to have failed.')" "Wine $POL_WINEVERSION"
@@ -594,7 +593,6 @@ EOF
 	POL_Debug_Message "Overriting DLLs"
 	POL_SetupWindow_wait_next_signal "Please wait" "$TITLE"
 	wine regedit "$POL_USER_ROOT/tmp/override-dll.reg"
-	POL_SetupWindow_detect_exit
 }
 
 POL_Wine_OverrideDLL_App()
@@ -642,5 +640,4 @@ POL_Wine_reboot ()
 	# Simulate windows reboot
 	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Please wait while $APPLICATION_TITLE is simulating a Windows reboot')" "Wine"
 	wine wineboot
-	POL_SetupWindow_detect_exit
 }
