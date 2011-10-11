@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2011-10-08 19:00+0200\n"
-"PO-Revision-Date: 2011-10-03 06:30+0000\n"
-"Last-Translator: Aymeric <os2mule@gmail.com>\n"
+"POT-Creation-Date: 2011-10-09 19:00+0200\n"
+"PO-Revision-Date: 2011-10-09 11:38+0000\n"
+"Last-Translator: Atalanttore <atalanttore@googlemail.com>\n"
 "Language-Team: de_DE.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-09 05:14+0000\n"
-"X-Generator: Launchpad (build 14110)\n"
+"X-Launchpad-Export-Date: 2011-10-10 05:08+0000\n"
+"X-Generator: Launchpad (build 14123)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -322,6 +322,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/LIMBO_:64 PlayOnLinux_Scripts/Magicka_:70
 #: PlayOnLinux_Scripts/Mass_Effect_:61 PlayOnLinux_Scripts/Mass_Effect_2_:78
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:151 PlayOnLinux_Scripts/Portal_2_:63
+#: PlayOnLinux_Scripts/Safari_:60
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:66
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:178
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_:53
@@ -350,8 +351,8 @@ msgstr "Bitte wählen Sie die auszuführende Installationsdatei:"
 #: PlayOnLinux_Scripts/Divinity_II___The_Dragon_Knight_Saga_:75
 #: PlayOnLinux_Scripts/Fallout_3_:73 PlayOnLinux_Scripts/Google_SketchUp_:42
 #: PlayOnLinux_Scripts/Magicka_:72 PlayOnLinux_Scripts/Mass_Effect_:63
-#: PlayOnLinux_Scripts/Mozilla_Firefox_:152
-#: PlayOnLinux_Scripts/Sonic_Fan_Remix_:41
+#: PlayOnLinux_Scripts/Mozilla_Firefox_:152 PlayOnLinux_Scripts/Safari_:51
+#: PlayOnLinux_Scripts/Safari_:62 PlayOnLinux_Scripts/Sonic_Fan_Remix_:41
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:40
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:61
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:70
@@ -755,6 +756,8 @@ msgstr ""
 msgid ""
 "Warning: GameShadow wont work.\\nPlease de-select during installation."
 msgstr ""
+"Warnung: GameShadow wird nicht funktionieren.\\nBitte während der "
+"Installation abwählen."
 
 #: PlayOnLinux_Scripts/CivCity_Rome_:62
 #: PlayOnLinux_Scripts/Duke_Nukem_Forever_:61
@@ -889,7 +892,7 @@ msgid "Installing $TITLE"
 msgstr "installiert $TITLE"
 
 #: PlayOnLinux_Scripts/Diablo_II_:41 PlayOnLinux_Scripts/Google_SketchUp_:51
-#: PlayOnLinux_Scripts/Mozilla_Firefox_:208
+#: PlayOnLinux_Scripts/Mozilla_Firefox_:208 PlayOnLinux_Scripts/Safari_:77
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:88
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.0_:63
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1.1_:62
@@ -991,12 +994,12 @@ msgstr "$TITLE wurde erfolgreich installiert"
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:59
 #, sh-format
 msgid "Which language version would you like to install?"
-msgstr ""
+msgstr "Welche Sprachversion möchten Sie installieren?"
 
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:142
 #, sh-format
 msgid "installation in progress..."
-msgstr ""
+msgstr "Installationsvorgang läuft..."
 
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:158
 #, sh-format
@@ -1006,17 +1009,17 @@ msgstr ""
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:184
 #, sh-format
 msgid "Installing $PLUGIN_NAME_FLASH..."
-msgstr ""
+msgstr "Installiere $PLUGIN_NAME_FLASH..."
 
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:191
 #, sh-format
 msgid "Installing $PLUGIN_NAME_SHOCKWAVE..."
-msgstr ""
+msgstr "Installiere $PLUGIN_NAME_SHOCKWAVE..."
 
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:197
 #, sh-format
 msgid "Installing $PLUGIN_NAME_JAVA..."
-msgstr ""
+msgstr "Installiere $PLUGIN_NAME_JAVA..."
 
 #: PlayOnLinux_Scripts/POL_Function_FontsSmoothRGB_:1
 #: bash/installpolpackages:26 bash/killall:29 bash/winebash:27
@@ -1034,6 +1037,8 @@ msgstr "Bitte warten"
 #, sh-format
 msgid "No root command specified, abording installation."
 msgstr ""
+"Kein Befehl mit Systemverwaltungsrechten spezifiziert, Installation wird "
+"abgebrochen."
 
 #: PlayOnLinux_Scripts/POL_Function_RootCommand_:13
 #: PlayOnLinux_Scripts/POL_Function_RootCommand_:17
@@ -1106,12 +1111,12 @@ msgstr "Bibliotheken werden installiert"
 #: PlayOnLinux_Scripts/POL_Install_mono26_:15
 #, sh-format
 msgid "Downloading Mono 2.6..."
-msgstr ""
+msgstr "Mono 2.6 herunterladen..."
 
 #: PlayOnLinux_Scripts/POL_Install_mono26_:21
 #, sh-format
 msgid "Installing Mono 2.6..."
-msgstr ""
+msgstr "Installiere Mono 2.6..."
 
 #: PlayOnLinux_Scripts/POL_Install_msxml3_:15
 #, sh-format
@@ -1239,6 +1244,13 @@ msgstr "Sie können die Installationsdatei für $TITLE hier herunterladen:"
 #: PlayOnLinux_Scripts/Runes_Of_Magic_:34
 #, sh-format
 msgid "Where is $TITLEs"
+msgstr "Wo ist $TITLEs"
+
+#: PlayOnLinux_Scripts/Safari_:50 PlayOnLinux_Scripts/Safari_:61
+#, sh-format
+msgid ""
+"During the install process, please deselect\\n\"Install Bonjour for "
+"Windows\" and \"Automaticaly update Safari\"."
 msgstr ""
 
 #: PlayOnLinux_Scripts/Sonic_Fan_Remix_:37
@@ -1277,7 +1289,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:150
 #, sh-format
 msgid "\"Horse Armor Pack\" installation will begin..."
-msgstr ""
+msgstr "\"Horse Armor Pack\" Installation beginnt..."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:53
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:78
@@ -1286,7 +1298,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:153
 #, sh-format
 msgid "\"Knights of the Nine\" installation will begin..."
-msgstr ""
+msgstr "\"Knights of the Nine\" Installation beginnt..."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:56
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:81
@@ -1295,7 +1307,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:156
 #, sh-format
 msgid "\"Mehrunes Razor\" installation will begin..."
-msgstr ""
+msgstr "\"Mehrunes Razor\" Installation beginnt..."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:59
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:84
@@ -1304,7 +1316,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:159
 #, sh-format
 msgid "\"Orrery\" installation will begin..."
-msgstr ""
+msgstr "\"Orrery\" Installation beginnt..."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:62
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:87
@@ -1313,7 +1325,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:162
 #, sh-format
 msgid "\"Spell Tomes\" installation will begin..."
-msgstr ""
+msgstr "\"Spell Tomes\" Installation beginnt..."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:65
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:90
@@ -1322,7 +1334,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:165
 #, sh-format
 msgid "\"Thieves Den\" installation will begin..."
-msgstr ""
+msgstr "\"Thieves Den\" Installation beginnt..."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:68
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:93
@@ -1331,7 +1343,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:168
 #, sh-format
 msgid "\"Vile Lair\" installation will begin..."
-msgstr ""
+msgstr "\"Vile Lair\" Installation beginnt..."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:71
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:96
@@ -1340,7 +1352,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:171
 #, sh-format
 msgid "\"Wizard Tower\" installation will begin..."
-msgstr ""
+msgstr "\"Wizard Tower\" Installation beginnt..."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:185
 #, sh-format
@@ -2651,14 +2663,14 @@ msgstr "Installiere Erweiterung: "
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr "Bitte warten Sie, währen $APPLICATION_TITLE folgendes herunterlädt:"
 
-#: lib/scripts.lib:341 lib/scripts.lib:375
+#: lib/scripts.lib:344 lib/scripts.lib:378
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 "Fehler! Dateien falsch zugeordnet\\n\\nLokal: $LOCAL_MD5\\nServer: "
 "$SERVER_MD5"
 
-#: lib/scripts.lib:429
+#: lib/scripts.lib:432
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
@@ -2666,27 +2678,27 @@ msgstr ""
 "7z is nicht installiert. Bitte stellen Sie sich, dass 7zip installiert ist "
 "und versuchen Sie es erneut"
 
-#: lib/scripts.lib:436
+#: lib/scripts.lib:439
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr "Lokalisieren von ${dest} aus ${archive} fehlgeschlagen"
 
-#: lib/scripts.lib:440
+#: lib/scripts.lib:443
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr "Entpacke ${filename} aus ${archivename}"
 
-#: lib/scripts.lib:455
+#: lib/scripts.lib:458
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr "Die Größe der entpackten Datei(en) stimmt nicht!"
 
-#: lib/scripts.lib:474
+#: lib/scripts.lib:477
 #, sh-format
 msgid "Copying ${filename}"
 msgstr "Kopiere ${filename}"
 
-#: lib/scripts.lib:487
+#: lib/scripts.lib:490
 #, sh-format
 msgid "File size does not match!"
 msgstr "Fie Größe der Datei(en) stimmt nicht!"
@@ -2736,22 +2748,22 @@ msgstr "Aktualisieren"
 msgid "Error: Unable to find the CD-ROM!"
 msgstr "Fehler: Keine CD-ROM gefunden!"
 
-#: lib/setupwindow.lib:840 lib/setupwindow.lib:949
+#: lib/setupwindow.lib:846 lib/setupwindow.lib:955
 #, sh-format
 msgid "Scanning the virtual drive ..."
 msgstr "Durchsuche das virtuelle Laufwerk..."
 
-#: lib/setupwindow.lib:854
+#: lib/setupwindow.lib:860
 #, sh-format
 msgid "How much memory does your graphics board have?"
 msgstr "Wieviel Speicher besitzt Ihre Grafikkarte?"
 
-#: lib/setupwindow.lib:863
+#: lib/setupwindow.lib:869
 #, sh-format
 msgid "Video card does not have enough memory"
 msgstr "Der Grafikkartenspeicher ist nicht groß genug"
 
-#: lib/setupwindow.lib:864
+#: lib/setupwindow.lib:870
 #, sh-format
 msgid ""
 "Your video card does not have enough memory!\\nIt might prevent the game "
@@ -2760,47 +2772,47 @@ msgstr ""
 "Ihr Grafikkartenspeicher ist nicht groß genug!\\nDas könnte zur Folge haben, "
 "dass das Spiel nicht läuft"
 
-#: lib/setupwindow.lib:878
+#: lib/setupwindow.lib:884
 #, sh-format
 msgid "Use Steam Store version"
 msgstr "Nutze Steam-Geschäft-Version"
 
-#: lib/setupwindow.lib:879
+#: lib/setupwindow.lib:885
 #, sh-format
 msgid "Use Steam Store demo version"
 msgstr "Nutze Steam-Geschäft-Demoversion"
 
-#: lib/setupwindow.lib:880
+#: lib/setupwindow.lib:886
 #, sh-format
 msgid "Use a setup file in my computer"
 msgstr "Nutze eine Installationsdatei in meinem Rechner"
 
-#: lib/setupwindow.lib:881
+#: lib/setupwindow.lib:887
 #, sh-format
 msgid "Use CD-ROM(s)"
 msgstr "Nutze CD-ROM(s)"
 
-#: lib/setupwindow.lib:882
+#: lib/setupwindow.lib:888
 #, sh-format
 msgid "Use DVD-ROM(s)"
 msgstr "Nutze DVD-ROM(s)"
 
-#: lib/setupwindow.lib:883
+#: lib/setupwindow.lib:889
 #, sh-format
 msgid "Download the program"
 msgstr "Das Programm herunterladen"
 
-#: lib/setupwindow.lib:924
+#: lib/setupwindow.lib:930
 #, sh-format
 msgid "Please choose an installation method"
 msgstr "Bitte wählen Sie eine Installationsmethode"
 
-#: lib/setupwindow.lib:951
+#: lib/setupwindow.lib:957
 #, sh-format
 msgid "I don't want to make another shortcut"
 msgstr "Ich möchte keine weiter Verknüpfung anlegen"
 
-#: lib/setupwindow.lib:952 python/guiv3.py:143
+#: lib/setupwindow.lib:958 python/guiv3.py:143
 #, sh-format
 msgid "Browse"
 msgstr "Durchsuchen"
@@ -2926,7 +2938,7 @@ msgstr "GLSL-Unterstützung"
 
 #: python/configure.py:413
 msgid "Direct Draw Renderer"
-msgstr ""
+msgstr "Direct Draw Renderer"
 
 #: python/configure.py:414
 msgid "Video memory size"
@@ -2942,7 +2954,7 @@ msgstr ""
 
 #: python/configure.py:417
 msgid "Multisampling"
-msgstr ""
+msgstr "Mehrfachabtastung"
 
 #: python/configure.py:418
 msgid "Strict Draw Ordering"

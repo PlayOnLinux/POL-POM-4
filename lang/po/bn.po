@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-10-08 19:00+0200\n"
+"POT-Creation-Date: 2011-10-09 19:00+0200\n"
 "PO-Revision-Date: 2010-12-06 09:00+0000\n"
 "Last-Translator: Aniruddha Adhikary <Unknown>\n"
 "Language-Team: Bengali <bn@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-09 05:13+0000\n"
-"X-Generator: Launchpad (build 14110)\n"
+"X-Launchpad-Export-Date: 2011-10-10 05:08+0000\n"
+"X-Generator: Launchpad (build 14123)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -308,6 +308,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/LIMBO_:64 PlayOnLinux_Scripts/Magicka_:70
 #: PlayOnLinux_Scripts/Mass_Effect_:61 PlayOnLinux_Scripts/Mass_Effect_2_:78
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:151 PlayOnLinux_Scripts/Portal_2_:63
+#: PlayOnLinux_Scripts/Safari_:60
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:66
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:178
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_:53
@@ -336,8 +337,8 @@ msgstr ""
 #: PlayOnLinux_Scripts/Divinity_II___The_Dragon_Knight_Saga_:75
 #: PlayOnLinux_Scripts/Fallout_3_:73 PlayOnLinux_Scripts/Google_SketchUp_:42
 #: PlayOnLinux_Scripts/Magicka_:72 PlayOnLinux_Scripts/Mass_Effect_:63
-#: PlayOnLinux_Scripts/Mozilla_Firefox_:152
-#: PlayOnLinux_Scripts/Sonic_Fan_Remix_:41
+#: PlayOnLinux_Scripts/Mozilla_Firefox_:152 PlayOnLinux_Scripts/Safari_:51
+#: PlayOnLinux_Scripts/Safari_:62 PlayOnLinux_Scripts/Sonic_Fan_Remix_:41
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:40
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:61
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:70
@@ -841,7 +842,7 @@ msgid "Installing $TITLE"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Diablo_II_:41 PlayOnLinux_Scripts/Google_SketchUp_:51
-#: PlayOnLinux_Scripts/Mozilla_Firefox_:208
+#: PlayOnLinux_Scripts/Mozilla_Firefox_:208 PlayOnLinux_Scripts/Safari_:77
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:88
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.0_:63
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1.1_:62
@@ -1175,6 +1176,13 @@ msgstr ""
 #: PlayOnLinux_Scripts/Runes_Of_Magic_:34
 #, sh-format
 msgid "Where is $TITLEs"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Safari_:50 PlayOnLinux_Scripts/Safari_:61
+#, sh-format
+msgid ""
+"During the install process, please deselect\\n\"Install Bonjour for "
+"Windows\" and \"Automaticaly update Safari\"."
 msgstr ""
 
 #: PlayOnLinux_Scripts/Sonic_Fan_Remix_:37
@@ -2491,38 +2499,38 @@ msgstr ""
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr ""
 
-#: lib/scripts.lib:341 lib/scripts.lib:375
+#: lib/scripts.lib:344 lib/scripts.lib:378
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 
-#: lib/scripts.lib:429
+#: lib/scripts.lib:432
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
 msgstr ""
 
-#: lib/scripts.lib:436
+#: lib/scripts.lib:439
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr ""
 
-#: lib/scripts.lib:440
+#: lib/scripts.lib:443
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr ""
 
-#: lib/scripts.lib:455
+#: lib/scripts.lib:458
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:474
+#: lib/scripts.lib:477
 #, sh-format
 msgid "Copying ${filename}"
 msgstr ""
 
-#: lib/scripts.lib:487
+#: lib/scripts.lib:490
 #, sh-format
 msgid "File size does not match!"
 msgstr ""
@@ -2572,69 +2580,69 @@ msgstr ""
 msgid "Error: Unable to find the CD-ROM!"
 msgstr ""
 
-#: lib/setupwindow.lib:840 lib/setupwindow.lib:949
+#: lib/setupwindow.lib:846 lib/setupwindow.lib:955
 #, sh-format
 msgid "Scanning the virtual drive ..."
 msgstr ""
 
-#: lib/setupwindow.lib:854
+#: lib/setupwindow.lib:860
 #, sh-format
 msgid "How much memory does your graphics board have?"
 msgstr "আপনার গ্রাফিক্স বোর্ডে কতটুকু মেমোরী আছে?"
 
-#: lib/setupwindow.lib:863
+#: lib/setupwindow.lib:869
 #, sh-format
 msgid "Video card does not have enough memory"
 msgstr ""
 
-#: lib/setupwindow.lib:864
+#: lib/setupwindow.lib:870
 #, sh-format
 msgid ""
 "Your video card does not have enough memory!\\nIt might prevent the game "
 "from working"
 msgstr ""
 
-#: lib/setupwindow.lib:878
+#: lib/setupwindow.lib:884
 #, sh-format
 msgid "Use Steam Store version"
 msgstr ""
 
-#: lib/setupwindow.lib:879
+#: lib/setupwindow.lib:885
 #, sh-format
 msgid "Use Steam Store demo version"
 msgstr ""
 
-#: lib/setupwindow.lib:880
+#: lib/setupwindow.lib:886
 #, sh-format
 msgid "Use a setup file in my computer"
 msgstr ""
 
-#: lib/setupwindow.lib:881
+#: lib/setupwindow.lib:887
 #, sh-format
 msgid "Use CD-ROM(s)"
 msgstr ""
 
-#: lib/setupwindow.lib:882
+#: lib/setupwindow.lib:888
 #, sh-format
 msgid "Use DVD-ROM(s)"
 msgstr ""
 
-#: lib/setupwindow.lib:883
+#: lib/setupwindow.lib:889
 #, sh-format
 msgid "Download the program"
 msgstr ""
 
-#: lib/setupwindow.lib:924
+#: lib/setupwindow.lib:930
 #, sh-format
 msgid "Please choose an installation method"
 msgstr ""
 
-#: lib/setupwindow.lib:951
+#: lib/setupwindow.lib:957
 #, sh-format
 msgid "I don't want to make another shortcut"
 msgstr ""
 
-#: lib/setupwindow.lib:952 python/guiv3.py:143
+#: lib/setupwindow.lib:958 python/guiv3.py:143
 #, sh-format
 msgid "Browse"
 msgstr ""
