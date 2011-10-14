@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2011-10-11 19:00+0200\n"
+"POT-Creation-Date: 2011-10-12 19:01+0200\n"
 "PO-Revision-Date: 2011-09-29 13:15+0000\n"
 "Last-Translator: Muten <Unknown>\n"
 "Language-Team: fr_FR.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-12 04:36+0000\n"
+"X-Launchpad-Export-Date: 2011-10-13 04:34+0000\n"
 "X-Generator: Launchpad (build 14124)\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -1016,7 +1016,7 @@ msgstr ""
 
 #: PlayOnLinux_Scripts/POL_Function_FontsSmoothRGB_:1
 #: bash/installpolpackages:26 bash/killall:29 bash/winebash:27
-#: lib/wine.lib:632
+#: lib/wine.lib:630
 #, sh-format
 msgid "Please wait..."
 msgstr "Veuillez patienter..."
@@ -1444,7 +1444,7 @@ msgid "File not found!"
 msgstr "Fichier introuvable !"
 
 #: bash/first_use:33 bash/first_use:50 bash/first_use:54 bash/first_use:65
-#: bash/first_use:84 bash/first_use:108
+#: bash/first_use:83 bash/first_use:107
 #, sh-format
 msgid "Microsoft fonts"
 msgstr "Polices Microsoft"
@@ -1518,22 +1518,22 @@ msgstr "Téléchargement des polices"
 msgid "Downloading: "
 msgstr "Téléchargement : "
 
-#: bash/first_use:84
+#: bash/first_use:83
 #, sh-format
 msgid "Installing fonts"
 msgstr "Installation des polices"
 
-#: bash/first_use:89 bash/first_use:90 bash/first_use:97 bash/first_use:98
+#: bash/first_use:88 bash/first_use:89 bash/first_use:96 bash/first_use:97
 #, sh-format
 msgid "Installing: "
 msgstr "Installation : "
 
-#: bash/first_use:108
+#: bash/first_use:107
 #, sh-format
 msgid "Microsoft fonts have been installed successfully."
 msgstr "Les polices Microsoft ont été installées avec succès."
 
-#: bash/first_use:128
+#: bash/first_use:127
 #, sh-format
 msgid ""
 "To ensure that your games will be compatible, PlayOnMac must install XQuartz"
@@ -1541,80 +1541,80 @@ msgstr ""
 "Pour s'assurer que vos jeux seront compatibles, PlayOnMac doit installer "
 "XQuartz"
 
-#: bash/first_use:129
+#: bash/first_use:128
 #, sh-format
 msgid "Don't install XQuartz for the moment"
 msgstr "Ne pas installer XQuartz pour le moment"
 
-#: bash/first_use:129
+#: bash/first_use:128
 #, sh-format
 msgid "I've downloaded the file by myself"
 msgstr "J'ai téléchargé le fichier moi même"
 
-#: bash/first_use:129
+#: bash/first_use:128
 #, sh-format
 msgid "Please download XQuartz for me"
 msgstr "Télécharger XQuartz pour moi"
 
-#: bash/first_use:132
+#: bash/first_use:131
 #, sh-format
 msgid "Downloading XQuartz"
 msgstr "Téléchargement de XQuartz"
 
-#: bash/first_use:137
+#: bash/first_use:136
 #, sh-format
 msgid "Where is"
 msgstr "Où est"
 
-#: bash/first_use:144
+#: bash/first_use:143
 #, sh-format
 msgid "Installing XQuartz..."
 msgstr "Installation de XQuartz"
 
-#: bash/first_use:157
+#: bash/first_use:156
 #, sh-format
 msgid ""
 "Unable to install XQuartz! You must install it to improve games "
 "compatibility."
 msgstr ""
 
-#: bash/first_use:159
+#: bash/first_use:158
 #, sh-format
 msgid "XQuartz has been installed. You might need to reboot your computer"
 msgstr ""
 
-#: bash/first_use:164
+#: bash/first_use:163
 #, sh-format
 msgid "Default virtual drive configuration"
 msgstr "Configuration du disque virtuel par défaut"
 
-#: bash/first_use:165
+#: bash/first_use:164
 #, sh-format
 msgid "$APPLICATION_TITLE is making a virtual windows hard drive"
 msgstr "$APPLICATION_TITLE construit un disque dur Windows virtuel"
 
-#: bash/first_use:279 bash/first_use:286
+#: bash/first_use:278 bash/first_use:285
 #, sh-format
 msgid "$APPLICATION_TITLE first use"
 msgstr "Première utilisation de $APPLICATION_TITLE"
 
-#: bash/first_use:279
+#: bash/first_use:278
 #, sh-format
 msgid "It appears it is the first time you are using $APPLICATION_TITLE."
 msgstr "Vous utilisez $APPLICATION_TITLE pour la première fois."
 
-#: bash/first_use:279
+#: bash/first_use:278
 #, sh-format
 msgid "Please ensure you are connected to the internet."
 msgstr "Merci de vérifier que vous êtes connecté à Internet"
 
-#: bash/first_use:279
+#: bash/first_use:278
 #, sh-format
 msgid "This wizard will help you prepare $APPLICATION_TITLE environement"
 msgstr ""
 "Cet assistant vous aidera à préparer l'environnement de $APPLICATION_TITLE"
 
-#: bash/first_use:286
+#: bash/first_use:285
 #, sh-format
 msgid "Thank you for using $APPLICATION_TITLE"
 msgstr "Merci d'utiliser $APPLICATION_TITLE"
@@ -2547,12 +2547,12 @@ msgstr ""
 "l'accélération 3D est supportée."
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:536
+#: lib/wine.lib:535
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr "Merci de patienter pendant la création du disque dur virtuel"
 
-#: lib/deprecated.lib:427 lib/wine.lib:643
+#: lib/deprecated.lib:427 lib/wine.lib:641
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a Windows reboot"
 msgstr ""
@@ -2795,22 +2795,22 @@ msgstr "Impossible de trouver la version : "
 msgid "Downloading Wine: "
 msgstr "Téléchargement de Wine : "
 
-#: lib/wine.lib:464
+#: lib/wine.lib:463
 #, sh-format
 msgid "The download seems to have failed."
 msgstr "Le téléchargement semble avoir échoué."
 
-#: lib/wine.lib:466
+#: lib/wine.lib:465
 #, sh-format
 msgid "Extracting Wine..."
 msgstr "Extraction de Wine..."
 
-#: lib/wine.lib:632
+#: lib/wine.lib:630
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr ""
 
-#: lib/wine.lib:634 lib/wine.lib:635
+#: lib/wine.lib:632 lib/wine.lib:633
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr ""

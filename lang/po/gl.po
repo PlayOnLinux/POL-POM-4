@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-10-11 19:00+0200\n"
+"POT-Creation-Date: 2011-10-12 19:01+0200\n"
 "PO-Revision-Date: 2011-09-21 04:49+0000\n"
 "Last-Translator: Aymeric <os2mule@gmail.com>\n"
 "Language-Team: Galician <gl@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-12 04:36+0000\n"
+"X-Launchpad-Export-Date: 2011-10-13 04:34+0000\n"
 "X-Generator: Launchpad (build 14124)\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -979,7 +979,7 @@ msgstr ""
 
 #: PlayOnLinux_Scripts/POL_Function_FontsSmoothRGB_:1
 #: bash/installpolpackages:26 bash/killall:29 bash/winebash:27
-#: lib/wine.lib:632
+#: lib/wine.lib:630
 #, sh-format
 msgid "Please wait..."
 msgstr "Porfavor agarde..."
@@ -1407,7 +1407,7 @@ msgid "File not found!"
 msgstr "Arquivo non atopado!"
 
 #: bash/first_use:33 bash/first_use:50 bash/first_use:54 bash/first_use:65
-#: bash/first_use:84 bash/first_use:108
+#: bash/first_use:83 bash/first_use:107
 #, sh-format
 msgid "Microsoft fonts"
 msgstr "Fontes Microsoft"
@@ -1479,100 +1479,100 @@ msgstr "Descargando fontes"
 msgid "Downloading: "
 msgstr "Descargando: "
 
-#: bash/first_use:84
+#: bash/first_use:83
 #, sh-format
 msgid "Installing fonts"
 msgstr "Instalando fontes"
 
-#: bash/first_use:89 bash/first_use:90 bash/first_use:97 bash/first_use:98
+#: bash/first_use:88 bash/first_use:89 bash/first_use:96 bash/first_use:97
 #, sh-format
 msgid "Installing: "
 msgstr "Instalando: "
 
-#: bash/first_use:108
+#: bash/first_use:107
 #, sh-format
 msgid "Microsoft fonts have been installed successfully."
 msgstr "As fontes de Microsoft foron instaladas correctamente."
 
-#: bash/first_use:128
+#: bash/first_use:127
 #, sh-format
 msgid ""
 "To ensure that your games will be compatible, PlayOnMac must install XQuartz"
 msgstr ""
 
-#: bash/first_use:129
+#: bash/first_use:128
 #, sh-format
 msgid "Don't install XQuartz for the moment"
 msgstr "Demomento non instalar XQuartz"
 
-#: bash/first_use:129
+#: bash/first_use:128
 #, sh-format
 msgid "I've downloaded the file by myself"
 msgstr "Descargarei o arquivo por min mesmo"
 
-#: bash/first_use:129
+#: bash/first_use:128
 #, sh-format
 msgid "Please download XQuartz for me"
 msgstr "Porfavor descargue XQuartz por min"
 
-#: bash/first_use:132
+#: bash/first_use:131
 #, sh-format
 msgid "Downloading XQuartz"
 msgstr "Descargando XQuartz"
 
-#: bash/first_use:137
+#: bash/first_use:136
 #, sh-format
 msgid "Where is"
 msgstr "Donde é"
 
-#: bash/first_use:144
+#: bash/first_use:143
 #, sh-format
 msgid "Installing XQuartz..."
 msgstr "Instalando XQuartz..."
 
-#: bash/first_use:157
+#: bash/first_use:156
 #, sh-format
 msgid ""
 "Unable to install XQuartz! You must install it to improve games "
 "compatibility."
 msgstr ""
 
-#: bash/first_use:159
+#: bash/first_use:158
 #, sh-format
 msgid "XQuartz has been installed. You might need to reboot your computer"
 msgstr ""
 
-#: bash/first_use:164
+#: bash/first_use:163
 #, sh-format
 msgid "Default virtual drive configuration"
 msgstr "Configuración por defecto do dispositivo virtual"
 
-#: bash/first_use:165
+#: bash/first_use:164
 #, sh-format
 msgid "$APPLICATION_TITLE is making a virtual windows hard drive"
 msgstr ""
 
-#: bash/first_use:279 bash/first_use:286
+#: bash/first_use:278 bash/first_use:285
 #, sh-format
 msgid "$APPLICATION_TITLE first use"
 msgstr ""
 
-#: bash/first_use:279
+#: bash/first_use:278
 #, sh-format
 msgid "It appears it is the first time you are using $APPLICATION_TITLE."
 msgstr ""
 
-#: bash/first_use:279
+#: bash/first_use:278
 #, sh-format
 msgid "Please ensure you are connected to the internet."
 msgstr "Porfavor segurese de que está conectado a internet."
 
-#: bash/first_use:279
+#: bash/first_use:278
 #, sh-format
 msgid "This wizard will help you prepare $APPLICATION_TITLE environement"
 msgstr ""
 
-#: bash/first_use:286
+#: bash/first_use:285
 #, sh-format
 msgid "Thank you for using $APPLICATION_TITLE"
 msgstr ""
@@ -2476,12 +2476,12 @@ msgstr ""
 "está soportada."
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:536
+#: lib/wine.lib:535
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr "Porfavor espere mentres o dispositivo virtual e creado..."
 
-#: lib/deprecated.lib:427 lib/wine.lib:643
+#: lib/deprecated.lib:427 lib/wine.lib:641
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a Windows reboot"
 msgstr ""
@@ -2717,22 +2717,22 @@ msgstr "Non se pode atopar a versión: "
 msgid "Downloading Wine: "
 msgstr "Descargando Wine: "
 
-#: lib/wine.lib:464
+#: lib/wine.lib:463
 #, sh-format
 msgid "The download seems to have failed."
 msgstr "A descarga parece que tuvo un fallo."
 
-#: lib/wine.lib:466
+#: lib/wine.lib:465
 #, sh-format
 msgid "Extracting Wine..."
 msgstr "Extraendo Wine..."
 
-#: lib/wine.lib:632
+#: lib/wine.lib:630
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr ""
 
-#: lib/wine.lib:634 lib/wine.lib:635
+#: lib/wine.lib:632 lib/wine.lib:633
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr ""
