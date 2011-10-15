@@ -220,7 +220,7 @@ POL_Shortcut()
 
 	if [ "$Binaire" = "" ]
 	then
-		POL_Debug_Error "Binary not found! : $Binaire"
+		POL_Debug_Error "Binary not found! : $1\n\nHave you installed the program to the default location?"
 	fi
 	## On génère le binaire 
 	echo "#!/bin/bash" > "$REPERTOIRE/shortcuts/$NOMICONE_"
