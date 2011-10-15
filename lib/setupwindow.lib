@@ -929,6 +929,13 @@ POL_SetupWindow_InstallMethod()
 	
 	POL_SetupWindow_icon_menu "$(eval_gettext "Please choose an installation method")" "$TITLE"  "$STR" "~" "$POL_USER_ROOT/tmp/cache/icons/InstallMethod" "$ICO"
 	
+	# Si l'utilisateur n'a rien choisi
+	if [ "$APP_ANSWER" = "" ]
+	then
+		POL_SetupWindow_InstallMethod "$1"
+		return
+	fi
+	
 	[ "$APP_ANSWER" = "$LNG_LOCAL" ] && INSTALL_METHOD="LOCAL"
 	[ "$APP_ANSWER" = "$LNG_STEAM" ] && INSTALL_METHOD="STEAM"
 	[ "$APP_ANSWER" = "$LNG_STEAM_DEMO" ] && INSTALL_METHOD="STEAM_DEMO"
