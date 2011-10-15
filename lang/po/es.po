@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2011-10-07 19:00+0200\n"
+"POT-Creation-Date: 2011-10-13 19:00+0200\n"
 "PO-Revision-Date: 2011-10-03 06:31+0000\n"
 "Last-Translator: Aymeric <os2mule@gmail.com>\n"
 "Language-Team: es_ES.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-10-08 05:13+0000\n"
-"X-Generator: Launchpad (build 14110)\n"
+"X-Launchpad-Export-Date: 2011-10-14 05:13+0000\n"
+"X-Generator: Launchpad (build 14124)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -317,7 +317,9 @@ msgstr ""
 #: PlayOnLinux_Scripts/Grand_Theft_Auto___San_Andreas_:60
 #: PlayOnLinux_Scripts/LIMBO_:64 PlayOnLinux_Scripts/Magicka_:70
 #: PlayOnLinux_Scripts/Mass_Effect_:61 PlayOnLinux_Scripts/Mass_Effect_2_:78
+#: PlayOnLinux_Scripts/Mount_and_Blade___Warband_:35
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:151 PlayOnLinux_Scripts/Portal_2_:63
+#: PlayOnLinux_Scripts/Safari_:60
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:66
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:178
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_:53
@@ -346,8 +348,10 @@ msgstr "Por favor selecciona el fichero de instalación a ejecutar:"
 #: PlayOnLinux_Scripts/Divinity_II___The_Dragon_Knight_Saga_:75
 #: PlayOnLinux_Scripts/Fallout_3_:73 PlayOnLinux_Scripts/Google_SketchUp_:42
 #: PlayOnLinux_Scripts/Magicka_:72 PlayOnLinux_Scripts/Mass_Effect_:63
-#: PlayOnLinux_Scripts/Mozilla_Firefox_:152
-#: PlayOnLinux_Scripts/Sonic_Fan_Remix_:41
+#: PlayOnLinux_Scripts/Mount_and_Blade___Warband_:36
+#: PlayOnLinux_Scripts/Mount_and_Blade___Warband_:46
+#: PlayOnLinux_Scripts/Mozilla_Firefox_:152 PlayOnLinux_Scripts/Safari_:51
+#: PlayOnLinux_Scripts/Safari_:62 PlayOnLinux_Scripts/Sonic_Fan_Remix_:41
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:40
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:61
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:70
@@ -887,7 +891,8 @@ msgid "Installing $TITLE"
 msgstr "Instalando $TITLE"
 
 #: PlayOnLinux_Scripts/Diablo_II_:41 PlayOnLinux_Scripts/Google_SketchUp_:51
-#: PlayOnLinux_Scripts/Mozilla_Firefox_:208
+#: PlayOnLinux_Scripts/Mount_and_Blade___Warband_:80
+#: PlayOnLinux_Scripts/Mozilla_Firefox_:208 PlayOnLinux_Scripts/Safari_:77
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:88
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.0_:63
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1.1_:62
@@ -1019,7 +1024,7 @@ msgstr "Instalando $PLUGIN_NAME_JAVA..."
 
 #: PlayOnLinux_Scripts/POL_Function_FontsSmoothRGB_:1
 #: bash/installpolpackages:26 bash/killall:29 bash/winebash:27
-#: lib/wine.lib:632
+#: lib/wine.lib:630
 #, sh-format
 msgid "Please wait..."
 msgstr "Por favor espere..."
@@ -1236,6 +1241,13 @@ msgstr "Puede descargar el archivo de instalación de $TITLE en:"
 #, sh-format
 msgid "Where is $TITLEs"
 msgstr "¿Dónde está $TITLEs"
+
+#: PlayOnLinux_Scripts/Safari_:50 PlayOnLinux_Scripts/Safari_:61
+#, sh-format
+msgid ""
+"During the install process, please deselect\\n\"Install Bonjour for "
+"Windows\" and \"Automaticaly update Safari\"."
+msgstr ""
 
 #: PlayOnLinux_Scripts/Sonic_Fan_Remix_:37
 #, sh-format
@@ -1458,7 +1470,7 @@ msgid "File not found!"
 msgstr "¡No se encontró el archivo!"
 
 #: bash/first_use:33 bash/first_use:50 bash/first_use:54 bash/first_use:65
-#: bash/first_use:84 bash/first_use:108
+#: bash/first_use:83 bash/first_use:107
 #, sh-format
 msgid "Microsoft fonts"
 msgstr "Tipografías Microsoft"
@@ -1531,22 +1543,22 @@ msgstr "Descargando tipografías"
 msgid "Downloading: "
 msgstr "Descargando: "
 
-#: bash/first_use:84
+#: bash/first_use:83
 #, sh-format
 msgid "Installing fonts"
 msgstr "Instalando tipografías"
 
-#: bash/first_use:89 bash/first_use:90 bash/first_use:97 bash/first_use:98
+#: bash/first_use:88 bash/first_use:89 bash/first_use:96 bash/first_use:97
 #, sh-format
 msgid "Installing: "
 msgstr "Instalando: "
 
-#: bash/first_use:108
+#: bash/first_use:107
 #, sh-format
 msgid "Microsoft fonts have been installed successfully."
 msgstr "Las fuentes de Microsoft se han instalado correctamente."
 
-#: bash/first_use:128
+#: bash/first_use:127
 #, sh-format
 msgid ""
 "To ensure that your games will be compatible, PlayOnMac must install XQuartz"
@@ -1554,37 +1566,37 @@ msgstr ""
 "Para asegurarse de que sus juegos serán compatibles, PlayOnMac debe instalar "
 "XQuartz"
 
-#: bash/first_use:129
+#: bash/first_use:128
 #, sh-format
 msgid "Don't install XQuartz for the moment"
 msgstr "No instale XQuartz por el momento"
 
-#: bash/first_use:129
+#: bash/first_use:128
 #, sh-format
 msgid "I've downloaded the file by myself"
 msgstr "He descargando este archivo yo mismo"
 
-#: bash/first_use:129
+#: bash/first_use:128
 #, sh-format
 msgid "Please download XQuartz for me"
 msgstr "Por favor, descargue XQuartz para mí"
 
-#: bash/first_use:132
+#: bash/first_use:131
 #, sh-format
 msgid "Downloading XQuartz"
 msgstr "Descargando XQuartz"
 
-#: bash/first_use:137
+#: bash/first_use:136
 #, sh-format
 msgid "Where is"
 msgstr "¿Dónde está"
 
-#: bash/first_use:144
+#: bash/first_use:143
 #, sh-format
 msgid "Installing XQuartz..."
 msgstr "Instalando XQuartz"
 
-#: bash/first_use:157
+#: bash/first_use:156
 #, sh-format
 msgid ""
 "Unable to install XQuartz! You must install it to improve games "
@@ -1593,45 +1605,45 @@ msgstr ""
 "¡No se puede instalar XQuartz! debes instalarlo para mejorar la "
 "compatibilidad de los juegos"
 
-#: bash/first_use:159
+#: bash/first_use:158
 #, sh-format
 msgid "XQuartz has been installed. You might need to reboot your computer"
 msgstr ""
 "XQuartz ha sido instalado. Es posible que tenga que reiniciar el equipo"
 
-#: bash/first_use:164
+#: bash/first_use:163
 #, sh-format
 msgid "Default virtual drive configuration"
 msgstr "Configuración de unidad de disco virtual por defecto"
 
-#: bash/first_use:165
+#: bash/first_use:164
 #, sh-format
 msgid "$APPLICATION_TITLE is making a virtual windows hard drive"
 msgstr ""
 "$APPLICATION_TITLE está creando una unidad de disco rígido virtual de windows"
 
-#: bash/first_use:279 bash/first_use:286
+#: bash/first_use:278 bash/first_use:285
 #, sh-format
 msgid "$APPLICATION_TITLE first use"
 msgstr "Primer uso de $APPLICATION_TITLE"
 
-#: bash/first_use:279
+#: bash/first_use:278
 #, sh-format
 msgid "It appears it is the first time you are using $APPLICATION_TITLE."
 msgstr "Parece que es la primera vez que está usando $APPLICATION_TITLE."
 
-#: bash/first_use:279
+#: bash/first_use:278
 #, sh-format
 msgid "Please ensure you are connected to the internet."
 msgstr "Por favor, verifique que esté conectado a internet"
 
-#: bash/first_use:279
+#: bash/first_use:278
 #, sh-format
 msgid "This wizard will help you prepare $APPLICATION_TITLE environement"
 msgstr ""
 "Este asistente le ayudará a preparar el entorno de $APPLICATION_TITLE"
 
-#: bash/first_use:286
+#: bash/first_use:285
 #, sh-format
 msgid "Thank you for using $APPLICATION_TITLE"
 msgstr "Gracias por usar $APPLICATION_TITLE"
@@ -2568,12 +2580,12 @@ msgstr ""
 "está soportada."
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:536
+#: lib/wine.lib:535
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr "Por favor, espere mientras la unidad virtual se está creando..."
 
-#: lib/deprecated.lib:427 lib/wine.lib:643
+#: lib/deprecated.lib:427 lib/wine.lib:641
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a Windows reboot"
 msgstr ""
@@ -2628,13 +2640,13 @@ msgstr "Instalando plugin: "
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr "Por favor, espere mientras  $APPLICATION_TITLE se descarga:"
 
-#: lib/scripts.lib:341 lib/scripts.lib:375
+#: lib/scripts.lib:344 lib/scripts.lib:378
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 "Error! Los archivos no coinciden\\n\\n : $LOCAL_MD5\\nServidor: $SERVER_MD5"
 
-#: lib/scripts.lib:429
+#: lib/scripts.lib:432
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
@@ -2642,27 +2654,27 @@ msgstr ""
 "7z no instalado, por favor, compruebe que tiene instalado 7zip y vuelva a "
 "intentarlo."
 
-#: lib/scripts.lib:436
+#: lib/scripts.lib:439
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr "No se pudo localizar ${dest} de ${archive}"
 
-#: lib/scripts.lib:440
+#: lib/scripts.lib:443
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr "Extrayendo ${filename} de ${archivename}"
 
-#: lib/scripts.lib:455
+#: lib/scripts.lib:458
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr "¡No coincide el tamaño del archivo extraído!"
 
-#: lib/scripts.lib:474
+#: lib/scripts.lib:477
 #, sh-format
 msgid "Copying ${filename}"
 msgstr "Copiando ${filename}"
 
-#: lib/scripts.lib:487
+#: lib/scripts.lib:490
 #, sh-format
 msgid "File size does not match!"
 msgstr "¡No coincide el tamaño del archivo!"
@@ -2712,22 +2724,22 @@ msgstr "Actualizar"
 msgid "Error: Unable to find the CD-ROM!"
 msgstr "Error: ¡no se encontró el CD-ROM!"
 
-#: lib/setupwindow.lib:840 lib/setupwindow.lib:949
+#: lib/setupwindow.lib:846 lib/setupwindow.lib:955
 #, sh-format
 msgid "Scanning the virtual drive ..."
 msgstr "Escaneando la unidad virtual ..."
 
-#: lib/setupwindow.lib:854
+#: lib/setupwindow.lib:860
 #, sh-format
 msgid "How much memory does your graphics board have?"
 msgstr "¿Cuánta memoria tiene su tarjeta gráfica ?"
 
-#: lib/setupwindow.lib:863
+#: lib/setupwindow.lib:869
 #, sh-format
 msgid "Video card does not have enough memory"
 msgstr "La tarjeta de vídeo no tiene suficiente memoria"
 
-#: lib/setupwindow.lib:864
+#: lib/setupwindow.lib:870
 #, sh-format
 msgid ""
 "Your video card does not have enough memory!\\nIt might prevent the game "
@@ -2736,47 +2748,47 @@ msgstr ""
 "¡Su tarjeta de vídeo no tiene suficiente memoria!\\nPodría evitar que el "
 "juego se ejecute"
 
-#: lib/setupwindow.lib:878
+#: lib/setupwindow.lib:884
 #, sh-format
 msgid "Use Steam Store version"
 msgstr "Usar la versión de Steam Store"
 
-#: lib/setupwindow.lib:879
+#: lib/setupwindow.lib:885
 #, sh-format
 msgid "Use Steam Store demo version"
 msgstr "Usar versión demo de Steam Store"
 
-#: lib/setupwindow.lib:880
+#: lib/setupwindow.lib:886
 #, sh-format
 msgid "Use a setup file in my computer"
 msgstr "Usar un archivo de configuración de mi ordenador"
 
-#: lib/setupwindow.lib:881
+#: lib/setupwindow.lib:887
 #, sh-format
 msgid "Use CD-ROM(s)"
 msgstr "Usar CD-ROM(s)"
 
-#: lib/setupwindow.lib:882
+#: lib/setupwindow.lib:888
 #, sh-format
 msgid "Use DVD-ROM(s)"
 msgstr "Usar DVD-ROM(s)"
 
-#: lib/setupwindow.lib:883
+#: lib/setupwindow.lib:889
 #, sh-format
 msgid "Download the program"
 msgstr "Descargar el programa"
 
-#: lib/setupwindow.lib:924
+#: lib/setupwindow.lib:930
 #, sh-format
 msgid "Please choose an installation method"
 msgstr "Por favor, elija un método de instalación"
 
-#: lib/setupwindow.lib:951
+#: lib/setupwindow.lib:957
 #, sh-format
 msgid "I don't want to make another shortcut"
 msgstr "No quiero hacer otro acceso directo."
 
-#: lib/setupwindow.lib:952 python/guiv3.py:143
+#: lib/setupwindow.lib:958 python/guiv3.py:143
 #, sh-format
 msgid "Browse"
 msgstr "Explorar"
@@ -2819,22 +2831,22 @@ msgstr "No se pudo encontrar la versión: "
 msgid "Downloading Wine: "
 msgstr "Descargando Wine: "
 
-#: lib/wine.lib:464
+#: lib/wine.lib:463
 #, sh-format
 msgid "The download seems to have failed."
 msgstr "La descarga ha fallado."
 
-#: lib/wine.lib:466
+#: lib/wine.lib:465
 #, sh-format
 msgid "Extracting Wine..."
 msgstr "Extrayendo Wine..."
 
-#: lib/wine.lib:632
+#: lib/wine.lib:630
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "Por favor, espere mientras $SOFTNAME se instala..."
 
-#: lib/wine.lib:634 lib/wine.lib:635
+#: lib/wine.lib:632 lib/wine.lib:633
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr ""

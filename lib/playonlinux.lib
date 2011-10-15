@@ -672,7 +672,6 @@ clean_wineprefix()
 			then
 				rm -rf $1
 			fi
-			POL_SetupWindow_detect_exit
 		fi
 	fi
 }
