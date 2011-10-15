@@ -932,7 +932,7 @@ POL_SetupWindow_InstallMethod()
 	# Si l'utilisateur n'a rien choisi
 	if [ "$APP_ANSWER" = "" ]
 	then
-		POL_SetupWindow_InstallMethod "$1"
+		POL_SetupWindow_InstallMethod "$@"
 		return
 	fi
 	
