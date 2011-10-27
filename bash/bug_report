@@ -63,7 +63,7 @@ DESCRIPTION="$APP_ANSWER
 
 [code language%3Dconsole]$(cat "$POL_USER_ROOT/logs/$LOGTITLE/$LOGTITLE.log")[/code]"
 fi
-if [ "$BUG_TITLE" = "" ] || [ "$DESCRIPTION" = "" ]
+if [ "$BUGTITLE" = "" ] || [ "$DESCRIPTION" = "" ]
 then
 	POL_SetupWindow_message "$(eval_gettext 'Sorry, we need a detailed description.')" "$TITLE"
 	POL_SetupWindow_Close
