@@ -565,8 +565,8 @@ class MainWindow(wx.Frame):
     self.aboutBox.AddDeveloper(_("Packager: ")+"MulX (Petit Aymeric), Tinou (Pâris Quentin)")
     self.aboutBox.AddDeveloper(_("Icons:")+"Faenza-Icons http://tiheum.deviantart.com/art/Faenza-Icons-173323228")
     self.aboutBox.AddDeveloper(_("The following people contributed to this program: ")+"kiplantt, Salvatos, Minchul")
-    self.aboutBox.AddTranslator(_("Translation made on Launchpad:"))
-    self.aboutBox.AddTranslator("https://translations.launchpad.net/playonlinux/")
+    self.aboutBox.AddTranslator(_("Translations:"))
+    self.aboutBox.AddTranslator(_("Read TRANSLATORS file"))
 
     if(os.environ["POL_OS"] == "Mac"):
     	self.aboutBox.SetWebSite("http://www.playonmac.com")
