@@ -281,8 +281,6 @@ class IRCClient(threading.Thread):
 
   def traiter(self, line):
     self.line = string.split(line, " ") # On parse la ligne mot par mot
-    if(os.environ["POL_DEBUG"] == "TRUE"):
-	print self.line
     # On répond aux pings
     if(self.line[0] and len(self.line) > 1):
 	self.message_id = self.line[1]
