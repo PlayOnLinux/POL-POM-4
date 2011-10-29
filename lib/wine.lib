@@ -115,6 +115,30 @@ POL_Wine_Direct3D ()
 	fi
 	wineserver -k
 }
+POL_Wine_X11Drv ()
+{
+	# Change a X11Drv value in registry
+	# Usage POL_Wine_X11Drv Key Value
+	
+	# Example :: POL_Wine_X11Drv UseGLSL [default / enabled / disabled]
+	# default : remove the key
+	[ "$WINEPREFIX" = "" ] && POL_Debug_Fatal "POL_Wine_X11 Driver : WINEPREFIX not set"
+	
+	wineserver -k
+	if [ "$2" = "default" ]
+	then
+		echo "[HKEY_CURRENT_USER\Software\Wine\X11 Driver]" > "$REPERTOIRE/tmp/wine.reg"
+		echo "\"$1\"=-" >> "$REPERTOIRE/tmp/wine.reg"
+		POL_Wine regedit "$REPERTOIRE/tmp/wine.reg"
+		rm -f "$REPERTOIRE/tmp/wine.reg"
+	else
+		echo "[HKEY_CURRENT_USER\Software\Wine\X11 Driver]" > "$REPERTOIRE/tmp/wine.reg"
+		echo "\"$1\"=\"$2\"" >> "$REPERTOIRE/tmp/wine.reg"
+		POL_Wine regedit "$REPERTOIRE/tmp/wine.reg"
+		rm -f "$REPERTOIRE/tmp/wine.reg"
+	fi
+	wineserver -k
+}
 POL_Wine_DirectSound ()
 {
 	# Same that POL_Wine_Direct3D, but for DirectSound
