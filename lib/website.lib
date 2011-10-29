@@ -121,7 +121,7 @@ POL_Website_check_login()
 	# Usage: POL_Website_check_login
 	POL_SetupWindow_wait_next_signal "$(eval_gettext "Connecting...")" "$TITLE"
 
-	result="$(wget -q http://repository.playonlinux.com/V4_data/repository/check_login.php?l=$POL_LOGIN\&p=$POL_PASSWORD -O-)"
+	result="$(wget -q http://repository.playonlinux.com/V4_data/repository/check_login.php?l=$POL_LOGIN\&m=$(POL_MD5 $POL_PASSWORD) -O-)"
 	if [ "$result" = "0" ]
 	then
 		POL_SetupWindow_message "$(eval_gettext "Failed to connect !\nPlease ensure that your login and your password are valid.")" "$TITLE"
