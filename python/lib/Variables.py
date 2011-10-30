@@ -50,7 +50,7 @@ os.environ["OS_NAME"] = os_name
 homedir = os.environ["HOME"]
 
 # Wine
-os.environ["WINEDLLOVERRIDES"] = "winemenubuilder.exe=d"i
+os.environ["WINEDLLOVERRIDES"] = "winemenubuilder.exe=d"
 
 # Si DYLD_LIBRARY_PATH n'existe pas, on la defini pour etre sur	
 try :
