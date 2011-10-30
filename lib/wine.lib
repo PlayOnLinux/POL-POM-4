@@ -318,7 +318,7 @@ POL_LoadVar_PROGRAMFILES()
 	then # Var is not defined by wine
 		export PROGRAMFILES="Program Files"
 	else
-		export PROGRAMFILES=${PROGRAMFILES:3}
+		export PROGRAMFILES="${PROGRAMFILES:3}"
 	fi
 }
 Set_WineWindowTitle ()
