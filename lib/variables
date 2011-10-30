@@ -35,7 +35,7 @@ else
 	eval_gettext() { printf "$@"; }
 fi
 
-which shasum > /dev/null || shasum () { sha1sum "$@"; }
+which shasum > /dev/null 2> /dev/null || shasum () { sha1sum "$@"; }
 
 ### POL Proxy Settings
 if [ -e "$REPERTOIRE/configurations/options/proxy" ]
