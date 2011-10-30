@@ -616,7 +616,7 @@ EOF
  
 	POL_Debug_Message "Overriting DLLs"
 	POL_SetupWindow_wait_next_signal "Please wait" "$TITLE"
-	wine regedit "$POL_USER_ROOT/tmp/override-dll.reg"
+	POL_Wine regedit "$POL_USER_ROOT/tmp/override-dll.reg"
 }
 
 POL_Wine_OverrideDLL_App()
@@ -663,5 +663,5 @@ POL_Wine_reboot ()
 {
 	# Simulate windows reboot
 	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Please wait while $APPLICATION_TITLE is simulating a Windows reboot')" "Wine"
-	wine wineboot
+	POL_Wine wineboot
 }
