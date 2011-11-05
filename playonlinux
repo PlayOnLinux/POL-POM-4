@@ -40,9 +40,45 @@ export MACHTYPE
 
 [ "$PLAYONLINUX" = "" ] || die "You are already in a PlayOnLinux environement" 
 
-if [ ! "$(which $PYTHON)" ]
+# On part a la recherche de python. (Pourquoi est-ce que certaines distros ne le mette pas dans /usr/bin/python, comme tout le monde :'( )
+if [ "$(which $PYTHON)" ]
 then
-	echo "Please install $PYTHON before trying to run PlayOnLinux"
+	PythonBin="$PYTHON"
+	PythonFound="True"
+fi
+
+if [ ! "$PythonFound" = "True" ]
+then
+	if [ "$(which python2)" ]
+	then
+		PythonBin="python2"
+		PythonFound="True"
+	fi
+fi
+
+if [ ! "$PythonFound" = "True" ]
+then
+	if [ "$(which python2.6)" ]
+	then
+		PythonBin="python2.6"
+		PythonFound="True"
+	fi
+fi
+
+if [ ! "$PythonFound" = "True" ]
+then
+	if [ "$(which python2.7)" ]
+	then
+		PythonBin="python2.7"
+		PythonFound="True"
+	fi
+fi
+
+
+if [ ! "$PythonFound" = "True" ]
+then
+	echo "Please install python before trying to run PlayOnLinux"
+	exit
 fi
 
 if [ "$1" == "--run" ]
@@ -54,10 +90,10 @@ then
 	./playonlinux-bash "$HOME/.PlayOnLinux/shortcuts/$NAME" "$@"
 else
 	cd "$(dirname "$0")/python"
-	"$PYTHON" mainwindow.py "$@"
+	"$PythonBin" mainwindow.py "$@"
 	if [ ! "$?" = "0" ]
 	then
-		python2.6 mainwindow.py "$@" || python2.5 mainwindow.py "$@"
+		python2.6 mainwindow.py "$@"
 	fi
 fi
 exit $?
