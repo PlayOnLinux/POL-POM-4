@@ -77,7 +77,7 @@ POL_System_SetArch()
 
 	if [ ! "$1" == "x86" ] && [ ! "$1" == "amd64" ]
 	then
-		[ "$MACHTYPE" == "x86_64-pc-linux-gnu" ] && export POL_ARCH="amd64" || export POL_ARCH="x86"
+		[ "$AMD64_COMPATIBLE" == "True" ] && export POL_ARCH="amd64" || export POL_ARCH="x86"
 	fi
 	if [ "$1" == "x86" ]
 	then
@@ -85,7 +85,7 @@ POL_System_SetArch()
 	fi
 	if [ "$1" == "amd64" ]
 	then
-		[ "$MACHTYPE" == "x86_64-pc-linux-gnu" ] && export POL_ARCH="amd64" || POL_Debug_Fatal "amd64 is not supported by your system"
+		[ "$AMD64_COMPATIBLE" == "True" ] && export POL_ARCH="amd64" || POL_Debug_Fatal "amd64 is not supported by your system"
 	fi	
 	
 	POL_Debug_Message "POL_ARCH set to $POL_ARCH"
