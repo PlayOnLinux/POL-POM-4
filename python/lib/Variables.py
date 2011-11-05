@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # Copyright (C) 2007-2010 PlayOnLinux Team
+# Copyright (C) 2011 - Quentin PARIS
 
-import os, random, sys
+import os, random, sys, string
 import wx
 
 # Un ptit check
@@ -33,7 +34,10 @@ if (os.environ["POL_OS"] == "Linux"):
 	widget_borders = wx.RAISED_BORDER
 	os_name = "linux"
 
-if(os.environ["MACHTYPE"] == "x86_64-pc-linux-gnu"):
+archi = string.split(os.environ["MACHTYPE"],"-")
+archi = archi[0]
+
+if(archi == "x86_64" and os.environ["POL_OS"] == "Linux"):
 	os.environ["AMD64_COMPATIBLE"] = "True"
 else:
 	os.environ["AMD64_COMPATIBLE"] = "False"
