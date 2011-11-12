@@ -88,12 +88,19 @@ class POLWeb(threading.Thread):
 		    
 class MainWindow(wx.Frame):
   def __init__(self,parent,id,title):
-	wx.Frame.__init__(self, parent, 1000, title, size = (430, 430))
+	wx.Frame.__init__(self, parent, 1000, title, size = (450, 450))
 
 		
 	self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
 	self.timer = wx.Timer(self, 1)
-	self.images = wx.ImageList(32, 32)
+	
+	try:
+		self.iconSize = int(playonlinux.GetSettings("ICON_SIZE"))
+	except:
+		self.iconSize = 32
+	
+		
+	self.images = wx.ImageList(self.iconSize, self.iconSize)
 
 	self.updater = POLWeb()
 	self.updater.start()
@@ -101,6 +108,7 @@ class MainWindow(wx.Frame):
 	
 	self.list_game = wx.TreeCtrl(self, 105, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT)	
 	self.list_game.SetSpacing(0);
+	self.list_game.SetIndent(5);
 	self.list_game.SetImageList(self.images)
 
 	
@@ -430,14 +438,21 @@ class MainWindow(wx.Frame):
 	 self.images.RemoveAll()
 	 root = self.list_game.AddRoot("")
 	 self.i = 0
+	 if(self.iconSize <= 32):
+		self.iconFolder = "32";
+	 else:
+		self.iconFolder = "full_size";
 	 for game in self.games: #METTRE EN 32x32
-		if(os.path.exists(Variables.playonlinux_rep+"/icones/32/"+game)):
-			file_icone = Variables.playonlinux_rep+"/icones/32/"+game
+		if(os.path.exists(Variables.playonlinux_rep+"/icones/"+self.iconFolder+"/"+game)):
+			file_icone = Variables.playonlinux_rep+"/icones/"+self.iconFolder+"/"+game
 		else:
-			file_icone = Variables.playonlinux_env+"/etc/playonlinux32.png"
+			file_icone = Variables.playonlinux_env+"/etc/playonlinux.png"
 
 		try:
-			self.images.Add(wx.Bitmap(file_icone))
+			self.bitmap = wx.Image(file_icone)
+			self.bitmap.Rescale(self.iconSize,self.iconSize,wx.IMAGE_QUALITY_HIGH)
+			self.bitmap = self.bitmap.ConvertToBitmap()
+			self.images.Add(self.bitmap)
 		except:
 			pass
 		item = self.list_game.AppendItem(root, game, self.i)
