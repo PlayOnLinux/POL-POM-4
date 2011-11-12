@@ -105,7 +105,7 @@ class MainWindow(wx.Frame):
 		self.windowy = int(playonlinux.GetSettings("MAINWINDOW_Y"))
 		self.SetPosition((self.windowx, self.windowy))
 	except:
-		self.frame.Center(wx.BOTH)
+		self.Center(wx.BOTH)
 				
 	self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
 	self.timer = wx.Timer(self, 1)
