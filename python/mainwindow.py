@@ -101,7 +101,8 @@ class MainWindow(wx.Frame):
 	
 		
 	self.images = wx.ImageList(self.iconSize, self.iconSize)
-
+	self.imagesEmpty = wx.ImageList(1,1)
+	
 	self.updater = POLWeb()
 	self.updater.start()
 	self.sendAlertStr = None
@@ -123,6 +124,21 @@ class MainWindow(wx.Frame):
 	self.filemenu.Append(216, _("Donate"))
 	self.filemenu.Append(wx.ID_EXIT, _("Exit"))
 
+	self.displaymenu = wx.Menu()
+	self.icon16 = self.displaymenu.AppendRadioItem(501, _("Small icons"))
+	self.icon24 = self.displaymenu.AppendRadioItem(502, _("Medium icons"))
+	self.icon32 = self.displaymenu.AppendRadioItem(503, _("Large icons"))
+	self.icon48 = self.displaymenu.AppendRadioItem(504, _("Very large icons"))
+	
+	if(self.iconSize == 16):
+		self.icon16.Check(True)
+	if(self.iconSize == 24):
+		self.icon24.Check(True)
+	if(self.iconSize == 32):
+		self.icon32.Check(True)
+	if(self.iconSize == 48):
+		self.icon48.Check(True)
+		
 	self.expertmenu = wx.Menu()
 
 	self.winever_item = wx.MenuItem(self.expertmenu, 107, _("Manage Wine versions"))
@@ -242,6 +258,7 @@ class MainWindow(wx.Frame):
 
 	self.menubar = wx.MenuBar()
 	self.menubar.Append(self.filemenu, _("File"))
+	self.menubar.Append(self.displaymenu, _("Display"))
 	self.menubar.Append(self.expertmenu, _("Tools"))
 	self.menubar.Append(self.optionmenu, _("Settings"))
 	self.menubar.Append(self.pluginsmenu, _("Plugins"))
@@ -273,7 +290,12 @@ class MainWindow(wx.Frame):
 	wx.EVT_MENU(self,  wx.ID_EXIT,  self.ClosePol)
 	wx.EVT_MENU(self,  wx.ID_DELETE,  self.UninstallGame)
 	
-
+	# Display
+	wx.EVT_MENU(self, 501,  self.iconDisplay)
+	wx.EVT_MENU(self, 502,  self.iconDisplay)
+	wx.EVT_MENU(self, 503,  self.iconDisplay)
+	wx.EVT_MENU(self, 504,  self.iconDisplay)
+	
 	# Expert
 	wx.EVT_MENU(self, 101,  self.Reload)
 	wx.EVT_MENU(self, 107,  self.WineVersion)
@@ -383,7 +405,28 @@ class MainWindow(wx.Frame):
 		os.system("bash \""+Variables.playonlinux_rep+"/plugins/"+plugin+"/scripts/menu\" \""+game_exec+"\"&")
 	except : 
 		pass
+
+  def iconDisplay(self, event):
+	iconEvent=event.GetId()
+	print(iconEvent)
+	if(iconEvent == 501):
+		self.iconSize = 16
+	if(iconEvent == 502):
+		self.iconSize = 24
+	if(iconEvent == 503):
+		self.iconSize = 32
+	if(iconEvent == 504):
+		self.iconSize = 48
 		
+	playonlinux.SetSettings("ICON_SIZE",str(self.iconSize))		
+	self.list_game.SetImageList(self.imagesEmpty)
+	self.images.Destroy()
+	self.images = wx.ImageList(self.iconSize, self.iconSize)
+	self.list_game.SetImageList(self.images)
+
+		
+	self.Reload(self)
+								
   def OpenIrc(self, event):
 	self.irc = ircgui.IrcClient(self)
 	self.irc.Center(wx.BOTH)
