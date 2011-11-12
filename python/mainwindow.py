@@ -88,9 +88,25 @@ class POLWeb(threading.Thread):
 		    
 class MainWindow(wx.Frame):
   def __init__(self,parent,id,title):
-	wx.Frame.__init__(self, parent, 1000, title, size = (450, 450))
+			
+	wx.Frame.__init__(self, parent, 1000, title, size = (450,450))
+	self.SetMinSize((300,300))
 
+	try:
+		self.windowWidth = int(playonlinux.GetSettings("MAINWINDOW_WIDTH"))
+		self.windowHeight = int(playonlinux.GetSettings("MAINWINDOW_HEIGHT"))
+		self.SetSize((self.windowWidth,self.windowHeight))
+	except:
+		self.windowWidth = 450
+		self.windowHeight = 450
 		
+	try:
+		self.windowx = int(playonlinux.GetSettings("MAINWINDOW_X"))
+		self.windowy = int(playonlinux.GetSettings("MAINWINDOW_Y"))
+		self.SetPosition((self.windowx, self.windowy))
+	except:
+		self.frame.Center(wx.BOTH)
+				
 	self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
 	self.timer = wx.Timer(self, 1)
 	
@@ -339,7 +355,7 @@ class MainWindow(wx.Frame):
 	wx.EVT_MENU(self, 234, self.UninstallGame)
 	wx.EVT_MENU(self, 235, self.RKill)
 	#self.sb.Hide()
-	
+
   def StatusRead(self):
 	self.sb.SetStatusText(self.updater.sendToStatusBarStr, 0)
 	if(self.updater.Gauge == True):
@@ -408,7 +424,7 @@ class MainWindow(wx.Frame):
 
   def iconDisplay(self, event):
 	iconEvent=event.GetId()
-	print(iconEvent)
+	
 	if(iconEvent == 501):
 		self.iconSize = 16
 	if(iconEvent == 502):
@@ -557,6 +573,7 @@ class MainWindow(wx.Frame):
 
 
   def AutoReload(self, event):
+	
 	self.StatusRead()
 	fichier_index = os.environ["REPERTOIRE"]+"/configurations/guis/index_"+os.environ["POL_ID"]
 	#print(fichier_index)
@@ -605,6 +622,13 @@ class MainWindow(wx.Frame):
   def ClosePol(self, event):
     if(wx.YES == wx.MessageBox(_('Are you sure you want to close all {0} Windows?').format(os.environ["APPLICATION_TITLE"]).decode("utf-8"), style=wx.YES_NO | wx.ICON_QUESTION)):
 		os.remove(Variables.playonlinux_rep+"/configurations/guis/index_"+os.environ["POL_ID"])
+		self.SizeToSave = self.GetSize();
+		self.PositionToSave = self.GetPosition();
+		# Save size and position
+		playonlinux.SetSettings("MAINWINDOW_WIDTH",str(self.SizeToSave[0]))
+		playonlinux.SetSettings("MAINWINDOW_HEIGHT",str(self.SizeToSave[1]-Variables.windows_add_playonmac*56))
+		playonlinux.SetSettings("MAINWINDOW_X",str(self.PositionToSave[0]))
+		playonlinux.SetSettings("MAINWINDOW_Y",str(self.PositionToSave[1]))
 		os._exit(0)
     return None
     
@@ -658,7 +682,7 @@ class PlayOnLinuxApp(wx.App):
 		#self.icon.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonmac.png", wx.BITMAP_TYPE_ANY))
 		self.frame = MainWindow(None, -1, os.environ["APPLICATION_TITLE"])
 		self.SetTopWindow(self.frame)
-		self.frame.Center(wx.BOTH)
+		#self.frame.Center(wx.BOTH)
 		self.frame.Show(True)
 		
 		return True
