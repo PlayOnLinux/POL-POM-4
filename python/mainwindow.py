@@ -55,7 +55,7 @@ class POLWeb(threading.Thread):
 			fichier_online="version_mac"
 		else:
 			fichier_online="version2"
-		return os.popen('wget -q "$SITE/'+fichier_online+'.php?v=$VERSION" -T 10 -O-','r').read()
+		return os.popen('wget -q "'+os.environ["SITE"]+'/'+fichier_online+'.php?v='+os.environ["VERSION"]+'" -T 10 -O-','r').read()
 	
 	def real_check(self):
 		self.WebVersion = self.LastVersion()
@@ -513,14 +513,7 @@ class MainWindow(wx.Frame):
 			self.bitmap = self.bitmap.ConvertToBitmap()
 			self.images.Add(self.bitmap)
 		except:
-			try:
-				self.bitmap = wx.Image(Variables.playonlinux_env+"/etc/playonlinux.png")
-				self.bitmap.Rescale(self.iconSize,self.iconSize,wx.IMAGE_QUALITY_HIGH)
-				self.bitmap = self.bitmap.ConvertToBitmap()
-				self.images.Add(self.bitmap)
-			except:
-				pass
-				
+			pass
 		item = self.list_game.AppendItem(root, game, self.i)
 		self.i += 1
 	
