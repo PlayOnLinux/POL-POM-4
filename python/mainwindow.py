@@ -513,7 +513,14 @@ class MainWindow(wx.Frame):
 			self.bitmap = self.bitmap.ConvertToBitmap()
 			self.images.Add(self.bitmap)
 		except:
-			pass
+			try:
+				self.bitmap = wx.Image(Variables.playonlinux_env+"/etc/playonlinux.png")
+				self.bitmap.Rescale(self.iconSize,self.iconSize,wx.IMAGE_QUALITY_HIGH)
+				self.bitmap = self.bitmap.ConvertToBitmap()
+				self.images.Add(self.bitmap)
+			except:
+				pass
+				
 		item = self.list_game.AppendItem(root, game, self.i)
 		self.i += 1
 	
