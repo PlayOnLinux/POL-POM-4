@@ -455,7 +455,6 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 						print("FAIL")
 					else:
 						self.release(self)
-						print("Bon ok")
 					self.downloading = False
 				
 					
