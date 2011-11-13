@@ -103,7 +103,13 @@ class MainWindow(wx.Frame):
 	try:
 		self.windowx = int(playonlinux.GetSettings("MAINWINDOW_X"))
 		self.windowy = int(playonlinux.GetSettings("MAINWINDOW_Y"))
-		self.SetPosition((self.windowx, self.windowy))
+		self.screen_width = wx.Display().GetGeometry()[2]
+		self.screen_height = wx.Display().GetGeometry()[3]
+		
+		if(self.screen_width >= self.windowx and self.screen_height >= self.windowy):
+			self.SetPosition((self.windowx, self.windowy))
+		else:
+			self.Center(wx.BOTH)
 	except:
 		self.Center(wx.BOTH)
 				
