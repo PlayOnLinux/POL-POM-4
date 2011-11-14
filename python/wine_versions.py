@@ -187,20 +187,20 @@ class Onglets(wx.Notebook):
 			self.imagesapps_i[arch] = wx.ImageList(22, 22)
 
 
-			self.list_apps[arch] = wx.TreeCtrl(self.panelFenp[arch], 106+add, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT|Variables.widget_borders, size=(550, 212), pos=(10,30))
+			self.list_apps[arch] = wx.TreeCtrl(self.panelFenp[arch], 106+add, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT|Variables.widget_borders, size=(320, 300), pos=(10,35))
 			self.list_apps[arch].SetImageList(self.imagesapps[arch])
 			self.list_apps[arch].SetSpacing(0);
 
 			self.new_panel[arch] = wx.Panel(self.panelFenp[arch], -1, pos=(10,505), size=(100,100))
 
-			self.list_ver_installed[arch] = wx.TreeCtrl(self.panelFenp[arch], 107+add, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT|Variables.widget_borders, size=(550, 212), pos=(10,281))
+			self.list_ver_installed[arch] = wx.TreeCtrl(self.panelFenp[arch], 107+add, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT|Variables.widget_borders, size=(320, 300), pos=(400,35))
 			self.list_ver_installed[arch].SetImageList(self.imagesapps_i[arch])
 			self.list_ver_installed[arch].SetSpacing(0);
-			wx.StaticText(self.panelFenp[arch], -1, _("Installed Wine versions: "),(10,261))
-			wx.StaticText(self.panelFenp[arch], -1, _("Available Wine versions: "),(10,10))
+			wx.StaticText(self.panelFenp[arch], -1, _("Installed Wine versions: "),(395,10))
+			wx.StaticText(self.panelFenp[arch], -1, _("Available Wine versions: "),(5,10))
 
-			self.button_rm[arch] = wx.Button(self.panelFenp[arch], 108+add, _("Remove"), pos=(380, 500), size=wx.DefaultSize)
-			self.button_in[arch] = wx.Button(self.panelFenp[arch], 109+add,_("Install"), pos=(480, 500), size=wx.DefaultSize)
+			self.button_rm[arch] = wx.Button(self.panelFenp[arch], 108+add, "<", pos=(340, 125), size=(50,30))
+			self.button_in[arch] = wx.Button(self.panelFenp[arch], 109+add,">", pos=(340, 175), size=(50,30))
 
 			self.button_rm[arch].Enable(False)
 			self.button_in[arch].Enable(False)
@@ -217,7 +217,7 @@ class MainWindow(wx.Frame):
 	    if(os.environ["AMD64_COMPATIBLE"] == "True"):
 	    	self.download64 = getVersions("amd64")
 	    
-	    wx.Frame.__init__(self, parent, -1, title, size = (592, 588+Variables.windows_add_size), style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX)
+	    wx.Frame.__init__(self, parent, -1, title, size = (750, 400+Variables.windows_add_size), style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX)
 	    self.timer = wx.Timer(self, 1)
 	    self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
 	    #self.panel = wx.Panel(self, -1)
