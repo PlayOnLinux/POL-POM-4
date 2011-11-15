@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2011-11-14 19:00:53+01:00\n"
+"POT-Creation-Date: 2011-11-15 19:00:50+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -345,6 +345,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Duke_Nukem_Forever_:55
 #: PlayOnLinux_Scripts/Dungeon_Siege_III_:53 PlayOnLinux_Scripts/Fallout_3_:50
 #: PlayOnLinux_Scripts/Fallout___New_Vegas_:83
+#: PlayOnLinux_Scripts/Gothic_3_:49
 #: PlayOnLinux_Scripts/Grand_Theft_Auto___San_Andreas_:48
 #: PlayOnLinux_Scripts/Mass_Effect_:49 PlayOnLinux_Scripts/Mass_Effect_2_:48
 #: PlayOnLinux_Scripts/Portal_2_:50 PlayOnLinux_Scripts/Rage_:60
@@ -394,6 +395,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Fable___The_Lost_Chapters_:94
 #: PlayOnLinux_Scripts/Fallout_3_:71
 #: PlayOnLinux_Scripts/Fallout___New_Vegas_:95
+#: PlayOnLinux_Scripts/Gothic_3_:56
 #: PlayOnLinux_Scripts/Grand_Theft_Auto___San_Andreas_:60
 #: PlayOnLinux_Scripts/LIMBO_:64 PlayOnLinux_Scripts/Magicka_:70
 #: PlayOnLinux_Scripts/Mass_Effect_:61 PlayOnLinux_Scripts/Mass_Effect_2_:78
@@ -993,6 +995,24 @@ msgstr ""
 #: PlayOnLinux_Scripts/Fallout_3___DLC_:22
 #, sh-format
 msgid "Welcome in the DLC Installer for $TITLE"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Gothic_3_:82
+#, sh-format
+msgid "Choose the game resolution"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Gothic_3_:96
+#, sh-format
+msgid ""
+"Now you will be able to choose the game mode:\\n1)Windowed mode:\\nAll works "
+"besides system cursor in the game's window.\\n\\n2)Fullscreen mode:\\nAll "
+"works besides the sky, it is black.\\n\\n\\n\\nWhat mode do you prefer?"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Gothic_3_:110
+#, sh-format
+msgid "$TITLE is installed"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Mass_Effect_2_:64
@@ -2853,7 +2873,7 @@ msgid "Kill processes"
 msgstr ""
 
 #: python/configure.py:201 python/install.py:134 python/mainwindow.py:143
-#: python/mainwindow.py:297 python/wine_versions.py:203
+#: python/mainwindow.py:297
 msgid "Install"
 msgstr ""
 
@@ -2914,7 +2934,7 @@ msgid "New"
 msgstr ""
 
 #: python/configure.py:513 python/mainwindow.py:144 python/mainwindow.py:298
-#: python/mainwindow.py:400 python/wine_versions.py:202
+#: python/mainwindow.py:400
 msgid "Remove"
 msgstr ""
 
@@ -3280,4 +3300,8 @@ msgstr ""
 
 #: python/wine_versions.py:207
 msgid "Wine versions"
+msgstr ""
+
+#: python/wine_versions.py:326
+msgid "Are you sure you want to delete wine {0}?"
 msgstr ""
