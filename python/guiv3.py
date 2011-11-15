@@ -226,7 +226,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 		if(os.environ["POL_OS"] == "Mac"): 
 			os.system("open http://www.playonmac.com/en/register.html")
 		else:
-			os.system("xdg-open http://www.playonmac.com/en/register.html")
+			os.system("xdg-open http://www.playonlinux.com/en/register.html")
 		
 	def DrawImage(self):			
 		self.left_image.Show()
