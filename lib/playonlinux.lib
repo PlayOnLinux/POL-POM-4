@@ -234,7 +234,12 @@ kdesudo ()
     echo "$(eval_gettext "This function is disabled in the PlayOnlinux environment.")"
 	return 1
 }
-
+/bin/su ()
+{
+	POL_Debug_Fatal "The script tried to use sudo"
+	echo "$(eval_gettext "This function is disabled in the PlayOnlinux environment.")"
+	return 1
+}
 
 POL_GPG_install_key()
 {
