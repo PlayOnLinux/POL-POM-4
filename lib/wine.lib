@@ -459,7 +459,7 @@ POL_Wine_InstallVersion()
 	if [ ! -e "$WINEDIR/$POL_WINEVERSION" ]
 	then
 		
-		WINE_ADDRESS=$(wget "$WINE_SITE/$WINE_SECTION.lst" -O- | grep ";$POL_WINEVERSION;" | tail -n 1 | cut -d ";" -f1)
+		WINE_ADDRESS=$(wget -4 "$WINE_SITE/$WINE_SECTION.lst" -O- | grep ";$POL_WINEVERSION;" | tail -n 1 | cut -d ";" -f1)
 		if [ "$WINE_ADDRESS" = "" ] && [ "$POL_ARCH" = "amd64" ]
 		then
 			POL_Debug_Warning "Wine $1 amd64 does not exist. Switching to x86"
@@ -477,7 +477,7 @@ POL_Wine_InstallVersion()
 			POL_SetupWindow_download "$(eval_gettext "Downloading Wine: ")$POL_WINEVERSION" "Wine" "$WINE_SITE/$WINE_SECTION/$WINE_ADDRESS"
 			POL_SetupWindow_wait_next_signal "$(eval_gettext "Downloading Wine: ")$POL_WINEVERSION" "Wine"
 			sleep 1
-			sha1=$(wget "$WINE_SITE/$WINE_SECTION/$WINE_ADDRESS.sha1" -O- | awk '{print $1}')
+			sha1=$(wget -4 "$WINE_SITE/$WINE_SECTION/$WINE_ADDRESS.sha1" -O- | awk '{print $1}')
 			sha1_file=$(shasum "./$WINE_ADDRESS" | awk '{print $1}')
 			echo "Server sha1 : $sha1"
 			echo "Client sha1 : $sha1_file"

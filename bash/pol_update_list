@@ -43,7 +43,7 @@ config_maj() # Celle ci est exécuté à chaque ligne (wget | config_maj), elle 
 		then
 			if [ ! -e "../icones/$content" ]
 			then
-				wget "$SITE/V2_data/icones/$content" -q -O "../icones/$content"
+				wget -4 "$SITE/V2_data/icones/$content" -q -O "../icones/$content"
 			fi
 			taille=$(du "../icones/$content")
 			taille=${taille:0:1}
@@ -59,10 +59,10 @@ config_maj() # Celle ci est exécuté à chaque ligne (wget | config_maj), elle 
 maj_check ()
 {
 	#clean_tmp
-	WEB_TIMESTAMP="$(wget "$SITE/update_mark.txt" -O- -q 2> /dev/null)"
+	WEB_TIMESTAMP="$(wget -4 "$SITE/update_mark.txt" -O- -q 2> /dev/null)"
 	LAST_TIMESTAMP="$(POL_Config_Read LAST_TIMESTAMP)"
 
-	wget "$SITE/V4_data/repository/getf.php" -O- -q > "$REPERTOIRE/configurations/POL_Functions"
+	wget -4 "$SITE/V4_data/repository/getf.php" -O- -q > "$REPERTOIRE/configurations/POL_Functions"
 	if [ ! "$WEB_TIMESTAMP" = "" ] && [ ! "$WEB_TIMESTAMP" = "$LAST_TIMESTAMP" ] # On évite les mises à jours inutiles
 	then
 		POL_Debug_Message "Web version : $WEB_TIMESTAMP"
@@ -76,15 +76,15 @@ maj_check ()
 					
 		if [ "$POL_OS" = "Linux" ]
 		then
-			wget "$SITE/V4_data/repository/get_list.php" -O- -q | config_maj
-			wget "$SITE/V4_data/repository/get_top?by=download" -O- -q > download
-			wget "$SITE/V4_data/repository/get_top" -O- -q > rate
-			wget "$SITE/V4_data/repository/get_md5_list.php?playonlinux=1" -O- -q > md5sums
+			wget -4 "$SITE/V4_data/repository/get_list.php" -O- -q | config_maj
+			wget -4 "$SITE/V4_data/repository/get_top?by=download" -O- -q > download
+			wget -4 "$SITE/V4_data/repository/get_top" -O- -q > rate
+			wget -4 "$SITE/V4_data/repository/get_md5_list.php?playonlinux=1" -O- -q > md5sums
 		else
-			wget "$SITE/V4_data/repository/get_list.php?playonmac=1" -O- -q | config_maj
-           	wget "$SITE/V4_data/repository/get_top?by=download&playonmac=1" -O- -q > download
-           	wget "$SITE/V4_data/repository/get_top?playonmac=1" -O- -q > rate
-			wget "$SITE/V4_data/repository/get_md5_list.php?playonmac=1" -O- -q > md5sums
+			wget -4 "$SITE/V4_data/repository/get_list.php?playonmac=1" -O- -q | config_maj
+           	wget -4 "$SITE/V4_data/repository/get_top?by=download&playonmac=1" -O- -q > download
+           	wget -4 "$SITE/V4_data/repository/get_top?playonmac=1" -O- -q > rate
+			wget -4 "$SITE/V4_data/repository/get_md5_list.php?playonmac=1" -O- -q > md5sums
 		fi
 		POL_Config_Write LAST_TIMESTAMP "$WEB_TIMESTAMP"
 	else

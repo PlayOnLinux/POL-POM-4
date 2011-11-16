@@ -282,7 +282,7 @@ POL_SetupWindow_auto_shortcut()
 
 	if [ -n "$ICON_WEB_NAME" ]; then
 		if [ ! "$OFFLINE" = "1" ]; then # On peut le télécharger...
-			wget -q "$SITE/icones/$ICON_WEB_NAME" -O- > "$REPERTOIRE/icones/full_size/$NOMICONE_" || rm "$REPERTOIRE/icones/full_size/$NOMICONE_"  # On prend l'icone full size
+			wget -4 -q "$SITE/icones/$ICON_WEB_NAME" -O- > "$REPERTOIRE/icones/full_size/$NOMICONE_" || rm "$REPERTOIRE/icones/full_size/$NOMICONE_"  # On prend l'icone full size
 		fi
 		
 		if [ -f "$REPERTOIRE/icones/full_size/$NOMICONE_" ]; then
@@ -379,7 +379,7 @@ creer_lanceur_base ()
 	# Cas 1 : le nom de l'icone est donné.
 	if [ -n "$ICON_WEB_NAME" ]; then
 		if [ ! "$OFFLINE" = "1" ]; then # On peut le télécharger...
-			wget -q "$SITE/icones/$ICON_WEB_NAME" -O "$REPERTOIRE/icones/full_size/$NOMICONE_" # On prend l'icone full size
+			wget -4 -q "$SITE/icones/$ICON_WEB_NAME" -O "$REPERTOIRE/icones/full_size/$NOMICONE_" # On prend l'icone full size
 		fi
 		
 		if [ -f "$REPERTOIRE/icones/full_size/$NOMICONE_" ]; then

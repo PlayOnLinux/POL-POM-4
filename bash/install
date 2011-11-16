@@ -35,13 +35,13 @@ then
 	then
 		id=$(echo "$menu" | cut -d ":" -f2)
 		rm "$REPERTOIRE/install"
-		wget "$SITE/V4_data/repository/get_file_n.php?version=PlayOn$POL_OS-$VERSION&id=$id" -O "$REPERTOIRE/install" -q
+		wget -4 "$SITE/V4_data/repository/get_file_n.php?version=PlayOn$POL_OS-$VERSION&id=$id" -O "$REPERTOIRE/install" -q
 		[ -e "$REPERTOIRE/install" ] && POL_Bash "$REPERTOIRE/install"
 		exit
 	fi
 	menu=${menu//" "/"%20"}
 	rm "$REPERTOIRE/install"
-	wget "$SITE/V4_data/repository/get_file.php?version=playonlinux-$VERSION&id=$menu" -O "$REPERTOIRE/install" -q
+	wget -4 "$SITE/V4_data/repository/get_file.php?version=playonlinux-$VERSION&id=$menu" -O "$REPERTOIRE/install" -q
 	[ -e "$REPERTOIRE/install" ] && POL_Bash "$REPERTOIRE/install"
 fi
 

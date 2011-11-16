@@ -48,7 +48,7 @@ to the file name or packaging format." >> "$REPERTOIRE/tmp/licence"
 		cat "$REPERTOIRE/tmp/licence"
 
 		POL_SetupWindow_licence "$(eval_gettext 'Please read and accept the following:')" "$(eval_gettext 'Microsoft fonts')" "$REPERTOIRE/tmp/licence"
-		WebVersion=$(wget -q $SITE/check.txt -O-)
+		WebVersion=$(wget -4 -q $SITE/check.txt -O-)
 		if [ "$WebVersion" == "" ]
 		then
 			POL_SetupWindow_message "$(eval_gettext 'The PlayOnLinux website is unavailable.')$(eval_gettext "\nPlease make sure you are connected to the Internet.")" "$(eval_gettext 'Microsoft fonts')"
@@ -69,14 +69,14 @@ to the file name or packaging format." >> "$REPERTOIRE/tmp/licence"
 			 sleep 0.1
 			 POL_SetupWindow_set_text "$(eval_gettext 'Downloading: ')$font..."
 			 echo "$(eval_gettext 'Downloading: ')$font..."
-			 wget "http://heanet.dl.sourceforge.net/sourceforge/corefonts/$font" -q
+			 wget -4 "http://heanet.dl.sourceforge.net/sourceforge/corefonts/$font" -q
 			 PULSE=$(( PULSE + 8 ))
 			 POL_SetupWindow_pulse $PULSE
 			done
 
 			echo "$(eval_gettext 'Downloading: ')tahoma32.exe"
 			POL_SetupWindow_set_text "$(eval_gettext 'Downloading: ')tahoma32.exe"
-			wget http://download.microsoft.com/download/office97pro/fonts/1/w95/en-us/tahoma32.exe -q
+			wget -4 http://download.microsoft.com/download/office97pro/fonts/1/w95/en-us/tahoma32.exe -q
 			POL_SetupWindow_pulse 100
 			sleep 1
 			PULSE=1
