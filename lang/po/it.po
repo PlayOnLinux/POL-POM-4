@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2011-11-14 19:00+0100\n"
-"PO-Revision-Date: 2011-11-06 11:11+0000\n"
-"Last-Translator: Francesco Placco <che-cco@libero.it>\n"
+"POT-Creation-Date: 2011-11-21 19:00+0100\n"
+"PO-Revision-Date: 2011-11-21 17:51+0000\n"
+"Last-Translator: max caligaris <Unknown>\n"
 "Language-Team: it_IT.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-11-15 04:47+0000\n"
-"X-Generator: Launchpad (build 14291)\n"
+"X-Launchpad-Export-Date: 2011-11-22 04:42+0000\n"
+"X-Generator: Launchpad (build 14299)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -302,7 +302,7 @@ msgid "Installation in progress..."
 msgstr "Installazione in corso..."
 
 #: PlayOnLinux_Scripts/7_Zip_:41 PlayOnLinux_Scripts/Anno_1602_:76
-#: PlayOnLinux_Scripts/Cadstd_Lite_3.7.0_:40 PlayOnLinux_Scripts/Diablo_II_:41
+#: PlayOnLinux_Scripts/Cadstd_Lite_3.7.0_:40 PlayOnLinux_Scripts/Diablo_II_:48
 #: PlayOnLinux_Scripts/Google_SketchUp_:41 PlayOnLinux_Scripts/IZArc_:41
 #: PlayOnLinux_Scripts/Mount_and_Blade___Warband_:81
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:208 PlayOnLinux_Scripts/Safari_:77
@@ -333,7 +333,7 @@ msgstr "Per favore attendi che $TITLE sia installato."
 #: PlayOnLinux_Scripts/Age_Of_Wonders_:70
 #, sh-format
 msgid "The introdution movie was renamed because it doesnt"
-msgstr ""
+msgstr "Il filmato introduttivo è stato rinominato perchè non presente"
 
 #: PlayOnLinux_Scripts/Age_Of_Wonders_:82
 #: PlayOnLinux_Scripts/Wow_Cartographe_:58
@@ -368,9 +368,11 @@ msgstr "$TITLE è stato installato con successo."
 #: PlayOnLinux_Scripts/Duke_Nukem_Forever_:55
 #: PlayOnLinux_Scripts/Dungeon_Siege_III_:53 PlayOnLinux_Scripts/Fallout_3_:50
 #: PlayOnLinux_Scripts/Fallout___New_Vegas_:83
+#: PlayOnLinux_Scripts/Gothic_3_:49
 #: PlayOnLinux_Scripts/Grand_Theft_Auto___San_Andreas_:48
 #: PlayOnLinux_Scripts/Mass_Effect_:49 PlayOnLinux_Scripts/Mass_Effect_2_:48
 #: PlayOnLinux_Scripts/Portal_2_:50 PlayOnLinux_Scripts/Rage_:60
+#: PlayOnLinux_Scripts/Rome_Total_War__Gold_Edition__:49
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:46
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:44
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_:43
@@ -419,12 +421,15 @@ msgstr ""
 #: PlayOnLinux_Scripts/Fable___The_Lost_Chapters_:94
 #: PlayOnLinux_Scripts/Fallout_3_:71
 #: PlayOnLinux_Scripts/Fallout___New_Vegas_:95
+#: PlayOnLinux_Scripts/Gothic_3_:56
 #: PlayOnLinux_Scripts/Grand_Theft_Auto___San_Andreas_:60
 #: PlayOnLinux_Scripts/LIMBO_:64 PlayOnLinux_Scripts/Magicka_:70
 #: PlayOnLinux_Scripts/Mass_Effect_:61 PlayOnLinux_Scripts/Mass_Effect_2_:78
 #: PlayOnLinux_Scripts/Mount_and_Blade___Warband_:36
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:151 PlayOnLinux_Scripts/Portal_2_:63
-#: PlayOnLinux_Scripts/Rage_:95 PlayOnLinux_Scripts/Safari_:60
+#: PlayOnLinux_Scripts/Rage_:95
+#: PlayOnLinux_Scripts/Rome_Total_War__Gold_Edition__:56
+#: PlayOnLinux_Scripts/Safari_:60
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:66
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:178
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_:53
@@ -997,7 +1002,7 @@ msgstr ""
 msgid "Please wait while $TITLE is downloaded..."
 msgstr "Per favore attendi che $TITLE venga scaricato..."
 
-#: PlayOnLinux_Scripts/Diablo_II_:29
+#: PlayOnLinux_Scripts/Diablo_II_:36
 #, sh-format
 msgid "Installing $TITLE"
 msgstr "Installa $TITLE"
@@ -1044,6 +1049,7 @@ msgstr "Il DLC di $TITLE è stato \\n installato con successo."
 #, sh-format
 msgid "This addon automatically patch the game to version 1.03"
 msgstr ""
+"Questa estensione aggiorna automaticamente il gioco alla versione 1.03"
 
 #: PlayOnLinux_Scripts/Dragon_Age___Origins_:56
 #: PlayOnLinux_Scripts/Mass_Effect_2_:54
@@ -1071,6 +1077,24 @@ msgstr ""
 #, sh-format
 msgid "Welcome in the DLC Installer for $TITLE"
 msgstr "Benvenuto nell'installazione del DLC per $TITLE"
+
+#: PlayOnLinux_Scripts/Gothic_3_:82
+#, sh-format
+msgid "Choose the game resolution"
+msgstr "Scegli la risoluzione del gioco"
+
+#: PlayOnLinux_Scripts/Gothic_3_:96
+#, sh-format
+msgid ""
+"Now you will be able to choose the game mode:\\n1)Windowed mode:\\nAll works "
+"besides system cursor in the game's window.\\n\\n2)Fullscreen mode:\\nAll "
+"works besides the sky, it is black.\\n\\n\\n\\nWhat mode do you prefer?"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Gothic_3_:110
+#, sh-format
+msgid "$TITLE is installed"
+msgstr "$TITLE è installato"
 
 #: PlayOnLinux_Scripts/Mass_Effect_2_:64
 #, sh-format
@@ -1350,6 +1374,13 @@ msgid "Please insert disk 3 into your disk drive\\nif not already done."
 msgstr ""
 "Per favore inserisci il disco 3 nel lettore \\n se non lo hai già fatto."
 
+#: PlayOnLinux_Scripts/Rome_Total_War__Gold_Edition__:72
+#, sh-format
+msgid ""
+"$TITLE is installed!\\n\\nNote!\\n1)Reboot wine\\n2)Set correct output "
+"device in wine audio settings\\n3)Have fun!"
+msgstr ""
+
 #: PlayOnLinux_Scripts/Runes_Of_Magic_:33
 #, sh-format
 msgid "You can download $TITLE install file here:"
@@ -1492,6 +1523,7 @@ msgstr ""
 #, sh-format
 msgid "This addon automatically patch the game to 1.2.0416."
 msgstr ""
+"Questa estensione aggiorna automaticamente il gioco alla versione 1.2.0416"
 
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_:58
 #, sh-format
@@ -1753,7 +1785,7 @@ msgstr ""
 #: bash/first_use:164
 #, sh-format
 msgid "$APPLICATION_TITLE is making a virtual windows hard drive"
-msgstr ""
+msgstr "$APPLICATION_TITLE sta creando un disco rigido Windows virtuale"
 
 #: bash/first_use:278 bash/first_use:285
 #, sh-format
@@ -1833,7 +1865,7 @@ msgstr ""
 #: bash/make_shortcut:43
 #, sh-format
 msgid "PlayOnMac package"
-msgstr ""
+msgstr "Pacchetto PlayOnMac"
 
 #: bash/make_shortcut:43
 #, sh-format
@@ -1843,7 +1875,7 @@ msgstr ""
 #: bash/make_shortcut:43
 #, sh-format
 msgid "What kind of Package do yo want?\\n\\n"
-msgstr ""
+msgstr "Quale tipologia di pacchetti vuole?\\n\\n"
 
 #: bash/make_shortcut:47
 #, sh-format
@@ -2133,7 +2165,7 @@ msgstr "Qual'è l'editor del tuo programma?"
 #: bash/playonlinux_online:58
 #, sh-format
 msgid "What is the editor website of your program?"
-msgstr ""
+msgstr "Qual è il sito internet dello sviluppatore del programma?"
 
 #: bash/playonlinux_online:61 python/install.py:299
 #, sh-format
@@ -2278,7 +2310,7 @@ msgstr ""
 #: bash/polconfigurator:79
 #, sh-format
 msgid "Starting specific Wine configurator"
-msgstr ""
+msgstr "inizio configurazione Wine specifica"
 
 #: bash/polconfigurator:91
 #, sh-format
@@ -2314,7 +2346,7 @@ msgstr ""
 #: bash/polconfigurator:110
 #, sh-format
 msgid "Update wineprefix"
-msgstr ""
+msgstr "Aggiorna i prefissi Wine"
 
 #: bash/polconfigurator:111
 #, sh-format
@@ -2324,12 +2356,12 @@ msgstr "Simulazione riavvio Windows"
 #: bash/polconfigurator:112
 #, sh-format
 msgid "Use Advanced Wine Configuration plugin"
-msgstr ""
+msgstr "Usa il plugin di Configurazione Avanzata di Wine"
 
 #: bash/polconfigurator:113
 #, sh-format
 msgid "Use PlayOnLinux's configurator for"
-msgstr ""
+msgstr "Usare il configuratore di PlayOnLinux per"
 
 #: bash/polconfigurator:115
 #, sh-format
@@ -2451,7 +2483,7 @@ msgstr "$APPLICATION_TITLE sta eseguendo il tuo programma"
 #: bash/run_exe:63
 #, sh-format
 msgid "Waiting for the first-assistant to be finished"
-msgstr ""
+msgstr "Attendere il primo assistente per completare"
 
 #: bash/run_exe:80
 #, sh-format
@@ -2611,7 +2643,7 @@ msgid "Free space on your hard drives:"
 msgstr "Spazio libero su disco:"
 
 #: bash/uninstall:25 bash/uninstall:52 bash/uninstall:55
-#: lib/playonlinux.lib:670
+#: lib/playonlinux.lib:675
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
 msgstr ""
@@ -2631,7 +2663,7 @@ msgstr "Clicca Avanti per continuare."
 msgid "This wizard will help you to uninstall: "
 msgstr "Questa procedura guidata ti aiuterà a disinstallare: "
 
-#: bash/uninstall:52 lib/playonlinux.lib:670
+#: bash/uninstall:52 lib/playonlinux.lib:675
 #, sh-format
 msgid "Uninstalling..."
 msgstr "Disinstallazione..."
@@ -2681,6 +2713,8 @@ msgid ""
 "You don't seem to have 3D acceleration!\\nWe advise you to install and to "
 "enable it."
 msgstr ""
+"Sembra che tu non abbia un accelleratore 3D! \\n Devi installarlo e "
+"attivarlo."
 
 #: lib/depend.lib:78
 #, sh-format
@@ -2712,16 +2746,17 @@ msgstr ""
 #: lib/playonlinux.lib:185 lib/playonlinux.lib:191 lib/playonlinux.lib:197
 #: lib/playonlinux.lib:204 lib/playonlinux.lib:210 lib/playonlinux.lib:216
 #: lib/playonlinux.lib:222 lib/playonlinux.lib:228 lib/playonlinux.lib:234
+#: lib/playonlinux.lib:240
 #, sh-format
 msgid "This function is disabled in the PlayOnlinux environment."
 msgstr ""
 
-#: lib/playonlinux.lib:546
+#: lib/playonlinux.lib:551
 #, sh-format
 msgid "Making shortcut..."
 msgstr ""
 
-#: lib/playonlinux.lib:668
+#: lib/playonlinux.lib:673
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr ""
@@ -2858,12 +2893,12 @@ msgstr ""
 #: lib/setupwindow.lib:884
 #, sh-format
 msgid "Use Steam Store version"
-msgstr ""
+msgstr "Usare la versione Steam Store"
 
 #: lib/setupwindow.lib:885
 #, sh-format
 msgid "Use Steam Store demo version"
-msgstr ""
+msgstr "Usare la versione demo di Steam Store"
 
 #: lib/setupwindow.lib:886
 #, sh-format
@@ -2970,7 +3005,7 @@ msgstr ""
 
 #: python/configure.py:116
 msgid "Wine version"
-msgstr ""
+msgstr "Versione Wine"
 
 #: python/configure.py:117
 msgid "Virtual drive"
@@ -3001,7 +3036,7 @@ msgid "Kill processes"
 msgstr ""
 
 #: python/configure.py:201 python/install.py:134 python/mainwindow.py:143
-#: python/mainwindow.py:297 python/wine_versions.py:203
+#: python/mainwindow.py:297
 msgid "Install"
 msgstr "Installa"
 
@@ -3015,7 +3050,7 @@ msgstr ""
 
 #: python/configure.py:412
 msgid "GLSL Support"
-msgstr ""
+msgstr "Supporto GLSL"
 
 #: python/configure.py:413
 msgid "Direct Draw Renderer"
@@ -3062,13 +3097,13 @@ msgid "New"
 msgstr "Installa un programma in un nuovo prefisso"
 
 #: python/configure.py:513 python/mainwindow.py:144 python/mainwindow.py:298
-#: python/mainwindow.py:400 python/wine_versions.py:202
+#: python/mainwindow.py:400
 msgid "Remove"
 msgstr "Rimuovi"
 
 #: python/configure.py:530
 msgid "Install packages"
-msgstr ""
+msgstr "Installa pacchetti"
 
 #: python/configure.py:531 python/mainwindow.py:283
 msgid "Display"
@@ -3430,3 +3465,7 @@ msgstr "Versioni di Wine disponibili: "
 #: python/wine_versions.py:207
 msgid "Wine versions"
 msgstr "Versioni di Wine"
+
+#: python/wine_versions.py:326
+msgid "Are you sure you want to delete wine {0}?"
+msgstr ""

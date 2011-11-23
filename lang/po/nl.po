@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2011-11-14 19:00+0100\n"
-"PO-Revision-Date: 2011-11-13 16:40+0000\n"
+"POT-Creation-Date: 2011-11-21 19:00+0100\n"
+"PO-Revision-Date: 2011-11-20 13:55+0000\n"
 "Last-Translator: rob <linuxned@gmail.com>\n"
 "Language-Team: nl_NL.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-11-15 04:47+0000\n"
-"X-Generator: Launchpad (build 14291)\n"
+"X-Launchpad-Export-Date: 2011-11-22 04:42+0000\n"
+"X-Generator: Launchpad (build 14299)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -303,7 +303,7 @@ msgid "Installation in progress..."
 msgstr "Bezig met installatie…"
 
 #: PlayOnLinux_Scripts/7_Zip_:41 PlayOnLinux_Scripts/Anno_1602_:76
-#: PlayOnLinux_Scripts/Cadstd_Lite_3.7.0_:40 PlayOnLinux_Scripts/Diablo_II_:41
+#: PlayOnLinux_Scripts/Cadstd_Lite_3.7.0_:40 PlayOnLinux_Scripts/Diablo_II_:48
 #: PlayOnLinux_Scripts/Google_SketchUp_:41 PlayOnLinux_Scripts/IZArc_:41
 #: PlayOnLinux_Scripts/Mount_and_Blade___Warband_:81
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:208 PlayOnLinux_Scripts/Safari_:77
@@ -369,9 +369,11 @@ msgstr "$TITLE is geïnstalleerd."
 #: PlayOnLinux_Scripts/Duke_Nukem_Forever_:55
 #: PlayOnLinux_Scripts/Dungeon_Siege_III_:53 PlayOnLinux_Scripts/Fallout_3_:50
 #: PlayOnLinux_Scripts/Fallout___New_Vegas_:83
+#: PlayOnLinux_Scripts/Gothic_3_:49
 #: PlayOnLinux_Scripts/Grand_Theft_Auto___San_Andreas_:48
 #: PlayOnLinux_Scripts/Mass_Effect_:49 PlayOnLinux_Scripts/Mass_Effect_2_:48
 #: PlayOnLinux_Scripts/Portal_2_:50 PlayOnLinux_Scripts/Rage_:60
+#: PlayOnLinux_Scripts/Rome_Total_War__Gold_Edition__:49
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:46
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:44
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_:43
@@ -418,12 +420,15 @@ msgstr "Voer spelschijf in in schijfstation\\nindien nog niet gedaan."
 #: PlayOnLinux_Scripts/Fable___The_Lost_Chapters_:94
 #: PlayOnLinux_Scripts/Fallout_3_:71
 #: PlayOnLinux_Scripts/Fallout___New_Vegas_:95
+#: PlayOnLinux_Scripts/Gothic_3_:56
 #: PlayOnLinux_Scripts/Grand_Theft_Auto___San_Andreas_:60
 #: PlayOnLinux_Scripts/LIMBO_:64 PlayOnLinux_Scripts/Magicka_:70
 #: PlayOnLinux_Scripts/Mass_Effect_:61 PlayOnLinux_Scripts/Mass_Effect_2_:78
 #: PlayOnLinux_Scripts/Mount_and_Blade___Warband_:36
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:151 PlayOnLinux_Scripts/Portal_2_:63
-#: PlayOnLinux_Scripts/Rage_:95 PlayOnLinux_Scripts/Safari_:60
+#: PlayOnLinux_Scripts/Rage_:95
+#: PlayOnLinux_Scripts/Rome_Total_War__Gold_Edition__:56
+#: PlayOnLinux_Scripts/Safari_:60
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:66
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:178
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_:53
@@ -983,7 +988,7 @@ msgstr ""
 msgid "Please wait while $TITLE is downloaded..."
 msgstr "Een moment geduld, $TITLE wordt gedownload…"
 
-#: PlayOnLinux_Scripts/Diablo_II_:29
+#: PlayOnLinux_Scripts/Diablo_II_:36
 #, sh-format
 msgid "Installing $TITLE"
 msgstr "$TITLE wordt geïnstalleerd"
@@ -1059,6 +1064,28 @@ msgstr ""
 #, sh-format
 msgid "Welcome in the DLC Installer for $TITLE"
 msgstr "Welkom in het DLC-installatieprogramma voor $TITLE"
+
+#: PlayOnLinux_Scripts/Gothic_3_:82
+#, sh-format
+msgid "Choose the game resolution"
+msgstr "Selecteer de spelresolutie"
+
+#: PlayOnLinux_Scripts/Gothic_3_:96
+#, sh-format
+msgid ""
+"Now you will be able to choose the game mode:\\n1)Windowed mode:\\nAll works "
+"besides system cursor in the game's window.\\n\\n2)Fullscreen mode:\\nAll "
+"works besides the sky, it is black.\\n\\n\\n\\nWhat mode do you prefer?"
+msgstr ""
+"Nu kunt u de spelmodus selecteren:\\n1)Modus Venster:\\nAlles werkt correct "
+"behalve de systeemcursor in het spelvenster.\\n\\n2)Modus Schermvullend:\\"
+"nAlles werkt correct behalve de hemel, die is zwart.\\n\\n\\n\\nWelke modus "
+"heeft uw voorkeur?"
+
+#: PlayOnLinux_Scripts/Gothic_3_:110
+#, sh-format
+msgid "$TITLE is installed"
+msgstr ""
 
 #: PlayOnLinux_Scripts/Mass_Effect_2_:64
 #, sh-format
@@ -1341,6 +1368,13 @@ msgstr "Voer schijf 2 in in schijfstation\\nindien nog niet gedaan."
 #, sh-format
 msgid "Please insert disk 3 into your disk drive\\nif not already done."
 msgstr "Voer schijf 3 in in schijfstation\\nindien nog niet gedaan."
+
+#: PlayOnLinux_Scripts/Rome_Total_War__Gold_Edition__:72
+#, sh-format
+msgid ""
+"$TITLE is installed!\\n\\nNote!\\n1)Reboot wine\\n2)Set correct output "
+"device in wine audio settings\\n3)Have fun!"
+msgstr ""
 
 #: PlayOnLinux_Scripts/Runes_Of_Magic_:33
 #, sh-format
@@ -2633,7 +2667,7 @@ msgid "Free space on your hard drives:"
 msgstr "Vrije ruimte op uw harde schijven:"
 
 #: bash/uninstall:25 bash/uninstall:52 bash/uninstall:55
-#: lib/playonlinux.lib:670
+#: lib/playonlinux.lib:675
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
 msgstr "$APPLICATION_TITLE deïnstalleren"
@@ -2653,7 +2687,7 @@ msgstr "Klik op Volgende om door te gaan."
 msgid "This wizard will help you to uninstall: "
 msgstr "Deze wizard zal u helpen met het deïnstalleren van: "
 
-#: bash/uninstall:52 lib/playonlinux.lib:670
+#: bash/uninstall:52 lib/playonlinux.lib:675
 #, sh-format
 msgid "Uninstalling..."
 msgstr "Bezig met deïnstalleren…"
@@ -2735,16 +2769,17 @@ msgstr "Var-programmabestanden instellen"
 #: lib/playonlinux.lib:185 lib/playonlinux.lib:191 lib/playonlinux.lib:197
 #: lib/playonlinux.lib:204 lib/playonlinux.lib:210 lib/playonlinux.lib:216
 #: lib/playonlinux.lib:222 lib/playonlinux.lib:228 lib/playonlinux.lib:234
+#: lib/playonlinux.lib:240
 #, sh-format
 msgid "This function is disabled in the PlayOnlinux environment."
 msgstr "Deze functie is uitgeschakeld in de PlayOnlinux-werkomgeving."
 
-#: lib/playonlinux.lib:546
+#: lib/playonlinux.lib:551
 #, sh-format
 msgid "Making shortcut..."
 msgstr "Snelkoppeling wordt aangemaakt…"
 
-#: lib/playonlinux.lib:668
+#: lib/playonlinux.lib:673
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr "Wilt u het virtuele station verwijderen:"
@@ -3029,7 +3064,7 @@ msgid "Kill processes"
 msgstr "Processen beëindigen"
 
 #: python/configure.py:201 python/install.py:134 python/mainwindow.py:143
-#: python/mainwindow.py:297 python/wine_versions.py:203
+#: python/mainwindow.py:297
 msgid "Install"
 msgstr "Installeren"
 
@@ -3090,7 +3125,7 @@ msgid "New"
 msgstr "Nieuw"
 
 #: python/configure.py:513 python/mainwindow.py:144 python/mainwindow.py:298
-#: python/mainwindow.py:400 python/wine_versions.py:202
+#: python/mainwindow.py:400
 msgid "Remove"
 msgstr "Verwijderen"
 
@@ -3462,3 +3497,7 @@ msgstr "Beschikbare Wine-versies: "
 #: python/wine_versions.py:207
 msgid "Wine versions"
 msgstr "Wine-versies"
+
+#: python/wine_versions.py:326
+msgid "Are you sure you want to delete wine {0}?"
+msgstr "Weet u zeker dat u Wine {0} wilt verwijderen?"
