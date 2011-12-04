@@ -179,6 +179,7 @@ POL_Shortcut()
 	# Make a shortcut 
 	# Usage: POL_Shortcut [binary] [shortcut name] [playonlinux website icon] [argument]
 	# If playonlinux website icon is not specified, playonlinux will try to extract it from the program
+	# Possibly to use a path instead of the executable.
 
 	Binaire="$1"
 	SpecialArg="$4"
@@ -198,7 +199,14 @@ POL_Shortcut()
 	## On chope le dossier du binaire
 	cd "$WINEPREFIX" || POL_Debug_Fatal "Prefixe $WINEPREFIX does not exists"
 	cd drive_c || POL_Debug_Fatal "drive_c folder does not exists"
-	binary_path="$(find ./ -iname "$Binaire" | tail -n 1)"
+	
+	binary_path=""
+	if [ "$(echo "$Binaire" | grep "/")" = "" ]; then # Binaire
+		binary_path="$(find ./ -iname "$Binaire" | tail -n 1)"
+	else # Chemin
+		[ -e "./$Binaire" ] && binary_path="./$Binaire"
+	fi
+	
 	binary_dir="$(dirname "$binary_path")"
 	Binaire="$(basename "$binary_path")"
 	
