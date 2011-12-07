@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-11-28 19:00+0100\n"
-"PO-Revision-Date: 2011-11-27 17:43+0000\n"
+"POT-Creation-Date: 2011-12-04 19:01+0100\n"
+"PO-Revision-Date: 2011-11-30 05:11+0000\n"
 "Last-Translator: Tuomas Lähteenmäki <Unknown>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-11-29 05:13+0000\n"
-"X-Generator: Launchpad (build 14399)\n"
+"X-Launchpad-Export-Date: 2011-12-05 05:18+0000\n"
+"X-Generator: Launchpad (build 14418)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -219,6 +219,7 @@ msgstr "Vaihe on valmis"
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_:57
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_:57
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Revelations_:57
+#: PlayOnLinux_Scripts/Theme_Hospital_:37
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:74
 #, sh-format
 msgid "Please insert the game media into your disk drive."
@@ -234,11 +235,12 @@ msgstr ""
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_:77
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_:80
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Revelations_:80
-#: PlayOnLinux_Scripts/Magicka_:66 PlayOnLinux_Scripts/Wow_Cartographe_:48
+#: PlayOnLinux_Scripts/Magicka_:66 PlayOnLinux_Scripts/Theme_Hospital_:49
+#: PlayOnLinux_Scripts/Wow_Cartographe_:48
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:67
 #, sh-format
 msgid "Please select the setup file to run"
-msgstr ""
+msgstr "Valitse käynnistettävä asennustiedosto"
 
 #: PlayOnLinux_Scripts/7_Zip_:31
 #: PlayOnLinux_Scripts/Alice___Madness_Returns_:65
@@ -306,6 +308,8 @@ msgstr "$TITLE on asennettu onnistuneesti."
 #: PlayOnLinux_Scripts/Age_Of_Wonders_:39
 #: PlayOnLinux_Scripts/Age_Of_Wonders_:49
 #: PlayOnLinux_Scripts/Age_Of_Wonders_:59 PlayOnLinux_Scripts/Anno_1602_:42
+#: PlayOnLinux_Scripts/Theme_Hospital_:40
+#: PlayOnLinux_Scripts/Theme_Hospital_:50
 #: PlayOnLinux_Scripts/Wow_Cartographe_:40
 #: PlayOnLinux_Scripts/Wow_Cartographe_:49
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:47
@@ -321,6 +325,7 @@ msgid "The introdution movie was renamed because it doesnt"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Age_Of_Wonders_:82
+#: PlayOnLinux_Scripts/Theme_Hospital_:64
 #: PlayOnLinux_Scripts/Wow_Cartographe_:58
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:95
 #, sh-format
@@ -1085,17 +1090,17 @@ msgstr ""
 #: PlayOnLinux_Scripts/Microsoft_Money_2005_:33
 #, sh-format
 msgid "Where is $TITLE install file?"
-msgstr ""
+msgstr "Missä on $TITLE asennustiedosto?"
 
 #: PlayOnLinux_Scripts/Microsoft_Office_2007_:45
 #, sh-format
 msgid "$TITLE has been successfully installed"
-msgstr ""
+msgstr "$TITLE on onnistuneesti asennettu"
 
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:64
 #, sh-format
 msgid "Which language version would you like to install?"
-msgstr ""
+msgstr "Mikä kieliversion haluat asentaa?"
 
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:147
 #, sh-format
@@ -1105,7 +1110,7 @@ msgstr "Asennus on meneillään..."
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:163
 #, sh-format
 msgid "Check which components do you want to install additionally:"
-msgstr ""
+msgstr "Tarkista, mitkä komponentit haluat asentaa lisäksi:"
 
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:189
 #, sh-format
@@ -1137,7 +1142,7 @@ msgstr "Odota, ole hyvä"
 #: PlayOnLinux_Scripts/POL_Function_RootCommand_:8
 #, sh-format
 msgid "No root command specified, abording installation."
-msgstr ""
+msgstr "Ei root komentoa määritelty, peruutetaan asennus."
 
 #: PlayOnLinux_Scripts/POL_Function_RootCommand_:13
 #: PlayOnLinux_Scripts/POL_Function_RootCommand_:17
@@ -1186,19 +1191,21 @@ msgstr "Ladataan gecko ..."
 #: PlayOnLinux_Scripts/POL_Install_gfwl86_:3
 #, sh-format
 msgid "Installing Games For Windows Live"
-msgstr ""
+msgstr "Asenna Games for Windows LIVE"
 
 #: PlayOnLinux_Scripts/POL_Install_gfwl_:26
 #: PlayOnLinux_Scripts/POL_Remove_gfwl_:12
 #, sh-format
 msgid "Downloading Game For Windows Live..."
-msgstr ""
+msgstr "Ladataan Games for Windows LIVE"
 
 #: PlayOnLinux_Scripts/POL_Install_gfwl_:32
 #, sh-format
 msgid ""
 "Warning : GFWL seems to be already installed.\\nForcing reinstallation."
 msgstr ""
+"Varoitus: GFWL näyttää olevan asennettu.\r\n"
+"Pakotettu uudelleenasennus"
 
 #: PlayOnLinux_Scripts/POL_Install_ie6_:52
 #, sh-format
@@ -1225,6 +1232,8 @@ msgstr "Ladataan msxml3..."
 msgid ""
 "Warning : msxml3 seems to be already installed.\\nForcing reinstallation."
 msgstr ""
+"Varoitus: msxml3 näyttää olevan jo asennettu. \r\n"
+"Pakotettu uudelleenasennus."
 
 #: PlayOnLinux_Scripts/POL_Install_quartz_:13
 #, sh-format
@@ -1234,12 +1243,12 @@ msgstr "Asennetaan quartz DLL..."
 #: PlayOnLinux_Scripts/POL_Install_steam_:24
 #, sh-format
 msgid "Please wait while Steam is downloaded..."
-msgstr ""
+msgstr "Odota herki kun Steam latautuu..."
 
 #: PlayOnLinux_Scripts/POL_Install_vbrun6_:12
 #, sh-format
 msgid "Installing Visual Basic runtime"
-msgstr ""
+msgstr "Asennetaan Visual Basic runtime"
 
 #: PlayOnLinux_Scripts/POL_Install_vcrun2005_:19
 #: PlayOnLinux_Scripts/POL_Install_vcrun2005_:21
@@ -1258,6 +1267,8 @@ msgstr "Ladataan vcrun2005 sp1 x86..."
 msgid ""
 "Warning : vcrun2005 seems to be already installed.\\nForcing reinstallation."
 msgstr ""
+"Varoitus: vcrun2005 näyttää olevan jo asennettu. \r\n"
+"Pakotettu uudelleenasennus."
 
 #: PlayOnLinux_Scripts/POL_Install_vcrun2008_:19
 #: PlayOnLinux_Scripts/POL_Install_vcrun2008_:21
@@ -1276,6 +1287,8 @@ msgstr "Ladataan vcrun2008 sp1 x86..."
 msgid ""
 "Warning : vcrun2008 seems to be already installed.\\nForcing reinstallation."
 msgstr ""
+"Varoitus: vcrun2008 näyttää olevan jo asennettu. \r\n"
+"Pakotettu uudelleenasennus."
 
 #: PlayOnLinux_Scripts/POL_Install_vcrun2010_:17
 #, sh-format
@@ -1292,11 +1305,13 @@ msgstr "Ladataan vcrun2010 sp1 x86..."
 msgid ""
 "Warning : vcrun2010 seems to be already installed.\\nForcing reinstallation."
 msgstr ""
+"Varoitus: vcrun2010 näyttää olevan jo asennettu. \r\n"
+"Pakotettu uudelleenasennus."
 
 #: PlayOnLinux_Scripts/POL_Install_wmp9_:13
 #, sh-format
 msgid "Downloading scripten..."
-msgstr ""
+msgstr "Ladataan scritti...."
 
 #: PlayOnLinux_Scripts/POL_Install_wmp9_:16
 #, sh-format
@@ -1316,28 +1331,34 @@ msgstr "Ladataan WMP-koodekit 2"
 #: PlayOnLinux_Scripts/POL_Remove_gfwl_:14
 #, sh-format
 msgid "Remove Game For Windows Live..."
-msgstr ""
+msgstr "Poistetaan Games for Windows Live..."
 
 #: PlayOnLinux_Scripts/POL_Remove_gfwl_:21
 #, sh-format
 msgid "Game For Windows Live is not installed\\nskipping uninstall routine."
 msgstr ""
+"Games for Widows Liveä ei ole asennettu\r\n"
+"peruutetaan poistaminen."
 
 #: PlayOnLinux_Scripts/Rage_:63 PlayOnLinux_Scripts/Rage_:70
 #: PlayOnLinux_Scripts/Rage_:77
 #, sh-format
 msgid "Wait while installation is prepared..."
-msgstr ""
+msgstr "Odota hetki kun asennusta valmistellaan..."
 
 #: PlayOnLinux_Scripts/Rage_:67
 #, sh-format
 msgid "Please insert disk 2 into your disk drive\\nif not already done."
 msgstr ""
+"Ole hyvä ja laita toinen levy levyasemaasi. \r\n"
+"Ellet ole sitä jo tehnyt."
 
 #: PlayOnLinux_Scripts/Rage_:74
 #, sh-format
 msgid "Please insert disk 3 into your disk drive\\nif not already done."
 msgstr ""
+"Ole hyvä ja laita kolmas levy levyasemaasi. \r\n"
+"Ellet ole sitä jo tehnyt."
 
 #: PlayOnLinux_Scripts/Rome_Total_War__Gold_Edition__:72
 #, sh-format
@@ -1345,16 +1366,22 @@ msgid ""
 "$TITLE is installed!\\n\\nNote!\\n1)Reboot wine\\n2)Set correct output "
 "device in wine audio settings\\n3)Have fun!"
 msgstr ""
+"$TITLE on asennettu!\r\n"
+"\r\n"
+"Huomautus!\r\n"
+"1) Uudelleenkäynnistä Wine.\r\n"
+"2) Aseta Wineen oikea ulostulolaitteen ääniasetus.\r\n"
+"3) Pidä hauskaa!"
 
 #: PlayOnLinux_Scripts/Runes_Of_Magic_:33
 #, sh-format
 msgid "You can download $TITLE install file here:"
-msgstr ""
+msgstr "Voit ladata $TITLE asennustiedoston täältä:"
 
 #: PlayOnLinux_Scripts/Runes_Of_Magic_:34
 #, sh-format
 msgid "Where is $TITLEs"
-msgstr ""
+msgstr "Missä on $TITLEs"
 
 #: PlayOnLinux_Scripts/Safari_:50 PlayOnLinux_Scripts/Safari_:61
 #, sh-format
@@ -1362,26 +1389,28 @@ msgid ""
 "During the install process, please deselect\\n\"Install Bonjour for "
 "Windows\" and \"Automaticaly update Safari\"."
 msgstr ""
+"Asennuksen aikana, poista \"Asenna Bonjour for Windows\" ja \"Päivitä "
+"automaattisesti Safari\"."
 
 #: PlayOnLinux_Scripts/Sonic_Fan_Remix_:37
 #, sh-format
 msgid "Downloading $TITLE Freeware..."
-msgstr ""
+msgstr "Ladataan $TITLE Freeware..."
 
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:48
 #, sh-format
 msgid "Waiting for users commands..."
-msgstr ""
+msgstr "Odotetaan käyttäjän komentoja...."
 
 #: PlayOnLinux_Scripts/Steam_:48
 #, sh-format
 msgid "Please choose a virtual drive name"
-msgstr ""
+msgstr "Ole hyvä ja valitse virtuaaliaseman nimi"
 
 #: PlayOnLinux_Scripts/Steam_:68
 #, sh-format
 msgid "Downloading $TITLE"
-msgstr ""
+msgstr "Ladataan $TITLE"
 
 #: PlayOnLinux_Scripts/Steam_:85
 #, sh-format
@@ -1389,6 +1418,8 @@ msgid ""
 "If you want to install $TITLE in another virtual drive\\nRun this installer "
 "again"
 msgstr ""
+"Jos haluat asentaa $TITLE toiseen virtuaaliasemaan.\r\n"
+"Käynnistä tämä asennusohjelma uudestaan."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:50
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:75
@@ -1397,7 +1428,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:150
 #, sh-format
 msgid "\"Horse Armor Pack\" installation will begin..."
-msgstr ""
+msgstr "\"Horse Armor Pack\" asennus käynnistyy..."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:53
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:78
@@ -1406,7 +1437,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:153
 #, sh-format
 msgid "\"Knights of the Nine\" installation will begin..."
-msgstr ""
+msgstr "\"Knights of the Nine\" asennus käynnistyy..."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:56
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:81
@@ -1415,7 +1446,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:156
 #, sh-format
 msgid "\"Mehrunes Razor\" installation will begin..."
-msgstr ""
+msgstr "\"Mehrunes Razor\" asennus käynnistyy..."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:59
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:84
@@ -1424,7 +1455,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:159
 #, sh-format
 msgid "\"Orrery\" installation will begin..."
-msgstr ""
+msgstr "\"Orrery\" asennus käynnistyy..."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:62
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:87
@@ -1433,7 +1464,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:162
 #, sh-format
 msgid "\"Spell Tomes\" installation will begin..."
-msgstr ""
+msgstr "\"Spell Tomes\" asennus käynnistyy..."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:65
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:90
@@ -1442,7 +1473,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:165
 #, sh-format
 msgid "\"Thieves Den\" installation will begin..."
-msgstr ""
+msgstr "\"Thieves Den\" asennus käynnistyy..."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:68
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:93
@@ -1451,7 +1482,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:168
 #, sh-format
 msgid "\"Vile Lair\" installation will begin..."
-msgstr ""
+msgstr "\"Vile Lair\" asennus käynnistyy..."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:71
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:96
@@ -1460,7 +1491,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:171
 #, sh-format
 msgid "\"Wizard Tower\" installation will begin..."
-msgstr ""
+msgstr "\"Wizard Tower\" asennus käynnistyy..."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:185
 #, sh-format
@@ -1526,32 +1557,32 @@ msgstr ""
 #: bash/bug_report:39
 #, sh-format
 msgid "What kind of problem do you have?"
-msgstr ""
+msgstr "Minkä tyylinen ongelma sinulla on?"
 
 #: bash/bug_report:43
 #, sh-format
 msgid "Don't join any log file"
-msgstr ""
+msgstr "Älä lisää mitään lokitiedostoa"
 
 #: bash/bug_report:50
 #, sh-format
 msgid "Choose the log file corresponding to your software."
-msgstr ""
+msgstr "Valitse lokitiedosto joka vastaa sinun käyttämääsi ohjelmaa."
 
 #: bash/bug_report:54
 #, sh-format
 msgid "Please give a very short description (title, english only)"
-msgstr ""
+msgstr "Ole hyvä ja anna erittäin lyhyt kuvaus (kuvaus, englantia ainoastaa)"
 
 #: bash/bug_report:56
 #, sh-format
 msgid "Please explain your problem clearly (english only):"
-msgstr ""
+msgstr "Ole hyvä ja selitä vika selkeästi. (englantia ainoastaa)"
 
 #: bash/bug_report:68
 #, sh-format
 msgid "Sorry, we need a detailed description."
-msgstr ""
+msgstr "Anteeksi, mutta me tarvitsemme yksityiskohtaisen kuvauksen"
 
 #: bash/bug_report:80
 #, sh-format
@@ -1559,6 +1590,11 @@ msgid ""
 "Thank you !\\n\\nYour report has been sent.\\n\\nWe will do our best to send "
 "you an answer by mail very soon"
 msgstr ""
+"Kiitos!\r\n"
+"\r\n"
+"Virheilmoitus raportti on lähetetty. \r\n"
+"Me teemme parhaamme ja lähetämme sinulle vastauksen mahdollisimman hyvin "
+"pian."
 
 #: bash/expert/Executer:27 bash/expert/Executer:32 bash/expert/Executer:34
 #: python/mainwindow.py:176
@@ -1570,42 +1606,44 @@ msgstr "Aja paikallinen scripti"
 #, sh-format
 msgid "This wizard will help you to run an unofficial PlayOnLinux Script."
 msgstr ""
+"Tämän ohjatun toiminnon avulla voit suorittaa epävirallisen PlayOnLinux "
+"scriptin."
 
 #: bash/expert/Executer:34
 #, sh-format
 msgid "Choose a valid PlayOnLinux script to run."
-msgstr ""
+msgstr "Valitse kelvollinen ja suoritettava PlayOnLinux komentosarja."
 
 #: bash/expert/Executer:43
 #, sh-format
 msgid "Error!"
-msgstr ""
+msgstr "Virhe!"
 
 #: bash/expert/Executer:43
 #, sh-format
 msgid "File not found!"
-msgstr ""
+msgstr "Tiedostoa ei löytymyt!"
 
 #: bash/first_use:33 bash/first_use:50 bash/first_use:54 bash/first_use:65
 #: bash/first_use:83 bash/first_use:107
 #, sh-format
 msgid "Microsoft fonts"
-msgstr ""
+msgstr "Microsoft kirjaimet"
 
 #: bash/first_use:33
 #, sh-format
 msgid "Microsoft fonts aren't installed; I'll install them for you."
-msgstr ""
+msgstr "Microsoft kirjaimia ei ole asennettu. Ne asennetaan sinulle."
 
 #: bash/first_use:33 bash/first_use:54
 #, sh-format
 msgid "\\nPlease make sure you are connected to the Internet."
-msgstr ""
+msgstr "\\nVarmista, että olet yhteydessä Internettiin."
 
 #: bash/first_use:34
 #, sh-format
 msgid " Licence translated into your language "
-msgstr ""
+msgstr " Lisenssi käännetty kielellesi "
 
 #: bash/first_use:35
 #, sh-format
@@ -1631,125 +1669,160 @@ msgstr ""
 #: bash/first_use:39
 #, sh-format
 msgid " Original licence "
-msgstr ""
+msgstr " Alkuperäinen lisenssi "
 
 #: bash/first_use:50
 #, sh-format
 msgid "Please read and accept the following:"
-msgstr ""
+msgstr "Lue ja hyväksy seuraava:"
 
 #: bash/first_use:54
 #, sh-format
 msgid "The PlayOnLinux website is unavailable."
-msgstr ""
+msgstr "PlayOnLinux sivusto ei ole käytettävissä"
 
 #: bash/first_use:65
 #, sh-format
 msgid "Downloading fonts"
-msgstr ""
+msgstr "Ladataan kirjaimia"
 
 #: bash/first_use:70 bash/first_use:71 bash/first_use:77 bash/first_use:78
 #, sh-format
 msgid "Downloading: "
-msgstr ""
+msgstr "Ladataan: "
 
 #: bash/first_use:83
 #, sh-format
 msgid "Installing fonts"
-msgstr ""
+msgstr "Asennetaan kirjaimia"
 
 #: bash/first_use:88 bash/first_use:89 bash/first_use:96 bash/first_use:97
 #, sh-format
 msgid "Installing: "
-msgstr ""
+msgstr "Asennetaan: "
 
 #: bash/first_use:107
 #, sh-format
 msgid "Microsoft fonts have been installed successfully."
+msgstr "Microsoftin kirjaimet on onnistuneesti asennettu."
+
+#: bash/first_use:118
+#, sh-format
+msgid "Please read this carefully"
+msgstr ""
+
+#: bash/first_use:120
+#, sh-format
+msgid "XQuartz $XQUARTZ_VERSION has been installed on your computer."
+msgstr ""
+
+#: bash/first_use:121
+#, sh-format
+msgid "However, it won't be activated until you reboot your computer."
+msgstr ""
+
+#: bash/first_use:123
+#, sh-format
+msgid "When you run your programs, ensure that X11 icon is black and orange."
+msgstr ""
+
+#: bash/first_use:124
+#, sh-format
+msgid ""
+"If it is not the case, PlayOnMac and wine won't be able to run games "
+"properly."
 msgstr ""
 
 #: bash/first_use:127
+#, sh-format
+msgid "Pleaase read this carefully."
+msgstr ""
+
+#: bash/first_use:140
 #, sh-format
 msgid ""
 "To ensure that your games will be compatible, PlayOnMac must install XQuartz"
 msgstr ""
 
-#: bash/first_use:128
+#: bash/first_use:141
 #, sh-format
 msgid "Don't install XQuartz for the moment"
-msgstr ""
+msgstr "Älä asenna toistaiseksi XQuartzia"
 
-#: bash/first_use:128
+#: bash/first_use:141
 #, sh-format
 msgid "I've downloaded the file by myself"
-msgstr ""
+msgstr "Olen ladannut tiedoston itse"
 
-#: bash/first_use:128
+#: bash/first_use:141
 #, sh-format
 msgid "Please download XQuartz for me"
-msgstr ""
+msgstr "Ole hyvä ja lataa XQuartz minulle"
 
-#: bash/first_use:131
+#: bash/first_use:144
 #, sh-format
 msgid "Downloading XQuartz"
-msgstr ""
+msgstr "Ladataan XQuartz"
 
-#: bash/first_use:136
+#: bash/first_use:149
 #, sh-format
 msgid "Where is"
-msgstr ""
-
-#: bash/first_use:143
-#, sh-format
-msgid "Installing XQuartz..."
-msgstr ""
+msgstr "Missä oh"
 
 #: bash/first_use:156
+#, sh-format
+msgid "Installing XQuartz..."
+msgstr "Asennetaan XQuartz..."
+
+#: bash/first_use:169
 #, sh-format
 msgid ""
 "Unable to install XQuartz! You must install it to improve games "
 "compatibility."
 msgstr ""
+"XQuartzia ei voida asentaa! Sinun pitää asentaa se, koska se parantaa pelien "
+"yhteensopivuutta"
 
-#: bash/first_use:158
+#: bash/first_use:172
 #, sh-format
-msgid "XQuartz has been installed. You might need to reboot your computer"
+msgid "XQuartz has been installed."
 msgstr ""
 
-#: bash/first_use:163
+#: bash/first_use:177
 #, sh-format
 msgid "Default virtual drive configuration"
-msgstr ""
+msgstr "Oletus virtuaaliasema kokoonoano"
 
-#: bash/first_use:164
+#: bash/first_use:178
 #, sh-format
 msgid "$APPLICATION_TITLE is making a virtual windows hard drive"
-msgstr ""
+msgstr "$APPLICATION_TITLE tekee virtuaalisen Windowsin kovalevyllesi"
 
-#: bash/first_use:278 bash/first_use:285
+#: bash/first_use:292 bash/first_use:299
 #, sh-format
 msgid "$APPLICATION_TITLE first use"
-msgstr ""
+msgstr "$APPLICATION_TITLE ohjelman ensimmäinen käyttö"
 
-#: bash/first_use:278
+#: bash/first_use:292
 #, sh-format
 msgid "It appears it is the first time you are using $APPLICATION_TITLE."
 msgstr ""
+"Näyttää siltä että käytät ensimmäistä kertaa $APPLICATION_TITLE ohjelmaa."
 
-#: bash/first_use:278
+#: bash/first_use:292
 #, sh-format
 msgid "Please ensure you are connected to the internet."
-msgstr ""
+msgstr "Varmista että olet yhteydessä Internettiin."
 
-#: bash/first_use:278
+#: bash/first_use:292
 #, sh-format
 msgid "This wizard will help you prepare $APPLICATION_TITLE environement"
 msgstr ""
 
-#: bash/first_use:285
+#: bash/first_use:299
 #, sh-format
 msgid "Thank you for using $APPLICATION_TITLE"
-msgstr ""
+msgstr "Kiitoksia kun käytit $APPLICATION_TITLE"
 
 #: bash/install_wver:26
 #, sh-format
@@ -1802,7 +1875,7 @@ msgstr ""
 #: bash/make_shortcut:43
 #, sh-format
 msgid "PlayOnMac package"
-msgstr ""
+msgstr "PlayOnMac paketti"
 
 #: bash/make_shortcut:43
 #, sh-format
@@ -1817,17 +1890,17 @@ msgstr ""
 #: bash/make_shortcut:47
 #, sh-format
 msgid "Building package..."
-msgstr ""
+msgstr "Rakennetaan pakettia"
 
 #: bash/make_shortcut:66
 #, sh-format
 msgid "Copying virtual drive"
-msgstr ""
+msgstr "Kopioidaan virtuaaliasemaa"
 
 #: bash/make_shortcut:83
 #, sh-format
 msgid "The package has been placed on your desktop"
-msgstr ""
+msgstr "Tämä paketti on lisätty sinun työpöydällesi"
 
 #: bash/make_shortcut:88
 #, sh-format
@@ -1846,17 +1919,17 @@ msgstr ""
 #: bash/manual_install:195
 #, sh-format
 msgid "Manual installation"
-msgstr ""
+msgstr "Manuaalinen asennus"
 
 #: bash/manual_install:51
 #, sh-format
 msgid "Autorun"
-msgstr ""
+msgstr "Automaattinen käynnistys"
 
 #: bash/manual_install:51
 #, sh-format
 msgid "No setup location found in autorun.inf"
-msgstr ""
+msgstr "Asennustiedoston polkua ei löydy autorun.inf tiedostosta"
 
 #: bash/manual_install:111
 #, sh-format
@@ -1870,17 +1943,17 @@ msgstr ""
 #: bash/manual_install:113
 #, sh-format
 msgid "Install a program in a new virtual drive"
-msgstr ""
+msgstr "Asenna ohjelma uuteen virtuaaliasemaan"
 
 #: bash/manual_install:114
 #, sh-format
 msgid "Edit or update an existing application"
-msgstr ""
+msgstr "Muokkaa tai päivitä olemassa olevaa ohjelmaa"
 
 #: bash/manual_install:118
 #, sh-format
 msgid "What would you like to do?"
-msgstr ""
+msgstr "Mitä haluat tehdä?"
 
 #: bash/manual_install:128
 #, sh-format
@@ -1892,12 +1965,12 @@ msgstr ""
 #: bash/manual_install:138
 #, sh-format
 msgid "Please choose a program"
-msgstr ""
+msgstr "Ole hyvä ja valirse ohjelma"
 
 #: bash/manual_install:159
 #, sh-format
 msgid "Use another version of Wine"
-msgstr ""
+msgstr "Käytä toista versiota Winestä"
 
 #: bash/manual_install:160 bash/manual_install:195 bash/polconfigurator:107
 #: python/configure.py:150 python/mainwindow.py:384 python/mainwindow.py:415
@@ -1908,12 +1981,12 @@ msgstr "Konfiguroi Wineä"
 #: bash/manual_install:161
 #, sh-format
 msgid "Install some libraries"
-msgstr ""
+msgstr "Asenna joitakin kirjastoja"
 
 #: bash/manual_install:164
 #, sh-format
 msgid "If you don't know, unselect all"
-msgstr ""
+msgstr "Jos et tiedä mitään, poista kaikkien valinta"
 
 #: bash/manual_install:164
 #, sh-format
@@ -1925,7 +1998,7 @@ msgstr ""
 msgid "Which version of Wine would you like to use?"
 msgstr ""
 
-#: bash/manual_install:206 lib/scripts.lib:281
+#: bash/manual_install:206 lib/scripts.lib:289
 #, sh-format
 msgid "Please make your choice"
 msgstr ""
@@ -2688,43 +2761,43 @@ msgstr ""
 msgid "Installing plugin: "
 msgstr ""
 
-#: lib/scripts.lib:332
+#: lib/scripts.lib:340
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr ""
 
-#: lib/scripts.lib:344 lib/scripts.lib:378
+#: lib/scripts.lib:352 lib/scripts.lib:386
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 
-#: lib/scripts.lib:432
+#: lib/scripts.lib:440
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
 msgstr ""
 
-#: lib/scripts.lib:439
+#: lib/scripts.lib:447
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr ""
 
-#: lib/scripts.lib:443
+#: lib/scripts.lib:451
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr ""
 
-#: lib/scripts.lib:458
+#: lib/scripts.lib:466
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:477
+#: lib/scripts.lib:485
 #, sh-format
 msgid "Copying ${filename}"
 msgstr ""
 
-#: lib/scripts.lib:490
+#: lib/scripts.lib:498
 #, sh-format
 msgid "File size does not match!"
 msgstr ""
@@ -2757,7 +2830,7 @@ msgstr ""
 #: lib/setupwindow.lib:78
 #, sh-format
 msgid "This wizard will help you install "
-msgstr ""
+msgstr "Tämän ohjatun toiminnon avulla voit asentaa "
 
 #: lib/setupwindow.lib:633
 #, sh-format
@@ -3351,7 +3424,7 @@ msgstr "Poista käytöstä"
 
 #: python/options.py:310
 msgid "Apply"
-msgstr ""
+msgstr "Toteuta"
 
 #: python/options.py:347
 msgid "You must restart PlayOnLinux for the changes to take effect."

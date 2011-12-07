@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2011-11-28 19:00+0100\n"
-"PO-Revision-Date: 2011-11-17 14:37+0000\n"
-"Last-Translator: Luis Grabiel <Unknown>\n"
+"POT-Creation-Date: 2011-12-04 19:01+0100\n"
+"PO-Revision-Date: 2011-12-03 00:10+0000\n"
+"Last-Translator: Aiguanachein <Unknown>\n"
 "Language-Team: es_ES.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-11-29 05:14+0000\n"
-"X-Generator: Launchpad (build 14399)\n"
+"X-Launchpad-Export-Date: 2011-12-05 05:19+0000\n"
+"X-Generator: Launchpad (build 14418)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -234,6 +234,7 @@ msgstr "Operación realizada"
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_:57
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_:57
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Revelations_:57
+#: PlayOnLinux_Scripts/Theme_Hospital_:37
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:74
 #, sh-format
 msgid "Please insert the game media into your disk drive."
@@ -249,7 +250,8 @@ msgstr "Por favor, inserte el disco de juego en tu unidad de disco"
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_:77
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_:80
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Revelations_:80
-#: PlayOnLinux_Scripts/Magicka_:66 PlayOnLinux_Scripts/Wow_Cartographe_:48
+#: PlayOnLinux_Scripts/Magicka_:66 PlayOnLinux_Scripts/Theme_Hospital_:49
+#: PlayOnLinux_Scripts/Wow_Cartographe_:48
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:67
 #, sh-format
 msgid "Please select the setup file to run"
@@ -321,6 +323,8 @@ msgstr "$TITLE se ha instalado correctamente."
 #: PlayOnLinux_Scripts/Age_Of_Wonders_:39
 #: PlayOnLinux_Scripts/Age_Of_Wonders_:49
 #: PlayOnLinux_Scripts/Age_Of_Wonders_:59 PlayOnLinux_Scripts/Anno_1602_:42
+#: PlayOnLinux_Scripts/Theme_Hospital_:40
+#: PlayOnLinux_Scripts/Theme_Hospital_:50
 #: PlayOnLinux_Scripts/Wow_Cartographe_:40
 #: PlayOnLinux_Scripts/Wow_Cartographe_:49
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:47
@@ -336,6 +340,7 @@ msgid "The introdution movie was renamed because it doesnt"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Age_Of_Wonders_:82
+#: PlayOnLinux_Scripts/Theme_Hospital_:64
 #: PlayOnLinux_Scripts/Wow_Cartographe_:58
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:95
 #, sh-format
@@ -1113,7 +1118,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Microsoft_Office_2007_:45
 #, sh-format
 msgid "$TITLE has been successfully installed"
-msgstr ""
+msgstr "$TITLE ha sido instalado satisfactoriamente"
 
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:64
 #, sh-format
@@ -1268,13 +1273,13 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_vcrun2005_:21
 #, sh-format
 msgid "Downloading vcrun2005 sp1 x64..."
-msgstr ""
+msgstr "Descargando vcrun2005 sp1 x64..."
 
 #: PlayOnLinux_Scripts/POL_Install_vcrun2005_:28
 #: PlayOnLinux_Scripts/POL_Install_vcrun2005_:30
 #, sh-format
 msgid "Downloading vcrun2005 sp1 x86..."
-msgstr ""
+msgstr "Descargando vcrun2005 sp1 x86..."
 
 #: PlayOnLinux_Scripts/POL_Install_vcrun2005_:38
 #, sh-format
@@ -1597,17 +1602,17 @@ msgstr ""
 #: bash/expert/Executer:34
 #, sh-format
 msgid "Choose a valid PlayOnLinux script to run."
-msgstr ""
+msgstr "Seleccione un script de PlayOnLinux válido a ejecutar."
 
 #: bash/expert/Executer:43
 #, sh-format
 msgid "Error!"
-msgstr ""
+msgstr "¡Error!"
 
 #: bash/expert/Executer:43
 #, sh-format
 msgid "File not found!"
-msgstr ""
+msgstr "¡Archivo no encontrado!"
 
 #: bash/first_use:33 bash/first_use:50 bash/first_use:54 bash/first_use:65
 #: bash/first_use:83 bash/first_use:107
@@ -1664,7 +1669,7 @@ msgstr ""
 #: bash/first_use:54
 #, sh-format
 msgid "The PlayOnLinux website is unavailable."
-msgstr ""
+msgstr "El sitio web de PlayOnLinux no está disponible."
 
 #: bash/first_use:65
 #, sh-format
@@ -1674,102 +1679,134 @@ msgstr ""
 #: bash/first_use:70 bash/first_use:71 bash/first_use:77 bash/first_use:78
 #, sh-format
 msgid "Downloading: "
-msgstr ""
+msgstr "Descargando: "
 
 #: bash/first_use:83
 #, sh-format
 msgid "Installing fonts"
-msgstr ""
+msgstr "Instalando fuentes"
 
 #: bash/first_use:88 bash/first_use:89 bash/first_use:96 bash/first_use:97
 #, sh-format
 msgid "Installing: "
-msgstr ""
+msgstr "Instalando: "
 
 #: bash/first_use:107
 #, sh-format
 msgid "Microsoft fonts have been installed successfully."
 msgstr ""
 
+#: bash/first_use:118
+#, sh-format
+msgid "Please read this carefully"
+msgstr ""
+
+#: bash/first_use:120
+#, sh-format
+msgid "XQuartz $XQUARTZ_VERSION has been installed on your computer."
+msgstr ""
+
+#: bash/first_use:121
+#, sh-format
+msgid "However, it won't be activated until you reboot your computer."
+msgstr ""
+
+#: bash/first_use:123
+#, sh-format
+msgid "When you run your programs, ensure that X11 icon is black and orange."
+msgstr ""
+
+#: bash/first_use:124
+#, sh-format
+msgid ""
+"If it is not the case, PlayOnMac and wine won't be able to run games "
+"properly."
+msgstr ""
+
 #: bash/first_use:127
+#, sh-format
+msgid "Pleaase read this carefully."
+msgstr ""
+
+#: bash/first_use:140
 #, sh-format
 msgid ""
 "To ensure that your games will be compatible, PlayOnMac must install XQuartz"
 msgstr ""
 
-#: bash/first_use:128
+#: bash/first_use:141
 #, sh-format
 msgid "Don't install XQuartz for the moment"
 msgstr ""
 
-#: bash/first_use:128
+#: bash/first_use:141
 #, sh-format
 msgid "I've downloaded the file by myself"
 msgstr ""
 
-#: bash/first_use:128
+#: bash/first_use:141
 #, sh-format
 msgid "Please download XQuartz for me"
 msgstr ""
 
-#: bash/first_use:131
+#: bash/first_use:144
 #, sh-format
 msgid "Downloading XQuartz"
 msgstr ""
 
-#: bash/first_use:136
+#: bash/first_use:149
 #, sh-format
 msgid "Where is"
 msgstr ""
 
-#: bash/first_use:143
+#: bash/first_use:156
 #, sh-format
 msgid "Installing XQuartz..."
 msgstr ""
 
-#: bash/first_use:156
+#: bash/first_use:169
 #, sh-format
 msgid ""
 "Unable to install XQuartz! You must install it to improve games "
 "compatibility."
 msgstr ""
 
-#: bash/first_use:158
+#: bash/first_use:172
 #, sh-format
-msgid "XQuartz has been installed. You might need to reboot your computer"
+msgid "XQuartz has been installed."
 msgstr ""
 
-#: bash/first_use:163
+#: bash/first_use:177
 #, sh-format
 msgid "Default virtual drive configuration"
 msgstr ""
 
-#: bash/first_use:164
+#: bash/first_use:178
 #, sh-format
 msgid "$APPLICATION_TITLE is making a virtual windows hard drive"
 msgstr ""
 
-#: bash/first_use:278 bash/first_use:285
+#: bash/first_use:292 bash/first_use:299
 #, sh-format
 msgid "$APPLICATION_TITLE first use"
 msgstr ""
 
-#: bash/first_use:278
+#: bash/first_use:292
 #, sh-format
 msgid "It appears it is the first time you are using $APPLICATION_TITLE."
 msgstr ""
 
-#: bash/first_use:278
+#: bash/first_use:292
 #, sh-format
 msgid "Please ensure you are connected to the internet."
-msgstr ""
+msgstr "Por favor, asegúrese de estar conectado a internet."
 
-#: bash/first_use:278
+#: bash/first_use:292
 #, sh-format
 msgid "This wizard will help you prepare $APPLICATION_TITLE environement"
 msgstr ""
 
-#: bash/first_use:285
+#: bash/first_use:299
 #, sh-format
 msgid "Thank you for using $APPLICATION_TITLE"
 msgstr ""
@@ -1869,7 +1906,7 @@ msgstr ""
 #: bash/manual_install:195
 #, sh-format
 msgid "Manual installation"
-msgstr ""
+msgstr "Instalación manual"
 
 #: bash/manual_install:51
 #, sh-format
@@ -1903,7 +1940,7 @@ msgstr ""
 #: bash/manual_install:118
 #, sh-format
 msgid "What would you like to do?"
-msgstr ""
+msgstr "¿Qué le gustaría hacer?"
 
 #: bash/manual_install:128
 #, sh-format
@@ -1941,14 +1978,14 @@ msgstr ""
 #: bash/manual_install:164
 #, sh-format
 msgid "What would you like to do before installation?"
-msgstr ""
+msgstr "¿Qué le gustaria hacer antes de la instalación?"
 
 #: bash/manual_install:177
 #, sh-format
 msgid "Which version of Wine would you like to use?"
-msgstr ""
+msgstr "¿Qué versión de Wine le gustaría utilizar?"
 
-#: bash/manual_install:206 lib/scripts.lib:281
+#: bash/manual_install:206 lib/scripts.lib:289
 #, sh-format
 msgid "Please make your choice"
 msgstr ""
@@ -1961,7 +1998,7 @@ msgstr ""
 #: bash/manual_install:253
 #, sh-format
 msgid "Select another file"
-msgstr ""
+msgstr "Seleccione otro archivo"
 
 #: bash/manual_install:261
 #, sh-format
@@ -1976,7 +2013,7 @@ msgstr ""
 #: bash/manual_install:300
 #, sh-format
 msgid "You must choose a file!"
-msgstr ""
+msgstr "¡Debe seleccionar un archivo!"
 
 #: bash/manual_install:306
 #, sh-format
@@ -2054,7 +2091,7 @@ msgstr ""
 #: bash/playonlinux-pkg:99
 #, sh-format
 msgid "Extracting: "
-msgstr ""
+msgstr "Extrayendo: "
 
 #: bash/playonlinux-pkg:111 bash/playonlinux_online:34
 #, sh-format
@@ -2064,7 +2101,7 @@ msgstr ""
 #: bash/playonlinux-pkg:115
 #, sh-format
 msgid "Cleaning..."
-msgstr ""
+msgstr "Limpiando..."
 
 #: bash/playonlinux_online:30
 #, sh-format
@@ -2241,7 +2278,7 @@ msgstr ""
 #: bash/polconfigurator:58
 #, sh-format
 msgid "Simulating Windows reboot"
-msgstr ""
+msgstr "Simulando reinicio de Windows"
 
 #: bash/polconfigurator:65
 #, sh-format
@@ -2297,7 +2334,7 @@ msgstr ""
 #: bash/polconfigurator:111
 #, sh-format
 msgid "Simulate Windows reboot"
-msgstr ""
+msgstr "Simular reinicio de Windows"
 
 #: bash/polconfigurator:112
 #, sh-format
@@ -2332,7 +2369,7 @@ msgstr ""
 #: bash/run_app:26
 #, sh-format
 msgid "Send to pastebin"
-msgstr ""
+msgstr "Enviar a pastebin"
 
 #: bash/run_app:26
 #, sh-format
@@ -2347,7 +2384,7 @@ msgstr ""
 #: bash/run_app:26
 #, sh-format
 msgid "What do you want to do ?"
-msgstr ""
+msgstr "¿Qué desea hacer?"
 
 #: bash/run_app:26
 #, sh-format
@@ -2413,7 +2450,7 @@ msgstr ""
 #: bash/run_exe:43
 #, sh-format
 msgid "Installation finished."
-msgstr ""
+msgstr "Instalación finalizada."
 
 #: bash/run_exe:48
 #, sh-format
@@ -2497,7 +2534,7 @@ msgstr ""
 #: bash/system_info:67
 #, sh-format
 msgid "OpenGL: "
-msgstr ""
+msgstr "OpenGL: "
 
 #: bash/system_info:68
 #, sh-format
@@ -2527,7 +2564,7 @@ msgstr ""
 #: bash/system_info:86
 #, sh-format
 msgid "System information:"
-msgstr ""
+msgstr "Información del sistema:"
 
 #: bash/system_info:89
 #, sh-format
@@ -2542,7 +2579,7 @@ msgstr ""
 #: bash/system_info:91
 #, sh-format
 msgid "Your username: "
-msgstr ""
+msgstr "Su nombre de usuario: "
 
 #: bash/system_info:92
 #, sh-format
@@ -2567,7 +2604,7 @@ msgstr ""
 #: bash/system_info:96
 #, sh-format
 msgid "Current Wine version: "
-msgstr ""
+msgstr "Versión actual de Wine: "
 
 #: bash/system_info:97
 #, sh-format
@@ -2603,12 +2640,12 @@ msgstr ""
 #: bash/uninstall:52 lib/playonlinux.lib:675
 #, sh-format
 msgid "Uninstalling..."
-msgstr ""
+msgstr "Desinstalando..."
 
 #: bash/uninstall:55
 #, sh-format
 msgid " has been uninstalled successfully."
-msgstr ""
+msgstr " ha sido desinstalado satisfactoriamente."
 
 #: bash/uninstall:57
 #, sh-format
@@ -2618,7 +2655,7 @@ msgstr ""
 #: bash/uninstall:57 lib/setupwindow.lib:143
 #, sh-format
 msgid "Error"
-msgstr ""
+msgstr "Error"
 
 #: lib/depend.lib:32
 #, sh-format
@@ -2633,7 +2670,7 @@ msgstr ""
 #: lib/depend.lib:40
 #, sh-format
 msgid "Program: "
-msgstr ""
+msgstr "Programa: "
 
 #: lib/depend.lib:50 lib/setupwindow.lib:141
 #, sh-format
@@ -2711,43 +2748,43 @@ msgstr ""
 msgid "Installing plugin: "
 msgstr ""
 
-#: lib/scripts.lib:332
+#: lib/scripts.lib:340
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr ""
 
-#: lib/scripts.lib:344 lib/scripts.lib:378
+#: lib/scripts.lib:352 lib/scripts.lib:386
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 
-#: lib/scripts.lib:432
+#: lib/scripts.lib:440
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
 msgstr ""
 
-#: lib/scripts.lib:439
+#: lib/scripts.lib:447
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr ""
 
-#: lib/scripts.lib:443
+#: lib/scripts.lib:451
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr ""
 
-#: lib/scripts.lib:458
+#: lib/scripts.lib:466
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:477
+#: lib/scripts.lib:485
 #, sh-format
 msgid "Copying ${filename}"
 msgstr ""
 
-#: lib/scripts.lib:490
+#: lib/scripts.lib:498
 #, sh-format
 msgid "File size does not match!"
 msgstr ""
@@ -2805,12 +2842,12 @@ msgstr ""
 #: lib/setupwindow.lib:860
 #, sh-format
 msgid "How much memory does your graphics board have?"
-msgstr ""
+msgstr "¿Cuanta memoria tiene su tarjeta gráfica?"
 
 #: lib/setupwindow.lib:869
 #, sh-format
 msgid "Video card does not have enough memory"
-msgstr ""
+msgstr "La tarjeta de vídeo no tiene memoria suficiente"
 
 #: lib/setupwindow.lib:870
 #, sh-format
@@ -2852,7 +2889,7 @@ msgstr ""
 #: lib/setupwindow.lib:930
 #, sh-format
 msgid "Please choose an installation method"
-msgstr ""
+msgstr "Por favor, elija el método de instalación"
 
 #: lib/setupwindow.lib:964
 #, sh-format
@@ -2872,7 +2909,7 @@ msgstr ""
 #: lib/website.lib:122
 #, sh-format
 msgid "Connecting..."
-msgstr ""
+msgstr "Conectando..."
 
 #: lib/website.lib:127
 #, sh-format
@@ -2906,7 +2943,7 @@ msgstr ""
 #: lib/wine.lib:489
 #, sh-format
 msgid "Extracting Wine..."
-msgstr ""
+msgstr "Extrayendo Wine..."
 
 #: lib/wine.lib:655
 #, sh-format
@@ -3185,19 +3222,19 @@ msgstr "Salir"
 
 #: python/mainwindow.py:150
 msgid "Small icons"
-msgstr ""
+msgstr "Iconos pequeños"
 
 #: python/mainwindow.py:151
 msgid "Medium icons"
-msgstr ""
+msgstr "Iconos medianos"
 
 #: python/mainwindow.py:152
 msgid "Large icons"
-msgstr ""
+msgstr "Iconos grandes"
 
 #: python/mainwindow.py:153
 msgid "Very large icons"
-msgstr ""
+msgstr "Iconos muy grandes"
 
 #: python/mainwindow.py:166
 msgid "Manage Wine versions"
@@ -3313,7 +3350,7 @@ msgstr "Las siguientes personas han contribuido a este programa: "
 
 #: python/mainwindow.py:656
 msgid "Translations:"
-msgstr ""
+msgstr "Traducciones:"
 
 #: python/mainwindow.py:657
 msgid "Read TRANSLATORS file"

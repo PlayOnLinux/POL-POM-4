@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2011-11-28 19:00+0100\n"
-"PO-Revision-Date: 2011-11-22 13:23+0000\n"
+"POT-Creation-Date: 2011-12-04 19:01+0100\n"
+"PO-Revision-Date: 2011-12-02 17:46+0000\n"
 "Last-Translator: rob <linuxned@gmail.com>\n"
 "Language-Team: nl_NL.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-11-29 05:13+0000\n"
-"X-Generator: Launchpad (build 14399)\n"
+"X-Launchpad-Export-Date: 2011-12-05 05:18+0000\n"
+"X-Generator: Launchpad (build 14418)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -236,6 +236,7 @@ msgstr "Bewerking voltooid"
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_:57
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_:57
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Revelations_:57
+#: PlayOnLinux_Scripts/Theme_Hospital_:37
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:74
 #, sh-format
 msgid "Please insert the game media into your disk drive."
@@ -251,7 +252,8 @@ msgstr "Voer spelschijf in in schijfstation."
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_:77
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_:80
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Revelations_:80
-#: PlayOnLinux_Scripts/Magicka_:66 PlayOnLinux_Scripts/Wow_Cartographe_:48
+#: PlayOnLinux_Scripts/Magicka_:66 PlayOnLinux_Scripts/Theme_Hospital_:49
+#: PlayOnLinux_Scripts/Wow_Cartographe_:48
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:67
 #, sh-format
 msgid "Please select the setup file to run"
@@ -323,6 +325,8 @@ msgstr "$TITLE is geïnstalleerd."
 #: PlayOnLinux_Scripts/Age_Of_Wonders_:39
 #: PlayOnLinux_Scripts/Age_Of_Wonders_:49
 #: PlayOnLinux_Scripts/Age_Of_Wonders_:59 PlayOnLinux_Scripts/Anno_1602_:42
+#: PlayOnLinux_Scripts/Theme_Hospital_:40
+#: PlayOnLinux_Scripts/Theme_Hospital_:50
 #: PlayOnLinux_Scripts/Wow_Cartographe_:40
 #: PlayOnLinux_Scripts/Wow_Cartographe_:49
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:47
@@ -338,6 +342,7 @@ msgid "The introdution movie was renamed because it doesnt"
 msgstr "De introductiiefilm werd hernoemd omdat deze niet"
 
 #: PlayOnLinux_Scripts/Age_Of_Wonders_:82
+#: PlayOnLinux_Scripts/Theme_Hospital_:64
 #: PlayOnLinux_Scripts/Wow_Cartographe_:58
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:95
 #, sh-format
@@ -636,6 +641,8 @@ msgstr "U"
 msgid ""
 "Please wait while $APPLICATION_TITLE is downloading Ubisoft Game Launcher"
 msgstr ""
+"Een moment geduld, $APPLICATION_TITLE is bezig met het downloaden van "
+"Ubisoft Game Launcher"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_:48
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:39
@@ -1098,7 +1105,7 @@ msgstr "$TITLE is geïnstalleerd"
 #: PlayOnLinux_Scripts/Magicka_:68
 #, sh-format
 msgid "Installation in progress"
-msgstr ""
+msgstr "Bezig met installatie"
 
 #: PlayOnLinux_Scripts/Mass_Effect_2_:64
 #, sh-format
@@ -1567,8 +1574,8 @@ msgid ""
 "This wizard will help you to report a bug about an officially supported "
 "program."
 msgstr ""
-"Deze wizard helpt u met het rapporteren van een fout in een programma dat "
-"officieel ondersteund wordt door PlayOnLinux."
+"Deze wizard zal u helpen met het rapporteren van een fout in een programma "
+"dat officieel ondersteund wordt door PlayOnLinux."
 
 #: bash/bug_report:39
 #, sh-format
@@ -1663,7 +1670,7 @@ msgstr ""
 #: bash/first_use:33 bash/first_use:54
 #, sh-format
 msgid "\\nPlease make sure you are connected to the Internet."
-msgstr "\\nZorg er voor dat u verbonden bent met het internet."
+msgstr "\\nZorg ervoor dat u verbonden bent met het internet."
 
 #: bash/first_use:34
 #, sh-format
@@ -1737,7 +1744,39 @@ msgstr "Installeren: "
 msgid "Microsoft fonts have been installed successfully."
 msgstr "Microsoft-lettertypes zijn succesvol geïnstalleerd."
 
+#: bash/first_use:118
+#, sh-format
+msgid "Please read this carefully"
+msgstr ""
+
+#: bash/first_use:120
+#, sh-format
+msgid "XQuartz $XQUARTZ_VERSION has been installed on your computer."
+msgstr ""
+
+#: bash/first_use:121
+#, sh-format
+msgid "However, it won't be activated until you reboot your computer."
+msgstr ""
+
+#: bash/first_use:123
+#, sh-format
+msgid "When you run your programs, ensure that X11 icon is black and orange."
+msgstr ""
+
+#: bash/first_use:124
+#, sh-format
+msgid ""
+"If it is not the case, PlayOnMac and wine won't be able to run games "
+"properly."
+msgstr ""
+
 #: bash/first_use:127
+#, sh-format
+msgid "Pleaase read this carefully."
+msgstr ""
+
+#: bash/first_use:140
 #, sh-format
 msgid ""
 "To ensure that your games will be compatible, PlayOnMac must install XQuartz"
@@ -1745,37 +1784,37 @@ msgstr ""
 "Om er zeker van te zijn dat uw spellen compatibel zijn, moet PlayOnMac "
 "XQuartz installeren"
 
-#: bash/first_use:128
+#: bash/first_use:141
 #, sh-format
 msgid "Don't install XQuartz for the moment"
 msgstr "XQuartz nog niet installeren"
 
-#: bash/first_use:128
+#: bash/first_use:141
 #, sh-format
 msgid "I've downloaded the file by myself"
 msgstr "Ik heb het bestand zelf gedownload"
 
-#: bash/first_use:128
+#: bash/first_use:141
 #, sh-format
 msgid "Please download XQuartz for me"
 msgstr "Download XQuartz voor mij"
 
-#: bash/first_use:131
+#: bash/first_use:144
 #, sh-format
 msgid "Downloading XQuartz"
 msgstr "Bezig met downloaden XQuartz"
 
-#: bash/first_use:136
+#: bash/first_use:149
 #, sh-format
 msgid "Where is"
 msgstr "Waar is"
 
-#: bash/first_use:143
+#: bash/first_use:156
 #, sh-format
 msgid "Installing XQuartz..."
 msgstr "XQuartz wordt geïnstalleerd…"
 
-#: bash/first_use:156
+#: bash/first_use:169
 #, sh-format
 msgid ""
 "Unable to install XQuartz! You must install it to improve games "
@@ -1784,45 +1823,45 @@ msgstr ""
 "Kan XQuartz niet installeren! U moet dit installeren om de "
 "spelcompatibiliteit te verbeteren."
 
-#: bash/first_use:158
+#: bash/first_use:172
 #, sh-format
-msgid "XQuartz has been installed. You might need to reboot your computer"
-msgstr "XQuartz is geïnstalleerd. Mogelijk moet u uw computer herstarten"
+msgid "XQuartz has been installed."
+msgstr ""
 
-#: bash/first_use:163
+#: bash/first_use:177
 #, sh-format
 msgid "Default virtual drive configuration"
 msgstr "Configuratie standaard virtuele station"
 
-#: bash/first_use:164
+#: bash/first_use:178
 #, sh-format
 msgid "$APPLICATION_TITLE is making a virtual windows hard drive"
 msgstr "$APPLICATION_TITLE maakt een virtuele Windows-schijf aan"
 
-#: bash/first_use:278 bash/first_use:285
+#: bash/first_use:292 bash/first_use:299
 #, sh-format
 msgid "$APPLICATION_TITLE first use"
 msgstr "Eerste gebruik van $APPLICATION_TITLE"
 
-#: bash/first_use:278
+#: bash/first_use:292
 #, sh-format
 msgid "It appears it is the first time you are using $APPLICATION_TITLE."
 msgstr ""
 "Het lijkt erop dat u $APPLICATION_TITLE voor de eerste keer gebruikt."
 
-#: bash/first_use:278
+#: bash/first_use:292
 #, sh-format
 msgid "Please ensure you are connected to the internet."
-msgstr "Zorg er voor dat u verbonden bent met het internet."
+msgstr "Zorg ervoor dat u verbonden bent met het internet."
 
-#: bash/first_use:278
+#: bash/first_use:292
 #, sh-format
 msgid "This wizard will help you prepare $APPLICATION_TITLE environement"
 msgstr ""
 "Deze wizard zal u helpen met het prepareren van de $APPLICATION_TITLE-"
 "werkomgeving"
 
-#: bash/first_use:285
+#: bash/first_use:299
 #, sh-format
 msgid "Thank you for using $APPLICATION_TITLE"
 msgstr "Bedankt voor het gebruiken van $APPLICATION_TITLE"
@@ -2019,7 +2058,7 @@ msgstr "Wat wilt u doen vooraf aan de installatie?"
 msgid "Which version of Wine would you like to use?"
 msgstr "Welke versie van Wine wilt u gebruiken?"
 
-#: bash/manual_install:206 lib/scripts.lib:281
+#: bash/manual_install:206 lib/scripts.lib:289
 #, sh-format
 msgid "Please make your choice"
 msgstr "Maak een keuze"
@@ -2376,7 +2415,7 @@ msgstr "Alle processen in programmaverzamelmap beëindigen"
 #: bash/polconfigurator:110
 #, sh-format
 msgid "Update wineprefix"
-msgstr "Wineprefix bijwerken"
+msgstr "Wine-programmaverzamelmap bijwerken"
 
 #: bash/polconfigurator:111
 #, sh-format
@@ -2819,46 +2858,46 @@ msgstr "Plug-in bijwerken. Vorige: "
 msgid "Installing plugin: "
 msgstr "Installeren plug-in: "
 
-#: lib/scripts.lib:332
+#: lib/scripts.lib:340
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr ""
 "Een moment geduld, $APPLICATION_TITLE is bezig met het downloaden van:"
 
-#: lib/scripts.lib:344 lib/scripts.lib:378
+#: lib/scripts.lib:352 lib/scripts.lib:386
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 "Fout ! Bestanden komen niet overeen\\n\\nLokaal : $LOCAL_MD5\\nServer : "
 "$SERVER_MD5"
 
-#: lib/scripts.lib:432
+#: lib/scripts.lib:440
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
 msgstr "7z is niet geïnstalleerd, installeer 7zip en probeer het dan opnieuw"
 
-#: lib/scripts.lib:439
+#: lib/scripts.lib:447
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr "Kon ${dest} niet vinden in ${archive}"
 
-#: lib/scripts.lib:443
+#: lib/scripts.lib:451
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr "${filename} wordt uitgepakt vanuit ${archivename}"
 
-#: lib/scripts.lib:458
+#: lib/scripts.lib:466
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr "Grootte van uitgepakte bestand komt niet overeen!"
 
-#: lib/scripts.lib:477
+#: lib/scripts.lib:485
 #, sh-format
 msgid "Copying ${filename}"
 msgstr "${filename} wordt gekopieerd"
 
-#: lib/scripts.lib:490
+#: lib/scripts.lib:498
 #, sh-format
 msgid "File size does not match!"
 msgstr "Grootte van uitgepakte bestand komt niet overeen!"

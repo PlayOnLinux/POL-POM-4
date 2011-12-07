@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-11-28 19:00+0100\n"
+"POT-Creation-Date: 2011-12-04 19:01+0100\n"
 "PO-Revision-Date: 2011-09-21 04:48+0000\n"
 "Last-Translator: Aymeric <os2mule@gmail.com>\n"
 "Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-11-29 05:15+0000\n"
-"X-Generator: Launchpad (build 14399)\n"
+"X-Launchpad-Export-Date: 2011-12-05 05:19+0000\n"
+"X-Generator: Launchpad (build 14418)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -234,6 +234,7 @@ msgstr "İşlem tamamlandı"
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_:57
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_:57
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Revelations_:57
+#: PlayOnLinux_Scripts/Theme_Hospital_:37
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:74
 #, sh-format
 msgid "Please insert the game media into your disk drive."
@@ -249,7 +250,8 @@ msgstr ""
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_:77
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_:80
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Revelations_:80
-#: PlayOnLinux_Scripts/Magicka_:66 PlayOnLinux_Scripts/Wow_Cartographe_:48
+#: PlayOnLinux_Scripts/Magicka_:66 PlayOnLinux_Scripts/Theme_Hospital_:49
+#: PlayOnLinux_Scripts/Wow_Cartographe_:48
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:67
 #, sh-format
 msgid "Please select the setup file to run"
@@ -321,6 +323,8 @@ msgstr ""
 #: PlayOnLinux_Scripts/Age_Of_Wonders_:39
 #: PlayOnLinux_Scripts/Age_Of_Wonders_:49
 #: PlayOnLinux_Scripts/Age_Of_Wonders_:59 PlayOnLinux_Scripts/Anno_1602_:42
+#: PlayOnLinux_Scripts/Theme_Hospital_:40
+#: PlayOnLinux_Scripts/Theme_Hospital_:50
 #: PlayOnLinux_Scripts/Wow_Cartographe_:40
 #: PlayOnLinux_Scripts/Wow_Cartographe_:49
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:47
@@ -336,6 +340,7 @@ msgid "The introdution movie was renamed because it doesnt"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Age_Of_Wonders_:82
+#: PlayOnLinux_Scripts/Theme_Hospital_:64
 #: PlayOnLinux_Scripts/Wow_Cartographe_:58
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:95
 #, sh-format
@@ -1655,85 +1660,117 @@ msgstr ""
 msgid "Microsoft fonts have been installed successfully."
 msgstr ""
 
+#: bash/first_use:118
+#, sh-format
+msgid "Please read this carefully"
+msgstr ""
+
+#: bash/first_use:120
+#, sh-format
+msgid "XQuartz $XQUARTZ_VERSION has been installed on your computer."
+msgstr ""
+
+#: bash/first_use:121
+#, sh-format
+msgid "However, it won't be activated until you reboot your computer."
+msgstr ""
+
+#: bash/first_use:123
+#, sh-format
+msgid "When you run your programs, ensure that X11 icon is black and orange."
+msgstr ""
+
+#: bash/first_use:124
+#, sh-format
+msgid ""
+"If it is not the case, PlayOnMac and wine won't be able to run games "
+"properly."
+msgstr ""
+
 #: bash/first_use:127
+#, sh-format
+msgid "Pleaase read this carefully."
+msgstr ""
+
+#: bash/first_use:140
 #, sh-format
 msgid ""
 "To ensure that your games will be compatible, PlayOnMac must install XQuartz"
 msgstr ""
 
-#: bash/first_use:128
+#: bash/first_use:141
 #, sh-format
 msgid "Don't install XQuartz for the moment"
 msgstr ""
 
-#: bash/first_use:128
+#: bash/first_use:141
 #, sh-format
 msgid "I've downloaded the file by myself"
 msgstr ""
 
-#: bash/first_use:128
+#: bash/first_use:141
 #, sh-format
 msgid "Please download XQuartz for me"
 msgstr ""
 
-#: bash/first_use:131
+#: bash/first_use:144
 #, sh-format
 msgid "Downloading XQuartz"
 msgstr ""
 
-#: bash/first_use:136
+#: bash/first_use:149
 #, sh-format
 msgid "Where is"
 msgstr ""
 
-#: bash/first_use:143
+#: bash/first_use:156
 #, sh-format
 msgid "Installing XQuartz..."
 msgstr ""
 
-#: bash/first_use:156
+#: bash/first_use:169
 #, sh-format
 msgid ""
 "Unable to install XQuartz! You must install it to improve games "
 "compatibility."
 msgstr ""
 
-#: bash/first_use:158
+#: bash/first_use:172
 #, sh-format
-msgid "XQuartz has been installed. You might need to reboot your computer"
+msgid "XQuartz has been installed."
 msgstr ""
 
-#: bash/first_use:163
+#: bash/first_use:177
 #, sh-format
 msgid "Default virtual drive configuration"
 msgstr ""
 
-#: bash/first_use:164
+#: bash/first_use:178
 #, sh-format
 msgid "$APPLICATION_TITLE is making a virtual windows hard drive"
 msgstr ""
 
-#: bash/first_use:278 bash/first_use:285
+#: bash/first_use:292 bash/first_use:299
 #, sh-format
 msgid "$APPLICATION_TITLE first use"
 msgstr ""
 
-#: bash/first_use:278
+#: bash/first_use:292
 #, sh-format
 msgid "It appears it is the first time you are using $APPLICATION_TITLE."
 msgstr ""
 
-#: bash/first_use:278
+#: bash/first_use:292
 #, sh-format
 msgid "Please ensure you are connected to the internet."
 msgstr ""
 
-#: bash/first_use:278
+#: bash/first_use:292
 #, sh-format
 msgid "This wizard will help you prepare $APPLICATION_TITLE environement"
 msgstr ""
 
-#: bash/first_use:285
+#: bash/first_use:299
 #, sh-format
 msgid "Thank you for using $APPLICATION_TITLE"
 msgstr ""
@@ -1912,7 +1949,7 @@ msgstr ""
 msgid "Which version of Wine would you like to use?"
 msgstr ""
 
-#: bash/manual_install:206 lib/scripts.lib:281
+#: bash/manual_install:206 lib/scripts.lib:289
 #, sh-format
 msgid "Please make your choice"
 msgstr ""
@@ -2675,43 +2712,43 @@ msgstr ""
 msgid "Installing plugin: "
 msgstr ""
 
-#: lib/scripts.lib:332
+#: lib/scripts.lib:340
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr ""
 
-#: lib/scripts.lib:344 lib/scripts.lib:378
+#: lib/scripts.lib:352 lib/scripts.lib:386
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 
-#: lib/scripts.lib:432
+#: lib/scripts.lib:440
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
 msgstr ""
 
-#: lib/scripts.lib:439
+#: lib/scripts.lib:447
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr ""
 
-#: lib/scripts.lib:443
+#: lib/scripts.lib:451
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr ""
 
-#: lib/scripts.lib:458
+#: lib/scripts.lib:466
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:477
+#: lib/scripts.lib:485
 #, sh-format
 msgid "Copying ${filename}"
 msgstr ""
 
-#: lib/scripts.lib:490
+#: lib/scripts.lib:498
 #, sh-format
 msgid "File size does not match!"
 msgstr ""
