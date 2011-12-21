@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2011-12-12 19:00+0100\n"
-"PO-Revision-Date: 2011-11-13 15:16+0000\n"
-"Last-Translator: Pierre Slamich <pierre.slamich@gmail.com>\n"
+"POT-Creation-Date: 2011-12-19 19:00+0100\n"
+"PO-Revision-Date: 2011-12-15 16:59+0000\n"
+"Last-Translator: Aymeric <os2mule@gmail.com>\n"
 "Language-Team: French <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-12-13 04:36+0000\n"
-"X-Generator: Launchpad (build 14458)\n"
+"X-Launchpad-Export-Date: 2011-12-20 04:37+0000\n"
+"X-Generator: Launchpad (build 14538)\n"
 "Language: fr\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -54,9 +54,9 @@ msgid ""
 "Press Next then click on the window\\nyou want to capture.\\nCapture will "
 "start automatically after 5 seconds.\\nOnly video will be captured."
 msgstr ""
-"Appuyez sur « Suivant » puis cliquez sur la fenêtre que\\n  vous souhaitez "
-"capturer.\\n  La capture démarrera automatiquement après 5 secondes.\\"
-"n  Seule la vidéo sera capturée."
+"Appuyez sur « Suivant » puis cliquez sur la fenêtre que\\nvous souhaitez "
+"capturer.\\nLa capture démarrera automatiquement après 5 secondes.\\nSeule "
+"la vidéo sera capturée."
 
 #: Capture plugin:10
 msgid "Capture will begin..."
@@ -110,7 +110,7 @@ msgstr "Ajouter le logo PlayOnLinux à votre vidéo ?"
 msgid ""
 "Warning: For correct video encoding,\\nresolution MUST be a multiple of 16"
 msgstr ""
-"Attention : pour un encodage vidéo satisfaisant, \\n la résolution DOIT être "
+"Attention : pour un encodage vidéo satisfaisant, \\nla résolution DOIT être "
 "un multiple de 16."
 
 #: Capture plugin:23
@@ -240,7 +240,7 @@ msgstr "Opération terminée"
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:74
 #, sh-format
 msgid "Please insert the game media into your disk drive."
-msgstr ""
+msgstr "Veuillez insérer le disque du jeu dans le lecteur de disque."
 
 #: PlayOnLinux_Scripts/18_Wheels_of_Steel_Haulin_:52
 #: PlayOnLinux_Scripts/Age_Of_Empires_II___The_Age_of_Kings_:63
@@ -252,7 +252,8 @@ msgstr ""
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_:77
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_:80
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Revelations_:80
-#: PlayOnLinux_Scripts/Magicka_:66 PlayOnLinux_Scripts/Theme_Hospital_:49
+#: PlayOnLinux_Scripts/Magicka_:66 PlayOnLinux_Scripts/Spotify_:59
+#: PlayOnLinux_Scripts/Theme_Hospital_:50
 #: PlayOnLinux_Scripts/Wow_Cartographe_:48
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:67
 #, sh-format
@@ -264,11 +265,17 @@ msgstr "Merci de choisir le fichier d'installation à exécuter."
 #: PlayOnLinux_Scripts/Age_Of_Wonders_:39
 #: PlayOnLinux_Scripts/Age_Of_Wonders_:49
 #: PlayOnLinux_Scripts/Age_Of_Wonders_:59 PlayOnLinux_Scripts/Anno_1602_:42
+#: PlayOnLinux_Scripts/Good_Old_Games___Age_of_Wonders__Shadow_Magic_:61
+#: PlayOnLinux_Scripts/Good_Old_Games___Dungeon_Keeper_2_:62
+#: PlayOnLinux_Scripts/Good_Old_Games___Flatout_:59
 #: PlayOnLinux_Scripts/Good_Old_Games___Ground_Control_2_:65
+#: PlayOnLinux_Scripts/Good_Old_Games___Nox_:62
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:59
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast___High_resolution_patch_:66
+#: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:64
+#: PlayOnLinux_Scripts/Spotify_:50 PlayOnLinux_Scripts/Spotify_:60
 #: PlayOnLinux_Scripts/Theme_Hospital_:40
-#: PlayOnLinux_Scripts/Theme_Hospital_:50
+#: PlayOnLinux_Scripts/Theme_Hospital_:51
 #: PlayOnLinux_Scripts/Wow_Cartographe_:40
 #: PlayOnLinux_Scripts/Wow_Cartographe_:49
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:47
@@ -279,7 +286,7 @@ msgid "Please wait while $TITLE is installed."
 msgstr "Merci de patienter pendant l'installation de $TITLE"
 
 #: PlayOnLinux_Scripts/7_Zip_:46 PlayOnLinux_Scripts/Age_Of_Wonders_:82
-#: PlayOnLinux_Scripts/Theme_Hospital_:64
+#: PlayOnLinux_Scripts/Spotify_:70 PlayOnLinux_Scripts/Theme_Hospital_:65
 #: PlayOnLinux_Scripts/Wow_Cartographe_:58
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:95
 #, sh-format
@@ -394,7 +401,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1_:57
 #, sh-format
 msgid "Please select the setup file to run:"
-msgstr "Merci de choisir le fichier d'insallation :"
+msgstr "Veuillez sélectionner le fichier d'installation à exécuter :"
 
 #: PlayOnLinux_Scripts/Alice___Madness_Returns_:65
 #: PlayOnLinux_Scripts/Ancients_of_Ooga_:61
@@ -472,6 +479,11 @@ msgstr ""
 "L'installation de .NET 3.0 va échouer.\\nCela n'affectera pas le "
 "fonctionnement du jeu."
 
+#: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:15
+#, sh-format
+msgid "PlayOnLinux is installing your application..."
+msgstr ""
+
 #: PlayOnLinux_Scripts/Ancients_of_Ooga_:51
 #: PlayOnLinux_Scripts/Ancients_of_Ooga_:55
 #: PlayOnLinux_Scripts/Anomaly___Warzone_Earth_:77
@@ -503,7 +515,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1_:66
 #, sh-format
 msgid "$TITLE has been installed successfully."
-msgstr "$TITLE a été installé avec succès"
+msgstr "$TITLE a été installé avec succès."
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_:109
 #, sh-format
@@ -565,7 +577,7 @@ msgstr "Bienvenue à l'installeur du patch $PVERSION pour $TITLE"
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1_:23
 #, sh-format
 msgid "Game is not installed."
-msgstr "Le jeu n'est pas installé"
+msgstr "Le jeu n'est pas installé."
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:43
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:43
@@ -612,7 +624,7 @@ msgstr "Steam a son propre système de mise à jour"
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_Patch_1.35_:74
 #, sh-format
 msgid "Select patch to execute"
-msgstr "Choisissez un patch à éxécuter"
+msgstr "Sélectionner le correctif à exécuter"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:59
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:59
@@ -646,6 +658,8 @@ msgstr "Vous"
 msgid ""
 "Please wait while $APPLICATION_TITLE is downloading Ubisoft Game Launcher"
 msgstr ""
+"Veuillez patienter pendant que $APPLICATION_TITLE télécharge le lanceur de "
+"jeux Ubisoft"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_:48
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:39
@@ -789,7 +803,7 @@ msgstr "Version internationale"
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:55
 #, sh-format
 msgid "Italian version"
-msgstr "Version Italienne"
+msgstr "Version italienne"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:51
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:58
@@ -804,7 +818,7 @@ msgstr "Version Japonaise"
 #: PlayOnLinux_Scripts/Borderlands_:59 PlayOnLinux_Scripts/Fallout_3_:57
 #, sh-format
 msgid "Which version do you have?"
-msgstr "Quelle version avez-vous ?"
+msgstr "Quelle version possédez vous ?"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_:68
 #, sh-format
@@ -829,7 +843,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:52
 #, sh-format
 msgid "US or Canadian version"
-msgstr "Version US ou canadienne"
+msgstr "Version américaine ou canadienne"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:64
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:69
@@ -1103,16 +1117,26 @@ msgstr ""
 msgid "Welcome in the DLC Installer for $TITLE"
 msgstr "Bienvenu dans l'installateur de DLC pour $TITLE"
 
+#: PlayOnLinux_Scripts/Good_Old_Games___Age_of_Wonders__Shadow_Magic_:20
+#: PlayOnLinux_Scripts/Good_Old_Games___Dungeon_Keeper_2_:20
+#: PlayOnLinux_Scripts/Good_Old_Games___Flatout_:20
 #: PlayOnLinux_Scripts/Good_Old_Games___Ground_Control_2_:21
+#: PlayOnLinux_Scripts/Good_Old_Games___Nox_:22
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:15
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast___High_resolution_patch_:15
+#: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:20
 #, sh-format
 msgid "Checking install archive..."
 msgstr ""
 
+#: PlayOnLinux_Scripts/Good_Old_Games___Age_of_Wonders__Shadow_Magic_:30
+#: PlayOnLinux_Scripts/Good_Old_Games___Dungeon_Keeper_2_:30
+#: PlayOnLinux_Scripts/Good_Old_Games___Flatout_:30
 #: PlayOnLinux_Scripts/Good_Old_Games___Ground_Control_2_:36
+#: PlayOnLinux_Scripts/Good_Old_Games___Nox_:32
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:30
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast___High_resolution_patch_:30
+#: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:30
 #, sh-format
 msgid ""
 "Install archive mismatch.\\nEither your install archive is corrupted, or is "
@@ -1120,46 +1144,158 @@ msgid ""
 "will work correctly. Please report success or failure to PlayOnLinux forums."
 msgstr ""
 
+#: PlayOnLinux_Scripts/Good_Old_Games___Age_of_Wonders__Shadow_Magic_:30
+#: PlayOnLinux_Scripts/Good_Old_Games___Dungeon_Keeper_2_:30
+#: PlayOnLinux_Scripts/Good_Old_Games___Flatout_:30
 #: PlayOnLinux_Scripts/Good_Old_Games___Ground_Control_2_:36
+#: PlayOnLinux_Scripts/Good_Old_Games___Nox_:32
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:30
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast___High_resolution_patch_:30
+#: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:30
 #, sh-format
 msgid "MD5:"
-msgstr ""
+msgstr "MD5 :"
 
+#: PlayOnLinux_Scripts/Good_Old_Games___Age_of_Wonders__Shadow_Magic_:30
+#: PlayOnLinux_Scripts/Good_Old_Games___Dungeon_Keeper_2_:30
+#: PlayOnLinux_Scripts/Good_Old_Games___Flatout_:30
 #: PlayOnLinux_Scripts/Good_Old_Games___Ground_Control_2_:36
+#: PlayOnLinux_Scripts/Good_Old_Games___Nox_:32
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:30
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast___High_resolution_patch_:30
+#: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:30
 #, sh-format
 msgid "Name:"
-msgstr ""
+msgstr "Nom:"
 
+#: PlayOnLinux_Scripts/Good_Old_Games___Age_of_Wonders__Shadow_Magic_:30
+#: PlayOnLinux_Scripts/Good_Old_Games___Dungeon_Keeper_2_:30
+#: PlayOnLinux_Scripts/Good_Old_Games___Flatout_:30
 #: PlayOnLinux_Scripts/Good_Old_Games___Ground_Control_2_:36
+#: PlayOnLinux_Scripts/Good_Old_Games___Nox_:32
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:30
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast___High_resolution_patch_:30
+#: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:30
 #, sh-format
 msgid "Size:"
-msgstr ""
+msgstr "Taille:"
 
+#: PlayOnLinux_Scripts/Good_Old_Games___Age_of_Wonders__Shadow_Magic_:30
+#: PlayOnLinux_Scripts/Good_Old_Games___Dungeon_Keeper_2_:30
+#: PlayOnLinux_Scripts/Good_Old_Games___Flatout_:30
 #: PlayOnLinux_Scripts/Good_Old_Games___Ground_Control_2_:36
+#: PlayOnLinux_Scripts/Good_Old_Games___Nox_:32
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:30
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast___High_resolution_patch_:30
+#: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:30
 #, sh-format
 msgid "expected"
 msgstr ""
 
+#: PlayOnLinux_Scripts/Good_Old_Games___Age_of_Wonders__Shadow_Magic_:31
+#: PlayOnLinux_Scripts/Good_Old_Games___Dungeon_Keeper_2_:31
+#: PlayOnLinux_Scripts/Good_Old_Games___Flatout_:31
 #: PlayOnLinux_Scripts/Good_Old_Games___Ground_Control_2_:37
+#: PlayOnLinux_Scripts/Good_Old_Games___Nox_:33
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:31
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast___High_resolution_patch_:31
+#: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:31
 #, sh-format
 msgid "Continue?"
-msgstr ""
+msgstr "Continuer ?"
 
+#: PlayOnLinux_Scripts/Good_Old_Games___Age_of_Wonders__Shadow_Magic_:32
+#: PlayOnLinux_Scripts/Good_Old_Games___Dungeon_Keeper_2_:32
+#: PlayOnLinux_Scripts/Good_Old_Games___Flatout_:32
 #: PlayOnLinux_Scripts/Good_Old_Games___Ground_Control_2_:38
+#: PlayOnLinux_Scripts/Good_Old_Games___Nox_:34
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:32
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast___High_resolution_patch_:32
+#: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:32
 #, sh-format
 msgid "Not the expected archive"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Good_Old_Games___Age_of_Wonders__Shadow_Magic_:40
+#, sh-format
+msgid "Age of Wonders III: Shadow Magic (GoG release)"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Good_Old_Games___Age_of_Wonders__Shadow_Magic_:42
+#, sh-format
+msgid "Editor"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Good_Old_Games___Age_of_Wonders__Shadow_Magic_:43
+#, sh-format
+msgid "Quickplay Guide"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Good_Old_Games___Age_of_Wonders__Shadow_Magic_:44
+#: PlayOnLinux_Scripts/Good_Old_Games___Dungeon_Keeper_2_:45
+#: PlayOnLinux_Scripts/Good_Old_Games___Nox_:45
+#, sh-format
+msgid "Readme"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Good_Old_Games___Age_of_Wonders__Shadow_Magic_:55
+#: PlayOnLinux_Scripts/Good_Old_Games___Dungeon_Keeper_2_:56
+#: PlayOnLinux_Scripts/Good_Old_Games___Flatout_:53
+#: PlayOnLinux_Scripts/Good_Old_Games___Ground_Control_2_:59
+#: PlayOnLinux_Scripts/Good_Old_Games___Nox_:56
+#: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:53
+#: PlayOnLinux_Scripts/Good_Old_Games___Outcast___High_resolution_patch_:61
+#: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:55
+#, sh-format
+msgid "Please select the setup file to run."
+msgstr "Veuillez sélectionner le fichier d'installation à exécuter."
+
+#: PlayOnLinux_Scripts/Good_Old_Games___Age_of_Wonders__Shadow_Magic_:76
+#: PlayOnLinux_Scripts/Good_Old_Games___Dungeon_Keeper_2_:78
+#: PlayOnLinux_Scripts/Good_Old_Games___Flatout_:75
+#: PlayOnLinux_Scripts/Good_Old_Games___Ground_Control_2_:82
+#: PlayOnLinux_Scripts/Good_Old_Games___Nox_:77
+#: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:76
+#: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:79
+#, sh-format
+msgid "Error while installing archive"
+msgstr "Erreur lors de l'installation de l'archive"
+
+#: PlayOnLinux_Scripts/Good_Old_Games___Dungeon_Keeper_2_:40
+#, sh-format
+msgid "Dungeon Keeper II (GoG release)"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Good_Old_Games___Dungeon_Keeper_2_:42
+#, sh-format
+msgid "Safe mode"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Good_Old_Games___Dungeon_Keeper_2_:43
+#: PlayOnLinux_Scripts/Good_Old_Games___Flatout_:42
+#: PlayOnLinux_Scripts/Good_Old_Games___Ground_Control_2_:48
+#: PlayOnLinux_Scripts/Good_Old_Games___Nox_:44
+#: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:42
+#: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:42
+#, sh-format
+msgid "User manual"
+msgstr "Manuel utilisateur"
+
+#: PlayOnLinux_Scripts/Good_Old_Games___Dungeon_Keeper_2_:44
+#, sh-format
+msgid "Reference Card"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Good_Old_Games___Flatout_:40
+#, sh-format
+msgid "Flatout (GoG release)"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Good_Old_Games___Flatout_:98
+#, sh-format
+msgid ""
+"Think about disabling triple-buffering in settings,\\nas it is not fully "
+"supported by Wine yet."
 msgstr ""
 
 #: PlayOnLinux_Scripts/Good_Old_Games___Ground_Control_2_:46
@@ -1167,23 +1303,9 @@ msgstr ""
 msgid "Ground Control 2 (GoG release)"
 msgstr ""
 
-#: PlayOnLinux_Scripts/Good_Old_Games___Ground_Control_2_:48
-#: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:42
+#: PlayOnLinux_Scripts/Good_Old_Games___Nox_:42
 #, sh-format
-msgid "User manual"
-msgstr ""
-
-#: PlayOnLinux_Scripts/Good_Old_Games___Ground_Control_2_:59
-#: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:53
-#: PlayOnLinux_Scripts/Good_Old_Games___Outcast___High_resolution_patch_:61
-#, sh-format
-msgid "Please select the setup file to run."
-msgstr ""
-
-#: PlayOnLinux_Scripts/Good_Old_Games___Ground_Control_2_:82
-#: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:76
-#, sh-format
-msgid "Error while installing archive"
+msgid "Nox (GoG release)"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:40
@@ -1197,59 +1319,59 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:133
 #, sh-format
 msgid "English"
-msgstr ""
+msgstr "Anglais"
 
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:129
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:166
 #, sh-format
 msgid "Brasilian (text only)"
-msgstr ""
+msgstr "Brésilien"
 
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:129
 #, sh-format
 msgid "Choose language"
-msgstr ""
+msgstr "Choisissez la langue"
 
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:129
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:177
 #, sh-format
 msgid "Dutch (text only)"
-msgstr ""
+msgstr "Néerlandais"
 
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:129
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:144
 #, sh-format
 msgid "French"
-msgstr ""
+msgstr "Français"
 
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:129
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:155
 #, sh-format
 msgid "German"
-msgstr ""
+msgstr "Allemand"
 
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:129
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:188
 #, sh-format
 msgid "Italian (text only)"
-msgstr ""
+msgstr "Italien"
 
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:129
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:199
 #, sh-format
 msgid "Spanish (text only)"
-msgstr ""
+msgstr "Espagnol"
 
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:213
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:217
 #, sh-format
 msgid "Arrow keys (default)"
-msgstr ""
+msgstr "Touches de direction (default)"
 
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:213
 #, sh-format
 msgid "Standard keyboard layouts"
-msgstr ""
+msgstr "Disposition du clavier standard"
 
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:213
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:215
@@ -1257,7 +1379,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:421
 #, sh-format
 msgid "Unchanged"
-msgstr ""
+msgstr "Inchangé"
 
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:213
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:284
@@ -1275,7 +1397,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:423
 #, sh-format
 msgid "Factory defaults"
-msgstr ""
+msgstr "Valeurs par défaut"
 
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:418
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:596
@@ -1286,7 +1408,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:418
 #, sh-format
 msgid "Visual quality"
-msgstr ""
+msgstr "Qualité visuelle"
 
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast___High_resolution_patch_:40
 #, sh-format
@@ -1301,7 +1423,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast___High_resolution_patch_:52
 #, sh-format
 msgid "Oops, you must install Outcast (GoG release) first!"
-msgstr ""
+msgstr "Oups, vous devez installer Outcast (GoG version) en premier !"
 
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast___High_resolution_patch_:58
 #, sh-format
@@ -1311,7 +1433,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast___High_resolution_patch_:68
 #, sh-format
 msgid "Error why unzipping the archive"
-msgstr ""
+msgstr "Erreur lors de la décompression de l'archive."
 
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast___High_resolution_patch_:70
 #, sh-format
@@ -1324,7 +1446,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast___High_resolution_patch_:79
 #, sh-format
 msgid "Run \\$TITLE?"
-msgstr ""
+msgstr "Exécutez \\$TITLE?"
 
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast___High_resolution_patch_:90
 #, sh-format
@@ -1333,10 +1455,45 @@ msgid ""
 "\") in the loader."
 msgstr ""
 
+#: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:40
+#, sh-format
+msgid "Two Worlds: Epic Edition (GoG release)"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:49
+#, sh-format
+msgid ""
+"Major caveat to date about running Two Wolds under Wine:\\n\\nEnabling "
+"introduction and (the few) interlude videos breaks the sound for\\nthe rest "
+"of the game!\\nThey will be enabled at first, since introduction video helps "
+"understanding\\ngame background, but you will be able to disable or reenable "
+"videos\\nfrom within the configurator at any time.\\n\\nAlso note that "
+"online gaming has not been tested."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:92
+#, sh-format
+msgid "temp directory missing"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:123
+#, sh-format
+msgid ""
+"Two Worlds Control Panel is a tool from InsideTwoWorlds community,\\nthat "
+"allows you to tweak parameters and manage mods\\nfor this game. See\\"
+"nhttp://www.insidetwoworlds.com/local_links.php?linkid=21&catid=13 for "
+"details.\\nInstall it?"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:157
+#, sh-format
+msgid "Control Panel"
+msgstr ""
+
 #: PlayOnLinux_Scripts/Gothic_3_:82
 #, sh-format
 msgid "Choose the game resolution"
-msgstr ""
+msgstr "Choisissez la résolution du jeu"
 
 #: PlayOnLinux_Scripts/Gothic_3_:96
 #, sh-format
@@ -1349,12 +1506,12 @@ msgstr ""
 #: PlayOnLinux_Scripts/Gothic_3_:110
 #, sh-format
 msgid "$TITLE is installed"
-msgstr ""
+msgstr "$TITLE est installé."
 
 #: PlayOnLinux_Scripts/Magicka_:68
 #, sh-format
 msgid "Installation in progress"
-msgstr ""
+msgstr "Installation en cours"
 
 #: PlayOnLinux_Scripts/Mass_Effect_2_:64
 #, sh-format
@@ -2000,12 +2157,12 @@ msgstr "Les polices Microsoft ont été installées avec succès."
 #: bash/first_use:118
 #, sh-format
 msgid "Please read this carefully"
-msgstr ""
+msgstr "Veuillez lire ceci attentivement"
 
 #: bash/first_use:120
 #, sh-format
 msgid "XQuartz $XQUARTZ_VERSION has been installed on your computer."
-msgstr ""
+msgstr "XQuartz $XQUARTZ_VERSION a été installé sur votre ordinateur."
 
 #: bash/first_use:121
 #, sh-format
@@ -2016,6 +2173,8 @@ msgstr ""
 #, sh-format
 msgid "When you run your programs, ensure that X11 icon is black and orange."
 msgstr ""
+"Lorsque vous exécutez vos programmes, assurez-vous que l'icone de X11 est "
+"noir et orange."
 
 #: bash/first_use:124
 #, sh-format
@@ -2023,11 +2182,13 @@ msgid ""
 "If it is not the case, PlayOnMac and wine won't be able to run games "
 "properly."
 msgstr ""
+"Si ce n'est pas le cas, PlayOnMac et wine ne seront pas capables d'exécuter "
+"les jeux correctement."
 
 #: bash/first_use:127
 #, sh-format
 msgid "Pleaase read this carefully."
-msgstr ""
+msgstr "Lisez ceci attentivement."
 
 #: bash/first_use:140
 #, sh-format
@@ -2079,7 +2240,7 @@ msgstr ""
 #: bash/first_use:172
 #, sh-format
 msgid "XQuartz has been installed."
-msgstr ""
+msgstr "XQuartz a été installé."
 
 #: bash/first_use:177
 #, sh-format
@@ -3818,4 +3979,4 @@ msgstr "Versions de Wine"
 
 #: python/wine_versions.py:326
 msgid "Are you sure you want to delete wine {0}?"
-msgstr ""
+msgstr "Vous êtes certain de vouloir supprimer wine {0} ?"
