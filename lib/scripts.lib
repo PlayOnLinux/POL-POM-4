@@ -28,11 +28,16 @@ POL_Shortcut_InsertBeforeWine ()
 	# Usage: POL_Shortcut_InsertBeforeWine [Application] [Line to insert]
 	POL_Debug_Message "Inserting before POL_Wine : $2" 
 	Application="$1"
-	CommandesToInsert="$2"
+	CommandsToInsert="$2"
 
-	mv "$REPERTOIRE/shortcuts/${Application}" "$REPERTOIRE/shortcuts/${Application}".bak
-	perl -ne "s/^(POL_Wine.*)/${CommandesToInsert}\n\1/;print" "$REPERTOIRE/shortcuts/${Application}".bak > "$REPERTOIRE/shortcuts/${Application}"
-	rm "$REPERTOIRE/shortcuts/${Application}".bak
+	COMMANDS="${CommandsToInsert}" perl -ni -e '
+            if(!$done && /^POL_Wine/) { 
+                $commands=$ENV{"COMMANDS"}; 
+                $commands =~ s/\\n/\n/g; 
+                print "$commands\n";
+                $done=1;
+            }
+            print;'   "$REPERTOIRE/shortcuts/${Application}"
 }
 
 POL_Open()
