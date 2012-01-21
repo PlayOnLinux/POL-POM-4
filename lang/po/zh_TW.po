@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2011-12-26 19:00+0100\n"
-"PO-Revision-Date: 2011-12-16 08:04+0000\n"
+"POT-Creation-Date: 2012-01-16 19:00+0100\n"
+"PO-Revision-Date: 2012-01-09 15:18+0000\n"
 "Last-Translator: Dylandy <Unknown>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-12-27 04:54+0000\n"
-"X-Generator: Launchpad (build 14560)\n"
+"X-Launchpad-Export-Date: 2012-01-17 04:41+0000\n"
+"X-Generator: Launchpad (build 14676)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -71,7 +71,7 @@ msgstr "正在取得程式..."
 
 #: Capture plugin:14
 msgid "Choose an action to perform"
-msgstr ""
+msgstr "選擇一項動作以執行"
 
 #: Capture plugin:15
 msgid "Please choose a PID capture file to play"
@@ -158,7 +158,7 @@ msgstr "您必須選擇一個遊戲以轉換"
 msgid ""
 "Welcome in Advanced Wine Configuration, an optimization’s system for Wine "
 "created by GNU_Raziel. If you does not know what to choose, LEAVE DEFAULTS"
-msgstr ""
+msgstr "歡迎來到「進階Wine設定」，一個Wine的優化系統，使用GNU_Raziel製作，如果您不知道如何設定的話，請點選使用預設選項。"
 
 #: Advanced Wine Configuration Plugin:8
 msgid "Choose a game"
@@ -178,7 +178,7 @@ msgstr "是否啟動GLSL支援？"
 
 #: Advanced Wine Configuration Plugin:13
 msgid "Choose Offscreen Rendering Mode?"
-msgstr ""
+msgstr "是否選擇Offscreen Rendering模式？"
 
 #: Advanced Wine Configuration Plugin:14
 msgid "Choose Render Target Lock Mode?"
@@ -199,7 +199,7 @@ msgstr "優化完成"
 #: Detour plugin:3
 msgid ""
 "Welcome in Detour, a plugin witch enable you to create post-install shorcuts."
-msgstr ""
+msgstr "歡迎來到Detour，這是一個可以讓您建立已安裝程式連結的套件"
 
 #: Detour plugin:5
 msgid "Choose an application"
@@ -456,7 +456,7 @@ msgstr ".NET 3.0安裝失敗\\n這並不會讓您的遊戲無法運作。"
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:15
 #, sh-format
 msgid "PlayOnLinux is installing your application..."
-msgstr ""
+msgstr "PlayOnLinux正在安裝您的應用程式..."
 
 #: PlayOnLinux_Scripts/Ancients_of_Ooga_:51
 #: PlayOnLinux_Scripts/Ancients_of_Ooga_:55
@@ -864,7 +864,7 @@ msgstr ""
 msgid ""
 "Do not forget to close Steam when downloading\\nis finished, so that "
 "$APPLICATION_TITLE can continue\\nto install your game."
-msgstr ""
+msgstr "在下載完畢的時候\\n，請勿關閉Steam，這樣$APPLICATION_TITLE才能繼續安裝您的遊戲。"
 
 #: PlayOnLinux_Scripts/CivCity_Rome_Patch_1.1_:23
 #: PlayOnLinux_Scripts/Dragon_Age_2_Patch_1.03_:24
@@ -894,7 +894,7 @@ msgstr "請選擇您想要的遊戲語言"
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Tiberium_Wars__Kane_Edition__:84
 #, sh-format
 msgid "Wait while language pack is configured..."
-msgstr ""
+msgstr "請稍候，正在設置語言設定..."
 
 #: PlayOnLinux_Scripts/Counter_Strike___Source_:52
 #: PlayOnLinux_Scripts/Half_Life_2_:77
@@ -997,7 +997,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Dragon_Age_2___DLC_:23
 #, sh-format
 msgid "Welcome in the DLCs Installer for $TITLE"
-msgstr ""
+msgstr "歡迎來到$TITLE的DLCs安裝程式"
 
 #: PlayOnLinux_Scripts/Dragon_Age_2___DLC_:41
 #: PlayOnLinux_Scripts/Fallout_3___DLC_:39
@@ -1008,7 +1008,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Dragon_Age_2___DLC_:46
 #, sh-format
 msgid "DLC for $TITLE has been\\ninstalled successfully."
-msgstr ""
+msgstr "DLC $TITLE版本\\n已經成功安裝完畢。"
 
 #: PlayOnLinux_Scripts/Dragon_Age___Awakening_:64
 #, sh-format
@@ -1508,6 +1508,12 @@ msgid ""
 "PlayOnLinux/PlayOnMac philosophy is to never ask super-user password, "
 "however, for this script, it s mandatory. So, we give you the command you "
 "must type yourself for this installation to go on :"
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_Function_SetNativeExtension_:10
+#, sh-format
+msgid ""
+"No filename extension specified, skipping association to native application."
 msgstr ""
 
 #: PlayOnLinux_Scripts/POL_Install_AdobeAir_:5
