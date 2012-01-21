@@ -31,10 +31,8 @@ POL_Shortcut_InsertBeforeWine ()
 	CommandsToInsert="$2"
 
 	COMMANDS="${CommandsToInsert}" perl -ni -e '
-            if(!$done && /^POL_Wine/) { 
-                $commands=$ENV{"COMMANDS"}; 
-                $commands =~ s/\\n/\n/g; 
-                print "$commands\n";
+            if(!$done && /^POL_Wine/) {
+                print "$ENV{COMMANDS}\n";
                 $done=1;
             }
             print;'   "$REPERTOIRE/shortcuts/${Application}"
