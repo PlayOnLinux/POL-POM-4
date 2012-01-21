@@ -1,5 +1,8 @@
 -> 4.0.15
 - POL_Shortcut(): Possibly to use path instead of executable
+- POL_Shortcut_InsertBeforeWine: made sure the commands are not interpreted
+  before insertion. Even \n is no longer interpreted, to insert several lines,
+  call POL_Shortcut_InsertBeforeWine once per line.
 
 -> 4.0.14
 - Slow DNS on IPV6 issue should be solved
