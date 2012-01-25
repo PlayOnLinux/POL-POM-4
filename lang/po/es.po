@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2012-01-16 19:00+0100\n"
-"PO-Revision-Date: 2012-01-08 13:42+0000\n"
+"POT-Creation-Date: 2012-01-23 19:00+0100\n"
+"PO-Revision-Date: 2012-01-23 20:31+0000\n"
 "Last-Translator: txelu <Unknown>\n"
 "Language-Team: es_ES.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-01-17 04:41+0000\n"
-"X-Generator: Launchpad (build 14676)\n"
+"X-Launchpad-Export-Date: 2012-01-24 05:17+0000\n"
+"X-Generator: Launchpad (build 14713)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -250,7 +250,7 @@ msgstr "Por favor, inserte el disco de juego en tu unidad de disco"
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_:77
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_:80
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Revelations_:80
-#: PlayOnLinux_Scripts/Magicka_:66 PlayOnLinux_Scripts/Spotify_:62
+#: PlayOnLinux_Scripts/Magicka_:66 PlayOnLinux_Scripts/Spotify_:64
 #: PlayOnLinux_Scripts/Theme_Hospital_:50
 #: PlayOnLinux_Scripts/Wow_Cartographe_:48
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:67
@@ -271,7 +271,7 @@ msgstr "Por favor, seleccione el archivo de instalación para ejecutar"
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:59
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast___High_resolution_patch_:66
 #: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:64
-#: PlayOnLinux_Scripts/Spotify_:53 PlayOnLinux_Scripts/Spotify_:63
+#: PlayOnLinux_Scripts/Spotify_:55 PlayOnLinux_Scripts/Spotify_:65
 #: PlayOnLinux_Scripts/Theme_Hospital_:40
 #: PlayOnLinux_Scripts/Theme_Hospital_:51
 #: PlayOnLinux_Scripts/Wow_Cartographe_:40
@@ -284,7 +284,7 @@ msgid "Please wait while $TITLE is installed."
 msgstr "Por favor espere mientras se instala $TITLE."
 
 #: PlayOnLinux_Scripts/7_Zip_:46 PlayOnLinux_Scripts/Age_Of_Wonders_:82
-#: PlayOnLinux_Scripts/Spotify_:73 PlayOnLinux_Scripts/Theme_Hospital_:65
+#: PlayOnLinux_Scripts/Spotify_:75 PlayOnLinux_Scripts/Theme_Hospital_:65
 #: PlayOnLinux_Scripts/Wow_Cartographe_:58
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:95
 #, sh-format
@@ -2443,7 +2443,7 @@ msgstr "¿Qué le gustaria hacer antes de la instalación?"
 msgid "Which version of Wine would you like to use?"
 msgstr "¿Qué versión de Wine le gustaría utilizar?"
 
-#: bash/manual_install:206 lib/scripts.lib:289
+#: bash/manual_install:206 lib/scripts.lib:292
 #, sh-format
 msgid "Please make your choice"
 msgstr "Haga su elección"
@@ -3215,7 +3215,7 @@ msgstr "¿Quiere borrar la unidad virtual:"
 #: lib/plugins.lib:65
 #, sh-format
 msgid "Checking plugin: "
-msgstr ""
+msgstr "Comprobando extensión: "
 
 #: lib/plugins.lib:93
 #, sh-format
@@ -3232,45 +3232,45 @@ msgstr "Actualizando complemento. Anterior: "
 msgid "Installing plugin: "
 msgstr "Instalando complemento: "
 
-#: lib/scripts.lib:340
+#: lib/scripts.lib:343
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr "Espere mientras $APPLICATION_TITLE descarga:"
 
-#: lib/scripts.lib:352 lib/scripts.lib:386
+#: lib/scripts.lib:355 lib/scripts.lib:389
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 "¡Error! Los archivos no coinciden\\n\\nLocal: $LOCAL_MD5\\nServidor: "
 "$SERVER_MD5"
 
-#: lib/scripts.lib:440
+#: lib/scripts.lib:443
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
 msgstr "7z no instalado, asegúrese de tener instalado 7zip y pruebe de nuevo"
 
-#: lib/scripts.lib:447
+#: lib/scripts.lib:450
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr ""
 
-#: lib/scripts.lib:451
+#: lib/scripts.lib:454
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr "Extrayendo ${filename} de ${archivename}"
 
-#: lib/scripts.lib:466
+#: lib/scripts.lib:469
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr "¡El tamaño del archivo extraido no coincide!"
 
-#: lib/scripts.lib:485
+#: lib/scripts.lib:488
 #, sh-format
 msgid "Copying ${filename}"
 msgstr "Copiando ${filename}"
 
-#: lib/scripts.lib:498
+#: lib/scripts.lib:501
 #, sh-format
 msgid "File size does not match!"
 msgstr "¡El tamano del archivo no coincide!"
@@ -3848,7 +3848,7 @@ msgstr "Traducciones:"
 
 #: python/mainwindow.py:657
 msgid "Read TRANSLATORS file"
-msgstr ""
+msgstr "Leer archivo de TRADUCTORES"
 
 #: python/mainwindow.py:671
 msgid "{0} is not supposed to be run as root. Sorry"
