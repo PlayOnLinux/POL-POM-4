@@ -181,10 +181,13 @@ install_x11()
 
 install_prefix()
 {
-	STEP_TITLE="$(eval_gettext "Default virtual drive configuration")"
-	POL_SetupWindow_wait_next_signal "$(eval_gettext '$APPLICATION_TITLE is making a virtual windows hard drive')" "$STEP_TITLE" 
-	POL_Wine_SelectPrefix "default"
-	POL_Wine_PrefixCreate
+	if [ ! -e "$POL_USER_ROOT/wineprefix/default" ]
+	then
+		STEP_TITLE="$(eval_gettext "Default virtual drive configuration")"
+		POL_SetupWindow_wait_next_signal "$(eval_gettext '$APPLICATION_TITLE is making a virtual windows hard drive')" "$STEP_TITLE" 
+		POL_Wine_SelectPrefix "default"
+		POL_Wine_PrefixCreate
+	fi
 }
 POL_Shortcut_GetOLDPrefix()
 {

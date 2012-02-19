@@ -91,7 +91,9 @@ class MainWindow(wx.Frame):
 			
 	wx.Frame.__init__(self, parent, 1000, title, size = (515,450))
 	self.SetMinSize((300,300))
+	
 
+		
 	try:
 		self.windowWidth = int(playonlinux.GetSettings("MAINWINDOW_WIDTH"))
 		self.windowHeight = int(playonlinux.GetSettings("MAINWINDOW_HEIGHT"))
@@ -667,10 +669,10 @@ class PlayOnLinuxApp(wx.App):
 		lng.iLang()
 		close = False
 		exe_present = False
-		if(os.popen("id -u").read() == "0"):
+		
+		if(os.popen("id -u").read() == "0\n" or os.popen("id -u").read() == "0"):
 			wx.MessageBox(_("{0} is not supposed to be run as root. Sorry").format(os.environ["APPLICATION_TITLE"]))
-			sys.exit()
-			
+			sys.exit()			
 		
 		for f in  sys.argv[1:]:
 			

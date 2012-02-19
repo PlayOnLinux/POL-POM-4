@@ -4,7 +4,7 @@
 # Copyright (C) 2007-2010 PlayOnLinux Team
 
 import Variables, os, string
-
+import shlex, pipes
 
 def GetWineVersion(game):
 	cfile = Variables.playonlinux_rep+"shortcuts/"+game
@@ -249,7 +249,25 @@ def getPrefix(shortcut): # Get prefix name from shortcut
 		
 	return prefix
 	
-	
+
+def getArgs(shortcut): # Get prefix name from shortcut
+	fichier = open(os.environ["POL_USER_ROOT"]+"/shortcuts/"+shortcut,'r').read()
+	fichier = string.split(fichier,"\n")
+	i = 0
+	while(i < len(fichier)):
+		if("POL_Wine" in fichier[i]):
+			break
+		i += 1
+
+	try:
+		args = shlex.split(fichier[i])[2:-1]
+		args = " ".join([ pipes.quote(x) for x in args])
+		
+	except:
+		args = ""
+
+	return args
+			
 def Get_versions(arch='x86'):
 	installed_versions = os.listdir(Variables.playonlinux_rep+"/wine/"+Variables.os_name+"-"+arch+"/")
 	installed_versions.sort(key=keynat)
@@ -285,3 +303,32 @@ def SetWinePrefix(game, prefix):
 	while(i < len(line)): # On ecrit
 		fichier_write.write(line[i]+"\n")
 		i+=1
+		
+def writeArgs(game, args):
+	cfile = Variables.playonlinux_rep+"shortcuts/"+game
+	fichier = open(cfile,"r").readlines()
+	i = 0
+	line = []
+	
+	while(i < len(fichier)): # On retire l'eventuel
+		fichier[i] = fichier[i].replace("\n","")
+		if("POL_Wine" not in fichier[i]):
+			line.append(fichier[i])
+		else:
+			try:
+				old_string = shlex.split(fichier[i])
+				new_string = shlex.split(args)
+				new_string = old_string[0:2] + new_string
+				new_string = " ".join([ pipes.quote(x) for x in new_string])
+				new_string = new_string+" $@"
+				line.append(new_string)
+			except:
+				line.append(fichier[i])
+		i += 1
+
+		fichier_write = open(cfile,"w")
+
+		i = 0	
+		while(i < len(line)): # On ecrit
+			fichier_write.write(line[i]+"\n")
+			i+=1

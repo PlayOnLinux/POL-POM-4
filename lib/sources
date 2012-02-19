@@ -16,6 +16,12 @@
 # You should have received a copy of the GNU General Public License along
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
+
+if [ "$(id -u)" = "0" ] 
+then
+	echo "PlayOnLinux is not supposed to be run as root. Sorry"
+	exit
+fi
 if [ ! "$INCLUDED" ]
 then
 	INCLUDED="1" # On évite l'inclusion en boucle
