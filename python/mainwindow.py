@@ -428,7 +428,7 @@ class MainWindow(wx.Frame):
   def ReadMe(self, event):
 	game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8")
 	if(os.path.exists(os.environ["POL_USER_ROOT"]+"/configurations/manuals/"+game_exec)):
-		POL_Open(os.path.exists(os.environ["POL_USER_ROOT"]+"/configurations/manuals/"+game_exec))
+		playonlinux.POL_Open(os.path.exists(os.environ["POL_USER_ROOT"]+"/configurations/manuals/"+game_exec))
 	else:
 		wx.MessageBox(_("No manual found for {0}").format(game_exec))
 	
