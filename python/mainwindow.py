@@ -362,6 +362,8 @@ class MainWindow(wx.Frame):
 	wx.EVT_MENU(self, 233, self.ChangeIcon)
 	wx.EVT_MENU(self, 234, self.UninstallGame)
 	wx.EVT_MENU(self, 235, self.RKill)
+	wx.EVT_MENU(self, 236, self.ReadMe)
+	
 	#self.sb.Hide()
 
   def StatusRead(self):
@@ -395,6 +397,10 @@ class MainWindow(wx.Frame):
 	self.GotoAppDir.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/folder-wine.png"))
 	self.GameListPopUpMenu.AppendItem(self.GotoAppDir)
 
+	self.ChangeIcon = wx.MenuItem(self.GameListPopUpMenu, 236, _("Read the manual"))
+	self.ChangeIcon.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/manual.png"))
+	self.GameListPopUpMenu.AppendItem(self.ChangeIcon)
+	
 	self.ChangeIcon = wx.MenuItem(self.GameListPopUpMenu, 233, _("Set the icon"))
 	self.ChangeIcon.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/change_icon.png"))
 	self.GameListPopUpMenu.AppendItem(self.ChangeIcon)
@@ -419,6 +425,13 @@ class MainWindow(wx.Frame):
   def RKill(self, event):
         self.RConfigure(_("KillApp"), "nothing")
 
+  def ReadMe(self, event):
+	game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8")
+	if(os.path.exists(os.environ["POL_USER_ROOT"]+"/configurations/manuals/"+game_exec)):
+		POL_Open(os.path.exists(os.environ["POL_USER_ROOT"]+"/configurations/manuals/"+game_exec))
+	else:
+		wx.MessageBox(_("No manual found for {0}").format(game_exec))
+	
   def RRegistryEditor(self, event):
         self.RConfigure(_("Registry Editor"), "nothing")
 

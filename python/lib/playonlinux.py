@@ -332,3 +332,9 @@ def writeArgs(game, args):
 		while(i < len(line)): # On ecrit
 			fichier_write.write(line[i]+"\n")
 			i+=1
+			
+def POL_Open(arg):
+	if(os.environ["POL_OS"] == "Mac"):
+		os.system("open "+arg+"&")
+	else:
+		os.system("xdg-open "+arg+"&")

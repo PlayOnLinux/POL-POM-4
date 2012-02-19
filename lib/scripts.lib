@@ -504,3 +504,10 @@ POL_System_cp ()
 
     return 0
 }
+POL_Shortcut_Document()
+{
+	# Add a manual to a shortcut
+	# Usage : POL_Shortcut_Document <Shortcut Name> <file path>
+	[ "$2" = "" ] && return
+	cp "$2" "$POL_USER_ROOT/configurations/manuals/$1"
+}
