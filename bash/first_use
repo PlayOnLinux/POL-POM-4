@@ -120,11 +120,13 @@ $(eval_gettext "Please read this carefully")
 $(eval_gettext 'XQuartz $XQUARTZ_VERSION has been installed on your computer.')
 $(eval_gettext "However, it won't be activated until you reboot your computer.")
 
-$(eval_gettext 'When you run your programs, ensure that X11 icon is black and orange.')
-$(eval_gettext "If it is not the case, PlayOnMac and wine won't be able to run games properly.")
+$(eval_gettext 'Please reboot your computer now, and run PlayOnMac')
 
 EOF_X
-		POL_SetupWindow_licence "$(eval_gettext "Pleaase read this carefully.")" "$STEP_TITLE" "$REPERTOIRE/tmp/xquartz"	
+		POL_SetupWindow_licence "$(eval_gettext "Pleaase read this carefully.")" "$STEP_TITLE" "$REPERTOIRE/tmp/xquartz"
+		POL_SetupWindow_Close
+		killall playonmac.real
+		touch /tmp/playonmac_needs_reboot
 }
 install_x11()
 {
@@ -137,7 +139,12 @@ install_x11()
 		FilePrefix="XQuartz"
 	fi
 	STEP_TITLE="XQuartz"
-	XQuartz_Message="$(eval_gettext "To ensure that your games will be compatible, PlayOnMac must install XQuartz")"
+	if [ "$OSX_VERSION" = "10" ]
+	then
+		XQuartz_Message="$(eval_gettext "To ensure that your games will be compatible, PlayOnMac must install XQuartz")"
+	else
+		XQuartz_Message="$(eval_gettext "PlayOnMac needs to install XQuartz to work")"
+	fi
 	POL_SetupWindow_menu_num "$XQuartz_Message" "$STEP_TITLE" "$(eval_gettext "Please download XQuartz for me")~$(eval_gettext "I've downloaded the file by myself") ($FilePrefix-$XQUARTZ_VERSION.dmg)~$(eval_gettext "Don't install XQuartz for the moment")" "~"
 	if [ "$APP_ANSWER" = "0" ]
 	then
@@ -288,14 +295,22 @@ EOF
 	export POL_WINEVERSION=""
 }
 migrate_oldpol
+POL_Config_Write FIRST_FIRST_USE TRUE
 POL_SetupWindow_Init
-POL_SetupWindow_free_presentation "$(eval_gettext '$APPLICATION_TITLE first use')" "$(eval_gettext 'It appears it is the first time you are using $APPLICATION_TITLE.')\n$(eval_gettext 'This wizard will help you prepare $APPLICATION_TITLE environement')\n$(eval_gettext "Please ensure you are connected to the internet.")"
+if [ "$(POL_Config_Read FIRST_FIRST_USE)" = "TRUE" ]
+then
+	POL_SetupWindow_free_presentation "$(eval_gettext '$APPLICATION_TITLE first use')" "$(eval_gettext 'PlayOnMac is going to finish its preparation')\n$(eval_gettext "Please ensure you are connected to the internet.")"
+else
+	POL_SetupWindow_free_presentation "$(eval_gettext '$APPLICATION_TITLE first use')" "$(eval_gettext 'It appears it is the first time you are using 	$APPLICATION_TITLE.')\n$(eval_gettext 'This wizard will help you prepare $APPLICATION_TITLE environement')\n$(eval_gettext "Please ensure you are connected to the internet.")"
+fi
 
 [ "$POL_OS" == "Mac" ] && [ ! -e "/Applications/Utilities/XQuartz.app" ] && [ "$OSX_VERSION" = "10" ] &&  install_x11
+[ "$POL_OS" == "Mac" ] && [ ! -e "/Applications/Utilities/XQuartz.app" ] && [ "$OSX_VERSION" = "12" ] &&  install_x11
+
 [ "$POL_OS" == "Mac" ] && [ "$OSX_VERSION" = "9" ] &&  install_x11
 
 install_fonts
 install_prefix
 POL_SetupWindow_message "$(eval_gettext 'Thank you for using $APPLICATION_TITLE')" "$(eval_gettext '$APPLICATION_TITLE first use')"
 POL_SetupWindow_Close
-$(POL_Config_Write FIRST_USE TRUE)
+POL_Config_Write FIRST_USE TRUE
