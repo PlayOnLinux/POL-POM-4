@@ -45,3 +45,5 @@ fi
 
 # First use ?
 [ "$(POL_Config_Read FIRST_USE)" = "" ] && bash "$PLAYONLINUX/bash/first_use"
+[ "$POL_OS" == "Mac" ] && [ ! -e "/Applications/Utilities/XQuartz.app" ] && [ "$OSX_VERSION" = "10" ] && bash "$PLAYONLINUX/bash/first_use"
+[ "$POL_OS" == "Mac" ] && [ ! -e "/Applications/Utilities/XQuartz.app" ] && [ "$OSX_VERSION" = "12" ] && bash "$PLAYONLINUX/bash/first_use"
