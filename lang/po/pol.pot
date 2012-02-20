@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2012-02-19 19:00:37+01:00\n"
+"POT-Creation-Date: 2012-02-20 19:00:37+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -205,7 +205,7 @@ msgstr ""
 #: Detour plugin:6
 msgid "Operation done"
 msgstr ""
-#: python/configure.py:111 python/configure.py:528
+#: python/configure.py:111 python/configure.py:542
 msgid "General"
 msgstr ""
 
@@ -229,121 +229,125 @@ msgstr ""
 msgid "Enable debugging"
 msgstr ""
 
-#: python/configure.py:125
+#: python/configure.py:122
+msgid "Arguments"
+msgstr ""
+
+#: python/configure.py:126
 msgid "Run configuration wizard"
 msgstr ""
 
-#: python/configure.py:150 python/mainwindow.py:384 python/mainwindow.py:415
+#: python/configure.py:153 python/mainwindow.py:388 python/mainwindow.py:423
 msgid "Configure Wine"
 msgstr ""
 
-#: python/configure.py:156 python/mainwindow.py:388 python/mainwindow.py:421
+#: python/configure.py:159 python/mainwindow.py:392 python/mainwindow.py:436
 msgid "Registry Editor"
 msgstr ""
 
-#: python/configure.py:163
+#: python/configure.py:166
 msgid "Windows reboot"
 msgstr ""
 
-#: python/configure.py:169
+#: python/configure.py:172
 msgid "Command prompt"
 msgstr ""
 
-#: python/configure.py:175
+#: python/configure.py:178
 msgid "Task manager"
 msgstr ""
 
-#: python/configure.py:181
+#: python/configure.py:184
 msgid "Kill processes"
 msgstr ""
 
-#: python/configure.py:201 python/install.py:134 python/mainwindow.py:143
-#: python/mainwindow.py:297
+#: python/configure.py:204 python/install.py:134 python/mainwindow.py:145
+#: python/mainwindow.py:299
 msgid "Install"
 msgstr ""
 
-#: python/configure.py:271
+#: python/configure.py:279
 msgid "Open program's directory"
 msgstr ""
 
-#: python/configure.py:295
+#: python/configure.py:304
 msgid "Open virtual drive's directory"
 msgstr ""
 
-#: python/configure.py:412
+#: python/configure.py:421
 msgid "GLSL Support"
 msgstr ""
 
-#: python/configure.py:413
+#: python/configure.py:422
 msgid "Direct Draw Renderer"
 msgstr ""
 
-#: python/configure.py:414
+#: python/configure.py:423
 msgid "Video memory size"
 msgstr ""
 
-#: python/configure.py:415
+#: python/configure.py:424
 msgid "Offscreen rendering mode"
 msgstr ""
 
-#: python/configure.py:416
+#: python/configure.py:425
 msgid "Render target mode lock"
 msgstr ""
 
-#: python/configure.py:417
+#: python/configure.py:426
 msgid "Multisampling"
 msgstr ""
 
-#: python/configure.py:418
+#: python/configure.py:427
 msgid "Strict Draw Ordering"
 msgstr ""
 
-#: python/configure.py:428
+#: python/configure.py:437
 msgid "Mouse warp override"
 msgstr ""
 
-#: python/configure.py:430
+#: python/configure.py:439
 msgid "Open a shell"
 msgstr ""
 
-#: python/configure.py:431
+#: python/configure.py:440
 msgid "Run a .exe file in this virtual drive"
 msgstr ""
 
-#: python/configure.py:491 python/mainwindow.py:563 python/mainwindow.py:565
+#: python/configure.py:505 python/mainwindow.py:578 python/mainwindow.py:580
 msgid "{0} configuration"
 msgstr ""
 
-#: python/configure.py:512
+#: python/configure.py:526
 msgid "New"
 msgstr ""
 
-#: python/configure.py:513 python/mainwindow.py:144 python/mainwindow.py:298
-#: python/mainwindow.py:400
+#: python/configure.py:527 python/mainwindow.py:146 python/mainwindow.py:300
+#: python/mainwindow.py:408
 msgid "Remove"
 msgstr ""
 
-#: python/configure.py:530
+#: python/configure.py:544
 msgid "Install packages"
 msgstr ""
 
-#: python/configure.py:531 python/mainwindow.py:283
+#: python/configure.py:545 python/mainwindow.py:285
 msgid "Display"
 msgstr ""
 
-#: python/configure.py:532
+#: python/configure.py:546
 msgid "Miscellaneous"
 msgstr ""
 
-#: python/configure.py:549
+#: python/configure.py:563
 msgid "Choose the name of the virtual drive"
 msgstr ""
 
-#: python/configure.py:556
+#: python/configure.py:570
 msgid "This virtual drive is protected"
 msgstr ""
 
-#: python/configure.py:558 python/configure.py:565
+#: python/configure.py:572 python/configure.py:579
 msgid "Are you sure you want to delete "
 msgstr ""
 
@@ -455,7 +459,7 @@ msgstr ""
 msgid "Graphics"
 msgstr ""
 
-#: python/install.py:299 python/mainwindow.py:209 python/options.py:319
+#: python/install.py:299 python/mainwindow.py:211 python/options.py:319
 msgid "Internet"
 msgstr ""
 
@@ -503,7 +507,7 @@ msgstr ""
 msgid "Join a channel"
 msgstr ""
 
-#: python/irc.py:256 python/mainwindow.py:304
+#: python/irc.py:256 python/mainwindow.py:306
 msgid "Messenger"
 msgstr ""
 
@@ -525,165 +529,173 @@ msgstr ""
 msgid "An updated version of {0} is available"
 msgstr ""
 
-#: python/mainwindow.py:142 python/mainwindow.py:295
+#: python/mainwindow.py:144 python/mainwindow.py:297
 msgid "Run"
 msgstr ""
 
-#: python/mainwindow.py:146
+#: python/mainwindow.py:148
 msgid "Donate"
 msgstr ""
 
-#: python/mainwindow.py:147
+#: python/mainwindow.py:149
 msgid "Exit"
 msgstr ""
 
-#: python/mainwindow.py:150
+#: python/mainwindow.py:152
 msgid "Small icons"
 msgstr ""
 
-#: python/mainwindow.py:151
+#: python/mainwindow.py:153
 msgid "Medium icons"
 msgstr ""
 
-#: python/mainwindow.py:152
+#: python/mainwindow.py:154
 msgid "Large icons"
 msgstr ""
 
-#: python/mainwindow.py:153
+#: python/mainwindow.py:155
 msgid "Very large icons"
 msgstr ""
 
-#: python/mainwindow.py:166
+#: python/mainwindow.py:168
 msgid "Manage Wine versions"
 msgstr ""
 
-#: python/mainwindow.py:176
+#: python/mainwindow.py:178
 msgid "Run a local script"
 msgstr ""
 
-#: python/mainwindow.py:180
+#: python/mainwindow.py:182
 msgid "Close all {0} software"
 msgstr ""
 
-#: python/mainwindow.py:184
+#: python/mainwindow.py:186
 msgid "{0} console"
 msgstr ""
 
-#: python/mainwindow.py:194
+#: python/mainwindow.py:196
 msgid "{0} messenger"
 msgstr ""
 
-#: python/mainwindow.py:198
+#: python/mainwindow.py:200
 msgid "Report a bug"
 msgstr ""
 
-#: python/mainwindow.py:223
+#: python/mainwindow.py:225
 msgid "About {0}"
 msgstr ""
 
-#: python/mainwindow.py:253 python/mainwindow.py:257
+#: python/mainwindow.py:255 python/mainwindow.py:259
 msgid "Plugin manager"
 msgstr ""
 
-#: python/mainwindow.py:282
+#: python/mainwindow.py:284
 msgid "File"
 msgstr ""
 
-#: python/mainwindow.py:284
+#: python/mainwindow.py:286
 msgid "Tools"
 msgstr ""
 
-#: python/mainwindow.py:285
+#: python/mainwindow.py:287
 msgid "Settings"
 msgstr ""
 
-#: python/mainwindow.py:286 python/options.py:322
+#: python/mainwindow.py:288 python/options.py:322
 msgid "Plugins"
 msgstr ""
 
-#: python/mainwindow.py:302 python/options.py:213
+#: python/mainwindow.py:304 python/options.py:213
 msgid "Configure"
 msgstr ""
 
-#: python/mainwindow.py:303
+#: python/mainwindow.py:305
 msgid "Shortcut"
 msgstr ""
 
-#: python/mainwindow.py:392
+#: python/mainwindow.py:396
 msgid "Open the application's directory"
 msgstr ""
 
-#: python/mainwindow.py:396
-msgid "Set the icon"
+#: python/mainwindow.py:400
+msgid "Read the manual"
 msgstr ""
 
 #: python/mainwindow.py:404
+msgid "Set the icon"
+msgstr ""
+
+#: python/mainwindow.py:412
 msgid "Close this application"
 msgstr ""
 
-#: python/mainwindow.py:418
+#: python/mainwindow.py:426
 msgid "KillApp"
 msgstr ""
 
-#: python/mainwindow.py:538 python/mainwindow.py:540
+#: python/mainwindow.py:433
+msgid "No manual found for {0}"
+msgstr ""
+
+#: python/mainwindow.py:553 python/mainwindow.py:555
 msgid "{0} settings"
 msgstr ""
 
-#: python/mainwindow.py:610
+#: python/mainwindow.py:625
 msgid "{0} install menu"
 msgstr ""
 
-#: python/mainwindow.py:616
+#: python/mainwindow.py:631
 msgid "{0} wine versions manager"
 msgstr ""
 
-#: python/mainwindow.py:629
+#: python/mainwindow.py:644
 msgid "Are you sure you want to close all {0} Windows?"
 msgstr ""
 
-#: python/mainwindow.py:649
+#: python/mainwindow.py:664
 msgid "Run your Windows programs on "
 msgstr ""
 
-#: python/mainwindow.py:650
+#: python/mainwindow.py:665
 msgid ""
 "(C) PlayOnLinux and PlayOnMac team 2011\n"
 "Under GPL licence version 3"
 msgstr ""
 
-#: python/mainwindow.py:651
+#: python/mainwindow.py:666
 msgid "Developer and Website: "
 msgstr ""
 
-#: python/mainwindow.py:652
+#: python/mainwindow.py:667
 msgid "Scriptors: "
 msgstr ""
 
-#: python/mainwindow.py:653
+#: python/mainwindow.py:668
 msgid "Packager: "
 msgstr ""
 
-#: python/mainwindow.py:654
+#: python/mainwindow.py:669
 msgid "Icons:"
 msgstr ""
 
-#: python/mainwindow.py:655
+#: python/mainwindow.py:670
 msgid "The following people contributed to this program: "
 msgstr ""
 
-#: python/mainwindow.py:656
+#: python/mainwindow.py:671
 msgid "Translations:"
 msgstr ""
 
-#: python/mainwindow.py:657
+#: python/mainwindow.py:672
 msgid "Read TRANSLATORS file"
 msgstr ""
 
-#: python/mainwindow.py:671
+#: python/mainwindow.py:687
 msgid "{0} is not supposed to be run as root. Sorry"
 msgstr ""
 
-#: python/mainwindow.py:727
+#: python/mainwindow.py:742
 msgid "Are you sure you want to  want to install {0} package?"
 msgstr ""
 
