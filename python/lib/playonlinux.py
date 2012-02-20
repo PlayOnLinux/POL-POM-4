@@ -261,8 +261,9 @@ def getArgs(shortcut): # Get prefix name from shortcut
 
 	try:
 		args = shlex.split(fichier[i])[2:-1]
+		#print args
 		args = " ".join([ pipes.quote(x) for x in args])
-		
+		#print args
 	except:
 		args = ""
 
@@ -303,7 +304,8 @@ def SetWinePrefix(game, prefix):
 	while(i < len(line)): # On ecrit
 		fichier_write.write(line[i]+"\n")
 		i+=1
-		
+	
+	
 def writeArgs(game, args):
 	cfile = Variables.playonlinux_rep+"shortcuts/"+game
 	fichier = open(cfile,"r").readlines()
@@ -317,21 +319,21 @@ def writeArgs(game, args):
 		else:
 			try:
 				old_string = shlex.split(fichier[i])
-				new_string = shlex.split(args)
+				new_string = shlex.split(str(args))
 				new_string = old_string[0:2] + new_string
 				new_string = " ".join([ pipes.quote(x) for x in new_string])
+
 				new_string = new_string+" $@"
 				line.append(new_string)
 			except:
 				line.append(fichier[i])
 		i += 1
 
-		fichier_write = open(cfile,"w")
-
-		i = 0	
-		while(i < len(line)): # On ecrit
-			fichier_write.write(line[i]+"\n")
-			i+=1
+	fichier_write = open(cfile,"w")
+	i = 0	
+	while(i < len(line)): # On ecrit
+		fichier_write.write(line[i]+"\n")
+		i+=1
 			
 def POL_Open(arg):
 	if(os.environ["POL_OS"] == "Mac"):
