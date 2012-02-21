@@ -55,7 +55,7 @@ POL_SetupWindow_textbox "$(eval_gettext "Please give a very short description (t
 BUGTITLE="$APP_ANSWER"
 POL_SetupWindow_textbox_multiline "$(eval_gettext "Please explain your problem clearly (english only):")" "$POL_DEBUG_TITLE"
 
-if [ "$LOG_TITLE" = "" ]
+if [ "$LOGTITLE" = "" ]
 then
 DESCRIPTION="$APP_ANSWER"
 else
