@@ -29,6 +29,6 @@ for file in *
 do 
 	if [ "$(ps aux | grep $file | grep -v grep)" = "" ] #&& [[ ! $file == *index_* ]]
 	then
-		rm $file;
+		[ -f "$file" ] && rm $file;
 	fi
 done
