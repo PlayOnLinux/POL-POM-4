@@ -307,8 +307,7 @@ else
 	POL_SetupWindow_free_presentation "$(eval_gettext '$APPLICATION_TITLE first use')" "$(eval_gettext 'It appears it is the first time you are using 	$APPLICATION_TITLE.')\n$(eval_gettext 'This wizard will help you prepare $APPLICATION_TITLE environement')\n$(eval_gettext "Please ensure you are connected to the internet.")"
 fi
 
-[ "$POL_OS" == "Mac" ] && [ ! -e "/Applications/Utilities/XQuartz.app" ] && [ "$OSX_VERSION" = "10" ] &&  install_x11
-[ "$POL_OS" == "Mac" ] && [ ! -e "/Applications/Utilities/XQuartz.app" ] && [ "$OSX_VERSION" = "12" ] &&  install_x11
+[ "$POL_OS" == "Mac" ] && [ ! -e "/Applications/Utilities/XQuartz.app" ] && [ ! "$OSX_VERSION" = "11" ] &&  install_x11
 
 [ "$POL_OS" == "Mac" ] && [ "$OSX_VERSION" = "9" ] &&  install_x11
 
