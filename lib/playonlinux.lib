@@ -664,14 +664,14 @@ clean_wineprefix()
 			then
 			echo "$1 est encore utilisé."
 		else
-			prefix=$1
+			prefix="$1"
 			prefix=$(basename "$1")
 			POL_SetupWindow_question "$(eval_gettext "Do you want to delete the virtual drive:")\n\n$prefix" "Wine"
 			reponse=$APP_ANSWER
 			POL_SetupWindow_wait_next_signal "$(eval_gettext 'Uninstalling...')" "$(eval_gettext '$APPLICATION_TITLE Uninstaller')" 
 			if [ "$reponse" = "TRUE" ]
 			then
-				rm -rf $1
+				rm -rf "$1"
 			fi
 		fi
 	fi
