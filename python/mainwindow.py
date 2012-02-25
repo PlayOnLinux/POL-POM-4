@@ -641,7 +641,7 @@ class MainWindow(wx.Frame):
 
 
   def ClosePol(self, event):
-    if(wx.YES == wx.MessageBox(_('Are you sure you want to close all {0} Windows?').format(os.environ["APPLICATION_TITLE"]).decode("utf-8"), style=wx.YES_NO | wx.ICON_QUESTION)):
+    if(wx.YES == wx.MessageBox(_('Are you sure you want to close all {0} Windows?').format(os.environ["APPLICATION_TITLE"]).decode("utf-8"),os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
 		os.remove(Variables.playonlinux_rep+"/configurations/guis/index_"+os.environ["POL_ID"])
 		self.SizeToSave = self.GetSize();
 		self.PositionToSave = self.GetPosition();
@@ -684,7 +684,7 @@ class PlayOnLinuxApp(wx.App):
 		exe_present = False
 		
 		if(os.popen("id -u").read() == "0\n" or os.popen("id -u").read() == "0"):
-			wx.MessageBox(_("{0} is not supposed to be run as root. Sorry").format(os.environ["APPLICATION_TITLE"]))
+			wx.MessageBox(_("{0} is not supposed to be run as root. Sorry").format(os.environ["APPLICATION_TITLE"]),_("Error"))
 			sys.exit()			
 		
 		try:
@@ -692,10 +692,19 @@ class PlayOnLinuxApp(wx.App):
 		except:
 			returncode=255
 			
-		if(returncode != 0):
-			wx.MessageBox(_("{0} is unable to find 32bits OpenGL libraries.\n\nYou might encounter problem with your games").format(os.environ["APPLICATION_TITLE"]))
+		if(os.environ["POL_OS"] == "Linux" and returncode != 0):
+			wx.MessageBox(_("{0} is unable to find 32bits OpenGL libraries.\n\nYou might encounter problem with your games").format(os.environ["APPLICATION_TITLE"]),_("Error"))
 			print("Failed to load 32bits libraries : "+str(returncode))
-			
+		
+		try:
+			returncode=subprocess.call(os.environ["PLAYONLINUX"]+"/bin/amd64.check")
+		except:
+			returncode=255
+
+		if(os.environ["AMD64_COMPATIBLE"] == "True" and os.environ["POL_OS"] == "Linux" and returncode != 0):
+			wx.MessageBox(_("{0} is unable to find 64bits OpenGL libraries.\n\nYou might encounter problem with your games").format(os.environ["APPLICATION_TITLE"]),_("Error"))
+			print("Failed to load 64bits libraries : "+str(returncode))
+					
 		for f in  sys.argv[1:]:
 			
 			self.MacOpenFile(f)
