@@ -198,11 +198,52 @@ def open_folder_prefix(software):
 			os.system("open "+AppDir)
 		else:
 			os.system("xdg-open "+AppDir)
-									
+
+def VersionLower(version1, version2):
+	version1 = string.split(version1, "-")
+	version2 = string.split(version2, "-")
+	
+	try:
+		if(version1[1] != ""):
+			dev1 = True
+	except:
+		dev1 = False
+	
+	try:
+		if(version1[2] != ""):
+			dev2 = True
+	except:
+		dev2 = False
+	
+	if(version1[0] == version2[0]):
+		if(dev1 == True or dev2 == False):
+			return False
+		else:
+			return True
+			
+	version1 = string.split(version1[0],".")
+	version2 = string.split(version2[0],".")
+	
+	if(version1[0] < version2[0]):
+		return True
+	elif(version1[0] == version2[0]):
+		if(version1[1] < version2[1]):
+			return True
+		elif(version1[1] == version2[1]):
+			if(version1[2] < version2[2]):
+				return True
+			else:
+				return False
+		else: 
+			return False
+	else:		
+		return False
+								
 def convertVersionToInt(version): # Code par MulX en Bash, adapte en python par Tinou
 	#rajouter pour les vesions de dev -> la version stable peut sortir
 	#les personnes qui utilise la version de dev sont quand même informé d'une MAJ
 	#ex 3.8.1 < 3.8.2-dev < 3.8.2
+	print "Deprecated !"
 	if("dev" in version or "beta" in version or "alpha" in version or "rc" in version):
 		version = string.split(version,"-")
 		version = version[0]

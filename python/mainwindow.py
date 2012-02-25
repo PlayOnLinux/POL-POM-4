@@ -66,7 +66,7 @@ class POLWeb(threading.Thread):
 			self.sendToStatusBar(_("Refreshing {0}").format(os.environ["APPLICATION_TITLE"]), True)
 			os.system("bash \""+Variables.playonlinux_env+"/bash/pol_update_list\"")
 		
-			if(playonlinux.convertVersionToInt(os.environ["VERSION"]) < playonlinux.convertVersionToInt(self.WebVersion)):
+			if(playonlinux.VersionLower(os.environ["VERSION"],self.WebVersion)):
 				self.sendToStatusBar(_('An updated version of {0} is available').format(os.environ["APPLICATION_TITLE"])+" ("+self.WebVersion+")",False)
 				self.sendAlert(_('An updated version of {0} is available').format(os.environ["APPLICATION_TITLE"])+" ("+self.WebVersion+")")
 			else:
@@ -774,6 +774,8 @@ class PlayOnLinuxApp(wx.App):
 
 
 lng.Lang()
+
+
 #os.system("bash \""+os.environ["PLAYONLINUX"]+"/bash/startup\"")
 app = PlayOnLinuxApp(redirect=False)
 app.MainLoop()
