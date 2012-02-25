@@ -649,14 +649,14 @@ class MainWindow(wx.Frame):
 					self.file_icone = Variables.playonlinux_rep+"/wineprefix/"+prefix+"/icon"
 				else:
 					try:
-						archdd = playonlinux.GetSettings('ARCH',self.s_prefix)
+						archdd = playonlinux.GetSettings('ARCH',prefix)
 						if(archdd == "amd64"):
 							archdd = "64"
 						else:
 							archdd = "32"
 					except:
-						archdd = 32
-					self.file_icone = Variables.playonlinux_env+"/resources/images/menu/virtual_drive_32.png"
+						archdd = "32"
+					self.file_icone = Variables.playonlinux_env+"/resources/images/menu/virtual_drive_"+archdd+".png"
 
 				try:
 					self.bitmap = wx.Image(self.file_icone)
