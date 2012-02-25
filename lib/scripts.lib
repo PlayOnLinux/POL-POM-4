@@ -511,3 +511,25 @@ POL_Shortcut_Document()
 	[ "$2" = "" ] && return
 	ln -s "$2" "$POL_USER_ROOT/configurations/manuals/$1"
 }
+
+POL_RequiredVersion ()
+{
+	# Stop the current script is the current version is lower the required one
+	# Usage : POL_RequiredVersion [VERSION]
+	if VersionLower "$VERSION" "$1"
+	then
+		POL_SetupWindow_message "$(eval_gettext 'Sorry, $APPLICATION $VERSION is too old to continue.\n$APPLICATION $1 is required.')"
+		POL_SetupWindow_Close
+		exit 0
+	fi
+}
+
+POL_AdvisedVersion ()
+{
+	# Alert the user, but don't stop the current script is the current version is lower the required one
+	# Usage : POL_AdvisedVersion [VERSION]
+	if VersionLower "$VERSION" "$1"
+	then
+		POL_SetupWindow_message "$(eval_gettext 'Warning: You are running $APPLICATION $VERSION.\n$APPLICATION $1 is recommended to continue.')"
+	fi
+}

@@ -681,10 +681,8 @@ clean_wineprefix()
 
 function VersionLower ()
 {
-	#retourne faux si la version locale est aussi récente que la version web
-	#retourne vrai si la version locale est plus vielle que la version web
-	#$1 = version locale
-	#$2 = version distante
+	# Return 0 if version1 is lower than version2
+	# Usage: VersionLower [version1] [version2]
 
 	local versionA1 versionA2 versionA3 versionB1 versionB2 versionB3
 	versionA1=$(cut -d'.' -f1 <<< $1)
