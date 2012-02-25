@@ -4,14 +4,15 @@
 - POL_Shortcut_InsertBeforeWine: made sure the commands are not interpreted
   before insertion. Even \n is no longer interpreted, to insert several lines,
   call POL_Shortcut_InsertBeforeWine once per line.
-- PlayOnMac is now compatible with Mac OS 10.8 : Mountain Lion
+- PlayOnMac is now compatible with Mac OS 10.8 : Mountain Lion (not tested, but it should work)
+- PlayOnMac ask for a reboot after XQuartz is installed
 - Accept to find into symlinks (Attempt to fix bug #609)
-- Possibility to add arguments
+- Possibility to add arguments to a program
 - POL will no longer run as root
-- POL_Shortcut_Document
+- POL_Shortcut_Document to support manual
 - Console prefix improved
 - First part of bug #665 fixed
-- Force playonlinux.cfg creatin
+- Force playonlinux.cfg creation
 
 -> 4.0.14
 - Slow DNS on IPV6 issue should be solved
