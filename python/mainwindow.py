@@ -694,7 +694,7 @@ class PlayOnLinuxApp(wx.App):
 			
 		if(returncode != 0):
 			wx.MessageBox(_("{0} is unable to find 32bits OpenGL libraries.\n\nYou might encounter problem with your games").format(os.environ["APPLICATION_TITLE"]))
-			print("Failed to load 32bits libraries : "+returncode)
+			print("Failed to load 32bits libraries : "+str(returncode))
 			
 		for f in  sys.argv[1:]:
 			
