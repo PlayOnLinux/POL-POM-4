@@ -648,7 +648,15 @@ class MainWindow(wx.Frame):
 				if(os.path.exists(Variables.playonlinux_rep+"/wineprefix/"+prefix+"/icon")):
 					self.file_icone = Variables.playonlinux_rep+"/wineprefix/"+prefix+"/icon"
 				else:
-					self.file_icone = Variables.playonlinux_env+"/resources/images/menu/prefix-manager.png"
+					try:
+						archdd = playonlinux.GetSettings('VERSION',self.s_prefix)
+						if(archdd == "amd64"):
+							archdd = "64"
+						else:
+							archdd = "32"
+					except:
+						archdd = 32
+					self.file_icone = Variables.playonlinux_env+"/resources/images/menu/virtual_drive_32.png"
 
 				try:
 					self.bitmap = wx.Image(self.file_icone)
