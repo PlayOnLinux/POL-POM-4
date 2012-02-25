@@ -688,7 +688,7 @@ class PlayOnLinuxApp(wx.App):
 			sys.exit()			
 		
 		try:
-			returncode=subprocess.call(os.environ["PLAYONLINUX"]+"/bin/x86.check")
+			returncode=subprocess.call(os.environ["PLAYONLINUX"]+"/bin/x86.linux.check")
 		except:
 			returncode=255
 			
@@ -697,7 +697,7 @@ class PlayOnLinuxApp(wx.App):
 			print("Failed to load 32bits libraries : "+str(returncode))
 		
 		try:
-			returncode=subprocess.call(os.environ["PLAYONLINUX"]+"/bin/amd64.check")
+			returncode=subprocess.call(os.environ["PLAYONLINUX"]+"/bin/amd64.linux.check")
 		except:
 			returncode=255
 
