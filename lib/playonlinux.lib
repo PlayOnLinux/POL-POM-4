@@ -679,30 +679,31 @@ clean_wineprefix()
 }
 
 
-function convertVersionToInt ()
+function VersionLower ()
 {
-## convert version string to an (increasing) integer by an mathematic formul
-# on explose le string en 4 parties
-	local versionP1 versionP2 versionP3 versionDev=0 versionInt
-	versionP1=$(cut -d'.' -f1 <<< $1)
-	versionP2=$(cut -d'.' -f2 <<< $1)
-	versionP3=$(cut -d'.' -f3 <<< $1 | cut -d '-' -f1)
+	#retourne faux si la version locale est aussi récente que la version web
+	#retourne vrai si la version locale est plus vielle que la version web
+	#$1 = version locale
+	#$2 = version distante
+	local versionA1 versionA2 versionA3 versionB1 versionB2 versionB3
+	versionA1=$(cut -d'.' -f1 <<< $1)
+	versionA2=$(cut -d'.' -f2 <<< $1)
+	versionA3=$(cut -d'.' -f3 <<< $1 | cut -d '-' -f1)
+	versionB1=$(cut -d'.' -f1 <<< $2)
+	versionB2=$(cut -d'.' -f2 <<< $2)
+	versionB3=$(cut -d'.' -f3 <<< $2 | cut -d '-' -f1)
 	#rajouter pour les vesions de dev -> la version stable peut sortir
 	#les personnes qui utilise la version de dev sont quand même informé d'une MAJ
 	#ex 3.8.1 < 3.8.2-dev < 3.8.2
-	if  grep -q 'dev' <<< $1 ; then
-		versionDev=-5
+	if  grep -q '-' <<< $1 ; then
+		[ $versionA1 -lt $versionB1 ] && return 1
+		[ $versionA2 -lt $versionB2 ] && return 1
+		[ $versionA3 -lt $versionB3 ] && return 1
+		return 0
 	fi
-	#on fait des maths partie1 elever au cube et multiplier par 1000
-	let "versionP1 = versionP1 * versionP1 * versionP1 * 1000"
-	#partie 2 
-	let "versionP2 = versionP2 * versionP2 * 100"
-	#partie 3
-	let "versionP3 = versionP3 * 10"
-	#versionDev ? 
-	let "versionDev = versionDev"  
-	#on additionne le tout
-	let "versionInt = versionP1 + versionP2 + versionP3 + versionDev"
-	echo $versionInt
-	#echo $versionInt 1>&2
+	[ $versionA1 -lt $versionB1 ] && return 1
+	[ $versionA2 -lt $versionB2 ] && return 1
+	[ $versionA3 -lt $versionB3 ] && return 1
+	return 0
+	
 }
