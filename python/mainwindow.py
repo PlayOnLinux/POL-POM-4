@@ -688,7 +688,7 @@ class PlayOnLinuxApp(wx.App):
 			sys.exit()			
 		
 		try:
-			returncode=subprocess.call(os.environ["PLAYONLINUX"]+"/bin/x86.check").returncode()
+			returncode=subprocess.call(os.environ["PLAYONLINUX"]+"/bin/x86.check")
 		except:
 			returncode=255
 			
