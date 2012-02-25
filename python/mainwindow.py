@@ -694,7 +694,18 @@ class PlayOnLinuxApp(wx.App):
 			
 		if(returncode != 0):
 			wx.MessageBox(_("{0} is unable to find 32bits OpenGL libraries.\n\nYou might encounter problem with your games").format(os.environ["APPLICATION_TITLE"]))
-				
+			print("Failed to load 32bits libraries : "+returncode)
+			
+		try:
+			returncode=subprocess.call(os.environ["PLAYONLINUX"]+"/bin/amd64.check").returncode()
+		except:
+			returncode=255
+			
+
+		if(returncode != 0):
+			wx.MessageBox(_("{0} is unable to find 64bits OpenGL libraries.\n\nYou might encounter problem with your games with 64bits versions of wine").format(os.environ["APPLICATION_TITLE"]))
+			print("Failed to load 64bits libraries : "+returncode)
+			
 		for f in  sys.argv[1:]:
 			
 			self.MacOpenFile(f)
