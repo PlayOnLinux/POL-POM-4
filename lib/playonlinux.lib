@@ -56,6 +56,7 @@ construire_repertoire_personnel ()
 	mkdir -p "$REPERTOIRE/configurations/guis"
 	mkdir -p "$REPERTOIRE/configurations/configurators"
 	mkdir -p "$REPERTOIRE/configurations/setups"
+	touch "$POL_USER_ROOT/configurations/custom"
 }
 
 clean_tmp ()

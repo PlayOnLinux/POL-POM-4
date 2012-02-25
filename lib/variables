@@ -60,7 +60,7 @@ fi
 
 if [ "$POL_OS" == "Linux" ] 
 then 
-	export POL_LANG=$(echo "$LANG" | cut -d\_ -f 1)
+	export POL_LANG="$(echo "$LANG" | cut -d\_ -f 1)"
 	export MD5_COMMAND="md5sum"
 fi
 
@@ -81,3 +81,6 @@ export POL_ARCH="x86"
 # Divers trucs
 export IGNORE_ICON_DIR="false"	
 export GNUPGHOME="$REPERTOIRE/gpg"
+
+# Drivers problem
+export LIBGL_DRIVERS_PATH="/usr/lib32/dri"-

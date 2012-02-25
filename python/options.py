@@ -208,10 +208,10 @@ class Onglets(wx.Notebook):
 		
 		self.panelPlugins.SetSizer(self.sizerPlugins)
    		self.panelPlugins.SetAutoLayout(True)
-		self.AddPlugin = wx.Button(self.panels_buttons_plugins, wx.ID_ADD,  pos=(0,0))
-		self.DelPlugin = wx.Button(self.panels_buttons_plugins, wx.ID_REMOVE, pos=(100,0))
-		self.ConfigurePlugin = wx.Button(self.panels_buttons_plugins, 212, _("Configure"), pos=(0,38))	
-		self.EnablePlugin = wx.Button(self.panels_buttons_plugins, 213, _("Enable"), pos=(100,38))
+		self.AddPlugin = wx.Button(self.panels_buttons_plugins, wx.ID_ADD, _("Add"), pos=(0,0), size=(100,35))
+		self.DelPlugin = wx.Button(self.panels_buttons_plugins, wx.ID_REMOVE, _("Remove"), pos=(100,0), size=(100,35))
+		self.ConfigurePlugin = wx.Button(self.panels_buttons_plugins, 212, _("Configure"), pos=(0,38), size=(100,35))	
+		self.EnablePlugin = wx.Button(self.panels_buttons_plugins, 213, _("Enable"), pos=(100,38), size=(100,35))
 		self.txtPlugin = wx.StaticText(self.panels_buttons_plugins, -1, _("Choose a plugin"), size=(300,150), pos=(200,5))
 
 		self.LoadPlugins()
@@ -307,8 +307,8 @@ class MainWindow(wx.Frame):
     self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
     self.panelFenp = wx.Panel(self, -1)
     self.panels_buttons = wx.Panel(self.panelFenp, -1)
-    self.Apply = wx.Button(self.panels_buttons, wx.ID_APPLY, _("Apply"), pos=(400,0))
-    self.Close = wx.Button(self.panels_buttons, wx.ID_CLOSE, _("Cancel"), pos=(305,0))
+    self.Apply = wx.Button(self.panels_buttons, wx.ID_APPLY, _("Apply"), pos=(400,0), size=(100,35))
+    self.Close = wx.Button(self.panels_buttons, wx.ID_CLOSE, _("Cancel"), pos=(305,0), size=(100,35))
     self.sizer = wx.BoxSizer(wx.VERTICAL)   
     self.onglets = Onglets(self.panelFenp)
 
