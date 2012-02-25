@@ -236,8 +236,8 @@ class Onglets(wx.Notebook):
 		self.FileDialog.SetDirectory("~")
 		self.FileDialog.SetWildcard("POL Packages (*.pol)|*.pol")
         	self.FileDialog.ShowModal()
-        	if(self.FileDialog.GetPath() != ""):
-			if(wx.YES == wx.MessageBox(_("Are you sure you want to install: ").decode("utf-8")+self.FileDialog.GetPath()+"?", style=wx.YES_NO | wx.ICON_QUESTION)):
+        	if(self.FileDialog.ShowModal() == wxID_OK and self.FileDialog.GetPath() != ""):
+			if(wx.YES == wx.MessageBox(_("Are you sure you want to install: ").decode("utf-8")+self.FileDialog.GetPath()+"?",os.environ["APPLICATION_TITLE"] ,style=wx.YES_NO | wx.ICON_QUESTION)):
 	      			os.system("bash \""+Variables.playonlinux_env+"/playonlinux-pkg\" -i \""+self.FileDialog.GetPath().encode('utf-8')+"\"")
 				self.LoadPlugins()
         	self.FileDialog.Destroy()
@@ -245,7 +245,7 @@ class Onglets(wx.Notebook):
 	def delete_plug(self, event):
 		self.current_plugin = self.pluginlist.GetItemText(self.pluginlist.GetSelection())
 		self.plugin_path = Variables.playonlinux_rep+"/plugins/"+self.current_plugin
-   	        if(wx.YES == wx.MessageBox(_("Are you sure you want to delete: ").decode("utf-8")+self.current_plugin+"?", style=wx.YES_NO | wx.ICON_QUESTION)):
+   	        if(wx.YES == wx.MessageBox(_("Are you sure you want to delete: ").decode("utf-8")+self.current_plugin+"?", os.environ["APPLICATION_TITLE"],style=wx.YES_NO | wx.ICON_QUESTION)):
 			shutil.rmtree(self.plugin_path)
 			self.LoadPlugins()
 	def disable(self, event):
