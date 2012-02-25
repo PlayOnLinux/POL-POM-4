@@ -518,7 +518,7 @@ POL_RequiredVersion ()
 	# Usage : POL_RequiredVersion [VERSION]
 	if VersionLower "$VERSION" "$1"
 	then
-		POL_SetupWindow_message "$(eval_gettext 'Sorry, $APPLICATION $VERSION is too old to continue.\n$APPLICATION $1 is required.')"
+		POL_SetupWindow_message "$(eval_gettext 'Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\n$APPLICATION_TITLE $1 is required.')" "$TITLE"
 		POL_SetupWindow_Close
 		exit 0
 	fi
@@ -528,8 +528,9 @@ POL_AdvisedVersion ()
 {
 	# Alert the user, but don't stop the current script is the current version is lower the required one
 	# Usage : POL_AdvisedVersion [VERSION]
-	if VersionLower "$VERSION" "$1"
+	NEEDED="$1"
+	if VersionLower "$VERSION" "$NEEDED"
 	then
-		POL_SetupWindow_message "$(eval_gettext 'Warning: You are running $APPLICATION $VERSION.\n$APPLICATION $1 is recommended to continue.')"
+		POL_SetupWindow_message "$(eval_gettext 'Warning: You are running $APPLICATION_TITLE $VERSION.\n$APPLICATION_TITLE $NEEDED is recommended to continue.')" "$TITLE"
 	fi
 }

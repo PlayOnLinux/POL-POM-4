@@ -681,7 +681,7 @@ clean_wineprefix()
 
 function VersionLower ()
 {
-	# Return 0 if version1 is lower than version2
+	# Return 1 if version1 is lower than version2
 	# Usage: VersionLower [version1] [version2]
 
 	local versionA1 versionA2 versionA3 versionB1 versionB2 versionB3
@@ -695,14 +695,14 @@ function VersionLower ()
 	#les personnes qui utilise la version de dev sont quand même informé d'une MAJ
 	#ex 3.8.1 < 3.8.2-dev < 3.8.2
 	if  grep -q '-' <<< $1 ; then
-		[ $versionA1 -lt $versionB1 ] && return 1
-		[ $versionA1 -le $versionB1 ] && [ $versionA2 -lt $versionB2 ] && return 1
-		[ $versionA1 -le $versionB1 ] && [ $versionA2 -le $versionB2 ] && [ $versionA3 -lt $versionB3 ] && return 1
-		return 0
+		[ $versionA1 -lt $versionB1 ] && return 0
+		[ $versionA1 -le $versionB1 ] && [ $versionA2 -lt $versionB2 ] && return 0
+		[ $versionA1 -le $versionB1 ] && [ $versionA2 -le $versionB2 ] && [ $versionA3 -lt $versionB3 ] && return 0
+		return 1
 	fi
-	[ $versionA1 -lt $versionB1 ] && return 1
-	[ $versionA1 -le $versionB1 ] && [ $versionA2 -lt $versionB2 ] && return 1
-	[ $versionA1 -le $versionB1 ] && [ $versionA2 -le $versionB2 ] && [ $versionA3 -lt $versionB3 ] && return 1
-	return 0
+	[ $versionA1 -lt $versionB1 ] && return 0
+	[ $versionA1 -le $versionB1 ] && [ $versionA2 -lt $versionB2 ] && return 0
+	[ $versionA1 -le $versionB1 ] && [ $versionA2 -le $versionB2 ] && [ $versionA3 -lt $versionB3 ] && return 0
+	return 1
 	
 }
