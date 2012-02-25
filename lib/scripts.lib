@@ -361,7 +361,7 @@ POL_Download ()
 POL_Download_Resource ()
 {
 	# Download a file and place it in the resource directory (if it does not exist)
-	# Usage: POL_Resource [URL] [MD5] (Folder)
+	# Usage: POL_Download_Resource [URL] [MD5] (Folder)
 
 	POL_Debug_Message "Downloading resource $1"
 	# 1 - URL
