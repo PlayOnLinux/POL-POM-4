@@ -646,6 +646,10 @@ POL_Wine_OverrideDLL_App()
 	regedit app_dll_override.reg
 	rm app_dll_override.reg
 }
+POL_Wine_WaitBefore ()
+{
+	[ "$1" = "" ] && message="$(eval_gettext "Please wait...")" || message="$(eval_gettext 'Please wait while $SOFTNAME is installed...')"	
+}
 POL_Wine_WaitExit ()
 {
 	# Lock bash commands until wine is exited
