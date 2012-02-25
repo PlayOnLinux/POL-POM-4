@@ -44,6 +44,8 @@ Set_OS ()
 		[ "$2" = "sp1" ] && n=1
 		[ "$2" = "sp2" ] && n=2
 		[ "$2" = "sp3" ] && n=3
+		[ "$2" = "sp4" ] && n=4
+		[ "$2" = "sp5" ] && n=5
 		
 		cat << EOF > "$REPERTOIRE/tmp/makeos.reg"
 [HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows NT\\CurrentVersion]
