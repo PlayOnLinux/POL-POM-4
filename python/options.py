@@ -235,8 +235,8 @@ class Onglets(wx.Notebook):
 		self.FileDialog = wx.FileDialog(self)
 		self.FileDialog.SetDirectory("~")
 		self.FileDialog.SetWildcard("POL Packages (*.pol)|*.pol")
-        	self.FileDialog.ShowModal()
-        	if(self.FileDialog.ShowModal() == wxID_OK and self.FileDialog.GetPath() != ""):
+        	result = self.FileDialog.ShowModal()
+        	if(result == wx.ID_OK and self.FileDialog.GetPath() != ""):
 			if(wx.YES == wx.MessageBox(_("Are you sure you want to install: ").decode("utf-8")+self.FileDialog.GetPath()+"?",os.environ["APPLICATION_TITLE"] ,style=wx.YES_NO | wx.ICON_QUESTION)):
 	      			os.system("bash \""+Variables.playonlinux_env+"/playonlinux-pkg\" -i \""+self.FileDialog.GetPath().encode('utf-8')+"\"")
 				self.LoadPlugins()
