@@ -649,7 +649,7 @@ class MainWindow(wx.Frame):
 					self.file_icone = Variables.playonlinux_rep+"/wineprefix/"+prefix+"/icon"
 				else:
 					try:
-						archdd = playonlinux.GetSettings('VERSION',self.s_prefix)
+						archdd = playonlinux.GetSettings('ARCH',self.s_prefix)
 						if(archdd == "amd64"):
 							archdd = "64"
 						else:
