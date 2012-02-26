@@ -3716,9 +3716,13 @@ msgstr "Choisissez le nom du disque virtuel"
 msgid "This virtual drive is protected"
 msgstr "Ce disque virtuel est protégé"
 
-#: python/configure.py:572 python/configure.py:579
-msgid "Are you sure you want to delete "
-msgstr "Voulez-vous vraiment supprimer "
+#: python/configure.py:575
+msgid "Are you sure you want to delete {0} virtual drive ?"
+msgstr "Êtes-vous sur de vouloir supprimer le disque virtuel {0} ?"
+
+#: python/configure.py:582
+msgid "Are you sure you want to delete {0} ?"
+msgstr "Êtes-vous sur de vouloir supprimer {0} ?"
 
 #: python/guiv3.py:126
 msgid "{0} Wizard"
