@@ -286,7 +286,7 @@ POL_Bash ()
 	
 	OLD_DIR="$PWD"
 	if [ "$(POL_GPG_auth_script "$1")" = "TRUE" ]
-	thencar
+	then
 		cd "$OLD_DIR"
 		POL_Debug_Message "POL GPG : Good signature - $TITLE"
 		bash "$@"
