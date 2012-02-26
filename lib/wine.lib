@@ -356,6 +356,19 @@ POL_LoadVar_Device ()
 	POL_Debug_Message "VendorID : $VendorID"
 	POL_Debug_Message "DeviceID : $DeviceID"
 }
+POL_LoadVar_ScreenResolution ()
+{
+	if [ "$POL_OS" = "Mac" ]
+	then
+		export ScreenWidth="$(/usr/sbin/system_profiler SPDisplaysDataType | grep Resolution| awk '{print $2}')"
+		export ScreenHeight="$(/usr/sbin/system_profiler SPDisplaysDataType | grep Resolution| awk '{print $4}')"	
+	fi
+	if [ "$POL_OS" = "Linux" ]
+	then
+		export ScreenWidth="$(xdpyinfo | grep dimensions | awk '{print $2}' | cut -dx -f1)"
+		export ScreenHeight="$(xdpyinfo | grep dimensions | awk '{print $2}' | cut -dx -f2)"
+	fi
+}
 POL_Wine_SetVideoDriver()
 {
 	# Set wine video driver
