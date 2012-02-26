@@ -25,7 +25,7 @@ POL_Config_pRead (){ cat "$POL_USER_ROOT/playonlinux.cfg" 2> /dev/null | grep "^
 alias find="find -H"
 
 ### Security feature
-sudo -k
+[ "$(which sudo)" ] && sudo -k
 
 ### Terminal
 export POL_TERM="xterm"
