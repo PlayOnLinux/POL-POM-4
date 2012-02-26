@@ -83,4 +83,4 @@ export IGNORE_ICON_DIR="false"
 export GNUPGHOME="$REPERTOIRE/gpg"
 
 # Drivers problem
-# [ "$POL_OS" = "Linux" ] && export LIBGL_DRIVERS_PATH="/usr/lib/dri/:/usr/lib64/dri/:/usr/lib32/dri/"
+[ "$(POL_Config_Read FIX_DRI_PATH)" = "TRUE" ] && [ "$POL_OS" = "Linux" ] && export LIBGL_DRIVERS_PATH="/usr/lib/dri/:/usr/lib64/dri/:/usr/lib32/dri/"
