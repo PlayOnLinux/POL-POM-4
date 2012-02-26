@@ -141,13 +141,18 @@ class MainWindow(wx.Frame):
 	self.oldimg = ""
 	
 	self.filemenu = wx.Menu()
+	if(os.environ["POL_OS"] == "Mac"):
+		prefItem = self.filemenu.Append(wx.ID_PREFERENCES, text = "&Preferences")
+		self.Bind(wx.EVT_MENU, self.Options, prefItem)
+		
 	self.filemenu.Append(wx.ID_OPEN, _("Run"))
 	self.filemenu.Append(wx.ID_ADD, _("Install"))
 	self.filemenu.Append(wx.ID_DELETE, _("Remove"))
 	self.filemenu.AppendSeparator()
 	self.filemenu.Append(216, _("Donate"))
 	self.filemenu.Append(wx.ID_EXIT, _("Exit"))
-
+	
+	
 	self.displaymenu = wx.Menu()
 	self.icon16 = self.displaymenu.AppendRadioItem(501, _("Small icons"))
 	self.icon24 = self.displaymenu.AppendRadioItem(502, _("Medium icons"))
@@ -549,6 +554,7 @@ class MainWindow(wx.Frame):
 	
   def Options(self, event):
     onglet=event.GetId()
+    self.optionFrame = options.MainWindow(self, -1, _("{0} settings").format(os.environ["APPLICATION_TITLE"]), 2)
     if(onglet == 211):
     	self.optionFrame = options.MainWindow(self, -1, _("{0} settings").format(os.environ["APPLICATION_TITLE"]), 2)
     if(onglet == 214):
