@@ -23,6 +23,10 @@ POL_Config_pRead (){ cat "$POL_USER_ROOT/playonlinux.cfg" 2> /dev/null | grep "^
 
 ### Follow symlinks for find
 alias find="find -H"
+
+### Security feature
+sudo -k
+
 ### Terminal
 export POL_TERM="xterm"
 
