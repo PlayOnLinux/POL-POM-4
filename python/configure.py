@@ -448,8 +448,11 @@ class Onglets(wx.Notebook):
 		else:
 			playonlinux.DeleteSettings('VERSION',self.s_prefix)
 	def assignPrefix(self, event):
-		drive = self.general_elements["wineprefix"].GetValue()
-		playonlinux.SetWinePrefix(self.s_title, drive)
+		if(wx.YES == wx.MessageBox(_("Be careful!\nIf you change "+self.s_title+"'s virtual drive, you are likekely to break it.\nDo this only if you know what you are doing.\n\nAre you sure you want to continue?"),os.environ["APPLICATION_TITLE"] ,style=wx.YES_NO | wx.ICON_QUESTION)):
+			drive = self.general_elements["wineprefix"].GetValue()
+			playonlinux.SetWinePrefix(self.s_title, drive)
+		else:
+			self.general_elements["wineprefix"].SetValue(self.s_prefix)
 	
 	def ReleaseTyping(self, event):
 		self.typing = False
@@ -567,16 +570,16 @@ class MainWindow(wx.Frame):
 	def DeletePrefix(self, event):
 		if(self.onglets.s_isPrefix == True):
 			if(self.onglets.s_prefix == "default"):
-				wx.MessageBox(_("This virtual drive is protected"))
+				wx.MessageBox(_("This virtual drive is protected"), os.environ["APPLICATION_TITLE"])
 			else:
-				if(wx.YES == wx.MessageBox(_("Are you sure you want to delete "+self.onglets.s_prefix.encode("utf-8")+" virtual drive ?").decode("utf-8"), style=wx.YES_NO | wx.ICON_QUESTION)):
+				if(wx.YES == wx.MessageBox(_("Are you sure you want to delete {0} virtual drive ?").format(self.onglets.s_prefix.encode("utf-8")).decode("utf-8"), os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
 					mylist = os.listdir(Variables.playonlinux_rep+"/shortcuts")
 					for element in mylist:
 						if(playonlinux.getPrefix(element).lower() == self.onglets.s_prefix.lower()):
 							os.remove(Variables.playonlinux_rep+"/shortcuts/"+element)
 					shutil.rmtree(Variables.playonlinux_rep+"/wineprefix/"+self.onglets.s_prefix)
 		else:
-				if(wx.YES == wx.MessageBox(_("Are you sure you want to delete "+self.onglets.s_title.encode("utf-8")+" ?").decode("utf-8"), style=wx.YES_NO | wx.ICON_QUESTION)):
+				if(wx.YES == wx.MessageBox(_("Are you sure you want to delete {0} ?").format(self.onglets.s_title.encode("utf-8")).decode("utf-8"), os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
 					os.remove(Variables.playonlinux_rep+"/shortcuts/"+self.onglets.s_title)
 					
 		self.onglets.s_isPrefix = True
