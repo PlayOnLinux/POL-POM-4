@@ -17,17 +17,13 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
 
-if [ "$PLAYONLINUX" = "" ]
-then
-exit 0
-fi
+[ "$PLAYONLINUX" = "" ] && exit 0
 source "$PLAYONLINUX/lib/sources"
-cfg_check
 
 export TITLE="$(eval_gettext "Run a local script")"
 
 cd $HOME
-POL_SetupWindow_Init "$PLAYONLINUX/etc/setups/exec/top.png" "$PLAYONLINUX/etc/setups/exec/left.jpg"
+POL_SetupWindow_Init # "$PLAYONLINUX/etc/setups/exec/top.png" "$PLAYONLINUX/etc/setups/exec/left.jpg"
 
 POL_SetupWindow_free_presentation "$(eval_gettext "Run a local script")" "$(eval_gettext "This wizard will help you to run an unofficial PlayOnLinux Script.")"
 
@@ -46,4 +42,4 @@ then
 fi
 POL_SetupWindow_Close
 POL_Bash "$SCRIPT"
-exit 
+exit 0
