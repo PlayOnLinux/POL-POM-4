@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2012-02-26 15:11:17+01:00\n"
+"POT-Creation-Date: 2012-02-27 19:00:40+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -266,6 +266,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___Arma__Cold_War_Assault_:40
 #: PlayOnLinux_Scripts/Good_Old_Games___Divine_Divinity_:40
 #: PlayOnLinux_Scripts/Good_Old_Games___Dungeon_Keeper_2_:41
+#: PlayOnLinux_Scripts/Good_Old_Games___Enclave_:43
 #: PlayOnLinux_Scripts/Good_Old_Games___Fallout_:40
 #: PlayOnLinux_Scripts/Good_Old_Games___Fallout_2_:40
 #: PlayOnLinux_Scripts/Good_Old_Games___Far_Cry_:46
@@ -1103,6 +1104,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___Arma__Cold_War_Assault_:30
 #: PlayOnLinux_Scripts/Good_Old_Games___Divine_Divinity_:30
 #: PlayOnLinux_Scripts/Good_Old_Games___Dungeon_Keeper_2_:31
+#: PlayOnLinux_Scripts/Good_Old_Games___Enclave_:33
 #: PlayOnLinux_Scripts/Good_Old_Games___Fallout_:30
 #: PlayOnLinux_Scripts/Good_Old_Games___Fallout_2_:30
 #: PlayOnLinux_Scripts/Good_Old_Games___Far_Cry_:36
@@ -1130,6 +1132,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___Arma__Cold_War_Assault_:37
 #: PlayOnLinux_Scripts/Good_Old_Games___Divine_Divinity_:37
 #: PlayOnLinux_Scripts/Good_Old_Games___Dungeon_Keeper_2_:38
+#: PlayOnLinux_Scripts/Good_Old_Games___Enclave_:40
 #: PlayOnLinux_Scripts/Good_Old_Games___Fallout_:37
 #: PlayOnLinux_Scripts/Good_Old_Games___Fallout_2_:37
 #: PlayOnLinux_Scripts/Good_Old_Games___Far_Cry_:43
@@ -1159,6 +1162,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___Arma__Cold_War_Assault_:45
 #: PlayOnLinux_Scripts/Good_Old_Games___Divine_Divinity_:45
 #: PlayOnLinux_Scripts/Good_Old_Games___Dungeon_Keeper_2_:46
+#: PlayOnLinux_Scripts/Good_Old_Games___Enclave_:48
 #: PlayOnLinux_Scripts/Good_Old_Games___Fallout_:45
 #: PlayOnLinux_Scripts/Good_Old_Games___Fallout_2_:45
 #: PlayOnLinux_Scripts/Good_Old_Games___Far_Cry_:51
@@ -1996,28 +2000,29 @@ msgid ""
 "you an answer by mail very soon"
 msgstr ""
 
-#: bash/expert/Executer:27 bash/expert/Executer:32 bash/expert/Executer:34
+#: bash/expert/Executer:23 bash/expert/Executer:28 bash/expert/Executer:30
 #: python/mainwindow.py:183
 #, sh-format
 msgid "Run a local script"
 msgstr ""
 
-#: bash/expert/Executer:32
+#: bash/expert/Executer:28
 #, sh-format
-msgid "This wizard will help you to run an unofficial PlayOnLinux Script."
+msgid ""
+"This wizard will help you to run an unofficial $APPLICATION_TITLE Script."
 msgstr ""
 
-#: bash/expert/Executer:34
+#: bash/expert/Executer:30
 #, sh-format
-msgid "Choose a valid PlayOnLinux script to run."
+msgid "Choose a valid $APPLICATION_TITLE script to run."
 msgstr ""
 
-#: bash/expert/Executer:43
+#: bash/expert/Executer:39
 #, sh-format
 msgid "Error!"
 msgstr ""
 
-#: bash/expert/Executer:43
+#: bash/expert/Executer:39
 #, sh-format
 msgid "File not found!"
 msgstr ""
@@ -3129,6 +3134,37 @@ msgstr ""
 msgid "This function is disabled in the PlayOnlinux environment."
 msgstr ""
 
+#: lib/playonlinux.lib:296
+#, sh-format
+msgid ""
+"Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
+"valid\\n\\nPlayOnLinux has not approved this script and will not be "
+"responsible from it.\\nPlease ensure you know what you are doing !"
+msgstr ""
+
+#: lib/playonlinux.lib:297
+#, sh-format
+msgid "Here the source code of the script. Check it carefully"
+msgstr ""
+
+#: lib/playonlinux.lib:316
+#, sh-format
+msgid ""
+"Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
+"valid\\n\\n$APPLICATION_TITLE has not approved this script and will not be "
+"responsible from it.\\nPlease ensure you know what you are doing!"
+msgstr ""
+
+#: lib/playonlinux.lib:317
+#, sh-format
+msgid "External library"
+msgstr ""
+
+#: lib/playonlinux.lib:317
+#, sh-format
+msgid "Here the source code of the script. Check it carrefully"
+msgstr ""
+
 #: lib/playonlinux.lib:548
 #, sh-format
 msgid "Making shortcut..."
@@ -3200,14 +3236,14 @@ msgstr ""
 msgid "File size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:522
+#: lib/scripts.lib:523
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\n"
 "$APPLICATION_TITLE $NEEDED is required."
 msgstr ""
 
-#: lib/scripts.lib:535
+#: lib/scripts.lib:536
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
@@ -3242,6 +3278,11 @@ msgstr ""
 #: lib/setupwindow.lib:78
 #, sh-format
 msgid "This wizard will help you install "
+msgstr ""
+
+#: lib/setupwindow.lib:78
+#, sh-format
+msgid "Welcome to $APPLICATION_TITLE Installation Wizard."
 msgstr ""
 
 #: lib/setupwindow.lib:633
