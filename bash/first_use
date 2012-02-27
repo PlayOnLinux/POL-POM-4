@@ -301,7 +301,7 @@ migrate_oldpol
 POL_SetupWindow_Init
 if [ "$(POL_Config_Read FIRST_FIRST_USE)" = "TRUE" ]
 then
-	POL_SetupWindow_free_presentation "$(eval_gettext '$APPLICATION_TITLE first use')" "$(eval_gettext 'PlayOnMac is going to finish its preparation')\n$(eval_gettext "Please ensure you are connected to the internet.")"
+	POL_SetupWindow_free_presentation "$(eval_gettext '$APPLICATION_TITLE first use')" "$(eval_gettext '$APPLICATION_TITLE is going to finish its preparation')\n$(eval_gettext "Please ensure you are connected to the internet.")"
 else
 	POL_Config_Write FIRST_FIRST_USE TRUE
 	POL_SetupWindow_free_presentation "$(eval_gettext '$APPLICATION_TITLE first use')" "$(eval_gettext 'It appears it is the first time you are using 	$APPLICATION_TITLE.')\n$(eval_gettext 'This wizard will help you prepare $APPLICATION_TITLE environement')\n$(eval_gettext "Please ensure you are connected to the internet.")"
