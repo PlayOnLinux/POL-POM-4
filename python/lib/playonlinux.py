@@ -378,6 +378,6 @@ def writeArgs(game, args):
 			
 def POL_Open(arg):
 	if(os.environ["POL_OS"] == "Mac"):
-		os.system("open '"+arg+"'&")
+		os.system("open \""+arg+"\"&")
 	else:
-		os.system("xdg-open '"+arg+"'&")
+		os.system("xdg-open \""+arg+"\"&")
