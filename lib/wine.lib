@@ -661,7 +661,8 @@ POL_Wine_OverrideDLL_App()
 }
 POL_Wine_WaitBefore ()
 {
-	[ "$1" = "" ] && message="$(eval_gettext "Please wait...")" || message="$(eval_gettext 'Please wait while $SOFTNAME is installed...')"	
+	[ "$1" = "" ] && message="$(eval_gettext "Please wait...")" || message="$(eval_gettext 'Please wait while $SOFTNAME is installed...')"
+	POL_SetupWindow_wait "$message" "$TITLE"
 }
 POL_Wine_WaitExit ()
 {
