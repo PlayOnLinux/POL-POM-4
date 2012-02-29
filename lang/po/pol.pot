@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2012-02-28 19:00:46+01:00\n"
+"POT-Creation-Date: 2012-02-29 19:00:46+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -219,6 +219,7 @@ msgid "Please insert the game media into your disk drive."
 msgstr ""
 
 #: PlayOnLinux_Scripts/18_Wheels_of_Steel_Haulin_:52
+#: PlayOnLinux_Scripts/A.R.E.S.___Extinction_Agenda_:75
 #: PlayOnLinux_Scripts/Age_Of_Empires_II___The_Age_of_Kings_:63
 #: PlayOnLinux_Scripts/Age_Of_Wonders_:48 PlayOnLinux_Scripts/Alan_Wake_:56
 #: PlayOnLinux_Scripts/Alice___Madness_Returns_:59
@@ -278,6 +279,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___Forgotten_Realms__Demon_Stone_:40
 #: PlayOnLinux_Scripts/Good_Old_Games___Giants__Citizen_Kabuto_:41
 #: PlayOnLinux_Scripts/Good_Old_Games___Ground_Control_2_:46
+#: PlayOnLinux_Scripts/Good_Old_Games___Incoming_and_Incoming_Forces_:41
 #: PlayOnLinux_Scripts/Good_Old_Games___Iron_Storm_:41
 #: PlayOnLinux_Scripts/Good_Old_Games___Jack_Orlando__A_Cinematic_Adventure_:40
 #: PlayOnLinux_Scripts/Good_Old_Games___Nox_:42
@@ -316,11 +318,8 @@ msgstr ""
 msgid "$TITLE has been successfully installed."
 msgstr ""
 
-#: PlayOnLinux_Scripts/Age_Of_Wonders_:70
-#, sh-format
-msgid "The introdution movie was renamed because it doesnt"
-msgstr ""
-
+#: PlayOnLinux_Scripts/A.R.E.S.___Extinction_Agenda_:63
+#: PlayOnLinux_Scripts/A.R.E.S.___Extinction_Agenda_:68
 #: PlayOnLinux_Scripts/Alan_Wake_:62
 #: PlayOnLinux_Scripts/Alice___Madness_Returns_:65
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Revelations_:73
@@ -348,6 +347,11 @@ msgid ""
 "When $TITLE download by Steam is finished,\\nDo NOT click on Play.\\n"
 "\\nClose COMPLETELY the Steam interface, \\nso that the installation script "
 "can continue."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Age_Of_Wonders_:70
+#, sh-format
+msgid "The introdution movie was renamed because it doesnt"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Alice___Madness_Returns_:110
@@ -1120,6 +1124,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___Forgotten_Realms__Demon_Stone_:30
 #: PlayOnLinux_Scripts/Good_Old_Games___Giants__Citizen_Kabuto_:31
 #: PlayOnLinux_Scripts/Good_Old_Games___Ground_Control_2_:36
+#: PlayOnLinux_Scripts/Good_Old_Games___Incoming_and_Incoming_Forces_:31
 #: PlayOnLinux_Scripts/Good_Old_Games___Iron_Storm_:31
 #: PlayOnLinux_Scripts/Good_Old_Games___Jack_Orlando__A_Cinematic_Adventure_:30
 #: PlayOnLinux_Scripts/Good_Old_Games___Nox_:32
@@ -1149,6 +1154,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___Forgotten_Realms__Demon_Stone_:37
 #: PlayOnLinux_Scripts/Good_Old_Games___Giants__Citizen_Kabuto_:38
 #: PlayOnLinux_Scripts/Good_Old_Games___Ground_Control_2_:43
+#: PlayOnLinux_Scripts/Good_Old_Games___Incoming_and_Incoming_Forces_:38
 #: PlayOnLinux_Scripts/Good_Old_Games___Iron_Storm_:38
 #: PlayOnLinux_Scripts/Good_Old_Games___Jack_Orlando__A_Cinematic_Adventure_:37
 #: PlayOnLinux_Scripts/Good_Old_Games___Nox_:39
@@ -1180,6 +1186,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___Forgotten_Realms__Demon_Stone_:45
 #: PlayOnLinux_Scripts/Good_Old_Games___Giants__Citizen_Kabuto_:46
 #: PlayOnLinux_Scripts/Good_Old_Games___Ground_Control_2_:53
+#: PlayOnLinux_Scripts/Good_Old_Games___Incoming_and_Incoming_Forces_:46
 #: PlayOnLinux_Scripts/Good_Old_Games___Iron_Storm_:46
 #: PlayOnLinux_Scripts/Good_Old_Games___Jack_Orlando__A_Cinematic_Adventure_:45
 #: PlayOnLinux_Scripts/Good_Old_Games___Nox_:47
@@ -1552,7 +1559,7 @@ msgstr ""
 
 #: PlayOnLinux_Scripts/POL_Function_FontsSmoothRGB_:1
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:109 bash/installpolpackages:26
-#: bash/killall:29 bash/winebash:27 lib/wine.lib:664 lib/wine.lib:675
+#: bash/killall:29 bash/winebash:27 lib/wine.lib:665 lib/wine.lib:677
 #, sh-format
 msgid "Please wait..."
 msgstr ""
@@ -1615,6 +1622,8 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_dotnet30_:11
 #: PlayOnLinux_Scripts/POL_Install_dotnet30sp1_:10
 #: PlayOnLinux_Scripts/POL_Install_dotnet35_:10
+#: PlayOnLinux_Scripts/POL_Install_wmp9_:9
+#: PlayOnLinux_Scripts/POL_Install_wmpcodecs_:10
 #, sh-format
 msgid "This package does not work on a 64-bit installation"
 msgstr ""
@@ -1741,26 +1750,6 @@ msgstr ""
 #, sh-format
 msgid ""
 "Warning : vcrun2010 seems to be already installed.\\nForcing reinstallation."
-msgstr ""
-
-#: PlayOnLinux_Scripts/POL_Install_wmp9_:13
-#, sh-format
-msgid "Downloading scripten..."
-msgstr ""
-
-#: PlayOnLinux_Scripts/POL_Install_wmp9_:16
-#, sh-format
-msgid "Downloading WMP9..."
-msgstr ""
-
-#: PlayOnLinux_Scripts/POL_Install_wmpcodecs_:14
-#, sh-format
-msgid "Downloading WMP Codecs..."
-msgstr ""
-
-#: PlayOnLinux_Scripts/POL_Install_wmpcodecs_:19
-#, sh-format
-msgid "Downloading WMP Codecs 2..."
 msgstr ""
 
 #: PlayOnLinux_Scripts/POL_Install_xact_:11
@@ -3145,7 +3134,7 @@ msgstr ""
 msgid "Please wait while the virtual drive is being created..."
 msgstr ""
 
-#: lib/deprecated.lib:427 lib/wine.lib:686
+#: lib/deprecated.lib:427 lib/wine.lib:688
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a Windows reboot"
 msgstr ""
@@ -3441,12 +3430,12 @@ msgstr ""
 msgid "Extracting Wine..."
 msgstr ""
 
-#: lib/wine.lib:664 lib/wine.lib:675
+#: lib/wine.lib:665 lib/wine.lib:677
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr ""
 
-#: lib/wine.lib:677 lib/wine.lib:678
+#: lib/wine.lib:679 lib/wine.lib:680
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr ""
