@@ -55,11 +55,11 @@ if [ "$1" = "x86" ]
 then
 	archtype="elf_i386"
 	archstring="32 bits"
-	Check_OpenGL
+	Check_OpenGL "$1"
 fi
 if [ "$1" = "amd64" ]
 then
 	archtype="elf_x86_64"
 	archstring="64 bits"
-	Check_OpenGL
+	Check_OpenGL "$1"
 fi
