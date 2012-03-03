@@ -34,15 +34,6 @@ source "$PLAYONLINUX/lib/sources"
 
 Check_OpenGL()
 {
-	ld -lGL -lGLU -m "$archtype" 2> /dev/null
-	if [ "$?" = "0" ]
-	then
-		$cmd "$archstring OpenGL libraries are installed on your system"
-	else
-		$cmdW "$archstring OpenGL libraries are not installed on your system"
-		exit 1
-	fi
-	
 	if [ -x "$PLAYONLINUX/bin/check_dd_$1" ]
 	then
 		message="$("$PLAYONLINUX/bin/check_dd_$1")"
