@@ -46,8 +46,15 @@ Check_OpenGL()
 	then
 		message="$("$PLAYONLINUX/bin/check_dd_$1")"
 		out="$?"
-		$cmd "$message"
-		[ "$out" = "0" ] && exit 0 || exit 2
+		
+		if [ "$out" = "0" ]
+		then
+			$cmd "$message"
+			exit 0
+		else
+			$cmdW "$message"
+			exit 2
+		fi
 	else
 		exit 0
 	fi	
