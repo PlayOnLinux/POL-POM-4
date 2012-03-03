@@ -660,6 +660,7 @@ POL_SetupWindow_check_cdrom ()
 	# Usage: POL_SetupWindow_check_cdrom [setup_name.exe]
 	while [ "$(find "$CDROM" -iwholename "$CDROM/$1")" = "" ]
 	do
+		POL_Debug_Warning "Unable to find the CD-ROM ($CDROM/$1 not found)"
 		POL_SetupWindow_message "$(eval_gettext "Error: Unable to find the CD-ROM!")" "$TITLE"
 		POL_SetupWindow_cdrom
 	done
@@ -945,7 +946,7 @@ POL_SetupWindow_InstallMethod()
 	[ "$APP_ANSWER" = "$LNG_CDROM" ] && INSTALL_METHOD="CD"
 	
 	
-	POL_Debug_Message "Install method : $INSTALL_METHOD"
+	POL_Debug_Message "Install method: $INSTALL_METHOD"
 }
 POL_SetupWindow_shortcut_creator()
 {
