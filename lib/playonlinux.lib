@@ -706,3 +706,20 @@ function VersionLower ()
 	return 1
 	
 }
+POL_Internal_RunXQuartz()
+{
+	if [ ! "$POL_OS" = "Mac" ]
+	then
+		echo "This function is not for you"
+		return
+	fi
+	current_appToRun="$(defaults read org.macosforge.xquartz.X11 app_to_run)"
+	if [ ! "$?" = "0" ]
+	then
+		current_appToRun="/opt/X11/bin/xterm"
+	fi
+	
+	defaults write org.macosforge.xquartz.X11 app_to_run "" # Don't run Xterm
+	open "/Applications/Utilities/XQuartz.app"
+	defaults write org.macosforge.xquartz.X11 app_to_run "$current_appToRun" # Restaure default behavior
+}

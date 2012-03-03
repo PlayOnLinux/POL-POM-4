@@ -635,6 +635,7 @@ POL_SetupWindow_cdrom ()
 	LNG_REFRESH=$(eval_gettext "Refresh")
 	POL_SetupWindow_menu "$LNG_WINE_ASKFORCDROM" "$TITLE" "$LIST_DEVICES_$LNG_OTHER~$LNG_REFRESH" "~"		
 	CDROM="$APP_ANSWER"
+	POL_Debug_Message "CD-ROM selected: $CDROM"
 	if [ "$CDROM" = "$LNG_OTHER" ]
 	then
 		POL_SetupWindow_textbox "$LNG_WINE_ASKFORCDROM" "$TITLE" "$DEVICES/cdrom"

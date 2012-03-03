@@ -128,6 +128,7 @@ EOF_X
 		killall playonmac.real
 		touch /tmp/playonmac_needs_reboot
 }
+
 install_x11()
 {
 	if [ "$OSX_VERSION" = "9" ]
@@ -175,7 +176,8 @@ install_x11()
 	then
 		POL_SetupWindow_message "$(eval_gettext "Unable to install XQuartz! You must install it to improve games compatibility.")" "$STEP_TITLE"
 	fi
-	POL_Internal_XQuartz_Warning
+	#POL_Internal_XQuartz_Warning
+	POL_Internal_RunXQuartz
 	POL_SetupWindow_message "$(eval_gettext "XQuartz has been installed.")" "$STEP_TITLE"
 }
 

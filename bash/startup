@@ -31,18 +31,10 @@ touch "$POL_USER_ROOT/configurations/guis/index_$POL_ID"
 # Plugins
 install_plugins
 
-# Root
-if [ `id -u` = 0 ]
-then
-	POL_SetupWindow_Init
- 	POL_SetupWindow_question "$(eval_gettext 'You are running $APPLICATION_TITLE as root.\n\n')$(eval_gettext "Please note that it is very dangerous to run Wine programs as root: you are vulnerable to viruses and other bad stuff.\n\n")$(eval_gettext "PlayOnLinux is not reponsable for any damage to your system.\n\n")$(eval_gettext 'Are you sure you want to start $APPLICATION_TITLE?')" "$(eval_gettext "Warning!")"
-	POL_SetupWindow_Close
-	if [ "$APP_ANSWER" = "FALSE" ]
-	then
-		exit
-	fi
-fi
-
 # First use ?
 [ "$(POL_Config_Read FIRST_USE)" = "" ] && bash "$PLAYONLINUX/bash/first_use"
 [ "$POL_OS" == "Mac" ] && [ ! -e "/Applications/Utilities/XQuartz.app" ] && [ ! "$OSX_VERSION" = "11" ] && bash "$PLAYONLINUX/bash/first_use"
+
+
+# Run XQuartz
+[ "$POL_OS" = "Mac" ] && POL_Internal_RunXQuartz
