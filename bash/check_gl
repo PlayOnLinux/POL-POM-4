@@ -28,15 +28,18 @@ source "$PLAYONLINUX/lib/sources"
 # check_gl [arch]
 # Arch = (x86 | amd64)
 
+[ "$2" = "stdout" ] && cmd="$echo" || cmd="POL_Debug_Message"
+cd /tmp
+
 if [ "$1" = "x86" ]
 then
 	ld -lGL -lGLU -m elf_i386 2> /dev/null
 	if [ "$?" = "0" ]
 	then
-		POL_Debug_Message "32 bits OpenGL is supported by your system"
+		$cmd "32 bits OpenGL is supported by your system"
 		exit 0
 	else
-		POL_Debug_Warning "32 bits OpenGL is not supported by your system"
+		$cmd "32 bits OpenGL is not supported by your system"
 		exit 1
 	fi
 fi
@@ -45,10 +48,10 @@ then
 	ld -lGL -lGLU -m elf_x86_64 2> /dev/null
 	if [ "$?" = "0" ]
 	then
-		POL_Debug_Message "64 bits OpenGL is supported by your system"
+		$cmd "64 bits OpenGL is supported by your system"
 		exit 0
 	else
-		POL_Debug_Warning "64 bits OpenGL is not supported by your system"
+		$cmd "64 bits OpenGL is not supported by your system"
 		exit 1
 	fi
 fi

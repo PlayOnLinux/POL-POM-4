@@ -77,8 +77,8 @@ Date: $(Get_CurrentDate)
 > glxinfo \| grep renderer
   $(glxinfo | grep renderer 2> /dev/null)
 > OpenGL libs
-  $("$PLAYONLINUX/bash/check_gl" x86)
-  $("$PLAYONLINUX/bash/check_gl" amd64)
+  $("$PLAYONLINUX/bash/check_gl" x86 stdout)
+  $("$PLAYONLINUX/bash/check_gl" amd64 stdout)
 > export
   $(export | grep -v http_proxy)
 
