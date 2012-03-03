@@ -169,16 +169,18 @@ install_x11()
 		done
 		/System/Library/CoreServices/Installer.app/Contents/MacOS/Installer /Volumes/$FilePrefix-$XQUARTZ_VERSION/$FilePrefix.pkg
 		umount /Volumes/$FilePrefix-$XQUARTZ_VERSION
+		POL_Internal_RunXQuartz
+		POL_Internal_XQuartz_Warning
+		POL_SetupWindow_message "$(eval_gettext "XQuartz has been installed.")" "$STEP_TITLE"
 	fi
 	
 
-	if [ ! -e "/Applications/Utilities/XQuartz.app" ] && [ "$OSX_VERSION" = "10" ]
+	if [ ! -e "/Applications/Utilities/XQuartz.app" ] && [ ! "$OSX_VERSION" = "11" ]
 	then
 		POL_SetupWindow_message "$(eval_gettext "Unable to install XQuartz! You must install it to improve games compatibility.")" "$STEP_TITLE"
 	fi
 	#POL_Internal_XQuartz_Warning
-	POL_Internal_RunXQuartz
-	POL_SetupWindow_message "$(eval_gettext "XQuartz has been installed.")" "$STEP_TITLE"
+
 }
 
 install_prefix()
