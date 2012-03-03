@@ -343,8 +343,9 @@ POL_LoadVar_Device ()
 	POL_Debug_Message "Gettings GPU informations"
 	if [ "$POL_OS" = "Linux" ]
 	then
-		VGA_ID1=`lspci | grep -iE "nvidia|ATI|AMD|intel" | grep VGA | awk '{ print $1 }' | head -n 1` 
-		VGA_ID2=`lspci -n | grep $VGA_ID1 | awk '{ print $3 }'` 
+		[ -x /usr/sbin/lspci ] && LSPCI=/usr/sbin/lspci || LSPCI=lspci
+		VGA_ID1=`$LSPCI | grep -iE "nvidia|ATI|AMD|intel" | grep VGA | awk '{ print $1 }' | head -n 1` 
+		VGA_ID2=`$LSPCI -n | grep $VGA_ID1 | awk '{ print $3 }'` 
 		export VendorID=`echo $VGA_ID2 | awk -F: '{ print $1 }'` 
 		export DeviceID=`echo $VGA_ID2 | awk -F: '{ print $2 }'`
 	fi
