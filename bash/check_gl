@@ -29,29 +29,37 @@ source "$PLAYONLINUX/lib/sources"
 # Arch = (x86 | amd64)
 
 [ "$2" = "stdout" ] && cmd="$echo" || cmd="POL_Debug_Message"
+
+Check_OpenGL()
+{
+	ld -lGL -lGLU -m "$archtype" 2> /dev/null
+	if [ "$?" = "0" ]
+	then
+		$cmd "$archstring OpenGL libraries are installed on your system"
+	else
+		$cmd "$archstring OpenGL libraries are not installed on your system"
+		exit 1
+	fi
+	
+	if [ -x "$PLAYONLINUX/bin/check_dd_$1" ]
+	then
+		$("$PLAYONLINUX/bin/check_dd_$1")
+		if [ "$?" = "0" ] && exit 0 || exit 2
+	else
+		exit 0
+	fi	
+}
 cd /tmp
 
 if [ "$1" = "x86" ]
 then
-	ld -lGL -lGLU -m elf_i386 2> /dev/null
-	if [ "$?" = "0" ]
-	then
-		$cmd "32 bits OpenGL is supported by your system"
-		exit 0
-	else
-		$cmd "32 bits OpenGL is not supported by your system"
-		exit 1
-	fi
+	archtype="elf_i386"
+	archstring="32 bits"
+	Check_OpenGL
 fi
 if [ "$1" = "amd64" ]
 then
-	ld -lGL -lGLU -m elf_x86_64 2> /dev/null
-	if [ "$?" = "0" ]
-	then
-		$cmd "64 bits OpenGL is supported by your system"
-		exit 0
-	else
-		$cmd "64 bits OpenGL is not supported by your system"
-		exit 1
-	fi
+	archtype="elf_x86_64"
+	archstring="64 bits"
+	Check_OpenGL
 fi
