@@ -62,6 +62,9 @@ Set_Managed ()
 {
 	# Let the windows manager to control wine 
 	# Usage: Set_Managed (On|Off)
+	
+	POL_Debug_Message "Setting wine managed: $1"
+	
 	if [ "$1" = "On" ]
 	then
 		echo "[HKEY_CURRENT_USER\Software\Wine\X11 Driver]" > "$REPERTOIRE/tmp/managed.reg"
@@ -83,7 +86,7 @@ Set_SoundDriver ()
 	# Set the sound driver
 	# Usage: Set_SoundDriver [Driver]
 	# Disabled in Mac OS
-	
+	POL_Debug_Message "Setting wine SoundDriver $@"
 	if [ ! "$1" = "" ] && [ "$POL_OS" = "Linux" ]
 	then
 		echo "[HKEY_CURRENT_USER\Software\Wine\Drivers]" > "$REPERTOIRE/tmp/alsa.reg"
@@ -101,7 +104,7 @@ POL_Wine_Direct3D ()
 	# Example :: POL_Wine_Direct3D UseGLSL [default / enabled / disabled]
 	# default : remove the key
 	[ "$WINEPREFIX" = "" ] && POL_Debug_Fatal "POL_Wine_Direct3D : WINEPREFIX not set"
-	
+	POL_Debug_Message "Setting wine Direct3D $WINEPREFIX $@"
 	wineserver -k
 	if [ "$2" = "default" ]
 	then
@@ -125,7 +128,7 @@ POL_Wine_X11Drv ()
 	# Example :: POL_Wine_X11Drv UseGLSL [default / enabled / disabled]
 	# default : remove the key
 	[ "$WINEPREFIX" = "" ] && POL_Debug_Fatal "POL_Wine_X11 Driver : WINEPREFIX not set"
-	
+	POL_Debug_Message "Setting wine X11Drv $WINEPREFIX $@"
 	wineserver -k
 	if [ "$2" = "default" ]
 	then
@@ -145,7 +148,7 @@ POL_Wine_DirectSound ()
 {
 	# Same that POL_Wine_Direct3D, but for DirectSound
 	[ "$WINEPREFIX" = "" ] && POL_Debug_Fatal "POL_Wine_DirectSound : WINEPREFIX not set"
-	
+	POL_Debug_Message "Setting wine DirectSound $WINEPREFIX $@"
 	wineserver -k
 	if [ "$2" = "default" ]
 	then
@@ -165,7 +168,7 @@ POL_Wine_DirectInput ()
 {
 	# Same that POL_Wine_Direct3D, but for DirectInput
 	[ "$WINEPREFIX" = "" ] && POL_Debug_Fatal "POL_Wine_DirectInput : WINEPREFIX not set"
-	
+	POL_Debug_Message "Setting wine DirectInput $WINEPREFIX $@"
 	wineserver -k
 	if [ "$2" = "default" ]
 	then
@@ -187,10 +190,11 @@ POL_Wine_GetRegValue()
 	# Example : POL_Wine_GetReg_Value Multisampling
 	#
 	# Read http://wiki.winehq.org/UsefulRegistryKeys
-	
+
 	[ "$WINEPREFIX" = "" ] && POL_Debug_Fatal "POL_Wine_GetRegValue : WINEPREFIX not set"
 	value="$(cat "$WINEPREFIX/user.reg" 2> /dev/null | grep "$1" | head -n 1 | tr -d "\"" | cut -d\= -f2)"
 	[ "$value" = "" ] && printf "default" || printf "$value"
+	POL_Debug_Message "Getting registry value $1. Return: $value"	
 }
 
 
@@ -202,6 +206,7 @@ Set_DXGrab ()
 	# On ou Off
 	if [ "$1" = "On" ]
 	then
+		POL_Debug_Message "Setting DXGrab"
 		echo "[HKEY_CURRENT_USER\Software\Wine\X11 Driver]" > "$REPERTOIRE/tmp/managed.reg"
 		echo "\"DXGrab\"=\"Y\"" >> "$REPERTOIRE/tmp/managed.reg"
 		POL_Wine regedit "$REPERTOIRE/tmp/managed.reg"
@@ -209,6 +214,7 @@ Set_DXGrab ()
 	fi
 	if [ "$1" = "Off" ]
 	then
+		POL_Debug_Message "Unsetting DXGrab"
 		echo "[HKEY_CURRENT_USER\Software\Wine\X11 Driver]" > "$REPERTOIRE/tmp/managed.reg"
 		echo "\"DXGrab\"=\"N\"" >> "$REPERTOIRE/tmp/managed.reg"
 		POL_Wine regedit "$REPERTOIRE/tmp/managed.reg"
@@ -220,6 +226,7 @@ Set_Iexplore ()
 	# Make a fake IE6 installation
 	# Usage: Set_Iexplore
 	
+	POL_Debug_Message "Faking ie6 installation"
 	echo "[HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer]" > "$REPERTOIRE/tmp/ie.reg"
 	echo "\"Version\"=\"6.0.2900.2180\"" >> "$REPERTOIRE/tmp/ie.reg"
 	POL_Wine regedit "$REPERTOIRE/tmp/ie.reg"
@@ -230,6 +237,7 @@ Set_Desktop ()
 	# Set a desktop environement
 	# Usage: Set_Desktop (on|off) [width] [height]
 	
+	POL_Debug_Message "Setting Desktop : $1 $2 $3"
 	echo "[HKEY_CURRENT_USER\Software\Wine\X11 Driver]" > "$REPERTOIRE/tmp/DesktopRoot.reg"
 	if [ "$1" = "On" ]
 	then
@@ -239,8 +247,8 @@ Set_Desktop ()
 	then
 		echo "\"Desktop\"=\"-1\"" >> "$REPERTOIRE/tmp/DesktopRoot.reg"
 	fi
-		POL_Wine regedit "$REPERTOIRE/tmp/DesktopRoot.reg"
-		rm -f "$REPERTOIRE/tmp/DesktopRoot.reg"
+	POL_Wine regedit "$REPERTOIRE/tmp/DesktopRoot.reg"
+	rm -f "$REPERTOIRE/tmp/DesktopRoot.reg"
 }
 
 Set_SoundSampleRate ()
@@ -250,6 +258,7 @@ Set_SoundSampleRate ()
 	# values can be: 48000, 44100, 22050, 16000, 11025, 8000
 	if [ ! "$1" = "" ]
 	then
+		POL_Debug_Message "Setting SoundSampleRate to $1"
 		echo "[HKEY_CURRENT_USER\Software\Wine\DirectSound]" > "$REPERTOIRE/tmp/sndSampleRate.reg"
 		echo "\"DefaultSampleRate\"=\"$1\"" >> "$REPERTOIRE/tmp/sndSampleRate.reg"
 		POL_Wine regedit "$REPERTOIRE/tmp/sndSampleRate.reg"
@@ -264,6 +273,7 @@ Set_SoundBitsPerSample ()
 	# values: 8, 16
 	if [ "$1" != "" ]
 	then
+		POL_Debug_Message "Setting sound DefaultsBitsPerSample to $1"
 		echo "[HKEY_CURRENT_USER\Software\Wine\DirectSound]" > "$REPERTOIRE/tmp/sndBitsPerSample.reg"
 		echo "\"DefaultBitsPerSample\"=\"$1\"" >> "$REPERTOIRE/tmp/sndBitsPerSample.reg"
 		POL_Wine regedit "$REPERTOIRE/tmp/sndBitsPerSample.reg"
@@ -291,6 +301,7 @@ Set_SoundHardwareAcceleration ()
 	# Values : Full, Standard, Basic, Emulation
 	if [ ! "$1" = "" ]
 	then
+		POL_Debug_Message "Setting Sound HardwareAcceleration to $1"
 		echo "[HKEY_CURRENT_USER\Software\Wine\DirectSound]" > "$REPERTOIRE/tmp/sndSoundHardwareAcceleration.reg"
 		echo "\"HardwareAcceleration\"=\"$1\"" >> "$REPERTOIRE/tmp/sndSoundHardwareAcceleration.reg"
 		POL_Wine regedit "$REPERTOIRE/tmp/sndSoundHardwareAcceleration.reg"
@@ -302,8 +313,11 @@ Set_SoundEmulDriver ()
 {
 	# Set sound emul driver 
 	# Usage: Set_SoundEmulDriver(Y|N)
+	
+	
 	if [ ! "$1" = "" ]
 	then
+		POL_Debug_Message "Setting Sound EmulDriver to $1"
 		echo "[HKEY_CURRENT_USER\Software\Wine\DirectSound]" > "$REPERTOIRE/tmp/sndSoundEmulDriver.reg"
 		echo "\"EmulDriver\"=\"$1\"" >> "$REPERTOIRE/tmp/sndSoundEmulDriver.reg"
 		POL_Wine regedit "$REPERTOIRE/tmp/sndSoundEmulDriver.reg"
@@ -315,6 +329,7 @@ POL_LoadVar_PROGRAMFILES()
 {
 	# Get Program Files folder name and store it to PROGRAMFILES variable
 	# Usage: POL_LoadVar_PROGRAMFILES
+	POL_Debug_Message "Getting Program Files name"
 	PROGRAMFILES=`POL_Wine --keep-output cmd /c echo "%ProgramFiles%" |tr -d '\015' | tr -d '\012'`
 	if [ "${PROGRAMFILES}" = "%ProgramFiles%" ] 
 	then # Var is not defined by wine
