@@ -24,7 +24,10 @@
  
 POL_LOGS="$REPERTOIRE/logs" # Where are logfile stored
 LOGFILE="/dev/null"  # By default, don't log anything
-
+POL_Color_RedBold='\e[1;31m'
+POL_Color_BlueBold='\e[1;34m' 
+POL_Color_YellowBold='\e[1;33m'
+POL_Color_Reset='\e[0m'
 
 Get_CurrentDate()
 {
@@ -91,7 +94,7 @@ POL_Debug_Message()
 	# Usage : POL_Debug_Message [MESSAGE]
 	
 	echo "$(Get_CurrentDate) - [${FUNCNAME[1]}] Message: $@" >> "$LOGFILE"
-	echo "[${FUNCNAME[1]}] Message: $@" 1>&2
+	printf "[${FUNCNAME[1]}] ${POL_Color_BlueBold}Message:${POL_Color_Reset} $@\n" 1>&2
 }
 POL_Debug_Warning()
 {
@@ -99,7 +102,7 @@ POL_Debug_Warning()
 	# Usage : POL_Debug_Warning [MESSAGE]
 	
 	echo "$(Get_CurrentDate) - [${FUNCNAME[1]}] Warning: $@" >> "$LOGFILE"
-	echo "[${FUNCNAME[1]}] Warning: $@" 1>&2
+	printf "[${FUNCNAME[1]}] ${POL_Color_YellowBold}Warning:${POL_Color_Reset} $@\n" 1>&2
 }
 POL_Debug_Error()
 {
@@ -108,7 +111,7 @@ POL_Debug_Error()
 	# Usage : POL_Debug_Error [MESSAGE]
 	
 	echo "$(Get_CurrentDate) - [${FUNCNAME[1]}] Error: $@" >> "$LOGFILE"
-	echo "[${FUNCNAME[1]}] Error: $@" 1>&2
+	printf "[${FUNCNAME[1]}] ${POL_Color_RedBold}Error:${POL_Color_Reset} $@\n" 1>&2
 	POL_SetupWindow_message "Error: $@" "$TITLE" # La on affiche quand même 
 	export POL_SCRIPT_FAILED="YES"
 }
@@ -119,7 +122,7 @@ POL_Debug_Fatal()
 	# Usage : POL_Debug_Fatal [MESSAGE]
 	
 	echo "$(Get_CurrentDate) - [${FUNCNAME[1]}] Fatal: $@" >> "$LOGFILE"
-	echo "[${FUNCNAME[1]}] Fatal: $@" 1>&2
+	printf "[${FUNCNAME[1]}] ${POL_Color_RedBold}Fatal:${POL_Color_Reset} $@\n" 1>&2
 	POL_SetupWindow_message "[${FUNCNAME[1]}] Fatal: $@" "$TITLE" # La on affiche quand même 
 	export POL_SCRIPT_FAILED="YES"
 	POL_SetupWindow_Close

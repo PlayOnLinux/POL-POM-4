@@ -29,6 +29,7 @@ source "$PLAYONLINUX/lib/sources"
 # Arch = (x86 | amd64)
 
 [ "$2" = "stdout" ] && cmd="$echo" || cmd="POL_Debug_Message"
+[ "$2" = "stdout" ] && cmdW="$echo" || cmdW="POL_Debug_Warning"
 
 Check_OpenGL()
 {
@@ -37,7 +38,7 @@ Check_OpenGL()
 	then
 		$cmd "$archstring OpenGL libraries are installed on your system"
 	else
-		$cmd "$archstring OpenGL libraries are not installed on your system"
+		$cmdW "$archstring OpenGL libraries are not installed on your system"
 		exit 1
 	fi
 	

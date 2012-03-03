@@ -28,6 +28,7 @@ construire_repertoire_personnel
 touch "$POL_USER_ROOT/configurations/guis/index_$POL_ID"
 # Cleanup old gui files
 "$PLAYONLINUX/bash/delete_gui_files" &
+
 # Plugins
 install_plugins
 
