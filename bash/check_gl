@@ -22,6 +22,7 @@
 [ "$PLAYONLINUX" = "" ] && exit 0
 source "$PLAYONLINUX/lib/sources" 
 
+[ "$POL_OS" = "Mac" ] && exit 0
 # This script tests OpenGL libs
 # Usage :
 
