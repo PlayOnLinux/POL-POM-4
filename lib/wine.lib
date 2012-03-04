@@ -34,35 +34,32 @@ Set_OS ()
 	# Set fake windows OS
 	# Usage: Set_OS [1] [2]
 	#
-	# 1 : Possible values : vista, win2003, winxp, win2k, winnt, winme, win98, win95, win31
-	# 2 : Service Pack : sp3, sp3, sp2
+	# 1: Possible values: win7, win2008, vista, win2003, winxp, win2000, nt40, winnt351, winme, win98, win95, win31, win30, win20
+	# 2: Service Pack: sp1, sp2, sp3, sp4, sp5
 	POL_Debug_Message "Setting Windows OS to $1 $2"
-	
-	if [ ! "$1" = "" ]
-	then
-		echo "[HKEY_CURRENT_USER\Software\Wine]" > "$REPERTOIRE/tmp/makeos.reg"
-		echo "\"Version\"=\"$1\"" >> "$REPERTOIRE/tmp/makeos.reg"
-		wine regedit "$REPERTOIRE/tmp/makeos.reg"
-		rm -f "$REPERTOIRE/tmp/makeos.reg"
-	fi	
-	
-	if [ ! "$2" = "" ] # A tester
-	then
+
+	if [ -n "$1" ]; then
+		POL_Wine_UpdateRegistry setos <<- _EOFINI_
+		[HKEY_CURRENT_USER\\Software\\Wine]
+		"Version"="$1"
+		_EOFINI_
+	fi
+
+	if [ -n "$2" ]; then # Need more testing
+		local n
 		[ "$2" = "sp1" ] && n=1
 		[ "$2" = "sp2" ] && n=2
 		[ "$2" = "sp3" ] && n=3
 		[ "$2" = "sp4" ] && n=4
 		[ "$2" = "sp5" ] && n=5
-		
-		cat << EOF > "$REPERTOIRE/tmp/makeos.reg"
-[HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows NT\\CurrentVersion]
-"CSDVersion"="Service Pack $n"
-[HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Control\\Windows]
-"CSDVersion"=dword:00000${n}00
-EOF
-		wine regedit "$REPERTOIRE/tmp/makeos.reg"
-		rm -f "$REPERTOIRE/tmp/makeos.reg"
-	fi	
+
+		POL_Wine_UpdateRegistry setos <<- _EOFINI_
+		[HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows NT\\CurrentVersion]
+		"CSDVersion"="Service Pack $n"
+		[HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Control\\Windows]
+		"CSDVersion"=dword:00000${n}00
+		_EOFINI_
+	fi
 }
 
 Set_Managed ()
