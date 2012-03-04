@@ -766,9 +766,9 @@ class PlayOnLinuxApp(wx.App):
 	
 	def MacOpenURL(self, url):
 		if(os.environ["POL_OS"] == "Mac" and "playonlinux://" in url):
-			wx.MessageBox("You are trying to open a script design for PlayOnLinux! It might not work as expected", os.environ["APPLICATION_TITLE"])
+			wx.MessageBox(_("You are trying to open a script design for {0}! It might not work as expected").format("PlayOnLinux"), os.environ["APPLICATION_TITLE"])
 		if(os.environ["POL_OS"] == "Linux" and "playonmac://" in url):
-			wx.MessageBox("You are trying to open a script design for PlayOnMac! It might not work as expected", os.environ["APPLICATION_TITLE"])
+			wx.MessageBox(_("You are trying to open a script design for {0}! It might not work as expected").format("PlayOnMac"), os.environ["APPLICATION_TITLE"])
 			
 		os.system("bash \"$PLAYONLINUX/bash/playonlinux-url_handler\" \""+url+"\" &")
 		
