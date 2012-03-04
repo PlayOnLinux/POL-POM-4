@@ -187,23 +187,25 @@ POL_Wine_DirectSound ()
 POL_Wine_DirectInput ()
 {
 	# Same that POL_Wine_Direct3D, but for DirectInput
-	[ "$WINEPREFIX" = "" ] && POL_Debug_Fatal "POL_Wine_DirectInput : WINEPREFIX not set"
 	POL_Debug_Message "Setting wine DirectInput $WINEPREFIX $1 $2"
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
+
+	# FIXME: is this kill necessary? running apps won't prevent regedit from
+	# doing its work, and server is killed at the end of function anyway
 	wineserver -k
-	if [ "$2" = "default" ]
-	then
-		echo "[HKEY_CURRENT_USER\Software\Wine\DirectInput]" > "$REPERTOIRE/tmp/wine.reg"
-		echo "\"$1\"=-" >> "$REPERTOIRE/tmp/wine.reg"
-		POL_Wine regedit "$REPERTOIRE/tmp/wine.reg"
-		rm -f "$REPERTOIRE/tmp/wine.reg"
+
+	if [ "$2" = "default" ]; then
+		POL_Wine_UpdateRegistry directinput <<- _EOFINI_
+		"$1"=-
+		_EOFINI_
 	else
-		echo "[HKEY_CURRENT_USER\Software\Wine\DirectInput]" > "$REPERTOIRE/tmp/wine.reg"
-		echo "\"$1\"=\"$2\"" >> "$REPERTOIRE/tmp/wine.reg"
-		POL_Wine regedit "$REPERTOIRE/tmp/wine.reg"
-		rm -f "$REPERTOIRE/tmp/wine.reg"
+		POL_Wine_UpdateRegistry directinput <<- _EOFINI_
+		"$1"= "$2"
+		_EOFINI_
 	fi
 	wineserver -k
 }
+
 POL_Wine_GetRegValue()
 {
 	# Get a value in registry
