@@ -412,14 +412,17 @@ POL_AutoWine ()
 	# Detect if the file is a .exe or a .msi file and run it with POL_Wine
 	# Same usage than "wine"
 	SETUP_PATH="$@"
-	extension=$(echo "$SETUP_PATH" | sed 's/.*\.//g')
+	# remove everything up to the last dot
+	extension="${SETUP_PATH##*.}"
 	if [ "$extension" = "msi" ]
 	then
 		POL_Wine msiexec /i "$SETUP_PATH"
 	else
+		# FIXME /unix?
 		POL_Wine "$SETUP_PATH"
 	fi
 }
+
 POL_Wine ()
 {
 	# Run the good wineversion and store the result to a logfile
