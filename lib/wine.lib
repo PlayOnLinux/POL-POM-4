@@ -82,18 +82,21 @@ Set_Managed ()
 	fi
 }
 
-Set_SoundDriver () 
+Set_SoundDriver ()
 {
 	# Set the sound driver
 	# Usage: Set_SoundDriver [Driver]
 	# Disabled in Mac OS
 	POL_Debug_Message "Setting wine SoundDriver $@"
-	if [ ! "$1" = "" ] && [ "$POL_OS" = "Linux" ]
-	then
-		echo "[HKEY_CURRENT_USER\Software\Wine\Drivers]" > "$REPERTOIRE/tmp/alsa.reg"
-		echo "\"Audio\"=\"$1\"" >> "$REPERTOIRE/tmp/alsa.reg"
-		wine regedit "$REPERTOIRE/tmp/alsa.reg"
-		rm -f "$REPERTOIRE/tmp/alsa.reg"
+	if [ -n "$1" ]; then
+		if [ "$POL_OS" = "Linux" ]; then
+			POL_Wine_UpdateRegistry alsa <<- _EOFINI_
+			[HKEY_CURRENT_USER\\Software\\Wine\\Drivers]
+			"Audio"="$1"
+			_EOFINI_
+		else
+			POL_Debug_Message "Set_SoundDriver disabled on $POL_OS"
+		fi
 	fi
 }
 
