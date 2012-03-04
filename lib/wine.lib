@@ -29,7 +29,7 @@ POL_Wine_GetRegValue()
 	#
 	# Read http://wiki.winehq.org/UsefulRegistryKeys
 
-	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 	local value
 	[ -e "$WINEPREFIX/user.reg" ] && value="$(grep "$1" "$WINEPREFIX/user.reg" | head -n 1 | tr -d '"' | cut -d= -f2)"
 	POL_Debug_Message "Getting registry value $1. Return: $value"
@@ -89,7 +89,7 @@ POL_Wine_Direct3D ()
 	# Example :: POL_Wine_Direct3D UseGLSL [default / enabled / disabled]
 	# default: remove the key
 	POL_Debug_Message "Setting wine Direct3D $WINEPREFIX $1 $2"
-	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
 	wineserver -k
 	POL_Wine_UpdateRegistryWinePair 'Direct3D' "$1" "$2"
@@ -104,7 +104,7 @@ POL_Wine_X11Drv ()
 	# Example :: POL_Wine_X11Drv UseGLSL [default / enabled / disabled]
 	# default: remove the key
 	POL_Debug_Message "Setting wine X11Drv $WINEPREFIX $1 $2"
-	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
 	wineserver -k
 	POL_Wine_UpdateRegistryWinePair 'X11 Driver' "$1" "$2"
@@ -115,7 +115,7 @@ POL_Wine_DirectSound ()
 {
 	# Same that POL_Wine_Direct3D, but for DirectSound
 	POL_Debug_Message "Setting wine DirectSound $WINEPREFIX $1 $2"
-	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
 	wineserver -k
 	POL_Wine_UpdateRegistryWinePair 'DirectSound' "$1" "$2"
@@ -126,7 +126,7 @@ POL_Wine_DirectInput ()
 {
 	# Same that POL_Wine_Direct3D, but for DirectInput
 	POL_Debug_Message "Setting wine DirectInput $WINEPREFIX $1 $2"
-	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
 	wineserver -k
 	POL_Wine_UpdateRegistryWinePair 'DirectInput' "$1" "$2"
@@ -141,7 +141,7 @@ Set_OS ()
 	# 1: Possible values: win7, win2008, vista, win2003, winxp, win2000, nt40, winnt351, winme, win98, win95, win31, win30, win20
 	# 2: Service Pack: sp1, sp2, sp3, sp4, sp5
 	POL_Debug_Message "Setting Windows OS to $1 $2"
-	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
 	if [ -n "$1" ]; then
 		POL_Wine_UpdateRegistryWinePair '' 'Version' "$1"
@@ -170,7 +170,7 @@ Set_Managed ()
 	# Usage: Set_Managed (On|Off)
 
 	POL_Debug_Message "Setting wine managed: $1"
-	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
 	local n
 	[ "$1" = "On" ] && n="Y"
@@ -188,7 +188,7 @@ Set_SoundDriver ()
 	# Usage: Set_SoundDriver [Driver]
 	# Disabled in Mac OS
 	POL_Debug_Message "Setting wine SoundDriver $@"
-	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
 	if [ -n "$1" ]; then
 		if [ "$POL_OS" = "Linux" ]; then
@@ -204,7 +204,7 @@ Set_DXGrab ()
 	# Enable or disable DXGrab
 	# Usage: Set_DXGrab (On|Off)
 	# On ou Off
-	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
 	local n
 	[ "$1" = "On" ] && n="Y" && POL_Debug_Message "Setting DXGrab"
@@ -221,7 +221,7 @@ Set_Iexplore ()
 	# Make a fake IE6 installation
 	# Usage: Set_Iexplore
 	POL_Debug_Message "Faking ie6 installation"
-	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
 	POL_Wine_UpdateRegistry ie <<- _EOFINI_
 	[HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Internet Explorer]
@@ -235,7 +235,7 @@ Set_Desktop ()
 	# Usage: Set_Desktop (on|off) [width] [height]
 
 	POL_Debug_Message "Setting Desktop : $1 $2 $3"
-	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
 	local n
 	[ "$1" = "On" ] && n="$2x$3"
@@ -253,7 +253,7 @@ Set_SoundSampleRate ()
 	# Usage: Set_SoundSampleRate [value]
 	# values can be: 48000, 44100, 22050, 16000, 11025, 8000
 	POL_Debug_Message "Setting SoundSampleRate to $1"
-	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
 	if [ -n "$1" ]; then
 		POL_Wine_UpdateRegistryWinePair 'DirectSound' 'DefaultSampleRate' "$1"
@@ -269,7 +269,7 @@ Set_SoundBitsPerSample ()
 	# Usage: Set_SoundBitsPerSaple [value]
 	# values: 8, 16
 	POL_Debug_Message "Setting sound DefaultsBitsPerSample to $1"
-	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
 	if [ -n "$1" ]; then
 		POL_Wine_UpdateRegistryWinePair 'DirectSound' 'DefaultBitsPerSample' "$1"
@@ -285,7 +285,7 @@ POL_Wine_InstallFonts()
 	# Usage: POL_Wine_InstallFonts
 	OLDDIR="$PWD"
 	POL_Debug_Message "Installing microsoft fonts"
-	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
 	# It's a symlink? If yes, remove it
 	rm "$WINEPREFIX/drive_c/windows/Fonts" 2> /dev/null
@@ -299,7 +299,7 @@ Set_SoundHardwareAcceleration ()
 	# Set sound driver hardware acceleration
 	# Values : Full, Standard, Basic, Emulation
 	POL_Debug_Message "Setting Sound HardwareAcceleration to $1"
-	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
 	if [ -n "$1" ]; then
 		POL_Wine_UpdateRegistryWinePair 'DirectSound' 'HardwareAcceleration' "$1"
@@ -314,7 +314,7 @@ Set_SoundEmulDriver ()
 	# Set sound emul driver
 	# Usage: Set_SoundEmulDriver(Y|N)
 	POL_Debug_Message "Setting Sound EmulDriver to $1"
-	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
 	if [ -n "$1" ]; then
 		POL_Wine_UpdateRegistryWinePair 'DirectSound' 'EmulDriver' "$1"
@@ -329,7 +329,7 @@ POL_LoadVar_PROGRAMFILES()
 	# Get Program Files folder name and store it to PROGRAMFILES variable
 	# Usage: POL_LoadVar_PROGRAMFILES
 	POL_Debug_Message "Getting Program Files name"
-	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
 	PROGRAMFILES=`POL_Wine --keep-output cmd /c echo "%ProgramFiles%" |tr -d '\015\012'`
 	if [ "${PROGRAMFILES}" = "%ProgramFiles%" ]
@@ -344,7 +344,7 @@ Set_WineWindowTitle ()
 {
 	#name of windowed title:$1
 	POL_Debug_Message "Setting window title"
-	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
 	POL_Wine_UpdateRegistryWinePair 'Explorer' 'Desktop' "$1"
 }
@@ -390,7 +390,7 @@ POL_Wine_SetVideoDriver()
 	# Set wine video driver
 	# Usage POL_Wine_SetVideoDriver
 	POL_Debug_Message "Set wine video driver"
-	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
 	POL_LoadVar_Device
 	DRVID="vga.dll"
