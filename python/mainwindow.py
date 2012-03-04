@@ -435,7 +435,7 @@ class MainWindow(wx.Frame):
 	if(os.path.exists(os.environ["POL_USER_ROOT"]+"/configurations/manuals/"+game_exec)):
 		playonlinux.POL_Open(os.environ["POL_USER_ROOT"]+"/configurations/manuals/"+game_exec)
 	else:
-		wx.MessageBox(_("No manual found for {0}").format(game_exec))
+		wx.MessageBox(_("No manual found for {0}").format(game_exec), os.environ["APPLICATION_TITLE"])
 	
   def RRegistryEditor(self, event):
         self.RConfigure(_("Registry Editor"), "nothing")
@@ -761,14 +761,14 @@ class PlayOnLinuxApp(wx.App):
 			os.system("bash \"$PLAYONLINUX/bash/run_exe\" \""+filename+"\" &")
 		
 		if(file_extension == "pol" or file_extension == "POL"):
-			if(wx.YES == wx.MessageBox(_('Are you sure you want to  want to install {0} package?').format(filename).decode("utf-8"), style=wx.YES_NO | wx.ICON_QUESTION)):
+			if(wx.YES == wx.MessageBox(_('Are you sure you want to  want to install {0} package?').format(filename).decode("utf-8"), os.environ["APPLICATION_TITLE"],style=wx.YES_NO | wx.ICON_QUESTION)):
 				os.system("bash \"$PLAYONLINUX/bash/playonlinux-pkg\" -i \""+filename+"\" &")
 	
 	def MacOpenURL(self, url):
 		if(os.environ["POL_OS"] == "Mac" and "playonlinux://" in url):
-			wx.MessageBox("You are trying to open a script design for PlayOnLinux! It might not work as expected")
+			wx.MessageBox("You are trying to open a script design for PlayOnLinux! It might not work as expected", os.environ["APPLICATION_TITLE"])
 		if(os.environ["POL_OS"] == "Linux" and "playonmac://" in url):
-			wx.MessageBox("You are trying to open a script design for PlayOnMac! It might not work as expected")
+			wx.MessageBox("You are trying to open a script design for PlayOnMac! It might not work as expected", os.environ["APPLICATION_TITLE"])
 			
 		os.system("bash \"$PLAYONLINUX/bash/playonlinux-url_handler\" \""+url+"\" &")
 		
