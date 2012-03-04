@@ -64,24 +64,21 @@ Set_OS ()
 
 Set_Managed ()
 {
-	# Let the windows manager to control wine 
+	# Let the windows manager to control wine
 	# Usage: Set_Managed (On|Off)
-	
+
 	POL_Debug_Message "Setting wine managed: $1"
-	
-	if [ "$1" = "On" ]
-	then
-		echo "[HKEY_CURRENT_USER\Software\Wine\X11 Driver]" > "$REPERTOIRE/tmp/managed.reg"
-		echo "\"Managed\"=\"Y\"" >> "$REPERTOIRE/tmp/managed.reg"
-		wine regedit "$REPERTOIRE/tmp/managed.reg"
-		rm -f "$REPERTOIRE/tmp/managed.reg"
-	fi
-	if [ "$1" = "Off" ]
-	then
-		echo "[HKEY_CURRENT_USER\Software\Wine\X11 Driver]" > "$REPERTOIRE/tmp/managed.reg"
-		echo "\"Managed\"=\"N\"" >> "$REPERTOIRE/tmp/managed.reg"
-		wine regedit "$REPERTOIRE/tmp/managed.reg"
-		rm -f "$REPERTOIRE/tmp/managed.reg"
+
+	local n
+	[ "$1" = "On" ] && n="Y"
+	[ "$1" = "Off" ] && n="N"
+	if [ -n "$n" ]; then
+		POL_Wine_UpdateRegistry managed <<- _EOFINI_
+		[HKEY_CURRENT_USER\\Software\\Wine\\X11 Driver]
+		"Managed"="$n"
+		_EOFINI_
+	else
+		POL_Debug_Warning "Unrecognized flag '$1'"
 	fi
 }
 
