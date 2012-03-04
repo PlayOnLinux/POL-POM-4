@@ -179,7 +179,7 @@ Set_SoundDriver ()
 
 	if [ -n "$1" ]; then
 		if [ "$POL_OS" = "Linux" ]; then
-			POL_Wine_UpdateRegistryWinePair 'Driver' 'Audio' "$n"
+			POL_Wine_UpdateRegistryWinePair 'Drivers' 'Audio' "$1"
 		else
 			POL_Debug_Message "Set_SoundDriver disabled on $POL_OS"
 		fi
