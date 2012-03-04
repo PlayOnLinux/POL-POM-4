@@ -252,13 +252,14 @@ Set_SoundSampleRate ()
 	# Set Sound sample rate
 	# Usage: Set_SoundSampleRate [value]
 	# values can be: 48000, 44100, 22050, 16000, 11025, 8000
-	if [ ! "$1" = "" ]
-	then
-		POL_Debug_Message "Setting SoundSampleRate to $1"
-		echo "[HKEY_CURRENT_USER\Software\Wine\DirectSound]" > "$REPERTOIRE/tmp/sndSampleRate.reg"
-		echo "\"DefaultSampleRate\"=\"$1\"" >> "$REPERTOIRE/tmp/sndSampleRate.reg"
-		POL_Wine regedit "$REPERTOIRE/tmp/sndSampleRate.reg"
-		rm -f "$REPERTOIRE/tmp/sndSampleRate.reg"
+	POL_Debug_Message "Setting SoundSampleRate to $1"
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
+
+	if [ -n "$1" ]; then
+		POL_Wine_UpdateRegistryWinePair 'DirectSound' 'DefaultSampleRate' "$1"
+	else
+		# FIXME: should we drop the name instead?
+		POL_Debug_Warning "Sample rate missing, skipped"
 	fi
 }
 
