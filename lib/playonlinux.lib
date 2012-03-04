@@ -681,7 +681,7 @@ clean_wineprefix()
 
 function VersionLower ()
 {
-	# Return 1 if version1 is lower than version2
+	# Return 0 if version1 is lower than version2
 	# Usage: VersionLower [version1] [version2]
 
 	local versionA1 versionA2 versionA3 versionB1 versionB2 versionB3
