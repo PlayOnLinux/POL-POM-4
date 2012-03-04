@@ -194,6 +194,28 @@ EOF
 		exit 
 	fi
 }
+POL_SetupWindow_wait_button ()
+{
+	# Wait for next POL_SetupWindow_ command
+	# Shows a pulsebar
+	# Usage POL_SetupWindow_wait_next_signal [message] [title] [Button text] [Command] [Confirm message (0 = No confirmation needed)]
+	TIMESTAMP="$(date +%s)"
+	cat << EOF > "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
+MsgIn
+attendre_signal_b
+$1
+$2
+$3
+export PLAYONLINUX="$PLAYONLINUX" ; export WINEPREFIX="$WINEPREFIX" ; export PATH="$PATH" ; export LD_LIBRARY_PATH="$LD_LIBRARY_PATH" ; $4
+$5
+$TIMESTAMP
+EOF
+	MESSAGE_BIS=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MSG_RECEIVED=')
+	if [ "$MESSAGE_BIS" = "MSG_RECEIVED=Cancel" ]
+	then
+		exit 
+	fi
+}
 POL_SetupWindow_pulsebar ()
 {
 	# Same than POL_SetupWindow_wait_next_signal, except that you can control the bar
