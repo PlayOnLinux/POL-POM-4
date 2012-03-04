@@ -119,12 +119,12 @@ POL_Wine_Direct3D ()
 	wineserver -k
 
 	if [ "$2" = "default" ]; then
-		POL_Wine_UpdateRegistry useglsl <<- _EOFINI_
+		POL_Wine_UpdateRegistry direct3d <<- _EOFINI_
 		[HKEY_CURRENT_USER\\Software\\Wine\\Direct3D]
 		"$1"=-
 		_EOFINI_
 	else
-		POL_Wine_UpdateRegistry useglsl <<- _EOFINI_
+		POL_Wine_UpdateRegistry direct3d <<- _EOFINI_
 		[HKEY_CURRENT_USER\\Software\\Wine\\Direct3D]
 		"$1"=-"$2"
 		_EOFINI_
