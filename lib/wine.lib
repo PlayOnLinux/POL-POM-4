@@ -353,24 +353,23 @@ POL_LoadVar_Device ()
 {
 	# Get GPU device id and vendor id
 	# Results are stored in VendorID and DeviceID variables
-	
+
 	POL_Debug_Message "Gettings GPU informations"
-	if [ "$POL_OS" = "Linux" ]
-	then
+	if [ "$POL_OS" = "Linux" ]; then
 		[ -x /usr/sbin/lspci ] && LSPCI=/usr/sbin/lspci || LSPCI=lspci
-		VGA_ID1=`$LSPCI | grep -iE "nvidia|ATI|AMD|intel" | grep VGA | awk '{ print $1 }' | head -n 1` 
-		VGA_ID2=`$LSPCI -n | grep $VGA_ID1 | awk '{ print $3 }'` 
-		export VendorID=`echo $VGA_ID2 | awk -F: '{ print $1 }'` 
-		export DeviceID=`echo $VGA_ID2 | awk -F: '{ print $2 }'`
+		VGA_ID1=`$LSPCI | grep -iE "nvidia|ATI|AMD|intel" | grep VGA | awk '{ print $1 }' | head -n 1`
+		VGA_ID2=`$LSPCI -n | grep $VGA_ID1 | awk '{ print $3 }'`
+		export VendorID=`echo $VGA_ID2 | cut -d: -f1`
+		export DeviceID=`echo $VGA_ID2 | cut -d: -f2`
 	fi
-	if [ "$POL_OS" = "Mac" ]
-	then
+	if [ "$POL_OS" = "Mac" ]; then
 		export DeviceID="$(system_profiler | grep -A 10 "Graphics/Displays:" | grep "Device ID" | awk '{print $3}' | cut -d x -f2)"
 		export VendorID="$(system_profiler | grep -A 10 "Graphics/Displays:" | grep "Vendor:" | awk '{print $3}' | tr -d "()" | cut -d x -f2)"
 	fi
 	POL_Debug_Message "VendorID : $VendorID"
 	POL_Debug_Message "DeviceID : $DeviceID"
 }
+
 POL_LoadVar_ScreenResolution ()
 {
 	if [ "$POL_OS" = "Mac" ]
