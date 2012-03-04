@@ -198,7 +198,7 @@ POL_SetupWindow_wait_button ()
 {
 	# Wait for next POL_SetupWindow_ command
 	# Shows a pulsebar
-	# Usage POL_SetupWindow_wait_next_signal [message] [title] [Button text] [Command] [Confirm message (0 = No confirmation needed)
+	# Usage POL_SetupWindow_wait_next_signal [message] [title] [Button text] [Command] [Confirm message (0 = No confirmation needed)]
 	TIMESTAMP="$(date +%s)"
 	cat << EOF > "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
 MsgIn
@@ -206,7 +206,7 @@ attendre_signal_b
 $1
 $2
 $3
-$4
+export PLAYONLINUX="$PLAYONLINUX" ; export WINEPREFIX="$WINEPREFIX" ; export PATH="$PATH" ; export LD_LIBRARY_PATH="$LD_LIBRARY_PATH" ; $4
 $5
 $TIMESTAMP
 EOF
