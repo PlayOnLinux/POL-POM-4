@@ -231,19 +231,17 @@ Set_Desktop ()
 {
 	# Set a desktop environement
 	# Usage: Set_Desktop (on|off) [width] [height]
-	
+
 	POL_Debug_Message "Setting Desktop : $1 $2 $3"
-	echo "[HKEY_CURRENT_USER\Software\Wine\X11 Driver]" > "$REPERTOIRE/tmp/DesktopRoot.reg"
-	if [ "$1" = "On" ]
-	then
-		echo "\"Desktop\"=\"$2x$3\"" >> "$REPERTOIRE/tmp/DesktopRoot.reg"
+
+	local n
+	[ "$1" = "On" ] && n="$2x$3"
+	[ "$1" = "Off" ] && n="-1"
+	if [ -n "$n" ]; then
+		POL_Wine_UpdateRegistryWinePair 'X11 Driver' 'Desktop' "$n"
+	else
+		POL_Debug_Warning "Unrecognized flag '$1'"
 	fi
-	if [ "$1" = "Off" ]
-	then
-		echo "\"Desktop\"=\"-1\"" >> "$REPERTOIRE/tmp/DesktopRoot.reg"
-	fi
-	POL_Wine regedit "$REPERTOIRE/tmp/DesktopRoot.reg"
-	rm -f "$REPERTOIRE/tmp/DesktopRoot.reg"
 }
 
 Set_SoundSampleRate ()
