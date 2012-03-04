@@ -22,6 +22,20 @@
 #
 # This lib contains wine's api
 
+POL_Wine_GetRegValue()
+{
+	# Get a value in registry
+	# Example : POL_Wine_GetReg_Value Multisampling
+	#
+	# Read http://wiki.winehq.org/UsefulRegistryKeys
+
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
+	local value
+	[ -e "$WINEPREFIX/user.reg" ] && value="$(grep "$1" "$WINEPREFIX/user.reg" | head -n 1 | tr -d '"' | cut -d= -f2)"
+	POL_Debug_Message "Getting registry value $1. Return: $value"
+	echo -n "${value:-default}"
+}
+
 POL_Wine_UpdateRegistry ()
 {
 	(echo "REGEDIT4"; echo ""; cat) > "$POL_USER_ROOT/tmp/$1.reg"
@@ -32,6 +46,7 @@ POL_Wine_UpdateRegistry ()
 POL_Wine_UpdateRegistryPair ()
 {
 	# Usage: POL_Wine_UpdateRegistryPair key name data
+	# data="default": remove the name
 
 	# FIXME: is this kill necessary? running apps won't prevent regedit from
 	# doing its work, and server is killed at the end of function anyway
@@ -51,6 +66,56 @@ POL_Wine_UpdateRegistryPair ()
 	wineserver -k
 }
 
+POL_Wine_UpdateRegistryWinePair ()
+{
+	# Usage: POL_Wine_UpdateRegistryPair subkey name data
+	POL_Wine_UpdateRegistryPair 'HKEY_CURRENT_USER\Software\Wine\'"$1" "$2" "$3"
+}
+
+POL_Wine_Direct3D ()
+{
+	# Change a Direct3D value in registry
+	# Usage POL_Wine_Direct3D Key Value
+
+	# Example :: POL_Wine_Direct3D UseGLSL [default / enabled / disabled]
+	# default: remove the key
+	POL_Debug_Message "Setting wine Direct3D $WINEPREFIX $1 $2"
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
+
+	POL_Wine_UpdateRegistryWinePair 'Direct3D' "$1" "$2"
+}
+
+POL_Wine_X11Drv ()
+{
+	# Change a X11Drv value in registry
+	# Usage POL_Wine_X11Drv Key Value
+
+	# Example :: POL_Wine_X11Drv UseGLSL [default / enabled / disabled]
+	# default: remove the key
+	POL_Debug_Message "Setting wine X11Drv $WINEPREFIX $1 $2"
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
+
+	POL_Wine_UpdateRegistryWinePair 'X11 Driver' "$1" "$2"
+}
+
+POL_Wine_DirectSound ()
+{
+	# Same that POL_Wine_Direct3D, but for DirectSound
+	POL_Debug_Message "Setting wine DirectSound $WINEPREFIX $1 $2"
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
+
+	POL_Wine_UpdateRegistryWinePair 'DirectSound' "$1" "$2"
+}
+
+POL_Wine_DirectInput ()
+{
+	# Same that POL_Wine_Direct3D, but for DirectInput
+	POL_Debug_Message "Setting wine DirectInput $WINEPREFIX $1 $2"
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
+
+	POL_Wine_UpdateRegistryWinePair 'DirectInput' "$1" "$2"
+}
+
 Set_OS ()
 {
 	# Set fake windows OS
@@ -62,10 +127,7 @@ Set_OS ()
 	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
 
 	if [ -n "$1" ]; then
-		POL_Wine_UpdateRegistry setos <<- _EOFINI_
-		[HKEY_CURRENT_USER\\Software\\Wine]
-		"Version"="$1"
-		_EOFINI_
+		POL_Wine_UpdateRegistryPair 'HKEY_CURRENT_USER\Software\Wine' 'Version' "$1"
 	fi
 
 	if [ -n "$2" ]; then # Need more testing
@@ -97,10 +159,7 @@ Set_Managed ()
 	[ "$1" = "On" ] && n="Y"
 	[ "$1" = "Off" ] && n="N"
 	if [ -n "$n" ]; then
-		POL_Wine_UpdateRegistry managed <<- _EOFINI_
-		[HKEY_CURRENT_USER\\Software\\Wine\\X11 Driver]
-		"Managed"="$n"
-		_EOFINI_
+		POL_Wine_X11Drv 'Managed' "$n"
 	else
 		POL_Debug_Warning "Unrecognized flag '$1'"
 	fi
@@ -116,135 +175,12 @@ Set_SoundDriver ()
 
 	if [ -n "$1" ]; then
 		if [ "$POL_OS" = "Linux" ]; then
-			POL_Wine_UpdateRegistry alsa <<- _EOFINI_
-			[HKEY_CURRENT_USER\\Software\\Wine\\Drivers]
-			"Audio"="$1"
-			_EOFINI_
+			POL_Wine_UpdateRegistryWinePair 'Driver' 'Audio' "$n"
 		else
 			POL_Debug_Message "Set_SoundDriver disabled on $POL_OS"
 		fi
 	fi
 }
-
-POL_Wine_Direct3D ()
-{
-	# Change a Direct3D value in registry
-	# Usage POL_Wine_Direct3D Key Value
-
-	# Example :: POL_Wine_Direct3D UseGLSL [default / enabled / disabled]
-	# default: remove the key
-	POL_Debug_Message "Setting wine Direct3D $WINEPREFIX $1 $2"
-	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
-
-	# FIXME: is this kill necessary? running apps won't prevent regedit from
-	# doing its work, and server is killed at the end of function anyway
-	wineserver -k
-
-	if [ "$2" = "default" ]; then
-		POL_Wine_UpdateRegistry direct3d <<- _EOFINI_
-		[HKEY_CURRENT_USER\\Software\\Wine\\Direct3D]
-		"$1"=-
-		_EOFINI_
-	else
-		POL_Wine_UpdateRegistry direct3d <<- _EOFINI_
-		[HKEY_CURRENT_USER\\Software\\Wine\\Direct3D]
-		"$1"="$2"
-		_EOFINI_
-	fi
-	wineserver -k
-}
-
-POL_Wine_X11Drv ()
-{
-	# Change a X11Drv value in registry
-	# Usage POL_Wine_X11Drv Key Value
-
-	# Example :: POL_Wine_X11Drv UseGLSL [default / enabled / disabled]
-	# default: remove the key
-	POL_Debug_Message "Setting wine X11Drv $WINEPREFIX $1 $2"
-	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
-
-	# FIXME: is this kill necessary? running apps won't prevent regedit from
-	# doing its work, and server is killed at the end of function anyway
-	wineserver -k
-
-	if [ "$2" = "default" ]; then
-		POL_Wine_UpdateRegistry x11drv <<- _EOFINI_
-		[HKEY_CURRENT_USER\\Software\\Wine\\X11 Driver]
-		"$1"=-
-		_EOFINI_
-	else
-		POL_Wine_UpdateRegistry x11drv <<- _EOFINI_
-		[HKEY_CURRENT_USER\\Software\\Wine\\X11 Driver]
-		"$1"="$2"
-		_EOFINI_
-	fi
-	wineserver -k
-}
-
-POL_Wine_DirectSound ()
-{
-	# Same that POL_Wine_Direct3D, but for DirectSound
-	POL_Debug_Message "Setting wine DirectSound $WINEPREFIX $1 $2"
-	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
-
-	# FIXME: is this kill necessary? running apps won't prevent regedit from
-	# doing its work, and server is killed at the end of function anyway
-	wineserver -k
-
-	if [ "$2" = "default" ]; then
-		POL_Wine_UpdateRegistry directsound <<- _EOFINI_
-		[HKEY_CURRENT_USER\\Software\\Wine\\DirectSound]
-		"$1"=-
-		_EOFINI_
-	else
-		POL_Wine_UpdateRegistry directsound <<- _EOFINI_
-		[HKEY_CURRENT_USER\\Software\\Wine\\DirectSound]
-		"$1"="$2"
-		_EOFINI_
-	fi
-	wineserver -k
-}
-
-POL_Wine_DirectInput ()
-{
-	# Same that POL_Wine_Direct3D, but for DirectInput
-	POL_Debug_Message "Setting wine DirectInput $WINEPREFIX $1 $2"
-	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
-
-	# FIXME: is this kill necessary? running apps won't prevent regedit from
-	# doing its work, and server is killed at the end of function anyway
-	wineserver -k
-
-	if [ "$2" = "default" ]; then
-		POL_Wine_UpdateRegistry directinput <<- _EOFINI_
-		[HKEY_CURRENT_USER\\Software\\Wine\\DirectInput]
-		"$1"=-
-		_EOFINI_
-	else
-		POL_Wine_UpdateRegistry directinput <<- _EOFINI_
-		[HKEY_CURRENT_USER\\Software\\Wine\\DirectInput]
-		"$1"="$2"
-		_EOFINI_
-	fi
-	wineserver -k
-}
-
-POL_Wine_GetRegValue()
-{
-	# Get a value in registry
-	# Example : POL_Wine_GetReg_Value Multisampling
-	#
-	# Read http://wiki.winehq.org/UsefulRegistryKeys
-
-	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
-	local value
-	[ -e "$WINEPREFIX/user.reg" ] && value="$(grep "$1" "$WINEPREFIX/user.reg" | head -n 1 | tr -d '"' | cut -d= -f2)"
-	POL_Debug_Message "Getting registry value $1. Return: $value"
-	echo -n "${value:-default}"
-}
-
-
 
 Set_DXGrab ()
 {
