@@ -73,7 +73,7 @@ POL_Wine_UpdateRegistryPair ()
 POL_Wine_UpdateRegistryWinePair ()
 {
 	# Usage: POL_Wine_UpdateRegistryPair subkey name data
-	POL_Wine_UpdateRegistryPair 'HKEY_CURRENT_USER\Software\Wine\'"$1" "$2" "$3"
+	POL_Wine_UpdateRegistryPair "HKEY_CURRENT_USER\\Software\\Wine${1:+\\$1}" "$2" "$3"
 }
 
 POL_Wine_Direct3D ()
@@ -131,7 +131,7 @@ Set_OS ()
 	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
 
 	if [ -n "$1" ]; then
-		POL_Wine_UpdateRegistryPair 'HKEY_CURRENT_USER\Software\Wine' 'Version' "$1"
+		POL_Wine_UpdateRegistryWinePair '' 'Version' "$1"
 	fi
 
 	if [ -n "$2" ]; then # Need more testing
