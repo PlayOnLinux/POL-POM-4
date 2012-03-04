@@ -51,10 +51,7 @@ POL_Wine_UpdateRegistryPair ()
 {
 	# Usage: POL_Wine_UpdateRegistryPair key name data
 	# data="default": remove the name
-
-	# FIXME: is this kill necessary? running apps won't prevent regedit from
-	# doing its work, and server is killed at the end of function anyway
-	wineserver -k
+	# Remark: restarts wineserver
 
 	if [ "$3" = "default" ]; then
 		POL_Wine_UpdateRegistry regkey <<- _EOFINI_
@@ -67,12 +64,14 @@ POL_Wine_UpdateRegistryPair ()
 		"$2"="$3"
 		_EOFINI_
 	fi
-	wineserver -k
 }
 
 POL_Wine_UpdateRegistryWinePair ()
 {
 	# Usage: POL_Wine_UpdateRegistryPair subkey name data
+	# data="default": remove the name
+	# Remark: restarts wineserver
+
 	POL_Wine_UpdateRegistryPair "HKEY_CURRENT_USER\\Software\\Wine${1:+\\$1}" "$2" "$3"
 }
 
@@ -86,7 +85,12 @@ POL_Wine_Direct3D ()
 	POL_Debug_Message "Setting wine Direct3D $WINEPREFIX $1 $2"
 	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
 
+	# FIXME: is this kill necessary? running apps won't prevent regedit from
+	# doing its work, and server is killed at the end of function anyway
+	wineserver -k
+
 	POL_Wine_UpdateRegistryWinePair 'Direct3D' "$1" "$2"
+	wineserver -k
 }
 
 POL_Wine_X11Drv ()
@@ -99,7 +103,12 @@ POL_Wine_X11Drv ()
 	POL_Debug_Message "Setting wine X11Drv $WINEPREFIX $1 $2"
 	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
 
+	# FIXME: is this kill necessary? running apps won't prevent regedit from
+	# doing its work, and server is killed at the end of function anyway
+	wineserver -k
+
 	POL_Wine_UpdateRegistryWinePair 'X11 Driver' "$1" "$2"
+	wineserver -k
 }
 
 POL_Wine_DirectSound ()
@@ -108,7 +117,12 @@ POL_Wine_DirectSound ()
 	POL_Debug_Message "Setting wine DirectSound $WINEPREFIX $1 $2"
 	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
 
+	# FIXME: is this kill necessary? running apps won't prevent regedit from
+	# doing its work, and server is killed at the end of function anyway
+	wineserver -k
+
 	POL_Wine_UpdateRegistryWinePair 'DirectSound' "$1" "$2"
+	wineserver -k
 }
 
 POL_Wine_DirectInput ()
@@ -117,7 +131,12 @@ POL_Wine_DirectInput ()
 	POL_Debug_Message "Setting wine DirectInput $WINEPREFIX $1 $2"
 	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
 
+	# FIXME: is this kill necessary? running apps won't prevent regedit from
+	# doing its work, and server is killed at the end of function anyway
+	wineserver -k
+
 	POL_Wine_UpdateRegistryWinePair 'DirectInput' "$1" "$2"
+	wineserver -k
 }
 
 Set_OS ()
@@ -163,7 +182,7 @@ Set_Managed ()
 	[ "$1" = "On" ] && n="Y"
 	[ "$1" = "Off" ] && n="N"
 	if [ -n "$n" ]; then
-		POL_Wine_X11Drv 'Managed' "$n"
+		POL_Wine_UpdateRegistryWinePair 'X11 Driver' "Managed" "$n"
 	else
 		POL_Debug_Warning "Unrecognized flag '$1'"
 	fi
