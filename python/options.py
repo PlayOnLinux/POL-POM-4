@@ -192,7 +192,7 @@ class Onglets(wx.Notebook):
 		self.sizerPlugins = wx.BoxSizer(wx.VERTICAL) 
 		self.txtPlugin = wx.StaticText(self.panelPlugins, -1, _("Installed plugins"), size=wx.DefaultSize)
 		self.txtPlugin.SetFont(self.fontTitle)
-		self.pluginlist = wx.TreeCtrl(self.panelPlugins, 220, style=wx.RAISED_BORDER|wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT)		
+		self.pluginlist = wx.TreeCtrl(self.panelPlugins, 220, style=Variables.widget_borders|wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT)		
 		self.pluginlist.SetSpacing(0)
 
 		self.pluginImgList = wx.ImageList(16,16)
