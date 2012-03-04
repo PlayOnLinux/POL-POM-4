@@ -75,6 +75,11 @@ POL_Wine_UpdateRegistryWinePair ()
 	POL_Wine_UpdateRegistryPair "HKEY_CURRENT_USER\\Software\\Wine${1:+\\$1}" "$2" "$3"
 }
 
+# For all functions below, that can be called from the control panel:
+# - Kill wineserver before regedit so regedit works even if the user
+#   changed Wine version out of our control;
+# - Kill wineserver after regedit so change takes effect immediately
+
 POL_Wine_Direct3D ()
 {
 	# Change a Direct3D value in registry
@@ -85,10 +90,7 @@ POL_Wine_Direct3D ()
 	POL_Debug_Message "Setting wine Direct3D $WINEPREFIX $1 $2"
 	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
 
-	# FIXME: is this kill necessary? running apps won't prevent regedit from
-	# doing its work, and server is killed at the end of function anyway
 	wineserver -k
-
 	POL_Wine_UpdateRegistryWinePair 'Direct3D' "$1" "$2"
 	wineserver -k
 }
@@ -103,10 +105,7 @@ POL_Wine_X11Drv ()
 	POL_Debug_Message "Setting wine X11Drv $WINEPREFIX $1 $2"
 	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
 
-	# FIXME: is this kill necessary? running apps won't prevent regedit from
-	# doing its work, and server is killed at the end of function anyway
 	wineserver -k
-
 	POL_Wine_UpdateRegistryWinePair 'X11 Driver' "$1" "$2"
 	wineserver -k
 }
@@ -117,10 +116,7 @@ POL_Wine_DirectSound ()
 	POL_Debug_Message "Setting wine DirectSound $WINEPREFIX $1 $2"
 	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
 
-	# FIXME: is this kill necessary? running apps won't prevent regedit from
-	# doing its work, and server is killed at the end of function anyway
 	wineserver -k
-
 	POL_Wine_UpdateRegistryWinePair 'DirectSound' "$1" "$2"
 	wineserver -k
 }
@@ -131,10 +127,7 @@ POL_Wine_DirectInput ()
 	POL_Debug_Message "Setting wine DirectInput $WINEPREFIX $1 $2"
 	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
 
-	# FIXME: is this kill necessary? running apps won't prevent regedit from
-	# doing its work, and server is killed at the end of function anyway
 	wineserver -k
-
 	POL_Wine_UpdateRegistryWinePair 'DirectInput' "$1" "$2"
 	wineserver -k
 }
