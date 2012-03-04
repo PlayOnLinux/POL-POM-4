@@ -311,17 +311,16 @@ Set_SoundHardwareAcceleration ()
 
 Set_SoundEmulDriver ()
 {
-	# Set sound emul driver 
+	# Set sound emul driver
 	# Usage: Set_SoundEmulDriver(Y|N)
-	
-	
-	if [ ! "$1" = "" ]
-	then
-		POL_Debug_Message "Setting Sound EmulDriver to $1"
-		echo "[HKEY_CURRENT_USER\Software\Wine\DirectSound]" > "$REPERTOIRE/tmp/sndSoundEmulDriver.reg"
-		echo "\"EmulDriver\"=\"$1\"" >> "$REPERTOIRE/tmp/sndSoundEmulDriver.reg"
-		POL_Wine regedit "$REPERTOIRE/tmp/sndSoundEmulDriver.reg"
-		rm -f "$REPERTOIRE/tmp/sndSoundEmulDriver.reg"
+	POL_Debug_Message "Setting Sound EmulDriver to $1"
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
+
+	if [ -n "$1" ]; then
+		POL_Wine_UpdateRegistryWinePair 'DirectSound' 'EmulDriver' "$1"
+	else
+		# FIXME: should we drop the name instead?
+		POL_Debug_Warning "Sound emulation mode missing, skipped"
 	fi
 }
 
