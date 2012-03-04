@@ -372,17 +372,19 @@ POL_LoadVar_Device ()
 
 POL_LoadVar_ScreenResolution ()
 {
-	if [ "$POL_OS" = "Mac" ]
-	then
+	if [ "$POL_OS" = "Linux" ]; then
+		local RESOLUTION="$(xdpyinfo | grep dimensions | awk '{print $2}')"
+		export ScreenWidth="$(echo $RESOLUTION | cut -dx -f1)"
+		export ScreenHeight="$(echo $RESOLUTION | cut -dx -f2)"
+	fi
+	if [ "$POL_OS" = "Mac" ]; then
 		export ScreenWidth="$(/usr/sbin/system_profiler SPDisplaysDataType | grep Resolution| awk '{print $2}')"
-		export ScreenHeight="$(/usr/sbin/system_profiler SPDisplaysDataType | grep Resolution| awk '{print $4}')"	
+		export ScreenHeight="$(/usr/sbin/system_profiler SPDisplaysDataType | grep Resolution| awk '{print $4}')"
 	fi
-	if [ "$POL_OS" = "Linux" ]
-	then
-		export ScreenWidth="$(xdpyinfo | grep dimensions | awk '{print $2}' | cut -dx -f1)"
-		export ScreenHeight="$(xdpyinfo | grep dimensions | awk '{print $2}' | cut -dx -f2)"
-	fi
+	POL_Debug_Message "Screen width: $ScreenWidth"
+	POL_Debug_Message "Screen height: $ScreenHeight"
 }
+
 POL_Wine_SetVideoDriver()
 {
 	# Set wine video driver
