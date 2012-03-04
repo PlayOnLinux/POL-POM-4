@@ -389,27 +389,23 @@ POL_Wine_SetVideoDriver()
 {
 	# Set wine video driver
 	# Usage POL_Wine_SetVideoDriver
+	POL_Debug_Message "Set wine video driver"
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
+
 	POL_LoadVar_Device
-	cd "$WINEPREFIX/drive_c/windows/temp/"
-	if [ "$VendorID" == "10de" ]; then
-		DRVID="nv4_disp.dll"
-	elif [ "$VendorID" == "1002" ]; then
-		DRVID="ati2dvag.dll"
-	elif [ "$VendorID" == "8086" ]; then
-		DRVID="ig4icd32.dll"
-	else
-		DRVID="vga.dll"
-	fi
-	cat << EOF > "$POL_USER_ROOT/tmp/VGA_ID_fix.reg"
-[HKEY_CURRENT_USER\\Software\\Wine\\Direct3D]
-"VideoPCIVendorID"="dword:0000$VendorID"
-"VideoPCIDeviceID"="dword:0000$DeviceID"
-"VideoDriver"="$DRVID"
-EOF
-	regedit "$POL_USER_ROOT/tmp/VGA_ID_fix.reg"
+	DRVID="vga.dll"
+	[ "$VendorID" = "10de" ] && DRVID="nv4_disp.dll"
+	[ "$VendorID" = "1002" ] && DRVID="ati2dvag.dll"
+	[ "$VendorID" = "8086" ] && DRVID="ig4icd32.dll"
+	POL_Debug_Message "Detected video driver: $DRVID"
+
+	POL_Wine_UpdateRegistry VGA_ID_fix <<- _EOFINI_
+	[HKEY_CURRENT_USER\\Software\\Wine\\Direct3D]
+	"VideoPCIVendorID"="dword:0000$VendorID"
+	"VideoPCIDeviceID"="dword:0000$DeviceID"
+	"VideoDriver"="$DRVID"
+	_EOFINI_
 }
-
-
 
 POL_AutoWine ()
 {
