@@ -126,7 +126,7 @@ POL_Wine_Direct3D ()
 	else
 		POL_Wine_UpdateRegistry direct3d <<- _EOFINI_
 		[HKEY_CURRENT_USER\\Software\\Wine\\Direct3D]
-		"$1"=-"$2"
+		"$1"="$2"
 		_EOFINI_
 	fi
 	wineserver -k
@@ -154,7 +154,7 @@ POL_Wine_X11Drv ()
 	else
 		POL_Wine_UpdateRegistry x11drv <<- _EOFINI_
 		[HKEY_CURRENT_USER\\Software\\Wine\\X11 Driver]
-		"$1"= "$2"
+		"$1"="$2"
 		_EOFINI_
 	fi
 	wineserver -k
@@ -178,7 +178,7 @@ POL_Wine_DirectSound ()
 	else
 		POL_Wine_UpdateRegistry directsound <<- _EOFINI_
 		[HKEY_CURRENT_USER\\Software\\Wine\\DirectSound]
-		"$1"= "$2"
+		"$1"="$2"
 		_EOFINI_
 	fi
 	wineserver -k
@@ -200,7 +200,7 @@ POL_Wine_DirectInput ()
 		_EOFINI_
 	else
 		POL_Wine_UpdateRegistry directinput <<- _EOFINI_
-		"$1"= "$2"
+		"$1"="$2"
 		_EOFINI_
 	fi
 	wineserver -k
