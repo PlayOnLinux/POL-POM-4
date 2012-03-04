@@ -427,33 +427,31 @@ POL_Wine ()
 {
 	# Run the good wineversion and store the result to a logfile
 	# Same usage than "wine"
-	if [ "$1" == "--keep-output" ]
-	then
+	local KeepOutput NoErrors
+	if [ "$1" = "--keep-output" ]; then
 		KeepOutput="True"
 		shift
 	fi
-	if [ "$1" == "--ignore-errors" ]
-	then
+	if [ "$1" = "--ignore-errors" ]; then
 		NoErrors="True"
 		shift
 	fi
 	POL_Wine_AutoSetVersionEnv
 	POL_Debug_Message "Running wine-$POL_WINEVERSION "$@" "
-	
-	if [ "$LOGFILE" = "/dev/null" ] || [ "$KeepOutput" = "True" ]
-	then
+
+	if [ "$LOGFILE" = "/dev/null" -o "$KeepOutput" = "True" ]; then
 		wine "$@"
 	else
-		wine "$@" >> "$LOGFILE" 2>> "$LOGFILE"
+		wine "$@" >> "$LOGFILE" 2>&1
 	fi
-	errors="$?"
-	if [ ! "$NoErrors" = "True" ]
-	then
-		[ "$?" = "0" ] || POL_Debug_Error "$(eval_gettext "Wine seems to have crashed\n\nIf you're program is running, just ignore this message")"
+	errors=$?
+	if [ $errors != 0 -a "$NoErrors" != "True" ]; then
+		POL_Debug_Error "$(eval_gettext 'Wine seems to have crashed\n\nIf your program is running, just ignore this message')"
 	fi
 	POL_Debug_Message "Wine return: $errors"
 	return $errors
 }
+
 POL_Wine_SelectPrefix()
 {
 	# Select a wineprefix and remove unexpected chars
