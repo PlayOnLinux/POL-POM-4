@@ -701,10 +701,11 @@ class PlayOnLinuxApp(wx.App):
 		if(os.environ["POL_OS"] == "Linux" and returncode != 0):
 			wx.MessageBox(_("{0} is unable to find 32bits OpenGL libraries.\n\nYou might encounter problem with your games").format(os.environ["APPLICATION_TITLE"]),_("Error"))
 		
-		try:
-			returncode=subprocess.call([os.environ["PLAYONLINUX"]+"/bash/check_gl","amd64"])
-		except:
-			returncode=255
+		if(os.environ["AMD64_COMPATIBLE"] == "True"):
+			try:
+				returncode=subprocess.call([os.environ["PLAYONLINUX"]+"/bash/check_gl","amd64"])
+			except:
+				returncode=255
 
 		if(os.environ["AMD64_COMPATIBLE"] == "True" and os.environ["POL_OS"] == "Linux" and returncode != 0):
 			wx.MessageBox(_("{0} is unable to find 64bits OpenGL libraries.\n\nYou might encounter problem with your games").format(os.environ["APPLICATION_TITLE"]),_("Error"))
