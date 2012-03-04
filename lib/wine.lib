@@ -213,10 +213,11 @@ POL_Wine_GetRegValue()
 	#
 	# Read http://wiki.winehq.org/UsefulRegistryKeys
 
-	[ "$WINEPREFIX" = "" ] && POL_Debug_Fatal "POL_Wine_GetRegValue : WINEPREFIX not set"
-	value="$(cat "$WINEPREFIX/user.reg" 2> /dev/null | grep "$1" | head -n 1 | tr -d "\"" | cut -d\= -f2)"
-	[ "$value" = "" ] && printf "default" || printf "$value"
-	POL_Debug_Message "Getting registry value $1. Return: $value"	
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
+	local value
+	[ -e "$WINEPREFIX/user.reg" ] && value="$(grep "$1" "$WINEPREFIX/user.reg" | head -n 1 | tr -d '"' | cut -d= -f2)"
+	POL_Debug_Message "Getting registry value $1. Return: $value"
+	echo -n "${value:-default}"
 }
 
 
