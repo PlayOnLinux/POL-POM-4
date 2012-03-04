@@ -204,23 +204,17 @@ Set_DXGrab ()
 	# Enable or disable DXGrab
 	# Usage: Set_DXGrab (On|Off)
 	# On ou Off
-	if [ "$1" = "On" ]
-	then
-		POL_Debug_Message "Setting DXGrab"
-		echo "[HKEY_CURRENT_USER\Software\Wine\X11 Driver]" > "$REPERTOIRE/tmp/managed.reg"
-		echo "\"DXGrab\"=\"Y\"" >> "$REPERTOIRE/tmp/managed.reg"
-		POL_Wine regedit "$REPERTOIRE/tmp/managed.reg"
-		rm -f "$REPERTOIRE/tmp/managed.reg"
-	fi
-	if [ "$1" = "Off" ]
-	then
-		POL_Debug_Message "Unsetting DXGrab"
-		echo "[HKEY_CURRENT_USER\Software\Wine\X11 Driver]" > "$REPERTOIRE/tmp/managed.reg"
-		echo "\"DXGrab\"=\"N\"" >> "$REPERTOIRE/tmp/managed.reg"
-		POL_Wine regedit "$REPERTOIRE/tmp/managed.reg"
-		rm -f "$REPERTOIRE/tmp/managed.reg"
+
+	local n
+	[ "$1" = "On" ] && n="Y" && POL_Debug_Message "Setting DXGrab"
+	[ "$1" = "Off" ] && n="N" && POL_Debug_Message "Unsetting DXGrab"
+	if [ -n "$n" ]; then
+		POL_Wine_UpdateRegistryWinePair 'X11 Driver' 'DXGrab' "$n"
+	else
+		POL_Debug_Warning "Set_DXGrab: unrecognized flag '$1'"
 	fi
 }
+
 Set_Iexplore ()
 {
 	# Make a fake IE6 installation
