@@ -157,6 +157,8 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
 		self.gauge = wx.Gauge(self.panel, -1, 50, size=(375, 20))
 		self.pulsebar = wx.Gauge(self.panel, -1, 50, size=(375, 20))
+		self.WaitButton = wx.Button(self.panel, 310, "", size=(150,25))
+		
 		self.images = wx.ImageList(22, 22)
 		self.MenuGames = wx.TreeCtrl(self.panel, 111, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT|Variables.widget_borders, pos=(25,105),size=(460,220))
 		self.MenuGames.SetImageList(self.images)
@@ -217,6 +219,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 		self.password.Hide()
 		self.passbox.Hide()
 		self.register.Hide()
+		self.WaitButton.Hide()
 		self.MCheckBox.SetValue(False)
 		self.PCheckBox.SetValue(False)
 		self.Refresh()
@@ -227,7 +230,11 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 			os.system("open http://www.playonmac.com/en/register.html")
 		else:
 			os.system("xdg-open http://www.playonlinux.com/en/register.html")
-		
+			
+	def RunCommand(self, event, command,confirm):
+		if(confirm == "0" or wx.YES == wx.MessageBox(confirm.decode("utf-8"), os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
+			os.system(command+"&");
+			
 	def DrawImage(self):			
 		self.left_image.Show()
 
@@ -663,7 +670,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 								self.DrawNext()
 								wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_checkboxes)	
 
-							if(self.fichier[1] == "attendre_signal\n" or self.fichier[1] == "pulsebar\n"):
+							if(self.fichier[1] == "attendre_signal\n" or self.fichier[1] == "pulsebar\n" or self.fichier[1] == "attendre_signal_b\n"):
 								self.DrawHeader()
 								self.timer_attendre = wx.Timer(self, 1)
 								self.texte.SetLabel(self.fichier[2].replace("\\n","\n"))
@@ -674,17 +681,24 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 								
 								self.space=self.fichier[2].count("\\n")+1
 								self.gauge_space = self.space
-								if(self.fichier[1] == "attendre_signal\n"):
+								if(self.fichier[1] == "attendre_signal\n" or self.fichier[1] == "attendre_signal_b\n"):
 									self.gauge.Show()
 									self.gauge.SetPosition((70,95+self.space*16))
 								else :
 									self.pulsebar.Show()
 									self.pulsebar.SetPosition((70,95+self.space*16))
 
+								if(self.fichier[1] == "attendre_signal_b\n"):
+									self.WaitButton.Show()
+									self.WaitButton.SetLabel(self.fichier[4].replace("\n",""))
+									self.WaitButton.SetPosition((185,135+self.space*16))
+									self.Bind(wx.EVT_BUTTON, lambda event: self.RunCommand(event,self.fichier[5].replace("\n",""),self.fichier[6].replace("\n","")),self.WaitButton)
+									
 								self.DrawCancel()
 								self.DrawNext()
 								self.NextButton.Enable(False)
 
+									
 							if(self.fichier[1] == "download\n"):
 								self.DrawHeader()
 								self.texte.SetLabel(self.fichier[2].replace("\\n","\n"))
