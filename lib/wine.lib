@@ -196,10 +196,12 @@ POL_Wine_DirectInput ()
 
 	if [ "$2" = "default" ]; then
 		POL_Wine_UpdateRegistry directinput <<- _EOFINI_
+		[HKEY_CURRENT_USER\\Software\\Wine\\DirectInput]
 		"$1"=-
 		_EOFINI_
 	else
 		POL_Wine_UpdateRegistry directinput <<- _EOFINI_
+		[HKEY_CURRENT_USER\\Software\\Wine\\DirectInput]
 		"$1"="$2"
 		_EOFINI_
 	fi
