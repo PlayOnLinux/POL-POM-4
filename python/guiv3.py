@@ -157,7 +157,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
 		self.gauge = wx.Gauge(self.panel, -1, 50, size=(375, 20))
 		self.pulsebar = wx.Gauge(self.panel, -1, 50, size=(375, 20))
-		self.WaitButton = wx.Button(self.panel, 310, "", size=(150,25))
+		self.WaitButton = wx.Button(self.panel, 310, "", size=(250,25))
 		
 		self.images = wx.ImageList(22, 22)
 		self.MenuGames = wx.TreeCtrl(self.panel, 111, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT|Variables.widget_borders, pos=(25,105),size=(460,220))
@@ -691,7 +691,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 								if(self.fichier[1] == "attendre_signal_b\n"):
 									self.WaitButton.Show()
 									self.WaitButton.SetLabel(self.fichier[4].replace("\n",""))
-									self.WaitButton.SetPosition((185,135+self.space*16))
+									self.WaitButton.SetPosition((135,135+self.space*16))
 									self.Bind(wx.EVT_BUTTON, lambda event: self.RunCommand(event,self.fichier[5].replace("\n",""),self.fichier[6].replace("\n","")),self.WaitButton)
 									
 								self.DrawCancel()
