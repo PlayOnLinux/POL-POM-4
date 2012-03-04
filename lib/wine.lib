@@ -29,6 +29,28 @@ POL_Wine_UpdateRegistry ()
 	rm "$POL_USER_ROOT/tmp/$1.reg"
 }
 
+POL_Wine_UpdateRegistryPair ()
+{
+	# Usage: POL_Wine_UpdateRegistryPair key name data
+
+	# FIXME: is this kill necessary? running apps won't prevent regedit from
+	# doing its work, and server is killed at the end of function anyway
+	wineserver -k
+
+	if [ "$3" = "default" ]; then
+		POL_Wine_UpdateRegistry regkey <<- _EOFINI_
+		[$1]
+		"$2"=-
+		_EOFINI_
+	else
+		POL_Wine_UpdateRegistry regkey <<- _EOFINI_
+		[$1]
+		"$2"="$3"
+		_EOFINI_
+	fi
+	wineserver -k
+}
+
 Set_OS ()
 {
 	# Set fake windows OS
