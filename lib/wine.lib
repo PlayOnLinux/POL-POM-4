@@ -470,7 +470,7 @@ POL_Wine_PrefixExists()
 	# Usage: POL_Wine_PrefixExists
 	# Return True or False
 	PREFNAME=`printf "$1"| tr -c [[a-zA-Z0-9]\.] '_'`
-	[ -d "$POL_USER_ROOT/wineprefix/$PREFNAME" ] && echo "True" || echo "False"
+	[ -d "$POL_USER_ROOT/wineprefix/$PREFNAME/drive_c" ] && echo "True" || echo "False"
 }
 POL_Wine_InstallVersion()
 {
