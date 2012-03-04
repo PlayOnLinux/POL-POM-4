@@ -329,14 +329,17 @@ POL_LoadVar_PROGRAMFILES()
 	# Get Program Files folder name and store it to PROGRAMFILES variable
 	# Usage: POL_LoadVar_PROGRAMFILES
 	POL_Debug_Message "Getting Program Files name"
-	PROGRAMFILES=`POL_Wine --keep-output cmd /c echo "%ProgramFiles%" |tr -d '\015' | tr -d '\012'`
-	if [ "${PROGRAMFILES}" = "%ProgramFiles%" ] 
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
+
+	PROGRAMFILES=`POL_Wine --keep-output cmd /c echo "%ProgramFiles%" |tr -d '\015\012'`
+	if [ "${PROGRAMFILES}" = "%ProgramFiles%" ]
 	then # Var is not defined by wine
 		export PROGRAMFILES="Program Files"
 	else
 		export PROGRAMFILES="${PROGRAMFILES:3}"
 	fi
 }
+
 Set_WineWindowTitle ()
 {
 	#name of windowed title:$1
