@@ -617,7 +617,7 @@ POL_Wine_PrefixCreate()
 			POL_Wine_InstallVersion "$POL_WINEVERSION"
 			POL_Config_PrefixWrite "ARCH" "$POL_ARCH"
 			POL_Config_PrefixWrite "VERSION" "$POL_WINEVERSION"
-			which wineprefixcreate && POL_Wine wineprefixcreate
+			which wineprefixcreate && [ "$(POL_MD5_file "$(which wineprefixcreate)")" != "5c0ee90682746e811698a53415b4765d" ] && POL_Wine wineprefixcreate
 			POL_Wine wineboot
 			POL_LoadVar_PROGRAMFILES
 		fi
