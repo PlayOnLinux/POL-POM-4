@@ -298,15 +298,16 @@ Set_SoundHardwareAcceleration ()
 {
 	# Set sound driver hardware acceleration
 	# Values : Full, Standard, Basic, Emulation
-	if [ ! "$1" = "" ]
-	then
-		POL_Debug_Message "Setting Sound HardwareAcceleration to $1"
-		echo "[HKEY_CURRENT_USER\Software\Wine\DirectSound]" > "$REPERTOIRE/tmp/sndSoundHardwareAcceleration.reg"
-		echo "\"HardwareAcceleration\"=\"$1\"" >> "$REPERTOIRE/tmp/sndSoundHardwareAcceleration.reg"
-		POL_Wine regedit "$REPERTOIRE/tmp/sndSoundHardwareAcceleration.reg"
-		rm -f "$REPERTOIRE/tmp/SoundHardwareAcceleration.reg"
+	POL_Debug_Message "Setting Sound HardwareAcceleration to $1"
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
+
+	if [ -n "$1" ]; then
+		POL_Wine_UpdateRegistryWinePair 'DirectSound' 'HardwareAcceleration' "$1"
+	else
+		# FIXME: should we drop the name instead?
+		POL_Debug_Warning "Hardware acceleration mode missing, skipped"
 	fi
-} 
+}
 
 Set_SoundEmulDriver ()
 {
