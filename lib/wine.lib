@@ -285,13 +285,14 @@ POL_Wine_InstallFonts()
 	# Usage: POL_Wine_InstallFonts
 	OLDDIR="$PWD"
 	POL_Debug_Message "Installing microsoft fonts"
-	rm "$WINEPREFIX/drive_c/windows/Fonts" 2> /dev/null # It's a symlink? If yes, remove it
-	mkdir -p "$WINEPREFIX/drive_c/windows/Fonts"
-	cd "$WINEPREFIX/drive_c/windows/Fonts"
-	cp "$POL_USER_ROOT/fonts/"* ./
-	cd "$OLDDIR"	
-}
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
 
+	# It's a symlink? If yes, remove it
+	rm "$WINEPREFIX/drive_c/windows/Fonts" 2> /dev/null
+	mkdir -p "$WINEPREFIX/drive_c/windows/Fonts"
+
+	cp "$POL_USER_ROOT/fonts/"* "$WINEPREFIX/drive_c/windows/Fonts/"
+}
 
 Set_SoundHardwareAcceleration ()
 {
