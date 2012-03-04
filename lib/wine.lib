@@ -224,7 +224,7 @@ Set_Iexplore ()
 	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
 
 	POL_Wine_UpdateRegistry ie <<- _EOFINI_
-	[HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer]
+	[HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Internet Explorer]
 	"Version"="6.0.2900.2180"
 	_EOFINI_
 }
