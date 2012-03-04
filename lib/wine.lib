@@ -343,13 +343,10 @@ POL_LoadVar_PROGRAMFILES()
 Set_WineWindowTitle ()
 {
 	#name of windowed title:$1
-	REG="$REPERTOIRE/tmp/reg.reg"
-	cat << EOF > "$REG"
-[HKEY_CURRENT_USER\\Software\\Wine\\Explorer]
-"Desktop"="$1"
-EOF
-	POL_Wine regedit "$REG"
-	rm -f "$REG"
+	POL_Debug_Message "Setting window title"
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
+
+	POL_Wine_UpdateRegistryWinePair 'Explorer' 'Desktop' "$1"
 }
 
 POL_LoadVar_Device ()
