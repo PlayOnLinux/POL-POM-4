@@ -25,7 +25,7 @@
 POL_Wine_UpdateRegistry ()
 {
 	(echo "REGEDIT4"; echo ""; cat) > "$POL_USER_ROOT/tmp/$1.reg"
-	POL_Wine regedit "$POL_USER_ROOT/tmp/$1.reg"
+	POL_Wine regedit "$POL_USER_ROOT/tmp/$1.reg" &&
 	rm "$POL_USER_ROOT/tmp/$1.reg"
 }
 
