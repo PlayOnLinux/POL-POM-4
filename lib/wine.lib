@@ -37,6 +37,7 @@ Set_OS ()
 	# 1: Possible values: win7, win2008, vista, win2003, winxp, win2000, nt40, winnt351, winme, win98, win95, win31, win30, win20
 	# 2: Service Pack: sp1, sp2, sp3, sp4, sp5
 	POL_Debug_Message "Setting Windows OS to $1 $2"
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
 
 	if [ -n "$1" ]; then
 		POL_Wine_UpdateRegistry setos <<- _EOFINI_
@@ -68,6 +69,7 @@ Set_Managed ()
 	# Usage: Set_Managed (On|Off)
 
 	POL_Debug_Message "Setting wine managed: $1"
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
 
 	local n
 	[ "$1" = "On" ] && n="Y"
@@ -88,6 +90,8 @@ Set_SoundDriver ()
 	# Usage: Set_SoundDriver [Driver]
 	# Disabled in Mac OS
 	POL_Debug_Message "Setting wine SoundDriver $@"
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "$FUNCNAME: WINEPREFIX not set"
+
 	if [ -n "$1" ]; then
 		if [ "$POL_OS" = "Linux" ]; then
 			POL_Wine_UpdateRegistry alsa <<- _EOFINI_
