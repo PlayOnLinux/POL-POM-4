@@ -38,6 +38,10 @@ POL_Wine_GetRegValue()
 
 POL_Wine_UpdateRegistry ()
 {
+	# Usage: POL_Wine_UpdateRegistry regbasename
+	# registry file must be provided thru stdin
+	# File signature ("REGEDIT4") in appended automatically
+
 	(echo "REGEDIT4"; echo ""; cat) > "$POL_USER_ROOT/tmp/$1.reg"
 	POL_Wine regedit "$POL_USER_ROOT/tmp/$1.reg" &&
 	rm "$POL_USER_ROOT/tmp/$1.reg"
