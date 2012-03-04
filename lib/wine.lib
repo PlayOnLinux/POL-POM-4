@@ -72,6 +72,7 @@ POL_Wine_UpdateRegistryWinePair ()
 	# data="default": remove the name
 	# Remark: restarts wineserver
 
+	# Put a "\" before $1 if it's not empty
 	POL_Wine_UpdateRegistryPair "HKEY_CURRENT_USER\\Software\\Wine${1:+\\$1}" "$2" "$3"
 }
 
