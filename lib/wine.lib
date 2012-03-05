@@ -461,6 +461,7 @@ POL_Wine_SelectPrefix()
 	export WINEPREFIX="$POL_USER_ROOT/wineprefix/$PREFNAME"
 	export DOSPREFIX="$WINEPREFIX"
 	export POL_WINEVERSION="$(POL_Config_PrefixRead VERSION)"
+	touch "$WINEPREFIX/playonlinux.cfg" 2> /dev/null
 }
 POL_Wine_PrefixExists()
 {
