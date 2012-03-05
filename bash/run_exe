@@ -73,6 +73,19 @@ if [ ! "$1" = "" ] # Si on a double cliqué sur un .exe, on le prend
 then
 file=$(basename "$1")
 line="$1"
+Prefix="$(POL_Wine_GetPrefixFromPath $line)"
+
+if [ ! "$Prefix" = "" ]
+then	
+	POL_Debug_Message "Running into a virtual drive : $prefix"
+	POL_SetupWindow_Close # Pas besoin de toi
+	dir="$(dirname "$line")"
+	POL_Wine_SelectPrefix "$Prefix"
+	cd "$dir"
+	POL_Wine "$line"
+	
+	exit 0
+fi
 else
 exit 1
 fi
