@@ -777,11 +777,7 @@ class PlayOnLinuxApp(wx.App):
 		#sys.exit()
 		self.BringWindowToFront()
 
-
 lng.Lang()
-
-
-#os.system("bash \""+os.environ["PLAYONLINUX"]+"/bash/startup\"")
 app = PlayOnLinuxApp(redirect=False)
 app.MainLoop()
 #sys.exit(0)

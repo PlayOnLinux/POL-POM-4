@@ -36,6 +36,10 @@ install_plugins
 [ "$(POL_Config_Read FIRST_USE)" = "" ] && bash "$PLAYONLINUX/bash/first_use"
 [ "$POL_OS" == "Mac" ] && [ ! -e "/Applications/Utilities/XQuartz.app" ] && [ ! "$OSX_VERSION" = "11" ] && bash "$PLAYONLINUX/bash/first_use"
 
-
 # Run XQuartz
 [ "$POL_OS" = "Mac" ] && POL_Internal_RunXQuartz
+
+if [ "$(POL_Config_Read VDRIVES_LINK_MADE)" = "" ]; then
+	POL_Config_Write VDRIVES_LINK_MADE TRUE
+	ln -s "$POL_USER_ROOT/wineprefix/" "$HOME/$APPLICATION_TITLE's virtual drives"
+fi
