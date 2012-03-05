@@ -323,7 +323,7 @@ class MainWindow(wx.Frame):
 	  def delete32(self, event):
 		version = self.onglets.list_ver_installed["x86"].GetItemText(self.onglets.list_ver_installed["x86"].GetSelection()).encode('utf-8')
 		
-		if(wx.YES == wx.MessageBox(_('Are you sure you want to delete wine {0}?').format(version).decode("utf-8"), style=wx.YES_NO | wx.ICON_QUESTION)):
+		if(wx.YES == wx.MessageBox(_('Are you sure you want to delete wine {0}?').format(version).decode("utf-8"), os.environ["APPLICATION_TITLE"],style=wx.YES_NO | wx.ICON_QUESTION)):
 				shutil.rmtree(Variables.playonlinux_rep+"/wine/"+os_pref+"-x86/"+version)
 
 	  def install32(self, event):
