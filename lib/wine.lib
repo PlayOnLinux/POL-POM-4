@@ -427,6 +427,8 @@ POL_Wine ()
 {
 	# Run the good wineversion and store the result to a logfile
 	# Same usage than "wine"
+	mkdir -p "$WINEPREFIX"
+	touch "$WINEPREFIX/playonlinux.log"
 	local KeepOutput NoErrors
 	if [ "$1" = "--keep-output" ]; then
 		KeepOutput="True"
