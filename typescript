@@ -267,4 +267,105 @@ usage: cat [-benstuv] [file ...]
 cat: illegal option -- -
 usage: cat [-benstuv] [file ...]
 [POL_Wine] [1;34mMessage:[0m Wine return: 0
-g 
+g ^Z[1]   Done                    ./playonmac
+
+[2]+  Stopped                 ./playonmac
+[01;36mtinoumac:playonlinux[01;34m Tinou$[00m git add .
+[01;36mtinoumac:playonlinux[01;34m Tinou$[00m git commit -)m[K[Km "bugfix"
+[master bc7b6fc] bugfix
+ 2 files changed, 29 insertions(+), 3 deletions(-)
+[01;36mtinoumac:playonlinux[01;34m Tinou$[00m git push
+Counting objects: 9, done.
+Delta compression using up to 2 threads.
+Compressing objects:  20% (1/5)   Compressing objects:  40% (2/5)   Compressing objects:  60% (3/5)   Compressing objects:  80% (4/5)   Compressing objects: 100% (5/5)   Compressing objects: 100% (5/5), done.
+Writing objects:  20% (1/5)   Writing objects:  40% (2/5)   Writing objects:  60% (3/5)   Writing objects:  80% (4/5)   Writing objects: 100% (5/5)   Writing objects: 100% (5/5), 948 bytes, done.
+Total 5 (delta 4), reused 0 (delta 0)
+To git@github.com:PlayOnLinux/POL-POM-4.git
+   da66df2..bc7b6fc  master -> master
+[01;36mtinoumac:playonlinux[01;34m Tinou$[00m fg
+./playonmac
+[POL_Wine_Direct3D] [1;34mMessage:[0m Setting wine Direct3D /Users/Tinou/Library/PlayOnMac//wineprefix/Steam Multisampling disabled
+[POL_Wine_SetVersionEnv] [1;34mMessage:[0m Setting wine version path: 1.3.37, x86
+[POL_Wine_SetVersionEnv] [1;34mMessage:[0m "/Users/Tinou/Library/PlayOnMac//wine/darwin-x86/1.3.37" exists
+[POL_Wine] [1;34mMessage:[0m Running wine-1.3.37 regedit /Users/Tinou/Library/PlayOnMac//tmp/regkey.reg 
+[POL_Wine] [1;34mMessage:[0m Wine return: 0
+[POL_Bash] [1;34mMessage:[0m POL GPG : Good signature - Steam
+[POL_Wine_SelectPrefix] [1;34mMessage:[0m Selecting prefix: 
+[POL_System_SetArch] [1;34mMessage:[0m POL_ARCH set to x86
+[POL_Wine_PrefixCreate] [1;34mMessage:[0m Creating prefix (1.3.37)...
+[POL_Wine_PrefixCreate] [1;34mMessage:[0m Using wine 1.3.37
+[POL_Wine_InstallVersion] [1;34mMessage:[0m Installing wine version path: 1.3.37, x86
+[POL_Wine_SetVersionEnv] [1;34mMessage:[0m Setting wine version path: 1.3.37, x86
+[POL_Wine_SetVersionEnv] [1;34mMessage:[0m "/Users/Tinou/Library/PlayOnMac//wine/darwin-x86/1.3.37" exists
+[POL_Wine] [1;34mMessage:[0m Running wine-1.3.37 --version 
+[POL_Wine] [1;34mMessage:[0m Wine return: 0
+[POL_Wine_SetVersionEnv] [1;34mMessage:[0m Setting wine version path: 1.3.37, x86
+[POL_Wine_SetVersionEnv] [1;34mMessage:[0m "/Users/Tinou/Library/PlayOnMac//wine/darwin-x86/1.3.37" exists
+[POL_Wine] [1;34mMessage:[0m Running wine-1.3.37 wineboot 
+Could not load wine-gecko. HTML rendering will be disabled.
+wine: configuration in '/Users/Tinou/Library/PlayOnMac//wineprefix/Steam' has been updated.
+[POL_Wine] [1;34mMessage:[0m Wine return: 0
+[POL_LoadVar_PROGRAMFILES] [1;34mMessage:[0m Getting Program Files name
+[POL_Wine_SetVersionEnv] [1;34mMessage:[0m Setting wine version path: 1.3.37, x86
+[POL_Wine_SetVersionEnv] [1;34mMessage:[0m "/Users/Tinou/Library/PlayOnMac//wine/darwin-x86/1.3.37" exists
+[POL_Wine] [1;34mMessage:[0m Running wine-1.3.37 cmd /c echo %ProgramFiles% 
+[POL_Wine] [1;34mMessage:[0m Wine return: 0
+[POL_LoadVar_PROGRAMFILES] [1;34mMessage:[0m Getting Program Files name
+[POL_Wine_SetVersionEnv] [1;34mMessage:[0m Setting wine version path: 1.3.37, x86
+[POL_Wine_SetVersionEnv] [1;34mMessage:[0m "/Users/Tinou/Library/PlayOnMac//wine/darwin-x86/1.3.37" exists
+[POL_Wine] [1;34mMessage:[0m Running wine-1.3.37 cmd /c echo %ProgramFiles% 
+[POL_Wine] [1;34mMessage:[0m Wine return: 0
+[POL_Call] [1;34mMessage:[0m Calling POL_Install_gecko
+[POL_Source] [1;34mMessage:[0m POL GPG : Good signature
+[POL_Wine_SetVersionEnv] [1;34mMessage:[0m Setting wine version path: 1.3.37, x86
+[POL_Wine_SetVersionEnv] [1;34mMessage:[0m "/Users/Tinou/Library/PlayOnMac//wine/darwin-x86/1.3.37" exists
+[POL_Wine] [1;34mMessage:[0m Running wine-1.3.37 msiexec /i /Users/Tinou/Library/PlayOnMac//ressources/wine_gecko-1.3.0-x86.msi 
+[POL_Wine] [1;34mMessage:[0m Wine return: 0
+[POL_Wine_SetVersionEnv] [1;34mMessage:[0m Setting wine version path: 1.3.37, x86
+[POL_Wine_SetVersionEnv] [1;34mMessage:[0m "/Users/Tinou/Library/PlayOnMac//wine/darwin-x86/1.3.37" exists
+[POL_Wine] [1;34mMessage:[0m Running wine-1.3.37 regedit /Users/Tinou/Library/PlayOnMac//tmp/geckopath.reg 
+[POL_Wine] [1;34mMessage:[0m Wine return: 0
+[POL_Wine_SetVersionEnv] [1;34mMessage:[0m Setting wine version path: 1.3.37, x86
+[POL_Wine_SetVersionEnv] [1;34mMessage:[0m "/Users/Tinou/Library/PlayOnMac//wine/darwin-x86/1.3.37" exists
+[POL_Wine] [1;34mMessage:[0m Running wine-1.3.37 regsvr32 mshtml 
+Could not load wine-gecko. HTML rendering will be disabled.
+Successfully registered DLL mshtml
+[POL_Wine] [1;34mMessage:[0m Wine return: 0
+[POL_Wine_InstallFonts] [1;34mMessage:[0m Installing microsoft fonts
+/Users/Tinou/Library/PlayOnMac//install: line 64: POL_Function_FontsSmoothRGB: command not found
+[POL_Wine_SetVersionEnv] [1;34mMessage:[0m Setting wine version path: 1.3.37, x86
+[POL_Wine_SetVersionEnv] [1;34mMessage:[0m "/Users/Tinou/Library/PlayOnMac//wine/darwin-x86/1.3.37" exists
+[POL_Wine] [1;34mMessage:[0m Running wine-1.3.37 msiexec /i SteamInstall_French.msi /q 
+fixme:storage:create_storagefile Storage share mode not implemented.
+fixme:msi:ITERATE_CreateShortcuts poorly handled shortcut format, advertised shortcut
+fixme:advapi:SetNamedSecurityInfoW L"MACHINE\\SOFTWARE\\Valve\\Steam" 4 4 0x0 0x0 0x125aa0 0x0
+fixme:advapi:SetNamedSecurityInfoW L"C:\\Program Files\\Steam" 1 4 0x0 0x0 0x125aa0 0x0
+fixme:hnetcfg:fw_app_put_ProcessImageFileName 0x125d48, L"C:\\Program Files\\Steam\\Steam.exe"
+fixme:hnetcfg:fw_app_put_Name 0x125d48, L"Steam"
+fixme:hnetcfg:fw_apps_Add 0x125d00, 0x125d48
+fixme:service:QueryServiceObjectSecurity 0x126008 4 0x33f9c0 512 0x33f988 - semi-stub
+fixme:service:SetServiceObjectSecurity 0x126008 4 0x33f9ac
+fixme:advapi:RegisterEventSourceA ((null),"Steam Client Service"): stub
+fixme:advapi:RegisterEventSourceW (L"",L"Steam Client Service"): stub
+fixme:advapi:ReportEventA (0xcafe4242,0x0001,0x0000,0xc0000001,0x0,0x0001,0x00000000,0x33fbb0,0x0): stub
+fixme:advapi:ReportEventW (0xcafe4242,0x0001,0x0000,0xc0000001,0x0,0x0001,0x00000000,0x124610,0x0): stub
+err:eventlog:ReportEventW L"Shortcuts install failed"
+fixme:advapi:DeregisterEventSource (0xcafe4242) stub
+Shortcuts install failed
+[POL_Wine] [1;34mMessage:[0m Wine return: 0
+[POL_Wine_Direct3D] [1;34mMessage:[0m Setting wine Direct3D /Users/Tinou/Library/PlayOnMac//wineprefix/Steam VideoMemorySize 256
+[POL_Wine_SetVersionEnv] [1;34mMessage:[0m Setting wine version path: 1.3.37, x86
+[POL_Wine_SetVersionEnv] [1;34mMessage:[0m "/Users/Tinou/Library/PlayOnMac//wine/darwin-x86/1.3.37" exists
+[POL_Wine] [1;34mMessage:[0m Running wine-1.3.37 regedit /Users/Tinou/Library/PlayOnMac//tmp/regkey.reg 
+[POL_Wine] [1;34mMessage:[0m Wine return: 0
+[POL_Wine_OverrideDLL] [1;34mMessage:[0m Overriting DLLs
+[POL_Wine_SetVersionEnv] [1;34mMessage:[0m Setting wine version path: 1.3.37, x86
+[POL_Wine_SetVersionEnv] [1;34mMessage:[0m "/Users/Tinou/Library/PlayOnMac//wine/darwin-x86/1.3.37" exists
+[POL_Wine] [1;34mMessage:[0m Running wine-1.3.37 regedit /Users/Tinou/Library/PlayOnMac//tmp/override-dll.reg 
+[POL_Wine] [1;34mMessage:[0m Wine return: 0
+[POL_SetupWindow_AutoApp] [1;34mMessage:[0m Making .app  ()
+Using icns type 'it32', mask 't8mk' for '/tmp/icon.png'
+Saved icns file to /Users/Tinou/Desktop/Steam.app/Contents/Resources/playonmac.icns
+strings: can't open file: /Users/Tinou/Desktop/*.desktop (No such file or directory)
+strings: can't open file: /Users/Tinou/Desktop/*.lnk (No such file or directory)
+[POL_Shortcut] [1;34mMessage:[0m Shortcut created: Steam.exe Steam

@@ -152,6 +152,9 @@ POL_Debug_glxinfo()
 POL_Debug_InitPrefix()
 {
 	cat <<- EOF >> "$WINEPREFIX/playonlinux.log"
+	PATCHSTUFF="$(POL_Wine_GetPatchName $(POL_Wine --version))"
+	[ ! "$PATCHSTUFF" = "" ] && PATCHSTUFF="PlayOnLinux is using a patched wine version.\nPlease DO NOT use this log on winehq website!"
+		
 	$WINEPREFIX PlayOnLinux logfile
 	---------------------------------
 	Date: $(Get_CurrentDate)
@@ -171,6 +174,8 @@ POL_Debug_InitPrefix()
 	> OpenGL libs (Direct rendering testing)
 	  $("$PLAYONLINUX/bash/check_gl" x86 stdout)
 	  $("$PLAYONLINUX/bash/check_gl" amd64 stdout)
+	
+	$PATCHSTUFF
 	EOF
 }
 POL_Debug_LogToPrefix()
