@@ -442,7 +442,9 @@ POL_Wine ()
 	
 	if [ "$1" = "regedit" ]; then
 		POL_Debug_LogToPrefix "Content of $2"
+		cat "-----------" >> "$WINEPREFIX/playonlinux.log"
 		cat "$2" >> "$WINEPREFIX/playonlinux.log"
+		cat "-----------" >> "$WINEPREFIX/playonlinux.log"
 	fi
 	
 	if [ "$LOGFILE" = "/dev/null" -o "$KeepOutput" = "True" ]; then
