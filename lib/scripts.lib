@@ -241,7 +241,7 @@ POL_Shortcut()
 	echo "export WINEDEBUG=\"-all\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
 	[ ! "$LOGTITLE" = "" ] && echo "#POL_Log=$LOGTITLE" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
 	echo "cd \"$WINEPREFIX/drive_c/$binary_dir\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
-	echo "POL_Wine \"$Binaire\" $SpecialArg \$@" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
+	echo "POL_Wine \"$Binaire\" $SpecialArg \"\$@\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
 	chmod +x "$REPERTOIRE/shortcuts/$NOMICONE_"
 	if [ ! "$(POL_Config_Read NO_DESKTOP_ICON)" = "TRUE" ] 
 	then
