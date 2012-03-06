@@ -22,8 +22,6 @@
 [ "$PLAYONLINUX" = "" ] && exit 0
 source "$PLAYONLINUX/lib/sources" 
 
-# Cleaning tmp directory
-if [ -z "$POL_USER_ROOT" ]
 # POL / POM won't work without that 
 construire_repertoire_personnel
 # Initialize link between python and bash
