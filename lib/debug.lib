@@ -153,8 +153,8 @@ POL_Debug_InitPrefix()
 {
 	cat <<- EOF >> "$WINEPREFIX/playonlinux.log"
 	PATCHSTUFF="$(POL_Wine_GetPatchName $(POL_Wine --version))"
-	[ ! "$PATCHSTUFF" = "" ] && PATCHSTUFF="PlayOnLinux is using a patched wine version.\nPlease DO NOT use this log on winehq website!"
-		
+	[ ! "$PATCHSTUFF" = "" ] && PATCHSTUFF="Do not file bugs, AppDB test reports, or ask for help on the WineHQ website for any applications or games that are run using this version."
+	
 	$WINEPREFIX PlayOnLinux logfile
 	---------------------------------
 	Date: $(Get_CurrentDate)
