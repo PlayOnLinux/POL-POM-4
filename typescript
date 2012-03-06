@@ -241,4 +241,30 @@ Writing objects:  14% (1/7)   Writing objects:  28% (2/7)   Writing objects:  
 Total 7 (delta 5), reused 0 (delta 0)
 To git@github.com:PlayOnLinux/POL-POM-4.git
    59e76be..8508d31  master -> master
-[01;36mtinoumac:playonlinux[01;34m Tinou$[00m 
+[01;36mtinoumac:playonlinux[01;34m Tinou$[00m git add .
+[01;36mtinoumac:playonlinux[01;34m Tinou$[00m git commit -m "Wine logs"
+[master da66df2] Wine logs
+ 2 files changed, 19 insertions(+), 1 deletions(-)
+[01;36mtinoumac:playonlinux[01;34m Tinou$[00m git push
+Counting objects: 9, done.
+Delta compression using up to 2 threads.
+Compressing objects:  20% (1/5)   Compressing objects:  40% (2/5)   Compressing objects:  60% (3/5)   Compressing objects:  80% (4/5)   Compressing objects: 100% (5/5)   Compressing objects: 100% (5/5), done.
+Writing objects:  20% (1/5)   Writing objects:  40% (2/5)   Writing objects:  60% (3/5)   Writing objects:  80% (4/5)   Writing objects: 100% (5/5)   Writing objects: 100% (5/5), 997 bytes, done.
+Total 5 (delta 4), reused 0 (delta 0)
+To git@github.com:PlayOnLinux/POL-POM-4.git
+   8508d31..da66df2  master -> master
+[01;36mtinoumac:playonlinux[01;34m Tinou$[00m ./playonmac 
+[maj_check] [1;34mMessage:[0m List is up to date
+[install_plugins] [1;34mMessage:[0m Vérification de l'extension : Wine Look...
+[install_plugins] [1;34mMessage:[0m Vérification de l'extension : Screen Capture...
+2012-03-06 20:40:23.458 playonmac.real[99740:f07] *** WARNING: Method selectRow:byExtendingSelection: in class wxNSTableView is deprecated. It will be removed in a future release and should no longer be used.
+[POL_Wine_Direct3D] [1;34mMessage:[0m Setting wine Direct3D /Users/Tinou/Library/PlayOnMac//wineprefix/Steam UseGLSL enabled
+[POL_Wine_SetVersionEnv] [1;34mMessage:[0m Setting wine version path: 1.3.37, x86
+[POL_Wine_SetVersionEnv] [1;34mMessage:[0m "/Users/Tinou/Library/PlayOnMac//wine/darwin-x86/1.3.37" exists
+[POL_Wine] [1;34mMessage:[0m Running wine-1.3.37 regedit /Users/Tinou/Library/PlayOnMac//tmp/regkey.reg 
+cat: illegal option -- -
+usage: cat [-benstuv] [file ...]
+cat: illegal option -- -
+usage: cat [-benstuv] [file ...]
+[POL_Wine] [1;34mMessage:[0m Wine return: 0
+g 
