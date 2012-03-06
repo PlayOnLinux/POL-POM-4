@@ -437,8 +437,7 @@ POL_Wine ()
 		shift
 	fi
 	POL_Wine_AutoSetVersionEnv
-	POL_Debug_Message "Running wine-$POL_WINEVERSION "$@"\n"
-
+	POL_Debug_Message "Running wine-$POL_WINEVERSION "$@" "
 	if [ "$LOGFILE" = "/dev/null" -o "$KeepOutput" = "True" ]; then
 		wine "$@"
 	else
