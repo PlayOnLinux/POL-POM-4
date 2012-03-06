@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2012-03-05 19:00:38+01:00\n"
+"POT-Creation-Date: 2012-03-06 19:00:36+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -219,9 +219,9 @@ msgid "Please insert the game media into your disk drive."
 msgstr ""
 
 #: PlayOnLinux_Scripts/18_Wheels_of_Steel_Haulin_:52
-#: PlayOnLinux_Scripts/A.R.E.S.___Extinction_Agenda_:75
+#: PlayOnLinux_Scripts/A.R.E.S.___Extinction_Agenda_:86
 #: PlayOnLinux_Scripts/Age_Of_Empires_II___The_Age_of_Kings_:63
-#: PlayOnLinux_Scripts/Age_Of_Wonders_:48 PlayOnLinux_Scripts/Alan_Wake_:56
+#: PlayOnLinux_Scripts/Age_Of_Wonders_:48 PlayOnLinux_Scripts/Alan_Wake_:75
 #: PlayOnLinux_Scripts/Alice___Madness_Returns_:59
 #: PlayOnLinux_Scripts/Alice___Madness_Returns_:72
 #: PlayOnLinux_Scripts/Alien_Breed_2___Assault_:58
@@ -320,9 +320,8 @@ msgstr ""
 msgid "$TITLE has been successfully installed."
 msgstr ""
 
-#: PlayOnLinux_Scripts/A.R.E.S.___Extinction_Agenda_:63
-#: PlayOnLinux_Scripts/A.R.E.S.___Extinction_Agenda_:68
-#: PlayOnLinux_Scripts/Alan_Wake_:62
+#: PlayOnLinux_Scripts/A.R.E.S.___Extinction_Agenda_:79
+#: PlayOnLinux_Scripts/Alan_Wake_:81
 #: PlayOnLinux_Scripts/Alice___Madness_Returns_:65
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Revelations_:66
 #: PlayOnLinux_Scripts/Batman_Arkham_Asylum_:71
@@ -1562,7 +1561,7 @@ msgstr ""
 
 #: PlayOnLinux_Scripts/POL_Function_FontsSmoothRGB_:1
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:109 bash/installpolpackages:26
-#: bash/killall:29 bash/winebash:27 lib/wine.lib:686 lib/wine.lib:714
+#: bash/killall:29 bash/winebash:27 lib/wine.lib:687 lib/wine.lib:715
 #, sh-format
 msgid "Please wait..."
 msgstr ""
@@ -2911,22 +2910,22 @@ msgstr ""
 msgid "Waiting for the first-assistant to be finished"
 msgstr ""
 
-#: bash/run_exe:80
+#: bash/run_exe:93
 #, sh-format
 msgid "$APPLICATION_TITLE is analysing your application"
 msgstr ""
 
-#: bash/run_exe:89
+#: bash/run_exe:102
 #, sh-format
 msgid "Do you want $APPLICATION_TITLE to install it automatically for you?"
 msgstr ""
 
-#: bash/run_exe:89
+#: bash/run_exe:102
 #, sh-format
 msgid "We have detected that the program you want to install is :"
 msgstr ""
 
-#: bash/run_exe:101
+#: bash/run_exe:114
 #, sh-format
 msgid ""
 "$APPLICATION_TITLE has already run this program.\\nDo you want to keep the "
@@ -3117,12 +3116,12 @@ msgid ""
 msgstr ""
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:587
+#: lib/wine.lib:588
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr ""
 
-#: lib/deprecated.lib:427 lib/wine.lib:730
+#: lib/deprecated.lib:427 lib/wine.lib:731
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a Windows reboot"
 msgstr ""
@@ -3398,44 +3397,44 @@ msgid ""
 "message"
 msgstr ""
 
-#: lib/wine.lib:499
+#: lib/wine.lib:500
 #, sh-format
 msgid "Unable to find version: "
 msgstr ""
 
-#: lib/wine.lib:505 lib/wine.lib:506
+#: lib/wine.lib:506 lib/wine.lib:507
 #, sh-format
 msgid "Downloading Wine: "
 msgstr ""
 
-#: lib/wine.lib:515
+#: lib/wine.lib:516
 #, sh-format
 msgid "The download seems to have failed."
 msgstr ""
 
-#: lib/wine.lib:517
+#: lib/wine.lib:518
 #, sh-format
 msgid "Extracting Wine..."
 msgstr ""
 
-#: lib/wine.lib:686 lib/wine.lib:714
+#: lib/wine.lib:687 lib/wine.lib:715
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr ""
 
-#: lib/wine.lib:690 lib/wine.lib:717
+#: lib/wine.lib:691 lib/wine.lib:718
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
 "have to reinstall $SOFTNAME"
 msgstr ""
 
-#: lib/wine.lib:690 lib/wine.lib:717
+#: lib/wine.lib:691 lib/wine.lib:718
 #, sh-format
 msgid "Install is done"
 msgstr ""
 
-#: lib/wine.lib:721 lib/wine.lib:722
+#: lib/wine.lib:722 lib/wine.lib:723
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr ""
