@@ -438,10 +438,17 @@ POL_Wine ()
 	fi
 	POL_Wine_AutoSetVersionEnv
 	POL_Debug_Message "Running wine-$POL_WINEVERSION "$@" "
+	POL_Debug_LogToPrefix "Running wine-$POL_WINEVERSION "$@""
+	
+	if [ "$1" = "regedit" ]; then
+		POL_Debug_LogToPrefix "Content of $2"
+		cat "$2" >> "$WINEPREFIX/playonlinux.log"
+	fi
+	
 	if [ "$LOGFILE" = "/dev/null" -o "$KeepOutput" = "True" ]; then
-		wine "$@"
+		wine "$@" 2>&1 | grep -v menubuilder.exe | tee -a "$WINEPREFIX/playonlinux.log"
 	else
-		wine "$@" >> "$LOGFILE" 2>&1
+		wine "$@" 2>&1 | grep -v menubuilder.exe | tee -a "$LOGFILE" | tee -a "$WINEPREFIX/playonlinux.log"
 	fi
 	errors=$?
 	if [ $errors != 0 -a "$NoErrors" != "True" ]; then
@@ -603,12 +610,15 @@ POL_Wine_PrefixCreate()
 		if [ "$POL_WINEVERSION" = "" ]
 		then
 			POL_Debug_Message "No version specified. Using system version ($(wine --version))"
+			POL_Debug_InitPrefix
 			wine wineboot
 			if [ -e "$WINEPREFIX/drive_c/windows/syswow64" ] # It is a 64 bits prefix
 			then
 				POL_Config_PrefixWrite "ARCH" "amd64"
+				POL_Debug_LogToPrefix "This is a 64bits prefix!"
 			else
 				POL_Config_PrefixWrite "ARCH" "x86"
+				POL_Debug_LogToPrefix "This is a 32bits prefix!"
 			fi
 			POL_LoadVar_PROGRAMFILES
 		else
@@ -617,6 +627,7 @@ POL_Wine_PrefixCreate()
 			POL_Wine_InstallVersion "$POL_WINEVERSION"
 			POL_Config_PrefixWrite "ARCH" "$POL_ARCH"
 			POL_Config_PrefixWrite "VERSION" "$POL_WINEVERSION"
+			POL_Debug_InitPrefix
 			which wineprefixcreate && [ "$(POL_MD5_file "$(which wineprefixcreate)")" != "5c0ee90682746e811698a53415b4765d" ] && POL_Wine wineprefixcreate
 			POL_Wine wineboot
 			POL_LoadVar_PROGRAMFILES

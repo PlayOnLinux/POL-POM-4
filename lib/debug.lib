@@ -149,4 +149,31 @@ POL_Debug_glxinfo()
 	
 	glxinfo > "$DEBUGGING/glxinfo.log"
 }
-
+POL_Debug_InitPrefix()
+{
+	cat <<- EOF >> "$WINEPREFIX/playonlinux.log"
+	$WINEPREFIX PlayOnLinux logfile
+	---------------------------------
+	Date: $(Get_CurrentDate)
+	
+	> PlayOnLinux Version
+	  $VERSION
+	> uname -a
+	  $(uname -a)
+	> lsb_release -a
+	  $(lsbrelease -a 2> /dev/null)
+	> wine --version
+	  $(POL_Wine --version)
+	> glxinfo \| grep rendering
+	  $(glxinfo | grep rendering 2> /dev/null)
+	> glxinfo \| grep renderer
+	  $(glxinfo | grep renderer 2> /dev/null)
+	> OpenGL libs (Direct rendering testing)
+	  $("$PLAYONLINUX/bash/check_gl" x86 stdout)
+	  $("$PLAYONLINUX/bash/check_gl" amd64 stdout)
+	EOF
+}
+POL_Debug_LogToPrefix()
+{
+	echo "[$(Get_CurrentDate)] - $@" >> "$WINEPREFIX/playonlinux.log"
+}
