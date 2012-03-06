@@ -31,6 +31,9 @@ touch "$POL_USER_ROOT/configurations/guis/index_$POL_ID"
 # Cleanup old gui files
 "$PLAYONLINUX/bash/delete_gui_files" &
 
+# Cleaning tmp directory
+clean_tmp
+
 # Plugins
 install_plugins
 
