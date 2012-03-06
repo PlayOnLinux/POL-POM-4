@@ -151,14 +151,14 @@ POL_Debug_glxinfo()
 }
 POL_Debug_InitPrefix()
 {
+	PATCHSTUFF="$(POL_Wine_GetPatchName $POL_WINEVERSION)"
+	[ ! "$PATCHSTUFF" = "" ] && PATCHSTUFF="Warning! $APPLICATION_TITLE is using a modified wine version ($POL_WINEVERSION).\n
+	Do not file bugs, AppDB test reports, or ask for help on the WineHQ website for any applications or games that are run using this version.\n"
 	cat <<- EOF >> "$WINEPREFIX/playonlinux.log"
-	PATCHSTUFF="$(POL_Wine_GetPatchName $(POL_Wine --version))"
-	[ ! "$PATCHSTUFF" = "" ] && PATCHSTUFF="Do not file bugs, AppDB test reports, or ask for help on the WineHQ website for any applications or games that are run using this version."
-	
-	$WINEPREFIX PlayOnLinux logfile
-	---------------------------------
+	PlayOnLinux logfile
+	-------------------
 	Date: $(Get_CurrentDate)
-	
+	$PATCHSTUFF
 	> PlayOnLinux Version
 	  $VERSION
 	> uname -a
@@ -167,6 +167,10 @@ POL_Debug_InitPrefix()
 	  $(lsbrelease -a 2> /dev/null)
 	> wine --version
 	  $(POL_Wine --version)
+	> POL_WINEVERSION
+	  $POL_WINEVERSION
+	> WINEPREFIX
+	  $WINEPREFIX
 	> glxinfo \| grep rendering
 	  $(glxinfo | grep rendering 2> /dev/null)
 	> glxinfo \| grep renderer
