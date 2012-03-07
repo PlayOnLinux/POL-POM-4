@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2012-03-06 19:00:36+01:00\n"
+"POT-Creation-Date: 2012-03-07 19:01:35+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1561,7 +1561,7 @@ msgstr ""
 
 #: PlayOnLinux_Scripts/POL_Function_FontsSmoothRGB_:1
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:109 bash/installpolpackages:26
-#: bash/killall:29 bash/winebash:27 lib/wine.lib:687 lib/wine.lib:715
+#: bash/killall:29 bash/winebash:27 lib/wine.lib:703 lib/wine.lib:731
 #, sh-format
 msgid "Please wait..."
 msgstr ""
@@ -2352,7 +2352,7 @@ msgid "Please choose a software"
 msgstr ""
 
 #: bash/manual_install:27 bash/manual_install:111 bash/manual_install:118
-#: bash/manual_install:195
+#: bash/manual_install:194
 #, sh-format
 msgid "Manual installation"
 msgstr ""
@@ -2408,7 +2408,7 @@ msgstr ""
 msgid "Use another version of Wine"
 msgstr ""
 
-#: bash/manual_install:160 bash/manual_install:195 bash/polconfigurator:107
+#: bash/manual_install:160 bash/manual_install:194 bash/polconfigurator:107
 #: python/configure.py:153 python/mainwindow.py:393 python/mainwindow.py:428
 #, sh-format
 msgid "Configure Wine"
@@ -2434,37 +2434,37 @@ msgstr ""
 msgid "Which version of Wine would you like to use?"
 msgstr ""
 
-#: bash/manual_install:206 lib/scripts.lib:292
+#: bash/manual_install:205 lib/scripts.lib:292
 #, sh-format
 msgid "Please make your choice"
 msgstr ""
 
-#: bash/manual_install:230
+#: bash/manual_install:229
 #, sh-format
 msgid "Looking for runnable CD-ROMs"
 msgstr ""
 
-#: bash/manual_install:253
+#: bash/manual_install:252
 #, sh-format
 msgid "Select another file"
 msgstr ""
 
-#: bash/manual_install:261
+#: bash/manual_install:260
 #, sh-format
 msgid "Please choose a way to install your program"
 msgstr ""
 
-#: bash/manual_install:270
+#: bash/manual_install:269
 #, sh-format
 msgid "Please select the install file to run."
 msgstr ""
 
-#: bash/manual_install:300
+#: bash/manual_install:299
 #, sh-format
 msgid "You must choose a file!"
 msgstr ""
 
-#: bash/manual_install:306
+#: bash/manual_install:305
 #, sh-format
 msgid "$APPLICATION_TITLE is installing your application..."
 msgstr ""
@@ -3038,7 +3038,7 @@ msgid "Free space on your hard drives:"
 msgstr ""
 
 #: bash/uninstall:25 bash/uninstall:52 bash/uninstall:55
-#: lib/playonlinux.lib:672
+#: lib/playonlinux.lib:673
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
 msgstr ""
@@ -3058,7 +3058,7 @@ msgstr ""
 msgid "This wizard will help you to uninstall: "
 msgstr ""
 
-#: bash/uninstall:52 lib/playonlinux.lib:672
+#: bash/uninstall:52 lib/playonlinux.lib:673
 #, sh-format
 msgid "Uninstalling..."
 msgstr ""
@@ -3116,12 +3116,12 @@ msgid ""
 msgstr ""
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:588
+#: lib/wine.lib:600
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr ""
 
-#: lib/deprecated.lib:427 lib/wine.lib:731
+#: lib/deprecated.lib:427 lib/wine.lib:747
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a Windows reboot"
 msgstr ""
@@ -3131,16 +3131,16 @@ msgstr ""
 msgid "Setting Program Files var"
 msgstr ""
 
-#: lib/playonlinux.lib:164 lib/playonlinux.lib:170 lib/playonlinux.lib:176
-#: lib/playonlinux.lib:182 lib/playonlinux.lib:188 lib/playonlinux.lib:194
-#: lib/playonlinux.lib:201 lib/playonlinux.lib:207 lib/playonlinux.lib:213
-#: lib/playonlinux.lib:219 lib/playonlinux.lib:225 lib/playonlinux.lib:231
-#: lib/playonlinux.lib:237
+#: lib/playonlinux.lib:165 lib/playonlinux.lib:171 lib/playonlinux.lib:177
+#: lib/playonlinux.lib:183 lib/playonlinux.lib:189 lib/playonlinux.lib:195
+#: lib/playonlinux.lib:202 lib/playonlinux.lib:208 lib/playonlinux.lib:214
+#: lib/playonlinux.lib:220 lib/playonlinux.lib:226 lib/playonlinux.lib:232
+#: lib/playonlinux.lib:238
 #, sh-format
 msgid "This function is disabled in the PlayOnlinux environment."
 msgstr ""
 
-#: lib/playonlinux.lib:296
+#: lib/playonlinux.lib:297
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -3148,12 +3148,12 @@ msgid ""
 "responsible from it.\\nPlease ensure you know what you are doing !"
 msgstr ""
 
-#: lib/playonlinux.lib:297
+#: lib/playonlinux.lib:298
 #, sh-format
 msgid "Here the source code of the script. Check it carefully"
 msgstr ""
 
-#: lib/playonlinux.lib:316
+#: lib/playonlinux.lib:317
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -3161,22 +3161,22 @@ msgid ""
 "responsible from it.\\nPlease ensure you know what you are doing!"
 msgstr ""
 
-#: lib/playonlinux.lib:317
+#: lib/playonlinux.lib:318
 #, sh-format
 msgid "External library"
 msgstr ""
 
-#: lib/playonlinux.lib:317
+#: lib/playonlinux.lib:318
 #, sh-format
 msgid "Here the source code of the script. Check it carrefully"
 msgstr ""
 
-#: lib/playonlinux.lib:548
+#: lib/playonlinux.lib:549
 #, sh-format
 msgid "Making shortcut..."
 msgstr ""
 
-#: lib/playonlinux.lib:670
+#: lib/playonlinux.lib:671
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr ""
@@ -3390,51 +3390,51 @@ msgid ""
 "valid."
 msgstr ""
 
-#: lib/wine.lib:449
+#: lib/wine.lib:461
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
 "message"
 msgstr ""
 
-#: lib/wine.lib:500
+#: lib/wine.lib:512
 #, sh-format
 msgid "Unable to find version: "
 msgstr ""
 
-#: lib/wine.lib:506 lib/wine.lib:507
+#: lib/wine.lib:518 lib/wine.lib:519
 #, sh-format
 msgid "Downloading Wine: "
 msgstr ""
 
-#: lib/wine.lib:516
+#: lib/wine.lib:528
 #, sh-format
 msgid "The download seems to have failed."
 msgstr ""
 
-#: lib/wine.lib:518
+#: lib/wine.lib:530
 #, sh-format
 msgid "Extracting Wine..."
 msgstr ""
 
-#: lib/wine.lib:687 lib/wine.lib:715
+#: lib/wine.lib:703 lib/wine.lib:731
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr ""
 
-#: lib/wine.lib:691 lib/wine.lib:718
+#: lib/wine.lib:707 lib/wine.lib:734
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
 "have to reinstall $SOFTNAME"
 msgstr ""
 
-#: lib/wine.lib:691 lib/wine.lib:718
+#: lib/wine.lib:707 lib/wine.lib:734
 #, sh-format
 msgid "Install is done"
 msgstr ""
 
-#: lib/wine.lib:722 lib/wine.lib:723
+#: lib/wine.lib:738 lib/wine.lib:739
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr ""
