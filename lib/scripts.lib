@@ -520,7 +520,7 @@ POL_RequiredVersion ()
 	NEEDED="$1"
 	if VersionLower "$VERSION" "$NEEDED"
 	then
-		POL_Debug_Warning "POL_RequieredVersion not satisfied! User version :$VERSION, expected $NEEDED"
+		POL_Debug_Warning "POL_RequiredVersion not satisfied! User version :$VERSION, expected $NEEDED"
 		POL_SetupWindow_message "$(eval_gettext 'Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\n$APPLICATION_TITLE $NEEDED is required.')" "$TITLE"
 		POL_SetupWindow_Close
 		exit 0
@@ -535,7 +535,7 @@ POL_AdvisedVersion ()
 	
 	if VersionLower "$VERSION" "$NEEDED"
 	then
-		POL_Debug_Warning "POL_AdivsedVersion not satisfied! User version :$VERSION, expected $NEEDED"
+		POL_Debug_Warning "POL_AdvisedVersion not satisfied! User version :$VERSION, expected $NEEDED"
 		POL_SetupWindow_message "$(eval_gettext 'Warning: You are running $APPLICATION_TITLE $VERSION.\n$APPLICATION_TITLE $NEEDED is recommended to continue.')" "$TITLE"
 	fi
 }
