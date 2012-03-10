@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2012-03-09 19:00:34+01:00\n"
+"POT-Creation-Date: 2012-03-10 19:00:38+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1044,7 +1044,7 @@ msgid ""
 "depending of you connexion."
 msgstr ""
 
-#: PlayOnLinux_Scripts/Desura_:37 PlayOnLinux_Scripts/EA_s_Origin_:37
+#: PlayOnLinux_Scripts/Desura_:37
 #, sh-format
 msgid "Please wait while $TITLE is downloaded..."
 msgstr ""
@@ -1113,6 +1113,11 @@ msgstr ""
 msgid ""
 "You must not set shadow level to its maximum\\nor you will have to delete "
 "and redo installation of the game."
+msgstr ""
+
+#: PlayOnLinux_Scripts/EA_s_Origin_:40
+#, sh-format
+msgid "Downloading $TITLE, please wait..."
 msgstr ""
 
 #: PlayOnLinux_Scripts/Fallout_3___DLC_:22
@@ -1523,6 +1528,15 @@ msgstr ""
 msgid "Which edition do you have?"
 msgstr ""
 
+#: PlayOnLinux_Scripts/Mass_Effect_3_:70
+#, sh-format
+msgid ""
+"Origin will be launched, open your account\\nand select $TITLE installation."
+"\\n\\nWhen $TITLE download is finished,\\nDo NOT click on Play.\\n\\nClose "
+"COMPLETELY the Origin interface, \\nso that the installation script can "
+"continue."
+msgstr ""
+
 #: PlayOnLinux_Scripts/Microsoft_Money_2005_:33
 #, sh-format
 msgid "Where is $TITLE install file?"
@@ -1570,7 +1584,7 @@ msgstr ""
 
 #: PlayOnLinux_Scripts/POL_Function_FontsSmoothRGB_:1
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:109 bash/installpolpackages:26
-#: bash/killall:29 bash/winebash:27 lib/wine.lib:703 lib/wine.lib:731
+#: bash/killall:29 bash/winebash:27 lib/wine.lib:712 lib/wine.lib:740
 #, sh-format
 msgid "Please wait..."
 msgstr ""
@@ -1633,6 +1647,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_dotnet30_:11
 #: PlayOnLinux_Scripts/POL_Install_dotnet30sp1_:10
 #: PlayOnLinux_Scripts/POL_Install_dotnet35_:10
+#: PlayOnLinux_Scripts/POL_Install_origin_:10
 #: PlayOnLinux_Scripts/POL_Install_wmp9_:9
 #: PlayOnLinux_Scripts/POL_Install_wmpcodecs_:10
 #, sh-format
@@ -1694,6 +1709,18 @@ msgstr ""
 #, sh-format
 msgid ""
 "Warning : msxml3 seems to be already installed.\\nForcing reinstallation."
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_Install_origin_:19
+#, sh-format
+msgid "Downloading Origin, please wait..."
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_Install_origin_:29
+#, sh-format
+msgid ""
+"Setup will launch Origin after installation\\n close it COMPLETELY to "
+"continue."
 msgstr ""
 
 #: PlayOnLinux_Scripts/POL_Install_quartz_:13
@@ -3125,12 +3152,12 @@ msgid ""
 msgstr ""
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:600
+#: lib/wine.lib:609
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr ""
 
-#: lib/deprecated.lib:427 lib/wine.lib:747
+#: lib/deprecated.lib:427 lib/wine.lib:756
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a Windows reboot"
 msgstr ""
@@ -3399,51 +3426,51 @@ msgid ""
 "valid."
 msgstr ""
 
-#: lib/wine.lib:461
+#: lib/wine.lib:470
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
 "message"
 msgstr ""
 
-#: lib/wine.lib:512
+#: lib/wine.lib:521
 #, sh-format
 msgid "Unable to find version: "
 msgstr ""
 
-#: lib/wine.lib:518 lib/wine.lib:519
+#: lib/wine.lib:527 lib/wine.lib:528
 #, sh-format
 msgid "Downloading Wine: "
 msgstr ""
 
-#: lib/wine.lib:528
+#: lib/wine.lib:537
 #, sh-format
 msgid "The download seems to have failed."
 msgstr ""
 
-#: lib/wine.lib:530
+#: lib/wine.lib:539
 #, sh-format
 msgid "Extracting Wine..."
 msgstr ""
 
-#: lib/wine.lib:703 lib/wine.lib:731
+#: lib/wine.lib:712 lib/wine.lib:740
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr ""
 
-#: lib/wine.lib:707 lib/wine.lib:734
+#: lib/wine.lib:716 lib/wine.lib:743
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
 "have to reinstall $SOFTNAME"
 msgstr ""
 
-#: lib/wine.lib:707 lib/wine.lib:734
+#: lib/wine.lib:716 lib/wine.lib:743
 #, sh-format
 msgid "Install is done"
 msgstr ""
 
-#: lib/wine.lib:738 lib/wine.lib:739
+#: lib/wine.lib:747 lib/wine.lib:748
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr ""
