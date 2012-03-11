@@ -641,9 +641,12 @@ class MainWindow(wx.Frame):
 
   def Run(self, event):
     game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8")
-    if(game_exec != ""):
-		os.system("bash "+Variables.playonlinux_env+"/bash/run_app \""+game_exec+"\"&")
-		#os.system("cd \""+Variables.playonlinux_rep+"/shortcuts/\"  && bash \""+game_exec+"\"&")
+    game_prefix = playonlinux.getPrefix(game_exec)
+    if(os.path.exists(os.environ["POL_USER_ROOT"]+"/wineprefix/"+game_prefix)):
+		if(game_exec != ""):
+			os.system("bash "+Variables.playonlinux_env+"/bash/run_app \""+game_exec+"\"&")
+    else:
+		wx.MessageBox(_("The virtual drive associated with {0} ({1}) does no longer exists.").format(game_exec, game_prefix), os.environ["APPLICATION_TITLE"])
 
 
   def ClosePol(self, event):
