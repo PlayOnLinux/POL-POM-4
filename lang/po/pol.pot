@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2012-03-10 19:00:38+01:00\n"
+"POT-Creation-Date: 2012-03-11 19:00:49+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1584,7 +1584,7 @@ msgstr ""
 
 #: PlayOnLinux_Scripts/POL_Function_FontsSmoothRGB_:1
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:109 bash/installpolpackages:26
-#: bash/killall:29 bash/winebash:27 lib/wine.lib:712 lib/wine.lib:740
+#: bash/killall:29 bash/winebash:27 lib/wine.lib:714 lib/wine.lib:744
 #, sh-format
 msgid "Please wait..."
 msgstr ""
@@ -3073,7 +3073,7 @@ msgstr ""
 msgid "Free space on your hard drives:"
 msgstr ""
 
-#: bash/uninstall:25 bash/uninstall:52 bash/uninstall:55
+#: bash/uninstall:25 bash/uninstall:52 bash/uninstall:55 bash/uninstall:57
 #: lib/playonlinux.lib:673
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
@@ -3107,12 +3107,6 @@ msgstr ""
 #: bash/uninstall:57
 #, sh-format
 msgid "Cannot find the shortcut"
-msgstr ""
-
-#: bash/uninstall:57 lib/setupwindow.lib:143 python/mainwindow.py:693
-#: python/mainwindow.py:702 python/mainwindow.py:711
-#, sh-format
-msgid "Error"
 msgstr ""
 
 #: lib/depend.lib:32
@@ -3152,12 +3146,12 @@ msgid ""
 msgstr ""
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:609
+#: lib/wine.lib:610
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr ""
 
-#: lib/deprecated.lib:427 lib/wine.lib:756
+#: lib/deprecated.lib:427 lib/wine.lib:760
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a Windows reboot"
 msgstr ""
@@ -3327,6 +3321,12 @@ msgstr ""
 msgid "Welcome to $APPLICATION_TITLE Installation Wizard."
 msgstr ""
 
+#: lib/setupwindow.lib:143 python/mainwindow.py:696 python/mainwindow.py:705
+#: python/mainwindow.py:714
+#, sh-format
+msgid "Error"
+msgstr ""
+
 #: lib/setupwindow.lib:655
 #, sh-format
 msgid "Where is mounted your CD-ROM?"
@@ -3426,51 +3426,51 @@ msgid ""
 "valid."
 msgstr ""
 
-#: lib/wine.lib:470
+#: lib/wine.lib:471
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
 "message"
 msgstr ""
 
-#: lib/wine.lib:521
+#: lib/wine.lib:522
 #, sh-format
 msgid "Unable to find version: "
 msgstr ""
 
-#: lib/wine.lib:527 lib/wine.lib:528
+#: lib/wine.lib:528 lib/wine.lib:529
 #, sh-format
 msgid "Downloading Wine: "
 msgstr ""
 
-#: lib/wine.lib:537
+#: lib/wine.lib:538
 #, sh-format
 msgid "The download seems to have failed."
 msgstr ""
 
-#: lib/wine.lib:539
+#: lib/wine.lib:540
 #, sh-format
 msgid "Extracting Wine..."
 msgstr ""
 
-#: lib/wine.lib:712 lib/wine.lib:740
+#: lib/wine.lib:714 lib/wine.lib:744
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr ""
 
-#: lib/wine.lib:716 lib/wine.lib:743
+#: lib/wine.lib:718 lib/wine.lib:747
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
 "have to reinstall $SOFTNAME"
 msgstr ""
 
-#: lib/wine.lib:716 lib/wine.lib:743
+#: lib/wine.lib:718 lib/wine.lib:747
 #, sh-format
 msgid "Install is done"
 msgstr ""
 
-#: lib/wine.lib:747 lib/wine.lib:748
+#: lib/wine.lib:751 lib/wine.lib:752
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr ""
@@ -3853,71 +3853,75 @@ msgstr ""
 msgid "{0} wine versions manager"
 msgstr ""
 
-#: python/mainwindow.py:650
+#: python/mainwindow.py:649
+msgid "The virtual drive associated with {0} ({1}) does no longer exists."
+msgstr ""
+
+#: python/mainwindow.py:653
 msgid "Are you sure you want to close all {0} Windows?"
 msgstr ""
 
-#: python/mainwindow.py:670
+#: python/mainwindow.py:673
 msgid "Run your Windows programs on "
 msgstr ""
 
-#: python/mainwindow.py:671
+#: python/mainwindow.py:674
 msgid ""
 "(C) PlayOnLinux and PlayOnMac team 2011\n"
 "Under GPL licence version 3"
 msgstr ""
 
-#: python/mainwindow.py:672
+#: python/mainwindow.py:675
 msgid "Developer and Website: "
 msgstr ""
 
-#: python/mainwindow.py:673
+#: python/mainwindow.py:676
 msgid "Scriptors: "
 msgstr ""
 
-#: python/mainwindow.py:674
+#: python/mainwindow.py:677
 msgid "Packager: "
 msgstr ""
 
-#: python/mainwindow.py:675
+#: python/mainwindow.py:678
 msgid "Icons:"
 msgstr ""
 
-#: python/mainwindow.py:676
+#: python/mainwindow.py:679
 msgid "The following people contributed to this program: "
 msgstr ""
 
-#: python/mainwindow.py:677
+#: python/mainwindow.py:680
 msgid "Translations:"
 msgstr ""
 
-#: python/mainwindow.py:678
+#: python/mainwindow.py:681
 msgid "Read TRANSLATORS file"
 msgstr ""
 
-#: python/mainwindow.py:693
+#: python/mainwindow.py:696
 msgid "{0} is not supposed to be run as root. Sorry"
 msgstr ""
 
-#: python/mainwindow.py:702
+#: python/mainwindow.py:705
 msgid ""
 "{0} is unable to find 32bits OpenGL libraries.\n"
 "\n"
 "You might encounter problem with your games"
 msgstr ""
 
-#: python/mainwindow.py:711
+#: python/mainwindow.py:714
 msgid ""
 "{0} is unable to find 64bits OpenGL libraries.\n"
 "\n"
 "You might encounter problem with your games"
 msgstr ""
 
-#: python/mainwindow.py:765
+#: python/mainwindow.py:768
 msgid "Are you sure you want to  want to install {0} package?"
 msgstr ""
 
-#: python/mainwindow.py:770 python/mainwindow.py:772
+#: python/mainwindow.py:773 python/mainwindow.py:775
 msgid ""
 "You are trying to open a script design for {0}! It might not work as expected"
 msgstr ""
