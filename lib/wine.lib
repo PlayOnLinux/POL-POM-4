@@ -701,11 +701,12 @@ POL_Wine_OverrideDLL_App()
 }
 POL_Wine_WaitBefore ()
 {
+	# Lock bash commands until wine is exited
+	# Usage : POL_Wine_WaitExit [Program title] (--allow-kill)
 	SOFTNAME="$1"
-	if [ "$1" = "--allow-kill" ] 
+	if [ "$2" = "--allow-kill" ] 
 	then
 		allowKill="true"
-		shift
 	else
 		allowKill="false"
 	fi
@@ -723,6 +724,7 @@ POL_Wine_WaitBefore ()
 POL_Wine_WaitExit ()
 {
 	# Lock bash commands until wine is exited
+	# Usage : POL_Wine_WaitExit (--force-input) [Program title] (--allow-kill)
 	if [ "$1" = "--force-input" ] 
 	then
 		forceInput="true"
@@ -730,14 +732,15 @@ POL_Wine_WaitExit ()
 	else
 		forceInput="false"
 	fi
-	if [ "$1" = "--allow-kill" ] 
+
+	SOFTNAME="$1"
+	if [ "$2" = "--allow-kill" ] 
 	then
 		allowKill="true"
-		shift
 	else
 		allowKill="false"
 	fi
-	SOFTNAME="$1"
+	
 	[ "$1" = "" ] && message="$(eval_gettext "Please wait...")" || message="$(eval_gettext 'Please wait while $SOFTNAME is installed...')"
 	if [ "$allowKill" = "true" ]
 	then
