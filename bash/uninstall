@@ -54,6 +54,6 @@ then
 	clean_wineprefix $application_prefixe
 	POL_SetupWindow_message "$delete_var$(eval_gettext ' has been uninstalled successfully.')" "$(eval_gettext '$APPLICATION_TITLE Uninstaller')"
 else
-	POL_SetupWindow_message "$(eval_gettext "Cannot find the shortcut")" "$(eval_gettext 'Error')"
+	POL_SetupWindow_message "$(eval_gettext "Cannot find the shortcut")" "$(eval_gettext '$APPLICATION_TITLE Uninstaller')"
 fi
 POL_SetupWindow_Close

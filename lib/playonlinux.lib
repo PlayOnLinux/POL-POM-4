@@ -650,7 +650,7 @@ clean_wineprefix()
 	[ "$TEST" = "" ] && exit
 	if [ "$TEST" = "$1" ]
 	then
-		POL_Debug_Error "Le répértoire n'est pas dans PlayOnLinux/PlayOnMac"
+		POL_Debug_Error "The directory is not in $APPLICATION_TITLE"
 	else
 		used=0
 		for file in *
@@ -668,7 +668,7 @@ clean_wineprefix()
 		else
 			prefix="$1"
 			prefix=$(basename "$1")
-			POL_SetupWindow_question "$(eval_gettext "Do you want to delete the virtual drive:")\n\n$prefix" "Wine"
+			POL_SetupWindow_question "$(eval_gettext "Do you want to delete the virtual drive:")\n\n$prefix" "$TITLE"
 			reponse=$APP_ANSWER
 			POL_SetupWindow_wait_next_signal "$(eval_gettext 'Uninstalling...')" "$(eval_gettext '$APPLICATION_TITLE Uninstaller')" 
 			if [ "$reponse" = "TRUE" ]
