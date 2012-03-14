@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-03-05 19:00+0100\n"
-"PO-Revision-Date: 2012-02-29 13:02+0000\n"
-"Last-Translator: Aymeric PETIT <os2mule@gmail.com>\n"
+"POT-Creation-Date: 2012-03-12 19:00+0100\n"
+"PO-Revision-Date: 2012-03-10 14:06+0000\n"
+"Last-Translator: angelescu <Unknown>\n"
 "Language-Team: Romanian <ro@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-06 04:36+0000\n"
-"X-Generator: Launchpad (build 14900)\n"
+"X-Launchpad-Export-Date: 2012-03-13 04:40+0000\n"
+"X-Generator: Launchpad (build 14933)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -240,9 +240,9 @@ msgid "Please insert the game media into your disk drive."
 msgstr "Introduceți în unitatea disk suportul media al jocului."
 
 #: PlayOnLinux_Scripts/18_Wheels_of_Steel_Haulin_:52
-#: PlayOnLinux_Scripts/A.R.E.S.___Extinction_Agenda_:75
+#: PlayOnLinux_Scripts/A.R.E.S.___Extinction_Agenda_:86
 #: PlayOnLinux_Scripts/Age_Of_Empires_II___The_Age_of_Kings_:63
-#: PlayOnLinux_Scripts/Age_Of_Wonders_:48 PlayOnLinux_Scripts/Alan_Wake_:56
+#: PlayOnLinux_Scripts/Age_Of_Wonders_:48 PlayOnLinux_Scripts/Alan_Wake_:75
 #: PlayOnLinux_Scripts/Alice___Madness_Returns_:59
 #: PlayOnLinux_Scripts/Alice___Madness_Returns_:72
 #: PlayOnLinux_Scripts/Alien_Breed_2___Assault_:58
@@ -305,6 +305,7 @@ msgstr "Alegeți fișierul de configurare pentru rulat"
 #: PlayOnLinux_Scripts/Good_Old_Games___Incoming_and_Incoming_Forces_:41
 #: PlayOnLinux_Scripts/Good_Old_Games___Iron_Storm_:41
 #: PlayOnLinux_Scripts/Good_Old_Games___Jack_Orlando__A_Cinematic_Adventure_:40
+#: PlayOnLinux_Scripts/Good_Old_Games___Lure_of_the_Temptress_:48
 #: PlayOnLinux_Scripts/Good_Old_Games___Nox_:42
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:39
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast___High_resolution_patch_:46
@@ -314,7 +315,7 @@ msgstr "Alegeți fișierul de configurare pentru rulat"
 #: PlayOnLinux_Scripts/Good_Old_Games___Septerra_Core__Legacy_of_the_Creator_:40
 #: PlayOnLinux_Scripts/Good_Old_Games___Temple_of_Elemental_Evil_:42
 #: PlayOnLinux_Scripts/Good_Old_Games___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:57
-#: PlayOnLinux_Scripts/Good_Old_Games___The_Feeble_Files_:47
+#: PlayOnLinux_Scripts/Good_Old_Games___The_Feeble_Files_:50
 #: PlayOnLinux_Scripts/Good_Old_Games___The_Witcher_Enhanced_Edition_Directors_Cut_:45
 #: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:42
 #: PlayOnLinux_Scripts/Runes_Of_Magic_:49
@@ -341,9 +342,8 @@ msgstr "Așteptați până când $TITLE este instalat."
 msgid "$TITLE has been successfully installed."
 msgstr "$TITLE s-a instalat cu succes."
 
-#: PlayOnLinux_Scripts/A.R.E.S.___Extinction_Agenda_:63
-#: PlayOnLinux_Scripts/A.R.E.S.___Extinction_Agenda_:68
-#: PlayOnLinux_Scripts/Alan_Wake_:62
+#: PlayOnLinux_Scripts/A.R.E.S.___Extinction_Agenda_:79
+#: PlayOnLinux_Scripts/Alan_Wake_:81
 #: PlayOnLinux_Scripts/Alice___Madness_Returns_:65
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Revelations_:66
 #: PlayOnLinux_Scripts/Batman_Arkham_Asylum_:71
@@ -382,6 +382,17 @@ msgstr ""
 #, sh-format
 msgid "The introdution movie was renamed because it doesnt"
 msgstr "Filmul de introducere a fost redenumit fiindcă nu este"
+
+#: PlayOnLinux_Scripts/Aion_:47
+#, sh-format
+msgid ""
+"When Launcher installation will be finished,\\nDo NOT click on Play.\\n\\"
+"nClose COMPLETELY the Launcher interface, \\nso that the installation script "
+"can continue.\\n\\nAlso, decline .NET 2.0 installation by the Launcher."
+msgstr ""
+"Când lansatorul de instalare va termina,\\nNU APĂSAȚI play.\\n\\nÎnchideți "
+"COMPLECT interfața lansatorului,\\nastfel scriptul de instalare poate "
+"continua.\\n\\nDeasemeni declinați instalarea .NET 2.0 lansatorului."
 
 #: PlayOnLinux_Scripts/Alice___Madness_Returns_:110
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Revelations_:121
@@ -1111,7 +1122,7 @@ msgstr ""
 "Așteptați până când al doilea pachet este descărcat...\\nAceastă operație "
 "poate dura,în funcție de conexiunea la internet"
 
-#: PlayOnLinux_Scripts/Desura_:37 PlayOnLinux_Scripts/EA_s_Origin_:37
+#: PlayOnLinux_Scripts/Desura_:37
 #, sh-format
 msgid "Please wait while $TITLE is downloaded..."
 msgstr "Așteptați până când $TITLE este descărcat..."
@@ -1185,6 +1196,11 @@ msgstr ""
 "Nu trebuie să setați nivelul umbră la maximul său\\nsau va trebuii să "
 "ștergeți și să refaceți instalarea jocului."
 
+#: PlayOnLinux_Scripts/EA_s_Origin_:40
+#, sh-format
+msgid "Downloading $TITLE, please wait..."
+msgstr ""
+
 #: PlayOnLinux_Scripts/Fallout_3___DLC_:22
 #, sh-format
 msgid "Welcome in the DLC Installer for $TITLE"
@@ -1206,6 +1222,7 @@ msgstr "Bine ați venit la instalarea DLC pentru $TITLE"
 #: PlayOnLinux_Scripts/Good_Old_Games___Incoming_and_Incoming_Forces_:31
 #: PlayOnLinux_Scripts/Good_Old_Games___Iron_Storm_:31
 #: PlayOnLinux_Scripts/Good_Old_Games___Jack_Orlando__A_Cinematic_Adventure_:30
+#: PlayOnLinux_Scripts/Good_Old_Games___Lure_of_the_Temptress_:33
 #: PlayOnLinux_Scripts/Good_Old_Games___Nox_:32
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:29
 #: PlayOnLinux_Scripts/Good_Old_Games___Painkiller__Black_Edition_:34
@@ -1213,7 +1230,7 @@ msgstr "Bine ați venit la instalarea DLC pentru $TITLE"
 #: PlayOnLinux_Scripts/Good_Old_Games___Sanitarium_:40
 #: PlayOnLinux_Scripts/Good_Old_Games___Septerra_Core__Legacy_of_the_Creator_:30
 #: PlayOnLinux_Scripts/Good_Old_Games___Temple_of_Elemental_Evil_:32
-#: PlayOnLinux_Scripts/Good_Old_Games___The_Feeble_Files_:32
+#: PlayOnLinux_Scripts/Good_Old_Games___The_Feeble_Files_:35
 #: PlayOnLinux_Scripts/Good_Old_Games___The_Witcher_Enhanced_Edition_Directors_Cut_:35
 #: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:32
 #, sh-format
@@ -1236,6 +1253,7 @@ msgstr "Doriți să descărcați $TITLE de la GOG.com?"
 #: PlayOnLinux_Scripts/Good_Old_Games___Incoming_and_Incoming_Forces_:38
 #: PlayOnLinux_Scripts/Good_Old_Games___Iron_Storm_:38
 #: PlayOnLinux_Scripts/Good_Old_Games___Jack_Orlando__A_Cinematic_Adventure_:37
+#: PlayOnLinux_Scripts/Good_Old_Games___Lure_of_the_Temptress_:40
 #: PlayOnLinux_Scripts/Good_Old_Games___Nox_:39
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:36
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast___High_resolution_patch_:43
@@ -1245,7 +1263,7 @@ msgstr "Doriți să descărcați $TITLE de la GOG.com?"
 #: PlayOnLinux_Scripts/Good_Old_Games___Septerra_Core__Legacy_of_the_Creator_:37
 #: PlayOnLinux_Scripts/Good_Old_Games___Temple_of_Elemental_Evil_:39
 #: PlayOnLinux_Scripts/Good_Old_Games___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:50
-#: PlayOnLinux_Scripts/Good_Old_Games___The_Feeble_Files_:39
+#: PlayOnLinux_Scripts/Good_Old_Games___The_Feeble_Files_:42
 #: PlayOnLinux_Scripts/Good_Old_Games___The_Witcher_Enhanced_Edition_Directors_Cut_:42
 #: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:39
 #, sh-format
@@ -1268,6 +1286,7 @@ msgstr "Selectaţi fişierul de instalare pentru a-l rula."
 #: PlayOnLinux_Scripts/Good_Old_Games___Incoming_and_Incoming_Forces_:46
 #: PlayOnLinux_Scripts/Good_Old_Games___Iron_Storm_:46
 #: PlayOnLinux_Scripts/Good_Old_Games___Jack_Orlando__A_Cinematic_Adventure_:45
+#: PlayOnLinux_Scripts/Good_Old_Games___Lure_of_the_Temptress_:53
 #: PlayOnLinux_Scripts/Good_Old_Games___Nox_:47
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:44
 #: PlayOnLinux_Scripts/Good_Old_Games___Painkiller__Black_Edition_:49
@@ -1276,7 +1295,7 @@ msgstr "Selectaţi fişierul de instalare pentru a-l rula."
 #: PlayOnLinux_Scripts/Good_Old_Games___Septerra_Core__Legacy_of_the_Creator_:45
 #: PlayOnLinux_Scripts/Good_Old_Games___Temple_of_Elemental_Evil_:47
 #: PlayOnLinux_Scripts/Good_Old_Games___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:59
-#: PlayOnLinux_Scripts/Good_Old_Games___The_Feeble_Files_:52
+#: PlayOnLinux_Scripts/Good_Old_Games___The_Feeble_Files_:55
 #: PlayOnLinux_Scripts/Good_Old_Games___The_Witcher_Enhanced_Edition_Directors_Cut_:50
 #: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:47
 #: PlayOnLinux_Scripts/Ski_Challenge_2012_:37
@@ -1371,6 +1390,16 @@ msgstr "Serverul dedicat"
 #, sh-format
 msgid "Dedicated Server"
 msgstr "Server dedicat"
+
+#: PlayOnLinux_Scripts/Good_Old_Games___Lure_of_the_Temptress_:43
+#: PlayOnLinux_Scripts/Good_Old_Games___The_Feeble_Files_:45
+#, sh-format
+msgid ""
+"This game uses the ScummVM emulator, that also exists natively for Linux.\\"
+"nUse native version when present?"
+msgstr ""
+"Acest joc folosește emulatorul ScummVM,care există nativ linux.\\nFolosesc "
+"versiunea nativă când este prezentă?"
 
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:81
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:87
@@ -1551,13 +1580,6 @@ msgstr "Acum vă duceți acolo?"
 msgid "Now you must install the modpack in directory:"
 msgstr "Acum trebuie să instalați modpack în directorul:"
 
-#: PlayOnLinux_Scripts/Good_Old_Games___The_Feeble_Files_:42
-#, sh-format
-msgid ""
-"This game uses the ScummVM emulator, that also exists natively for Linux.\\"
-"nUse native version when present?"
-msgstr ""
-
 #: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:60
 #, sh-format
 msgid "temp directory missing"
@@ -1620,6 +1642,15 @@ msgstr "Versiune Digital Deluxe"
 msgid "Which edition do you have?"
 msgstr "Ce ediție aveți?"
 
+#: PlayOnLinux_Scripts/Mass_Effect_3_:70
+#, sh-format
+msgid ""
+"Origin will be launched, open your account\\nand select $TITLE "
+"installation.\\n\\nWhen $TITLE download is finished,\\nDo NOT click on "
+"Play.\\n\\nClose COMPLETELY the Origin interface, \\nso that the "
+"installation script can continue."
+msgstr ""
+
 #: PlayOnLinux_Scripts/Microsoft_Money_2005_:33
 #, sh-format
 msgid "Where is $TITLE install file?"
@@ -1667,7 +1698,7 @@ msgstr "Așteptați până va fi descărcat și instalat"
 
 #: PlayOnLinux_Scripts/POL_Function_FontsSmoothRGB_:1
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:109 bash/installpolpackages:26
-#: bash/killall:29 bash/winebash:27 lib/wine.lib:686 lib/wine.lib:714
+#: bash/killall:29 bash/winebash:27 lib/wine.lib:714 lib/wine.lib:744
 #, sh-format
 msgid "Please wait..."
 msgstr "Așteptați..."
@@ -1735,11 +1766,12 @@ msgstr "Așteptați până când Desura este descărcată..."
 #: PlayOnLinux_Scripts/POL_Install_dotnet30_:11
 #: PlayOnLinux_Scripts/POL_Install_dotnet30sp1_:10
 #: PlayOnLinux_Scripts/POL_Install_dotnet35_:10
+#: PlayOnLinux_Scripts/POL_Install_origin_:10
 #: PlayOnLinux_Scripts/POL_Install_wmp9_:9
 #: PlayOnLinux_Scripts/POL_Install_wmpcodecs_:10
 #, sh-format
 msgid "This package does not work on a 64-bit installation"
-msgstr ""
+msgstr "Acest pachet nu lucrează pe o instalare de 64-bit"
 
 #: PlayOnLinux_Scripts/POL_Install_dsound_:11
 #, sh-format
@@ -1798,6 +1830,18 @@ msgstr "Se descarcă msxml3..."
 msgid ""
 "Warning : msxml3 seems to be already installed.\\nForcing reinstallation."
 msgstr "Atenție:msxml3 pare a fi deja instalat.\\nSe forțează instalarea."
+
+#: PlayOnLinux_Scripts/POL_Install_origin_:19
+#, sh-format
+msgid "Downloading Origin, please wait..."
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_Install_origin_:29
+#, sh-format
+msgid ""
+"Setup will launch Origin after installation\\n close it COMPLETELY to "
+"continue."
+msgstr ""
 
 #: PlayOnLinux_Scripts/POL_Install_quartz_:13
 #, sh-format
@@ -1879,12 +1923,12 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_xact_:11
 #, sh-format
 msgid "Installing Xact dlls..."
-msgstr ""
+msgstr "Se instalează Xact dlls..."
 
 #: PlayOnLinux_Scripts/POL_Install_xinput_:11
 #, sh-format
 msgid "Installing Xinput dlls..."
-msgstr ""
+msgstr "Se instalează Xinput dlls..."
 
 #: PlayOnLinux_Scripts/POL_Remove_gfwl_:14
 #, sh-format
@@ -1902,7 +1946,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_V__Skyrim_:60
 #, sh-format
 msgid "Please insert the game media into your disk drive"
-msgstr ""
+msgstr "Introduceți discul jocului în unitatea de disc"
 
 #: PlayOnLinux_Scripts/Rage_:63 PlayOnLinux_Scripts/Rage_:70
 #: PlayOnLinux_Scripts/Rage_:77
@@ -2177,11 +2221,12 @@ msgstr "Ruleaza un script local"
 msgid ""
 "This wizard will help you to run an unofficial $APPLICATION_TITLE Script."
 msgstr ""
+"Acest vrăjitor vă ajută să rulați un neoficial $APPLICATION_TITLE script."
 
 #: bash/expert/Executer:30
 #, sh-format
 msgid "Choose a valid $APPLICATION_TITLE script to run."
-msgstr ""
+msgstr "Alegeți un script valabil $APPLICATION_TITLE de rulat."
 
 #: bash/expert/Executer:39
 #, sh-format
@@ -2380,7 +2425,7 @@ msgstr "Prima folosire a $APPLICATION_TITLE"
 #: bash/first_use:308
 #, sh-format
 msgid "$APPLICATION_TITLE is going to finish its preparation"
-msgstr ""
+msgstr "$APPLICATION_TITLE își va termina pregătirea"
 
 #: bash/first_use:308 bash/first_use:311
 #, sh-format
@@ -2506,7 +2551,7 @@ msgid "Please choose a software"
 msgstr "Alegeți un soft"
 
 #: bash/manual_install:27 bash/manual_install:111 bash/manual_install:118
-#: bash/manual_install:195
+#: bash/manual_install:194
 #, sh-format
 msgid "Manual installation"
 msgstr "Instalare manuală"
@@ -2568,7 +2613,7 @@ msgstr "Alegeți un program"
 msgid "Use another version of Wine"
 msgstr "Folosiți o altă versiune de Wine"
 
-#: bash/manual_install:160 bash/manual_install:195 bash/polconfigurator:107
+#: bash/manual_install:160 bash/manual_install:194 bash/polconfigurator:107
 #: python/configure.py:153 python/mainwindow.py:393 python/mainwindow.py:428
 #, sh-format
 msgid "Configure Wine"
@@ -2594,37 +2639,37 @@ msgstr "Ce v-ar place să faceți înaintea instalării?"
 msgid "Which version of Wine would you like to use?"
 msgstr "Ce versiune de Wine v-ar place să folosiți?"
 
-#: bash/manual_install:206 lib/scripts.lib:292
+#: bash/manual_install:205 lib/scripts.lib:292
 #, sh-format
 msgid "Please make your choice"
 msgstr "Faceți alegerea"
 
-#: bash/manual_install:230
+#: bash/manual_install:229
 #, sh-format
 msgid "Looking for runnable CD-ROMs"
 msgstr "Caut CD-ROM-uri rulabile"
 
-#: bash/manual_install:253
+#: bash/manual_install:252
 #, sh-format
 msgid "Select another file"
 msgstr "Selectați alt fișier"
 
-#: bash/manual_install:261
+#: bash/manual_install:260
 #, sh-format
 msgid "Please choose a way to install your program"
 msgstr "Alegeți o cale să vă instalați programul"
 
-#: bash/manual_install:270
+#: bash/manual_install:269
 #, sh-format
 msgid "Please select the install file to run."
 msgstr "Selectați fișierul de instalare pentru rulat."
 
-#: bash/manual_install:300
+#: bash/manual_install:299
 #, sh-format
 msgid "You must choose a file!"
 msgstr "Trebuie să alegeți un fișier!"
 
-#: bash/manual_install:306
+#: bash/manual_install:305
 #, sh-format
 msgid "$APPLICATION_TITLE is installing your application..."
 msgstr "$APPLICATION_TITLE vă instalează aplicația..."
@@ -3091,22 +3136,22 @@ msgstr "$APPLICATION_TITLE vă rulează programul"
 msgid "Waiting for the first-assistant to be finished"
 msgstr "Se așteaptă ca primul asistent să se termine"
 
-#: bash/run_exe:80
+#: bash/run_exe:93
 #, sh-format
 msgid "$APPLICATION_TITLE is analysing your application"
 msgstr "$APPLICATION_TITLE vă analizează aplicația"
 
-#: bash/run_exe:89
+#: bash/run_exe:102
 #, sh-format
 msgid "Do you want $APPLICATION_TITLE to install it automatically for you?"
 msgstr "Doriți ca $APPLICATION_TITLE să vă fie instalat automat?"
 
-#: bash/run_exe:89
+#: bash/run_exe:102
 #, sh-format
 msgid "We have detected that the program you want to install is :"
 msgstr "S-a detectat că programul pe care doriți să-l instalați este:"
 
-#: bash/run_exe:101
+#: bash/run_exe:114
 #, sh-format
 msgid ""
 "$APPLICATION_TITLE has already run this program.\\nDo you want to keep the "
@@ -3220,8 +3265,8 @@ msgstr "Versiunea Wine folosită de PlayOnLinux: "
 msgid "Free space on your hard drives:"
 msgstr "Spațiul liber pe hard disk-uri:"
 
-#: bash/uninstall:25 bash/uninstall:52 bash/uninstall:55
-#: lib/playonlinux.lib:672
+#: bash/uninstall:25 bash/uninstall:52 bash/uninstall:55 bash/uninstall:57
+#: lib/playonlinux.lib:673
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
 msgstr "Dezinstalatorul $APPLICATION_TITLE"
@@ -3241,7 +3286,7 @@ msgstr "Apăsați Următorul ca să continuați."
 msgid "This wizard will help you to uninstall: "
 msgstr "Acest vrăjitor vă va ajuta să dezinstalați: "
 
-#: bash/uninstall:52 lib/playonlinux.lib:672
+#: bash/uninstall:52 lib/playonlinux.lib:673
 #, sh-format
 msgid "Uninstalling..."
 msgstr "Se dezinstalează..."
@@ -3255,12 +3300,6 @@ msgstr " a fost dezinstalat cu succes."
 #, sh-format
 msgid "Cannot find the shortcut"
 msgstr "Scurtătura nu poate fi găsită"
-
-#: bash/uninstall:57 lib/setupwindow.lib:143 python/mainwindow.py:693
-#: python/mainwindow.py:702 python/mainwindow.py:711
-#, sh-format
-msgid "Error"
-msgstr "Eroare"
 
 #: lib/depend.lib:32
 #, sh-format
@@ -3304,12 +3343,12 @@ msgstr ""
 "este suportată."
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:587
+#: lib/wine.lib:610
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr "Așteptați până când driverul virtual va fi creat..."
 
-#: lib/deprecated.lib:427 lib/wine.lib:730
+#: lib/deprecated.lib:427 lib/wine.lib:760
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a Windows reboot"
 msgstr ""
@@ -3320,52 +3359,58 @@ msgstr ""
 msgid "Setting Program Files var"
 msgstr "Se setează Program Files var"
 
-#: lib/playonlinux.lib:164 lib/playonlinux.lib:170 lib/playonlinux.lib:176
-#: lib/playonlinux.lib:182 lib/playonlinux.lib:188 lib/playonlinux.lib:194
-#: lib/playonlinux.lib:201 lib/playonlinux.lib:207 lib/playonlinux.lib:213
-#: lib/playonlinux.lib:219 lib/playonlinux.lib:225 lib/playonlinux.lib:231
-#: lib/playonlinux.lib:237
+#: lib/playonlinux.lib:165 lib/playonlinux.lib:171 lib/playonlinux.lib:177
+#: lib/playonlinux.lib:183 lib/playonlinux.lib:189 lib/playonlinux.lib:195
+#: lib/playonlinux.lib:202 lib/playonlinux.lib:208 lib/playonlinux.lib:214
+#: lib/playonlinux.lib:220 lib/playonlinux.lib:226 lib/playonlinux.lib:232
+#: lib/playonlinux.lib:238
 #, sh-format
 msgid "This function is disabled in the PlayOnlinux environment."
 msgstr "Această funcție este dezactivată în mediul PlayOnLinux."
 
-#: lib/playonlinux.lib:296
+#: lib/playonlinux.lib:297
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
 "valid\\n\\nPlayOnLinux has not approved this script and will not be "
 "responsible from it.\\nPlease ensure you know what you are doing !"
 msgstr ""
+"Atenție!!\\n\\nSemnnătura scriptului care încercați sî-l rulațiNU este "
+"valabilă\\n\\nPlayOnLinux nu a aprobat acest script și nu va fi responsabil "
+"pentru el.\\nAsigurațivă că știți ce faceți!"
 
-#: lib/playonlinux.lib:297
+#: lib/playonlinux.lib:298
 #, sh-format
 msgid "Here the source code of the script. Check it carefully"
-msgstr ""
+msgstr "Iată codul sursă al scriptului.Verificați-l cu atenție"
 
-#: lib/playonlinux.lib:316
+#: lib/playonlinux.lib:317
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
 "valid\\n\\n$APPLICATION_TITLE has not approved this script and will not be "
 "responsible from it.\\nPlease ensure you know what you are doing!"
 msgstr ""
+"Atenție!!\\n\\nSemnătura scriptului care încercați să-l rulați nu este "
+"valabilă\\n\\n$APPLICATION_TITLE nu a aprobat acest script și nu va fi "
+"responsabil pentru el.\\nAsigurațivă că știți ce faceți!"
 
-#: lib/playonlinux.lib:317
+#: lib/playonlinux.lib:318
 #, sh-format
 msgid "External library"
-msgstr ""
+msgstr "Librărie externă"
 
-#: lib/playonlinux.lib:317
+#: lib/playonlinux.lib:318
 #, sh-format
 msgid "Here the source code of the script. Check it carrefully"
-msgstr ""
+msgstr "Iată codul sursă al scriptului.Verificați-l cu atenție"
 
-#: lib/playonlinux.lib:548
+#: lib/playonlinux.lib:549
 #, sh-format
 msgid "Making shortcut..."
 msgstr "Se crează scurtătura..."
 
-#: lib/playonlinux.lib:670
+#: lib/playonlinux.lib:671
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr "Doriți ștergerea driver-ului virtual:"
@@ -3440,6 +3485,8 @@ msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
 "n$APPLICATION_TITLE $NEEDED is required."
 msgstr ""
+"Regret,$APPLICATION_TITLE $VERSION este foarte vechi să continui.\\"
+"n$APPLICATION_TITLE $NEEDED este necesar."
 
 #: lib/scripts.lib:539
 #, sh-format
@@ -3447,6 +3494,8 @@ msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
 "$NEEDED is recommended to continue."
 msgstr ""
+"Atenție: Rulați $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE $NEEDED "
+"este recomandat să continui."
 
 #: lib/setupwindow.lib:78
 #, sh-format
@@ -3481,7 +3530,13 @@ msgstr "Acest vrăjitor vă va ajuta să instalați "
 #: lib/setupwindow.lib:78
 #, sh-format
 msgid "Welcome to $APPLICATION_TITLE Installation Wizard."
-msgstr ""
+msgstr "Bine ați venit la vrăjitorul instalării $APPLICATION_TITLE."
+
+#: lib/setupwindow.lib:143 python/mainwindow.py:696 python/mainwindow.py:705
+#: python/mainwindow.py:714
+#, sh-format
+msgid "Error"
+msgstr "Eroare"
 
 #: lib/setupwindow.lib:655
 #, sh-format
@@ -3585,51 +3640,54 @@ msgstr ""
 "Eșuare la conectare!\\nAsigurați-vă că numele de logare și parola sunt "
 "valide."
 
-#: lib/wine.lib:449
+#: lib/wine.lib:471
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
 "message"
 msgstr ""
+"Wine pare a fi prăbușit\\n\\nDacă programul vă rulează,ignorați acest mesaj"
 
-#: lib/wine.lib:499
+#: lib/wine.lib:522
 #, sh-format
 msgid "Unable to find version: "
 msgstr "Incapabil să aflu versiunea: "
 
-#: lib/wine.lib:505 lib/wine.lib:506
+#: lib/wine.lib:528 lib/wine.lib:529
 #, sh-format
 msgid "Downloading Wine: "
 msgstr "Se descarcă Wine: "
 
-#: lib/wine.lib:515
+#: lib/wine.lib:538
 #, sh-format
 msgid "The download seems to have failed."
 msgstr "Descărcarea se pare că a eșuat."
 
-#: lib/wine.lib:517
+#: lib/wine.lib:540
 #, sh-format
 msgid "Extracting Wine..."
 msgstr "Se extrage Wine..."
 
-#: lib/wine.lib:686 lib/wine.lib:714
+#: lib/wine.lib:714 lib/wine.lib:744
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "Așteptați până când $SOFTNAME este instalat..."
 
-#: lib/wine.lib:690 lib/wine.lib:717
+#: lib/wine.lib:718 lib/wine.lib:747
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
 "have to reinstall $SOFTNAME"
 msgstr ""
+"Fiți atent! Acesta va omorâ  procesul instalării.Dacă nu este finalizat, va "
+"trebui să reinstalați $SOFTNAME"
 
-#: lib/wine.lib:690 lib/wine.lib:717
+#: lib/wine.lib:718 lib/wine.lib:747
 #, sh-format
 msgid "Install is done"
-msgstr ""
+msgstr "Instalarea este terminată"
 
-#: lib/wine.lib:721 lib/wine.lib:722
+#: lib/wine.lib:751 lib/wine.lib:752
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr "Apăsați următorul numai după ce s-a terminat procesul instalării"
@@ -3740,6 +3798,8 @@ msgid ""
 "Be careful!\n"
 "If you change "
 msgstr ""
+"Fiți atent!\n"
+"Dacă schimbați "
 
 #: python/configure.py:508 python/mainwindow.py:584 python/mainwindow.py:586
 msgid "{0} configuration"
@@ -3776,11 +3836,11 @@ msgstr "Acest driver virtual este protejat"
 
 #: python/configure.py:575
 msgid "Are you sure you want to delete {0} virtual drive ?"
-msgstr ""
+msgstr "Sigur doriți să ștergeți driverul virtual (0) ?"
 
 #: python/configure.py:582
 msgid "Are you sure you want to delete {0} ?"
-msgstr ""
+msgstr "Sigur doriți să ștergeți (0)?"
 
 #: python/guiv3.py:126
 msgid "{0} Wizard"
@@ -4014,15 +4074,19 @@ msgstr "{0} meniu de instalare"
 msgid "{0} wine versions manager"
 msgstr "{0} administrator versiuni wine"
 
-#: python/mainwindow.py:650
+#: python/mainwindow.py:649
+msgid "The virtual drive associated with {0} ({1}) does no longer exists."
+msgstr ""
+
+#: python/mainwindow.py:653
 msgid "Are you sure you want to close all {0} Windows?"
 msgstr "Sunteți sigur că doriți să închideți toate (0) ferestrele?"
 
-#: python/mainwindow.py:670
+#: python/mainwindow.py:673
 msgid "Run your Windows programs on "
 msgstr "Rulați-vă programul Windows pe "
 
-#: python/mainwindow.py:671
+#: python/mainwindow.py:674
 msgid ""
 "(C) PlayOnLinux and PlayOnMac team 2011\n"
 "Under GPL licence version 3"
@@ -4030,60 +4094,68 @@ msgstr ""
 "(C) PlayOnLinux și PlayOnMac echipa 2011\n"
 "Subt licență GPL versiunea 3"
 
-#: python/mainwindow.py:672
+#: python/mainwindow.py:675
 msgid "Developer and Website: "
 msgstr "Dezvoltator și sait web: "
 
-#: python/mainwindow.py:673
+#: python/mainwindow.py:676
 msgid "Scriptors: "
 msgstr "Scripterti: "
 
-#: python/mainwindow.py:674
+#: python/mainwindow.py:677
 msgid "Packager: "
 msgstr "Packageri: "
 
-#: python/mainwindow.py:675
+#: python/mainwindow.py:678
 msgid "Icons:"
 msgstr "Iconițe:"
 
-#: python/mainwindow.py:676
+#: python/mainwindow.py:679
 msgid "The following people contributed to this program: "
 msgstr "Următoarele persoane au contribuit la acest program: "
 
-#: python/mainwindow.py:677
+#: python/mainwindow.py:680
 msgid "Translations:"
 msgstr "Traduceri:"
 
-#: python/mainwindow.py:678
+#: python/mainwindow.py:681
 msgid "Read TRANSLATORS file"
 msgstr "Citește fișierul TRADUCĂTORILOR"
 
-#: python/mainwindow.py:693
+#: python/mainwindow.py:696
 msgid "{0} is not supposed to be run as root. Sorry"
 msgstr "{0} nu se pare că rulați ca root. Regret"
 
-#: python/mainwindow.py:702
+#: python/mainwindow.py:705
 msgid ""
 "{0} is unable to find 32bits OpenGL libraries.\n"
 "\n"
 "You might encounter problem with your games"
 msgstr ""
+"(0) este incapabil să găsească librăriile OpenGL la 32biți\n"
+"\n"
+"Puteți întâmpina o problemă cu jocul"
 
-#: python/mainwindow.py:711
+#: python/mainwindow.py:714
 msgid ""
 "{0} is unable to find 64bits OpenGL libraries.\n"
 "\n"
 "You might encounter problem with your games"
 msgstr ""
+"(0) este incapabil să găsească librăriile OpenGL la 64biți.\n"
+"\n"
+"Puteți întâmpina o problemă cu jocul"
 
-#: python/mainwindow.py:765
+#: python/mainwindow.py:768
 msgid "Are you sure you want to  want to install {0} package?"
 msgstr "Sunteți sigur că doriți să instalați (0) pachetul?"
 
-#: python/mainwindow.py:770 python/mainwindow.py:772
+#: python/mainwindow.py:773 python/mainwindow.py:775
 msgid ""
 "You are trying to open a script design for {0}! It might not work as expected"
 msgstr ""
+"Încercați să deschideți un script construit pentru (0)! Nu va lucra după "
+"așteptări"
 
 #: python/options.py:113
 msgid "Proxy configuration"
@@ -4115,7 +4187,7 @@ msgstr "Module instalate"
 
 #: python/options.py:211
 msgid "Add"
-msgstr ""
+msgstr "Adaugă"
 
 #: python/options.py:214 python/options.py:272
 msgid "Enable"

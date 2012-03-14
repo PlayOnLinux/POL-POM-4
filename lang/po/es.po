@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2012-03-05 19:00+0100\n"
-"PO-Revision-Date: 2012-02-22 12:19+0000\n"
-"Last-Translator: Aymeric PETIT <os2mule@gmail.com>\n"
+"POT-Creation-Date: 2012-03-12 19:00+0100\n"
+"PO-Revision-Date: 2012-03-07 23:18+0000\n"
+"Last-Translator: Henry_VE <henry.rondon@gmail.com>\n"
 "Language-Team: es_ES.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-03-06 04:36+0000\n"
-"X-Generator: Launchpad (build 14900)\n"
+"X-Launchpad-Export-Date: 2012-03-13 04:41+0000\n"
+"X-Generator: Launchpad (build 14933)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -241,9 +241,9 @@ msgid "Please insert the game media into your disk drive."
 msgstr "Por favor, inserte el disco de juego en tu unidad de disco"
 
 #: PlayOnLinux_Scripts/18_Wheels_of_Steel_Haulin_:52
-#: PlayOnLinux_Scripts/A.R.E.S.___Extinction_Agenda_:75
+#: PlayOnLinux_Scripts/A.R.E.S.___Extinction_Agenda_:86
 #: PlayOnLinux_Scripts/Age_Of_Empires_II___The_Age_of_Kings_:63
-#: PlayOnLinux_Scripts/Age_Of_Wonders_:48 PlayOnLinux_Scripts/Alan_Wake_:56
+#: PlayOnLinux_Scripts/Age_Of_Wonders_:48 PlayOnLinux_Scripts/Alan_Wake_:75
 #: PlayOnLinux_Scripts/Alice___Madness_Returns_:59
 #: PlayOnLinux_Scripts/Alice___Madness_Returns_:72
 #: PlayOnLinux_Scripts/Alien_Breed_2___Assault_:58
@@ -306,6 +306,7 @@ msgstr "Por favor, seleccione el archivo de instalación para ejecutar"
 #: PlayOnLinux_Scripts/Good_Old_Games___Incoming_and_Incoming_Forces_:41
 #: PlayOnLinux_Scripts/Good_Old_Games___Iron_Storm_:41
 #: PlayOnLinux_Scripts/Good_Old_Games___Jack_Orlando__A_Cinematic_Adventure_:40
+#: PlayOnLinux_Scripts/Good_Old_Games___Lure_of_the_Temptress_:48
 #: PlayOnLinux_Scripts/Good_Old_Games___Nox_:42
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:39
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast___High_resolution_patch_:46
@@ -315,7 +316,7 @@ msgstr "Por favor, seleccione el archivo de instalación para ejecutar"
 #: PlayOnLinux_Scripts/Good_Old_Games___Septerra_Core__Legacy_of_the_Creator_:40
 #: PlayOnLinux_Scripts/Good_Old_Games___Temple_of_Elemental_Evil_:42
 #: PlayOnLinux_Scripts/Good_Old_Games___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:57
-#: PlayOnLinux_Scripts/Good_Old_Games___The_Feeble_Files_:47
+#: PlayOnLinux_Scripts/Good_Old_Games___The_Feeble_Files_:50
 #: PlayOnLinux_Scripts/Good_Old_Games___The_Witcher_Enhanced_Edition_Directors_Cut_:45
 #: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:42
 #: PlayOnLinux_Scripts/Runes_Of_Magic_:49
@@ -342,9 +343,8 @@ msgstr "Por favor espere mientras se instala $TITLE."
 msgid "$TITLE has been successfully installed."
 msgstr "$TITLE se ha instalado correctamente."
 
-#: PlayOnLinux_Scripts/A.R.E.S.___Extinction_Agenda_:63
-#: PlayOnLinux_Scripts/A.R.E.S.___Extinction_Agenda_:68
-#: PlayOnLinux_Scripts/Alan_Wake_:62
+#: PlayOnLinux_Scripts/A.R.E.S.___Extinction_Agenda_:79
+#: PlayOnLinux_Scripts/Alan_Wake_:81
 #: PlayOnLinux_Scripts/Alice___Madness_Returns_:65
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Revelations_:66
 #: PlayOnLinux_Scripts/Batman_Arkham_Asylum_:71
@@ -379,6 +379,14 @@ msgstr ""
 #: PlayOnLinux_Scripts/Age_Of_Wonders_:70
 #, sh-format
 msgid "The introdution movie was renamed because it doesnt"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Aion_:47
+#, sh-format
+msgid ""
+"When Launcher installation will be finished,\\nDo NOT click on Play.\\n\\"
+"nClose COMPLETELY the Launcher interface, \\nso that the installation script "
+"can continue.\\n\\nAlso, decline .NET 2.0 installation by the Launcher."
 msgstr ""
 
 #: PlayOnLinux_Scripts/Alice___Madness_Returns_:110
@@ -1106,7 +1114,7 @@ msgstr ""
 "Espere mientras el 2do parche es descargado...\\nEsta operación puede tomar "
 "algún tiempo, dependiendo de su conexión."
 
-#: PlayOnLinux_Scripts/Desura_:37 PlayOnLinux_Scripts/EA_s_Origin_:37
+#: PlayOnLinux_Scripts/Desura_:37
 #, sh-format
 msgid "Please wait while $TITLE is downloaded..."
 msgstr "Por favor espere mientras $TITLE se descarga ..."
@@ -1179,6 +1187,11 @@ msgstr ""
 "No debe establecer el nivel de sombras al máximo\\no tendrá que borrar y "
 "reinstalar el juego."
 
+#: PlayOnLinux_Scripts/EA_s_Origin_:40
+#, sh-format
+msgid "Downloading $TITLE, please wait..."
+msgstr ""
+
 #: PlayOnLinux_Scripts/Fallout_3___DLC_:22
 #, sh-format
 msgid "Welcome in the DLC Installer for $TITLE"
@@ -1200,6 +1213,7 @@ msgstr "Bienvenido al instalador de DLC para $TITLE"
 #: PlayOnLinux_Scripts/Good_Old_Games___Incoming_and_Incoming_Forces_:31
 #: PlayOnLinux_Scripts/Good_Old_Games___Iron_Storm_:31
 #: PlayOnLinux_Scripts/Good_Old_Games___Jack_Orlando__A_Cinematic_Adventure_:30
+#: PlayOnLinux_Scripts/Good_Old_Games___Lure_of_the_Temptress_:33
 #: PlayOnLinux_Scripts/Good_Old_Games___Nox_:32
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:29
 #: PlayOnLinux_Scripts/Good_Old_Games___Painkiller__Black_Edition_:34
@@ -1207,7 +1221,7 @@ msgstr "Bienvenido al instalador de DLC para $TITLE"
 #: PlayOnLinux_Scripts/Good_Old_Games___Sanitarium_:40
 #: PlayOnLinux_Scripts/Good_Old_Games___Septerra_Core__Legacy_of_the_Creator_:30
 #: PlayOnLinux_Scripts/Good_Old_Games___Temple_of_Elemental_Evil_:32
-#: PlayOnLinux_Scripts/Good_Old_Games___The_Feeble_Files_:32
+#: PlayOnLinux_Scripts/Good_Old_Games___The_Feeble_Files_:35
 #: PlayOnLinux_Scripts/Good_Old_Games___The_Witcher_Enhanced_Edition_Directors_Cut_:35
 #: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:32
 #, sh-format
@@ -1230,6 +1244,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___Incoming_and_Incoming_Forces_:38
 #: PlayOnLinux_Scripts/Good_Old_Games___Iron_Storm_:38
 #: PlayOnLinux_Scripts/Good_Old_Games___Jack_Orlando__A_Cinematic_Adventure_:37
+#: PlayOnLinux_Scripts/Good_Old_Games___Lure_of_the_Temptress_:40
 #: PlayOnLinux_Scripts/Good_Old_Games___Nox_:39
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:36
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast___High_resolution_patch_:43
@@ -1239,7 +1254,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___Septerra_Core__Legacy_of_the_Creator_:37
 #: PlayOnLinux_Scripts/Good_Old_Games___Temple_of_Elemental_Evil_:39
 #: PlayOnLinux_Scripts/Good_Old_Games___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:50
-#: PlayOnLinux_Scripts/Good_Old_Games___The_Feeble_Files_:39
+#: PlayOnLinux_Scripts/Good_Old_Games___The_Feeble_Files_:42
 #: PlayOnLinux_Scripts/Good_Old_Games___The_Witcher_Enhanced_Edition_Directors_Cut_:42
 #: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:39
 #, sh-format
@@ -1262,6 +1277,7 @@ msgstr "Por favor seleccione la configuración del archivo para iniciar"
 #: PlayOnLinux_Scripts/Good_Old_Games___Incoming_and_Incoming_Forces_:46
 #: PlayOnLinux_Scripts/Good_Old_Games___Iron_Storm_:46
 #: PlayOnLinux_Scripts/Good_Old_Games___Jack_Orlando__A_Cinematic_Adventure_:45
+#: PlayOnLinux_Scripts/Good_Old_Games___Lure_of_the_Temptress_:53
 #: PlayOnLinux_Scripts/Good_Old_Games___Nox_:47
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:44
 #: PlayOnLinux_Scripts/Good_Old_Games___Painkiller__Black_Edition_:49
@@ -1270,7 +1286,7 @@ msgstr "Por favor seleccione la configuración del archivo para iniciar"
 #: PlayOnLinux_Scripts/Good_Old_Games___Septerra_Core__Legacy_of_the_Creator_:45
 #: PlayOnLinux_Scripts/Good_Old_Games___Temple_of_Elemental_Evil_:47
 #: PlayOnLinux_Scripts/Good_Old_Games___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:59
-#: PlayOnLinux_Scripts/Good_Old_Games___The_Feeble_Files_:52
+#: PlayOnLinux_Scripts/Good_Old_Games___The_Feeble_Files_:55
 #: PlayOnLinux_Scripts/Good_Old_Games___The_Witcher_Enhanced_Edition_Directors_Cut_:50
 #: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:47
 #: PlayOnLinux_Scripts/Ski_Challenge_2012_:37
@@ -1318,7 +1334,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___Far_Cry_:72
 #, sh-format
 msgid "The level editor"
-msgstr ""
+msgstr "Editor de niveles"
 
 #: PlayOnLinux_Scripts/Good_Old_Games___Far_Cry_:73
 #: PlayOnLinux_Scripts/Good_Old_Games___Giants__Citizen_Kabuto_:60
@@ -1357,6 +1373,14 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___Painkiller__Black_Edition_:27
 #, sh-format
 msgid "Dedicated Server"
+msgstr "Servidor Dedicado"
+
+#: PlayOnLinux_Scripts/Good_Old_Games___Lure_of_the_Temptress_:43
+#: PlayOnLinux_Scripts/Good_Old_Games___The_Feeble_Files_:45
+#, sh-format
+msgid ""
+"This game uses the ScummVM emulator, that also exists natively for Linux.\\"
+"nUse native version when present?"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:81
@@ -1502,7 +1526,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___Painkiller__Black_Edition_:62
 #, sh-format
 msgid "Dedicated server"
-msgstr ""
+msgstr "Servidor Dedicado"
 
 #: PlayOnLinux_Scripts/Good_Old_Games___Sanitarium_:67
 #, sh-format
@@ -1530,13 +1554,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:55
 #, sh-format
 msgid "Now you must install the modpack in directory:"
-msgstr ""
-
-#: PlayOnLinux_Scripts/Good_Old_Games___The_Feeble_Files_:42
-#, sh-format
-msgid ""
-"This game uses the ScummVM emulator, that also exists natively for Linux.\\"
-"nUse native version when present?"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:60
@@ -1593,6 +1610,15 @@ msgstr "Versión digital de lujo"
 msgid "Which edition do you have?"
 msgstr "¿Qué edición tiene?"
 
+#: PlayOnLinux_Scripts/Mass_Effect_3_:70
+#, sh-format
+msgid ""
+"Origin will be launched, open your account\\nand select $TITLE "
+"installation.\\n\\nWhen $TITLE download is finished,\\nDo NOT click on "
+"Play.\\n\\nClose COMPLETELY the Origin interface, \\nso that the "
+"installation script can continue."
+msgstr ""
+
 #: PlayOnLinux_Scripts/Microsoft_Money_2005_:33
 #, sh-format
 msgid "Where is $TITLE install file?"
@@ -1640,7 +1666,7 @@ msgstr ""
 
 #: PlayOnLinux_Scripts/POL_Function_FontsSmoothRGB_:1
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:109 bash/installpolpackages:26
-#: bash/killall:29 bash/winebash:27 lib/wine.lib:686 lib/wine.lib:714
+#: bash/killall:29 bash/winebash:27 lib/wine.lib:714 lib/wine.lib:744
 #, sh-format
 msgid "Please wait..."
 msgstr "Por favor, espere..."
@@ -1708,6 +1734,7 @@ msgstr "Por favor espere mientras se descarga Desura ..."
 #: PlayOnLinux_Scripts/POL_Install_dotnet30_:11
 #: PlayOnLinux_Scripts/POL_Install_dotnet30sp1_:10
 #: PlayOnLinux_Scripts/POL_Install_dotnet35_:10
+#: PlayOnLinux_Scripts/POL_Install_origin_:10
 #: PlayOnLinux_Scripts/POL_Install_wmp9_:9
 #: PlayOnLinux_Scripts/POL_Install_wmpcodecs_:10
 #, sh-format
@@ -1750,7 +1777,7 @@ msgstr "Instalando librerias ..."
 #: PlayOnLinux_Scripts/POL_Install_mono210_:15
 #, sh-format
 msgid "Downloading Mono 2.10..."
-msgstr ""
+msgstr "Descargando Mono 2.10"
 
 #: PlayOnLinux_Scripts/POL_Install_mono26_:15
 #, sh-format
@@ -1760,7 +1787,7 @@ msgstr "Descargando Mono 2.6 ..."
 #: PlayOnLinux_Scripts/POL_Install_mono28_:15
 #, sh-format
 msgid "Downloading Mono 2.8..."
-msgstr ""
+msgstr "Descargando Mono 2.8"
 
 #: PlayOnLinux_Scripts/POL_Install_msxml3_:15
 #, sh-format
@@ -1773,6 +1800,18 @@ msgid ""
 "Warning : msxml3 seems to be already installed.\\nForcing reinstallation."
 msgstr ""
 "Warning : msxml3 parece que ya se ha instalado.\\nForzando reinstalación."
+
+#: PlayOnLinux_Scripts/POL_Install_origin_:19
+#, sh-format
+msgid "Downloading Origin, please wait..."
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_Install_origin_:29
+#, sh-format
+msgid ""
+"Setup will launch Origin after installation\\n close it COMPLETELY to "
+"continue."
+msgstr ""
 
 #: PlayOnLinux_Scripts/POL_Install_quartz_:13
 #, sh-format
@@ -2475,7 +2514,7 @@ msgid "Please choose a software"
 msgstr "Elija un software"
 
 #: bash/manual_install:27 bash/manual_install:111 bash/manual_install:118
-#: bash/manual_install:195
+#: bash/manual_install:194
 #, sh-format
 msgid "Manual installation"
 msgstr "Instalación manual"
@@ -2537,7 +2576,7 @@ msgstr "Elija un programa"
 msgid "Use another version of Wine"
 msgstr "Use otra versión de Wine"
 
-#: bash/manual_install:160 bash/manual_install:195 bash/polconfigurator:107
+#: bash/manual_install:160 bash/manual_install:194 bash/polconfigurator:107
 #: python/configure.py:153 python/mainwindow.py:393 python/mainwindow.py:428
 #, sh-format
 msgid "Configure Wine"
@@ -2563,37 +2602,37 @@ msgstr "¿Qué le gustaria hacer antes de la instalación?"
 msgid "Which version of Wine would you like to use?"
 msgstr "¿Qué versión de Wine le gustaría utilizar?"
 
-#: bash/manual_install:206 lib/scripts.lib:292
+#: bash/manual_install:205 lib/scripts.lib:292
 #, sh-format
 msgid "Please make your choice"
 msgstr "Haga su elección"
 
-#: bash/manual_install:230
+#: bash/manual_install:229
 #, sh-format
 msgid "Looking for runnable CD-ROMs"
 msgstr "Buscando CD-ROMs ejecutables"
 
-#: bash/manual_install:253
+#: bash/manual_install:252
 #, sh-format
 msgid "Select another file"
 msgstr "Seleccione otro archivo"
 
-#: bash/manual_install:261
+#: bash/manual_install:260
 #, sh-format
 msgid "Please choose a way to install your program"
 msgstr "Elija un método para instalar el programa"
 
-#: bash/manual_install:270
+#: bash/manual_install:269
 #, sh-format
 msgid "Please select the install file to run."
 msgstr "Seleccione el archivo instalador a ejecutar."
 
-#: bash/manual_install:300
+#: bash/manual_install:299
 #, sh-format
 msgid "You must choose a file!"
 msgstr "¡Debe seleccionar un archivo!"
 
-#: bash/manual_install:306
+#: bash/manual_install:305
 #, sh-format
 msgid "$APPLICATION_TITLE is installing your application..."
 msgstr "$APPLICATION_TITLE está instalando la aplicación..."
@@ -3057,22 +3096,22 @@ msgstr "$APPLICATION_TITLE está ejecutando su programa"
 msgid "Waiting for the first-assistant to be finished"
 msgstr ""
 
-#: bash/run_exe:80
+#: bash/run_exe:93
 #, sh-format
 msgid "$APPLICATION_TITLE is analysing your application"
 msgstr "$APPLICATION_TITLE está analizando su aplcación"
 
-#: bash/run_exe:89
+#: bash/run_exe:102
 #, sh-format
 msgid "Do you want $APPLICATION_TITLE to install it automatically for you?"
 msgstr "¿Quiere que $APPLICATION_TITLE lo instale automáticamente?"
 
-#: bash/run_exe:89
+#: bash/run_exe:102
 #, sh-format
 msgid "We have detected that the program you want to install is :"
 msgstr "Hemos detectado que el programa que quiere instalar es:"
 
-#: bash/run_exe:101
+#: bash/run_exe:114
 #, sh-format
 msgid ""
 "$APPLICATION_TITLE has already run this program.\\nDo you want to keep the "
@@ -3186,8 +3225,8 @@ msgstr "Versión de Wine usada por PlayOnLinux: "
 msgid "Free space on your hard drives:"
 msgstr "Espacio libre en sus discos duros:"
 
-#: bash/uninstall:25 bash/uninstall:52 bash/uninstall:55
-#: lib/playonlinux.lib:672
+#: bash/uninstall:25 bash/uninstall:52 bash/uninstall:55 bash/uninstall:57
+#: lib/playonlinux.lib:673
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
 msgstr "Desinstalador de $APPLICATION_TITLE"
@@ -3207,7 +3246,7 @@ msgstr "Pulse Siguiente para continuar."
 msgid "This wizard will help you to uninstall: "
 msgstr "Este asistente le ayudará a deinstalar: "
 
-#: bash/uninstall:52 lib/playonlinux.lib:672
+#: bash/uninstall:52 lib/playonlinux.lib:673
 #, sh-format
 msgid "Uninstalling..."
 msgstr "Desinstalando..."
@@ -3221,12 +3260,6 @@ msgstr " ha sido desinstalado satisfactoriamente."
 #, sh-format
 msgid "Cannot find the shortcut"
 msgstr "No puedo encontrar el atajo"
-
-#: bash/uninstall:57 lib/setupwindow.lib:143 python/mainwindow.py:693
-#: python/mainwindow.py:702 python/mainwindow.py:711
-#, sh-format
-msgid "Error"
-msgstr "Error"
 
 #: lib/depend.lib:32
 #, sh-format
@@ -3270,12 +3303,12 @@ msgstr ""
 "aceleración 3D."
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:587
+#: lib/wine.lib:610
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr "Espere mientras se crea la unidad virtual"
 
-#: lib/deprecated.lib:427 lib/wine.lib:730
+#: lib/deprecated.lib:427 lib/wine.lib:760
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a Windows reboot"
 msgstr "Espere mientras $APPLICATION_TITLE simula un reinicio de Windows"
@@ -3285,16 +3318,16 @@ msgstr "Espere mientras $APPLICATION_TITLE simula un reinicio de Windows"
 msgid "Setting Program Files var"
 msgstr ""
 
-#: lib/playonlinux.lib:164 lib/playonlinux.lib:170 lib/playonlinux.lib:176
-#: lib/playonlinux.lib:182 lib/playonlinux.lib:188 lib/playonlinux.lib:194
-#: lib/playonlinux.lib:201 lib/playonlinux.lib:207 lib/playonlinux.lib:213
-#: lib/playonlinux.lib:219 lib/playonlinux.lib:225 lib/playonlinux.lib:231
-#: lib/playonlinux.lib:237
+#: lib/playonlinux.lib:165 lib/playonlinux.lib:171 lib/playonlinux.lib:177
+#: lib/playonlinux.lib:183 lib/playonlinux.lib:189 lib/playonlinux.lib:195
+#: lib/playonlinux.lib:202 lib/playonlinux.lib:208 lib/playonlinux.lib:214
+#: lib/playonlinux.lib:220 lib/playonlinux.lib:226 lib/playonlinux.lib:232
+#: lib/playonlinux.lib:238
 #, sh-format
 msgid "This function is disabled in the PlayOnlinux environment."
 msgstr "Esta función está desactivada en el entorno de PlayOnLInux."
 
-#: lib/playonlinux.lib:296
+#: lib/playonlinux.lib:297
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -3302,12 +3335,12 @@ msgid ""
 "responsible from it.\\nPlease ensure you know what you are doing !"
 msgstr ""
 
-#: lib/playonlinux.lib:297
+#: lib/playonlinux.lib:298
 #, sh-format
 msgid "Here the source code of the script. Check it carefully"
 msgstr ""
 
-#: lib/playonlinux.lib:316
+#: lib/playonlinux.lib:317
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -3315,22 +3348,22 @@ msgid ""
 "responsible from it.\\nPlease ensure you know what you are doing!"
 msgstr ""
 
-#: lib/playonlinux.lib:317
+#: lib/playonlinux.lib:318
 #, sh-format
 msgid "External library"
 msgstr ""
 
-#: lib/playonlinux.lib:317
+#: lib/playonlinux.lib:318
 #, sh-format
 msgid "Here the source code of the script. Check it carrefully"
 msgstr ""
 
-#: lib/playonlinux.lib:548
+#: lib/playonlinux.lib:549
 #, sh-format
 msgid "Making shortcut..."
 msgstr "Creando acceso directo..."
 
-#: lib/playonlinux.lib:670
+#: lib/playonlinux.lib:671
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr "¿Quiere borrar la unidad virtual:"
@@ -3447,6 +3480,12 @@ msgstr "Este asisten le ayudará a instalar "
 msgid "Welcome to $APPLICATION_TITLE Installation Wizard."
 msgstr ""
 
+#: lib/setupwindow.lib:143 python/mainwindow.py:696 python/mainwindow.py:705
+#: python/mainwindow.py:714
+#, sh-format
+msgid "Error"
+msgstr "Error"
+
 #: lib/setupwindow.lib:655
 #, sh-format
 msgid "Where is mounted your CD-ROM?"
@@ -3549,51 +3588,51 @@ msgid ""
 msgstr ""
 "¡Imposible conectar!\\n Asegúrese de que su login y contraseña son correctas."
 
-#: lib/wine.lib:449
+#: lib/wine.lib:471
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
 "message"
 msgstr ""
 
-#: lib/wine.lib:499
+#: lib/wine.lib:522
 #, sh-format
 msgid "Unable to find version: "
 msgstr "Incapaz de encontrar la versión: "
 
-#: lib/wine.lib:505 lib/wine.lib:506
+#: lib/wine.lib:528 lib/wine.lib:529
 #, sh-format
 msgid "Downloading Wine: "
 msgstr "Descargando Wine: "
 
-#: lib/wine.lib:515
+#: lib/wine.lib:538
 #, sh-format
 msgid "The download seems to have failed."
 msgstr "La descarga parece haber fallado."
 
-#: lib/wine.lib:517
+#: lib/wine.lib:540
 #, sh-format
 msgid "Extracting Wine..."
 msgstr "Extrayendo Wine..."
 
-#: lib/wine.lib:686 lib/wine.lib:714
+#: lib/wine.lib:714 lib/wine.lib:744
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "Espere mientras se instala $SOFTNAME..."
 
-#: lib/wine.lib:690 lib/wine.lib:717
+#: lib/wine.lib:718 lib/wine.lib:747
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
 "have to reinstall $SOFTNAME"
 msgstr ""
 
-#: lib/wine.lib:690 lib/wine.lib:717
+#: lib/wine.lib:718 lib/wine.lib:747
 #, sh-format
 msgid "Install is done"
 msgstr ""
 
-#: lib/wine.lib:721 lib/wine.lib:722
+#: lib/wine.lib:751 lib/wine.lib:752
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr ""
@@ -3980,15 +4019,19 @@ msgstr "menú de instalación {0}"
 msgid "{0} wine versions manager"
 msgstr "administrador de versiones {0}"
 
-#: python/mainwindow.py:650
+#: python/mainwindow.py:649
+msgid "The virtual drive associated with {0} ({1}) does no longer exists."
+msgstr ""
+
+#: python/mainwindow.py:653
 msgid "Are you sure you want to close all {0} Windows?"
 msgstr "¿Está seguro que desea cerrar todas las ventanas de {0}?"
 
-#: python/mainwindow.py:670
+#: python/mainwindow.py:673
 msgid "Run your Windows programs on "
 msgstr "Ejecute sus programas de Windows en "
 
-#: python/mainwindow.py:671
+#: python/mainwindow.py:674
 msgid ""
 "(C) PlayOnLinux and PlayOnMac team 2011\n"
 "Under GPL licence version 3"
@@ -3996,57 +4039,57 @@ msgstr ""
 "(C) Equipo de PlayOnLinux y PlayOnMac 2011\n"
 "Bajo licencia GPL versión 3"
 
-#: python/mainwindow.py:672
+#: python/mainwindow.py:675
 msgid "Developer and Website: "
 msgstr "Desarrollador y página Web: "
 
-#: python/mainwindow.py:673
+#: python/mainwindow.py:676
 msgid "Scriptors: "
 msgstr "Scriptors: "
 
-#: python/mainwindow.py:674
+#: python/mainwindow.py:677
 msgid "Packager: "
 msgstr "Empaquetador: "
 
-#: python/mainwindow.py:675
+#: python/mainwindow.py:678
 msgid "Icons:"
 msgstr "Iconos:"
 
-#: python/mainwindow.py:676
+#: python/mainwindow.py:679
 msgid "The following people contributed to this program: "
 msgstr "Las siguientes personas han contribuido a este programa: "
 
-#: python/mainwindow.py:677
+#: python/mainwindow.py:680
 msgid "Translations:"
 msgstr "Traducciones:"
 
-#: python/mainwindow.py:678
+#: python/mainwindow.py:681
 msgid "Read TRANSLATORS file"
 msgstr "Leer archivo de TRADUCTORES"
 
-#: python/mainwindow.py:693
+#: python/mainwindow.py:696
 msgid "{0} is not supposed to be run as root. Sorry"
 msgstr "{0} no debe ser ejecutado como root. Lo siento"
 
-#: python/mainwindow.py:702
+#: python/mainwindow.py:705
 msgid ""
 "{0} is unable to find 32bits OpenGL libraries.\n"
 "\n"
 "You might encounter problem with your games"
 msgstr ""
 
-#: python/mainwindow.py:711
+#: python/mainwindow.py:714
 msgid ""
 "{0} is unable to find 64bits OpenGL libraries.\n"
 "\n"
 "You might encounter problem with your games"
 msgstr ""
 
-#: python/mainwindow.py:765
+#: python/mainwindow.py:768
 msgid "Are you sure you want to  want to install {0} package?"
 msgstr "¿Está seguro que desea instalar el paquete {0}?"
 
-#: python/mainwindow.py:770 python/mainwindow.py:772
+#: python/mainwindow.py:773 python/mainwindow.py:775
 msgid ""
 "You are trying to open a script design for {0}! It might not work as expected"
 msgstr ""
