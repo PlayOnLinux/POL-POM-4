@@ -2,7 +2,6 @@
 
 # Copyright (C) 2007-2010 PlayOnLinux Team
 # Copyright (C) 2008 Pâris Quentin
-# Copyright (C) 2009 Łukasz Wojniłowicz
 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -18,7 +17,11 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
 
-# Wine is very slow when piped! This is a kind of hack to solve this problem
+# Wine is very slow when piped! This is a dirty hack to solve this problem
 
-wine "$@" 2>&1
+rwine()
+{
+	exec wine "$@"
+}
+rwine "$@" 2>&1
 exit
