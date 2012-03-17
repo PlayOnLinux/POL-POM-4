@@ -451,10 +451,10 @@ POL_Wine ()
 
 
 	if [ "$LOGFILE" = "/dev/null" -o "$KeepOutput" = "True" ]; then
-		wine "$@" 2>&1 | grep -v menubuilder.exe | tee -a "$WINEPREFIX/playonlinux.log"
+		"$PLAYONLINUX/bash/wine_exec" "$@" | grep -v menubuilder.exe | tee -a "$WINEPREFIX/playonlinux.log"
 		errors=$?
 	else
-		wine "$@" 2>&1 | grep -v menubuilder.exe | tee -a "$LOGFILE" | tee -a "$WINEPREFIX/playonlinux.log"
+		"$PLAYONLINUX/bash/wine_exec" "$@" | grep -v menubuilder.exe | tee -a "$LOGFILE" | tee -a "$WINEPREFIX/playonlinux.log"
 		errors=$?
 	fi
 
