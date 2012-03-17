@@ -19,8 +19,4 @@
 
 # Wine is very slow when piped! This is a dirty hack to solve this problem
 
-rwine()
-{
-	exec wine "$@"
-}
-rwine "$@" 2>&1
+"$PLAYONLINUX/bash/rwine" "$@" 2>&1
