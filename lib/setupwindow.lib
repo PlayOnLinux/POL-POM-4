@@ -901,12 +901,17 @@ POL_SetupWindow_InstallMethod()
 	# Shows a list of install methods
 	# Usage: POL_SetupWindow_InstallMethod [List]
 	# Elements in list are separated by a coma
-	# Accepted methods are STEAM, STEAM_DEMO, LOCAL, CD, DVDROM, DOWNLOAD
+	# Accepted methods are STEAM, STEAM_DEMO, LOCAL, CD, DVDROM, DOWNLOAD, ORIGIN, ORIGIN_DEMO, DESURA, DESURA_DEMO
 	[ "$1" = "" ] && POL_Debug_Fatal "No method in list"
 	STR=""
 	ICO=""
 	LNG_STEAM="$(eval_gettext "Use Steam Store version")"
 	LNG_STEAM_DEMO="$(eval_gettext "Use Steam Store demo version")"
+	LNG_DESURA="$(eval_gettext "Use Desura Store version")"
+	LNG_DESURA_DEMO="$(eval_gettext "Use Desura Store demo version")"
+	LNG_ORIGIN="$(eval_gettext "Use Origin Store version")"
+	LNG_ORIGIN_DEMO="$(eval_gettext "Use Origin Store demo version")"
+	
 	LNG_LOCAL="$(eval_gettext "Use a setup file in my computer")"
 	LNG_CDROM="$(eval_gettext "Use CD-ROM(s)")"
 	LNG_DVD="$(eval_gettext "Use DVD-ROM(s)")"
@@ -937,6 +942,30 @@ POL_SetupWindow_InstallMethod()
 		STR="$STR~$LNG_STEAM_DEMO"
 		ICO="$ICO~download.png"
 	fi
+	
+	if [ ! "$(printf "$1" | grep DESURA)" = "" ] 
+	then 
+		STR="$STR~$LNG_DESURA"
+		ICO="$ICO~download.png"
+	fi
+	if [ ! "$(printf "$1" | grep DESURA_DEMO)" = "" ] 
+	then 
+		STR="$STR~$LNG_DESURA_DEMO"
+		ICO="$ICO~download.png"
+	fi
+	
+	if [ ! "$(printf "$1" | grep ORIGIN)" = "" ] 
+	then 
+		STR="$STR~$LNG_ORIGIN"
+		ICO="$ICO~download.png"
+	fi
+	if [ ! "$(printf "$1" | grep ORIGIN_DEMO)" = "" ] 
+	then 
+		STR="$STR~$LNG_ORIGIN_DEMO"
+		ICO="$ICO~download.png"
+	fi
+	
+	
 	if [ ! "$(printf "$1" | grep DOWNLOAD)" = "" ] 
 	then 
 		STR="$STR~$LNG_DOWNLOAD"
@@ -963,6 +992,10 @@ POL_SetupWindow_InstallMethod()
 	[ "$APP_ANSWER" = "$LNG_LOCAL" ] && INSTALL_METHOD="LOCAL"
 	[ "$APP_ANSWER" = "$LNG_STEAM" ] && INSTALL_METHOD="STEAM"
 	[ "$APP_ANSWER" = "$LNG_STEAM_DEMO" ] && INSTALL_METHOD="STEAM_DEMO"
+	[ "$APP_ANSWER" = "$LNG_DESURA" ] && INSTALL_METHOD="DESURA"
+	[ "$APP_ANSWER" = "$LNG_DESURA_DEMO" ] && INSTALL_METHOD="DESURA_DEMO"
+	[ "$APP_ANSWER" = "$LNG_ORIGIN" ] && INSTALL_METHOD="ORIGIN"
+	[ "$APP_ANSWER" = "$LNG_ORIGIN_DEMO" ] && INSTALL_METHOD="ORIGIN_DEMO"
 	[ "$APP_ANSWER" = "$LNG_DOWNLOAD" ] && INSTALL_METHOD="DOWNLOAD"
 	[ "$APP_ANSWER" = "$LNG_DVD" ] && INSTALL_METHOD="DVD"
 	[ "$APP_ANSWER" = "$LNG_CDROM" ] && INSTALL_METHOD="CD"
