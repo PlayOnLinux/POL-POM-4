@@ -63,7 +63,8 @@ maj_check ()
 	LAST_TIMESTAMP="$(POL_Config_Read LAST_TIMESTAMP)"
 
 	wget -4 "$SITE/V4_data/repository/getf.php" -O- -q > "$REPERTOIRE/configurations/POL_Functions" && mv "$REPERTOIRE/configurations/POL_Functions" "$REPERTOIRE/configurations/listes/POL_Functions"
-	
+	# Gecko
+	wget -4 "$GECKO_SITE/gecko.lst" -O- -q > "$REPERTOIRE/tmp/gecko.lst" && mv "$REPERTOIRE/tmp/gecko.lst" "$REPERTOIRE/configurations/listes/gecko.lst"
 	if [ ! "$WEB_TIMESTAMP" = "" ] && [ ! "$WEB_TIMESTAMP" = "$LAST_TIMESTAMP" ] # On évite les mises à jours inutiles
 	then
 		POL_Debug_Message "Web version : $WEB_TIMESTAMP"

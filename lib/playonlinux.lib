@@ -52,12 +52,15 @@ construire_repertoire_personnel ()
 		mkdir -p "$REPERTOIRE/wine/darwin-x86"
 		mkdir -p "$REPERTOIRE/wine/darwin-amd64"
 	fi
+	mkdir -p "$REPERTOIRE/wine/gecko"
 	mkdir -p "$REPERTOIRE/plugins"
 	mkdir -p "$REPERTOIRE/configurations/guis"
 	mkdir -p "$REPERTOIRE/configurations/configurators"
 	mkdir -p "$REPERTOIRE/configurations/setups"
 	touch "$POL_USER_ROOT/configurations/custom"
 	touch "$POL_USER_ROOT/playonlinux.cfg"
+	touch "$REPERTOIRE/configurations/listes/gecko.lst"
+	
 }
 
 clean_tmp ()

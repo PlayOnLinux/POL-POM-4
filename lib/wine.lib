@@ -501,7 +501,7 @@ POL_Wine_InstallVersion()
 	if [ ! -e "$WINEDIR/$POL_WINEVERSION" ]
 	then
 		
-		WINE_ADDRESS=$(wget -4 "$WINE_SITE/$WINE_SECTION.lst" -O- | grep ";$POL_WINEVERSION;" | tail -n 1 | cut -d ";" -f1)
+		WINE_ADDRESS=$(wget -4 "$WINE_SITE/$WINE_SECTION.lst" -q -O- | grep ";$POL_WINEVERSION;" | tail -n 1 | cut -d ";" -f1)
 		if [ "$WINE_ADDRESS" = "" ] && [ "$POL_ARCH" = "amd64" ]
 		then
 			POL_Debug_Warning "Wine $1 amd64 does not exist. Switching to x86"
@@ -519,7 +519,7 @@ POL_Wine_InstallVersion()
 			POL_SetupWindow_download "$(eval_gettext "Downloading Wine: ")$POL_WINEVERSION" "Wine" "$WINE_SITE/$WINE_SECTION/$WINE_ADDRESS"
 			POL_SetupWindow_wait_next_signal "$(eval_gettext "Downloading Wine: ")$POL_WINEVERSION" "Wine"
 			sleep 1
-			sha1=$(wget -4 "$WINE_SITE/$WINE_SECTION/$WINE_ADDRESS.sha1" -O- | awk '{print $1}')
+			sha1=$(wget -4 -q "$WINE_SITE/$WINE_SECTION/$WINE_ADDRESS.sha1" -O- | awk '{print $1}')
 			sha1_file=$(shasum "./$WINE_ADDRESS" | awk '{print $1}')
 			echo "Server sha1 : $sha1"
 			echo "Client sha1 : $sha1_file"
@@ -532,10 +532,59 @@ POL_Wine_InstallVersion()
 				"$PLAYONLINUX/playonlinux-pkg" -i "$PWD/$WINE_ADDRESS"
 			fi
 			rm "$WINE_ADDRESS"
+			POL_Wine_Install_gecko "$POL_WINEVERSION" "$POL_ARCH"
 		fi
 	fi
 	rm "$WINEDIR/installing"
 	
+}
+POL_Wine_Install_gecko()
+{
+	# Install gecko for selected wine version
+	# Usage : POL_Wine_Install_gecko [ Version ] ( Arch )
+	[ "$1" = "" ] && return 1
+	[ ! "$2" = "" ] && arch="$2" || arch="x86"
+	[ "$arch" = "amd64" ] || arch="x86"
+	
+	POL_Debug_Message "Installing gecho for wine $1 $arch"
+	gecko_dir="$REPERTOIRE/wine/gecko"
+	gecko_file="$REPERTOIRE/configurations/listes/gecko.lst"
+	found="$(grep "^$1;" "$gecko_file")"
+	[ "$POL_OS" = "Linux" ] && wos="linux"
+	[ "$POL_OS" = "Mac" ] && wos="darwin"
+	
+	if [ ! -L "$POL_USER_ROOT/wine/$wos-$arch/$1/share/wine/gecko" ]
+	then
+		POL_Debug_Message "Linking gecko"
+		ln -s "$POL_USER_ROOT/wine/gecko/" "$POL_USER_ROOT/wine/$wos-$arch/$1/share/wine/gecko"
+	fi
+	if [ "$found" ]; then
+		gecko1="$(cut -d ';' -f2 <<< $found)"
+		gecko2="$(cut -d ';' -f3 <<< $found)"
+		md5_1="$(cut -d ';' -f4 <<< $found)"
+		md5_2="$(cut -d ';' -f5 <<< $found)"
+		
+		cd "$gecko_dir"
+		if [ "$gecko1" ]; then
+			if [ -e "$gecko1" ]; then
+				POL_Debug_Message "$gecko1 already installed. Skipping"
+			else
+				POL_Debug_Message "Installing $gecko1"
+				POL_Download "$GECKO_SITE/x86/$gecko1" "$md5_1"
+			fi
+		fi
+		
+		if [ "$arch" = "amd64" ]; then
+			if [ "$gecko2" ]; then
+				if [ -e "$gecko2" ]; then
+					POL_Debug_Message "$gecko2 already installed. Skipping"
+				else
+					POL_Debug_Message "Installing $gecko2"
+					POL_Download "$GECKO_SITE/amd64/$gecko2" "$md5_2"
+				fi
+			fi
+		fi
+	fi
 }
 POL_Wine_AutoSetVersionEnv()
 {

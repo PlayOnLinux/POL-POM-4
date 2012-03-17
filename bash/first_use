@@ -320,3 +320,4 @@ install_prefix
 POL_SetupWindow_message "$(eval_gettext 'Thank you for using $APPLICATION_TITLE')" "$(eval_gettext '$APPLICATION_TITLE first use')"
 POL_SetupWindow_Close
 POL_Config_Write FIRST_USE TRUE
+POL_Config_Write GECKO_INSTALLED TRUE
