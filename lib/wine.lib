@@ -449,24 +449,15 @@ POL_Wine ()
 		echo '-----------' >> "$WINEPREFIX/playonlinux.log"
 	fi
 
-	## Notice ! Here, We don't use tee because pipes really slow done wine !
-	TMPFILE="$POL_USER_ROOT/tmp/wine_$$.log"
-	touch "$TMPFILE"
-	tail -f "$TMPFILE" 2> /dev/null & tmp_pid="$!"
+
 	if [ "$LOGFILE" = "/dev/null" -o "$KeepOutput" = "True" ]; then
-		wine "$@" >> "$TMPFILE" 2>&1 
+		wine "$@" 2>&1 | grep -v menubuilder.exe | tee -a "$WINEPREFIX/playonlinux.log"
 		errors=$?
-		cat "$TMPFILE" >> "$WINEPREFIX/playonlinux.log"
-		rm "$TMPFILE" 2> /dev/null
 	else
-		wine "$@" >> "$TMPFILE" 2>&1
+		wine "$@" 2>&1 | grep -v menubuilder.exe | tee -a "$LOGFILE" | tee -a "$WINEPREFIX/playonlinux.log"
 		errors=$?
-		cat "$TMPFILE" >> "$WINEPREFIX/playonlinux.log"
-		cat "$TMPFILE" >> "$LOGFILE"
-		rm "$TMPFILE" 2> /dev/null
 	fi
-	disown "$tmp_pid"
-	kill "$tmp_pid"
+
 	if [ $errors != 0 -a "$NoErrors" != "True" ]; then
 		POL_Debug_Error "$(eval_gettext 'Wine seems to have crashed\n\nIf your program is running, just ignore this message')"
 	fi
@@ -696,7 +687,7 @@ POL_Wine_OverrideDLL_App()
 		shift
 		DLL="$3"
 	done
-	regedit app_dll_override.reg
+	POL_Wine regedit app_dll_override.reg
 	rm app_dll_override.reg
 }
 POL_Wine_WaitBefore ()
