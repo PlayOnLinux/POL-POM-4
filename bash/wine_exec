@@ -22,6 +22,7 @@
 rwine()
 {
 	exec wine "$@"
+	return "$?"
 }
 rwine "$@" 2>&1
-exit
+exit "$?"
