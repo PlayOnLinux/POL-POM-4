@@ -546,7 +546,7 @@ POL_Wine_Install_gecko()
 	[ ! "$2" = "" ] && arch="$2" || arch="x86"
 	[ "$arch" = "amd64" ] || arch="x86"
 	
-	POL_Debug_Message "Installing gecho for wine $1 $arch"
+	POL_Debug_Message "Installing gecko for wine $1 $arch"
 	gecko_dir="$REPERTOIRE/wine/gecko"
 	gecko_file="$REPERTOIRE/configurations/listes/gecko.lst"
 	found="$(grep "^$1;" "$gecko_file")"
