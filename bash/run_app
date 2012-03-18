@@ -129,7 +129,7 @@ then
 	xterm -T "$(eval_gettext "$APPLICATION_TITLE debugger")" -e "echo \"Writting log to $LOGFILE.e\" && echo \"\" && sleep 1 && tail -f \"$LOGFILE.e\"" &
 fi
 
-export NoErrors="True"
+export POL_IgnoreWineErrors="True"
 $(POL_Config_Read PRE_RUNNING)
 bash "$PACKAGE" 2>> "$LOGFILE.e" >> "$LOGFILE.e"
 
