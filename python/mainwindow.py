@@ -308,7 +308,7 @@ class MainWindow(wx.Frame):
 	self.toolbar.AddSeparator()
 	self.toolbar.AddLabelTool(121, _("Configure"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/configure.png"))
 	self.toolbar.AddLabelTool(122, _("Shortcut"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/package.png"))
-	self.toolbar.AddLabelTool(123, _("Messenger"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/messenger.png"))
+	#self.toolbar.AddLabelTool(123, _("Messenger"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/messenger.png"))
 
 	#self.toolbar.DoMenuUpdate(self.toolbar)
 	self.toolbar.Realize()
