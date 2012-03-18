@@ -728,3 +728,17 @@ POL_Internal_RunXQuartz()
 	open "/Applications/Utilities/XQuartz.app"
 	defaults write org.macosforge.xquartz.X11 app_to_run "$current_appToRun" # Restaure default behavior
 }
+
+POL_Internal_KillAll()
+{
+	for WId in $(ps aux | grep PlayOnMac | grep bash | awk '{print $2}'); 
+	do 
+		kill $WId; 
+		cat << EOF > "$REPERTOIRE/configurations/guis/$WId"
+MsgIn
+exit
+EOF
+sleep 1
+rm "$REPERTOIRE/configurations/guis/$WId" 2> /dev/null
+	done
+}
