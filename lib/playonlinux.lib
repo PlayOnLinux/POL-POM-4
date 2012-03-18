@@ -731,7 +731,7 @@ POL_Internal_RunXQuartz()
 
 POL_Internal_KillAll()
 {
-	for WId in $(ps aux | grep PlayOnMac | grep bash | awk '{print $2}'); 
+	for WId in $(ps aux | grep $APPLICATION_TITLE | grep bash | awk '{print $2}'); 
 	do 
 		kill $WId; 
 		cat << EOF > "$REPERTOIRE/configurations/guis/$WId"
