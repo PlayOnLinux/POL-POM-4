@@ -34,7 +34,7 @@ source "$PLAYONLINUX/lib/sources"
 
 Check_OpenGL()
 {
-	if [ -x "$PLAYONLINUX/bin/check_dd_$1.bz2" ]
+	if [ -e "$PLAYONLINUX/bin/check_dd_$1.bz2" ]
 	then
 		cp "$PLAYONLINUX/bin/check_dd_$1.bz2" "$POL_USER_ROOT/tmp/"
 		bunzip2 "$POL_USER_ROOT/tmp/check_dd_$1.bz2"
