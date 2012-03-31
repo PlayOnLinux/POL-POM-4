@@ -778,9 +778,9 @@ POL_System_CheckFS()
 	
 	PartInfo="$(POL_System_PartInfo "$1")"
 
-	FS_Check "$PartInfo" "vfat" "The following file is located on a FAT32 filesystem.\nIt might prevent wine from working\n\n$1" || return 1
-	FS_Check "$PartInfo" "ntfs" "The following file is located on a NTFS filesystem.\nIt might prevent wine from working\n\n$1" || return 1
-	FS_Check "$PartInfo" "fuseblk" "The following file is located on a fuse filesystem.\nIt might prevent wine from working\n\n$1" || return 1
-	FS_Check "$PartInfo" "noexec" "The following file is located on a noexec mounted filesystem.\nIt might prevent wine from working\n\n$1" || return 1
+	FS_Check "$PartInfo" "vfat" "$(eval_gettext 'The following file is located on a FAT32 filesystem.\nIt might prevent wine from working\n\n$1')" || return 1
+	FS_Check "$PartInfo" "ntfs" "$(eval_gettext 'The following file is located on a NTFS filesystem.\nIt might prevent wine from working\n\n$1')" || return 1
+	FS_Check "$PartInfo" "fuseblk" "$(eval_gettext 'The following file is located on a fuse filesystem.\nIt might prevent wine from working\n\n$1')" || return 1
+	FS_Check "$PartInfo" "noexec" "$(eval_gettext 'The following file is located on a noexec mounted filesystem.\nIt might prevent wine from working\n\n$1')" || return 1
 	return 0
 }
