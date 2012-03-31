@@ -217,7 +217,7 @@ POL_Shortcut()
 
 	if [ -n "$ICON_WEB_NAME" ]; then
 		if [ ! "$OFFLINE" = "1" ]; then # On peut le télécharger...
-			wget -4 -q "$SITE/icones/$ICON_WEB_NAME" -O- > "$REPERTOIRE/icones/full_size/$NOMICONE_" || rm "$REPERTOIRE/icones/full_size/$NOMICONE_"  # On prend l'icone full size
+			$POL_WGET "$SITE/icones/$ICON_WEB_NAME" -O- > "$REPERTOIRE/icones/full_size/$NOMICONE_" || rm "$REPERTOIRE/icones/full_size/$NOMICONE_"  # On prend l'icone full size
 		fi
 		
 		if [ -f "$REPERTOIRE/icones/full_size/$NOMICONE_" ]; then
@@ -270,7 +270,7 @@ POL_Call()
 	then	
 		OLD_PC_DIR="$PWD"
 		cd "$REPERTOIRE/tmp/"
-		wget -4 -q "$SITE/V4_data/repository/get_file.php?version=playonlinux-$VERSION&id=$1" -O- > "$1"
+		$POL_WGET "$SITE/V4_data/repository/get_file.php?version=playonlinux-$VERSION&id=$1" -O- > "$1"
 		polMd5="$(POL_MD5_file "$1")"
 		if [ "$polMd5" = "68b329da9893e34099c7d8ad5cb9c940" ] || [ "$polMd5" = "0f1b63a74ab217a19270be0df9e0590d" ] # Empty file
 		then
@@ -288,7 +288,7 @@ POL_Call_list ()
 	
 	[ "$WINEPREFIX" == "" ] && POL_Debug_Fatal "POL_Call_list : WINEPREFIX is not set"
 	wineserver -k
-	ITEMS=$(wget -4 -q $SITE/V4_data/repository/getf.php -O-)
+	ITEMS=$($POL_WGET $SITE/V4_data/repository/getf.php -O-)
 	POL_SetupWindow_checkbox_list "$(eval_gettext "Please make your choice")" "$APPLICATION_TITLE" "$ITEMS" "/"
  
 	old="$IFS"

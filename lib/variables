@@ -76,6 +76,8 @@ then
 	export POL_LANG="$(defaults read -g AppleLocale | cut -d _ -f1)"
 	export MD5_COMMAND="md5"
 fi
+#Wget
+export POL_WGET="wget -4 -q"
 	
 #Codes de sorties 
 EXIT_MISSING=2
