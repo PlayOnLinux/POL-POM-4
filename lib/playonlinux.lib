@@ -773,6 +773,8 @@ POL_System_CheckFS()
 		DebugType="POL_Debug_Error"
 	fi
 	
+	POL_Debug_Message "Checking filesystem for $1"
+	
 	PartInfo="$(POL_System_PartInfo "$1")"
 	FS_Check "$PartInfo" "vfat" "$1 is located on a FAT32 filesystem. It might prevent wine from working" || return 1
 	FS_Check "$PartInfo" "ntfs" "$1 is located on a NTFS filesystem. It might prevent wine from working" || return 1
