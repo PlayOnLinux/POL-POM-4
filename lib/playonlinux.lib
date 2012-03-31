@@ -751,7 +751,7 @@ POL_System_FindPart()
 }
 POL_System_PartInfo()
 {
-	awk '$1 == "'$(POL_System_FindPart $1)'"' /etc/mtab
+	awk '$1 == "'$(POL_System_FindPart "$1")'"' /etc/mtab
 }
 
 FS_Check ()
