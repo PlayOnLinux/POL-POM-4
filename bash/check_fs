@@ -39,7 +39,6 @@ FS_Check ()
 PartInfo="$(POL_System_PartInfo "$POL_USER_ROOT")"
 FS_Check "$PartInfo" "vfat" "$APPLICATION_TITLE cannot run in a FAT32 filesystem"
 FS_Check "$PartInfo" "ntfs" "$APPLICATION_TITLE cannot run in a NTFS filesystem"
-FS_Check "$PartInfo" "crypt" "$APPLICATION_TITLE cannot run in a FAT32 filesystem"
 FS_Check "$PartInfo" "noexec" "Home partition is mounted with noexec option"
 
 
