@@ -282,9 +282,11 @@ def getPrefix(shortcut): # Get prefix name from shortcut
 		prefix = string.split(prefix,"/")
 	
 		if(os.environ["POL_OS"] == "Mac"):
-			prefix = prefix[6]
+			index_of_dotPOL = prefix.index("PlayOnMac")
+			prefix = prefix[index_of_dotPOL + 2]
 		else:
-			prefix = prefix[5]
+			index_of_dotPOL = prefix.index(".PlayOnLinux")
+			prefix = prefix[index_of_dotPOL + 2]
 	except:
 		prefix = ""
 		
