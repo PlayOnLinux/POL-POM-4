@@ -26,7 +26,7 @@ source "$PLAYONLINUX/lib/sources"
 # This script tests filesystem
 
 
-POL_System_CheckFS "$POL_USER_ROOT"
+POL_System_CheckFS --just-warning "$POL_USER_ROOT"
 
 
 POL_Debug_Message "Filesystem is compatible"

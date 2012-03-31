@@ -764,7 +764,7 @@ FS_Check ()
 
 POL_System_CheckFS()
 {
-	if [ "$1" == "--just-warning" ]; then
+	if [ "$1" = "--just-warning" ]; then
 		$DebugType = "POL_Debug_Warning"
 		shift
 	else
