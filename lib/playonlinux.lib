@@ -753,3 +753,27 @@ POL_System_PartInfo()
 {
 	awk '$1 == "'$(POL_System_FindPart $1)'"' /etc/mtab
 }
+
+FS_Check ()
+{
+	if grep -q "$2" <<< "$1" ; then
+		$DebugType "$3"
+		return 1
+	fi
+}
+
+POL_System_CheckFS()
+{
+	if [ "$1" == "--just-warning" ]; then
+		$DebugType = "POL_Debug_Warning"
+		shift
+	else
+		$DebugType = "POL_Debug_Error"
+	fi
+	
+	PartInfo="$(POL_System_PartInfo "$1")"
+	FS_Check "$PartInfo" "vfat" "$1 is located on a FAT32 filesystem.\nIt might prevent wine from working" || return 1
+	FS_Check "$PartInfo" "ntfs" "$1 is located on a NTFS filesystem.\nIt might prevent wine from working" || return 1
+	FS_Check "$PartInfo" "crypt" "$1 is located on a CRYPT filesystem.\nIt might prevent wine from working" || return 1
+	FS_Check "$PartInfo" "noexec" "$1 is located on a noexec mounted filesystem.\nIt might prevent wine from working" || return 1
+}

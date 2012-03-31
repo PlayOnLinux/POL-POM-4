@@ -438,6 +438,8 @@ POL_Wine ()
 		NoErrors="True"
 		shift
 	fi
+	POL_System_CheckFS "$1"
+	
 	POL_Wine_AutoSetVersionEnv
 	POL_Debug_Message "Running wine-$POL_WINEVERSION "$@" "
 	POL_Debug_LogToPrefix "Running wine-$POL_WINEVERSION "$@""
