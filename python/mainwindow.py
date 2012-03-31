@@ -720,7 +720,7 @@ class PlayOnLinuxApp(wx.App):
 				returncode=255
 
 			if(os.environ["POL_OS"] == "Linux" and returncode != 0):
-				wx.MessageBox(_("Filesystem error").format(os.environ["APPLICATION_TITLE"]),_("Error"))
+				wx.MessageBox(_("Your filesystem might prevent "+os.environ["APPLICATION_TITLE"]+" from running correctly.\n\nPlease open  "+os.environ["APPLICATION_TITLE"]+" in a terminal to get more details").format(os.environ["APPLICATION_TITLE"]),_("Error"))
 				
 		for f in  sys.argv[1:]:		
 			self.MacOpenFile(f)
