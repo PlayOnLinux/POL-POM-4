@@ -37,7 +37,7 @@ Check_OpenGL()
 	if [ -e "$PLAYONLINUX/bin/check_dd_$1.bz2" ]
 	then
 		cp "$PLAYONLINUX/bin/check_dd_$1.bz2" "$POL_USER_ROOT/tmp/"
-		bunzip2 "$POL_USER_ROOT/tmp/check_dd_$1.bz2"
+		bunzip2 "$POL_USER_ROOT/tmp/check_dd_$1.bz2" 2> /dev/null
 		chmod +x "$POL_USER_ROOT/tmp/check_dd_$1"
 		message="$("$POL_USER_ROOT/tmp/check_dd_$1")"
 		out="$?"

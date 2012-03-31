@@ -73,6 +73,10 @@ if [ ! "$1" = "" ] # Si on a double cliqué sur un .exe, on le prend
 then
 file=$(basename "$1")
 line="$1"
+if [ ! "${line::1}" = "/" ];
+then
+	line="$WorkingDirectory/$line"
+fi
 Prefix="$(POL_Wine_GetPrefixFromPath $line)"
 
 if [ ! "$Prefix" = "" ]
