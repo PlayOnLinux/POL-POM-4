@@ -27,7 +27,7 @@ source "$PLAYONLINUX/lib/sources"
 
 
 POL_System_CheckFS --just-warning "$POL_USER_ROOT"
-
+returncode="$?"
 
 POL_Debug_Message "Filesystem is compatible"
-exit 0
+exit "$returncode"
