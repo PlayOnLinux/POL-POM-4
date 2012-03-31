@@ -765,6 +765,7 @@ FS_Check ()
 
 POL_System_CheckFS()
 {
+	[ "$POL_OS" = "Mac" ] && return 0
 	if [ "$1" = "--just-warning" ]; then
 		DebugType="POL_Debug_Warning"
 		shift
