@@ -712,9 +712,17 @@ class PlayOnLinuxApp(wx.App):
 
 		if(os.environ["AMD64_COMPATIBLE"] == "True" and os.environ["POL_OS"] == "Linux" and returncode != 0):
 			wx.MessageBox(_("{0} is unable to find 64bits OpenGL libraries.\n\nYou might encounter problem with your games").format(os.environ["APPLICATION_TITLE"]),_("Error"))
-					
-		for f in  sys.argv[1:]:
-			
+
+		if(os.environ["AMD64_COMPATIBLE"] == "True"):
+			try:
+				returncode=subprocess.call([os.environ["PLAYONLINUX"]+"/bash/check_fs"])
+			except:
+				returncode=255
+
+			if(os.environ["POL_OS"] == "Linux" and returncode != 0):
+				wx.MessageBox(_("Filesystem error").format(os.environ["APPLICATION_TITLE"]),_("Error"))
+				
+		for f in  sys.argv[1:]:		
 			self.MacOpenFile(f)
 			if(".exe" in f or ".EXE" in f):
 				exe_present = True

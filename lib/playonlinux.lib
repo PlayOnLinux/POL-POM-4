@@ -742,3 +742,14 @@ sleep 1
 rm "$REPERTOIRE/configurations/guis/$WId" 2> /dev/null
 	done
 }
+
+POL_System_FindPart() 
+{ 
+	if [ -e "$1" ]; then
+		df -P "$1"  | awk '/^\/dev/ {print $1}' || echo "$1 not found"; 
+	fi
+}
+POL_System_PartInfo()
+{
+	awk '$2 == "'$(POL_System_FindPart $1)'"' /etc/mtab
+}
