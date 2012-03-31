@@ -29,13 +29,17 @@ POL_SetupWindow_Init ()
 	# Open PlayOnLinux setup window. Should be use only once in a script !
 	# Needed for POL_SetupWindow_* functions
 	# Usage: POL_SetupWindow_Init
-
-
+	local arg1 
+	local arg2
+	local arg3
+	[ "$1" = "--protect" ] && arg3="protect" && shift
+	
 	[ "$POL_SetupWindow_TopImage" = "" ] && arg1="$1" || arg1="$POL_SetupWindow_TopImage"
 	[ "$POL_SetupWindow_LeftImage" = "" ] && arg2="$2" || arg2="$POL_SetupWindow_LeftImage"
 	
 	[ "$arg1" = "" ] && arg1="None"
 	[ "$arg2" = "" ] && arg2="None"
+	[ "$arg3" = "" ] && arg3="None"
 	
 	mkdir -p "$REPERTOIRE/configurations/guis/"
 	echo "Wait" > "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
@@ -44,6 +48,7 @@ Open
 $POL_SetupWindow_ID
 $arg1
 $arg2
+$arg3
 $$
 EOF
 

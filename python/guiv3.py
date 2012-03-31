@@ -54,7 +54,7 @@ class Download(threading.Thread):
 	
 
 class POL_SetupFrame(wx.Frame): #fenêtre principale
-	def __init__(self, titre, POL_SetupWindowID, Arg1, Arg2, bash_pid):
+	def __init__(self, titre, POL_SetupWindowID, Arg1, Arg2, Arg3, bash_pid):
 		wx.Frame.__init__(self, None, -1, title = titre, style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX, size = (520, 398+Variables.windows_add_size))
 
 		self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
@@ -62,6 +62,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 		self.fichier = ""
 		self.last_time = int(round(time.time() * 1000))
 		self.downloading = False
+		self.ProtectedWindow = False
 		
 		# Le fichier de lecture
 		self.file_id=Variables.playonlinux_rep+"/configurations/guis/"+POL_SetupWindowID
@@ -81,6 +82,8 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 		else:
 			self.big_image = wx.Bitmap(Arg2)
 
+		if(Arg3 == "protect"):
+			self.ProtectedWindow = True
 		self.oldfichier = ""
 		self.bash_pid = bash_pid
 		
@@ -143,6 +146,9 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 		
 		# Buttons
 		self.CancelButton = wx.Button(self.footer, wx.ID_CANCEL, _("Cancel"), pos=(430,0),size=(85,37))
+		if(self.ProtectedWindow == True):
+			self.CancelButton.Enable(False)
+			
 		self.NextButton = wx.Button(self.footer, wx.ID_FORWARD, _("Next"), pos=(340,0),size=(85,37))
 		self.BackButton = wx.Button(self.footer, wx.ID_FORWARD, _("Back"), pos=(250,0),size=(85,37))
 		
@@ -340,11 +346,14 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 		self.NextButton.Enable(False)		
 
 	def Cancel(self, event):
-		self.Destroy()
-		self.SendBash("MSG_RECEIVED=Cancel") #Indiquera à PlayOnLinux bash qu'il faut arreter l'installation
-		os.system("kill -9 "+self.bash_pid) # Plus bourrain, mais bien plus efficace
-		os.remove(self.file_id) # La on est plutôt pépère pour faire ça
-		
+		if(self.ProtectedWindow == False):
+			self.Destroy()
+			self.SendBash("MSG_RECEIVED=Cancel") #Indiquera à PlayOnLinux bash qu'il faut arreter l'installation
+			os.system("kill -9 "+self.bash_pid) # Plus bourrain, mais bien plus efficace
+			os.remove(self.file_id) # La on est plutôt pépère pour faire ça
+		else:
+			wx.MessageBox(_("You cannot close this window").format(os.environ["APPLICATION_TITLE"]),_("Error"))
+			
 	def CleanExit(self):
 		self.Destroy()
 		self.SendBash("MSG_RECEIVED=Cancel") #Indiquera à PlayOnLinux bash qu'il faut arreter l'installation

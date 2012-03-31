@@ -302,7 +302,7 @@ EOF
 	export POL_WINEVERSION=""
 }
 migrate_oldpol
-POL_SetupWindow_Init
+POL_SetupWindow_Init --protect
 if [ "$(POL_Config_Read FIRST_FIRST_USE)" = "TRUE" ]
 then
 	POL_SetupWindow_free_presentation "$(eval_gettext '$APPLICATION_TITLE first use')" "$(eval_gettext '$APPLICATION_TITLE is going to finish its preparation')\n$(eval_gettext "Please ensure you are connected to the internet.")"

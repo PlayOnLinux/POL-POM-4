@@ -611,7 +611,7 @@ class MainWindow(wx.Frame):
 		message = open(fichier_index,'r').read()
 	message = string.split(message, "\n")
 	if(message[0] == "Open"):
-		self.frame = gui.POL_SetupFrame(os.environ["APPLICATION_TITLE"],message[1].replace("\n",""),message[2].replace("\n",""),message[3].replace("\n",""),message[4].replace("\n",""))
+		self.frame = gui.POL_SetupFrame(os.environ["APPLICATION_TITLE"],message[1].replace("\n",""),message[2].replace("\n",""),message[3].replace("\n",""),message[4].replace("\n",""),message[5].replace("\n",""))
 		self.frame.Center(wx.BOTH)
 		self.frame.Show(True)
 		open(fichier_index,'w').write("Wait")
