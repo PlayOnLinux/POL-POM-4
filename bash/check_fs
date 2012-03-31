@@ -29,7 +29,18 @@ source "$PLAYONLINUX/lib/sources"
 # check_gl [arch]
 # Arch = (x86 | amd64)
 
+FS_Check ()
+{
+	if grep -q "$2" <<< "$1" ; then
+		POL_Debug_Warning "$3"
+	fi
+}
 PartInfo="$(POL_System_PartInfo "$POL_USER_ROOT")"
+FS_Check "$PartInfo" "vfat" "$APPLICATION_TITLE cannot run in a FAT32 filesystem"
+FS_Check "$PartInfo" "ntfs" "$APPLICATION_TITLE cannot run in a NTFS filesystem"
+FS_Check "$PartInfo" "crypt" "$APPLICATION_TITLE cannot run in a FAT32 filesystem"
+FS_Check "$PartInfo" "noexec" "Home partition is mounted with noexec option"
 
-echo $PartInfo
+
+POL_Debug_Message "Filesystem is compatible"
 exit 0
