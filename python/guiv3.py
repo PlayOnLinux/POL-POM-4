@@ -125,12 +125,20 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 		# Text
 		self.titre_header = wx.StaticText(self.header, -1, _('{0} Wizard').format(os.environ["APPLICATION_TITLE"]),pos=(5,5), size=(340,356))
 		self.titre_header.SetFont(self.fontTitre)
+		self.titre_header.SetForegroundColour((0,0,0)) # For dark themes
+		
 		self.texte = wx.StaticText(self.panel, -1, "",pos=(20,80),size=(480,275))
 		self.texte_bis = wx.StaticText(self.panel, -1, "",size=(480,30))
 		self.titre = wx.StaticText(self.header, -1, "",pos=(20,30), size=(340,356))
+		self.titre.SetForegroundColour((0,0,0)) # For dark themes
+		
 		self.texteP = wx.StaticText(self.MainPanel, -1, "",pos=(5,50))
+		self.texteP.SetForegroundColour((0,0,0)) # For dark themes
+		
 		self.titreP = wx.StaticText(self.MainPanel, -1,"",pos=(5,5), size=(340,356))
 		self.titreP.SetFont(self.fontTitre)
+		self.titreP.SetForegroundColour((0,0,0)) # For dark themes
+		
 		self.txtEstimation = wx.StaticText(self.panel, -1, "",size=(480,30))
 		
 		# Buttons
@@ -887,6 +895,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 								self.MainPanel.Show()
 								self.titreP.SetLabel(self.fichier[2])
 								self.titreP.Wrap(280)
+								
 								self.texteP.SetLabel(self.fichier[3].replace("\\n","\n").decode("utf8"))
 								self.texteP.Wrap(360)
 								self.texteP.Show()
