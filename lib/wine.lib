@@ -462,10 +462,10 @@ POL_Wine ()
 
 
 	if [ "$LOGFILE" = "/dev/null" -o "$KeepOutput" = "True" ]; then
-		wine "$@"  2> >(grep -v menubuilder | tee -a "$WINEPREFIX/playonlinux.log") > >(tee -a "$WINEPREFIX/playonlinux.log")
+		wine "$@"  2> >(grep -v menubuilder | tee -a "$WINEPREFIX/playonlinux.log" >&2) > >(tee -a "$WINEPREFIX/playonlinux.log")
 		errors=$?
 	else
-		wine "$@" 2> >(grep -v menubuilder | tee -a "$LOGFILE" "$WINEPREFIX/playonlinux.log") > >(tee -a "$LOGFILE" "$WINEPREFIX/playonlinux.log")
+		wine "$@" 2> >(grep -v menubuilder | tee -a "$LOGFILE" "$WINEPREFIX/playonlinux.log" >&2) > >(tee -a "$LOGFILE" "$WINEPREFIX/playonlinux.log")
 		errors=$?
 	fi
 
