@@ -58,7 +58,7 @@ pastebin()
 	querystring="paste_private=0&paste_code=${INPUT}&paste_name=${PACKAGE}&paste_email=&paste_format="
 
 	#post data to pastebin.com API
-	curl -d "${querystring}" http://pastebin.com/api_public.php
+	wget -nv -O- --post-data="${querystring}" http://pastebin.com/api_public.php 2>/dev/null
 }
 debug_log()
 {
