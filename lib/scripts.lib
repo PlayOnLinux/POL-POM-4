@@ -278,6 +278,14 @@ POL_Shortcut()
 	POL_Debug_Message "Shortcut created: $Binaire $NOMICONE_"
 }
 
+POL_Shortcut_QuietDebug()
+{
+	# Disable "crash" message on exitcode != 0 unless in debug mode
+	# Usage: POL_Shortcut_QuietDebug "shortcutname"
+
+	echo '[ "$WINEDEBUG" = "-all" ] && exit 0' >> "$REPERTOIRE/shortcuts/$1"
+}
+
 POL_Call() 
 {
 	# Call a function in PlayOnLinux website

@@ -12,6 +12,9 @@
 - Report "patched Wine version" in prefix logs only when it's true
 - POL_ExtractIcon, POL_ExtractBiggestIcon: can also extract icons from .ico files
 - Removed dependency upon curl by posting to pastebin with wget (bug #670)
+- New function POL_Shortcut_QuietDebug to suppress "crash" dialog for
+  programs when not in debug mode; Useful for programs that are known
+  not to exit cleanly with an exitcode = 0
 
 -> 4.0.16
 - Removing Messenger from menu bar
