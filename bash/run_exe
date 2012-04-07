@@ -24,6 +24,7 @@ source "$PLAYONLINUX/lib/sources"
 TITRE="$(eval_gettext 'Automatic installation')"
 TITLE="$TITRE"
 
+NOBUGREPORT="YES"
 POL_Debug_Init
 
 install_wizard()

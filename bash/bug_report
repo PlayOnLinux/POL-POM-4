@@ -43,9 +43,17 @@ then
 	LNG_NO_JOIN="$(eval_gettext "Don't join any log file")"
 	LIST="$LNG_NO_JOIN"
 	cd "$POL_USER_ROOT/logs"
+	LNG_MANUAL="$(eval_gettext 'Manual installation')"
+	LNG_AUTOMATIC="$(eval_gettext 'Automatic installation')"
 	for file in *
 	do
-		LIST="$LIST~$file"
+		case "$file" in
+			"$LNG_MANUAL"*|"Automatic installation"|"$LNG_AUTOMATIC"*)
+				;;
+			*)
+				LIST="$LIST~$file"
+				;;
+		esac
 	done
 	POL_SetupWindow_menu "$(eval_gettext "Choose the log file corresponding to your software.")" "$POL_DEBUG_TITLE" "$LIST" "~"
 	[ "$APP_ANSWER" = "$LNG_NO_JOIN" ] || LOGTITLE="$APP_ANSWER"

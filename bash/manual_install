@@ -25,6 +25,8 @@ INSTALL_NUMBER="$(POL_Config_Read MANUAL_INSTALL_INCREMENT)"
 INSTALL_NUMBER=$(( INSTALL_NUMBER + 1 ))
 POL_Config_Write MANUAL_INSTALL_INCREMENT $INSTALL_NUMBER
 TITLE="$(eval_gettext 'Manual installation')"
+
+NOBUGREPORT="YES"
 POL_Debug_Init
 run_autorun()
 {
