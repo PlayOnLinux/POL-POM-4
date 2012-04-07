@@ -21,7 +21,7 @@
 [ "$PLAYONLINUX" = "" ] && exit 
 source "$PLAYONLINUX/lib/sources"
 
-TITRE="Automatic installation"
+TITRE="$(eval_gettext 'Automatic installation')"
 TITLE="$TITRE"
 
 POL_Debug_Init
