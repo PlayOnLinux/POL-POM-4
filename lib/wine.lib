@@ -331,7 +331,7 @@ POL_LoadVar_PROGRAMFILES()
 	POL_Debug_Message "Getting Program Files name"
 	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
-	PROGRAMFILES=`POL_Wine --keep-output cmd /c echo "%ProgramFiles%" |tr -d '\015\012'`
+	PROGRAMFILES=`POL_Wine cmd /c echo "%ProgramFiles%" |tr -d '\015\012'`
 	if [ "${PROGRAMFILES}" = "%ProgramFiles%" ]
 	then # Var is not defined by wine
 		export PROGRAMFILES="Program Files"
@@ -429,11 +429,7 @@ POL_Wine ()
 	# Same usage than "wine"
 	mkdir -p "$WINEPREFIX"
 	touch "$WINEPREFIX/playonlinux.log"
-	local KeepOutput NoErrors
-	if [ "$1" = "--keep-output" ]; then
-		KeepOutput="True"
-		shift
-	fi
+	local NoErrors
 	if [ "$1" = "--ignore-errors" ]; then
 		NoErrors="True"
 		shift
@@ -461,7 +457,7 @@ POL_Wine ()
 	fi
 
 
-	if [ "$LOGFILE" = "/dev/null" -o "$KeepOutput" = "True" ]; then
+	if [ "$LOGFILE" = "/dev/null" ]; then
 		wine "$@"  2> >(grep -v menubuilder | tee -a "$WINEPREFIX/playonlinux.log" >&2) > >(tee -a "$WINEPREFIX/playonlinux.log")
 		errors=$?
 	else
