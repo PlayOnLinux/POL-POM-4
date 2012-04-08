@@ -760,13 +760,21 @@ POL_SetupWindow_InitWithImages ()
 POL_SetupWindow_login ()
 {
 	# This function shows a login windows for PlayOnLinux's website
-	# Usage: POL_SetupWindow_login
+	# Usage: POL_SetupWindow_login "Message" "Title" "Register link"
+	
+	if [ "$POL_OS" = "Mac" ]; then
+		register_link="http://www.playonmac.com/en/register.html"
+	else
+		register_link="http://www.playonlinux.com/en/register.html"
+	fi
+	[ "$3" = "" ] || register_link="$3"
 	
 	cat << EOF > "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
 MsgIn
 Login
 $1
 $2
+$register_link
 EOF
 		
 	MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$' 2> /dev/null)

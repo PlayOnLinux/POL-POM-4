@@ -95,7 +95,7 @@ POL_Website_Request()
 {
 	# Make a POST request
 	# Usage: POL_Website_Request [url] [post_data]
-	wget -4 "$1" --post-data="$2" --load-cookies "$REPERTOIRE/login_info" -O- -q > "$POL_USER_ROOT/tmp/POL_Website_data"
+	$POL_WGET "$1" --post-data="$2" --load-cookies "$REPERTOIRE/login_info" -O- -q > "$POL_USER_ROOT/tmp/POL_Website_data"
 }
 POL_Website_POST()
 {
@@ -107,7 +107,7 @@ POL_Website_GET()
 {
 	# Make a GET request
 	# Usage: POL_Website_GET [url]
-	wget -4 "$1" --load-cookies "$REPERTOIRE/login_info" -O- -q > "$POL_USER_ROOT/tmp/POL_Website_data"
+	$POL_WGET "$1" --load-cookies "$REPERTOIRE/login_info" -O- -q > "$POL_USER_ROOT/tmp/POL_Website_data"
 }
 POL_Website_Result()
 {

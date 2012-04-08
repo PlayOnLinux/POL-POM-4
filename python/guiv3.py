@@ -143,7 +143,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 		self.titreP.SetForegroundColour((0,0,0)) # For dark themes
 		
 		self.txtEstimation = wx.StaticText(self.panel, -1, "",size=(480,30))
-		
+		self.register_link = ""
 		# Buttons
 		self.CancelButton = wx.Button(self.footer, wx.ID_CANCEL, _("Cancel"), pos=(430,0),size=(85,37))
 		if(self.ProtectedWindow == True):
@@ -241,9 +241,9 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 		
 	def POL_register(self, event):
 		if(os.environ["POL_OS"] == "Mac"): 
-			os.system("open http://www.playonmac.com/en/register.html")
+			os.system("open "+self.register_link)
 		else:
-			os.system("xdg-open http://www.playonlinux.com/en/register.html")
+			os.system("xdg-open "+self.register_link)
 			
 	def RunCommand(self, event, command,confirm):
 		if(confirm == "0" or wx.YES == wx.MessageBox(confirm.decode("utf-8"), os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
@@ -540,6 +540,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 								self.titre.Show()
 
 								self.space=self.fichier[2].count("\\n")+1
+								self.register_link = self.fichier[4]
 
 								self.login.Show()
 								self.loginbox.Show()
