@@ -68,8 +68,10 @@ clean_tmp ()
 	# Clean PlayOnLinux tmp directory
 	# Usage: clean_tmp
 	# Be careful, it might be very dangerous !
-	rm -rf "$REPERTOIRE/tmp/" 2> /dev/null
-	mkdir -p "$REPERTOIRE/tmp" 
+	# Cleanup is done in background
+	mv "$REPERTOIRE/tmp" "$REPERTOIRE/tmp$$"
+	mkdir -p "$REPERTOIRE/tmp"
+	rm -rf "$REPERTOIRE/tmp$$" 2> /dev/null &
 }
 
 ##################################

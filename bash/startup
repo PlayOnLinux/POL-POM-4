@@ -26,11 +26,14 @@ source "$PLAYONLINUX/lib/sources"
 construire_repertoire_personnel
 # Initialize link between python and bash
 touch "$POL_USER_ROOT/configurations/guis/index_$POL_ID"
-# Cleanup old gui files
-"$PLAYONLINUX/bash/delete_gui_files" &
 
 # Cleaning tmp directory
 clean_tmp
+
+### Operations below are background asynchronous tasks
+
+(# Cleanup old gui files
+"$PLAYONLINUX/bash/delete_gui_files"
 
 # Plugins
 install_plugins
@@ -51,3 +54,4 @@ if [ "$(POL_Config_Read GECKO_INSTALLED)" = "" ]; then
 	POL_Config_Write GECKO_INSTALLED TRUE
 	bash "$PLAYONLINUX/bash/install_gecko"
 fi
+) &

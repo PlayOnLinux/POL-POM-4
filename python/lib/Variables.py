@@ -99,4 +99,4 @@ current_user = os.environ["USER"]
 os.environ["SHLVL"]="2"
 
 # On fait le minimum avant de lancer l'interface
-os.system("bash "+playonlinux_env+"/bash/startup &")
+os.system("bash "+playonlinux_env+"/bash/startup")
