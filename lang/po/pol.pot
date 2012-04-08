@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2012-04-07 19:00:42+02:00\n"
+"POT-Creation-Date: 2012-04-08 19:00:39+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -213,7 +213,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_:57
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Revelations_:57
 #: PlayOnLinux_Scripts/Theme_Hospital_:37
-#: PlayOnLinux_Scripts/X3___Terran_Conflict_:74
+#: PlayOnLinux_Scripts/X3___Terran_Conflict_:80
 #, sh-format
 msgid "Please insert the game media into your disk drive."
 msgstr ""
@@ -241,7 +241,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Duke_Nukem_Forever_:81
 #: PlayOnLinux_Scripts/Duke_Nukem_Forever_:99
 #: PlayOnLinux_Scripts/F.E.A.R._3_:50 PlayOnLinux_Scripts/F.E.A.R._3_:63
-#: PlayOnLinux_Scripts/Half_Life_2_:89
+#: PlayOnLinux_Scripts/Google_SketchUp_:48 PlayOnLinux_Scripts/Half_Life_2_:89
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:69
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:69
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:83
@@ -265,7 +265,8 @@ msgstr ""
 #: PlayOnLinux_Scripts/Team_Fortress_2_:69
 #: PlayOnLinux_Scripts/Theme_Hospital_:50
 #: PlayOnLinux_Scripts/Wow_Cartographe_:48
-#: PlayOnLinux_Scripts/X3___Terran_Conflict_:67
+#: PlayOnLinux_Scripts/X3___Terran_Conflict_:73
+#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:59
 #, sh-format
 msgid "Please select the setup file to run"
 msgstr ""
@@ -299,6 +300,8 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___Lure_of_the_Temptress_:54
 #: PlayOnLinux_Scripts/Good_Old_Games___Neverwinter_Nights_Diamond_Edition_:54
 #: PlayOnLinux_Scripts/Good_Old_Games___Nox_:50
+#: PlayOnLinux_Scripts/Good_Old_Games___Oddworld__Abe_s_Exoddus_:48
+#: PlayOnLinux_Scripts/Good_Old_Games___Oddworld__Abe_s_Oddysee_:48
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:45
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast__High_resolution_patch_:47
 #: PlayOnLinux_Scripts/Good_Old_Games___Painkiller__Black_Edition_:52
@@ -311,7 +314,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___The_Feeble_Files_:56
 #: PlayOnLinux_Scripts/Good_Old_Games___The_Witcher_Enhanced_Edition_Directors_Cut_:51
 #: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:48
-#: PlayOnLinux_Scripts/Good_Old_Games___XIII_:46
+#: PlayOnLinux_Scripts/Good_Old_Games___XIII_:47
 #: PlayOnLinux_Scripts/Runes_Of_Magic_:49
 #: PlayOnLinux_Scripts/Secret_of_Monkey_Island___Special_Edition__Testing__:39
 #: PlayOnLinux_Scripts/Ski_Challenge_2012_:40 PlayOnLinux_Scripts/Spotify_:55
@@ -320,19 +323,18 @@ msgstr ""
 #: PlayOnLinux_Scripts/Vantage_Master_Online_:39
 #: PlayOnLinux_Scripts/Wow_Cartographe_:40
 #: PlayOnLinux_Scripts/Wow_Cartographe_:49
-#: PlayOnLinux_Scripts/X3___Terran_Conflict_:47
-#: PlayOnLinux_Scripts/X3___Terran_Conflict_:68
-#: PlayOnLinux_Scripts/X3___Terran_Conflict_:77
 #, sh-format
 msgid "Please wait while $TITLE is installed."
 msgstr ""
 
 #: PlayOnLinux_Scripts/7_Zip_:46 PlayOnLinux_Scripts/Age_Of_Wonders_:82
+#: PlayOnLinux_Scripts/Google_SketchUp_:67
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:204
 #: PlayOnLinux_Scripts/Secret_of_Monkey_Island___Special_Edition__Testing__:76
 #: PlayOnLinux_Scripts/Spotify_:75 PlayOnLinux_Scripts/Theme_Hospital_:65
 #: PlayOnLinux_Scripts/Wow_Cartographe_:58
-#: PlayOnLinux_Scripts/X3___Terran_Conflict_:95
+#: PlayOnLinux_Scripts/X3___Terran_Conflict_:97
+#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:68
 #, sh-format
 msgid "$TITLE has been successfully installed."
 msgstr ""
@@ -360,7 +362,8 @@ msgstr ""
 #: PlayOnLinux_Scripts/Secret_of_Monkey_Island_Special_Edition_:54
 #: PlayOnLinux_Scripts/Shank_2_:61 PlayOnLinux_Scripts/Shank_2_:66
 #: PlayOnLinux_Scripts/Team_Fortress_2_:75
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_V__Skyrim_:66
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_V___Skyrim_:66
+#: PlayOnLinux_Scripts/X3___Terran_Conflict_:65
 #, sh-format
 msgid ""
 "When $TITLE download by Steam is finished,\\nDo NOT click on Play.\\n"
@@ -403,10 +406,53 @@ msgid ""
 ".NET 3.0 installation will fail.\\nIt won't prevent the game from working."
 msgstr ""
 
-#: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:15
-#: PlayOnLinux_Scripts/Surfer_8_:14
+#: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:30
+#: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:40
 #, sh-format
-msgid "PlayOnLinux is installing your application..."
+msgid "You dont have to install DirectX or use GLSetup."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:39
+#: PlayOnLinux_Scripts/Good_Old_Games___Advent_Rising_:45
+#: PlayOnLinux_Scripts/Good_Old_Games___Age_of_Wonders__Shadow_Magic_:43
+#: PlayOnLinux_Scripts/Good_Old_Games___Arma__Cold_War_Assault_:42
+#: PlayOnLinux_Scripts/Good_Old_Games___Broken_Sword_1__Shadow_of_The_Templars_:45
+#: PlayOnLinux_Scripts/Good_Old_Games___Broken_Sword_2__The_Smoking_Mirror_:42
+#: PlayOnLinux_Scripts/Good_Old_Games___Broken_Sword_3__The_Sleeping_Dragon_:42
+#: PlayOnLinux_Scripts/Good_Old_Games___Divine_Divinity_:42
+#: PlayOnLinux_Scripts/Good_Old_Games___Dungeon_Keeper_2_:45
+#: PlayOnLinux_Scripts/Good_Old_Games___Dungeons_and_Dragons__Dragonshard_:42
+#: PlayOnLinux_Scripts/Good_Old_Games___Enclave_:47
+#: PlayOnLinux_Scripts/Good_Old_Games___Fallout_:44
+#: PlayOnLinux_Scripts/Good_Old_Games___Fallout_2_:44
+#: PlayOnLinux_Scripts/Good_Old_Games___Far_Cry_:50
+#: PlayOnLinux_Scripts/Good_Old_Games___Flatout_:44
+#: PlayOnLinux_Scripts/Good_Old_Games___Forgotten_Realms__Demon_Stone_:44
+#: PlayOnLinux_Scripts/Good_Old_Games___Freespace_2_:44
+#: PlayOnLinux_Scripts/Good_Old_Games___Giants__Citizen_Kabuto_:43
+#: PlayOnLinux_Scripts/Good_Old_Games___Ground_Control_2_:48
+#: PlayOnLinux_Scripts/Good_Old_Games___Incoming_and_Incoming_Forces_:45
+#: PlayOnLinux_Scripts/Good_Old_Games___Iron_Storm_:43
+#: PlayOnLinux_Scripts/Good_Old_Games___Jack_Orlando__A_Cinematic_Adventure_:42
+#: PlayOnLinux_Scripts/Good_Old_Games___Lure_of_the_Temptress_:45
+#: PlayOnLinux_Scripts/Good_Old_Games___Neverwinter_Nights_Diamond_Edition_:50
+#: PlayOnLinux_Scripts/Good_Old_Games___Nox_:46
+#: PlayOnLinux_Scripts/Good_Old_Games___Oddworld__Abe_s_Exoddus_:44
+#: PlayOnLinux_Scripts/Good_Old_Games___Oddworld__Abe_s_Oddysee_:44
+#: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:41
+#: PlayOnLinux_Scripts/Good_Old_Games___Painkiller__Black_Edition_:48
+#: PlayOnLinux_Scripts/Good_Old_Games___Riven__The_sequel_to_Myst_:42
+#: PlayOnLinux_Scripts/Good_Old_Games___Sanitarium_:54
+#: PlayOnLinux_Scripts/Good_Old_Games___Septerra_Core__Legacy_of_the_Creator_:42
+#: PlayOnLinux_Scripts/Good_Old_Games___Simon_the_Sorcerer_:44
+#: PlayOnLinux_Scripts/Good_Old_Games___Temple_of_Elemental_Evil_:46
+#: PlayOnLinux_Scripts/Good_Old_Games___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:51
+#: PlayOnLinux_Scripts/Good_Old_Games___The_Feeble_Files_:47
+#: PlayOnLinux_Scripts/Good_Old_Games___The_Witcher_Enhanced_Edition_Directors_Cut_:47
+#: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:44
+#: PlayOnLinux_Scripts/Good_Old_Games___XIII_:43
+#, sh-format
+msgid "Please select the setup file to run."
 msgstr ""
 
 #: PlayOnLinux_Scripts/Ancients_of_Ooga_:51
@@ -471,9 +517,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:97
 #: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:88
 #: PlayOnLinux_Scripts/World_Of_Warcraft___Wrath_of_the_Lich_King_:66
-#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.0_:56
-#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1.1_:57
-#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1_:57
 #, sh-format
 msgid "Please select the setup file to run:"
 msgstr ""
@@ -489,8 +532,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Tiberium_Wars__Kane_Edition__:108
 #: PlayOnLinux_Scripts/Command_And_Conquer___Red_Alert_3_Patch_1.12_:68
 #: PlayOnLinux_Scripts/Divinity_II___The_Dragon_Knight_Saga_:75
-#: PlayOnLinux_Scripts/Fallout_3_:74 PlayOnLinux_Scripts/Google_SketchUp_:31
-#: PlayOnLinux_Scripts/IZArc_:32
+#: PlayOnLinux_Scripts/Fallout_3_:74 PlayOnLinux_Scripts/IZArc_:32
 #: PlayOnLinux_Scripts/Mount_and_Blade___Warband_:37
 #: PlayOnLinux_Scripts/Mount_and_Blade___Warband_:47
 #: PlayOnLinux_Scripts/POL_Install_directx9_:12
@@ -510,29 +552,19 @@ msgstr ""
 #: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:89
 #: PlayOnLinux_Scripts/World_Of_Warcraft___Wrath_of_the_Lich_King_:54
 #: PlayOnLinux_Scripts/World_Of_Warcraft___Wrath_of_the_Lich_King_:67
-#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.0_:47
-#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.0_:57
-#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1.1_:48
-#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1.1_:58
-#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1_:48
-#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1_:58
 #: PlayOnLinux_Scripts/Zoo_Tycoon_2___Ultimate_Collection_:60
 #, sh-format
 msgid "Installation in progress..."
 msgstr ""
 
 #: PlayOnLinux_Scripts/Anno_1602_:76 PlayOnLinux_Scripts/Cadstd_Lite_3.7.0_:40
-#: PlayOnLinux_Scripts/Diablo_II_:61 PlayOnLinux_Scripts/Google_SketchUp_:41
-#: PlayOnLinux_Scripts/IZArc_:42
+#: PlayOnLinux_Scripts/Diablo_II_:61 PlayOnLinux_Scripts/IZArc_:42
 #: PlayOnLinux_Scripts/Mount_and_Blade___Warband_:81
 #: PlayOnLinux_Scripts/Safari_:77
 #: PlayOnLinux_Scripts/Windows_Media_Player_10_:80
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:137
 #: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:97
 #: PlayOnLinux_Scripts/World_Of_Warcraft___Wrath_of_the_Lich_King_:75
-#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.0_:65
-#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1.1_:66
-#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1_:66
 #, sh-format
 msgid "$TITLE has been installed successfully."
 msgstr ""
@@ -590,9 +622,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_Patch_1.35_:51
 #: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:23
 #: PlayOnLinux_Scripts/World_Of_Warcraft___Wrath_of_the_Lich_King_:23
-#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.0_:22
-#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1.1_:23
-#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1_:23
+#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:26
 #, sh-format
 msgid "Game is not installed."
 msgstr ""
@@ -614,9 +644,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Fallout_3_Patch_1.07_:42
 #: PlayOnLinux_Scripts/Mass_Effect_2___Patch_1.02_:42
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_Patch_1.35_:65
-#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.0_:35
-#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1.1_:36
-#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1_:36
+#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:38
 #, sh-format
 msgid "Steam have is own automatic update system."
 msgstr ""
@@ -1012,9 +1040,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/Mass_Effect_2___Patch_1.02_:23
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_Patch_1.2.0416_:22
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_Patch_1.35_:46
-#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.0_:19
-#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1.1_:20
-#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.1_:20
 #, sh-format
 msgid "Welcome in the patch $PVERSION installer for $TITLE"
 msgstr ""
@@ -1177,6 +1202,8 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___Lure_of_the_Temptress_:34
 #: PlayOnLinux_Scripts/Good_Old_Games___Neverwinter_Nights_Diamond_Edition_:39
 #: PlayOnLinux_Scripts/Good_Old_Games___Nox_:35
+#: PlayOnLinux_Scripts/Good_Old_Games___Oddworld__Abe_s_Exoddus_:33
+#: PlayOnLinux_Scripts/Good_Old_Games___Oddworld__Abe_s_Oddysee_:33
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:30
 #: PlayOnLinux_Scripts/Good_Old_Games___Painkiller__Black_Edition_:37
 #: PlayOnLinux_Scripts/Good_Old_Games___Riven__The_sequel_to_Myst_:31
@@ -1187,49 +1214,9 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___The_Feeble_Files_:36
 #: PlayOnLinux_Scripts/Good_Old_Games___The_Witcher_Enhanced_Edition_Directors_Cut_:36
 #: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:33
-#: PlayOnLinux_Scripts/Good_Old_Games___XIII_:31
+#: PlayOnLinux_Scripts/Good_Old_Games___XIII_:32
 #, sh-format
 msgid "Do you want to download $TITLE from GOG.com?"
-msgstr ""
-
-#: PlayOnLinux_Scripts/Good_Old_Games___Advent_Rising_:45
-#: PlayOnLinux_Scripts/Good_Old_Games___Age_of_Wonders__Shadow_Magic_:43
-#: PlayOnLinux_Scripts/Good_Old_Games___Arma__Cold_War_Assault_:42
-#: PlayOnLinux_Scripts/Good_Old_Games___Broken_Sword_1__Shadow_of_The_Templars_:45
-#: PlayOnLinux_Scripts/Good_Old_Games___Broken_Sword_2__The_Smoking_Mirror_:42
-#: PlayOnLinux_Scripts/Good_Old_Games___Broken_Sword_3__The_Sleeping_Dragon_:42
-#: PlayOnLinux_Scripts/Good_Old_Games___Divine_Divinity_:42
-#: PlayOnLinux_Scripts/Good_Old_Games___Dungeon_Keeper_2_:45
-#: PlayOnLinux_Scripts/Good_Old_Games___Dungeons_and_Dragons__Dragonshard_:42
-#: PlayOnLinux_Scripts/Good_Old_Games___Enclave_:47
-#: PlayOnLinux_Scripts/Good_Old_Games___Fallout_:44
-#: PlayOnLinux_Scripts/Good_Old_Games___Fallout_2_:44
-#: PlayOnLinux_Scripts/Good_Old_Games___Far_Cry_:50
-#: PlayOnLinux_Scripts/Good_Old_Games___Flatout_:44
-#: PlayOnLinux_Scripts/Good_Old_Games___Forgotten_Realms__Demon_Stone_:44
-#: PlayOnLinux_Scripts/Good_Old_Games___Freespace_2_:44
-#: PlayOnLinux_Scripts/Good_Old_Games___Giants__Citizen_Kabuto_:43
-#: PlayOnLinux_Scripts/Good_Old_Games___Ground_Control_2_:48
-#: PlayOnLinux_Scripts/Good_Old_Games___Incoming_and_Incoming_Forces_:45
-#: PlayOnLinux_Scripts/Good_Old_Games___Iron_Storm_:43
-#: PlayOnLinux_Scripts/Good_Old_Games___Jack_Orlando__A_Cinematic_Adventure_:42
-#: PlayOnLinux_Scripts/Good_Old_Games___Lure_of_the_Temptress_:45
-#: PlayOnLinux_Scripts/Good_Old_Games___Neverwinter_Nights_Diamond_Edition_:50
-#: PlayOnLinux_Scripts/Good_Old_Games___Nox_:46
-#: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:41
-#: PlayOnLinux_Scripts/Good_Old_Games___Painkiller__Black_Edition_:48
-#: PlayOnLinux_Scripts/Good_Old_Games___Riven__The_sequel_to_Myst_:42
-#: PlayOnLinux_Scripts/Good_Old_Games___Sanitarium_:54
-#: PlayOnLinux_Scripts/Good_Old_Games___Septerra_Core__Legacy_of_the_Creator_:42
-#: PlayOnLinux_Scripts/Good_Old_Games___Simon_the_Sorcerer_:44
-#: PlayOnLinux_Scripts/Good_Old_Games___Temple_of_Elemental_Evil_:46
-#: PlayOnLinux_Scripts/Good_Old_Games___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:51
-#: PlayOnLinux_Scripts/Good_Old_Games___The_Feeble_Files_:47
-#: PlayOnLinux_Scripts/Good_Old_Games___The_Witcher_Enhanced_Edition_Directors_Cut_:47
-#: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:44
-#: PlayOnLinux_Scripts/Good_Old_Games___XIII_:42
-#, sh-format
-msgid "Please select the setup file to run."
 msgstr ""
 
 #: PlayOnLinux_Scripts/Good_Old_Games___Advent_Rising_:54
@@ -1256,6 +1243,8 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___Lure_of_the_Temptress_:59
 #: PlayOnLinux_Scripts/Good_Old_Games___Neverwinter_Nights_Diamond_Edition_:59
 #: PlayOnLinux_Scripts/Good_Old_Games___Nox_:55
+#: PlayOnLinux_Scripts/Good_Old_Games___Oddworld__Abe_s_Exoddus_:53
+#: PlayOnLinux_Scripts/Good_Old_Games___Oddworld__Abe_s_Oddysee_:53
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:50
 #: PlayOnLinux_Scripts/Good_Old_Games___Painkiller__Black_Edition_:57
 #: PlayOnLinux_Scripts/Good_Old_Games___Riven__The_sequel_to_Myst_:51
@@ -1267,7 +1256,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___The_Feeble_Files_:61
 #: PlayOnLinux_Scripts/Good_Old_Games___The_Witcher_Enhanced_Edition_Directors_Cut_:56
 #: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:53
-#: PlayOnLinux_Scripts/Good_Old_Games___XIII_:51
+#: PlayOnLinux_Scripts/Good_Old_Games___XIII_:52
 #: PlayOnLinux_Scripts/Ski_Challenge_2012_:42
 #, sh-format
 msgid "Error while installing archive"
@@ -1928,7 +1917,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Star_Wars___The_Force_Unleashed_2_:119
 #: PlayOnLinux_Scripts/Star_Wars___The_Force_Unleashed___Ultimate_Sith_Edition_:118
 #: PlayOnLinux_Scripts/Star_Wars___The_Old_Republic_:68
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_V__Skyrim_:60
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_V___Skyrim_:60
 #, sh-format
 msgid "Please insert the game media into your disk drive"
 msgstr ""
@@ -2028,6 +2017,11 @@ msgstr ""
 #: PlayOnLinux_Scripts/Surfer_8_:12
 #, sh-format
 msgid "Please select the install file."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Surfer_8_:14
+#, sh-format
+msgid "PlayOnLinux is installing your application..."
 msgstr ""
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:50
@@ -2139,6 +2133,11 @@ msgstr ""
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:36
 #, sh-format
 msgid "Please choose"
+msgstr ""
+
+#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:23
+#, sh-format
+msgid "Welcome in the patch $PVERSION installer for $TITLE."
 msgstr ""
 
 #: PlayOnLinux_Scripts/Zoo_Tycoon_2___Ultimate_Collection_:63
