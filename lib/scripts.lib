@@ -533,12 +533,13 @@ POL_System_cp ()
 POL_System_wget ()
 {
 	# Wget with a progressbar
-	# Usage: Same than wget except that URL must be the first parameter 
+	# Usage: Same than wget except that the title of the file is the first parameter, URL must be the second one parameter 
 	
 	url="$1" 
 	+ Downloading $1 with wget
 	shift
-	FICHIER="${url##*/}"
+	FICHIER="$1"
+	shift
 	mkdir -p $POL_USER_ROOT/tmp/wgets/
 	wgetf="$POL_USER_ROOT/tmp/wgets/wget_$$";
 	 
