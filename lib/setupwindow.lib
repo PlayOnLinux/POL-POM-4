@@ -873,7 +873,7 @@ POL_SetupWindow_show_exe ()
 
 	cd "$WINEPREFIX/drive_c"
 	POL_SetupWindow_wait_next_signal "$(eval_gettext "Scanning the virtual drive ...")" "$2"
-	contents="$(find . -iname *.exe | grep -v "./windows" | grep -v iexplore.exe | process_POL_SetupWindow_show_exe)"
+	contents="$(find . -name windows -prune -o -name iexplore.exe -prune -o -iname '*.exe' -a -type f -print | process_POL_SetupWindow_show_exe)"
 	POL_SetupWindow_menu "$1" "$2" "$contents" "~"
 }
 
@@ -1020,9 +1020,9 @@ POL_SetupWindow_shortcut_creator()
 	CODENAME="$(POL_MD5 "$WINEPREFIX")"
 	mkdir -p "$POL_USER_ROOT/tmp/cache/icons/$CODENAME"
 	cp "$PLAYONLINUX/resources/images/icones/browse.png" "$POL_USER_ROOT/tmp/cache/icons/$CODENAME"
-	cp "$PLAYONLINUX/resources/images/icones/finish.png" "$POL_USER_ROOT/tmp/cache/icons/$CODENAME"	
+	cp "$PLAYONLINUX/resources/images/icones/finish.png" "$POL_USER_ROOT/tmp/cache/icons/$CODENAME"
 	POL_SetupWindow_wait_next_signal "$(eval_gettext "Scanning the virtual drive ...")" "$TITLE"
-	contents="$(find . -iname *.exe | grep -v "./windows" | grep -v iexplore.exe | process_POL_SetupWindow_shortcut_creator)"
+	contents="$(find . -name windows -prune -o -name iexplore.exe -prune -o -iname '*.exe' -a -type f -print | process_POL_SetupWindow_shortcut_creator)"
 	LNG_FINISH="$(eval_gettext "I don't want to make another shortcut")"
 	LNG_BROWSE="$(eval_gettext "Browse")"
 	[ "$contents" = "" ] || CONTENTS2="~$contents"
