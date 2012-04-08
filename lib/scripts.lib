@@ -530,6 +530,35 @@ POL_System_cp ()
 
     return 0
 }
+POL_System_wget ()
+{
+	# Wget with a progressbar
+	# Usage: Same than wget except that URL must be the first parameter 
+	
+	url="$1" 
+	+ Downloading $1 with wget
+	shift
+	FICHIER="${url##*/}"
+	mkdir -p $POL_USER_ROOT/tmp/wgets/
+	wgetf="$POL_USER_ROOT/tmp/wgets/wget_$$";
+	 
+	[ -e "$wgetf" ] && rm "$wgetf"
+
+	# berk
+	
+	POL_SetupWindow_pulsebar "$(eval_gettext 'Please wait while $APPLICATION_TITLE is downloading:')\n$FICHIER" "$TITLE"
+	${POL_WGET/-q/-v} "$url" "$@" -o "$wgetf" & pid="$!"
+	
+	while kill -0 $pid 2> /dev/null; do
+		perc="$(grep "[0-9]\{1,2\}%" "$wgetf" | awk '{print $7}' | tail -n 1)"
+		sleep 0.1
+		POL_SetupWindow_pulse ${perc%%%}
+	done
+
+	POL_SetupWindow_pulse 100
+
+    return 0
+}
 POL_Shortcut_Document()
 {
 	# Add a manual to a shortcut
