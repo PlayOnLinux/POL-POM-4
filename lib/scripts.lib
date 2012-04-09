@@ -533,26 +533,26 @@ POL_System_cp ()
 POL_System_wget ()
 {
 	# Wget with a progressbar
-	# Usage: Same than wget except that the title of the file is the first parameter, URL must be the second one parameter 
-	
-	url="$1" 
-	+ Downloading $1 with wget
-	+ Command : ${POL_WGET/-q/-v} "$url" "$@"
+	# Usage: Same than wget except that the title of the file is the first parameter, URL must be the second one parameter
+
+	url="$1"
+	POL_Debug_Message "Downloading $1 with wget"
 	shift
 	FICHIER="$1"
 	shift
 	mkdir -p $POL_USER_ROOT/tmp/wgets/
 	wgetf="$POL_USER_ROOT/tmp/wgets/wget_$$";
-	 
-	[ -e "$wgetf" ] && rm "$wgetf"
+
+	echo -n "" > "$wgetf"
 
 	# berk
-	
+
 	POL_SetupWindow_pulsebar "$(eval_gettext 'Please wait while $APPLICATION_TITLE is downloading:')\n$FICHIER" "$TITLE"
-	${POL_WGET/-q/-v} "$url" "$@" -o "$wgetf" & pid="$!"
-	
+	${POL_WGET/-q} -v -c "$url" "$@" -o "$wgetf" & pid="$!"
+
 	while kill -0 $pid 2> /dev/null; do
-		perc="$(grep "[0-9]\{1,2\}%" "$wgetf" | awk '{print $7}' | tail -n 1)"
+		perc="$(tail -n 10 "$wgetf" | grep "[0-9]\{1,2\}%" | awk '{print $7}' | tail -n 1)"
+		perc="${perc:-0}"
 		sleep 0.1
 		POL_SetupWindow_pulse ${perc%%%}
 	done
