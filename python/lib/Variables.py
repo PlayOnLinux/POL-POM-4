@@ -54,8 +54,8 @@ os.environ["SITE"] = "http://repository.playonlinux.com"
 os.environ["VERSION"] = "4.0.17-dev"
 os.environ["POL_ID"] = str(random.randint(1,100000000))
 os.environ["WINEPREFIX"] = os.environ["REPERTOIRE"]+"/wineprefix/default"
-os.environ["WINE_SITE"] = "http://www.playonlinux.com/wine/binaries/"
-os.environ["GECKO_SITE"] = "http://www.playonlinux.com/wine/gecko/"
+os.environ["WINE_SITE"] = "http://www.playonlinux.com/wine/binaries"
+os.environ["GECKO_SITE"] = "http://www.playonlinux.com/wine/gecko"
 os.environ["OS_NAME"] = os_name 
 homedir = os.environ["HOME"]
 
