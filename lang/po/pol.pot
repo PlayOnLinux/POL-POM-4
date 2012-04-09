@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2012-04-08 19:00:39+02:00\n"
+"POT-Creation-Date: 2012-04-09 19:00:43+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -305,6 +305,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:45
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast__High_resolution_patch_:47
 #: PlayOnLinux_Scripts/Good_Old_Games___Painkiller__Black_Edition_:52
+#: PlayOnLinux_Scripts/Good_Old_Games___Prince_of_Persia__The_Sands_of_Time_:33
 #: PlayOnLinux_Scripts/Good_Old_Games___Riven__The_sequel_to_Myst_:46
 #: PlayOnLinux_Scripts/Good_Old_Games___Sanitarium_:58
 #: PlayOnLinux_Scripts/Good_Old_Games___Septerra_Core__Legacy_of_the_Creator_:46
@@ -314,7 +315,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___The_Feeble_Files_:56
 #: PlayOnLinux_Scripts/Good_Old_Games___The_Witcher_Enhanced_Edition_Directors_Cut_:51
 #: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:48
-#: PlayOnLinux_Scripts/Good_Old_Games___XIII_:47
+#: PlayOnLinux_Scripts/Good_Old_Games___XIII_:32
 #: PlayOnLinux_Scripts/Runes_Of_Magic_:49
 #: PlayOnLinux_Scripts/Secret_of_Monkey_Island___Special_Edition__Testing__:39
 #: PlayOnLinux_Scripts/Ski_Challenge_2012_:40 PlayOnLinux_Scripts/Spotify_:55
@@ -450,7 +451,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___The_Feeble_Files_:47
 #: PlayOnLinux_Scripts/Good_Old_Games___The_Witcher_Enhanced_Edition_Directors_Cut_:47
 #: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:44
-#: PlayOnLinux_Scripts/Good_Old_Games___XIII_:43
+#: PlayOnLinux_Scripts/POL_GoG_setup_:27
 #, sh-format
 msgid "Please select the setup file to run."
 msgstr ""
@@ -1214,7 +1215,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___The_Feeble_Files_:36
 #: PlayOnLinux_Scripts/Good_Old_Games___The_Witcher_Enhanced_Edition_Directors_Cut_:36
 #: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:33
-#: PlayOnLinux_Scripts/Good_Old_Games___XIII_:32
 #, sh-format
 msgid "Do you want to download $TITLE from GOG.com?"
 msgstr ""
@@ -1247,6 +1247,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___Oddworld__Abe_s_Oddysee_:53
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:50
 #: PlayOnLinux_Scripts/Good_Old_Games___Painkiller__Black_Edition_:57
+#: PlayOnLinux_Scripts/Good_Old_Games___Prince_of_Persia__The_Sands_of_Time_:38
 #: PlayOnLinux_Scripts/Good_Old_Games___Riven__The_sequel_to_Myst_:51
 #: PlayOnLinux_Scripts/Good_Old_Games___Sanitarium_:63
 #: PlayOnLinux_Scripts/Good_Old_Games___Septerra_Core__Legacy_of_the_Creator_:51
@@ -1256,7 +1257,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___The_Feeble_Files_:61
 #: PlayOnLinux_Scripts/Good_Old_Games___The_Witcher_Enhanced_Edition_Directors_Cut_:56
 #: PlayOnLinux_Scripts/Good_Old_Games___Two_Worlds__Epic_Edition_:53
-#: PlayOnLinux_Scripts/Good_Old_Games___XIII_:52
+#: PlayOnLinux_Scripts/Good_Old_Games___XIII_:37
 #: PlayOnLinux_Scripts/Ski_Challenge_2012_:42
 #, sh-format
 msgid "Error while installing archive"
@@ -1520,6 +1521,13 @@ msgstr ""
 msgid "Dedicated server"
 msgstr ""
 
+#: PlayOnLinux_Scripts/Good_Old_Games___Prince_of_Persia__The_Sands_of_Time_:63
+#, sh-format
+msgid ""
+"If you can barely distinguish a landscape behind main menu,\\ndisable FOG in "
+"graphic options."
+msgstr ""
+
 #: PlayOnLinux_Scripts/Good_Old_Games___Sanitarium_:75
 #, sh-format
 msgid "(windowed)"
@@ -1661,6 +1669,7 @@ msgid "Wait until it gets downloaded and installed"
 msgstr ""
 
 #: PlayOnLinux_Scripts/POL_Function_FontsSmoothRGB_:1
+#: PlayOnLinux_Scripts/POL_GoG_download_:22
 #: PlayOnLinux_Scripts/POL_Install_DisableCrashDialog_:5
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:109 bash/installpolpackages:26
 #: bash/killall:29 bash/winebash:27 lib/wine.lib:761 lib/wine.lib:791
@@ -1691,6 +1700,21 @@ msgstr ""
 #, sh-format
 msgid ""
 "No filename extension specified, skipping association to native application."
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_GoG_download_:13
+#, sh-format
+msgid "In what directory do you want to download GOG files?"
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_GoG_download_:20
+#, sh-format
+msgid "Please enter your gog.com login to download $GAME"
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_GoG_download_:43
+#, sh-format
+msgid "Checking piece integrity..."
 msgstr ""
 
 #: PlayOnLinux_Scripts/POL_Install_AdobeAir_:5
@@ -3224,7 +3248,7 @@ msgid "Free space on your hard drives:"
 msgstr ""
 
 #: bash/uninstall:25 bash/uninstall:52 bash/uninstall:55 bash/uninstall:57
-#: lib/playonlinux.lib:676
+#: lib/playonlinux.lib:678
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
 msgstr ""
@@ -3244,7 +3268,7 @@ msgstr ""
 msgid "This wizard will help you to uninstall: "
 msgstr ""
 
-#: bash/uninstall:52 lib/playonlinux.lib:676
+#: bash/uninstall:52 lib/playonlinux.lib:678
 #, sh-format
 msgid "Uninstalling..."
 msgstr ""
@@ -3311,16 +3335,16 @@ msgstr ""
 msgid "Setting Program Files var"
 msgstr ""
 
-#: lib/playonlinux.lib:168 lib/playonlinux.lib:174 lib/playonlinux.lib:180
-#: lib/playonlinux.lib:186 lib/playonlinux.lib:192 lib/playonlinux.lib:198
-#: lib/playonlinux.lib:205 lib/playonlinux.lib:211 lib/playonlinux.lib:217
-#: lib/playonlinux.lib:223 lib/playonlinux.lib:229 lib/playonlinux.lib:235
-#: lib/playonlinux.lib:241
+#: lib/playonlinux.lib:170 lib/playonlinux.lib:176 lib/playonlinux.lib:182
+#: lib/playonlinux.lib:188 lib/playonlinux.lib:194 lib/playonlinux.lib:200
+#: lib/playonlinux.lib:207 lib/playonlinux.lib:213 lib/playonlinux.lib:219
+#: lib/playonlinux.lib:225 lib/playonlinux.lib:231 lib/playonlinux.lib:237
+#: lib/playonlinux.lib:243
 #, sh-format
 msgid "This function is disabled in the PlayOnlinux environment."
 msgstr ""
 
-#: lib/playonlinux.lib:300
+#: lib/playonlinux.lib:302
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -3328,12 +3352,12 @@ msgid ""
 "responsible from it.\\nPlease ensure you know what you are doing !"
 msgstr ""
 
-#: lib/playonlinux.lib:301
+#: lib/playonlinux.lib:303
 #, sh-format
 msgid "Here the source code of the script. Check it carefully"
 msgstr ""
 
-#: lib/playonlinux.lib:320
+#: lib/playonlinux.lib:322
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -3341,48 +3365,48 @@ msgid ""
 "responsible from it.\\nPlease ensure you know what you are doing!"
 msgstr ""
 
-#: lib/playonlinux.lib:321
+#: lib/playonlinux.lib:323
 #, sh-format
 msgid "External library"
 msgstr ""
 
-#: lib/playonlinux.lib:321
+#: lib/playonlinux.lib:323
 #, sh-format
 msgid "Here the source code of the script. Check it carrefully"
 msgstr ""
 
-#: lib/playonlinux.lib:552
+#: lib/playonlinux.lib:554
 #, sh-format
 msgid "Making shortcut..."
 msgstr ""
 
-#: lib/playonlinux.lib:674
+#: lib/playonlinux.lib:676
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr ""
 
-#: lib/playonlinux.lib:781
+#: lib/playonlinux.lib:783
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:782
+#: lib/playonlinux.lib:784
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:783
+#: lib/playonlinux.lib:785
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:784
+#: lib/playonlinux.lib:786
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
@@ -3409,7 +3433,7 @@ msgstr ""
 msgid "Installing plugin: "
 msgstr ""
 
-#: lib/scripts.lib:369
+#: lib/scripts.lib:369 lib/scripts.lib:560
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr ""
@@ -3419,45 +3443,45 @@ msgstr ""
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 
-#: lib/scripts.lib:469
+#: lib/scripts.lib:479
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
 msgstr ""
 
-#: lib/scripts.lib:476
+#: lib/scripts.lib:486
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr ""
 
-#: lib/scripts.lib:480
+#: lib/scripts.lib:490
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr ""
 
-#: lib/scripts.lib:495
+#: lib/scripts.lib:505
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:514
+#: lib/scripts.lib:524
 #, sh-format
 msgid "Copying ${filename}"
 msgstr ""
 
-#: lib/scripts.lib:527
+#: lib/scripts.lib:537
 #, sh-format
 msgid "File size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:550
+#: lib/scripts.lib:591
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\n"
 "$APPLICATION_TITLE $NEEDED is required."
 msgstr ""
 
-#: lib/scripts.lib:565
+#: lib/scripts.lib:606
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
@@ -3520,89 +3544,89 @@ msgstr ""
 msgid "Error: Unable to find the CD-ROM!"
 msgstr ""
 
-#: lib/setupwindow.lib:875 lib/setupwindow.lib:1024
+#: lib/setupwindow.lib:883 lib/setupwindow.lib:1032
 #, sh-format
 msgid "Scanning the virtual drive ..."
 msgstr ""
 
-#: lib/setupwindow.lib:889
+#: lib/setupwindow.lib:897
 #, sh-format
 msgid "How much memory does your graphics board have?"
 msgstr ""
 
-#: lib/setupwindow.lib:898
+#: lib/setupwindow.lib:906
 #, sh-format
 msgid "Video card does not have enough memory"
 msgstr ""
 
-#: lib/setupwindow.lib:899
+#: lib/setupwindow.lib:907
 #, sh-format
 msgid ""
 "Your video card does not have enough memory!\\nIt might prevent the game "
 "from working"
 msgstr ""
 
-#: lib/setupwindow.lib:913
+#: lib/setupwindow.lib:921
 #, sh-format
 msgid "Use Steam Store version"
 msgstr ""
 
-#: lib/setupwindow.lib:914
+#: lib/setupwindow.lib:922
 #, sh-format
 msgid "Use Steam Store demo version"
 msgstr ""
 
-#: lib/setupwindow.lib:915
+#: lib/setupwindow.lib:923
 #, sh-format
 msgid "Use Desura Store version"
 msgstr ""
 
-#: lib/setupwindow.lib:916
+#: lib/setupwindow.lib:924
 #, sh-format
 msgid "Use Desura Store demo version"
 msgstr ""
 
-#: lib/setupwindow.lib:917
+#: lib/setupwindow.lib:925
 #, sh-format
 msgid "Use Origin Store version"
 msgstr ""
 
-#: lib/setupwindow.lib:918
+#: lib/setupwindow.lib:926
 #, sh-format
 msgid "Use Origin Store demo version"
 msgstr ""
 
-#: lib/setupwindow.lib:920
+#: lib/setupwindow.lib:928
 #, sh-format
 msgid "Use a setup file in my computer"
 msgstr ""
 
-#: lib/setupwindow.lib:921
+#: lib/setupwindow.lib:929
 #, sh-format
 msgid "Use CD-ROM(s)"
 msgstr ""
 
-#: lib/setupwindow.lib:922
+#: lib/setupwindow.lib:930
 #, sh-format
 msgid "Use DVD-ROM(s)"
 msgstr ""
 
-#: lib/setupwindow.lib:923
+#: lib/setupwindow.lib:931
 #, sh-format
 msgid "Download the program"
 msgstr ""
 
-#: lib/setupwindow.lib:988
+#: lib/setupwindow.lib:996
 #, sh-format
 msgid "Please choose an installation method"
 msgstr ""
 
-#: lib/setupwindow.lib:1026
+#: lib/setupwindow.lib:1034
 #, sh-format
 msgid "I don't want to make another shortcut"
 msgstr ""
 
-#: lib/setupwindow.lib:1027 python/guiv3.py:157
+#: lib/setupwindow.lib:1035 python/guiv3.py:157
 #, sh-format
 msgid "Browse"
 msgstr ""
@@ -3869,19 +3893,19 @@ msgstr ""
 msgid "of"
 msgstr ""
 
-#: python/guiv3.py:884
+#: python/guiv3.py:885
 msgid "Create a shortcut :"
 msgstr ""
 
-#: python/guiv3.py:892
+#: python/guiv3.py:893
 msgid "Do you want a shortcut for "
 msgstr ""
 
-#: python/guiv3.py:895
+#: python/guiv3.py:896
 msgid "On your desktop"
 msgstr ""
 
-#: python/guiv3.py:896
+#: python/guiv3.py:897
 msgid "In your menu"
 msgstr ""
 
