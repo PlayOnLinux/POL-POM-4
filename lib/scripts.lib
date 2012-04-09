@@ -447,6 +447,16 @@ POL_MD5_file ()
 		cat "$1" | md5sum | awk '{print $1}'
 	fi
 }
+POL_base64()
+{
+	[ "$POL_OS" = "Linux" ] && base64
+	[ "$POL_OS" = "Mac" ] && openssl base64
+}
+POL_unbase64()
+{
+	[ "$POL_OS" = "Linux" ] && base64 -D
+	[ "$POL_OS" = "Mac" ] && openssl base64 -d
+}
 
 POL_System_ExtractSingleFile ()
 {
