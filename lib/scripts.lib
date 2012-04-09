@@ -548,7 +548,7 @@ POL_System_wget ()
 	# berk
 
 	POL_SetupWindow_pulsebar "$(eval_gettext 'Please wait while $APPLICATION_TITLE is downloading:')\n$FICHIER" "$TITLE"
-	${POL_WGET/-q} -v "$url" "$@" -o "$wgetf" & pid="$!"
+	${POL_WGET/-q} -v -c "$url" "$@" -o "$wgetf" & pid="$!"
 
 	while kill -0 $pid 2> /dev/null; do
 		perc="$(tail -n 10 "$wgetf" | grep "[0-9]\{1,2\}%" | awk '{print $7}' | tail -n 1)"
