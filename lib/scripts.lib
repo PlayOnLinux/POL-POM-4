@@ -537,6 +537,7 @@ POL_System_wget ()
 	
 	url="$1" 
 	+ Downloading $1 with wget
+	+ Command : ${POL_WGET/-q/-v} "$url" "$@"
 	shift
 	FICHIER="$1"
 	shift
