@@ -295,7 +295,7 @@ POL_Bash ()
 	then
 		cd "$OLD_DIR"
 		POL_Debug_Message "POL GPG : Good signature - $TITLE"
-		bash "$@"
+		$POL_PREBASH bash "$@"
 	else
 		cd "$OLD_DIR"
 		POL_SetupWindow_Init

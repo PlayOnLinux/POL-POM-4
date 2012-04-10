@@ -95,7 +95,7 @@ unset WINEARCH
 
 # Is screen installed ?
 # This hack allows POL to propagate kill signal when user click on cancel button
-if type screen 2> /dev/null; then
+if type screen > /dev/null 2> /dev/null; then
 	POL_PREBASH="screen -d -m "
 else
 	POL_PREBASH=""
