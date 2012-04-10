@@ -93,10 +93,10 @@ export GNUPGHOME="$REPERTOIRE/gpg"
 [ "$(POL_Config_pRead FIX_DRI_PATH)" = "TRUE" ] && [ "$POL_OS" = "Linux" ] && export LIBGL_DRIVERS_PATH="/usr/lib/dri/:/usr/lib64/dri/:/usr/lib32/dri/"
 unset WINEARCH
 
-# Some useful alias
-alias @="POL_Call"
-alias +="POL_Debug_Message"
-alias ++="POL_Debug_LogToPrefix"
-alias +++="POL_Debug_Warning"
-alias ++++="POL_Debug_Error"
-alias +++++="POL_Debug_Fatal"
+# Is screen installed ?
+# This hack allows POL to propagate kill signal when user click on cancel button
+if type screen 2> /dev/null; then
+	POL_PREBASH="screen -d -m "
+else
+	POL_PREBASH=""
+fi

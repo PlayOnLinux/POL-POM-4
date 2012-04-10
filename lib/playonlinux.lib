@@ -302,9 +302,13 @@ POL_Bash ()
 		POL_SetupWindow_message "$(eval_gettext 'Warning !!\n\nThe signature of the script you are trying to run is NOT valid\n\nPlayOnLinux has not approved this script and will not be responsible from it.\nPlease ensure you know what you are doing !')" "$TITLE"
 		POL_SetupWindow_licence "$(eval_gettext 'Here the source code of the script. Check it carefully')" "$TITLE" "$1"
 		POL_SetupWindow_Close
-		bash "$@"
+		$POL_PREBASH bash "$@"
 	fi
 
+}
+POL_Bash_NoSig()
+{
+	$POL_PREBASH bash "$@"
 }
 POL_Source ()
 {
