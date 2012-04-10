@@ -350,7 +350,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 			self.Destroy()
 			self.SendBash("MSG_RECEIVED=Cancel") #Indiquera à PlayOnLinux bash qu'il faut arreter l'installation
 			
-			if(os.environ["POL_OS"] = "Linux"):
+			if(os.environ["POL_OS"] == "Linux"):
 				os.system("pkill -9 -P "+self.bash_pid)
 			os.system("kill -1 "+self.bash_pid) # On commence gentiment
 			
