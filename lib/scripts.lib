@@ -550,26 +550,22 @@ POL_System_wget ()
 	shift
 	FICHIER="$1"
 	shift
-	mkdir -p $POL_USER_ROOT/tmp/wgets/
-	wgetf="$POL_USER_ROOT/tmp/wgets/wget_$$";
-
-	echo -n "" > "$wgetf"
-
-	# berk
 
 	POL_SetupWindow_pulsebar "$(eval_gettext 'Please wait while $APPLICATION_TITLE is downloading:')\n$FICHIER" "$TITLE"
-	${POL_WGET/-q} -v -c "$url" "$@" -o "$wgetf" & pid="$!"
 
-	while kill -0 $pid 2> /dev/null; do
-		perc="$(tail -n 10 "$wgetf" | grep "[0-9]\{1,2\}%" | awk '{print $7}' | tail -n 1)"
-		perc="${perc:-0}"
-		sleep 0.1
-		POL_SetupWindow_pulse ${perc%%%}
+	prev=0
+	${POL_WGET/-q} -v -c "$url" "$@" 2>&1 | \
+	grep -o --line-buffered '[0-9]\{1,2\}%' | \
+	while read perc; do
+		if [ -n "$perc" -a "$perc" != "$prev" ]; then
+			POL_SetupWindow_pulse ${perc%%%}
+			prev="$perc"
+		fi
 	done
 
 	POL_SetupWindow_pulse 100
 
-    return 0
+	return 0
 }
 POL_Shortcut_Document()
 {
