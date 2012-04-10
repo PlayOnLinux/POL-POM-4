@@ -95,8 +95,8 @@ playonlinux_rep = os.environ["REPERTOIRE"]
 version = os.environ["VERSION"]
 current_user = os.environ["USER"]
 
-# Je sais plus a quoi ca sert, mais ca sert
-os.environ["SHLVL"]="2"
+# Propagate kill signals
+#os.system("set -o monitor")
 
 # On fait le minimum avant de lancer l'interface
 os.system("bash "+playonlinux_env+"/bash/startup")
