@@ -349,6 +349,11 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 		if(self.ProtectedWindow == False):
 			self.Destroy()
 			self.SendBash("MSG_RECEIVED=Cancel") #Indiquera à PlayOnLinux bash qu'il faut arreter l'installation
+			
+			if(os.environ["POL_OS"] = "Linux"):
+				os.system("pkill -9 -P "+self.bash_pid)
+			os.system("kill -1 "+self.bash_pid) # On commence gentiment
+			
 			os.system("kill -9 "+self.bash_pid) # Plus bourrain, mais bien plus efficace
 			os.remove(self.file_id) # La on est plutôt pépère pour faire ça
 		else:
