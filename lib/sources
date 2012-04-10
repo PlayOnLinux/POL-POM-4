@@ -36,3 +36,8 @@ then
 	source "$PLAYONLINUX/lib/website.lib"
 	source "$PLAYONLINUX/lib/wine.lib"
 fi
+if [ ! "$ONLY_ONCE" ]
+then
+	set -o monitor
+	export ONLY_ONCE="1"
+fi

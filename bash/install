@@ -19,7 +19,7 @@
 
 [ "$PLAYONLINUX" = "" ] && exit 0
 source "$PLAYONLINUX/lib/sources" 
-set -o monitor
+
 menu="$1"
 if [ "$menu" = "ExecLiveInstall" ]
 then
