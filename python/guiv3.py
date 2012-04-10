@@ -349,9 +349,13 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 		if(self.ProtectedWindow == False):
 			self.Destroy()
 			self.SendBash("MSG_RECEIVED=Cancel") #Indiquera à PlayOnLinux bash qu'il faut arreter l'installation
-			os.system("kill -9 -"+self.bash_pid)
+			if(os.environ["POL_OS"] = "Mac"):
+				os.system("kill -9 -"+self.bash_pid+" 2> /dev/null")
+			#if(os.environ["POL_OS"] = "Linux"):
+			#	os.system("pkill -9 -P"+self.bash_pid+" 2> /dev/null")
+			
 			#time.sleep(0.3)
-			#os.system("kill -9 "+self.bash_pid) # Plus bourrain, mais bien plus efficace
+			os.system("kill -9 "+self.bash_pid+" 2> /dev/null") # Plus bourrain, mais bien plus efficace
 			os.remove(self.file_id) # La on est plutôt pépère pour faire ça
 		else:
 			wx.MessageBox(_("You cannot close this window").format(os.environ["APPLICATION_TITLE"]),_("Error"))
