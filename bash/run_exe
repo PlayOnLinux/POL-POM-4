@@ -109,6 +109,7 @@ then
 		then
 			POL_SetupWindow_Close
 			export POL_SELECTED_FILE="$line"
+			export POL_SELECTED_MD5="$md5"
 			bash "$PLAYONLINUX/bash/install" "$md5sreplace"
 			exit 0
 		fi
