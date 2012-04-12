@@ -115,7 +115,6 @@ POL_SetupWindow_free_presentation "$(eval_gettext 'Manual installation')" "$(eva
 LNG_LI_NEW="$(eval_gettext "Install a program in a new virtual drive")"
 LNG_LI_PATCH="$(eval_gettext "Edit or update an existing application")"
 
-POL_System_SetArch "x86"
 
 POL_SetupWindow_menu "$(eval_gettext "What would you like to do?")" "$(eval_gettext 'Manual installation')" "$LNG_LI_NEW~$LNG_LI_PATCH" "~"
 menu="$APP_ANSWER"
@@ -131,6 +130,7 @@ then
 	PREFIXNAME="$APP_ANSWER"
 	SCRIPTPATH="$POL_USER_ROOT/scripts/${APP_ANSWER}_${INSTALL_NUMBER}"
 	SCRIPTNAME="${APP_ANSWER}_${INSTALL_NUMBER}"
+	POL_System_SetArch "x86"
 	ManualInstall_ScriptInit
 	echo "POL_Wine_SelectPrefix \"$PREFIXNAME\"" >> "$SCRIPTPATH"
 	POL_Wine_SelectPrefix "$PREFIXNAME"
