@@ -34,7 +34,6 @@ export POL_TERM="xterm"
 [ "$(which xdg-user-dir)" ] && export DESKTOP="$(xdg-user-dir DESKTOP)" || export DESKTOP="$HOME/Desktop"
 
 ### Override ~/.wgetrc
-[ -e "$POL_USER_ROOT/configurations/wgetrc" ] || touch "$POL_USER_ROOT/configurations/wgetrc"
 export WGETRC="$POL_USER_ROOT/configurations/wgetrc"
 
 ### Language

@@ -57,10 +57,11 @@ construire_repertoire_personnel ()
 	mkdir -p "$REPERTOIRE/configurations/guis"
 	mkdir -p "$REPERTOIRE/configurations/configurators"
 	mkdir -p "$REPERTOIRE/configurations/setups"
+	mkdir -p "$REPERTOIRE/configurations/listes"
 	touch "$POL_USER_ROOT/configurations/custom"
 	touch "$POL_USER_ROOT/playonlinux.cfg"
 	touch "$REPERTOIRE/configurations/listes/gecko.lst"
-	
+	touch "$REPERTOIRE/configurations/wgetrc"
 }
 
 clean_tmp ()
