@@ -47,7 +47,7 @@ install_plugins
 
 if [ "$(POL_Config_Read VDRIVES_LINK_MADE)" = "" ]; then
 	POL_Config_Write VDRIVES_LINK_MADE TRUE
-	ln -s "$POL_USER_ROOT/wineprefix/" "$HOME/$APPLICATION_TITLE's virtual drives"
+	[ -e "$HOME/$APPLICATION_TITLE's virtual drives" ] || ln -s "$POL_USER_ROOT/wineprefix/" "$HOME/$APPLICATION_TITLE's virtual drives"
 fi
 
 if [ "$(POL_Config_Read GECKO_INSTALLED)" = "" ]; then
