@@ -550,20 +550,21 @@ POL_Wine_Install_gecko()
 	# Install gecko for selected wine version
 	# Usage : POL_Wine_Install_gecko [ Version ] ( Arch )
 	[ -z "$1" ] && return 1
-        wineversion=`POL_Wine_GetBaseName "$1"`
+        wine_version="$1"
+        unpatched_version=`POL_Wine_GetBaseName "$1"`
 	[ "$2" = "amd64" ] && arch="$2" || arch="x86"
 
-	POL_Debug_Message "Installing gecko for wine $wineversion $arch"
+	POL_Debug_Message "Installing gecko for wine $unpatched_version $arch"
 	gecko_dir="$REPERTOIRE/wine/gecko"
 	gecko_file="$REPERTOIRE/configurations/listes/gecko.lst"
-	found="$(grep "^${wineversion//./\.};" "$gecko_file")"
+	found="$(grep "^${unpatched_version//./\.};" "$gecko_file")"
 	[ "$POL_OS" = "Linux" ] && wos="linux"
 	[ "$POL_OS" = "Mac" ] && wos="darwin"
 
-	if [ ! -L "$POL_USER_ROOT/wine/$wos-$arch/$wineversion/share/wine/gecko" ]
+	if [ ! -L "$POL_USER_ROOT/wine/$wos-$arch/$wine_version/share/wine/gecko" ]
 	then
 		POL_Debug_Message "Linking gecko"
-		ln -s "$POL_USER_ROOT/wine/gecko/" "$POL_USER_ROOT/wine/$wos-$arch/$wineversion/share/wine/gecko"
+		ln -s "$POL_USER_ROOT/wine/gecko/" "$POL_USER_ROOT/wine/$wos-$arch/$wine_version/share/wine/gecko"
 	fi
 	if [ "$found" ]; then
 		gecko1="$(cut -d ';' -f2 <<< $found)"
