@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2012-04-16 19:00:35+02:00\n"
+"POT-Creation-Date: 2012-04-17 19:00:40+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -492,6 +492,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:97
 #: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:88
 #: PlayOnLinux_Scripts/World_Of_Warcraft___Wrath_of_the_Lich_King_:66
+#: PlayOnLinux_Scripts/Worms_World_Party_:37
 #, sh-format
 msgid "Please select the setup file to run:"
 msgstr ""
@@ -1625,7 +1626,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_GoG_download_:22
 #: PlayOnLinux_Scripts/POL_Install_DisableCrashDialog_:5
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:109 bash/installpolpackages:26
-#: bash/killall:29 bash/winebash:27 lib/wine.lib:762 lib/wine.lib:792
+#: bash/killall:29 bash/winebash:27 lib/wine.lib:764 lib/wine.lib:794
 #, sh-format
 msgid "Please wait..."
 msgstr ""
@@ -1992,14 +1993,9 @@ msgid "PlayOnLinux is installing your application..."
 msgstr ""
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_II__Daggerfall_:62
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_II__Daggerfall_:81
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_II__Daggerfall_:71
 #, sh-format
 msgid "Decompressing archive..."
-msgstr ""
-
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_II__Daggerfall_:130
-#, sh-format
-msgid "Patching $TITLE..."
 msgstr ""
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:50
@@ -3340,12 +3336,12 @@ msgid ""
 msgstr ""
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:658
+#: lib/wine.lib:660
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr ""
 
-#: lib/deprecated.lib:427 lib/wine.lib:808
+#: lib/deprecated.lib:427 lib/wine.lib:810
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a Windows reboot"
 msgstr ""
@@ -3668,51 +3664,51 @@ msgid ""
 "valid."
 msgstr ""
 
-#: lib/wine.lib:469
+#: lib/wine.lib:471
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
 "message"
 msgstr ""
 
-#: lib/wine.lib:520
+#: lib/wine.lib:522
 #, sh-format
 msgid "Unable to find version: "
 msgstr ""
 
-#: lib/wine.lib:526 lib/wine.lib:527
+#: lib/wine.lib:528 lib/wine.lib:529
 #, sh-format
 msgid "Downloading Wine: "
 msgstr ""
 
-#: lib/wine.lib:536
+#: lib/wine.lib:538
 #, sh-format
 msgid "The download seems to have failed."
 msgstr ""
 
-#: lib/wine.lib:538
+#: lib/wine.lib:540
 #, sh-format
 msgid "Extracting Wine..."
 msgstr ""
 
-#: lib/wine.lib:762 lib/wine.lib:792
+#: lib/wine.lib:764 lib/wine.lib:794
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr ""
 
-#: lib/wine.lib:766 lib/wine.lib:795
+#: lib/wine.lib:768 lib/wine.lib:797
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
 "have to reinstall $SOFTNAME"
 msgstr ""
 
-#: lib/wine.lib:766 lib/wine.lib:795
+#: lib/wine.lib:768 lib/wine.lib:797
 #, sh-format
 msgid "Install is done"
 msgstr ""
 
-#: lib/wine.lib:799 lib/wine.lib:800
+#: lib/wine.lib:801 lib/wine.lib:802
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr ""
