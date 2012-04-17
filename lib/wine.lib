@@ -434,16 +434,18 @@ POL_Wine ()
 		NoErrors="True"
 		shift
 	fi
-	if [ "$1" = "start" ]; then
-		if [ "$2" = "/unix" ]; then
-			POL_System_CheckFS "$3"
+	
+	if [ ! "$(POL_Config_Read NO_FSCHECK)" = "TRUE" ]; then
+		if [ "$1" = "start" ]; then
+			if [ "$2" = "/unix" ]; then
+				POL_System_CheckFS "$3"
+			else
+				POL_System_CheckFS "$2"
+			fi
 		else
-			POL_System_CheckFS "$2"
+			POL_System_CheckFS "$1"
 		fi
-	else
-		POL_System_CheckFS "$1"
 	fi
-	# POL_System_CheckFS "$WINEPREFIX" # Inutile, à priori on est dans le répertoire POL
 	
 	POL_Wine_AutoSetVersionEnv
 	POL_Debug_Message "Running wine-$POL_WINEVERSION "$@" "
