@@ -479,7 +479,7 @@ POL_Wine_SelectPrefix()
 	# Select a wineprefix and remove unexpected chars
 	# Usage: POL_Wine_SelectPrefix [prefixname]
 	PREFNAME=`printf "$1"| tr -c [[a-zA-Z0-9]\.] '_'`
-	POL_Debug_Message "Selecting prefix: $PREFIXNAME"
+	POL_Debug_Message "Selecting prefix: $PREFNAME"
 	export WINEPREFIX="$POL_USER_ROOT/wineprefix/$PREFNAME"
 	export DOSPREFIX="$WINEPREFIX"
 	export POL_WINEVERSION="$(POL_Config_PrefixRead VERSION)"
