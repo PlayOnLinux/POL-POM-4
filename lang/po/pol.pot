@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2012-04-20 19:00:43+02:00\n"
+"POT-Creation-Date: 2012-04-21 19:00:41+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -236,9 +236,8 @@ msgstr ""
 #: PlayOnLinux_Scripts/Batman_Arkham_Asylum_:78
 #: PlayOnLinux_Scripts/Batman_Arkham_City_:65
 #: PlayOnLinux_Scripts/Batman_Arkham_City_:78 PlayOnLinux_Scripts/Brink_:50
-#: PlayOnLinux_Scripts/Brink_:63
-#: PlayOnLinux_Scripts/Counter_Strike___Source_:94
-#: PlayOnLinux_Scripts/Dead_Island_:71 PlayOnLinux_Scripts/Dead_Island_:84
+#: PlayOnLinux_Scripts/Brink_:63 PlayOnLinux_Scripts/Dead_Island_:71
+#: PlayOnLinux_Scripts/Dead_Island_:84
 #: PlayOnLinux_Scripts/Duke_Nukem_Forever_:81
 #: PlayOnLinux_Scripts/Duke_Nukem_Forever_:99
 #: PlayOnLinux_Scripts/F.E.A.R._3_:50 PlayOnLinux_Scripts/F.E.A.R._3_:63
@@ -310,6 +309,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast__High_resolution_patch_:47
 #: PlayOnLinux_Scripts/Good_Old_Games___Painkiller__Black_Edition_:35
 #: PlayOnLinux_Scripts/Good_Old_Games___Prince_of_Persia__The_Sands_of_Time_:33
+#: PlayOnLinux_Scripts/Good_Old_Games___Redneck_Rampage_Collection_:35
 #: PlayOnLinux_Scripts/Good_Old_Games___Riven__The_sequel_to_Myst_:31
 #: PlayOnLinux_Scripts/Good_Old_Games___Sanitarium_:43
 #: PlayOnLinux_Scripts/Good_Old_Games___Septerra_Core__Legacy_of_the_Creator_:31
@@ -354,7 +354,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Batman_Arkham_Asylum_:71
 #: PlayOnLinux_Scripts/Batman_Arkham_City_:71 PlayOnLinux_Scripts/Brink_:56
 #: PlayOnLinux_Scripts/Call_of_Duty__Modern_Warfare_3_:80
-#: PlayOnLinux_Scripts/Counter_Strike___Source_:100
+#: PlayOnLinux_Scripts/Counter_Strike___Source_:64
 #: PlayOnLinux_Scripts/Dear_Esther_:45
 #: PlayOnLinux_Scripts/Duke_Nukem_Forever_:92
 #: PlayOnLinux_Scripts/F.E.A.R._3_:56 PlayOnLinux_Scripts/Half_Life_2_:95
@@ -948,7 +948,6 @@ msgid ""
 msgstr ""
 
 #: PlayOnLinux_Scripts/Call_of_Duty__Modern_Warfare_3_:46
-#: PlayOnLinux_Scripts/Counter_Strike___Source_:55
 #: PlayOnLinux_Scripts/Half_Life_2_:53
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:33
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:33
@@ -960,7 +959,6 @@ msgid "No"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Call_of_Duty__Modern_Warfare_3_:46
-#: PlayOnLinux_Scripts/Counter_Strike___Source_:55
 #: PlayOnLinux_Scripts/Half_Life_2_:53
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:33
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:33
@@ -974,8 +972,6 @@ msgstr ""
 
 #: PlayOnLinux_Scripts/Call_of_Duty__Modern_Warfare_3_:46
 #: PlayOnLinux_Scripts/Call_of_Duty__Modern_Warfare_3_:48
-#: PlayOnLinux_Scripts/Counter_Strike___Source_:55
-#: PlayOnLinux_Scripts/Counter_Strike___Source_:57
 #: PlayOnLinux_Scripts/Half_Life_2_:53 PlayOnLinux_Scripts/Half_Life_2_:55
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:33
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:35
@@ -1185,6 +1181,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___Outcast_:35
 #: PlayOnLinux_Scripts/Good_Old_Games___Painkiller__Black_Edition_:40
 #: PlayOnLinux_Scripts/Good_Old_Games___Prince_of_Persia__The_Sands_of_Time_:38
+#: PlayOnLinux_Scripts/Good_Old_Games___Redneck_Rampage_Collection_:40
 #: PlayOnLinux_Scripts/Good_Old_Games___Riven__The_sequel_to_Myst_:36
 #: PlayOnLinux_Scripts/Good_Old_Games___Sanitarium_:48
 #: PlayOnLinux_Scripts/Good_Old_Games___Septerra_Core__Legacy_of_the_Creator_:36
@@ -1623,7 +1620,7 @@ msgid "Wait until it gets downloaded and installed"
 msgstr ""
 
 #: PlayOnLinux_Scripts/POL_Function_FontsSmoothRGB_:1
-#: PlayOnLinux_Scripts/POL_GoG_download_:22
+#: PlayOnLinux_Scripts/POL_GoG_download_:23
 #: PlayOnLinux_Scripts/POL_Install_DisableCrashDialog_:5
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:109 bash/installpolpackages:26
 #: bash/killall:29 bash/winebash:27 lib/wine.lib:764 lib/wine.lib:794
@@ -1661,13 +1658,18 @@ msgstr ""
 msgid "In what directory do you want to download GOG files?"
 msgstr ""
 
-#: PlayOnLinux_Scripts/POL_GoG_download_:20
+#: PlayOnLinux_Scripts/POL_GoG_download_:21
 #, sh-format
 msgid "Please enter your gog.com login to download $GAME"
 msgstr ""
 
-#: PlayOnLinux_Scripts/POL_GoG_download_:42
-#: PlayOnLinux_Scripts/POL_GoG_download_:52
+#: PlayOnLinux_Scripts/POL_GoG_download_:32
+#, sh-format
+msgid "Gog.com login failed, try again?"
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_GoG_download_:54
+#: PlayOnLinux_Scripts/POL_GoG_download_:64
 #, sh-format
 msgid "Checking piece integrity..."
 msgstr ""
