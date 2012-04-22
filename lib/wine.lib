@@ -676,6 +676,7 @@ POL_Wine_PrefixCreate()
 		if [ "$POL_WINEVERSION" = "" ]
 		then
 			POL_Debug_Message "No version specified. Using system version ($(wine --version))"
+			export WINEARCH=win32
 			POL_Debug_InitPrefix
 			wine wineboot
 			if [ -e "$WINEPREFIX/drive_c/windows/syswow64" ] # It is a 64 bits prefix
