@@ -27,12 +27,20 @@ TITLE="$APPLICATION_TITLE Online"
 personal_scripts()
 {
 	POL_Website_GET "$SITE/V4_data/repository/get_personal_list.php"
-	POL_SetupWindow_menu "$(eval_gettext "This is the list of the scripts you sent to us. You can run one of them")" "$TITLE" "$(POL_Website_Result)" "~"
-	POL_Website_GET "$SITE/V4_data/repository/get_file.php?id=$APP_ANSWER"
-	POL_Website_Result > "$POL_USER_ROOT/install"
-	cd "$POL_USER_ROOT"
-	POL_SetupWindow_wait "$(eval_gettext "Running...")" "$TITLE"
-	POL_Bash "install" 
+	PSCRIPTS="$(POL_Website_Result)"
+	if [ "$PSCRIPTS" ]; then
+		POL_SetupWindow_menu "$(eval_gettext "This is the list of the scripts you sent to us. You can run one of them")" "$TITLE" "$PSCRIPTS~Back" "~"
+		
+		if [ ! "$APP_ANSWER" = "" -a ! "$APP_ANSWER" = "Back" ];  then
+			POL_Website_GET "$SITE/V4_data/repository/get_file.php?id=$APP_ANSWER"
+			POL_Website_Result > "$POL_USER_ROOT/install"
+			cd "$POL_USER_ROOT"
+			POL_SetupWindow_wait "$(eval_gettext "Running...")" "$TITLE"
+			POL_Bash "install" 
+		fi
+	else
+		POL_SetupWindow_message "$(eval_gettext 'You do not seems to have any personal script')" "$TITLE"
+	fi
 }
 send_script()
 {
