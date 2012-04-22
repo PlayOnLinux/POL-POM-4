@@ -326,13 +326,17 @@ class Onglets(wx.Notebook):
 		self.get_current_settings("Multisampling")
 		self.get_current_settings("StrictDrawOrdering")
 		self.get_current_settings("MouseWarpOverride")
-
+		
 		self.arch = playonlinux.GetSettings('ARCH',self.s_prefix)
 		if(self.arch == ""):
 			self.arch = "x86"
 			
 		self.UpdateVersions(self.arch)
-		
+		try:
+			self.display_elements["pre_run"].SetValue(open(os.environ["POL_USER_ROOT"]+"/configurations/pre_shortcut/"+self.s_title,'r').read())
+		except:
+			self.display_elements["pre_run"].SetValue("")
+			
 			
 	def change_settings(self, event):
 		param = event.GetId()
@@ -412,7 +416,23 @@ class Onglets(wx.Notebook):
 		self.display_elements[shortname+"_button"].SetLabel(title)
 		
 		wx.EVT_BUTTON(self, 400+num,  self.misc_button)
-
+		
+	def AddMiscLongText(self, title, shortname, num):
+		self.display_elements[shortname+"_text"] = wx.StaticText(self.panelMisc, -1, title,pos=(15,19+num*40))
+		self.display_elements[shortname+"_panel"] = wx.Panel(self.panelMisc, -1, size=wx.Size(450,70),pos=(20,44+num*40))
+		
+		try: 
+			content = open(os.environ["POL_USER_ROOT"]+"/configurations/pre_shortcut/"+self.s_title,'r').read()
+		except:
+			content = ""
+		
+		self.display_elements[shortname] = wx.TextCtrl(self.display_elements[shortname+"_panel"], 400+num, content, size=wx.Size(448,68), pos=(2,2), style=Variables.widget_borders|wx.TE_MULTILINE)
+		wx.EVT_TEXT(self, 405,  self.edit_shortcut)
+		
+	def edit_shortcut(self, event):
+		content = self.display_elements["pre_run"].GetValue().encode("utf-8")
+		open(os.environ["POL_USER_ROOT"]+"/configurations/pre_shortcut/"+self.s_title,'w').write(content)
+		
 	def AddGeneralButton(self, title, shortname, num):
 		self.general_elements[shortname+"_button"] = wx.Button(self.panelGeneral, 200+num, "",pos=(15,9+num*40),size=(400,30))
 		self.general_elements[shortname+"_button"].SetLabel(title)
@@ -447,6 +467,7 @@ class Onglets(wx.Notebook):
 		self.AddMiscButton("","folder",2)
 		self.AddMiscButton(_("Open a shell"),"shell",3)
 		self.AddMiscButton(_("Run a .exe file in this virtual drive"),"exerun",4)
+		self.AddMiscLongText(_("Command to exec before running the program"),"pre_run",5)
 		
 		self.AddPage(self.panelMisc, nom)
 		
