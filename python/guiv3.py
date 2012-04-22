@@ -126,13 +126,13 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
 		
 		# Text
-		self.titre_header = wx.StaticText(self.header, -1, _('{0} Wizard').format(os.environ["APPLICATION_TITLE"]),pos=(5,5), size=(340,356))
+		self.titre_header = wx.StaticText(self.header, -1, _('{0} Wizard').format(os.environ["APPLICATION_TITLE"]),pos=(5,5), size=(340,356),style=wx.ST_NO_AUTORESIZE)
 		self.titre_header.SetFont(self.fontTitre)
 		self.titre_header.SetForegroundColour((0,0,0)) # For dark themes
 		
-		self.texte = wx.StaticText(self.panel, -1, "",pos=(20,80),size=(480,275))
-		self.texte_bis = wx.StaticText(self.panel, -1, "",size=(480,30))
-		self.titre = wx.StaticText(self.header, -1, "",pos=(20,30), size=(340,356))
+		self.texte = wx.StaticText(self.panel, -1, "",pos=(20,80),size=(480,275),style=wx.ST_NO_AUTORESIZE)
+		self.texte_bis = wx.StaticText(self.panel, -1, "",size=(480,30),style=wx.ST_NO_AUTORESIZE)
+		self.titre = wx.StaticText(self.header, -1, "",pos=(20,30), size=(340,356),style=wx.ST_NO_AUTORESIZE)
 		self.titre.SetForegroundColour((0,0,0)) # For dark themes
 		
 		self.texteP = wx.StaticText(self.MainPanel, -1, "",pos=(5,50))
@@ -142,7 +142,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 		self.titreP.SetFont(self.fontTitre)
 		self.titreP.SetForegroundColour((0,0,0)) # For dark themes
 		
-		self.txtEstimation = wx.StaticText(self.panel, -1, "",size=(480,30))
+		self.txtEstimation = wx.StaticText(self.panel, -1, "",size=(480,30),style=wx.ST_NO_AUTORESIZE)
 		self.register_link = ""
 		# Buttons
 		self.CancelButton = wx.Button(self.footer, wx.ID_CANCEL, _("Cancel"), pos=(430,0),size=(85,37))
