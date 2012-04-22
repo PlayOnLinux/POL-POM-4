@@ -150,38 +150,38 @@ class Onglets(wx.Notebook):
 
 		self.winecfg_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/winecfg.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
 		self.winecfg = wx.BitmapButton(self.panelWine, id=100, bitmap=self.winecfg_image,pos=(30, 50), size = (self.winecfg_image.GetWidth()+5, self.winecfg_image.GetHeight()+5))
-		self.winecfg_texte = wx.StaticText(self.panelWine, -1, _("Configure Wine"), (30,156), (115,30),wx.ALIGN_CENTER)
+		self.winecfg_texte = wx.StaticText(self.panelWine, -1, _("Configure Wine"), (30,156), (105,30),wx.ALIGN_CENTER|wx.ST_NO_AUTORESIZE)
 		self.winecfg_texte.Wrap(110)
 		self.winecfg_texte.SetFont(self.caption_font)
 
 		self.regedit_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/regedit.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
 		self.regedit = wx.BitmapButton(self.panelWine, id=101, bitmap=self.regedit_image,pos=(166, 50), size = (self.regedit_image.GetWidth()+5, self.regedit_image.GetHeight()+5))
-		self.regedit_texte = wx.StaticText(self.panelWine, -1, _("Registry Editor"), (166,156), (115,30),wx.ALIGN_CENTER)
+		self.regedit_texte = wx.StaticText(self.panelWine, -1, _("Registry Editor"), (166,156), (105,30),wx.ALIGN_CENTER|wx.ST_NO_AUTORESIZE)
 		self.regedit_texte.Wrap(110)
 		self.regedit_texte.SetFont(self.caption_font)
 
 
 		self.wineboot_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/wineboot.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
 		self.wineboot = wx.BitmapButton(self.panelWine, id=102, bitmap=self.wineboot_image,pos=(302, 50), size = (self.wineboot_image.GetWidth()+5, self.wineboot_image.GetHeight()+5))		
-		self.wineboot_texte = wx.StaticText(self.panelWine, -1, _("Windows reboot"), (302,156), (130,30),wx.ALIGN_CENTER)
+		self.wineboot_texte = wx.StaticText(self.panelWine, -1, _("Windows reboot"), (302,156), (105,30),wx.ALIGN_CENTER|wx.ST_NO_AUTORESIZE)
 		self.wineboot_texte.Wrap(110)
 		self.wineboot_texte.SetFont(self.caption_font)
 
 		self.cmd_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/cmd.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
 		self.cmd = wx.BitmapButton(self.panelWine, id=103, bitmap=self.cmd_image,pos=(30, 196), size = (self.cmd_image.GetWidth()+5, self.cmd_image.GetHeight()+5))
-		self.cmd_texte = wx.StaticText(self.panelWine, -1, _("Command prompt"), (30,302), (115,30),wx.ALIGN_CENTER)
+		self.cmd_texte = wx.StaticText(self.panelWine, -1, _("Command prompt"), (30,302), (105,30),wx.ALIGN_CENTER|wx.ST_NO_AUTORESIZE)
 		self.cmd_texte.Wrap(115)
 		self.cmd_texte.SetFont(self.caption_font)
 
 		self.taskmgr_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/taskmgr.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
 		self.taskmgr = wx.BitmapButton(self.panelWine, id=104, bitmap=self.taskmgr_image,pos=(166, 196), size = (self.taskmgr_image.GetWidth()+5, self.taskmgr_image.GetHeight()+5))
-		self.taskmgr_texte = wx.StaticText(self.panelWine, -1, _("Task manager"), (166,302), (115,30),wx.ALIGN_CENTER)
+		self.taskmgr_texte = wx.StaticText(self.panelWine, -1, _("Task manager"), (166,302), (105,30),wx.ALIGN_CENTER|wx.ST_NO_AUTORESIZE)
 		self.taskmgr_texte.Wrap(110)
 		self.taskmgr_texte.SetFont(self.caption_font)
 
 		self.killall_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/killall.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
 		self.killall = wx.BitmapButton(self.panelWine, id=105, bitmap=self.killall_image,pos=(302, 196), size = (self.killall_image.GetWidth()+5, self.killall_image.GetHeight()+5))		
-		self.killall_texte = wx.StaticText(self.panelWine, -1, _("Kill processes"), (302,302), (130,30),wx.ALIGN_CENTER)
+		self.killall_texte = wx.StaticText(self.panelWine, -1, _("Kill processes"), (302,302), (105,30),wx.ALIGN_CENTER|wx.ST_NO_AUTORESIZE)
 		self.killall_texte.Wrap(110)
 		self.killall_texte.SetFont(self.caption_font)
 
@@ -510,7 +510,10 @@ class MainWindow(wx.Frame):
 	
 		self.splitter = wx.SplitterWindow(self, -1, style=wx.SP_NOBORDER)
 		
+		self.panelEmpty = wx.Panel(self.splitter, -1)
 		self.onglets = Onglets(self.splitter)
+		
+		self.noselect = wx.StaticText(self.panelEmpty, -1, _('Please select a program or a virtual drive to configure'),pos=(0,150), size=(500,20),style=wx.ALIGN_CENTRE|wx.ST_NO_AUTORESIZE)
 		
 		if(isPrefix == True):
 			self.onglets.s_isPrefix = True
@@ -539,7 +542,8 @@ class MainWindow(wx.Frame):
 		self.list_game.SetSpacing(0);
 		self.list_game.SetImageList(self.images)
 		
-		self.splitter.SplitVertically(self.splitter_list,self.onglets)
+	
+		self.splitter.SplitVertically(self.splitter_list,self.panelEmpty)
 		self.splitter.SetSashPosition(200)
 	
 		self.onglets.General(_("General"))
@@ -551,13 +555,12 @@ class MainWindow(wx.Frame):
 		self.list_software()
 
 		self.onglets.panelGeneral.Bind(wx.EVT_LEFT_UP, self.onglets.ReleaseTyping)
-		
 		wx.EVT_TREE_SEL_CHANGED(self, 900, self.change_program_to_selection)
 		#self.change_program(shortcut,isPrefix)
 		
 		self.timer = wx.Timer(self, 1)
 		self.Bind(wx.EVT_TIMER, self.AutoReload, self.timer)
-		self.timer.Start(1000)
+		self.timer.Start(200)
 		self.oldreload = None
 		self.oldimg = None
 		self.oldpref = None
@@ -606,17 +609,31 @@ class MainWindow(wx.Frame):
 			
 	def change_program_to_selection(self, event):
 		parent =  self.list_game.GetItemText(self.list_game.GetItemParent(self.list_game.GetSelection()))
+		self.current_sel = self.list_game.GetItemText(self.list_game.GetSelection())
+		
 		if(parent == "#ROOT#"):
 			self.onglets.s_isPrefix = True
 		else:
 			self.onglets.s_isPrefix = False
 		
-		self.change_program(self.list_game.GetItemText(self.list_game.GetSelection()),self.onglets.s_isPrefix)
+		self.change_program(self.current_sel,self.onglets.s_isPrefix)
 		
 	def change_program(self, new_prgm,isPrefix = False):
 		self.onglets.changing_selection = True
 		if(isPrefix == True):
 			self.onglets.s_isPrefix = True
+			if(self.current_sel == "default"):
+				self.splitter.Unsplit()
+				self.splitter.SplitVertically(self.splitter_list,self.panelEmpty)
+				self.splitter.SetSashPosition(200)
+			else:
+				self.splitter.Unsplit()
+				self.splitter.SplitVertically(self.splitter_list,self.onglets)
+				self.splitter.SetSashPosition(200)
+		else:
+			self.splitter.Unsplit()
+			self.splitter.SplitVertically(self.splitter_list,self.onglets)
+			self.splitter.SetSashPosition(200)
 		self.onglets.UpdateValues(new_prgm)
 	
 	def list_software(self):
