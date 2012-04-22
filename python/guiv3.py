@@ -887,28 +887,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 								
 								#self.titre.SetFont(self.fontText)
 								self.YesButton.Show()
-								self.NoButton.Show()
-
-							if(self.fichier[1] == "make_shortcut\n"):
-								self.DrawHeader()
-								self.texte.SetLabel(_("Create a shortcut :"))
-								self.texte.Show()
-								
-								#self.titre_header = wx.StaticText(self.header, -1, _("PlayOnMac Wizard"),pos=(5,5), size=(340,356))
-								#self.texte.SetFont(self.fontText)
-								#self.titre_header.SetFont(self.fontTitre)
-								self.titre_header.Show()
-								#self.titre = wx.StaticText(self.header, -1, _("Do you want a shortcut for ")+self.fichier[2].replace("\n","")+" ?",pos=(20,30), size=(340,356))
-								self.titre.SetLabel(_("Do you want a shortcut for ")+self.fichier[2].replace("\n","")+" ?")
-								self.titre.Show()
-								
-								self.desktop = wx.CheckBox(self.panel, -1, _("On your desktop"),pos=(25,105))
-								self.menu = wx.CheckBox(self.panel, -1, _("In your menu"),pos=(25,125))
-
-								#self.titre.SetFont(self.fontText)
-								self.DrawCancel()
-								self.DrawNext()
-								wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_icons)	
+								self.NoButton.Show()	
 					
 							if(self.fichier[1] == "free_presentation\n"):
 								self.MainPanel.Show()
