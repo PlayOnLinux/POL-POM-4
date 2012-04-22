@@ -450,7 +450,10 @@ POL_Wine ()
 	POL_Wine_AutoSetVersionEnv
 	POL_Debug_Message "Running wine-$POL_WINEVERSION "$@" "
 	POL_Debug_LogToPrefix "Running wine-$POL_WINEVERSION "$@""
-	POL_Debug_Message "Notice: PlayOnLinux deliberately disables winemenubuilder. See http://www.playonlinux.com/fr/page-26-Winemenubuilder.html"
+	if [ ! "$WINEMENUBUILDER_ALERT" ]; then
+		POL_Debug_Message "Notice: PlayOnLinux deliberately disables winemenubuilder. See http://www.playonlinux.com/fr/page-26-Winemenubuilder.html"
+		WINEMENUBUILDER_ALERT="Done"
+	fi
 	if [ "$1" = "regedit" ]; then
 		POL_Debug_LogToPrefix "Content of $2"
 		echo '-----------' >> "$WINEPREFIX/playonlinux.log"
