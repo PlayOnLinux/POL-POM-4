@@ -513,8 +513,10 @@ class MainWindow(wx.Frame):
 		self.panelEmpty = wx.Panel(self.splitter, -1)
 		self.onglets = Onglets(self.splitter)
 		
-		self.noselect = wx.StaticText(self.panelEmpty, -1, _('Please select a program or a virtual drive to configure'),pos=(0,150), size=(500,20),style=wx.ALIGN_CENTRE|wx.ST_NO_AUTORESIZE)
+		self.noselect = wx.StaticText(self.panelEmpty, -1, _('Please select a program or a virtual drive to configure'),pos=(0,150),style=wx.ALIGN_RIGHT)
+		self.noselect.SetPosition(((500-self.noselect.GetSize()[0])/2,150))
 		
+		self.noselect.Wrap(500)
 		if(isPrefix == True):
 			self.onglets.s_isPrefix = True
 			self.onglets.s_prefix = shortcut
