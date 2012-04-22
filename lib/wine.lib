@@ -460,10 +460,10 @@ POL_Wine ()
 
 
 	if [ "$LOGFILE" = "/dev/null" ]; then
-		"$(POL_Config_Read PRE_WINE)" wine "$@"  2> >(grep -v menubuilder | tee -a "$WINEPREFIX/playonlinux.log" >&2) > >(tee -a "$WINEPREFIX/playonlinux.log")
+		$(POL_Config_Read PRE_WINE) wine "$@"  2> >(grep -v menubuilder | tee -a "$WINEPREFIX/playonlinux.log" >&2) > >(tee -a "$WINEPREFIX/playonlinux.log")
 		errors=$?
 	else
-		"$(POL_Config_Read PRE_WINE)" wine "$@" 2> >(grep -v menubuilder | tee -a "$LOGFILE" "$WINEPREFIX/playonlinux.log" >&2) > >(tee -a "$LOGFILE" "$WINEPREFIX/playonlinux.log")
+		$(POL_Config_Read PRE_WINE) wine "$@" 2> >(grep -v menubuilder | tee -a "$LOGFILE" "$WINEPREFIX/playonlinux.log" >&2) > >(tee -a "$LOGFILE" "$WINEPREFIX/playonlinux.log")
 		errors=$?
 	fi
 
