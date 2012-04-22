@@ -150,39 +150,48 @@ class Onglets(wx.Notebook):
 
 		self.winecfg_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/winecfg.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
 		self.winecfg = wx.BitmapButton(self.panelWine, id=100, bitmap=self.winecfg_image,pos=(30, 50), size = (self.winecfg_image.GetWidth()+5, self.winecfg_image.GetHeight()+5))
-		self.winecfg_texte = wx.StaticText(self.panelWine, -1, _("Configure Wine"), (30,156), (105,30),wx.ALIGN_CENTER|wx.ST_NO_AUTORESIZE)
+		self.winecfg_texte = wx.StaticText(self.panelWine, -1, _("Configure Wine"), (32,156), style=wx.ALIGN_CENTER)
 		self.winecfg_texte.Wrap(110)
+		self.winecfg_texte.SetPosition((self.winecfg_texte.GetPosition()[0]+(105-self.winecfg_texte.GetSize()[0])/2,self.winecfg_texte.GetPosition()[1]))
+
 		self.winecfg_texte.SetFont(self.caption_font)
 
 		self.regedit_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/regedit.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
 		self.regedit = wx.BitmapButton(self.panelWine, id=101, bitmap=self.regedit_image,pos=(166, 50), size = (self.regedit_image.GetWidth()+5, self.regedit_image.GetHeight()+5))
-		self.regedit_texte = wx.StaticText(self.panelWine, -1, _("Registry Editor"), (166,156), (105,30),wx.ALIGN_CENTER|wx.ST_NO_AUTORESIZE)
+		self.regedit_texte = wx.StaticText(self.panelWine, -1, _("Registry Editor"), (168,156), style=wx.ALIGN_CENTER)
 		self.regedit_texte.Wrap(110)
+		self.regedit_texte.SetPosition((self.regedit_texte.GetPosition()[0]+(105-self.regedit_texte.GetSize()[0])/2,self.regedit_texte.GetPosition()[1]))
+
 		self.regedit_texte.SetFont(self.caption_font)
 
 
 		self.wineboot_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/wineboot.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
 		self.wineboot = wx.BitmapButton(self.panelWine, id=102, bitmap=self.wineboot_image,pos=(302, 50), size = (self.wineboot_image.GetWidth()+5, self.wineboot_image.GetHeight()+5))		
-		self.wineboot_texte = wx.StaticText(self.panelWine, -1, _("Windows reboot"), (302,156), (105,30),wx.ALIGN_CENTER|wx.ST_NO_AUTORESIZE)
+		self.wineboot_texte = wx.StaticText(self.panelWine, -1, _("Windows reboot"), (304,156), style=wx.ALIGN_CENTER)
 		self.wineboot_texte.Wrap(110)
+		self.wineboot_texte.SetPosition((self.wineboot_texte.GetPosition()[0]+(105-self.wineboot_texte.GetSize()[0])/2,self.wineboot_texte.GetPosition()[1]))
 		self.wineboot_texte.SetFont(self.caption_font)
 
 		self.cmd_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/cmd.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
 		self.cmd = wx.BitmapButton(self.panelWine, id=103, bitmap=self.cmd_image,pos=(30, 196), size = (self.cmd_image.GetWidth()+5, self.cmd_image.GetHeight()+5))
-		self.cmd_texte = wx.StaticText(self.panelWine, -1, _("Command prompt"), (30,302), (105,30),wx.ALIGN_CENTER|wx.ST_NO_AUTORESIZE)
-		self.cmd_texte.Wrap(115)
+		self.cmd_texte = wx.StaticText(self.panelWine, -1, _("Command prompt"), (32,302), style=wx.ALIGN_CENTER)
+		self.cmd_texte.Wrap(110)
+		self.cmd_texte.SetPosition((self.cmd_texte.GetPosition()[0]+(105-self.cmd_texte.GetSize()[0])/2,self.cmd_texte.GetPosition()[1]))
 		self.cmd_texte.SetFont(self.caption_font)
 
 		self.taskmgr_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/taskmgr.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
 		self.taskmgr = wx.BitmapButton(self.panelWine, id=104, bitmap=self.taskmgr_image,pos=(166, 196), size = (self.taskmgr_image.GetWidth()+5, self.taskmgr_image.GetHeight()+5))
-		self.taskmgr_texte = wx.StaticText(self.panelWine, -1, _("Task manager"), (166,302), (105,30),wx.ALIGN_CENTER|wx.ST_NO_AUTORESIZE)
+		self.taskmgr_texte = wx.StaticText(self.panelWine, -1, _("Task manager"), (168,302), style=wx.ALIGN_CENTER)
 		self.taskmgr_texte.Wrap(110)
+		self.taskmgr_texte.SetPosition((self.taskmgr_texte.GetPosition()[0]+(105-self.taskmgr_texte.GetSize()[0])/2,self.taskmgr_texte.GetPosition()[1]))
+		
 		self.taskmgr_texte.SetFont(self.caption_font)
 
 		self.killall_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/killall.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
 		self.killall = wx.BitmapButton(self.panelWine, id=105, bitmap=self.killall_image,pos=(302, 196), size = (self.killall_image.GetWidth()+5, self.killall_image.GetHeight()+5))		
-		self.killall_texte = wx.StaticText(self.panelWine, -1, _("Kill processes"), (302,302), (105,30),wx.ALIGN_CENTER|wx.ST_NO_AUTORESIZE)
+		self.killall_texte = wx.StaticText(self.panelWine, -1, _("Kill processes"), (304,302), style=wx.ALIGN_CENTER)
 		self.killall_texte.Wrap(110)
+		self.killall_texte.SetPosition((self.killall_texte.GetPosition()[0]+(105-self.killall_texte.GetSize()[0])/2,self.killall_texte.GetPosition()[1]))
 		self.killall_texte.SetFont(self.caption_font)
 
 
