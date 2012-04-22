@@ -268,6 +268,9 @@ def convertVersionToInt(version): # Code par MulX en Bash, adapte en python par 
 	return(versionDev + versionP1 + versionP2 + versionP3)
 	
 def getPrefix(shortcut): # Get prefix name from shortcut
+	if(os.path.isdir(os.environ["POL_USER_ROOT"]+"/shortcuts/"+shortcut)):
+		return ""
+		
 	fichier = open(os.environ["POL_USER_ROOT"]+"/shortcuts/"+shortcut,'r').read()
 	fichier = string.split(fichier,"\n")
 	i = 0
@@ -294,6 +297,9 @@ def getPrefix(shortcut): # Get prefix name from shortcut
 	
 
 def getArgs(shortcut): # Get prefix name from shortcut
+	if(os.path.isdir(os.environ["POL_USER_ROOT"]+"/shortcuts/"+shortcut)):
+		return ""
+	
 	fichier = open(os.environ["POL_USER_ROOT"]+"/shortcuts/"+shortcut,'r').read()
 	fichier = string.split(fichier,"\n")
 	i = 0
