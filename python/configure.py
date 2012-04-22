@@ -560,10 +560,12 @@ class MainWindow(wx.Frame):
 		
 		self.timer = wx.Timer(self, 1)
 		self.Bind(wx.EVT_TIMER, self.AutoReload, self.timer)
+		
 		self.timer.Start(200)
 		self.oldreload = None
 		self.oldimg = None
 		self.oldpref = None
+		self.AutoReload(self)
 	
 	def NewPrefix(self, event):
 		#self.name = wx.GetTextFromUser(_("Choose the name of the virtual drive"))
