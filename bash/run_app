@@ -68,28 +68,7 @@ debug_fulllog()
 {
 	POL_SetupWindow_file "Log file" "$TITLE" "$LOGFILE"
 }
-debug_sendtopom()
-{
-	[ "$POL_OS" == "Linux" ] && TRACKER="1"
-	[ "$POL_OS" == "Mac" ] && TRACKER="4"
-	
-	POL_SetupWindow_textbox_multiline "$(eval_gettext "Please enter everything that might help us in english.\nIf you are not accurate, your bug will be closed")" "$TITLE"
-	[ "$APP_ANSWER" = "" ] && POL_SetupWindow_message "$(eval_gettext "Please enter a description in english.\nIf you are not accurate, your bug will be closed")" "$TITLE" && POL_SetupWindow_Close
-	echo "$APP_ANSWER" >> "$LOGFILE"
-	POL_Website_login
-	POL_Website_Init
-	contenu="$(cat "$LOGFILE")"
-	PACKAGE="$(POL_Website_urlparse "$PACKAGE")"
-	contenu="$(POL_Website_urlparse "$contenu")"
-	POL_Website_Request "http://bugs.playonlinux.com/en/new-$TRACKER.html" "priority=2&tracker=$TRACKER&title=$PACKAGE crashed while running&message=$contenu&submit=Send"
-	POL_Website_Close
-	POL_Website_logout
-	POL_SetupWindow_message "$(eval_gettext "Thank you !\n\nYour report has been sent.\n\nWe will do our best to send you an answer very soon by mail\n\n")" "$TITLE"
-	
-	POL_SetupWindow_Close
-	exit
-	#POL_Website_Login
-}
+
 TITLE="$APPLICATION_TITLE"
 
 
@@ -131,6 +110,9 @@ fi
 
 export POL_IgnoreWineErrors="True"
 $(POL_Config_Read PRE_RUNNING)
+if [ -e "$POL_USER_ROOT/configurations/pre_shortcut/$PACKAGE" ]; then
+	source "$POL_USER_ROOT/configurations/pre_shortcut/$PACKAGE"
+fi
 bash "$PACKAGE" 2>> "$LOGFILE.e" >> "$LOGFILE.e"
 
 if [ ! "$?" = "0" ]
