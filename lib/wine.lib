@@ -531,8 +531,8 @@ POL_Wine_InstallVersion()
 			fi
 
 			cd "$REPERTOIRE/tmp"
-			POL_SetupWindow_download "$(eval_gettext "Downloading Wine: ")$POL_WINEVERSION" "Wine" "$WINE_SITE/$WINE_SECTION/$WINE_ADDRESS"
-			POL_SetupWindow_wait_next_signal "$(eval_gettext "Downloading Wine: ")$POL_WINEVERSION" "Wine"
+			POL_SetupWindow_download "$(eval_gettext "Downloading Wine: ")$POL_WINEVERSION" "$TITLE" "$WINE_SITE/$WINE_SECTION/$WINE_ADDRESS"
+			POL_SetupWindow_wait_next_signal "$(eval_gettext "Downloading Wine: ")$POL_WINEVERSION" "$TITLE"
 			sleep 1
 			sha1=$($POL_WGET "$WINE_SITE/$WINE_SECTION/$WINE_ADDRESS.sha1" -O- | awk '{print $1}')
 			sha1_file=$(shasum "./$WINE_ADDRESS" | awk '{print $1}')
@@ -541,9 +541,9 @@ POL_Wine_InstallVersion()
 
 			if [ ! "$sha1" = "$sha1_file" ]
 			then
-				POL_SetupWindow_message "$(eval_gettext 'The download seems to have failed.')" "Wine $POL_WINEVERSION"
+				POL_SetupWindow_message "$(eval_gettext 'The download seems to have failed.')" "$TITLE"
 			else
-				POL_SetupWindow_wait "$(eval_gettext 'Extracting Wine...')" "Wine $POL_WINEVERSION"
+				POL_SetupWindow_wait "$(eval_gettext 'Extracting Wine...')" "$TITLE"
 				"$PLAYONLINUX/playonlinux-pkg" -i "$PWD/$WINE_ADDRESS"
 			fi
 			rm "$WINE_ADDRESS"
