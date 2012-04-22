@@ -490,6 +490,10 @@ POL_Wine_SelectPrefix()
 	else
 		touch "$WINEPREFIX/playonlinux.cfg" 2> /dev/null
 	fi
+	
+	if [ "$(POL_Config_PrefixRead ARCH)" = "x86" ]; then ## Comme ca, pas de conflits
+		export WINEARCH=win32
+	fi
 }
 POL_Wine_PrefixExists()
 {
