@@ -576,7 +576,8 @@ class MainWindow(wx.Frame):
 		self.oldreload = None
 		self.oldimg = None
 		self.oldpref = None
-		self.AutoReload(self)
+		if(self.onglets.s_isPrefix == False or self.onglets.s_title != "default"):
+			self.AutoReload(self)
 	
 	def NewPrefix(self, event):
 		#self.name = wx.GetTextFromUser(_("Choose the name of the virtual drive"))

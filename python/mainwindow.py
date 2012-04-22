@@ -583,7 +583,7 @@ class MainWindow(wx.Frame):
 	if(game_exec == ""):
 		configureFrame = configure.MainWindow(None, -1, _("{0} configuration").format(os.environ["APPLICATION_TITLE"]),"default",True)
 	else:
-		configureFrame = configure.MainWindow(None, -1, _("{0} configuration").format(os.environ["APPLICATION_TITLE"]),game_exec,False)
+		configureFrame = configure.MainWindow(None, -1, _("{0} configuration").format(os.environ["APPLICATION_TITLE"]),game_exec.decode("utf-8"),False)
 		#self.SetTopWindow(installFrame)
 	configureFrame.Center(wx.BOTH)
 	configureFrame.Show(True)
