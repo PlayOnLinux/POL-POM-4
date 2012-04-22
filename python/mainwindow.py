@@ -528,21 +528,21 @@ class MainWindow(wx.Frame):
 	 else:
 		self.iconFolder = "full_size";
 	 for game in self.games: #METTRE EN 32x32
-		if(os.path.exists(Variables.playonlinux_rep+"/icones/"+self.iconFolder+"/"+game)):
-			file_icone = Variables.playonlinux_rep+"/icones/"+self.iconFolder+"/"+game
-		else:
-			file_icone = Variables.playonlinux_env+"/etc/playonlinux.png"
+		if(not os.path.isdir(Variables.playonlinux_rep+"/shortcuts/"+game)):
+			if(os.path.exists(Variables.playonlinux_rep+"/icones/"+self.iconFolder+"/"+game)):
+				file_icone = Variables.playonlinux_rep+"/icones/"+self.iconFolder+"/"+game
+			else:
+				file_icone = Variables.playonlinux_env+"/etc/playonlinux.png"
 
-		try:
-			self.bitmap = wx.Image(file_icone)
-			self.bitmap.Rescale(self.iconSize,self.iconSize,wx.IMAGE_QUALITY_HIGH)
-			self.bitmap = self.bitmap.ConvertToBitmap()
-			self.images.Add(self.bitmap)
-		except:
-			pass
-		item = self.list_game.AppendItem(root, game, self.i)
-		self.i += 1
-	
+			try:
+				self.bitmap = wx.Image(file_icone)
+				self.bitmap.Rescale(self.iconSize,self.iconSize,wx.IMAGE_QUALITY_HIGH)
+				self.bitmap = self.bitmap.ConvertToBitmap()
+				self.images.Add(self.bitmap)
+			except:
+				pass
+			item = self.list_game.AppendItem(root, game, self.i)
+			self.i += 1	
 
   def RConfigure(self, function_to_run, firstargument):
 		"""Starts polconfigurator remotely."""
