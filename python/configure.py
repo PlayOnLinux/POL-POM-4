@@ -710,12 +710,16 @@ class MainWindow(wx.Frame):
 				self.i += 1
 
 		self.list_game.ExpandAll()
-		
-		if(self.onglets.s_isPrefix == True):
-			self.list_game.SelectItem(self.prefixes_item[self.onglets.s_prefix.encode("utf-8")])
-		else:
-			self.list_game.SelectItem(self.games_item[self.onglets.s_title.encode("utf-8")])
-	
+		try:
+			if(self.onglets.s_isPrefix == True):
+				self.list_game.SelectItem(self.prefixes_item[self.onglets.s_prefix.encode("utf-8")])
+			else:
+				self.list_game.SelectItem(self.games_item[self.onglets.s_title.encode("utf-8")])
+		except:
+			self.onglets.s_isPrefix = True
+			self.change_program("default",True)
+			self.list_game.SelectItem(self.prefixes_item["default"])
+			
 	def app_Close(self, event):
 		self.Destroy()
 
