@@ -576,7 +576,7 @@ class MainWindow(wx.Frame):
 		self.oldreload = None
 		self.oldimg = None
 		self.oldpref = None
-		if(self.onglets.s_isPrefix == False or self.onglets.s_title != "default"):
+		if(self.onglets.s_isPrefix == False or not self.onglets.s_prefix == "default"):
 			self.AutoReload(self)
 	
 	def NewPrefix(self, event):
