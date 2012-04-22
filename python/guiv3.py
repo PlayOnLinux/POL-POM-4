@@ -315,7 +315,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 		self.NextButton.Enable(False)
 
 	def release_menu_list(self,event):
-		self.SendBash("MSG_VALUE="+self.MenuList.GetValue())
+		self.SendBash("MSG_VALUE="+self.MenuList.GetValue().encode("utf-8"))
 		self.NextButton.Enable(False)
 
 	def release_menu_num(self,event):
