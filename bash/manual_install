@@ -173,7 +173,7 @@ then
 	WINEVERSIONDIRLIST=$(find "$REPERTOIRE/wine/$OS_NAME-$POL_ARCH/"* -maxdepth 0 -type d)
 	for single in $WINEVERSIONDIRLIST ; do
 	  singleparsed=${single##*/}
-	  WINEVERSIONLIST=`echo $WINEVERSIONLIST~$singleparsed`
+	  WINEVERSIONLIST="$WINEVERSIONLIST~$singleparsed"
 	done
 
 	POL_SetupWindow_menu "$(eval_gettext "Which version of Wine would you like to use?")" "$TITLE" "$WINEVERSIONLIST" "~"
