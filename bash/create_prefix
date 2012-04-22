@@ -44,7 +44,11 @@ fi
 WINEVERSIONDIRLIST=$(find "$REPERTOIRE/wine/$OS_NAME-$POL_ARCH/"* -maxdepth 0 -type d)
 for single in $WINEVERSIONDIRLIST ; do
   singleparsed=${single##*/}
-  WINEVERSIONLIST=`echo $WINEVERSIONLIST~$singleparsed`
+  if [ "$WINEVERSIONLIST" = "" ]; then
+  	WINEVERSIONLIST="$singleparsed"
+  else
+  	WINEVERSIONLIST="$WINEVERSIONLIST~$singleparsed"
+  fi
 done
 
 POL_SetupWindow_menu "$(eval_gettext "Which version of Wine would you like to use?")\n$(eval_gettext "(If this list is empty, please install a wine version with wine version manager)")" "$TITLE" "$WINEVERSIONLIST" "~"
