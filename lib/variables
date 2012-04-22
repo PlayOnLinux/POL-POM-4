@@ -19,6 +19,7 @@
 
 ## 
 # This is just a copy of function in playonlinux, but we need it earlier
+[ "$POL_OS" = "Mac" ] && export LANG="$RLANG"
 POL_Config_pRead (){ cat "$POL_USER_ROOT/playonlinux.cfg" 2> /dev/null | grep "^$1" | cut -d\= -f2; }
 
 ### Follow symlinks for find
@@ -76,7 +77,7 @@ fi
 
 if [ "$POL_OS" == "Mac" ]
 then
-	export POL_LANG="$(defaults read -g AppleLocale | cut -d _ -f1)"
+	export POL_LANG="$(echo "$RLANG" | cut -d _ -f1)"
 	export MD5_COMMAND="md5"
 fi
 	
