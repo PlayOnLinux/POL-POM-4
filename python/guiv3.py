@@ -837,8 +837,11 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 								#self.Mchamp.SetValue(open(self.fichier[4].replace("\n",""),"r").read())
 								
 								#
-								
-								self.texte_panel.SetLabel(open(self.fichier[4].replace("\n",""),"r").read())
+								try:
+									self.texte_panel.SetLabel(open(self.fichier[4].replace("\n",""),"r").read())
+								except:
+									self.texte_panel.SetLabel("E. file not found :"+self.fichier[4].replace("\n",""))
+									
 								self.texte_panel.Wrap(400)
 								self.texte_panel.Show()
 								
