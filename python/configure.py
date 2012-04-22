@@ -563,9 +563,9 @@ class MainWindow(wx.Frame):
 		self.oldpref = None
 	
 	def NewPrefix(self, event):
-		self.name = wx.GetTextFromUser(_("Choose the name of the virtual drive"))
-		if(self.name != ""):
-			os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command --init --prefix \""+self.name+"\" POL_SetupWindow_prefixcreate &")
+		#self.name = wx.GetTextFromUser(_("Choose the name of the virtual drive"))
+		#if(self.name != ""):
+		os.system("bash "+Variables.playonlinux_env+"/bash/create_prefix &")
 			
 	def DeletePrefix(self, event):
 		if(self.onglets.s_isPrefix == True):

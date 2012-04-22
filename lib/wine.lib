@@ -482,8 +482,11 @@ POL_Wine_SelectPrefix()
 	POL_Debug_Message "Selecting prefix: $PREFNAME"
 	export WINEPREFIX="$POL_USER_ROOT/wineprefix/$PREFNAME"
 	export DOSPREFIX="$WINEPREFIX"
-	export POL_WINEVERSION="$(POL_Config_PrefixRead VERSION)"
-	touch "$WINEPREFIX/playonlinux.cfg" 2> /dev/null
+	if [ -e "$WINEPREFIX/playonlinux.cfg" ]; then
+		export POL_WINEVERSION="$(POL_Config_PrefixRead VERSION)"
+	else
+		touch "$WINEPREFIX/playonlinux.cfg" 2> /dev/null
+	fi
 }
 POL_Wine_PrefixExists()
 {
@@ -656,26 +659,31 @@ POL_Wine_PrefixCreate()
 {
 	# Create a wineprefix
 	# Usage: POL_Wine_PrefixCreate [VERSION]
-	POL_Debug_Message "Creating prefix ($1)..."
+	if [ ! "$1" = "" ]; then
+		POL_Debug_Message "Setting POL_WINEVERSION to $1"
+		export POL_WINEVERSION="$1"
+	elif [ "$POL_WINEVERSION" ]; then
+		POL_Debug_Message "POL_WINEVERSION is already set to $POL_WINEVERSION. Using it"
+	else
+		POL_Debug_Message "No version specified. Using system version ($(wine --version))"
+	fi
+	
+	POL_Debug_Message "Creating prefix ($POL_WINEVERSION)..."
 	POL_SetupWindow_wait "$(eval_gettext 'Please wait while the virtual drive is being created...')" "$TITLE"
 	[ "$POL_ARCH" = "" ] && POL_System_SetArch "auto"
 	[ "$WINEPREFIX" = "" ] && POL_Debug_Fatal "WINEPREFIX is not set!"
-	if [ -e "$WINEPREFIX" ]
-	then
+	
+	if [ -e "$WINEPREFIX" ]; then
 		POL_Debug_Message "Prefix already exists"
 		touch "$WINEPREFIX/playonlinux.cfg"
-		[ ! "$1" = "" ] && export POL_WINEVERSION="$1"
-		if [ ! "$POL_WINEVERSION" = "" ]
-		then
+		if [ ! "$POL_WINEVERSION" = "" ]; then
 			POL_Debug_Message "Setting version to $POL_WINEVERSION"
 			POL_Wine_SetVersionPrefix "$POL_WINEVERSION"
 			POL_Wine_SetVersionEnv
 		fi
-	else
-		[ ! "$1" = "" ] && export POL_WINEVERSION="$1"
-		if [ "$POL_WINEVERSION" = "" ]
-		then
-			POL_Debug_Message "No version specified. Using system version ($(wine --version))"
+	else	# Prefix does not exit, let's create it
+		if [ "$POL_WINEVERSION" = "" ]; then
+			# System wineversion
 			export WINEARCH=win32
 			POL_Debug_InitPrefix
 			wine wineboot

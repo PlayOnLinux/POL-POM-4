@@ -1,0 +1,64 @@
+#!/bin/bash
+
+# Copyright (C) 2007-2010 PlayOnLinux Team
+# Copyright (C) 2011 Pâris Quentin
+
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
+
+# PlayOnLinux / PlayOnMac 4 manual installation
+[ "$PLAYONLINUX" = "" ] && exit 
+source "$PLAYONLINUX/lib/sources"
+
+
+TITLE="$(eval_gettext 'Virtual drive creator')"
+
+POL_SetupWindow_Init
+POL_SetupWindow_free_presentation "$TITLE" "$(eval_gettext 'Welcome to $APPLICATION_TITLE virtual drive creator.\n\nThis tool will help you to make a new virtual drive')"
+if [ "$AMD64_COMPATIBLE" = "TRUE" ]; then
+	POL_SetupWindow_menu_num "$(eval_gettext 'What kind of virtual drive do you want to create')" "$TITLE" "32 bits windows installation~64 bits windows installation" "~"
+	arch="$APP_ANSWER"
+else
+	arch="0"
+fi
+
+if [ "$arch" = "1" ]; then
+	POL_System_SetArch "amd64"
+	WINEVERSIONLIST=""
+else
+	POL_System_SetArch "x86"
+	WINEVERSIONLIST="System"
+fi
+	
+WINEVERSIONDIRLIST=$(find "$REPERTOIRE/wine/$OS_NAME-$POL_ARCH/"* -maxdepth 0 -type d)
+for single in $WINEVERSIONDIRLIST ; do
+  singleparsed=${single##*/}
+  WINEVERSIONLIST=`echo $WINEVERSIONLIST~$singleparsed`
+done
+
+POL_SetupWindow_menu "$(eval_gettext "Which version of Wine would you like to use?")\n$(eval_gettext "(If this list is empty, please install a wine version with wine version manager)")" "$TITLE" "$WINEVERSIONLIST" "~"
+WINEVERSIONLIVE="$APP_ANSWER"
+if [ "$WINEVERSIONLIVE" = "System" ]; then
+	WINEVERSIONLIVE=""
+else
+	export POL_WINEVERSION="$WINEVERSIONLIVE"
+fi
+
+POL_SetupWindow_textbox "$(eval_gettext 'Choose the name of the virtual drive')" "$TITLE"
+PREFIX_NAME=`echo -n "$APP_ANSWER"| tr -c [[a-zA-Z0-9]\.] '_'`
+
+POL_Wine_SelectPrefix "$PREFIX_NAME"
+POL_Wine_PrefixCreate
+POL_SetupWindow_Close
+exit 0
