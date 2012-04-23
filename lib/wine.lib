@@ -566,7 +566,8 @@ POL_Wine_InstallCDROM()
 	fi
 	if [ "$CDROM" ]; then
 		cd "$WINEPREFIX/dosdevices"
-		ln -s "$letter" "$CDROM"
+		rm "$letter" 2> /dev/null
+		ln -s "$CDROM" "$letter"
 	fi
 }
 POL_Wine_Install_gecko()
