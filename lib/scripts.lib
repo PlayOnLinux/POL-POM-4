@@ -577,7 +577,7 @@ POL_System_CopyDirectory()
 	fi
 	cp -r "$1" "$2" & pid="$!"
 
-	POL_SetupWindow_DirectoryProgress "$2" "$3" "$pid"
+	POL_SetupWindow_DirectoryProgress "$2" "$esize" "$pid"
 	
 }
 POL_Shortcut_Document()
