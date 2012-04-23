@@ -559,6 +559,10 @@ POL_Wine_InstallVersion()
 }
 POL_Wine_InstallCDROM()
 {
+	POL_WineInstallCDROMCustom "$1" "$CDROM"
+}
+POL_Wine_InstallCDROMCustom()
+{
 	if [ "$1" ]; then
 		letter="$1:"
 	else
@@ -567,7 +571,7 @@ POL_Wine_InstallCDROM()
 	if [ "$CDROM" ]; then
 		cd "$WINEPREFIX/dosdevices"
 		rm "$letter" 2> /dev/null
-		ln -s "$CDROM" "$letter"
+		ln -s "$2" "$letter"
 	fi
 }
 POL_Wine_Install_gecko()
