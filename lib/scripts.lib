@@ -575,7 +575,7 @@ POL_System_CopyDirectory()
 	else
 		esize="$3"
 	fi
-	cp -R "$1/" "$2" & pid="$!"
+	cp -R "$1/." "$2/" & pid="$!"
 
 	POL_SetupWindow_DirectoryProgress "$2" "$esize" "$pid"
 	
