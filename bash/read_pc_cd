@@ -1,0 +1,105 @@
+#!/bin/bash
+
+# Copyright (C) 2007-2010 PlayOnLinux Team
+# Copyright (C) 2011 Pâris Quentin
+
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
+
+# PlayOnMac CD PC reader
+[ "$PLAYONLINUX" = "" ] && exit 
+source "$PLAYONLINUX/lib/sources"
+
+
+TITLE="$(eval_gettext 'PC CD-ROM reader')"
+
+POL_SetupWindow_Init
+if [ "$POL_OS" = "Linux" ]; then
+	POL_SetupWindow_message "This tool is made for OSX" "$TITLE"
+	POL_SetupWindow_Close
+	exit 0
+fi
+POL_SetupWindow_free_presentation "$TITLE" "$(eval_gettext 'This tool will help your Mac to read the PC part of a CD-ROM.\n\nUse this tool ONLY if you CD-ROM is a hybride CD-ROM (Compatible with Windows and MacOS), and if you are not able to see the Windows part')"
+POL_SetupWindow_menu_num "$(eval_gettext 'What do you want to do?')" "$TITLE" "$(eval_gettext 'Read a PC CD-ROM')~$(eval_gettext 'Eject a PC CD-ROM')" "~" 
+
+
+if [ "$APP_ANSWER" = "0" ]; then #read
+	POL_SetupWindow_message "$(eval_gettext 'Please insert your CD-ROM, and press next only when Finder has found the Mac OS part of your CD-ROM')" "$TITLE"
+	POL_SetupWindow_wait "$(eval_gettext 'Please wait...')" "$TITLE"
+	sleep 2
+	cd "/Volumes"
+	LIST_DEVICES_=""
+	for device in *
+	do
+		if [ ! "$device" = "$LNG_OTHER" ]
+		then
+				LIST_DEVICES_+="$device~"
+		fi
+	done
+	POL_SetupWindow_menu "$(eval_gettext 'Please choose a CD-ROM')" "$TITLE" "$LIST_DEVICES_" "~" 
+	CDROMc="$APP_ANSWER"
+	POL_Debug_Message "Selecting $CDROMc to be mounted"
+	process()
+	{
+	        search="$1"
+	        read line
+	        while [ "$line" ]; do
+	                if [ "${line::5}" = "/dev/" ]; then
+	                        latest_device="$line";
+	                fi
+	                #echo $latest_device
+	                if [ ! "$(grep "$search" <<< $line)" = "" ]; then
+	                        echo $latest_device
+	                        break
+	                fi 
+	                read line;
+	        done
+	}
+	device="$(diskutil list | process "$CDROMc")"
+	rdevice="${device}s1"
+	POL_Debug_Message "Preparing to mount $rdevice"
+	POL_SetupWindow_wait "$(eval_gettext 'Please wait...')" "$TITLE"
+	mount_point="/Volumes/${CDROMc}_Windows"
+	mkdir "$mount_point"
+	if mount -t cd9660 "$rdevice" "$mount_point"; then
+		POL_SetupWindow_message "The PC part of your cd-rom has been successfully found and mounted.\n\nWhen you have finished, don't forget to use PlayOnMac to eject the CD-ROM before removing from your computer." "$TITLE"
+		POL_Open "$mount_point"
+	else
+		POL_SetupWindow_message "Error: Your CD-ROM does not seem to be a hybrid Mac/PC CD-ROM" "$TITLE"
+		rmdir "$mount_point"
+	fi
+else
+	cd "/Volumes"
+	LIST_DEVICES_=""
+	for device in *_Windows
+	do
+		if [ ! "$device" = "$LNG_OTHER" ]
+		then
+				LIST_DEVICES_+="$device~"
+		fi
+	done
+	POL_SetupWindow_menu "$(eval_gettext 'Please choose a CD-ROM to eject')" "$TITLE" "$LIST_DEVICES_" "~" 
+	CDROMc="$APP_ANSWER"
+	POL_Debug_Message "Selecting $CDROMc to be unmounted"
+	
+	mount_point_1="/Volumes/${CDROMc}"
+	mount_point_2="/Volumes/${CDROMc/_Windows/}"
+	POL_SetupWindow_wait "$(eval_gettext 'Please wait...')" "$TITLE"
+	
+	umount "$mount_point_1"
+	diskutil eject "$mount_point_2"
+	rmdir "$mount_point_1"
+fi
+POL_SetupWindow_Close
+exit 0

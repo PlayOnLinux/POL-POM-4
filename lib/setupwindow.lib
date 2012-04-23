@@ -662,6 +662,7 @@ POL_SetupWindow_cdrom ()
 	LNG_REFRESH=$(eval_gettext "Refresh")
 	POL_SetupWindow_menu "$LNG_WINE_ASKFORCDROM" "$TITLE" "$LIST_DEVICES_$LNG_OTHER~$LNG_REFRESH" "~"		
 	CDROM="$APP_ANSWER"
+	
 	POL_Debug_Message "CD-ROM selected: $CDROM"
 	if [ "$CDROM" = "$LNG_OTHER" ]
 	then
@@ -671,6 +672,7 @@ POL_SetupWindow_cdrom ()
 	then
 		POL_SetupWindow_cdrom
 	else
+		CDROMc="$CDROM"
 		CDROM="$DEVICES/$CDROM"
 	fi
 
@@ -692,7 +694,53 @@ POL_SetupWindow_check_cdrom ()
 		POL_SetupWindow_cdrom
 	done
 }
-
+POL_SetupWindow_cdrom_MountPC()
+{
+	
+	if [ "$POL_OS" = "Mac" -a "$CDROMc" ]; then
+		POL_SetupWindow_question "$(eval_gettext '$TITLE needs to read the PC part of a hybrid CD-Rom.\n\nBy default, MacOS only gives you access to the Mac part of the cd-rom, which may not be compatible with recent versions of Mac OS.\n\nDo you want PlayOnMac to attempt to read the PC-Part of your CD?')" "$TITLE"
+		if [ "$APP_ANSWER" = "TRUE" ]; then
+			POL_Debug_Message "Trying to mount windows part of $CDROM"
+			process()
+			{
+			        search="$1"
+			        read line
+			        while [ "$line" ]; do
+			                if [ "${line::5}" = "/dev/" ]; then
+			                        latest_device="$line";
+			                fi
+			                #echo $latest_device
+			                if [ ! "$(grep "$search" <<< $line)" = "" ]; then
+			                        echo $latest_device
+			                        break
+			                fi 
+			                read line;
+			        done
+			}
+			device="$(diskutil list | process "$CDROMc")"
+			rdevice="${device}s1"
+			POL_Debug_Message "Preparing to mount $rdevice"
+			POL_SetupWindow_wait "$(eval_gettext 'Please wait...')" "$TITLE"
+			mount_point="/Volumes/${CDROMc}_Windows"
+			mkdir "$mount_point"
+			if mount -t cd9660 "$rdevice" "$mount_point"; then
+				export CDROM="$mount_point"
+				export mount_pc_succed="true"
+			else
+				POL_Debug_Error "Your CD-ROM does not seem to be a hybrid Mac/PC CD-ROM" "$TITLE"
+				rmdir "$mount_point"
+			fi
+		fi
+	fi
+}
+POL_SetupWindow_cdrom_UmountPC()
+{
+	if [ "$POL_OS" = "Mac" -a "$CDROMc" -a "$mount_pc_succed" ]; then
+		POL_Debug_Message "Umounting PC part : $CDROM"
+		umount "$CDROM"
+		rmdir "$CDROM"
+	fi
+}
 POL_GetSetupImages () # ( optional : --erase ) 
 {
 	# This function helps you to manage your setup images

@@ -178,6 +178,12 @@ class MainWindow(wx.Frame):
 	#self.wineprefix_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/prefix-manager.png"))
 	#self.expertmenu.AppendItem(self.wineprefix_item)
 
+	if(os.environ["POL_OS"] == "Mac"):
+		self.expertmenu.AppendSeparator()
+		self.pccd_item = wx.MenuItem(self.expertmenu, 113, _("Read a PC CD-Rom"))
+		self.pccd_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/cdrom.png"))
+		self.expertmenu.AppendItem(self.pccd_item)
+		
 	self.expertmenu.AppendSeparator()
 
 	self.run_item = wx.MenuItem(self.expertmenu, 108, _("Run a local script"))
@@ -333,6 +339,7 @@ class MainWindow(wx.Frame):
 	wx.EVT_MENU(self, 110,  self.BugReport)
 	wx.EVT_MENU(self, 111,  self.OpenIrc)
 	wx.EVT_MENU(self, 112,  self.POLOnline)
+	wx.EVT_MENU(self, 113,  self.PCCd)
 	
 	wx.EVT_MENU(self, 115,  self.killall)
 	wx.EVT_MENU(self, 121,  self.Configure)
@@ -573,6 +580,9 @@ class MainWindow(wx.Frame):
 
   def POLOnline(self, event):
     os.system("bash \""+Variables.playonlinux_env+"/bash/playonlinux_online\" &")
+
+  def PCCd(self, event):
+    os.system("bash \""+Variables.playonlinux_env+"/bash/read_pc_cd\" &")
 
   def PolShell(self, event):
     #Variables.run_x_server()
