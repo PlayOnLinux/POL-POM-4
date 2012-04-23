@@ -559,8 +559,8 @@ POL_Wine_InstallVersion()
 }
 POL_Wine_InstallCDROM()
 {
-	if [ "$2" ]; then
-		letter="$2:"
+	if [ "$1" ]; then
+		letter="$1:"
 	else
 		letter="p:"
 	fi
