@@ -731,6 +731,12 @@ POL_SetupWindow_cdrom_MountPC()
 			if mount -t cd9660 "$rdevice" "$mount_point"; then
 				export CDROM="$mount_point"
 				export mount_pc_succed="true"
+				if [ "$1" ]; then
+					if [ "$(find "$CDROM" -iwholename "$CDROM/$1")" = "" ]; then
+						POL_Debug_Fatal "Unable to find setup file ($1) on the windows part of the cdrom. Umounting"
+						POL_SetupWindow_cdrom_UmountPC
+					fi
+				fi
 			else
 				POL_Debug_Error "Your CD-ROM does not seem to be a hybrid Mac/PC CD-ROM" "$TITLE"
 				rmdir "$mount_point"
