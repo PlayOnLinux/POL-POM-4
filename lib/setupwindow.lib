@@ -752,7 +752,10 @@ POL_SetupWindow_cdrom_UmountPC()
 		rmdir "$CDROM"
 	fi
 }
-
+POL_SetupWindow_cdrom_MountMessage ()
+{
+	POL_SetupWindow_message "$(eval_gettext "Don't forget to go to PlayOnMac tools menu -> Read a PC CD-Rom before running your game")" "$TITLE"
+}
 POL_SetupWindow_DirectoryProgress ()
 {
 	# Progressbar, by reading a directory size
