@@ -696,6 +696,11 @@ POL_SetupWindow_check_cdrom ()
 }
 POL_SetupWindow_cdrom_MountPC()
 {
+	if [ "$1" ]; then
+		if [ ! "$(find "$CDROM" -iwholename "$CDROM/$1")" = "" ]; then
+			return 0
+		fi
+	fi
 	
 	if [ "$POL_OS" = "Mac" -a "$CDROMc" ]; then
 		POL_SetupWindow_question "$(eval_gettext '$TITLE needs to read the PC part of a hybrid CD-Rom.\n\nBy default, MacOS only gives you access to the Mac part of the cd-rom, which may not be compatible with recent versions of Mac OS.\n\nDo you want PlayOnMac to attempt to read the PC-Part of your CD?')" "$TITLE"
@@ -741,6 +746,31 @@ POL_SetupWindow_cdrom_UmountPC()
 		rmdir "$CDROM"
 	fi
 }
+
+POL_SetupWindow_DirectoryProgress ()
+{
+	# Progressbar, by reading a directory size
+	# Usage: POL_SetupWindow_DirectoryProgress [Directory] [Expected Size] [Pid to check]
+	# Good for cdrom copy
+	[ "$3" ] || return 1
+	[ "$4" ] && cMESSAGE="\n$4"
+	FICHIER="$1"
+	POL_SetupWindow_pulsebar "$(eval_gettext 'Please wait while $APPLICATION_TITLE is copying files:')$cMESSAGE" "$TITLE"
+
+	POL_SetupWindow_pulse 0
+	
+	while [ ! "$(ps aux | awk '{print $2}' | grep $3)" = "" ]; do
+		current_size="$(du "$PWD"| tail -n 1 | awk '{print $1}')"
+		current_perc=$(( 100 * $current_size / $2 ))
+		POL_SetupWindow_pulse "$current_perc"
+		sleep 1
+	done
+
+	POL_SetupWindow_pulse 100
+
+	return 0
+}
+
 POL_GetSetupImages () # ( optional : --erase ) 
 {
 	# This function helps you to manage your setup images

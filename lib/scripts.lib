@@ -567,6 +567,14 @@ POL_System_wget ()
 
 	return 0
 }
+POL_System_CopyDirectory()
+{
+	# Usage POL_System_CopyDirectory [From] [To] [expected size]
+	cp -r "$1" "$2" & pid="$!"
+
+	POL_SetupWindow_DirectoryProgress "$2" "$3" "$pid"
+	
+}
 POL_Shortcut_Document()
 {
 	# Add a manual to a shortcut
