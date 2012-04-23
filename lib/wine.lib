@@ -557,6 +557,18 @@ POL_Wine_InstallVersion()
 	rm "$WINEDIR/installing"
 	
 }
+POL_Wine_InstallCDROM()
+{
+	if [ "$2" ]; then
+		letter="$2:"
+	else
+		letter="p:"
+	fi
+	if [ "$CDROM" ]; then
+		cd "$WINEPREFIX/dosdevices"
+		ln -s "$letter" "$CDROM"
+	fi
+}
 POL_Wine_Install_gecko()
 {
 	# Install gecko for selected wine version
