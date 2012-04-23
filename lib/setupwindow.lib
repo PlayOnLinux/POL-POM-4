@@ -769,7 +769,7 @@ POL_SetupWindow_DirectoryProgress ()
 	POL_SetupWindow_pulse 0
 	
 	while [ ! "$(ps aux | awk '{print $2}' | grep $3)" = "" ]; do
-		current_size="$(du "$PWD"| tail -n 1 | awk '{print $1}')"
+		current_size="$(du "$1"| tail -n 1 | awk '{print $1}')"
 		current_perc=$(( 100 * $current_size / $2 ))
 		POL_SetupWindow_pulse "$current_perc"
 		sleep 1

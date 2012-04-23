@@ -570,6 +570,11 @@ POL_System_wget ()
 POL_System_CopyDirectory()
 {
 	# Usage POL_System_CopyDirectory [From] [To] [expected size]
+	if [ "$3" = "" ]; then
+		esize="$(du "$1"| tail -n 1 | awk '{print $1}')"
+	else
+		esize="$3"
+	fi
 	cp -r "$1" "$2" & pid="$!"
 
 	POL_SetupWindow_DirectoryProgress "$2" "$3" "$pid"
