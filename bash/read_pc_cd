@@ -59,7 +59,7 @@ if [ "$APP_ANSWER" = "0" ]; then #read
 	                        latest_device="$line";
 	                fi
 	                #echo $latest_device
-	                if [ ! "$(grep "$search" <<< $line)" = "" ]; then
+	                if [ ! "$(grep "${search::16}" <<< $line)" = "" ]; then
 	                        echo $latest_device
 	                        break
 	                fi 
