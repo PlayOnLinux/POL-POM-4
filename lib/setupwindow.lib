@@ -754,7 +754,9 @@ POL_SetupWindow_cdrom_UmountPC()
 }
 POL_SetupWindow_cdrom_MountMessage ()
 {
-	POL_SetupWindow_message "$(eval_gettext "Don't forget to go to PlayOnMac tools menu -> Read a PC CD-Rom before running your game")" "$TITLE"
+	if [ "$POL_OS" = "Mac" ]; then
+		POL_SetupWindow_message "$(eval_gettext "Don't forget to go to PlayOnMac tools menu -> Read a PC CD-Rom before running your game")" "$TITLE"
+	fi
 }
 POL_SetupWindow_DirectoryProgress ()
 {
