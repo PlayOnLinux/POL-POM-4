@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2012-04-27 19:00:37+02:00\n"
+"POT-Creation-Date: 2012-04-28 19:00:43+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -213,7 +213,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_:57
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Revelations_:57
 #: PlayOnLinux_Scripts/Need_For_Speed_III___Hot_Pursuit_:34
-#: PlayOnLinux_Scripts/Theme_Hospital_:37
+#: PlayOnLinux_Scripts/Theme_Hospital_:42
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:80
 #, sh-format
 msgid "Please insert the game media into your disk drive."
@@ -268,7 +268,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Star_Wars___The_Force_Unleashed___Ultimate_Sith_Edition_:147
 #: PlayOnLinux_Scripts/Star_Wars___The_Old_Republic_:106
 #: PlayOnLinux_Scripts/TERA_:48 PlayOnLinux_Scripts/Team_Fortress_2_:69
-#: PlayOnLinux_Scripts/The_Witcher_:132 PlayOnLinux_Scripts/Theme_Hospital_:50
+#: PlayOnLinux_Scripts/The_Witcher_:132 PlayOnLinux_Scripts/Theme_Hospital_:55
 #: PlayOnLinux_Scripts/Wow_Cartographe_:48
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:73
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:59
@@ -335,8 +335,8 @@ msgstr ""
 #: PlayOnLinux_Scripts/Spotify_:66
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_II__Daggerfall_:64
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_I__Arena_:64
-#: PlayOnLinux_Scripts/Theme_Hospital_:40
-#: PlayOnLinux_Scripts/Theme_Hospital_:51
+#: PlayOnLinux_Scripts/Theme_Hospital_:45
+#: PlayOnLinux_Scripts/Theme_Hospital_:56
 #: PlayOnLinux_Scripts/Vantage_Master_Online_:44
 #: PlayOnLinux_Scripts/Wow_Cartographe_:40
 #: PlayOnLinux_Scripts/Wow_Cartographe_:49
@@ -349,7 +349,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/ISIS_Draw_2.3_:34
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:214
 #: PlayOnLinux_Scripts/Secret_of_Monkey_Island___Special_Edition__Testing__:76
-#: PlayOnLinux_Scripts/Spotify_:76 PlayOnLinux_Scripts/Theme_Hospital_:65
+#: PlayOnLinux_Scripts/Spotify_:76 PlayOnLinux_Scripts/Theme_Hospital_:70
 #: PlayOnLinux_Scripts/Wow_Cartographe_:58
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:97
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:68
@@ -1637,8 +1637,8 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Function_FontsSmoothRGB_:1
 #: PlayOnLinux_Scripts/POL_GoG_download_:23
 #: PlayOnLinux_Scripts/POL_Install_DisableCrashDialog_:5
-#: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:28
-#: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:36
+#: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:34
+#: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:109 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:72 bash/read_pc_cd:98
 #: bash/winebash:27 lib/setupwindow.lib:728 lib/wine.lib:800 lib/wine.lib:830
@@ -1788,15 +1788,9 @@ msgstr ""
 msgid "Downloading Mono 2.8..."
 msgstr ""
 
-#: PlayOnLinux_Scripts/POL_Install_msxml3_:15
+#: PlayOnLinux_Scripts/POL_Install_msxml3_:18
 #, sh-format
 msgid "Downloading msxml3..."
-msgstr ""
-
-#: PlayOnLinux_Scripts/POL_Install_msxml3_:22
-#, sh-format
-msgid ""
-"Warning : msxml3 seems to be already installed.\\nForcing reinstallation."
 msgstr ""
 
 #: PlayOnLinux_Scripts/POL_Install_origin_:19
@@ -1954,7 +1948,13 @@ msgstr ""
 msgid "Downloading $TITLE Freeware..."
 msgstr ""
 
-#: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:30
+#: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:29
+#: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:46
+#, sh-format
+msgid "Please insert the first game media into your disk drive"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:36
 #, sh-format
 msgid "Please insert the second game media into your disk drive"
 msgstr ""
