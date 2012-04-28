@@ -559,7 +559,7 @@ POL_Wine_InstallVersion()
 }
 POL_Wine_InstallCDROM()
 {
-	POL_WineInstallCDROMCustom "$1" "$CDROM"
+	POL_Wine_InstallCDROMCustom "$1" "$CDROM"
 }
 POL_Wine_InstallCDROMCustom()
 {
