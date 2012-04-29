@@ -76,8 +76,16 @@ if [ "$APP_ANSWER" = "0" ]; then #read
 		POL_SetupWindow_message "The PC part of your cd-rom has been successfully found and mounted.\n\nWhen you have finished, don't forget to use PlayOnMac to eject the CD-ROM before removing from your computer." "$TITLE"
 		POL_Open "$mount_point"
 	else
-		POL_SetupWindow_message "Error: Your CD-ROM does not seem to be a hybrid Mac/PC CD-ROM" "$TITLE"
-		rmdir "$mount_point"
+		if [ -e "${mount_point}_Windows" ]; then
+			if rmdir "$mount_point"; then
+				POL_SetupWindow_message "Error: Please retry to mount ${CDROMc}" "$TITLE"
+			else
+				POL_SetupWindow_message "Windows part of your CD-ROM seems to be already mounted" "$TITLE"
+			fi
+		else
+			POL_SetupWindow_message "Error: Your CD-ROM does not seem to be a hybrid Mac/PC CD-ROM" "$TITLE"
+			rmdir "$mount_point"
+		fi
 	fi
 else
 	cd "/Volumes"
