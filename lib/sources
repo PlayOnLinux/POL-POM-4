@@ -35,6 +35,7 @@ then
 	source "$PLAYONLINUX/lib/setupwindow.lib"
 	source "$PLAYONLINUX/lib/website.lib"
 	source "$PLAYONLINUX/lib/wine.lib"
+	source "$PLAYONLINUX/lib/dosbox.lib"
 fi
 if [ ! "$ONLY_ONCE" ]
 then
