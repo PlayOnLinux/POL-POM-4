@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2012-04-28 19:00:43+02:00\n"
+"POT-Creation-Date: 2012-04-29 19:00:39+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -213,7 +213,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_:57
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Revelations_:57
 #: PlayOnLinux_Scripts/Need_For_Speed_III___Hot_Pursuit_:34
-#: PlayOnLinux_Scripts/Theme_Hospital_:42
+#: PlayOnLinux_Scripts/Theme_Hospital_:39
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:80
 #, sh-format
 msgid "Please insert the game media into your disk drive."
@@ -268,7 +268,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Star_Wars___The_Force_Unleashed___Ultimate_Sith_Edition_:147
 #: PlayOnLinux_Scripts/Star_Wars___The_Old_Republic_:106
 #: PlayOnLinux_Scripts/TERA_:48 PlayOnLinux_Scripts/Team_Fortress_2_:69
-#: PlayOnLinux_Scripts/The_Witcher_:132 PlayOnLinux_Scripts/Theme_Hospital_:55
+#: PlayOnLinux_Scripts/The_Witcher_:132 PlayOnLinux_Scripts/Theme_Hospital_:53
 #: PlayOnLinux_Scripts/Wow_Cartographe_:48
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:73
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:59
@@ -333,10 +333,10 @@ msgstr ""
 #: PlayOnLinux_Scripts/Secret_of_Monkey_Island___Special_Edition__Testing__:39
 #: PlayOnLinux_Scripts/Ski_Challenge_2012_:40 PlayOnLinux_Scripts/Spotify_:56
 #: PlayOnLinux_Scripts/Spotify_:66
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_II__Daggerfall_:64
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_II__Daggerfall_:67
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_I__Arena_:64
-#: PlayOnLinux_Scripts/Theme_Hospital_:45
-#: PlayOnLinux_Scripts/Theme_Hospital_:56
+#: PlayOnLinux_Scripts/Theme_Hospital_:42
+#: PlayOnLinux_Scripts/Theme_Hospital_:54
 #: PlayOnLinux_Scripts/Vantage_Master_Online_:44
 #: PlayOnLinux_Scripts/Wow_Cartographe_:40
 #: PlayOnLinux_Scripts/Wow_Cartographe_:49
@@ -349,7 +349,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/ISIS_Draw_2.3_:34
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:214
 #: PlayOnLinux_Scripts/Secret_of_Monkey_Island___Special_Edition__Testing__:76
-#: PlayOnLinux_Scripts/Spotify_:76 PlayOnLinux_Scripts/Theme_Hospital_:70
+#: PlayOnLinux_Scripts/Spotify_:76 PlayOnLinux_Scripts/Theme_Hospital_:62
 #: PlayOnLinux_Scripts/Wow_Cartographe_:58
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:97
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:68
@@ -1068,7 +1068,7 @@ msgstr ""
 msgid "Please wait while $TITLE is downloaded..."
 msgstr ""
 
-#: PlayOnLinux_Scripts/Diablo_II_:51
+#: PlayOnLinux_Scripts/Diablo_II_:51 PlayOnLinux_Scripts/SimCity_2000_:47
 #, sh-format
 msgid "Installing $TITLE"
 msgstr ""
@@ -1235,8 +1235,8 @@ msgid "Which version do you want to install?"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Good_Old_Games___Advent_Rising__Advent_Revising_patch_:83
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_II__Daggerfall_:59
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_II__Daggerfall_:68
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_II__Daggerfall_:62
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_II__Daggerfall_:71
 #, sh-format
 msgid "Decompressing archive..."
 msgstr ""
@@ -1640,7 +1640,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:34
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:109 bash/installpolpackages:26
-#: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:72 bash/read_pc_cd:98
+#: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
 #: bash/winebash:27 lib/setupwindow.lib:728 lib/wine.lib:800 lib/wine.lib:830
 #, sh-format
 msgid "Please wait..."
@@ -1941,6 +1941,11 @@ msgstr ""
 msgid ""
 "During the install process, please deselect\\n\"Install Bonjour for Windows"
 "\" and \"Automaticaly update Safari\"."
+msgstr ""
+
+#: PlayOnLinux_Scripts/SimCity_2000_:40
+#, sh-format
+msgid "Please select the MS-DOS version of setup file:"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Sonic_Fan_Remix_:37
@@ -3138,12 +3143,12 @@ msgid ""
 "OS part of your CD-ROM"
 msgstr ""
 
-#: bash/read_pc_cd:50
+#: bash/read_pc_cd:51
 #, sh-format
 msgid "Please choose a CD-ROM"
 msgstr ""
 
-#: bash/read_pc_cd:92
+#: bash/read_pc_cd:97
 #, sh-format
 msgid "Please choose a CD-ROM to eject"
 msgstr ""
@@ -3661,101 +3666,101 @@ msgid ""
 "attempt to read the PC-Part of your CD?"
 msgstr ""
 
-#: lib/setupwindow.lib:757
+#: lib/setupwindow.lib:758
 #, sh-format
 msgid ""
 "Don't forget to go to PlayOnMac tools menu -> Read a PC CD-Rom before "
 "running your game"
 msgstr ""
 
-#: lib/setupwindow.lib:767
+#: lib/setupwindow.lib:769
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is copying files:"
 msgstr ""
 
-#: lib/setupwindow.lib:970 lib/setupwindow.lib:1119
+#: lib/setupwindow.lib:972 lib/setupwindow.lib:1121
 #, sh-format
 msgid "Scanning the virtual drive ..."
 msgstr ""
 
-#: lib/setupwindow.lib:984
+#: lib/setupwindow.lib:986
 #, sh-format
 msgid "How much memory does your graphics board have?"
 msgstr ""
 
-#: lib/setupwindow.lib:993
+#: lib/setupwindow.lib:995
 #, sh-format
 msgid "Video card does not have enough memory"
 msgstr ""
 
-#: lib/setupwindow.lib:994
+#: lib/setupwindow.lib:996
 #, sh-format
 msgid ""
 "Your video card does not have enough memory!\\nIt might prevent the game "
 "from working"
 msgstr ""
 
-#: lib/setupwindow.lib:1008
+#: lib/setupwindow.lib:1010
 #, sh-format
 msgid "Use Steam Store version"
 msgstr ""
 
-#: lib/setupwindow.lib:1009
+#: lib/setupwindow.lib:1011
 #, sh-format
 msgid "Use Steam Store demo version"
 msgstr ""
 
-#: lib/setupwindow.lib:1010
+#: lib/setupwindow.lib:1012
 #, sh-format
 msgid "Use Desura Store version"
 msgstr ""
 
-#: lib/setupwindow.lib:1011
+#: lib/setupwindow.lib:1013
 #, sh-format
 msgid "Use Desura Store demo version"
 msgstr ""
 
-#: lib/setupwindow.lib:1012
+#: lib/setupwindow.lib:1014
 #, sh-format
 msgid "Use Origin Store version"
 msgstr ""
 
-#: lib/setupwindow.lib:1013
+#: lib/setupwindow.lib:1015
 #, sh-format
 msgid "Use Origin Store demo version"
 msgstr ""
 
-#: lib/setupwindow.lib:1015
+#: lib/setupwindow.lib:1017
 #, sh-format
 msgid "Use a setup file in my computer"
 msgstr ""
 
-#: lib/setupwindow.lib:1016
+#: lib/setupwindow.lib:1018
 #, sh-format
 msgid "Use CD-ROM(s)"
 msgstr ""
 
-#: lib/setupwindow.lib:1017
+#: lib/setupwindow.lib:1019
 #, sh-format
 msgid "Use DVD-ROM(s)"
 msgstr ""
 
-#: lib/setupwindow.lib:1018
+#: lib/setupwindow.lib:1020
 #, sh-format
 msgid "Download the program"
 msgstr ""
 
-#: lib/setupwindow.lib:1083
+#: lib/setupwindow.lib:1085
 #, sh-format
 msgid "Please choose an installation method"
 msgstr ""
 
-#: lib/setupwindow.lib:1121
+#: lib/setupwindow.lib:1123
 #, sh-format
 msgid "I don't want to make another shortcut"
 msgstr ""
 
-#: lib/setupwindow.lib:1122 python/guiv3.py:157
+#: lib/setupwindow.lib:1124 python/guiv3.py:157
 #, sh-format
 msgid "Browse"
 msgstr ""
