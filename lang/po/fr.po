@@ -3282,7 +3282,7 @@ msgstr "Veuillez choisir une action à exécuter"
 #: bash/read_pc_cd:25
 #, sh-format
 msgid "PC CD-ROM reader"
-msgstr ""
+msgstr "Lecteur de CD-ROM PC"
 
 #: bash/read_pc_cd:33
 #, sh-format
@@ -3291,21 +3291,24 @@ msgid ""
 "tool ONLY if you CD-ROM is a hybride CD-ROM (Compatible with Windows and "
 "MacOS), and if you are not able to see the Windows part"
 msgstr ""
+"Cet outil vous aidera a lire la partie PC d'un CD-ROM.\\n\\nUtilisez "
+"cet outils SEULEMENT si votre CD-ROM est hybride (Compatible Windows et "
+"MacOS), et que vous ne pouvez pas voir la partie Windows"
 
 #: bash/read_pc_cd:34
 #, sh-format
 msgid "Eject a PC CD-ROM"
-msgstr ""
+msgstr "Éjecter un CD-ROM PC"
 
 #: bash/read_pc_cd:34
 #, sh-format
 msgid "Read a PC CD-ROM"
-msgstr ""
+msgstr "Lire un CD-ROM PC"
 
 #: bash/read_pc_cd:34
 #, sh-format
 msgid "What do you want to do?"
-msgstr ""
+msgstr "Que voulez-vous faire ?"
 
 #: bash/read_pc_cd:38
 #, sh-format
@@ -3313,16 +3316,18 @@ msgid ""
 "Please insert your CD-ROM, and press next only when Finder has found the Mac "
 "OS part of your CD-ROM"
 msgstr ""
+"Merci d'insérer votre CD-ROM et d'appuyer sur suivant seulement lorsque Finder "
+"vous montre la partie Mac OS de votre CD"
 
 #: bash/read_pc_cd:50
 #, sh-format
 msgid "Please choose a CD-ROM"
-msgstr ""
+msgstr "Choisissez un CD-ROM"
 
 #: bash/read_pc_cd:92
 #, sh-format
 msgid "Please choose a CD-ROM to eject"
-msgstr ""
+msgstr "Choisissez un CD-ROM à éjecter"
 
 #: bash/run_app:26
 #, sh-format
@@ -3857,6 +3862,10 @@ msgid ""
 "compatible with recent versions of Mac OS.\\n\\nDo you want PlayOnMac to "
 "attempt to read the PC-Part of your CD?"
 msgstr ""
+"$TITLE a besoin de lire la partie Windows d'un CD-ROM hybride\\n\\nMacOS "
+"Mac OS vous donne seulement accès à la partie Mac du CD-ROM, qui n'est sans doute "
+"pas compatible avec votre version récente de MacOS.\\n\\nVoulez-vous que PlayOnMac essais "
+"de lire la partie PC de votre CD ?"
 
 #: lib/setupwindow.lib:757
 #, sh-format
@@ -3864,11 +3873,13 @@ msgid ""
 "Don't forget to go to PlayOnMac tools menu -> Read a PC CD-Rom before "
 "running your game"
 msgstr ""
+"N'oubliez pas de votre rendre dans le menu Outils -> Lire un CD-Rom PC avant "
+"de lancer votre jeu"
 
 #: lib/setupwindow.lib:767
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is copying files:"
-msgstr ""
+msgstr "Patientez pendant que $APPLICATION_TITLE copie des fichiers :"
 
 #: lib/setupwindow.lib:970 lib/setupwindow.lib:1119
 #, sh-format
@@ -4323,7 +4334,7 @@ msgstr "Gérer les versions de Wine"
 
 #: python/mainwindow.py:183
 msgid "Read a PC CD-Rom"
-msgstr ""
+msgstr "Lire un CD-ROM PC"
 
 #: python/mainwindow.py:193
 msgid "Close all {0} software"
