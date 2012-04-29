@@ -27,8 +27,11 @@ import os, getopt, sys, urllib, signal, string, time, webbrowser, gettext, local
 #	os.environ["LANG"] = "en_US.utf-8"
 #locale.setlocale(locale.LC_ALL, '.utf-8')
 
-import wx
+if(os.environ["POL_OS"] == "Linux"):
+	import wxversion
+	wxversion.ensureMinimal('2.8')
 	
+import wx
 import lib.Variables as Variables, lib.lng as lng
 import lib.playonlinux as playonlinux
 import guiv3 as gui, install, options, wine_versions as wver, sp, configure, threading
