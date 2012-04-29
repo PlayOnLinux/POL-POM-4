@@ -62,7 +62,7 @@ then
 	archstring="32 bits"
 	Check_OpenGL "$1"
 fi
-if [ "$1" = "amd64" ]
+if [ "$1" = "amd64" -a "$AMD64_COMPATIBLE" = "True" ]
 then
 	archtype="elf_x86_64"
 	archstring="64 bits"
