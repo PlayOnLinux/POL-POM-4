@@ -294,7 +294,8 @@ class Onglets(wx.Notebook):
 				self.configurator_title.Hide()
 				self.configurator_button.Hide()
 			self.configurator_title.SetLabel(self.s_title+" specific configuration")
-				
+			self.display_elements["pre_run_panel"].Show()
+			self.display_elements["pre_run_text"].Show()
 		else:
 			self.s_prefix = selection
 			self.s_title = selection
@@ -313,7 +314,9 @@ class Onglets(wx.Notebook):
 			self.display_elements["folder_button"].SetLabel(_("Open virtual drive's directory"))
 			self.configurator_title.Hide()
 			self.configurator_button.Hide()
-		
+			self.display_elements["pre_run_panel"].Hide()
+			self.display_elements["pre_run_text"].Hide()
+			
 		self.Refresh()
 		self.elements = ["UseGLSL","DirectDrawRenderer","VideoMemorySize","OffscreenRenderingMode","RenderTargetModeLock","Multisampling","StrictDrawOrdering","MouseWarpOverride"]
 		self.settings = wine.LoadRegValues(self.s_prefix,self.elements)
