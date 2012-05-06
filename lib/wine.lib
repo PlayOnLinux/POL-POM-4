@@ -491,9 +491,10 @@ POL_Wine_SelectPrefix()
 		touch "$WINEPREFIX/playonlinux.cfg" 2> /dev/null
 	fi
 	
-	if [ "$(POL_Config_PrefixRead ARCH)" = "x86" ]; then ## Comme ca, pas de conflits
-		export WINEARCH=win32
-	fi
+	## In fact it's a bad idea
+	#if [ "$(POL_Config_PrefixRead ARCH)" = "x86" ]; then ## Comme ca, pas de conflits
+	#	export WINEARCH=win32
+	#fi
 }
 POL_Wine_PrefixExists()
 {
@@ -708,16 +709,19 @@ POL_Wine_PrefixCreate()
 	else	# Prefix does not exit, let's create it
 		if [ "$POL_WINEVERSION" = "" ]; then
 			# System wineversion
-			export WINEARCH=win32
+			## Really bad idea
+			## export WINEARCH=win32
 			POL_Debug_InitPrefix
 			wine wineboot
 			if [ -e "$WINEPREFIX/drive_c/windows/syswow64" ] # It is a 64 bits prefix
 			then
 				POL_Config_PrefixWrite "ARCH" "amd64"
 				POL_Debug_LogToPrefix "This is a 64bits prefix!"
+				POL_Config_Write WINE_SYSTEM_ARCH amd64
 			else
 				POL_Config_PrefixWrite "ARCH" "x86"
 				POL_Debug_LogToPrefix "This is a 32bits prefix!"
+				POL_Config_Write WINE_SYSTEM_ARCH x86
 			fi
 			POL_LoadVar_PROGRAMFILES
 		else

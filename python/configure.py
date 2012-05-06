@@ -255,7 +255,7 @@ class Onglets(wx.Notebook):
 	def UpdateVersions(self, arch):
 		elements = playonlinux.Get_versions(arch)
 		self.general_elements["wineversion"].Clear()
-		if(arch == 'x86'):
+		if(arch == playonlinux.GetSettings("WINE_SYSTEM_ARCH") or (arch == "x86" and playonlinux.GetSettings("WINE_SYSTEM_ARCH") != "amd64")):
 			self.general_elements["wineversion"].Append("System")
 		self.general_elements["wineversion"].AppendItems(elements)
 		version = playonlinux.GetSettings('VERSION',self.s_prefix)
