@@ -23,6 +23,7 @@ import wx, os, getopt, sys, urllib, signal, time, string, urlparse, codecs, time
 from subprocess import Popen,PIPE
 import lib.Variables as Variables
 import lib.lng
+import lib.DirTreeCtrl as DirTreeCtrl
 lib.lng.Lang()
 
 class Download(threading.Thread):
@@ -155,6 +156,9 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 		self.NoButton = wx.Button(self.footer, wx.ID_NO, _("No"), pos=(430,0),size=(85,37))
 		self.YesButton = wx.Button(self.footer, wx.ID_YES, _("Yes"), pos=(340,0), size=(85,37))
 		self.browse = wx.Button(self.panel, 103, _("Browse"), size=(130,25))
+		#self.FileList = DirTreeCtrl(None, -1)
+		
+		#DirTreeCtrl(self.FileList)
 		#self.register = wx.HyperlinkCtrl(self.footer, 305, _("Having "), "", pos=(20,180))
 	
 		# D'autres trucs
@@ -375,19 +379,21 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 		self.i = 0
 		for game in self.games: 
 			self.file = Variables.playonlinux_rep+"/shortcuts/"+game
-			fichier = open(self.file,"r").read()
+			if(os.path.isdir(self.file)):
+				fichier = open(self.file,"r").read()
 
-			if("POL_Wine " in fichier):
-				if(os.path.exists(Variables.playonlinux_rep+"/icones/32/"+game)):
-					self.file_icone = Variables.playonlinux_rep+"/icones/32/"+game
-				else:
-					self.file_icone = Variables.playonlinux_env+"/etc/playonlinux32.png"
-				self.bitmap = wx.Image(self.file_icone)
-				self.bitmap.Rescale(22,22,wx.IMAGE_QUALITY_HIGH)
-				self.bitmap = self.bitmap.ConvertToBitmap()
-				self.images.Add(self.bitmap)
-				self.MenuGames.AppendItem(self.root, game, self.i)
-				self.i = self.i+1
+				if("POL_Wine " in fichier):
+					if(os.path.exists(Variables.playonlinux_rep+"/icones/32/"+game)):
+						self.file_icone = Variables.playonlinux_rep+"/icones/32/"+game
+					else:
+						self.file_icone = Variables.playonlinux_env+"/etc/playonlinux32.png"
+					
+					self.bitmap = wx.Image(self.file_icone)
+					self.bitmap.Rescale(22,22,wx.IMAGE_QUALITY_HIGH)
+					self.bitmap = self.bitmap.ConvertToBitmap()
+					self.images.Add(self.bitmap)
+					self.MenuGames.AppendItem(self.root, game, self.i)
+					self.i = self.i+1
 
 
 	def add_menu_icons(self):
@@ -577,7 +583,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 								self.DrawCancel()
 								self.DrawNext()
 								wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_bigchamp)
-																
+				
 							if(self.fichier[1] == "browse\n"):
 								self.DrawHeader()
 								self.texte.SetLabel(self.fichier[2].replace("\\n","\n"))
