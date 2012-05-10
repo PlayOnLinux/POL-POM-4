@@ -379,7 +379,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 		self.i = 0
 		for game in self.games: 
 			self.file = Variables.playonlinux_rep+"/shortcuts/"+game
-			if(os.path.isdir(self.file)):
+			if(not os.path.isdir(self.file)):
 				fichier = open(self.file,"r").read()
 
 				if("POL_Wine " in fichier):
