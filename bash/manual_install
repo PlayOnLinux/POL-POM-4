@@ -130,7 +130,6 @@ then
 	PREFIXNAME="$APP_ANSWER"
 	SCRIPTPATH="$POL_USER_ROOT/scripts/${APP_ANSWER}_${INSTALL_NUMBER}"
 	SCRIPTNAME="${APP_ANSWER}_${INSTALL_NUMBER}"
-	POL_System_SetArch "x86"
 	ManualInstall_ScriptInit
 	echo "POL_Wine_SelectPrefix \"$PREFIXNAME\"" >> "$SCRIPTPATH"
 	POL_Wine_SelectPrefix "$PREFIXNAME"
@@ -184,6 +183,7 @@ then
 	else
 	export POL_WINEVERSION="$WINEVERSIONLIVE"
 	fi
+	POL_System_SetArch "x86"
 	echo "export POL_WINEVERSION=\"$WINEVERSIONLIVE\"" >> "$SCRIPTPATH"
 fi
 
