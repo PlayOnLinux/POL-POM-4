@@ -88,6 +88,9 @@ class getDescription(threading.Thread):
 						else:
 							try:
 								url = os.environ["SITE"]+'/V2_data/miniatures/'+self.getDescription.replace(" ","%20")
+								req = urllib2.Request(url)
+								handle = urllib2.urlopen(req)
+								
 								open(Variables.playonlinux_rep+"/tmp/min","w").write(handle.read())
 								self.miniature = Variables.playonlinux_rep+"/tmp/min"
 							except:
