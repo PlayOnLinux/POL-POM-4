@@ -76,8 +76,7 @@ class getDescription(threading.Thread):
 						req = urllib2.Request(url)
 						handle = urllib2.urlopen(req)
 						screenshot_id=handle.read()
-						
-						if(screenshot_id != 0):
+						if(screenshot_id != "0"):
 							url_s1 = 'http://www.playonlinux.com/images/apps/min/'+screenshot_id
 							req = urllib2.Request(url_s1)
 							handle = urllib2.urlopen(req)
