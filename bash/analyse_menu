@@ -1,0 +1,43 @@
+#!/bin/bash
+
+source "$PLAYONLINUX/lib/sources"
+
+PREFIX="$1"
+RELATIVEPATH="$2"
+if [ -z "$PREFIX" ]; then
+echo "Usage: $0 <prefixname> [<relative program path>]"
+    echo "relative program path: unix path from drive C root"
+    echo " (eg. 'Program Files/GOG.com/Lure of Temptress/')"
+    exit 1
+fi
+
+WINEPREFIX="$POL_USER_ROOT/wineprefix/$PREFIX"
+if [ ! -d "$WINEPREFIX" ]; then
+echo "Prefix \`$PREFIX' does not exist."
+    exit 1
+fi
+
+MENUNAME="Menu Démarrer"
+if [ ! -d "$WINEPREFIX/drive_c/users/Public/$MENUNAME" ]; then
+echo "Could not find global menu data"
+    exit 1
+fi
+
+cd "$WINEPREFIX/drive_c/users/Public/$MENUNAME"
+find . -type f -a -name '*.lnk' -print| \
+while read lnkname; do
+# echo "----------"
+# echo "$lnkname"
+    LABEL="${lnkname##*/}"
+    LABEL="${LABEL%.lnk}"
+    IFS='' LP_OUT="$(lp $lnkname)"
+    BIN="$(echo $LP_OUT|perl -ne 'chomp; if(/^ID List:\s*(.*)/) { print $1 }')"
+# echo "raw bin: $BIN"
+    BIN="${BIN//\\//}"
+# echo "forward slashes bin: $BIN"
+    BIN="${BIN#*drive_c/}"
+    [ -n "$RELATIVEPATH" ] && BIN="${BIN#$RELATIVEPATH}"
+# echo "relative bin: $BIN"
+    ARGS="$(echo $LP_OUT|perl -ne 'chomp; if(/^cmdline args:\s*(.*)/) { print $1 }')"
+    echo -e " * $LABEL\t[\"$BIN\" $ARGS]"
+done

@@ -867,3 +867,28 @@ POL_Wine_GetPatchName()
 {
 	perl -e '$release=$ARGV[0]; $release =~ s/^[0-9]+\.[0-9]+(\.[0-9]+)?(-rc[0-9]+)?-?//; print "$release\n"' "$1"	
 }
+POL_Lnk_Read()
+{
+	drive_c_found="false"
+	export ANSWER_PATH=""
+	export ANSWER_PREFIX=""
+	export ANSWER_NAME="$1"
+	ANSWER_NAME="${ANSWER_NAME/.lnk/}"
+	while read line; do
+		if [ "$drive_c_found" = "true" ]; then
+			if [ "${line:1:1}" = ":" ]; then
+				break
+			fi
+			if [ "$ANSWER_PATH" = "" ]; then
+				ANSWER_PATH="$line"
+			else
+				ANSWER_PATH="$ANSWER_PATH/$line"
+			fi
+		fi
+		if [ "$line" = "drive_c" ]; then
+			drive_c_found="true"
+			ANSWER_PREFIX="$lastline"
+		fi
+		lastline="$line"
+	done < <(strings "$1")
+}
