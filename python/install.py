@@ -56,7 +56,7 @@ class getDescription(threading.Thread):
 			self.htmlContent = self.htmlwait;
 			time.sleep(0.5)
 			self.getDescription_bis = self.getDescription
-			
+			self.med_miniature = None
 			if(self.getDescription == "about:conceptor"):
 				self.miniature = self.miniature_defaut
 				self.htmlContent = "Well done !"
@@ -146,6 +146,7 @@ class InstallWindow(wx.Frame):
 		self.description = getDescription()
 		self.panelFenp = wx.Panel(self, -1)
 		self.live = 0
+		self.openMin = False
 		self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
 		self.images_cat = wx.ImageList(22, 22)
 		self.imagesapps = wx.ImageList(22, 22)
@@ -230,7 +231,14 @@ class InstallWindow(wx.Frame):
 		
 		if(self.list_cat.GetItemImage(self.list_cat.GetSelection()) != self.description.cat):
 			self.description.cat = self.list_cat.GetItemImage(self.list_cat.GetSelection())
-
+		
+		if(self.openMin == True):
+			if(self.description.med_miniature != None):
+				self.wmin = Wminiature(None, -1, self.list_apps.GetItemText(self.list_apps.GetSelection()), self.description.med_miniature)
+				self.wmin.Show()
+				self.wmin.Center(wx.BOTH)
+				self.openMin = False
+			
 	def closeapp(self, event):
 		self.description.thread_running = False	
 		self.Destroy()  
@@ -368,10 +376,7 @@ class InstallWindow(wx.Frame):
 		self.list_cat.AppendItem(self.root, _("Testing"), self.i+3)
 	
 	def sizeUpScreen(self, event):
-		if(self.description.med_miniature != None):
-			self.wmin = Wminiature(None, -1, self.list_apps.GetItemText(self.list_apps.GetSelection()), self.description.med_miniature)
-			self.wmin.Show()
-			self.wmin.Center(wx.BOTH)
+		self.openMin = True
 		
 	def WriteApps(self, array):
 		self.imagesapps.RemoveAll()
