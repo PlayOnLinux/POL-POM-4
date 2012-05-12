@@ -86,7 +86,12 @@ class getDescription(threading.Thread):
 							self.miniature = Variables.playonlinux_rep+"/tmp/min"+screenshot_id
 						
 						else:
-							self.miniature = self.miniature_defaut
+							try:
+								url = os.environ["SITE"]+'/V2_data/miniatures/'+self.getDescription.replace(" ","%20")
+								open(Variables.playonlinux_rep+"/tmp/min","w").write(handle.read())
+								self.miniature = Variables.playonlinux_rep+"/tmp/min"
+							except:
+								self.miniature = self.miniature_defaut
 		
 					except :
 						self.miniature = self.miniature_defaut
