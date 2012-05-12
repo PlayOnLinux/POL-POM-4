@@ -615,3 +615,16 @@ POL_AdvisedVersion ()
 		POL_SetupWindow_message "$(eval_gettext 'Warning: You are running $APPLICATION_TITLE $VERSION.\n$APPLICATION_TITLE $NEEDED is recommended to continue.')" "$TITLE"
 	fi
 }
+
+POL_Configurator_runparts ()
+{
+	# Inside a configurator, in a place where SetupWindow and Debug are initialized, sources
+	# the the configurator parts named after main configurator script plus some extension
+	# (say the patch they're related to) in alphabetical order.
+	# Usage : POL_Configurator_runparts
+
+	shopt -s nullglob
+	for conf in "$0".*; do
+		source "$conf"
+	done
+}
