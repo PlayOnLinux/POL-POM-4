@@ -79,9 +79,9 @@ Date: $(Get_CurrentDate)
 > wine --version (Be careful, this version might not be the version used in the script! Read the content of this file for more information)
   $(wine --version)
 > glxinfo \| grep rendering
-  $(glxinfo | grep rendering 2> /dev/null)
+  $(POL_Glxinfo | grep rendering 2> /dev/null)
 > glxinfo \| grep renderer
-  $(glxinfo | grep renderer 2> /dev/null)
+  $(POL_Glxinfo | grep renderer 2> /dev/null)
 > OpenGL libs
   $("$PLAYONLINUX/bash/check_gl" x86 stdout)
   $("$PLAYONLINUX/bash/check_gl" amd64 stdout)
@@ -150,11 +150,11 @@ POL_Debug_glxinfo()
 	# Get information about glx in one's computer
 	# Usage : POL_Debug_glxinfo
 	
-	glxinfo > "$DEBUGGING/glxinfo.log"
+	POL_Glxinfo > "$DEBUGGING/glxinfo.log"
 }
 POL_Debug_InitPrefix()
 {
-	glxinfo 2> /dev/null > "$POL_USER_ROOT/tmp/glxinfo"
+	POL_Glxinfo 2> /dev/null > "$POL_USER_ROOT/tmp/glxinfo"
 	PATCHSTUFF="$(POL_Wine_GetPatchName $POL_WINEVERSION)"
 	[ ! "$PATCHSTUFF" = "" ] && PATCHSTUFF="Warning! $APPLICATION_TITLE is using a modified wine version ($POL_WINEVERSION).
 	Do not file bugs, AppDB test reports, or ask for help on the WineHQ website for any applications or games that are run using this version.
@@ -190,4 +190,16 @@ POL_Debug_InitPrefix()
 POL_Debug_LogToPrefix()
 {
 	echo "[$(Get_CurrentDate)] - $@" >> "$WINEPREFIX/playonlinux.log"
+}
+POL_Glxinfo()
+{
+	if [ "$POL_OS" = "Linux" ]; then
+		glxinfo "$@"
+	else
+		if [ -e "/opt/X11/bin/glxinfo" ]; then #XQuartz is installed
+			/opt/X11/bin/glxinfo "$@"
+		else
+			glxinfo "$@"
+		fi
+	fi
 }
