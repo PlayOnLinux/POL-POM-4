@@ -23,6 +23,11 @@ import wx.html, threading, time, wx.animate
 
 import lib.Variables as Variables, sp
 import lib.lng
+class Wminiature(wx.Frame):
+  def __init__(self,parent,id,title,img):
+    wx.Frame.__init__(self, parent, -1, title, size = (800, 600+Variables.windows_add_size))
+    self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
+    self.img = wx.StaticBitmap(self, -1, wx.Bitmap(img))
 
 class getDescription(threading.Thread):
   def __init__(self):
@@ -34,6 +39,7 @@ class getDescription(threading.Thread):
 	self.stars = 0
 	self.cat = 0
 	self.start()
+	self.med_miniature = None
 	self.miniature = Variables.playonlinux_env+"/resources/images/pol_min.png"
 	self.miniature_defaut = Variables.playonlinux_env+"/resources/images/pol_min.png"
 	
@@ -66,13 +72,26 @@ class getDescription(threading.Thread):
 				else:
 					# Miniatures
 					try :
-						url = os.environ["SITE"]+'/V2_data/miniatures/'+self.getDescription.replace(" ","%20")
+						url = os.environ["SITE"]+'/V4_data/repository/screenshot.php?id='+self.getDescription.replace(" ","%20")
 						req = urllib2.Request(url)
 						handle = urllib2.urlopen(req)
-						open(Variables.playonlinux_rep+"/tmp/min","w").write(handle.read())
-						self.miniature = Variables.playonlinux_rep+"/tmp/min"
+						screenshot_id=handle.read()
+						
+						if(screenshot_id != 0):
+							url_s1 = 'http://www.playonlinux.com/images/apps/min/'+screenshot_id
+							req = urllib2.Request(url_s1)
+							handle = urllib2.urlopen(req)
+					
+							open(Variables.playonlinux_rep+"/tmp/min"+screenshot_id,"w").write(handle.read())
+							self.miniature = Variables.playonlinux_rep+"/tmp/min"+screenshot_id
+						
+						else:
+							self.miniature = self.miniature_defaut
+		
 					except :
 						self.miniature = self.miniature_defaut
+						self.med_miniature = None
+						
 
 					# Description
 					try :
@@ -86,6 +105,19 @@ class getDescription(threading.Thread):
 					if(self.cat == 12):
 						self.htmlContent += "<br /><br /><font color=red><b>WARNING !</b><br />You are going to execute a beta script. <br />This functionality has been added to make script testing easier.<br />It might not work as expected.</font>"
 
+					if(screenshot_id != 0):
+						try:
+							url_s2 = 'http://www.playonlinux.com/images/apps/med/'+screenshot_id
+							req = urllib2.Request(url_s2)
+							handle = urllib2.urlopen(req)
+							open(Variables.playonlinux_rep+"/tmp/med"+screenshot_id,"w").write(handle.read())
+						
+							self.med_miniature = Variables.playonlinux_rep+"/tmp/med"+screenshot_id
+						except:
+							self.med_miniature = None
+					else:
+						self.med_miniature = None
+						
 					# Stars
 					try :
 						url = os.environ["SITE"]+'/V4_data/repository/stars.php?n='+self.getDescription.replace(" ","%20")
@@ -117,7 +149,8 @@ class InstallWindow(wx.Frame):
 			self.image_position = (10,383)
 			self.new_size = (562,222)
 		
-		self.image = wx.StaticBitmap(self.panelFenp, -1, wx.Bitmap(Variables.playonlinux_env+"/resources/images/pol_min.png"), self.image_position, wx.DefaultSize)
+		self.image = wx.StaticBitmap(self.panelFenp, 108, wx.Bitmap(Variables.playonlinux_env+"/resources/images/pol_min.png"), self.image_position, wx.DefaultSize)
+		self.image.Bind(wx.EVT_LEFT_DOWN, self.sizeUpScreen) 
 		self.list_cat.SetSpacing(0);
 		self.list_cat.SetImageList(self.images_cat)
 		self.AddCats()
@@ -166,6 +199,7 @@ class InstallWindow(wx.Frame):
 		if(self.lasthtml_content != self.description.htmlContent):
 			self.SetImg(self.description.miniature)
 			self.description.miniature = self.description.miniature_defaut
+			
 			self.lasthtml_content = self.description.htmlContent;
 			if(self.description.htmlContent == "###WAIT###"):
 				self.content.Hide()
@@ -324,7 +358,13 @@ class InstallWindow(wx.Frame):
 		self.list_cat.AppendItem(self.root, _("Most downloaded"), self.i+1)
 		self.list_cat.AppendItem(self.root, _("Patches"), self.i+2)
 		self.list_cat.AppendItem(self.root, _("Testing"), self.i+3)
-
+	
+	def sizeUpScreen(self, event):
+		if(self.description.med_miniature != None):
+			self.wmin = Wminiature(None, -1, self.list_apps.GetItemText(self.list_apps.GetSelection()), self.description.med_miniature)
+			self.wmin.Show()
+			self.wmin.Center(wx.BOTH)
+		
 	def WriteApps(self, array):
 		self.imagesapps.RemoveAll()
 
@@ -349,7 +389,9 @@ class InstallWindow(wx.Frame):
 
 	def SetImg(self, image):
 		self.image.Destroy()
-		self.image = wx.StaticBitmap(self.panelFenp, -1, wx.Bitmap(image), self.image_position, wx.DefaultSize)
+		self.image = wx.StaticBitmap(self.panelFenp, 108, wx.Bitmap(image), self.image_position, wx.DefaultSize)
+		self.image.Bind(wx.EVT_LEFT_DOWN, self.sizeUpScreen) 
+		self.image.SetCursor(wx.StockCursor(wx.CURSOR_HAND))
 		self.Refresh()
 
 	def ResetImg(self):
