@@ -13,7 +13,7 @@ except :
 	sys.exit
 	
 # Variables mixte 1
-os.environ["PLAYONLINUX"] = os.path.realpath(os.path.realpath(__file__)+"/../../../")
+os.environ["PLAYONLINUX"] = os.path.realpath(os.path.realpath(__file__)+"/../../../").encode("utf-8")
 	
 # Variables PlayOnMac
 if (os.environ["POL_OS"] == "Mac"):
