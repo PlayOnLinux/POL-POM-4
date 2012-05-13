@@ -299,7 +299,7 @@ class InstallWindow(wx.Frame):
 			self.EasterEgg.Show()
 			self.EasterEgg.Center(wx.BOTH)
 		else:
-			os.system("bash \""+Variables.playonlinux_env+"/bash/install\" \""+InstallApplication+"\"&")
+			os.system("bash \""+Variables.playonlinux_env+"/bash/install\" \""+InstallApplication.encode("utf-8")+"\"&")
 	
 		self.Destroy()
 		return  
