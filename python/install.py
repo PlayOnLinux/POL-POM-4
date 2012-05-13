@@ -287,6 +287,7 @@ class InstallWindow(wx.Frame):
 	def UpdatePol(self, event):
 		self.DelApps()
 		self.Parent.updater.check()
+		playonlinux.SetSettings("LAST_TIMESTAMP","0")
 	
 	def installapp(self, event):
 		if(self.live == 1):
