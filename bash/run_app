@@ -23,7 +23,7 @@ source "$PLAYONLINUX/lib/sources"
 
 debug_menu()
 {
-	POL_SetupWindow_menu_num "$PACKAGE $(eval_gettext "crashed.") $(eval_gettext "What do you want to do ?")" "$TITLE" "$(eval_gettext "Show me the log file")~$(eval_gettext "Show me the full report")~$(eval_gettext "Send to pastebin")~$(eval_gettext "Nothing")" "~"
+	POL_SetupWindow_menu_num "$PACKAGE $(eval_gettext "crashed.") $(eval_gettext "What do you want to do ?")" "$TITLE" "$(eval_gettext "Show me the log file")~$(eval_gettext "Show me the full report")~$(eval_gettext "Nothing")" "~"
 	ACTION="$APP_ANSWER"
 	
 	
@@ -35,16 +35,17 @@ debug_menu()
 	then
 		debug_fulllog
 	fi
+	
+	#if [ "$ACTION" = "2" ]
+	#then
+	#	contenu="$(cat "$LOGFILE")"
+	#	PACKAGE="$(POL_Website_urlparse "$PACKAGE")"
+	#	contenu="$(POL_Website_urlparse "$contenu")"
+	#	pastebinurl="$(echo "$contenu" | pastebin)"
+	#	POL_Browser "$pastebinurl"
+	#	POL_SetupWindow_message "Pastebin url : $pastebinurl" "$TITLE"
+	#fi
 	if [ "$ACTION" = "2" ]
-	then
-		contenu="$(cat "$LOGFILE")"
-		PACKAGE="$(POL_Website_urlparse "$PACKAGE")"
-		contenu="$(POL_Website_urlparse "$contenu")"
-		pastebinurl="$(echo "$contenu" | pastebin)"
-		POL_Browser "$pastebinurl"
-		POL_SetupWindow_message "Pastebin url : $pastebinurl" "$TITLE"
-	fi
-	if [ "$ACTION" = "3" ]
 	then
 		POL_SetupWindow_Close
 		exit
