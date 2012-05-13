@@ -23,6 +23,8 @@ import wx.html, threading, time, wx.animate
 
 import lib.Variables as Variables, sp
 import lib.lng
+import lib.playonlinux as playonlinux
+
 class Wminiature(wx.Frame):
   def __init__(self,parent,id,title,img):
     wx.Frame.__init__(self, parent, -1, title, size = (800, 600+Variables.windows_add_size))
