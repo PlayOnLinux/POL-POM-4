@@ -444,10 +444,11 @@ class InstallWindow(wx.Frame):
 			self.apps = codecs.open(Variables.playonlinux_rep+"/configurations/listes/download",'r',"utf-8")
 		if(self.cat_selected == 9):
 			self.apps = codecs.open(Variables.playonlinux_rep+"/configurations/listes/rate",'r',"utf-8")
-
-		self.apps = self.apps.readlines()
-		self.j = 0
-		while(self.j < len(self.apps)):
-			self.apps[self.j] = self.apps[self.j].replace("\n","")
-			self.j += 1
-		self.WriteApps(self.apps)
+		
+		if(self.cat_selected != -1):
+			self.apps = self.apps.readlines()
+			self.j = 0
+			while(self.j < len(self.apps)):
+				self.apps[self.j] = self.apps[self.j].replace("\n","")
+				self.j += 1
+			self.WriteApps(self.apps)
