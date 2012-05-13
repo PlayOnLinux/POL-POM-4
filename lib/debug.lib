@@ -115,7 +115,7 @@ POL_Debug_Error()
 	
 	echo "$(Get_CurrentDate) - [${FUNCNAME[1]}] Error: $@" >> "$LOGFILE"
 	echo -e "[${FUNCNAME[1]}] ${POL_Color_RedBold}Error:${POL_Color_Reset} $@" 1>&2
-	POL_SetupWindow_message "Error: $@" "$TITLE" # La on affiche quand même 
+	[ "$SETUPWINDOW_INIT" = "true" ] && POL_SetupWindow_message "Error: $@" "$TITLE" # La on affiche quand même 
 	export POL_SCRIPT_FAILED="YES"
 }
 POL_Debug_Fatal()
@@ -126,7 +126,7 @@ POL_Debug_Fatal()
 	
 	echo "$(Get_CurrentDate) - [${FUNCNAME[1]}] Fatal: $@" >> "$LOGFILE"
 	echo -e "[${FUNCNAME[1]}] ${POL_Color_RedBold}Fatal:${POL_Color_Reset} $@" 1>&2
-	POL_SetupWindow_message "[${FUNCNAME[1]}] Fatal: $@" "$TITLE" # La on affiche quand même 
+	[ "$SETUPWINDOW_INIT" = "true" ] && POL_SetupWindow_message "[${FUNCNAME[1]}] Fatal: $@" "$TITLE" # La on affiche quand même 
 	export POL_SCRIPT_FAILED="YES"
 	POL_SetupWindow_Close
 	exit 1

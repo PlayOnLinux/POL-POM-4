@@ -51,7 +51,7 @@ $arg2
 $arg3
 $$
 EOF
-
+	export SETUPWINDOW_INIT="true"
 }
 POL_SetupWindow_Close ()
 {
@@ -73,6 +73,7 @@ POL_SetupWindow_Close ()
 MsgIn
 exit
 EOF
+	export SETUPWINDOW_INIT="false"
 }
 
 POL_SetupWindow_presentation ()
