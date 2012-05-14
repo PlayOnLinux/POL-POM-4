@@ -4,7 +4,29 @@
 # Copyright (C) 2007-2010 PlayOnLinux Team
 
 import Variables, os, string
-import shlex, pipes
+import shlex, pipes, wx
+
+def winpath(script, path):
+	#path=os.path.realpath(path)
+	if(path[0] != "/"):
+		path=os.environ["WorkingDirectory"]+"/"+path
+	path = os.path.realpath(path)
+	pref = getPrefix(script)
+	ver = GetSettings('VERSION',pref)
+	arch = GetSettings('ARCH',pref)
+	if(arch == ""):
+		arch="x86"
+	if(ver == ""):
+		return(os.popen("env WINEPREFIX='"+os.environ["POL_USER_ROOT"]+"/wineprefix/"+pref+"/' 'wine' winepath -w '"+path+"'").read().replace("\n","").replace("\r",""))	
+	else:
+		return(os.popen("env WINEPREFIX='"+os.environ["POL_USER_ROOT"]+"/wineprefix/"+pref+"/' '"+os.environ["POL_USER_ROOT"]+"/wine/"+Variables.os_name+"-"+arch+"/"+ver+"/bin/wine' winepath -w '"+path+"'").read().replace("\n","").replace("\r",""))
+
+def open_document(path, ext):
+	script = GetSettings(ext, '_EXT_')
+	if(script == ""):
+		wx.MessageBox(_("There is nothing installed to run .{0} files.").format(ext),os.environ["APPLICATION_TITLE"], wx.OK)
+	else:
+		os.system("bash "+Variables.playonlinux_env+"/bash/run_app \""+script+"\" \""+winpath(script,path)+"\"&")
 
 def GetWineVersion(game):
 	cfile = Variables.playonlinux_rep+"shortcuts/"+game
@@ -29,9 +51,11 @@ def GetWineVersion(game):
 def GetSettings(setting, prefix='_POL_'):
 	if(prefix == "_POL_"):
 		cfile = Variables.playonlinux_rep+"/playonlinux.cfg"
+	elif(prefix == "_EXT_"):
+		cfile = Variables.playonlinux_rep+"/extensions.cfg"
 	else:
 		cfile = Variables.playonlinux_rep+"/wineprefix/"+prefix+"/playonlinux.cfg"
-	
+
 	try:
 		fichier = open(cfile,"r").readlines()
 	except:
@@ -54,6 +78,8 @@ def GetSettings(setting, prefix='_POL_'):
 def SetSettings(setting, value, prefix='_POL_'):
 	if(prefix == "_POL_"):
 		cfile = Variables.playonlinux_rep+"/playonlinux.cfg"
+	elif(prefix == "_EXT_"):
+		cfile = Variables.playonlinux_rep+"/extensions.cfg"
 	else:
 		cfile = Variables.playonlinux_rep+"/wineprefix/"+prefix+"/playonlinux.cfg"
 
@@ -82,6 +108,8 @@ def SetSettings(setting, value, prefix='_POL_'):
 def DeleteSettings(setting, prefix='_POL_'):
 	if(prefix == "_POL_"):
 		cfile = Variables.playonlinux_rep+"/playonlinux.cfg"
+	elif(prefix == "_EXT_"):
+		cfile = Variables.playonlinux_rep+"/extensions.cfg"
 	else:
 		cfile = Variables.playonlinux_rep+"/wineprefix/"+prefix+"/playonlinux.cfg"
 
@@ -101,7 +129,8 @@ def DeleteSettings(setting, prefix='_POL_'):
 	while(i < len(line)): # On ecrit
 		fichier_write.write(line[i]+"\n")
 		i+=1
-								
+
+							
 def GetDebugState(game):
 	cfile = Variables.playonlinux_rep+"shortcuts/"+game
 	try:

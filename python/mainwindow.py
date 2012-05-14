@@ -742,7 +742,7 @@ class PlayOnLinuxApp(wx.App):
 			close = True
 			
 		if(close == True and exe_present == False):
-			sys.exit()
+			os._exit(0)
 			
 		self.SetClassName(os.environ["APPLICATION_TITLE"])
 		self.SetAppName(os.environ["APPLICATION_TITLE"])
@@ -768,7 +768,7 @@ class PlayOnLinuxApp(wx.App):
 			content = open(filename,"r").readlines()
 			i = 0
 			while(i < len(content)):
-			#	wx.MessageBox(content[i], "PlayOnLinux", wx.OK)
+				#wx.MessageBox(content[i], "PlayOnLinux", wx.OK)
 			   	
 				if("Path=" in content[i]):
 					cd_app = content[i].replace("Path=","").replace("\n","")
@@ -782,13 +782,15 @@ class PlayOnLinuxApp(wx.App):
 			except:
 				pass
 		
-		if(file_extension == "exe" or file_extension == "EXE"):
+		elif(file_extension == "exe" or file_extension == "EXE"):
 			os.system("bash \"$PLAYONLINUX/bash/run_exe\" \""+filename+"\" &")
 		
-		if(file_extension == "pol" or file_extension == "POL"):
+		elif(file_extension == "pol" or file_extension == "POL"):
 			if(wx.YES == wx.MessageBox(_('Are you sure you want to  want to install {0} package?').format(filename).decode("utf-8"), os.environ["APPLICATION_TITLE"],style=wx.YES_NO | wx.ICON_QUESTION)):
 				os.system("bash \"$PLAYONLINUX/bash/playonlinux-pkg\" -i \""+filename+"\" &")
-	
+		else:
+			playonlinux.open_document(filename,file_extension.lower())
+
 	def MacOpenURL(self, url):
 		if(os.environ["POL_OS"] == "Mac" and "playonlinux://" in url):
 			wx.MessageBox(_("You are trying to open a script design for {0}! It might not work as expected").format("PlayOnLinux"), os.environ["APPLICATION_TITLE"])

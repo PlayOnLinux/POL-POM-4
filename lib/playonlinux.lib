@@ -61,6 +61,7 @@ construire_repertoire_personnel ()
 	mkdir -p "$POL_USER_ROOT/configurations/listes"
 	touch "$POL_USER_ROOT/configurations/custom"
 	touch "$POL_USER_ROOT/playonlinux.cfg"
+	touch "$POL_USER_ROOT/extensions.cfg"
 	touch "$POL_USER_ROOT/configurations/listes/gecko.lst"
 	touch "$POL_USER_ROOT/configurations/wgetrc"
 }

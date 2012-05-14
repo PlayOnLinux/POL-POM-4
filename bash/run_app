@@ -114,7 +114,8 @@ $(POL_Config_Read PRE_RUNNING)
 if [ -e "$POL_USER_ROOT/configurations/pre_shortcut/$PACKAGE" ]; then
 	source "$POL_USER_ROOT/configurations/pre_shortcut/$PACKAGE"
 fi
-bash "$PACKAGE" 2>> "$LOGFILE.e" >> "$LOGFILE.e"
+shift
+bash "$PACKAGE" "$@" 2>> "$LOGFILE.e" >> "$LOGFILE.e"
 
 if [ ! "$?" = "0" ]
 then 
