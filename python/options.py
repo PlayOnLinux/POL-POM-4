@@ -261,7 +261,7 @@ class Onglets(wx.Notebook):
 		self.app_selected = string.split(self.exts[event.m_itemIndex],"=")[1]
 		self.ext_selected = string.split(self.exts[event.m_itemIndex],"=")[0]
 		
-		self.app_installed.SetValue(self.app_selected)
+		self.app_installed.SetValue(self.app_selected.replace("\n","").replace("\r",""))
 
 	def delExt(self, event):
 		playonlinux.DeleteSettings(self.ext_selected,'_EXT_')
