@@ -381,11 +381,11 @@ class MainWindow(wx.Frame):
     self.panelFenp = wx.Panel(self, -1)
     self.panels_buttons = wx.Panel(self.panelFenp, -1)
     self.Apply = wx.Button(self.panels_buttons, wx.ID_APPLY, _("Apply"), pos=(400,0), size=(100,35))
-    self.Close = wx.Button(self.panels_buttons, wx.ID_CLOSE, _("Cancel"), pos=(305,0), size=(100,35))
+    self.Close = wx.Button(self.panels_buttons, wx.ID_CLOSE, _("Cancel"), pos=(295,0), size=(100,35))
     self.sizer = wx.BoxSizer(wx.VERTICAL)   
     self.onglets = Onglets(self.panelFenp)
 
-    self.sizer.Add(self.onglets, 10, wx.EXPAND|wx.ALL, 2)
+    self.sizer.Add(self.onglets, 12, wx.EXPAND|wx.ALL, 2)
     self.sizer.Add(self.panels_buttons, 1, wx.EXPAND|wx.ALL, 2)
 
     #self.onglets.General(_("General"))
