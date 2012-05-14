@@ -20,7 +20,7 @@
 
 from asyncore import dispatcher
 import wxversion, os, getopt, sys, urllib, signal, socket, string
-import wx, time
+import wx, time, re
 import webbrowser, shutil
 import threading, time, codecs
 from select import select
@@ -28,6 +28,7 @@ from select import select
 
 import lib.Variables as Variables
 import lib.lng as lng
+import lib.playonlinux as playonlinux
 
 class getPlugins(threading.Thread):
   def __init__(self):
@@ -91,6 +92,8 @@ class Onglets(wx.Notebook):
   		self.images_onglets.Add(wx.Bitmap(Variables.playonlinux_env+"/etc/onglet/user-desktop.png"));
   		self.images_onglets.Add(wx.Bitmap(Variables.playonlinux_env+"/etc/onglet/application-x-executable.png"));
 		self.images_onglets.Add(wx.Bitmap(Variables.playonlinux_env+"/etc/onglet/package-x-generic.png"));
+		self.images_onglets.Add(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/extensions.png"));
+		
    		self.SetImageList(self.images_onglets)
 
 	
@@ -225,6 +228,75 @@ class Onglets(wx.Notebook):
 		wx.EVT_BUTTON(self, 212, self.setup_plug)
 		wx.EVT_BUTTON(self, wx.ID_REMOVE, self.delete_plug)
 		wx.EVT_BUTTON(self, wx.ID_ADD, self.add_plug)
+	
+	def generateExts(self):
+		self.list_ext.DeleteAllItems()
+		i = 0
+		self.exts = open(os.environ["POL_USER_ROOT"]+"/extensions.cfg").readlines()
+		self.exts.sort()
+		for line in self.exts:
+			line = line.replace("\n","")
+			line = string.split(line,"=")
+			liner = "Line %s" % i
+			self.list_ext.InsertStringItem(i, liner)
+			self.list_ext.SetStringItem(i, 0, line[0])
+			self.list_ext.SetStringItem(i, 1, line[1])
+			i += 1
+		self.app_installed_text.Hide()
+		self.app_installed.Hide()
+		self.delete_ext.Hide()
+		self.app_installed.SetValue("")
+		self.app_selected = -1
+	
+	def reditExt(self, event):
+		
+		playonlinux.SetSettings(self.ext_selected, self.app_installed.GetValue(),'_EXT_')
+		self.generateExts()
+		
+	def editExt(self, event):
+		self.app_installed_text.Show()
+		self.app_installed.Show()
+		self.delete_ext.Show()
+		
+		self.app_selected = string.split(self.exts[event.m_itemIndex],"=")[1]
+		self.ext_selected = string.split(self.exts[event.m_itemIndex],"=")[0]
+		
+		self.app_installed.SetValue(self.app_selected)
+
+	def delExt(self, event):
+		playonlinux.DeleteSettings(self.ext_selected,'_EXT_')
+		self.generateExts()
+	
+	def newExt(self, event):
+		newext = wx.GetTextFromUser(_("What is the extension?"), os.environ["APPLICATION_TITLE"])
+		re.sub(r'\W+', '', newext)
+		playonlinux.SetSettings(newext, "",'_EXT_')
+		
+		self.generateExts()
+		
+	def Extensions(self, nom):
+		self.panelExt= wx.Panel(self, -1)
+		self.list_ext = wx.ListCtrl(self.panelExt, 500, size=(504,350), pos=(1,1), style=wx.LC_REPORT)
+		self.list_ext.InsertColumn(0, 'Extension')
+		self.list_ext.InsertColumn(1, 'Program associated', width=320)
+		
+		self.app_installed_text = wx.StaticText(self.panelExt, pos=(1,386), label=_("Assigned program"))
+		self.app_installed = wx.ComboBox(self.panelExt, 501, pos=(170,383),size=(200,25))
+		
+		self.delete_ext = wx.Button(self.panelExt, 502, pos=(372,385), size=(100,25), label=_("Delete"))
+		self.add_ext = wx.Button(self.panelExt, 503, pos=(1,359), size=(100,25), label=_("New"))
+		
+		
+		self.app_installed_list = os.listdir(os.environ["POL_USER_ROOT"]+"/shortcuts/")
+		for i in self.app_installed_list:
+			self.app_installed.Append(i)
+			
+		self.generateExts()
+		self.AddPage(self.panelExt, nom, imageId=6)
+		wx.EVT_LIST_ITEM_SELECTED(self, 500, self.editExt)
+		wx.EVT_COMBOBOX(self, 501, self.reditExt)
+		wx.EVT_BUTTON(self, 502, self.delExt)
+		wx.EVT_BUTTON(self, 503, self.newExt)
 
 	def setup_plug(self, event):
 		self.current_plugin = self.pluginlist.GetItemText(self.pluginlist.GetSelection())
@@ -320,6 +392,8 @@ class MainWindow(wx.Frame):
     #self.onglets.Wine(_("Environment"))
     #self.onglets.System(_("System"))
     self.onglets.Plugins(_("Plugins"))
+    self.onglets.Extensions(_("File associations"))
+
     try:
 		self.onglets.SetSelection(onglet)
     except:

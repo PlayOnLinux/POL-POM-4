@@ -226,6 +226,10 @@ class MainWindow(wx.Frame):
 	self.option_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/etc/onglet/internet-web-browser.png"))
 	self.optionmenu.AppendItem(self.option_item)
 
+	self.option_item = wx.MenuItem(self.expertmenu, 212, _("File associations"))
+	self.option_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/extensions.png"))
+	self.optionmenu.AppendItem(self.option_item)
+
 	#self.option_item = wx.MenuItem(self.expertmenu, 212, _("Environment"))
 	#self.option_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/etc/onglet/user-desktop.png"))
 	#self.optionmenu.AppendItem(self.option_item)
@@ -566,7 +570,7 @@ class MainWindow(wx.Frame):
     onglet=event.GetId()
     self.optionFrame = options.MainWindow(self, -1, _("{0} settings").format(os.environ["APPLICATION_TITLE"]), 2)
     if(onglet == 211):
-    	self.optionFrame = options.MainWindow(self, -1, _("{0} settings").format(os.environ["APPLICATION_TITLE"]), 2)
+    	self.optionFrame = options.MainWindow(self, -1, _("{0} settings").format(os.environ["APPLICATION_TITLE"]), 0)
     if(onglet == 214):
     	self.optionFrame = options.MainWindow(self, -1, _("{0} settings").format(os.environ["APPLICATION_TITLE"]), 1)
     self.optionFrame.Center(wx.BOTH)

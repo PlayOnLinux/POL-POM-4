@@ -95,6 +95,8 @@ playonlinux_rep = os.environ["REPERTOIRE"]
 version = os.environ["VERSION"]
 current_user = os.environ["USER"]
 
+os.environ["WGETRC"] = os.environ["POL_USER_ROOT"]+"/configurations/wgetrc"
+
 # Propagate kill signals
 #os.system("set -o monitor")
 
