@@ -280,10 +280,11 @@ class Onglets(wx.Notebook):
 		self.list_ext.InsertColumn(0, 'Extension')
 		self.list_ext.InsertColumn(1, 'Program associated', width=320)
 		
-		self.app_installed_text = wx.StaticText(self.panelExt, pos=(1,386), label=_("Assigned program"))
-		self.app_installed = wx.ComboBox(self.panelExt, 501, pos=(170,383),size=(200,25))
+		self.app_installed_text = wx.StaticText(self.panelExt, pos=(1,388), label=_("Assigned program"))
+		self.app_installed = wx.ComboBox(self.panelExt, 501, pos=(170,385),size=(200,25))
+		self.delete_ext = wx.Button(self.panelExt, 502, pos=(372,385+2*Variables.windows_add_playonmac), size=(100,25), label=_("Delete"))
 		
-		self.delete_ext = wx.Button(self.panelExt, 502, pos=(372,383+2*Variables.windows_add_playonmac), size=(100,25), label=_("Delete"))
+		
 		self.add_ext = wx.Button(self.panelExt, 503, pos=(1,359), size=(100,25), label=_("New"))
 		
 		
