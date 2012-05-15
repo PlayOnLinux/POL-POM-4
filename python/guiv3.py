@@ -338,7 +338,10 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 		self.NextButton.Enable(False)
 
 	def release_menugame(self,event):
-		self.SendBash("MSG_VALUE="+self.MenuGames.GetItemText(self.MenuGames.GetSelection()).encode("utf-8"))
+		try:
+			self.SendBash("MSG_VALUE="+self.MenuGames.GetItemText(self.MenuGames.GetSelection()).encode("utf-8"))
+		except:
+			self.SendBash("MSG_VALUE="+self.MenuGames.GetItemText(self.MenuGames.GetSelection()))
 		self.NextButton.Enable(False)
 		
 	def release_menuprefixes(self,event):
