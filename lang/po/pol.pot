@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2012-05-14 19:02:43+02:00\n"
+"POT-Creation-Date: 2012-05-15 19:01:46+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -319,6 +319,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___Incoming_and_Incoming_Forces_:34
 #: PlayOnLinux_Scripts/Good_Old_Games___Iron_Storm_:32
 #: PlayOnLinux_Scripts/Good_Old_Games___Jack_Orlando__A_Cinematic_Adventure_:31
+#: PlayOnLinux_Scripts/Good_Old_Games___Legend_of_Grimrock_:33
 #: PlayOnLinux_Scripts/Good_Old_Games___Little_Big_Adventure_:33
 #: PlayOnLinux_Scripts/Good_Old_Games___Lure_of_the_Temptress_:34
 #: PlayOnLinux_Scripts/Good_Old_Games___Might_and_Magic_6_Pack_:42
@@ -909,7 +910,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/Star_Wars___The_Force_Unleashed_2_:157
 #: PlayOnLinux_Scripts/Star_Wars___The_Force_Unleashed___Ultimate_Sith_Edition_:1092
 #: PlayOnLinux_Scripts/Street_Fighter_X_Tekken_:118
-#: PlayOnLinux_Scripts/Super_Street_Fighter_IV___Arcade_Edition_:152
 #, sh-format
 msgid ""
 "You must disable anti-piracy protections of this game\\nif you want to play "
@@ -1132,6 +1132,16 @@ msgstr ""
 msgid "Please wait while $TITLE is downloaded..."
 msgstr ""
 
+#: PlayOnLinux_Scripts/Diablo_III_:19
+#, sh-format
+msgid "Please select the setup file downloaded on $EDITOR website"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Diablo_III_:29
+#, sh-format
+msgid "Waiting for $TITLE to be installed"
+msgstr ""
+
 #: PlayOnLinux_Scripts/Diablo_II_:51 PlayOnLinux_Scripts/SimCity_2000_:47
 #, sh-format
 msgid "Installing $TITLE"
@@ -1257,6 +1267,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___Incoming_and_Incoming_Forces_:39
 #: PlayOnLinux_Scripts/Good_Old_Games___Iron_Storm_:37
 #: PlayOnLinux_Scripts/Good_Old_Games___Jack_Orlando__A_Cinematic_Adventure_:36
+#: PlayOnLinux_Scripts/Good_Old_Games___Legend_of_Grimrock_:38
 #: PlayOnLinux_Scripts/Good_Old_Games___Little_Big_Adventure_:38
 #: PlayOnLinux_Scripts/Good_Old_Games___Lure_of_the_Temptress_:39
 #: PlayOnLinux_Scripts/Good_Old_Games___Might_and_Magic_6_Pack_:47
@@ -1647,7 +1658,7 @@ msgstr ""
 msgid "$TITLE is installed"
 msgstr ""
 
-#: PlayOnLinux_Scripts/Guild_Wars_:45
+#: PlayOnLinux_Scripts/Guild_Wars_:53
 #, sh-format
 msgid "Please insert the DVD-ROM"
 msgstr ""
@@ -1672,9 +1683,9 @@ msgstr ""
 #: PlayOnLinux_Scripts/Internet_Explorer_6_:68
 #: PlayOnLinux_Scripts/Internet_Explorer_7_:167
 #: PlayOnLinux_Scripts/POL_Install_directmusic_:47
-#: PlayOnLinux_Scripts/POL_Install_dxfullsetup_:26
+#: PlayOnLinux_Scripts/POL_Install_dxfullsetup_:29
 #: PlayOnLinux_Scripts/POL_Install_ie6_:64
-#: PlayOnLinux_Scripts/POL_Install_xact_:46
+#: PlayOnLinux_Scripts/POL_Install_xact_:49
 #: PlayOnLinux_Scripts/POL_Install_xinput_:41
 #, sh-format
 msgid "Registering libraries, please wait\\n(It can take a while)"
@@ -1875,7 +1886,7 @@ msgstr ""
 msgid "Installing Dsound DLL..."
 msgstr ""
 
-#: PlayOnLinux_Scripts/POL_Install_dxfullsetup_:12
+#: PlayOnLinux_Scripts/POL_Install_dxfullsetup_:15
 #, sh-format
 msgid "Installing DirectX runtime"
 msgstr ""
@@ -2001,7 +2012,7 @@ msgid ""
 "Warning : vcrun2010 seems to be already installed.\\nForcing reinstallation."
 msgstr ""
 
-#: PlayOnLinux_Scripts/POL_Install_xact_:11
+#: PlayOnLinux_Scripts/POL_Install_xact_:14
 #, sh-format
 msgid "Installing Xact dlls..."
 msgstr ""
@@ -2019,6 +2030,33 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Remove_gfwl_:21
 #, sh-format
 msgid "Game For Windows Live is not installed\\nskipping uninstall routine."
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_Sudo_RehideCdrom_:13
+#, sh-format
+msgid ""
+"To continue, PlayOnLinux needs to umount your CD-ROM previously mounted with "
+"unhide option."
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_Sudo_RehideCdrom_:15
+#: PlayOnLinux_Scripts/POL_Sudo_UnhideCdrom_:15
+#, sh-format
+msgid ""
+"We need to have sudo access on your computer. Therefore, your root password "
+"will be asked. Here is the commands PlayOnLinux will run as root:"
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_Sudo_RehideCdrom_:20
+#: PlayOnLinux_Scripts/POL_Sudo_UnhideCdrom_:21
+#, sh-format
+msgid "Please read carrefully"
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_Sudo_UnhideCdrom_:13
+#, sh-format
+msgid ""
+"To continue, PlayOnLinux needs to remount your CD-ROM with unhide option."
 msgstr ""
 
 #: PlayOnLinux_Scripts/Q.U.B.E_:94 PlayOnLinux_Scripts/Star_Twine_:72
