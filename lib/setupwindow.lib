@@ -691,6 +691,7 @@ POL_SetupWindow_check_cdrom ()
 	original_args="$@"
 	cdrom_found="false"
 	CDROM_SETUP=""
+	POL_SetupWindow_wait "$(eval_gettext 'Reading your device')" "$TITLE"
 	while [ ! "$1" = "" ]; do
 		if [ ! "$(find "$CDROM" -iwholename "$CDROM/$1")" = "" ]; then
 			cdrom_found="true"
