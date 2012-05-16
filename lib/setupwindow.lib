@@ -690,6 +690,7 @@ POL_SetupWindow_check_cdrom ()
 	# Usage: POL_SetupWindow_check_cdrom [setup_name.exe]
 	original_args="$@"
 	cdrom_found="false"
+	CDROM_SETUP=""
 	while [ ! "$1" = "" ]; do
 		if [ ! "$(find "$CDROM" -iwholename "$CDROM/$1")" = "" ]; then
 			cdrom_found="true"
