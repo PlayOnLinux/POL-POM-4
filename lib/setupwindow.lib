@@ -688,12 +688,22 @@ POL_SetupWindow_check_cdrom ()
 	# Checks if the cdrom is valid
 	# If not, callback to POL_SetupWindow_cdrom
 	# Usage: POL_SetupWindow_check_cdrom [setup_name.exe]
-	while [ "$(find "$CDROM" -iwholename "$CDROM/$1")" = "" ]
-	do
+	original_args="$@"
+	cdrom_found="false"
+	while [ ! "$1" = "" ]; do
+		if [ ! "$(find "$CDROM" -iwholename "$CDROM/$1")" = "" ]; then
+			cdrom_found="true"
+			CDROM_SETUP="$CDROM/$1"
+			break
+		done
+	done
+	
+	if [ "$cdrom_found" = "false" ]; then
 		POL_Debug_Warning "Unable to find the CD-ROM ($CDROM/$1 not found)"
 		POL_SetupWindow_message "$(eval_gettext "Error: Unable to find the CD-ROM!")" "$TITLE"
 		POL_SetupWindow_cdrom
-	done
+		POL_SetupWindow_check_cdrom "$original_args"
+	fi
 }
 POL_SetupWindow_cdrom_MountPC()
 {
