@@ -696,7 +696,7 @@ POL_SetupWindow_check_cdrom ()
 			cdrom_found="true"
 			CDROM_SETUP="$CDROM/$1"
 			break
-		done
+		fi
 	done
 	
 	if [ "$cdrom_found" = "false" ]; then
