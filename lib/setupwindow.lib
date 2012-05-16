@@ -696,13 +696,16 @@ POL_SetupWindow_check_cdrom ()
 		if [ ! "$(find "$CDROM" -iwholename "$CDROM/$1")" = "" ]; then
 			cdrom_found="true"
 			CDROM_SETUP="$CDROM/$1"
+			POL_Debug_message "$CDROM/$1 FOUND!"
 			break
+		else
+			POL_Debug_message "$CDROM/$1 not found"
 		fi
 		shift
 	done
 	
 	if [ "$cdrom_found" = "false" ]; then
-		POL_Debug_Warning "Unable to find the CD-ROM ($CDROM/$1 not found)"
+		POL_Debug_Warning "Unable to find the CD-ROM"
 		POL_SetupWindow_message "$(eval_gettext "Error: Unable to find the CD-ROM!")" "$TITLE"
 		POL_SetupWindow_cdrom
 		POL_SetupWindow_check_cdrom "$original_args"
