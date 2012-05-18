@@ -64,16 +64,16 @@ POL_Debug_Header()
 	# This function is automaticaly called by POL_Debug_Init, you should not use it
 	# Usage : POL_Debug_Header
 	
-	if [ "$WINETRICKS_PKG" ]
-	then
+	if [ "$WINETRICKS_PKG" ]; then
 		WINETRICKS="winetricks packages : $WINETRICKS"
 	fi
-	cat << EOF >> "$LOGFILE"
-PlayOnLinux debbuging tool (v$VERSION)
+	cat << EOF1 >> "$LOGFILE"
+PlayOnLinux debbuging tool (v${VERSION})
 -----------------------------------------------
-Debugging: $TITLE
-Warning! This is a PlayOnLinux script logfile! It does not contains everything that happened in your program virtual drive (wineprefix)
-Please do not use this logfile on winehq forum, this logfile is not interesting for wine debugging!
+Debugging: ${TITLE}
+
+Warning. This is a PlayOnLinux script logfile. It does not contains everything that happened in your program virtual drive (wineprefix)
+Please do not use this logfile on winehq forum, this logfile is not interesting for wine debugging.
 
 Date: $(Get_CurrentDate)
 
@@ -81,7 +81,8 @@ Date: $(Get_CurrentDate)
   $(uname -a)
 > lsb_release -a
   $(lsbrelease -a 2> /dev/null)
-> wine --version (Be careful, this version might not be the version used in the script! Read the content of this file for more information)
+> wine --version (Be careful, this version might not be the version used 
+in the script. Read the content of this file for more information)
   $(wine --version)
 > glxinfo \| grep rendering
   $(POL_Glxinfo | grep rendering 2> /dev/null)
@@ -91,10 +92,10 @@ Date: $(Get_CurrentDate)
   $("$PLAYONLINUX/bash/check_gl" x86 stdout)
   $("$PLAYONLINUX/bash/check_gl" amd64 stdout)
 > export
-  $(export | grep -v http_proxy)
+  $(export | grep -v -i http_proxy | grep -v POL_PASSWORD)
 
 $1
-EOF
+EOF1
 }
 POL_Debug_Message()
 {
