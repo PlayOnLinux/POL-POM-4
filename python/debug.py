@@ -31,6 +31,8 @@ import lib.lng as lng
 class MainWindow(wx.Frame):
 	def __init__(self,parent,id,title,logcheck="/dev/null",logtype=None):
 		self.logfile = None
+		self.logname = ""
+		
 		wx.Frame.__init__(self, parent, -1, title, size = (800, 600+Variables.windows_add_size), style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX)
 		self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
 		self.SetTitle(_('{0} debugger').format(os.environ["APPLICATION_TITLE"]))
@@ -68,9 +70,11 @@ class MainWindow(wx.Frame):
 		self.logfile = ""
 		
 		# Debug control
-		self.panelText = wx.Panel(self.panelNotEmpty, -1, size=(590,400), pos=(2,2)) # Hack, wxpython bug
-		self.log_reader = wx.TextCtrl(self.panelText, 100, "", size=wx.Size(590,400), pos=(2,2), style=Variables.widget_borders|wx.TE_RICH2|wx.TE_READONLY|wx.TE_MULTILINE)
-		self.openTextEdit = wx.Button(self.panelNotEmpty, 101, _("Locate this logfile"), size=(200,30), pos=(2,402))
+		self.panelText = wx.Panel(self.panelNotEmpty, -1, size=(590,500), pos=(2,2)) # Hack, wxpython bug
+		self.log_reader = wx.TextCtrl(self.panelText, 100, "", size=wx.Size(590,500), pos=(2,2), style=Variables.widget_borders|wx.TE_RICH2|wx.TE_READONLY|wx.TE_MULTILINE)
+		self.openTextEdit = wx.Button(self.panelNotEmpty, 101, _("Locate this logfile"), size=(200,30), pos=(2,502))
+		self.reportProblem = wx.Button(self.panelNotEmpty, 102, _("Report a problem to {0} about {1}").format(os.environ["APPLICATION_TITLE"],self.logname), size=(200,30), pos=(210,502))
+		
 		
 		if(logcheck == "/dev/null"):
 			self.HideLogFile()
@@ -92,7 +96,7 @@ class MainWindow(wx.Frame):
 		ins = self.log_reader.GetInsertionPoint()
 		leng = len(line)
 		if(leng < 100):
-			self.log_reader.AppendText(line.encode('utf-8','replace'))
+			self.log_reader.AppendText(line.decode('utf-8','replace'))
 		
 			self.bold = wx.Font(wx.NORMAL_FONT.GetPointSize(), wx.FONTFAMILY_DEFAULT, wx.NORMAL, wx.BOLD)
 
@@ -139,6 +143,7 @@ class MainWindow(wx.Frame):
 				checkfile = Variables.playonlinux_rep+"wineprefix/"+selection+"/playonlinux.log"
 				self.logfile = open(checkfile, 'r')
 				self.logsize = os.path.getsize(checkfile)
+				self.logname = selection
 				if(self.logsize - 10000 > 0):
 					self.logfile.seek(self.logsize - 10000) # 10 000 latest chars should be sufficient
 				self.logtype = 0
@@ -147,6 +152,7 @@ class MainWindow(wx.Frame):
 				checkfile = Variables.playonlinux_rep+"logs/"+selection+"/"+selection+".log"
 				self.logfile = open(checkfile, 'r')
 				self.logsize = os.path.getsize(checkfile)
+				self.logname = selection
 				if(self.logsize - 10000 > 0):
 					self.logfile.seek(self.logsize - 10000) # 10 000 latest chars should be sufficient	
 				self.logtype = 1
