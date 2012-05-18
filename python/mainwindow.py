@@ -768,11 +768,28 @@ class PlayOnLinuxApp(wx.App):
 		
 		return True
 	
+	def singleCheck(self, package, fatal=True):
+		devnull = open('/dev/null', 'wb')
+		try:
+			returncode=subprocess.call(["which",package],stdout=devnull)
+		except:
+			returncode=255
+		
+		if(fatal == True):
+			message = "You need to install it to continue"
+		else:
+			message = "You should install it to use {0}"
+			
+		if(returncode != 0):
+			wx.MessageBox(_("{0} cannot find {1}.\n\n"+message).format(os.environ["APPLICATION_TITLE"],package),_("Error"))
+			if(fatal == True):
+				os._exit(1)
+			
 	def systemCheck(self):
 		#### Root uid check
 		if(os.popen("id -u").read() == "0\n" or os.popen("id -u").read() == "0"):
 			wx.MessageBox(_("{0} is not supposed to be run as root. Sorry").format(os.environ["APPLICATION_TITLE"]),_("Error"))
-			sys.exit()			
+			os._exit(1)			
 		
 		#### 32 bits OpenGL check
 		try:
@@ -811,7 +828,18 @@ class PlayOnLinuxApp(wx.App):
 				playonlinux.SetSettings("OPTIRUN_ASKED","TRUE")
 				if(wx.YES == wx.MessageBox(_('{0} has detected that optirun is installed on your system.\n\nDo you want {0} to be configured to use it?').format(os.environ["APPLICATION_TITLE"]).decode("utf-8","replace"), os.environ["APPLICATION_TITLE"],style=wx.YES_NO | wx.ICON_QUESTION)):
 					playonlinux.SetSettings("PRE_WINE","optirun")
-				
+					
+		#### Other import checks
+		self.singleCheck("tar")
+		self.singleCheck("cabextract")
+		self.singleCheck("convert")
+		self.singleCheck("gettext.sh",False)
+		self.singleCheck("icotool",False)
+		self.singleCheck("wrestool",False)
+		self.singleCheck("wine",False)
+		self.singleCheck("unzip",False)
+		self.singleCheck("7z",False)
+		
 	def BringWindowToFront(self):
 		        try: # it's possible for this event to come when the frame is closed
 		            self.GetTopWindow().Raise()
