@@ -134,21 +134,24 @@ class MainWindow(wx.Frame):
 	def analyseReal(self, parent, selection):
 		self.ShowLogFile()
 		self.log_reader.Clear()
-		if(parent == 0):
-			checkfile = Variables.playonlinux_rep+"wineprefix/"+selection+"/playonlinux.log"
-			self.logfile = open(checkfile, 'r')
-			self.logsize = os.path.getsize(checkfile)
-			if(self.logsize - 10000 > 0):
-				self.logfile.seek(self.logsize - 10000) # 10 000 latest chars should be sufficient
-			self.logtype = 0
+		try:
+			if(parent == 0):
+				checkfile = Variables.playonlinux_rep+"wineprefix/"+selection+"/playonlinux.log"
+				self.logfile = open(checkfile, 'r')
+				self.logsize = os.path.getsize(checkfile)
+				if(self.logsize - 10000 > 0):
+					self.logfile.seek(self.logsize - 10000) # 10 000 latest chars should be sufficient
+				self.logtype = 0
 			
-		if(parent == 1):
+			if(parent == 1):
 				checkfile = Variables.playonlinux_rep+"logs/"+selection+"/"+selection+".log"
 				self.logfile = open(checkfile, 'r')
 				self.logsize = os.path.getsize(checkfile)
 				if(self.logsize - 10000 > 0):
 					self.logfile.seek(self.logsize - 10000) # 10 000 latest chars should be sufficient	
 				self.logtype = 1
+		except:
+			pass
 	def list_software(self):
 	
 		
