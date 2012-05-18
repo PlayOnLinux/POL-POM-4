@@ -33,7 +33,7 @@ export TITLE="$POL_DEBUG_TITLE"
 
 POL_SetupWindow_Init
 
-POL_SetupWindow_free_presentation "$POL_DEBUG_TITLE" "$(eval_gettext "This wizard will help you to report a bug about an officially supported program.")"
+POL_SetupWindow_free_presentation "$POL_DEBUG_TITLE" "$(eval_gettext "This wizard will help you to report a bug about an officially supported program.")\n\n$(eval_gettext "Please give the more details as you can, otherwise, it will be very difficult to help you")"
 if [ "$LOGTITLE" = "" ]
 then
 POL_SetupWindow_menu_num "$(eval_gettext "What kind of problem do you have?")" "$POL_DEBUG_TITLE" "$(eval_gettext 'My problem concerns $APPLICATION_TITLE itself')~$(eval_gettext "I have a problem with a software")" "~"
@@ -81,11 +81,21 @@ POL_Website_Init
 contenu="$(cat "$LOGFILE")"
 DESCRIPTION="$(POL_Website_urlparse "$DESCRIPTION")"
 BUGTITLE="$(POL_Website_urlparse "$BUGTITLE")"
+SCRIPTTITLE="$(POL_Website_urlparse "$LOGTITLE")"
 
-POL_Website_Request "http://bugs.playonlinux.com/en/new-$TRACKER.html" "priority=2&tracker=$TRACKER&title=[Bug report] $BUGTITLE&message=$DESCRIPTION&submit=Send"
-POL_Website_Close
-POL_Website_logout
-POL_SetupWindow_message "$(eval_gettext "Thank you !\n\nYour report has been sent.\n\nWe will do our best to send you an answer by mail very soon")" "$TITLE"
+POL_Website_Request "http://www.playonlinux.com/bugs/getScriptTrackerName.php?id=$SCRIPTTITLE"
 
+TrackerId="$(POL_Website_Result)"
+
+if [ "$TrackerId" = "0" ]; then
+	POL_SetupWindow_message "Error! This script seems to be no longer existing in our database" "$TITLE"
+else
+	POL_Website_Request "http://bugs.playonlinux.com/en/new-$TRACKER.html" "priority=2&tracker=$TrackerId&title=[Bug report] $BUGTITLE&message=$DESCRIPTION&submit=Send&just_return_id=1"
+	BugURL="$(POL_Website_Result)"
+	POL_Website_Close
+	POL_Website_logout
+	POL_SetupWindow_message "$(eval_gettext "Thank you !\n\nYour report has been sent.\n\nWe will do our best to send you an answer by mail very soon")" "$TITLE"
+	POL_Open "$BugURL"
+fi
 POL_SetupWindow_Close
 

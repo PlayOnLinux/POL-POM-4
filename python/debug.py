@@ -30,6 +30,7 @@ import lib.lng as lng
 
 class MainWindow(wx.Frame):
 	def __init__(self,parent,id,title,logcheck="/dev/null",logtype=None):
+		self.logtype = 1
 		self.logfile = None
 		self.logname = ""
 		
@@ -72,21 +73,38 @@ class MainWindow(wx.Frame):
 		# Debug control
 		self.panelText = wx.Panel(self.panelNotEmpty, -1, size=(590,500), pos=(2,2)) # Hack, wxpython bug
 		self.log_reader = wx.TextCtrl(self.panelText, 100, "", size=wx.Size(590,500), pos=(2,2), style=Variables.widget_borders|wx.TE_RICH2|wx.TE_READONLY|wx.TE_MULTILINE)
-		self.openTextEdit = wx.Button(self.panelNotEmpty, 101, _("Locate this logfile"), size=(200,30), pos=(2,502))
-		self.reportProblem = wx.Button(self.panelNotEmpty, 102, _("Report a problem to {0} about {1}").format(os.environ["APPLICATION_TITLE"],self.logname), size=(200,30), pos=(210,502))
-		
-		
+		self.openTextEdit = wx.Button(self.panelNotEmpty, 101, _("Locate this logfile"), size=(400,30), pos=(70,512))
+		self.reportProblem = wx.Button(self.panelNotEmpty, 102, _(""), size=(400,30), pos=(70,552))
+				
 		if(logcheck == "/dev/null"):
 			self.HideLogFile()
 		else:
 			self.analyseReal(logtype,logcheck)
+		wx.EVT_BUTTON(self,101,self.locate)
+		wx.EVT_BUTTON(self,102,self.bugReport)
 		
 		#self.log_reader.SetDefaultStyle(wx.TextAttr(font=wx.Font(13,wx.FONTFAMILY_DEFAULT,wx.FONTSTYLE_NORMAL,wx.FONTWEIGHT_NORMAL)))
+	
+	def bugReport(self, event):
+		os.system('env LOGTITLE="'+self.logname+'" bash "'+os.environ["PLAYONLINUX"]+'/bash/bug_report" &')
+		self.reportProblem.Enable(False)
+		
+	def locate(self, event):
+		if(self.logtype == 0):
+			dirname = Variables.playonlinux_rep+"wineprefix/"+self.logname+"/"
+			filename = 'playonlinux.log'
+		if(self.logtype == 1):
+			dirname = Variables.playonlinux_rep+"logs/"+self.logname+"/"
+			filename = self.logname+".log"
+		wx.MessageBox(_("The file is named : {0}").format(filename), os.environ["APPLICATION_TITLE"])
+		
+		playonlinux.POL_Open(dirname)
+		
 	def ShowLogFile(self):
 		self.splitter.Unsplit()
 		self.splitter.SplitVertically(self.list_game,self.panelNotEmpty)
 		self.splitter.SetSashPosition(200)
-		
+
 	def HideLogFile(self):
 		self.splitter.Unsplit()
 		self.splitter.SplitVertically(self.list_game,self.panelEmpty)
@@ -147,7 +165,8 @@ class MainWindow(wx.Frame):
 				if(self.logsize - 10000 > 0):
 					self.logfile.seek(self.logsize - 10000) # 10 000 latest chars should be sufficient
 				self.logtype = 0
-
+				self.reportProblem.Hide()
+				
 			if(parent == 1):
 				checkfile = Variables.playonlinux_rep+"logs/"+selection+"/"+selection+".log"
 				self.logfile = open(checkfile, 'r')
@@ -156,6 +175,11 @@ class MainWindow(wx.Frame):
 				if(self.logsize - 10000 > 0):
 					self.logfile.seek(self.logsize - 10000) # 10 000 latest chars should be sufficient	
 				self.logtype = 1
+				self.reportProblem.Show()
+				self.reportProblem.Enable(True)
+				self.reportProblem.SetLabel(_("Report a problem about {0}").format(self.logname))
+				
+				
 		except:
 			pass
 
