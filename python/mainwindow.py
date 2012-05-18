@@ -834,6 +834,8 @@ class PlayOnLinuxApp(wx.App):
 		self.singleCheck("cabextract")
 		self.singleCheck("convert")
 		self.singleCheck("wget")
+		self.singleCheck("gpg")
+		self.singleCheck("xterm",False)
 		self.singleCheck("gettext.sh",False)
 		self.singleCheck("icotool",False)
 		self.singleCheck("wrestool",False)
