@@ -30,6 +30,7 @@ import lib.lng as lng
 
 class MainWindow(wx.Frame):
 	def __init__(self,parent,id,title,logcheck="/dev/null",logtype=None):
+		self.logfile = None
 		wx.Frame.__init__(self, parent, -1, title, size = (800, 600+Variables.windows_add_size), style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX)
 		self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
 		self.SetTitle(_('{0} debugger').format(os.environ["APPLICATION_TITLE"]))
@@ -109,7 +110,7 @@ class MainWindow(wx.Frame):
 				self.log_reader.SetStyle(ins, ins+leng, wx.TextAttr("black", wx.NullColour))
 			
 	def AutoReload(self, event):
-		if(self.logfile != ""):
+		if(self.logfile != "" and self.logfile != None):
 			self.j = 0
 			while True:
 				self.line = self.logfile.readline()
@@ -152,9 +153,7 @@ class MainWindow(wx.Frame):
 		except:
 			pass
 
-	def list_software(self):
-	
-		
+	def list_software(self):		
 			self.prefixes = os.listdir(Variables.playonlinux_rep+"wineprefix/")
 			self.prefixes.sort()
 
