@@ -250,7 +250,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 			os.system("xdg-open "+self.register_link)
 			
 	def RunCommand(self, event, command,confirm):
-		if(confirm == "0" or wx.YES == wx.MessageBox(confirm.decode("utf-8"), os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
+		if(confirm == "0" or wx.YES == wx.MessageBox(confirm.decode("utf-8","replace"), os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
 			os.system(command+"&");
 			
 	def DrawImage(self):			
@@ -302,16 +302,16 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 		self.NextButton.Enable(False)
 	
 	def release_login(self, event):
-		self.SendBash("LOGIN="+self.loginbox.GetValue().encode("utf-8")+"\nPASS="+self.passbox.GetValue().encode("utf-8"))
+		self.SendBash("LOGIN="+self.loginbox.GetValue().encode("utf-8","replace")+"\nPASS="+self.passbox.GetValue().encode("utf-8","replace"))
 		self.NextButton.Enable(False)
 
 	def release_champ(self, event):
-		self.SendBash("MSG_VALUE="+self.champ.GetValue().encode("utf-8"))
+		self.SendBash("MSG_VALUE="+self.champ.GetValue().encode("utf-8","replace"))
 		self.NextButton.Enable(False)
 			
 	def release_bigchamp(self, event):
 		self.SendBash("MSG_VALUE=Ok")
-		self.SendBashT(self.bigchamp.GetValue().encode("utf-8"))
+		self.SendBashT(self.bigchamp.GetValue().encode("utf-8","replace"))
 		self.NextButton.Enable(False)
 			
 	def release_menu(self,event):
@@ -319,7 +319,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 		self.NextButton.Enable(False)
 
 	def release_menu_list(self,event):
-		self.SendBash("MSG_VALUE="+self.MenuList.GetValue().encode("utf-8"))
+		self.SendBash("MSG_VALUE="+self.MenuList.GetValue().encode("utf-8","replace"))
 		self.NextButton.Enable(False)
 
 	def release_menu_num(self,event):
@@ -338,12 +338,12 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 		self.NextButton.Enable(False)
 
 	def release_menugame(self,event):
-		self.SendBash("MSG_VALUE="+self.MenuGames.GetItemText(self.MenuGames.GetSelection()).encode("utf-8"))
+		self.SendBash("MSG_VALUE="+self.MenuGames.GetItemText(self.MenuGames.GetSelection()).encode("utf-8","replace"))
 		self.NextButton.Enable(False)
 		
 	def release_menuprefixes(self,event):
 		if(self.PCheckBox.IsChecked() == False): # Alors il faut renvoyer le prefix
-			self.SendBash("MSG_VALUE=1;"+self.MenuGames.GetItemText(self.MenuGames.GetSelection()).encode("utf-8"))
+			self.SendBash("MSG_VALUE=1;"+self.MenuGames.GetItemText(self.MenuGames.GetSelection()).encode("utf-8","replace"))
 		else:
 			self.SendBash("MSG_VALUE=2;"+self.areaList[self.Menu.GetSelection()])
 			
@@ -440,7 +440,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 		self.FileDialog.SetDirectory(self.fichier[5].replace("\n",""))
 		self.FileDialog.ShowModal() 
 		if(self.FileDialog.GetPath() != ""):
-			self.champ.SetValue(self.FileDialog.GetPath().encode('utf-8'))
+			self.champ.SetValue(self.FileDialog.GetPath().encode("utf-8","replace"))
 	        self.FileDialog.Destroy()
    
 	def DownloadFile(self, url, localB):    #url = url a récupérer, localB le fichier où enregistrer la modification sans nom de fichier

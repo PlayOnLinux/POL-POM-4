@@ -302,7 +302,7 @@ class InstallWindow(wx.Frame):
 			self.EasterEgg.Show()
 			self.EasterEgg.Center(wx.BOTH)
 		else:
-			os.system("bash \""+Variables.playonlinux_env+"/bash/install\" \""+InstallApplication.encode("utf-8")+"\"&")
+			os.system("bash \""+Variables.playonlinux_env+"/bash/install\" \""+InstallApplication.encode("utf-8","replace")+"\"&")
 	
 		self.Destroy()
 		return  
@@ -415,7 +415,7 @@ class InstallWindow(wx.Frame):
 
 	def AddApps(self, event):
 		self.searchbox.SetValue("")
-		#self.cat_selected=self.list_cat.GetItemText(self.list_cat.GetSelection()).encode('utf-8')
+		#self.cat_selected=self.list_cat.GetItemText(self.list_cat.GetSelection()).encode("utf-8","replace")
 		self.cat_selected = self.list_cat.GetItemImage(self.list_cat.GetSelection())
 		#print self.cat_selected
 		if(self.cat_selected == 8):

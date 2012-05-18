@@ -446,7 +446,7 @@ class MainWindow(wx.Frame):
         self.RConfigure(_("KillApp"), "nothing")
 
   def ReadMe(self, event):
-	game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8")
+	game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8","replace")
 	if(os.path.exists(os.environ["POL_USER_ROOT"]+"/configurations/manuals/"+game_exec)):
 		playonlinux.POL_Open(os.environ["POL_USER_ROOT"]+"/configurations/manuals/"+game_exec)
 	else:
@@ -456,7 +456,7 @@ class MainWindow(wx.Frame):
         self.RConfigure(_("Registry Editor"), "nothing")
 
   def run_plugin(self, event):
-	game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8")
+	game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8","replace")
 	plugin=self.plugin_list[event.GetId()-300]
 	try :
 		os.system("bash \""+Variables.playonlinux_rep+"/plugins/"+plugin+"/scripts/menu\" \""+game_exec+"\"&")
@@ -490,7 +490,7 @@ class MainWindow(wx.Frame):
 	self.irc.Show(True)
 		
   def GoToAppDir(self, event):
-		self.game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8")
+		self.game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8","replace")
 		playonlinux.open_folder(self.game_exec)
 		
   def ChangeIcon(self, event):
@@ -512,7 +512,7 @@ class MainWindow(wx.Frame):
 			#Pop-up menu for game list: ending
 
   def Select(self, event):
-	game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8")
+	game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8","replace")
 	self.read = open(Variables.playonlinux_rep+"shortcuts/"+game_exec,"r").readlines()
 	self.i = 0;
 	self.wine_present = False;
@@ -561,7 +561,7 @@ class MainWindow(wx.Frame):
 
   def RConfigure(self, function_to_run, firstargument):
 		"""Starts polconfigurator remotely."""
-		game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8")
+		game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8","replace")
 		if(game_exec != ""):
 			os.system("bash \""+Variables.playonlinux_env+"/bash/polconfigurator\" \""+game_exec+"\" \""+function_to_run+"\" \""+firstargument+"\"&")
 	
@@ -569,13 +569,16 @@ class MainWindow(wx.Frame):
 	
   def Options(self, event):
     onglet=event.GetId()
-    self.optionFrame = options.MainWindow(self, -1, _("{0} settings").format(os.environ["APPLICATION_TITLE"]), 2)
-    if(onglet == 211):
-    	self.optionFrame = options.MainWindow(self, -1, _("{0} settings").format(os.environ["APPLICATION_TITLE"]), 0)
-    if(onglet == 214):
-    	self.optionFrame = options.MainWindow(self, -1, _("{0} settings").format(os.environ["APPLICATION_TITLE"]), 1)
-    self.optionFrame.Center(wx.BOTH)
-    self.optionFrame.Show(True)
+    try:
+		self.optionFrame.SetFocus()
+    except:
+		self.optionFrame = options.MainWindow(self, -1, _("{0} settings").format(os.environ["APPLICATION_TITLE"]), 2)
+		if(onglet == 211):
+			self.optionFrame = options.MainWindow(self, -1, _("{0} settings").format(os.environ["APPLICATION_TITLE"]), 0)
+		if(onglet == 214):
+			self.optionFrame = options.MainWindow(self, -1, _("{0} settings").format(os.environ["APPLICATION_TITLE"]), 1)
+		self.optionFrame.Center(wx.BOTH)
+		self.optionFrame.Show(True)
 
   def killall(self, event):
     os.system("bash \""+Variables.playonlinux_env+"/bash/killall\"&")
@@ -584,9 +587,13 @@ class MainWindow(wx.Frame):
     os.system("bash \""+Variables.playonlinux_env+"/bash/expert/Executer\"&")
 
   def BugReport(self, event):
-    self.debugFrame = debug.MainWindow(None, -1, _("{0} debugger").format(os.environ["APPLICATION_TITLE"]))
-    self.debugFrame.Center(wx.BOTH)
-    self.debugFrame.Show()
+	try:
+		self.debugFrame.Show()
+	except:
+		self.debugFrame = debug.MainWindow(None, -1, _("{0} debugger").format(os.environ["APPLICATION_TITLE"]))
+		self.debugFrame.Center(wx.BOTH)
+		self.debugFrame.Show()
+		self.debugFrame.SetFocus()
 
   def POLOnline(self, event):
     os.system("bash \""+Variables.playonlinux_env+"/bash/playonlinux_online\" &")
@@ -599,24 +606,33 @@ class MainWindow(wx.Frame):
     os.system("bash \""+Variables.playonlinux_env+"/bash/expert/PolShell\"&")
 
   def Configure(self, event):
-	game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8")
-	if(game_exec == ""):
-		configureFrame = configure.MainWindow(None, -1, _("{0} configuration").format(os.environ["APPLICATION_TITLE"]),"default",True)
-	else:
-		configureFrame = configure.MainWindow(None, -1, _("{0} configuration").format(os.environ["APPLICATION_TITLE"]),game_exec.decode("utf-8"),False)
-		#self.SetTopWindow(installFrame)
-	configureFrame.Center(wx.BOTH)
-	configureFrame.Show(True)
+	game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8","replace")
+	try:
+		self.configureFrame.Show(True)
+		self.configureFrame.SetFocus()
+		
+		if(game_exec != ""):
+			self.configureFrame.change_program(game_exec,False)
+			
+	except:
+		if(game_exec == ""):
+			self.configureFrame = configure.MainWindow(self, -1, _("{0} configuration").format(os.environ["APPLICATION_TITLE"]),"default",True)
+		else:
+			self.configureFrame = configure.MainWindow(self, -1, _("{0} configuration").format(os.environ["APPLICATION_TITLE"]),game_exec.decode("utf-8","replace"),False)
+	
+		
+		self.configureFrame.Center(wx.BOTH)
+		self.configureFrame.Show(True)
 
     #os.system("bash \""+Variables.playonlinux_env+"/bash/polconfigurator\" \""+game_exec+"\"&")
 
   def Package(self, event):
     game_exec = self.list_game.GetItemText(self.list_game.GetSelection())
-    os.system("bash \""+Variables.playonlinux_env+"/bash/make_shortcut\" \""+game_exec.encode("utf-8")+"\"&")
+    os.system("bash \""+Variables.playonlinux_env+"/bash/make_shortcut\" \""+game_exec.encode("utf-8","replace")+"\"&")
 
   def UninstallGame(self, event):
     game_exec = self.list_game.GetItemText(self.list_game.GetSelection())
-    os.system("bash \""+Variables.playonlinux_env+"/bash/uninstall\" \""+game_exec.encode("utf-8")+"\"&")
+    os.system("bash \""+Variables.playonlinux_env+"/bash/uninstall\" \""+game_exec.encode("utf-8","replace")+"\"&")
 
 
   def AutoReload(self, event):
@@ -648,19 +664,27 @@ class MainWindow(wx.Frame):
    
 
   def InstallMenu(self, event):
-    installFrame = install.InstallWindow(self, -1, _('{0} install menu').format(os.environ["APPLICATION_TITLE"]))
+    try:
+    	self.installFrame.Show(True)
+    	self.installFrame.SetFocus()
+    except:
+    	self.installFrame = install.InstallWindow(self, -1, _('{0} install menu').format(os.environ["APPLICATION_TITLE"]))
     #self.SetTopWindow(installFrame)
-    installFrame.Center(wx.BOTH)
-    installFrame.Show(True)
+    	self.installFrame.Center(wx.BOTH)
+    	self.installFrame.Show(True)
 	
   def WineVersion(self, event):
-    wversion = wver.MainWindow(None, -1, _('{0} wine versions manager').format(os.environ["APPLICATION_TITLE"]))
-    wversion.Center(wx.BOTH)
-    wversion.Show(True)
+    try:
+    	self.wversion.Show()
+    	self.wversion.SetFocus()
+    except:
+    	self.wversion = wver.MainWindow(None, -1, _('{0} wine versions manager').format(os.environ["APPLICATION_TITLE"]))
+    	self.wversion.Center(wx.BOTH)
+    	self.wversion.Show(True)
 	#os.system("bash \""+Variables.playonlinux_env+"/bash/wineversion\"&")
 
   def Run(self, event):
-    game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8")
+    game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8","replace")
     game_prefix = playonlinux.getPrefix(game_exec)
     if(os.path.exists(os.environ["POL_USER_ROOT"]+"/wineprefix/"+game_prefix)):
 		if(game_exec != ""):
@@ -668,6 +692,7 @@ class MainWindow(wx.Frame):
 				try:
 					self.debugFrame.analyseReal(0, game_prefix)
 					self.debugFrame.Show()
+					self.debugFrame.SetFocus()
 				except:
 					self.debugFrame = debug.MainWindow(None, -1, _("{0} debugger").format(os.environ["APPLICATION_TITLE"]),game_prefix,0)
 					self.debugFrame.Center(wx.BOTH)
@@ -679,7 +704,7 @@ class MainWindow(wx.Frame):
 
 
   def ClosePol(self, event):
-    if(wx.YES == wx.MessageBox(_('Are you sure you want to close all {0} Windows?').format(os.environ["APPLICATION_TITLE"]).decode("utf-8"),os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
+    if(wx.YES == wx.MessageBox(_('Are you sure you want to close all {0} Windows?').format(os.environ["APPLICATION_TITLE"]).decode("utf-8","replace"),os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
 		os.remove(Variables.playonlinux_rep+"/configurations/guis/index_"+os.environ["POL_ID"])
 		self.SizeToSave = self.GetSize();
 		self.PositionToSave = self.GetPosition();
@@ -802,7 +827,7 @@ class PlayOnLinuxApp(wx.App):
 			os.system("bash \"$PLAYONLINUX/bash/run_exe\" \""+filename+"\" &")
 		
 		elif(file_extension == "pol" or file_extension == "POL"):
-			if(wx.YES == wx.MessageBox(_('Are you sure you want to  want to install {0} package?').format(filename).decode("utf-8"), os.environ["APPLICATION_TITLE"],style=wx.YES_NO | wx.ICON_QUESTION)):
+			if(wx.YES == wx.MessageBox(_('Are you sure you want to  want to install {0} package?').format(filename).decode("utf-8","replace"), os.environ["APPLICATION_TITLE"],style=wx.YES_NO | wx.ICON_QUESTION)):
 				os.system("bash \"$PLAYONLINUX/bash/playonlinux-pkg\" -i \""+filename+"\" &")
 		else:
 			playonlinux.open_document(filename,file_extension.lower())

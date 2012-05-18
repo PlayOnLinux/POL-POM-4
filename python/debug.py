@@ -30,7 +30,7 @@ import lib.lng as lng
 
 class MainWindow(wx.Frame):
 	def __init__(self,parent,id,title,logcheck="/dev/null",logtype=None):
-		wx.Frame.__init__(self, parent, -1, title, size = (800, 600), style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX)
+		wx.Frame.__init__(self, parent, -1, title, size = (800, 600+Variables.windows_add_size), style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX)
 		self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
 		self.SetTitle(_('{0} debugger').format(os.environ["APPLICATION_TITLE"]))
 		#self.panelFenp = wx.Panel(self, -1)
@@ -62,14 +62,14 @@ class MainWindow(wx.Frame):
 		
 		self.timer = wx.Timer(self, 1)
 		self.Bind(wx.EVT_TIMER, self.AutoReload, self.timer)
-		
+		self.AutoReload(self)
 		self.timer.Start(10)
 		self.logfile = ""
 		
 		# Debug control
 		self.panelText = wx.Panel(self.panelNotEmpty, -1, size=(590,400), pos=(2,2)) # Hack, wxpython bug
 		self.log_reader = wx.TextCtrl(self.panelText, 100, "", size=wx.Size(590,400), pos=(2,2), style=Variables.widget_borders|wx.TE_RICH2|wx.TE_READONLY|wx.TE_MULTILINE)
-
+		self.openTextEdit = wx.Button(self.panelNotEmpty, 101, _("Locate this logfile"), size=(200,30), pos=(2,402))
 		
 		if(logcheck == "/dev/null"):
 			self.HideLogFile()
@@ -91,7 +91,7 @@ class MainWindow(wx.Frame):
 		ins = self.log_reader.GetInsertionPoint()
 		leng = len(line)
 		if(leng < 100):
-			self.log_reader.AppendText(line)
+			self.log_reader.AppendText(line.encode('utf-8','replace'))
 		
 			self.bold = wx.Font(wx.NORMAL_FONT.GetPointSize(), wx.FONTFAMILY_DEFAULT, wx.NORMAL, wx.BOLD)
 
@@ -170,8 +170,8 @@ class MainWindow(wx.Frame):
 			self.images.RemoveAll()
 			
 			root = self.list_game.AddRoot("")
-			self.prefixes_entry = self.list_game.AppendItem(root, _("Virtual drives"), 0)
 			self.scripts_entry = self.list_game.AppendItem(root, _("Install scripts"), 1)
+			self.prefixes_entry = self.list_game.AppendItem(root, _("Virtual drives"), 0)
 			
 			self.file_icone = Variables.playonlinux_env+"/resources/images/icones/generic.png"
 			self.bitmap = wx.Image(self.file_icone)
@@ -210,7 +210,7 @@ class MainWindow(wx.Frame):
 					self.i += 1
 
 			for log in self.logs:
-					if(os.path.isdir(Variables.playonlinux_rep+"logs/"+log)):
+					if(not "_" in log and os.path.isdir(Variables.playonlinux_rep+"logs/"+log)):
 						self.file_icone =  Variables.playonlinux_env+"/resources/images/menu/manual.png"
 
 						try:
@@ -224,8 +224,9 @@ class MainWindow(wx.Frame):
 						self.logs_item[log] = self.list_game.AppendItem(self.scripts_entry, log, self.i)
 						self.i += 1
 						
+			self.list_game.Collapse(self.scripts_entry)
+			self.list_game.Collapse(self.prefixes_entry)
 			self.list_game.ExpandAll()
-		
 	def app_Close(self, event):
 		self.Destroy()
 

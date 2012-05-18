@@ -45,7 +45,12 @@ POL_Debug_Init()
 	then
 		POL_Debug_Fatal "\$TITLE must be set to use debugging API" 
 	else
-		LOGTITLE="${TITLE}_$(date +%s)"
+		LOGTITLE="${TITLE}"
+		if [ "$POL_LOGS" -a "$LOGTITLE" ]; then
+			if [ -e "$POL_LOGS/$LOGTITLE" ]; then
+				rm -rf "$POL_LOGS/$LOGTITLE"
+			fi
+		fi
 		mkdir -p "$POL_LOGS/$LOGTITLE"
 		DEBUGGING="$POL_LOGS/$LOGTITLE/"
 		LOGFILE="$DEBUGGING/$LOGTITLE.log"

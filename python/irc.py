@@ -180,7 +180,7 @@ class Onglets(wx.Notebook):
 		#self.EventStart(self)
 		
 	def AddNick(self, event):
-		self.buddy_txt = self.buddy.GetItemText(self.buddy.GetSelection()).encode("utf-8")
+		self.buddy_txt = self.buddy.GetItemText(self.buddy.GetSelection()).encode("utf-8","replace")
 		irc.join(self.buddy_txt)
 		#if(self.buddy_txt not in irc.chans):
 			
@@ -188,7 +188,7 @@ class Onglets(wx.Notebook):
 		#self.OpenWindow(self.buddy_txt)
 
 	def SendMessage(self):
-		self.chars = self.field.GetValue().replace('\n','').encode("utf-8")
+		self.chars = self.field.GetValue().replace('\n','').encode("utf-8","replace")
 		if(self.chars):
 			self.field.Clear()
 			irc.SendMSG(self.chars)
@@ -209,7 +209,7 @@ class Onglets(wx.Notebook):
 		#self.close.Enable(False)
 
 	def EventStart(self, event):
-		irc.Nick = self.nickname.GetValue().encode("utf-8")
+		irc.Nick = self.nickname.GetValue().encode("utf-8","replace")
 		irc.Connexion()
 
 	def EventChannel(self, event):
@@ -239,7 +239,7 @@ class Onglets(wx.Notebook):
 	def NicknameKey(self, event):
 		if(event.GetKeyCode() == wx.WXK_RETURN):
 			if(irc.ircconnected == True):
-				irc.ChangeNick(self.nickname.GetValue().encode("utf-8"))
+				irc.ChangeNick(self.nickname.GetValue().encode("utf-8","replace"))
 			else:
 				irc.Connexion()
 		event.Skip()
@@ -269,7 +269,7 @@ class IrcClient(wx.Frame):
     self.timer.Start(200)
 
   def CloseIRC(self, event):
-	if(wx.YES == wx.MessageBox(_('If you close this window, you cannot read further replies. Are you sure that you want to close it?').format(os.environ["APPLICATION_TITLE"]).decode("utf-8"), os.environ["APPLICATION_TITLE"] ,style=wx.YES_NO | wx.ICON_QUESTION)):
+	if(wx.YES == wx.MessageBox(_('If you close this window, you cannot read further replies. Are you sure that you want to close it?').format(os.environ["APPLICATION_TITLE"]).decode("utf-8","replace"), os.environ["APPLICATION_TITLE"] ,style=wx.YES_NO | wx.ICON_QUESTION)):
 		self.onglets.EventStop(self)
 		self.Destroy()
 	
@@ -295,7 +295,7 @@ class IrcClient(wx.Frame):
 
   def html_reload(self, event):
 	  #print("Refresh html")
-	  self.window_txt = self.onglets.window.GetItemText(self.onglets.window.GetSelection()).encode("utf-8")
+	  self.window_txt = self.onglets.window.GetItemText(self.onglets.window.GetSelection()).encode("utf-8","replace")
 	  irc.selected_window = self.window_txt
 	  self.chat_content = ""
 	  # On regarde quelle liste on va prendre
@@ -327,7 +327,7 @@ class IrcClient(wx.Frame):
  	  self.onglets.content.Scroll(0,len(irc.status_messages)*2)
 
   def irc_user_list(self, event):
-	self.window_txt = self.onglets.window.GetItemText(self.onglets.window.GetSelection()).encode("utf-8").lower()
+	self.window_txt = self.onglets.window.GetItemText(self.onglets.window.GetSelection()).encode("utf-8","replace").lower()
 
 	irc.selected_window = self.window_txt
 	# On casse tout
@@ -369,7 +369,7 @@ class IrcClient(wx.Frame):
 	#else :
 	#print str(self.chans)+" --- "+str(irc.chans)
 		
-	self.window_txt = self.onglets.window.GetItemText(self.onglets.window.GetSelection()).encode("utf-8").lower()
+	self.window_txt = self.onglets.window.GetItemText(self.onglets.window.GetSelection()).encode("utf-8","replace").lower()
 	
 	if(len(self.window_txt) > 0):
 		id_liste = irc.get_index(self.window_txt)
@@ -414,7 +414,7 @@ class IrcClient(wx.Frame):
 	self.onglets.disconnect.Enable(False)
 	if(self.settings["AUTOCONNECT"] == "1"):
 		if(self.already_connected == False):
-			irc.Nick = self.onglets.nickname.GetValue().encode("utf-8")
+			irc.Nick = self.onglets.nickname.GetValue().encode("utf-8","replace")
 			irc.connect()
 			self.already_connected = True;
 

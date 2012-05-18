@@ -383,9 +383,9 @@ class Onglets(wx.Notebook):
 			self.FileDialog.ShowModal()
 			if(self.FileDialog.GetPath() != ""):
 				if(self.s_isPrefix == True):
-					os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command --prefix \""+self.s_prefix+"\" POL_AutoWine \""+self.FileDialog.GetPath().encode('utf-8')+"\" &")
+					os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command --prefix \""+self.s_prefix+"\" POL_AutoWine \""+self.FileDialog.GetPath().encode("utf-8","replace")+"\" &")
 				else:
-					os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command \""+self.s_title+"\" POL_AutoWine \""+self.FileDialog.GetPath().encode('utf-8')+"\" &")
+					os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command \""+self.s_title+"\" POL_AutoWine \""+self.FileDialog.GetPath().encode("utf-8","replace")+"\" &")
 					
 		if(param == 201):
 			if(self.s_isPrefix == False):
@@ -433,7 +433,7 @@ class Onglets(wx.Notebook):
 		wx.EVT_TEXT(self, 405,  self.edit_shortcut)
 		
 	def edit_shortcut(self, event):
-		content = self.display_elements["pre_run"].GetValue().encode("utf-8")
+		content = self.display_elements["pre_run"].GetValue().encode("utf-8","replace")
 		open(os.environ["POL_USER_ROOT"]+"/configurations/pre_shortcut/"+self.s_title,'w').write(content)
 		
 	def AddGeneralButton(self, title, shortname, num):
@@ -600,8 +600,8 @@ class MainWindow(wx.Frame):
 		self.oldreload = None
 		self.oldimg = None
 		self.oldpref = None
-		if(self.onglets.s_isPrefix == False or not self.onglets.s_prefix == "default"):
-			self.AutoReload(self)
+		#if(self.onglets.s_isPrefix == False or not self.onglets.s_prefix == "default"):
+		self.AutoReload(self)
 	
 	def NewPrefix(self, event):
 		#self.name = wx.GetTextFromUser(_("Choose the name of the virtual drive"))
@@ -613,14 +613,14 @@ class MainWindow(wx.Frame):
 			if(self.onglets.s_prefix == "default"):
 				wx.MessageBox(_("This virtual drive is protected"), os.environ["APPLICATION_TITLE"])
 			else:
-				if(wx.YES == wx.MessageBox(_("Are you sure you want to delete {0} virtual drive ?").format(self.onglets.s_prefix.encode("utf-8")).decode("utf-8"), os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
+				if(wx.YES == wx.MessageBox(_("Are you sure you want to delete {0} virtual drive ?").format(self.onglets.s_prefix.encode("utf-8","replace")).decode("utf-8","replace"), os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
 					mylist = os.listdir(Variables.playonlinux_rep+"/shortcuts")
 					for element in mylist:
 						if(playonlinux.getPrefix(element).lower() == self.onglets.s_prefix.lower()):
 							os.remove(Variables.playonlinux_rep+"/shortcuts/"+element)
 					shutil.rmtree(Variables.playonlinux_rep+"/wineprefix/"+self.onglets.s_prefix)
 		else:
-				if(wx.YES == wx.MessageBox(_("Are you sure you want to delete {0} ?").format(self.onglets.s_title.encode("utf-8")).decode("utf-8"), os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
+				if(wx.YES == wx.MessageBox(_("Are you sure you want to delete {0} ?").format(self.onglets.s_title.encode("utf-8","replace")).decode("utf-8","replace"), os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
 					os.remove(Variables.playonlinux_rep+"/shortcuts/"+self.onglets.s_title)
 					
 		self.onglets.s_isPrefix = True
@@ -673,7 +673,9 @@ class MainWindow(wx.Frame):
 			self.splitter.SplitVertically(self.splitter_list,self.onglets)
 			self.splitter.SetSashPosition(200)
 		self.onglets.UpdateValues(new_prgm)
-	
+		self.Refresh()
+		self.SetFocus()
+		
 	def list_software(self):
 		self.games = os.listdir(Variables.playonlinux_rep+"shortcuts/")
 		self.games.sort()
@@ -748,9 +750,9 @@ class MainWindow(wx.Frame):
 		self.list_game.ExpandAll()
 		try:
 			if(self.onglets.s_isPrefix == True):
-				self.list_game.SelectItem(self.prefixes_item[self.onglets.s_prefix.encode("utf-8")])
+				self.list_game.SelectItem(self.prefixes_item[self.onglets.s_prefix.encode("utf-8","replace")])
 			else:
-				self.list_game.SelectItem(self.games_item[self.onglets.s_title.encode("utf-8")])
+				self.list_game.SelectItem(self.games_item[self.onglets.s_title.encode("utf-8","replace")])
 		except:
 			self.onglets.s_isPrefix = True
 			self.change_program("default",True)

@@ -321,13 +321,13 @@ class MainWindow(wx.Frame):
 			self.onglets.button_in["x86"].Enable(False)
 
 	  def delete32(self, event):
-		version = self.onglets.list_ver_installed["x86"].GetItemText(self.onglets.list_ver_installed["x86"].GetSelection()).encode('utf-8')
+		version = self.onglets.list_ver_installed["x86"].GetItemText(self.onglets.list_ver_installed["x86"].GetSelection()).encode("utf-8","replace")
 		
-		if(wx.YES == wx.MessageBox(_('Are you sure you want to delete wine {0}?').format(version).decode("utf-8"), os.environ["APPLICATION_TITLE"],style=wx.YES_NO | wx.ICON_QUESTION)):
+		if(wx.YES == wx.MessageBox(_('Are you sure you want to delete wine {0}?').format(version).decode("utf-8","replace"), os.environ["APPLICATION_TITLE"],style=wx.YES_NO | wx.ICON_QUESTION)):
 				shutil.rmtree(Variables.playonlinux_rep+"/wine/"+os_pref+"-x86/"+version)
 
 	  def install32(self, event):
-		install = self.onglets.list_apps["x86"].GetItemText(self.onglets.list_apps["x86"].GetSelection()).encode('utf-8')
+		install = self.onglets.list_apps["x86"].GetItemText(self.onglets.list_apps["x86"].GetSelection()).encode("utf-8","replace")
 		os.system("bash \""+Variables.playonlinux_env+"/bash/install_wver\" "+install+" x86 &")
 
 
@@ -342,12 +342,12 @@ class MainWindow(wx.Frame):
 			self.onglets.button_in["amd64"].Enable(False)
 
 	  def delete64(self, event):
-		version = self.onglets.list_ver_installed["amd64"].GetItemText(self.onglets.list_ver_installed["amd64"].GetSelection()).encode('utf-8')
+		version = self.onglets.list_ver_installed["amd64"].GetItemText(self.onglets.list_ver_installed["amd64"].GetSelection()).encode("utf-8","replace")
 		if(wx.YES == wx.MessageBox("Are you sure you want to delete wine "+version+"?", style=wx.YES_NO | wx.ICON_QUESTION)):
 				shutil.rmtree(Variables.playonlinux_rep+"/wine/"+os_pref+"-amd64/"+version)
 
 	  def install64(self, event):
-		install = self.onglets.list_apps["amd64"].GetItemText(self.onglets.list_apps["amd64"].GetSelection()).encode('utf-8')
+		install = self.onglets.list_apps["amd64"].GetItemText(self.onglets.list_apps["amd64"].GetSelection()).encode("utf-8","replace")
 		os.system("bash \""+Variables.playonlinux_env+"/bash/install_wver\" "+install+" amd64 &")
 		
 	  def getVersions(self, arch="x86"):

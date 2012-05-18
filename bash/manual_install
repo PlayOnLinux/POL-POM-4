@@ -27,7 +27,6 @@ POL_Config_Write MANUAL_INSTALL_INCREMENT $INSTALL_NUMBER
 TITLE="$(eval_gettext 'Manual installation')"
 
 NOBUGREPORT="YES"
-POL_Debug_Init
 run_autorun()
 {
 	POL_Debug_Message "Scanning autorun : $1"		
