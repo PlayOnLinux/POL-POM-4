@@ -833,6 +833,7 @@ class PlayOnLinuxApp(wx.App):
 		self.singleCheck("tar")
 		self.singleCheck("cabextract")
 		self.singleCheck("convert")
+		self.singleCheck("wget")
 		self.singleCheck("gettext.sh",False)
 		self.singleCheck("icotool",False)
 		self.singleCheck("wrestool",False)
