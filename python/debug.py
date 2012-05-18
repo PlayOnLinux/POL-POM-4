@@ -141,7 +141,7 @@ class MainWindow(wx.Frame):
 				if(self.logsize - 10000 > 0):
 					self.logfile.seek(self.logsize - 10000) # 10 000 latest chars should be sufficient
 				self.logtype = 0
-				
+
 			if(parent == 1):
 				checkfile = Variables.playonlinux_rep+"logs/"+selection+"/"+selection+".log"
 				self.logfile = open(checkfile, 'r')
@@ -150,7 +150,8 @@ class MainWindow(wx.Frame):
 					self.logfile.seek(self.logsize - 10000) # 10 000 latest chars should be sufficient	
 				self.logtype = 1
 		except:
-			pass	
+			pass
+
 	def list_software(self):
 	
 		
