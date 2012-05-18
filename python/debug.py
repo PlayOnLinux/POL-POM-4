@@ -68,9 +68,8 @@ class MainWindow(wx.Frame):
 		
 		# Debug control
 		self.panelText = wx.Panel(self.panelNotEmpty, -1, size=(590,400), pos=(2,2)) # Hack, wxpython bug
-		self.log_reader = wx.TextCtrl(self.panelText, 100, "", size=wx.Size(590,400), pos=(2,2), style=Variables.widget_borders|wx.TE_RICH|wx.TE_READONLY|wx.TE_DONTWRAP)
-		ws = self.log_reader.GetWindowStyle() # Again, dirty hack
-		self.log_reader.SetWindowStyle(ws & ~wx.TE_BESTWRAP | wx.TE_DONTWRAP)
+		self.log_reader = wx.TextCtrl(self.panelText, 100, "", size=wx.Size(590,400), pos=(2,2), style=Variables.widget_borders|wx.TE_RICH2|wx.TE_READONLY|wx.TE_MULTILINE)
+
 		
 		if(logcheck == "/dev/null"):
 			self.HideLogFile()
@@ -94,13 +93,13 @@ class MainWindow(wx.Frame):
 		if(leng < 100):
 			self.log_reader.AppendText(line)
 		
-			self.bold = wx.Font(13, wx.FONTFAMILY_DEFAULT, wx.NORMAL, wx.BOLD)
+			self.bold = wx.Font(wx.NORMAL_FONT.GetPointSize(), wx.FONTFAMILY_DEFAULT, wx.NORMAL, wx.BOLD)
 
 			if(line[0:5] == "wine:"):
 				self.log_reader.SetStyle(ins, ins+5, wx.TextAttr("red", wx.NullColour))
 			
 			elif(line[0:6] == "fixme:"):
-				self.log_reader.SetStyle(ins, ins+leng, wx.TextAttr("grey", wx.NullColour))
+				self.log_reader.SetStyle(ins, ins+leng, wx.TextAttr(wx.Colour(100,100,100), wx.NullColour))
 		
 			elif(self.logtype == 1 and leng > 19 and line[17:20] == " - "):
 				self.log_reader.SetStyle(ins, ins+17, wx.TextAttr("black", wx.NullColour, self.bold))
@@ -134,21 +133,24 @@ class MainWindow(wx.Frame):
 	def analyseReal(self, parent, selection):
 		self.ShowLogFile()
 		self.log_reader.Clear()
-		if(parent == 0):
-			checkfile = Variables.playonlinux_rep+"wineprefix/"+selection+"/playonlinux.log"
-			self.logfile = open(checkfile, 'r')
-			self.logsize = os.path.getsize(checkfile)
-			if(self.logsize - 10000 > 0):
-				self.logfile.seek(self.logsize - 10000) # 10 000 latest chars should be sufficient
-			self.logtype = 0
-			
-		if(parent == 1):
+		try:
+			if(parent == 0):
+				checkfile = Variables.playonlinux_rep+"wineprefix/"+selection+"/playonlinux.log"
+				self.logfile = open(checkfile, 'r')
+				self.logsize = os.path.getsize(checkfile)
+				if(self.logsize - 10000 > 0):
+					self.logfile.seek(self.logsize - 10000) # 10 000 latest chars should be sufficient
+				self.logtype = 0
+				
+			if(parent == 1):
 				checkfile = Variables.playonlinux_rep+"logs/"+selection+"/"+selection+".log"
 				self.logfile = open(checkfile, 'r')
 				self.logsize = os.path.getsize(checkfile)
 				if(self.logsize - 10000 > 0):
 					self.logfile.seek(self.logsize - 10000) # 10 000 latest chars should be sufficient	
 				self.logtype = 1
+		except:
+			pass	
 	def list_software(self):
 	
 		
