@@ -746,35 +746,7 @@ class PlayOnLinuxApp(wx.App):
 		close = False
 		exe_present = False
 		
-		if(os.popen("id -u").read() == "0\n" or os.popen("id -u").read() == "0"):
-			wx.MessageBox(_("{0} is not supposed to be run as root. Sorry").format(os.environ["APPLICATION_TITLE"]),_("Error"))
-			sys.exit()			
-		
-		try:
-			returncode=subprocess.call([os.environ["PLAYONLINUX"]+"/bash/check_gl","x86"])
-		except:
-			returncode=255
-			
-		if(os.environ["POL_OS"] == "Linux" and returncode != 0):
-			wx.MessageBox(_("{0} is unable to find 32bits OpenGL libraries.\n\nYou might encounter problem with your games").format(os.environ["APPLICATION_TITLE"]),_("Error"))
-		
-		if(os.environ["AMD64_COMPATIBLE"] == "True"):
-			try:
-				returncode=subprocess.call([os.environ["PLAYONLINUX"]+"/bash/check_gl","amd64"])
-			except:
-				returncode=255
-
-		if(os.environ["AMD64_COMPATIBLE"] == "True" and os.environ["POL_OS"] == "Linux" and returncode != 0):
-			wx.MessageBox(_("{0} is unable to find 64bits OpenGL libraries.\n\nYou might encounter problem with your games").format(os.environ["APPLICATION_TITLE"]),_("Error"))
-
-		if(os.environ["AMD64_COMPATIBLE"] == "True"):
-			try:
-				returncode=subprocess.call([os.environ["PLAYONLINUX"]+"/bash/check_fs"])
-			except:
-				returncode=255
-
-			if(os.environ["POL_OS"] == "Linux" and returncode != 0):
-				wx.MessageBox(_("Your filesystem might prevent {0} from running correctly.\n\nPlease open {0} in a terminal to get more details").format(os.environ["APPLICATION_TITLE"]),_("Error"))
+		self.systemCheck()
 				
 		for f in  sys.argv[1:]:		
 			self.MacOpenFile(f)
@@ -796,6 +768,50 @@ class PlayOnLinuxApp(wx.App):
 		
 		return True
 	
+	def systemCheck(self):
+		#### Root uid check
+		if(os.popen("id -u").read() == "0\n" or os.popen("id -u").read() == "0"):
+			wx.MessageBox(_("{0} is not supposed to be run as root. Sorry").format(os.environ["APPLICATION_TITLE"]),_("Error"))
+			sys.exit()			
+		
+		#### 32 bits OpenGL check
+		try:
+			returncode=subprocess.call([os.environ["PLAYONLINUX"]+"/bash/check_gl","x86"])
+		except:
+			returncode=255
+		if(os.environ["POL_OS"] == "Linux" and returncode != 0):
+			wx.MessageBox(_("{0} is unable to find 32bits OpenGL libraries.\n\nYou might encounter problem with your games").format(os.environ["APPLICATION_TITLE"]),_("Error"))
+		
+		#### 64 bits OpenGL check
+		if(os.environ["AMD64_COMPATIBLE"] == "True"):
+			try:
+				returncode=subprocess.call([os.environ["PLAYONLINUX"]+"/bash/check_gl","amd64"])
+			except:
+				returncode=255
+		if(os.environ["AMD64_COMPATIBLE"] == "True" and os.environ["POL_OS"] == "Linux" and returncode != 0):
+			wx.MessageBox(_("{0} is unable to find 64bits OpenGL libraries.\n\nYou might encounter problem with your games").format(os.environ["APPLICATION_TITLE"]),_("Error"))
+
+		#### Filesystem check
+		if(os.environ["POL_OS"] == "Linux"):
+			try:
+				returncode=subprocess.call([os.environ["PLAYONLINUX"]+"/bash/check_fs"])
+			except:
+				returncode=255
+			if(os.environ["POL_OS"] == "Linux" and returncode != 0):
+				wx.MessageBox(_("Your filesystem might prevent {0} from running correctly.\n\nPlease open {0} in a terminal to get more details").format(os.environ["APPLICATION_TITLE"]),_("Error"))
+		
+		#### Optirun check
+		try:
+			returncode=subprocess.call(["which","optirun"])
+		except:
+			returncode=255
+		
+		if(returncode == 0):
+			if(playonlinux.GetSettings("OPTIRUN_ASKED") == ""):
+				playonlinux.SetSettings("OPTIRUN_ASKED","TRUE")
+				if(wx.YES == wx.MessageBox(_('{0} has detected that optirun is installed on your system.\n\nDo you want {0} to be configured to use it?').format(os.environ["APPLICATION_TITLE"]).decode("utf-8","replace"), os.environ["APPLICATION_TITLE"],style=wx.YES_NO | wx.ICON_QUESTION)):
+					playonlinux.SetSettings("PRE_WINE","optirun")
+				
 	def BringWindowToFront(self):
 		        try: # it's possible for this event to come when the frame is closed
 		            self.GetTopWindow().Raise()

@@ -675,7 +675,11 @@ class MainWindow(wx.Frame):
 		self.onglets.UpdateValues(new_prgm)
 		self.Refresh()
 		self.SetFocus()
-		
+		try:
+			self.GetTopWindow().Raise()
+		except:
+			pass
+			
 	def list_software(self):
 		self.games = os.listdir(Variables.playonlinux_rep+"shortcuts/")
 		self.games.sort()
