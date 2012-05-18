@@ -34,8 +34,9 @@ if(os.environ["POL_OS"] == "Linux"):
 import wx
 import lib.Variables as Variables, lib.lng as lng
 import lib.playonlinux as playonlinux
-import guiv3 as gui, install, options, wine_versions as wver, sp, configure, threading
+import guiv3 as gui, install, options, wine_versions as wver, sp, configure, threading, debug
 import irc as ircgui
+
 class POLWeb(threading.Thread):
 	def __init__(self):
 		threading.Thread.__init__(self)
@@ -211,7 +212,7 @@ class MainWindow(wx.Frame):
 	self.chat_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/people.png"))
 	self.expertmenu.AppendItem(self.chat_item)
 		
-	self.bug_item = wx.MenuItem(self.expertmenu, 110, _("Report a bug"))
+	self.bug_item = wx.MenuItem(self.expertmenu, 110, _("{0} debugger").format(os.environ["APPLICATION_TITLE"]))
 	self.bug_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/bug.png"))
 	self.expertmenu.AppendItem(self.bug_item)
 	
@@ -583,7 +584,9 @@ class MainWindow(wx.Frame):
     os.system("bash \""+Variables.playonlinux_env+"/bash/expert/Executer\"&")
 
   def BugReport(self, event):
-    os.system("bash \""+Variables.playonlinux_env+"/bash/bug_report\"&")
+    self.debugFrame = debug.MainWindow(None, -1, _("{0} debugger").format(os.environ["APPLICATION_TITLE"]))
+    self.debugFrame.Center(wx.BOTH)
+    self.debugFrame.Show()
 
   def POLOnline(self, event):
     os.system("bash \""+Variables.playonlinux_env+"/bash/playonlinux_online\" &")
@@ -661,6 +664,15 @@ class MainWindow(wx.Frame):
     game_prefix = playonlinux.getPrefix(game_exec)
     if(os.path.exists(os.environ["POL_USER_ROOT"]+"/wineprefix/"+game_prefix)):
 		if(game_exec != ""):
+			if(playonlinux.GetDebugState(game_exec)):
+				try:
+					self.debugFrame.analyseReal(0, game_prefix)
+					self.debugFrame.Show()
+				except:
+					self.debugFrame = debug.MainWindow(None, -1, _("{0} debugger").format(os.environ["APPLICATION_TITLE"]),game_prefix,0)
+					self.debugFrame.Center(wx.BOTH)
+					self.debugFrame.Show()
+			
 			os.system("bash "+Variables.playonlinux_env+"/bash/run_app \""+game_exec+"\"&")
     else:
 		wx.MessageBox(_("The virtual drive associated with {0} ({1}) does no longer exists.").format(game_exec, game_prefix), os.environ["APPLICATION_TITLE"])
