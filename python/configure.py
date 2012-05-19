@@ -600,6 +600,8 @@ class MainWindow(wx.Frame):
 		self.oldreload = None
 		self.oldimg = None
 		self.oldpref = None
+		self.oldver32 = None
+		self.olderver64 = None
 		#if(self.onglets.s_isPrefix == False or not self.onglets.s_prefix == "default"):
 		self.AutoReload(self)
 	
@@ -645,6 +647,14 @@ class MainWindow(wx.Frame):
 				self.list_software()
 				self.oldpref = reloadpref
 			
+			reloadver32 = os.listdir(Variables.playonlinux_rep+"/wine/"+Variables.os_name+"-x86/")
+			reloadver64 = os.listdir(Variables.playonlinux_rep+"/wine/"+Variables.os_name+"-amd64/")
+			 
+			if(reloadver32 != self.oldver32 or reloadver64 != self.oldver64):
+				self.oldver32 = reloadver32
+				self.oldver64 = reloadver64
+				self.onglets.UpdateVersions(self.onglets.arch)
+				
 	def change_program_to_selection(self, event):
 		parent =  self.list_game.GetItemText(self.list_game.GetItemParent(self.list_game.GetSelection()))
 		self.current_sel = self.list_game.GetItemText(self.list_game.GetSelection())
