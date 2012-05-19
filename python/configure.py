@@ -28,7 +28,6 @@ import lib.wine as wine
 import lib.Variables as Variables
 import lib.lng as lng
 
-
 class Onglets(wx.Notebook):
 	# Classe dérivée du wx.Notebook
 	def __init__(self, parent):
@@ -51,7 +50,11 @@ class Onglets(wx.Notebook):
 		
 	def evt_winecfg(self, event):
 		self.winebash("winecfg")
-		
+
+	def evt_uninstall(self, event):
+		wx.MessageBox(_("Warning:\n\nThis tool is for advanced users.\nTo uninstall cleanly a program with {0}, you must delete the virtual drive associated").format(os.environ["APPLICATION_TITLE"]),os.environ["APPLICATION_TITLE"])
+		self.winebash("uninstaller")
+			
 	def evt_regedit(self, event):
 		self.winebash("regedit")
 
@@ -60,7 +63,14 @@ class Onglets(wx.Notebook):
 
 	def evt_taskmgr(self, event):
 		self.winebash("taskmgr")
-		
+
+	def evt_rep(self, event):
+		try:
+			os.remove(os.environ["POL_USER_ROOT"]+"/wineprefix/"+self.s_prefix+"/.update-timestamp")
+		except:
+			pass
+		self.winebash("wineboot")
+					
 	def evt_wineboot(self, event):
 		self.winebash("wineboot")
 
@@ -81,19 +91,26 @@ class Onglets(wx.Notebook):
 					
 	def AddGeneralChamp(self, title, shortname, value, num):
 		self.general_elements[shortname+"_text"] = wx.StaticText(self.panelGeneral, -1, title,pos=(15,19+num*40))
-		self.general_elements[shortname] = wx.TextCtrl(self.panelGeneral, 200+num, value, pos=(300,19+num*40), size=(150,20))
+		self.general_elements[shortname] = wx.TextCtrl(self.panelGeneral, 200+num, value, pos=(300,23+num*40), size=(250,20))
 	#	self.general_elements[shortname].SetValue(value)
 
 	def AddGeneralElement(self, title, shortname, elements, wine, num):
 		if(shortname == "wineversion"):
 			elements.insert(0,"System")
 			wine.insert(0,"System")
+			elemsize = (225,25)
+		else:
+			elemsize = (250,25)
+			
 		self.general_elements[shortname+"_text"] = wx.StaticText(self.panelGeneral, -1, title,pos=(15,19+num*40))
 		
-		self.general_elements[shortname] = wx.ComboBox(self.panelGeneral, 200+num, style=wx.CB_READONLY,pos=(300,15+num*40))
+		self.general_elements[shortname] = wx.ComboBox(self.panelGeneral, 200+num, style=wx.CB_READONLY,pos=(300,17+num*40),size=elemsize)
 		self.general_elements[shortname].AppendItems(elements)
 		self.general_elements[shortname].SetValue(elements[0])
 
+		if(shortname == "wineversion"):
+			self.addBitmap = wx.Image( Variables.playonlinux_env+"/resources/images/icones/list-add.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
+			self.general_elements["wineversion_button"] = wx.BitmapButton(self.panelGeneral,601, pos=(527,19+num*40),size=(21,21),bitmap=self.addBitmap	)
 
 	
 	def General(self, nom):
@@ -126,20 +143,13 @@ class Onglets(wx.Notebook):
 		self.configurator_button = wx.Button(self.panelGeneral, 106, _("Run configuration wizard"), pos=(15,324))
 		
 		
-		wx.EVT_BUTTON(self, 100, self.evt_winecfg)
-		wx.EVT_BUTTON(self, 101, self.evt_regedit)
-		wx.EVT_BUTTON(self, 102, self.evt_wineboot)
-		wx.EVT_BUTTON(self, 103, self.evt_cmd)
-		wx.EVT_BUTTON(self, 104, self.evt_taskmgr)
-		wx.EVT_BUTTON(self, 105, self.evt_killall)
-		wx.EVT_BUTTON(self, 106, self.evt_config)
-		
 		wx.EVT_TEXT(self, 202, self.setname)
 		wx.EVT_TEXT(self, 206, self.setargs)
 		
 		wx.EVT_COMBOBOX(self, 203, self.assign)
 		wx.EVT_COMBOBOX(self, 204, self.assignPrefix)
 		wx.EVT_CHECKBOX(self, 205, self.setDebug)
+		wx.EVT_BUTTON(self, 601, self.Parent.Parent.Parent.WineVersion)
 		
 	def Wine(self, nom):
 		self.panelWine = wx.Panel(self, -1)
@@ -148,7 +158,7 @@ class Onglets(wx.Notebook):
 		self.txtGeneral = wx.StaticText(self.panelWine, -1, "Wine", (10,10), wx.DefaultSize)
 		self.txtGeneral.SetFont(self.fontTitle)
 
-		self.winecfg_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/winecfg.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
+		self.winecfg_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/wine-winecfg.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
 		self.winecfg = wx.BitmapButton(self.panelWine, id=100, bitmap=self.winecfg_image,pos=(30, 50), size = (self.winecfg_image.GetWidth()+5, self.winecfg_image.GetHeight()+5))
 		self.winecfg_texte = wx.StaticText(self.panelWine, -1, _("Configure Wine"), (32,156), style=wx.ALIGN_CENTER)
 		self.winecfg_texte.Wrap(110)
@@ -156,7 +166,7 @@ class Onglets(wx.Notebook):
 
 		self.winecfg_texte.SetFont(self.caption_font)
 
-		self.regedit_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/regedit.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
+		self.regedit_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/registry.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
 		self.regedit = wx.BitmapButton(self.panelWine, id=101, bitmap=self.regedit_image,pos=(166, 50), size = (self.regedit_image.GetWidth()+5, self.regedit_image.GetHeight()+5))
 		self.regedit_texte = wx.StaticText(self.panelWine, -1, _("Registry Editor"), (168,156), style=wx.ALIGN_CENTER)
 		self.regedit_texte.Wrap(110)
@@ -165,21 +175,31 @@ class Onglets(wx.Notebook):
 		self.regedit_texte.SetFont(self.caption_font)
 
 
-		self.wineboot_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/wineboot.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
+		self.wineboot_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/reboot.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
 		self.wineboot = wx.BitmapButton(self.panelWine, id=102, bitmap=self.wineboot_image,pos=(302, 50), size = (self.wineboot_image.GetWidth()+5, self.wineboot_image.GetHeight()+5))		
 		self.wineboot_texte = wx.StaticText(self.panelWine, -1, _("Windows reboot"), (304,156), style=wx.ALIGN_CENTER)
 		self.wineboot_texte.Wrap(110)
 		self.wineboot_texte.SetPosition((self.wineboot_texte.GetPosition()[0]+(105-self.wineboot_texte.GetSize()[0])/2,self.wineboot_texte.GetPosition()[1]))
 		self.wineboot_texte.SetFont(self.caption_font)
-
-		self.cmd_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/cmd.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
+		
+		
+		self.updatep_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/update.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
+		self.updatep = wx.BitmapButton(self.panelWine, id=107, bitmap=self.updatep_image,pos=(438, 50), size = (self.wineboot_image.GetWidth()+5, self.updatep_image.GetHeight()+5))		
+		self.updatep_texte = wx.StaticText(self.panelWine, -1, _("Repair virtual drive"), (440,156), style=wx.ALIGN_CENTER)
+		self.updatep_texte.Wrap(110)
+		self.updatep_texte.SetPosition((self.updatep_texte.GetPosition()[0]+(105-self.wineboot_texte.GetSize()[0])/2,self.updatep_texte.GetPosition()[1]))
+		self.updatep_texte.SetFont(self.caption_font)
+		
+		
+	
+		self.cmd_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/console.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
 		self.cmd = wx.BitmapButton(self.panelWine, id=103, bitmap=self.cmd_image,pos=(30, 196), size = (self.cmd_image.GetWidth()+5, self.cmd_image.GetHeight()+5))
 		self.cmd_texte = wx.StaticText(self.panelWine, -1, _("Command prompt"), (32,302), style=wx.ALIGN_CENTER)
 		self.cmd_texte.Wrap(110)
 		self.cmd_texte.SetPosition((self.cmd_texte.GetPosition()[0]+(105-self.cmd_texte.GetSize()[0])/2,self.cmd_texte.GetPosition()[1]))
 		self.cmd_texte.SetFont(self.caption_font)
 
-		self.taskmgr_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/taskmgr.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
+		self.taskmgr_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/monitor.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
 		self.taskmgr = wx.BitmapButton(self.panelWine, id=104, bitmap=self.taskmgr_image,pos=(166, 196), size = (self.taskmgr_image.GetWidth()+5, self.taskmgr_image.GetHeight()+5))
 		self.taskmgr_texte = wx.StaticText(self.panelWine, -1, _("Task manager"), (168,302), style=wx.ALIGN_CENTER)
 		self.taskmgr_texte.Wrap(110)
@@ -187,12 +207,19 @@ class Onglets(wx.Notebook):
 		
 		self.taskmgr_texte.SetFont(self.caption_font)
 
-		self.killall_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/killall.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
+		self.killall_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/stop.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
 		self.killall = wx.BitmapButton(self.panelWine, id=105, bitmap=self.killall_image,pos=(302, 196), size = (self.killall_image.GetWidth()+5, self.killall_image.GetHeight()+5))		
 		self.killall_texte = wx.StaticText(self.panelWine, -1, _("Kill processes"), (304,302), style=wx.ALIGN_CENTER)
 		self.killall_texte.Wrap(110)
 		self.killall_texte.SetPosition((self.killall_texte.GetPosition()[0]+(105-self.killall_texte.GetSize()[0])/2,self.killall_texte.GetPosition()[1]))
 		self.killall_texte.SetFont(self.caption_font)
+
+		self.uninstall_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/wine-uninstaller.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
+		self.uninstall = wx.BitmapButton(self.panelWine, id=108, bitmap=self.uninstall_image,pos=(438, 196), size = (self.wineboot_image.GetWidth()+5, self.uninstall_image.GetHeight()+5))		
+		self.uninstall_texte = wx.StaticText(self.panelWine, -1, _("Wine uninstaller"), (440,302), style=wx.ALIGN_CENTER)
+		self.uninstall_texte.Wrap(110)
+		self.uninstall_texte.SetPosition((self.uninstall_texte.GetPosition()[0]+(105-self.wineboot_texte.GetSize()[0])/2,self.uninstall_texte.GetPosition()[1]))
+		self.uninstall_texte.SetFont(self.caption_font)
 
 
 		wx.EVT_BUTTON(self, 100, self.evt_winecfg)
@@ -202,6 +229,8 @@ class Onglets(wx.Notebook):
 		wx.EVT_BUTTON(self, 104, self.evt_taskmgr)
 		wx.EVT_BUTTON(self, 105, self.evt_killall)
 		wx.EVT_BUTTON(self, 106, self.evt_config)
+		wx.EVT_BUTTON(self, 107, self.evt_rep)
+		wx.EVT_BUTTON(self, 108, self.evt_uninstall)
 
 				
 	def Packages(self, nom):
@@ -209,7 +238,7 @@ class Onglets(wx.Notebook):
 		self.txtPackages = wx.StaticText(self.panelPackages, -1, _(nom), (10,10), wx.DefaultSize)
 		self.txtPackages.SetFont(self.fontTitle)
 
-		self.Menu = wx.ListBox(self.panelPackages, 99, pos=(15,45),size=(430,235), style=Variables.widget_borders)
+		self.Menu = wx.ListBox(self.panelPackages, 99, pos=(15,45),size=(530,235), style=Variables.widget_borders)
 		self.PackageButton = wx.Button(self.panelPackages, 98, _("Install"), pos=(10,295))
 		
 		try : 
@@ -293,7 +322,7 @@ class Onglets(wx.Notebook):
 			else:
 				self.configurator_title.Hide()
 				self.configurator_button.Hide()
-			self.configurator_title.SetLabel(self.s_title+" specific configuration")
+			self.configurator_title.SetLabel("{0} specific configuration".format(self.s_title))
 			self.display_elements["pre_run_panel"].Show()
 			self.display_elements["pre_run_text"].Show()
 		else:
@@ -396,9 +425,10 @@ class Onglets(wx.Notebook):
 	def AddDisplayElement(self, title, shortname, elements, wine, num):
 		elements.insert(0,"Default")
 		wine.insert(0,"default")
+		elemsize = (230,25)
 		self.display_elements[shortname+"_text"] = wx.StaticText(self.panelDisplay, -1, title,pos=(15,19+num*40))
 		
-		self.display_elements[shortname] = wx.ComboBox(self.panelDisplay, 300+num, style=wx.CB_READONLY,pos=(300,15+num*40))
+		self.display_elements[shortname] = wx.ComboBox(self.panelDisplay, 300+num, style=wx.CB_READONLY,pos=(300,17+num*40),size=elemsize)
 		self.display_elements[shortname].AppendItems(wine)
 		self.display_elements[shortname].SetValue(wine[0])
 		wx.EVT_COMBOBOX(self, 300+num,  self.change_settings)
@@ -407,15 +437,16 @@ class Onglets(wx.Notebook):
 	def AddMiscElement(self, title, shortname, elements, wine, num):
 		elements.insert(0,"Default")
 		wine.insert(0,"default")
+		elemsize = (230,25)
 		self.display_elements[shortname+"_text"] = wx.StaticText(self.panelMisc, -1, title,pos=(15,19+num*40))
 
-		self.display_elements[shortname] = wx.ComboBox(self.panelMisc, 400+num, style=wx.CB_READONLY,pos=(300,15+num*40))
+		self.display_elements[shortname] = wx.ComboBox(self.panelMisc, 400+num, style=wx.CB_READONLY,pos=(300,17+num*40),size=elemsize)
 		self.display_elements[shortname].AppendItems(wine)
 		self.display_elements[shortname].SetValue(wine[0])
 		wx.EVT_COMBOBOX(self, 400+num,  self.change_settings)
 
 	def AddMiscButton(self, title, shortname, num):
-		self.display_elements[shortname+"_button"] = wx.Button(self.panelMisc, 400+num, "",pos=(15,19+num*40),size=(400,30))
+		self.display_elements[shortname+"_button"] = wx.Button(self.panelMisc, 400+num, "",pos=(15,19+num*40),size=(500,30))
 		self.display_elements[shortname+"_button"].SetLabel(title)
 		
 		wx.EVT_BUTTON(self, 400+num,  self.misc_button)
@@ -437,7 +468,7 @@ class Onglets(wx.Notebook):
 		open(os.environ["POL_USER_ROOT"]+"/configurations/pre_shortcut/"+self.s_title,'w').write(content)
 		
 	def AddGeneralButton(self, title, shortname, num):
-		self.general_elements[shortname+"_button"] = wx.Button(self.panelGeneral, 200+num, "",pos=(15,9+num*40),size=(400,30))
+		self.general_elements[shortname+"_button"] = wx.Button(self.panelGeneral, 200+num, "",pos=(15,9+num*40),size=(520,30))
 		self.general_elements[shortname+"_button"].SetLabel(title)
 
 		wx.EVT_BUTTON(self, 200+num,  self.misc_button)
@@ -536,7 +567,7 @@ class Onglets(wx.Notebook):
 	
 class MainWindow(wx.Frame):
 	def __init__(self,parent,id,title,shortcut, isPrefix = False):
-		wx.Frame.__init__(self, parent, -1, title, size = (700, 450), style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX)
+		wx.Frame.__init__(self, parent, -1, title, size = (800, 450), style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX)
 		self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
 		self.SetTitle(_('{0} configuration').format(os.environ["APPLICATION_TITLE"]))
 		#self.panelFenp = wx.Panel(self, -1)
@@ -547,9 +578,9 @@ class MainWindow(wx.Frame):
 		self.onglets = Onglets(self.splitter)
 		
 		self.noselect = wx.StaticText(self.panelEmpty, -1, _('Please select a program or a virtual drive to configure'),pos=(0,150),style=wx.ALIGN_RIGHT)
-		self.noselect.SetPosition(((500-self.noselect.GetSize()[0])/2,150))
+		self.noselect.SetPosition(((600-self.noselect.GetSize()[0])/2,150))
 		
-		self.noselect.Wrap(500)
+		self.noselect.Wrap(600)
 		if(isPrefix == True):
 			self.onglets.s_isPrefix = True
 			self.onglets.s_prefix = shortcut

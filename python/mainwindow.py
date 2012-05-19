@@ -589,11 +589,12 @@ class MainWindow(wx.Frame):
   def BugReport(self, event):
 	try:
 		self.debugFrame.Show()
+		self.debugFrame.SetFocus()
 	except:
 		self.debugFrame = debug.MainWindow(None, -1, _("{0} debugger").format(os.environ["APPLICATION_TITLE"]))
 		self.debugFrame.Center(wx.BOTH)
 		self.debugFrame.Show()
-		self.debugFrame.SetFocus()
+		
 
   def POLOnline(self, event):
     os.system("bash \""+Variables.playonlinux_env+"/bash/playonlinux_online\" &")
@@ -610,7 +611,6 @@ class MainWindow(wx.Frame):
 	try:
 		self.configureFrame.Show(True)
 		self.configureFrame.SetFocus()
-		
 		if(game_exec != ""):
 			self.configureFrame.change_program(game_exec,False)
 			
