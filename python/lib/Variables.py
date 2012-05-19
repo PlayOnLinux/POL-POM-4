@@ -3,7 +3,7 @@
 # Copyright (C) 2011 - Quentin PARIS
 
 import os, random, sys, string
-import wx
+import wx, lib.playonlinux as playonlinux
 
 # Un ptit check
 try :
@@ -97,8 +97,18 @@ current_user = os.environ["USER"]
 
 os.environ["WGETRC"] = os.environ["POL_USER_ROOT"]+"/configurations/wgetrc"
 
+		
 # Propagate kill signals
 #os.system("set -o monitor")
 
 # On fait le minimum avant de lancer l'interface
 os.system("bash "+playonlinux_env+"/bash/startup")
+
+## Proxy settings
+if(playonlinux.GetSettings("PROXY_ENABLED") == "1"):
+	if(playonlinux.GetSettings("PROXY_URL") != ""):
+		if(playonlinux.GetSettings("PROXY_LOGIN") == ""):
+			http_proxy = "http://"+playonlinux.GetSettings("PROXY_URL")+":"+playonlinux.GetSettings("PROXY_PORT")
+		else:
+			http_proxy = "http://"+playonlinux.GetSettings("PROXY_LOGIN")+":"+playonlinux.GetSettings("PROXY_PASSWORD")+"@"+playonlinux.GetSettings("PROXY_URL")+":"+playonlinux.GetSettings("PROXY_PORT")
+		os.environ["http_proxy"] = http_proxy

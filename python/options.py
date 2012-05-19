@@ -118,21 +118,13 @@ class Onglets(wx.Notebook):
 		
 		proxy_settings = {}
 		
-		proxy_settings['PROXY_ENABLED'] = "0"
-		proxy_settings['PROXY_ADRESS'] = ""
-		proxy_settings["PROXY_PORT"] = "8080"
-		proxy_settings["PROXY_LOGIN"] = ""
-		proxy_settings["PROXY_PASS"] = ""
-		
-		if(os.path.exists(Variables.playonlinux_rep+"/configurations/options/proxy")):
-			proxy = open(Variables.playonlinux_rep+"/configurations/options/proxy","r").readlines()
-			self.i = 0
-			
-			while(self.i < len(proxy)):
-				line_parsed = string.split(proxy[self.i].replace("\n","").replace("\r",""),"=")
-				#print line_parsed[0] + " " + line_parsed[1]
-				proxy_settings[line_parsed[0]] = line_parsed[1]
-				self.i += 1
+		proxy_settings['PROXY_ENABLED'] = playonlinux.GetSettings("PROXY_ENABLED")
+		if(proxy_settings['PROXY_ENABLED'] == ""):
+			proxy_settings['PROXY_ENABLED'] = "0"
+		proxy_settings['PROXY_ADRESS'] = playonlinux.GetSettings("PROXY_URL")
+		proxy_settings["PROXY_PORT"] = playonlinux.GetSettings("PROXY_PORT")
+		proxy_settings["PROXY_LOGIN"] = playonlinux.GetSettings("PROXY_LOGIN")
+		proxy_settings["PROXY_PASS"] = playonlinux.GetSettings("PROXY_PASSWORD")
 		
 		self.ProxyCheck = wx.CheckBox(self.panelInternet, 120, _("Set a proxy"),pos=(10,30))
 		self.ProxyCheck.SetValue(int(proxy_settings['PROXY_ENABLED']))
@@ -409,16 +401,14 @@ class MainWindow(wx.Frame):
     self.Destroy()
 
   def apply_settings(self, event):
-    if(self.onglets.ProxyAdresse.GetValue().replace("http://","") and self.onglets.ProxyPort.GetValue()):
-	    self.chaine = "PROXY_ENABLED="+str(int(self.onglets.ProxyCheck.IsChecked()))+"\nPROXY_ADRESS="+self.onglets.ProxyAdresse.GetValue().replace("http://","")+"\n"+"PROXY_PORT="+self.onglets.ProxyPort.GetValue()+"\n"
-	    if(self.onglets.ProxyLogin.GetValue() and self.onglets.ProxyPass.GetValue()):
-		self.chaine += "PROXY_LOGIN="+self.onglets.ProxyLogin.GetValue()+"\n"+"PROXY_PASS="+self.onglets.ProxyPass.GetValue()+"\n"
-    else:
-	    self.chaine=""
+	playonlinux.SetSettings("PROXY_ENABLED",str(int(self.onglets.ProxyCheck.IsChecked())))
+	if(self.onglets.ProxyCheck.IsChecked()):
+		playonlinux.SetSettings("PROXY_URL",self.onglets.ProxyAdresse.GetValue().replace("http://",""))
+		playonlinux.SetSettings("PROXY_PORT",self.onglets.ProxyPort.GetValue())
+		playonlinux.SetSettings("PROXY_LOGIN",self.onglets.ProxyLogin.GetValue())
+		playonlinux.SetSettings("PROXY_PASSWORD",self.onglets.ProxyPass.GetValue())
+	
 
-	   
-    open(Variables.playonlinux_rep+"/configurations/options/proxy","w").write(self.chaine)
-
-    wx.MessageBox(_("You must restart PlayOnLinux for the changes to take effect."), "PlayOnLinux", wx.OK)
-    self.Destroy()
+	wx.MessageBox(_("You must restart {0} for the changes to take effect.").format(os.environ["APPLICATION_TITLE"]), os.environ["APPLICATION_TITLE"], wx.OK)
+	self.Destroy()
 

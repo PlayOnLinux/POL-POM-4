@@ -51,23 +51,6 @@ fi
 
 which shasum > /dev/null 2> /dev/null || shasum () { sha1sum "$@"; }
 
-### POL Proxy Settings
-if [ -e "$REPERTOIRE/configurations/options/proxy" ]
-then
-	source "$REPERTOIRE/configurations/options/proxy"
-	if [ "$PROXY_ENABLED" = "1" ]
-	then
-		if [ ! "$PROXY_ADRESS" = "" ]
-		then
-			if [ ! "$PROXY_LOGIN" = "" ]
-			then
-				export http_proxy="http://$PROXY_LOGIN:$PROXY_PASS@$PROXY_ADRESS:$PROXY_PORT"
-			else
-				export http_proxy="http://$PROXY_ADRESS:$PROXY_PORT"
-			fi
-		fi
-	fi
-fi
 
 if [ "$POL_OS" == "Linux" ] 
 then 
