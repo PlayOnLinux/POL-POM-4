@@ -818,6 +818,7 @@ class PlayOnLinuxApp(wx.App):
 				wx.MessageBox(_("Your filesystem might prevent {0} from running correctly.\n\nPlease open {0} in a terminal to get more details").format(os.environ["APPLICATION_TITLE"]),_("Error"))
 		
 		#### Optirun check
+		"""
 		try:
 			returncode=subprocess.call(["which","optirun"])
 		except:
@@ -828,6 +829,7 @@ class PlayOnLinuxApp(wx.App):
 				playonlinux.SetSettings("OPTIRUN_ASKED","TRUE")
 				if(wx.YES == wx.MessageBox(_('{0} has detected that optirun is installed on your system.\n\nDo you want {0} to be configured to use it?').format(os.environ["APPLICATION_TITLE"]).decode("utf-8","replace"), os.environ["APPLICATION_TITLE"],style=wx.YES_NO | wx.ICON_QUESTION)):
 					playonlinux.SetSettings("PRE_WINE","optirun")
+		"""
 					
 		#### Other import checks
 		self.singleCheck("tar")
