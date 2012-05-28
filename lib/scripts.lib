@@ -223,7 +223,8 @@ POL_Shortcut()
 
 	binary_path=""
 	if [ "$(echo "$Binaire" | grep "/")" = "" ]; then # Binaire
-		binary_path="$(find ./ -iname "$Binaire" -a -type f | tail -n 1)"
+		binary_path="$(find ./ -name windows -prune -o -iname "$Binaire" -a -type f -print | tail -n 1)"
+		[ -z "$binary_path" ] && binary_path="$(find ./windows/ -iname "$Binaire" -a -type f -print | tail -n 1)"
 	else # Chemin
 		[ -e "./$Binaire" ] && binary_path="./$Binaire"
 	fi
