@@ -605,7 +605,8 @@ POL_Wine_Dock ()
 	cat <<- EOFRUNNER > "$APP_PATH/MacOS/playonmac_X11_wrapper_$UNIQ_ID"
 	#!/bin/bash
 	# Starting XServer
-	"$APP_PATH/MacOS/X11.bin.$UNIQ_ID" \""$APP_PATH/MacOS/X11.startup"\"
+	env LD_LIBRARY_PATH="/usr/X11/lib/" "$APP_PATH/MacOS/X11.bin.$UNIQ_ID" \""$APP_PATH/MacOS/X11.startup"\"
+	
 	exit 0	
 	EOFRUNNER
 	chmod +x "$APP_PATH/MacOS/playonmac_X11_wrapper_$UNIQ_ID"
@@ -630,7 +631,7 @@ POL_Wine_Dock ()
 
 	png2icns "$APP_PATH/Resources/playonmac_tmp.icns" "$APP_PATH/Resources/playonmac.png" && mv "$APP_PATH/Resources/playonmac_tmp.icns" "$APP_PATH/Resources/playonmac.icns"
 	
-	"$APP_PATH/MacOS/playonmac_X11_wrapper_$UNIQ_ID" &
+	open "$APP_PATH/.." &
 	
 	while [ ! -e "$UNIQ_PATH/return" ]; do
 		sleep 10
