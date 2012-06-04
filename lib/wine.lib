@@ -1081,3 +1081,9 @@ POL_Wine_CommonName()
 	[ "$cname" = "wineboot" ] && cname="Virtual drive creation"
 	echo "$cname"
 }
+POL_Wine_EnableOSXNativeDock()
+{
+	if [ "$POL_OS" = "Mac" -a "$(POL_Config_Read "OSX_NATIVE_MODE")" = "TRUE" ]; then
+		export FORCE_OSX_DOCK="TRUE"
+	fi
+}
