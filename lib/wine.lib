@@ -617,8 +617,6 @@ POL_Wine_Dock ()
 	$WINELINE
 	echo \$? > "$UNIQ_PATH/return"
 	wineserver -w
-
-	rm -rf "$UNIQ_PATH"
 		
 	killall "X11.bin.$UNIQ_ID"
 	exit 0
@@ -636,6 +634,7 @@ POL_Wine_Dock ()
 	while [ ! -e "$UNIQ_PATH/return" ]; do
 		sleep 10
 	done
+	rm -rf "$UNIQ_PATH"
 	
 	rm "$HOME/Library/Preferences/$identifier.playonmac_$UNIQ_ID.plist"
 	errors="$(cat "$UNIQ_PATH/return")"
