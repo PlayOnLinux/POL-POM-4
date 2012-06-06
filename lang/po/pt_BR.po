@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2012-05-18 19:00+0200\n"
-"PO-Revision-Date: 2012-05-10 02:47+0000\n"
-"Last-Translator: Neliton Pereira Jr. <nelitonpjr@gmail.com>\n"
+"PO-Revision-Date: 2012-06-04 00:53+0000\n"
+"Last-Translator: Lucas Dillmann <lucas@dillmann.com.br>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-05-19 04:37+0000\n"
-"X-Generator: Launchpad (build 15259)\n"
+"X-Launchpad-Export-Date: 2012-06-05 04:41+0000\n"
+"X-Generator: Launchpad (build 15353)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -509,7 +509,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Alien_Breed___Impact_:83
 #, sh-format
 msgid "If .NET 3.0 installation fail, dont"
-msgstr ""
+msgstr "Se a instalação do .NET 3.0 falhar, não"
 
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:30
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:40
@@ -709,6 +709,8 @@ msgid ""
 "Wait while the patch is downloading...\\nThis operation can take time, "
 "depending of your connexion"
 msgstr ""
+"Aguarnde enquanto o patch está baixando...\\nEsta operação pode levar tempo, "
+"dependendo da sua conexão"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_:73
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_:75 PlayOnLinux_Scripts/Blur_:52
@@ -1204,12 +1206,12 @@ msgstr "Por favor, aguarde enquanto $TITLE está sendo baixado..."
 #: PlayOnLinux_Scripts/Diablo_III_:21
 #, sh-format
 msgid "Please select the setup file downloaded on $EDITOR website"
-msgstr ""
+msgstr "Por favor escolha o arquivo de instalação baixado do site da $EDITOR"
 
 #: PlayOnLinux_Scripts/Diablo_III_:33
 #, sh-format
 msgid "Waiting for $TITLE to be installed"
-msgstr ""
+msgstr "Aguardando a instalação de $TITLE"
 
 #: PlayOnLinux_Scripts/Diablo_II_:51 PlayOnLinux_Scripts/SimCity_2000_:47
 #, sh-format
@@ -1481,7 +1483,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Good_Old_Games___Deus_Ex_GOTY_Edition_:94
 #, sh-format
 msgid "Run $TITLE in safe mode?"
-msgstr ""
+msgstr "Rodar $TITLE no modo seguro?"
 
 #: PlayOnLinux_Scripts/Good_Old_Games___Dungeon_Keeper_2_:20
 #, sh-format
@@ -1814,7 +1816,7 @@ msgstr "$TITLE está instalado"
 #: PlayOnLinux_Scripts/Guild_Wars_:53
 #, sh-format
 msgid "Please insert the DVD-ROM"
-msgstr ""
+msgstr "Por favor insira o DVD-ROM"
 
 #: PlayOnLinux_Scripts/Guild_Wars_2_:64
 #, sh-format
@@ -1828,11 +1830,15 @@ msgid ""
 "client and download will resume from where it stopped. Download percentage "
 "reset but dont"
 msgstr ""
+"Por causa da falha #30512 do Wine, o download pode gerar uma falha, apenas "
+"reinicie o cliente e o download irá resumir de onde ele parou. A porcentagem "
+"irá reiniciar mas não reiniciou."
 
 #: PlayOnLinux_Scripts/Infinity_Engine_widescreen_mod_:50
 #, sh-format
 msgid "Could not find executable $EXE in virtual disk $PREFIX"
 msgstr ""
+"Não foi possível encontrar o executável $EXE no disco virtual $PREFIX"
 
 #: PlayOnLinux_Scripts/Infinity_Engine_widescreen_mod_:105
 #, sh-format
@@ -1868,6 +1874,8 @@ msgstr "Qual idioma você gostaria de instalar?"
 msgid ""
 "Warning: You must not tick the checkbox \"Run $TITLE\" when setup is done"
 msgstr ""
+"Aviso: Você não pode marcar a caixa de seleção \"Executar $TITLE\" quando a "
+"instalação concluír"
 
 #: PlayOnLinux_Scripts/League_Of_Legends_:63
 #, sh-format
@@ -2170,7 +2178,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_vcrun2010_:33
 #, sh-format
 msgid "VCRun2008 might fail to install"
-msgstr ""
+msgstr "VCRun2008 pode falhar ao instalar"
 
 #: PlayOnLinux_Scripts/POL_Install_vcrun2010_:17
 #, sh-format
@@ -2216,6 +2224,8 @@ msgid ""
 "To continue, PlayOnLinux needs to umount your CD-ROM previously mounted with "
 "unhide option."
 msgstr ""
+"Para continuar, o PlayOnLinux precisa desmontar seu CD-ROM previamente "
+"montado com a opção unhide."
 
 #: PlayOnLinux_Scripts/POL_Sudo_RehideCdrom_:15
 #: PlayOnLinux_Scripts/POL_Sudo_UnhideCdrom_:15
@@ -2224,18 +2234,22 @@ msgid ""
 "We need to have sudo access on your computer. Therefore, your root password "
 "will be asked. Here is the commands PlayOnLinux will run as root:"
 msgstr ""
+"É necessário o acesso ao sudo no seu computador. Assim, a senha do root será "
+"solicitada. Aqui esta a lista de comandos que o PlayOnLinux executará como "
+"root:"
 
 #: PlayOnLinux_Scripts/POL_Sudo_RehideCdrom_:20
 #: PlayOnLinux_Scripts/POL_Sudo_UnhideCdrom_:21
 #, sh-format
 msgid "Please read carrefully"
-msgstr ""
+msgstr "Por favor leia com atenção"
 
 #: PlayOnLinux_Scripts/POL_Sudo_UnhideCdrom_:13
 #, sh-format
 msgid ""
 "To continue, PlayOnLinux needs to remount your CD-ROM with unhide option."
 msgstr ""
+"Para continuar, o PlayOnLinux precisa remontar seu CD-ROM com a opção unhide."
 
 #: PlayOnLinux_Scripts/Q.U.B.E_:94 PlayOnLinux_Scripts/Star_Twine_:72
 #, sh-format
@@ -2449,6 +2463,9 @@ msgid ""
 "COMPLETELY the Steam interface, \\nso that the installation script can "
 "continue"
 msgstr ""
+"Quando o download do $TITLE pelo Steam terminar, não clique em Jogar.\\n\\"
+"nFeche COMPLETAMENTE a interface do Steam, \\nassim o script de instalação "
+"poderá continuar."
 
 #: PlayOnLinux_Scripts/The_Witcher_:55 PlayOnLinux_Scripts/The_Witcher_:57
 #, sh-format
@@ -2549,6 +2566,8 @@ msgid ""
 "The CD-ROM version is out to date. Do not forget to update $TITLE if you "
 "want it to run correctly with $APPLICATION_TITLE"
 msgstr ""
+"A versão do CD-ROM está desatualizada. Não esqueça de atualizar o $TITLE se "
+"você o deseja rodando corretamente com $APPLICATION_TITLE"
 
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:36
 #, sh-format
@@ -4132,7 +4151,7 @@ msgstr "Atualizar"
 #: lib/setupwindow.lib:694
 #, sh-format
 msgid "Reading your device"
-msgstr ""
+msgstr "Lendo seu dispositivo"
 
 #: lib/setupwindow.lib:709
 #, sh-format
@@ -4580,7 +4599,7 @@ msgstr ""
 
 #: python/lib/playonlinux.py:27
 msgid "There is nothing installed to run .{0} files."
-msgstr ""
+msgstr "Não há nada instalado para abrir arquivos .{0}"
 
 #: python/mainwindow.py:67
 msgid "{0} website is unavailable. Please check your connexion"
@@ -4644,7 +4663,7 @@ msgstr "{0} mensageiro"
 
 #: python/mainwindow.py:229 python/options.py:396
 msgid "File associations"
-msgstr ""
+msgstr "Associações de arquivos"
 
 #: python/mainwindow.py:243
 msgid "About {0}"
@@ -4790,6 +4809,9 @@ msgid ""
 "\n"
 "Please open {0} in a terminal to get more details"
 msgstr ""
+"Seu sistema de arquivos previne {0} de rodarem corretamente.\n"
+"\n"
+"Por favor abra o {0} em um terminal para obter mais detalhes"
 
 #: python/mainwindow.py:793
 msgid "Are you sure you want to  want to install {0} package?"
@@ -4844,15 +4866,15 @@ msgstr "Escolha um plugin"
 
 #: python/options.py:271
 msgid "What is the extension?"
-msgstr ""
+msgstr "Qual é a extensão?"
 
 #: python/options.py:283
 msgid "Assigned program"
-msgstr ""
+msgstr "Programa assimilado"
 
 #: python/options.py:285
 msgid "Delete"
-msgstr ""
+msgstr "Apagar"
 
 #: python/options.py:313
 msgid "Are you sure you want to install: "
