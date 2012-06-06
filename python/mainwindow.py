@@ -32,6 +32,8 @@ if(os.environ["POL_OS"] == "Linux"):
 	wxversion.ensureMinimal('2.8')
 	
 import wx
+import wx.aui
+
 import lib.Variables as Variables, lib.lng as lng
 import lib.playonlinux as playonlinux
 import guiv3 as gui, install, options, wine_versions as wver, sp, configure, threading, debug
@@ -96,8 +98,7 @@ class MainWindow(wx.Frame):
 	wx.Frame.__init__(self, parent, 1000, title, size = (515,450))
 	self.SetMinSize((300,300))
 	
-
-		
+	self.updateMgr = False
 	try:
 		self.windowWidth = int(playonlinux.GetSettings("MAINWINDOW_WIDTH"))
 		self.windowHeight = int(playonlinux.GetSettings("MAINWINDOW_HEIGHT"))
@@ -135,12 +136,47 @@ class MainWindow(wx.Frame):
 	self.updater.start()
 	self.sendAlertStr = None
 	
+	## List game
 	self.list_game = wx.TreeCtrl(self, 105, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT)	
 	self.list_game.SetSpacing(0);
 	self.list_game.SetIndent(5);
 	self.list_game.SetImageList(self.images)
-
+	self._mgr = wx.aui.AuiManager(self)
+	self.menu_gauche = wx.Panel(self,-1)
 	
+	#if(os.path.exists(os.environ["POL_USER_ROOT"]+"/configurations/layout")):
+
+		#content = open(os.environ["POL_USER_ROOT"]+"/configurations/layout","r").read()
+		#self._mgr.LoadPerspective(content)
+		##self._mgr.AddPane(self.list_game)
+		##self._mgr.AddPane(self.menu_gauche)
+		
+	#else:
+	try:
+		self.LoadSize = int(playonlinux.GetSettings("PANEL_SIZE"))
+	except:
+		self.LoadSize = 150
+
+	try:
+		self.LoadPosition = playonlinux.GetSettings("PANEL_POSITION")
+	except:
+		self.LoadPosition = "LEFT"
+
+	print self.LoadSize	
+	if(self.LoadSize < 20):
+		self.LoadSize = 20
+	if(self.LoadSize > 1000):
+		self.LoadSize = 1000
+	
+	print self.LoadSize
+	self._mgr.AddPane(self.list_game, wx.CENTER)
+	if(self.LoadPosition == "LEFT"):
+		self._mgr.AddPane(self.menu_gauche, wx.aui.AuiPaneInfo().Name('Actions').Caption('Actions').Left().BestSize((self.LoadSize,100)).Floatable(True))
+	else:
+		self._mgr.AddPane(self.menu_gauche, wx.aui.AuiPaneInfo().Name('Actions').Caption('Actions').Right().BestSize((self.LoadSize,100)).Floatable(True))
+		
+	self._mgr.Update()
+		
 	self.oldreload = ""	
 	self.oldimg = ""
 	
@@ -520,7 +556,10 @@ class MainWindow(wx.Frame):
 		if("wine " in self.read[self.i]):
 			self.wine_present = True;
 		self.i += 1
-
+	
+	
+	self.menu_gauche.Show()
+	
   def donate(self, event):
 	if(os.environ["POL_OS"] == "Mac"):
 		webbrowser.open("http://www.playonmac.com/en/donate.html")
@@ -661,7 +700,7 @@ class MainWindow(wx.Frame):
 	if(reloadimg != self.oldimg):
 		self.Reload(self)
 		self.oldimg = reloadimg
-   
+
 
   def InstallMenu(self, event):
     try:
@@ -713,6 +752,27 @@ class MainWindow(wx.Frame):
 		playonlinux.SetSettings("MAINWINDOW_HEIGHT",str(self.SizeToSave[1]-Variables.windows_add_playonmac*56))
 		playonlinux.SetSettings("MAINWINDOW_X",str(self.PositionToSave[0]))
 		playonlinux.SetSettings("MAINWINDOW_Y",str(self.PositionToSave[1]))
+		self._mgr.UnInit()
+		# I know, that's very ugly, but I have no choice for the moment
+		self.perspective = self._mgr.SavePerspective().split("|")
+		self.perspective = self.perspective[len(self.perspective) - 2].split("=")
+		
+		self.DockType = self.perspective[0]
+		self.mySize = 150
+		self.myPosition = "LEFT"
+		if(self.DockType == "dock_size(4,0,0)"):
+			self.mySize = int(self.perspective[1]) - 2
+			self.myPosition = "LEFT"
+
+		if(self.DockType == "dock_size(2,0,1)"):
+			self.mySize = int(self.perspective[1]) - 2
+			self.myPosition = "RIGHT"
+
+		print self.DockType
+		print self.myPosition
+		playonlinux.SetSettings("PANEL_SIZE",str(self.mySize))
+		playonlinux.SetSettings("PANEL_POSITION",str(self.myPosition))
+		
 		os._exit(0)
     return None
     
