@@ -44,9 +44,9 @@ class Onglets(wx.Notebook):
 
 	def winebash(self, command):
 		if(self.s_isPrefix == True):
-			os.system("bash "+Variables.playonlinux_env+"/bash/winebash --prefix \""+self.s_prefix+"\" "+command+" &")
+			os.system("bash "+Variables.playonlinux_env+"/bash/winebash --prefix \""+self.s_prefix+"\" "+command.encode("utf-8","replace")+" &")
 		else:
-			os.system("bash "+Variables.playonlinux_env+"/bash/winebash \""+self.s_title+"\" "+command+" &")
+			os.system("bash "+Variables.playonlinux_env+"/bash/winebash \""+self.s_title+"\" "+command.encode("utf-8","replace")+" &")
 		
 	def evt_winecfg(self, event):
 		self.winebash("winecfg")
