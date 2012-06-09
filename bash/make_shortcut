@@ -40,7 +40,7 @@ fi
 POL_SetupWindow_message "$(eval_gettext "There are two kind of packages\n\nPlayOnMac package: this package will only work on your computer. \nTherefore, it will not take more space on your hard drive.\n\nStand-alone package: in this package, PlayOnMac will include all files\nneeded to run your software.\nThis package will work without PlayOnMac.")" "$TITLE"
 DIRAPP="$HOME/Desktop/$PACKAGE.app"
 shortname="$(printf $PACKAGE | tr -c [[a-zA-Z0-9]\.] '_')"
-POL_SetupWindow_menu_num "$(eval_gettext "What kind of Package do yo want?\n\n")" "$TITLE"  "$(eval_gettext "PlayOnMac package")~$(eval_gettext "Stand-alone package")" "~"
+POL_SetupWindow_menu_num "$(eval_gettext "What kind of Package do yo want?")" "$TITLE"  "$(eval_gettext "PlayOnMac package")~$(eval_gettext "Stand-alone package")" "~"
 KIND_OF_PACKAGE="$APP_ANSWER"
 if [ "$KIND_OF_PACKAGE"  = "0" ]
 then

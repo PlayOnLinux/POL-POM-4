@@ -139,6 +139,15 @@ class MainWindow(wx.Frame):
 	self.updater.start()
 	self.sendAlertStr = None
 	
+	## Fonts
+	if(os.environ["POL_OS"] == "Mac"):
+		self.fontTitre = wx.Font(14, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, False, "", wx.FONTENCODING_DEFAULT)
+		self.fontText = wx.Font(12, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL,False, "", wx.FONTENCODING_DEFAULT)
+	else :
+		self.fontTitre = wx.Font(10, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, False, "", wx.FONTENCODING_DEFAULT)
+		self.fontText = wx.Font(8, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL,False, "", wx.FONTENCODING_DEFAULT)
+	
+	
 	## List game
 	self.list_game = wx.TreeCtrl(self, 105, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT)	
 	self.list_game.SetSpacing(0);
@@ -400,13 +409,7 @@ class MainWindow(wx.Frame):
 	wx.EVT_MENU(self, 235, self.RKill)
 	wx.EVT_MENU(self, 236, self.ReadMe)
 	
-	if(os.environ["POL_OS"] == "Mac"):
-		self.fontTitre = wx.Font(14, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, False, "", wx.FONTENCODING_DEFAULT)
-		self.fontText = wx.Font(12, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL,False, "", wx.FONTENCODING_DEFAULT)
-	else :
-		self.fontTitre = wx.Font(10, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, False, "", wx.FONTENCODING_DEFAULT)
-		self.fontText = wx.Font(8, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL,False, "", wx.FONTENCODING_DEFAULT)
-	
+
 
   def StatusRead(self):
 	self.sb.SetStatusText(self.updater.sendToStatusBarStr, 0)
@@ -543,10 +546,10 @@ class MainWindow(wx.Frame):
 			self.wine_present = True;
 		self.i += 1
 	
-	self.generate_menu()
+	self.generate_menu(game_exec)
 	self.menu_gauche.Show()
 	
-  def generate_menu(self):
+  def generate_menu(self, shortcut=None):
 	for c in self.menuElem:
 		self.menuElem[c].Destroy()
 	
@@ -556,11 +559,32 @@ class MainWindow(wx.Frame):
 	self.menuElem = {}
 	self.menuImage = {}
 	
-	self.menuGaucheAddTitle("program_title", os.environ["APPLICATION_TITLE"], 0)
-	self.menuGaucheAddLink("program_install", _("Install a program"), 1,"",self.InstallMenu)
-	
+	i = 0;
+	self.menuGaucheAddTitle("pol_title", os.environ["APPLICATION_TITLE"], i)
+	i+=1
+	self.menuGaucheAddLink("pol_prgm_install", _("Install a program"), i,Variables.playonlinux_env+"/resources/images/menu/add.png",self.InstallMenu)
+	i+=1
+	self.menuGaucheAddLink("pol_prgm_wver", _("Manage wine versions"), i,Variables.playonlinux_env+"/resources/images/menu/wine.png",self.WineVersion)
+		
+	if(shortcut != None):
+		i+=2
+		self.menuGaucheAddTitle("prgm_title", shortcut, i)
+		i+=1
+		self.menuGaucheAddLink("pol_prgm_run", _("Run"), i,Variables.playonlinux_env+"/resources/images/menu/run.png",self.Run)
+		i+=1
+		self.menuGaucheAddLink("pol_prgm_uninstall", _("Uninstall"), i,Variables.playonlinux_env+"/resources/images/menu/delete.png",self.UninstallGame)
+		i+=1
+		self.menuGaucheAddLink("pol_prgm_configure", _("Configure"), i,Variables.playonlinux_env+"/resources/images/menu/options.png",self.Configure)
+		i+=1
+		self.menuGaucheAddLink("pol_prgm_shortcut", _("Create a shortcut"), i,Variables.playonlinux_env+"/resources/images/menu/shortcut.png",self.Package)
+		i+=1
+		self.menuGaucheAddLink("pol_prgm_adddir", _("Go to directory"), i,Variables.playonlinux_env+"/resources/images/menu/folder-wine.png",self.GoToAppDir)
+		if(os.path.exists(os.environ["POL_USER_ROOT"]+"/configurations/manuals/"+shortcut)):
+			i+=1
+			self.menuGaucheAddLink("pol_prgm_readme", _("Read the manual"), i,Variables.playonlinux_env+"/resources/images/menu/manual.png",self.ReadMe)
+		
   def menuGaucheAddTitle(self,id,text,pos):
-	self.menuElem[id] = wx.StaticText(self.menu_gauche, -1, text,pos=(5,5+pos*30))
+	self.menuElem[id] = wx.StaticText(self.menu_gauche, -1, text,pos=(5,5+pos*20))
 	self.menuElem[id].SetForegroundColour((0,0,0)) # For dark themes
 	self.menuElem[id].SetFont(self.fontTitre)
 
@@ -624,7 +648,8 @@ class MainWindow(wx.Frame):
 			except:
 				pass
 			item = self.list_game.AppendItem(root, game, self.i)
-			self.i += 1	
+			self.i += 1
+	 self.generate_menu(None)
 
   def RConfigure(self, function_to_run, firstargument):
 		"""Starts polconfigurator remotely."""
@@ -736,7 +761,6 @@ class MainWindow(wx.Frame):
     	self.installFrame.SetFocus()
     except:
     	self.installFrame = install.InstallWindow(self, -1, _('{0} install menu').format(os.environ["APPLICATION_TITLE"]))
-    #self.SetTopWindow(installFrame)
     	self.installFrame.Center(wx.BOTH)
     	self.installFrame.Show(True)
 	
