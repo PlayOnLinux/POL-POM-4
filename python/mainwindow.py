@@ -98,7 +98,10 @@ class MainWindow(wx.Frame):
 	wx.Frame.__init__(self, parent, 1000, title, size = (515,450))
 	self.SetMinSize((300,300))
 	
-	self.updateMgr = False
+	self.menuElem = {}
+	self.menuImage = {}
+	
+	# Window size
 	try:
 		self.windowWidth = int(playonlinux.GetSettings("MAINWINDOW_WIDTH"))
 		self.windowHeight = int(playonlinux.GetSettings("MAINWINDOW_HEIGHT"))
@@ -142,16 +145,8 @@ class MainWindow(wx.Frame):
 	self.list_game.SetIndent(5);
 	self.list_game.SetImageList(self.images)
 	self._mgr = wx.aui.AuiManager(self)
-	self.menu_gauche = wx.Panel(self,-1)
+	self.menu_gauche = wx.ScrolledWindow(self,-1)
 	
-	#if(os.path.exists(os.environ["POL_USER_ROOT"]+"/configurations/layout")):
-
-		#content = open(os.environ["POL_USER_ROOT"]+"/configurations/layout","r").read()
-		#self._mgr.LoadPerspective(content)
-		##self._mgr.AddPane(self.list_game)
-		##self._mgr.AddPane(self.menu_gauche)
-		
-	#else:
 	try:
 		self.LoadSize = int(playonlinux.GetSettings("PANEL_SIZE"))
 	except:
@@ -162,13 +157,11 @@ class MainWindow(wx.Frame):
 	except:
 		self.LoadPosition = "LEFT"
 
-	print self.LoadSize	
 	if(self.LoadSize < 20):
 		self.LoadSize = 20
 	if(self.LoadSize > 1000):
 		self.LoadSize = 1000
 	
-	print self.LoadSize
 	self._mgr.AddPane(self.list_game, wx.CENTER)
 	if(self.LoadPosition == "LEFT"):
 		self._mgr.AddPane(self.menu_gauche, wx.aui.AuiPaneInfo().Name('Actions').Caption('Actions').Left().BestSize((self.LoadSize,100)).Floatable(True))
@@ -184,7 +177,8 @@ class MainWindow(wx.Frame):
 	if(os.environ["POL_OS"] == "Mac"):
 		prefItem = self.filemenu.Append(wx.ID_PREFERENCES, text = "&Preferences")
 		self.Bind(wx.EVT_MENU, self.Options, prefItem)
-		
+	
+	### TOOLBAR
 	self.filemenu.Append(wx.ID_OPEN, _("Run"))
 	self.filemenu.Append(wx.ID_ADD, _("Install"))
 	self.filemenu.Append(wx.ID_DELETE, _("Remove"))
@@ -192,7 +186,7 @@ class MainWindow(wx.Frame):
 	self.filemenu.Append(216, _("Donate"))
 	self.filemenu.Append(wx.ID_EXIT, _("Exit"))
 	
-	
+	### MENU
 	self.displaymenu = wx.Menu()
 	self.icon16 = self.displaymenu.AppendRadioItem(501, _("Small icons"))
 	self.icon24 = self.displaymenu.AppendRadioItem(502, _("Medium icons"))
@@ -213,10 +207,6 @@ class MainWindow(wx.Frame):
 	self.winever_item = wx.MenuItem(self.expertmenu, 107, _("Manage Wine versions"))
 	self.winever_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/wine.png"))
 	self.expertmenu.AppendItem(self.winever_item)
-
-	#self.wineprefix_item = wx.MenuItem(self.expertmenu, 111, _("Manage virtual drives"))
-	#self.wineprefix_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/prefix-manager.png"))
-	#self.expertmenu.AppendItem(self.wineprefix_item)
 
 	if(os.environ["POL_OS"] == "Mac"):
 		self.expertmenu.AppendSeparator()
@@ -255,9 +245,6 @@ class MainWindow(wx.Frame):
 	
 	self.optionmenu = wx.Menu()
 
-#	self.option_item = wx.MenuItem(self.expertmenu, 210, _("General"))
-#	self.option_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/etc/onglet/input-gaming.png"))
-#	self.optionmenu.AppendItem(self.option_item)
 
 	self.option_item = wx.MenuItem(self.expertmenu, 211, _("Internet"))
 	self.option_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/etc/onglet/internet-web-browser.png"))
@@ -267,13 +254,6 @@ class MainWindow(wx.Frame):
 	self.option_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/extensions.png"))
 	self.optionmenu.AppendItem(self.option_item)
 
-	#self.option_item = wx.MenuItem(self.expertmenu, 212, _("Environment"))
-	#self.option_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/etc/onglet/user-desktop.png"))
-	#self.optionmenu.AppendItem(self.option_item)
-
-	#self.option_item = wx.MenuItem(self.expertmenu, 213, _("System"))
-	#self.option_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/etc/onglet/application-x-executable.png"))
-	#self.optionmenu.AppendItem(self.option_item)
 
 	
 	self.help_menu = wx.Menu()
@@ -420,7 +400,13 @@ class MainWindow(wx.Frame):
 	wx.EVT_MENU(self, 235, self.RKill)
 	wx.EVT_MENU(self, 236, self.ReadMe)
 	
-	#self.sb.Hide()
+	if(os.environ["POL_OS"] == "Mac"):
+		self.fontTitre = wx.Font(14, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, False, "", wx.FONTENCODING_DEFAULT)
+		self.fontText = wx.Font(12, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL,False, "", wx.FONTENCODING_DEFAULT)
+	else :
+		self.fontTitre = wx.Font(10, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, False, "", wx.FONTENCODING_DEFAULT)
+		self.fontText = wx.Font(8, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL,False, "", wx.FONTENCODING_DEFAULT)
+	
 
   def StatusRead(self):
 	self.sb.SetStatusText(self.updater.sendToStatusBarStr, 0)
@@ -557,9 +543,51 @@ class MainWindow(wx.Frame):
 			self.wine_present = True;
 		self.i += 1
 	
-	
+	self.generate_menu()
 	self.menu_gauche.Show()
 	
+  def generate_menu(self):
+	for c in self.menuElem:
+		self.menuElem[c].Destroy()
+	
+	for c in self.menuImage:
+		self.menuImage[c].Destroy()
+
+	self.menuElem = {}
+	self.menuImage = {}
+	
+	self.menuGaucheAddTitle("program_title", os.environ["APPLICATION_TITLE"], 0)
+	self.menuGaucheAddLink("program_install", _("Install a program"), 1,"",self.InstallMenu)
+	
+  def menuGaucheAddTitle(self,id,text,pos):
+	self.menuElem[id] = wx.StaticText(self.menu_gauche, -1, text,pos=(5,5+pos*30))
+	self.menuElem[id].SetForegroundColour((0,0,0)) # For dark themes
+	self.menuElem[id].SetFont(self.fontTitre)
+
+	
+  def menuGaucheAddLink(self,id,text,pos,image,evt):
+	if(os.path.exists(image)):
+		menu_icone = image
+	else:
+		menu_icone = Variables.playonlinux_env+"/etc/playonlinux.png"
+		
+	try:
+		self.bitmap = wx.Image(menu_icone)
+		self.bitmap.Rescale(16,16,wx.IMAGE_QUALITY_HIGH)
+		self.bitmap = self.bitmap.ConvertToBitmap()
+		self.menuImage[id] = wx.StaticBitmap(self.menu_gauche, id=-1, bitmap=self.bitmap, pos=(10,15+pos*20)) 
+		
+	except:
+		pass
+	
+		
+	self.menuElem[id] = wx.HyperlinkCtrl(self.menu_gauche, 10000+pos, text, "", pos=(35,15+pos*20))
+	self.menuElem[id].SetNormalColour(wx.Colour(0,0,0))
+	self.menuElem[id].SetVisitedColour(wx.Colour(0,0,0))
+	self.menuElem[id].SetHoverColour(wx.Colour(100,100,100))
+	
+	wx.EVT_HYPERLINK(self, 10000+pos, evt)
+		
   def donate(self, event):
 	if(os.environ["POL_OS"] == "Mac"):
 		webbrowser.open("http://www.playonmac.com/en/donate.html")
@@ -768,8 +796,6 @@ class MainWindow(wx.Frame):
 			self.mySize = int(self.perspective[1]) - 2
 			self.myPosition = "RIGHT"
 
-		print self.DockType
-		print self.myPosition
 		playonlinux.SetSettings("PANEL_SIZE",str(self.mySize))
 		playonlinux.SetSettings("PANEL_POSITION",str(self.myPosition))
 		
