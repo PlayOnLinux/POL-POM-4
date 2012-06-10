@@ -392,7 +392,7 @@ class IrcClient(wx.Frame):
 	if(self.onglets.window.GetItemText(self.onglets.window.GetSelection()) != irc.selected_window):
 		irc.selected_window = self.onglets.window.GetItemText(self.onglets.window.GetSelection())
 		
-	if(irc.selected_window == "#playonlinux"):
+	if(irc.selected_window == "#playonlinux" or irc.selected_window == ""):
 		self.onglets.close.Enable(False)
 	else:
 		self.onglets.close.Enable(True)

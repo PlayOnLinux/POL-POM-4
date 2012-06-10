@@ -85,7 +85,10 @@ if (os.environ["POL_OS"] == "Mac"):
 	os.environ["LD_LIBRARY_PATH"] =  os.environ["PLAYONLINUX"]+"/../unix/wine/lib/:"  + os.environ["PLAYONLINUX"]+"/../unix/image_magick/lib:"+ os.environ["PLAYONLINUX"]+"/../unix/tools/lib/ld:/usr/X11/lib/:" + os.environ["LD_LIBRARY_PATH"]
 	
 	os.environ["DYLD_LIBRARY_PATH"] = os.environ["PLAYONLINUX"]+"/../unix/tools/lib/dyld:" + os.environ["PLAYONLINUX"]+"/../unix/image_magick/lib:"+ os.environ["DYLD_LIBRARY_PATH"]
-
+else:
+	if(os.path.exists("/usr/lib/wine/wineserver")): # Debian maintener decided for some unknown reason not to let wineserver binary into PATH...
+		os.environ["PATH"] = os.environ["PATH"]+"/usr/lib/wine/"
+		
 os.environ["PATH_ORIGIN"] = os.environ["PATH"]
 os.environ["LD_PATH_ORIGIN"] = os.environ["LD_LIBRARY_PATH"]
 os.environ["DYLDPATH_ORIGIN"] = os.environ["DYLD_LIBRARY_PATH"]

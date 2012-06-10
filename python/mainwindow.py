@@ -320,13 +320,15 @@ class MainWindow(wx.Frame):
 
 	self.toolbar = self.CreateToolBar(wx.TB_TEXT)
 	self.toolbar.SetToolBitmapSize(iconSize)
-	self.toolbar.AddLabelTool(wx.ID_OPEN, _("Run"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/run.png"))
-	#self.toolbar.AddSeparator()
+	self.toolbar.AddLabelTool(wx.ID_OPEN, _("Run"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/play.png"))
+	self.toolbar.AddLabelTool(123, _("Close"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/stop.png"))
+	
+	self.toolbar.AddSeparator()
 	self.toolbar.AddLabelTool(wx.ID_ADD, _("Install"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/install.png"))
 	self.toolbar_remove = self.toolbar.AddLabelTool(wx.ID_DELETE, _("Remove"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/delete.png"))
 	#self.toolbar.AddLabelTool(120, _("CD-ROM"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/cdrom.png"))
 	
-	#self.toolbar.AddSeparator()
+	self.toolbar.AddSeparator()
 	self.toolbar.AddLabelTool(121, _("Configure"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/configure.png"))
 	#self.toolbar.AddLabelTool(122, _("Shortcut"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/package.png"))
 	#self.toolbar.AddLabelTool(123, _("Messenger"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/messenger.png"))
@@ -335,6 +337,8 @@ class MainWindow(wx.Frame):
 	self.toolbar.Realize()
 	self.Reload(self)
 	wx.EVT_MENU(self, wx.ID_OPEN,  self.Run)
+	wx.EVT_MENU(self, 123,  self.RKill)
+	
 	wx.EVT_MENU(self, wx.ID_ADD,  self.InstallMenu)
 	wx.EVT_MENU(self, wx.ID_ABOUT,  self.About)
 	wx.EVT_MENU(self,  wx.ID_EXIT,  self.ClosePol)
@@ -360,7 +364,6 @@ class MainWindow(wx.Frame):
 	wx.EVT_MENU(self, 115,  self.killall)
 	wx.EVT_MENU(self, 121,  self.Configure)
 	wx.EVT_MENU(self, 122,  self.Package)
-	wx.EVT_MENU(self, 123,  self.OpenIrc)
 
 	#Options
 	wx.EVT_MENU(self, 210,  self.Options)
@@ -472,7 +475,7 @@ class MainWindow(wx.Frame):
 	self.GameListPopUpMenu.AppendItem(self.ChangeIcon)
 
 	self.ChangeIcon = wx.MenuItem(self.GameListPopUpMenu, 235, _("Close this application"))
-	self.ChangeIcon.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/wineserver.png"))
+	self.ChangeIcon.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/media-playback-stop.png.png"))
 	self.GameListPopUpMenu.AppendItem(self.ChangeIcon)
 
 	self.PopupMenu(self.GameListPopUpMenu, event.GetPoint())
@@ -592,11 +595,11 @@ class MainWindow(wx.Frame):
 		i+=2
 		self.menuGaucheAddTitle("prgm_title", shortcut, i)
 		i+=1
-		self.menuGaucheAddLink("pol_prgm_run", _("Run"), i,Variables.playonlinux_env+"/resources/images/menu/run.png",self.Run)
+		self.menuGaucheAddLink("pol_prgm_run", _("Run"), i,Variables.playonlinux_env+"/resources/images/menu/media-playback-start.png",self.Run)
 		i+=1
-		self.menuGaucheAddLink("pol_prgm_kill", _("Close"), i,Variables.playonlinux_env+"/resources/images/menu/wineserver.png",self.RKill)
+		self.menuGaucheAddLink("pol_prgm_kill", _("Close"), i,Variables.playonlinux_env+"/resources/images/menu/media-playback-stop.png",self.RKill)
 		i+=1
-		self.menuGaucheAddLink("pol_prgm_configure", _("Configure"), i,Variables.playonlinux_env+"/resources/images/menu/options.png",self.Configure)
+		self.menuGaucheAddLink("pol_prgm_configure", _("Configure"), i,Variables.playonlinux_env+"/resources/images/menu/run.png",self.Configure)
 		i+=1
 		self.menuGaucheAddLink("pol_prgm_shortcut", _("Create a shortcut"), i,Variables.playonlinux_env+"/resources/images/menu/shortcut.png",self.Package)
 		i+=1
@@ -605,7 +608,7 @@ class MainWindow(wx.Frame):
 			i+=1
 			self.menuGaucheAddLink("pol_prgm_readme", _("Read the manual"), i,Variables.playonlinux_env+"/resources/images/menu/manual.png",self.ReadMe)
 		i+=1
-		self.menuGaucheAddLink("pol_prgm_uninstall", _("Uninstall"), i,Variables.playonlinux_env+"/resources/images/menu/delete.png",self.UninstallGame)
+		self.menuGaucheAddLink("pol_prgm_uninstall", _("Uninstall"), i,Variables.playonlinux_env+"/resources/images/menu/window-close.png",self.UninstallGame)
 		icon = os.environ["POL_USER_ROOT"]+"/icones/full_size/"+shortcut
 		
 		self.perspective = self._mgr.SavePerspective().split("|")
