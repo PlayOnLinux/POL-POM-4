@@ -616,7 +616,9 @@ class MainWindow(wx.Frame):
 		self.perspective = self.perspective[len(self.perspective) - 2].split("=")
 		
 		left_pos = (int(self.perspective[1]) - 50)/2
-		
+		if(left_pos <= 0):
+			left_pos = (200-48)/2
+			
 		if(os.path.exists(icon)):
 			try:
 				self.bitmap = wx.Image(icon)
