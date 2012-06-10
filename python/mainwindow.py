@@ -153,6 +153,7 @@ class MainWindow(wx.Frame):
 	self.list_game.SetSpacing(0);
 	self.list_game.SetIndent(5);
 	self.list_game.SetImageList(self.images)
+	
 	self._mgr = wx.aui.AuiManager(self)
 	self.menu_gauche = wx.Panel(self,-1)
 	
@@ -797,7 +798,6 @@ class MainWindow(wx.Frame):
 	if(reloadimg != self.oldimg):
 		self.Reload(self)
 		self.oldimg = reloadimg
-
 
   def InstallMenu(self, event):
     try:
