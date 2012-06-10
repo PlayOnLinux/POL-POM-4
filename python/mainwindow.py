@@ -617,7 +617,7 @@ class MainWindow(wx.Frame):
 		if(os.path.exists(icon)):
 			try:
 				self.bitmap = wx.Image(icon)
-				if(self.bitmap.GetWidth >= 48):
+				if(self.bitmap.GetWidth() >= 48):
 					self.bitmap.Rescale(48,48,wx.IMAGE_QUALITY_HIGH)
 					self.bitmap = self.bitmap.ConvertToBitmap()
 					self.menuBitmap = wx.StaticBitmap(self.menu_gauche, id=-1, bitmap=self.bitmap, pos=(left_pos,20+(i+2)*20)) 
