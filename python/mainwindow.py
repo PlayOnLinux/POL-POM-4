@@ -96,7 +96,7 @@ class MainWindow(wx.Frame):
   def __init__(self,parent,id,title):
 			
 	wx.Frame.__init__(self, parent, 1000, title, size = (515,450))
-	self.SetMinSize((300,300))
+	self.SetMinSize((400,400))
 	
 	self.menuElem = {}
 	self.menuImage = {}
