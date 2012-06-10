@@ -605,7 +605,7 @@ class MainWindow(wx.Frame):
 			i+=1
 			self.menuGaucheAddLink("pol_prgm_readme", _("Read the manual"), i,Variables.playonlinux_env+"/resources/images/menu/manual.png",self.ReadMe)
 		i+=1
-			self.menuGaucheAddLink("pol_prgm_uninstall", _("Uninstall"), i,Variables.playonlinux_env+"/resources/images/menu/delete.png",self.UninstallGame)
+		self.menuGaucheAddLink("pol_prgm_uninstall", _("Uninstall"), i,Variables.playonlinux_env+"/resources/images/menu/delete.png",self.UninstallGame)
 		icon = os.environ["POL_USER_ROOT"]+"/icones/full_size/"+shortcut
 		
 		self.perspective = self._mgr.SavePerspective().split("|")
