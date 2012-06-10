@@ -154,31 +154,11 @@ class MainWindow(wx.Frame):
 	self.list_game.SetIndent(5);
 	self.list_game.SetImageList(self.images)
 	self._mgr = wx.aui.AuiManager(self)
-	self.menu_gauche = wx.ScrolledWindow(self,-1)
+	self.menu_gauche = wx.Panel(self,-1)
 	
-	try:
-		self.LoadSize = int(playonlinux.GetSettings("PANEL_SIZE"))
-	except:
-		self.LoadSize = 150
 
-	try:
-		self.LoadPosition = playonlinux.GetSettings("PANEL_POSITION")
-	except:
-		self.LoadPosition = "LEFT"
-
-	if(self.LoadSize < 20):
-		self.LoadSize = 20
-	if(self.LoadSize > 1000):
-		self.LoadSize = 1000
 	
-	self._mgr.AddPane(self.list_game, wx.CENTER)
-	if(self.LoadPosition == "LEFT"):
-		self._mgr.AddPane(self.menu_gauche, wx.aui.AuiPaneInfo().Name('Actions').Caption('Actions').Left().BestSize((self.LoadSize,100)).Floatable(True))
-	else:
-		self._mgr.AddPane(self.menu_gauche, wx.aui.AuiPaneInfo().Name('Actions').Caption('Actions').Right().BestSize((self.LoadSize,100)).Floatable(True))
-		
-	self._mgr.Update()
-		
+	self._mgr.AddPane(self.list_game, wx.CENTER)		
 	self.oldreload = ""	
 	self.oldimg = ""
 	
@@ -201,6 +181,8 @@ class MainWindow(wx.Frame):
 	self.icon24 = self.displaymenu.AppendRadioItem(502, _("Medium icons"))
 	self.icon32 = self.displaymenu.AppendRadioItem(503, _("Large icons"))
 	self.icon48 = self.displaymenu.AppendRadioItem(504, _("Very large icons"))
+	self.displaymenu.AppendSeparator()
+	#self.panDisplay = self.displaymenu.AppendCheckItem(505, _("Show panel"))
 	
 	if(self.iconSize == 16):
 		self.icon16.Check(True)
@@ -363,6 +345,7 @@ class MainWindow(wx.Frame):
 	wx.EVT_MENU(self, 502,  self.iconDisplay)
 	wx.EVT_MENU(self, 503,  self.iconDisplay)
 	wx.EVT_MENU(self, 504,  self.iconDisplay)
+	wx.EVT_MENU(self, 505,  self.displayMen)
 	
 	# Expert
 	wx.EVT_MENU(self, 101,  self.Reload)
@@ -408,9 +391,43 @@ class MainWindow(wx.Frame):
 	wx.EVT_MENU(self, 234, self.UninstallGame)
 	wx.EVT_MENU(self, 235, self.RKill)
 	wx.EVT_MENU(self, 236, self.ReadMe)
+	self.MgrAddPage()
 	
+  def MgrAddPage(self):
+	try:
+		self.LoadSize = int(playonlinux.GetSettings("PANEL_SIZE"))
+	except:
+		self.LoadSize = 150
 
+	try:
+		self.LoadPosition = playonlinux.GetSettings("PANEL_POSITION")
+	except:
+		self.LoadPosition = "LEFT"
 
+	if(self.LoadSize < 20):
+		self.LoadSize = 20
+	if(self.LoadSize > 1000):
+		self.LoadSize = 1000
+
+	#try:
+	#self._mgr.ClosePane(wx.aui.AuiPaneInfo().Name('Actions'))
+	#except:
+	#	pass
+	#if(self.LoadPosition != "NONE"):
+	if(self.LoadPosition == "LEFT"):
+		self._mgr.AddPane(self.menu_gauche, wx.aui.AuiPaneInfo().Name('Actions').Caption('Actions').Left().BestSize((self.LoadSize,100)).Floatable(True).CloseButton(False).TopDockable(False).BottomDockable(False))
+	else:
+		self._mgr.AddPane(self.menu_gauche, wx.aui.AuiPaneInfo().Name('Actions').Caption('Actions').Right().BestSize((self.LoadSize,100)).Floatable(True).CloseButton(False).TopDockable(False).BottomDockable(False))
+	self.menu_gauche.Show()
+	#else:
+	#	self.menu_gauche.Hide()
+	self._mgr.Update()
+	
+  def displayMen(self, event):
+	playonlinux.SetSettings("PANEL_POSITION","LEFT")
+	if(self.panDisplay.IsChecked()):
+		self.MgrAddPage()
+		
   def StatusRead(self):
 	self.sb.SetStatusText(self.updater.sendToStatusBarStr, 0)
 	if(self.updater.Gauge == True):
@@ -547,7 +564,6 @@ class MainWindow(wx.Frame):
 		self.i += 1
 	
 	self.generate_menu(game_exec)
-	self.menu_gauche.Show()
 	
   def generate_menu(self, shortcut=None):
 	for c in self.menuElem:
@@ -814,8 +830,12 @@ class MainWindow(wx.Frame):
 		self.perspective = self.perspective[len(self.perspective) - 2].split("=")
 		
 		self.DockType = self.perspective[0]
-		self.mySize = 150
+		self.mySize = 200
 		self.myPosition = "LEFT"
+		
+		#if(self.DockType == "dock_size(5,0,0)"):
+		#	self.myPosition = "NONE"
+			
 		if(self.DockType == "dock_size(4,0,0)"):
 			self.mySize = int(self.perspective[1]) - 2
 			self.myPosition = "LEFT"
