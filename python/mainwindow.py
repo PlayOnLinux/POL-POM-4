@@ -476,7 +476,7 @@ class MainWindow(wx.Frame):
 	self.GameListPopUpMenu.AppendItem(self.ChangeIcon)
 
 	self.ChangeIcon = wx.MenuItem(self.GameListPopUpMenu, 235, _("Close this application"))
-	self.ChangeIcon.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/media-playback-stop.png.png"))
+	self.ChangeIcon.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/media-playback-stop.png"))
 	self.GameListPopUpMenu.AppendItem(self.ChangeIcon)
 
 	self.PopupMenu(self.GameListPopUpMenu, event.GetPoint())
