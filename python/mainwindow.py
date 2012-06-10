@@ -321,12 +321,12 @@ class MainWindow(wx.Frame):
 
 	self.toolbar = self.CreateToolBar(wx.TB_TEXT)
 	self.toolbar.SetToolBitmapSize(iconSize)
-	self.toolbar.AddLabelTool(wx.ID_OPEN, _("Run"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/play.png"))
-	self.toolbar.AddLabelTool(123, _("Close"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/stop.png"))
+	self.playTool = self.toolbar.AddLabelTool(wx.ID_OPEN, _("Run"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/play.png"))
+	self.stopTool = self.toolbar.AddLabelTool(123, _("Close"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/stop.png"))
 	
 	self.toolbar.AddSeparator()
 	self.toolbar.AddLabelTool(wx.ID_ADD, _("Install"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/install.png"))
-	self.toolbar_remove = self.toolbar.AddLabelTool(wx.ID_DELETE, _("Remove"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/delete.png"))
+	self.removeTool = self.toolbar_remove = self.toolbar.AddLabelTool(wx.ID_DELETE, _("Remove"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/delete.png"))
 	#self.toolbar.AddLabelTool(120, _("CD-ROM"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/cdrom.png"))
 	
 	self.toolbar.AddSeparator()
@@ -568,6 +568,9 @@ class MainWindow(wx.Frame):
 		self.i += 1
 	
 	self.generate_menu(game_exec)
+	self.playTool.Enable(True)
+	self.stopTool.Enable(True)
+	self.removeTool.Enable(True)
 	
   def generate_menu(self, shortcut=None):
 	for c in self.menuElem:
@@ -665,21 +668,21 @@ class MainWindow(wx.Frame):
 		webbrowser.open("http://www.playonlinux.com/en/donate.html")
 	
   def Reload(self, event):
-	 self.games = os.listdir(Variables.playonlinux_rep+"shortcuts/")
-	 self.games.sort()
-	 try:
-	 	self.games.remove(".DS_Store")
-	 except:
-	 	pass
-	 self.list_game.DeleteAllItems()
-	 self.images.RemoveAll()
-	 root = self.list_game.AddRoot("")
-	 self.i = 0
-	 if(self.iconSize <= 32):
+	self.games = os.listdir(Variables.playonlinux_rep+"shortcuts/")
+	self.games.sort()
+	try:
+		self.games.remove(".DS_Store")
+	except:
+		pass
+	self.list_game.DeleteAllItems()
+	self.images.RemoveAll()
+	root = self.list_game.AddRoot("")
+	self.i = 0
+	if(self.iconSize <= 32):
 		self.iconFolder = "32";
-	 else:
+	else:
 		self.iconFolder = "full_size";
-	 for game in self.games: #METTRE EN 32x32
+	for game in self.games: #METTRE EN 32x32
 		if(not os.path.isdir(Variables.playonlinux_rep+"/shortcuts/"+game)):
 			if(os.path.exists(Variables.playonlinux_rep+"/icones/"+self.iconFolder+"/"+game)):
 				file_icone = Variables.playonlinux_rep+"/icones/"+self.iconFolder+"/"+game
@@ -695,7 +698,11 @@ class MainWindow(wx.Frame):
 				pass
 			item = self.list_game.AppendItem(root, game, self.i)
 			self.i += 1
-	 self.generate_menu(None)
+	self.generate_menu(None)
+	self.playTool.Enable(False)
+	self.stopTool.Enable(False)
+	self.removeTool.Enable(False)
+	
 
   def RConfigure(self, function_to_run, firstargument):
 		"""Starts polconfigurator remotely."""
