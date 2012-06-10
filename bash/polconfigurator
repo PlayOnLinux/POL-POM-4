@@ -23,7 +23,7 @@ source "$PLAYONLINUX/lib/sources"
 TITLE="$(eval_gettext '$APPLICATION_TITLE Application Configurator')"
 pol_winecfg()
 {
-	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing processes in the prefix...")" "$TITLE"
+	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing programs in the virtual drive...")" "$TITLE"
 	wineserver -k
 	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Starting Wine configuration')" "$TITLE"
 	POL_Wine winecfg
@@ -34,7 +34,7 @@ pol_kprocess()
 		POL_SetupWindow_Init
 	fi
 		
-	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing processes in the prefix...")" ""
+	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing programs in the virtual drive...")" "$TITLE"
 	sleep 1
 	wineserver -k
 	sleep 1
