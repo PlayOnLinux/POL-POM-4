@@ -571,7 +571,11 @@ class MainWindow(wx.Frame):
 	
 	for c in self.menuImage:
 		self.menuImage[c].Destroy()
-
+	try:
+		self.menuBitmap.Destroy()
+	except:
+		pass
+		
 	self.menuElem = {}
 	self.menuImage = {}
 	
@@ -592,17 +596,34 @@ class MainWindow(wx.Frame):
 		i+=1
 		self.menuGaucheAddLink("pol_prgm_kill", _("Close"), i,Variables.playonlinux_env+"/resources/images/menu/wineserver.png",self.RKill)
 		i+=1
-		self.menuGaucheAddLink("pol_prgm_uninstall", _("Uninstall"), i,Variables.playonlinux_env+"/resources/images/menu/delete.png",self.UninstallGame)
-		i+=1
 		self.menuGaucheAddLink("pol_prgm_configure", _("Configure"), i,Variables.playonlinux_env+"/resources/images/menu/options.png",self.Configure)
 		i+=1
 		self.menuGaucheAddLink("pol_prgm_shortcut", _("Create a shortcut"), i,Variables.playonlinux_env+"/resources/images/menu/shortcut.png",self.Package)
 		i+=1
 		self.menuGaucheAddLink("pol_prgm_adddir", _("Go to directory"), i,Variables.playonlinux_env+"/resources/images/menu/folder-wine.png",self.GoToAppDir)
+		i+=1
+		self.menuGaucheAddLink("pol_prgm_uninstall", _("Uninstall"), i,Variables.playonlinux_env+"/resources/images/menu/delete.png",self.UninstallGame)
 		if(os.path.exists(os.environ["POL_USER_ROOT"]+"/configurations/manuals/"+shortcut)):
 			i+=1
 			self.menuGaucheAddLink("pol_prgm_readme", _("Read the manual"), i,Variables.playonlinux_env+"/resources/images/menu/manual.png",self.ReadMe)
+
+		icon = os.environ["POL_USER_ROOT"]+"/icones/full_size/"+shortcut
 		
+		self.perspective = self._mgr.SavePerspective().split("|")
+		self.perspective = self.perspective[len(self.perspective) - 2].split("=")
+		
+		left_pos = (int(self.perspective[1]) - 50)/2
+		
+		if(os.path.exists(icon)):
+			try:
+				self.bitmap = wx.Image(icon)
+				if(self.bitmap.GetWidth >= 48):
+					self.bitmap.Rescale(48,48,wx.IMAGE_QUALITY_HIGH)
+					self.bitmap = self.bitmap.ConvertToBitmap()
+					self.menuBitmap = wx.StaticBitmap(self.menu_gauche, id=-1, bitmap=self.bitmap, pos=(left_pos,20+(i+2)*20)) 
+			except:
+				pass
+				
   def menuGaucheAddTitle(self,id,text,pos):
 	self.menuElem[id] = wx.StaticText(self.menu_gauche, -1, text,pos=(5,5+pos*20))
 	self.menuElem[id].SetForegroundColour((0,0,0)) # For dark themes
