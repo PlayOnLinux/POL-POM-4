@@ -699,9 +699,11 @@ class MainWindow(wx.Frame):
 			item = self.list_game.AppendItem(root, game, self.i)
 			self.i += 1
 	self.generate_menu(None)
-	self.playTool.Enable(False)
-	self.stopTool.Enable(False)
-	self.removeTool.Enable(False)
+	
+	if(os.environ["POL_OS"] == "Mac"):
+		self.playTool.Enable(False)
+		self.stopTool.Enable(False)
+		self.removeTool.Enable(False)
 	
 
   def RConfigure(self, function_to_run, firstargument):
@@ -777,9 +779,11 @@ class MainWindow(wx.Frame):
     os.system("bash \""+Variables.playonlinux_env+"/bash/make_shortcut\" \""+game_exec.encode("utf-8","replace")+"\"&")
 
   def UninstallGame(self, event):
-    game_exec = self.list_game.GetItemText(self.list_game.GetSelection())
-    os.system("bash \""+Variables.playonlinux_env+"/bash/uninstall\" \""+game_exec.encode("utf-8","replace")+"\"&")
-
+	game_exec = self.list_game.GetItemText(self.list_game.GetSelection())
+	if(game_exec != ""):
+		os.system("bash \""+Variables.playonlinux_env+"/bash/uninstall\" \""+game_exec.encode("utf-8","replace")+"\"&")
+	else:
+		wx.MessageBox(_("Please select a program.").format(game_exec, game_prefix), os.environ["APPLICATION_TITLE"])
 
   def AutoReload(self, event):
 	
