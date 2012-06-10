@@ -181,7 +181,7 @@ class MainWindow(wx.Frame):
 	self.icon24 = self.displaymenu.AppendRadioItem(502, _("Medium icons"))
 	self.icon32 = self.displaymenu.AppendRadioItem(503, _("Large icons"))
 	self.icon48 = self.displaymenu.AppendRadioItem(504, _("Very large icons"))
-	self.displaymenu.AppendSeparator()
+	#self.displaymenu.AppendSeparator()
 	#self.panDisplay = self.displaymenu.AppendCheckItem(505, _("Show panel"))
 	
 	if(self.iconSize == 16):
@@ -321,12 +321,12 @@ class MainWindow(wx.Frame):
 	self.toolbar = self.CreateToolBar(wx.TB_TEXT)
 	self.toolbar.SetToolBitmapSize(iconSize)
 	self.toolbar.AddLabelTool(wx.ID_OPEN, _("Run"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/run.png"))
-	self.toolbar.AddSeparator()
+	#self.toolbar.AddSeparator()
 	self.toolbar.AddLabelTool(wx.ID_ADD, _("Install"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/install.png"))
 	self.toolbar_remove = self.toolbar.AddLabelTool(wx.ID_DELETE, _("Remove"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/delete.png"))
 	#self.toolbar.AddLabelTool(120, _("CD-ROM"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/cdrom.png"))
 	
-	self.toolbar.AddSeparator()
+	#self.toolbar.AddSeparator()
 	self.toolbar.AddLabelTool(121, _("Configure"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/configure.png"))
 	#self.toolbar.AddLabelTool(122, _("Shortcut"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/package.png"))
 	#self.toolbar.AddLabelTool(123, _("Messenger"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/messenger.png"))
