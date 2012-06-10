@@ -712,7 +712,7 @@ class MainWindow(wx.Frame):
 		if(game_exec != ""):
 			os.system("bash \""+Variables.playonlinux_env+"/bash/polconfigurator\" \""+game_exec+"\" \""+function_to_run+"\" \""+firstargument+"\"&")
 		else:
-			wx.MessageBox(_("Please select a program.").format(game_exec, game_prefix), os.environ["APPLICATION_TITLE"])
+			wx.MessageBox(_("Please select a program."), os.environ["APPLICATION_TITLE"])
 	    
 	
   def Options(self, event):
@@ -783,7 +783,7 @@ class MainWindow(wx.Frame):
 	if(game_exec != ""):
 		os.system("bash \""+Variables.playonlinux_env+"/bash/uninstall\" \""+game_exec.encode("utf-8","replace")+"\"&")
 	else:
-		wx.MessageBox(_("Please select a program.").format(game_exec, game_prefix), os.environ["APPLICATION_TITLE"])
+		wx.MessageBox(_("Please select a program."), os.environ["APPLICATION_TITLE"])
 
   def AutoReload(self, event):
 	
@@ -848,7 +848,7 @@ class MainWindow(wx.Frame):
 			
 			os.system("bash "+Variables.playonlinux_env+"/bash/run_app \""+game_exec+"\"&")
 		else:
-			wx.MessageBox(_("Please select a program.").format(game_exec, game_prefix), os.environ["APPLICATION_TITLE"])
+			wx.MessageBox(_("Please select a program."), os.environ["APPLICATION_TITLE"])
     else:
 		wx.MessageBox(_("The virtual drive associated with {0} ({1}) does no longer exists.").format(game_exec, game_prefix), os.environ["APPLICATION_TITLE"])
 
