@@ -346,7 +346,7 @@ class MainWindow(wx.Frame):
 	
 	self.toolbar.AddSeparator()
 	self.toolbar.AddLabelTool(121, _("Configure"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/configure.png"))
-	self.toolbar.AddLabelTool(122, _("Shortcut"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/package.png"))
+	#self.toolbar.AddLabelTool(122, _("Shortcut"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/package.png"))
 	#self.toolbar.AddLabelTool(123, _("Messenger"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/messenger.png"))
 
 	#self.toolbar.DoMenuUpdate(self.toolbar)
@@ -564,13 +564,17 @@ class MainWindow(wx.Frame):
 	i+=1
 	self.menuGaucheAddLink("pol_prgm_install", _("Install a program"), i,Variables.playonlinux_env+"/resources/images/menu/add.png",self.InstallMenu)
 	i+=1
+	self.menuGaucheAddLink("pol_prgm_messenger", _("Messenger"), i,Variables.playonlinux_env+"/resources/images/menu/people.png",self.OpenIrc)
+	i+=1
 	self.menuGaucheAddLink("pol_prgm_wver", _("Manage wine versions"), i,Variables.playonlinux_env+"/resources/images/menu/wine.png",self.WineVersion)
-		
+	
 	if(shortcut != None):
 		i+=2
 		self.menuGaucheAddTitle("prgm_title", shortcut, i)
 		i+=1
 		self.menuGaucheAddLink("pol_prgm_run", _("Run"), i,Variables.playonlinux_env+"/resources/images/menu/run.png",self.Run)
+		i+=1
+		self.menuGaucheAddLink("pol_prgm_kill", _("Close"), i,Variables.playonlinux_env+"/resources/images/menu/wineserver.png",self.RKill)
 		i+=1
 		self.menuGaucheAddLink("pol_prgm_uninstall", _("Uninstall"), i,Variables.playonlinux_env+"/resources/images/menu/delete.png",self.UninstallGame)
 		i+=1

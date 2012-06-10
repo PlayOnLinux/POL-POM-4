@@ -30,28 +30,17 @@ class IRCClient(threading.Thread):
 
   def connect(self): # Se connecte au serveur IRC
 	if(self.ircconnected == False):
-		try: 
-			if(self.freenode_tried != True):
-				self.status_messages.append(self.html_convert(None, "Connecting ...","#AA0000","#AA0000",True))
-			else:
-				#self.status_messages.append(self.html_convert(None, "PlayOnLinux main IRC server is unavailable. Connecting to freenode service ...","#AA0000","#AA0000",True))
-				self.connexion = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+		self.status_messages.append(self.html_convert(None, "Connecting ...","#AA0000","#AA0000",True))
+		try:
+			self.connexion = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 			self.connexion.connect((self.serveur, self.port))	
 			self.ircconnected = True
 			self.connexion.send('NICK' + ' ' + self.Nick + '\r\n')
 			self.realname = os.environ["APPLICATION_TITLE"]+" Client "+os.environ["VERSION"]
 			self.connexion.send('USER' + ' PlayOnLinux ' + self.Nick + ' ' + self.serveur + ' :' + self.realname + '\r\n')
-		except: 
-			if(self.freenode_tried == False):
-				self.freenode_tried = True
-				self.serveur = "irc.freenode.com"
-				try :
-					self.connect()
-				except :
-					self.status_messages.append(self.html_convert(None, "Error! Unable to connect. Check your internet connexion and try again.","#AA0000","#AA0000",True))
-				
-			else:
-				self.stop()
+		except:
+			self.status_messages.append(self.html_convert(None, "Error! Unable to connect. Check your internet connexion and try again.","#AA0000","#AA0000",True))
+			self.stop()
 	else:
 		self.status_messages.append(self.html_convert(None, "You are in offline-mode","#AA0000","#AA0000",True))
   

@@ -134,16 +134,16 @@ class Onglets(wx.Notebook):
 		self.buddy.SetSpacing(0);
 		self.field =  wx.TextCtrl(self.panels_button, 121, style = wx.TE_MULTILINE)
 		self.button = wx.Button(self.panels_button, 122, _("Send"))
-		self.connect = wx.Button(self.panels_connexion, 123, _("Connect"), pos=(0,0), size=(100,28))
-		self.disconnect = wx.Button(self.panels_connexion, 124, _("Disconnect"), pos=(100,0), size=(100,28))
-		#self.close = wx.Button(self.panels_connexion, 128, _("Close"), pos=(600,0), size=(90,25))
-		self.close = wx.BitmapButton(self.panels_connexion, 128, wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/wineserver.png"), pos=(520,0))
+		self.connect = wx.Button(self.panels_connexion, 123, _("Connect"), pos=(0,0), size=(150,28))
+		self.disconnect = wx.Button(self.panels_connexion, 124, _("Disconnect"), pos=(0,0), size=(150,28))
+		self.close = wx.Button(self.panels_connexion, 128, _("Leave"), pos=(155,0), size=(150,28))
+		#self.close = wx.BitmapButton(self.panels_connexion, 128, wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/wineserver.png"), pos=(630,0))
 		self.settings = self.getSettings()
-		self.nickname = wx.TextCtrl(self.panels_connexion, 125, self.settings["NICKNAME"], size=(300,25), pos=(210,2))
+		self.nickname = wx.TextCtrl(self.panels_connexion, 125, self.settings["NICKNAME"], size=(300,25), pos=(330,2))
 		#self.channel_choices = ["#playonlinux-fr","#playonlinux-en","#playonlinux-it","#playonlinux-ru","#playonlinux-pl","#playonlinux-hu","#playonlinux-es"]
 		#self.channel_choices.sort()
 		#self.channel = wx.ComboBox(self.panels_connexion, 130,  _("Join a channel"), size=(190,28), pos=(510,0), choices=self.channel_choices)	
-#		self.close.Enable(False)
+		self.close.Enable(False)
 		self.sizer = wx.BoxSizer(wx.VERTICAL)
 		self.sizerInputs = wx.BoxSizer(wx.HORIZONTAL)
 		self.sizerMain = wx.BoxSizer(wx.HORIZONTAL)
@@ -391,14 +391,15 @@ class IrcClient(wx.Frame):
 	
 	if(self.onglets.window.GetItemText(self.onglets.window.GetSelection()) != irc.selected_window):
 		irc.selected_window = self.onglets.window.GetItemText(self.onglets.window.GetSelection())
+		
 	if(irc.selected_window == "#playonlinux"):
 		self.onglets.close.Enable(False)
 	else:
 		self.onglets.close.Enable(True)
 
 	
-	self.onglets.connect.Enable(False)
-	self.onglets.disconnect.Enable(True)
+	self.onglets.connect.Hide()
+	self.onglets.disconnect.Show()
 	if(len(self.chans) == 0):
 		if(irc.status_messages != self.messages):
 			self.html_reload_status(self)
@@ -410,8 +411,8 @@ class IrcClient(wx.Frame):
 
 	self.onglets.buddy.DeleteAllItems()
 	self.onglets.window.DeleteAllItems()
-	self.onglets.connect.Enable(True)
-	self.onglets.disconnect.Enable(False)
+	self.onglets.connect.Show()
+	self.onglets.disconnect.Hide()
 	if(self.settings["AUTOCONNECT"] == "1"):
 		if(self.already_connected == False):
 			irc.Nick = self.onglets.nickname.GetValue().encode("utf-8","replace")
