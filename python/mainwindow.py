@@ -419,9 +419,9 @@ class MainWindow(wx.Frame):
 	#	pass
 	#if(self.LoadPosition != "NONE"):
 	if(self.LoadPosition == "LEFT"):
-		self._mgr.AddPane(self.menu_gauche, wx.aui.AuiPaneInfo().Name('Actions').Caption('Actions').Left().BestSize((self.LoadSize,300)).Floatable(True).CloseButton(False).TopDockable(False).BottomDockable(False))
+		self._mgr.AddPane(self.menu_gauche, wx.aui.AuiPaneInfo().Name('Actions').Caption('Actions').Left().BestSize((self.LoadSize,400)).Floatable(True).CloseButton(False).TopDockable(False).BottomDockable(False))
 	else:
-		self._mgr.AddPane(self.menu_gauche, wx.aui.AuiPaneInfo().Name('Actions').Caption('Actions').Right().BestSize((self.LoadSize,300)).Floatable(True).CloseButton(False).TopDockable(False).BottomDockable(False))
+		self._mgr.AddPane(self.menu_gauche, wx.aui.AuiPaneInfo().Name('Actions').Caption('Actions').Right().BestSize((self.LoadSize,400)).Floatable(True).CloseButton(False).TopDockable(False).BottomDockable(False))
 	self.menu_gauche.Show()
 	#else:
 	#	self.menu_gauche.Hide()
