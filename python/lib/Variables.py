@@ -88,7 +88,13 @@ if (os.environ["POL_OS"] == "Mac"):
 else:
 	if(os.path.exists("/usr/lib/wine/wineserver")): # Debian maintener decided for some unknown reason not to let wineserver binary into PATH...
 		os.environ["PATH"] = os.environ["PATH"]+"/usr/lib/wine/"
-		
+	elif(os.path.exists("/usr/lib32/wine/wineserver")):
+		os.environ["PATH"] = os.environ["PATH"]+"/usr/lib32/wine/"
+	elif(os.path.exists("/usr/lib/wine-unstable/wineserver")):
+		os.environ["PATH"] = os.environ["PATH"]+"/usr/lib/wine-unstable/"
+	elif(os.path.exists("/usr/lib32/wine-unstable/wineserver")):
+		os.environ["PATH"] = os.environ["PATH"]+"/usr/lib32/wine-unstable/"
+				
 os.environ["PATH_ORIGIN"] = os.environ["PATH"]
 os.environ["LD_PATH_ORIGIN"] = os.environ["LD_LIBRARY_PATH"]
 os.environ["DYLDPATH_ORIGIN"] = os.environ["DYLD_LIBRARY_PATH"]
