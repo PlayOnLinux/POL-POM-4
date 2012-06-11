@@ -72,6 +72,7 @@ clean_tmp ()
 	# Usage: clean_tmp
 	# Be careful, it might be very dangerous !
 	# Cleanup is done in background
+	POL_Debug_Message "Cleaning temp directory"
 	mv "$POL_USER_ROOT/tmp" "$POL_USER_ROOT/tmp$$"
 	mkdir -p "$POL_USER_ROOT/tmp"
 	rm -rf "$POL_USER_ROOT/tmp$$" 2> /dev/null &
@@ -86,7 +87,7 @@ POL_Config_Write ()
 	# Add an entry to PlayOnLinux's config file
 	# If the entry already exists, it will replace it
 	# Usage : POL_Config_Write [KEY] [VALUE]
-	
+	POL_Debug_Message "Config write: $1 $2"
 	cat "$POL_USER_ROOT/playonlinux.cfg" 2> /dev/null | grep -v "^$1" > "$POL_USER_ROOT/tmp/newcfg"
 	echo "$1=$2" >> "$POL_USER_ROOT/tmp/newcfg"
 	mv "$POL_USER_ROOT/tmp/newcfg" "$POL_USER_ROOT/playonlinux.cfg"
@@ -95,7 +96,7 @@ POL_Config_Delete ()
 {
 	# Delete an entry in PlayOnLinux's config file
 	# Usage : POL_Config_Delete [KEY]
-	
+	POL_Debug_Message "Config delete: $1"
 	cat "$POL_USER_ROOT/playonlinux.cfg" 2> /dev/null | grep -v "^$1" > "$POL_USER_ROOT/tmp/newcfg"
 	mv "$POL_USER_ROOT/tmp/newcfg" "$POL_USER_ROOT/playonlinux.cfg"
 }
@@ -103,7 +104,7 @@ POL_Config_Read ()
 {
 	# Read an entry PlayOnLinux's config file
 	# Usage : POL_Config_Read [KEY]
-	
+	#POL_Debug_Message "Config read $1"
 	cat "$POL_USER_ROOT/playonlinux.cfg" 2> /dev/null | grep "^$1" | cut -d\= -f2
 }
 
@@ -112,7 +113,7 @@ POL_Extension_Write ()
 	# Add an entry to PlayOnLinux's extension file
 	# If the entry already exists, it will replace it
 	# Usage : POL_Config_Write [KEY] [VALUE]
-	
+	POL_Debug_Message "Extension write: $1 $2" 
 	cat "$POL_USER_ROOT/extensions.cfg" 2> /dev/null | grep -v "^$1" > "$POL_USER_ROOT/tmp/newcfg"
 	echo "$1=$2" >> "$POL_USER_ROOT/tmp/newcfg"
 	mv "$POL_USER_ROOT/tmp/newcfg" "$POL_USER_ROOT/extensions.cfg"
@@ -121,7 +122,7 @@ POL_Extension_Delete ()
 {
 	# Delete an entry in PlayOnLinux's extension file
 	# Usage : POL_Config_Delete [KEY]
-	
+	POL_Debug_Message "Extension delete: $1"
 	cat "$POL_USER_ROOT/extensions.cfg" 2> /dev/null | grep -v "^$1" > "$POL_USER_ROOT/tmp/newcfg"
 	mv "$POL_USER_ROOT/tmp/newcfg" "$POL_USER_ROOT/extensions.cfg"
 }
@@ -129,7 +130,7 @@ POL_Extension_Read ()
 {
 	# Read an entry PlayOnLinux's extension file
 	# Usage : POL_Config_Read [KEY]
-	
+	#POL_Debug_Message "Extension read: $1"
 	cat "$POL_USER_ROOT/extensions.cfg" 2> /dev/null | grep "^$1" | cut -d\= -f2
 }
 
@@ -142,6 +143,7 @@ POL_Config_PrefixWrite ()
 	cat "$WINEPREFIX/playonlinux.cfg" 2> /dev/null | grep -v "^$1" > "$POL_USER_ROOT/tmp/newcfg"
 	echo "$1=$2" >> "$POL_USER_ROOT/tmp/newcfg"
 	mv "$POL_USER_ROOT/tmp/newcfg" "$WINEPREFIX/playonlinux.cfg"
+	POL_Debug_Message "Prefix config write: $1 $2"
 }
 POL_Config_PrefixDelete ()
 {
@@ -150,6 +152,7 @@ POL_Config_PrefixDelete ()
 	
 	cat "$WINEPREFIX/playonlinux.cfg" 2> /dev/null | grep -v "^$1" > "$POL_USER_ROOT/tmp/newcfg"
 	mv "$POL_USER_ROOT/tmp/newcfg" "$WINEPREFIX/playonlinux.cfg"
+	POL_Debug_Message "Prefix config delete: $1"
 }
 POL_Config_PrefixRead ()
 {
@@ -168,6 +171,7 @@ POL_Config_DosPrefixWrite ()
 	cat "$WINEPREFIX/playonlinux_dos.cfg" 2> /dev/null | grep -v "^$1" > "$POL_USER_ROOT/tmp/newcfg"
 	echo "$1=$2" >> "$POL_USER_ROOT/tmp/newcfg"
 	mv "$POL_USER_ROOT/tmp/newcfg" "$WINEPREFIX/playonlinux_dos.cfg"
+	POL_Debug_Message "Dos prefix config write: $1"
 }
 POL_Config_DosPrefixDelete ()
 {
@@ -176,6 +180,7 @@ POL_Config_DosPrefixDelete ()
 	
 	cat "$WINEPREFIX/playonlinux_dos.cfg" 2> /dev/null | grep -v "^$1" > "$POL_USER_ROOT/tmp/newcfg"
 	mv "$POL_USER_ROOT/tmp/newcfg" "$WINEPREFIX/playonlinux_dos.cfg"
+	POL_Debug_Message "Dos prefix config delete: $1"
 }
 POL_Config_DosPrefixRead ()
 {
@@ -221,6 +226,7 @@ EOF
 
 # Theses functions are here to prevent scriptors from getting root access
 
+# Just to encourage not using that into POL
 sudo ()
 {
 	POL_Debug_Fatal "The script tried to use sudo"
@@ -258,54 +264,11 @@ kdesudo ()
 	return 1
 }
 
-/usr/bin/sudo ()
-{
-	POL_Debug_Fatal "The script tried to use sudo"
-	echo "$(eval_gettext "This function is disabled in the PlayOnlinux environment.")"
-	return 1
-}
-/usr/bin/gksudo ()
-{
-	POL_Debug_Fatal "The script tried to use sudo"
-	echo "$(eval_gettext "This function is disabled in the PlayOnlinux environment.")"
-	return 1
-}
-/usr/bin/gksu ()
-{
-	POL_Debug_Fatal "The script tried to use sudo"
-	echo "$(eval_gettext "This function is disabled in the PlayOnlinux environment.")"
-	return 1
-}
-/usr/bin/su ()
-{
-	POL_Debug_Fatal "The script tried to use sudo"
-	echo "$(eval_gettext "This function is disabled in the PlayOnlinux environment.")"
-	return 1
-}
-/usr/bin/kdesu ()
-{
-	POL_Debug_Fatal "The script tried to use sudo"
-	echo "$(eval_gettext "This function is disabled in the PlayOnlinux environment.")"
-	return 1
-}
-/usr/bin/kdesudo ()
-{
-	POL_Debug_Fatal "The script tried to use sudo"
-    echo "$(eval_gettext "This function is disabled in the PlayOnlinux environment.")"
-	return 1
-}
-/bin/su ()
-{
-	POL_Debug_Fatal "The script tried to use sudo"
-	echo "$(eval_gettext "This function is disabled in the PlayOnlinux environment.")"
-	return 1
-}
-
 POL_GPG_install_key()
 {
 	# This function installs PlayOnLinux GPG public key
 	# Usage : POL_GPG_install_key
-	
+	POL_Debug_Message "Importing $APPLICATION_TITLE public key"
 	#create the gnupg directory
 	mkdir -p "$GNUPGHOME"
 	#import the public key
@@ -324,6 +287,8 @@ POL_GPG_auth_script()
 	# Usage POL_GPG_auth_script [filename]
 	# Return TRUE if the script is valid
 	# Return FALSE if the script is not valid
+	
+	POL_Debug_Message "Checking signature of $1"
 	
 	POL_GPG_install_key
 	FILENAME="$1"

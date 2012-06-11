@@ -33,6 +33,7 @@ POL_Website_logout()
 {
 	# Remove login and password from memory
 	# Usage: POL_Website_logout
+	POL_Debug_Message "Logged out"
 	export POL_LOGIN=""
 	export POL_PASSWORD=""
 }
@@ -95,6 +96,7 @@ POL_Website_Request()
 {
 	# Make a POST request
 	# Usage: POL_Website_Request [url] [post_data]
+	POL_Debug_Message "POST $1"
 	$POL_WGET "$1" --post-data="$2" --load-cookies "$REPERTOIRE/login_info" -O- -q > "$POL_USER_ROOT/tmp/POL_Website_data"
 }
 POL_Website_POST()
@@ -107,18 +109,21 @@ POL_Website_GET()
 {
 	# Make a GET request
 	# Usage: POL_Website_GET [url]
+	POL_Debug_Message "GET $1"
 	$POL_WGET "$1" --load-cookies "$REPERTOIRE/login_info" -O- -q > "$POL_USER_ROOT/tmp/POL_Website_data"
 }
 POL_Website_Result()
 {
 	# Get the result of the last request
 	# Usage: POL_Website_Result
+	POL_Debug_Message "Reading result"
 	cat "$POL_USER_ROOT/tmp/POL_Website_data"
 }
 POL_Website_check_login()
 {
 	# Check if the user's login is valid
 	# Usage: POL_Website_check_login
+	POL_Debug_Message "Login to $APPLICATION_TITLE website"
 	POL_SetupWindow_wait_next_signal "$(eval_gettext "Connecting...")" "$TITLE"
 
 	result="$($POL_WGET http://repository.playonlinux.com/V4_data/repository/check_login.php?l=$POL_LOGIN\&m=$(POL_MD5 $POL_PASSWORD) -O-)"

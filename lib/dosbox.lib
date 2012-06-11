@@ -27,10 +27,10 @@ POL_DosBox_InstallCDROM()
 {
 	if [ "$CDROM" ]; then
 		POL_Config_DosPrefixWrite manual_mount true
-	# Use drives from W
 		cat <<_EOFAE_ > "$WINEPREFIX/drive_c/autoexec.bat"
-mount W "$CDROM" -t cdrom
+mount D "$CDROM" -t cdrom
 _EOFAE_
-		POL_Wine_InstallCDROM "w"	
+		rm "$WINEPREFIX/dosdevices/d::"
+		rm "$WINEPREFIX/dosdevices/d:"
 	fi
 }
