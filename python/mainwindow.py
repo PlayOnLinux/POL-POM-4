@@ -603,6 +603,8 @@ class MainWindow(wx.Frame):
 		i+=1
 		self.menuGaucheAddLink("pol_prgm_kill", _("Close"), i,Variables.playonlinux_env+"/resources/images/menu/media-playback-stop.png",self.RKill)
 		i+=1
+		self.menuGaucheAddLink("pol_prgm_rundebug", _("Debug"), i,Variables.playonlinux_env+"/resources/images/menu/bug.png",self.RunDebug)
+		i+=1
 		self.menuGaucheAddLink("pol_prgm_configure", _("Configure"), i,Variables.playonlinux_env+"/resources/images/menu/run.png",self.Configure)
 		i+=1
 		self.menuGaucheAddLink("pol_prgm_shortcut", _("Create a shortcut"), i,Variables.playonlinux_env+"/resources/images/menu/shortcut.png",self.Package)
@@ -831,10 +833,15 @@ class MainWindow(wx.Frame):
     	self.wversion.Show(True)
 	#os.system("bash \""+Variables.playonlinux_env+"/bash/wineversion\"&")
 
-  def Run(self, event):
-    game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8","replace")
-    game_prefix = playonlinux.getPrefix(game_exec)
-    if(os.path.exists(os.environ["POL_USER_ROOT"]+"/wineprefix/"+game_prefix)):
+  def Run(self, event, s_debug=False):
+	
+	game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8","replace")
+	game_prefix = playonlinux.getPrefix(game_exec)
+	
+	if(s_debug == False):
+		playonlinux.SetDebugState(game_exec, False)
+		
+	if(os.path.exists(os.environ["POL_USER_ROOT"]+"/wineprefix/"+game_prefix)):
 		if(game_exec != ""):
 			if(playonlinux.GetDebugState(game_exec)):
 				try:
@@ -849,10 +856,15 @@ class MainWindow(wx.Frame):
 			os.system("bash "+Variables.playonlinux_env+"/bash/run_app \""+game_exec+"\"&")
 		else:
 			wx.MessageBox(_("Please select a program."), os.environ["APPLICATION_TITLE"])
-    else:
+	else:
 		wx.MessageBox(_("The virtual drive associated with {0} ({1}) does no longer exists.").format(game_exec, game_prefix), os.environ["APPLICATION_TITLE"])
-
-
+ 
+  def RunDebug(self, event):
+	game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8","replace")
+	game_prefix = playonlinux.getPrefix(game_exec)
+	playonlinux.SetDebugState(game_exec, True)
+	self.Run(self, True)
+		
   def ClosePol(self, event):
     if(wx.YES == wx.MessageBox(_('Are you sure you want to close all {0} Windows?').format(os.environ["APPLICATION_TITLE"]).decode("utf-8","replace"),os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
 		os.remove(Variables.playonlinux_rep+"/configurations/guis/index_"+os.environ["POL_ID"])

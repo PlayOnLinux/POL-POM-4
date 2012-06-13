@@ -80,9 +80,6 @@ class Onglets(wx.Notebook):
 	def evt_config(self, event):
 		os.system("bash \""+Variables.playonlinux_rep+"/configurations/configurators/"+self.s_title+"\" &")
 		
-	def setDebug(self, event):
-		playonlinux.SetDebugState(self.s_title, self.general_elements["debug_check"].GetValue())
-			
 	def install_package(self, event):
 		if(self.s_isPrefix == False):
 			os.system("bash "+Variables.playonlinux_env+"/bash/installpolpackages \""+self.s_title+"\" POL_Install_"+self.available_packages_[self.Menu.GetSelection()]+" &")
@@ -133,10 +130,7 @@ class Onglets(wx.Notebook):
 		self.AddGeneralElement(_("Wine version"),"wineversion",[],[],3)
 		self.AddGeneralElement(_("Virtual drive"),"wineprefix",playonlinux.Get_Drives(),playonlinux.Get_Drives(),4)
 		
-		self.general_elements["debug_text"] = wx.StaticText(self.panelGeneral, -1, _("Enable debugging") ,pos=(15,19+5*40))
-		self.general_elements["debug_check"] = wx.CheckBox(self.panelGeneral, 205, pos=(300,20+5*40))
-	
-		self.AddGeneralChamp(_("Arguments"),"arguments","",6)
+		self.AddGeneralChamp(_("Arguments"),"arguments","",5)
 		
 		self.configurator_title = wx.StaticText(self.panelGeneral, -1, "", (10,294), wx.DefaultSize)
 		self.configurator_title.SetFont(self.fontTitle)
@@ -144,11 +138,10 @@ class Onglets(wx.Notebook):
 		
 		
 		wx.EVT_TEXT(self, 202, self.setname)
-		wx.EVT_TEXT(self, 206, self.setargs)
+		wx.EVT_TEXT(self, 205, self.setargs)
 		
 		wx.EVT_COMBOBOX(self, 203, self.assign)
 		wx.EVT_COMBOBOX(self, 204, self.assignPrefix)
-		wx.EVT_CHECKBOX(self, 205, self.setDebug)
 		wx.EVT_BUTTON(self, 601, self.Parent.Parent.Parent.WineVersion)
 		
 	def Wine(self, nom):
@@ -306,8 +299,6 @@ class Onglets(wx.Notebook):
 			#self.general_elements["name"].Show()
 			#self.general_elements["wineversion_text"].Show()
 			self.general_elements["wineprefix_text"].Show()
-			self.general_elements["debug_text"].Show()
-			self.general_elements["debug_check"].Show()
 			self.general_elements["name"].SetEditable(True)
 			
 			#self.general_elements["name_text"].Show()
@@ -315,7 +306,6 @@ class Onglets(wx.Notebook):
 			self.general_elements["arguments"].SetValue(playonlinux.getArgs(self.s_title))
 			
 			self.display_elements["folder_button"].SetLabel(_("Open program's directory"))
-			self.general_elements["debug_check"].SetValue(playonlinux.GetDebugState(self.s_title))
 			if(os.path.exists(Variables.playonlinux_rep+"configurations/configurators/"+self.s_title)):
 				self.configurator_title.Show()
 				self.configurator_button.Show()
@@ -337,8 +327,6 @@ class Onglets(wx.Notebook):
 			self.general_elements["arguments_text"].Hide()			
 			#self.general_elements["wineversion_text"].Hide()
 			self.general_elements["wineprefix_text"].Hide()
-			self.general_elements["debug_text"].Hide()
-			self.general_elements["debug_check"].Hide()
 			#self.general_elements["name_text"].Hide()
 			self.display_elements["folder_button"].SetLabel(_("Open virtual drive's directory"))
 			self.configurator_title.Hide()
