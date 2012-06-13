@@ -25,8 +25,7 @@ source "$PLAYONLINUX/lib/sources"
 TITLE="$(eval_gettext '$APPLICATION_TITLE Uninstaller')"
 POL_SetupWindow_Init "$PLAYONLINUX/resources/images/setups/delete/top.png" "$PLAYONLINUX/resources/images/setups/delete/left.jpg"
 
-if [ "$1" = "" ]
-then
+if [ "$1" = "" ]; then
 	POL_SetupWindow_shortcuts_list "$(eval_gettext 'Please select a program to uninstall')" "$TITLE"
 	ProgramUninstall="$APP_ANSWER"
 else
@@ -49,7 +48,7 @@ then
 	rm -f "$HOME/.local/share/applications/$ProgramUninstall.desktop"
 	rm -f "$DESKTOP/$ProgramUninstall.desktop"
 	
-	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Uninstalling...')" "$(eval_gettext '$APPLICATION_TITLE Uninstaller')" 
+	POL_SetupWindow_wait "$(eval_gettext 'Uninstalling...')" "$(eval_gettext '$APPLICATION_TITLE Uninstaller')" 
 	sleep 1
 	clean_wineprefix $application_prefixe
 	POL_SetupWindow_message "$delete_var$(eval_gettext ' has been uninstalled successfully.')" "$(eval_gettext '$APPLICATION_TITLE Uninstaller')"
