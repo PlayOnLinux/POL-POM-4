@@ -613,8 +613,20 @@ class MainWindow(wx.Frame):
 		if(os.path.exists(os.environ["POL_USER_ROOT"]+"/configurations/manuals/"+shortcut)):
 			i+=1
 			self.menuGaucheAddLink("pol_prgm_readme", _("Read the manual"), i,Variables.playonlinux_env+"/resources/images/menu/manual.png",self.ReadMe)
+	
+		
+		self.linksfile = os.environ["POL_USER_ROOT"]+"/configurations/links/"+shortcut
+		if(os.path.exists(self.linksfile)):
+			self.linksc = open(self.linksfile,"r").read().split("\n")
+			for line in self.linksc:
+				if("|" in line):
+					line = line.split("|")
+					i+=1
+					self.menuGaucheAddLink("url_"+str(i), line[0], i,Variables.playonlinux_env+"/resources/images/menu/star.png",None,line[1])
+		
 		i+=1
 		self.menuGaucheAddLink("pol_prgm_uninstall", _("Uninstall"), i,Variables.playonlinux_env+"/resources/images/menu/window-close.png",self.UninstallGame)
+							
 		icon = os.environ["POL_USER_ROOT"]+"/icones/full_size/"+shortcut
 		
 		self.perspective = self._mgr.SavePerspective().split("|")
@@ -640,7 +652,7 @@ class MainWindow(wx.Frame):
 	self.menuElem[id].SetFont(self.fontTitre)
 
 	
-  def menuGaucheAddLink(self,id,text,pos,image,evt):
+  def menuGaucheAddLink(self,id,text,pos,image,evt,url=None):
 	if(os.path.exists(image)):
 		menu_icone = image
 	else:
@@ -655,13 +667,17 @@ class MainWindow(wx.Frame):
 	except:
 		pass
 	
+	if(url == None):
+		self.menuElem[id] = wx.HyperlinkCtrl(self.menu_gauche, 10000+pos, text, "", pos=(35,15+pos*20))
+	else:
+		self.menuElem[id] = wx.HyperlinkCtrl(self.menu_gauche, 10000+pos, text, url, pos=(35,15+pos*20))
 		
-	self.menuElem[id] = wx.HyperlinkCtrl(self.menu_gauche, 10000+pos, text, "", pos=(35,15+pos*20))
 	self.menuElem[id].SetNormalColour(wx.Colour(0,0,0))
 	self.menuElem[id].SetVisitedColour(wx.Colour(0,0,0))
 	self.menuElem[id].SetHoverColour(wx.Colour(100,100,100))
 	
-	wx.EVT_HYPERLINK(self, 10000+pos, evt)
+	if(evt != None):
+		wx.EVT_HYPERLINK(self, 10000+pos, evt)
 		
   def donate(self, event):
 	if(os.environ["POL_OS"] == "Mac"):

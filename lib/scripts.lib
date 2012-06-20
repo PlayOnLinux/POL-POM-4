@@ -629,3 +629,20 @@ POL_Configurator_runparts ()
 		source "$conf"
 	done
 }
+POL_Shortcut_AddLink()
+{
+	# Add a link to a shortcut
+	# Usage : POL_Shortcut_AddLink [Shortcut] [Title] [URL]
+	
+	echo "$2|$3" >> "$POL_USER_ROOT/configurations/links/$1"
+}
+POL_Shortcut_AddDonationLink()
+{
+	# Add a donation link to a shortcut
+	# Usage : POL_Shortcut_AddDonationLink [Shortcut] [Username] [Userid]
+	# User can choose to disable it (POL_Config : DONATION_LINK set to FALSE).
+	
+	if [ "$(POL_Config_Read "DONATION_LINK")" != "FALSE" ]; then
+		POL_Shortcut_AddLink "Donate to $2" "http://www.playonlinux.com/en/profil-$3.html"
+	fi
+}
