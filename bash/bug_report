@@ -34,6 +34,13 @@ export TITLE="$POL_DEBUG_TITLE"
 POL_SetupWindow_Init
 
 POL_SetupWindow_free_presentation "$POL_DEBUG_TITLE" "$(eval_gettext "This wizard will help you to report a bug about an officially supported program.")\n\n$(eval_gettext "Please give the more details as you can, otherwise, it will be very difficult to help you")"
+
+if [ "$POL_UPTODATE" = "FALSE" ];
+then
+	POL_SetupWindow_message "$(eval_gettext 'Your $APPLICATION_TITLE version is not up to date.\nYou must update $APPLICATION_TITLE before sending a bug report.\nThank you')" "$TITLE"
+	POL_SetupWindow_Close
+	exit 0
+fi
 if [ "$LOGTITLE" = "" ]
 then
 POL_SetupWindow_menu_num "$(eval_gettext "What kind of problem do you have?")" "$POL_DEBUG_TITLE" "$(eval_gettext 'My problem concerns $APPLICATION_TITLE itself')~$(eval_gettext "I have a problem with a software")" "~"

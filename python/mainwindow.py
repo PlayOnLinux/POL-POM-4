@@ -75,8 +75,10 @@ class POLWeb(threading.Thread):
 			if(playonlinux.VersionLower(os.environ["VERSION"],self.WebVersion)):
 				self.sendToStatusBar(_('An updated version of {0} is available').format(os.environ["APPLICATION_TITLE"])+" ("+self.WebVersion+")",False)
 				self.sendAlert(_('An updated version of {0} is available').format(os.environ["APPLICATION_TITLE"])+" ("+self.WebVersion+")")
+				os.environ["POL_UPTODATE"] = "FALSE"
 			else:
 				self.Show = False
+				os.environ["POL_UPTODATE"] = "TRUE"
 		
 		self.wantcheck = False
 			
