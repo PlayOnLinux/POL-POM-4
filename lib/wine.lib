@@ -1016,7 +1016,7 @@ POL_Wine_WaitExit ()
 POL_Wine_reboot ()
 {
 	# Simulate windows reboot
-	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Please wait while $APPLICATION_TITLE is simulating a Windows reboot')" "Wine"
+	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Please wait while $APPLICATION_TITLE is simulating a reboot')" "$TITLE"
 	POL_Wine wineboot
 }
 POL_Wine_GetPrefixFromPath ()
