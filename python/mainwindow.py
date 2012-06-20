@@ -612,10 +612,14 @@ class MainWindow(wx.Frame):
 		self.menuGaucheAddLink("pol_prgm_shortcut", _("Create a shortcut"), i,Variables.playonlinux_env+"/resources/images/menu/shortcut.png",self.Package)
 		i+=1
 		self.menuGaucheAddLink("pol_prgm_adddir", _("Open the directory"), i,Variables.playonlinux_env+"/resources/images/menu/folder-wine.png",self.GoToAppDir)
+		
 		if(os.path.exists(os.environ["POL_USER_ROOT"]+"/configurations/manuals/"+shortcut)):
 			i+=1
 			self.menuGaucheAddLink("pol_prgm_readme", _("Read the manual"), i,Variables.playonlinux_env+"/resources/images/menu/manual.png",self.ReadMe)
-	
+		
+		i+=1
+		self.menuGaucheAddLink("pol_prgm_uninstall", _("Uninstall"), i,Variables.playonlinux_env+"/resources/images/menu/window-close.png",self.UninstallGame)
+				
 		
 		self.linksfile = os.environ["POL_USER_ROOT"]+"/configurations/links/"+shortcut
 		if(os.path.exists(self.linksfile)):
@@ -625,10 +629,7 @@ class MainWindow(wx.Frame):
 					line = line.split("|")
 					i+=1
 					self.menuGaucheAddLink("url_"+str(i), line[0], i,Variables.playonlinux_env+"/resources/images/menu/star.png",None,line[1])
-		
-		i+=1
-		self.menuGaucheAddLink("pol_prgm_uninstall", _("Uninstall"), i,Variables.playonlinux_env+"/resources/images/menu/window-close.png",self.UninstallGame)
-							
+								
 		icon = os.environ["POL_USER_ROOT"]+"/icones/full_size/"+shortcut
 		
 		self.perspective = self._mgr.SavePerspective().split("|")
