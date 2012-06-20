@@ -642,7 +642,8 @@ POL_Shortcut_AddDonationLink()
 	# Usage : POL_Shortcut_AddDonationLink [Shortcut] [Username] [Userid]
 	# User can choose to disable it (POL_Config : DONATION_LINK set to FALSE).
 	
+	AUTHOR="$2"
 	if [ "$(POL_Config_Read "DONATION_LINK")" != "FALSE" ]; then
-		POL_Shortcut_AddLink "Donate to $2" "http://www.playonlinux.com/en/profil-$3.html"
+		POL_Shortcut_AddLink "$(eval_gettext 'Donate to $AUTHOR')" "http://www.playonlinux.com/en/profil-$3.html"
 	fi
 }
