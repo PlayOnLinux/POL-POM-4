@@ -644,6 +644,6 @@ POL_Shortcut_AddDonationLink()
 	
 	AUTHOR="$2"
 	if [ "$(POL_Config_Read "DONATION_LINK")" != "FALSE" ]; then
-		POL_Shortcut_AddLink "$(eval_gettext 'Donate to $AUTHOR')" "http://www.playonlinux.com/en/profil-$3.html"
+		POL_Shortcut_AddLink "$1" "$(eval_gettext 'Donate to $AUTHOR')" "http://www.playonlinux.com/en/profil-$3.html"
 	fi
 }
