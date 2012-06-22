@@ -667,8 +667,8 @@ POL_LoadVar_Distro ()
 }
 POL_Shortcut_MakeDesktopShortcut()
 {
+	PACKAGE="$1"
 	if [ "$POL_OS" = "Mac" ]; then
-		PACKAGE="$1"
 		DIRAPP="$HOME/Desktop/$PACKAGE.app"
 		shortname="´printf $PACKAGE | tr -c [[a-zA-Z0-9]\.] '_'´"
 		make_skeleton "$PACKAGE"
