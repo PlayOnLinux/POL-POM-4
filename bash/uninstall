@@ -42,6 +42,7 @@ then
 	# Icones
 	rm -f "$REPERTOIRE/icones/32/$ProgramUninstall"
 	rm -f "$REPERTOIRE/icones/full_size/$ProgramUninstall"
+	rm -f "$POL_USER_ROOT/configurations/reports/$ProgramUninstall" 2> /dev/null
 	
 	# Shortcut
 	rm -f "$REPERTOIRE/shortcuts/$ProgramUninstall"
