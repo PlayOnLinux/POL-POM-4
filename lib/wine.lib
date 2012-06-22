@@ -363,8 +363,9 @@ POL_LoadVar_Device ()
 		export DeviceID=`echo $VGA_ID2 | cut -d: -f2`
 	fi
 	if [ "$POL_OS" = "Mac" ]; then
-		export DeviceID="$(system_profiler | grep -A 10 "Graphics/Displays:" | grep "Device ID" | awk '{print $3}' | cut -d x -f2)"
-		export VendorID="$(system_profiler | grep -A 10 "Graphics/Displays:" | grep "Vendor:" | awk '{print $3}' | tr -d "()" | cut -d x -f2)"
+		system_profiler > "$POL_USER_ROOT/tmp/system_profiler"
+		export DeviceID="$(cat "$POL_USER_ROOT/tmp/system_profiler" | grep -A 10 "Graphics/Displays:" | grep "Device ID" | awk '{print $3}' | cut -d x -f2)"
+		export VendorID="$(cat "$POL_USER_ROOT/tmp/system_profiler" | grep -A 10 "Graphics/Displays:" | grep "Vendor:" | awk '{print $3}' | tr -d "()" | cut -d x -f2)"
 	fi
 	POL_Debug_Message "VendorID : $VendorID"
 	POL_Debug_Message "DeviceID : $DeviceID"

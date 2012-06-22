@@ -25,7 +25,7 @@ TITLE="$APPLICATION_TITLE"
 send_stat()
 {
 	# vms
-	vms="$(POL_Config_Read_VMS)"
+	vms="$(POL_Config_Read VMS)"
 	
 	# OpenGL32
 	
@@ -45,7 +45,7 @@ send_stat()
 	fi
 	
 	# OS (currentOS ; 0 = linux ; 1 = Mac)
-	[ "$POL_OS" = "Linux" ] && currentOS = "0" || currentOS = "1" 
+	[ "$POL_OS" = "Linux" ] && currentOS="0" || currentOS="1" 
 	
 	# Device Infos
 	POL_LoadVar_Device
@@ -61,7 +61,7 @@ send_stat()
 	
 	# AMD64
 	[ "$AMD64_COMPATIBLE" = "TRUE" ] && amd64_set="1" || amd64_set="0"
-	cat << EOF
+	cat <<- EOF
 		ScriptName : $ScriptName
 		Distro : $DISTRO
 		Video memory size : $vms
