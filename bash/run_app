@@ -80,9 +80,6 @@ export COMMON_NAME="$PACKAGE"
 bash "$PACKAGE" "$@"
 
 ExitCode="$?"
-if [ "$(POL_Config_Read SEND_REPORT)" = "TRUE" ]; then
-	send_stat "$ExitCode"
-fi
 
 if [ ! "$ExitCode" = "0" ]; then 
 	POL_SetupWindow_Init
@@ -96,3 +93,7 @@ if [ ! "$ExitCode" = "0" ]; then
 	POL_SetupWindow_Close
 fi
 $(POL_Config_Read POST_RUNNING)
+
+if [ "$(POL_Config_Read SEND_REPORT)" = "TRUE" ]; then
+	send_stat "$ExitCode"
+fi
