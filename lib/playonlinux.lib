@@ -207,8 +207,9 @@ EOF
 	
 else
 	cd "$POL_USER_ROOT/shortcuts/"
-	cat "$1" | grep PATH >> "$POL_USER_ROOT/tmp/env_bash"
-	cat "$1" | grep WINEPREFIX >> "$POL_USER_ROOT/tmp/env_bash"
+	cat "$1" | grep 'export PATH=' >> "$POL_USER_ROOT/tmp/env_bash"
+	cat "$1" | grep 'PATH=' >> "$POL_USER_ROOT/tmp/env_bash"
+	cat "$1" | grep '^export WINEPREFIX' >> "$POL_USER_ROOT/tmp/env_bash"
 	cat << EOF >> "$POL_USER_ROOT/tmp/env_bash"
 export PLAYONLINUX="$PLAYONLINUX"
 cd "$WINEPREFIX/drive_c"
