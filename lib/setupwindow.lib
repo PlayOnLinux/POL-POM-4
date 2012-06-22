@@ -1195,3 +1195,40 @@ get_existing_POL_SetupWindow_shortcut_creator()
 		fi
 	done
 }
+
+POL_SetupWindow_RequiredCard()
+{
+	# Forcing usage of one kind of video card
+	
+	# Usage : POL_Wine_RequiredCard "NVIDIA,INTEL" (for exemple)
+	MyCard="$(POL_Wine_DetectCard)"
+	
+	if [ ! "$(printf "$1" | grep "$MyCard")" = "" ]; then
+		NOBUGREPORT="TRUE"
+		POL_Debug_Fatal "Sorry, your video card ($MyCard) is not supported to run $TITLE"
+	fi
+}
+POL_SetupWindow_AdvisedCard()
+{
+	# Forcing usage of one kind of video card
+	
+	# Usage : POL_Wine_RequiredCard "NVIDIA,INTEL" (for exemple)
+	MyCard="$(POL_Wine_DetectCard)"
+	
+	if [ ! "$(printf "$1" | grep "$MyCard")" = "" ]; then
+		NOBUGREPORT="TRUE"
+		POL_Debug_Error "Your video card ($MyCard) might cause problems to run $TITLE"
+	fi
+}
+
+POL_SetupWindow_UntestedCard()
+{
+	# Forcing usage of one kind of video card
+	
+	# Usage : POL_Wine_RequiredCard "NVIDIA,INTEL" (for exemple)
+	MyCard="$(POL_Wine_DetectCard)"
+	
+	if [ ! "$(printf "$1" | grep "$MyCard")" = "" ]; then
+		POL_SetupWindow_message "Your video card ($MyCard) has not been tested with $TITLE. Don't hesitate to send us feedbacks, so we can improve $APPLICATION_TITLE" "$TITLE"
+	fi
+}
