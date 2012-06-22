@@ -1,0 +1,67 @@
+#!/bin/bash
+
+# Copyright (C) 2007-2012 PlayOnLinux Team
+# Copyright (C) 2007 Pâris Quentin
+
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
+
+# debian.lib
+# --------
+#
+# This lib contains debian stuff
+
+
+fonts_install () # Debian tweak to avoid downloading Microsoft Fonts
+{
+	if [ ! -e "$REPERTOIRE/configurations/msfonts_installed" ] && [ ! -e "$REPERTOIRE/configurations/msfonts_deb_installed" ]; then
+		FONTS_WARNING="Microsoft fonts aren't installed.\n\n\
+ If you encounter any fonts trouble, you should think about installing\
+ the debian package\nttf-mscorefonts-installer (see README.Debian)."
+		POL_SetupWindow_message "$FONTS_WARNING" "Microsoft fonts"
+		POL_SetupWindow_Close
+	fi
+}
+
+
+install_debfonts () # Debian tweak to avoid downloading Microsoft Fonts
+{
+	if [ ! -e "$REPERTOIRE/configurations/msfonts_installed" ] && [ ! -e "$REPERTOIRE/configurations/msfonts_deb_installed" ]
+	then
+		DEBFONTS="/usr/share/fonts/truetype/msttcorefonts"
+		if [ ! -d $DEBFONTS ]
+		then
+			rm $HOME/.PlayOnLinux/fonts/ -r 2> /dev/null
+			rm $HOME/.PlayOnLinux/fonts 2> /dev/null
+			rm $HOME/.PlayOnLinux/configurations/fonts_installed 2> /dev/null
+			rm $HOME/.PlayOnLinux/configurations/msfonts_deb_installed 2> /dev/null
+		fi
+		if [ -d $DEBFONTS ]
+		then
+			rm $HOME/.PlayOnLinux/fonts/ -r 2> /dev/null
+			rm $HOME/.PlayOnLinux/fonts 2> /dev/null
+			rm $HOME/.PlayOnLinux/configurations/fonts_installed 2> /dev/null
+			FONTDIR=$HOME/.PlayOnLinux/fonts/
+			mkdir -p $FONTDIR
+			OLDDIR="$PWD"
+			cd $DEBFONTS
+			for ttf in *
+			do
+				ln -s $DEBFONTS/$ttf $FONTDIR/$ttf
+			done
+			cd $OLDDIR
+			touch "$HOME/.PlayOnLinux/configurations/msfonts_deb_installed"
+		fi
+	fi
+}

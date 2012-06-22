@@ -12,10 +12,17 @@ class Lang(object):
 
 class iLang(object):
 	def __init__(self):
-			languages = os.listdir(Variables.playonlinux_env+'/lang/locale')
+			if(os.environ["DEBIAN_PACKAGE"] == "TRUE"):
+				languages = os.listdir('/usr/share/locale')
+			else:
+				languages = os.listdir(Variables.playonlinux_env+'/lang/locale')
 			
 			langid = wx.LANGUAGE_DEFAULT
-			localedir = os.path.join(Variables.playonlinux_env, "lang/locale")
+			if(os.environ["DEBIAN_PACKAGE"] == "TRUE"):
+				localedir = "/usr/share/locale"
+			else:
+				localedir = os.path.join(Variables.playonlinux_env, "lang/locale")
+				
 			domain = "pol"
 			mylocale = wx.Locale(langid)
 			mylocale.AddCatalogLookupPathPrefix(localedir)

@@ -11,10 +11,16 @@ try :
 except :
 	print "ERROR ! Please define POL_OS environement var first."
 	sys.exit
-	
+
+
 # Variables mixte 1
 os.environ["PLAYONLINUX"] = os.path.realpath(os.path.realpath(__file__)+"/../../../")
-	
+
+# Debian packagers should switch this to TRUE
+# It will disable update alerts, bug reports, statistics
+# It will set the good locale directory, and it will use the good msttcorefonts
+os.environ["DEBIAN_PACKAGE"] = "FALSE" 
+
 # Variables PlayOnMac
 if (os.environ["POL_OS"] == "Mac"):
 	os.environ["PLAYONMAC"] = os.environ["PLAYONLINUX"]

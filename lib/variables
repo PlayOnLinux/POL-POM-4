@@ -29,7 +29,11 @@ alias find="find -H"
 [ "$(which sudo)" ] && sudo -k
 
 ### Terminal
-export POL_TERM="xterm"
+if [ "$DEBIAN_PACKAGE" = "TRUE" ]; then
+	export POL_TERM="x-terminal-emulator"
+else
+	export POL_TERM="xterm"
+fi
 
 ### Desktop
 [ "$(which xdg-user-dir)" ] && export DESKTOP="$(xdg-user-dir DESKTOP)" || export DESKTOP="$HOME/Desktop"
@@ -41,7 +45,7 @@ export WGETRC="$POL_USER_ROOT/configurations/wgetrc"
 if [ ! "$NOGETTEXT" = "TRUE" ] || [ "$(POL_Config_pRead NOGETTEXT)" = "TRUE" ]
 then
 
-export TEXTDOMAINDIR="$PLAYONLINUX/lang/locale/"
+[ "$DEBIAN_PACKAGE" = "FALSE" ] && export TEXTDOMAINDIR="$PLAYONLINUX/lang/locale/"
 export TEXTDOMAIN="pol"
 . gettext.sh
 eval_gettext > /dev/null || eval_gettext() { printf "$@"; }

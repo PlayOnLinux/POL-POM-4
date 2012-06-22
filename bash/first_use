@@ -315,7 +315,12 @@ fi
 
 [ "$POL_OS" == "Mac" ] && [ "$OSX_VERSION" = "9" ] &&  install_x11
 
-install_fonts
+if [ "$DEBIAN_PACKAGE" = "TRUE" ]; then
+	fonts_install
+else
+	install_fonts
+fi
+
 install_prefix
 POL_SetupWindow_message "$(eval_gettext 'Thank you for using $APPLICATION_TITLE')" "$(eval_gettext '$APPLICATION_TITLE first use')"
 POL_SetupWindow_Close

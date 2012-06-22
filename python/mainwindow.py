@@ -74,7 +74,8 @@ class POLWeb(threading.Thread):
 		
 			if(playonlinux.VersionLower(os.environ["VERSION"],self.WebVersion)):
 				self.sendToStatusBar(_('An updated version of {0} is available').format(os.environ["APPLICATION_TITLE"])+" ("+self.WebVersion+")",False)
-				self.sendAlert(_('An updated version of {0} is available').format(os.environ["APPLICATION_TITLE"])+" ("+self.WebVersion+")")
+				if(os.environ["DEBIAN_PACKAGE"] == "FALSE"):
+					self.sendAlert(_('An updated version of {0} is available').format(os.environ["APPLICATION_TITLE"])+" ("+self.WebVersion+")")
 				os.environ["POL_UPTODATE"] = "FALSE"
 			else:
 				self.Show = False
@@ -1040,11 +1041,13 @@ class PlayOnLinuxApp(wx.App):
 				if(wx.YES == wx.MessageBox(_('{0} has detected that optirun is installed on your system.\n\nDo you want {0} to be configured to use it?').format(os.environ["APPLICATION_TITLE"]).decode("utf-8","replace"), os.environ["APPLICATION_TITLE"],style=wx.YES_NO | wx.ICON_QUESTION)):
 					playonlinux.SetSettings("PRE_WINE","optirun")
 		"""
-		if(playonlinux.GetSettings("SEND_REPORT") == ""):
-			if(wx.YES == wx.MessageBox(_('Do you want to help {0} to make a compatibility database?\n\nIf you click yes, the following things will be sent to us anonymously the first time you run a Windows program:\n\n- You graphic card model\n- Your OS version\n- If graphic drivers are installed or not.\n\n\nThese information will be very precious for us to help people.').format(os.environ["APPLICATION_TITLE"]).decode("utf-8","replace"), os.environ["APPLICATION_TITLE"],style=wx.YES_NO | wx.ICON_QUESTION)):
-				playonlinux.SetSettings("SEND_REPORT","TRUE")
-			else:
-				playonlinux.SetSettings("SEND_REPORT","TRUE")
+		
+		if(os.environ["DEBIAN_PACKAGE"] == "FALSE"):
+			if(playonlinux.GetSettings("SEND_REPORT") == ""):
+				if(wx.YES == wx.MessageBox(_('Do you want to help {0} to make a compatibility database?\n\nIf you click yes, the following things will be sent to us anonymously the first time you run a Windows program:\n\n- You graphic card model\n- Your OS version\n- If graphic drivers are installed or not.\n\n\nThese information will be very precious for us to help people.').format(os.environ["APPLICATION_TITLE"]).decode("utf-8","replace"), os.environ["APPLICATION_TITLE"],style=wx.YES_NO | wx.ICON_QUESTION)):
+					playonlinux.SetSettings("SEND_REPORT","TRUE")
+				else:
+					playonlinux.SetSettings("SEND_REPORT","TRUE")
 							
 		#### Other import checks
 		self.singleCheck("tar")

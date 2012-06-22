@@ -178,9 +178,10 @@ class MainWindow(wx.Frame):
 				if(self.logsize - 10000 > 0):
 					self.logfile.seek(self.logsize - 10000) # 10 000 latest chars should be sufficient	
 				self.logtype = 1
-				self.reportProblem.Show()
-				self.reportProblem.Enable(True)
-				self.reportProblem.SetLabel(_("Report a problem about {0}").format(self.logname))
+				if(os.environ["DEBIAN_PACKAGE"] == "FALSE"):
+					self.reportProblem.Show()
+					self.reportProblem.Enable(True)
+					self.reportProblem.SetLabel(_("Report a problem about {0}").format(self.logname))
 				
 				
 		except:

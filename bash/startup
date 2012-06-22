@@ -41,6 +41,9 @@ clean_tmp
 # Plugins
 install_plugins
 
+# Debian
+[ "$DEBIAN_PACKAGE" = "TRUE" ] && install_debfonts
+
 # First use ?
 [ "$(POL_Config_Read FIRST_USE)" = "" ] && bash "$PLAYONLINUX/bash/first_use"
 [ "$POL_OS" == "Mac" ] && [ ! -e "/Applications/Utilities/XQuartz.app" ] && [ ! "$OSX_VERSION" = "11" ] && bash "$PLAYONLINUX/bash/first_use"
