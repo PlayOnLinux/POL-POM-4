@@ -304,7 +304,7 @@ def getPrefix(shortcut): # Get prefix name from shortcut
 	fichier = string.split(fichier,"\n")
 	i = 0
 	while(i < len(fichier)):
-		if("WINEPREFIX" in fichier[i]):
+		if("export WINEPREFIX=" in fichier[i]):
 			break
 		i += 1
 	
