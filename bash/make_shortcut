@@ -33,7 +33,7 @@ fi
 
 POL_SetupWindow_Init
 POL_SetupWindow_wait_next_signal "$(eval_gettext "Creating shortcut...")" "$TITLE"
-POL_Shortcut_MakeDesktopShortcut
+POL_Shortcut_MakeDesktopShortcut "$PACKAGE"
 POL_SetupWindow_message "$(eval_gettext "The shortcut has been placed on your desktop")" "$TITLE"
 POL_SetupWindow_Close
 
