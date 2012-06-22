@@ -832,7 +832,7 @@ POL_Wine_SetVersionEnv()
 	if [ ! "$POL_WINEVERSION" = "" ]
 	then
 		[ "$POL_ARCH" = "" ] && POL_System_SetArch "auto"
-		POL_Debug_Message "Setting wine version path: $POL_WINEVERSION, $POL_ARCH"
+		#POL_Debug_Message "Setting wine version path: $POL_WINEVERSION, $POL_ARCH"
 		[ "$POL_OS" = "Mac" ] && ARCH_PREFIX="darwin"
 		[ "$POL_OS" = "Linux" ] && ARCH_PREFIX="linux"
 		OLDPATH="$PWD"
@@ -848,10 +848,8 @@ POL_Wine_SetVersionEnv()
 		else
 			if [ ! -e "$WINEDIR/$POL_WINEVERSION" ]
 			then
-				POL_Debug_Message "Wine $POL_WINEVERSION not installed"
+				POL_Debug_Message "Wine $POL_WINEVERSION not installed. Installing it"
 		 		POL_Wine_InstallVersion "$POL_WINEVERSION"
-			else
-				POL_Debug_Message "\"$WINEDIR/$POL_WINEVERSION\" exists"
 			fi
 			export PATH="$WINEDIR/$POL_WINEVERSION/bin/:$PATH"
 			export LD_LIBRARY_PATH="$WINEDIR/$POL_WINEVERSION/lib/:$LD_LIBRARY_PATH"

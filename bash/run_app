@@ -36,6 +36,7 @@ send_stat()
 
 	# DISTRO
 	POL_LoadVar_Distro
+	DISTRO="${DISTRO//'~'/ }"
 	
 	# Script name
 	ScriptName="$(cat "$PACKAGE" | grep ScriptID | cut -d '=' -f2)"
@@ -59,6 +60,7 @@ send_stat()
 	Prefix="$(POL_Shortcut_GetPrefix "$PACKAGE")"
 	Version="$(POL_Config_PrefixRead VERSION "$Prefix")"
 	PArch="$(POL_Config_PrefixRead ARCH "$Prefix")"
+	[ "$PArch" = "x86" ] && archty="0" || archty="1"
 	# AMD64
 	[ "$AMD64_COMPATIBLE" = "TRUE" ] && amd64_set="1" || amd64_set="0"
 
@@ -66,23 +68,8 @@ send_stat()
 	# Device Infos
 	POL_LoadVar_Device
 	
-	# Print everything (Fixme)
-	cat <<- EOF
-		ScriptName : $ScriptName
-		Distro : $DISTRO
-		Video memory size : $vms
-		OpengGL 32 bits : $OpenGL32
-		OpengGL 64 bits : $OpenGL64
-		AMD64 : $amd64_set
-		Device ID : $DeviceID
-		Vendor ID : $VendorID
-		Exit code : $ExitCode
-		Unique ID : $UniqId
-		Current OS : $currentOS
-		Duration : $delta
-		Package : $PACKAGE
-		PrefixArch : $PArch
-	EOF
+	Info="$(printf "$VendorID~$DeviceID~$currentOS~$ScriptName~$amd64_set~$OpenGL32~$OpenGL64~$Version~$ExitCode~$DISTRO~$VMS~$UniqId~$archty~$PACKAGE" | POL_base64)"
+	
 }
 if [ "$1" ]; then
 	PACKAGE="$1"
