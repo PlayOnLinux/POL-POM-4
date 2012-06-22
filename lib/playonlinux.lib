@@ -617,9 +617,8 @@ detect_wineprefix()
 	# Usage: detect_wineprefix [Shortcut]
 	
 	file="$REPERTOIRE/shortcuts/$1"
-	if [ -e "$file" ]
-	then	
-		fichier=$(cat "$file" | grep WINEPREFIX)
+	if [ -e "$file" ]; then	
+		fichier=$(cat "$file" | grep '^export WINEPREFIX')
 		fichier=${fichier:18}
 		fichier=${fichier//"\""/""}
 		fichier=${fichier//"//"/"/"}
