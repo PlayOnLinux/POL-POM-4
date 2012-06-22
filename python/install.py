@@ -303,7 +303,7 @@ class InstallWindow(wx.Frame):
 			self.EasterEgg.Center(wx.BOTH)
 		else:
 			if(playonlinux.GetSettings("FIRST_INSTALL_DONE") == ""):
-				wx.MessageBox(_("When {0} install for you a Windows program: \n\n - Leave the default location\n - Do not tick the checkbox 'Run the program' if asked.").format(os.environ["APPLICATION_TITLE"]),_("Please read this"))
+				wx.MessageBox(_("When {0} installs a Windows program: \n\n - Leave the default location\n - Do not tick the checkbox 'Run the program' if asked.").format(os.environ["APPLICATION_TITLE"]),_("Please read this"))
 				playonlinux.SetSettings("FIRST_INSTALL_DONE","TRUE")
 				
 			os.system("bash \""+Variables.playonlinux_env+"/bash/install\" \""+InstallApplication.encode("utf-8","replace")+"\"&")
