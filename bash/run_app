@@ -64,14 +64,16 @@ send_stat()
 	# AMD64
 	[ "$AMD64_COMPATIBLE" = "TRUE" ] && amd64_set="1" || amd64_set="0"
 
-	if [ ! -e "$POL_USER_ROOT/configurations/reports/$PACKAGE" ]; then
-		# Only once per install
-		# Device Infos
-		POL_LoadVar_Device
+	if [ "$ScriptName" ]; then
+		if [ ! -e "$POL_USER_ROOT/configurations/reports/$PACKAGE" ]; then
+			# Only once per install
+			# Device Infos
+			POL_LoadVar_Device
 	
-		Info="$(printf "$VendorID~$DeviceID~$currentOS~$ScriptName~$amd64_set~$OpenGL32~$OpenGL64~$Version~$ExitCode~$DISTRO~$vms~$UniqId~$archty~$PACKAGE~$VERSION~$delta" | POL_base64)"
-		POL_Website_GET "http://www.playonlinux.com/api/s.php?data=$(POL_Website_urlencode "$Info")"
-		echo "$UniqId" > "$POL_USER_ROOT/configurations/reports/$PACKAGE"
+			Info="$(printf "$VendorID~$DeviceID~$currentOS~$ScriptName~$amd64_set~$OpenGL32~$OpenGL64~$Version~$ExitCode~$DISTRO~$vms~$UniqId~$archty~$PACKAGE~$VERSION~$delta" | POL_base64)"
+			POL_Website_GET "http://www.playonlinux.com/api/s.php?data=$(POL_Website_urlencode "$Info")"
+			echo "$UniqId" > "$POL_USER_ROOT/configurations/reports/$PACKAGE"
+		fi
 	fi
 }
 if [ "$1" ]; then
@@ -115,6 +117,6 @@ if [ ! "$ExitCode" = "0" ]; then
 fi
 $(POL_Config_Read POST_RUNNING)
 
-if [ "$(POL_Config_Read SEND_REPORT)" = "TRUE" ]; then
+if [ "$(POL_Config_Read SEND_REPORT)" = "TRUE" ] && [ "$DEBIAN_PACKAGE" = "FALSE" ]; then
 	send_stat "$ExitCode"
 fi
