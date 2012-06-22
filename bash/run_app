@@ -35,10 +35,14 @@ send_stat()
 	POL_LoadVar_Distro
 	
 	# Script name
-	ScriptName="$(cat "$PACKAGE | grep ScriptID | cut -d '=' -f2")"
+	ScriptName="$(cat "$PACKAGE" | grep ScriptID | cut -d '=' -f2)"
 	
 	# ExitCode
-	ExitCode="$1"
+	if [ "$(cat "$PACKAGE" | grep '\[ "$WINEDEBUG" = "-all" \] && exit 0')" = "" ]; then
+		ExitCode="$1"
+	else
+		ExitCode="-1"
+	fi
 	
 	# OS (currentOS ; 0 = linux ; 1 = Mac)
 	[ "$POL_OS" = "Linux" ] && currentOS = "0" || currentOS = "1" 
