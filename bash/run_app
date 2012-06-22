@@ -20,18 +20,41 @@
 [ "$PLAYONLINUX" = "" ] && exit 0
 source "$PLAYONLINUX/lib/sources"
 
-
 TITLE="$APPLICATION_TITLE"
 
+send_stat()
+{
+	# vms
+	vms="$(POL_Config_Read_VMS)"
+	
+	# OpenGL32
+	
+	# OpenGL64
 
-if [ "$1" ]
-then
-PACKAGE="$1"
+	# DISTRO
+	POL_LoadVar_Distro
+	
+	# Script name
+	ScriptName="$(cat "$PACKAGE | grep ScriptID | cut -d '=' -f2")"
+	
+	# ExitCode
+	ExitCode="$1"
+	
+	# OS (currentOS ; 0 = linux ; 1 = Mac)
+	[ "$POL_OS" = "Linux" ] && currentOS = "0" || currentOS = "1" 
+	
+	# Device Infos
+	POL_LoadVar_Device
+	
+	# User Report = -1
+}
+if [ "$1" ]; then
+	PACKAGE="$1"
 else
-POL_SetupWindow_Init
-POL_SetupWindow_games "$(eval_gettext "Please choose a software to run")" "$TITLE"
-PACKAGE="$APP_ANSWER"
-POL_SetupWindow_Close
+	POL_SetupWindow_Init
+	POL_SetupWindow_games "$(eval_gettext "Please choose a software to run")" "$TITLE"
+	PACKAGE="$APP_ANSWER"
+	POL_SetupWindow_Close
 fi
 
 cd "$REPERTOIRE/shortcuts"
@@ -49,12 +72,14 @@ export COMMON_NAME="$PACKAGE"
 
 bash "$PACKAGE" "$@"
 
-if [ ! "$?" = "0" ]
-then 
+ExitCode="$?"
+if [ "$(POL_Config_Read SEND_REPORT)" = "TRUE" ]; then
+	send_stat "$ExitCode"
+fi
 
-
+if [ ! "$ExitCode" = "0" ]; then 
 	POL_SetupWindow_Init
-	POL_SetupWindow_wait_next_signal "$(eval_gettext '$APPLICATION_TITLE debugger is starting...')" "$TITLE"
+	POL_SetupWindow_wait "$(eval_gettext '$APPLICATION_TITLE debugger is starting...')" "$TITLE"
 	if [ ! "$(cat "$PACKAGE" | grep 'export WINEDEBUG="-all"')" = "" ]
 	then
 		POL_SetupWindow_message "$(eval_gettext '$PACKAGE crashed.\n\nYou need to enable debugging to get more details.\nPlease go to configure menu')" "$TITLE"

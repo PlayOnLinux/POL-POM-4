@@ -1002,6 +1002,9 @@ class PlayOnLinuxApp(wx.App):
 			returncode=255
 		if(os.environ["POL_OS"] == "Linux" and returncode != 0):
 			wx.MessageBox(_("{0} is unable to find 32bits OpenGL libraries.\n\nYou might encounter problem with your games").format(os.environ["APPLICATION_TITLE"]),_("Error"))
+			os.environ["OpenGL32"] = "0"
+		else:
+			os.environ["OpenGL32"] = "1"
 		
 		#### 64 bits OpenGL check
 		if(os.environ["AMD64_COMPATIBLE"] == "True"):
@@ -1011,7 +1014,10 @@ class PlayOnLinuxApp(wx.App):
 				returncode=255
 		if(os.environ["AMD64_COMPATIBLE"] == "True" and os.environ["POL_OS"] == "Linux" and returncode != 0):
 			wx.MessageBox(_("{0} is unable to find 64bits OpenGL libraries.\n\nYou might encounter problem with your games").format(os.environ["APPLICATION_TITLE"]),_("Error"))
-
+			os.environ["OpenGL64"] = "0"
+		else:
+			os.environ["OpenGL64"] = "1"
+			
 		#### Filesystem check
 		if(os.environ["POL_OS"] == "Linux"):
 			try:
@@ -1034,7 +1040,12 @@ class PlayOnLinuxApp(wx.App):
 				if(wx.YES == wx.MessageBox(_('{0} has detected that optirun is installed on your system.\n\nDo you want {0} to be configured to use it?').format(os.environ["APPLICATION_TITLE"]).decode("utf-8","replace"), os.environ["APPLICATION_TITLE"],style=wx.YES_NO | wx.ICON_QUESTION)):
 					playonlinux.SetSettings("PRE_WINE","optirun")
 		"""
-					
+		if(playonlinux.GetSettings("SEND_REPORT") == ""):
+			if(wx.YES == wx.MessageBox(_('Do you want to help {0} to make a compatibility database?\n\nIf you click yes, the following things will be sent to us anonymously the first time you run a Windows program:\n\n- You graphic card model\n- Your OS version\n- If graphic drivers are installed or not.\n\n\nThese information will be very precious for us to help people.').format(os.environ["APPLICATION_TITLE"]).decode("utf-8","replace"), os.environ["APPLICATION_TITLE"],style=wx.YES_NO | wx.ICON_QUESTION)):
+				playonlinux.SetSettings("SEND_REPORT","TRUE")
+			else:
+				playonlinux.SetSettings("SEND_REPORT","TRUE")
+							
 		#### Other import checks
 		self.singleCheck("tar")
 		self.singleCheck("cabextract")

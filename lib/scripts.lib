@@ -259,6 +259,7 @@ POL_Shortcut()
 	echo "export WINEPREFIX=\"$WINEPREFIX\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
 	echo "export WINEDEBUG=\"-all\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
 	[ ! "$LOGTITLE" = "" ] && echo "#POL_Log=$LOGTITLE" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
+	[ "$SCRIPTID" ] && echo "#ScriptID=$SCRIPTID" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
 	echo "cd \"$WINEPREFIX/drive_c/$binary_dir\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
 	echo "POL_Wine \"$Binaire\" $SpecialArg \"\$@\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
 	chmod +x "$REPERTOIRE/shortcuts/$NOMICONE_"
@@ -645,5 +646,22 @@ POL_Shortcut_AddDonationLink()
 	AUTHOR="$2"
 	if [ "$(POL_Config_Read "DONATION_LINK")" != "FALSE" ]; then
 		POL_Shortcut_AddLink "$1" "$(eval_gettext 'Donate to $AUTHOR')" "http://www.playonlinux.com/en/profil-$3.html"
+	fi
+}
+POL_LoadVar_Distro ()
+{
+	if [ "$POL_OS" = "Linux" ]; then
+		export DISTRO="$(lsb_release -d | cut -d':' -f2 | tr -d \\t)"
+	else
+		main_kernel="$(uname -r | cut -d '.' -f 1)"
+		second_kernel="$(uname -r | cut -d '.' -f 2)"
+
+		[ "$main_kernel" = "8" ] && MacOS="Tiger"
+		[ "$main_kernel" = "9" ] && MacOS="Leopard"		
+		[ "$main_kernel" = "10" ] && MacOS="Snow Leopard"
+		[ "$main_kernel" = "11" ] && MacOS="Lion"
+		[ "$main_kernel" = "12" ] && MacOS="Mountain Lion"
+		
+		export DISTRO="$MacOS 10.$(( main_kernel - 4)).$second_kernel ($(uname -r))"
 	fi
 }
