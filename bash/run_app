@@ -24,6 +24,9 @@ TITLE="$APPLICATION_TITLE"
 
 send_stat()
 {
+	# Time
+	delta="$(( EndTime - StartTime ))"
+	
 	# vms
 	vms="$(POL_Config_Read VMS)"
 	
@@ -47,9 +50,6 @@ send_stat()
 	# OS (currentOS ; 0 = linux ; 1 = Mac)
 	[ "$POL_OS" = "Linux" ] && currentOS="0" || currentOS="1" 
 	
-	# Device Infos
-	POL_LoadVar_Device
-	
 	# User Report = -1
 	
 	# Unique id (autorisation to edit the review)
@@ -61,6 +61,12 @@ send_stat()
 	
 	# AMD64
 	[ "$AMD64_COMPATIBLE" = "TRUE" ] && amd64_set="1" || amd64_set="0"
+
+	
+	# Device Infos
+	POL_LoadVar_Device
+	
+	# Print everything (Fixme)
 	cat <<- EOF
 		ScriptName : $ScriptName
 		Distro : $DISTRO
@@ -73,6 +79,7 @@ send_stat()
 		Exit code : $ExitCode
 		Unique ID : $UniqId
 		Current OS : $currentOS
+		Duration : $delta
 	EOF
 }
 if [ "$1" ]; then
@@ -97,9 +104,11 @@ shift
 POL_Wine_EnableOSXNativeDock
 export COMMON_NAME="$PACKAGE"
 
+StartTime="$(date +%s)"
 bash "$PACKAGE" "$@"
-
 ExitCode="$?"
+EndTime="$(date +%s)"
+
 
 if [ ! "$ExitCode" = "0" ]; then 
 	POL_SetupWindow_Init
