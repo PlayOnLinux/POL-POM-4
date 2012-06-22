@@ -22,34 +22,25 @@
 source "$PLAYONLINUX/lib/sources" 
 
 
-TITLE="$(eval_gettext '$APPLICATION_TITLE packager')"
+TITLE="$(eval_gettext '$APPLICATION_TITLE shortcut creator')"
 
-if [ "$POL_OS" == "Mac" ]
-then
-	
-POL_SetupWindow_Init
-POL_SetupWindow_free_presentation "$TITLE" "$(eval_gettext "Welcome to PlayOnMac packager.\n\nThis tool will help you to make a .app for a PlayOnMac software.\n\nThe .app will be placed on your desktop")"
-if [ "$1" ]
-then
-PACKAGE="$1"
+if [ "$1" ]; then
+	PACKAGE="$1"
 else
-POL_SetupWindow_games "$(eval_gettext "Please choose a software to package")" "$TITLE"
-PACKAGE="$APP_ANSWER"
+	POL_SetupWindow_games "$(eval_gettext "Please choose a software to package")" "$TITLE"
+	PACKAGE="$APP_ANSWER"
 fi
 
-POL_SetupWindow_message "$(eval_gettext "There are two kind of packages\n\nPlayOnMac package: this package will only work on your computer. \nTherefore, it will not take more space on your hard drive.\n\nStand-alone package: in this package, PlayOnMac will include all files\nneeded to run your software.\nThis package will work without PlayOnMac.")" "$TITLE"
-DIRAPP="$HOME/Desktop/$PACKAGE.app"
-shortname="$(printf $PACKAGE | tr -c [[a-zA-Z0-9]\.] '_')"
-POL_SetupWindow_menu_num "$(eval_gettext "What kind of Package do yo want?")" "$TITLE"  "$(eval_gettext "PlayOnMac package")~$(eval_gettext "Stand-alone package")" "~"
-KIND_OF_PACKAGE="$APP_ANSWER"
-if [ "$KIND_OF_PACKAGE"  = "0" ]
-then
-	POL_SetupWindow_wait_next_signal "$(eval_gettext "Building package...")" "$TITLE"
-	make_skeleton "$PACKAGE"
-	make_icon "$PACKAGE"
-	make_pom_script "$PACKAGE"
-	make_plist "$PACKAGE" "$shortname"
-fi
+POL_SetupWindow_Init
+POL_SetupWindow_wait_next_signal "$(eval_gettext "Creating shortcut...")" "$TITLE"
+POL_Shortcut_MakeDesktopShortcut
+POL_SetupWindow_message "$(eval_gettext "The shortcut has been placed on your desktop")" "$TITLE"
+POL_SetupWindow_Close
+
+
+
+exit 0
+# Standalone package code. Deprecated
 if [ "$KIND_OF_PACKAGE" = "1" ]
 then
 	prefix="$(detect_wineprefix "$PACKAGE")"
@@ -79,26 +70,4 @@ then
 	fi
 	cp "$PLAYONLINUX"/../unix/tools/lib/* "$DIRAPP/Contents/Resources/wine/lib/"
 	
-fi
-POL_SetupWindow_message "$(eval_gettext "The package has been placed on your desktop")" "$TITLE"
-POL_SetupWindow_Close
-
-else
-	POL_SetupWindow_Init
-	POL_SetupWindow_free_presentation "$TITLE" "$(eval_gettext "Welcome to PlayOnLinux shortcut creator.\n\nThis tool will help you to make a shortcut for a PlayOnLinux software.\n\nThe shortcut will be placed on your desktop")"
-	if [ "$1" ]
-	then
-	PACKAGE="$1"
-	else
-	POL_SetupWindow_games "$(eval_gettext "Please choose a software")" "$TITLE"
-	PACKAGE="$APP_ANSWER"
-	fi
-	
-	if [ -f "$REPERTOIRE/icones/full_size/$PACKAGE" ]; then # L'icone existe...
-		iconPath="$REPERTOIRE/icones/full_size/$PACKAGE"
-	else
-		iconPath="$PLAYONLINUX/etc/playonlinux.png"
-	fi
-	generer_icone "$iconPath" "$PACKAGE" "$DESKTOP" "$PLAYONLINUX/playonlinux --run \"$PACKAGE\""
-	POL_SetupWindow_Close
 fi

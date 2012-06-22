@@ -665,3 +665,23 @@ POL_LoadVar_Distro ()
 		export DISTRO="$MacOS 10.$(( main_kernel - 4)).$second_kernel ($(uname -r))"
 	fi
 }
+POL_Shortcut_MakeDesktopShortcut()
+{
+	if [ "$POL_OS" = "Mac" ]; then
+		PACKAGE="$1"
+		DIRAPP="$HOME/Desktop/$PACKAGE.app"
+		shortname="´printf $PACKAGE | tr -c [[a-zA-Z0-9]\.] '_'´"
+		make_skeleton "$PACKAGE"
+		make_icon "$PACKAGE"
+		make_pom_script "$PACKAGE"
+		make_plist "$PACKAGE" "$shortname"
+	fi
+	if [ "$POL_OS" = "Linux" ]; then
+		if [ -f "$REPERTOIRE/icones/full_size/$PACKAGE" ]; then # L'icone existe...
+			iconPath="$REPERTOIRE/icones/full_size/$PACKAGE"
+		else
+			iconPath="$PLAYONLINUX/etc/playonlinux.png"
+		fi
+		generer_icone "$iconPath" "$PACKAGE" "$DESKTOP" "$PLAYONLINUX/playonlinux --run \"$PACKAGE\""
+	fi
+}

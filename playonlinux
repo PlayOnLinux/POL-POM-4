@@ -24,8 +24,7 @@ die() ## PHP function copy
 	exit
 }
 
-if [ "$1" == "--version" ]
-then
+if [ "$1" == "--version" ]; then
 	cd "$(dirname "$0")"
 	version="$(cat python/lib/Variables.py | grep 'os.environ\["VERSION"\] = ' | cut -d = -f2 | tr -d \" | tr -d " ")"
 	die "PlayOnLinux $version"
@@ -42,14 +41,12 @@ export WorkingDirectory="$PWD"
 [ "$PLAYONLINUX" = "" ] || die "You are already in a PlayOnLinux environement" 
 
 # On part a la recherche de python. (Pourquoi est-ce que certaines distros ne le mette pas dans /usr/bin/python, comme tout le monde :'( )
-if [ "$(which $PYTHON)" ]
-then
+if [ "$(which $PYTHON)" ]; then
 	PythonBin="$PYTHON"
 	PythonFound="True"
 fi
 
-if [ ! "$PythonFound" = "True" ]
-then
+if [ ! "$PythonFound" = "True" ]; then
 	if [ "$(which python2)" ]
 	then
 		PythonBin="python2"
@@ -57,8 +54,7 @@ then
 	fi
 fi
 
-if [ ! "$PythonFound" = "True" ]
-then
+if [ ! "$PythonFound" = "True" ]; then
 	if [ "$(which python2.6)" ]
 	then
 		PythonBin="python2.6"
@@ -66,8 +62,7 @@ then
 	fi
 fi
 
-if [ ! "$PythonFound" = "True" ]
-then
+if [ ! "$PythonFound" = "True" ]; then
 	if [ "$(which python2.7)" ]
 	then
 		PythonBin="python2.7"
@@ -76,14 +71,12 @@ then
 fi
 
 
-if [ ! "$PythonFound" = "True" ]
-then
+if [ ! "$PythonFound" = "True" ]; then
 	echo "Please install python before trying to run PlayOnLinux"
 	exit
 fi
 
-if [ "$1" == "--run" ]
-then
+if [ "$1" == "--run" ]; then
 	cd "$(dirname "$0")"
 	shift
 	NAME="$1"
@@ -92,9 +85,9 @@ then
 else
 	cd "$(dirname "$0")/python"
 	"$PythonBin" mainwindow.py "$@"
-	if [ ! "$?" = "0" ]
-	then
+	if [ ! "$?" = "0" ]; then
 		python2.6 mainwindow.py "$@"
 	fi
 fi
+
 exit $?
