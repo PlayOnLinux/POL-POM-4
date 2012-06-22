@@ -54,6 +54,26 @@ send_stat()
 	
 	# Unique id (autorisation to edit the review)
 	UniqId="$RANDOM$RANDOM$RANDOM$RANDOM"
+	
+	# Wine version
+	Prefix="$(POL_Shortcut_GetPrefix "$PACKAGE")"
+	Version="$(POL_Config_PrefixRead VERSION "$Prefix")"
+	
+	# AMD64
+	[ "$AMD64_COMPATIBLE" = "TRUE" ] && amd64_set="1" || amd64_set="0"
+	cat << EOF
+		ScriptName : $ScriptName
+		Distro : $DISTRO
+		Video memory size : $vms
+		OpengGL 32 bits : $OpenGL32
+		OpengGL 64 bits : $OpenGL64
+		AMD64 : $amd64_set
+		Device ID : $DeviceID
+		Vendor ID : $VendorID
+		Exit code : $ExitCode
+		Unique ID : $UniqId
+		Current OS : $currentOS
+	EOF
 }
 if [ "$1" ]; then
 	PACKAGE="$1"
