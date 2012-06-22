@@ -58,7 +58,7 @@ send_stat()
 	# Wine version
 	Prefix="$(POL_Shortcut_GetPrefix "$PACKAGE")"
 	Version="$(POL_Config_PrefixRead VERSION "$Prefix")"
-	
+	PArch="$(POL_Config_PrefixRead ARCH "$Prefix")"
 	# AMD64
 	[ "$AMD64_COMPATIBLE" = "TRUE" ] && amd64_set="1" || amd64_set="0"
 
@@ -80,6 +80,8 @@ send_stat()
 		Unique ID : $UniqId
 		Current OS : $currentOS
 		Duration : $delta
+		Package : $PACKAGE
+		PrefixArch : $PArch
 	EOF
 }
 if [ "$1" ]; then
