@@ -407,6 +407,59 @@ POL_Wine_SetVideoDriver()
 	_EOFINI_
 }
 
+POL_Wine_DetectCard()
+{
+	# Set wine video driver
+	# Usage POL_Wine_DetectCard
+	POL_Debug_Message "Detecting video card"
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
+	POL_SetupWindow_wait "$(eval_gettext 'Scanning your hardware...')" "$TITLE"
+	POL_LoadVar_Device
+	DRVID="OTHER"
+	[ "$VendorID" = "10de" ] && DRVID="NVIDIA"
+	[ "$VendorID" = "1002" ] && DRVID="ATI"
+	[ "$VendorID" = "8086" ] && DRVID="INTEL"
+	POL_Debug_Message "Detected video card: $DRVID"
+
+	echo $DRVID
+}
+POL_Wine_RequiredCard()
+{
+	# Forcing usage of one kind of video card
+	
+	# Usage : POL_Wine_RequiredCard "NVIDIA,INTEL" (for exemple)
+	MyCard="$(POL_Wine_DetectCard)"
+	
+	if [ ! "$(printf "$1" | grep "$MyCard")" = "" ]; then
+		NOBUGREPORT="TRUE"
+		POL_Debug_Fatal "Sorry, your video card ($MyCard) is not supported to run $TITLE"
+	fi
+}
+POL_Wine_AdvisedCard()
+{
+	# Forcing usage of one kind of video card
+	
+	# Usage : POL_Wine_RequiredCard "NVIDIA,INTEL" (for exemple)
+	MyCard="$(POL_Wine_DetectCard)"
+	
+	if [ ! "$(printf "$1" | grep "$MyCard")" = "" ]; then
+		NOBUGREPORT="TRUE"
+		POL_Debug_Error "Your video card ($MyCard) might cause problems to run $TITLE"
+	fi
+}
+POL_Wine_UntestedCard()
+{
+	# Forcing usage of one kind of video card
+	
+	# Usage : POL_Wine_RequiredCard "NVIDIA,INTEL" (for exemple)
+	MyCard="$(POL_Wine_DetectCard)"
+	
+	if [ ! "$(printf "$1" | grep "$MyCard")" = "" ]; then
+		POL_SetupWindow_message "Your video card ($MyCard) has not been tested with $TITLE. Don't hesitate to send us feedbacks, so we can improve $APPLICATION_TITLE" "$TITLE"
+	fi
+}
+
+
 POL_AutoWine ()
 {
 	# Detect if the file is a .exe or a .msi file and run it with POL_Wine
