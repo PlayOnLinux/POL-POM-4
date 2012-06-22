@@ -51,6 +51,9 @@ send_stat()
 	POL_LoadVar_Device
 	
 	# User Report = -1
+	
+	# Unique id (autorisation to edit the review)
+	UniqId="$RANDOM$RANDOM$RANDOM$RANDOM"
 }
 if [ "$1" ]; then
 	PACKAGE="$1"
