@@ -74,7 +74,7 @@ class MainWindow(wx.Frame):
 		self.panelText = wx.Panel(self.panelNotEmpty, -1, size=(590,500), pos=(2,2)) # Hack, wxpython bug
 		self.log_reader = wx.TextCtrl(self.panelText, 100, "", size=wx.Size(590,500), pos=(2,2), style=Variables.widget_borders|wx.TE_RICH2|wx.TE_READONLY|wx.TE_MULTILINE)
 		self.openTextEdit = wx.Button(self.panelNotEmpty, 101, _("Locate this logfile"), size=(400,30), pos=(70,512))
-		self.reportProblem = wx.Button(self.panelNotEmpty, 102, _(""), size=(400,30), pos=(70,552))
+		self.reportProblem = wx.Button(self.panelNotEmpty, 102, "", size=(400,30), pos=(70,552))
 				
 		if(logcheck == "/dev/null"):
 			self.HideLogFile()
