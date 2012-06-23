@@ -594,9 +594,10 @@ class MainWindow(wx.Frame):
 	i+=1
 	self.menuGaucheAddLink("pol_prgm_install", _("Install a program"), i,Variables.playonlinux_env+"/resources/images/menu/add.png",self.InstallMenu)
 	i+=1
+	self.menuGaucheAddLink("pol_prgm_settings", _("Settings"), i,Variables.playonlinux_env+"/resources/images/menu/setting.png",self.Options)
+	i+=1
 	self.menuGaucheAddLink("pol_prgm_messenger", _("Messenger"), i,Variables.playonlinux_env+"/resources/images/menu/people.png",self.OpenIrc)
-#	i+=1
-#	self.menuGaucheAddLink("pol_prgm_wver", _("Manage wine versions"), i,Variables.playonlinux_env+"/resources/images/menu/wine.png",self.WineVersion)
+
 	
 	if(shortcut != None):
 		i+=2

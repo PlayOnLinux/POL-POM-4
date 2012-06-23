@@ -645,7 +645,7 @@ POL_Shortcut_AddProfileLink()
 	
 	AUTHOR="$2"
 	if [ "$(POL_Config_Read "PROFILE_LINK")" != "FALSE" ]; then
-		POL_Shortcut_AddLink "$1" "PROFILEBUTTON/$(eval_gettext '$AUTHOR profile')" "http://www.$POL_DNS/en/profil-$3.html?referer=$1"
+		POL_Shortcut_AddLink "$1" "PROFILEBUTTON/$(eval_gettext '$AUTHOR profile')" "http://www.$POL_DNS/en/profil-$(POL_Website_urlencode "$3").html?referer=$(POL_Website_urlencode "$1")"
 	fi
 }
 POL_LoadVar_Distro ()
