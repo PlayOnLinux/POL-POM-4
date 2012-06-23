@@ -55,7 +55,7 @@ send_stat()
 	
 	# Unique anonymous id (autorisation to edit the review)
 	if [ ! -e "$POL_USER_ROOT/configurations/reports/$PACKAGE" ]; then
-		UniqId="$RANDOM$RANDOM$RANDOM$RANDOM"
+		UniqId="$(perl -e 'print int(rand(10000000000000000))')"
 	else
 		UniqId="$(cat "$POL_USER_ROOT/configurations/reports/$PACKAGE")"
 	fi
