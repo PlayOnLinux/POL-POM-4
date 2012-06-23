@@ -53,9 +53,12 @@ send_stat()
 	
 	# User Report = -1
 	
-	# Unique id (autorisation to edit the review)
-	UniqId="$RANDOM$RANDOM$RANDOM$RANDOM"
-	
+	# Unique anonymous id (autorisation to edit the review)
+	if [ ! -e "$POL_USER_ROOT/configurations/reports/$PACKAGE" ]; then
+		UniqId="$RANDOM$RANDOM$RANDOM$RANDOM"
+	else
+		UniqId="$(cat "$POL_USER_ROOT/configurations/reports/$PACKAGE")"
+	fi
 	# Wine version
 	Prefix="$(POL_Shortcut_GetPrefix "$PACKAGE")"
 	Version="$(POL_Config_PrefixRead VERSION "$Prefix")"
@@ -65,15 +68,12 @@ send_stat()
 	[ "$AMD64_COMPATIBLE" = "TRUE" ] && amd64_set="1" || amd64_set="0"
 
 	if [ "$ScriptName" ]; then
-		if [ ! -e "$POL_USER_ROOT/configurations/reports/$PACKAGE" ]; then
-			# Only once per install
-			# Device Infos
-			POL_LoadVar_Device
+		# Device Infos
+		POL_LoadVar_Device
 	
-			Info="$(printf "$VendorID~$DeviceID~$currentOS~$ScriptName~$amd64_set~$OpenGL32~$OpenGL64~$Version~$ExitCode~$DISTRO~$vms~$UniqId~$archty~$PACKAGE~$VERSION~$delta" | POL_base64)"
-			POL_Website_GET "http://www.playonlinux.com/api/s.php?data=$(POL_Website_urlencode "$Info")"
-			echo "$UniqId" > "$POL_USER_ROOT/configurations/reports/$PACKAGE"
-		fi
+		Info="$(printf "$VendorID~$DeviceID~$currentOS~$ScriptName~$amd64_set~$OpenGL32~$OpenGL64~$Version~$ExitCode~$DISTRO~$vms~$UniqId~$archty~$PACKAGE~$VERSION~$delta" | POL_base64)"
+		POL_Website_GET "http://www.playonlinux.com/api/s.php?data=$(POL_Website_urlencode "$Info")"
+		echo "$UniqId" > "$POL_USER_ROOT/configurations/reports/$PACKAGE"
 	fi
 }
 if [ "$1" ]; then
