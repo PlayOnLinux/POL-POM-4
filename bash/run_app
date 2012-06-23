@@ -29,7 +29,7 @@ send_stat()
 	
 	# vms
 	vms="$(POL_Config_Read VMS)"
-	
+	[ "$vms" = "" ] && vms="0"
 	# OpenGL32
 	
 	# OpenGL64
