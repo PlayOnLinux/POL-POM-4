@@ -1055,7 +1055,8 @@ class PlayOnLinuxApp(wx.App):
 		self.singleCheck("convert")
 		self.singleCheck("wget")
 		self.singleCheck("gpg")
-		self.singleCheck("xterm",False)
+		if(os.environ["DEBIAN_PACKAGE"] == "FALSE"):
+			self.singleCheck("xterm",False)
 		self.singleCheck("gettext.sh",False)
 		self.singleCheck("icotool",False)
 		self.singleCheck("wrestool",False)
