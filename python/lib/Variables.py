@@ -26,6 +26,7 @@ if (os.environ["POL_OS"] == "Mac"):
 	os.environ["PLAYONMAC"] = os.environ["PLAYONLINUX"]
 	os.environ["REPERTOIRE"] = os.environ["HOME"]+"/Library/PlayOnMac/"
 	os.environ["APPLICATION_TITLE"] = "PlayOnMac"
+	os.environ["POL_DNS"] = "playonmac.com"
 	windows_add_size = 20;
 	windows_add_playonmac = 1;
 	widget_borders = wx.SIMPLE_BORDER
@@ -36,6 +37,7 @@ if (os.environ["POL_OS"] == "Mac"):
 if (os.environ["POL_OS"] == "Linux"):
 	os.environ["REPERTOIRE"] = os.environ["HOME"]+"/.PlayOnLinux/"
 	os.environ["APPLICATION_TITLE"] = "PlayOnLinux"
+	os.environ["POL_DNS"] = "playonlinux.com"
 	windows_add_size = 0;
 	windows_add_playonmac = 0;
 	widget_borders = wx.RAISED_BORDER

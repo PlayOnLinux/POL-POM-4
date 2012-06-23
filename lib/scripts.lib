@@ -637,15 +637,15 @@ POL_Shortcut_AddLink()
 	
 	echo "$2|$3" >> "$POL_USER_ROOT/configurations/links/$1"
 }
-POL_Shortcut_AddDonationLink()
+POL_Shortcut_AddProfileLink()
 {
-	# Add a donation link to a shortcut
-	# Usage : POL_Shortcut_AddDonationLink [Shortcut] [Username] [Userid]
-	# User can choose to disable it (POL_Config : DONATION_LINK set to FALSE).
+	# Add a scriptor profile link to a shortcut
+	# Usage : POL_Shortcut_AddProfileLink [Shortcut] [Username] [Userid]
+	# User can choose to disable it (POL_Config : PROFILE_LINK set to FALSE).
 	
 	AUTHOR="$2"
-	if [ "$(POL_Config_Read "DONATION_LINK")" != "FALSE" ]; then
-		POL_Shortcut_AddLink "$1" "$(eval_gettext 'Donate to $AUTHOR')" "http://www.playonlinux.com/en/profil-$3.html"
+	if [ "$(POL_Config_Read "PROFILE_LINK")" != "FALSE" ]; then
+		POL_Shortcut_AddLink "$1" "PROFILEBUTTON/$(eval_gettext '$AUTHOR profile')" "http://www.$POL_DNS/en/profil-$3.html?referer=$1"
 	fi
 }
 POL_LoadVar_Distro ()

@@ -629,6 +629,9 @@ class MainWindow(wx.Frame):
 				if("|" in line):
 					line = line.split("|")
 					i+=1
+					if("PROFILEBUTTON/" in line[0]):
+						line[0] = line[0].replace("PROFILEBUTTON/","")
+						
 					self.menuGaucheAddLink("url_"+str(i), line[0], i,Variables.playonlinux_env+"/resources/images/menu/star.png",None,line[1])
 								
 		icon = os.environ["POL_USER_ROOT"]+"/icones/full_size/"+shortcut
