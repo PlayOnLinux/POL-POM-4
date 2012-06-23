@@ -910,7 +910,7 @@ class MainWindow(wx.Frame):
 		
 		#if(self.DockType == "dock_size(5,0,0)"):
 		#	self.myPosition = "NONE"
-		print self.DockType
+		#print self.DockType
 		
 		if(self.DockType == "dock_size(4,0,0)"):
 			self.mySize = int(self.perspective[1]) - 2
