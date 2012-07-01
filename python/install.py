@@ -151,7 +151,7 @@ class InstallWindow(wx.Frame):
 			w_offset = 0
 		else:
 			offset = 5
-			w_offset = 5
+			w_offset = 10
 		self.cats_icons[name] = wx.BitmapButton(self.panelButton, 2000+iid, wx.Bitmap(icon), (image_pos,offset), style=wx.NO_BORDER)
 		#self.cats_icons[name].Bind(wx.EVT_LEFT_DCLICK, 2000+iid, self.AddApps)
 		
@@ -175,7 +175,7 @@ class InstallWindow(wx.Frame):
 		self.cats_links[name].SetFont(fontText)
 		
 	def __init__(self,parent,id,title):
-		wx.Frame.__init__(self, parent, -1, title, size = (960, 580+Variables.windows_add_size), style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX)
+		wx.Frame.__init__(self, parent, -1, title, size = (960, 550+Variables.windows_add_size), style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX)
 		self.cats_icons = {}
 		self.cats_links = {}
 		
@@ -204,11 +204,11 @@ class InstallWindow(wx.Frame):
 		#self.list_cat.Hide()
 		
 		if(os.environ["POL_OS"] == "Mac"):
-			self.image_position = (738,382)
-			self.new_size = (196,253)
+			self.image_position = (738,346)
+			self.new_size = (196,218)
 		if(os.environ["POL_OS"] == "Linux"):
-			self.image_position = (740,384)
-			self.new_size = (200,257)
+			self.image_position = (740,348)
+			self.new_size = (200,222)
 		
 		self.image = wx.StaticBitmap(self.panelFenp, 108, wx.Bitmap(Variables.playonlinux_env+"/resources/images/pol_min.png"), self.image_position, wx.DefaultSize)
 		self.image.Bind(wx.EVT_LEFT_DOWN, self.sizeUpScreen) 
@@ -236,15 +236,15 @@ class InstallWindow(wx.Frame):
 		position += self.FreeCapt.GetSize()[0]+5
 			
 		self.lasthtml_content = ""
-		self.list_apps = wx.TreeCtrl(self.panelFenp, 106, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT|Variables.widget_borders, size=(710, 421), pos=(15,113))
+		self.list_apps = wx.TreeCtrl(self.panelFenp, 106, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT|Variables.widget_borders, size=(710, 385), pos=(15,113))
 		self.list_apps.SetImageList(self.imagesapps)
 		self.list_apps.SetSpacing(0);
 		self.stars = 0
 		#self.content =  wx.TextCtrl(self.panelFenp, 107, pos=(220,301), size=(562,212), style = wx.TE_MULTILINE | wx.TE_RICH2 | wx.CB_READONLY | Variables.widget_borders)
-		self.content = wx.html.HtmlWindow(self.panelFenp, 107, style=Variables.widget_borders, pos=(740,113), size=(200,257))
-		self.button = wx.Button(self.panelFenp, wx.ID_CLOSE, _("Cancel"), pos=(736, 540), size=(100,35))
-		self.install_button = wx.Button(self.panelFenp, wx.ID_APPLY, _("Install"), pos=(843, 540), size=(100,35))
-		self.update_button = wx.Button(self.panelFenp, wx.ID_REFRESH, _("Refresh"), pos=(630, 540), size=(100,35))
+		self.content = wx.html.HtmlWindow(self.panelFenp, 107, style=Variables.widget_borders, pos=(740,113), size=(200,218))
+		self.button = wx.Button(self.panelFenp, wx.ID_CLOSE, _("Cancel"), pos=(736, 510), size=(100,35))
+		self.install_button = wx.Button(self.panelFenp, wx.ID_APPLY, _("Install"), pos=(843, 510), size=(100,35))
+		self.update_button = wx.Button(self.panelFenp, wx.ID_REFRESH, _("Refresh"), pos=(630, 510), size=(100,35))
 		self.install_button.Enable(False)
 		
 		self.new_panel = wx.Panel(self.panelFenp, -1, pos=(740,113), style=Variables.widget_borders, size=self.new_size)
@@ -258,7 +258,7 @@ class InstallWindow(wx.Frame):
 		self.timer.Start(200)
 
 		#self.ManualInstall = wx.CheckBox(self.panelFenp, 111, label=_("Install a .pol package or an unsupported application"), pos=(10,530))
-		self.ManualInstall = wx.HyperlinkCtrl(self.panelFenp, 111, _("Install a non-listed program"), "", pos=(10,545))
+		self.ManualInstall = wx.HyperlinkCtrl(self.panelFenp, 111, _("Install a non-listed program"), "", pos=(10,515))
 		self.ManualInstall.SetNormalColour(wx.Colour(0,0,0))
    # self.AddApps()
 
