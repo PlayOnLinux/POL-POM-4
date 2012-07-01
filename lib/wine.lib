@@ -542,10 +542,10 @@ POL_Wine_Dock ()
 	fi
 
 	if [ "$LOGFILE" = "/dev/null" ]; then
-		WINELINE="$BEFORE_WINE $(POL_Config_Read BEFORE_WINE) wine \"$@\"  2> >(grep -v menubuilder | tee -a "$WINEPREFIX/playonlinux.log" >&2) > >(tee -a "$WINEPREFIX/playonlinux.log")"
+		WINELINE="$BEFORE_WINE $(POL_Config_Read BEFORE_WINE) wine \"$@\"  2> >(grep -v menubuilder --line-buffered | tee -a "$WINEPREFIX/playonlinux.log" >&2) > >(tee -a "$WINEPREFIX/playonlinux.log")"
 		errors=$?
 	else
-		WINELINE="$BEFORE_WINE $(POL_Config_Read BEFORE_WINE) wine \"$@\" 2> >(grep -v menubuilder | tee -a "$LOGFILE" "$WINEPREFIX/playonlinux.log" >&2) > >(tee -a "$LOGFILE" "$WINEPREFIX/playonlinux.log")"
+		WINELINE="$BEFORE_WINE $(POL_Config_Read BEFORE_WINE) wine \"$@\" 2> >(grep -v menubuilder --line-buffered | tee -a "$LOGFILE" "$WINEPREFIX/playonlinux.log" >&2) > >(tee -a "$LOGFILE" "$WINEPREFIX/playonlinux.log")"
 		errors=$?
 	fi
 	
