@@ -123,7 +123,7 @@ POL_ExtractIcon()
 {
 	# Extract the icon of a .exe or .ico file
 	# Usage: POL_ExtractIcon [.exe file] [output image file]
-	POL_ExtractIcon "$1" "$POL_USER_ROOT/tmp/tmp_icon.png" 
+	POL_ExtractBiggestIcon "$1" "$POL_USER_ROOT/tmp/tmp_icon.png" 
 	convert "$POL_USER_ROOT/tmp/tmp_icon.png" -resize 32 "$POL_USER_ROOT/tmp/tmp_icon.png"
 	
 	cp "$POL_USER_ROOT/tmp/tmp_icon.png" "$2" || POL_Debug_Warning "Icon was not extracted"
