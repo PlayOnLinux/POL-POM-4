@@ -506,7 +506,7 @@ class InstallWindow(wx.Frame):
 		if(self.searchbox.GetValue() == ""):
 			self.AddApps(self, noevent=True)
 		else:
-			self.Search(self)
+			self.search(self)
 			
 	def AddApps(self, event, noevent=False):
 		self.searchbox.SetValue("")
