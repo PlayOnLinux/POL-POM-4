@@ -471,16 +471,19 @@ class InstallWindow(wx.Frame):
 		for app in array:
 			app_array = app.split("~")
 			appname = app_array[0]
-			free = int(app_array[3])
-			testing = int(app_array[1])
-			nocd = int(app_array[2])
-			show = True
-			if(int(nocd) == 1 and self.nocdChk.IsChecked() == 0):
-				show = False
-			if(int(free) == 0 and self.freeChk.IsChecked() == 1):
-				show = False
-			if(int(testing) == 1 and self.testingChk.IsChecked() == 0):
-				show = False
+			try:
+				free = int(app_array[3])
+				testing = int(app_array[1])
+				nocd = int(app_array[2])
+				show = True
+				if(int(nocd) == 1 and self.nocdChk.IsChecked() == 0):
+					show = False
+				if(int(free) == 0 and self.freeChk.IsChecked() == 1):
+					show = False
+				if(int(testing) == 1 and self.testingChk.IsChecked() == 0):
+					show = False
+			except:
+				show = True
 				
 			if(show == True):
 				self.icon_look_for = Variables.playonlinux_rep+"/configurations/icones/"+appname
