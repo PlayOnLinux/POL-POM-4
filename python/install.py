@@ -149,7 +149,7 @@ class InstallWindow(wx.Frame):
 			offset = 10
 			w_offset = 5
 		else:
-			offset = 5
+			offset = 2
 			w_offset = 10
 			
 	
