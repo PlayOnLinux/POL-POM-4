@@ -188,7 +188,7 @@ class InstallWindow(wx.Frame):
 		if(os.environ["POL_OS"] == "Mac"):
 			self.fontText = wx.Font(10, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL,False, "", wx.FONTENCODING_DEFAULT)
 		else :
-			self.fontText = wx.Font(10, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL,False, "", wx.FONTENCODING_DEFAULT)
+			self.fontText = wx.Font(8, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL,False, "", wx.FONTENCODING_DEFAULT)
 				
 		self.addCat(_("Accessories"),Variables.playonlinux_env+"/resources/images/install/32/applications-accessories.png",0)
 		self.addCat(_("Development"),Variables.playonlinux_env+"/resources/images/install/32/applications-development.png",1)
