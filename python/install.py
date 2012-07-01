@@ -213,11 +213,11 @@ class InstallWindow(wx.Frame):
 		if(os.environ["POL_OS"] == "Mac"):
 			self.image_position = (738-160,346)
 			self.new_size = (196,218-4)
-			self.search_offset = 5
+			self.search_offset = 2
 		if(os.environ["POL_OS"] == "Linux"):
 			self.image_position = (740-160,348)
 			self.new_size = (200,222-4)
-			self.search_offset = 5
+			self.search_offset = 10
 		
 	
 				
@@ -225,7 +225,7 @@ class InstallWindow(wx.Frame):
 		self.image.Bind(wx.EVT_LEFT_DOWN, self.sizeUpScreen) 
 		#self.list_cat.SetSpacing(0);
 		#self.list_cat.SetImageList(self.images_cat)
-		position = 10;
+		position = 10+self.search_offset;
 		self.searchcaption = wx.StaticText(self.panelFenp, -1, _("Search"), (position,82+self.search_offset), wx.DefaultSize)
 		position += self.searchcaption.GetSize()[0]+5
 		self.searchbox = wx.TextCtrl(self.panelFenp, 110, size=(300,20), pos=(position,82+self.search_offset))
