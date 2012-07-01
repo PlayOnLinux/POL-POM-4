@@ -123,12 +123,72 @@ POL_ExtractIcon()
 {
 	# Extract the icon of a .exe or .ico file
 	# Usage: POL_ExtractIcon [.exe file] [output image file]
-	POL_ExtractBiggestIcon "$1" "$POL_USER_ROOT/tmp/tmp_icon.png" 
-	convert "$POL_USER_ROOT/tmp/tmp_icon.png" -resize 32 "$POL_USER_ROOT/tmp/tmp_icon.png"
-	
-	cp "$POL_USER_ROOT/tmp/tmp_icon.png" "$2" || POL_Debug_Warning "Icon was not extracted"
-	
-	rm -r "$POL_USER_ROOT/tmp/tmp_icon.png"
+
+	mkdir -p "$REPERTOIRE/tmp/win32Icon"
+	wrestool -x -t14 "$1" &> "$REPERTOIRE/tmp/win32Icon/icons-brut"
+
+        (cd "$REPERTOIRE/tmp/win32Icon"
+
+	icotool -x "icons-brut" -o "$REPERTOIRE/tmp/win32Icon/"
+
+	# Is there an existing 32x32 icon?
+	find . -name "*32x32x32.png" > icons-list
+	find . -name "*32x32x24.png" >> icons-list
+	find . -name "*32x32x16.png" >> icons-list
+	find . -name "*32x32x8.png" >> icons-list
+	find . -name "*32x32x4.png" >> icons-list
+
+	ICON_FILE=$(head -n 1 "icons-list")
+
+	if [ -n "$ICON_FILE" -a -s "$ICON_FILE" ]; then
+		shift
+		for target in "$@"; do
+			cp "$ICON_FILE" "$target" || POL_Debug_Warning "Icon was not extracted"
+		done
+	else
+		# Otherwise, find the smallest icon over 32x32 and downsize it
+		find . -name "*48x48x32.png" > icons-list
+		find . -name "*48x48x24.png" >> icons-list
+		find . -name "*48x48x16.png" >> icons-list
+		find . -name "*48x48x8.png" >> icons-list
+		find . -name "*48x48x4.png" >> icons-list
+
+		find . -name "*64x64x32.png" >> icons-list
+		find . -name "*64x64x24.png" >> icons-list
+		find . -name "*64x64x16.png" >> icons-list
+		find . -name "*64x64x8.png" >> icons-list
+		find . -name "*64x64x4.png" >> icons-list
+
+		find . -name "*96x96x32.png" >> icons-list
+		find . -name "*96x96x24.png" >> icons-list
+		find . -name "*96x96x16.png" >> icons-list
+		find . -name "*96x96x8.png" >> icons-list
+		find . -name "*96x96x4.png" >> icons-list
+
+		find . -name "*128x128x32.png" >> icons-list
+		find . -name "*128x128x24.png" >> icons-list
+		find . -name "*128x128x16.png" >> icons-list
+		find . -name "*128x128x8.png" >> icons-list
+		find . -name "*128x128x4.png" >> icons-list
+
+		find . -name "*256x256x32.png" > icons-list
+		find . -name "*256x256x24.png" >> icons-list
+		find . -name "*256x256x16.png" >> icons-list
+		find . -name "*256x256x8.png" >> icons-list
+		find . -name "*256x256x4.png" >> icons-list
+
+		ICON_FILE=$(head -n 1 "icons-list")
+
+		if [ -n "$ICON_FILE" -a -s "$ICON_FILE" ]; then
+			convert "$ICON_FILE" -resize 32x32 "$POL_USER_ROOT/tmp/tmp_icon.png" || POL_Debug_Warning "Icon was not extracted"
+			shift
+			for target in "$@"; do
+				cp "$POL_USER_ROOT/tmp/tmp_icon.png" "$target" || POL_Debug_Warning "Icon was not extracted"
+			done
+		fi
+	fi
+	)
+	rm -r "$POL_USER_ROOT/tmp/win32Icon"
 }
 POL_ExtractBiggestIcon()
 {
@@ -136,14 +196,8 @@ POL_ExtractBiggestIcon()
 	# Usage: POL_ExtractCustomIcon [.exe file] [output image file] [size]
 
 	mkdir -p "$REPERTOIRE/tmp/win32Icon"
-        case "$1" in
-            *.[iI][cC][oO])
-                cp "$1" "$REPERTOIRE/tmp/win32Icon/icons-brut"
-                ;;
-            *)
-	        wrestool -x -t14 "$1" &> "$REPERTOIRE/tmp/win32Icon/icons-brut"
-                ;;
-        esac
+	wrestool -x -t14 "$1" &> "$REPERTOIRE/tmp/win32Icon/icons-brut"
+
         (cd "$REPERTOIRE/tmp/win32Icon"
 
 	icotool -x "icons-brut" -o "$REPERTOIRE/tmp/win32Icon/"
@@ -153,13 +207,13 @@ POL_ExtractBiggestIcon()
 	find . -name "*256x256x16.png" >> icons-list
 	find . -name "*256x256x8.png" >> icons-list
 	find . -name "*256x256x4.png" >> icons-list
-	
+
 	find . -name "*128x128x32.png" >> icons-list
 	find . -name "*128x128x24.png" >> icons-list
 	find . -name "*128x128x16.png" >> icons-list
 	find . -name "*128x128x8.png" >> icons-list
 	find . -name "*128x128x4.png" >> icons-list
-	
+
 	find . -name "*96x96x32.png" >> icons-list
 	find . -name "*96x96x24.png" >> icons-list
 	find . -name "*96x96x16.png" >> icons-list
@@ -171,22 +225,26 @@ POL_ExtractBiggestIcon()
 	find . -name "*64x64x16.png" >> icons-list
 	find . -name "*64x64x8.png" >> icons-list
 	find . -name "*64x64x4.png" >> icons-list
-	
+
 	find . -name "*48x48x32.png" >> icons-list
 	find . -name "*48x48x24.png" >> icons-list
 	find . -name "*48x48x16.png" >> icons-list
 	find . -name "*48x48x8.png" >> icons-list
 	find . -name "*48x48x4.png" >> icons-list
-		
+
 	find . -name "*32x32x32.png" >> icons-list
 	find . -name "*32x32x24.png" >> icons-list
 	find . -name "*32x32x16.png" >> icons-list
 	find . -name "*32x32x8.png" >> icons-list
 	find . -name "*32x32x4.png" >> icons-list
 
-	ICON_FILE=$(cat "icons-list" | head -n 1)
-	[ "$ICON_FILE" != "" ] && [ -s "$ICON_FILE" ] && cp "$ICON_FILE" "$2" || POL_Debug_Warning "Icon was not extracted"
-        )
+	ICON_FILE=$(head -n 1 "icons-list")
+	if [ -n "$ICON_FILE" -a -s "$ICON_FILE" ]; then
+		shift
+		for target in "$@"; do
+			cp "$ICON_FILE" "$target" || POL_Debug_Warning "Icon was not extracted"
+		done
+	fi
 	rm -r "$REPERTOIRE/tmp/win32Icon"
 }
 POL_Shortcut()
