@@ -148,9 +148,11 @@ class InstallWindow(wx.Frame):
 		if(os.environ["POL_OS"] == "Mac"):
 			offset = 10
 			w_offset = 5
+			search_offset = 0
 		else:
 			offset = 2
 			w_offset = 10
+			search_offset = 5
 			
 	
 		self.cats_icons[name] = wx.BitmapButton(self.panelButton, 2000+iid, wx.Bitmap(icon), (0,0), style=wx.NO_BORDER)
@@ -225,25 +227,25 @@ class InstallWindow(wx.Frame):
 		#self.list_cat.SetSpacing(0);
 		#self.list_cat.SetImageList(self.images_cat)
 		position = 10;
-		self.searchcaption = wx.StaticText(self.panelFenp, -1, _("Search"), (position,82), wx.DefaultSize)
+		self.searchcaption = wx.StaticText(self.panelFenp, -1, _("Search"), (position,82+search_offset), wx.DefaultSize)
 		position += self.searchcaption.GetSize()[0]+5
-		self.searchbox = wx.TextCtrl(self.panelFenp, 110, size=(300,20), pos=(position,82))
+		self.searchbox = wx.TextCtrl(self.panelFenp, 110, size=(300,20), pos=(position,82+search_offset))
 		position += self.searchbox.GetSize()[0]+10
 
-		self.testingChk = wx.CheckBox(self.panelFenp, -1, pos=(position,82), size=wx.DefaultSize)
-		position += 20
-		self.testingCapt = wx.StaticText(self.panelFenp, -1, _("Testing"), (position,82), wx.DefaultSize)
+		self.testingChk = wx.CheckBox(self.panelFenp, -1, pos=(position,82+search_offset), size=wx.DefaultSize)
+		position += 20+search_offset
+		self.testingCapt = wx.StaticText(self.panelFenp, -1, _("Testing"), (position,82+search_offset), wx.DefaultSize)
 		position += self.testingCapt.GetSize()[0]+5
 		
-		self.nocdChk = wx.CheckBox(self.panelFenp, -1, pos=(position,82), size=wx.DefaultSize)
-		position += 20
-		self.noDvDCapt = wx.StaticText(self.panelFenp, -1, _("No-cd needed"), (position,82), wx.DefaultSize)
+		self.nocdChk = wx.CheckBox(self.panelFenp, -1, pos=(position,82+search_offset), size=wx.DefaultSize)
+		position += 20+search_offset
+		self.noDvDCapt = wx.StaticText(self.panelFenp, -1, _("No-cd needed"), (position,82+search_offset), wx.DefaultSize)
 		
 		position += self.noDvDCapt.GetSize()[0]+5
 		
-		self.FreeChk = wx.CheckBox(self.panelFenp, -1, pos=(position,82), size=wx.DefaultSize)
-		position += 20
-		self.FreeCapt = wx.StaticText(self.panelFenp, -1, _("Free"), (position,82), wx.DefaultSize)
+		self.FreeChk = wx.CheckBox(self.panelFenp, -1, pos=(position,82+search_offset), size=wx.DefaultSize)
+		position += 20+search_offset
+		self.FreeCapt = wx.StaticText(self.panelFenp, -1, _("Free"), (position,82+search_offset), wx.DefaultSize)
 		
 		position += self.FreeCapt.GetSize()[0]+5
 		self.star_x = position
