@@ -466,7 +466,7 @@ class InstallWindow(wx.Frame):
 				show = False
 			if(int(free) == 0 and self.freeChk.IsChecked() == 1):
 				show = False
-			if(int(testing) == 1 and self.testingChk.Ischecked() == 1):
+			if(int(testing) == 1 and self.testingChk.IsChecked() == 1):
 				show = False
 				
 			if(show == True):
