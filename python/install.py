@@ -394,7 +394,21 @@ class InstallWindow(wx.Frame):
 			if(playonlinux.GetSettings("FIRST_INSTALL_DONE") == ""):
 				wx.MessageBox(_("When {0} installs a Windows program: \n\n - Leave the default location\n - Do not tick the checkbox 'Run the program' if asked.").format(os.environ["APPLICATION_TITLE"]),_("Please read this"))
 				playonlinux.SetSettings("FIRST_INSTALL_DONE","TRUE")
-				
+			
+			if(os.path.exists(Variables.playonlinux_rep+"/configurations/listes/search")):
+				content = open(Variables.playonlinux_rep+"/configurations/listes/search","r").read().split("\n")
+				found = False
+				for line in content:
+					split = line.split("~")
+					if(split[0] == InstallApplication):
+						found = True
+						break;
+				if(found == True):
+					if(split[1] == "1"):
+						wx.MessageBox(_("This program is currently in testing.\n\nIt might not work as expected"),_("Please read this"))
+					if(split[2] == "1"):
+						wx.MessageBox(_("This program needs a no-cd patch to run.\n\n{0} does not support piracy. Therefore, we won't give any support to patch it.").format(os.environ["APPLICATION_TITLE"]),_("Please read this"))
+						
 			os.system("bash \""+Variables.playonlinux_env+"/bash/install\" \""+InstallApplication.encode("utf-8","replace")+"\"&")
 	
 		self.Destroy()
@@ -465,7 +479,7 @@ class InstallWindow(wx.Frame):
 				show = False
 			if(int(free) == 0 and self.freeChk.IsChecked() == 1):
 				show = False
-			if(int(testing) == 1 and self.testingChk.IsChecked() == 1):
+			if(int(testing) == 1 and self.testingChk.IsChecked() == 0):
 				show = False
 				
 			if(show == True):
