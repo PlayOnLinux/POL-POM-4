@@ -699,10 +699,10 @@ POL_SetupWindow_check_cdrom ()
 		if [ ! "$(find "$CDROM" -iwholename "$CDROM/$1")" = "" ]; then
 			cdrom_found="true"
 			CDROM_SETUP="$CDROM/$1"
-			POL_Debug_message "$CDROM/$1 FOUND!"
+			POL_Debug_Message "$CDROM/$1 FOUND!"
 			break
 		else
-			POL_Debug_message "$CDROM/$1 not found"
+			POL_Debug_Message "$CDROM/$1 not found"
 		fi
 		shift
 	done
