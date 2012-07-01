@@ -175,7 +175,7 @@ class InstallWindow(wx.Frame):
 		
 		self.description = getDescription()
 		self.panelFenp = wx.Panel(self, -1)
-		self.panelButton = wx.Panel(self.panelFenp, -1, size=(960,68), pos=(0,0),style=wx.SIMPLE_BORDER)
+		self.panelButton = wx.Panel(self.panelFenp, -1, size=(962,69), pos=(-1,-1),style=Variables.widget_borders)
 		
 		self.addCat(_("Accessories"),Variables.playonlinux_env+"/resources/images/install/32/applications-accessories.png",0)
 		self.addCat(_("Development"),Variables.playonlinux_env+"/resources/images/install/32/applications-development.png",1)
@@ -201,8 +201,8 @@ class InstallWindow(wx.Frame):
 			self.image_position = (738,382)
 			self.new_size = (196,253)
 		if(os.environ["POL_OS"] == "Linux"):
-			self.image_position = (10,383)
-			self.new_size = (562,222)
+			self.image_position = (740,384)
+			self.new_size = (200,257)
 		
 		self.image = wx.StaticBitmap(self.panelFenp, 108, wx.Bitmap(Variables.playonlinux_env+"/resources/images/pol_min.png"), self.image_position, wx.DefaultSize)
 		self.image.Bind(wx.EVT_LEFT_DOWN, self.sizeUpScreen) 
