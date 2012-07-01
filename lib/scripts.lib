@@ -137,6 +137,7 @@ POL_ExtractIcon()
 
 	icotool -x "icons-brut" -o "$REPERTOIRE/tmp/win32Icon/"
 	find . -name "*32x32x32.png" > icons-list
+	find . -name "*32x32x24.png" >> icons-list
 	find . -name "*32x32x16.png" >> icons-list
 	find . -name "*32x32x8.png" >> icons-list
 	find . -name "*32x32x4.png" >> icons-list
@@ -166,26 +167,31 @@ POL_ExtractBiggestIcon()
 	icotool -x "icons-brut" -o "$REPERTOIRE/tmp/win32Icon/"
 
 	find . -name "*256x256x32.png" > icons-list
+	find . -name "*256x256x24.png" >> icons-list
 	find . -name "*256x256x16.png" >> icons-list
 	find . -name "*256x256x8.png" >> icons-list
 	find . -name "*256x256x4.png" >> icons-list
 	
 	find . -name "*128x128x32.png" >> icons-list
+	find . -name "*128x128x24.png" >> icons-list
 	find . -name "*128x128x16.png" >> icons-list
 	find . -name "*128x128x8.png" >> icons-list
 	find . -name "*128x128x4.png" >> icons-list
 	
 	find . -name "*96x96x32.png" >> icons-list
+	find . -name "*96x96x24.png" >> icons-list
 	find . -name "*96x96x16.png" >> icons-list
 	find . -name "*96x96x8.png" >> icons-list
 	find . -name "*96x96x4.png" >> icons-list
 
 	find . -name "*48x48x32.png" >> icons-list
+	find . -name "*48x48x24.png" >> icons-list
 	find . -name "*48x48x16.png" >> icons-list
 	find . -name "*48x48x8.png" >> icons-list
 	find . -name "*48x48x4.png" >> icons-list
 		
 	find . -name "*32x32x32.png" >> icons-list
+	find . -name "*32x32x24.png" >> icons-list
 	find . -name "*32x32x16.png" >> icons-list
 	find . -name "*32x32x8.png" >> icons-list
 	find . -name "*32x32x4.png" >> icons-list
