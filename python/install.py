@@ -146,7 +146,11 @@ class InstallWindow(wx.Frame):
 	def addCat(self, name, icon, iid):
 		espace=96;
 		image_pos = (espace-32)/2+espace*iid;
-		self.cats_icons[name] = wx.BitmapButton(self.panelButton, 2000+iid, wx.Bitmap(icon), (image_pos,10), style=wx.NO_BORDER)
+		if(os.environ["POL_OS"] == "Mac"):
+			offset = 10
+		else:
+			offset = 0
+		self.cats_icons[name] = wx.BitmapButton(self.panelButton, 2000+iid, wx.Bitmap(icon), (image_pos,offset), style=wx.NO_BORDER)
 		#self.cats_icons[name].Bind(wx.EVT_LEFT_DCLICK, 2000+iid, self.AddApps)
 		
 		self.cats_links[name] = wx.HyperlinkCtrl(self.panelButton, 3000+iid, name, "", pos=(0,52))
