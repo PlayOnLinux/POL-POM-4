@@ -123,30 +123,12 @@ POL_ExtractIcon()
 {
 	# Extract the icon of a .exe or .ico file
 	# Usage: POL_ExtractIcon [.exe file] [output image file]
-
-	mkdir -p "$REPERTOIRE/tmp/win32Icon"
-        case "$1" in
-            *.[iI][cC][oO])
-                cp "$1" "$REPERTOIRE/tmp/win32Icon/icons-brut"
-                ;;
-            *)
-	        wrestool -x -t14 "$1" &> "$REPERTOIRE/tmp/win32Icon/icons-brut"
-                ;;
-        esac
-        (cd "$REPERTOIRE/tmp/win32Icon"
-
-	icotool -x "icons-brut" -o "$REPERTOIRE/tmp/win32Icon/"
-	find . -name "*32x32x32.png" > icons-list
-	find . -name "*32x32x24.png" >> icons-list
-	find . -name "*32x32x16.png" >> icons-list
-	find . -name "*32x32x8.png" >> icons-list
-	find . -name "*32x32x4.png" >> icons-list
-
-	ICON_FILE=$(cat "icons-list" | head -n 1)
-	[ "$ICON_FILE" != "" ] && [ -s "$ICON_FILE" ] && cp "$ICON_FILE" "$2" || POL_Debug_Warning "Icon was not extracted"
-	[ "$ICON_FILE" != "" ] && [ -s "$ICON_FILE" ] && [ ! "$3" = "" ] && cp "$ICON_FILE" "$3"
-        )
-	rm -r "$REPERTOIRE/tmp/win32Icon"
+	POL_ExtractIcon "$1" "$POL_USER_ROOT/tmp/tmp_icon.png" 
+	convert "$POL_USER_ROOT/tmp/tmp_icon.png" -resize 32 "$POL_USER_ROOT/tmp/tmp_icon.png"
+	
+	cp "$POL_USER_ROOT/tmp/tmp_icon.png" "$2" || POL_Debug_Warning "Icon was not extracted"
+	
+	rm -r "$POL_USER_ROOT/tmp/tmp_icon.png"
 }
 POL_ExtractBiggestIcon()
 {
