@@ -478,11 +478,13 @@ POL_Wine ()
 		POL_Debug_Message "Notice: PlayOnLinux deliberately disables winemenubuilder. See http://www.playonlinux.com/fr/page-26-Winemenubuilder.html"
 		WINEMENUBUILDER_ALERT="Done"
 	fi
-	if [ "$1" = "regedit" ]; then
+	if [ "$1" = "regedit" -a ! "$2" = "" ]; then
 		POL_Debug_LogToPrefix "Content of $2"
 		echo '-----------' >> "$WINEPREFIX/playonlinux.log"
 		cat "$2" >> "$WINEPREFIX/playonlinux.log"
 		echo '-----------' >> "$WINEPREFIX/playonlinux.log"
+	else
+		POL_Debug_LogToPrefix "User modified something in the registry manually"
 	fi
 
 
