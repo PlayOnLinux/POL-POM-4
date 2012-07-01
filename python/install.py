@@ -242,9 +242,9 @@ class InstallWindow(wx.Frame):
 		
 		position += self.noDvDCapt.GetSize()[0]+5
 		
-		self.FreeChk = wx.CheckBox(self.panelFenp, -1, pos=(position,82), size=wx.DefaultSize)
+		self.freeChk = wx.CheckBox(self.panelFenp, -1, pos=(position,82), size=wx.DefaultSize)
 		position += 20+self.search_offset
-		self.FreeCapt = wx.StaticText(self.panelFenp, -1, _("Free"), (position,82+self.search_offset), wx.DefaultSize)
+		self.FreeCapt = wx.StaticText(self.panelFenp, -1, _("Only free"), (position,82+self.search_offset), wx.DefaultSize)
 		
 		position += self.FreeCapt.GetSize()[0]+5
 		self.star_x = position
@@ -415,7 +415,9 @@ class InstallWindow(wx.Frame):
 
 		if(self.user_search == "about:conceptor"):
 			self.search_result.append("about:conceptor")
-
+		
+		if(len(self.user_search) < 2 or "~" in self.user_search):
+			self.search_result = []
 		self.user_search_cut = string.split(self.user_search,":")
 		if(len(self.user_search_cut) > 1):
 			if(self.user_search_cut[0] == "get" and self.user_search_cut[1].isdigit()):
@@ -447,16 +449,31 @@ class InstallWindow(wx.Frame):
 		self.i = 0
 		array.sort()
 		for app in array:
-			self.icon_look_for = Variables.playonlinux_rep+"/configurations/icones/"+app
-			if(os.path.exists(self.icon_look_for)):
-				try:
-					self.imagesapps.Add(wx.Bitmap(self.icon_look_for))
-				except:
-					pass
-			else:	
-				self.imagesapps.Add(wx.Bitmap(Variables.playonlinux_env+"/etc/playonlinux22.png"))
-			self.list_apps.AppendItem(self.root_apps, app, self.i)
-			self.i = self.i+1
+			app_array = app.split("~")
+			appname = app_array[0]
+			free = int(app_array[3])
+			testing = int(app_array[1])
+			nocd = int(app_array[2])
+
+			show = True
+			if(int(nocd) == 1 and self.nocdChk.IsChecked() == 0):
+				show = False
+			if(int(free) == 0 and self.freeChk.IsChecked() == 1):
+				show = False
+			if(int(testing) == 1 and self.testing.Ischecked() == 1):
+				show = False
+				
+			if(show == True):
+				self.icon_look_for = Variables.playonlinux_rep+"/configurations/icones/"+appname
+				if(os.path.exists(self.icon_look_for)):
+					try:
+						self.imagesapps.Add(wx.Bitmap(self.icon_look_for))
+					except:
+						pass
+				else:	
+					self.imagesapps.Add(wx.Bitmap(Variables.playonlinux_env+"/etc/playonlinux22.png"))
+				self.list_apps.AppendItem(self.root_apps, appname, self.i)
+				self.i = self.i+1
 
 	def DelApps(self):
 		self.list_apps.DeleteAllItems()
@@ -472,7 +489,7 @@ class InstallWindow(wx.Frame):
 		self.SetImg(Variables.playonlinux_env+"/resources/images/pol_min.png")
 
 	def AddApps(self, event):
-		#self.searchbox.SetValue("")
+		self.searchbox.SetValue("")
 		#self.cat_selected=self.list_cat.GetItemText(self.list_cat.GetSelection()).encode("utf-8","replace")
 		if(event.GetId() >= 3000):
 			self.cat_selected = event.GetId() - 3000
