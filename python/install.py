@@ -148,13 +148,11 @@ class InstallWindow(wx.Frame):
 		if(os.environ["POL_OS"] == "Mac"):
 			offset = 10
 			w_offset = 5
-			search_offset = 0
 		else:
 			offset = 2
 			w_offset = 10
-			search_offset = 5
 			
-	
+
 		self.cats_icons[name] = wx.BitmapButton(self.panelButton, 2000+iid, wx.Bitmap(icon), (0,0), style=wx.NO_BORDER)
 	
 		self.cats_links[name] = wx.HyperlinkCtrl(self.panelButton, 3000+iid, name, "", pos=(0,52))
@@ -215,10 +213,11 @@ class InstallWindow(wx.Frame):
 		if(os.environ["POL_OS"] == "Mac"):
 			self.image_position = (738-160,346)
 			self.new_size = (196,218-4)
+			search_offset = 5
 		if(os.environ["POL_OS"] == "Linux"):
 			self.image_position = (740-160,348)
 			self.new_size = (200,222-4)
-		
+			search_offset = 5
 		
 	
 				
