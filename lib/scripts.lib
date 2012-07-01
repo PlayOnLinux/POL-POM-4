@@ -184,6 +184,12 @@ POL_ExtractBiggestIcon()
 	find . -name "*96x96x8.png" >> icons-list
 	find . -name "*96x96x4.png" >> icons-list
 
+	find . -name "*64x64x32.png" >> icons-list
+	find . -name "*64x64x24.png" >> icons-list
+	find . -name "*64x64x16.png" >> icons-list
+	find . -name "*64x64x8.png" >> icons-list
+	find . -name "*64x64x4.png" >> icons-list
+	
 	find . -name "*48x48x32.png" >> icons-list
 	find . -name "*48x48x24.png" >> icons-list
 	find . -name "*48x48x16.png" >> icons-list
