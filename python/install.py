@@ -172,6 +172,7 @@ class InstallWindow(wx.Frame):
 		self.cats_links[name].SetNormalColour(wx.Colour(0,0,0))
 		self.cats_links[name].SetVisitedColour(wx.Colour(0,0,0))
 		self.cats_links[name].SetHoverColour(wx.Colour(0,0,0))
+		self.cats_links[name].SetBackgroundColour((255,255,255))
 	
 		self.cats_links[name].SetFont(self.fontText)
 		
@@ -491,11 +492,13 @@ class InstallWindow(wx.Frame):
 	def AddApps(self, event):
 		self.searchbox.SetValue("")
 		#self.cat_selected=self.list_cat.GetItemText(self.list_cat.GetSelection()).encode("utf-8","replace")
+		print event_GetId()
 		if(event.GetId() >= 3000):
 			self.cat_selected = event.GetId() - 3000
 		else:
 			self.cat_selected = event.GetId() - 2000
 			
+		self.current_cat = self.cat_selected
 		
 		if(self.cat_selected == 8):
 			self.apps = codecs.open(Variables.playonlinux_rep+"/configurations/listes/0",'r',"utf-8")
