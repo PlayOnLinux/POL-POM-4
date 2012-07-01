@@ -460,13 +460,13 @@ class InstallWindow(wx.Frame):
 			free = int(app_array[3])
 			testing = int(app_array[1])
 			nocd = int(app_array[2])
-
+			print app_array
 			show = True
 			if(int(nocd) == 1 and self.nocdChk.IsChecked() == 0):
 				show = False
 			if(int(free) == 0 and self.freeChk.IsChecked() == 1):
 				show = False
-			if(int(testing) == 1 and self.testing.Ischecked() == 1):
+			if(int(testing) == 1 and self.testingChk.Ischecked() == 1):
 				show = False
 				
 			if(show == True):
