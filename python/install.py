@@ -232,18 +232,18 @@ class InstallWindow(wx.Frame):
 		self.searchbox = wx.TextCtrl(self.panelFenp, 110, size=(300,20), pos=(position,82))
 		position += self.searchbox.GetSize()[0]+10
 
-		self.testingChk = wx.CheckBox(self.panelFenp, -1, pos=(position,82), size=wx.DefaultSize)
+		self.testingChk = wx.CheckBox(self.panelFenp, 401, pos=(position,82), size=wx.DefaultSize)
 		position += 20+self.search_offset
 		self.testingCapt = wx.StaticText(self.panelFenp, -1, _("Testing"), (position,82+self.search_offset), wx.DefaultSize)
 		position += self.testingCapt.GetSize()[0]+5
 		
-		self.nocdChk = wx.CheckBox(self.panelFenp, -1, pos=(position,82), size=wx.DefaultSize)
+		self.nocdChk = wx.CheckBox(self.panelFenp, 402, pos=(position,82), size=wx.DefaultSize)
 		position += 20+self.search_offset
 		self.noDvDCapt = wx.StaticText(self.panelFenp, -1, _("No-cd needed"), (position,82+self.search_offset), wx.DefaultSize)
 		
 		position += self.noDvDCapt.GetSize()[0]+5
 		
-		self.freeChk = wx.CheckBox(self.panelFenp, -1, pos=(position,82), size=wx.DefaultSize)
+		self.freeChk = wx.CheckBox(self.panelFenp, 403, pos=(position,82), size=wx.DefaultSize)
 		position += 20+self.search_offset
 		self.FreeCapt = wx.StaticText(self.panelFenp, -1, _("Only free"), (position,82+self.search_offset), wx.DefaultSize)
 		
@@ -286,6 +286,11 @@ class InstallWindow(wx.Frame):
 		wx.EVT_TREE_ITEM_ACTIVATED(self, 106, self.installapp)
 		wx.EVT_TEXT(self, 110, self.search)
 		wx.EVT_HYPERLINK(self, 111, self.manual)
+		
+		wx.EVT_CHECKBOX(self, 401, self.CheckBoxReload)
+		wx.EVT_CHECKBOX(self, 402, self.CheckBoxReload)
+		wx.EVT_CHECKBOX(self, 403, self.CheckBoxReload)
+		
 		#wx.EVT_CHECKBOX(self, 111, self.manual)
 		#Timer, regarde toute les secondes si il faut actualiser la liste
 
@@ -489,17 +494,35 @@ class InstallWindow(wx.Frame):
 	def ResetImg(self):
 		self.SetImg(Variables.playonlinux_env+"/resources/images/pol_min.png")
 
-	def AddApps(self, event):
+	def CheckBoxReload(self, event):
+		chk_id = event.GetId()
+		if(chk_id == 401):
+			if(self.testingChk.IsChecked() == 1):
+				wx.MessageBox(_("By enabling this, you will have access to testing installers.\n\n{0} cannot ensure that your app will work without any problems").format(os.environ["APPLICATION_TITLE"]),_("Please read this"))
+		if(chk_id == 402):
+			if(self.nocdChk.IsChecked() == 1):
+				wx.MessageBox(_("By enabling this, you will have access to installers that need a no-cd patch to run.\n\n{0} does not support piracy. Therefore, we won't give any support to patch your program.").format(os.environ["APPLICATION_TITLE"]),_("Please read this"))
+		
+		if(self.searchbox.GetValue() == ""):
+			self.AddApps(self, noevent=True)
+		else:
+			self.Search(self)
+			
+	def AddApps(self, event, noevent=False):
 		self.searchbox.SetValue("")
 		#self.cat_selected=self.list_cat.GetItemText(self.list_cat.GetSelection()).encode("utf-8","replace")
-		print event_GetId()
-		if(event.GetId() >= 3000):
-			self.cat_selected = event.GetId() - 3000
-		else:
-			self.cat_selected = event.GetId() - 2000
+		if(noevent == False):
+			if(event.GetId() >= 3000):
+				self.cat_selected = event.GetId() - 3000
+			else:
+				self.cat_selected = event.GetId() - 2000
 			
-		self.current_cat = self.cat_selected
-		
+			self.current_cat = self.cat_selected
+		else:
+			try:
+				self.cat_selected = self.current_cat
+			except:
+				return 0
 		if(self.cat_selected == 8):
 			self.apps = codecs.open(Variables.playonlinux_rep+"/configurations/listes/0",'r',"utf-8")
 		if(self.cat_selected == 3):
