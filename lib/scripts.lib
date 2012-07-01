@@ -171,7 +171,7 @@ POL_ExtractIcon()
 		find . -name "*128x128x8.png" >> icons-list
 		find . -name "*128x128x4.png" >> icons-list
 
-		find . -name "*256x256x32.png" > icons-list
+		find . -name "*256x256x32.png" >> icons-list
 		find . -name "*256x256x24.png" >> icons-list
 		find . -name "*256x256x16.png" >> icons-list
 		find . -name "*256x256x8.png" >> icons-list
@@ -245,6 +245,7 @@ POL_ExtractBiggestIcon()
 			cp "$ICON_FILE" "$target" || POL_Debug_Warning "Icon was not extracted"
 		done
 	fi
+	)
 	rm -r "$REPERTOIRE/tmp/win32Icon"
 }
 POL_Shortcut()
