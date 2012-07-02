@@ -41,22 +41,16 @@ config_maj() # Celle ci est exécuté à chaque ligne (wget | config_maj), elle 
 		#download_des=$(echo "$line" | cut -d "/" -f 5)
 
 		echo "$content~$testing~$nocd~$free" >> "$file"
-		if [ ! "$file" = "10" ] # If not in beta file
-		then
-			echo "$content~$testing~$nocd~$free" >> "search"
-		fi
-
-		if [ "$download_icon" = "1" ]
-		then
-			if [ ! -e "../icones/$content" ]
-			then
-				$POL_WGET "$SITE/V2_data/icones/$content" -O "../icones/$content"
+		echo "$content~$testing~$nocd~$free" >> "search"
+		echo $PWD
+		if [ "$download_icon" = "1" ]; then
+			if [ ! -e "$POL_USER_ROOT/configurations/icones/$content" ]; then
+				$POL_WGET "$SITE/V2_data/icones/$content" -O "$POL_USER_ROOT/configurations/icones/$content"
 			fi
-			taille=$(du "../icones/$content")
-			taille=${taille:0:1}
-			if [ "$taille" = "0" ]
-			then
-				rm "../icones/$content"
+			taille="$(du "$POL_USER_ROOT/configurations/icones/$content")"
+			taille="${taille:0:1}"
+			if [ "$taille" = "0" ]; then
+				rm "$POL_USER_ROOT/configurations/icones/$content"
 			fi
 		fi
 		i=$(( i + 1 ))
