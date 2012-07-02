@@ -302,7 +302,7 @@ class MainWindow(wx.Frame):
 		hauteur = 2;
 	else:
 		hauteur = 6;
-	self.jauge_update = wx.Gauge(self.sb, -1, 100, (300, hauteur), size=(100,16))
+	self.jauge_update = wx.Gauge(self.sb, -1, 100, (self.GetSize()[0]-100, hauteur), size=(100,16))
 	self.jauge_update.Pulse()
 	self.jauge_update.Hide()
 	self.SetStatusBar(self.sb)
