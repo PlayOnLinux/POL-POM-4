@@ -183,13 +183,13 @@ class InstallWindow(wx.Frame):
 		
 		self.description = getDescription()
 		self.panelFenp = wx.Panel(self, -1)
-		self.panelItems = wx.Panel(self.panelFenp, -1, size=(800,550+Variables.windows_add_size), pos=(0,0))
-		self.panelWait = wx.Panel(self.panelFenp, -1, size=(800,550+Variables.windows_add_size), pos=(0,0))
+		self.panelItems = wx.Panel(self.panelFenp, -1, size=(800,550+Variables.windows_add_size), pos=(0,71))
+		self.panelWait = wx.Panel(self.panelFenp, -1, size=(800,550+Variables.windows_add_size), pos=(0,71))
 		self.panelWait.Hide()
 		
 		self.panelButton = wx.Panel(self.panelFenp, -1, size=(802,69), pos=(-1,-1),style=Variables.widget_borders)
 		self.panelButton.SetBackgroundColour((255,255,255))
-		self.panelButton.Show()
+
 		if(os.environ["POL_OS"] == "Mac"):
 			self.fontText = wx.Font(10, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL,False, "", wx.FONTENCODING_DEFAULT)
 			self.fontTitre = wx.Font(14, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, False, "", wx.FONTENCODING_DEFAULT)
@@ -218,11 +218,11 @@ class InstallWindow(wx.Frame):
 		#self.list_cat.Hide()
 		
 		if(os.environ["POL_OS"] == "Mac"):
-			self.image_position = (738-160,346)
+			self.image_position = (738-160,346-71)
 			self.new_size = (196,218-4)
 			self.search_offset = 2
 		if(os.environ["POL_OS"] == "Linux"):
-			self.image_position = (740-160,348)
+			self.image_position = (740-160,348-71)
 			self.new_size = (200,222-4)
 			self.search_offset = 5
 		
@@ -233,48 +233,48 @@ class InstallWindow(wx.Frame):
 		#self.list_cat.SetSpacing(0);
 		#self.list_cat.SetImageList(self.images_cat)
 		position = 10+self.search_offset;
-		self.searchcaption = wx.StaticText(self.panelItems, -1, _("Search"), (position,82+self.search_offset), wx.DefaultSize)
+		self.searchcaption = wx.StaticText(self.panelItems, -1, _("Search"), (position,82-71+self.search_offset), wx.DefaultSize)
 		position += self.searchcaption.GetSize()[0]+5
-		self.searchbox = wx.TextCtrl(self.panelItems, 110, size=(300,20), pos=(position,82))
+		self.searchbox = wx.TextCtrl(self.panelItems, 110, size=(300,20), pos=(position,82-71))
 		position += self.searchbox.GetSize()[0]+10
 
-		self.testingChk = wx.CheckBox(self.panelItems, 401, pos=(position,82), size=wx.DefaultSize)
+		self.testingChk = wx.CheckBox(self.panelItems, 401, pos=(position,82-71), size=wx.DefaultSize)
 		position += 20+self.search_offset
-		self.testingCapt = wx.StaticText(self.panelItems, -1, _("Testing"), (position,82+self.search_offset), wx.DefaultSize)
+		self.testingCapt = wx.StaticText(self.panelItems, -1, _("Testing"), (position,82-71+self.search_offset), wx.DefaultSize)
 		position += self.testingCapt.GetSize()[0]+5
 		
-		self.nocdChk = wx.CheckBox(self.panelItems, 402, pos=(position,82), size=wx.DefaultSize)
+		self.nocdChk = wx.CheckBox(self.panelItems, 402, pos=(position,82-71), size=wx.DefaultSize)
 		position += 20+self.search_offset
-		self.noDvDCapt = wx.StaticText(self.panelItems, -1, _("No-cd needed"), (position,82+self.search_offset), wx.DefaultSize)
+		self.noDvDCapt = wx.StaticText(self.panelItems, -1, _("No-cd needed"), (position,82-71+self.search_offset), wx.DefaultSize)
 		
 		position += self.noDvDCapt.GetSize()[0]+5
 		
-		self.freeChk = wx.CheckBox(self.panelItems, 403, pos=(position,82), size=wx.DefaultSize)
+		self.freeChk = wx.CheckBox(self.panelItems, 403, pos=(position,82-71), size=wx.DefaultSize)
 		position += 20+self.search_offset
-		self.FreeCapt = wx.StaticText(self.panelItems, -1, _("Only free"), (position,82+self.search_offset), wx.DefaultSize)
+		self.FreeCapt = wx.StaticText(self.panelItems, -1, _("Only free"), (position,82-71+self.search_offset), wx.DefaultSize)
 		
 		position += self.FreeCapt.GetSize()[0]+5
 		self.star_x = position
 		
 		self.lasthtml_content = ""
-		self.list_apps = wx.TreeCtrl(self.panelItems, 106, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT|Variables.widget_borders, size=(550, 385), pos=(15,113))
+		self.list_apps = wx.TreeCtrl(self.panelItems, 106, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT|Variables.widget_borders, size=(550, 385), pos=(15,113-71))
 		self.list_apps.SetImageList(self.imagesapps)
 		self.list_apps.SetSpacing(0);
 		self.stars = 0
 		#self.content =  wx.TextCtrl(self.panelItems, 107, pos=(220,301), size=(562,212), style = wx.TE_MULTILINE | wx.TE_RICH2 | wx.CB_READONLY | Variables.widget_borders)
-		self.content = wx.html.HtmlWindow(self.panelItems, 107, style=Variables.widget_borders, pos=(580,113), size=(200,218))
-		self.button = wx.Button(self.panelItems, wx.ID_CLOSE, _("Cancel"), pos=(736-160, 510), size=(100,35))
-		self.install_button = wx.Button(self.panelItems, wx.ID_APPLY, _("Install"), pos=(843-160, 510), size=(100,35))
-		self.update_button = wx.Button(self.panelItems, wx.ID_REFRESH, _("Refresh"), pos=(630-160, 510), size=(100,35))
+		self.content = wx.html.HtmlWindow(self.panelItems, 107, style=Variables.widget_borders, pos=(580,113-71), size=(200,218))
+		self.button = wx.Button(self.panelItems, wx.ID_CLOSE, _("Cancel"), pos=(736-160, 510-71), size=(100,35))
+		self.install_button = wx.Button(self.panelItems, wx.ID_APPLY, _("Install"), pos=(843-160, 510-71), size=(100,35))
+		self.update_button = wx.Button(self.panelItems, wx.ID_REFRESH, _("Refresh"), pos=(630-160, 510-71), size=(100,35))
 		self.install_button.Enable(False)
 		
-		self.new_panel = wx.Panel(self.panelItems, -1, pos=(740-160,113), style=Variables.widget_borders, size=self.new_size)
+		self.new_panel = wx.Panel(self.panelItems, -1, pos=(740-160,113-71), style=Variables.widget_borders, size=self.new_size)
 		self.new_panel.SetBackgroundColour((255,255,255))
 		self.animation = wx.animate.GIFAnimationCtrl(self.new_panel, -1, Variables.playonlinux_env+"/resources/images/install/wait_mini.gif", (90,100))
 		self.animation.Hide()
 
-		self.animation_wait = wx.animate.GIFAnimationCtrl(self.panelWait, -1, Variables.playonlinux_env+"/resources/images/install/wait.gif", ((800-128)/2,(550-128)/2))
-		self.percentageText = wx.StaticText(self.panelWait, -1, "", ((800-30)/2,(550-128)/2+128+10), wx.DefaultSize)
+		self.animation_wait = wx.animate.GIFAnimationCtrl(self.panelWait, -1, Variables.playonlinux_env+"/resources/images/install/wait.gif", ((800-128)/2,(550-128)/2-71))
+		self.percentageText = wx.StaticText(self.panelWait, -1, "", ((800-30)/2,(550-128)/2+128+10-71), wx.DefaultSize)
 		self.percentageText.SetFont(self.fontTitre)
 
 		self.new_panel.Hide()
@@ -284,7 +284,7 @@ class InstallWindow(wx.Frame):
 		self.timer.Start(200)
 
 		#self.ManualInstall = wx.CheckBox(self.panelItems, 111, label=_("Install a .pol package or an unsupported application"), pos=(10,530))
-		self.ManualInstall = wx.HyperlinkCtrl(self.panelItems, 111, _("Install a non-listed program"), "", pos=(10,515))
+		self.ManualInstall = wx.HyperlinkCtrl(self.panelItems, 111, _("Install a non-listed program"), "", pos=(10,515-71))
 		self.ManualInstall.SetNormalColour(wx.Colour(0,0,0))
    # self.AddApps()
 
@@ -373,7 +373,7 @@ class InstallWindow(wx.Frame):
 			pass
 
 		self.stars = int(self.stars)
-		star_y = 83;
+		star_y = 83-71;
 		star_x = 832-160;
 		if(self.stars >= 1):
 			self.star1 = wx.StaticBitmap(self.panelItems, -1, wx.Bitmap(Variables.playonlinux_env+"/etc/star.png"), (5*18+star_x,star_y), wx.DefaultSize)

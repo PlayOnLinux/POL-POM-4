@@ -474,8 +474,6 @@ class MainWindow(wx.Frame):
 		try:
 			self.installFrame.panelItems.Hide()
 			self.installFrame.panelWait.Show()
-			self.installFrame.panelButtons.Show()
-			
 			self.installFrame.animation_wait.Play()
 		except:
 			pass
@@ -484,8 +482,6 @@ class MainWindow(wx.Frame):
 		try:
 			self.installFrame.panelItems.Show()
 			self.installFrame.panelWait.Hide()
-			self.installFrame.panelButtons.Show()
-			
 			self.installFrame.animation_wait.Stop()
 			self.installFrame.Refresh()
 		except:
