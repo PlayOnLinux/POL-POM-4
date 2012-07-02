@@ -241,7 +241,7 @@ class InstallWindow(wx.Frame):
 		position = 10+self.search_offset;
 		self.searchcaption = wx.StaticText(self.panelItems, -1, _("Search"), (position,82-71+self.search_offset), wx.DefaultSize)
 		position += self.searchcaption.GetSize()[0]+5
-		self.searchbox = wx.TextCtrl(self.panelItems, 110, size=(300,20), pos=(position,82-71))
+		self.searchbox = wx.TextCtrl(self.panelItems, 110, size=(250,20), pos=(position,82-71))
 		position += self.searchbox.GetSize()[0]+10
 
 		self.testingChk = wx.CheckBox(self.panelItems, 401, pos=(position,82-71), size=wx.DefaultSize)
