@@ -468,20 +468,13 @@ class MainWindow(wx.Frame):
 	if(self.updater.Show == True):
 		self.sb.Show()
 		try:
-			self.installFrame.list_apps.Hide()
-			self.installFrame.image.Hide()
-			self.installFrame.new_panel.Hide()
-			self.installFrame.content.Hide()
-			self.installFrame.Refresh()
+			self.installFrame.panelItems.Hide()
 		except:
 			pass
 	else:
 		self.sb.Hide()	
 		try:
-			self.installFrame.list_apps.Show()
-			self.installFrame.image.Show()
-			self.installFrame.new_panel.Show()
-			self.installFrame.content.Show()
+			self.installFrame.panelItems.Show()
 			self.installFrame.Refresh()
 		except:
 			pass
