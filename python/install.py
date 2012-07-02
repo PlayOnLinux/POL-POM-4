@@ -109,6 +109,8 @@ class getDescription(threading.Thread):
 						req = urllib2.Request(url)
 						handle = urllib2.urlopen(req)
 						self.htmlContent = handle.read()
+						if("<i>No description</i>" in self.htmlContent):
+							self.htmlContent = "<i>"+_("No description")+"</i>"
 					except :
 						self.htmlContent = "<i>"+_("No description")+"</i>"
 
