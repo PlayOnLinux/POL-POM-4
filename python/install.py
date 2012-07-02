@@ -301,16 +301,16 @@ class InstallWindow(wx.Frame):
 			
 			self.lasthtml_content = self.description.htmlContent;
 			if(self.description.htmlContent == "###WAIT###"):
-				self.content.Hide()
 				self.animation.Show()
 				self.animation.Play()
 				self.new_panel.Show()
+				self.content.Hide()
 				self.Refresh()
 			else:
-				self.animation.Hide()
 				self.animation.Stop()
-				self.new_panel.Hide()
 				self.content.Show()
+				self.animation.Hide()
+				self.new_panel.Hide()
 				self.Refresh()
 				self.content.SetPage(self.description.htmlContent)
 	
