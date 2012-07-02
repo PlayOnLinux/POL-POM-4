@@ -460,6 +460,10 @@ class MainWindow(wx.Frame):
 		if(perc == -1):
 			self.jauge_update.Pulse()
 		else:
+			try:
+				self.installFrame.percentageText.SetLabel(str(perc)+" %")
+			except:
+				pass
 			self.jauge_update.SetValue(perc)
 		self.jauge_update.Show()
 	else:
@@ -469,12 +473,16 @@ class MainWindow(wx.Frame):
 		self.sb.Show()
 		try:
 			self.installFrame.panelItems.Hide()
+			self.installFrame.panelWait.Show()
+			self.installFrame.animation_wait.Play()
 		except:
 			pass
 	else:
 		self.sb.Hide()	
 		try:
 			self.installFrame.panelItems.Show()
+			self.installFrame.panelWait.Hide()
+			self.installFrame.animation_wait.Stop()
 			self.installFrame.Refresh()
 		except:
 			pass

@@ -184,14 +184,18 @@ class InstallWindow(wx.Frame):
 		self.description = getDescription()
 		self.panelFenp = wx.Panel(self, -1)
 		self.panelItems = wx.Panel(self.panelFenp, -1, size=(800,550+Variables.windows_add_size), pos=(0,0))
+		self.panelWait = wx.Panel(self.panelFenp, -1, size=(800,550+Variables.windows_add_size), pos=(0,0))
+		self.panelWait.Hide()
 		self.panelButton = wx.Panel(self.panelFenp, -1, size=(802,69), pos=(-1,-1),style=Variables.widget_borders)
-		
+
 		self.panelButton.SetBackgroundColour((255,255,255))
 		
 		if(os.environ["POL_OS"] == "Mac"):
 			self.fontText = wx.Font(10, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL,False, "", wx.FONTENCODING_DEFAULT)
+			self.fontTitre = wx.Font(14, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, False, "", wx.FONTENCODING_DEFAULT)
 		else :
 			self.fontText = wx.Font(8, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL,False, "", wx.FONTENCODING_DEFAULT)
+			self.fontTitre = wx.Font(10, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, False, "", wx.FONTENCODING_DEFAULT)
 				
 		self.addCat(_("Accessories"),Variables.playonlinux_env+"/resources/images/install/32/applications-accessories.png",0)
 		self.addCat(_("Development"),Variables.playonlinux_env+"/resources/images/install/32/applications-development.png",1)
@@ -266,8 +270,12 @@ class InstallWindow(wx.Frame):
 		
 		self.new_panel = wx.Panel(self.panelItems, -1, pos=(740-160,113), style=Variables.widget_borders, size=self.new_size)
 		self.new_panel.SetBackgroundColour((255,255,255))
-		self.animation = wx.animate.GIFAnimationCtrl(self.new_panel, -1, Variables.playonlinux_env+"/etc/24-0.gif", (90,100))
+		self.animation = wx.animate.GIFAnimationCtrl(self.new_panel, -1, Variables.playonlinux_env+"/resources/images/install/wait_mini.gif", (90,100))
 		self.animation.Hide()
+
+		self.animation_wait = wx.animate.GIFAnimationCtrl(self.panelWait, -1, Variables.playonlinux_env+"/resources/images/install/wait.gif", ((800-128)/2,(550-128)/2))
+		self.percentageText = wx.StaticText(self.panelWait, -1, "", ((800-30)/2,(550-128)/2+128+10), wx.DefaultSize)
+		self.percentageText.SetFont(self.fontTitre)
 
 		self.new_panel.Hide()
 
