@@ -186,10 +186,10 @@ class InstallWindow(wx.Frame):
 		self.panelItems = wx.Panel(self.panelFenp, -1, size=(800,550+Variables.windows_add_size), pos=(0,0))
 		self.panelWait = wx.Panel(self.panelFenp, -1, size=(800,550+Variables.windows_add_size), pos=(0,0))
 		self.panelWait.Hide()
-		self.panelButton = wx.Panel(self.panelFenp, -1, size=(802,69), pos=(-1,-1),style=Variables.widget_borders)
-
-		self.panelButton.SetBackgroundColour((255,255,255))
 		
+		self.panelButton = wx.Panel(self.panelFenp, -1, size=(802,69), pos=(-1,-1),style=Variables.widget_borders)
+		self.panelButton.SetBackgroundColour((255,255,255))
+		self.panelButton.Show()
 		if(os.environ["POL_OS"] == "Mac"):
 			self.fontText = wx.Font(10, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL,False, "", wx.FONTENCODING_DEFAULT)
 			self.fontTitre = wx.Font(14, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, False, "", wx.FONTENCODING_DEFAULT)
