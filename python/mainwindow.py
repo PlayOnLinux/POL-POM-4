@@ -47,11 +47,15 @@ class POLWeb(threading.Thread):
 		self.Gauge = False
 		self.WebVersion = ""
 		self.Show = False
+		self.perc = -1
 		
 	def sendToStatusBar(self, message, gauge):
 		self.sendToStatusBarStr = message
 		self.Gauge = gauge
 		self.Show = True
+
+	def sendPercentage(self, n):
+		self.perc = n
 
 	def sendAlert(self, message):
 		self.sendAlertStr = message
@@ -70,8 +74,21 @@ class POLWeb(threading.Thread):
 			self.sendToStatusBar(_('{0} website is unavailable. Please check your connexion').format(os.environ["APPLICATION_TITLE"]), False)
 		else:
 			self.sendToStatusBar(_("Refreshing {0}").format(os.environ["APPLICATION_TITLE"]), True)
-			os.system("bash \""+Variables.playonlinux_env+"/bash/pol_update_list\"")
-		
+			exe = ['bash',Variables.playonlinux_env+"/bash/pol_update_list"]
+			
+			p = subprocess.Popen(exe, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+			
+			while(True):
+				retcode = p.poll() #returns None while subprocess is running
+				line = p.stdout.readline()
+				try:
+					self.sendPercentage(int(line))
+				except:
+					pass
+				#yield line
+				if(retcode is not None):
+					break
+			
 			if(playonlinux.VersionLower(os.environ["VERSION"],self.WebVersion)):
 				self.sendToStatusBar(_('An updated version of {0} is available').format(os.environ["APPLICATION_TITLE"])+" ("+self.WebVersion+")",False)
 				if(os.environ["DEBIAN_PACKAGE"] == "FALSE"):
@@ -79,6 +96,7 @@ class POLWeb(threading.Thread):
 				os.environ["POL_UPTODATE"] = "FALSE"
 			else:
 				self.Show = False
+				self.perc = -1
 				os.environ["POL_UPTODATE"] = "TRUE"
 		
 		self.wantcheck = False
@@ -438,7 +456,11 @@ class MainWindow(wx.Frame):
   def StatusRead(self):
 	self.sb.SetStatusText(self.updater.sendToStatusBarStr, 0)
 	if(self.updater.Gauge == True):
-		self.jauge_update.Pulse()
+		perc = self.updater.perc
+		if(perc == -1):
+			self.jauge_update.Pulse()
+		else:
+			self.jauge_update.SetValue(perc)
 		self.jauge_update.Show()
 	else:
 		self.jauge_update.Hide()

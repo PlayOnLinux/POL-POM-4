@@ -25,8 +25,12 @@ source "$PLAYONLINUX/lib/sources"
 config_maj() # Celle ci est exécuté à chaque ligne (wget | config_maj), elle traite tout
 {
 	read line
-	if [ ! "$line" = "" ]
-	then
+	num="$line"
+	i=0
+	while [ ! "$line" = "" ]; do
+		read line
+		[ "$line" = "" ] && break
+		echo $(( i*100/num ))
 		file=$(echo "$line" | cut -d "/" -f 1)
 		content=$(echo "$line" | cut -d "/" -f 2)
 		download_icon=$(echo "$line" | cut -d "/" -f 3)
@@ -55,9 +59,8 @@ config_maj() # Celle ci est exécuté à chaque ligne (wget | config_maj), elle 
 				rm "../icones/$content"
 			fi
 		fi
-
-		config_maj
-	fi
+		i=$(( i + 1 ))
+	done
 }
 maj_check ()
 {
@@ -78,7 +81,7 @@ maj_check ()
 		rm 0 1 2 3 4 5 6 7 8 9 search 2> /dev/null
 		touch 0 1 2 3 4 5 6 7 8 9 search
 		
-					
+		echo 0
 		if [ "$POL_OS" = "Linux" ]
 		then
 			$POL_WGET "$SITE/V4_data/repository/get_list_v4.php" -O- | config_maj
