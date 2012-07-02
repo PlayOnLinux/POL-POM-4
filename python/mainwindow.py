@@ -473,6 +473,7 @@ class MainWindow(wx.Frame):
 		self.sb.Show()
 		try:
 			self.installFrame.panelItems.Hide()
+			self.installFrame.panelManual.Hide()
 			self.installFrame.panelWait.Show()
 			self.installFrame.animation_wait.Play()
 		except:
@@ -480,7 +481,10 @@ class MainWindow(wx.Frame):
 	else:
 		self.sb.Hide()	
 		try:
-			self.installFrame.panelItems.Show()
+			if(self.installFrame.currentPanel == 1):
+				self.installFrame.panelManual.Show()
+			else:
+				self.installFrame.panelItems.Show()
 			self.installFrame.panelWait.Hide()
 			self.installFrame.animation_wait.Stop()
 			self.installFrame.Refresh()

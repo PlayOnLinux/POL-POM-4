@@ -186,7 +186,11 @@ class InstallWindow(wx.Frame):
 		self.panelItems = wx.Panel(self.panelFenp, -1, size=(800,550+Variables.windows_add_size), pos=(0,71))
 		self.panelWait = wx.Panel(self.panelFenp, -1, size=(800,550+Variables.windows_add_size), pos=(0,71))
 		self.panelWait.Hide()
+		self.panelManual = wx.Panel(self.panelFenp, -1, size=(800,550+Variables.windows_add_size), pos=(0,71))
+		self.panelManual.Hide()
+		self.currentPanel = 0 # [ 1 = manual, 0 = items ]
 		
+		# Categories
 		self.panelButton = wx.Panel(self.panelFenp, -1, size=(802,69), pos=(-1,-1),style=Variables.widget_borders)
 		self.panelButton.SetBackgroundColour((255,255,255))
 
@@ -272,20 +276,25 @@ class InstallWindow(wx.Frame):
 		self.new_panel.SetBackgroundColour((255,255,255))
 		self.animation = wx.animate.GIFAnimationCtrl(self.new_panel, -1, Variables.playonlinux_env+"/resources/images/install/wait_mini.gif", (90,100))
 		self.animation.Hide()
+		self.new_panel.Hide()
 
+
+		self.ManualInstall = wx.HyperlinkCtrl(self.panelItems, 111, _("Install a non-listed program"), "", pos=(10,515-71))
+		self.ManualInstall.SetNormalColour(wx.Colour(0,0,0))
+		
+		# Panel wait
 		self.animation_wait = wx.animate.GIFAnimationCtrl(self.panelWait, -1, Variables.playonlinux_env+"/resources/images/install/wait.gif", ((800-128)/2,(550-128)/2-71))
 		self.percentageText = wx.StaticText(self.panelWait, -1, "", ((800-30)/2,(550-128)/2+128+10-71), wx.DefaultSize)
 		self.percentageText.SetFont(self.fontTitre)
 
-		self.new_panel.Hide()
 
 		self.timer = wx.Timer(self, 1)
 		self.Bind(wx.EVT_TIMER, self.TimerAction, self.timer)
 		self.timer.Start(200)
 
-		#self.ManualInstall = wx.CheckBox(self.panelItems, 111, label=_("Install a .pol package or an unsupported application"), pos=(10,530))
-		self.ManualInstall = wx.HyperlinkCtrl(self.panelItems, 111, _("Install a non-listed program"), "", pos=(10,515-71))
-		self.ManualInstall.SetNormalColour(wx.Colour(0,0,0))
+		# panel manual
+
+
    # self.AddApps()
 
 		#wx.EVT_TREE_SEL_CHANGED(self, 105, self.AddApps)
