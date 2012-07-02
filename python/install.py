@@ -408,7 +408,7 @@ class InstallWindow(wx.Frame):
 		else:
 			InstallApplication = self.list_apps.GetItemText(self.list_apps.GetSelection())
 	
-		if(InstallApplication == "about:conceptor"):
+		if(InstallApplication == "about:creator"):
 			self.EasterEgg = sp.egg(None, -1, "PlayOnLinux Conceptor")
 			self.EasterEgg.Show()
 			self.EasterEgg.Center(wx.BOTH)
