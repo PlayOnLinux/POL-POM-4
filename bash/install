@@ -40,9 +40,8 @@ then
 		[ -e "$REPERTOIRE/install" ] && POL_Bash "$REPERTOIRE/install"
 		exit
 	fi
-	menu=${menu//" "/"%20"}
 	rm "$REPERTOIRE/install"
-	$POL_WGET "$SITE/V4_data/repository/get_file.php?version=PlayOn$POL_OS-$VERSION&id=$menu" -O "$REPERTOIRE/install"
+	$POL_WGET "$SITE/V4_data/repository/get_file.php?version=PlayOn$POL_OS-$VERSION&id=$(POL_Website_urlencode "$menu")" -O "$REPERTOIRE/install"
 	[ -e "$REPERTOIRE/install" ] && POL_Bash "$REPERTOIRE/install"
 fi
 
