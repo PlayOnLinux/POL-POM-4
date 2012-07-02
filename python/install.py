@@ -264,7 +264,7 @@ class InstallWindow(wx.Frame):
 		
 		self.new_panel = wx.Panel(self.panelFenp, -1, pos=(740-160,113), style=Variables.widget_borders, size=self.new_size)
 		self.new_panel.SetBackgroundColour((255,255,255))
-		self.animation = wx.animate.GIFAnimationCtrl(self.new_panel, -1, Variables.playonlinux_env+"/etc/24-0.gif", (580,96))
+		self.animation = wx.animate.GIFAnimationCtrl(self.new_panel, -1, Variables.playonlinux_env+"/etc/24-0.gif", (90,100))
 
 		self.new_panel.Hide()
 
