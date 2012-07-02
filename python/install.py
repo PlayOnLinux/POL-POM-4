@@ -59,7 +59,7 @@ class getDescription(threading.Thread):
 			time.sleep(0.5)
 			self.getDescription_bis = self.getDescription
 			self.med_miniature = None
-			if(self.getDescription == "about:conceptor"):
+			if(self.getDescription == "about:creator"):
 				self.miniature = self.miniature_defaut
 				self.htmlContent = "Well done !"
 				self.stars = "5"
@@ -408,7 +408,7 @@ class InstallWindow(wx.Frame):
 		else:
 			InstallApplication = self.list_apps.GetItemText(self.list_apps.GetSelection())
 	
-		if(InstallApplication == "about:conceptor"):
+		if(InstallApplication == "about:creator"):
 			self.EasterEgg = sp.egg(None, -1, "PlayOnLinux Conceptor")
 			self.EasterEgg.Show()
 			self.EasterEgg.Center(wx.BOTH)
@@ -455,8 +455,8 @@ class InstallWindow(wx.Frame):
 				self.k = self.k + 1;
 			self.j = self.j + 1;
 
-		if(self.user_search == "about:conceptor"):
-			self.search_result.append("about:conceptor")
+		if(self.user_search == "about:creator"):
+			self.search_result.append("about:creator")
 		
 		if(len(self.user_search) < 2 or "~" in self.user_search):
 			self.search_result = []
