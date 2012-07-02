@@ -475,7 +475,12 @@ class MainWindow(wx.Frame):
 			self.installFrame.panelItems.Hide()
 			self.installFrame.panelManual.Hide()
 			self.installFrame.panelWait.Show()
-			self.installFrame.animation_wait.Play()
+			try:
+				if(self.playing == False):
+					self.installFrame.animation_wait.Play()
+					self.playing = True
+			except:
+				self.playing = False
 		except:
 			pass
 	else:
@@ -487,6 +492,7 @@ class MainWindow(wx.Frame):
 				self.installFrame.panelItems.Show()
 			self.installFrame.panelWait.Hide()
 			self.installFrame.animation_wait.Stop()
+			self.playing = False
 			self.installFrame.Refresh()
 		except:
 			pass
