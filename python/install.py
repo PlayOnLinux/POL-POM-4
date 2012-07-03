@@ -280,7 +280,7 @@ class InstallWindow(wx.Frame):
 		self.animation = wx.animate.GIFAnimationCtrl(self.new_panel, -1, Variables.playonlinux_env+"/resources/images/install/wait_mini.gif", (90,100))
 		self.animation.Hide()
 		self.new_panel.Hide()
-
+		
 
 		self.ManualInstall = wx.HyperlinkCtrl(self.panelItems, 111, _("Install a non-listed program"), "", pos=(10,515-71))
 		self.ManualInstall.SetNormalColour(wx.Colour(0,0,0))
@@ -294,7 +294,8 @@ class InstallWindow(wx.Frame):
 		self.timer = wx.Timer(self, 1)
 		self.Bind(wx.EVT_TIMER, self.TimerAction, self.timer)
 		self.timer.Start(200)
-
+		
+	
 		# panel manual
 
 
