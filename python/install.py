@@ -256,8 +256,9 @@ class InstallWindow(wx.Frame):
 		position += self.noDvDCapt.GetSize()[0]+5
 		
 		self.freeChk = wx.CheckBox(self.panelItems, 403, pos=(position,82-71), size=wx.DefaultSize)
+		self.freeChk.SetValue(True)
 		position += 20+self.search_offset
-		self.FreeCapt = wx.StaticText(self.panelItems, -1, _("Only free"), (position,82-71+self.search_offset), wx.DefaultSize)
+		self.FreeCapt = wx.StaticText(self.panelItems, -1, _("Commercial"), (position,82-71+self.search_offset), wx.DefaultSize)
 		
 		position += self.FreeCapt.GetSize()[0]+5
 		self.star_x = position
@@ -279,7 +280,7 @@ class InstallWindow(wx.Frame):
 		self.animation = wx.animate.GIFAnimationCtrl(self.new_panel, -1, Variables.playonlinux_env+"/resources/images/install/wait_mini.gif", (90,100))
 		self.animation.Hide()
 		self.new_panel.Hide()
-
+		
 
 		self.ManualInstall = wx.HyperlinkCtrl(self.panelItems, 111, _("Install a non-listed program"), "", pos=(10,515-71))
 		self.ManualInstall.SetNormalColour(wx.Colour(0,0,0))
@@ -293,7 +294,8 @@ class InstallWindow(wx.Frame):
 		self.timer = wx.Timer(self, 1)
 		self.Bind(wx.EVT_TIMER, self.TimerAction, self.timer)
 		self.timer.Start(200)
-
+		
+	
 		# panel manual
 
 
@@ -500,7 +502,7 @@ class InstallWindow(wx.Frame):
 				show = True
 				if(int(nocd) == 1 and self.nocdChk.IsChecked() == 0):
 					show = False
-				if(int(free) == 0 and self.freeChk.IsChecked() == 1):
+				if(int(free) == 0 and self.freeChk.IsChecked() == 0):
 					show = False
 				if(int(testing) == 1 and self.testingChk.IsChecked() == 0):
 					show = False
