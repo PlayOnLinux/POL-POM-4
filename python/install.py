@@ -256,8 +256,9 @@ class InstallWindow(wx.Frame):
 		position += self.noDvDCapt.GetSize()[0]+5
 		
 		self.freeChk = wx.CheckBox(self.panelItems, 403, pos=(position,82-71), size=wx.DefaultSize)
+		self.freeChk.SetValue(True)
 		position += 20+self.search_offset
-		self.FreeCapt = wx.StaticText(self.panelItems, -1, _("Only free"), (position,82-71+self.search_offset), wx.DefaultSize)
+		self.FreeCapt = wx.StaticText(self.panelItems, -1, _("Commercial"), (position,82-71+self.search_offset), wx.DefaultSize)
 		
 		position += self.FreeCapt.GetSize()[0]+5
 		self.star_x = position
@@ -500,7 +501,7 @@ class InstallWindow(wx.Frame):
 				show = True
 				if(int(nocd) == 1 and self.nocdChk.IsChecked() == 0):
 					show = False
-				if(int(free) == 0 and self.freeChk.IsChecked() == 1):
+				if(int(free) == 0 and self.freeChk.IsChecked() == 0):
 					show = False
 				if(int(testing) == 1 and self.testingChk.IsChecked() == 0):
 					show = False
