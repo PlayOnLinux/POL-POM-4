@@ -428,10 +428,13 @@ class InstallWindow(wx.Frame):
 						found = True
 						break;
 				if(found == True):
-					if(split[1] == "1"):
-						wx.MessageBox(_("This program is currently in testing.\n\nIt might not work as expected. Your feedback, positive or negative, is specially important to improve this installer."),_("Please read this"))
-					if(split[2] == "1"):
-						wx.MessageBox(_("This program needs a no-cd patch to run.\n\n{0} does not support piracy. Therefore, we won't give any support to patch it.").format(os.environ["APPLICATION_TITLE"]),_("Please read this"))
+					if(len(split) <= 1):
+						self.UpdatePol(self)
+					else:
+						if(split[1] == "1"):
+							wx.MessageBox(_("This program is currently in testing.\n\nIt might not work as expected. Your feedback, positive or negative, is specially important to improve this installer."),_("Please read this"))
+						if(split[2] == "1"):
+							wx.MessageBox(_("This program needs a no-cd patch to run.\n\n{0} does not support piracy. Therefore, we won't give any support to patch it.").format(os.environ["APPLICATION_TITLE"]),_("Please read this"))
 						
 			os.system("bash \""+Variables.playonlinux_env+"/bash/install\" \""+InstallApplication.encode("utf-8","replace")+"\"&")
 	
