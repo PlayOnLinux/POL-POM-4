@@ -28,7 +28,8 @@ import lib.wine as wine
 import lib.Variables as Variables
 import lib.lng as lng
 import lib.irc as irc
-	
+from wx.lib.ClickableHtmlWindow import PyClickableHtmlWindow
+
 class Onglets(wx.Notebook):
 	# Classe dérivée du wx.Notebook
 	def __init__(self, parent):
@@ -107,8 +108,8 @@ class Onglets(wx.Notebook):
 		self.panels_main = wx.Panel(self.panel, -1)
 		self.panels_connexion = wx.Panel(self.panel, -1)
 		#self.content =  wx.TextCtrl(self.panel, 107, pos=(0,20), size=(500,300), style = wx.TE_MULTILINE | wx.TE_RICH2 | wx.CB_READONLY | wx.RAISED_BORDER)
-		
-		self.content = wx.html.HtmlWindow(self.panels_main, -1, style=wx.RAISED_BORDER)
+
+		self.content = PyClickableHtmlWindow(self.panels_main, -1, style=wx.RAISED_BORDER)
 		self.buddy = wx.TreeCtrl(self.panels_main, 126, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT|wx.RAISED_BORDER)
 		self.buddy.SetSpacing(0);
 

@@ -7,6 +7,7 @@ import socket
 import string
 import os, math
 import wx
+import re
 
 class IRCClient(threading.Thread):
   string_to_write = ""
@@ -27,6 +28,13 @@ class IRCClient(threading.Thread):
     self.string = string.replace("<","&lt;") 
     self.string = self.string.replace(">","&gt;") 
     return self.string
+
+  def _vivify(self, matchobj):
+    url = matchobj.group(1)
+    return "<A href=\"%s\">%s</A>" % (url, url)
+
+  def urlvivify(self, string):
+    return re.sub(r'((?:ftp://|http://|news://)[-a-zA-Z0-9._/%?&#]*)', self._vivify, string, 0, re.I)
 
   def connect(self): # Se connecte au serveur IRC
 	if(self.ircconnected == False):
@@ -161,6 +169,7 @@ class IRCClient(threading.Thread):
 	message = message.replace("\x1f","")
 	message = message.replace("\x02","")
 	message = self.htmlspecialchars(message)
+        message = self.urlvivify(message)
 	message = self.smile(message)
 	if(pseudo != None):
 		if(action == False):
