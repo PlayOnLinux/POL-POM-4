@@ -8,7 +8,10 @@ import string
 import os, math
 import wx
 import re
-
+global allowed_people
+global refused_people
+allowed_people = []
+refused_people = []
 class IRCClient(threading.Thread):
   string_to_write = ""
   def __init__(self):
@@ -195,6 +198,21 @@ class IRCClient(threading.Thread):
 		self.boucle += 1
 	return self.chaine[1:len(self.chaine)-1]
 
+  def check_access(self, window, i=0):
+	print("Try #"+str(i))
+	if(window in allowed_people):
+		return True
+	elif(window in refused_people):
+		return False
+	else:
+		if(i == 0):
+			self.connexion.send("PRIVMSG PlayOnLinux :CHECK_ACCESS "+window+"\r\n")
+		if(i <= 5):
+			time.sleep(1)
+			return self.check_access(window, i+1)
+		else:
+			return False
+			
   def SendMSG(self, message, chan="~current"):
 	if(self.ircconnected == False):
 		self.status_messages.append(self.html_convert(None, "You are not connected.","#FF0000","#FF0000",True))
@@ -250,7 +268,7 @@ class IRCClient(threading.Thread):
 					message += self.message_parsed[self.i]
 					self.i += 1
 				
-
+			
 				self.connexion.send("PRIVMSG "+self.message_parsed[1].lower()+" :"+message+"\r\n")
 				self.index = self.get_index(self.message_parsed[1].lower())
 				self.messages[self.index].append(self.html_convert(self.Nick,message,"#000088","#000088",True))
@@ -261,12 +279,16 @@ class IRCClient(threading.Thread):
 			else:
 				window = chan
 
-			self.connexion.send("PRIVMSG "+window+" :"+message+"\r\n")
-			self.index = self.get_index(window)
-			if(window[0] != "#"):
-				self.messages[self.index].append(self.html_convert(self.Nick,message,"#000088"))
+			if self.check_access(window):
+				self.connexion.send("PRIVMSG "+window+" :"+message+"\r\n")
+			
+				self.index = self.get_index(window)
+				if(window[0] != "#"):
+					self.messages[self.index].append(self.html_convert(self.Nick,message,"#000088"))
+				else:
+					self.messages[self.index].append(self.html_convert(self.Nick,message,str(self.GenColor(self.Nick)).replace("0x","#")))
 			else:
-				self.messages[self.index].append(self.html_convert(self.Nick,message,str(self.GenColor(self.Nick)).replace("0x","#")))
+				wx.MessageBox(_("Sorry, this person does not want to receive private messages").format(os.environ["APPLICATION_TITLE"]),_("Error"))
 
   def filtrer_liste(self, liste):
 	self.boucle = 0
@@ -278,6 +300,10 @@ class IRCClient(threading.Thread):
 	return self.new_list
 
   def traiter(self, line):
+    if(len(self.names) > 1 and "@PlayOnLinux" not in self.names[1] and self.endnames[1] == True):
+		self.status_messages.append(self.html_convert(None, _("Sorry {0} messenger service is not available for the moment.\n\nPlease retry later").format(os.environ["APPLICATION_TITLE"]),"#AA0000","#AA0000",True))
+		self.stop()
+		
     self.line = string.split(line, " ") # On parse la ligne mot par mot
     # On répond aux pings
     if(self.line[0] and len(self.line) > 1):
@@ -483,27 +509,39 @@ class IRCClient(threading.Thread):
 				self.playsound()
 
 		else:
-			self.color = "#AA0000"
-			self.message_color = "#000000"
-			self.window = self.sender.lower()
-			if(self.window != self.selected_window and not "." in self.window):
-				self.playsound()
-			self.old_window = self.selected_window
-			if(self.window not in self.chans):
-				self.chans.append(self.window)
-				self.endnames.append(False)
-				self.names.append([])
-				self.messages.append([])
-			if(self.old_window != ""):
-				self.select_window = self.old_window
+			if(self.sender.lower() != "playonlinux"):
+				self.color = "#AA0000"
+				self.message_color = "#000000"
+				self.window = self.sender.lower()
+				if(self.window != self.selected_window and not "." in self.window):
+					self.playsound()
+				self.old_window = self.selected_window
+				if(self.window not in self.chans):
+					self.chans.append(self.window)
+					self.endnames.append(False)
+					self.names.append([])
+					self.messages.append([])
+				if(self.old_window != ""):
+					self.select_window = self.old_window
 
 		self.index = self.get_index(self.window)
 		if("\x01ACTION" in self.getMsg(self.line)):
 			message = self.getMsg(self.line).replace("\x01","")
 			message = message[6:len(message)]
-			self.messages[self.index].append(self.html_convert(self.sender,message,"#000088","#000088",True))
+			if(self.sender.lower() != "playonlinux"):
+				self.messages[self.index].append(self.html_convert(self.sender,message,"#000088","#000088",True))
 		else :
-			self.messages[self.index].append(self.html_convert(self.sender,self.getMsg(self.line),self.color,self.message_color))
+			message = self.getMsg(self.line)
+			if(self.sender.lower() != "playonlinux"):
+				self.messages[self.index].append(self.html_convert(self.sender,message,self.color,self.message_color))
+			else:
+				message_split = message.split(" ")
+				if(len(message_split) >= 2):
+					if(message_split[0] == "ALLOW"):
+						allowed_people.append(message_split[1])
+					elif(message_split[0] == "DENY"):
+						refused_people.append(message_split[1])
+						
 	#print self.names		
   def run(self):
     self.ircconnected = False
@@ -526,7 +564,7 @@ class IRCClient(threading.Thread):
 				self.traiter(self.contentParse_[self.k])
 			self.k += 1
 	else:
-		time.sleep(1)
+		time.sleep(0.1)
 
   def Connexion(self):
      self.connect()
