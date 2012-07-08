@@ -27,6 +27,13 @@ import os, getopt, sys, urllib, signal, string, time, webbrowser, gettext, local
 #	os.environ["LANG"] = "en_US.utf-8"
 #locale.setlocale(locale.LC_ALL, '.utf-8')
 
+# Un ptit check
+try :
+	os.environ["POL_OS"]
+except :
+	print "ERROR ! Please define POL_OS environement var first."
+	os._exit(1)
+
 if(os.environ["POL_OS"] == "Linux"):
 	import wxversion
 	wxversion.ensureMinimal('2.8')
@@ -34,7 +41,7 @@ if(os.environ["POL_OS"] == "Linux"):
 import wx
 import wx.aui
 
-import lib.Variables as Variables, lib.lng as lng
+import lib.lng as lng
 import lib.playonlinux as playonlinux
 import guiv3 as gui, install, options, wine_versions as wver, sp, configure, threading, debug
 import irc as ircgui

@@ -10,11 +10,17 @@ try :
 	os.environ["POL_OS"]
 except :
 	print "ERROR ! Please define POL_OS environement var first."
-	sys.exit
-
+	os._exit(1)
 
 # Variables mixte 1
 os.environ["PLAYONLINUX"] = os.path.realpath(os.path.realpath(__file__)+"/../../../")
+mos.environ["SITE"] = "http://repository.playonlinux.com"
+os.environ["VERSION"] = "4.1.4-dev"
+os.environ["POL_ID"] = str(random.randint(1,100000000))
+os.environ["WINE_SITE"] = "http://www.playonlinux.com/wine/binaries"
+os.environ["GECKO_SITE"] = "http://www.playonlinux.com/wine/gecko"
+os.environ["OS_NAME"] = os_name 
+homedir = os.environ["HOME"]
 
 # Debian packagers should switch this to TRUE
 # It will disable update alerts, bug reports, statistics
@@ -31,7 +37,7 @@ if (os.environ["POL_OS"] == "Mac"):
 	windows_add_playonmac = 1;
 	widget_borders = wx.SIMPLE_BORDER
 	os_name = "darwin"
-	os.environ["POL_WGET"] = "wget -4 -q"
+	os.environ["POL_WGET"] = "wget -4 -q --user-agent='PlayOnMac Client "+os.environ["VERSION"]+"'"
 	
 # Variables PlayOnLinux
 if (os.environ["POL_OS"] == "Linux"):
@@ -43,9 +49,9 @@ if (os.environ["POL_OS"] == "Linux"):
 	widget_borders = wx.RAISED_BORDER
 	os_name = "linux"
 	if not os.path.exists("/proc/net/if_inet6"):
-		os.environ["POL_WGET"] = "wget -q"
+		os.environ["POL_WGET"] = "wget -q --user-agent='PlayOnMac Client "+os.environ["VERSION"]+"'"
 	else:
-		os.environ["POL_WGET"] = "wget -4 -q"
+		os.environ["POL_WGET"] = "wget -4 -q --user-agent='PlayOnMac Client "+os.environ["VERSION"]+"'"
 
 archi = string.split(os.environ["MACHTYPE"],"-")
 archi = archi[0]
@@ -58,14 +64,7 @@ else:
 # Variables mixtes
 os.environ["POL_USER_ROOT"] = os.environ["REPERTOIRE"]
 os.environ["TITRE"] = os.environ["APPLICATION_TITLE"]
-os.environ["SITE"] = "http://repository.playonlinux.com"
-os.environ["VERSION"] = "4.1.4-dev"
-os.environ["POL_ID"] = str(random.randint(1,100000000))
 os.environ["WINEPREFIX"] = os.environ["REPERTOIRE"]+"/wineprefix/default"
-os.environ["WINE_SITE"] = "http://www.playonlinux.com/wine/binaries"
-os.environ["GECKO_SITE"] = "http://www.playonlinux.com/wine/gecko"
-os.environ["OS_NAME"] = os_name 
-homedir = os.environ["HOME"]
 
 # Wine
 os.environ["WINEDLLOVERRIDES"] = "winemenubuilder.exe=d"
