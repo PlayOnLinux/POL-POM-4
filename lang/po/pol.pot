@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2012-07-07 19:00:56+02:00\n"
+"POT-Creation-Date: 2012-07-08 19:00:56+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1837,13 +1837,13 @@ msgstr ""
 msgid "Which language version would you like to install?"
 msgstr ""
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:54
+#: PlayOnLinux_Scripts/League_Of_Legends_:57
 #, sh-format
 msgid ""
 "Warning: You must not tick the checkbox \"Run $TITLE\" when setup is done"
 msgstr ""
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:66
+#: PlayOnLinux_Scripts/League_Of_Legends_:69
 #, sh-format
 msgid "Please select LeagueOfLegends.tar file:"
 msgstr ""
@@ -3799,9 +3799,10 @@ msgid ""
 "again."
 msgstr ""
 
-#: lib/setupwindow.lib:152 python/guiv3.py:365 python/mainwindow.py:1043
-#: python/mainwindow.py:1050 python/mainwindow.py:1059
-#: python/mainwindow.py:1071 python/mainwindow.py:1083
+#: lib/setupwindow.lib:152 python/guiv3.py:365 python/lib/irc.py:291
+#: python/mainwindow.py:1043 python/mainwindow.py:1050
+#: python/mainwindow.py:1059 python/mainwindow.py:1071
+#: python/mainwindow.py:1083
 #, sh-format
 msgid "Error"
 msgstr ""
@@ -4353,6 +4354,17 @@ msgstr ""
 msgid ""
 "If you close this window, you cannot read further replies. Are you sure that "
 "you want to close it?"
+msgstr ""
+
+#: python/lib/irc.py:291
+msgid "Sorry, this person does not want to receive private messages"
+msgstr ""
+
+#: python/lib/irc.py:304
+msgid ""
+"Sorry {0} messenger service is not available for the moment.\n"
+"\n"
+"Please retry later"
 msgstr ""
 
 #: python/lib/playonlinux.py:27
