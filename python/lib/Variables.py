@@ -19,7 +19,6 @@ os.environ["VERSION"] = "4.1.4-dev"
 os.environ["POL_ID"] = str(random.randint(1,100000000))
 os.environ["WINE_SITE"] = "http://www.playonlinux.com/wine/binaries"
 os.environ["GECKO_SITE"] = "http://www.playonlinux.com/wine/gecko"
-os.environ["OS_NAME"] = os_name 
 homedir = os.environ["HOME"]
 
 # Debian packagers should switch this to TRUE
@@ -65,6 +64,7 @@ else:
 os.environ["POL_USER_ROOT"] = os.environ["REPERTOIRE"]
 os.environ["TITRE"] = os.environ["APPLICATION_TITLE"]
 os.environ["WINEPREFIX"] = os.environ["REPERTOIRE"]+"/wineprefix/default"
+os.environ["OS_NAME"] = os_name 
 
 # Wine
 os.environ["WINEDLLOVERRIDES"] = "winemenubuilder.exe=d"
