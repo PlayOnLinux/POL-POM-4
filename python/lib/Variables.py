@@ -14,7 +14,7 @@ except :
 
 # Variables mixte 1
 os.environ["PLAYONLINUX"] = os.path.realpath(os.path.realpath(__file__)+"/../../../")
-mos.environ["SITE"] = "http://repository.playonlinux.com"
+os.environ["SITE"] = "http://repository.playonlinux.com"
 os.environ["VERSION"] = "4.1.4-dev"
 os.environ["POL_ID"] = str(random.randint(1,100000000))
 os.environ["WINE_SITE"] = "http://www.playonlinux.com/wine/binaries"
