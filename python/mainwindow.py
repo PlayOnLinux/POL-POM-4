@@ -42,7 +42,7 @@ import wx
 import wx.aui
 
 import lib.lng as lng
-import lib.playonlinux as playonlinux
+import lib.playonlinux as playonlinux, lib.Variables as Variables
 import guiv3 as gui, install, options, wine_versions as wver, sp, configure, threading, debug
 import irc as ircgui
 
