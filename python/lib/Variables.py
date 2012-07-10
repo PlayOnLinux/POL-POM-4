@@ -36,7 +36,7 @@ if (os.environ["POL_OS"] == "Mac"):
 	windows_add_playonmac = 1;
 	widget_borders = wx.SIMPLE_BORDER
 	os_name = "darwin"
-	os.environ["POL_WGET"] = "wget -4 -q"
+	os.environ["POL_WGET"] = "wget --prefer-family=IPv4 -q"
 	
 # Variables PlayOnLinux
 if (os.environ["POL_OS"] == "Linux"):
@@ -50,7 +50,7 @@ if (os.environ["POL_OS"] == "Linux"):
 	if not os.path.exists("/proc/net/if_inet6"):
 		os.environ["POL_WGET"] = "wget -q"
 	else:
-		os.environ["POL_WGET"] = "wget -4 -q"
+		os.environ["POL_WGET"] = "wget --prefer-family=IPv4 -q"
 
 archi = string.split(os.environ["MACHTYPE"],"-")
 archi = archi[0]
