@@ -417,6 +417,8 @@ POL_Download ()
 
 	local URL="$1"
 	local FICHIER="${URL##*/}"
+	local i
+	[ "$3" ] && i="$3" || i=1
 	if [ "$URL" = "" ]
 	then
 		POL_Debug_Error "POL_Download - URL is missing !"
@@ -433,8 +435,12 @@ POL_Download ()
 			if [ ! "$2" = "$LOCAL_MD5" ]
 			then
 				local SERVER_MD5="$2"
-				POL_SetupWindow_message "$(eval_gettext 'Error ! Files mismatch\n\nLocal : $LOCAL_MD5\nServer : $SERVER_MD5')"
-				POL_Debug_Error "POL_Download - MD5 sum mismatch !"
+				POL_SetupWindow_question "$(eval_gettext 'Error ! Files mismatch\n\nLocal : $LOCAL_MD5\nServer : $SERVER_MD5')\n\n$(eval_gettext 'Do you want to retry?')"
+				if [ "$APP_ANSWER" = "NO" ]; then
+					POL_Debug_Error "POL_Download - MD5 sum mismatch ! ($i attempt)"
+				else
+					POL_Download "$1" "$2" "$(( i + 1 ))"
+				fi
 			fi
 		fi	
 	fi
