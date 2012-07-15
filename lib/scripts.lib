@@ -436,7 +436,7 @@ POL_Download ()
 			then
 				local SERVER_MD5="$2"
 				POL_SetupWindow_question "$(eval_gettext 'Error ! Files mismatch\n\nLocal : $LOCAL_MD5\nServer : $SERVER_MD5')\n\n$(eval_gettext 'Do you want to retry?')"
-				if [ "$APP_ANSWER" = "NO" ]; then
+				if [ "$APP_ANSWER" = "FALSE" ]; then
 					POL_Debug_Error "POL_Download - MD5 sum mismatch ! ($i attempt)"
 				else
 					POL_Download "$1" "$2" "$(( i + 1 ))"
