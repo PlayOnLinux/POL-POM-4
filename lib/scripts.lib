@@ -326,9 +326,9 @@ POL_Shortcut()
 				else
 					iconPath="$PLAYONLINUX/etc/playonlinux.png"
 				fi
+				generer_icone "$iconPath" "$NOMICONE_" "$DESKTOP" "$PLAYONLINUX/playonlinux --run \"$NOMICONE_\""
 			fi
 		fi
-		generer_icone "$iconPath" "$NOMICONE_" "$DESKTOP" "$PLAYONLINUX/playonlinux --run \"$NOMICONE_\""
 	fi
 	POL_Debug_Message "Shortcut created: $Binaire $NOMICONE_"
 }
