@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2012-07-14 19:00:52+02:00\n"
+"POT-Creation-Date: 2012-07-15 19:01:00+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1377,6 +1377,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Simon_the_Sorcerer_:38
 #: PlayOnLinux_Scripts/GOG.com___Simon_the_Sorcerer_2_:38
 #: PlayOnLinux_Scripts/GOG.com___Space_Quest_4__5__6_:40
+#: PlayOnLinux_Scripts/GOG.com___Space_Rangers_2__Reboot_:38
 #: PlayOnLinux_Scripts/GOG.com___Splinter_Cell_:38
 #: PlayOnLinux_Scripts/GOG.com___Star_Wolves_:38
 #: PlayOnLinux_Scripts/GOG.com___Starflight_1_and_2_:37
@@ -1403,6 +1404,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___UFO__Afterlight_:38
 #: PlayOnLinux_Scripts/GOG.com___UFO__Aftermath_:38
 #: PlayOnLinux_Scripts/GOG.com___Ultima_4_:38
+#: PlayOnLinux_Scripts/GOG.com___Ultima_Underworld_1_and_2_:39
 #: PlayOnLinux_Scripts/GOG.com___XIII_:37
 #: PlayOnLinux_Scripts/Gothic_3_Community_patch_:57
 #: PlayOnLinux_Scripts/Infinity_Engine_widescreen_mod_:62
@@ -3700,62 +3702,67 @@ msgid ""
 "location?"
 msgstr ""
 
-#: lib/scripts.lib:424 lib/scripts.lib:609
+#: lib/scripts.lib:426 lib/scripts.lib:615
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr ""
 
-#: lib/scripts.lib:436 lib/scripts.lib:470
+#: lib/scripts.lib:438
+#, sh-format
+msgid "Do you want to retry?"
+msgstr ""
+
+#: lib/scripts.lib:438 lib/scripts.lib:476
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 
-#: lib/scripts.lib:534
+#: lib/scripts.lib:540
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
 msgstr ""
 
-#: lib/scripts.lib:541
+#: lib/scripts.lib:547
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr ""
 
-#: lib/scripts.lib:545
+#: lib/scripts.lib:551
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr ""
 
-#: lib/scripts.lib:560
+#: lib/scripts.lib:566
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:579
+#: lib/scripts.lib:585
 #, sh-format
 msgid "Copying ${filename}"
 msgstr ""
 
-#: lib/scripts.lib:592
+#: lib/scripts.lib:598
 #, sh-format
 msgid "File size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:655
+#: lib/scripts.lib:661
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\n"
 "$APPLICATION_TITLE $NEEDED is required."
 msgstr ""
 
-#: lib/scripts.lib:670
+#: lib/scripts.lib:676
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
 "$NEEDED is recommended to continue."
 msgstr ""
 
-#: lib/scripts.lib:701
+#: lib/scripts.lib:707
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr ""
