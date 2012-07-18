@@ -115,8 +115,8 @@ class MainWindow(wx.Frame):
     def __init__(self,parent,id,title):
 
         wx.Frame.__init__(self, parent, 1000, title, size = (515,450))
-        POLServer = gui_server.gui_server()
-        POLServer.start()
+        self.POLServer = gui_server.gui_server()
+        self.POLServer.start()
         self.SetMinSize((400,400))
 
         self.menuElem = {}
@@ -968,7 +968,7 @@ class MainWindow(wx.Frame):
             playonlinux.SetSettings("PANEL_SIZE",str(self.mySize))
             playonlinux.SetSettings("PANEL_POSITION",str(self.myPosition))
             
-            POLServer.closeServer()
+            self.POLServer.closeServer()
             os._exit(0)
         return None
 
