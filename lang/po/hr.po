@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: gogo <trebelnik2@gmail.com>\n"
-"POT-Creation-Date: 2012-07-08 19:00+0200\n"
-"PO-Revision-Date: 2012-07-08 20:20+0000\n"
+"POT-Creation-Date: 2012-07-16 19:01+0200\n"
+"PO-Revision-Date: 2012-07-10 08:36+0000\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-07-09 04:37+0000\n"
-"X-Generator: Launchpad (build 15558)\n"
+"X-Launchpad-Export-Date: 2012-07-17 04:35+0000\n"
+"X-Generator: Launchpad (build 15627)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -1113,6 +1113,16 @@ msgstr "Odaberite željeni jezik igre"
 msgid "Wait while language pack is configured..."
 msgstr "Pričekajte dok se jezični paket podešava..."
 
+#: PlayOnLinux_Scripts/Command_And_Conquer___Red_Alert_1_:23
+#, sh-format
+msgid ""
+"NOTE: This installer requires you to use a CD, if you downloaded the "
+"freeware ISO images released by EA, please burn them to a CD or DVD using "
+"something like Brasero, and insert into your CD drive. Mounting the ISO "
+"images may work with certain software, however I know that Mounty does not "
+"work for this."
+msgstr ""
+
 #: PlayOnLinux_Scripts/Crysis_2_Patch_1.9_and_HiRes_Texture_Pack_:52
 #: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_Patch_1.02_:52
 #, sh-format
@@ -1432,6 +1442,8 @@ msgstr "Dobro došli u DLC Instalaciju za $TITLE"
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:35
 #: PlayOnLinux_Scripts/GOG.com___Painkiller__Black_Edition_:40
 #: PlayOnLinux_Scripts/GOG.com___Planetscape__Torment_:38
+#: PlayOnLinux_Scripts/GOG.com___Populous_2_:38
+#: PlayOnLinux_Scripts/GOG.com___Postal_2_Complete_:39
 #: PlayOnLinux_Scripts/GOG.com___Prince_of_Persia__The_Sands_of_Time_:38
 #: PlayOnLinux_Scripts/GOG.com___Realms_of_Arkania_3_:38
 #: PlayOnLinux_Scripts/GOG.com___Realms_of_the_Haunting_:38
@@ -1445,6 +1457,7 @@ msgstr "Dobro došli u DLC Instalaciju za $TITLE"
 #: PlayOnLinux_Scripts/GOG.com___Simon_the_Sorcerer_:38
 #: PlayOnLinux_Scripts/GOG.com___Simon_the_Sorcerer_2_:38
 #: PlayOnLinux_Scripts/GOG.com___Space_Quest_4__5__6_:40
+#: PlayOnLinux_Scripts/GOG.com___Space_Rangers_2__Reboot_:38
 #: PlayOnLinux_Scripts/GOG.com___Splinter_Cell_:38
 #: PlayOnLinux_Scripts/GOG.com___Star_Wolves_:38
 #: PlayOnLinux_Scripts/GOG.com___Starflight_1_and_2_:37
@@ -1461,6 +1474,7 @@ msgstr "Dobro došli u DLC Instalaciju za $TITLE"
 #: PlayOnLinux_Scripts/GOG.com___The_Incredible_Machine_Mega_Pack_:41
 #: PlayOnLinux_Scripts/GOG.com___The_Last_Express_:36
 #: PlayOnLinux_Scripts/GOG.com___The_Nations_Gold_Edition_:38
+#: PlayOnLinux_Scripts/GOG.com___The_Whispered_World_:38
 #: PlayOnLinux_Scripts/GOG.com___The_Witcher_Enhanced_Edition_Directors_Cut_:36
 #: PlayOnLinux_Scripts/GOG.com___Theme_Hospital_:38
 #: PlayOnLinux_Scripts/GOG.com___Thief_2_:40
@@ -1470,6 +1484,7 @@ msgstr "Dobro došli u DLC Instalaciju za $TITLE"
 #: PlayOnLinux_Scripts/GOG.com___UFO__Afterlight_:38
 #: PlayOnLinux_Scripts/GOG.com___UFO__Aftermath_:38
 #: PlayOnLinux_Scripts/GOG.com___Ultima_4_:38
+#: PlayOnLinux_Scripts/GOG.com___Ultima_Underworld_1_and_2_:39
 #: PlayOnLinux_Scripts/GOG.com___XIII_:37
 #: PlayOnLinux_Scripts/Gothic_3_Community_patch_:57
 #: PlayOnLinux_Scripts/Infinity_Engine_widescreen_mod_:62
@@ -1882,12 +1897,12 @@ msgstr "$TITLE is instaliran"
 #: PlayOnLinux_Scripts/Halo_Combat_Evolved_:33
 #, sh-format
 msgid "Please insert the DVD-ROM"
-msgstr ""
+msgstr "Umetnite DVD-ROM"
 
 #: PlayOnLinux_Scripts/Guild_Wars_2_:67
 #, sh-format
 msgid "Downloading $TITLE client"
-msgstr ""
+msgstr "Preuzimanje $TITLE klijenta"
 
 #: PlayOnLinux_Scripts/Guild_Wars_2_:81
 #, sh-format
@@ -1896,26 +1911,29 @@ msgid ""
 "client and download will resume from where it stopped. Download percentage "
 "reset but don't worry, it do not restart from the beginning."
 msgstr ""
+"Zbog wine greške #30512, preuzimanje će se često rušiti, jednostavno ponovno "
+"pokrenite klijent i preuzimanje će se nastaviti gdje je stalo. Postotak "
+"preuzimanja je poništen, ali ne brinite preuzimanje ne počinje iz početka."
 
 #: PlayOnLinux_Scripts/Halo_Combat_Evolved_:41
 #, sh-format
 msgid "Select the file to install"
-msgstr ""
+msgstr "Odaberite datoteku za instalaciju"
 
 #: PlayOnLinux_Scripts/Halo_Combat_Evolved_:70
 #, sh-format
 msgid "Updating $TITLE"
-msgstr ""
+msgstr "Ažuriram $TITLE"
 
 #: PlayOnLinux_Scripts/Infinity_Engine_widescreen_mod_:50
 #, sh-format
 msgid "Could not find executable $EXE in virtual disk $PREFIX"
-msgstr ""
+msgstr "Nemoguće je pronaći izvršnu datoteku $EXE u virtualnom disku $PREFIX"
 
 #: PlayOnLinux_Scripts/Infinity_Engine_widescreen_mod_:105
 #, sh-format
 msgid "No supported Infinity Engine game found."
-msgstr ""
+msgstr "Nije pronađena podržana Infinity Engine igra."
 
 #: PlayOnLinux_Scripts/Infinity_Engine_widescreen_mod_:107
 #, sh-format
@@ -1923,6 +1941,8 @@ msgid ""
 "All supported Infinity Engine games already patched.\\nTo modify the screen "
 "resolution of a shortcut, use its configurator."
 msgstr ""
+"Sve podržane Infinity Engine igre već su zakrpane.\\nZa promjenu rezolucije "
+"zaslona prečaca, koristite podešavanja."
 
 #: PlayOnLinux_Scripts/Internet_Explorer_6_:67
 #: PlayOnLinux_Scripts/Internet_Explorer_7_:167
@@ -1933,7 +1953,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_xinput_:41
 #, sh-format
 msgid "Registering libraries, please wait\\n(It can take a while)"
-msgstr ""
+msgstr "Registracija knjižnica, pričekajte\\n(Ovo može potrajati)"
 
 #: PlayOnLinux_Scripts/Internet_Explorer_7_:56
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:75
@@ -1941,26 +1961,28 @@ msgstr ""
 msgid "Which language version would you like to install?"
 msgstr "Koju inačicu jezika želite instalirati?"
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:57
+#: PlayOnLinux_Scripts/League_Of_Legends_:62
 #, sh-format
 msgid ""
 "Warning: You must not tick the checkbox \"Run $TITLE\" when setup is done"
 msgstr ""
+"Upozorenje: Ne smijete označiti potvrdni okvir \"Pokreni $TITLE\" kada je "
+"instalacija završena"
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:69
+#: PlayOnLinux_Scripts/League_Of_Legends_:74
 #, sh-format
 msgid "Please select LeagueOfLegends.tar file:"
-msgstr ""
+msgstr "Odaberite LeagueOfLegends.tar datoteku:"
 
 #: PlayOnLinux_Scripts/Mass_Effect_:48
 #, sh-format
 msgid "Please insert game media 1 into your disk drive"
-msgstr ""
+msgstr "Umetnite medij igre 1 u vaš optički/virtualni pogon"
 
 #: PlayOnLinux_Scripts/Mass_Effect_:56
 #, sh-format
 msgid "Please insert game media 2 into your disk drive"
-msgstr ""
+msgstr "Umetnite medij igre 2 u vaš optički/virtualni pogon"
 
 #: PlayOnLinux_Scripts/Mass_Effect_2_:64
 #: PlayOnLinux_Scripts/Prince_of_Persia___The_Forgotten_Sands_:69
@@ -1984,6 +2006,10 @@ msgid ""
 "Play.\\n\\nClose COMPLETELY the Origin interface, \\nso that the "
 "installation script can continue."
 msgstr ""
+"Izvor će biti pokrenut, otvorite svoj ​​račun\\ni odaberite $TITLE "
+"instalaciju.\\n\\nKada je $TITLE preuzimanje završeno,\\nNEMOJTE kliknuti na "
+"˝Pokreni˝.\\n\\nU POTPUNOSTI zatvorite izvorno sučelje, \\ntako da "
+"instalacijska skripta može nastaviti."
 
 #: PlayOnLinux_Scripts/Microsoft_Excel_Viewer_2003_:12
 #: PlayOnLinux_Scripts/Microsoft_Word_Viewer_2003_:13
@@ -1995,6 +2021,11 @@ msgid ""
 "complex doc or docx documents. If you want to edit a document, use "
 "LibreOffice, OpenOffice or some other editor. "
 msgstr ""
+"Ovaj postupak će se instalirati Microsoft Office $TITLE, slobodan program "
+"koji vam dopušta pregled .doc i .docx dokumenata, ali ih nećete moći "
+"uređivati. Ovaj program je namijenjen korisnicima koji nisu u mogućnosti "
+"vidjeti kompleksne doc ili docx dokumente. Ako želite uređivati dokumente, "
+"koristite LibreOffice, OpenOffice ili neki drugi uređivač. "
 
 #: PlayOnLinux_Scripts/Microsoft_Money_2005_:33
 #, sh-format
@@ -2012,6 +2043,8 @@ msgid ""
 "$TITLE has been installed successfully\\n\\nIf an installation Windows "
 "prevent your programs from running, you must remove and reinstall $TITLE"
 msgstr ""
+"$TITLE je uspješno instaliran\\n\\nAko instalacijski prozor sprječava "
+"pokretanje vaših programa, morate ukloniti i ponovno instalirati $TITLE"
 
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:182
 #, sh-format
@@ -2062,28 +2095,28 @@ msgstr ""
 #: python/install.py:547 python/install.py.back:306
 #, sh-format
 msgid "Please read this"
-msgstr ""
+msgstr "Molim, pročitajte ovo"
 
 #: PlayOnLinux_Scripts/POL_GoG_download_:30
 #, sh-format
 msgid "In what directory do you want to download GOG files?"
-msgstr ""
+msgstr "U koji direktorij želite preuzeti GOG datoteke?"
 
 #: PlayOnLinux_Scripts/POL_GoG_download_:39
 #, sh-format
 msgid "Please enter your gog.com login to download $BASENAME"
-msgstr ""
+msgstr "Unesite vaše gog.com podatke prijave za preuzimanje $BASENAME"
 
 #: PlayOnLinux_Scripts/POL_GoG_download_:60
 #, sh-format
 msgid "Gog.com login failed, try again?"
-msgstr ""
+msgstr "Gog.com prijava nije uspjela, pokušajte ponovno?"
 
 #: PlayOnLinux_Scripts/POL_GoG_download_:82
 #: PlayOnLinux_Scripts/POL_GoG_download_:92
 #, sh-format
 msgid "Checking piece integrity..."
-msgstr ""
+msgstr "Provjera integriteta dijelova..."
 
 #: PlayOnLinux_Scripts/POL_GoG_setup_:18
 #, sh-format
@@ -2120,7 +2153,7 @@ msgstr "Pričekajte dok se Desura preuzima..."
 #: PlayOnLinux_Scripts/POL_Install_directmusic_:11
 #, sh-format
 msgid "Installing DirectMusic"
-msgstr ""
+msgstr "Instalacija DirectMusica"
 
 #: PlayOnLinux_Scripts/POL_Install_dotnet11_:11
 #: PlayOnLinux_Scripts/POL_Install_dotnet11sp1_:10
@@ -2140,7 +2173,7 @@ msgstr "Paket ne radi na 64-bitnoj instalaciji"
 #: PlayOnLinux_Scripts/POL_Install_dotnet40_:53
 #, sh-format
 msgid ".NET Framework 4.0 might fail to install"
-msgstr ""
+msgstr ".NET Framework 4.0 možda se neće instalirati"
 
 #: PlayOnLinux_Scripts/POL_Install_dsound_:11
 #, sh-format
@@ -2150,7 +2183,7 @@ msgstr "Instalacija Dsound DLL-ova..."
 #: PlayOnLinux_Scripts/POL_Install_dxfullsetup_:12
 #, sh-format
 msgid "Installing DirectX runtime"
-msgstr ""
+msgstr "Instalacija DirectX runtime"
 
 #: PlayOnLinux_Scripts/POL_Install_gecko_:101
 #, sh-format
@@ -2198,7 +2231,7 @@ msgstr "Preuzimanje msxml3..."
 #: PlayOnLinux_Scripts/POL_Install_origin_:19
 #, sh-format
 msgid "Downloading Origin, please wait..."
-msgstr ""
+msgstr "Preuzimanje Origin, pričekajte..."
 
 #: PlayOnLinux_Scripts/POL_Install_origin_:29
 #, sh-format
@@ -2206,6 +2239,8 @@ msgid ""
 "Setup will launch Origin after installation\\n close it COMPLETELY to "
 "continue."
 msgstr ""
+"Instalacija će pokrenuti Origin nakon završetka instalcije\\n U POTPUNOSTI "
+"zatvorite za nastavak."
 
 #: PlayOnLinux_Scripts/POL_Install_steam_:24
 #, sh-format
@@ -2261,6 +2296,8 @@ msgid ""
 "VCRun2008 might fail to install because your PlayOnLinux version is too old. "
 "Please update."
 msgstr ""
+"VCRun2008 možda se neće instalirati zato jer je vaša PlayOnLinux inačica "
+"prestara. Molim, ažurirajte ju."
 
 #: PlayOnLinux_Scripts/POL_Install_vcrun2010_:17
 #, sh-format
@@ -2286,6 +2323,8 @@ msgid ""
 "VCRun2010 might fail to install because your PlayOnLinux version is too old. "
 "Please update."
 msgstr ""
+"VCRun2010 možda se neće instalirati zato jer je vaša PlayOnLinux inačica "
+"prestara. Molim, ažurirajte ju."
 
 #: PlayOnLinux_Scripts/POL_Install_xact_:14
 #, sh-format
@@ -2314,6 +2353,8 @@ msgid ""
 "To continue, PlayOnLinux needs to umount your CD-ROM previously mounted with "
 "unhide option."
 msgstr ""
+"Za nastavak, PlayOnLinux treba odmontirati vaš CD-ROM koji je prije montiran "
+"sa ne skrivenom ('unhide') mogućnosti."
 
 #: PlayOnLinux_Scripts/POL_Sudo_RehideCdrom_:15
 #: PlayOnLinux_Scripts/POL_Sudo_UnhideCdrom_:15
@@ -2322,18 +2363,23 @@ msgid ""
 "We need to have sudo access on your computer. Therefore, your root password "
 "will be asked. Here is the commands PlayOnLinux will run as root:"
 msgstr ""
+"Trebamo 'sudo' pristup vašem računalu. Stoga će biti zatražena vaša "
+"korijenska 'root' lozinka. Ovo je naredba koja će PlayOnLinux pokrenuti kao "
+"'root':"
 
 #: PlayOnLinux_Scripts/POL_Sudo_RehideCdrom_:20
 #: PlayOnLinux_Scripts/POL_Sudo_UnhideCdrom_:21
 #, sh-format
 msgid "Please read carrefully"
-msgstr ""
+msgstr "Molim, pažljivo pročitajte"
 
 #: PlayOnLinux_Scripts/POL_Sudo_UnhideCdrom_:13
 #, sh-format
 msgid ""
 "To continue, PlayOnLinux needs to remount your CD-ROM with unhide option."
 msgstr ""
+"Za nastavak, PlayOnLinux treba ponovno montirati vaš CD-ROM sa ne skrivenom "
+"('unhide') mogućnosti."
 
 #: PlayOnLinux_Scripts/Q.U.B.E_:94 PlayOnLinux_Scripts/Star_Twine_:72
 #, sh-format
@@ -2342,6 +2388,9 @@ msgid ""
 "nClose COMPLETELY the Steam interface, \\nso that the installation script "
 "can continue"
 msgstr ""
+"Kada je preuzimanje $TITLE Desurom završeno,\\nNEMOJTE kliknuti na "
+"'Pokreni'.\\n\\nU POTPUNOSTI zatvorite Steam sučelje, \\ntako da "
+"instalacijska skripta može nastaviti"
 
 #: PlayOnLinux_Scripts/Rage_:63 PlayOnLinux_Scripts/Rage_:70
 #: PlayOnLinux_Scripts/Rage_:77
@@ -2388,6 +2437,29 @@ msgstr ""
 #: PlayOnLinux_Scripts/SimCity_2000_:40
 #, sh-format
 msgid "Please select the MS-DOS version of setup file:"
+msgstr "Odaberite MS-DOS inačicu datoteke pokretanja:"
+
+#: PlayOnLinux_Scripts/Slender_:20
+#, sh-format
+msgid ""
+"If you have not already downloaded the game, you will need to. You should be "
+"able to find it via a Google search, you will need Slender_v0_9_1.zip for "
+"this script to complete."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Slender_:30
+#, sh-format
+msgid "Select downloaded ZIP file here"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Slender_:31
+#, sh-format
+msgid "Extracting Slender..."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Slender_:32
+#, sh-format
+msgid "Sorry, but that was not a valid .zip file"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Sonic_Fan_Remix_:37
@@ -2531,6 +2603,8 @@ msgid ""
 "ndocumentation;\\nRight-click the game icon, \"Read the manual\" then check "
 "pp 4-5."
 msgstr ""
+"Kodovi potrebni za izlaz prvog dungeon-a mogu se pronaći u\\ndokumentaciji;\\"
+"nDesni klik na ikonu igrPročitajte upute\" zatim provjerite pp 4-5."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_V___Skyrim_:85
 #, sh-format
@@ -2836,7 +2910,7 @@ msgid "Choose the name of the virtual drive"
 msgstr "Odaberite naziv virtualnog pogona"
 
 #: bash/expert/Executer:22 bash/expert/Executer:27 bash/expert/Executer:29
-#: python/mainwindow.py:232
+#: python/mainwindow.py:239
 #, sh-format
 msgid "Run a local script"
 msgstr "Pokrenite lokalnu skriptu"
@@ -3181,7 +3255,7 @@ msgid "Use another version of Wine"
 msgstr "Koristite drugu inačicu Wine-a"
 
 #: bash/manual_install:160 bash/manual_install:195 bash/polconfigurator:107
-#: python/configure.py:156 python/mainwindow.py:506 python/mainwindow.py:541
+#: python/configure.py:156 python/mainwindow.py:513 python/mainwindow.py:548
 #, sh-format
 msgid "Configure Wine"
 msgstr "Podesite Wine"
@@ -3404,7 +3478,7 @@ msgid "Graphics"
 msgstr "Grafika"
 
 #: bash/playonlinux_online:69 python/install.py:211 python/install.py.back:356
-#: python/mainwindow.py:262 python/options.py:384
+#: python/mainwindow.py:269 python/options.py:384
 #, sh-format
 msgid "Internet"
 msgstr "Internet"
@@ -3547,8 +3621,8 @@ msgstr "Pogrešna vrsta datoteke"
 msgid "is not an icon extension"
 msgstr "nije vrst ikone"
 
-#: bash/polconfigurator:108 python/configure.py:164 python/mainwindow.py:510
-#: python/mainwindow.py:554
+#: bash/polconfigurator:108 python/configure.py:164 python/mainwindow.py:517
+#: python/mainwindow.py:561
 #, sh-format
 msgid "Registry Editor"
 msgstr "Uređivač registra"
@@ -3883,51 +3957,56 @@ msgid ""
 "location?"
 msgstr ""
 
-#: lib/scripts.lib:424 lib/scripts.lib:609
+#: lib/scripts.lib:426 lib/scripts.lib:615
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr "Pričekajte dok se $APPLICATION_TITLE preuzima:"
 
-#: lib/scripts.lib:436 lib/scripts.lib:470
+#: lib/scripts.lib:438
+#, sh-format
+msgid "Do you want to retry?"
+msgstr ""
+
+#: lib/scripts.lib:438 lib/scripts.lib:476
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 "Greška ! Nepodudaranje datoteka\\n\\nLokalno : $LOCAL_MD5\\nPoslužitelj : "
 "$SERVER_MD5"
 
-#: lib/scripts.lib:534
+#: lib/scripts.lib:540
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
 msgstr ""
 "7z nije instaliran, provjerite imate li instaliran 7zip i pokušajte ponovno"
 
-#: lib/scripts.lib:541
+#: lib/scripts.lib:547
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr "Neuspjelo lociranje ${dest} iz ${archive}"
 
-#: lib/scripts.lib:545
+#: lib/scripts.lib:551
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr "Otpakiravanje ${filename} iz ${archivename}"
 
-#: lib/scripts.lib:560
+#: lib/scripts.lib:566
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr "Veličina raspakirane datoteke se ne poklapa!"
 
-#: lib/scripts.lib:579
+#: lib/scripts.lib:585
 #, sh-format
 msgid "Copying ${filename}"
 msgstr "Kopiranje ${filename}"
 
-#: lib/scripts.lib:592
+#: lib/scripts.lib:598
 #, sh-format
 msgid "File size does not match!"
 msgstr "Veličina datoteke se ne poklapa!"
 
-#: lib/scripts.lib:655
+#: lib/scripts.lib:661
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
@@ -3936,7 +4015,7 @@ msgstr ""
 "Isprika, $APPLICATION_TITLE $VERSION je prestar za nastavak.\\"
 "n$APPLICATION_TITLE $NEEDED je potreban."
 
-#: lib/scripts.lib:670
+#: lib/scripts.lib:676
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
@@ -3945,7 +4024,7 @@ msgstr ""
 "Upozorenje: Pokrenuli ste $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
 "$NEEDED je potreban za nastavak."
 
-#: lib/scripts.lib:701
+#: lib/scripts.lib:707
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr ""
@@ -3995,9 +4074,9 @@ msgstr ""
 "ponovno."
 
 #: lib/setupwindow.lib:152 python/guiv3.py:365 python/lib/irc.py:291
-#: python/mainwindow.py:1043 python/mainwindow.py:1050
-#: python/mainwindow.py:1059 python/mainwindow.py:1071
-#: python/mainwindow.py:1083
+#: python/mainwindow.py:1050 python/mainwindow.py:1057
+#: python/mainwindow.py:1066 python/mainwindow.py:1078
+#: python/mainwindow.py:1090
 #, sh-format
 msgid "Error"
 msgstr "Greška"
@@ -4276,7 +4355,7 @@ msgid "Wine uninstaller"
 msgstr ""
 
 #: python/configure.py:235 python/install.py:274 python/install.py.back:178
-#: python/mainwindow.py:194 python/mainwindow.py:349
+#: python/mainwindow.py:201 python/mainwindow.py:356
 msgid "Install"
 msgstr "Instaliraj"
 
@@ -4340,7 +4419,7 @@ msgstr ""
 "Budite pažljivi!\n"
 "Ako promijenite "
 
-#: python/configure.py:560 python/mainwindow.py:842 python/mainwindow.py:844
+#: python/configure.py:560 python/mainwindow.py:849 python/mainwindow.py:851
 msgid "{0} configuration"
 msgstr "{0} podešavanje"
 
@@ -4352,8 +4431,8 @@ msgstr ""
 msgid "New"
 msgstr "Novo"
 
-#: python/configure.py:587 python/mainwindow.py:195 python/mainwindow.py:350
-#: python/mainwindow.py:526 python/options.py:207
+#: python/configure.py:587 python/mainwindow.py:202 python/mainwindow.py:357
+#: python/mainwindow.py:533 python/options.py:207
 msgid "Remove"
 msgstr "Ukloni"
 
@@ -4361,7 +4440,7 @@ msgstr "Ukloni"
 msgid "Install packages"
 msgstr "Instaliraj pakete"
 
-#: python/configure.py:606 python/mainwindow.py:333
+#: python/configure.py:606 python/mainwindow.py:340
 msgid "Display"
 msgstr "Prikaz"
 
@@ -4381,8 +4460,8 @@ msgstr "Sigurno želite obrisati {0} virtual disk ?"
 msgid "Are you sure you want to delete {0} ?"
 msgstr "Sigurno želite obrisati {0} ?"
 
-#: python/debug.py:39 python/mainwindow.py:254 python/mainwindow.py:817
-#: python/mainwindow.py:925
+#: python/debug.py:39 python/mainwindow.py:261 python/mainwindow.py:824
+#: python/mainwindow.py:932
 msgid "{0} debugger"
 msgstr ""
 
@@ -4551,7 +4630,7 @@ msgstr ""
 msgid "Join a channel"
 msgstr "Pridruži se kanalu"
 
-#: python/irc.py:257 python/mainwindow.py:648
+#: python/irc.py:257 python/mainwindow.py:655
 msgid "Messenger"
 msgstr "Komunikator"
 
@@ -4578,220 +4657,220 @@ msgstr ""
 msgid "There is nothing installed to run .{0} files."
 msgstr ""
 
-#: python/mainwindow.py:74
+#: python/mainwindow.py:81
 msgid "{0} website is unavailable. Please check your connexion"
 msgstr "{0} web stranica je nedostupna. Provjerite vašu internet vezu"
 
-#: python/mainwindow.py:76
+#: python/mainwindow.py:83
 msgid "Refreshing {0}"
 msgstr "Osvježavanje {0}"
 
-#: python/mainwindow.py:93 python/mainwindow.py:95
+#: python/mainwindow.py:100 python/mainwindow.py:102
 msgid "An updated version of {0} is available"
 msgstr "Novija inačica {0} je dostupna"
 
-#: python/mainwindow.py:193 python/mainwindow.py:345 python/mainwindow.py:655
+#: python/mainwindow.py:200 python/mainwindow.py:352 python/mainwindow.py:662
 msgid "Run"
 msgstr "Pokreni"
 
-#: python/mainwindow.py:197
+#: python/mainwindow.py:204
 msgid "Donate"
 msgstr "Donirajte"
 
-#: python/mainwindow.py:198
+#: python/mainwindow.py:205
 msgid "Exit"
 msgstr "Zatvorite PlayOnLinux"
 
-#: python/mainwindow.py:202
+#: python/mainwindow.py:209
 msgid "Small icons"
 msgstr "Male ikone"
 
-#: python/mainwindow.py:203
+#: python/mainwindow.py:210
 msgid "Medium icons"
 msgstr "Srednje ikone"
 
-#: python/mainwindow.py:204
+#: python/mainwindow.py:211
 msgid "Large icons"
 msgstr "Velike ikone"
 
-#: python/mainwindow.py:205
+#: python/mainwindow.py:212
 msgid "Very large icons"
 msgstr "Najveće ikone"
 
-#: python/mainwindow.py:220
+#: python/mainwindow.py:227
 msgid "Manage Wine versions"
 msgstr "Upravitelj Wine inačica"
 
-#: python/mainwindow.py:226
+#: python/mainwindow.py:233
 msgid "Read a PC CD-Rom"
 msgstr ""
 
-#: python/mainwindow.py:236
+#: python/mainwindow.py:243
 msgid "Close all {0} software"
 msgstr "Zatvorite sve {0} softvere"
 
-#: python/mainwindow.py:240
+#: python/mainwindow.py:247
 msgid "{0} console"
 msgstr "{0} konzola"
 
-#: python/mainwindow.py:250
+#: python/mainwindow.py:257
 msgid "{0} messenger"
 msgstr "{0} komunikator"
 
-#: python/mainwindow.py:266 python/options.py:388
+#: python/mainwindow.py:273 python/options.py:388
 msgid "File associations"
 msgstr ""
 
-#: python/mainwindow.py:273
+#: python/mainwindow.py:280
 msgid "About {0}"
 msgstr "O {0}"
 
-#: python/mainwindow.py:303 python/mainwindow.py:307
+#: python/mainwindow.py:310 python/mainwindow.py:314
 msgid "Plugin manager"
 msgstr "Upravitelj priključaka"
 
-#: python/mainwindow.py:332
+#: python/mainwindow.py:339
 msgid "File"
 msgstr "Datoteka"
 
-#: python/mainwindow.py:334
+#: python/mainwindow.py:341
 msgid "Tools"
 msgstr "Alati"
 
-#: python/mainwindow.py:335 python/mainwindow.py:646
+#: python/mainwindow.py:342 python/mainwindow.py:653
 msgid "Settings"
 msgstr "Postavke"
 
-#: python/mainwindow.py:336 python/options.py:387
+#: python/mainwindow.py:343 python/options.py:387
 msgid "Plugins"
 msgstr "Priključci"
 
-#: python/mainwindow.py:346 python/mainwindow.py:657
+#: python/mainwindow.py:353 python/mainwindow.py:664
 msgid "Close"
 msgstr ""
 
-#: python/mainwindow.py:354 python/mainwindow.py:661 python/options.py:208
+#: python/mainwindow.py:361 python/mainwindow.py:668 python/options.py:208
 msgid "Configure"
 msgstr "Podesi"
 
-#: python/mainwindow.py:514
+#: python/mainwindow.py:521
 msgid "Open the application's directory"
 msgstr "Otvorite direktorij aplikacije"
 
-#: python/mainwindow.py:518 python/mainwindow.py:669
+#: python/mainwindow.py:525 python/mainwindow.py:676
 msgid "Read the manual"
 msgstr "Pročitajte priručnik"
 
-#: python/mainwindow.py:522
+#: python/mainwindow.py:529
 msgid "Set the icon"
 msgstr "Postavite ikonu"
 
-#: python/mainwindow.py:530
+#: python/mainwindow.py:537
 msgid "Close this application"
 msgstr "Zatvorite ovu aplikaciju"
 
-#: python/mainwindow.py:544
+#: python/mainwindow.py:551
 msgid "KillApp"
 msgstr "UbijAplik"
 
-#: python/mainwindow.py:551
+#: python/mainwindow.py:558
 msgid "No manual found for {0}"
 msgstr "Priručnik nije pronađen za {0}"
 
-#: python/mainwindow.py:644
+#: python/mainwindow.py:651
 msgid "Install a program"
 msgstr ""
 
-#: python/mainwindow.py:659
+#: python/mainwindow.py:666
 msgid "Debug"
 msgstr ""
 
-#: python/mainwindow.py:663
+#: python/mainwindow.py:670
 msgid "Create a shortcut"
 msgstr ""
 
-#: python/mainwindow.py:665
+#: python/mainwindow.py:672
 msgid "Open the directory"
 msgstr ""
 
-#: python/mainwindow.py:672
+#: python/mainwindow.py:679
 msgid "Uninstall"
 msgstr ""
 
-#: python/mainwindow.py:790 python/mainwindow.py:861 python/mainwindow.py:931
+#: python/mainwindow.py:797 python/mainwindow.py:868 python/mainwindow.py:938
 msgid "Please select a program."
 msgstr ""
 
-#: python/mainwindow.py:798 python/mainwindow.py:800 python/mainwindow.py:802
+#: python/mainwindow.py:805 python/mainwindow.py:807 python/mainwindow.py:809
 msgid "{0} settings"
 msgstr "{0} postavke"
 
-#: python/mainwindow.py:895
+#: python/mainwindow.py:902
 msgid "{0} install menu"
 msgstr "{0} izbornik instalacije"
 
-#: python/mainwindow.py:904
+#: python/mainwindow.py:911
 msgid "{0} wine versions manager"
 msgstr "{0} upravitelj wine inačica"
 
-#: python/mainwindow.py:933
+#: python/mainwindow.py:940
 msgid "The virtual drive associated with {0} ({1}) does no longer exists."
 msgstr "Virtualan pogon povezan s {0} ({1}) više ne postoji."
 
-#: python/mainwindow.py:942
+#: python/mainwindow.py:949
 msgid "Are you sure you want to close all {0} Windows?"
 msgstr "Sigurno želite zatvoriti sve {0} prozore?"
 
-#: python/mainwindow.py:986
+#: python/mainwindow.py:993
 msgid "Run your Windows programs on "
 msgstr "Pokrenite vaš Windows program na "
 
-#: python/mainwindow.py:987
+#: python/mainwindow.py:994
 msgid ""
 "(C) PlayOnLinux and PlayOnMac team 2012\n"
 "Under GPL licence version 3"
 msgstr ""
 
-#: python/mainwindow.py:988
+#: python/mainwindow.py:995
 msgid "Developer and Website: "
 msgstr "Razvijatelji i web stranica: "
 
-#: python/mainwindow.py:989
+#: python/mainwindow.py:996
 msgid "Scriptors: "
 msgstr "Skripte: "
 
-#: python/mainwindow.py:990
+#: python/mainwindow.py:997
 msgid "Packager: "
 msgstr "Paketi: "
 
-#: python/mainwindow.py:991
+#: python/mainwindow.py:998
 msgid "Icons:"
 msgstr "Ikone:"
 
-#: python/mainwindow.py:992
+#: python/mainwindow.py:999
 msgid "The following people contributed to this program: "
 msgstr "Slijedeći ljudi su doprinjeli ovom programu: "
 
-#: python/mainwindow.py:993
+#: python/mainwindow.py:1000
 msgid "Translations:"
 msgstr "Prijevodi:"
 
-#: python/mainwindow.py:994
+#: python/mainwindow.py:1001
 msgid "Read TRANSLATORS file"
 msgstr "Pročitajte datoteku PREVODITELJA"
 
-#: python/mainwindow.py:1043
+#: python/mainwindow.py:1050
 msgid ""
 "{0} cannot find {1}.\n"
 "\n"
 msgstr ""
 
-#: python/mainwindow.py:1050
+#: python/mainwindow.py:1057
 msgid "{0} is not supposed to be run as root. Sorry"
 msgstr ""
 "{0} nije namijenjen za pokretane kao korijenski (root) korisnik, Isprika"
 
-#: python/mainwindow.py:1059
+#: python/mainwindow.py:1066
 msgid ""
 "{0} is unable to find 32bits OpenGL libraries.\n"
 "\n"
@@ -4801,7 +4880,7 @@ msgstr ""
 "\n"
 "Možda ste naišli na problem u vašoj igri"
 
-#: python/mainwindow.py:1071
+#: python/mainwindow.py:1078
 msgid ""
 "{0} is unable to find 64bits OpenGL libraries.\n"
 "\n"
@@ -4811,14 +4890,14 @@ msgstr ""
 "\n"
 "Možda ste naišli na problem u vašoj igri"
 
-#: python/mainwindow.py:1083
+#: python/mainwindow.py:1090
 msgid ""
 "Your filesystem might prevent {0} from running correctly.\n"
 "\n"
 "Please open {0} in a terminal to get more details"
 msgstr ""
 
-#: python/mainwindow.py:1101
+#: python/mainwindow.py:1108
 msgid ""
 "Do you want to help {0} to make a compatibility database?\n"
 "\n"
@@ -4833,11 +4912,11 @@ msgid ""
 "These information will be very precious for us to help people."
 msgstr ""
 
-#: python/mainwindow.py:1152
+#: python/mainwindow.py:1159
 msgid "Are you sure you want to  want to install {0} package?"
 msgstr "Sigurno želite instalirati {0} paket?"
 
-#: python/mainwindow.py:1159 python/mainwindow.py:1161
+#: python/mainwindow.py:1166 python/mainwindow.py:1168
 msgid ""
 "You are trying to open a script design for {0}! It might not work as expected"
 msgstr ""
