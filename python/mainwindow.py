@@ -115,6 +115,8 @@ class MainWindow(wx.Frame):
     def __init__(self,parent,id,title):
 
         wx.Frame.__init__(self, parent, 1000, title, size = (515,450))
+        POLServer = gui_server.gui_server()
+        POLServer.start()
         self.SetMinSize((400,400))
 
         self.menuElem = {}
@@ -1162,8 +1164,7 @@ class PlayOnLinuxApp(wx.App):
         self.BringWindowToFront()
 
 lng.Lang()
-POLServer = gui_server.gui_server()
-POLServer.start()
+
 
 app = PlayOnLinuxApp(redirect=False)
 app.MainLoop()
