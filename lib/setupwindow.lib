@@ -22,8 +22,13 @@
 #
 # This lib contains all function to control PlayOnLinux setup windows
 
-export POL_SetupWindow_ID=$$ # Au moins 100000 fois plus logique, et plus simple
+export POL_SetupWindow_ID=$$ 
+export POL_HOST="127.0.0.1"
 
+POL_Untab()
+{
+	echo "${1//\\t/\\\\t}"
+}
 POL_SetupWindow_Init ()
 {
 	# Open PlayOnLinux setup window. Should be use only once in a script !
@@ -43,16 +48,8 @@ POL_SetupWindow_Init ()
 	[ "$arg2" = "" ] && arg2="None"
 	[ "$arg3" = "" ] && arg3="None"
 	
-	mkdir -p "$REPERTOIRE/configurations/guis/"
-	echo "Wait" > "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-	cat << EOF > "$REPERTOIRE/configurations/guis/index_$POL_ID"
-Open
-$POL_SetupWindow_ID
-$arg1
-$arg2
-$arg3
-$$
-EOF
+	echo "POL_SetupWindow_Init	$$	$arg1	$arg2	$arg3" | nc "$POL_HOST" "$POL_PORT"
+	
 	export SETUPWINDOW_INIT="true"
 }
 POL_SetupWindow_Close ()
@@ -62,21 +59,7 @@ POL_SetupWindow_Close ()
 	# Should be used at the end of the script if POL_SetupWindow_Init has been called
 	# Usage: POL_SetupWindow_Close
 
-	POL_Debug_Message "Closing window for pid $$"
-	if [ "$POL_SCRIPT_FAILED" = "YES" -a -n "$LOGTITLE" -a -n "$DEBUGGING" -a -z "$NOBUGREPORT" ]
-	then
-		POL_SetupWindow_question "$(eval_gettext "An error occured during the installation process\n\nDo you want to send the bug to $APPLICATION_TITLE ?")" "$TITLE"
-		if [ "$APP_ANSWER" = "TRUE" ]
-		then
-			export LOGTITLE
-			bash "$PLAYONLINUX/bash/bug_report" &
-		fi
-	fi
-	cat << EOF > "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-MsgIn
-exit
-EOF
-	export SETUPWINDOW_INIT="false"
+	echo "POL_SetupWindow_Close	$$" | nc "$POL_HOST" "$POL_PORT"
 }
 
 POL_SetupWindow_presentation ()
@@ -92,52 +75,14 @@ POL_SetupWindow_free_presentation ()
 	# Free presentation for a script
 	# Usage POL_SetupWindow_free_presentation [title] [message]
 	
-	TIMESTAMP="$(date +%s)"
-	cat << EOF > "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-MsgIn
-free_presentation
-$1
-$2
-$TIMESTAMP
-EOF
-	MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$') 
-	while [ ! "$MESSAGE" = "MsgOut" ]
-	do
-		MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$') 
-		sleep 0.1
-	done
-	MESSAGE_BIS=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MSG_RECEIVED=')
-	if [ "$MESSAGE_BIS" = "MSG_RECEIVED=Cancel" ]
-	then
-		rm "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-		exit 
-	fi
+	echo "POL_SetupWindow_free_presentation	$$	$(POL_Untab "$1")	$(POL_Untab "$2")" | nc "$POL_HOST" "$POL_PORT"
 }
 POL_SetupWindow_message ()
 {
 	# Shows a simple message
 	# Usage POL_SetupWindow_message [message] [title]
 	
-	TIMESTAMP="$(date +%s)"
-	cat << EOF > "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-MsgIn
-message
-$1
-$2
-$TIMESTAMP
-EOF
-	MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$') 
-	while [ ! "$MESSAGE" = "MsgOut" ]
-	do
-		MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$') 
-		sleep 0.1
-	done
-	MESSAGE_BIS=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MSG_RECEIVED=')
-	if [ "$MESSAGE_BIS" = "MSG_RECEIVED=Cancel" ]
-	then
-		rm "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-		exit 
-	fi
+	echo "POL_SetupWindow_message	$$	$(POL_Untab "$1")	$(POL_Untab "$2")" | nc "$POL_HOST" "$POL_PORT"
 }
 POL_SetupWindow_missing ()
 {
@@ -145,8 +90,7 @@ POL_SetupWindow_missing ()
 	# Read depend.lib
 	# Usage POL_SetupWindow_missing
 	
-	if [ "$MANQUE" = "true" ]
-	then
+	if [ "$MANQUE" = "true" ]; then
 		LNG_MISSING_ERROR=$(eval_gettext "One or more program(s) are missing. Please install them and run the script again.")
 
 		POL_SetupWindow_message "$LNG_MISSING_ERROR\n\n$MISSING" "$(eval_gettext Error)"
@@ -189,41 +133,17 @@ POL_SetupWindow_wait_next_signal ()
 	# Wait for next POL_SetupWindow_ command
 	# Shows a pulsebar
 	# Usage POL_SetupWindow_wait_next_signal [message] [title]
-	TIMESTAMP="$(date +%s)"
-	cat << EOF > "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-MsgIn
-attendre_signal
-$1
-$2
-$TIMESTAMP
-EOF
-	MESSAGE_BIS=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MSG_RECEIVED=')
-	if [ "$MESSAGE_BIS" = "MSG_RECEIVED=Cancel" ]
-	then
-		exit 
-	fi
+
+	echo "POL_SetupWindow_wait	$$	$(POL_Untab "$1")	$(POL_Untab "$2")" | nc "$POL_HOST" "$POL_PORT"
 }
 POL_SetupWindow_wait_button ()
 {
 	# Wait for next POL_SetupWindow_ command
 	# Shows a pulsebar
 	# Usage POL_SetupWindow_wait_next_signal [message] [title] [Button text] [Command] [Confirm message (0 = No confirmation needed)]
-	TIMESTAMP="$(date +%s)"
-	cat << EOF > "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-MsgIn
-attendre_signal_b
-$1
-$2
-$3
-export PLAYONLINUX="$PLAYONLINUX" ; export WINEPREFIX="$WINEPREFIX" ; export PATH="$PATH" ; export LD_LIBRARY_PATH="$LD_LIBRARY_PATH" ; $4
-$5
-$TIMESTAMP
-EOF
-	MESSAGE_BIS=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MSG_RECEIVED=')
-	if [ "$MESSAGE_BIS" = "MSG_RECEIVED=Cancel" ]
-	then
-		exit 
-	fi
+	
+	echo "POL_SetupWindow_wait_bis	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	export PLAYONLINUX="$PLAYONLINUX" ; export WINEPREFIX="$WINEPREFIX" ; export PATH="$PATH" ; export LD_LIBRARY_PATH="$LD_LIBRARY_PATH" ; $4	$5" | nc "$POL_HOST" "$POL_PORT"
+	
 }
 POL_SetupWindow_pulsebar ()
 {
@@ -277,30 +197,8 @@ POL_SetupWindow_download ()
 	# Download a file and place it to the current directory
 	# Usage: POL_SetupWindow_download [message] [title] [url]
 	# /!\ Scriptors should directly use POL_Download
-	cat << EOF > "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-MsgIn
-download
-$1
-$2
-$3
-$(pwd)/
-EOF
-	sleep 0.2
-	DOWNLOADEDFILE=`cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | head -n5 | tail -n1`
-	DOWNLOADSERVER=`echo $DOWNLOADEDFILE | cut -d/ -f3`
-	DOWNLOADEDFILE=$(basename "$DOWNLOADEDFILE")
-
-	MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$') 
-	while [ ! "$MESSAGE" = "MsgOut" ]
-	do
-		MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$') 
-		sleep 0.1
-	done
-	MESSAGE_BIS=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MSG_RECEIVED=')
-	if [ "$MESSAGE_BIS" = "MSG_RECEIVED=Cancel" ]
-	then
-		exit 
-	fi
+	
+	Result="$(echo "POL_SetupWindow_download	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	$PWD/" | nc "$POL_HOST" "$POL_PORT")"
 }
 
 POL_SetupWindow_textbox ()
@@ -309,31 +207,8 @@ POL_SetupWindow_textbox ()
 	# Usage: POL_SetupWindow_textbox [message] [title] [default value]
 	# Result is sent in $APP_ANSWER variable
 
-	TIMESTAMP="$(date +%s)"
-	cat << EOF > "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-MsgIn
-champ
-$1
-$2
-$3
-$TIMESTAMP
-EOF
-	MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$') 
-	while [ ! "$MESSAGE" = "MsgOut" ]
-	do
-		MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$') 
-		sleep 0.1
-	done
-	MESSAGE_BIS=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MSG_RECEIVED=')
-	if [ "$MESSAGE_BIS" = "MSG_RECEIVED=Cancel" ]
-	then
-		rm "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-		exit 
-	else
-		MESSAGE_TER=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MSG_VALUE=')
-		MESSAGE_TER=${MESSAGE_TER:10}
-		export APP_ANSWER="$MESSAGE_TER"
-	fi
+	APP_ANSWER="$(echo "POL_SetupWindow_textbox	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3" | nc "$POL_HOST" "$POL_PORT")"
+
 }
 POL_SetupWindow_browse ()
 {
@@ -375,63 +250,15 @@ POL_SetupWindow_question ()
 	# Usage: POL_SetupWindow_question [message] [title]
 	# Result is sent in $APP_ANSWER variable (TRUE or FALSE)
 	
-	TIMESTAMP="$(date +%s)"
-	cat << EOF > "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-MsgIn
-question
-$1
-$2
-$TIMESTAMP
-EOF
-	MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$') 
-	while [ ! "$MESSAGE" = "MsgOut" ]
-	do
-		MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$') 
-		sleep 0.1
-	done
-	MESSAGE_BIS=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MSG_RECEIVED=')
-	if [ "$MESSAGE_BIS" = "MSG_RECEIVED=Cancel" ]
-	then
-		rm "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-		exit 
-	else
-		MESSAGE_TER=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MSG_QUESTION=')
-		MESSAGE_TER=${MESSAGE_TER:13}
-		export APP_ANSWER="$MESSAGE_TER"
-	fi
+	APP_ANSWER="$(echo "POL_SetupWindow_question	$$	$(POL_Untab "$1")	$(POL_Untab "$2")" | nc "$POL_HOST" "$POL_PORT")"
 }
 POL_SetupWindow_menu ()
 {
 	# Shows a menu
 	# Usage: POL_SetupWindow_menu [message] [title] [list] [separator]
 	# Result is sent in $APP_ANSWER variable
-	
-	TIMESTAMP="$(date +%s)"
-	cat << EOF > "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-MsgIn
-menu
-$1
-$2
-$3
-$4
-$TIMESTAMP
-EOF
-	MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$') 
-	while [ ! "$MESSAGE" = "MsgOut" ]
-	do
-		MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$') 
-		sleep 0.1
-	done
-	MESSAGE_BIS=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MSG_RECEIVED=')
-	if [ "$MESSAGE_BIS" = "MSG_RECEIVED=Cancel" ]
-	then
-		rm "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-		exit 
-	else
-		MESSAGE_TER=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MSG_VALUE=')
-		MESSAGE_TER=${MESSAGE_TER:10}
-		export APP_ANSWER="$MESSAGE_TER"
-	fi
+
+	APP_ANSWER="$(echo "POL_SetupWindow_menu	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	$4" | nc "$POL_HOST" "$POL_PORT")"
 }
 POL_SetupWindow_icon_menu ()
 {
@@ -507,66 +334,16 @@ POL_SetupWindow_menu_num ()
 	# Usage: POL_SetupWindow_menu_num [message] [title] [list] [separator]
 	# The number of the result is sent in $APP_ANSWER variable
 	
-	TIMESTAMP="$(date +%s)"
-	cat << EOF > "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-MsgIn
-menu_num
-$1
-$2
-$3
-$4
-$TIMESTAMP
-EOF
-	MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$') 
-	while [ ! "$MESSAGE" = "MsgOut" ]
-	do
-		MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$') 
-		sleep 0.1
-	done
-	MESSAGE_BIS=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MSG_RECEIVED=')
-	if [ "$MESSAGE_BIS" = "MSG_RECEIVED=Cancel" ]
-	then
-		rm "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-		exit 
-	else
-		MESSAGE_TER=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MSG_VALUE=')
-		MESSAGE_TER=${MESSAGE_TER:10}
-		export APP_ANSWER="$MESSAGE_TER"
-	fi
+	APP_ANSWER="$(echo "POL_SetupWindow_menu_num	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	$4" | nc "$POL_HOST" "$POL_PORT")"
 }
 POL_SetupWindow_menu_list ()
 {
 	# Shows a menu (combobox)
 	# Usage: POL_SetupWindow_menu [message] [title] [list] [separator]
 	# Result is sent in $APP_ANSWER variable
-	
-	TIMESTAMP="$(date +%s)"
-	cat << EOF > "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-MsgIn
-menu_list
-$1
-$2
-$3
-$4
-$5
-$TIMESTAMP
-EOF
-	MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$') 
-	while [ ! "$MESSAGE" = "MsgOut" ]
-	do
-		MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$') 
-		sleep 0.1
-	done
-	MESSAGE_BIS=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MSG_RECEIVED=')
-	if [ "$MESSAGE_BIS" = "MSG_RECEIVED=Cancel" ]
-	then
-		rm "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-		exit 
-	else
-		MESSAGE_TER=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MSG_VALUE=')
-		MESSAGE_TER=${MESSAGE_TER:10}
-		export APP_ANSWER="$MESSAGE_TER"
-	fi
+	# Deprecated
+
+	POL_SetupWindow_menu "$@"
 }
 POL_SetupWindow_shortcuts_list ()
 {
@@ -826,30 +603,20 @@ POL_GetSetupImages () # ( optional : --erase )
 	mkdir -p "$POL_USER_ROOT/configurations/setups/$name"
 	cd "$POL_USER_ROOT/configurations/setups/$name"
     
-    if [ "$top" == "" ]
-    then
+    if [ "$top" == "" ]; then
         export POL_SetupWindow_TopImage="$PLAYONLINUX/etc/setups/default/top.png"
-	elif [ "$1" == "--force" ] || [ ! -e "top" ]
-	then
+	elif [ "$1" == "--force" ] || [ ! -e "top" ]; then
 		$POL_WGET --timeout=10 "$top" -O top 2> /dev/null && POL_SetupWindow_TopImage="$PWD/top" || export POL_SetupWindow_TopImage="$PLAYONLINUX/etc/setups/default/top.png"
-		if [ "$POL_SetupWindow_TopImage" = "$PLAYONLINUX/etc/setups/default/top.png" ]
-		then
-			rm -f top
-		fi
+		[ "$POL_SetupWindow_TopImage" = "$PLAYONLINUX/etc/setups/default/top.png" ] &&	rm -f top
 	else
 		POL_SetupWindow_TopImage="$PWD/top"
 	fi
 
-    if [ "$left" == "" ]
-    then
+    if [ "$left" == "" ]; then
         export POL_SetupWindow_LeftImage="$PLAYONLINUX/etc/setups/default/left.jpg"
-	elif [ "$1" == "--force" ] || [ ! -e "left" ]
-	then
+	elif [ "$1" == "--force" ] || [ ! -e "left" ]; then
 		$POL_WGET --timeout=10 "$left" -O left 2> /dev/null && POL_SetupWindow_LeftImage="$PWD/left" || export POL_SetupWindow_LeftImage="$PLAYONLINUX/etc/setups/default/left.jpg"
-		if [ "$POL_SetupWindow_LeftImage" = "$PLAYONLINUX/etc/setups/default/left.jpg" ]
-		then
-			rm -f left
-		fi
+		[ "$POL_SetupWindow_LeftImage" = "$PLAYONLINUX/etc/setups/default/left.jpg" ] && rm -f left
 	else
 		POL_SetupWindow_LeftImage="$PWD/left"
 	fi
@@ -976,8 +743,7 @@ process_POL_SetupWindow_show_exe ()
 	### Used by POL_SetupWindow_show_exe
 	read line
 	first=true
-	while [ ! "$line" = "" ]
-	do
+	while [ ! "$line" = "" ]; do
 		[ "$first" = "true" ] && first=false || printf "~"
 		printf "$(basename "$line")"
 		read line

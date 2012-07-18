@@ -19,15 +19,7 @@
 encoding = 'utf-8'
 
 import os, getopt, sys, urllib, signal, string, time, webbrowser, gettext, locale, sys, shutil, subprocess
-#locale.setlocale(locale.CODESET,'fr_FR.utf8')
 
-#try:
-#       locale.getlocale()
-#except:
-#       os.environ["LANG"] = "en_US.utf-8"
-#locale.setlocale(locale.LC_ALL, '.utf-8')
-
-# Un ptit check
 try :
     os.environ["POL_OS"]
 except :
@@ -38,12 +30,11 @@ if(os.environ["POL_OS"] == "Linux"):
     import wxversion
     wxversion.ensureMinimal('2.8')
 
-import wx
-import wx.aui
+import wx, wx.aui
 
 import lib.lng as lng
 import lib.playonlinux as playonlinux, lib.Variables as Variables
-import guiv3 as gui, install, options, wine_versions as wver, sp, configure, threading, debug
+import guiv3 as gui, install, options, wine_versions as wver, sp, configure, threading, debug, gui_server
 import irc as ircgui
 
 class POLWeb(threading.Thread):
@@ -964,10 +955,6 @@ class MainWindow(wx.Frame):
             self.mySize = 200
             self.myPosition = "LEFT"
 
-            #if(self.DockType == "dock_size(5,0,0)"):
-            #       self.myPosition = "NONE"
-            #print self.DockType
-
             if(self.DockType == "dock_size(4,0,0)"):
                 self.mySize = int(self.perspective[1]) - 2
                 self.myPosition = "LEFT"
@@ -978,7 +965,8 @@ class MainWindow(wx.Frame):
 
             playonlinux.SetSettings("PANEL_SIZE",str(self.mySize))
             playonlinux.SetSettings("PANEL_POSITION",str(self.myPosition))
-
+            
+            POLServer.closeServer()
             os._exit(0)
         return None
 
@@ -1174,6 +1162,9 @@ class PlayOnLinuxApp(wx.App):
         self.BringWindowToFront()
 
 lng.Lang()
+POLServer = gui_server.gui_server()
+POLServer.start()
+
 app = PlayOnLinuxApp(redirect=False)
 app.MainLoop()
 #sys.exit(0)

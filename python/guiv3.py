@@ -18,13 +18,13 @@
 
 
 
-import wx, os, getopt, sys, urllib, signal, time, string, urlparse, codecs, time, threading
-
+import wx, wx.animate, os, getopt, sys, urllib, signal, time, string, urlparse, codecs, time, threading, socket
 from subprocess import Popen,PIPE
 import lib.Variables as Variables
 import lib.lng
 import lib.DirTreeCtrl as DirTreeCtrl
 lib.lng.Lang()
+
 
 class Download(threading.Thread):
     def __init__(self, url, local):
@@ -53,11 +53,39 @@ class Download(threading.Thread):
     def run(self):
         self.download()
 
+## wx does not want any timer or animate gif in another thread. We need to create it manually
+class Animator(threading.Thread):
+    def __init__(self, animation, image):
+        threading.Thread.__init__(self)
+        self.playing = False
+        self.running = True
+        self.animation = animation
+        self.image = image
+        self.start()
+
+    def run(self):
+        self.i = 0
+        while(self.running):
+            if(self.playing):
+                time.sleep(0.07)
+                self.image.SetBitmap(self.animation.GetFrame(self.i).ConvertToBitmap())
+            else:
+                time.sleep(0.3) # Save CPU
+            self.i = (self.i + 2) % 24
+
+    def Play(self):
+        self.playing = True
+
+    def Stop(self):
+        self.playing = False
+
+    def Destroy(self):
+        self.running = False
 
 class POL_SetupFrame(wx.Frame): #fenêtre principale
-    def __init__(self, titre, POL_SetupWindowID, Arg1, Arg2, Arg3, bash_pid):
+    def __init__(self, titre, POL_SetupWindowID, Arg1, Arg2, Arg3, FIXME=""):
         wx.Frame.__init__(self, None, -1, title = titre, style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX, size = (520, 398+Variables.windows_add_size))
-
+        bash_pid = POL_SetupWindowID
         self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
         self.gauge_i = 0
         self.fichier = ""
@@ -66,7 +94,6 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.ProtectedWindow = False
 
         # Le fichier de lecture
-        self.file_id=Variables.playonlinux_rep+"/configurations/guis/"+POL_SetupWindowID
 
         if(Arg1 == "None"):
             self.small_image = wx.Bitmap(Variables.playonlinux_env+"/resources/images/setups/default/top.png")
@@ -90,15 +117,6 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
         self.make_gui()
 
-        self.timer = wx.Timer(self, 1)
-
-
-        #self.header.SetBorderColor((0,0,0))
-        #self.panel.SetSizer(self.sizer)
-        #self.panel.SetAutoLayout(True)
-        self.Bind(wx.EVT_TIMER, self.AutoReload, self.timer)
-        self.timer.Start(10)
-        self.AutoReload(self)
         wx.EVT_CLOSE(self, self.Cancel)
 
     def make_gui(self):
@@ -145,6 +163,8 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
         self.txtEstimation = wx.StaticText(self.panel, -1, "",size=(480,30),style=wx.ST_NO_AUTORESIZE)
         self.register_link = ""
+
+
         # Buttons
         self.CancelButton = wx.Button(self.footer, wx.ID_CANCEL, _("Cancel"), pos=(430,0),size=(85,37))
         if(self.ProtectedWindow == True):
@@ -156,10 +176,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.NoButton = wx.Button(self.footer, wx.ID_NO, _("No"), pos=(430,0),size=(85,37))
         self.YesButton = wx.Button(self.footer, wx.ID_YES, _("Yes"), pos=(340,0), size=(85,37))
         self.browse = wx.Button(self.panel, 103, _("Browse"), size=(130,25))
-        #self.FileList = DirTreeCtrl(None, -1)
 
-        #DirTreeCtrl(self.FileList)
-        #self.register = wx.HyperlinkCtrl(self.footer, 305, _("Having "), "", pos=(20,180))
 
         # D'autres trucs
         self.champ = wx.TextCtrl(self.panel, 400, "",size=(300,22))
@@ -167,8 +184,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.bigchamp = wx.TextCtrl(self.panel, -1, "",size=wx.Size(460,240), pos=(25,105),style=Variables.widget_borders|wx.TE_MULTILINE)
         self.MCheckBox = wx.CheckBox(self.panel, 302, _("I Agree"), pos=(20,325))
         self.PCheckBox = wx.CheckBox(self.panel, 304, _("Show virtual drives"), pos=(20,325))
-        self.Menu = wx.ListBox(self.panel, 103, pos=(25,105),size=(460,220), style=Variables.widget_borders)
-        self.MenuList = wx.ComboBox(self.panel, 103, style=wx.CB_READONLY)
+        self.Menu = wx.ListBox(self.panel, 104, pos=(25,105),size=(460,220), style=Variables.widget_borders)
         self.scrolled_panel = wx.ScrolledWindow(self.panel, -1, pos=(20,100), size=(460,220), style=Variables.widget_borders|wx.HSCROLL|wx.VSCROLL)
         self.scrolled_panel.SetBackgroundColour((255,255,255))
         self.texte_panel = wx.StaticText(self.scrolled_panel, -1, "",pos=(5,5))
@@ -176,6 +192,12 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.gauge = wx.Gauge(self.panel, -1, 50, size=(375, 20))
         self.pulsebar = wx.Gauge(self.panel, -1, 50, size=(375, 20))
         self.WaitButton = wx.Button(self.panel, 310, "", size=(250,25))
+
+
+        self.animation = wx.animate.Animation(Variables.playonlinux_env+"/resources/images/setups/wait.gif") 
+        self.waiter = wx.StaticBitmap(self.panel, -1, self.animation.GetFrame(0).ConvertToBitmap(), (228,170), wx.DefaultSize)
+        self.animator = Animator(self.animation, self.waiter)
+        self.waiter.Hide()
 
         self.images = wx.ImageList(22, 22)
         self.MenuGames = wx.TreeCtrl(self.panel, 111, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT|Variables.widget_borders, pos=(25,105),size=(460,220))
@@ -195,7 +217,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         wx.EVT_BUTTON(self, wx.ID_YES, self.release_yes)
         wx.EVT_BUTTON(self, wx.ID_NO, self.release_no)
         wx.EVT_BUTTON(self, wx.ID_CANCEL , self.Cancel)
-        wx.EVT_BUTTON(self, 103,  self.Parcourir)
+        wx.EVT_BUTTON(self, 104,  self.Parcourir)
         wx.EVT_CHECKBOX(self, 302, self.agree)
         wx.EVT_CHECKBOX(self, 304, self.switch_menu)
         wx.EVT_HYPERLINK(self, 303, self.POL_register)
@@ -206,6 +228,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
 
     def Destroy_all(self):
+        self.Result = None
         self.header.Hide()
         self.left_image.Hide()
         self.CancelButton.Hide()
@@ -223,7 +246,6 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.titre.Hide()
         self.Menu.Hide()
         self.MenuGames.Hide()
-        self.MenuList.Hide()
         self.scrolled_panel.Hide()
         self.gauge.Hide()
         self.pulsebar.Hide()
@@ -241,6 +263,331 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.MCheckBox.SetValue(False)
         self.PCheckBox.SetValue(False)
         self.Refresh()
+        self.waiter.Hide()
+        self.animator.Stop()
+
+
+    def getResult(self):
+        # This function is called regularely when SetupWindow is waiting. It can play the role of a timer for certain actions (download, ...)
+           
+        ## If the setup window is downloading a file, it is a good occasion to update the progresbar
+        if(self.downloading == True):
+            if(self.downloader.taille_bloc != 0):
+                self.nb_blocs_max = self.downloader.taille_fichier / self.downloader.taille_bloc
+                self.gauge.SetRange(self.nb_blocs_max)
+                self.gauge.SetValue(self.downloader.nb_blocs)
+
+                self.tailleFichierB = float(self.downloader.taille_fichier / 1048576)
+                self.octetsLoadedB = float((self.downloader.nb_blocs * self.downloader.taille_bloc) / 1048576)
+                self.octetsLoadedN = round(self.octetsLoadedB, 1)
+                self.tailleFichierN = round(self.tailleFichierB, 1)
+
+                self.estimation_txt = str(self.octetsLoadedN) + " "+_("of")+" " + str(self.tailleFichierN) + " "+_("MB downloaded")
+                self.txtEstimation.SetLabel(self.estimation_txt)
+
+                if(self.downloader.finished == True):
+                    if(self.downloader.failed == True):
+                        self.release_but_fail(self)
+                    else:
+                        self.release(self)
+                    self.downloading = False
+
+        if(self.Result == None):
+            return False
+        else:
+            return self.Result
+
+    ### Theses methods command the window. There are called directly by the server
+    def POL_SetupWindow_message(self, message, title):
+        self.Destroy_all()
+        self.DrawDefault(message, title)
+
+        self.DrawCancel()
+        self.DrawNext()
+        wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release)
+
+    def POL_SetupWindow_free_presentation(self, message, titre):
+        self.Destroy_all()
+        self.MainPanel.Show()
+        self.titreP.SetLabel(titre.decode("utf8","replace"))
+        self.titreP.Wrap(280)
+
+        self.texteP.SetLabel(message.decode("utf8","replace").replace("\\n","\n"))
+        self.texteP.Wrap(360)
+        self.texteP.Show()
+
+        self.DrawCancel()
+        self.DrawNext()
+
+        wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release)
+        self.DrawImage()
+
+    def POL_SetupWindow_textbox(self, message, title, value):
+        self.Destroy_all()
+        self.DrawDefault(message, title)
+
+        self.space = message.count("\\n")+1
+
+        self.champ.SetPosition((20,85+self.space*16))
+        self.champ.SetValue(value)
+        self.champ.Show()
+
+        self.DrawCancel()
+        self.DrawNext()
+        wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_champ)
+        wx.EVT_TEXT_ENTER(self, 400, self.release_champ)
+
+
+    def POL_Pulse(self, value):
+        self.pulsebar.SetValue(int(value)/2)
+
+    def POL_PulseText(self, value):
+        self.texte_bis.SetLabel(value.replace("\\n","\n"))
+        self.texte_bis.SetPosition((20,135+self.space*16))
+        self.texte_bis.Show()
+
+    def POL_SetupWindow_download(self, message, title, url, localfile): 
+        self.Destroy_all()
+        self.DrawDefault(message, title)
+
+        self.space = message.count("\\n")+1
+        self.gauge.Show()
+        self.gauge.SetPosition((70,95+self.space*16))
+
+        self.txtEstimation.SetPosition((20,135+self.space*16))
+        self.txtEstimation.Show()
+        self.DrawCancel()
+        self.DrawNext()
+        self.NextButton.Enable(False)
+        self.DownloadFile(url, localfile)
+
+    def POL_SetupWindow_wait(self, message, title):
+        self.Destroy_all()
+        self.DrawDefault(message, title)
+
+        self.NextButton.Enable(False)
+        self.waiter.Show()
+        self.animator.Play()
+
+    def POL_SetupWindow_wait_b(self, message, title, button_value, command, alert):
+        self.POL_SetupWindow_wait(message, title)    
+        self.WaitButton.Show()
+        self.WaitButton.SetLabel(button_value) 
+        self.space = message.count("\\n")+1
+        self.WaitButton.SetPosition((135,115+self.space*16))
+        self.Bind(wx.EVT_BUTTON, lambda event:
+            self.RunCommand(event,command,alert),self.WaitButton)
+
+    def POL_SetupWindow_question(self, message, title):
+        self.Destroy_all()
+        self.DrawDefault(message, title)
+
+        self.YesButton.Show()
+        self.NoButton.Show()
+
+    def POL_SetupWindow_menu(self, message, title, liste, cut, numtype=False):
+        self.Destroy_all()
+        self.DrawDefault(message, title)
+
+        self.space = message.count("\\n")+1
+        self.areaList = string.split(liste,cut)
+
+        self.Menu.SetPosition((20,85+self.space*16))
+
+        self.Menu.Clear()
+        self.Menu.InsertItems(self.areaList,0)
+        self.Menu.Select(0)
+        self.Menu.Show()
+
+        self.DrawCancel()
+        self.DrawNext()
+
+        if(numtype == False):
+            wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_menu)
+            wx.EVT_LISTBOX_DCLICK(self, 104, self.release_menu)
+        else:
+            wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_menu_num)
+            wx.EVT_LISTBOX_DCLICK(self, 104, self.release_menu_num)
+
+    def POL_SetupWindow_browse(self, message, title, value, directory):
+        POL_SetupWindow_textbox(message, title, value)
+        self.directory = directory
+        self.browse.SetPosition(((330, 85+self.space*16)))
+        self.browse.Show()
+
+    def POL_SetupWindow_login(self, message, title, register_url):
+        self.Destroy_all()
+        self.DrawDefault(message, title)
+
+        self.space = message.count("\\n")+1
+        self.register_link = register_url
+
+        self.login.Show()
+        self.loginbox.Show()
+        self.password.Show()
+        self.passbox.Show()
+        self.register.Show()
+
+        self.DrawCancel()
+        self.DrawNext()
+
+        wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_login)
+
+    def POL_SetupWindow_textbox_multiline(self, message, title, value):
+        self.Destroy_all()
+        self.DrawDefault(message, title)
+        self.space = message.count("\\n")+1
+
+        self.bigchamp.SetPosition((20,85+self.space*16))
+        self.bigchamp.SetValue(value)
+
+        self.bigchamp.Show()
+
+        self.DrawCancel()
+        self.DrawNext()
+        wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_bigchamp)
+
+    def POL_SetupWindow_checkbox_list(self, message, title, liste, cut):
+        self.Destroy_all()
+        self.DrawDefault(message, title)
+
+        self.scrolled_panel.Show()
+        self.space = message.count("\\n")+1
+
+        self.scrolled_panel.SetPosition((20,85+self.space*16))
+        self.areaList = string.split(liste,cut)
+
+        # We have to destroy all previous items (catching exception in case one is already destroyed)
+        self.i = 0
+        try:
+            while(self.i <= len(self.item_check)):
+                self.item_check[self.i].Destroy()
+                self.i+=1
+        except:
+            pass
+        self.item_check = []
+
+        # Now we can rebuild safely the widget
+        self.i = 0
+        while(self.i < len(self.areaList)):
+            self.item_check.append(wx.CheckBox(self.scrolled_panel, -1, pos=(0,(self.i*25)),label=str(self.areaList[self.i])))
+            self.i+=1
+
+        self.scrolled_panel.SetVirtualSize((0,self.i*(25)))
+        self.scrolled_panel.SetScrollRate(0,25)
+        self.DrawCancel()
+        self.DrawNext()
+        wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_checkboxes)
+
+        self.DrawCancel()
+        self.DrawNext()
+        self.NextButton.Enable(False)
+
+
+
+    def POL_SetupWindow_games(self, message, title):
+        self.Destroy_all()
+        self.DrawDefault(message, title)
+
+        self.add_games()
+
+        self.space = message.count("\\n")+1
+        self.MenuGames.SetPosition((20,85+self.space*16))
+        self.MenuGames.Show()
+
+        self.DrawCancel()
+        self.DrawNext()
+        wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_menugame)
+        wx.EVT_TREE_ITEM_ACTIVATED(self, 111, self.release_menugame)
+
+    def POL_SetupWindow_menu_icons(self, message, title):
+        self.Destroy_all()
+        self.DrawDefault(message, title)
+
+        self.add_menu_icons()
+
+        self.space = message.count("\\n")+1
+        self.MenuGames.SetPosition((20,85+self.space*16))
+        self.MenuGames.Show()
+
+        self.DrawCancel()
+        self.DrawNext()
+        wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_menugame)
+        wx.EVT_TREE_ITEM_ACTIVATED(self, 111, self.release_menugame)
+
+    def POL_SetupWindow_get_prefixes(self, message, title):
+        self.Destroy_all()
+        self.DrawDefault(message, title)
+
+        self.add_games()
+        self.MenuGames.Show()
+
+        self.space = message.count("\\n")+1
+        self.Menu.SetPosition((20,85+self.space*16))
+        self.Menu.Clear()
+
+        self.areaList = os.listdir(Variables.playonlinux_rep+"/wineprefix/")
+        self.areaList.sort()
+
+        for file in self.areaList:
+            if (str(file[0]) == "."):
+                self.areaList.remove(file)
+
+        self.Menu.InsertItems(self.areaList,0)
+        self.Menu.Select(0)
+        self.Menu.Hide()
+
+        self.DrawCancel()
+        self.DrawNext()
+
+        wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_menuprefixes)
+        wx.EVT_TREE_ITEM_ACTIVATED(self, 111, self.release_menuprefixes)
+        wx.EVT_LISTBOX_DCLICK(self, 104, self.release_menuprefixes)
+
+        self.PCheckBox.Show()
+
+
+    def POL_SetupWindow_licence(self, message, title, licence_file):
+        self.Destroy_all()
+        self.DrawDefault(message, title)
+
+        try:
+            self.texte_panel.SetLabel(open(licence_file,"r").read())
+        except:
+            self.texte_panel.SetLabel("E. file not found :"+licence_file)
+
+        self.texte_panel.Wrap(400)
+        self.texte_panel.Show()
+
+        self.scrolled_panel.Show()
+        self.scrolled_panel.SetVirtualSize(self.texte_panel.GetSize())
+        self.scrolled_panel.SetScrollRate(0,25)
+
+        self.MCheckBox.Show()
+
+        self.DrawCancel()
+        self.DrawNext()
+        self.NextButton.Enable(False)
+        wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release)
+
+
+    def POL_SetupWindow_file(self, message, title, filetoread):
+        self.Destroy_all()
+        self.DrawDefault(message, title)
+
+        self.texte_panel.SetLabel(open(iletoread,"r").read())
+        self.texte_panel.Wrap(400)
+        self.texte_panel.Show()
+
+        self.scrolled_panel.Show()
+        self.scrolled_panel.SetVirtualSize(self.texte_panel.GetSize())
+        self.scrolled_panel.SetScrollRate(0,25)
+
+        self.DrawCancel()
+        self.DrawNext()
+        wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release)
+
+
 
 
     def POL_register(self, event):
@@ -259,6 +606,14 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
     def DrawHeader(self):
         self.header.Show()
 
+
+    def DrawDefault(self, message, title):
+        self.DrawHeader()
+        self.texte.SetLabel(message.replace("\\n","\n"))
+        self.texte.Show()
+        self.titre.SetLabel(title)
+        self.titre.Show()
+
     def DrawCancel(self):
         self.CancelButton.Show()
 
@@ -266,14 +621,10 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.NextButton.Show()
 
     def SendBash(self, var):
-        self.fichier_w = open(self.file_id,"w")
-        self.fichier_w.write(var+"\nMsgOut\n")
-        self.fichier_w.close()
+        self.Result = var
 
     def SendBashT(self, var):
-        self.fichier_w = open(self.file_id+".txt","w")
-        self.fichier_w.write(var)
-        self.fichier_w.close()
+        self.Result = var
 
     def release(self, event):
         self.SendBash("Ok")
@@ -294,11 +645,11 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.NextButton.Enable(False)
 
     def release_yes(self, event):
-        self.SendBash("MSG_QUESTION=TRUE")
+        self.SendBash("TRUE")
         self.NextButton.Enable(False)
 
     def release_no(self, event):
-        self.SendBash("MSG_QUESTION=FALSE")
+        self.SendBash("FALSE")
         self.NextButton.Enable(False)
 
     def release_login(self, event):
@@ -306,7 +657,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.NextButton.Enable(False)
 
     def release_champ(self, event):
-        self.SendBash("MSG_VALUE="+self.champ.GetValue().encode("utf-8","replace"))
+        self.SendBash(self.champ.GetValue().encode("utf-8","replace"))
         self.NextButton.Enable(False)
 
     def release_bigchamp(self, event):
@@ -315,11 +666,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.NextButton.Enable(False)
 
     def release_menu(self,event):
-        self.SendBash("MSG_VALUE="+self.areaList[self.Menu.GetSelection()])
-        self.NextButton.Enable(False)
-
-    def release_menu_list(self,event):
-        self.SendBash("MSG_VALUE="+self.MenuList.GetValue().encode("utf-8","replace"))
+        self.SendBash(self.areaList[self.Menu.GetSelection()])
         self.NextButton.Enable(False)
 
     def release_menu_num(self,event):
@@ -337,7 +684,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
             self.SendBash("Ok")
         self.NextButton.Enable(False)
 
-    def release_menugame(self,event):
+    def release_menugame(self,event):     
         self.SendBash("MSG_VALUE="+self.MenuGames.GetItemText(self.MenuGames.GetSelection()).encode("utf-8","replace"))
         self.NextButton.Enable(False)
 
@@ -351,24 +698,14 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
     def Cancel(self, event):
         if(self.ProtectedWindow == False):
+            self.animator.Destroy()
+            time.sleep(0.5)
             self.Destroy()
-            self.SendBash("MSG_RECEIVED=Cancel") #Indiquera à PlayOnLinux bash qu'il faut arreter l'installation
-            #if(os.environ["POL_OS"] = "Mac"):
+            time.sleep(0.1)
             os.system("kill -9 -"+self.bash_pid+" 2> /dev/null")
-            #if(os.environ["POL_OS"] = "Linux"):
-            #       os.system("pkill -9 -P"+self.bash_pid+" 2> /dev/null")
-
-            #time.sleep(0.3)
-            os.system("kill -9 "+self.bash_pid+" 2> /dev/null") # Plus bourrain, mais bien plus efficace
-            os.remove(self.file_id) # La on est plutôt pépère pour faire ça
+            os.system("kill -9 "+self.bash_pid+" 2> /dev/null") 
         else:
             wx.MessageBox(_("You cannot close this window").format(os.environ["APPLICATION_TITLE"]),_("Error"))
-
-    def CleanExit(self):
-        self.Destroy()
-        self.SendBash("MSG_RECEIVED=Cancel") #Indiquera à PlayOnLinux bash qu'il faut arreter l'installation
-        os.remove(self.file_id) # La on est plutôt pépère pour faire ça
-    #self.Destroy()
 
     def add_games(self):
         self.games = os.listdir(Variables.playonlinux_rep+"/shortcuts/")
@@ -426,35 +763,28 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         if self.p.poll() == None:
             self.gauge.Pulse()
         else:
-            #self.gauge.SetValue(50)
-            self.Bind(wx.EVT_TIMER, self.AutoReload, self.timer)
+
             self.timer_attendre.Stop()
             self.timer_attendre.Destroy()
             self.timer.Start(10)
             self.SendBash("Ok")
-            #self.NextButton.Enable(True)
-            #self.NextButton.Enable(True)
+
 
     def Parcourir(self, event):
         self.FileDialog = wx.FileDialog(self.panel)
-        self.FileDialog.SetDirectory(self.fichier[5].replace("\n",""))
+        self.FileDialog.SetDirectory(self.directory)
         self.FileDialog.ShowModal()
         if(self.FileDialog.GetPath() != ""):
             self.champ.SetValue(self.FileDialog.GetPath().encode("utf-8","replace"))
         self.FileDialog.Destroy()
 
     def DownloadFile(self, url, localB):    #url = url a récupérer, localB le fichier où enregistrer la modification sans nom de fichier
-        #self.buttonSuivant.Enable(False)
         self.chemin = urlparse.urlsplit(url)[2]
         self.nomFichier = self.chemin.split('/')[-1]
         self.local = localB + self.nomFichier
         self.downloader = Download(url, self.local)
         self.downloading = True
 
-        #urllib.urlretrieve(url, self.local, reporthook = self.onHook)
-
-        #print "Fini dans "+local
-        #self.release(self)
 
     def agree(self, event):
         if(self.MCheckBox.IsChecked()):
@@ -471,447 +801,3 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
             self.Menu.Hide()
         self.Refresh()
 
-    def AutoReload(self, event):
-        if(self.downloading == True):
-            if(self.downloader.taille_bloc != 0):
-                self.nb_blocs_max = self.downloader.taille_fichier / self.downloader.taille_bloc
-                self.gauge.SetRange(self.nb_blocs_max)
-                self.gauge.SetValue(self.downloader.nb_blocs)
-
-                self.tailleFichierB = float(self.downloader.taille_fichier / 1048576.0)
-                self.octetsLoadedB = float((self.downloader.nb_blocs * self.downloader.taille_bloc) / 1048576.0)
-                self.octetsLoadedN = round(self.octetsLoadedB, 1)
-                self.tailleFichierN = round(self.tailleFichierB, 1)
-
-                self.estimation_txt = str(self.octetsLoadedN) + " "+_("of")+" " + str(self.tailleFichierN) + " "+_("MB downloaded")
-                self.txtEstimation.SetLabel(self.estimation_txt)
-                if(self.downloader.finished == True):
-                    if(self.downloader.failed == True):
-                        self.release_but_fail(self)
-                        print("FAIL")
-                    else:
-                        self.release(self)
-                    self.downloading = False
-
-
-                    #self.downloader.Destroy()
-
-        if(os.path.exists(self.file_id)):
-            self.fichier = open(self.file_id,"r").readlines()
-            if(self.downloading != True):
-                try :
-                    if(self.gauge_i < 2):
-                        self.gauge_i += 1
-                    else:
-                        self.gauge.Pulse()
-                        self.gauge_i = 0
-                except :
-                    pass
-
-            if(self.fichier != self.oldfichier):
-                if(len(self.fichier) > 0):
-                    if(self.fichier[0] == "MsgIn\n"):
-                        if(len(self.fichier) > 1):
-                            if(self.fichier[1] != "pulse\n" and self.fichier[1] != "set_text\n"):
-                                self.Destroy_all()
-
-                        if(len(self.fichier) > 1):
-                            if(self.fichier[1] == "pulse\n"):
-                                self.pulsebar.SetValue(int(self.fichier[2])/2)
-
-                            if(self.fichier[1] == "set_text\n"):
-                                self.texte_bis.SetLabel(self.fichier[2].replace("\\n","\n"))
-                                self.texte_bis.SetPosition((20,135+self.space*16))
-                                self.texte_bis.Show()
-
-                            if(self.fichier[1] == "champ\n"):
-                                self.DrawHeader()
-                                self.texte.SetLabel(self.fichier[2].replace("\\n","\n"))
-                                self.texte.Show()
-
-                                self.titre.SetLabel(self.fichier[3])
-                                self.titre.Show()
-
-                                self.space=self.fichier[2].count("\\n")+1
-
-                                self.champ.SetPosition((20,85+self.space*16))
-                                self.champ.SetValue(self.fichier[4].replace("\n",""))
-                                self.champ.Show()
-
-                                self.DrawCancel()
-                                self.DrawNext()
-                                wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_champ)
-                                wx.EVT_TEXT_ENTER(self, 400, self.release_champ)
-
-                            if(self.fichier[1] == "Login\n"):
-                                self.DrawHeader()
-                                self.texte.SetLabel(self.fichier[2].replace("\\n","\n"))
-                                self.texte.Show()
-
-                                self.titre.SetLabel(self.fichier[3])
-                                self.titre.Show()
-
-                                self.space=self.fichier[2].count("\\n")+1
-                                self.register_link = self.fichier[4]
-
-                                self.login.Show()
-                                self.loginbox.Show()
-                                self.password.Show()
-                                self.passbox.Show()
-                                self.register.Show()
-
-                                self.DrawCancel()
-                                self.DrawNext()
-
-                                wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_login)
-
-                            if(self.fichier[1] == "bigchamp\n"):
-                                self.DrawHeader()
-                                self.texte.SetLabel(self.fichier[2].replace("\\n","\n"))
-                                self.texte.Show()
-
-                                self.titre.SetLabel(self.fichier[3])
-                                self.titre.Show()
-
-                                self.space=self.fichier[2].count("\\n")+1
-
-                                self.bigchamp.SetPosition((20,85+self.space*16))
-                                self.bigchamp.SetValue(self.fichier[4].replace("\n",""))
-
-                                self.bigchamp.Show()
-
-                                self.DrawCancel()
-                                self.DrawNext()
-                                wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_bigchamp)
-
-                            if(self.fichier[1] == "browse\n"):
-                                self.DrawHeader()
-                                self.texte.SetLabel(self.fichier[2].replace("\\n","\n"))
-                                self.texte.Show()
-
-                                self.titre.SetLabel(self.fichier[3])
-                                self.titre.Show()
-
-                                self.space = self.fichier[2].count("\\n")+1
-
-                                self.browse.SetPosition(((330, 85+self.space*16)))
-                                self.browse.Show()
-
-                                self.champ.SetPosition((20,85+self.space*16))
-                                self.champ.SetValue(self.fichier[4].replace("\n",""))
-                                self.champ.Show()
-
-                                self.DrawCancel()
-                                self.DrawNext()
-                                wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_champ)
-
-                            if(self.fichier[1] == "menu\n" or self.fichier[1] == "menu_num\n"):
-                                self.DrawHeader()
-                                self.texte.SetLabel(self.fichier[2].replace("\\n","\n"))
-                                self.texte.Show()
-
-                                self.titre.SetLabel(self.fichier[3])
-                                self.titre.Show()
-
-                                self.space = self.fichier[2].count("\\n")+1
-                                self.cut = self.fichier[5].replace("\n","")
-                                self.areaList = string.split(self.fichier[4].replace("\n",""),self.cut)
-
-                                self.space=self.fichier[2].count("\\n")+1
-
-                                self.Menu.SetPosition((20,85+self.space*16))
-
-                                self.Menu.Clear()
-                                self.Menu.InsertItems(self.areaList,0)
-                                self.Menu.Select(0)
-                                self.Menu.Show()
-
-                                self.DrawCancel()
-                                self.DrawNext()
-
-                                # Good event
-                                if(self.fichier[1] == "menu\n"):
-                                    wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_menu)
-                                    wx.EVT_LISTBOX_DCLICK(self, 103, self.release_menu)
-                                if(self.fichier[1] == "menu_num\n"):
-                                    wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_menu_num)
-                                    wx.EVT_LISTBOX_DCLICK(self, 103, self.release_menu_num)
-
-                            if(self.fichier[1] == "menu_list\n"):
-                                self.DrawHeader()
-                                self.texte.SetLabel(self.fichier[2].replace("\\n","\n"))
-                                self.texte.Show()
-
-                                self.titre.SetLabel(self.fichier[3])
-                                self.titre.Show()
-
-                                self.space = self.fichier[2].count("\\n")+1
-                                self.cut = self.fichier[5].replace("\n","")
-                                self.areaList = string.split(self.fichier[4].replace("\n",""),self.cut)
-
-                                self.MenuList.SetPosition((20, 85+self.space*16))
-                                self.MenuList.Clear()
-                                self.MenuList.AppendItems(self.areaList)
-                                self.MenuList.Show()
-
-                                self.DrawCancel()
-                                self.DrawNext()
-
-                                if(self.fichier[6] != "\n"):
-                                    self.MenuList.SetValue(self.fichier[6].replace("\n",""))
-                                else:
-                                    self.MenuList.SetValue(self.areaList[0])
-                                wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_menu_list)
-
-
-                            if(self.fichier[1] == "checkbox_list\n"):
-                                self.DrawHeader()
-                                self.texte.SetLabel(self.fichier[2].replace("\\n","\n"))
-                                self.texte.Show()
-
-                                self.titre.SetLabel(self.fichier[3])
-                                self.titre.Show()
-
-
-                                self.scrolled_panel.Show()
-                                self.space=self.fichier[2].count("\\n")+1
-
-                                self.scrolled_panel.SetPosition((20,85+self.space*16))
-
-                                self.cut = self.fichier[5].replace("\n","")
-                                self.areaList = string.split(self.fichier[4].replace("\n",""),self.cut)
-
-                                self.i = 0
-                                try:
-                                    while(self.i <= len(self.item_check)):
-                                        self.item_check[self.i].Destroy()
-                                        self.i+=1
-                                except:
-                                    pass
-                                self.item_check = []
-                                self.i = 0
-                                while(self.i < len(self.areaList)):
-                                    self.item_check.append(wx.CheckBox(self.scrolled_panel, -1, pos=(0,(self.i*25)),label=str(self.areaList[self.i])))
-                                    self.i+=1
-
-                                self.scrolled_panel.SetVirtualSize((0,self.i*(25)))
-                                self.scrolled_panel.SetScrollRate(0,25)
-                                self.DrawCancel()
-                                self.DrawNext()
-                                wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_checkboxes)
-
-                            if(self.fichier[1] == "attendre_signal\n" or self.fichier[1] == "pulsebar\n" or self.fichier[1] == "attendre_signal_b\n"):
-                                self.DrawHeader()
-                                self.timer_attendre = wx.Timer(self, 1)
-                                self.texte.SetLabel(self.fichier[2].replace("\\n","\n"))
-                                self.texte.Show()
-
-                                self.titre.SetLabel(self.fichier[3])
-                                self.titre.Show()
-
-                                self.space=self.fichier[2].count("\\n")+1
-                                self.gauge_space = self.space
-                                if(self.fichier[1] == "attendre_signal\n" or self.fichier[1] == "attendre_signal_b\n"):
-                                    self.gauge.Show()
-                                    self.gauge.SetPosition((70,95+self.space*16))
-                                else :
-                                    self.pulsebar.Show()
-                                    self.pulsebar.SetPosition((70,95+self.space*16))
-
-                                if(self.fichier[1] == "attendre_signal_b\n"):
-                                    self.WaitButton.Show()
-                                    self.WaitButton.SetLabel(self.fichier[4].replace("\n",""))
-                                    self.WaitButton.SetPosition((135,135+self.space*16))
-                                    self.Bind(wx.EVT_BUTTON, lambda event: self.RunCommand(event,self.fichier[5].replace("\n",""),self.fichier[6].replace("\n","")),self.WaitButton)
-
-                                self.DrawCancel()
-                                self.DrawNext()
-                                self.NextButton.Enable(False)
-
-
-                            if(self.fichier[1] == "download\n"):
-                                self.DrawHeader()
-                                self.texte.SetLabel(self.fichier[2].replace("\\n","\n"))
-                                self.texte.Show()
-
-                                self.titre.SetLabel(self.fichier[3])
-                                self.titre.Show()
-
-                                self.space=self.fichier[2].count("\\n")+1
-                                self.gauge.Show()
-                                self.gauge.SetPosition((70,95+self.space*16))
-
-                                self.txtEstimation.SetPosition((20,135+self.space*16))
-                                self.txtEstimation.Show()
-                                #self.titre.SetFont(self.fontText)
-                                self.DrawCancel()
-                                self.DrawNext()
-                                self.NextButton.Enable(False)
-                                self.DownloadFile(self.fichier[4].replace("\n",""), self.fichier[5].replace("\n",""))
-                                #wx.EVT_BUTTON(self, 300, self.release)
-
-                            if(self.fichier[1] == "get_games\n"):
-                                self.DrawHeader()
-                                self.texte.SetLabel(self.fichier[2].replace("\\n","\n"))
-                                self.texte.Show()
-
-                                self.titre.SetLabel(self.fichier[3])
-                                self.titre.Show()
-
-
-                                self.add_games()
-                                self.MenuGames.Show()
-
-                                self.DrawCancel()
-                                self.DrawNext()
-                                wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_menugame)
-                                wx.EVT_TREE_ITEM_ACTIVATED(self, 111, self.release_menugame)
-
-                            if(self.fichier[1] == "menu_icons\n"):
-                                self.DrawHeader()
-                                self.texte.SetLabel(self.fichier[2].replace("\\n","\n"))
-                                self.texte.Show()
-
-                                self.titre.SetLabel(self.fichier[3])
-                                self.titre.Show()
-
-                                self.add_menu_icons()
-                                self.MenuGames.Show()
-
-                                self.DrawCancel()
-                                self.DrawNext()
-                                wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_menugame)
-                                wx.EVT_TREE_ITEM_ACTIVATED(self, 111, self.release_menugame)
-
-                            if(self.fichier[1] == "get_prefixes\n"):
-                                self.DrawHeader()
-                                self.texte.SetLabel(self.fichier[2].replace("\\n","\n"))
-                                self.texte.Show()
-
-                                self.titre.SetLabel(self.fichier[3])
-                                self.titre.Show()
-
-
-                                self.add_games()
-                                self.MenuGames.Show()
-
-                                self.space=self.fichier[2].count("\\n")+1
-
-                                self.Menu.SetPosition((20,85+self.space*16))
-
-                                self.Menu.Clear()
-                                self.areaList = os.listdir(Variables.playonlinux_rep+"/wineprefix/")
-                                self.areaList.sort()
-
-                                for file in self.areaList:
-                                    if (str(file[0]) == "."):
-                                        self.areaList.remove(file)
-
-                                self.Menu.InsertItems(self.areaList,0)
-                                self.Menu.Select(0)
-                                self.Menu.Hide()
-
-                                self.DrawCancel()
-                                self.DrawNext()
-
-                                wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_menuprefixes)
-                                wx.EVT_TREE_ITEM_ACTIVATED(self, 111, self.release_menuprefixes)
-                                wx.EVT_LISTBOX_DCLICK(self, 103, self.release_menuprefixes)
-
-                                self.PCheckBox.Show()
-
-
-                            if(self.fichier[1] == "message\n"):
-                                self.DrawHeader()
-                                self.texte.SetLabel(self.fichier[2].replace("\\n","\n"))
-                                self.texte.Show()
-                                self.titre.SetLabel(self.fichier[3])
-                                self.titre.Show()
-                                #self.titre = wx.StaticText(self.header, -1, self.fichier[3],pos=(20,30), size=(340,356))
-                                self.DrawCancel()
-                                self.DrawNext()
-                                wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release)
-
-                            if(self.fichier[1] == "licence\n"):
-                                self.DrawHeader()
-                                self.texte.SetLabel(self.fichier[2].replace("\\n","\n"))
-                                self.texte.Show()
-
-                                self.titre.SetLabel(self.fichier[3])
-                                self.titre.Show()
-
-                                #self.Mchamp.SetValue(open(self.fichier[4].replace("\n",""),"r").read())
-
-                                #
-                                try:
-                                    self.texte_panel.SetLabel(open(self.fichier[4].replace("\n",""),"r").read())
-                                except:
-                                    self.texte_panel.SetLabel("E. file not found :"+self.fichier[4].replace("\n",""))
-
-                                self.texte_panel.Wrap(400)
-                                self.texte_panel.Show()
-
-                                self.scrolled_panel.Show()
-                                self.scrolled_panel.SetVirtualSize(self.texte_panel.GetSize())
-                                self.scrolled_panel.SetScrollRate(0,25)
-
-                                self.MCheckBox.Show()
-
-                                self.DrawCancel()
-                                self.DrawNext()
-                                self.NextButton.Enable(False)
-                                wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release)
-
-
-                            if(self.fichier[1] == "file\n"):
-                                self.DrawHeader()
-                                self.texte.SetLabel(self.fichier[2].replace("\\n","\n"))
-                                self.texte.Show()
-
-                                self.titre.SetLabel(self.fichier[3])
-                                self.titre.Show()
-
-                                self.texte_panel.SetLabel(open(self.fichier[4].replace("\n",""),"r").read())
-                                self.texte_panel.Wrap(400)
-                                self.texte_panel.Show()
-
-                                self.scrolled_panel.Show()
-                                self.scrolled_panel.SetVirtualSize(self.texte_panel.GetSize())
-                                self.scrolled_panel.SetScrollRate(0,25)
-
-                                self.DrawCancel()
-                                self.DrawNext()
-                                wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release)
-
-                            if(self.fichier[1] == "question\n"):
-                                self.DrawHeader()
-                                self.texte.SetLabel(self.fichier[2].replace("\\n","\n"))
-                                self.texte.Show()
-
-                                self.titre.SetLabel(self.fichier[3])
-                                self.titre.Show()
-
-                                #self.titre.SetFont(self.fontText)
-                                self.YesButton.Show()
-                                self.NoButton.Show()
-
-                            if(self.fichier[1] == "free_presentation\n"):
-                                self.MainPanel.Show()
-                                self.titreP.SetLabel(self.fichier[2])
-                                self.titreP.Wrap(280)
-
-                                self.texteP.SetLabel(self.fichier[3].replace("\\n","\n").decode("utf8"))
-                                self.texteP.Wrap(360)
-                                self.texteP.Show()
-
-                                self.DrawCancel()
-                                self.DrawNext()
-
-                                wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release)
-                                self.DrawImage()
-
-                            if(self.fichier[1] == "exit\n"):
-                                #self.Destroy()
-                                self.CleanExit()
-
-                        self.oldfichier = self.fichier
