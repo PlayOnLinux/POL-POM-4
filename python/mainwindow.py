@@ -115,7 +115,8 @@ class MainWindow(wx.Frame):
     def __init__(self,parent,id,title):
 
         wx.Frame.__init__(self, parent, 1000, title, size = (515,450))
-        self.POLServer = gui_server.gui_server()
+        self.windowList = {}
+        self.POLServer = gui_server.gui_server(self)
         self.POLServer.start()
         self.SetMinSize((400,400))
 
