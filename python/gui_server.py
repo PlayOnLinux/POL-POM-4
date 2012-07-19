@@ -22,7 +22,7 @@ class gui_server(threading.Thread):
     def __init__(self, parent): 
         threading.Thread.__init__(self)
         self._host = '127.0.0.1'
-        self._port = 30001
+        self._port = 30002
         self._running = True
         # This dictionnary will contain every created setup window
         self.parent = parent

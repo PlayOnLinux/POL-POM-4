@@ -118,12 +118,7 @@ class MainWindow(wx.Frame):
 
         self.windowList = {}
 
-        # Other threads
-        
-        # Gui Server
-        self.POLServer = gui_server.gui_server(self)
-        self.POLServer.start()
-        
+
         # Manage updater
         self.updater = POLWeb()
         self.updater.start()
@@ -1042,8 +1037,7 @@ class PlayOnLinuxApp(wx.App):
         exe_present = False
 
         self.systemCheck()
-        os.system("bash "+Variables.playonlinux_env+"/bash/startup")
-
+        
         for f in  sys.argv[1:]:
             self.MacOpenFile(f)
             if(".exe" in f or ".EXE" in f):
@@ -1055,11 +1049,16 @@ class PlayOnLinuxApp(wx.App):
 
         self.SetClassName(os.environ["APPLICATION_TITLE"])
         self.SetAppName(os.environ["APPLICATION_TITLE"])
-        #self.icon = wx.TaskBarIcon()
-        #self.icon.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonmac.png", wx.BITMAP_TYPE_ANY))
+
         self.frame = MainWindow(None, -1, os.environ["APPLICATION_TITLE"])
+        
+        # Gui Server
+        self.POLServer = gui_server.gui_server(self.frame)
+        self.POLServer.start()
+        
+        os.system("bash "+Variables.playonlinux_env+"/bash/startup")
+
         self.SetTopWindow(self.frame)
-        #self.frame.Center(wx.BOTH)
         self.frame.Show(True)
 
         return True
@@ -1080,7 +1079,6 @@ class PlayOnLinuxApp(wx.App):
             wx.MessageBox(_("{0} cannot find {1}.\n\n"+message).format(os.environ["APPLICATION_TITLE"],package),_("Error"))
             if(fatal == True):
                 os._exit(0)
-
     def systemCheck(self):
         #### Root uid check
         if(os.popen("id -u").read() == "0\n" or os.popen("id -u").read() == "0"):
