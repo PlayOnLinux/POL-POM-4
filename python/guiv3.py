@@ -469,6 +469,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.scrolled_panel.SetScrollRate(0,25)
         self.DrawCancel()
         self.DrawNext()
+        self.separator = cut
         wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_checkboxes)
 
 
@@ -622,13 +623,13 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.NextButton.Enable(False)
 
     def release_checkboxes(self, event):
-        self.i = 0
-        self.send = []
-        while(self.i < len(self.item_check)):
-            if(self.item_check[self.i].IsChecked() == True):
-                self.send.append(self.areaList[self.i])
-            self.i += 1
-        self.SendBash("MSG_VALUE="+string.join(self.send,self.fichier[5].replace("\n","")))
+        i = 0
+        send = []
+        while(i < len(self.item_check)):
+            if(self.item_check[i].IsChecked() == True):
+                send.append(self.areaList[i])
+            i += 1
+        self.SendBash(string.join(send,self.separator))
         self.NextButton.Enable(False)
 
     def release_yes(self, event):
