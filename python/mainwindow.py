@@ -982,6 +982,7 @@ class PlayOnLinuxApp(wx.App):
         exe_present = False
 
         self.systemCheck()
+        os.system("bash "+Variables.playonlinux_env+"/bash/startup")
 
         for f in  sys.argv[1:]:
             self.MacOpenFile(f)
@@ -1018,7 +1019,7 @@ class PlayOnLinuxApp(wx.App):
         if(returncode != 0):
             wx.MessageBox(_("{0} cannot find {1}.\n\n"+message).format(os.environ["APPLICATION_TITLE"],package),_("Error"))
             if(fatal == True):
-                os._exit(1)
+                os._exit(0)
 
     def systemCheck(self):
         #### Root uid check

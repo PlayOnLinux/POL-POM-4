@@ -22,7 +22,6 @@ import wx, wx.animate, os, getopt, sys, urllib, signal, time, string, urlparse, 
 from subprocess import Popen,PIPE
 import lib.Variables as Variables
 import lib.lng
-import lib.DirTreeCtrl as DirTreeCtrl
 lib.lng.Lang()
 
 
