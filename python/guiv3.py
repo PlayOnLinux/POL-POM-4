@@ -343,6 +343,9 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.NextButton.Enable(False)
         self.animation.Show()
         self.animation.Play()
+        self.DrawCancel()
+        self.DrawNext()
+        self.NextButton.Enable(False)
         self.SendBash()
         
     def POL_SetupWindow_wait_b(self, message, title, button_value, command, alert):

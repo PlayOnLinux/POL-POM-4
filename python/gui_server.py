@@ -77,7 +77,6 @@ class gui_server(threading.Thread):
         self.i = 0
      
         while self._running:
-            print('Running on port ' + str(self._port) + ' ... ')
             self.connection, self.addr = self.acceptor.accept()
             thread.start_new_thread(self.handler, (self.connection,self.addr))
             self.i += 1

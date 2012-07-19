@@ -29,6 +29,11 @@ POL_Untab()
 {
 	echo "${1//	/\\t}"
 }
+ncs()
+{
+	# Silent netcat
+	nc "$@" > /dev/null 2> /dev/null
+}
 POL_SetupWindow_Init ()
 {
 	# Open PlayOnLinux setup window. Should be use only once in a script !
@@ -48,7 +53,7 @@ POL_SetupWindow_Init ()
 	[ "$arg2" = "" ] && arg2="None"
 	[ "$arg3" = "" ] && arg3="None"
 	
-	echo "POL_SetupWindow_Init	$$	$arg1	$arg2	$arg3" | nc "$POL_HOST" "$POL_PORT"
+	echo "POL_SetupWindow_Init	$$	$arg1	$arg2	$arg3" | ncs "$POL_HOST" "$POL_PORT"
 	
 	export SETUPWINDOW_INIT="true"
 }
@@ -59,7 +64,7 @@ POL_SetupWindow_Close ()
 	# Should be used at the end of the script if POL_SetupWindow_Init has been called
 	# Usage: POL_SetupWindow_Close
 
-	echo "POL_SetupWindow_Close	$$" | nc "$POL_HOST" "$POL_PORT"
+	echo "POL_SetupWindow_Close	$$" | ncs "$POL_HOST" "$POL_PORT"
 }
 
 POL_SetupWindow_presentation ()
@@ -75,14 +80,14 @@ POL_SetupWindow_free_presentation ()
 	# Free presentation for a script
 	# Usage POL_SetupWindow_free_presentation [title] [message]
 	
-	echo "POL_SetupWindow_free_presentation	$$	$(POL_Untab "$1")	$(POL_Untab "$2")" | nc "$POL_HOST" "$POL_PORT"
+	echo "POL_SetupWindow_free_presentation	$$	$(POL_Untab "$1")	$(POL_Untab "$2")" | ncs "$POL_HOST" "$POL_PORT"
 }
 POL_SetupWindow_message ()
 {
 	# Shows a simple message
 	# Usage POL_SetupWindow_message [message] [title]
 	
-	echo "POL_SetupWindow_message	$$	$(POL_Untab "$1")	$(POL_Untab "$2")" | nc "$POL_HOST" "$POL_PORT"
+	echo "POL_SetupWindow_message	$$	$(POL_Untab "$1")	$(POL_Untab "$2")" | ncs "$POL_HOST" "$POL_PORT"
 }
 POL_SetupWindow_missing ()
 {
@@ -134,7 +139,7 @@ POL_SetupWindow_wait_next_signal ()
 	# Shows a pulsebar
 	# Usage POL_SetupWindow_wait_next_signal [message] [title]
 
-	echo "POL_SetupWindow_wait	$$	$(POL_Untab "$1")	$(POL_Untab "$2")" | nc "$POL_HOST" "$POL_PORT"
+	echo "POL_SetupWindow_wait	$$	$(POL_Untab "$1")	$(POL_Untab "$2")" | ncs "$POL_HOST" "$POL_PORT"
 }
 POL_SetupWindow_wait_button ()
 {
@@ -142,7 +147,7 @@ POL_SetupWindow_wait_button ()
 	# Shows a pulsebar
 	# Usage POL_SetupWindow_wait_next_signal [message] [title] [Button text] [Command] [Confirm message (0 = No confirmation needed)]
 	
-	echo "POL_SetupWindow_wait_bis	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	export PLAYONLINUX="$PLAYONLINUX" ; export WINEPREFIX="$WINEPREFIX" ; export PATH="$PATH" ; export LD_LIBRARY_PATH="$LD_LIBRARY_PATH" ; $4	$5" | nc "$POL_HOST" "$POL_PORT"
+	echo "POL_SetupWindow_wait_bis	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	export PLAYONLINUX="$PLAYONLINUX" ; export WINEPREFIX="$WINEPREFIX" ; export PATH="$PATH" ; export LD_LIBRARY_PATH="$LD_LIBRARY_PATH" ; $4	$5" | ncs "$POL_HOST" "$POL_PORT"
 	
 }
 POL_SetupWindow_pulsebar ()
@@ -199,6 +204,7 @@ POL_SetupWindow_download ()
 	# /!\ Scriptors should directly use POL_Download
 	
 	Result="$(echo "POL_SetupWindow_download	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	$PWD/" | nc "$POL_HOST" "$POL_PORT")"
+	# FIXME: Result should send 'fail' if the download has failed. Maybe we could catch it
 }
 
 POL_SetupWindow_textbox ()
@@ -216,33 +222,7 @@ POL_SetupWindow_browse ()
 	# Usage: POL_SetupWindow_browse [message] [title] [default value]
 	# Result is sent in $APP_ANSWER variable
 	
-	
-	TIMESTAMP="$(date +%s)"
-	cat << EOF > "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-MsgIn
-browse
-$1
-$2
-$3
-$PWD
-$TIMESTAMP
-EOF
-	MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$') 
-	while [ ! "$MESSAGE" = "MsgOut" ]
-	do
-		MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$') 
-		sleep 0.1
-	done
-	MESSAGE_BIS=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MSG_RECEIVED=')
-	if [ "$MESSAGE_BIS" = "MSG_RECEIVED=Cancel" ]
-	then
-		rm "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-		exit 
-	else
-		MESSAGE_TER=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MSG_VALUE=')
-		MESSAGE_TER=${MESSAGE_TER:10}
-		export APP_ANSWER="$MESSAGE_TER"
-	fi
+	APP_ANSWER="$(echo "POL_SetupWindow_browse	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3" | nc "$POL_HOST" "$POL_PORT")"
 }
 POL_SetupWindow_question ()
 {
@@ -416,7 +396,113 @@ EOF
 		fi
 	fi
 }
+POL_SetupWindow_login ()
+{
+	# This function shows a login windows for PlayOnLinux's website
+	# Usage: POL_SetupWindow_login "Message" "Title" "Register link"
+	
+	if [ "$POL_OS" = "Mac" ]; then
+		register_link="http://www.playonmac.com/en/register.html"
+	else
+		register_link="http://www.playonlinux.com/en/register.html"
+	fi
+	[ "$3" = "" ] || register_link="$3"
+	
+	cat << EOF > "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
+MsgIn
+Login
+$1
+$2
+$register_link
+EOF
+		
+	MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$' 2> /dev/null)
+	while [ ! "$MESSAGE" = "MsgOut" ]
+	do
+		[ ! -e "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" ] && exit
+		MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$' 2> /dev/null)
+		sleep 0.1
+	done
+	MESSAGE_BIS=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MSG_RECEIVED=' 2> /dev/null)
+	if [ "$MESSAGE_BIS" = "MSG_RECEIVED=Cancel" ]
+	then
+		rm "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
+		exit 
+	else
+		MESSAGE_TER=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^LOGIN=' 2> /dev/null)
+		MESSAGE_TER=${MESSAGE_TER:6}
+		export POL_LOGIN="$MESSAGE_TER"
+		
+		MESSAGE_TER=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^PASS=' 2> /dev/null)
+		MESSAGE_TER=${MESSAGE_TER:5}
+		export POL_PASSWORD="$MESSAGE_TER"
+		
+		
+	fi
+}
+POL_SetupWindow_file ()
+{
+	# Shows the content of a file
+	# Usage: POL_SetupWindow_file [message] [title] [file]
+	
+	if [ -f "$3" ]
+	then
+		cat << EOF > "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
+MsgIn
+file
+$1
+$2
+$3
+EOF
+		MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$' 2> /dev/null)
+		while [ ! "$MESSAGE" = "MsgOut" ]
+		do
+			[ ! -e "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" ] && exit
+			MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$' 2> /dev/null)
+			sleep 0.1
+		done
+		MESSAGE_BIS=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MSG_RECEIVED=' 2> /dev/null)
+		if [ "$MESSAGE_BIS" = "MSG_RECEIVED=Cancel" ]
+		then
+			rm "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
+			exit 
+		fi
+	fi
+}
+POL_SetupWindow_textbox_multiline ()
+{
+	# Same than POL_SetupWindow_textbox, except that it accepts multiline
+	# Usage: POL_SetupWindow_textbox_multiline [message] [title] [default value]
+	
+	cat << EOF > "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
+MsgIn
+bigchamp
+$1
+$2
+$3
+EOF
+		
+	MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$' 2> /dev/null)
+	while [ ! "$MESSAGE" = "MsgOut" ]
+	do
+		[ ! -e "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" ] && exit
+		MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$' 2> /dev/null)
+		sleep 0.1
+	done
+	MESSAGE_BIS=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MSG_RECEIVED=' 2> /dev/null)
+	if [ "$MESSAGE_BIS" = "MSG_RECEIVED=Cancel" ]
+	then
+		rm "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
+		exit 
+	else
+		MESSAGE_TER=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID.txt")
+		export APP_ANSWER="$MESSAGE_TER"
+	fi
+}
 
+
+
+# Higher level functions
 POL_SetupWindow_cdrom () 
 {
 	# Shows the cd-rom list to the user
@@ -628,115 +714,8 @@ POL_SetupWindow_InitWithImages ()
 {
 	# This function is identical than POL_SetupWindow_Init, excepts that it uses images defined in POL_GetSetupImages
 	# Usage: POL_SetupWindow_InitWithImages
-	POL_SetupWindow_Init "$POL_SetupWindow_TopImage" "$POL_SetupWindow_LeftImage"
+	POL_SetupWindow_Init "$@"
 }
-
-
-
-POL_SetupWindow_login ()
-{
-	# This function shows a login windows for PlayOnLinux's website
-	# Usage: POL_SetupWindow_login "Message" "Title" "Register link"
-	
-	if [ "$POL_OS" = "Mac" ]; then
-		register_link="http://www.playonmac.com/en/register.html"
-	else
-		register_link="http://www.playonlinux.com/en/register.html"
-	fi
-	[ "$3" = "" ] || register_link="$3"
-	
-	cat << EOF > "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-MsgIn
-Login
-$1
-$2
-$register_link
-EOF
-		
-	MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$' 2> /dev/null)
-	while [ ! "$MESSAGE" = "MsgOut" ]
-	do
-		[ ! -e "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" ] && exit
-		MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$' 2> /dev/null)
-		sleep 0.1
-	done
-	MESSAGE_BIS=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MSG_RECEIVED=' 2> /dev/null)
-	if [ "$MESSAGE_BIS" = "MSG_RECEIVED=Cancel" ]
-	then
-		rm "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-		exit 
-	else
-		MESSAGE_TER=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^LOGIN=' 2> /dev/null)
-		MESSAGE_TER=${MESSAGE_TER:6}
-		export POL_LOGIN="$MESSAGE_TER"
-		
-		MESSAGE_TER=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^PASS=' 2> /dev/null)
-		MESSAGE_TER=${MESSAGE_TER:5}
-		export POL_PASSWORD="$MESSAGE_TER"
-		
-		
-	fi
-}
-POL_SetupWindow_file ()
-{
-	# Shows the content of a file
-	# Usage: POL_SetupWindow_file [message] [title] [file]
-	
-	if [ -f "$3" ]
-	then
-		cat << EOF > "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-MsgIn
-file
-$1
-$2
-$3
-EOF
-		MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$' 2> /dev/null)
-		while [ ! "$MESSAGE" = "MsgOut" ]
-		do
-			[ ! -e "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" ] && exit
-			MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$' 2> /dev/null)
-			sleep 0.1
-		done
-		MESSAGE_BIS=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MSG_RECEIVED=' 2> /dev/null)
-		if [ "$MESSAGE_BIS" = "MSG_RECEIVED=Cancel" ]
-		then
-			rm "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-			exit 
-		fi
-	fi
-}
-POL_SetupWindow_textbox_multiline ()
-{
-	# Same than POL_SetupWindow_textbox, except that it accepts multiline
-	# Usage: POL_SetupWindow_textbox_multiline [message] [title] [default value]
-	
-	cat << EOF > "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-MsgIn
-bigchamp
-$1
-$2
-$3
-EOF
-		
-	MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$' 2> /dev/null)
-	while [ ! "$MESSAGE" = "MsgOut" ]
-	do
-		[ ! -e "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" ] && exit
-		MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$' 2> /dev/null)
-		sleep 0.1
-	done
-	MESSAGE_BIS=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MSG_RECEIVED=' 2> /dev/null)
-	if [ "$MESSAGE_BIS" = "MSG_RECEIVED=Cancel" ]
-	then
-		rm "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-		exit 
-	else
-		MESSAGE_TER=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID.txt")
-		export APP_ANSWER="$MESSAGE_TER"
-	fi
-}
-
 
 process_POL_SetupWindow_show_exe ()
 {
