@@ -473,7 +473,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_checkboxes)
 
 
-    def POL_SetupWindow_games(self, message, title):
+    def POL_SetupWindow_shortcut_list(self, message, title):
         self.Destroy_all()
         self.DrawDefault(message, title)
 
@@ -694,29 +694,29 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
             wx.MessageBox(_("You cannot close this window").format(os.environ["APPLICATION_TITLE"]),_("Error"))
 
     def add_games(self):
-        self.games = os.listdir(Variables.playonlinux_rep+"/shortcuts/")
-        self.games.sort()
+        apps = os.listdir(Variables.playonlinux_rep+"/shortcuts/")
+        apps.sort()
         self.images.RemoveAll()
         self.MenuGames.DeleteAllItems()
         self.root = self.MenuGames.AddRoot("")
-        self.i = 0
-        for game in self.games:
-            file_icon = Variables.playonlinux_rep+"/shortcuts/"+game
-            if(not os.path.isdir(self.file)):
-                fichier = open(self.file,"r").read()
+        i = 0
+        for app in apps:
+            appfile = Variables.playonlinux_rep+"/shortcuts/"+app
+            if(not os.path.isdir(appfile)):
+                fichier = open(appfile,"r").read()
 
                 if("POL_Wine " in fichier):
-                    if(os.path.exists(Variables.playonlinux_rep+"/icones/32/"+game)):
-                        file_icon = Variables.playonlinux_rep+"/icones/32/"+game
+                    if(os.path.exists(Variables.playonlinux_rep+"/icones/32/"+app)):
+                        file_icon = Variables.playonlinux_rep+"/icones/32/"+app
                     else:
                         file_icon = Variables.playonlinux_env+"/etc/playonlinux32.png"
 
-                    self.bitmap = wx.Image(file_icon)
-                    self.bitmap.Rescale(22,22,wx.IMAGE_QUALITY_HIGH)
-                    self.bitmap = self.bitmap.ConvertToBitmap()
-                    self.images.Add(self.bitmap)
-                    self.MenuGames.AppendItem(self.root, game, self.i)
-                    self.i = self.i+1
+                    bitmap = wx.Image(file_icon)
+                    bitmap.Rescale(22,22,wx.IMAGE_QUALITY_HIGH)
+                    bitmap = bitmap.ConvertToBitmap()
+                    self.images.Add(bitmap)
+                    self.MenuGames.AppendItem(self.root, app, i)
+                    i += 1
 
 
     def add_menu_icons(self, items, cut, icon_list, icon_folder):
