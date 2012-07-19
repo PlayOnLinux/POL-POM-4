@@ -107,30 +107,7 @@ POL_SetupWindow_licence ()
 {
 	# Shows a licence file, and force the user to accept it to continue
 	# Usage POL_SetupWindow_licence [message] [title] [licence's file]
-if [ -f "$3" ]
-then
-		TIMESTAMP="$(date +%s)"
-		cat << EOF > "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-MsgIn
-licence
-$1
-$2
-$3
-$TIMESTAMP
-EOF
-		MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$') 
-		while [ ! "$MESSAGE" = "MsgOut" ]
-		do
-			MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$') 
-			sleep 0.1
-		done
-		MESSAGE_BIS=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MSG_RECEIVED=')
-		if [ "$MESSAGE_BIS" = "MSG_RECEIVED=Cancel" ]
-		then
-			rm "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-			exit 
-		fi
-	fi
+	echo "POL_SetupWindow_licence	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3" | ncs "$POL_HOST" "$POL_PORT"
 }
 
 POL_SetupWindow_wait_next_signal ()
