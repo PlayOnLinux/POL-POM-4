@@ -480,13 +480,6 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         wx.EVT_TREE_ITEM_ACTIVATED(self, 111, self.release_menugame)
 
     def POL_SetupWindow_icon_menu(self, message, title, items, cut, icon_folder, icon_list):
-        print message
-        print title
-        print items
-        print cut
-        print icon_list
-        print icon_folder
-        
         self.Destroy_all()
         self.DrawDefault(message, title)
 
