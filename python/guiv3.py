@@ -471,11 +471,6 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.DrawNext()
         wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_checkboxes)
 
-        self.DrawCancel()
-        self.DrawNext()
-        self.NextButton.Enable(False)
-
-
 
     def POL_SetupWindow_games(self, message, title):
         self.Destroy_all()

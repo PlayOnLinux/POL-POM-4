@@ -477,6 +477,10 @@ class MainWindow(wx.Frame):
                 if(len(self.SetupWindowTimer_action) == 6):
                     self.windowList[self.SetupWindowTimer_action[1]].POL_SetupWindow_menu(self.SetupWindowTimer_action[2],self.SetupWindowTimer_action[3],self.SetupWindowTimer_action[4],self.SetupWindowTimer_action[5], True)
             
+            if(self.SetupWindowTimer_action[0] == 'POL_SetupWindow_checkbox_list'):
+                if(len(self.SetupWindowTimer_action) == 6):
+                    self.windowList[self.SetupWindowTimer_action[1]].POL_SetupWindow_checkbox_list(self.SetupWindowTimer_action[2],self.SetupWindowTimer_action[3],self.SetupWindowTimer_action[4],self.SetupWindowTimer_action[5])
+            
             if(self.SetupWindowTimer_action[0] == 'POL_SetupWindow_icon_menu'):
                 if(len(self.SetupWindowTimer_action) == 8):
                     self.windowList[self.SetupWindowTimer_action[1]].POL_SetupWindow_icon_menu(self.SetupWindowTimer_action[2],self.SetupWindowTimer_action[3],self.SetupWindowTimer_action[4],self.SetupWindowTimer_action[5], self.SetupWindowTimer_action[6], self.SetupWindowTimer_action[7])
