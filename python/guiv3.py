@@ -333,7 +333,6 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.DrawNext()
         self.NextButton.Enable(False)
         self.DownloadFile(url, localfile)
-        self.SendBash()
 
     def POL_SetupWindow_wait(self, message, title):
         self.Destroy_all()
