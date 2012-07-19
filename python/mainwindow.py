@@ -117,8 +117,7 @@ class MainWindow(wx.Frame):
         self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
 
         self.windowList = {}
-
-
+        
         # Manage updater
         self.updater = POLWeb()
         self.updater.start()
@@ -1002,7 +1001,7 @@ class MainWindow(wx.Frame):
             playonlinux.SetSettings("PANEL_SIZE",str(self.mySize))
             playonlinux.SetSettings("PANEL_POSITION",str(self.myPosition))
             
-            self.POLServer.closeServer()
+            app.POLServer.closeServer()
             os._exit(0)
         return None
 
@@ -1055,14 +1054,14 @@ class PlayOnLinuxApp(wx.App):
         # Gui Server
         self.POLServer = gui_server.gui_server(self.frame)
         self.POLServer.start()
-        
-        os.system("bash "+Variables.playonlinux_env+"/bash/startup")
+    
 
         self.SetTopWindow(self.frame)
         self.frame.Show(True)
 
+        os.system("bash "+Variables.playonlinux_env+"/bash/startup")
+        
         return True
-
     def singleCheck(self, package, fatal=True):
         devnull = open('/dev/null', 'wb')
         try:
