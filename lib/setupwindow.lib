@@ -27,7 +27,7 @@ export POL_HOST="127.0.0.1"
 
 POL_Untab()
 {
-	echo "${1//\\t/\\\\t}"
+	echo "${1//	/\\t}"
 }
 POL_SetupWindow_Init ()
 {

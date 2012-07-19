@@ -197,7 +197,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         # Set the timer
         self.timer = wx.Timer(self, 3)
         self.Bind(wx.EVT_TIMER, self.TimerAction, self.timer)
-        self.timer.Start(1000)
+        self.timer.Start(100)
         self.Timer_downloading = False
 
         
@@ -674,8 +674,6 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
     def Cancel(self, event):
         if(self.ProtectedWindow == False):
-            self.animator.Destroy()
-            time.sleep(0.5)
             self.Destroy()
             time.sleep(0.1)
             os.system("kill -9 -"+self.bash_pid+" 2> /dev/null")
