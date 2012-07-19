@@ -60,13 +60,14 @@ class gui_server(threading.Thread):
             try:
                 result = self.parent.windowList[pid].getResult()
             except: # Object is destroyed
-                pass
+                break
             time.sleep(0.1) 
         
         return result
 
     def interact(self, recvData):
        self.parent.SetupWindowTimer_SendToGui(recvData)
+       time.sleep(0.2)
        return(str(self.waitRelease(recvData.split("\t")[1])))
 
               
