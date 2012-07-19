@@ -396,12 +396,19 @@ class MainWindow(wx.Frame):
         wx.EVT_TREE_ITEM_ACTIVATED(self, 105, self.Run)
         wx.EVT_TREE_SEL_CHANGED(self, 105, self.Select)
 
-        # Main PlayOnLinux timer
+
+        # PlayOnLinux main timer
         self.timer = wx.Timer(self, 1)
         self.Bind(wx.EVT_TIMER, self.TimerAction, self.timer)
         self.timer.Start(1000)
         self.Timer_LastShortcutList = None
         self.Timer_LastIconList = None
+  
+        # SetupWindow timer. The server is in another thread and GUI must be run from the main thread
+        self.SetupWindowTimer = wx.Timer(self, 2)
+        self.Bind(wx.EVT_TIMER, self.SetupWindowAction, self.SetupWindowTimer)
+        self.SetupWindowTimer_action = None
+        self.SetupWindowTimer.Start(10)
         
         #Pop-up menu for game list: beginning
         wx.EVT_TREE_ITEM_MENU(self, 105, self.RMBInGameList)
@@ -414,6 +421,73 @@ class MainWindow(wx.Frame):
         wx.EVT_MENU(self, 236, self.ReadMe)
         self.MgrAddPage()
 
+    def SetupWindowTimer_SendToGui(self, recvData):
+        recvData = recvData.split("\t")
+        while(self.SetupWindowTimer_action != None):
+            time.sleep(0.1)
+        self.SetupWindowTimer_action = recvData
+        
+    def SetupWindowAction(self, event):
+        if(self.SetupWindowTimer_action != None):
+            if(self.SetupWindowTimer_action[0] == 'POL_SetupWindow_Init'):
+                if(len(self.SetupWindowTimer_action) == 5):
+                    self.windowList[self.SetupWindowTimer_action[1]] = gui.POL_SetupFrame(os.environ["APPLICATION_TITLE"],self.SetupWindowTimer_action[1],self.SetupWindowTimer_action[2],self.SetupWindowTimer_action[3],self.SetupWindowTimer_action[4])
+                    self.windowList[self.SetupWindowTimer_action[1]].Center(wx.BOTH)
+                    self.windowList[self.SetupWindowTimer_action[1]].Show(True)
+
+            if(self.SetupWindowTimer_action[0] == 'POL_SetupWindow_message'):
+                 if(len(self.SetupWindowTimer_action) == 4):
+                     self.windowList[self.SetupWindowTimer_action[1]].POL_SetupWindow_message(self.SetupWindowTimer_action[2],self.SetupWindowTimer_action[3])
+
+            if(self.SetupWindowTimer_action[0] == 'POL_SetupWindow_question'):
+                if(len(self.SetupWindowTimer_action) == 4):
+                    self.windowList[self.SetupWindowTimer_action[1]].POL_SetupWindow_question(self.SetupWindowTimer_action[2],self.SetupWindowTimer_action[3])
+                    return(self.waitRelease(self.SetupWindowTimer_action[1]))
+
+            if(self.SetupWindowTimer_action[0] == 'POL_SetupWindow_wait'):
+                if(len(self.SetupWindowTimer_action) == 4):
+                    self.windowList[self.SetupWindowTimer_action[1]].POL_SetupWindow_wait(self.SetupWindowTimer_action[2],self.SetupWindowTimer_action[3])
+
+            if(self.SetupWindowTimer_action[0] == 'POL_SetupWindow_wait_bis'):
+                if(len(self.SetupWindowTimer_action) == 7):
+                    self.windowList[self.SetupWindowTimer_action[1]].POL_SetupWindow_wait_b(self.SetupWindowTimer_action[2],self.SetupWindowTimer_action[3],self.SetupWindowTimer_action[4],self.SetupWindowTimer_action[5],self.SetupWindowTimer_action[6])
+
+            if(self.SetupWindowTimer_action[0] == 'POL_SetupWindow_free_presentation'):
+                if(len(self.SetupWindowTimer_action) == 4):
+                    self.windowList[self.SetupWindowTimer_action[1]].POL_SetupWindow_free_presentation(self.SetupWindowTimer_action[3],self.SetupWindowTimer_action[2])
+
+            if(self.SetupWindowTimer_action[0] == 'POL_SetupWindow_textbox'):
+                if(len(self.SetupWindowTimer_action) == 5):
+                    self.windowList[self.SetupWindowTimer_action[1]].POL_SetupWindow_textbox(self.SetupWindowTimer_action[2],self.SetupWindowTimer_action[3],self.SetupWindowTimer_action[4])
+
+            if(self.SetupWindowTimer_action[0] == 'POL_SetupWindow_download'):
+                if(len(self.SetupWindowTimer_action) == 6):
+                    self.windowList[self.SetupWindowTimer_action[1]].POL_SetupWindow_download(self.SetupWindowTimer_action[2],self.SetupWindowTimer_action[3],self.SetupWindowTimer_action[4],self.SetupWindowTimer_action[5])
+
+            if(self.SetupWindowTimer_action[0] == 'POL_SetupWindow_Close'):
+                if(len(self.SetupWindowTimer_action) == 2):
+                    self.windowList[self.SetupWindowTimer_action[1]].Destroy()
+
+            if(self.SetupWindowTimer_action[0] == 'POL_SetupWindow_menu'):
+                if(len(self.SetupWindowTimer_action) == 6):
+                    self.windowList[self.SetupWindowTimer_action[1]].POL_SetupWindow_menu(self.SetupWindowTimer_action[2],self.SetupWindowTimer_action[3],self.SetupWindowTimer_action[4],self.SetupWindowTimer_action[5], False)
+
+            if(self.SetupWindowTimer_action[0] == 'POL_SetupWindow_menu_num'):
+                if(len(self.SetupWindowTimer_action) == 6):
+                    self.windowList[self.SetupWindowTimer_action[1]].POL_SetupWindow_menu(self.SetupWindowTimer_action[2],self.SetupWindowTimer_action[3],self.SetupWindowTimer_action[4],self.SetupWindowTimer_action[5], True)
+            self.SetupWindowTimer_action = None
+           
+    def TimerAction(self, event):
+        self.StatusRead()
+        
+        # We read shortcut folder to see if it has to be rescanned
+        currentShortcuts = os.listdir(Variables.playonlinux_rep+"/shortcuts")
+        currentIcons = os.listdir(Variables.playonlinux_rep+"/icones/32")
+        if(currentShortcuts != self.Timer_LastShortcutList or currentIcons != self.Timer_LastIconList):
+            self.Reload(self)
+            self.Timer_LastShortcutList = currentShortcuts
+            self.Timer_LastIconList = currentIcons
+            
     def MgrAddPage(self):
         try:
             self.LoadSize = int(playonlinux.GetSettings("PANEL_SIZE"))
@@ -524,9 +598,6 @@ class MainWindow(wx.Frame):
         self.GameListPopUpMenu.AppendItem(self.ChangeIcon)
 
         self.PopupMenu(self.GameListPopUpMenu, event.GetPoint())
-    #if(len(sys.argv) >= 1):
-
-    #wx.MessageBox(str(sys.argv), "PlayOnLinux", wx.OK)
 
 
     def RWineConfigurator(self, event):
@@ -853,17 +924,6 @@ class MainWindow(wx.Frame):
             os.system("bash \""+Variables.playonlinux_env+"/bash/uninstall\" \""+game_exec.encode("utf-8","replace")+"\"&")
         else:
             wx.MessageBox(_("Please select a program."), os.environ["APPLICATION_TITLE"])
-
-    def TimerAction(self, event):
-        self.StatusRead()
-        
-        # We read shortcut folder to see if it has to be rescanned
-        currentShortcuts = os.listdir(Variables.playonlinux_rep+"/shortcuts")
-        currentIcons = os.listdir(Variables.playonlinux_rep+"/icones/32")
-        if(currentShortcuts != self.Timer_LastShortcutList or currentIcons != self.Timer_LastIconList):
-            self.Reload(self)
-            self.Timer_LastShortcutList = currentShortcuts
-            self.Timer_LastIconList = currentIcons
 
     def InstallMenu(self, event):
         try:

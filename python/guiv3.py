@@ -224,8 +224,8 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
         # Hide all
         self.Destroy_all()
-
-
+        self.Result = "ok"
+        
     def Destroy_all(self):
         self.Result = None
         self.header.Hide()
@@ -619,7 +619,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
     def DrawNext(self):
         self.NextButton.Show()
 
-    def SendBash(self, var):
+    def SendBash(self, var="Ok"):
         self.Result = var
 
     def SendBashT(self, var):

@@ -55,68 +55,14 @@ class gui_server(threading.Thread):
                 result = self.parent.windowList[pid].getResult()
             except: # Object is destroyed
                 break
-            time.sleep(0.1) ## FIXME
+                time.sleep(0.1) 
         
         return result
 
     def interact(self, recvData):
-       print recvData
-       recvData = recvData.split("\t")
-
-       if(recvData[0] == 'POL_SetupWindow_Init'):
-            if(len(recvData) == 5):
-                self.parent.windowList[recvData[1]] = gui.POL_SetupFrame(os.environ["APPLICATION_TITLE"],recvData[1],recvData[2],recvData[3],recvData[4])
-                self.parent.windowList[recvData[1]].Center(wx.BOTH)
-                self.parent.windowList[recvData[1]].Show(True)
-
-       if(recvData[0] == 'POL_SetupWindow_message'):
-            if(len(recvData) == 4):
-                self.parent.windowList[recvData[1]].POL_SetupWindow_message(recvData[2],recvData[3])
-                self.waitRelease(recvData[1])  
-
-       if(recvData[0] == 'POL_SetupWindow_question'):
-            if(len(recvData) == 4):
-                self.parent.windowList[recvData[1]].POL_SetupWindow_question(recvData[2],recvData[3])
-                return(self.waitRelease(recvData[1]))
-
-       if(recvData[0] == 'POL_SetupWindow_wait'):
-            if(len(recvData) == 4):
-                self.parent.windowList[recvData[1]].POL_SetupWindow_wait(recvData[2],recvData[3])
-
-       if(recvData[0] == 'POL_SetupWindow_wait_bis'):
-            if(len(recvData) == 7):
-                self.parent.windowList[recvData[1]].POL_SetupWindow_wait_b(recvData[2],recvData[3],recvData[4],recvData[5],recvData[6])
-
-       if(recvData[0] == 'POL_SetupWindow_free_presentation'):
-            if(len(recvData) == 4):
-                self.parent.windowList[recvData[1]].POL_SetupWindow_free_presentation(recvData[3],recvData[2])
-                self.waitRelease(recvData[1])  
-
-       if(recvData[0] == 'POL_SetupWindow_textbox'):
-            if(len(recvData) == 5):
-                self.parent.windowList[recvData[1]].POL_SetupWindow_textbox(recvData[2],recvData[3],recvData[4])
-                return(self.waitRelease(recvData[1]))
-
-       if(recvData[0] == 'POL_SetupWindow_download'):
-            if(len(recvData) == 6):
-                self.parent.windowList[recvData[1]].POL_SetupWindow_download(recvData[2],recvData[3],recvData[4],recvData[5])
-                return(self.waitRelease(recvData[1]))
-
-       if(recvData[0] == 'POL_SetupWindow_Close'):
-            if(len(recvData) == 2):
-                self.parent.windowList[recvData[1]].Destroy()
-
-       if(recvData[0] == 'POL_SetupWindow_menu'):
-            if(len(recvData) == 6):
-                self.parent.windowList[recvData[1]].POL_SetupWindow_menu(recvData[2],recvData[3],recvData[4],recvData[5], False)
-                return(self.waitRelease(recvData[1]))
-
-       if(recvData[0] == 'POL_SetupWindow_menu_num'):
-            if(len(recvData) == 6):
-                self.parent.windowList[recvData[1]].POL_SetupWindow_menu(recvData[2],recvData[3],recvData[4],recvData[5], True)
-                return(self.waitRelease(recvData[1]))
-
-       return ""
+       self.parent.SetupWindowTimer_SendToGui(recvData)
+       time.sleep(0.5) 
+       return(str(self.waitRelease(recvData.split("\t")[1])))
 
               
 
