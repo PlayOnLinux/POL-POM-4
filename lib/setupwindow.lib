@@ -222,7 +222,7 @@ POL_SetupWindow_browse ()
 	# Usage: POL_SetupWindow_browse [message] [title] [default value]
 	# Result is sent in $APP_ANSWER variable
 	
-	APP_ANSWER="$(echo "POL_SetupWindow_browse	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3" | nc "$POL_HOST" "$POL_PORT")"
+	APP_ANSWER="$(echo "POL_SetupWindow_browse	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	$PWD" | nc "$POL_HOST" "$POL_PORT")"
 }
 POL_SetupWindow_question ()
 {
