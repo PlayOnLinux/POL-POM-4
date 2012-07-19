@@ -31,12 +31,12 @@ if(os.environ["POL_OS"] == "Linux"):
     wxversion.ensureMinimal('2.8')
 
 import wx, wx.aui
-
 import lib.lng as lng
 import lib.playonlinux as playonlinux, lib.Variables as Variables
 import guiv3 as gui, install, options, wine_versions as wver, sp, configure, threading, debug, gui_server
 import irc as ircgui
 
+# This thread manage updates
 class POLWeb(threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)
@@ -83,7 +83,7 @@ class POLWeb(threading.Thread):
                     self.sendPercentage(int(line))
                 except:
                     pass
-                #yield line
+
                 if(retcode is not None):
                     break
 
@@ -109,17 +109,26 @@ class POLWeb(threading.Thread):
                 self.real_check()
             time.sleep(1)
 
-
-
 class MainWindow(wx.Frame):
     def __init__(self,parent,id,title):
 
         wx.Frame.__init__(self, parent, 1000, title, size = (515,450))
+        self.SetMinSize((400,400))
+        self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
+
         self.windowList = {}
+
+        # Other threads
+        
+        # Gui Server
         self.POLServer = gui_server.gui_server(self)
         self.POLServer.start()
-        self.SetMinSize((400,400))
+        
+        # Manage updater
+        self.updater = POLWeb()
+        self.updater.start()
 
+        # These lists contain the dock links and images 
         self.menuElem = {}
         self.menuImage = {}
 
@@ -132,6 +141,7 @@ class MainWindow(wx.Frame):
             self.windowWidth = 450
             self.windowHeight = 450
 
+        # Window position
         try:
             self.windowx = int(playonlinux.GetSettings("MAINWINDOW_X"))
             self.windowy = int(playonlinux.GetSettings("MAINWINDOW_Y"))
@@ -145,20 +155,14 @@ class MainWindow(wx.Frame):
         except:
             self.Center(wx.BOTH)
 
-        self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
-        self.timer = wx.Timer(self, 1)
 
-        try:
-            self.iconSize = int(playonlinux.GetSettings("ICON_SIZE"))
-        except:
-            self.iconSize = 32
-
+        try: self.iconSize = int(playonlinux.GetSettings("ICON_SIZE"))
+        except: self.iconSize = 32
 
         self.images = wx.ImageList(self.iconSize, self.iconSize)
         self.imagesEmpty = wx.ImageList(1,1)
 
-        self.updater = POLWeb()
-        self.updater.start()
+
         self.sendAlertStr = None
 
         ## Fonts
@@ -182,15 +186,15 @@ class MainWindow(wx.Frame):
 
 
         self._mgr.AddPane(self.list_game, wx.CENTER)
-        self.oldreload = ""
-        self.oldimg = ""
+
 
         self.filemenu = wx.Menu()
+        ### On MacOS X, preference is always on the main menu
         if(os.environ["POL_OS"] == "Mac"):
             prefItem = self.filemenu.Append(wx.ID_PREFERENCES, text = "&Preferences")
             self.Bind(wx.EVT_MENU, self.Options, prefItem)
 
-        ### TOOLBAR
+        ### File menu
         self.filemenu.Append(wx.ID_OPEN, _("Run"))
         self.filemenu.Append(wx.ID_ADD, _("Install"))
         self.filemenu.Append(wx.ID_DELETE, _("Remove"))
@@ -198,15 +202,12 @@ class MainWindow(wx.Frame):
         self.filemenu.Append(216, _("Donate"))
         self.filemenu.Append(wx.ID_EXIT, _("Exit"))
 
-        ### MENU
+        ### Display menu
         self.displaymenu = wx.Menu()
         self.icon16 = self.displaymenu.AppendRadioItem(501, _("Small icons"))
         self.icon24 = self.displaymenu.AppendRadioItem(502, _("Medium icons"))
         self.icon32 = self.displaymenu.AppendRadioItem(503, _("Large icons"))
         self.icon48 = self.displaymenu.AppendRadioItem(504, _("Very large icons"))
-        #self.displaymenu.AppendSeparator()
-        #self.panDisplay = self.displaymenu.AppendCheckItem(505, _("Show panel"))
-
         if(self.iconSize == 16):
             self.icon16.Check(True)
         if(self.iconSize == 24):
@@ -272,7 +273,6 @@ class MainWindow(wx.Frame):
 
         self.help_menu = wx.Menu()
         self.help_menu.Append(wx.ID_ABOUT, _('About {0}').format(os.environ["APPLICATION_TITLE"]))
-
         self.pluginsmenu = wx.Menu()
 
         files=os.listdir(Variables.playonlinux_rep+"/plugins")
@@ -349,14 +349,9 @@ class MainWindow(wx.Frame):
         self.toolbar.AddSeparator()
         self.toolbar.AddLabelTool(wx.ID_ADD, _("Install"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/install.png"))
         self.removeTool = self.toolbar_remove = self.toolbar.AddLabelTool(wx.ID_DELETE, _("Remove"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/delete.png"))
-        #self.toolbar.AddLabelTool(120, _("CD-ROM"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/cdrom.png"))
-
         self.toolbar.AddSeparator()
         self.toolbar.AddLabelTool(121, _("Configure"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/configure.png"))
-        #self.toolbar.AddLabelTool(122, _("Shortcut"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/package.png"))
-        #self.toolbar.AddLabelTool(123, _("Messenger"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/messenger.png"))
 
-        #self.toolbar.DoMenuUpdate(self.toolbar)
         self.toolbar.Realize()
         self.Reload(self)
         wx.EVT_MENU(self, wx.ID_OPEN,  self.Run)
@@ -383,7 +378,6 @@ class MainWindow(wx.Frame):
         wx.EVT_MENU(self, 111,  self.OpenIrc)
         wx.EVT_MENU(self, 112,  self.POLOnline)
         wx.EVT_MENU(self, 113,  self.PCCd)
-
         wx.EVT_MENU(self, 115,  self.killall)
         wx.EVT_MENU(self, 121,  self.Configure)
         wx.EVT_MENU(self, 122,  self.Package)
@@ -401,13 +395,14 @@ class MainWindow(wx.Frame):
         wx.EVT_CLOSE(self, self.ClosePol)
         wx.EVT_TREE_ITEM_ACTIVATED(self, 105, self.Run)
         wx.EVT_TREE_SEL_CHANGED(self, 105, self.Select)
-        #wx.EVT_TREE_ITEM_MENU(self, 105, self.OnRightDown)
 
-        #Timer, regarde toute les secondes si il faut actualiser la liste
-
-        self.Bind(wx.EVT_TIMER, self.AutoReload, self.timer)
+        # Main PlayOnLinux timer
+        self.timer = wx.Timer(self, 1)
+        self.Bind(wx.EVT_TIMER, self.TimerAction, self.timer)
         self.timer.Start(1000)
-
+        self.Timer_LastShortcutList = None
+        self.Timer_LastIconList = None
+        
         #Pop-up menu for game list: beginning
         wx.EVT_TREE_ITEM_MENU(self, 105, self.RMBInGameList)
         wx.EVT_MENU(self, 230, self.RWineConfigurator)
@@ -435,18 +430,13 @@ class MainWindow(wx.Frame):
         if(self.LoadSize > 1000):
             self.LoadSize = 1000
 
-        #try:
-        #self._mgr.ClosePane(wx.aui.AuiPaneInfo().Name('Actions'))
-        #except:
-        #       pass
-        #if(self.LoadPosition != "NONE"):
+
         if(self.LoadPosition == "LEFT"):
             self._mgr.AddPane(self.menu_gauche, wx.aui.AuiPaneInfo().Name('Actions').Caption('Actions').Left().BestSize((self.LoadSize,400)).Floatable(True).CloseButton(False).TopDockable(False).BottomDockable(False))
         else:
             self._mgr.AddPane(self.menu_gauche, wx.aui.AuiPaneInfo().Name('Actions').Caption('Actions').Right().BestSize((self.LoadSize,400)).Floatable(True).CloseButton(False).TopDockable(False).BottomDockable(False))
         self.menu_gauche.Show()
-        #else:
-        #       self.menu_gauche.Hide()
+
         self._mgr.Update()
 
     def displayMen(self, event):
@@ -497,6 +487,7 @@ class MainWindow(wx.Frame):
                 self.installFrame.Refresh()
             except:
                 pass
+                
         if(self.updater.sendAlertStr != self.sendAlertStr):
             wx.MessageBox(self.updater.sendAlertStr, os.environ["APPLICATION_TITLE"])
             self.sendAlertStr = self.updater.sendAlertStr
@@ -545,7 +536,7 @@ class MainWindow(wx.Frame):
         self.RConfigure(_("KillApp"), "nothing")
 
     def ReadMe(self, event):
-        game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8","replace")
+        game_exec = self.GetSelectedProgram()
         if(os.path.exists(os.environ["POL_USER_ROOT"]+"/configurations/manuals/"+game_exec)):
             playonlinux.POL_Open(os.environ["POL_USER_ROOT"]+"/configurations/manuals/"+game_exec)
         else:
@@ -555,7 +546,7 @@ class MainWindow(wx.Frame):
         self.RConfigure(_("Registry Editor"), "nothing")
 
     def run_plugin(self, event):
-        game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8","replace")
+        game_exec = self.GetSelectedProgram()
         plugin=self.plugin_list[event.GetId()-300]
         try :
             os.system("bash \""+Variables.playonlinux_rep+"/plugins/"+plugin+"/scripts/menu\" \""+game_exec+"\"&")
@@ -589,7 +580,7 @@ class MainWindow(wx.Frame):
         self.irc.Show(True)
 
     def GoToAppDir(self, event):
-        self.game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8","replace")
+        self.game_exec = self.GetSelectedProgram()
         playonlinux.open_folder(self.game_exec)
 
     def ChangeIcon(self, event):
@@ -611,7 +602,7 @@ class MainWindow(wx.Frame):
             #Pop-up menu for game list: ending
 
     def Select(self, event):
-        game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8","replace")
+        game_exec = self.GetSelectedProgram()
         self.read = open(Variables.playonlinux_rep+"shortcuts/"+game_exec,"r").readlines()
         self.i = 0;
         self.wine_present = False;
@@ -746,10 +737,12 @@ class MainWindow(wx.Frame):
     def Reload(self, event):
         self.games = os.listdir(Variables.playonlinux_rep+"shortcuts/")
         self.games.sort()
+        
         try:
             self.games.remove(".DS_Store")
         except:
             pass
+            
         self.list_game.DeleteAllItems()
         self.images.RemoveAll()
         root = self.list_game.AddRoot("")
@@ -784,7 +777,7 @@ class MainWindow(wx.Frame):
 
     def RConfigure(self, function_to_run, firstargument):
         """Starts polconfigurator remotely."""
-        game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8","replace")
+        game_exec = self.GetSelectedProgram()
         if(game_exec != ""):
             os.system("bash \""+Variables.playonlinux_env+"/bash/polconfigurator\" \""+game_exec+"\" \""+function_to_run+"\" \""+firstargument+"\"&")
         else:
@@ -831,7 +824,7 @@ class MainWindow(wx.Frame):
         os.system("bash \""+Variables.playonlinux_env+"/bash/expert/PolShell\"&")
 
     def Configure(self, event):
-        game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8","replace")
+        game_exec = self.GetSelectedProgram()
         try:
             self.configureFrame.Show(True)
             self.configureFrame.SetFocus()
@@ -851,42 +844,26 @@ class MainWindow(wx.Frame):
         #os.system("bash \""+Variables.playonlinux_env+"/bash/polconfigurator\" \""+game_exec+"\"&")
 
     def Package(self, event):
-        game_exec = self.list_game.GetItemText(self.list_game.GetSelection())
+        game_exec = self.GetSelectedProgram()
         os.system("bash \""+Variables.playonlinux_env+"/bash/make_shortcut\" \""+game_exec.encode("utf-8","replace")+"\"&")
 
     def UninstallGame(self, event):
-        game_exec = self.list_game.GetItemText(self.list_game.GetSelection())
+        game_exec = self.GetSelectedProgram()
         if(game_exec != ""):
             os.system("bash \""+Variables.playonlinux_env+"/bash/uninstall\" \""+game_exec.encode("utf-8","replace")+"\"&")
         else:
             wx.MessageBox(_("Please select a program."), os.environ["APPLICATION_TITLE"])
 
-    def AutoReload(self, event):
-
+    def TimerAction(self, event):
         self.StatusRead()
-        fichier_index = os.environ["REPERTOIRE"]+"/configurations/guis/index_"+os.environ["POL_ID"]
-        #print(fichier_index)
-        try:
-            message = open(fichier_index,'r').read()
-        except:
-            open(fichier_index,'a').write('')
-            message = open(fichier_index,'r').read()
-        message = string.split(message, "\n")
-        if(message[0] == "Open"):
-            self.frame = gui.POL_SetupFrame(os.environ["APPLICATION_TITLE"],message[1].replace("\n",""),message[2].replace("\n",""),message[3].replace("\n",""),message[4].replace("\n",""),message[5].replace("\n",""))
-            self.frame.Center(wx.BOTH)
-            self.frame.Show(True)
-            open(fichier_index,'w').write("Wait")
-
-        reload = os.listdir(Variables.playonlinux_rep+"/shortcuts")
-        if(reload != self.oldreload):
+        
+        # We read shortcut folder to see if it has to be rescanned
+        currentShortcuts = os.listdir(Variables.playonlinux_rep+"/shortcuts")
+        currentIcons = os.listdir(Variables.playonlinux_rep+"/icones/32")
+        if(currentShortcuts != self.Timer_LastShortcutList or currentIcons != self.Timer_LastIconList):
             self.Reload(self)
-            self.oldreload = reload
-
-        reloadimg = os.listdir(Variables.playonlinux_rep+"/icones/32")
-        if(reloadimg != self.oldimg):
-            self.Reload(self)
-            self.oldimg = reloadimg
+            self.Timer_LastShortcutList = currentShortcuts
+            self.Timer_LastIconList = currentIcons
 
     def InstallMenu(self, event):
         try:
@@ -905,11 +882,13 @@ class MainWindow(wx.Frame):
             self.wversion = wver.MainWindow(None, -1, _('{0} wine versions manager').format(os.environ["APPLICATION_TITLE"]))
             self.wversion.Center(wx.BOTH)
             self.wversion.Show(True)
-            #os.system("bash \""+Variables.playonlinux_env+"/bash/wineversion\"&")
 
+    def GetSelectedProgram(self):
+        return self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8","replace")
+        
     def Run(self, event, s_debug=False):
 
-        game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8","replace")
+        game_exec = self.GetSelectedProgram()
         game_prefix = playonlinux.getPrefix(game_exec)
 
         if(s_debug == False):
@@ -934,14 +913,13 @@ class MainWindow(wx.Frame):
             wx.MessageBox(_("The virtual drive associated with {0} ({1}) does no longer exists.").format(game_exec, game_prefix), os.environ["APPLICATION_TITLE"])
 
     def RunDebug(self, event):
-        game_exec = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8","replace")
+        game_exec = self.GetSelectedProgram()
         game_prefix = playonlinux.getPrefix(game_exec)
         playonlinux.SetDebugState(game_exec, True)
         self.Run(self, True)
 
     def ClosePol(self, event):
         if(wx.YES == wx.MessageBox(_('Are you sure you want to close all {0} Windows?').format(os.environ["APPLICATION_TITLE"]).decode("utf-8","replace"),os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
-            os.remove(Variables.playonlinux_rep+"/configurations/guis/index_"+os.environ["POL_ID"])
             self.SizeToSave = self.GetSize();
             self.PositionToSave = self.GetPosition();
             # Save size and position
@@ -1079,20 +1057,6 @@ class PlayOnLinuxApp(wx.App):
                 returncode=255
             if(os.environ["POL_OS"] == "Linux" and returncode != 0):
                 wx.MessageBox(_("Your filesystem might prevent {0} from running correctly.\n\nPlease open {0} in a terminal to get more details").format(os.environ["APPLICATION_TITLE"]),_("Error"))
-
-        #### Optirun check
-        """
-        try:
-                returncode=subprocess.call(["which","optirun"])
-        except:
-                returncode=255
-
-        if(returncode == 0):
-                if(playonlinux.GetSettings("OPTIRUN_ASKED") == ""):
-                        playonlinux.SetSettings("OPTIRUN_ASKED","TRUE")
-                        if(wx.YES == wx.MessageBox(_('{0} has detected that optirun is installed on your system.\n\nDo you want {0} to be configured to use it?').format(os.environ["APPLICATION_TITLE"]).decode("utf-8","replace"), os.environ["APPLICATION_TITLE"],style=wx.YES_NO | wx.ICON_QUESTION)):
-                                playonlinux.SetSettings("PRE_WINE","optirun")
-        """
 
         if(os.environ["DEBIAN_PACKAGE"] == "FALSE"):
             if(playonlinux.GetSettings("SEND_REPORT") == ""):
