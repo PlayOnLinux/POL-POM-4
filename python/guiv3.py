@@ -184,7 +184,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         wx.EVT_BUTTON(self, wx.ID_YES, self.release_yes)
         wx.EVT_BUTTON(self, wx.ID_NO, self.release_no)
         wx.EVT_BUTTON(self, wx.ID_CANCEL , self.Cancel)
-        wx.EVT_BUTTON(self, 104,  self.Parcourir)
+        wx.EVT_BUTTON(self, 103, self.Parcourir)
         wx.EVT_CHECKBOX(self, 302, self.agree)
         wx.EVT_CHECKBOX(self, 304, self.switch_menu)
         wx.EVT_HYPERLINK(self, 303, self.POL_register)
@@ -389,7 +389,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
             wx.EVT_LISTBOX_DCLICK(self, 104, self.release_menu_num)
 
     def POL_SetupWindow_browse(self, message, title, value, directory):
-        POL_SetupWindow_textbox(message, title, value)
+        self.POL_SetupWindow_textbox(message, title, value)
         self.directory = directory
         self.browse.SetPosition(((330, 85+self.space*16)))
         self.browse.Show()
