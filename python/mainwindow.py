@@ -436,6 +436,10 @@ class MainWindow(wx.Frame):
             if(self.SetupWindowTimer_action[0] == 'POL_SetupWindow_shortcut_list'):
                  if(len(self.SetupWindowTimer_action) == 4):
                      self.windowList[self.SetupWindowTimer_action[1]].POL_SetupWindow_shortcut_list(self.SetupWindowTimer_action[2],self.SetupWindowTimer_action[3])
+                     
+            if(self.SetupWindowTimer_action[0] == 'POL_SetupWindow_prefix_selector'):
+                 if(len(self.SetupWindowTimer_action) == 4):
+                     self.windowList[self.SetupWindowTimer_action[1]].POL_SetupWindow_prefix_selector(self.SetupWindowTimer_action[2],self.SetupWindowTimer_action[3])
 
             if(self.SetupWindowTimer_action[0] == 'POL_SetupWindow_pulsebar'):
                  if(len(self.SetupWindowTimer_action) == 4):

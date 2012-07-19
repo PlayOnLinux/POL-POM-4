@@ -503,7 +503,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_menugame)
         wx.EVT_TREE_ITEM_ACTIVATED(self, 111, self.release_menugame)
 
-    def POL_SetupWindow_get_prefixes(self, message, title):
+    def POL_SetupWindow_prefix_selector(self, message, title):
         self.Destroy_all()
         self.DrawDefault(message, title)
 
@@ -678,9 +678,9 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
     def release_menuprefixes(self,event):
         if(self.PCheckBox.IsChecked() == False): # Alors il faut renvoyer le prefix
-            self.SendBash("MSG_VALUE=1;"+self.MenuGames.GetItemText(self.MenuGames.GetSelection()).encode("utf-8","replace"))
+            self.SendBash("1~"+self.MenuGames.GetItemText(self.MenuGames.GetSelection()).encode("utf-8","replace"))
         else:
-            self.SendBash("MSG_VALUE=2;"+self.areaList[self.Menu.GetSelection()])
+            self.SendBash("2~"+self.areaList[self.Menu.GetSelection()])
 
         self.NextButton.Enable(False)
 
