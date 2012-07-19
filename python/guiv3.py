@@ -270,8 +270,8 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
                     else:
                         self.release(self)
                     self.Timer_downloading = False
-                    
-                    
+
+
     ### Theses methods command the window. There are called directly by the server
     def POL_SetupWindow_message(self, message, title):
         self.Destroy_all()
@@ -479,11 +479,18 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_menugame)
         wx.EVT_TREE_ITEM_ACTIVATED(self, 111, self.release_menugame)
 
-    def POL_SetupWindow_menu_icons(self, message, title):
+    def POL_SetupWindow_icon_menu(self, message, title, items, cut, icon_folder, icon_list):
+        print message
+        print title
+        print items
+        print cut
+        print icon_list
+        print icon_folder
+        
         self.Destroy_all()
         self.DrawDefault(message, title)
 
-        self.add_menu_icons()
+        self.add_menu_icons(items, cut, icon_list, icon_folder);
 
         self.space = message.count("\\n")+1
         self.MenuGames.SetPosition((20,85+self.space*16))
@@ -664,7 +671,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.NextButton.Enable(False)
 
     def release_menugame(self,event):     
-        self.SendBash("MSG_VALUE="+self.MenuGames.GetItemText(self.MenuGames.GetSelection()).encode("utf-8","replace"))
+        self.SendBash(self.MenuGames.GetItemText(self.MenuGames.GetSelection()).encode("utf-8","replace"))
         self.NextButton.Enable(False)
 
     def release_menuprefixes(self,event):
@@ -692,17 +699,17 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.root = self.MenuGames.AddRoot("")
         self.i = 0
         for game in self.games:
-            self.file = Variables.playonlinux_rep+"/shortcuts/"+game
+            file_icon = Variables.playonlinux_rep+"/shortcuts/"+game
             if(not os.path.isdir(self.file)):
                 fichier = open(self.file,"r").read()
 
                 if("POL_Wine " in fichier):
                     if(os.path.exists(Variables.playonlinux_rep+"/icones/32/"+game)):
-                        self.file_icone = Variables.playonlinux_rep+"/icones/32/"+game
+                        file_icon = Variables.playonlinux_rep+"/icones/32/"+game
                     else:
-                        self.file_icone = Variables.playonlinux_env+"/etc/playonlinux32.png"
+                        file_icon = Variables.playonlinux_env+"/etc/playonlinux32.png"
 
-                    self.bitmap = wx.Image(self.file_icone)
+                    self.bitmap = wx.Image(file_icon)
                     self.bitmap.Rescale(22,22,wx.IMAGE_QUALITY_HIGH)
                     self.bitmap = self.bitmap.ConvertToBitmap()
                     self.images.Add(self.bitmap)
@@ -710,29 +717,28 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
                     self.i = self.i+1
 
 
-    def add_menu_icons(self):
-        self.cut = self.fichier[5].replace("\n","")
-        self.games = string.split(self.fichier[4].replace("\n",""),self.cut)
-        self.icons = string.split(self.fichier[7].replace("\n",""),self.cut)
-
+    def add_menu_icons(self, items, cut, icon_list, icon_folder):
+        elements = items.split(cut)
+        icons = icon_list.split(cut)
+        
         #self.games.sort()
         self.images.RemoveAll()
         self.MenuGames.DeleteAllItems()
         self.root = self.MenuGames.AddRoot("")
-        self.i = 0
-        for game in self.games:
-            current_icon = self.fichier[6].replace("\n","")+"/"+self.icons[self.i]
+        i = 0
+        for index in elements:
+            current_icon = icon_folder+"/"+icons[i]
             if(os.path.exists(current_icon)):
-                self.file_icone = current_icon
+                file_icon = current_icon
             else:
-                self.file_icone = Variables.playonlinux_env+"/etc/playonlinux32.png"
+                file_icon = Variables.playonlinux_env+"/etc/playonlinux32.png"
 
-            self.bitmap = wx.Image(self.file_icone)
-            self.bitmap.Rescale(22,22,wx.IMAGE_QUALITY_HIGH)
-            self.bitmap = self.bitmap.ConvertToBitmap()
-            self.images.Add(self.bitmap)
-            self.MenuGames.AppendItem(self.root, game, self.i)
-            self.i = self.i+1
+            bitmap = wx.Image(file_icon)
+            bitmap.Rescale(22,22,wx.IMAGE_QUALITY_HIGH)
+            bitmap = bitmap.ConvertToBitmap()
+            self.images.Add(bitmap)
+            self.MenuGames.AppendItem(self.root, index, i)
+            i+=1
 
 
     def DemanderPourcent(self, event):

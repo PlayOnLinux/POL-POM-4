@@ -47,7 +47,6 @@ class gui_server(threading.Thread):
         except socket.error, msg:       
            self._port += 1
            self.initServer()
-        # We tell bash what server he should connect
         
 
     def closeServer(self):

@@ -246,34 +246,7 @@ POL_SetupWindow_icon_menu ()
 	# Usage: POL_SetupWindow_icon_menu [message] [title] [list] [separator] [icons list] [icons folder]
 	# Result is sent in $APP_ANSWER variable
 	
-	TIMESTAMP="$(date +%s)"
-	cat << EOF > "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-MsgIn
-menu_icons
-$1
-$2
-$3
-$4
-$5
-$6
-$TIMESTAMP
-EOF
-	MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$') 
-	while [ ! "$MESSAGE" = "MsgOut" ]
-	do
-		MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$') 
-		sleep 0.1
-	done
-	MESSAGE_BIS=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MSG_RECEIVED=')
-	if [ "$MESSAGE_BIS" = "MSG_RECEIVED=Cancel" ]
-	then
-		rm "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-		exit 
-	else
-		MESSAGE_TER=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MSG_VALUE=')
-		MESSAGE_TER=${MESSAGE_TER:10}
-		export APP_ANSWER="$MESSAGE_TER"
-	fi
+	APP_ANSWER="$(echo "POL_SetupWindow_icon_menu	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	$4	$5	$6" | nc "$POL_HOST" "$POL_PORT")"
 }
 POL_SetupWindow_checkbox_list ()
 {
