@@ -433,6 +433,10 @@ class MainWindow(wx.Frame):
                  if(len(self.SetupWindowTimer_action) == 4):
                      self.windowList[self.SetupWindowTimer_action[1]].POL_SetupWindow_message(self.SetupWindowTimer_action[2],self.SetupWindowTimer_action[3])
 
+            if(self.SetupWindowTimer_action[0] == 'POL_SetupWindow_pulsebar'):
+                 if(len(self.SetupWindowTimer_action) == 4):
+                     self.windowList[self.SetupWindowTimer_action[1]].POL_SetupWindow_pulsebar(self.SetupWindowTimer_action[2],self.SetupWindowTimer_action[3])
+
             if(self.SetupWindowTimer_action[0] == 'POL_SetupWindow_question'):
                 if(len(self.SetupWindowTimer_action) == 4):
                     self.windowList[self.SetupWindowTimer_action[1]].POL_SetupWindow_question(self.SetupWindowTimer_action[2],self.SetupWindowTimer_action[3])
@@ -481,7 +485,13 @@ class MainWindow(wx.Frame):
                 if(len(self.SetupWindowTimer_action) == 5):
                     self.windowList[self.SetupWindowTimer_action[1]].POL_SetupWindow_licence(self.SetupWindowTimer_action[2],self.SetupWindowTimer_action[3],self.SetupWindowTimer_action[4])
             
+            if(self.SetupWindowTimer_action[0] == 'POL_SetupWindow_pulse'):
+                if(len(self.SetupWindowTimer_action) == 3):
+                    self.windowList[self.SetupWindowTimer_action[1]].POL_SetupWindow_Pulse(self.SetupWindowTimer_action[2])
             
+            if(self.SetupWindowTimer_action[0] == 'POL_SetupWindow_set_text'):
+                if(len(self.SetupWindowTimer_action) == 3):
+                    self.windowList[self.SetupWindowTimer_action[1]].POL_SetupWindow_PulseText(self.SetupWindowTimer_action[2])
             
             
             self.SetupWindowTimer_action = None

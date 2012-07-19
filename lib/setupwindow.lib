@@ -132,42 +132,20 @@ POL_SetupWindow_pulsebar ()
 	# Same than POL_SetupWindow_wait_next_signal, except that you can control the bar
 	# Usage POL_SetupWindow_pulsebar [message] [title]
 	
-	TIMESTAMP="$(date +%s)"
-	cat << EOF > "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-MsgIn
-pulsebar
-$1
-$2
-$TIMESTAMP
-EOF
-	sleep 0.2 #sleeping 0.2 GUI have to read dialog file. see bug #30
-	MESSAGE_BIS=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MSG_RECEIVED=')
-	if [ "$MESSAGE_BIS" = "MSG_RECEIVED=Cancel" ]
-	then
-		exit 
-	fi
+	echo "POL_SetupWindow_pulsebar	$$	$(POL_Untab "$1")	$(POL_Untab "$2")" | ncs "$POL_HOST" "$POL_PORT"
 }
 POL_SetupWindow_pulse ()
 {
 	# Change the pulsebar position (0 - 100)
 	# Usage POL_SetupWindow_pulse [position]
-	cat << EOF > "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-MsgIn
-pulse
-$1
-EOF
-	sleep 0.2 #sleeping 0.2 GUI have to read dialog file. see bug #30
+
+	echo "POL_SetupWindow_pulse	$$	$1" | ncs "$POL_HOST" "$POL_PORT"
 }
 POL_SetupWindow_set_text ()
 {
 	# Change the pulsebar's text
 	# Usage POL_SetupWindow_set_text [message]
-	cat << EOF > "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-MsgIn
-set_text
-$1
-EOF
-	sleep 0.2 #sleeping 0.2 GUI have to read dialog file. see bug #30
+	echo "POL_SetupWindow_set_text	$$	$(POL_Untab "$1")" | ncs "$POL_HOST" "$POL_PORT"
 }
 POL_SetupWindow_wait ()
 {

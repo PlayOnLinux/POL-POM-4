@@ -159,7 +159,6 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.texte_panel = wx.StaticText(self.scrolled_panel, -1, "",pos=(5,5))
 
         self.gauge = wx.Gauge(self.panel, -1, 50, size=(375, 20))
-        self.pulsebar = wx.Gauge(self.panel, -1, 50, size=(375, 20))
         self.WaitButton = wx.Button(self.panel, 310, "", size=(250,25))
 
         
@@ -222,7 +221,6 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.MenuGames.Hide()
         self.scrolled_panel.Hide()
         self.gauge.Hide()
-        self.pulsebar.Hide()
         self.txtEstimation.Hide()
         self.texte_panel.Hide()
         self.MCheckBox.Hide()
@@ -313,36 +311,51 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         wx.EVT_TEXT_ENTER(self, 400, self.release_champ)
 
 
-    def POL_Pulse(self, value):
-        self.pulsebar.SetValue(int(value)/2)
+    def POL_SetupWindow_Pulse(self, value):
+        self.gauge.SetValue(int(value)/2)
+        self.SendBash()
 
-    def POL_PulseText(self, value):
+    def POL_SetupWindow_PulseText(self, value):
         self.texte_bis.SetLabel(value.replace("\\n","\n"))
         self.texte_bis.SetPosition((20,135+self.space*16))
         self.texte_bis.Show()
+        self.SendBash()
 
     def POL_SetupWindow_download(self, message, title, url, localfile): 
         self.Destroy_all()
         self.DrawDefault(message, title)
-
         self.space = message.count("\\n")+1
         self.gauge.Show()
         self.gauge.SetPosition((70,95+self.space*16))
-
         self.txtEstimation.SetPosition((20,135+self.space*16))
         self.txtEstimation.Show()
         self.DrawCancel()
         self.DrawNext()
         self.NextButton.Enable(False)
         self.DownloadFile(url, localfile)
+        self.SendBash()
 
     def POL_SetupWindow_wait(self, message, title):
         self.Destroy_all()
         self.DrawDefault(message, title)
-
         self.NextButton.Enable(False)
         self.animation.Show()
         self.animation.Play()
+        self.DrawCancel()
+        self.DrawNext()
+        self.NextButton.Enable(False)
+        self.SendBash()
+
+    def POL_SetupWindow_pulsebar(self, message, title):
+        self.Destroy_all()
+        self.DrawDefault(message, title)
+
+        self.NextButton.Enable(False)
+        
+        self.space = message.count("\\n")+1
+        self.gauge.SetPosition((70,95+self.space*16))
+        self.gauge.Show()
+        
         self.DrawCancel()
         self.DrawNext()
         self.NextButton.Enable(False)
