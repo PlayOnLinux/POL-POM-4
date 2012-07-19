@@ -436,7 +436,6 @@ class MainWindow(wx.Frame):
             if(self.SetupWindowTimer_action[0] == 'POL_SetupWindow_question'):
                 if(len(self.SetupWindowTimer_action) == 4):
                     self.windowList[self.SetupWindowTimer_action[1]].POL_SetupWindow_question(self.SetupWindowTimer_action[2],self.SetupWindowTimer_action[3])
-                    return(self.waitRelease(self.SetupWindowTimer_action[1]))
 
             if(self.SetupWindowTimer_action[0] == 'POL_SetupWindow_wait'):
                 if(len(self.SetupWindowTimer_action) == 4):

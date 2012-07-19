@@ -22,7 +22,7 @@ class gui_server(threading.Thread):
     def __init__(self, parent): 
         threading.Thread.__init__(self)
         self._host = '127.0.0.1'
-        self._port = 30003
+        self._port = 30000
         self._running = True
         # This dictionnary will contain every created setup window
         self.parent = parent
@@ -35,14 +35,20 @@ class gui_server(threading.Thread):
         connection.close()
 
     def initServer(self):
-        self.acceptor = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.acceptor.bind ( ( str(self._host), int(self._port) ) )
-        self.acceptor.listen(10)
-        self.lock = thread.allocate_lock()
-       
-       
+        if(self._port  >= 30020):
+           print "Error: Unable to reserve a valid port"
+           os._exit(0)
+           
+        try:
+           self.acceptor = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+           self.acceptor.bind ( ( str(self._host), int(self._port) ) )
+           self.acceptor.listen(10)
+           os.environ["POL_PORT"] = str(self._port)
+        except socket.error, msg:       
+           self._port += 1
+           self.initServer()
         # We tell bash what server he should connect
-        os.environ["POL_PORT"] = str(self._port)
+        
 
     def closeServer(self):
         self.acceptor.close()
@@ -55,7 +61,7 @@ class gui_server(threading.Thread):
                 result = self.parent.windowList[pid].getResult()
             except: # Object is destroyed
                 break
-                time.sleep(0.1) 
+            time.sleep(0.1) 
         
         return result
 

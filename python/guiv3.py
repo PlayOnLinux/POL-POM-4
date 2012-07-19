@@ -52,35 +52,6 @@ class Download(threading.Thread):
     def run(self):
         self.download()
 
-## wx does not want any timer or animate gif in another thread. We need to create it manually
-class Animator(threading.Thread):
-    def __init__(self, animation, image):
-        threading.Thread.__init__(self)
-        self.playing = False
-        self.running = True
-        self.animation = animation
-        self.image = image
-        self.start()
-
-    def run(self):
-        self.i = 0
-        while(self.running):
-            if(self.playing):
-                time.sleep(0.07)
-                self.image.SetBitmap(self.animation.GetFrame(self.i).ConvertToBitmap())
-            else:
-                time.sleep(0.3) # Save CPU
-            self.i = (self.i + 2) % 24
-
-    def Play(self):
-        self.playing = True
-
-    def Stop(self):
-        self.playing = False
-
-    def Destroy(self):
-        self.running = False
-
 class POL_SetupFrame(wx.Frame): #fenêtre principale
     def __init__(self, titre, POL_SetupWindowID, Arg1, Arg2, Arg3, FIXME=""):
         wx.Frame.__init__(self, None, -1, title = titre, style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX, size = (520, 398+Variables.windows_add_size))
@@ -89,7 +60,6 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.gauge_i = 0
         self.fichier = ""
         self.last_time = int(round(time.time() * 1000))
-        self.downloading = False
         self.ProtectedWindow = False
 
         # Le fichier de lecture
@@ -192,11 +162,9 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.pulsebar = wx.Gauge(self.panel, -1, 50, size=(375, 20))
         self.WaitButton = wx.Button(self.panel, 310, "", size=(250,25))
 
-
-        self.animation = wx.animate.Animation(Variables.playonlinux_env+"/resources/images/setups/wait.gif") 
-        self.waiter = wx.StaticBitmap(self.panel, -1, self.animation.GetFrame(0).ConvertToBitmap(), (228,170), wx.DefaultSize)
-        self.animator = Animator(self.animation, self.waiter)
-        self.waiter.Hide()
+        
+        self.animation = wx.animate.GIFAnimationCtrl(self.panel, -1, Variables.playonlinux_env+"/resources/images/setups/wait.gif", (228,170))
+        self.animation.Hide()
 
         self.images = wx.ImageList(22, 22)
         self.MenuGames = wx.TreeCtrl(self.panel, 111, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT|Variables.widget_borders, pos=(25,105),size=(460,220))
@@ -225,6 +193,13 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         # Hide all
         self.Destroy_all()
         self.Result = ""
+        
+        # Set the timer
+        self.timer = wx.Timer(self, 3)
+        self.Bind(wx.EVT_TIMER, self.TimerAction, self.timer)
+        self.timer.Start(1000)
+        self.Timer_downloading = False
+
         
     def Destroy_all(self):
         self.Result = None
@@ -261,16 +236,21 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.WaitButton.Hide()
         self.MCheckBox.SetValue(False)
         self.PCheckBox.SetValue(False)
+        self.animation.Hide()
+        self.animation.Stop()
+
         self.Refresh()
-        self.waiter.Hide()
-        self.animator.Stop()
 
-
+        
     def getResult(self):
-        # This function is called regularely when SetupWindow is waiting. It can play the role of a timer for certain actions (download, ...)
-           
+        if(self.Result == None):
+            return False
+        else:
+            return self.Result
+            
+    def TimerAction(self, event):
         ## If the setup window is downloading a file, it is a good occasion to update the progresbar
-        if(self.downloading == True):
+        if(self.Timer_downloading == True):
             if(self.downloader.taille_bloc != 0):
                 self.nb_blocs_max = self.downloader.taille_fichier / self.downloader.taille_bloc
                 self.gauge.SetRange(self.nb_blocs_max)
@@ -289,13 +269,9 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
                         self.release_but_fail(self)
                     else:
                         self.release(self)
-                    self.downloading = False
-
-        if(self.Result == None):
-            return False
-        else:
-            return self.Result
-
+                    self.Timer_downloading = False
+                    
+                    
     ### Theses methods command the window. There are called directly by the server
     def POL_SetupWindow_message(self, message, title):
         self.Destroy_all()
@@ -365,9 +341,10 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.DrawDefault(message, title)
 
         self.NextButton.Enable(False)
-        self.waiter.Show()
-        self.animator.Play()
-
+        self.animation.Show()
+        self.animation.Play()
+        self.SendBash()
+        
     def POL_SetupWindow_wait_b(self, message, title, button_value, command, alert):
         self.POL_SetupWindow_wait(message, title)    
         self.WaitButton.Show()
@@ -762,10 +739,6 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         if self.p.poll() == None:
             self.gauge.Pulse()
         else:
-
-            self.timer_attendre.Stop()
-            self.timer_attendre.Destroy()
-            self.timer.Start(10)
             self.SendBash("Ok")
 
 
@@ -782,7 +755,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.nomFichier = self.chemin.split('/')[-1]
         self.local = localB + self.nomFichier
         self.downloader = Download(url, self.local)
-        self.downloading = True
+        self.Timer_downloading = True
 
 
     def agree(self, event):
