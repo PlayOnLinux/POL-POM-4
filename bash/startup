@@ -27,8 +27,6 @@ POL_Debug_Message "$APPLICATION_TITLE ($VERSION) is starting"
 
 # POL / POM won't work without that 
 construire_repertoire_personnel
-# Initialize link between python and bash
-touch "$POL_USER_ROOT/configurations/guis/index_$POL_ID"
 
 # Cleaning tmp directory
 clean_tmp
