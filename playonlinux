@@ -54,8 +54,15 @@ die() ## PHP function copy
 	exit
 }
 
-if [ "$1" == "--version" ]; then
-	cd "$(dirname "$0")"
+export WorkingDirectory="$PWD"
+
+# Take absolute path this script resides in
+POLDIR="$(dirname "$0")"
+cd "$POLDIR"
+POLDIR="$PWD"
+
+if [ "$1" = "--version" ]; then
+	cd "$POLDIR"
 	version="$(cat python/lib/Variables.py | grep 'os.environ\["VERSION"\] = ' | cut -d = -f2 | tr -d \" | tr -d " ")"
 	die "PlayOnLinux $version"
 fi
@@ -66,9 +73,8 @@ export PYTHON="python"
 export POL_OS="Linux"
 export UBUNTU_MENUPROXY=0 
 export MACHTYPE
-export WorkingDirectory="$PWD"
 
-[ "$PLAYONLINUX" = "" ] || die "You are already in a PlayOnLinux environement" 
+[ "$PLAYONLINUX" = "" ] || die "You are already in a PlayOnLinux environment" 
 
 # On part a la recherche de python. (Pourquoi est-ce que certaines distros ne le mette pas dans /usr/bin/python, comme tout le monde :'( )
 if [ "$(which $PYTHON)" ]; then
@@ -106,20 +112,20 @@ if [ ! "$PythonFound" = "True" ]; then
 	exit
 fi
 
-if [ "$1" == "--run" ]; then
-	cd "$(dirname "$0")"
+if [ "$1" = "--run" ]; then
+	cd "$POLDIR"
 	shift
 	NAME="$1"
 	shift
-	./playonlinux-bash "$HOME/.PlayOnLinux/shortcuts/$NAME" "$@"
+	exec ./playonlinux-bash "$HOME/.PlayOnLinux/shortcuts/$NAME" "$@"
 else
-	cd "$(dirname "$0")/python"
+	cd "$POLDIR/python"
 	"$PythonBin" mainwindow.py "$@"
-	if [ "$?" = "63" ]; then # Restart signal
-		"$PLAYONLINUX/playonlinux"
-	elif[ ! "$?" = "0" ]; then
+	if [ $? -eq 63 ]; then # Restart signal
+		exec "$POLDIR/playonlinux"
+	elif [ $? -ne 0 ]; then
 		python2.6 mainwindow.py "$@"
-		[ "$?" = "63" ] && "$PLAYONLINUX/playonlinux"
+		[ $? -eq 63 ] && exec "$POLDIR/playonlinux"
 	fi
 fi
 
