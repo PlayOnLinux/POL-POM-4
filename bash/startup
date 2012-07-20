@@ -35,9 +35,7 @@ clean_tmp
 
 ### Operations below are background asynchronous tasks
 
-(# Cleanup old gui files
-"$PLAYONLINUX/bash/delete_gui_files"
-
+(
 # Plugins
 install_plugins
 
