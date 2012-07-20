@@ -653,7 +653,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
     def release_bigchamp(self, event):
         self.SendBash("MSG_VALUE=Ok")
-        self.SendBashT(self.bigchamp.GetValue().encode("utf-8","replace"))
+        self.SendBashT(self.bigchamp.GetValue().replace("\n","\\n").encode("utf-8","replace"))
         self.NextButton.Enable(False)
 
     def release_menu(self,event):

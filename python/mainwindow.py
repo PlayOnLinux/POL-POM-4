@@ -465,6 +465,11 @@ class MainWindow(wx.Frame):
                 if(len(self.SetupWindowTimer_action) == 5):
                     self.windowList[self.SetupWindowTimer_action[1]].POL_SetupWindow_textbox(self.SetupWindowTimer_action[2],self.SetupWindowTimer_action[3],self.SetupWindowTimer_action[4])
 
+            if(self.SetupWindowTimer_action[0] == 'POL_SetupWindow_textbox_multiline'):
+                if(len(self.SetupWindowTimer_action) == 5):
+                    self.windowList[self.SetupWindowTimer_action[1]].POL_SetupWindow_textbox_multiline(self.SetupWindowTimer_action[2],self.SetupWindowTimer_action[3],self.SetupWindowTimer_action[4])
+
+
             if(self.SetupWindowTimer_action[0] == 'POL_SetupWindow_browse'):
                 if(len(self.SetupWindowTimer_action) == 6):
                     self.windowList[self.SetupWindowTimer_action[1]].POL_SetupWindow_browse(self.SetupWindowTimer_action[2],self.SetupWindowTimer_action[3],self.SetupWindowTimer_action[4],self.SetupWindowTimer_action[5])

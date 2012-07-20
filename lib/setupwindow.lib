@@ -283,30 +283,10 @@ POL_SetupWindow_textbox_multiline ()
 	# Same than POL_SetupWindow_textbox, except that it accepts multiline
 	# Usage: POL_SetupWindow_textbox_multiline [message] [title] [default value]
 	
-	cat << EOF > "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-MsgIn
-bigchamp
-$1
-$2
-$3
-EOF
-		
-	MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$' 2> /dev/null)
-	while [ ! "$MESSAGE" = "MsgOut" ]
-	do
-		[ ! -e "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" ] && exit
-		MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$' 2> /dev/null)
-		sleep 0.1
-	done
-	MESSAGE_BIS=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MSG_RECEIVED=' 2> /dev/null)
-	if [ "$MESSAGE_BIS" = "MSG_RECEIVED=Cancel" ]
-	then
-		rm "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-		exit 
-	else
-		MESSAGE_TER=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID.txt")
-		export APP_ANSWER="$MESSAGE_TER"
-	fi
+	APP_ANSWER="$(echo "POL_SetupWindow_textbox_multiline	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$(POL_Untab "$3")" | nc "$POL_HOST" "$POL_PORT")"
+	APP_ANSWER="${APP_ANSWER//\\n/
+}" # Not the end of POL_SetupWindow_textbox_multiline
+
 }
 
 
