@@ -164,7 +164,6 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         
         
         self.animation = wx.StaticBitmap(self.panel, -1, self.GetLoaderFromAngle(1), (228,170))
-        self.animation.Hide()
         self.current_angle = 1
     
         self.images = wx.ImageList(22, 22)
@@ -189,17 +188,19 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         wx.EVT_CHECKBOX(self, 302, self.agree)
         wx.EVT_CHECKBOX(self, 304, self.switch_menu)
         wx.EVT_HYPERLINK(self, 303, self.POL_register)
-        #wx.EVT_HYPERLINK(self, 305, self.Send_Bug)
 
         # Hide all
         self.Destroy_all()
         self.Result = ""
+        self.animation.Show()
+        self.footer.Hide()
         
         # Set the timer
         self.timer = wx.Timer(self, 3)
         self.Bind(wx.EVT_TIMER, self.TimerAction, self.timer)
         self.timer.Start(100)
         self.Timer_downloading = False
+        self.Timer_animate = True
         
     def GetLoaderFromAngle(self, angle):
         if(angle >= 1 and angle <= 12):
@@ -207,6 +208,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         return image.ConvertToBitmap()
         
     def Destroy_all(self):
+        self.footer.Show()
         self.Result = None
         self.header.Hide()
         self.left_image.Hide()
