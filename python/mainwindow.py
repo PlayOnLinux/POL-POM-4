@@ -18,7 +18,7 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 encoding = 'utf-8'
 
-import os, getopt, sys, urllib, signal, string, time, webbrowser, gettext, locale, sys, shutil, subprocess
+import os, getopt, sys, urllib, signal, string, time, webbrowser, gettext, locale, sys, shutil, subprocess, signal
 
 try :
     os.environ["POL_OS"]
@@ -125,6 +125,9 @@ class MainWindow(wx.Frame):
         # These lists contain the dock links and images 
         self.menuElem = {}
         self.menuImage = {}
+
+        # Catch CTRL+C
+        signal.signal(signal.SIGINT, self.ForceClose)
 
         # Window size
         try:
@@ -1034,6 +1037,13 @@ class MainWindow(wx.Frame):
         game_prefix = playonlinux.getPrefix(game_exec)
         playonlinux.SetDebugState(game_exec, True)
         self.Run(self, True)
+ 
+    def ForceClose(self, signal, frame): # Catch SIGINT
+        print "Ctrl+C pressed. Killing all processes..."
+        for pid in self.windowList.keys():
+            os.system("kill -9 -"+pid+" 2> /dev/null")
+            os.system("kill -9 "+pid+" 2> /dev/null") 
+        os._exit(0)
 
     def ClosePol(self, event):
         if(wx.YES == wx.MessageBox(_('Are you sure you want to close all {0} Windows?').format(os.environ["APPLICATION_TITLE"]).decode("utf-8","replace"),os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
@@ -1063,7 +1073,11 @@ class MainWindow(wx.Frame):
 
             playonlinux.SetSettings("PANEL_SIZE",str(self.mySize))
             playonlinux.SetSettings("PANEL_POSITION",str(self.myPosition))
-            
+
+            for pid in self.windowList.keys():
+                os.system("kill -9 -"+pid+" 2> /dev/null")
+                os.system("kill -9 "+pid+" 2> /dev/null") 
+
             app.POLServer.closeServer()
             os._exit(0)
         return None
