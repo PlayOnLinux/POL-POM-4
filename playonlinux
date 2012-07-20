@@ -121,12 +121,10 @@ if [ "$1" = "--run" ]; then
 else
 	cd "$POLDIR/python"
 	"$PythonBin" mainwindow.py "$@"
-	if [ $? -eq 63 ]; then # Restart signal
-		exec "$POLDIR/playonlinux"
-	elif [ $? -ne 0 ]; then
+	if [ $? -ne 0 -a $? -ne 63 ]; then
 		python2.6 mainwindow.py "$@"
-		[ $? -eq 63 ] && exec "$POLDIR/playonlinux"
 	fi
 fi
 
+[ $? -eq 63 ] && exec "$POLDIR/playonlinux"
 exit $?
