@@ -262,8 +262,8 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
                 self.gauge.SetRange(self.nb_blocs_max)
                 self.gauge.SetValue(self.downloader.nb_blocs)
 
-                self.tailleFichierB = float(self.downloader.taille_fichier / 1048576)
-                self.octetsLoadedB = float((self.downloader.nb_blocs * self.downloader.taille_bloc) / 1048576)
+                self.tailleFichierB = float(self.downloader.taille_fichier / 1048576.0)
+                self.octetsLoadedB = float((self.downloader.nb_blocs * self.downloader.taille_bloc) / 1048576.0)
                 self.octetsLoadedN = round(self.octetsLoadedB, 1)
                 self.tailleFichierN = round(self.tailleFichierB, 1)
 
