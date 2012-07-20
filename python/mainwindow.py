@@ -1039,7 +1039,7 @@ class MainWindow(wx.Frame):
         self.Run(self, True)
  
     def ForceClose(self, signal, frame): # Catch SIGINT
-        print "Ctrl+C pressed. Killing all processes..."
+        print "\nCtrl+C pressed. Killing all processes..."
         for pid in self.windowList.keys():
             os.system("kill -9 -"+pid+" 2> /dev/null")
             os.system("kill -9 "+pid+" 2> /dev/null") 
