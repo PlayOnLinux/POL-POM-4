@@ -497,6 +497,10 @@ class MainWindow(wx.Frame):
                 if(len(self.SetupWindowTimer_action) == 5):
                     self.windowList[self.SetupWindowTimer_action[1]].POL_SetupWindow_licence(self.SetupWindowTimer_action[2],self.SetupWindowTimer_action[3],self.SetupWindowTimer_action[4])
             
+            if(self.SetupWindowTimer_action[0] == 'POL_SetupWindow_login'):
+                if(len(self.SetupWindowTimer_action) == 5):
+                    self.windowList[self.SetupWindowTimer_action[1]].POL_SetupWindow_login(self.SetupWindowTimer_action[2],self.SetupWindowTimer_action[3],self.SetupWindowTimer_action[4])
+                    
             if(self.SetupWindowTimer_action[0] == 'POL_SetupWindow_pulse'):
                 if(len(self.SetupWindowTimer_action) == 3):
                     self.windowList[self.SetupWindowTimer_action[1]].POL_SetupWindow_Pulse(self.SetupWindowTimer_action[2])

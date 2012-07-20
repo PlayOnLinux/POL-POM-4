@@ -640,7 +640,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.NextButton.Enable(False)
 
     def release_login(self, event):
-        self.SendBash("LOGIN="+self.loginbox.GetValue().encode("utf-8","replace")+"\nPASS="+self.passbox.GetValue().encode("utf-8","replace"))
+        self.SendBash(self.loginbox.GetValue().encode("utf-8","replace")+"~"+self.passbox.GetValue().encode("utf-8","replace"))
         self.NextButton.Enable(False)
 
     def release_champ(self, event):

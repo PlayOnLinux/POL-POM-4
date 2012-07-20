@@ -266,37 +266,9 @@ POL_SetupWindow_login ()
 	fi
 	[ "$3" = "" ] || register_link="$3"
 	
-	cat << EOF > "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-MsgIn
-Login
-$1
-$2
-$register_link
-EOF
-		
-	MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$' 2> /dev/null)
-	while [ ! "$MESSAGE" = "MsgOut" ]
-	do
-		[ ! -e "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" ] && exit
-		MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$' 2> /dev/null)
-		sleep 0.1
-	done
-	MESSAGE_BIS=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MSG_RECEIVED=' 2> /dev/null)
-	if [ "$MESSAGE_BIS" = "MSG_RECEIVED=Cancel" ]
-	then
-		rm "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-		exit 
-	else
-		MESSAGE_TER=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^LOGIN=' 2> /dev/null)
-		MESSAGE_TER=${MESSAGE_TER:6}
-		export POL_LOGIN="$MESSAGE_TER"
-		
-		MESSAGE_TER=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^PASS=' 2> /dev/null)
-		MESSAGE_TER=${MESSAGE_TER:5}
-		export POL_PASSWORD="$MESSAGE_TER"
-		
-		
-	fi
+	Result="$(echo "POL_SetupWindow_login	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$register_link" | nc "$POL_HOST" "$POL_PORT")"
+	POL_LOGIN="$(echo $Result | cut -d'~' -f1)" 
+	POL_PASSWORD="$(echo $Result | cut -d'~' -f2)" 
 }
 POL_SetupWindow_file ()
 {
