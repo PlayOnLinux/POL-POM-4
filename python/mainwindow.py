@@ -710,6 +710,10 @@ class MainWindow(wx.Frame):
         self.irc.Center(wx.BOTH)
         self.irc.Show(True)
 
+    def UpdateGIT(self, event):
+        os.system("bash \""+Variables.playonlinux_env+"/bash/update_git\"&")
+
+
     def GoToAppDir(self, event):
         self.game_exec = self.GetSelectedProgram()
         playonlinux.open_folder(self.game_exec)
@@ -769,7 +773,9 @@ class MainWindow(wx.Frame):
         self.menuGaucheAddLink("pol_prgm_settings", _("Settings"), i,Variables.playonlinux_env+"/resources/images/menu/settings.png",self.Options)
         i+=1
         self.menuGaucheAddLink("pol_prgm_messenger", _("Messenger"), i,Variables.playonlinux_env+"/resources/images/menu/people.png",self.OpenIrc)
-
+        if(os.path.exists(os.environ["PLAYONLINUX"]+"/.git/")):
+            i+=1
+            self.menuGaucheAddLink("pol_git", _("Update GIT"), i,Variables.playonlinux_env+"/resources/images/menu/update_git.png",self.UpdateGIT)
 
         if(shortcut != None):
             i+=2
