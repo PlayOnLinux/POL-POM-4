@@ -432,7 +432,13 @@ class MainWindow(wx.Frame):
                     wx.MessageBox(self.SetupWindowTimer_action[1],os.environ["APPLICATION_TITLE"])
                     self.SetupWindowTimer_action = None
                     return False 
-                
+
+            if(self.SetupWindowTimer_action[0] == "POL_Die"):
+                if(len(self.SetupWindowTimer_action) == 1):
+                    self.ForceClose()                    
+                    self.SetupWindowTimer_action = None
+                    return False  
+
             if(self.SetupWindowTimer_action[0] == 'POL_SetupWindow_Init'):
                 if(len(self.SetupWindowTimer_action) == 5):
                     self.windowList[self.SetupWindowTimer_action[1]] = gui.POL_SetupFrame(os.environ["APPLICATION_TITLE"],self.SetupWindowTimer_action[1],self.SetupWindowTimer_action[2],self.SetupWindowTimer_action[3],self.SetupWindowTimer_action[4])

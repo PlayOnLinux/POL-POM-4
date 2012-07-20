@@ -811,3 +811,8 @@ POL_System_CheckFS()
 	FS_Check "$PartInfo" "noexec" "$(eval_gettext 'The following file is located on a noexec mounted filesystem.\nIt might prevent wine from working\n\n$FilePath')" || return 1
 	return 0
 }
+POL_Die ()
+{
+	# Kill PlayOnLinux
+	echo "POL_Die" | ncs "$POL_HOST" "$POL_PORT"
+}
