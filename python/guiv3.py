@@ -163,9 +163,9 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
         
         
-        self.animation = wx.StaticBitmap(self.panel, -1, self.GetLoaderFromAngle(0), (228,170))
+        self.animation = wx.StaticBitmap(self.panel, -1, self.GetLoaderFromAngle(1), (228,170))
         self.animation.Hide()
-        self.current_angle = 0
+        self.current_angle = 1
     
         self.images = wx.ImageList(22, 22)
         self.MenuGames = wx.TreeCtrl(self.panel, 111, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT|Variables.widget_borders, pos=(25,105),size=(460,220))
@@ -202,8 +202,8 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.Timer_downloading = False
         
     def GetLoaderFromAngle(self, angle):
-        image = wx.Image(Variables.playonlinux_env+"/resources/images/setups/wait.png")
-        image = image.Rotate(angle, (32,32))
+        if(angle >= 1 and angle <= 12):
+            image = wx.Image(Variables.playonlinux_env+"/resources/images/setups/wait/"+str(angle)+".png")
         return image.ConvertToBitmap()
         
     def Destroy_all(self):
@@ -276,10 +276,8 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
                     self.Timer_downloading = False
 
         if(self.Timer_animate == True):
-            self.current_angle = ((self.current_angle - 1) % 12)
-            self.animation.SetBitmap(self.GetLoaderFromAngle(self.current_angle*2*3.14/12))
-            self.animation.SetPosition( ((520-self.animation.GetSize()[0])/2,202-self.animation.GetSize()[1]/2) )
-
+            self.current_angle = ((self.current_angle + 1) % 12)
+            self.animation.SetBitmap(self.GetLoaderFromAngle(self.current_angle + 1))
             
     ### Theses methods command the window. There are called directly by the server
     def POL_SetupWindow_message(self, message, title):
