@@ -562,7 +562,11 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.Destroy_all()
         self.DrawDefault(message, title)
 
-        self.texte_panel.SetLabel(open(iletoread,"r").read())
+        try:
+            self.texte_panel.SetLabel(open(filetoread,"r").read())
+        except:
+            self.texte_panel.SetLabel("E. File not found")
+            
         self.texte_panel.Wrap(400)
         self.texte_panel.Show()
 

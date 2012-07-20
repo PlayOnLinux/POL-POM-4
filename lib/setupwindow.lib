@@ -275,29 +275,8 @@ POL_SetupWindow_file ()
 	# Shows the content of a file
 	# Usage: POL_SetupWindow_file [message] [title] [file]
 	
-	if [ -f "$3" ]
-	then
-		cat << EOF > "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-MsgIn
-file
-$1
-$2
-$3
-EOF
-		MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$' 2> /dev/null)
-		while [ ! "$MESSAGE" = "MsgOut" ]
-		do
-			[ ! -e "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" ] && exit
-			MESSAGE=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MsgOut$' 2> /dev/null)
-			sleep 0.1
-		done
-		MESSAGE_BIS=$(cat "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID" | grep '^MSG_RECEIVED=' 2> /dev/null)
-		if [ "$MESSAGE_BIS" = "MSG_RECEIVED=Cancel" ]
-		then
-			rm "$REPERTOIRE/configurations/guis/$POL_SetupWindow_ID"
-			exit 
-		fi
-	fi
+	echo "POL_SetupWindow_file	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$(POL_Untab "$3")" | ncs "$POL_HOST" "$POL_PORT"
+
 }
 POL_SetupWindow_textbox_multiline ()
 {
