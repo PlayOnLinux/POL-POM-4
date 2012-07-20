@@ -121,10 +121,12 @@ if [ "$1" = "--run" ]; then
 else
 	cd "$POLDIR/python"
 	"$PythonBin" mainwindow.py "$@"
-	if [ $? -ne 0 -a $? -ne 63 ]; then
+	exitcode=$?
+	if [ $exitcode -ne 0 -a $exitcode -ne 63 ]; then
 		python2.6 mainwindow.py "$@"
+		exitcode=$?
 	fi
 fi
 
-[ $? -eq 63 ] && exec "$POLDIR/playonlinux"
-exit $?
+[ $exitcode -eq 63 ] && exec "$POLDIR/playonlinux"
+exit $exitcode
