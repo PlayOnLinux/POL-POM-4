@@ -435,7 +435,7 @@ class MainWindow(wx.Frame):
 
             if(self.SetupWindowTimer_action[0] == "POL_Die"):
                 if(len(self.SetupWindowTimer_action) == 1):
-                    self.ForceClose()                    
+                    self.POLDie()                    
                     self.SetupWindowTimer_action = None
                     return False  
 
@@ -1050,12 +1050,16 @@ class MainWindow(wx.Frame):
         playonlinux.SetDebugState(game_exec, True)
         self.Run(self, True)
  
-    def ForceClose(self, signal, frame): # Catch SIGINT
-        print "\nCtrl+C pressed. Killing all processes..."
+    def POLDie(self):
         for pid in self.windowList.keys():
             os.system("kill -9 -"+pid+" 2> /dev/null")
             os.system("kill -9 "+pid+" 2> /dev/null") 
+        app.POLServer.closeServer()
         os._exit(0)
+
+    def ForceClose(self, signal, frame): # Catch SIGINT
+        print "\nCtrl+C pressed. Killing all processes..."
+        self.POLDie()
 
     def ClosePol(self, event):
         if(wx.YES == wx.MessageBox(_('Are you sure you want to close all {0} Windows?').format(os.environ["APPLICATION_TITLE"]).decode("utf-8","replace"),os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
@@ -1086,12 +1090,7 @@ class MainWindow(wx.Frame):
             playonlinux.SetSettings("PANEL_SIZE",str(self.mySize))
             playonlinux.SetSettings("PANEL_POSITION",str(self.myPosition))
 
-            for pid in self.windowList.keys():
-                os.system("kill -9 -"+pid+" 2> /dev/null")
-                os.system("kill -9 "+pid+" 2> /dev/null") 
-
-            app.POLServer.closeServer()
-            os._exit(0)
+            self.POLDie()
         return None
 
     def About(self, event):
