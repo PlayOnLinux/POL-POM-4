@@ -31,9 +31,12 @@ class gui_server(threading.Thread):
         self.temp = connection.recv(2048)
         self.result = self.interact(self.temp.replace("\n",""))
         connection.send(self.result)
-        connection.shutdown(1)
-        connection.close()
-
+        try: 
+           connection.shutdown(1)
+           connection.close()
+        except:
+           pass
+           
     def initServer(self):
         if(self._port  >= 30020):
            print "Error: Unable to reserve a valid port"
