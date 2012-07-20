@@ -115,8 +115,11 @@ if [ "$1" == "--run" ]; then
 else
 	cd "$(dirname "$0")/python"
 	"$PythonBin" mainwindow.py "$@"
-	if [ ! "$?" = "0" ]; then
+	if [ "$?" = "63" ]; then # Restart signal
+		"$PLAYONLINUX/playonlinux"
+	elif[ ! "$?" = "0" ]; then
 		python2.6 mainwindow.py "$@"
+		[ "$?" = "63" ] && "$PLAYONLINUX/playonlinux"
 	fi
 fi
 

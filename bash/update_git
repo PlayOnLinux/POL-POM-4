@@ -27,4 +27,6 @@ POL_SetupWindow_Init
 POL_SetupWindow_wait "$(eval_gettext 'Updating $APPLICATION_TITLE from GIT...')" "$TITLE"
 cd "$PLAYONLINUX"
 git pull
+POL_SetupWindow_question "$(eval_gettext 'Do you want to restart $APPLICATION_TITLE?')" "$TITLE"
+[ "$APP_ANSWER" = "TRUE" ] && POL_Restart
 POL_SetupWindow_Close

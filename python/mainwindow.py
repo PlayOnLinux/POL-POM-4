@@ -439,6 +439,12 @@ class MainWindow(wx.Frame):
                     self.SetupWindowTimer_action = None
                     return False  
 
+            if(self.SetupWindowTimer_action[0] == "POL_Restart"):
+                if(len(self.SetupWindowTimer_action) == 1):
+                    self.POLRestart()                    
+                    self.SetupWindowTimer_action = None
+                    return False  
+
             if(self.SetupWindowTimer_action[0] == 'POL_SetupWindow_Init'):
                 if(len(self.SetupWindowTimer_action) == 5):
                     self.windowList[self.SetupWindowTimer_action[1]] = gui.POL_SetupFrame(os.environ["APPLICATION_TITLE"],self.SetupWindowTimer_action[1],self.SetupWindowTimer_action[2],self.SetupWindowTimer_action[3],self.SetupWindowTimer_action[4])
@@ -1056,6 +1062,13 @@ class MainWindow(wx.Frame):
             os.system("kill -9 "+pid+" 2> /dev/null") 
         app.POLServer.closeServer()
         os._exit(0)
+
+    def POLRestart(self):
+        for pid in self.windowList.keys():
+            os.system("kill -9 -"+pid+" 2> /dev/null")
+            os.system("kill -9 "+pid+" 2> /dev/null") 
+        app.POLServer.closeServer()
+        os._exit(63) # Restart code
 
     def ForceClose(self, signal, frame): # Catch SIGINT
         print "\nCtrl+C pressed. Killing all processes..."
