@@ -296,7 +296,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.titreP.SetLabel(titre.decode("utf8","replace"))
         self.titreP.Wrap(280)
 
-        self.texteP.SetLabel(message.decode("utf8","replace").replace("\\n","\n"))
+        self.texteP.SetLabel(message.decode("utf8","replace").replace("\\n","\n").replace("\\t","\t"))
         self.texteP.Wrap(360)
         self.texteP.Show()
 
@@ -611,7 +611,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
     def DrawDefault(self, message, title):
         self.DrawHeader()
-        self.texte.SetLabel(message.replace("\\n","\n"))
+        self.texte.SetLabel(message.replace("\\n","\n").replace("\\t","\t"))
         self.texte.Show()
         self.titre.SetLabel(title)
         self.titre.Show()
