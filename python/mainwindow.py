@@ -423,12 +423,24 @@ class MainWindow(wx.Frame):
         
     def SetupWindowAction(self, event):
         if(self.SetupWindowTimer_action != None):
+            
+            if(self.SetupWindowTimer_action[0] == "SimpleMessage"):
+                if(len(self.SetupWindowTimer_action) == 2):
+                    wx.MessageBox(self.SetupWindowTimer_action[1],os.environ["APPLICATION_TITLE"])
+                    self.SetupWindowTimer_action = None
+                    return False 
+                
             if(self.SetupWindowTimer_action[0] == 'POL_SetupWindow_Init'):
                 if(len(self.SetupWindowTimer_action) == 5):
                     self.windowList[self.SetupWindowTimer_action[1]] = gui.POL_SetupFrame(os.environ["APPLICATION_TITLE"],self.SetupWindowTimer_action[1],self.SetupWindowTimer_action[2],self.SetupWindowTimer_action[3],self.SetupWindowTimer_action[4])
                     self.windowList[self.SetupWindowTimer_action[1]].Center(wx.BOTH)
                     self.windowList[self.SetupWindowTimer_action[1]].Show(True)
-
+            else: 
+                if(self.SetupWindowTimer_action[1] not in self.windowList):
+                    wx.MessageBox(_("Error. Please use POL_SetupWindow_Init first"),os.environ["APPLICATION_TITLE"])
+                    self.SetupWindowTimer_action = None
+                    return False 
+                    
             if(self.SetupWindowTimer_action[0] == 'POL_SetupWindow_message'):
                  if(len(self.SetupWindowTimer_action) == 4):
                      self.windowList[self.SetupWindowTimer_action[1]].POL_SetupWindow_message(self.SetupWindowTimer_action[2],self.SetupWindowTimer_action[3])
@@ -481,7 +493,8 @@ class MainWindow(wx.Frame):
             if(self.SetupWindowTimer_action[0] == 'POL_SetupWindow_Close'):
                 if(len(self.SetupWindowTimer_action) == 2):
                     self.windowList[self.SetupWindowTimer_action[1]].Destroy()
-
+                    del self.windowList[self.SetupWindowTimer_action[1]]
+                    
             if(self.SetupWindowTimer_action[0] == 'POL_SetupWindow_menu'):
                 if(len(self.SetupWindowTimer_action) == 6):
                     self.windowList[self.SetupWindowTimer_action[1]].POL_SetupWindow_menu(self.SetupWindowTimer_action[2],self.SetupWindowTimer_action[3],self.SetupWindowTimer_action[4],self.SetupWindowTimer_action[5], False)
@@ -517,8 +530,8 @@ class MainWindow(wx.Frame):
             if(self.SetupWindowTimer_action[0] == 'POL_SetupWindow_set_text'):
                 if(len(self.SetupWindowTimer_action) == 3):
                     self.windowList[self.SetupWindowTimer_action[1]].POL_SetupWindow_PulseText(self.SetupWindowTimer_action[2])
-            
-            
+                               
+                    
             self.SetupWindowTimer_action = None
            
     def TimerAction(self, event):

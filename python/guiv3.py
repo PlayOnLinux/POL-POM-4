@@ -162,9 +162,11 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.WaitButton = wx.Button(self.panel, 310, "", size=(250,25))
 
         
-        self.animation = wx.animate.GIFAnimationCtrl(self.panel, -1, Variables.playonlinux_env+"/resources/images/setups/wait.gif", (228,170))
+        
+        self.animation = wx.StaticBitmap(self.panel, -1, self.GetLoaderFromAngle(0), (228,170))
         self.animation.Hide()
-
+        self.current_angle = 0
+    
         self.images = wx.ImageList(22, 22)
         self.MenuGames = wx.TreeCtrl(self.panel, 111, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT|Variables.widget_borders, pos=(25,105),size=(460,220))
         self.MenuGames.SetImageList(self.images)
@@ -198,7 +200,11 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.Bind(wx.EVT_TIMER, self.TimerAction, self.timer)
         self.timer.Start(100)
         self.Timer_downloading = False
-
+        
+    def GetLoaderFromAngle(self, angle):
+        image = wx.Image(Variables.playonlinux_env+"/resources/images/setups/wait.png")
+        image = image.Rotate(angle, (32,32))
+        return image.ConvertToBitmap()
         
     def Destroy_all(self):
         self.Result = None
@@ -235,7 +241,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.MCheckBox.SetValue(False)
         self.PCheckBox.SetValue(False)
         self.animation.Hide()
-        self.animation.Stop()
+        self.Timer_animate = False
 
         self.Refresh()
 
@@ -269,7 +275,12 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
                         self.release(self)
                     self.Timer_downloading = False
 
+        if(self.Timer_animate == True):
+            self.current_angle = ((self.current_angle - 1) % 12)
+            self.animation.SetBitmap(self.GetLoaderFromAngle(self.current_angle*2*3.14/12))
+            self.animation.SetPosition( ((520-self.animation.GetSize()[0])/2,202-self.animation.GetSize()[1]/2) )
 
+            
     ### Theses methods command the window. There are called directly by the server
     def POL_SetupWindow_message(self, message, title):
         self.Destroy_all()
@@ -339,7 +350,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.DrawDefault(message, title)
         self.NextButton.Enable(False)
         self.animation.Show()
-        self.animation.Play()
+        self.Timer_animate = True
         self.DrawCancel()
         self.DrawNext()
         self.NextButton.Enable(False)

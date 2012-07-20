@@ -766,3 +766,12 @@ POL_SetupWindow_TestedCard()
 		POL_SetupWindow_message "Your video card ($MyCard) has not been tested with $TITLE. Don't hesitate to send us feedbacks, so we can improve $APPLICATION_TITLE" "$TITLE"
 	fi
 }
+
+POL_SimpleMessage ()
+{
+	# Shows a text box
+	# Usage: POL_SetupWindow_textbox [message] [title] [default value]
+	# Result is sent in $APP_ANSWER variable
+
+	echo "SimpleMessage	$(POL_Untab "$1")" | ncs "$POL_HOST" "$POL_PORT"
+}
