@@ -87,10 +87,10 @@ class Program(threading.Thread):
         def __init__(self):
                 threading.Thread.__init__(self)
                 self.start()
+                self.programrunning = True
 
         def run(self):
                 self.running = True
-                self.programrunning = True
                 self.chaine = ""
                 print "Script started "+sys.argv[1]
                 for arg in sys.argv[2:]:
