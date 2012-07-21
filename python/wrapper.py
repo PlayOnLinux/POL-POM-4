@@ -32,6 +32,7 @@ if(os.environ["POL_OS"] == "Linux"):
     import wxversion
     wxversion.ensureMinimal('2.8')
 
+import wx
 import lib.lng as lng
 import lib.playonlinux as playonlinux, lib.Variables as Variables
 import guiv3 as gui, install, options, wine_versions as wver, sp, configure, threading, debug, gui_server
