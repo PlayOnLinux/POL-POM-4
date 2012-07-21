@@ -42,21 +42,18 @@ import guiv3 as gui, install, options, wine_versions as wver, sp, configure, thr
 class MainWindow(wx.Frame):
     def __init__(self,parent,id,title):
 
-        wx.Frame.__init__(self, parent, 1000, title, size = (515,450))
-        self.SetMinSize((400,400))
-        self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
+        wx.Frame.__init__(self, parent, 1000, title, size = (0,0), style=wx.NO_BORDER) # I know, that's not clean at all
 
         self.windowList = {}
         self.registeredPid = []
+        self.myScript = None
 
         # Manage updater
         # SetupWindow timer. The server is in another thread and GUI must be run from the main thread
-        self.SetupWindowTimer = wx.Timer(self, 2)
+        self.SetupWindowTimer = wx.Timer(self, 1)
         self.Bind(wx.EVT_TIMER, self.SetupWindowAction, self.SetupWindowTimer)
         self.SetupWindowTimer_action = None
         self.SetupWindowTimer.Start(10)
-        self.myScript = Program
-
        
     def SetupWindowTimer_SendToGui(self, recvData):
         recvData = recvData.split("\t")
@@ -66,9 +63,8 @@ class MainWindow(wx.Frame):
         
     def SetupWindowAction(self, event):
         if(self.SetupWindowTimer_action != None):
-            print self.SetupWindowTimer_action                        
             return gui_server.readAction(self)
-        if(self.myScript.isRunning == False):
+        if(self.myScript.programrunning == False):
             self.POLDie()
            
   
@@ -92,19 +88,17 @@ class Program(threading.Thread):
                 threading.Thread.__init__(self)
                 self.start()
 
-        def isRunning(self):
-            return self.programrunning
-
         def run(self):
                 self.running = True
                 self.programrunning = True
                 self.chaine = ""
+                print "Script started "+sys.argv[1]
                 for arg in sys.argv[2:]:
                         self.chaine+=" \""+arg+"\""
                 self.proc = subprocess.Popen("bash \""+sys.argv[1]+"\""+self.chaine, shell=True)
                 while(self.running == True):
                         self.proc.poll()
-                        if(self.proc.returncode == None):
+                        if(self.proc.returncode != None):
                             self.programrunning = False
                         time.sleep(1)
 
@@ -127,7 +121,7 @@ class PlayOnLinuxApp(wx.App):
                  os._exit(0)
                  break
             i+=1 
-
+        self.frame.myScript = Program()
    
         self.SetTopWindow(self.frame)
         self.frame.Show(True)
