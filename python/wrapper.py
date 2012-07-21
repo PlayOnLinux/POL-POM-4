@@ -65,7 +65,6 @@ class MainWindow(wx.Frame):
         self.SetupWindowTimer_action = recvData
         
     def SetupWindowAction(self, event):
-        print self.SetupWindowTimer_action
         if(self.SetupWindowTimer_action != None):                           
             return gui_server.readAction(self)
         if(self.myScript.isRunning == False):
