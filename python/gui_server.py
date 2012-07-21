@@ -85,8 +85,6 @@ class gui_server(threading.Thread):
             #channel.close()
             
 def readAction(object):
-    if(len(object.SetupWindowTimer_action) <= 1):
-        return False
     if(object.SetupWindowTimer_action[0] == "SimpleMessage"):
         if(len(object.SetupWindowTimer_action) == 2):
             wx.MessageBox(object.SetupWindowTimer_action[1],os.environ["APPLICATION_TITLE"])
@@ -110,6 +108,10 @@ def readAction(object):
             object.registeredPid.append(object.SetupWindowTimer_action[1])
             object.SetupWindowTimer_action = None
             return False  
+
+    if(len(object.SetupWindowTimer_action) <= 1):
+        object.SetupWindowTimer_action = None
+        return False
 
     if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_Init'):
         if(len(object.SetupWindowTimer_action) == 5):
