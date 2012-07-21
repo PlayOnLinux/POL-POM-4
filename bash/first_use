@@ -22,7 +22,7 @@
 source "$PLAYONLINUX/lib/sources" 
 
 export XQUARTZ_VERSION="2.7.1"
-
+echo "$POL_PORT"
 
 install_fonts () # Install Microsoft Fonts
 {
