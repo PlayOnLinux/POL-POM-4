@@ -22,6 +22,12 @@
 [ "$PLAYONLINUX" = "" ] && exit 0
 source "$PLAYONLINUX/lib/sources" 
 
+# Plugins
+install_plugins
+
+# Debian
+[ "$DEBIAN_PACKAGE" = "TRUE" ] && install_debfonts
+
 [ "$POL_OS" == "Mac" ] && [ ! -e "/Applications/Utilities/XQuartz.app" ] && [ ! "$OSX_VERSION" = "11" ] && bash "$PLAYONLINUX/bash/first_use"
 
 if [ "$(POL_Config_Read GECKO_INSTALLED)" = "" ]; then

@@ -34,16 +34,6 @@ clean_tmp
 ### Operations below are background asynchronous tasks
 
 (
-# Plugins
-install_plugins
-
-# Debian
-[ "$DEBIAN_PACKAGE" = "TRUE" ] && install_debfonts
-
-# First use ?
-sleep 2
-[ "$(POL_Config_Read FIRST_USE)" = "" ] && bash "$PLAYONLINUX/bash/first_use"
-
 # Run XQuartz
 [ "$POL_OS" = "Mac" ] && POL_Internal_RunXQuartz
 
