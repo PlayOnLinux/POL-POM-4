@@ -1016,6 +1016,7 @@ class PlayOnLinuxApp(wx.App):
         close = False
         exe_present = False
 
+        os.system("bash "+Variables.playonlinux_env+"/bash/startup")
         self.systemCheck()
         
         for f in  sys.argv[1:]:
@@ -1031,7 +1032,6 @@ class PlayOnLinuxApp(wx.App):
         self.SetAppName(os.environ["APPLICATION_TITLE"])
 
 
-        os.system("bash "+Variables.playonlinux_env+"/bash/startup")
         self.frame = MainWindow(None, -1, os.environ["APPLICATION_TITLE"])
         # Gui Server
         self.POLServer = gui_server.gui_server(self.frame)
