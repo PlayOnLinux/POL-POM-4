@@ -36,7 +36,6 @@ import wx
 import lib.lng as lng
 import lib.playonlinux as playonlinux, lib.Variables as Variables
 import guiv3 as gui, install, options, wine_versions as wver, sp, configure, threading, debug, gui_server
-import irc as ircgui
 
 
 
@@ -66,6 +65,7 @@ class MainWindow(wx.Frame):
         self.SetupWindowTimer_action = recvData
         
     def SetupWindowAction(self, event):
+        print self.SetupWindowTimer_action
         if(self.SetupWindowTimer_action != None):                           
             return gui_server.readAction(self)
         if(self.myScript.isRunning == False):
