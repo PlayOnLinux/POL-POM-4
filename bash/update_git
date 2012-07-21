@@ -26,7 +26,15 @@ TITLE="$(eval_gettext '$APPLICATION_TITLE auto-updater')"
 POL_SetupWindow_Init
 POL_SetupWindow_wait "$(eval_gettext 'Updating $APPLICATION_TITLE from GIT...')" "$TITLE"
 cd "$PLAYONLINUX"
-git pull
-POL_SetupWindow_question "$(eval_gettext 'Do you want to restart $APPLICATION_TITLE?')" "$TITLE"
-[ "$APP_ANSWER" = "TRUE" ] && POL_Restart
+git remote update
+if git status |grep -q 'Your branch is behind'; then
+    POL_SetupWindow_question "$(eval_gettext 'Do you want to update and restart $APPLICATION_TITLE?')" "$TITLE"
+    if [ "$APP_ANSWER" = "TRUE" ]; then
+        git pull
+        POL_Restart
+    fi
+else
+    POL_SetupWindow_message "$(eval_gettext 'Already up-to-date.')" "$TITLE"
+fi
+
 POL_SetupWindow_Close
