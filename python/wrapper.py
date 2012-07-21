@@ -25,7 +25,7 @@ import os, getopt, sys, urllib, signal, string, time, webbrowser, gettext, local
 import wx
 
 import lib.Variables as Variables, lib.lng as lng
-import guiv3 as gui, install, options, wine_versions as wver, sp, configure, threading
+import guiv3 as gui, install, options, wine_versions as wver, sp, configure, threading, gui_server
 
 lng.Lang()
 
@@ -43,7 +43,7 @@ class Program(threading.Thread):
         for arg in sys.argv[2:]:
             self.chaine+=" \""+arg+"\""
         self.proc = subprocess.Popen("bash \""+sys.argv[1]+"\""+self.chaine, shell=True)
-        while(self.running == True):
+        while(self.proc.returncode == None):
             self.proc.poll()
             time.sleep(1)
 
@@ -52,39 +52,16 @@ class PlayOnLinuxApp(wx.App):
     def OnInit(self):
         lng.iLang()
 
-
-        self.SetClassName(os.environ["APPLICATION_TITLE"])
-        self.SetAppName(os.environ["APPLICATION_TITLE"])
-        self.frame = gui.POL_SetupFrame(os.environ["APPLICATION_TITLE"],str(pid_to_open),top,left,str(pid_to_open))
-        self.frame.Center(wx.BOTH)
-        self.frame.Show(True)
-
+        self.POLServer = gui_server.gui_server(self)
+        self.POLServer.start()
+        time.sleep(1)
+        self.prog = Program()
 
         return True
 
-prog = Program()
-pid_to_open = -1
-left = None
-top = None
-while(True):
-    time.sleep(1)
-    if(prog.proc.returncode == None):
-        fichier_index = os.environ["REPERTOIRE"]+"/configurations/guis/index_"+polid
-        fichier_index = os.environ["REPERTOIRE"]+"/configurations/guis/index_"+os.environ["POL_ID"]
-        #print(fichier_index)
-        try:
-            message = open(fichier_index,'r').read()
-        except:
-            open(fichier_index,'a').write('')
-            message = open(fichier_index,'r').read()
-        message = string.split(message, "\n")
-        if(message[0] == "Open"):
-            pid_to_open = message[1]
-            top = message[2]
-            left = message[3]
-            app = PlayOnLinuxApp(redirect=False)
-            app.MainLoop()
-    else:
-        prog.running = False
-        os._exit(0)
+app = PlayOnLinuxApp(redirect=False)
+app.MainLoop()
+
+os._exit(0)
+        
     #time.sleep(1)
