@@ -130,7 +130,7 @@ class PlayOnLinuxApp(wx.App):
 
    
         self.SetTopWindow(self.frame)
-        self.frame.Show(False)
+        self.frame.Show(True)
         
         return True
   
