@@ -23,18 +23,16 @@ source "$PLAYONLINUX/lib/sources"
 TITLE="$(eval_gettext '$APPLICATION_TITLE Application Configurator')"
 pol_winecfg()
 {
-	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing programs in the virtual drive...")" "$TITLE"
 	wineserver -k
-	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Starting Wine configuration')" "$TITLE"
 	POL_Wine winecfg
 }
 pol_kprocess()
 {
 	if [ "$FIRSTARGUMENT" != "" ]; then	
 		POL_SetupWindow_Init
+		POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing programs in the virtual drive...")" "$TITLE"
 	fi
 		
-	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing programs in the virtual drive...")" "$TITLE"
 	sleep 1
 	wineserver -k
 	sleep 1
@@ -46,37 +44,27 @@ pol_kprocess()
 }
 pol_regedit()
 {
-	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing processes in the prefix...")" "$TITLE"
 	wineserver -k
-	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Starting regedit')" "$TITLE"
 	POL_Wine regedit
 }
 pol_wineboot()
 {
-	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing processes in the prefix...")" "$TITLE"
 	wineserver -k
-	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Simulating Windows reboot')" "$TITLE"
 	POL_Wine wineboot
 }
 pol_awinecfg()
 {
-	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing processes in the prefix...")" "$TITLE"
 	wineserver -k
-	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Starting Advanced Wine Configuration')" "$TITLE"
 	bash "$REPERTOIRE/plugins/Advanced Wine Configuration/scripts/menu"
 }
 pol_winetricks()
 {
-	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing processes in the prefix...")" "$TITLE"
 	wineserver -k
-	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Starting WineTricks plug-in')" "$TITLE"
 	bash "$REPERTOIRE/plugins/WineTricks/scripts/menu" "$FIRSTARGUMENT"
 }
 pol_scfg()
 {
-	POL_SetupWindow_wait_next_signal "$(eval_gettext "Killing processes in the prefix...")" "$TITLE"
 	wineserver -k
-	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Starting specific Wine configurator')" "$TITLE"
 	bash "$REPERTOIRE/configurations/configurators/$APP"
 }
 pol_changeicon()
