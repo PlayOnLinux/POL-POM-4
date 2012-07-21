@@ -83,3 +83,125 @@ class gui_server(threading.Thread):
             thread.start_new_thread(self.handler, (self.connection,self.addr))
             self.i += 1
             #channel.close()
+            
+def readAction(object):
+    if(object.SetupWindowTimer_action[0] == "SimpleMessage"):
+        if(len(object.SetupWindowTimer_action) == 2):
+            wx.MessageBox(object.SetupWindowTimer_action[1],os.environ["APPLICATION_TITLE"])
+            object.SetupWindowTimer_action = None
+            return False 
+
+    if(object.SetupWindowTimer_action[0] == "POL_Die"):
+        if(len(object.SetupWindowTimer_action) == 1):
+            object.POLDie()            
+            object.SetupWindowTimer_action = None
+            return False  
+
+    if(object.SetupWindowTimer_action[0] == "POL_Restart"):
+        if(len(object.SetupWindowTimer_action) == 1):
+            object.POLRestart()            
+            object.SetupWindowTimer_action = None
+            return False  
+
+    if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_Init'):
+        if(len(object.SetupWindowTimer_action) == 5):
+            object.windowList[object.SetupWindowTimer_action[1]] = gui.POL_SetupFrame(os.environ["APPLICATION_TITLE"],object.SetupWindowTimer_action[1],object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[4])
+            object.windowList[object.SetupWindowTimer_action[1]].Center(wx.BOTH)
+            object.windowList[object.SetupWindowTimer_action[1]].Show(True)
+    else: 
+        if(object.SetupWindowTimer_action[1] not in object.windowList):
+            wx.MessageBox(_("Error. Please use POL_SetupWindow_Init first"),os.environ["APPLICATION_TITLE"])
+            object.SetupWindowTimer_action = None
+            return False 
+            
+    if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_message'):
+         if(len(object.SetupWindowTimer_action) == 4):
+             object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_message(object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3])
+
+    if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_shortcut_list'):
+         if(len(object.SetupWindowTimer_action) == 4):
+             object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_shortcut_list(object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3])
+             
+    if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_prefix_selector'):
+         if(len(object.SetupWindowTimer_action) == 4):
+             object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_prefix_selector(object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3])
+
+    if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_pulsebar'):
+         if(len(object.SetupWindowTimer_action) == 4):
+             object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_pulsebar(object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3])
+
+    if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_question'):
+        if(len(object.SetupWindowTimer_action) == 4):
+            object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_question(object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3])
+
+    if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_wait'):
+        if(len(object.SetupWindowTimer_action) == 4):
+            object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_wait(object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3])
+
+    if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_wait_bis'):
+        if(len(object.SetupWindowTimer_action) == 7):
+            object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_wait_b(object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[4],object.SetupWindowTimer_action[5],object.SetupWindowTimer_action[6])
+
+    if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_free_presentation'):
+        if(len(object.SetupWindowTimer_action) == 4):
+            object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_free_presentation(object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[2])
+
+    if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_textbox'):
+        if(len(object.SetupWindowTimer_action) == 5):
+            object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_textbox(object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[4])
+
+    if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_textbox_multiline'):
+        if(len(object.SetupWindowTimer_action) == 5):
+            object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_textbox_multiline(object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[4])
+
+
+    if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_browse'):
+        if(len(object.SetupWindowTimer_action) == 6):
+            object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_browse(object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[4],object.SetupWindowTimer_action[5])
+
+    if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_download'):
+        if(len(object.SetupWindowTimer_action) == 6):
+            object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_download(object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[4],object.SetupWindowTimer_action[5])
+
+    if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_Close'):
+        if(len(object.SetupWindowTimer_action) == 2):
+            object.windowList[object.SetupWindowTimer_action[1]].Destroy()
+            del object.windowList[object.SetupWindowTimer_action[1]]
+            
+    if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_menu'):
+        if(len(object.SetupWindowTimer_action) == 6):
+            object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_menu(object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[4],object.SetupWindowTimer_action[5], False)
+
+    if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_menu_num'):
+        if(len(object.SetupWindowTimer_action) == 6):
+            object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_menu(object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[4],object.SetupWindowTimer_action[5], True)
+    
+    if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_checkbox_list'):
+        if(len(object.SetupWindowTimer_action) == 6):
+            object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_checkbox_list(object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[4],object.SetupWindowTimer_action[5])
+    
+    if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_icon_menu'):
+        if(len(object.SetupWindowTimer_action) == 8):
+            object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_icon_menu(object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[4],object.SetupWindowTimer_action[5], object.SetupWindowTimer_action[6], object.SetupWindowTimer_action[7])
+    
+    if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_licence'):
+        if(len(object.SetupWindowTimer_action) == 5):
+            object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_licence(object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[4])
+    
+    if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_login'):
+        if(len(object.SetupWindowTimer_action) == 5):
+            object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_login(object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[4])
+    
+    if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_file'):
+        if(len(object.SetupWindowTimer_action) == 5):
+            object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_file(object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[4])
+            
+    if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_pulse'):
+        if(len(object.SetupWindowTimer_action) == 3):
+            object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_Pulse(object.SetupWindowTimer_action[2])
+    
+    if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_set_text'):
+        if(len(object.SetupWindowTimer_action) == 3):
+            object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_PulseText(object.SetupWindowTimer_action[2])
+    
+    object.SetupWindowTimer_action = None
