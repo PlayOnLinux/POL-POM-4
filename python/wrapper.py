@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# Copyright (C) 2011 Pâris Quentin
+# Copyright (C) 2008 Pâris Quentin
 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,51 +17,128 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-# Wrapper.py - Enable running PlayOnLinux and PlayOnMac scripts outside of POL/POM environement
-
+# PlayOnLinux wrapper
 encoding = 'utf-8'
 
-import os, getopt, sys, urllib, signal, string, time, webbrowser, gettext, locale, sys, shutil, subprocess
-import wx
+import os, getopt, sys, urllib, signal, string, time, webbrowser, gettext, locale, sys, shutil, subprocess, signal
 
-import lib.Variables as Variables, lib.lng as lng
-import guiv3 as gui, install, options, wine_versions as wver, sp, configure, threading, gui_server
+try :
+    os.environ["POL_OS"]
+except :
+    print "ERROR ! Please define POL_OS environement var first."
+    os._exit(1)
 
-lng.Lang()
+if(os.environ["POL_OS"] == "Linux"):
+    import wxversion
+    wxversion.ensureMinimal('2.8')
+
+import lib.lng as lng
+import lib.playonlinux as playonlinux, lib.Variables as Variables
+import guiv3 as gui, install, options, wine_versions as wver, sp, configure, threading, debug, gui_server
+import irc as ircgui
 
 
-polid=os.environ["POL_ID"]
 
+class MainWindow(wx.Frame):
+    def __init__(self,parent,id,title):
+
+        wx.Frame.__init__(self, parent, 1000, title, size = (515,450))
+        self.SetMinSize((400,400))
+        self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
+
+        self.windowList = {}
+        self.registeredPid = []
+
+        # Manage updater
+        # SetupWindow timer. The server is in another thread and GUI must be run from the main thread
+        self.SetupWindowTimer = wx.Timer(self, 2)
+        self.Bind(wx.EVT_TIMER, self.SetupWindowAction, self.SetupWindowTimer)
+        self.SetupWindowTimer_action = None
+        self.SetupWindowTimer.Start(10)
+        myScript = Program
+
+       
+    def SetupWindowTimer_SendToGui(self, recvData):
+        recvData = recvData.split("\t")
+        while(self.SetupWindowTimer_action != None):
+            time.sleep(0.1)
+        self.SetupWindowTimer_action = recvData
+        
+    def SetupWindowAction(self, event):
+        if(self.SetupWindowTimer_action != None):                           
+            return gui_server.readAction(self)
+        if(myScript.isRunning == False):
+            self.POLDie()
+           
+  
+    def POLDie(self):
+        for pid in self.registeredPid:
+            os.system("kill -9 -"+pid+" 2> /dev/null")
+            os.system("kill -9 "+pid+" 2> /dev/null") 
+        app.POLServer.closeServer()
+        os._exit(0)
+
+    def POLRestart(self):
+        return False
+
+    def ForceClose(self, signal, frame): # Catch SIGINT
+        print "\nCtrl+C pressed. Killing all processes..."
+        self.POLDie()
+
+   
 class Program(threading.Thread):
-    def __init__(self):
-        threading.Thread.__init__(self)
-        self.start()
+        def __init__(self):
+                threading.Thread.__init__(self)
+                self.start()
 
-    def run(self):
-        self.running = True
-        self.chaine = ""
-        for arg in sys.argv[2:]:
-            self.chaine+=" \""+arg+"\""
-        self.proc = subprocess.Popen("bash \""+sys.argv[1]+"\""+self.chaine, shell=True)
-        while(self.proc.returncode == None):
-            self.proc.poll()
-            time.sleep(1)
+        def isRunning(self):
+            return self.programrunning
 
+        def run(self):
+                self.running = True
+                self.programrunning = True
+                self.chaine = ""
+                for arg in sys.argv[2:]:
+                        self.chaine+=" \""+arg+"\""
+                self.proc = subprocess.Popen("bash \""+sys.argv[1]+"\""+self.chaine, shell=True)
+                while(self.running == True):
+                        self.proc.poll()
+                        if(self.proc.returncode == None):
+                            self.programrunning = False
+                        time.sleep(1)
 
 class PlayOnLinuxApp(wx.App):
     def OnInit(self):
         lng.iLang()
 
-        self.POLServer = gui_server.gui_server(self)
-        self.POLServer.start()
-        time.sleep(1)
-        self.prog = Program()
+        os.system("bash "+Variables.playonlinux_env+"/bash/startup")
+        self.systemCheck()
+        
+     
 
+
+        self.frame = MainWindow(None, -1, os.environ["APPLICATION_TITLE"])
+        # Gui Server
+        self.POLServer = gui_server.gui_server(self.frame)
+        self.POLServer.start()
+        
+        i = 0
+        while(os.environ["POL_PORT"] == "0"):
+            time.sleep(0.01)
+            if(i >= 300):
+                 wx.MessageBox(_("{0} is not able to start POL_SetupWindow_server.").format(os.environ["APPLICATION_TITLE"]),_("Error"))
+                 os._exit(0)
+                 break
+            i+=1 
+
+   
+        self.SetTopWindow(self.frame)
+        self.frame.Show(False)
+        
         return True
+  
+
+lng.Lang()
 
 app = PlayOnLinuxApp(redirect=False)
 app.MainLoop()
-
-os._exit(0)
-        
-    #time.sleep(1)
