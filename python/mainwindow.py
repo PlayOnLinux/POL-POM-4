@@ -1030,17 +1030,15 @@ class PlayOnLinuxApp(wx.App):
         self.SetClassName(os.environ["APPLICATION_TITLE"])
         self.SetAppName(os.environ["APPLICATION_TITLE"])
 
+
+        os.system("bash "+Variables.playonlinux_env+"/bash/startup")
         self.frame = MainWindow(None, -1, os.environ["APPLICATION_TITLE"])
-        
         # Gui Server
         self.POLServer = gui_server.gui_server(self.frame)
         self.POLServer.start()
     
-
         self.SetTopWindow(self.frame)
         self.frame.Show(True)
-
-        os.system("bash "+Variables.playonlinux_env+"/bash/startup")
         
         return True
     def singleCheck(self, package, fatal=True):
