@@ -418,8 +418,6 @@ class MainWindow(wx.Frame):
         wx.EVT_MENU(self, 236, self.ReadMe)
         self.MgrAddPage()
        
-        os.system("bash \"$PLAYONLINUX/bash/startup_after_server\" &")
-
     def SetupWindowTimer_SendToGui(self, recvData):
         recvData = recvData.split("\t")
         while(self.SetupWindowTimer_action != None):
@@ -1038,7 +1036,8 @@ class PlayOnLinuxApp(wx.App):
         # Gui Server
         self.POLServer = gui_server.gui_server(self.frame)
         self.POLServer.start()
-    
+        os.system("bash \"$PLAYONLINUX/bash/startup_after_server\" &")
+   
         self.SetTopWindow(self.frame)
         self.frame.Show(True)
         
