@@ -117,7 +117,8 @@ class MainWindow(wx.Frame):
         self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
 
         self.windowList = {}
-        
+        self.registeredPid = []
+
         # Manage updater
         self.updater = POLWeb()
         self.updater.start()
@@ -937,14 +938,14 @@ class MainWindow(wx.Frame):
         self.Run(self, True)
  
     def POLDie(self):
-        for pid in self.windowList.keys():
+        for pid in self.registeredPid:
             os.system("kill -9 -"+pid+" 2> /dev/null")
             os.system("kill -9 "+pid+" 2> /dev/null") 
         app.POLServer.closeServer()
         os._exit(0)
 
     def POLRestart(self):
-        for pid in self.windowList.keys():
+        for pid in self.registeredPid:
             os.system("kill -9 -"+pid+" 2> /dev/null")
             os.system("kill -9 "+pid+" 2> /dev/null") 
         app.POLServer.closeServer()
@@ -1036,6 +1037,14 @@ class PlayOnLinuxApp(wx.App):
         # Gui Server
         self.POLServer = gui_server.gui_server(self.frame)
         self.POLServer.start()
+        
+        i = 0
+        while(os.environ["POL_PORT"] == "0"):
+            time.sleep(0.01)
+            if(i >= 300):
+                 wx.MessageBox(_("{0} is not able to start POL_SetupWindow_server.").format(os.environ["APPLICATION_TITLE"]),_("Error"))
+                 os._exit(0)
+                 break
         os.system("bash \"$PLAYONLINUX/bash/startup_after_server\" &")
    
         self.SetTopWindow(self.frame)

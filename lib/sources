@@ -42,3 +42,4 @@ then
 	set -o monitor
 	export ONLY_ONCE="1"
 fi
+POL_System_RegisterPID "$$"

@@ -820,3 +820,7 @@ POL_Restart ()
 	# Kill PlayOnLinux
 	echo "POL_Restart" | ncs "$POL_HOST" "$POL_PORT"
 }
+POL_System_RegisterPID()
+{
+	echo "POL_System_RegisterPID	$1" | ncs "$POL_HOST" "$POL_PORT" 
+}

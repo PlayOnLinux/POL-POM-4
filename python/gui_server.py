@@ -85,6 +85,8 @@ class gui_server(threading.Thread):
             #channel.close()
             
 def readAction(object):
+    if(len(object.SetupWindowTimer_action) <= 1):
+        return False
     if(object.SetupWindowTimer_action[0] == "SimpleMessage"):
         if(len(object.SetupWindowTimer_action) == 2):
             wx.MessageBox(object.SetupWindowTimer_action[1],os.environ["APPLICATION_TITLE"])
@@ -103,17 +105,23 @@ def readAction(object):
             object.SetupWindowTimer_action = None
             return False  
 
+    if(object.SetupWindowTimer_action[0] == 'POL_System_RegisterPID'):
+        if(len(object.SetupWindowTimer_action) == 2):
+            object.registeredPid.append(object.SetupWindowTimer_action[1])
+            object.SetupWindowTimer_action = None
+            return False  
+
     if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_Init'):
         if(len(object.SetupWindowTimer_action) == 5):
             object.windowList[object.SetupWindowTimer_action[1]] = gui.POL_SetupFrame(os.environ["APPLICATION_TITLE"],object.SetupWindowTimer_action[1],object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[4])
             object.windowList[object.SetupWindowTimer_action[1]].Center(wx.BOTH)
             object.windowList[object.SetupWindowTimer_action[1]].Show(True)
-    else: 
+    else:
         if(object.SetupWindowTimer_action[1] not in object.windowList):
             wx.MessageBox(_("Error. Please use POL_SetupWindow_Init first"),os.environ["APPLICATION_TITLE"])
             object.SetupWindowTimer_action = None
             return False 
-            
+    
     if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_message'):
          if(len(object.SetupWindowTimer_action) == 4):
              object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_message(object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3])

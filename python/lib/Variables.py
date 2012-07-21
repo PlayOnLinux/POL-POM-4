@@ -13,6 +13,7 @@ except :
     os._exit(1)
 
 # Variables mixte 1
+os.environ["POL_PORT"] = "0"
 os.environ["PLAYONLINUX"] = os.path.realpath(os.path.realpath(__file__)+"/../../../")
 os.environ["SITE"] = "http://repository.playonlinux.com"
 os.environ["VERSION"] = "4.1.4-dev"
