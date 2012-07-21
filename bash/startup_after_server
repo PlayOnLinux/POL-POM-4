@@ -28,7 +28,11 @@ install_plugins
 # Debian
 [ "$DEBIAN_PACKAGE" = "TRUE" ] && install_debfonts
 
-[ "$POL_OS" == "Mac" ] && [ ! -e "/Applications/Utilities/XQuartz.app" ] && [ ! "$OSX_VERSION" = "11" ] && bash "$PLAYONLINUX/bash/first_use"
+if [ ! "$(POL_Config_Read FIRST_USE)" = "TRUE" ]; then
+	bash "$PLAYONLINUX/bash/first_use"
+elif [ "$POL_OS" = "Mac" -a ! -e "/Applications/Utilities/XQuartz.app" -a "$OSX_VERSION" != "11" ]; then
+	bash "$PLAYONLINUX/bash/first_use"
+fi
 
 if [ "$(POL_Config_Read GECKO_INSTALLED)" = "" ]; then
 	POL_Config_Write GECKO_INSTALLED TRUE
