@@ -417,6 +417,8 @@ class MainWindow(wx.Frame):
         wx.EVT_MENU(self, 235, self.RKill)
         wx.EVT_MENU(self, 236, self.ReadMe)
         self.MgrAddPage()
+       
+        os.system("bash \"$PLAYONLINUX/bash/startup_after_server\" &")
 
     def SetupWindowTimer_SendToGui(self, recvData):
         recvData = recvData.split("\t")
@@ -1056,7 +1058,8 @@ class PlayOnLinuxApp(wx.App):
         if(returncode != 0):
             wx.MessageBox(_("{0} cannot find {1}.\n\n"+message).format(os.environ["APPLICATION_TITLE"],package),_("Error"))
             if(fatal == True):
-                os._exit(0)
+                self.POLDie()
+
     def systemCheck(self):
         #### Root uid check
         if(os.popen("id -u").read() == "0\n" or os.popen("id -u").read() == "0"):
