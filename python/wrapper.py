@@ -113,10 +113,6 @@ class PlayOnLinuxApp(wx.App):
         lng.iLang()
 
         os.system("bash "+Variables.playonlinux_env+"/bash/startup")
-        self.systemCheck()
-        
-     
-
 
         self.frame = MainWindow(None, -1, os.environ["APPLICATION_TITLE"])
         # Gui Server
