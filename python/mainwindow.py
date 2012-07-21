@@ -1058,13 +1058,13 @@ class PlayOnLinuxApp(wx.App):
         if(returncode != 0):
             wx.MessageBox(_("{0} cannot find {1}.\n\n"+message).format(os.environ["APPLICATION_TITLE"],package),_("Error"))
             if(fatal == True):
-                self.POLDie()
+                os._exit(0)
 
     def systemCheck(self):
         #### Root uid check
         if(os.popen("id -u").read() == "0\n" or os.popen("id -u").read() == "0"):
             wx.MessageBox(_("{0} is not supposed to be run as root. Sorry").format(os.environ["APPLICATION_TITLE"]),_("Error"))
-            os._exit(1)
+            os._exit(0)
 
         #### 32 bits OpenGL check
         try:
