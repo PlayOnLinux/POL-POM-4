@@ -1045,6 +1045,7 @@ class PlayOnLinuxApp(wx.App):
                  wx.MessageBox(_("{0} is not able to start POL_SetupWindow_server.").format(os.environ["APPLICATION_TITLE"]),_("Error"))
                  os._exit(0)
                  break
+            i+=1 
         os.system("bash \"$PLAYONLINUX/bash/startup_after_server\" &")
    
         self.SetTopWindow(self.frame)
