@@ -37,7 +37,7 @@ then
 	CURDIR="$(pwd)"
 	export MACHTYPE
 	cd "$WorkingDirectory"
-	python "$CUDRDIR/python/wrapper.py" "$SCRIPTNAME" "$@"
+	python "$CURDIR/python/wrapper.py" "$SCRIPTNAME" "$@"
 else
 	bash "$SCRIPTNAME" "$@"
 fi
