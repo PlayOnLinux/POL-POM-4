@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Copyright (C) 2007-2011 Pâris Quentin
 # Copyright (C) 2007-2010 PlayOnLinux Team
+# Copyright (C) 2007 Pâris Quentin
 
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,27 +17,7 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
 
-[ "$(uname -s)" = "Darwin" ] && export POL_OS="Mac"
-[ "$(uname -s)" = "Linux" ] && export POL_OS="Linux"
+[ "$PLAYONLINUX" = "" ] && exit 0
+source "$PLAYONLINUX/lib/sources"
 
-
-export SILENT="TRUE"
-SCRIPTNAME="$1"
-shift
-if [ "$SCRIPTNAME" = "" ]
-then
-	echo "Usage : playonlinux-bash [script]"
-	exit
-fi
-if [ "$PLAYONLINUX" = "" ]
-then
-	export WorkingDirectory="$PWD"
-	CURDIR=`dirname "$0"`
-	cd "$CURDIR"
-	CURDIR="$(pwd)"
-	export MACHTYPE
-	cd "$WorkingDirectory"
-	python "$CURDIR/python/wrapper.py" "$SCRIPTNAME" "$@"
-else
-	bash "$SCRIPTNAME" "$@"
-fi
+bash --rcfile "$PLAYONLINUX/etc/pol_bash"
