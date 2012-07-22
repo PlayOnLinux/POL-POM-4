@@ -418,3 +418,6 @@ def POL_Open(arg):
         os.system("open \""+arg+"\"&")
     else:
         os.system("xdg-open \""+arg+"\"&")
+
+def POL_System(arg):
+    os.system("bash \""+os.environ["PLAYONLINUX"]+"/bash/bash_wrapper\" "+arg)

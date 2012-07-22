@@ -21,7 +21,7 @@
 import wx, wx.animate, os, getopt, sys, urllib, signal, time, string, urlparse, codecs, time, threading, socket
 from subprocess import Popen,PIPE
 import lib.Variables as Variables
-import lib.lng
+import lib.lng, lib.playonlinux as playonlinux
 lib.lng.Lang()
 
 
@@ -55,7 +55,7 @@ class Download(threading.Thread):
 class POL_SetupFrame(wx.Frame): #fenêtre principale
     def __init__(self, titre, POL_SetupWindowID, Arg1, Arg2, Arg3, FIXME=""):
         wx.Frame.__init__(self, None, -1, title = titre, style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX, size = (520, 398+Variables.windows_add_size))
-        bash_pid = POL_SetupWindowID
+        self.bash_pid = POL_SetupWindowID
         self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
         self.gauge_i = 0
         self.fichier = ""
@@ -82,8 +82,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         if(Arg3 == "protect"):
             self.ProtectedWindow = True
         self.oldfichier = ""
-        self.bash_pid = bash_pid
-
+        
         self.make_gui()
 
         wx.EVT_CLOSE(self, self.Cancel)
@@ -144,8 +143,9 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
         self.NoButton = wx.Button(self.footer, wx.ID_NO, _("No"), pos=(430,0),size=(85,37))
         self.YesButton = wx.Button(self.footer, wx.ID_YES, _("Yes"), pos=(340,0), size=(85,37))
-        self.browse = wx.Button(self.panel, 103, _("Browse"), size=(130,25))
-
+        self.browse = wx.Button(self.panel, 103, _("Browse"), size=(130,40))
+        self.browse_text = wx.StaticText(self.panel, -1, "")
+        self.browse_image = wx.StaticBitmap(self.panel, -1, wx.Bitmap(os.environ['PLAYONLINUX']+"/etc/playonlinux.png"))
 
         # D'autres trucs
         self.champ = wx.TextCtrl(self.panel, 400, "",size=(300,22))
@@ -219,6 +219,8 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.NoButton.Hide()
         self.YesButton.Hide()
         self.browse.Hide()
+        self.browse_text.Hide()
+        self.browse_image.Hide()
         self.champ.Hide()
         self.bigchamp.Hide()
         self.texte.Hide()
@@ -413,9 +415,12 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
     def POL_SetupWindow_browse(self, message, title, value, directory):
         self.POL_SetupWindow_textbox(message, title, value)
+        self.champ.Hide()
         self.directory = directory
-        self.browse.SetPosition(((330, 85+self.space*16)))
+        self.browse.SetPosition((195,130))
         self.browse.Show()
+        self.NextButton.Enable(False)
+
 
     def POL_SetupWindow_login(self, message, title, register_url):
         self.Destroy_all()
@@ -770,8 +775,33 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.FileDialog.SetDirectory(self.directory)
         self.FileDialog.ShowModal()
         if(self.FileDialog.GetPath() != ""):
-            self.champ.SetValue(self.FileDialog.GetPath().encode("utf-8","replace"))
+            filePath = self.FileDialog.GetPath().encode("utf-8","replace")
+            filePathBaseName = filePath.split("/")[filePath.count("/")]
+            self.champ.SetValue(filePath) 
+            self.NextButton.Enable(True)
+            self.browse_text.Show()
+            self.browse_text.SetLabel(filePathBaseName)
+            self.browse_text.SetPosition(((520-self.browse_text.GetSize()[0])/2,180))
+            
+            if(".exe" in filePathBaseName):
+                try:
+                    playonlinux.POL_System("POL_ExtractBiggestIcon "+filePath+" "+os.environ['POL_USER_ROOT']+"/tmp/browse"+self.bash_pid+".png")
+                    browse_image = wx.Image(os.environ['POL_USER_ROOT']+"/tmp/browse"+self.bash_pid+".png")
+                except:
+                    browse_image = wx.Image(os.environ['PLAYONLINUX']+"/etc/playonlinux.png")
+            else:
+                browse_image = wx.Image(os.environ['PLAYONLINUX']+"/etc/playonlinux.png")
+            
+            if(browse_image.GetWidth() >= 48):
+                browse_image.Rescale(48,48,wx.IMAGE_QUALITY_HIGH)
+            browse_image = browse_image.ConvertToBitmap()
+    
+            self.browse_image.SetBitmap(browse_image)
+            self.browse_image.SetPosition(((520-self.browse_image.GetSize()[0])/2,220))
+            self.browse_image.Show()
+
         self.FileDialog.Destroy()
+
 
     def DownloadFile(self, url, localB):    #url = url a récupérer, localB le fichier où enregistrer la modification sans nom de fichier
         self.chemin = urlparse.urlsplit(url)[2]
