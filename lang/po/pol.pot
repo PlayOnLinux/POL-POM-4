@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2012-07-21 19:00:56+02:00\n"
+"POT-Creation-Date: 2012-07-22 19:00:49+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -244,7 +244,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/F.E.A.R._3_:50 PlayOnLinux_Scripts/F.E.A.R._3_:63
 #: PlayOnLinux_Scripts/Fable_III_:91 PlayOnLinux_Scripts/Far_Cry_2_:80
 #: PlayOnLinux_Scripts/Google_SketchUp_:48
-#: PlayOnLinux_Scripts/Guild_Wars_2_:73 PlayOnLinux_Scripts/Half_Life_1_:30
+#: PlayOnLinux_Scripts/Guild_Wars_2_:74 PlayOnLinux_Scripts/Half_Life_1_:30
 #: PlayOnLinux_Scripts/Half_Life_2_:108
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:88
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:88
@@ -1347,6 +1347,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Gabriel_Knight_1__Sins_of_the_Fathers_:38
 #: PlayOnLinux_Scripts/GOG.com___Gabriel_Knight_2__The_Beast_Within_:38
 #: PlayOnLinux_Scripts/GOG.com___Gabriel_Knight_3__Blood_of_the_Sacred__of_the_Damned_:38
+#: PlayOnLinux_Scripts/GOG.com___Gemini_Rue_:38
 #: PlayOnLinux_Scripts/GOG.com___Giants__Citizen_Kabuto_:37
 #: PlayOnLinux_Scripts/GOG.com___Gothic_:38
 #: PlayOnLinux_Scripts/GOG.com___Gothic_2_Gold_:38
@@ -1811,12 +1812,12 @@ msgstr ""
 msgid "Please insert the DVD-ROM"
 msgstr ""
 
-#: PlayOnLinux_Scripts/Guild_Wars_2_:69
+#: PlayOnLinux_Scripts/Guild_Wars_2_:70
 #, sh-format
 msgid "Downloading $TITLE client"
 msgstr ""
 
-#: PlayOnLinux_Scripts/Guild_Wars_2_:83
+#: PlayOnLinux_Scripts/Guild_Wars_2_:84
 #, sh-format
 msgid ""
 "Because of wine bug #30512, dowloading will often crash, just relaunch the "
@@ -3069,7 +3070,7 @@ msgstr ""
 msgid "Use another version of Wine"
 msgstr ""
 
-#: bash/manual_install:160 bash/manual_install:195 bash/polconfigurator:107
+#: bash/manual_install:160 bash/manual_install:195 bash/polconfigurator:95
 #: python/configure.py:156 python/mainwindow.py:525 python/mainwindow.py:557
 #, sh-format
 msgid "Configure Wine"
@@ -3368,109 +3369,73 @@ msgid ""
 "safely close this window"
 msgstr ""
 
-#: bash/polconfigurator:26 bash/polconfigurator:37
+#: bash/polconfigurator:33
 #, sh-format
 msgid "Killing programs in the virtual drive..."
 msgstr ""
 
-#: bash/polconfigurator:28
-#, sh-format
-msgid "Starting Wine configuration"
-msgstr ""
-
-#: bash/polconfigurator:49 bash/polconfigurator:56 bash/polconfigurator:63
-#: bash/polconfigurator:70 bash/polconfigurator:77
-#, sh-format
-msgid "Killing processes in the prefix..."
-msgstr ""
-
-#: bash/polconfigurator:51
-#, sh-format
-msgid "Starting regedit"
-msgstr ""
-
-#: bash/polconfigurator:58
-#, sh-format
-msgid "Simulating Windows reboot"
-msgstr ""
-
-#: bash/polconfigurator:65
-#, sh-format
-msgid "Starting Advanced Wine Configuration"
-msgstr ""
-
-#: bash/polconfigurator:72
-#, sh-format
-msgid "Starting WineTricks plug-in"
-msgstr ""
-
 #: bash/polconfigurator:79
-#, sh-format
-msgid "Starting specific Wine configurator"
-msgstr ""
-
-#: bash/polconfigurator:91
 #, sh-format
 msgid "Icon selection"
 msgstr ""
 
-#: bash/polconfigurator:91
+#: bash/polconfigurator:79
 #, sh-format
 msgid "Please select an icon file"
 msgstr ""
 
-#: bash/polconfigurator:98
+#: bash/polconfigurator:86
 #, sh-format
 msgid "Bad file extension"
 msgstr ""
 
-#: bash/polconfigurator:98
+#: bash/polconfigurator:86
 #, sh-format
 msgid "is not an icon extension"
 msgstr ""
 
-#: bash/polconfigurator:108 python/configure.py:164 python/mainwindow.py:529
+#: bash/polconfigurator:96 python/configure.py:164 python/mainwindow.py:529
 #: python/mainwindow.py:570
 #, sh-format
 msgid "Registry Editor"
 msgstr ""
 
-#: bash/polconfigurator:109
+#: bash/polconfigurator:97
 #, sh-format
 msgid "Kill all prefix processes"
 msgstr ""
 
-#: bash/polconfigurator:110
+#: bash/polconfigurator:98
 #, sh-format
 msgid "Update wineprefix"
 msgstr ""
 
-#: bash/polconfigurator:111
+#: bash/polconfigurator:99
 #, sh-format
 msgid "Simulate Windows reboot"
 msgstr ""
 
-#: bash/polconfigurator:112
+#: bash/polconfigurator:100
 #, sh-format
 msgid "Use Advanced Wine Configuration plugin"
 msgstr ""
 
-#: bash/polconfigurator:113
+#: bash/polconfigurator:101
 #, sh-format
 msgid "Use PlayOnLinux's configurator for"
 msgstr ""
 
-#: bash/polconfigurator:115
+#: bash/polconfigurator:103
 #, sh-format
 msgid "Change the icon"
 msgstr ""
 
-#: bash/polconfigurator:116
+#: bash/polconfigurator:104
 #, sh-format
 msgid "Use WineTricks"
 msgstr ""
 
-#: bash/polconfigurator:135
+#: bash/polconfigurator:123
 #, sh-format
 msgid "Please choose an action to perform"
 msgstr ""
@@ -3882,7 +3847,7 @@ msgstr ""
 #: python/lib/irc.py.bak:291 python/mainwindow.py:1045
 #: python/mainwindow.py:1068 python/mainwindow.py:1075
 #: python/mainwindow.py:1084 python/mainwindow.py:1096
-#: python/mainwindow.py:1108
+#: python/mainwindow.py:1108 python/wrapper.py:120
 #, sh-format
 msgid "Error"
 msgstr ""
@@ -4661,7 +4626,7 @@ msgstr ""
 msgid "Read TRANSLATORS file"
 msgstr ""
 
-#: python/mainwindow.py:1045
+#: python/mainwindow.py:1045 python/wrapper.py:120
 msgid "{0} is not able to start POL_SetupWindow_server."
 msgstr ""
 
