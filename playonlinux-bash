@@ -31,12 +31,13 @@ then
 fi
 if [ "$PLAYONLINUX" = "" ]
 then
+	export WorkingDirectory="$PWD"
 	CURDIR=`dirname "$0"`
 	cd "$CURDIR"
 	CURDIR="$(pwd)"
-	cd python
 	export MACHTYPE
-	python wrapper.py "$SCRIPTNAME" "$@"
+	cd "$WorkingDirectory"
+	python "$CUDRDIR/python/wrapper.py" "$SCRIPTNAME" "$@"
 else
 	bash "$SCRIPTNAME" "$@"
 fi
