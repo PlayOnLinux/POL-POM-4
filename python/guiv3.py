@@ -786,7 +786,8 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
             if(".exe" in filePathBaseName):
                 try:
                     tmpPath = os.environ['POL_USER_ROOT']+"/tmp/browse"+self.bash_pid+".png"
-                    playonlinux.POL_System("rm \""+tmpPath+"\" 2> /dev/null ; POL_ExtractBiggestIcon \""+filePathBaseName+"\" "+tmpPath)
+                    playonlinux.POL_System("rm \""+tmpPath+"\" 2> /dev/null")
+                    playonlinux.POL_System("POL_ExtractBiggestIcon \""+filePathBaseName+"\" "+tmpPath)
                     if(os.path.exists(tmpPath)):
                         browse_image = wx.Image(tmpPath)
                     else:
