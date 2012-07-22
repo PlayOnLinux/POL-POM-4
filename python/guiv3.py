@@ -783,7 +783,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
             self.browse_text.SetLabel(filePathBaseName)
             self.browse_text.SetPosition(((520-self.browse_text.GetSize()[0])/2,180))
             
-            if(".exe" in filePathBaseName):
+            if(".exe" in filePathBaseName and os.path.getsize(filePath) <= 30*1024*1024):
                 try:
                     tmpPath = os.environ['POL_USER_ROOT']+"/tmp/browse"+self.bash_pid+".png"
                     try: os.path.remove(tmpPath)
