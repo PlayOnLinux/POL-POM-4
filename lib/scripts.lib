@@ -646,8 +646,17 @@ POL_Shortcut_Document()
 	# Add a manual to a shortcut
 	# Usage : POL_Shortcut_Document <Shortcut Name> <file path>
 	[ "$2" = "" ] && return
+	
+	Binaire="$1"
+	if [ "$(echo "$Binaire" | grep "/")" = "" ]; then # Binaire
+		binary_path="$(find ./ -name windows -prune -o -iname "$Binaire" -a -type f -print | tail -n 1)"
+		[ -z "$binary_path" ] && binary_path="$(find ./windows/ -iname "$Binaire" -a -type f -print | tail -n 1)"
+	else # Chemin
+		[ -e "./$Binaire" ] && binary_path="./$Binaire"
+	fi
+	
 	rm -f "$POL_USER_ROOT/configurations/manuals/$1"
-	ln -s "$2" "$POL_USER_ROOT/configurations/manuals/$1"
+	ln -s "$binary_path" "$POL_USER_ROOT/configurations/manuals/$1"
 }
 
 POL_RequiredVersion ()
