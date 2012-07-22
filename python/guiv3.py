@@ -413,8 +413,9 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
             wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_menu_num)
             wx.EVT_LISTBOX_DCLICK(self, 104, self.release_menu_num)
 
-    def POL_SetupWindow_browse(self, message, title, value, directory):
+    def POL_SetupWindow_browse(self, message, title, value, directory, supportedfiles):
         self.POL_SetupWindow_textbox(message, title, value)
+        self.supportedfiles = supportedfiles
         self.champ.Hide()
         self.directory = directory
         self.browse.SetPosition((195,130))
@@ -771,7 +772,10 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
 
     def Parcourir(self, event):
-        self.FileDialog = wx.FileDialog(self.panel)
+        if(self.supportedfiles == "All"):
+            self.FileDialog = wx.FileDialog(self.panel)
+        else:
+            self.FileDialog = wx.FileDialog(self.panel, wildcard=self.supportedfiles)
         self.FileDialog.SetDirectory(self.directory)
         self.FileDialog.ShowModal()
         if(self.FileDialog.GetPath() != ""):

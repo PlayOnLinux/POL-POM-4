@@ -174,10 +174,10 @@ POL_SetupWindow_textbox ()
 POL_SetupWindow_browse ()
 {
 	# Shows a text box with a browse button
-	# Usage: POL_SetupWindow_browse [message] [title] [default value]
+	# Usage: POL_SetupWindow_browse [message] [title] [default value] [Supported file types]
 	# Result is sent in $APP_ANSWER variable
-	
-	APP_ANSWER="$(echo "POL_SetupWindow_browse	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	$PWD" | nc "$POL_HOST" "$POL_PORT")"
+	[ "$4" = "" ] && SUPPORTED="All" || SUPPORTED="$4"
+	APP_ANSWER="$(echo "POL_SetupWindow_browse	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	$PWD	$SUPPORTED" | nc "$POL_HOST" "$POL_PORT")"
 }
 POL_SetupWindow_question ()
 {

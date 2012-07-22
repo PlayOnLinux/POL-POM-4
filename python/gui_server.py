@@ -166,8 +166,8 @@ def readAction(object):
 
 
     if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_browse'):
-        if(len(object.SetupWindowTimer_action) == 6):
-            object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_browse(object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[4],object.SetupWindowTimer_action[5])
+        if(len(object.SetupWindowTimer_action) == 7):
+            object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_browse(object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[4],object.SetupWindowTimer_action[5],object.SetupWindowTimer_action[6])
 
     if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_download'):
         if(len(object.SetupWindowTimer_action) == 6):
