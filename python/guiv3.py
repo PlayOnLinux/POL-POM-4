@@ -788,7 +788,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
                     tmpPath = os.environ['POL_USER_ROOT']+"/tmp/browse"+self.bash_pid+".png"
                     try: os.path.remove(tmpPath)
                     except: pass
-                    playonlinux.POL_System("POL_ExtractBiggestIcon \""+filePathBaseName+"\" "+tmpPath)
+                    playonlinux.POL_System("POL_ExtractBiggestIcon \""+filePath+"\" "+tmpPath)
                     if(os.path.exists(tmpPath)):
                         browse_image = wx.Image(tmpPath)
                     else:
