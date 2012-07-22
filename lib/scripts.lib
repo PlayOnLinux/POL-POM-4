@@ -654,7 +654,7 @@ POL_Shortcut_Document()
 		ln -s "$PWD/$binary_path" "$POL_USER_ROOT/configurations/manuals/$1"
 
 	else # Chemin
-		[ -e "./$Binaire" ] && binary_path="./$Binaire"
+		[ -e "./$Binaire" ] && binary_path="$PWD/$Binaire" || binary_path="$Binaire"
 		ln -s "$binary_path" "$POL_USER_ROOT/configurations/manuals/$1"
 
 	fi
