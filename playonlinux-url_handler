@@ -20,15 +20,7 @@
 [ "$(uname -s)" = "Darwin" ] && export POL_OS="Mac"
 [ "$(uname -s)" = "Linux" ] && export POL_OS="Linux"
 
-
 export SILENT="TRUE"
-SCRIPTNAME="$1"
-shift
-if [ "$SCRIPTNAME" = "" ]
-then
-	echo "Usage : playonlinux-bash [script]"
-	exit
-fi
 if [ "$PLAYONLINUX" = "" ]
 then
 	export WorkingDirectory="$PWD"
@@ -37,7 +29,7 @@ then
 	CURDIR="$(pwd)"
 	export MACHTYPE
 	cd "$WorkingDirectory"
-	python "$CURDIR/python/wrapper.py" "$SCRIPTNAME" "$@"
+	python wrapper.py "$CURDIR/bash/$(basename "$0")" "$@"
 else
-	bash "$SCRIPTNAME" "$@"
+	bash "$PLAYONLINUX/bash/$(basename "$0")" "$@"
 fi
