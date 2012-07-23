@@ -28,9 +28,9 @@ POL_Debug_Message "File to run: $doc"
 
 if [ "${doc::1}" != "/" ]; then
 	doc="$WorkingDirectory/$doc"
-	pref="$(POL_Shortcut_GetPrefix "$app")"
-	POL_Wine_SelectPrefix "$pref"	
-	realpath="$(POL_Wine winepath -w "$doc")"
-	
-	bash "$POL_USER_ROOT/shortcuts/$app" "$realpath"
 fi
+pref="$(POL_Shortcut_GetPrefix "$app")"
+POL_Wine_SelectPrefix "$pref"	
+realpath="$(POL_Wine winepath -w "$doc")"
+	
+bash "$POL_USER_ROOT/shortcuts/$app" "$realpath"
