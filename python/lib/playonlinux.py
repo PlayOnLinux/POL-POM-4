@@ -17,16 +17,16 @@ def winpath(script, path):
     if(arch == ""):
         arch="x86"
     if(ver == ""):
-        return(os.popen("env WINEPREFIX='"+os.environ["POL_USER_ROOT"]+"/wineprefix/"+pref.encode("utf-8","replace")+"/' 'wine' winepath -w '"+path.encode("utf-8","replace")+"'").read().replace("\n","").replace("\r",""))
+        return(os.popen("env WINEPREFIX='"+os.environ["POL_USER_ROOT"]+"/wineprefix/"+pref+"/' 'wine' winepath -w '"+path+"'").read().replace("\n","").replace("\r",""))
     else:
-        return(os.popen("env WINEPREFIX='"+os.environ["POL_USER_ROOT"]+"/wineprefix/"+pref.encode("utf-8","replace")+"/' '"+os.environ["POL_USER_ROOT"]+"/wine/"+Variables.os_name+"-"+arch+"/"+ver+"/bin/wine' winepath -w '"+path.encode("utf-8","replace")+"'").read().replace("\n","").replace("\r",""))
+        return(os.popen("env WINEPREFIX='"+os.environ["POL_USER_ROOT"]+"/wineprefix/"+pref+"/' '"+os.environ["POL_USER_ROOT"]+"/wine/"+Variables.os_name+"-"+arch+"/"+ver+"/bin/wine' winepath -w '"+path+"'").read().replace("\n","").replace("\r",""))
 
 def open_document(path, ext):
     script = GetSettings(ext, '_EXT_')
     if(script == ""):
         wx.MessageBox(_("There is nothing installed to run .{0} files.").format(ext),os.environ["APPLICATION_TITLE"], wx.OK)
     else:
-        os.system("bash "+Variables.playonlinux_env+"/bash/run_app \""+script.encode("utf-8","replace")+"\" \""+winpath(script,path).encode("utf-8","replace")+"\"&")
+        os.system("bash "+Variables.playonlinux_env+"/bash/run_app \""+script.encode("utf-8","replace")+"\" \""+winpath(script.encode("utf-8","replace"),path.encode("utf-8","replace")).encode("utf-8","replace")+"\"&")
 
 def GetWineVersion(game):
     cfile = Variables.playonlinux_rep+"shortcuts/"+game
