@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2012-07-22 19:00:49+02:00\n"
+"POT-Creation-Date: 2012-07-23 19:00:58+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -984,7 +984,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:36
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:50
 #: PlayOnLinux_Scripts/Portal_:36 PlayOnLinux_Scripts/Team_Fortress_2_:36
-#: python/guiv3.py:145
+#: python/guiv3.py:144
 #, sh-format
 msgid "No"
 msgstr ""
@@ -1012,7 +1012,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:52
 #: PlayOnLinux_Scripts/Portal_:36 PlayOnLinux_Scripts/Portal_:38
 #: PlayOnLinux_Scripts/Team_Fortress_2_:36
-#: PlayOnLinux_Scripts/Team_Fortress_2_:38 python/guiv3.py:146
+#: PlayOnLinux_Scripts/Team_Fortress_2_:38 python/guiv3.py:145
 #, sh-format
 msgid "Yes"
 msgstr ""
@@ -1276,7 +1276,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:109 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:400 lib/wine.lib:993 lib/wine.lib:1023
+#: bash/winebash:27 lib/setupwindow.lib:410 lib/wine.lib:993 lib/wine.lib:1023
 #, sh-format
 msgid "Please wait..."
 msgstr ""
@@ -3304,7 +3304,7 @@ msgstr ""
 msgid "Office"
 msgstr ""
 
-#: bash/playonlinux_online:69 lib/setupwindow.lib:317 python/install.py:214
+#: bash/playonlinux_online:69 lib/setupwindow.lib:327 python/install.py:214
 #: python/install.py.back:356
 #, sh-format
 msgid "Other"
@@ -3782,68 +3782,68 @@ msgstr ""
 msgid "File size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:661
+#: lib/scripts.lib:672
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\n"
 "$APPLICATION_TITLE $NEEDED is required."
 msgstr ""
 
-#: lib/scripts.lib:676
+#: lib/scripts.lib:687
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
 "$NEEDED is recommended to continue."
 msgstr ""
 
-#: lib/scripts.lib:707
+#: lib/scripts.lib:718
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr ""
 
-#: lib/setupwindow.lib:75
+#: lib/setupwindow.lib:85
 #, sh-format
 msgid " on your computer."
 msgstr ""
 
-#: lib/setupwindow.lib:75
+#: lib/setupwindow.lib:85
 #, sh-format
 msgid " will be installed in: "
 msgstr ""
 
-#: lib/setupwindow.lib:75
+#: lib/setupwindow.lib:85
 #, sh-format
 msgid "Click Next to start"
 msgstr ""
 
-#: lib/setupwindow.lib:75
+#: lib/setupwindow.lib:85
 #, sh-format
 msgid "This installation program is provided by: "
 msgstr ""
 
-#: lib/setupwindow.lib:75
+#: lib/setupwindow.lib:85
 #, sh-format
 msgid "This program was created by: "
 msgstr ""
 
-#: lib/setupwindow.lib:75
+#: lib/setupwindow.lib:85
 #, sh-format
 msgid "This wizard will help you install "
 msgstr ""
 
-#: lib/setupwindow.lib:75
+#: lib/setupwindow.lib:85
 #, sh-format
 msgid "Welcome to $APPLICATION_TITLE Installation Wizard."
 msgstr ""
 
-#: lib/setupwindow.lib:99
+#: lib/setupwindow.lib:109
 #, sh-format
 msgid ""
 "One or more program(s) are missing. Please install them and run the script "
 "again."
 msgstr ""
 
-#: lib/setupwindow.lib:101 python/guiv3.py:708 python/lib/irc.py:291
+#: lib/setupwindow.lib:111 python/guiv3.py:714 python/lib/irc.py:291
 #: python/lib/irc.py.bak:291 python/mainwindow.py:1045
 #: python/mainwindow.py:1068 python/mainwindow.py:1075
 #: python/mainwindow.py:1084 python/mainwindow.py:1096
@@ -3852,27 +3852,27 @@ msgstr ""
 msgid "Error"
 msgstr ""
 
-#: lib/setupwindow.lib:316
+#: lib/setupwindow.lib:326
 #, sh-format
 msgid "Where is mounted your CD-ROM?"
 msgstr ""
 
-#: lib/setupwindow.lib:318 python/install.py:275 python/install.py.back:179
+#: lib/setupwindow.lib:328 python/install.py:275 python/install.py.back:179
 #, sh-format
 msgid "Refresh"
 msgstr ""
 
-#: lib/setupwindow.lib:349
+#: lib/setupwindow.lib:359
 #, sh-format
 msgid "Reading your device"
 msgstr ""
 
-#: lib/setupwindow.lib:364
+#: lib/setupwindow.lib:374
 #, sh-format
 msgid "Error: Unable to find the CD-ROM!"
 msgstr ""
 
-#: lib/setupwindow.lib:378
+#: lib/setupwindow.lib:388
 #, sh-format
 msgid ""
 "$TITLE needs to read the PC part of a hybrid CD-Rom.\\n\\nBy default, MacOS "
@@ -3881,101 +3881,101 @@ msgid ""
 "attempt to read the PC-Part of your CD?"
 msgstr ""
 
-#: lib/setupwindow.lib:430
+#: lib/setupwindow.lib:440
 #, sh-format
 msgid ""
 "Don't forget to go to PlayOnMac tools menu -> Read a PC CD-Rom before "
 "running your game"
 msgstr ""
 
-#: lib/setupwindow.lib:441
+#: lib/setupwindow.lib:451
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is copying files:"
 msgstr ""
 
-#: lib/setupwindow.lib:526 lib/setupwindow.lib:675
+#: lib/setupwindow.lib:536 lib/setupwindow.lib:685
 #, sh-format
 msgid "Scanning the virtual drive ..."
 msgstr ""
 
-#: lib/setupwindow.lib:540
+#: lib/setupwindow.lib:550
 #, sh-format
 msgid "How much memory does your graphics board have?"
 msgstr ""
 
-#: lib/setupwindow.lib:549
+#: lib/setupwindow.lib:559
 #, sh-format
 msgid "Video card does not have enough memory"
 msgstr ""
 
-#: lib/setupwindow.lib:550
+#: lib/setupwindow.lib:560
 #, sh-format
 msgid ""
 "Your video card does not have enough memory!\\nIt might prevent the game "
 "from working"
 msgstr ""
 
-#: lib/setupwindow.lib:564
+#: lib/setupwindow.lib:574
 #, sh-format
 msgid "Use Steam Store version"
 msgstr ""
 
-#: lib/setupwindow.lib:565
+#: lib/setupwindow.lib:575
 #, sh-format
 msgid "Use Steam Store demo version"
 msgstr ""
 
-#: lib/setupwindow.lib:566
+#: lib/setupwindow.lib:576
 #, sh-format
 msgid "Use Desura Store version"
 msgstr ""
 
-#: lib/setupwindow.lib:567
+#: lib/setupwindow.lib:577
 #, sh-format
 msgid "Use Desura Store demo version"
 msgstr ""
 
-#: lib/setupwindow.lib:568
+#: lib/setupwindow.lib:578
 #, sh-format
 msgid "Use Origin Store version"
 msgstr ""
 
-#: lib/setupwindow.lib:569
+#: lib/setupwindow.lib:579
 #, sh-format
 msgid "Use Origin Store demo version"
 msgstr ""
 
-#: lib/setupwindow.lib:571
+#: lib/setupwindow.lib:581
 #, sh-format
 msgid "Use a setup file in my computer"
 msgstr ""
 
-#: lib/setupwindow.lib:572
+#: lib/setupwindow.lib:582
 #, sh-format
 msgid "Use CD-ROM(s)"
 msgstr ""
 
-#: lib/setupwindow.lib:573
+#: lib/setupwindow.lib:583
 #, sh-format
 msgid "Use DVD-ROM(s)"
 msgstr ""
 
-#: lib/setupwindow.lib:574
+#: lib/setupwindow.lib:584
 #, sh-format
 msgid "Download the program"
 msgstr ""
 
-#: lib/setupwindow.lib:639
+#: lib/setupwindow.lib:649
 #, sh-format
 msgid "Please choose an installation method"
 msgstr ""
 
-#: lib/setupwindow.lib:677
+#: lib/setupwindow.lib:687
 #, sh-format
 msgid "I don't want to make another shortcut"
 msgstr ""
 
-#: lib/setupwindow.lib:678 python/guiv3.py:147
+#: lib/setupwindow.lib:688 python/guiv3.py:146
 #, sh-format
 msgid "Browse"
 msgstr ""
@@ -4254,20 +4254,20 @@ msgstr ""
 msgid "Error. Please use POL_SetupWindow_Init first"
 msgstr ""
 
-#: python/guiv3.py:117
+#: python/guiv3.py:116
 msgid "{0} Wizard"
 msgstr ""
 
-#: python/guiv3.py:138 python/install.py:273 python/install.py.back:177
+#: python/guiv3.py:137 python/install.py:273 python/install.py.back:177
 #: python/options.py:376
 msgid "Cancel"
 msgstr ""
 
-#: python/guiv3.py:142
+#: python/guiv3.py:141
 msgid "Next"
 msgstr ""
 
-#: python/guiv3.py:143
+#: python/guiv3.py:142
 msgid "Back"
 msgstr ""
 
@@ -4291,15 +4291,15 @@ msgstr ""
 msgid "Register"
 msgstr ""
 
-#: python/guiv3.py:270
+#: python/guiv3.py:272
 msgid "MB downloaded"
 msgstr ""
 
-#: python/guiv3.py:270
+#: python/guiv3.py:272
 msgid "of"
 msgstr ""
 
-#: python/guiv3.py:708
+#: python/guiv3.py:714
 msgid "You cannot close this window"
 msgstr ""
 
