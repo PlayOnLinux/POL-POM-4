@@ -26,7 +26,10 @@ def open_document(path, ext):
     if(script == ""):
         wx.MessageBox(_("There is nothing installed to run .{0} files.").format(ext),os.environ["APPLICATION_TITLE"], wx.OK)
     else:
-        os.system("bash "+Variables.playonlinux_env+"/bash/run_app \""+script.encode("utf-8","replace")+"\" \""+winpath(script.encode("utf-8","replace"),path.encode("utf-8","replace"))+"\"&")
+        try:
+            os.system("bash "+Variables.playonlinux_env+"/bash/run_app \""+script.encode("utf-8","replace")+"\" \""+winpath(script.encode("utf-8","replace"),path.encode("utf-8","replace"))+"\"&")
+        except:
+             os.system("bash "+Variables.playonlinux_env+"/bash/run_app \""+script+"\" \""+winpath(script,path)+"\"&")
 
 def GetWineVersion(game):
     cfile = Variables.playonlinux_rep+"shortcuts/"+game
