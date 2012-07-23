@@ -63,7 +63,17 @@ POL_SetupWindow_Close ()
 	# After this command, POL_SetupWindow_* functions won't work
 	# Should be used at the end of the script if POL_SetupWindow_Init has been called
 	# Usage: POL_SetupWindow_Close
-
+	POL_Debug_Message "Closing window for pid $$"
+	if [ "$POL_SCRIPT_FAILED" = "YES" -a -n "$LOGTITLE" -a -n "$DEBUGGING" -a -z "$NOBUGREPORT" ]
+	then
+		POL_SetupWindow_question "$(eval_gettext "An error occured during the installation process\n\nDo you want to send the bug to $APPLICATION_TITLE ?")" "$TITLE"
+		if [ "$APP_ANSWER" = "TRUE" ]
+		then
+			export LOGTITLE
+			bash "$PLAYONLINUX/bash/bug_report" &
+		fi
+	fi
+	
 	echo "POL_SetupWindow_Close	$$" | ncs "$POL_HOST" "$POL_PORT"
 }
 
