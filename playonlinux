@@ -116,13 +116,16 @@ if [ "$1" = "--run" ]; then
 	cd "$POLDIR"
 	shift
 	NAME="$1"
-	if [ ! "${NAME::1}" = "/" ]; then
-		NAME="$WorkingDirectory/$NAME"
-	fi
+
 	shift
 	
-	if [ -e "$NAME" ]; then ## Trying to open a file
-		exec ./playonlinux-bash "$POLDIR/bash/document_reader" "$NAME" "$@"
+	FILENAME="$1"
+	if [ ! "${FILENAME::1}" = "/" ]; then
+		FILENAME="$WorkingDirectory/$FILENAME"
+	fi
+	
+	if [ -e "$FILENAME" ]; then ## Trying to open a file
+		exec ./playonlinux-bash "$POLDIR/bash/document_reader" "$NAME" "$FILENAME"
 	else
 		exec ./playonlinux-bash "$HOME/.PlayOnLinux/shortcuts/$NAME" "$@"
 	fi
