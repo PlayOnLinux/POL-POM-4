@@ -17,9 +17,9 @@ def winpath(script, path):
     if(arch == ""):
         arch="x86"
     if(ver == ""):
-        return(os.popen("env WINEPREFIX='"+os.environ["POL_USER_ROOT"]+"/wineprefix/"+pref.encode("utf-8","replace")+"/' 'wine' winepath -w '"+path.encode("utf-8","replace")+"'").read().replace("\n","").replace("\r","").decode("utf-8","replace"))
+        return(os.popen("env WINEPREFIX='"+os.environ["POL_USER_ROOT"]+"/wineprefix/"+pref.encode("utf-8","replace")+"/' 'wine' winepath -w '"+path.encode("utf-8","replace")+"'").read().decode("utf-8","replace").replace("\n","").replace("\r",""))
     else:
-        return(os.popen("env WINEPREFIX='"+os.environ["POL_USER_ROOT"]+"/wineprefix/"+pref.encode("utf-8","replace")+"/' '"+os.environ["POL_USER_ROOT"]+"/wine/"+Variables.os_name+"-"+arch+"/"+ver+"/bin/wine' winepath -w '"+path.encode("utf-8","replace")+"'").read().replace("\n","").replace("\r","").decode("utf-8","replace"))
+        return(os.popen("env WINEPREFIX='"+os.environ["POL_USER_ROOT"]+"/wineprefix/"+pref.encode("utf-8","replace")+"/' '"+os.environ["POL_USER_ROOT"]+"/wine/"+Variables.os_name+"-"+arch+"/"+ver+"/bin/wine' winepath -w '"+path.encode("utf-8","replace")+"'").read().decode("utf-8","replace").replace("\n","").replace("\r",""))
 
 def open_document(path, ext):
     script = GetSettings(ext, '_EXT_')
