@@ -19,7 +19,7 @@ def winpath(script, path):
     if(ver == ""):
         return(os.popen("env WINEPREFIX='"+os.environ["POL_USER_ROOT"]+"/wineprefix/"+pref+"/' 'wine' winepath -w '"+path+"'").read().replace("\n","").replace("\r",""))
     else:
-        return(os.popen("env WINEPREFIX='"+os.environ["POL_USER_ROOT"]+"/wineprefix/"+pref+"/' '"+os.environ["POL_USER_ROOT"]+"/wine/"+Variables.os_name+"-"+arch+"/"+ver+"/bin/wine' winepath -w '"+path.read().replace("\n","").replace("\r",""))
+        return(os.popen(("env WINEPREFIX='"+os.environ["POL_USER_ROOT"]+"/wineprefix/"+pref+"/' '"+os.environ["POL_USER_ROOT"]+"/wine/"+Variables.os_name+"-"+arch+"/"+ver+"/bin/wine' winepath -w '"+path+"'").encode("utf-8","replace")).read().replace("\n","").replace("\r",""))
 
 def open_document(path, ext):
     script = GetSettings(ext, '_EXT_')
