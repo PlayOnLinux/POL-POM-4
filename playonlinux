@@ -117,7 +117,12 @@ if [ "$1" = "--run" ]; then
 	shift
 	NAME="$1"
 	shift
-	exec ./playonlinux-bash "$HOME/.PlayOnLinux/shortcuts/$NAME" "$@"
+	
+	if [ -e "$1" ]; then ## Trying to open a file
+		exec ./playonlinux-bash "$PLAYONLINUX/bash/document_reader" "$NAME" "$@"
+	else
+		exec ./playonlinux-bash "$HOME/.PlayOnLinux/shortcuts/$NAME" "$@"
+	fi
 else
 	cd "$POLDIR/python"
 	"$PythonBin" mainwindow.py "$@"
