@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2012-07-23 19:00:58+02:00\n"
+"POT-Creation-Date: 2012-07-24 19:00:59+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1276,7 +1276,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:109 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:410 lib/wine.lib:993 lib/wine.lib:1023
+#: bash/winebash:27 lib/setupwindow.lib:410 lib/wine.lib:994 lib/wine.lib:1024
 #, sh-format
 msgid "Please wait..."
 msgstr ""
@@ -1981,9 +1981,9 @@ msgid ""
 "No filename extension specified, skipping association to native application."
 msgstr ""
 
-#: PlayOnLinux_Scripts/POL_GoG_Extract_:29 python/install.py:419
-#: python/install.py:435 python/install.py:437 python/install.py:544
-#: python/install.py:547 python/install.py.back:306
+#: PlayOnLinux_Scripts/POL_GoG_Extract_:29 python/install.py:422
+#: python/install.py:438 python/install.py:440 python/install.py:547
+#: python/install.py:550 python/install.py.back:306
 #, sh-format
 msgid "Please read this"
 msgstr ""
@@ -1998,7 +1998,7 @@ msgstr ""
 msgid "Please enter your gog.com login to download $BASENAME"
 msgstr ""
 
-#: PlayOnLinux_Scripts/POL_GoG_download_:60
+#: PlayOnLinux_Scripts/POL_GoG_download_:59
 #, sh-format
 msgid "Gog.com login failed, try again?"
 msgstr ""
@@ -2019,6 +2019,14 @@ msgstr ""
 msgid "Installing Adobe Air"
 msgstr ""
 
+#: PlayOnLinux_Scripts/POL_Install_d3dcompiler_43_:11
+#: PlayOnLinux_Scripts/POL_Install_d3dx9_:11
+#: PlayOnLinux_Scripts/POL_Install_d3dx9_36_:11
+#: PlayOnLinux_Scripts/POL_Install_d3dx9_40_:11
+#, sh-format
+msgid "Installing DirectX 9 dlls..."
+msgstr ""
+
 #: PlayOnLinux_Scripts/POL_Install_d3dx10_:11
 #, sh-format
 msgid "Installing DirectX 10 dlls..."
@@ -2027,13 +2035,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_d3dx11_:11
 #, sh-format
 msgid "Installing DirectX 11 dlls..."
-msgstr ""
-
-#: PlayOnLinux_Scripts/POL_Install_d3dx9_:11
-#: PlayOnLinux_Scripts/POL_Install_d3dx9_36_:11
-#: PlayOnLinux_Scripts/POL_Install_d3dx9_40_:11
-#, sh-format
-msgid "Installing DirectX 9 dlls..."
 msgstr ""
 
 #: PlayOnLinux_Scripts/POL_Install_desura_:14
@@ -3263,54 +3264,54 @@ msgstr ""
 msgid "What is the editor website of your program?"
 msgstr ""
 
-#: bash/playonlinux_online:69 python/install.py:206 python/install.py.back:356
+#: bash/playonlinux_online:69 python/install.py:209 python/install.py.back:356
 #, sh-format
 msgid "Accessories"
 msgstr ""
 
-#: bash/playonlinux_online:69 python/install.py:207 python/install.py.back:356
+#: bash/playonlinux_online:69 python/install.py:210 python/install.py.back:356
 #, sh-format
 msgid "Development"
 msgstr ""
 
-#: bash/playonlinux_online:69 python/install.py:208 python/install.py.back:356
+#: bash/playonlinux_online:69 python/install.py:211 python/install.py.back:356
 #, sh-format
 msgid "Education"
 msgstr ""
 
-#: bash/playonlinux_online:69 python/install.py:209 python/install.py.back:356
+#: bash/playonlinux_online:69 python/install.py:212 python/install.py.back:356
 #, sh-format
 msgid "Games"
 msgstr ""
 
-#: bash/playonlinux_online:69 python/install.py:210 python/install.py.back:356
+#: bash/playonlinux_online:69 python/install.py:213 python/install.py.back:356
 #, sh-format
 msgid "Graphics"
 msgstr ""
 
-#: bash/playonlinux_online:69 python/install.py:211 python/install.py.back:356
+#: bash/playonlinux_online:69 python/install.py:214 python/install.py.back:356
 #: python/mainwindow.py:262 python/options.py:384
 #, sh-format
 msgid "Internet"
 msgstr ""
 
-#: bash/playonlinux_online:69 python/install.py:212 python/install.py.back:356
+#: bash/playonlinux_online:69 python/install.py:215 python/install.py.back:356
 #, sh-format
 msgid "Multimedia"
 msgstr ""
 
-#: bash/playonlinux_online:69 python/install.py:213 python/install.py.back:356
+#: bash/playonlinux_online:69 python/install.py:216 python/install.py.back:356
 #, sh-format
 msgid "Office"
 msgstr ""
 
-#: bash/playonlinux_online:69 lib/setupwindow.lib:327 python/install.py:214
+#: bash/playonlinux_online:69 lib/setupwindow.lib:327 python/install.py:217
 #: python/install.py.back:356
 #, sh-format
 msgid "Other"
 msgstr ""
 
-#: bash/playonlinux_online:69 python/install.py:215 python/install.py.back:382
+#: bash/playonlinux_online:69 python/install.py:218 python/install.py.back:382
 #, sh-format
 msgid "Patches"
 msgstr ""
@@ -3320,7 +3321,7 @@ msgstr ""
 msgid "Select a category for your program"
 msgstr ""
 
-#: bash/playonlinux_online:69 python/install.py:249 python/install.py.back:383
+#: bash/playonlinux_online:69 python/install.py:252 python/install.py.back:383
 #, sh-format
 msgid "Testing"
 msgstr ""
@@ -3619,7 +3620,7 @@ msgid "Already up-to-date."
 msgstr ""
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:886
+#: lib/wine.lib:886 lib/wine.lib:920
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr ""
@@ -3857,7 +3858,7 @@ msgstr ""
 msgid "Where is mounted your CD-ROM?"
 msgstr ""
 
-#: lib/setupwindow.lib:328 python/install.py:275 python/install.py.back:179
+#: lib/setupwindow.lib:328 python/install.py:278 python/install.py.back:179
 #, sh-format
 msgid "Refresh"
 msgstr ""
@@ -3985,12 +3986,12 @@ msgstr ""
 msgid "Connect to your $APPLICATION_TITLE account"
 msgstr ""
 
-#: lib/website.lib:127
+#: lib/website.lib:128
 #, sh-format
 msgid "Connecting..."
 msgstr ""
 
-#: lib/website.lib:132
+#: lib/website.lib:133
 #, sh-format
 msgid ""
 "Failed to connect !\\nPlease ensure that your login and your password are "
@@ -4029,29 +4030,29 @@ msgstr ""
 msgid "Extracting Wine..."
 msgstr ""
 
-#: lib/wine.lib:993 lib/wine.lib:1023
+#: lib/wine.lib:994 lib/wine.lib:1024
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr ""
 
-#: lib/wine.lib:997 lib/wine.lib:1026
+#: lib/wine.lib:998 lib/wine.lib:1027
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
 "have to reinstall $SOFTNAME"
 msgstr ""
 
-#: lib/wine.lib:997 lib/wine.lib:1026
+#: lib/wine.lib:998 lib/wine.lib:1027
 #, sh-format
 msgid "Install is done"
 msgstr ""
 
-#: lib/wine.lib:1030 lib/wine.lib:1031
+#: lib/wine.lib:1031 lib/wine.lib:1032
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr ""
 
-#: lib/wine.lib:1039
+#: lib/wine.lib:1040
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr ""
@@ -4117,7 +4118,7 @@ msgstr ""
 msgid "Wine uninstaller"
 msgstr ""
 
-#: python/configure.py:235 python/install.py:274 python/install.py.back:178
+#: python/configure.py:235 python/install.py:277 python/install.py.back:178
 #: python/mainwindow.py:197 python/mainwindow.py:348
 msgid "Install"
 msgstr ""
@@ -4258,7 +4259,7 @@ msgstr ""
 msgid "{0} Wizard"
 msgstr ""
 
-#: python/guiv3.py:137 python/install.py:273 python/install.py.back:177
+#: python/guiv3.py:137 python/install.py:276 python/install.py.back:177
 #: python/options.py:376
 msgid "Cancel"
 msgstr ""
@@ -4307,23 +4308,23 @@ msgstr ""
 msgid "No description"
 msgstr ""
 
-#: python/install.py:242
+#: python/install.py:245
 msgid "Search"
 msgstr ""
 
-#: python/install.py:254
+#: python/install.py:257
 msgid "No-cd needed"
 msgstr ""
 
-#: python/install.py:261
+#: python/install.py:264
 msgid "Commercial"
 msgstr ""
 
-#: python/install.py:285 python/install.py.back:193
+#: python/install.py:288 python/install.py.back:193
 msgid "Install a non-listed program"
 msgstr ""
 
-#: python/install.py:419 python/install.py.back:306
+#: python/install.py:422 python/install.py.back:306
 msgid ""
 "When {0} installs a Windows program: \n"
 "\n"
@@ -4331,7 +4332,7 @@ msgid ""
 " - Do not tick the checkbox 'Run the program' if asked."
 msgstr ""
 
-#: python/install.py:435
+#: python/install.py:438
 msgid ""
 "This program is currently in testing.\n"
 "\n"
@@ -4339,7 +4340,7 @@ msgid ""
 "specially important to improve this installer."
 msgstr ""
 
-#: python/install.py:437
+#: python/install.py:440
 msgid ""
 "This program needs a no-cd patch to run.\n"
 "\n"
@@ -4347,14 +4348,14 @@ msgid ""
 "it."
 msgstr ""
 
-#: python/install.py:544
+#: python/install.py:547
 msgid ""
 "By enabling this, you will have access to testing installers.\n"
 "\n"
 "{0} cannot ensure that your app will work without any problems"
 msgstr ""
 
-#: python/install.py:547
+#: python/install.py:550
 msgid ""
 "By enabling this, you will have access to installers that need a no-cd patch "
 "to run.\n"
