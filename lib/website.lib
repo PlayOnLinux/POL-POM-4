@@ -82,8 +82,9 @@ POL_Website_urlparse()
 	# & %26
 	# = %3D
 	chars="$1"
-	chars="${chars//"&"/\%26}"
-	chars="${chars//"="/%3D}"
+	chars="${chars//'&'/%26}"
+	chars="${chars//'='/%3D}"
+	chars="${chars//'+'/%2B}"
 	echo "$chars"
 }
 POL_Website_Close()

@@ -117,17 +117,20 @@ class getDescription(threading.Thread):
                         if(self.cat == 12):
                             self.htmlContent += "<br /><br /><font color=red><b>WARNING !</b><br />You are going to execute a beta script. <br />This functionality has been added to make script testing easier.<br />It might not work as expected.</font>"
 
-                        if(screenshot_id != 0):
-                            try:
-                                url_s2 = 'http://www.playonlinux.com/images/apps/med/'+screenshot_id
-                                req = urllib2.Request(url_s2)
-                                handle = urllib2.urlopen(req)
-                                open(Variables.playonlinux_rep+"/tmp/med"+screenshot_id,"w").write(handle.read())
-
-                                self.med_miniature = Variables.playonlinux_rep+"/tmp/med"+screenshot_id
-                            except:
-                                self.med_miniature = None
-                        else:
+                        try:
+                            if(screenshot_id != 0):
+                                try:
+                                    url_s2 = 'http://www.playonlinux.com/images/apps/med/'+screenshot_id
+                                    req = urllib2.Request(url_s2)
+                                    handle = urllib2.urlopen(req)
+                                    open(Variables.playonlinux_rep+"/tmp/med"+screenshot_id,"w").write(handle.read())
+    
+                                    self.med_miniature = Variables.playonlinux_rep+"/tmp/med"+screenshot_id
+                                except:
+                                    self.med_miniature = None
+                            else:
+                               self.med_miniature = None
+                        except:
                             self.med_miniature = None
 
                         # Stars
@@ -409,7 +412,7 @@ class InstallWindow(wx.Frame):
             InstallApplication = "ExecLiveInstall"
         else:
             InstallApplication = self.list_apps.GetItemText(self.list_apps.GetSelection())
-
+        
         if(InstallApplication == "about:creator"):
             self.EasterEgg = sp.egg(None, -1, "PlayOnLinux Conceptor")
             self.EasterEgg.Show()
