@@ -69,7 +69,7 @@ class gui_server(threading.Thread):
 
     def interact(self, recvData):
        self.parent.SetupWindowTimer_SendToGui(recvData)
-       time.sleep(2*self.parent.SetupWindowTimer_delay/100.)
+       time.sleep(0.1 + self.parent.SetupWindowTimer_delay/100.)
        return(str(self.waitRelease(recvData.split("\t")[1])))
 
               
