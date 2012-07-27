@@ -167,7 +167,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.current_angle = 1
     
         self.images = wx.ImageList(22, 22)
-        self.MenuGames = wx.TreeCtrl(self.panel, 111, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT|Variables.widget_borders, pos=(25,105),size=(460,188))
+        self.MenuGames = wx.TreeCtrl(self.panel, 111, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT|Variables.widget_borders, pos=(25,105),size=(460,220))
         self.MenuGames.SetImageList(self.images)
         self.MenuGames.SetSpacing(0)
         
