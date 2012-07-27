@@ -436,7 +436,7 @@ class MainWindow(wx.Frame):
     def SetupWindowAction(self, event):
         
         if(self.windowOpened == 0):
-            self.SetupWindow_TimerRestart(500)
+            self.SetupWindow_TimerRestart(100)
         else:
             self.SetupWindow_TimerRestart(10)
 
