@@ -161,6 +161,10 @@ def readAction(object):
         if(len(object.SetupWindowTimer_action) == 5):
             object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_textbox(object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[4])
 
+    if(object.SetupWindowTimer_action[0] == 'POL_Debug'):
+        if(len(object.SetupWindowTimer_action) == 5):
+            object.windowList[object.SetupWindowTimer_action[1]].POL_Debug(object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[4])
+
     if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_textbox_multiline'):
         if(len(object.SetupWindowTimer_action) == 5):
             object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_textbox_multiline(object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[4])

@@ -150,7 +150,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         # D'autres trucs
         self.champ = wx.TextCtrl(self.panel, 400, "",size=(300,22))
 
-        self.bigchamp = wx.TextCtrl(self.panel, -1, "",size=wx.Size(460,240), pos=(25,105),style=Variables.widget_borders|wx.TE_MULTILINE)
+        self.bigchamp = wx.TextCtrl(self.panel, -1, "",size=wx.Size(460,240), pos=(30,105),style=Variables.widget_borders|wx.TE_MULTILINE)
         self.MCheckBox = wx.CheckBox(self.panel, 302, _("I Agree"), pos=(20,325))
         self.PCheckBox = wx.CheckBox(self.panel, 304, _("Show virtual drives"), pos=(20,325))
         self.Menu = wx.ListBox(self.panel, 104, pos=(25,105),size=(460,220), style=Variables.widget_borders)
@@ -167,10 +167,10 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.current_angle = 1
     
         self.images = wx.ImageList(22, 22)
-        self.MenuGames = wx.TreeCtrl(self.panel, 111, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT|Variables.widget_borders, pos=(25,105),size=(460,220))
+        self.MenuGames = wx.TreeCtrl(self.panel, 111, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT|Variables.widget_borders, pos=(25,105),size=(460,188))
         self.MenuGames.SetImageList(self.images)
         self.MenuGames.SetSpacing(0)
-
+        
 
         # Login
         self.login = wx.StaticText(self.panel, -1, _("Login: "),pos=(20,120),size=(460,20))
@@ -188,6 +188,10 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         wx.EVT_CHECKBOX(self, 302, self.agree)
         wx.EVT_CHECKBOX(self, 304, self.switch_menu)
         wx.EVT_HYPERLINK(self, 303, self.POL_register)
+
+        # Debug Window
+        self.debugImage = wx.StaticBitmap(self.panel, -1, wx.Bitmap(os.environ["PLAYONLINUX"]+"/resources/images/setups/face-sad.png"), (196,130))
+        self.debugZone = wx.TextCtrl(self.panel, -1, "",size=wx.Size(440,82), pos=(40,274),style=Variables.widget_borders|wx.TE_MULTILINE|wx.TE_READONLY)
 
         # Hide all
         self.Destroy_all()
@@ -246,7 +250,8 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.PCheckBox.SetValue(False)
         self.animation.Hide()
         self.Timer_animate = False
-
+        self.debugImage.Hide()
+        self.debugZone.Hide()
         self.Refresh()
 
         
@@ -307,7 +312,8 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
         wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release)
         self.DrawImage()
-
+    
+  
     def POL_SetupWindow_textbox(self, message, title, value):
         self.Destroy_all()
         self.DrawDefault(message, title)
@@ -323,6 +329,11 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_champ)
         wx.EVT_TEXT_ENTER(self, 400, self.release_champ)
 
+    def POL_Debug(self, message, title, value):
+        self.POL_SetupWindow_message(message, title)
+        self.debugImage.Show()
+        self.debugZone.Show()
+        self.debugZone.SetValue(value.replace("\\n","\n"))
 
     def POL_SetupWindow_Pulse(self, value):
         self.gauge.SetValue(int(value)/2)

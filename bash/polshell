@@ -20,5 +20,4 @@
 [ "$PLAYONLINUX" = "" ] && exit 0
 source "$PLAYONLINUX/lib/sources"
 
-set +x
 bash --rcfile "$PLAYONLINUX/etc/pol_bash"
