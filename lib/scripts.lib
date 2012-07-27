@@ -462,6 +462,8 @@ POL_Download_Resource ()
 	# 2 - MD5 SUM
 	local URL="$1"
 	local FICHIER="${URL##*/}"
+	local i
+	[ "$3" ] && i="$3" || i=1
 	mkdir -p "$POL_USER_ROOT/ressources/$3"
 	cd "$POL_USER_ROOT/ressources/$3"
 	if [ ! -e "$FICHIER" ] || [ ! "$(POL_MD5_file "$FICHIER")" = "$2" ]
@@ -487,10 +489,14 @@ POL_Download_Resource ()
 				if [ ! "$2" = "$LOCAL_MD5" ]
 				then
 					local SERVER_MD5="$2"
-					POL_SetupWindow_message "$(eval_gettext 'Error ! Files mismatch\n\nLocal : $LOCAL_MD5\nServer : $SERVER_MD5')"
-					POL_Debug_Error "POL_Download - MD5 sum mismatch !"
+					POL_SetupWindow_question "$(eval_gettext 'Error ! Files mismatch\n\nLocal : $LOCAL_MD5\nServer : $SERVER_MD5')\n\n$(eval_gettext 'Do you want to retry?')"
+					if [ "$APP_ANSWER" = "FALSE" ]; then
+						POL_Debug_Error "POL_Download_Resource - MD5 sum mismatch ! ($i attempt)"
+					else
+						POL_Download_Resource "$1" "$2" "$(( i + 1 ))"
+					fi
 				fi
-			fi	
+			fi
 		fi
 	fi
 }
