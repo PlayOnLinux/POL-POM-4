@@ -675,6 +675,7 @@ POL_System_wget ()
 	POL_SetupWindow_pulsebar "$(eval_gettext 'Please wait while $APPLICATION_TITLE is downloading:')\n$FICHIER" "$TITLE"
 
 	prev=0
+        set -o pipefail
 	${POL_WGET/-q} -v -c "$url" "$@" 2>&1 | \
 	grep -o --line-buffered '[0-9]\{1,2\}%' | \
 	while read perc; do
@@ -683,6 +684,7 @@ POL_System_wget ()
 			prev="$perc"
 		fi
 	done || POL_Debug_Fatal "POL_System_wget failed, error $? !"
+        set +o pipefail
 
 	POL_SetupWindow_pulse 100
 
