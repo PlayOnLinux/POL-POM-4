@@ -636,7 +636,7 @@ POL_System_wget ()
 			POL_SetupWindow_pulse ${perc%%%}
 			prev="$perc"
 		fi
-	done
+	done || POL_Debug_Fatal "POL_System_wget failed, error $? !"
 
 	POL_SetupWindow_pulse 100
 
@@ -650,10 +650,12 @@ POL_System_CopyDirectory()
 	else
 		esize="$3"
 	fi
-	cp -R "$1/." "$2/" & pid="$!"
+        local statusfile="$POL_USER_ROOT/tmp/cpstatus.$$"
+	(cp -R "$1/." "$2/"; echo $? > "$statusfile") & pid="$!"
 
 	POL_SetupWindow_DirectoryProgress "$2" "$esize" "$pid"
-	
+        local exitcode="$(cat "$statusfile")"
+        [ "$exitcode" = "0" ] || POL_Debug_Fatal "POL_System_CopyDirectory failed, error $exitcode !"
 }
 POL_Shortcut_Document()
 {
