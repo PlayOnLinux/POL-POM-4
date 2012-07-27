@@ -472,7 +472,7 @@ POL_Download_Resource ()
 		then
 			POL_Debug_Error "POL_Download - URL is missing !"
 		else
-			rm "$FICHIER"
+			[ -e "$FICHIER" ] && rm "$FICHIER"
 			POL_SetupWindow_download "$(eval_gettext "Please wait while $APPLICATION_TITLE is downloading:") $FICHIER" "$TITLE" "$URL"
 	                if [ "$Result" = "Fail" ]; then
 				POL_SetupWindow_question "$(eval_gettext 'An error happened during download.')\n\n$(eval_gettext 'Do you want to retry?')"
