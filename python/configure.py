@@ -312,7 +312,7 @@ class Onglets(wx.Notebook):
             else:
                 self.configurator_title.Hide()
                 self.configurator_button.Hide()
-            self.configurator_title.SetLabel("{0} specific configuration".format(self.s_title))
+            self.configurator_title.SetLabel("{0} specific configuration".format(self.s_title.encode('utf-8','replace')))
             self.display_elements["pre_run_panel"].Show()
             self.display_elements["pre_run_text"].Show()
         else:
