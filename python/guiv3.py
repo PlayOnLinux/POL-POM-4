@@ -680,7 +680,6 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.NextButton.Enable(False)
 
     def release_bigchamp(self, event):
-        self.SendBash("MSG_VALUE=Ok")
         self.SendBashT(self.bigchamp.GetValue().replace("\n","\\n").encode("utf-8","replace"))
         self.NextButton.Enable(False)
 
@@ -689,7 +688,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.NextButton.Enable(False)
 
     def release_menu_num(self,event):
-        self.SendBash("MSG_VALUE="+str(self.Menu.GetSelection()))
+        self.SendBash(str(self.Menu.GetSelection()))
         self.NextButton.Enable(False)
 
     def release_icons(self,event):
