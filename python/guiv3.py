@@ -277,12 +277,12 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
                 self.estimation_txt = str(self.octetsLoadedN) + " "+_("of")+" " + str(self.tailleFichierN) + " "+_("MB downloaded")
                 self.txtEstimation.SetLabel(self.estimation_txt)
 
-                if(self.downloader.finished == True):
-                    if(self.downloader.failed == True):
-                        self.release_but_fail(self)
-                    else:
-                        self.release(self)
-                    self.Timer_downloading = False
+            if(self.downloader.finished == True):
+                if(self.downloader.failed == True):
+                    self.release_but_fail(self)
+                else:
+                    self.release(self)
+                self.Timer_downloading = False
 
         if(self.Timer_animate == True):
             self.current_angle = ((self.current_angle + 1) % 12)

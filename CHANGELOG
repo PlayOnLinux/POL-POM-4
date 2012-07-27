@@ -18,6 +18,8 @@
 - Updating the GIT is possible from the GUI
 - Several UIs improvements
 - Added POL_Die(), POL_Restart(), POL_System_RegisterPID()
+- Harden POL_Download, POL_Download_Resource, POL_System_wget, POL_System_CopyDirectory against errors (disk full?)
+- Create hardened commands POL_System_unzip, POL_System_7z, POL_System_tar, POL_System_cabextract, POL_System_unrar
 
 -> 4.1.3
 - Real time refreshing
