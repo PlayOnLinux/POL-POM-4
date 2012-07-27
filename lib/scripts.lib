@@ -424,7 +424,14 @@ POL_Download ()
 		POL_Debug_Error "POL_Download - URL is missing !"
 	else
 		POL_SetupWindow_download "$(eval_gettext 'Please wait while $APPLICATION_TITLE is downloading:')\n$FICHIER" "$TITLE" "$URL"
-		if [ "$2" = "" ]
+                if [ "$Result" = "Fail" ]; then
+			POL_SetupWindow_question "$(eval_gettext 'An error happened during download.')\n\n$(eval_gettext 'Do you want to retry?')"
+			if [ "$APP_ANSWER" = "FALSE" ]; then
+				POL_Debug_Error "POL_Download - error during download! ($i attempt)"
+			else
+				POL_Download "$1" "$2" "$(( i + 1 ))"
+			fi
+                elif [ "$2" = "" ]
 		then
 			POL_Debug_Warning "POL_Download - MD5 is missing!"
 		elif [ "$2" = "NO_MD5" ]
