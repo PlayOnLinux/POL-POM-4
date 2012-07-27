@@ -404,7 +404,7 @@ def writeArgs(game, args):
                 new_string = old_string[0:2] + new_string
                 new_string = " ".join([ pipes.quote(x) for x in new_string])
 
-                new_string = new_string+" $@"
+                new_string = new_string+' "$@"'
                 line.append(new_string)
             except:
                 line.append(fichier[i])
