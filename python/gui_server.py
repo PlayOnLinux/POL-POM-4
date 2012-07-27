@@ -69,7 +69,7 @@ class gui_server(threading.Thread):
 
     def interact(self, recvData):
        self.parent.SetupWindowTimer_SendToGui(recvData)
-       time.sleep(0.2)
+       time.sleep(2*self.parent.SetupWindowTimer_delay/100.)
        return(str(self.waitRelease(recvData.split("\t")[1])))
 
               
@@ -118,6 +118,7 @@ def readAction(object):
             object.windowList[object.SetupWindowTimer_action[1]] = gui.POL_SetupFrame(os.environ["APPLICATION_TITLE"],object.SetupWindowTimer_action[1],object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[4])
             object.windowList[object.SetupWindowTimer_action[1]].Center(wx.BOTH)
             object.windowList[object.SetupWindowTimer_action[1]].Show(True)
+            object.windowOpened += 1
     else:
         if(object.SetupWindowTimer_action[1] not in object.windowList):
             wx.MessageBox(_("Error. Please use POL_SetupWindow_Init first"),os.environ["APPLICATION_TITLE"])
@@ -177,7 +178,8 @@ def readAction(object):
         if(len(object.SetupWindowTimer_action) == 2):
             object.windowList[object.SetupWindowTimer_action[1]].Destroy()
             del object.windowList[object.SetupWindowTimer_action[1]]
-            
+            object.windowOpened -= 1
+
     if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_menu'):
         if(len(object.SetupWindowTimer_action) == 6):
             object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_menu(object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[4],object.SetupWindowTimer_action[5], False)

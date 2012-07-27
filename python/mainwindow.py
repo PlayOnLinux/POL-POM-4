@@ -118,6 +118,7 @@ class MainWindow(wx.Frame):
 
         self.windowList = {}
         self.registeredPid = []
+        self.windowOpened = 0
 
         # Manage updater
         self.updater = POLWeb()
@@ -406,8 +407,9 @@ class MainWindow(wx.Frame):
         self.SetupWindowTimer = wx.Timer(self, 2)
         self.Bind(wx.EVT_TIMER, self.SetupWindowAction, self.SetupWindowTimer)
         self.SetupWindowTimer_action = None
-        self.SetupWindowTimer.Start(10)
-        
+        self.SetupWindowTimer.Start(100)
+        self.SetupWindowTimer_delay = 100
+
         #Pop-up menu for game list: beginning
         wx.EVT_TREE_ITEM_MENU(self, 105, self.RMBInGameList)
         wx.EVT_MENU(self, 230, self.RWineConfigurator)
@@ -425,7 +427,19 @@ class MainWindow(wx.Frame):
             time.sleep(0.1)
         self.SetupWindowTimer_action = recvData
         
+    def SetupWindow_TimerRestart(self, time):
+        if(time != self.SetupWindowTimer_delay):
+            self.SetupWindowTimer.Stop()
+            self.SetupWindowTimer.Start(time)
+            self.SetupWindowTimer_delay = time
+
     def SetupWindowAction(self, event):
+        
+        if(self.windowOpened == 0):
+            self.SetupWindow_TimerRestart(500)
+        else:
+            self.SetupWindow_TimerRestart(10)
+
         if(self.SetupWindowTimer_action != None):                           
             return gui_server.readAction(self)
             
