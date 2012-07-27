@@ -533,6 +533,26 @@ POL_unbase64()
 	[ "$POL_OS" = "Mac" ] && openssl base64 -d
 }
 
+POL_System_unzip ()
+{
+	unzip "$@" || POL_Debug_Fatal "POL_System_unzip failed with error $?!"
+}
+POL_System_7z ()
+{
+	7z "$@" || POL_Debug_Fatal "POL_System_7z failed with error $?!"
+}
+POL_System_tar ()
+{
+	tar "$@" || POL_Debug_Fatal "POL_System_tar failed with error $?!"
+}
+POL_System_cabextract ()
+{
+	cabextract "$@" || POL_Debug_Fatal "POL_System_cabextract failed with error $?!"
+}
+POL_System_unrar ()
+{
+	unrar "$@" || POL_Debug_Fatal "POL_System_unrar failed with error $?!"
+}
 POL_System_ExtractSingleFile ()
 {
 	# This function has been written by hifi
@@ -583,23 +603,35 @@ POL_System_ExtractSingleFile ()
 
     return 0
 }
-POL_System_cp ()
+POL_System_cpmv ()
 {
 	# Extract a single file with a progressbar
 	# Usage: POL_System_cp <file> <destination>
 	
+    local op="$1"
+    shift
     local file="$1"
     local dest="$2"
+
     local filename=`basename "$file"`
 	#local szpid
-    POL_Debug_Message "Copying single file : \"$archive\", \"$file\", \"$dest\""
+    case "$op" in
+        cp)
+            POL_Debug_Message "Copying single file : \"$archive\", \"$file\", \"$dest\""
+            ;;
+        mv)
+            POL_Debug_Message "Moving single file : \"$archive\", \"$file\", \"$dest\""
+            ;;
+        *)
+            POL_Debug_Fatal "POL_System_cpmv: bad operation `$op`"
+    esac
 
 	local size="$(ls -l $file | awk '{print $5}')"
 
     POL_SetupWindow_pulsebar "$(eval_gettext 'Copying ${filename}')" "$TITLE"
 
     rm -f "$dest"
-    cp "$file" "$dest" 2>/dev/null & szpid=$!
+    "$op" "$file" "$dest" 2>/dev/null & szpid=$!
 
     while kill -0 $szpid 2>/dev/null; do
 		sleep 0.3
@@ -614,6 +646,14 @@ POL_System_cp ()
     fi
 
     return 0
+}
+POL_System_cp ()
+{
+    POL_System_cpmv "cp" "$@"
+}
+POL_System_mv ()
+{
+    POL_System_cpmv "mv" "$@"
 }
 POL_System_wget ()
 {
