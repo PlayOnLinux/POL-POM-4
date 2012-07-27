@@ -53,7 +53,7 @@ class Download(threading.Thread):
         self.download()
 
 class POL_SetupFrame(wx.Frame): #fenêtre principale
-    def __init__(self, titre, POL_SetupWindowID, Arg1, Arg2, Arg3, FIXME=""):
+    def __init__(self, titre, POL_SetupWindowID, Arg1, Arg2, Arg3):
         wx.Frame.__init__(self, None, -1, title = titre, style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX, size = (520, 398+Variables.windows_add_size))
         self.bash_pid = POL_SetupWindowID
         self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
