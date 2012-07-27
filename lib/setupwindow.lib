@@ -75,6 +75,7 @@ POL_SetupWindow_Close ()
 	fi
 	
 	echo "POL_SetupWindow_Close	$$" | ncs "$POL_HOST" "$POL_PORT"
+	export SETUPWINDOW_INIT="false"
 }
 
 POL_SetupWindow_presentation ()

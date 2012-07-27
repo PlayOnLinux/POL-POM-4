@@ -26,7 +26,7 @@ POL_Config_pRead (){ cat "$POL_USER_ROOT/playonlinux.cfg" 2> /dev/null | grep "^
 alias find="find -H"
 
 ### Security feature
-[ "$(which sudo)" ] && sudo -k
+[ "$(which sudo)" ] && sudo -k 2> /dev/null
 
 ### Terminal
 if [ "$DEBIAN_PACKAGE" = "TRUE" ]; then
