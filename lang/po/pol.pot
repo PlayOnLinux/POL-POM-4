@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2012-07-27 19:01:02+02:00\n"
+"POT-Creation-Date: 2012-07-28 19:00:57+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2258,7 +2258,7 @@ msgstr ""
 #, sh-format
 msgid ""
 "When $TITLE download by Desura is finished,\\nDo NOT click on Play.\\n"
-"\\nClose COMPLETELY the Steam interface, \\nso that the installation script "
+"\\nClose COMPLETELY the Desura interface, \\nso that the installation script "
 "can continue"
 msgstr ""
 
@@ -2486,7 +2486,7 @@ msgstr ""
 
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_:81
 #, sh-format
-msgid "Please insert nest media into your disk drive"
+msgid "Please insert next media into your disk drive"
 msgstr ""
 
 #: PlayOnLinux_Scripts/The_Witcher_2___Enhanced_Edition_Patch_:23
@@ -3753,67 +3753,73 @@ msgid ""
 "location?"
 msgstr ""
 
-#: lib/scripts.lib:426 lib/scripts.lib:615
+#: lib/scripts.lib:426 lib/scripts.lib:675
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr ""
 
-#: lib/scripts.lib:438
+#: lib/scripts.lib:428 lib/scripts.lib:478
+#, sh-format
+msgid "An error happened during download."
+msgstr ""
+
+#: lib/scripts.lib:428 lib/scripts.lib:445 lib/scripts.lib:478
+#: lib/scripts.lib:492
 #, sh-format
 msgid "Do you want to retry?"
 msgstr ""
 
-#: lib/scripts.lib:438 lib/scripts.lib:476
+#: lib/scripts.lib:445 lib/scripts.lib:492
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 
-#: lib/scripts.lib:540
+#: lib/scripts.lib:580
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
 msgstr ""
 
-#: lib/scripts.lib:547
+#: lib/scripts.lib:587
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr ""
 
-#: lib/scripts.lib:551
+#: lib/scripts.lib:591
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr ""
 
-#: lib/scripts.lib:566
+#: lib/scripts.lib:606
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:585
+#: lib/scripts.lib:637
 #, sh-format
 msgid "Copying ${filename}"
 msgstr ""
 
-#: lib/scripts.lib:598
+#: lib/scripts.lib:650
 #, sh-format
 msgid "File size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:672
+#: lib/scripts.lib:736
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\n"
 "$APPLICATION_TITLE $NEEDED is required."
 msgstr ""
 
-#: lib/scripts.lib:687
+#: lib/scripts.lib:751
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
 "$NEEDED is recommended to continue."
 msgstr ""
 
-#: lib/scripts.lib:718
+#: lib/scripts.lib:782
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr ""
