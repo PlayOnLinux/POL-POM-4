@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2012-07-29 19:01:00+02:00\n"
+"POT-Creation-Date: 2012-07-30 19:01:04+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1424,6 +1424,8 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___UFO__Aftermath_:38
 #: PlayOnLinux_Scripts/GOG.com___Ultima_4_:38
 #: PlayOnLinux_Scripts/GOG.com___Ultima_Underworld_1_and_2_:39
+#: PlayOnLinux_Scripts/GOG.com___Ultima_Worlds_of_Adventure_2__Martian_Dreams_:38
+#: PlayOnLinux_Scripts/GOG.com___Unreal_Gold_:39
 #: PlayOnLinux_Scripts/GOG.com___Worlds_of_Ultima__The_Savage_Empire_:38
 #: PlayOnLinux_Scripts/GOG.com___XIII_:37
 #: PlayOnLinux_Scripts/Gothic_3_Community_patch_:57
@@ -1776,11 +1778,19 @@ msgstr ""
 msgid "Control Panel"
 msgstr ""
 
+#: PlayOnLinux_Scripts/GOG.com___Ultima_Worlds_of_Adventure_2__Martian_Dreams_:56
 #: PlayOnLinux_Scripts/GOG.com___Worlds_of_Ultima__The_Savage_Empire_:54
 #, sh-format
 msgid ""
 "The codes needed to start a new game can be found in the\\ndocumentation;"
 "\\nRight-click the game icon, \"Read the manual\"."
+msgstr ""
+
+#: PlayOnLinux_Scripts/GOG.com___Unreal_Gold_:66
+#, sh-format
+msgid ""
+"On first run the game will autodetect available renderers.\\nIt is likely "
+"that you will get better performance out of the OpenGL renderer."
 msgstr ""
 
 #: PlayOnLinux_Scripts/Goblins_3_:21
@@ -2205,6 +2215,11 @@ msgstr ""
 msgid ""
 "VCRun2010 might fail to install because your PlayOnLinux version is too old. "
 "Please update."
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_Install_wininet_:12
+#, sh-format
+msgid "Installing Wininet DLL..."
 msgstr ""
 
 #: PlayOnLinux_Scripts/POL_Install_xact_:14
@@ -4604,7 +4619,7 @@ msgstr ""
 
 #: python/mainwindow.py:1013
 msgid ""
-" 2007-2012 PlayOnLinux and PlayOnMac team\n"
+"PlayOnLinux and PlayOnMac team\n"
 "Under GPL licence version 3"
 msgstr ""
 
