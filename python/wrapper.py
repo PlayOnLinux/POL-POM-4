@@ -55,7 +55,8 @@ class MainWindow(wx.Frame):
         self.SetupWindowTimer_action = None
         self.SetupWindowTimer.Start(10)
         self.SetupWindowTimer_delay = 10
-       
+        self.windowOpened = 0
+
     def SetupWindowTimer_SendToGui(self, recvData):
         recvData = recvData.split("\t")
         while(self.SetupWindowTimer_action != None):
