@@ -601,12 +601,10 @@ generer_icone ()
 	echo "[Desktop Entry]" > "$NOMCOURT.desktop"
 	echo "Encoding=UTF-8" >> "$NOMCOURT.desktop"
 	echo "Name=$NOMICONE" >> "$NOMCOURT.desktop"
-	echo "GenericName=Game" >> "$NOMCOURT.desktop"
 	echo "Comment=PlayOnLinux" >> "$NOMCOURT.desktop"
 	echo "Type=Application" >> "$NOMCOURT.desktop"
-	echo "Exec=$EXECUTER" >> "$NOMCOURT.desktop"
+	echo "Exec=$EXECUTER %F" >> "$NOMCOURT.desktop"
 	echo "Icon=$ICONE" >> "$NOMCOURT.desktop"
-	echo "Categories=PlayOnLinux;" >> "$NOMCOURT.desktop"
 	echo "Name[fr_FR]=$NOMICONE" >> "$NOMCOURT.desktop"
 	chmod +x "$NOMCOURT.desktop"
 }
