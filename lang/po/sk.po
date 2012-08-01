@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2012-07-23 19:00+0200\n"
+"POT-Creation-Date: 2012-07-30 19:01+0200\n"
 "PO-Revision-Date: 2012-06-29 15:44+0000\n"
 "Last-Translator: Prescott_SK <prescott66@gmail.com>\n"
 "Language-Team: sk_SK.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-07-24 04:40+0000\n"
-"X-Generator: Launchpad (build 15668)\n"
+"X-Launchpad-Export-Date: 2012-07-31 04:36+0000\n"
+"X-Generator: Launchpad (build 15702)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -1322,7 +1322,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:109 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:410 lib/wine.lib:993 lib/wine.lib:1023
+#: bash/winebash:27 lib/setupwindow.lib:411 lib/wine.lib:994 lib/wine.lib:1024
 #, sh-format
 msgid "Please wait..."
 msgstr ""
@@ -1472,6 +1472,8 @@ msgstr "Vitajte v inštalátore DLC pre $TITLE"
 #: PlayOnLinux_Scripts/GOG.com___UFO__Aftermath_:38
 #: PlayOnLinux_Scripts/GOG.com___Ultima_4_:38
 #: PlayOnLinux_Scripts/GOG.com___Ultima_Underworld_1_and_2_:39
+#: PlayOnLinux_Scripts/GOG.com___Ultima_Worlds_of_Adventure_2__Martian_Dreams_:38
+#: PlayOnLinux_Scripts/GOG.com___Unreal_Gold_:39
 #: PlayOnLinux_Scripts/GOG.com___Worlds_of_Ultima__The_Savage_Empire_:38
 #: PlayOnLinux_Scripts/GOG.com___XIII_:37
 #: PlayOnLinux_Scripts/Gothic_3_Community_patch_:57
@@ -1824,11 +1826,19 @@ msgstr ""
 msgid "Control Panel"
 msgstr ""
 
+#: PlayOnLinux_Scripts/GOG.com___Ultima_Worlds_of_Adventure_2__Martian_Dreams_:56
 #: PlayOnLinux_Scripts/GOG.com___Worlds_of_Ultima__The_Savage_Empire_:54
 #, sh-format
 msgid ""
 "The codes needed to start a new game can be found in the\\ndocumentation;\\"
 "nRight-click the game icon, \"Read the manual\"."
+msgstr ""
+
+#: PlayOnLinux_Scripts/GOG.com___Unreal_Gold_:66
+#, sh-format
+msgid ""
+"On first run the game will autodetect available renderers.\\nIt is likely "
+"that you will get better performance out of the OpenGL renderer."
 msgstr ""
 
 #: PlayOnLinux_Scripts/Goblins_3_:21
@@ -1856,6 +1866,7 @@ msgstr ""
 
 #: PlayOnLinux_Scripts/Guild_Wars_:53
 #: PlayOnLinux_Scripts/Halo_Combat_Evolved_:33
+#: PlayOnLinux_Scripts/Heroes_of_Might_and_Magic_V_:42
 #, sh-format
 msgid "Please insert the DVD-ROM"
 msgstr ""
@@ -2029,9 +2040,9 @@ msgid ""
 "No filename extension specified, skipping association to native application."
 msgstr ""
 
-#: PlayOnLinux_Scripts/POL_GoG_Extract_:29 python/install.py:419
-#: python/install.py:435 python/install.py:437 python/install.py:544
-#: python/install.py:547 python/install.py.back:306
+#: PlayOnLinux_Scripts/POL_GoG_Extract_:29 python/install.py:423
+#: python/install.py:439 python/install.py:441 python/install.py:548
+#: python/install.py:551
 #, sh-format
 msgid "Please read this"
 msgstr "Prosím, prečítajte si toto"
@@ -2046,7 +2057,7 @@ msgstr ""
 msgid "Please enter your gog.com login to download $BASENAME"
 msgstr ""
 
-#: PlayOnLinux_Scripts/POL_GoG_download_:60
+#: PlayOnLinux_Scripts/POL_GoG_download_:59
 #, sh-format
 msgid "Gog.com login failed, try again?"
 msgstr ""
@@ -2067,6 +2078,14 @@ msgstr ""
 msgid "Installing Adobe Air"
 msgstr ""
 
+#: PlayOnLinux_Scripts/POL_Install_d3dcompiler_43_:11
+#: PlayOnLinux_Scripts/POL_Install_d3dx9_:11
+#: PlayOnLinux_Scripts/POL_Install_d3dx9_36_:11
+#: PlayOnLinux_Scripts/POL_Install_d3dx9_40_:11
+#, sh-format
+msgid "Installing DirectX 9 dlls..."
+msgstr "Inštalujú sa knižnice DirectX 9..."
+
 #: PlayOnLinux_Scripts/POL_Install_d3dx10_:11
 #, sh-format
 msgid "Installing DirectX 10 dlls..."
@@ -2076,13 +2095,6 @@ msgstr "Inštalujú sa knižnice DirectX 10..."
 #, sh-format
 msgid "Installing DirectX 11 dlls..."
 msgstr "Inštalujú sa knižnice DirectX 11..."
-
-#: PlayOnLinux_Scripts/POL_Install_d3dx9_:11
-#: PlayOnLinux_Scripts/POL_Install_d3dx9_36_:11
-#: PlayOnLinux_Scripts/POL_Install_d3dx9_40_:11
-#, sh-format
-msgid "Installing DirectX 9 dlls..."
-msgstr "Inštalujú sa knižnice DirectX 9..."
 
 #: PlayOnLinux_Scripts/POL_Install_desura_:14
 #, sh-format
@@ -2254,6 +2266,11 @@ msgid ""
 "Please update."
 msgstr ""
 
+#: PlayOnLinux_Scripts/POL_Install_wininet_:12
+#, sh-format
+msgid "Installing Wininet DLL..."
+msgstr ""
+
 #: PlayOnLinux_Scripts/POL_Install_xact_:14
 #, sh-format
 msgid "Installing Xact dlls..."
@@ -2305,7 +2322,7 @@ msgstr ""
 #, sh-format
 msgid ""
 "When $TITLE download by Desura is finished,\\nDo NOT click on Play.\\n\\"
-"nClose COMPLETELY the Steam interface, \\nso that the installation script "
+"nClose COMPLETELY the Desura interface, \\nso that the installation script "
 "can continue"
 msgstr ""
 
@@ -2533,7 +2550,7 @@ msgstr ""
 
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_:81
 #, sh-format
-msgid "Please insert nest media into your disk drive"
+msgid "Please insert next media into your disk drive"
 msgstr ""
 
 #: PlayOnLinux_Scripts/The_Witcher_2___Enhanced_Edition_Patch_:23
@@ -2810,7 +2827,7 @@ msgid "Choose the name of the virtual drive"
 msgstr "Zvoľte meno virtuálnej jednotky"
 
 #: bash/expert/Executer:22 bash/expert/Executer:27 bash/expert/Executer:29
-#: python/mainwindow.py:232
+#: python/mainwindow.py:233
 #, sh-format
 msgid "Run a local script"
 msgstr "Spustiť miestny skript"
@@ -3153,7 +3170,7 @@ msgid "Use another version of Wine"
 msgstr "Použiť inú verziu Wine"
 
 #: bash/manual_install:160 bash/manual_install:195 bash/polconfigurator:95
-#: python/configure.py:156 python/mainwindow.py:525 python/mainwindow.py:557
+#: python/configure.py:156 python/mainwindow.py:539 python/mainwindow.py:571
 #, sh-format
 msgid "Configure Wine"
 msgstr "Konfigurovať Wine"
@@ -3349,54 +3366,53 @@ msgstr "Aký je editor Vášho programu?"
 msgid "What is the editor website of your program?"
 msgstr ""
 
-#: bash/playonlinux_online:69 python/install.py:206 python/install.py.back:356
+#: bash/playonlinux_online:69 python/install.py:210
 #, sh-format
 msgid "Accessories"
 msgstr "Nástroje"
 
-#: bash/playonlinux_online:69 python/install.py:207 python/install.py.back:356
+#: bash/playonlinux_online:69 python/install.py:211
 #, sh-format
 msgid "Development"
 msgstr "Vývoj"
 
-#: bash/playonlinux_online:69 python/install.py:208 python/install.py.back:356
+#: bash/playonlinux_online:69 python/install.py:212
 #, sh-format
 msgid "Education"
 msgstr "Vzdelávanie"
 
-#: bash/playonlinux_online:69 python/install.py:209 python/install.py.back:356
+#: bash/playonlinux_online:69 python/install.py:213
 #, sh-format
 msgid "Games"
 msgstr "Hry"
 
-#: bash/playonlinux_online:69 python/install.py:210 python/install.py.back:356
+#: bash/playonlinux_online:69 python/install.py:214
 #, sh-format
 msgid "Graphics"
 msgstr "Grafika"
 
-#: bash/playonlinux_online:69 python/install.py:211 python/install.py.back:356
-#: python/mainwindow.py:262 python/options.py:384
+#: bash/playonlinux_online:69 python/install.py:215 python/mainwindow.py:263
+#: python/options.py:384
 #, sh-format
 msgid "Internet"
 msgstr "Internet"
 
-#: bash/playonlinux_online:69 python/install.py:212 python/install.py.back:356
+#: bash/playonlinux_online:69 python/install.py:216
 #, sh-format
 msgid "Multimedia"
 msgstr "Multimédia"
 
-#: bash/playonlinux_online:69 python/install.py:213 python/install.py.back:356
+#: bash/playonlinux_online:69 python/install.py:217
 #, sh-format
 msgid "Office"
 msgstr "Kancelária"
 
-#: bash/playonlinux_online:69 lib/setupwindow.lib:327 python/install.py:214
-#: python/install.py.back:356
+#: bash/playonlinux_online:69 lib/setupwindow.lib:328 python/install.py:218
 #, sh-format
 msgid "Other"
 msgstr "Ostatné"
 
-#: bash/playonlinux_online:69 python/install.py:215 python/install.py.back:382
+#: bash/playonlinux_online:69 python/install.py:219
 #, sh-format
 msgid "Patches"
 msgstr "Opravy"
@@ -3406,7 +3422,7 @@ msgstr "Opravy"
 msgid "Select a category for your program"
 msgstr "Zvoľte kategóriu pre Váš program"
 
-#: bash/playonlinux_online:69 python/install.py:249 python/install.py.back:383
+#: bash/playonlinux_online:69 python/install.py:253
 #, sh-format
 msgid "Testing"
 msgstr "Testovanie"
@@ -3484,8 +3500,8 @@ msgstr "Zlá prípona súboru"
 msgid "is not an icon extension"
 msgstr "nie je prípona ikôn"
 
-#: bash/polconfigurator:96 python/configure.py:164 python/mainwindow.py:529
-#: python/mainwindow.py:570
+#: bash/polconfigurator:96 python/configure.py:164 python/mainwindow.py:543
+#: python/mainwindow.py:584
 #, sh-format
 msgid "Registry Editor"
 msgstr "Editor registrov"
@@ -3714,8 +3730,24 @@ msgstr ""
 msgid "Already up-to-date."
 msgstr ""
 
+#: lib/debug.lib:126
+#, sh-format
+msgid ""
+"$APPLICATION_TITLE has encountered an error. If the program your are "
+"installing does not work correctly, it might be the cause of the problem.\\"
+"nVisit www.$POL_DNS to get further information"
+msgstr ""
+
+#: lib/debug.lib:139
+#, sh-format
+msgid ""
+"$APPLICATION_TITLE has encountered a fatal error. $APPLICATION_TITLE will "
+"stop the installation process.\\nVisit www.$POL_DNS to get further "
+"information"
+msgstr ""
+
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:886
+#: lib/wine.lib:886 lib/wine.lib:920
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr "Prosím, čakajte, kým sa nevytvorí virtuálna jednotka..."
@@ -3832,23 +3864,29 @@ msgid ""
 "location?"
 msgstr ""
 
-#: lib/scripts.lib:426 lib/scripts.lib:615
+#: lib/scripts.lib:426 lib/scripts.lib:675
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr "Prosím, čakajte, kým $APPLICATION_TITLE nestiahne:"
 
-#: lib/scripts.lib:438
+#: lib/scripts.lib:428 lib/scripts.lib:478
+#, sh-format
+msgid "An error happened during download."
+msgstr ""
+
+#: lib/scripts.lib:428 lib/scripts.lib:445 lib/scripts.lib:478
+#: lib/scripts.lib:492
 #, sh-format
 msgid "Do you want to retry?"
 msgstr ""
 
-#: lib/scripts.lib:438 lib/scripts.lib:476
+#: lib/scripts.lib:445 lib/scripts.lib:492
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 "Chyba ! Nezhoda súborov\\n\\nMiestne : $LOCAL_MD5\\nNa serveri : $SERVER_MD5"
 
-#: lib/scripts.lib:540
+#: lib/scripts.lib:580
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
@@ -3856,86 +3894,86 @@ msgstr ""
 "7z nie je nainštalovaný. Prosím, skontrolujte, či máte 7zip nainštalovaný a "
 "skúste to znovu"
 
-#: lib/scripts.lib:547
+#: lib/scripts.lib:587
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr "Zlyhanie pri lokalizovaní ${dest} z ${archive}"
 
-#: lib/scripts.lib:551
+#: lib/scripts.lib:591
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr "Rozbaľuje sa ${filename} z ${archivename}"
 
-#: lib/scripts.lib:566
+#: lib/scripts.lib:606
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr "Veľkosť rozbalených súborov nesúhlasí!"
 
-#: lib/scripts.lib:585
+#: lib/scripts.lib:637
 #, sh-format
 msgid "Copying ${filename}"
 msgstr "Kopíruje sa ${filename}"
 
-#: lib/scripts.lib:598
+#: lib/scripts.lib:650
 #, sh-format
 msgid "File size does not match!"
 msgstr "Veľkosť súborov nesúhlasí!"
 
-#: lib/scripts.lib:672
+#: lib/scripts.lib:736
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
 "n$APPLICATION_TITLE $NEEDED is required."
 msgstr ""
 
-#: lib/scripts.lib:687
+#: lib/scripts.lib:751
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
 "$NEEDED is recommended to continue."
 msgstr ""
 
-#: lib/scripts.lib:718
+#: lib/scripts.lib:782
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr ""
 
-#: lib/setupwindow.lib:85
+#: lib/setupwindow.lib:86
 #, sh-format
 msgid " on your computer."
 msgstr " na Vašom počítači."
 
-#: lib/setupwindow.lib:85
+#: lib/setupwindow.lib:86
 #, sh-format
 msgid " will be installed in: "
 msgstr " bude nainštalovaný do: "
 
-#: lib/setupwindow.lib:85
+#: lib/setupwindow.lib:86
 #, sh-format
 msgid "Click Next to start"
 msgstr "Pre spustenie kliknite na Ďalej"
 
-#: lib/setupwindow.lib:85
+#: lib/setupwindow.lib:86
 #, sh-format
 msgid "This installation program is provided by: "
 msgstr "Tento inštalátor je poskytovaný od: "
 
-#: lib/setupwindow.lib:85
+#: lib/setupwindow.lib:86
 #, sh-format
 msgid "This program was created by: "
 msgstr "Tento program bol vytvorený od: "
 
-#: lib/setupwindow.lib:85
+#: lib/setupwindow.lib:86
 #, sh-format
 msgid "This wizard will help you install "
 msgstr "Tento sprievodca Vám pomôže nainštalovať "
 
-#: lib/setupwindow.lib:85
+#: lib/setupwindow.lib:86
 #, sh-format
 msgid "Welcome to $APPLICATION_TITLE Installation Wizard."
 msgstr "Vitajte pri inštalačnom sprievodcovi programu $APPLICATION_TITLE."
 
-#: lib/setupwindow.lib:109
+#: lib/setupwindow.lib:110
 #, sh-format
 msgid ""
 "One or more program(s) are missing. Please install them and run the script "
@@ -3944,36 +3982,36 @@ msgstr ""
 "Jeden alebo viac programov chýba. Prosím, nainštalujte ich a spustite skript "
 "znovu."
 
-#: lib/setupwindow.lib:111 python/guiv3.py:714 python/lib/irc.py:291
-#: python/lib/irc.py.bak:291 python/mainwindow.py:1045
-#: python/mainwindow.py:1068 python/mainwindow.py:1075
-#: python/mainwindow.py:1084 python/mainwindow.py:1096
-#: python/mainwindow.py:1108 python/wrapper.py:120
+#: lib/setupwindow.lib:112 python/guiv3.py:724 python/lib/irc.py:291
+#: python/lib/irc.py.bak:291 python/mainwindow.py:1059
+#: python/mainwindow.py:1082 python/mainwindow.py:1089
+#: python/mainwindow.py:1098 python/mainwindow.py:1110
+#: python/mainwindow.py:1122 python/wrapper.py:120
 #, sh-format
 msgid "Error"
 msgstr "Chyba"
 
-#: lib/setupwindow.lib:326
+#: lib/setupwindow.lib:327
 #, sh-format
 msgid "Where is mounted your CD-ROM?"
 msgstr "Kde je pripojený Váš CD-ROM?"
 
-#: lib/setupwindow.lib:328 python/install.py:275 python/install.py.back:179
+#: lib/setupwindow.lib:329 python/install.py:279
 #, sh-format
 msgid "Refresh"
 msgstr "Obnoviť"
 
-#: lib/setupwindow.lib:359
+#: lib/setupwindow.lib:360
 #, sh-format
 msgid "Reading your device"
 msgstr "Načítava sa Vaše zariadenie"
 
-#: lib/setupwindow.lib:374
+#: lib/setupwindow.lib:375
 #, sh-format
 msgid "Error: Unable to find the CD-ROM!"
 msgstr "Chyba: Nedá sa nájsť CD-ROM!"
 
-#: lib/setupwindow.lib:388
+#: lib/setupwindow.lib:389
 #, sh-format
 msgid ""
 "$TITLE needs to read the PC part of a hybrid CD-Rom.\\n\\nBy default, MacOS "
@@ -3982,34 +4020,34 @@ msgid ""
 "attempt to read the PC-Part of your CD?"
 msgstr ""
 
-#: lib/setupwindow.lib:440
+#: lib/setupwindow.lib:441
 #, sh-format
 msgid ""
 "Don't forget to go to PlayOnMac tools menu -> Read a PC CD-Rom before "
 "running your game"
 msgstr ""
 
-#: lib/setupwindow.lib:451
+#: lib/setupwindow.lib:452
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is copying files:"
 msgstr "Prosím, čakajte, kým $APPLICATION_TITLE neskopíruje súbory:"
 
-#: lib/setupwindow.lib:536 lib/setupwindow.lib:685
+#: lib/setupwindow.lib:537 lib/setupwindow.lib:686
 #, sh-format
 msgid "Scanning the virtual drive ..."
 msgstr "Skenuje sa virtuálna jednotka ..."
 
-#: lib/setupwindow.lib:550
+#: lib/setupwindow.lib:551
 #, sh-format
 msgid "How much memory does your graphics board have?"
 msgstr "Koľko pamäte má Vaša grafická karta?"
 
-#: lib/setupwindow.lib:559
+#: lib/setupwindow.lib:560
 #, sh-format
 msgid "Video card does not have enough memory"
 msgstr "Grafická karta má nedostatok pamäte"
 
-#: lib/setupwindow.lib:560
+#: lib/setupwindow.lib:561
 #, sh-format
 msgid ""
 "Your video card does not have enough memory!\\nIt might prevent the game "
@@ -4017,67 +4055,67 @@ msgid ""
 msgstr ""
 "Vaša grafická karta má nedostatok pamäte!\\nMôže to spôsobiť nefunkčnosť hry"
 
-#: lib/setupwindow.lib:574
+#: lib/setupwindow.lib:575
 #, sh-format
 msgid "Use Steam Store version"
 msgstr "Použiť verziu Steam Store"
 
-#: lib/setupwindow.lib:575
+#: lib/setupwindow.lib:576
 #, sh-format
 msgid "Use Steam Store demo version"
 msgstr "Použiť demo verziu Steam Store"
 
-#: lib/setupwindow.lib:576
+#: lib/setupwindow.lib:577
 #, sh-format
 msgid "Use Desura Store version"
 msgstr ""
 
-#: lib/setupwindow.lib:577
+#: lib/setupwindow.lib:578
 #, sh-format
 msgid "Use Desura Store demo version"
 msgstr ""
 
-#: lib/setupwindow.lib:578
+#: lib/setupwindow.lib:579
 #, sh-format
 msgid "Use Origin Store version"
 msgstr ""
 
-#: lib/setupwindow.lib:579
+#: lib/setupwindow.lib:580
 #, sh-format
 msgid "Use Origin Store demo version"
 msgstr ""
 
-#: lib/setupwindow.lib:581
+#: lib/setupwindow.lib:582
 #, sh-format
 msgid "Use a setup file in my computer"
 msgstr "Použiť inštalačný súbor z ,ôjho počítača"
 
-#: lib/setupwindow.lib:582
+#: lib/setupwindow.lib:583
 #, sh-format
 msgid "Use CD-ROM(s)"
 msgstr "Použiť CD-ROM(y)"
 
-#: lib/setupwindow.lib:583
+#: lib/setupwindow.lib:584
 #, sh-format
 msgid "Use DVD-ROM(s)"
 msgstr "Použiť DVD-ROM(y)"
 
-#: lib/setupwindow.lib:584
+#: lib/setupwindow.lib:585
 #, sh-format
 msgid "Download the program"
 msgstr "Stiahnuť program"
 
-#: lib/setupwindow.lib:649
+#: lib/setupwindow.lib:650
 #, sh-format
 msgid "Please choose an installation method"
 msgstr "Prosím, zvoľte spôsob inštalácie"
 
-#: lib/setupwindow.lib:687
+#: lib/setupwindow.lib:688
 #, sh-format
 msgid "I don't want to make another shortcut"
 msgstr "Nechcem vytvoriť ďalší odkaz"
 
-#: lib/setupwindow.lib:688 python/guiv3.py:146
+#: lib/setupwindow.lib:689 python/guiv3.py:146
 #, sh-format
 msgid "Browse"
 msgstr "Prehliadať"
@@ -4087,12 +4125,12 @@ msgstr "Prehliadať"
 msgid "Connect to your $APPLICATION_TITLE account"
 msgstr "Pripojte sa na Váš $APPLICATION_TITLE účet"
 
-#: lib/website.lib:127
+#: lib/website.lib:128
 #, sh-format
 msgid "Connecting..."
 msgstr "Pripája sa..."
 
-#: lib/website.lib:132
+#: lib/website.lib:133
 #, sh-format
 msgid ""
 "Failed to connect !\\nPlease ensure that your login and your password are "
@@ -4134,12 +4172,12 @@ msgstr "Zdá sa, že sťahovanie zlyhalo."
 msgid "Extracting Wine..."
 msgstr "Rozbaľuje sa Wine..."
 
-#: lib/wine.lib:993 lib/wine.lib:1023
+#: lib/wine.lib:994 lib/wine.lib:1024
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "Prosím, čakajte, kým sa nenainštaluje $SOFTNAME ..."
 
-#: lib/wine.lib:997 lib/wine.lib:1026
+#: lib/wine.lib:998 lib/wine.lib:1027
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
@@ -4148,17 +4186,17 @@ msgstr ""
 "Buďte opatrný! Toto ukončí inštalačný proces. Ak nie je dokončený, budete "
 "musieť inštalovať $SOFTNAME odznova"
 
-#: lib/wine.lib:997 lib/wine.lib:1026
+#: lib/wine.lib:998 lib/wine.lib:1027
 #, sh-format
 msgid "Install is done"
 msgstr "Inštalácia je dokončená"
 
-#: lib/wine.lib:1030 lib/wine.lib:1031
+#: lib/wine.lib:1031 lib/wine.lib:1032
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr "Stlačte Ďalej iba keď bude dokončený inštalačný proces"
 
-#: lib/wine.lib:1039
+#: lib/wine.lib:1040
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr "Prosím, čakajte, kým $APPLICATION_TITLE nasimuluje reštart"
@@ -4229,8 +4267,8 @@ msgstr "Ukončiť procesy"
 msgid "Wine uninstaller"
 msgstr "Wine odinštalátor"
 
-#: python/configure.py:235 python/install.py:274 python/install.py.back:178
-#: python/mainwindow.py:197 python/mainwindow.py:348
+#: python/configure.py:235 python/install.py:278 python/mainwindow.py:198
+#: python/mainwindow.py:349
 msgid "Install"
 msgstr "Pridať"
 
@@ -4294,7 +4332,7 @@ msgstr ""
 "Buďte opatrný!\n"
 "Ak zmeníte "
 
-#: python/configure.py:560 python/mainwindow.py:866 python/mainwindow.py:868
+#: python/configure.py:560 python/mainwindow.py:880 python/mainwindow.py:882
 msgid "{0} configuration"
 msgstr "{0} konfigurácia"
 
@@ -4306,8 +4344,8 @@ msgstr "Prosím, vyberte program alebo virtuálnu jednotku na konfiguráciu"
 msgid "New"
 msgstr "Nová"
 
-#: python/configure.py:587 python/mainwindow.py:198 python/mainwindow.py:349
-#: python/mainwindow.py:545 python/options.py:207
+#: python/configure.py:587 python/mainwindow.py:199 python/mainwindow.py:350
+#: python/mainwindow.py:559 python/options.py:207
 msgid "Remove"
 msgstr "Odobrať"
 
@@ -4315,7 +4353,7 @@ msgstr "Odobrať"
 msgid "Install packages"
 msgstr "Inštalácia balíčkov"
 
-#: python/configure.py:606 python/mainwindow.py:332
+#: python/configure.py:606 python/mainwindow.py:333
 msgid "Display"
 msgstr "Zobrazenie"
 
@@ -4335,8 +4373,8 @@ msgstr "Naozaj chcete zmazať virtuálnu jednotku {0} ?"
 msgid "Are you sure you want to delete {0} ?"
 msgstr "Naozaj chcete vymazať {0} ?"
 
-#: python/debug.py:39 python/mainwindow.py:254 python/mainwindow.py:841
-#: python/mainwindow.py:924
+#: python/debug.py:39 python/mainwindow.py:255 python/mainwindow.py:855
+#: python/mainwindow.py:938
 msgid "{0} debugger"
 msgstr "{0} ladenie"
 
@@ -4364,7 +4402,7 @@ msgstr "Nahlásiť problém s {0}"
 msgid "Install scripts"
 msgstr "Inštalovať skripty"
 
-#: python/gui_server.py:123
+#: python/gui_server.py:124
 msgid "Error. Please use POL_SetupWindow_Init first"
 msgstr ""
 
@@ -4372,8 +4410,7 @@ msgstr ""
 msgid "{0} Wizard"
 msgstr "{0} Sprievodca"
 
-#: python/guiv3.py:137 python/install.py:273 python/install.py.back:177
-#: python/options.py:376
+#: python/guiv3.py:137 python/install.py:277 python/options.py:376
 msgid "Cancel"
 msgstr "Prerušiť"
 
@@ -4405,39 +4442,39 @@ msgstr "Heslo: "
 msgid "Register"
 msgstr "Zaregistrovať sa"
 
-#: python/guiv3.py:272
+#: python/guiv3.py:277
 msgid "MB downloaded"
 msgstr "MB stiahnutých"
 
-#: python/guiv3.py:272
+#: python/guiv3.py:277
 msgid "of"
 msgstr "z"
 
-#: python/guiv3.py:714
+#: python/guiv3.py:724
 msgid "You cannot close this window"
 msgstr "Nemôžete zavrieť toto okno"
 
-#: python/install.py:113 python/install.py:115 python/install.py.back:113
+#: python/install.py:114 python/install.py:116
 msgid "No description"
 msgstr "Žiadny popis"
 
-#: python/install.py:242
+#: python/install.py:246
 msgid "Search"
 msgstr ""
 
-#: python/install.py:254
+#: python/install.py:258
 msgid "No-cd needed"
 msgstr ""
 
-#: python/install.py:261
+#: python/install.py:265
 msgid "Commercial"
 msgstr ""
 
-#: python/install.py:285 python/install.py.back:193
+#: python/install.py:289
 msgid "Install a non-listed program"
 msgstr "Nainštalovať program mimo zoznamu"
 
-#: python/install.py:419 python/install.py.back:306
+#: python/install.py:423
 msgid ""
 "When {0} installs a Windows program: \n"
 "\n"
@@ -4449,7 +4486,7 @@ msgstr ""
 " - Ponechajte štandardné umiestnenie\n"
 " - Nezaškrtávajte kolónku 'Spustiť program' po opýtaní"
 
-#: python/install.py:435
+#: python/install.py:439
 msgid ""
 "This program is currently in testing.\n"
 "\n"
@@ -4457,7 +4494,7 @@ msgid ""
 "specially important to improve this installer."
 msgstr ""
 
-#: python/install.py:437
+#: python/install.py:441
 msgid ""
 "This program needs a no-cd patch to run.\n"
 "\n"
@@ -4465,14 +4502,14 @@ msgid ""
 "it."
 msgstr ""
 
-#: python/install.py:544
+#: python/install.py:548
 msgid ""
 "By enabling this, you will have access to testing installers.\n"
 "\n"
 "{0} cannot ensure that your app will work without any problems"
 msgstr ""
 
-#: python/install.py:547
+#: python/install.py:551
 msgid ""
 "By enabling this, you will have access to installers that need a no-cd patch "
 "to run.\n"
@@ -4480,18 +4517,6 @@ msgid ""
 "{0} does not support piracy. Therefore, we won't give any support to patch "
 "your program."
 msgstr ""
-
-#: python/install.py.back:169
-msgid "Search: "
-msgstr "Hľadať: "
-
-#: python/install.py.back:380
-msgid "Highest rated"
-msgstr "Najlepšie hodnotené"
-
-#: python/install.py.back:381
-msgid "Most downloaded"
-msgstr "Najčastejšie sťahované"
 
 #: python/irc.py:137
 msgid "Send"
@@ -4513,7 +4538,7 @@ msgstr "Opustiť"
 msgid "Join a channel"
 msgstr "Pripojiť sa ku kanálu"
 
-#: python/irc.py:257 python/mainwindow.py:668
+#: python/irc.py:257 python/mainwindow.py:682
 msgid "Messenger"
 msgstr "Komunikátor"
 
@@ -4552,207 +4577,205 @@ msgstr "Obnovuje sa {0}"
 msgid "An updated version of {0} is available"
 msgstr "Je dostupná nová verzia {0}"
 
-#: python/mainwindow.py:196 python/mainwindow.py:344 python/mainwindow.py:677
+#: python/mainwindow.py:197 python/mainwindow.py:345 python/mainwindow.py:691
 msgid "Run"
 msgstr "Spustiť"
 
-#: python/mainwindow.py:200
+#: python/mainwindow.py:201
 msgid "Donate"
 msgstr "Prispieť"
 
-#: python/mainwindow.py:201
+#: python/mainwindow.py:202
 msgid "Exit"
 msgstr "Koniec"
 
-#: python/mainwindow.py:205
+#: python/mainwindow.py:206
 msgid "Small icons"
 msgstr "Malé ikony"
 
-#: python/mainwindow.py:206
+#: python/mainwindow.py:207
 msgid "Medium icons"
 msgstr "Stredne veľké ikony"
 
-#: python/mainwindow.py:207
+#: python/mainwindow.py:208
 msgid "Large icons"
 msgstr "Veľké ikony"
 
-#: python/mainwindow.py:208
+#: python/mainwindow.py:209
 msgid "Very large icons"
 msgstr "Veľmi veľké ikony"
 
-#: python/mainwindow.py:220
+#: python/mainwindow.py:221
 msgid "Manage Wine versions"
 msgstr "Spravovať Wine verzie"
 
-#: python/mainwindow.py:226
+#: python/mainwindow.py:227
 msgid "Read a PC CD-Rom"
 msgstr "Načítať PC CD-Rom"
 
-#: python/mainwindow.py:236
+#: python/mainwindow.py:237
 msgid "Close all {0} software"
 msgstr "Zavrieť všetok {0} softvér"
 
-#: python/mainwindow.py:240
+#: python/mainwindow.py:241
 msgid "{0} console"
 msgstr "{0} konzola"
 
-#: python/mainwindow.py:250
+#: python/mainwindow.py:251
 msgid "{0} messenger"
 msgstr "{0} komunikátor"
 
-#: python/mainwindow.py:266 python/options.py:388
+#: python/mainwindow.py:267 python/options.py:388
 msgid "File associations"
 msgstr "Asociácie súborov"
 
-#: python/mainwindow.py:273
+#: python/mainwindow.py:274
 msgid "About {0}"
 msgstr "O programe {0}"
 
-#: python/mainwindow.py:302 python/mainwindow.py:306
+#: python/mainwindow.py:303 python/mainwindow.py:307
 msgid "Plugin manager"
 msgstr "Správca zásuvných modulov"
 
-#: python/mainwindow.py:331
+#: python/mainwindow.py:332
 msgid "File"
 msgstr "Súbor"
 
-#: python/mainwindow.py:333
+#: python/mainwindow.py:334
 msgid "Tools"
 msgstr "Nástroje"
 
-#: python/mainwindow.py:334 python/mainwindow.py:666
+#: python/mainwindow.py:335 python/mainwindow.py:680
 msgid "Settings"
 msgstr "Nastavenia"
 
-#: python/mainwindow.py:335 python/options.py:387
+#: python/mainwindow.py:336 python/options.py:387
 msgid "Plugins"
 msgstr "Zásuvné moduly"
 
-#: python/mainwindow.py:345 python/mainwindow.py:679
+#: python/mainwindow.py:346 python/mainwindow.py:693
 msgid "Close"
 msgstr "Zavrieť"
 
-#: python/mainwindow.py:351 python/mainwindow.py:683 python/options.py:208
+#: python/mainwindow.py:352 python/mainwindow.py:697 python/options.py:208
 msgid "Configure"
 msgstr "Nastaviť"
 
-#: python/mainwindow.py:533
+#: python/mainwindow.py:547
 msgid "Open the application's directory"
 msgstr "Otvoriť adresár aplikácie"
 
-#: python/mainwindow.py:537 python/mainwindow.py:691
+#: python/mainwindow.py:551 python/mainwindow.py:705
 msgid "Read the manual"
 msgstr "Prečítať návod"
 
-#: python/mainwindow.py:541
+#: python/mainwindow.py:555
 msgid "Set the icon"
 msgstr "Nastaviť ikonu"
 
-#: python/mainwindow.py:549
+#: python/mainwindow.py:563
 msgid "Close this application"
 msgstr "Zavrieť túto aplikáciu"
 
-#: python/mainwindow.py:560
+#: python/mainwindow.py:574
 msgid "KillApp"
 msgstr "Ukončiť aplikáciu"
 
-#: python/mainwindow.py:567
+#: python/mainwindow.py:581
 msgid "No manual found for {0}"
 msgstr "Nenašiel sa návod pre {0}"
 
-#: python/mainwindow.py:664
+#: python/mainwindow.py:678
 msgid "Install a program"
 msgstr "Nainštalovať program"
 
-#: python/mainwindow.py:671
+#: python/mainwindow.py:685
 msgid "Update GIT"
 msgstr ""
 
-#: python/mainwindow.py:681
+#: python/mainwindow.py:695
 msgid "Debug"
 msgstr "Ladenie"
 
-#: python/mainwindow.py:685
+#: python/mainwindow.py:699
 msgid "Create a shortcut"
 msgstr "Vytvoriť odkaz"
 
-#: python/mainwindow.py:687
+#: python/mainwindow.py:701
 msgid "Open the directory"
 msgstr "Otvoriť adresár"
 
-#: python/mainwindow.py:694
+#: python/mainwindow.py:708
 msgid "Uninstall"
 msgstr "Odinštalovať"
 
-#: python/mainwindow.py:814 python/mainwindow.py:885 python/mainwindow.py:930
+#: python/mainwindow.py:828 python/mainwindow.py:899 python/mainwindow.py:944
 msgid "Please select a program."
 msgstr "Prosím, vyberte program"
 
-#: python/mainwindow.py:822 python/mainwindow.py:824 python/mainwindow.py:826
+#: python/mainwindow.py:836 python/mainwindow.py:838 python/mainwindow.py:840
 msgid "{0} settings"
 msgstr "{0} nastavenia"
 
-#: python/mainwindow.py:892
+#: python/mainwindow.py:906
 msgid "{0} install menu"
 msgstr "{0} inštalačná ponuka"
 
-#: python/mainwindow.py:901
+#: python/mainwindow.py:915
 msgid "{0} wine versions manager"
 msgstr "{0} správca wine verzií"
 
-#: python/mainwindow.py:932
+#: python/mainwindow.py:946
 msgid "The virtual drive associated with {0} ({1}) does no longer exists."
 msgstr "Virtuálna jednotka priradená k {0} ({1}) už neexistuje."
 
-#: python/mainwindow.py:959
+#: python/mainwindow.py:973
 msgid "Are you sure you want to close all {0} Windows?"
 msgstr "Naozaj chcete zavrieť všetky {0} okná?"
 
-#: python/mainwindow.py:998
+#: python/mainwindow.py:1012
 msgid "Run your Windows programs on "
 msgstr "Spustiť Vaše programy pre Windows na "
 
-#: python/mainwindow.py:999
+#: python/mainwindow.py:1013
 msgid ""
-"(C) PlayOnLinux and PlayOnMac team 2012\n"
+"PlayOnLinux and PlayOnMac team\n"
 "Under GPL licence version 3"
 msgstr ""
-"(C) PlayOnLinux a PlayOnMac tím 2012\n"
-"Pod licenciou GPL verzie 3"
 
-#: python/mainwindow.py:1000
+#: python/mainwindow.py:1014
 msgid "Developer and Website: "
 msgstr "Vývojár a webstránka: "
 
-#: python/mainwindow.py:1001
+#: python/mainwindow.py:1015
 msgid "Scriptors: "
 msgstr "Tvorcovia skriptov: "
 
-#: python/mainwindow.py:1002
+#: python/mainwindow.py:1016
 msgid "Packager: "
 msgstr "Tvorcovia balíčkov: "
 
-#: python/mainwindow.py:1003
+#: python/mainwindow.py:1017
 msgid "Icons:"
 msgstr "Ikony:"
 
-#: python/mainwindow.py:1004
+#: python/mainwindow.py:1018
 msgid "The following people contributed to this program: "
 msgstr "Nasledujúci ľudia sa podujali na tomto programe: "
 
-#: python/mainwindow.py:1005
+#: python/mainwindow.py:1019
 msgid "Translations:"
 msgstr "Preklady:"
 
-#: python/mainwindow.py:1006
+#: python/mainwindow.py:1020
 msgid "Read TRANSLATORS file"
 msgstr "Viď súbor TRANSLATORS"
 
-#: python/mainwindow.py:1045 python/wrapper.py:120
+#: python/mainwindow.py:1059 python/wrapper.py:120
 msgid "{0} is not able to start POL_SetupWindow_server."
 msgstr ""
 
-#: python/mainwindow.py:1068
+#: python/mainwindow.py:1082
 msgid ""
 "{0} cannot find {1}.\n"
 "\n"
@@ -4760,11 +4783,11 @@ msgstr ""
 "{0} nemôže nájsť {1}.\n"
 "\n"
 
-#: python/mainwindow.py:1075
+#: python/mainwindow.py:1089
 msgid "{0} is not supposed to be run as root. Sorry"
 msgstr "{0} sa nezdá že by bol spustený ako root. Prepáčte"
 
-#: python/mainwindow.py:1084
+#: python/mainwindow.py:1098
 msgid ""
 "{0} is unable to find 32bits OpenGL libraries.\n"
 "\n"
@@ -4774,7 +4797,7 @@ msgstr ""
 "\n"
 "Môžete naraziť na problémy s Vašimi hrami"
 
-#: python/mainwindow.py:1096
+#: python/mainwindow.py:1110
 msgid ""
 "{0} is unable to find 64bits OpenGL libraries.\n"
 "\n"
@@ -4784,7 +4807,7 @@ msgstr ""
 "\n"
 "Môžete naraziť na problémy s Vašimi hrami"
 
-#: python/mainwindow.py:1108
+#: python/mainwindow.py:1122
 msgid ""
 "Your filesystem might prevent {0} from running correctly.\n"
 "\n"
@@ -4794,7 +4817,7 @@ msgstr ""
 "\n"
 "Prosím, otvorte {0} v termináli, pre získanie viacerých podrobností."
 
-#: python/mainwindow.py:1112
+#: python/mainwindow.py:1126
 msgid ""
 "Do you want to help {0} to make a compatibility database?\n"
 "\n"
@@ -4820,11 +4843,11 @@ msgstr ""
 "\n"
 "Tieto informácie budú veľmi cenné pre nás pri pomoci ľuďom."
 
-#: python/mainwindow.py:1163
+#: python/mainwindow.py:1177
 msgid "Are you sure you want to  want to install {0} package?"
 msgstr "Naozaj chcete nainštalovať balíček {0}?"
 
-#: python/mainwindow.py:1170 python/mainwindow.py:1172
+#: python/mainwindow.py:1184 python/mainwindow.py:1186
 msgid ""
 "You are trying to open a script design for {0}! It might not work as expected"
 msgstr ""
