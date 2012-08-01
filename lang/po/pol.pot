@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2012-07-31 19:01:04+02:00\n"
+"POT-Creation-Date: 2012-08-01 19:01:05+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1384,6 +1384,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Populous_2_:38
 #: PlayOnLinux_Scripts/GOG.com___Postal_2_Complete_:39
 #: PlayOnLinux_Scripts/GOG.com___Prince_of_Persia__The_Sands_of_Time_:38
+#: PlayOnLinux_Scripts/GOG.com___Psychonauts_:38
 #: PlayOnLinux_Scripts/GOG.com___Realms_of_Arkania_3_:38
 #: PlayOnLinux_Scripts/GOG.com___Realms_of_the_Haunting_:38
 #: PlayOnLinux_Scripts/GOG.com___Redneck_Rampage_Collection_:40
@@ -3580,7 +3581,7 @@ msgid ""
 msgstr ""
 
 #: bash/uninstall:25 bash/uninstall:53 bash/uninstall:56 bash/uninstall:58
-#: lib/playonlinux.lib:702
+#: lib/playonlinux.lib:700
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
 msgstr ""
@@ -3600,7 +3601,7 @@ msgstr ""
 msgid "This wizard will help you to uninstall: "
 msgstr ""
 
-#: bash/uninstall:53 lib/playonlinux.lib:702
+#: bash/uninstall:53 lib/playonlinux.lib:700
 #, sh-format
 msgid "Uninstalling..."
 msgstr ""
@@ -3709,33 +3710,33 @@ msgstr ""
 msgid "Making shortcut..."
 msgstr ""
 
-#: lib/playonlinux.lib:700
+#: lib/playonlinux.lib:698
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr ""
 
-#: lib/playonlinux.lib:807
+#: lib/playonlinux.lib:805
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:808
+#: lib/playonlinux.lib:806
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:809
+#: lib/playonlinux.lib:807
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:810
+#: lib/playonlinux.lib:808
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
@@ -3886,7 +3887,7 @@ msgstr ""
 #: python/lib/irc.py.bak:291 python/mainwindow.py:1059
 #: python/mainwindow.py:1082 python/mainwindow.py:1089
 #: python/mainwindow.py:1098 python/mainwindow.py:1110
-#: python/mainwindow.py:1122 python/wrapper.py:120
+#: python/mainwindow.py:1122 python/wrapper.py:122
 #, sh-format
 msgid "Error"
 msgstr ""
@@ -4652,7 +4653,7 @@ msgstr ""
 msgid "Read TRANSLATORS file"
 msgstr ""
 
-#: python/mainwindow.py:1059 python/wrapper.py:120
+#: python/mainwindow.py:1059 python/wrapper.py:122
 msgid "{0} is not able to start POL_SetupWindow_server."
 msgstr ""
 
