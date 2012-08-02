@@ -822,3 +822,8 @@ POL_System_RegisterPID()
 {
 	echo "POL_System_RegisterPID	$1" | ncs "$POL_HOST" "$POL_PORT" 
 }
+POL_Config_CheckGL()
+{
+	bash "$PLAYONLINUX/bash/check_gl" "x86"
+	bash "$PLAYONLINUX/bash/check_gl" "amd64"	
+}
