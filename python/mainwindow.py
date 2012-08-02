@@ -1129,6 +1129,7 @@ class PlayOnLinuxApp(wx.App):
                     playonlinux.SetSettings("SEND_REPORT","TRUE")
 
         #### Other import checks
+        self.singleCheck("nc")
         self.singleCheck("tar")
         self.singleCheck("cabextract")
         self.singleCheck("convert")
