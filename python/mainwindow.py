@@ -313,7 +313,7 @@ class MainWindow(wx.Frame):
 
         self.sb = wx.StatusBar(self, -1 )
         self.sb.SetFieldsCount(2)
-        self.sb.SetStatusWidths([400, -1])
+        self.sb.SetStatusWidths([self.GetSize()[0], -1])
         self.sb.SetStatusText("", 0)
 
         if(os.environ["POL_OS"] == "Mac"):
