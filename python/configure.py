@@ -615,7 +615,7 @@ class MainWindow(wx.Frame):
         self.timer = wx.Timer(self, 1)
         self.Bind(wx.EVT_TIMER, self.AutoReload, self.timer)
 
-        self.timer.Start(200)
+        self.timer.Start(500)
         self.oldreload = None
         self.oldimg = None
         self.oldpref = None
@@ -651,23 +651,23 @@ class MainWindow(wx.Frame):
 
     def AutoReload(self, event):
         if(self.onglets.typing == False):
-            reload = os.listdir(Variables.playonlinux_rep+"/shortcuts")
+            reload = os.path.getmtime(Variables.playonlinux_rep+"/shortcuts")
             if(reload != self.oldreload):
                 self.list_software()
                 self.oldreload = reload
 
-            reloadimg = os.listdir(Variables.playonlinux_rep+"/icones/32")
+            reloadimg = os.path.getmtime(Variables.playonlinux_rep+"/icones/32")
             if(reloadimg != self.oldimg):
                 self.list_software()
                 self.oldimg = reloadimg
 
-            reloadpref = os.listdir(Variables.playonlinux_rep+"/wineprefix")
+            reloadpref = os.path.getmtime(Variables.playonlinux_rep+"/wineprefix")
             if(reloadpref != self.oldpref):
                 self.list_software()
                 self.oldpref = reloadpref
 
-            reloadver32 = os.listdir(Variables.playonlinux_rep+"/wine/"+Variables.os_name+"-x86/")
-            reloadver64 = os.listdir(Variables.playonlinux_rep+"/wine/"+Variables.os_name+"-amd64/")
+            reloadver32 = os.path.getmtime(Variables.playonlinux_rep+"/wine/"+Variables.os_name+"-x86/")
+            reloadver64 = os.path.getmtime(Variables.playonlinux_rep+"/wine/"+Variables.os_name+"-amd64/")
 
             if(reloadver32 != self.oldver32 or reloadver64 != self.oldver64):
                 self.oldver32 = reloadver32

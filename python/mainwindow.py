@@ -448,8 +448,8 @@ class MainWindow(wx.Frame):
         self.StatusRead()
         
         # We read shortcut folder to see if it has to be rescanned
-        currentShortcuts = os.listdir(Variables.playonlinux_rep+"/shortcuts")
-        currentIcons = os.listdir(Variables.playonlinux_rep+"/icones/32")
+        currentShortcuts = os.path.getmtime(Variables.playonlinux_rep+"/shortcuts")
+        currentIcons = os.path.getmtime(Variables.playonlinux_rep+"/icones/32")
         if(currentShortcuts != self.Timer_LastShortcutList or currentIcons != self.Timer_LastIconList):
             self.Reload(self)
             self.Timer_LastShortcutList = currentShortcuts
