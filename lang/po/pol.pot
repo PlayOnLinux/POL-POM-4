@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2012-08-02 19:00:53+02:00\n"
+"POT-Creation-Date: 2012-08-03 19:01:03+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1367,6 +1367,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Lands_of_Lore_1_and_2_:39
 #: PlayOnLinux_Scripts/GOG.com___Legend_of_Grimrock_:38
 #: PlayOnLinux_Scripts/GOG.com___Little_Big_Adventure_:38
+#: PlayOnLinux_Scripts/GOG.com___Little_Big_Adventure_2_:38
 #: PlayOnLinux_Scripts/GOG.com___Lure_of_the_Temptress_:37
 #: PlayOnLinux_Scripts/GOG.com___MDK_2_:38
 #: PlayOnLinux_Scripts/GOG.com___Master_of_Orion_1_and_2_:39
@@ -3515,9 +3516,7 @@ msgstr ""
 
 #: bash/run_app:112
 #, sh-format
-msgid ""
-"$PACKAGE crashed.\\n\\nYou need to enable debugging to get more details."
-"\\nPlease go to configure menu"
+msgid "$PACKAGE crashed.\\nClick on debug link to get more details."
 msgstr ""
 
 #: bash/run_app:114
@@ -3639,12 +3638,20 @@ msgstr ""
 #: lib/debug.lib:126
 #, sh-format
 msgid ""
+"$APPLICATION_TITLE has encountered an error. If the program does not work "
+"correctly, it might be the cause of the problem.\\nVisit www.$POL_DNS to get "
+"further information"
+msgstr ""
+
+#: lib/debug.lib:140
+#, sh-format
+msgid ""
 "$APPLICATION_TITLE has encountered an error. If the program your are "
 "installing does not work correctly, it might be the cause of the problem."
 "\\nVisit www.$POL_DNS to get further information"
 msgstr ""
 
-#: lib/debug.lib:139
+#: lib/debug.lib:153
 #, sh-format
 msgid ""
 "$APPLICATION_TITLE has encountered a fatal error. $APPLICATION_TITLE will "
@@ -3766,7 +3773,7 @@ msgstr ""
 #: lib/scripts.lib:306
 #, sh-format
 msgid ""
-"Binary not found: $BINARY\\n\\nHave you installed the program to the default "
+"Binary not found: $BINARY\\nHave you installed the program to the default "
 "location?"
 msgstr ""
 
@@ -4290,7 +4297,7 @@ msgstr ""
 msgid "Install scripts"
 msgstr ""
 
-#: python/gui_server.py:124
+#: python/gui_server.py:130
 msgid "Error. Please use POL_SetupWindow_Init first"
 msgstr ""
 
@@ -4703,11 +4710,11 @@ msgid ""
 "These information will be very precious for us to help people."
 msgstr ""
 
-#: python/mainwindow.py:1177
+#: python/mainwindow.py:1178
 msgid "Are you sure you want to  want to install {0} package?"
 msgstr ""
 
-#: python/mainwindow.py:1184 python/mainwindow.py:1186
+#: python/mainwindow.py:1185 python/mainwindow.py:1187
 msgid ""
 "You are trying to open a script design for {0}! It might not work as expected"
 msgstr ""
