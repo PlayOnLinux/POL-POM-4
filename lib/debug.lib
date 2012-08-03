@@ -113,6 +113,20 @@ POL_Debug_Warning()
 	echo "$(Get_CurrentDate) - [${FUNCNAME[1]}] Warning: $@" >> "$LOGFILE"
 	echo -e "[${FUNCNAME[1]}] ${POL_Color_YellowBold}Warning:${POL_Color_Reset} $@" 1>&2
 }
+POL_Debug_ErrorSilent()
+{
+	# Use this function if a problem occured. 
+	# At the end of the script, the user will be able to report a bug to playonlinux's bug tracker
+	# Usage : POL_Debug_Error [MESSAGE]
+	
+	echo "$(Get_CurrentDate) - [${FUNCNAME[1]}] Error: $@" >> "$LOGFILE"
+	echo -e "[${FUNCNAME[1]}] ${POL_Color_RedBold}Error:${POL_Color_Reset} $@" 1>&2
+	[ "$SETUPWINDOW_INIT" = "true" ] || StandAloneWindow="true"
+	[ "$StandAloneWindow" = "true" ] && POL_SetupWindow_Init
+	MESSAGE="$(eval_gettext '$APPLICATION_TITLE has encountered an error. If the program your are installing does not work correctly, it might be the cause of the problem.\nVisit www.$POL_DNS to get further information')"
+	echo "POL_Debug	$$	$MESSAGE	$TITLE	Error in ${FUNCNAME[1]}\n$(POL_Untab "$@")" | nc "$POL_HOST" "$POL_PORT"
+	[ "$StandAloneWindow" = "true" ] && POL_SetupWindow_Close 
+}
 POL_Debug_Error()
 {
 	# Use this function if a problem occured. 
