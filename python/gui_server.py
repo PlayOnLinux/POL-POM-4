@@ -69,8 +69,15 @@ class gui_server(threading.Thread):
 
     def interact(self, recvData):
        self.parent.SetupWindowTimer_SendToGui(recvData)
-       time.sleep(0.1 + self.parent.SetupWindowTimer_delay/100.)
-       return(str(self.waitRelease(recvData.split("\t")[1])))
+       time.sleep(0.1 + self.parent.SetupWindowTimer_delay/100.) # We divide by 100, because parent.SWT_delay is in ms, and we want a 10x faster
+       gotData = self.waitRelease(recvData.split("\t"));
+       
+       if(not isinstance(gotData, (list, tuple))):
+           return ""
+       if(len(gotData > 1)):
+           return(str(gotData[1]))
+       else:
+           return ""
 
               
 
