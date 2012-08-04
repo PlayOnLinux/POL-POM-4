@@ -25,7 +25,7 @@ import os, getopt, sys, urllib, signal, string, time, webbrowser, gettext, local
 try :
     os.environ["POL_OS"]
 except :
-    print "ERROR ! Please define POL_OS environement var first."
+    print "ERROR ! Please define POL_OS environment var first."
     os._exit(1)
 
 if(os.environ["POL_OS"] == "Linux"):

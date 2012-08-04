@@ -9,7 +9,7 @@ import wx, lib.playonlinux as playonlinux
 try :
     os.environ["POL_OS"]
 except :
-    print "ERROR ! Please define POL_OS environement var first."
+    print "ERROR ! Please define POL_OS environment var first."
     os._exit(1)
 
 # Variables mixte 1

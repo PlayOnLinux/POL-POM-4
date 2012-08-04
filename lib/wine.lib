@@ -231,7 +231,7 @@ Set_Iexplore ()
 
 Set_Desktop ()
 {
-	# Set a desktop environement
+	# Set a desktop environment
 	# Usage: Set_Desktop (on|off) [width] [height]
 
 	POL_Debug_Message "Setting Desktop : $1 $2 $3"
@@ -817,7 +817,7 @@ POL_Wine_Install_gecko()
 }
 POL_Wine_AutoSetVersionEnv()
 {
-	# Get the current prefix's version and set PATH environement variable
+	# Get the current prefix's version and set PATH environment variable
 	# Usage: POL_Wine_AutoSetVersionEnv
 	[ "$WINEPREFIX" = "" ] && POL_Debug_Fatal "WINEPREFIX is not set!"
 	POL_WINEVERSION="$(POL_Config_PrefixRead "VERSION")"
@@ -827,7 +827,7 @@ POL_Wine_AutoSetVersionEnv()
 POL_Wine_SetVersionEnv()
 {
 	# Usage: POL_Wine_SetWineVersion [VERSION]
-	# Get first argument's wine version and set PATH environement variable
+	# Get first argument's wine version and set PATH environment variable
 	[ ! "$1" = "" ] && export POL_WINEVERSION="$1"
 	[ "$POL_WINEVERSION" = "" ] && POL_Debug_Warning "No POL_WINEVERSION set, assuming it is reset"
 	[ "$POL_WINEVERSION" = "" ] && export POL_WINEVERSION="--reset"

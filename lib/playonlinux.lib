@@ -192,7 +192,7 @@ POL_Config_DosPrefixRead ()
 
 POL_OpenShell()
 {
-	# Open a shell in the current prefix environement
+	# Open a shell in the current prefix environment
 	# Usage : POL_OpenShell
 	
 	cp "$PLAYONLINUX/etc/pol_bash" "$POL_USER_ROOT/tmp/env_bash"

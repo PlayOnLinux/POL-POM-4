@@ -35,13 +35,13 @@ fi
 export PYTHON="python"
 export POL_OS="Mac"
 
-[ "$PLAYONLINUX" = "" ] || die "You are already in a PlayOnMac environement" 
+[ "$PLAYONLINUX" = "" ] || die "You are already in a PlayOnMac environment"
 
 if [ ! "$(which $PYTHON)" ]
 then
 	echo "Please install $PYTHON before trying to run PlayOnMac"
 fi
 
-cd "$(dirname "$0")/../../MacOS" || die "Unable to find Mac OS PlayOnMac .app environement"
+cd "$(dirname "$0")/../../MacOS" || die "Unable to find Mac OS PlayOnMac .app environment"
 ./playonmac
 exit $?
