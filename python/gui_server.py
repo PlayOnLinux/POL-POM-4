@@ -127,7 +127,7 @@ def readAction(object):
             object.windowOpened += 1
     else:
         if(object.SetupWindowTimer_action[1] not in object.windowList):
-            wx.MessageBox(_("Error. Please use POL_SetupWindow_Init first"),os.environ["APPLICATION_TITLE"])
+            print(_("WARNING. Please use POL_SetupWindow_Init first"))
             object.SetupWindowTimer_action = None
             return False 
     
