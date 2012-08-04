@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2012-08-03 19:01:03+02:00\n"
+"POT-Creation-Date: 2012-08-04 19:00:57+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4297,8 +4297,12 @@ msgstr ""
 msgid "Install scripts"
 msgstr ""
 
-#: python/gui_server.py:130
-msgid "Error. Please use POL_SetupWindow_Init first"
+#: python/gui_server.py:42 python/gui_server.py:43
+msgid "Error: Unable to reserve a valid port"
+msgstr ""
+
+#: python/gui_server.py:131
+msgid "WARNING. Please use POL_SetupWindow_Init first"
 msgstr ""
 
 #: python/guiv3.py:116
@@ -4660,8 +4664,8 @@ msgstr ""
 msgid "Read TRANSLATORS file"
 msgstr ""
 
-#: python/mainwindow.py:1059 python/wrapper.py:122
-msgid "{0} is not able to start POL_SetupWindow_server."
+#: python/mainwindow.py:1059
+msgid "{0} is not able to start PlayOnLinux Setup Window server."
 msgstr ""
 
 #: python/mainwindow.py:1082
@@ -4805,4 +4809,8 @@ msgstr ""
 
 #: python/wine_versions.py:326
 msgid "Are you sure you want to delete wine {0}?"
+msgstr ""
+
+#: python/wrapper.py:122
+msgid "{0} is not able to start POL_SetupWindow_server."
 msgstr ""
