@@ -79,8 +79,8 @@ class gui_server(threading.Thread):
        self.parent.SetupWindowTimer_SendToGui(recvData)
        time.sleep(0.1 + self.parent.SetupWindowTimer_delay/100.) # We divide by 100, because parent.SWT_delay is in ms, and we want a 10x faster
        sentData = recvData.split("\t")
-       if(len(sentData) > 1):
-           gotData = self.waitRelease(sentData[1])
+       if(len(sentData) > 2):
+           gotData = self.waitRelease(sentData[2])
        else:
            gotData = ""
 
@@ -98,12 +98,17 @@ class gui_server(threading.Thread):
             self.i += 1
             #channel.close()
            
+
+
+
 def readAction(object):
     if(object.SetupWindowTimer_action[0] != os.environ["POL_COOKIE"]):
+            print "Bad cookie!"
             object.SetupWindowTimer_action = None
             return False
 
     object.SetupWindowTimer_action = object.SetupWindowTimer_action[1:]
+
     if(object.SetupWindowTimer_action[0] == "SimpleMessage"):
         if(len(object.SetupWindowTimer_action) == 2):
             wx.MessageBox(object.SetupWindowTimer_action[1],os.environ["APPLICATION_TITLE"])
