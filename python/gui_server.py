@@ -17,6 +17,9 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 import socket, threading, thread, guiv3 as gui, os, wx, time
+from random import choice
+import string
+
 
 class gui_server(threading.Thread):
     def __init__(self, parent): 
@@ -26,6 +29,9 @@ class gui_server(threading.Thread):
         self._running = True
         # This dictionnary will contain every created setup window
         self.parent = parent
+
+    def GenCookie(self, length=20, chars=string.letters + string.digits):
+        return ''.join([choice(chars) for i in range(length)])
 
     def handler(self, connection, addr):
         self.temp = connection.recv(2048)
@@ -48,6 +54,7 @@ class gui_server(threading.Thread):
            self.acceptor.bind ( ( str(self._host), int(self._port) ) )
            self.acceptor.listen(10)
            os.environ["POL_PORT"] = str(self._port)
+           os.environ["POL_COOKIE"] = self.GenCookie()
         except socket.error, msg:       
            self._port += 1
            self.initServer()
@@ -90,8 +97,13 @@ class gui_server(threading.Thread):
             thread.start_new_thread(self.handler, (self.connection,self.addr))
             self.i += 1
             #channel.close()
-            
+           
 def readAction(object):
+    if(object.SetupWindowTimer_action[0] != os.environ["POL_COOKIE"]):
+            object.SetupWindowTimer_action = None
+            return False
+
+    object.SetupWindowTimer_action = object.SetupWindowTimer_action[1:]
     if(object.SetupWindowTimer_action[0] == "SimpleMessage"):
         if(len(object.SetupWindowTimer_action) == 2):
             wx.MessageBox(object.SetupWindowTimer_action[1],os.environ["APPLICATION_TITLE"])
