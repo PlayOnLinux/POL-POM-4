@@ -39,7 +39,8 @@ class gui_server(threading.Thread):
            
     def initServer(self):
         if(self._port  >= 30020):
-           print "Error: Unable to reserve a valid port"
+           print _("Error: Unable to reserve a valid port")
+           wx.MessageBox(_("Error: Unable to reserve a valid port"),os.environ["APPLICATION_TITLE"])
            os._exit(0)
            
         try:

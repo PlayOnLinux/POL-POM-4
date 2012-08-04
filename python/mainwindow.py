@@ -1056,7 +1056,7 @@ class PlayOnLinuxApp(wx.App):
         while(os.environ["POL_PORT"] == "0"):
             time.sleep(0.01)
             if(i >= 300):
-                 wx.MessageBox(_("{0} is not able to start POL_SetupWindow_server.").format(os.environ["APPLICATION_TITLE"]),_("Error"))
+                 wx.MessageBox(_("{0} is not able to start PlayOnLinux Setup Window server.").format(os.environ["APPLICATION_TITLE"]),_("Error"))
                  os._exit(0)
                  break
             i+=1 
