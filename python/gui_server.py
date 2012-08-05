@@ -67,10 +67,13 @@ class gui_server(threading.Thread):
     def waitRelease(self, pid):
         result = False
         while(result == False):
-            try:
+            #try:
+            if pid in self.parent.windowList:
                 result = self.parent.windowList[pid].getResult()
-            except: # Object is destroyed
+            else:
                 break
+            #except: # Object is destroyed
+            #    time.sleep(0.1)
             time.sleep(0.1) 
         
         return result
