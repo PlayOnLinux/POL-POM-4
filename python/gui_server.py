@@ -72,7 +72,6 @@ class gui_server(threading.Thread):
                 try:
                     result = self.parent.windowList[pid].getResult()
                 except:
-                    result = "Error_1"
                     break
             else:
                 break

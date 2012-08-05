@@ -32,10 +32,16 @@ POL_Untab()
 ncs()
 {
 	# Silent netcat
-	result="$(nc "$@")"
-	if [ "$result" = "Error_1" ]; then
-		POL_SimpleMessage "Error #001. Please go to playonlinux.com to get help."
-		exit
+	ncns "$@" > /dev/null 2> /dev/null
+}
+ncns()
+{
+	
+	if [ "$POL_OS" = "Mac" -o "$(POL_Config_Read FORCE_LEGACY_NETCAT)" = "TRUE" ]; then
+		nc "$@"
+	else
+		nc -q -1 "$@" || nc "$@"
+		# Differents possibilities
 	fi
 }
 POL_SetupWindow_Init ()
@@ -173,7 +179,7 @@ POL_SetupWindow_download ()
 	# Usage: POL_SetupWindow_download [message] [title] [url]
 	# /!\ Scriptors should directly use POL_Download
 	
-	Result="$(echo "$POL_COOKIE	POL_SetupWindow_download	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	$PWD/" | nc "$POL_HOST" "$POL_PORT")"
+	Result="$(echo "$POL_COOKIE	POL_SetupWindow_download	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	$PWD/" | ncns "$POL_HOST" "$POL_PORT")"
 	# FIXME: Result should send 'fail' if the download has failed. Maybe we could catch it
 }
 
@@ -183,7 +189,7 @@ POL_SetupWindow_textbox ()
 	# Usage: POL_SetupWindow_textbox [message] [title] [default value]
 	# Result is sent in $APP_ANSWER variable
 
-	APP_ANSWER="$(echo "$POL_COOKIE	POL_SetupWindow_textbox	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3" | nc "$POL_HOST" "$POL_PORT")"
+	APP_ANSWER="$(echo "$POL_COOKIE	POL_SetupWindow_textbox	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3" | ncns "$POL_HOST" "$POL_PORT")"
 
 }
 POL_SetupWindow_browse ()
@@ -192,7 +198,7 @@ POL_SetupWindow_browse ()
 	# Usage: POL_SetupWindow_browse [message] [title] [default value] [Supported file types]
 	# Result is sent in $APP_ANSWER variable
 	[ "$4" = "" ] && SUPPORTED="All" || SUPPORTED="$4"
-	APP_ANSWER="$(echo "$POL_COOKIE	POL_SetupWindow_browse	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	$PWD	$SUPPORTED" | nc "$POL_HOST" "$POL_PORT")"
+	APP_ANSWER="$(echo "$POL_COOKIE	POL_SetupWindow_browse	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	$PWD	$SUPPORTED" | ncns "$POL_HOST" "$POL_PORT")"
 }
 POL_SetupWindow_question ()
 {
@@ -200,7 +206,7 @@ POL_SetupWindow_question ()
 	# Usage: POL_SetupWindow_question [message] [title]
 	# Result is sent in $APP_ANSWER variable (TRUE or FALSE)
 	
-	APP_ANSWER="$(echo "$POL_COOKIE	POL_SetupWindow_question	$$	$(POL_Untab "$1")	$(POL_Untab "$2")" | nc "$POL_HOST" "$POL_PORT")"
+	APP_ANSWER="$(echo "$POL_COOKIE	POL_SetupWindow_question	$$	$(POL_Untab "$1")	$(POL_Untab "$2")" | ncns "$POL_HOST" "$POL_PORT")"
 }
 POL_SetupWindow_menu ()
 {
@@ -208,7 +214,7 @@ POL_SetupWindow_menu ()
 	# Usage: POL_SetupWindow_menu [message] [title] [list] [separator]
 	# Result is sent in $APP_ANSWER variable
 
-	APP_ANSWER="$(echo "$POL_COOKIE	POL_SetupWindow_menu	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	$4" | nc "$POL_HOST" "$POL_PORT")"
+	APP_ANSWER="$(echo "$POL_COOKIE	POL_SetupWindow_menu	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	$4" | ncns "$POL_HOST" "$POL_PORT")"
 }
 POL_SetupWindow_icon_menu ()
 {
@@ -216,7 +222,7 @@ POL_SetupWindow_icon_menu ()
 	# Usage: POL_SetupWindow_icon_menu [message] [title] [list] [separator] [icons list] [icons folder]
 	# Result is sent in $APP_ANSWER variable
 	
-	APP_ANSWER="$(echo "$POL_COOKIE	POL_SetupWindow_icon_menu	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	$4	$5	$6" | nc "$POL_HOST" "$POL_PORT")"
+	APP_ANSWER="$(echo "$POL_COOKIE	POL_SetupWindow_icon_menu	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	$4	$5	$6" | ncns "$POL_HOST" "$POL_PORT")"
 }
 POL_SetupWindow_checkbox_list ()
 {
@@ -224,7 +230,7 @@ POL_SetupWindow_checkbox_list ()
 	# Usage: POL_SetupWindow_checkbox [message] [title] [list] [separator]
 	# Checked boxes are sent in $APP_ANSWER variable, with the same separator
 	
-	APP_ANSWER="$(echo "$POL_COOKIE	POL_SetupWindow_checkbox_list	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	$4" | nc "$POL_HOST" "$POL_PORT")"
+	APP_ANSWER="$(echo "$POL_COOKIE	POL_SetupWindow_checkbox_list	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	$4" | ncns "$POL_HOST" "$POL_PORT")"
 }
 POL_SetupWindow_menu_num ()
 {
@@ -232,7 +238,7 @@ POL_SetupWindow_menu_num ()
 	# Usage: POL_SetupWindow_menu_num [message] [title] [list] [separator]
 	# The number of the result is sent in $APP_ANSWER variable
 	
-	APP_ANSWER="$(echo "$POL_COOKIE	POL_SetupWindow_menu_num	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	$4" | nc "$POL_HOST" "$POL_PORT")"
+	APP_ANSWER="$(echo "$POL_COOKIE	POL_SetupWindow_menu_num	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	$4" | ncns "$POL_HOST" "$POL_PORT")"
 }
 POL_SetupWindow_menu_list ()
 {
@@ -249,7 +255,7 @@ POL_SetupWindow_shortcuts_list ()
 	# Usage: POL_SetupWindow_shortcuts_list [message] [title]
 	# Result is sent in $APP_ANSWER variable
 	
-	APP_ANSWER="$(echo "$POL_COOKIE	POL_SetupWindow_shortcut_list	$$	$(POL_Untab "$1")	$(POL_Untab "$2")" | nc "$POL_HOST" "$POL_PORT")"
+	APP_ANSWER="$(echo "$POL_COOKIE	POL_SetupWindow_shortcut_list	$$	$(POL_Untab "$1")	$(POL_Untab "$2")" | ncns "$POL_HOST" "$POL_PORT")"
 
 }
 POL_SetupWindow_prefix_selector ()
@@ -258,7 +264,7 @@ POL_SetupWindow_prefix_selector ()
 	# Usage : POL_SetupWindow_prefix_selector [message]
 	# Result is sent in $APP_ANSWER variable
 	
-	Result="$(echo "$POL_COOKIE	POL_SetupWindow_prefix_selector	$$	$(POL_Untab "$1")	$TITLE" | nc "$POL_HOST" "$POL_PORT")"
+	Result="$(echo "$POL_COOKIE	POL_SetupWindow_prefix_selector	$$	$(POL_Untab "$1")	$TITLE" | ncns "$POL_HOST" "$POL_PORT")"
 
 	KINDOF="$(echo $Result | cut -d'~' -f1)" 
 	VALUE="$(echo $Result | cut -d'~' -f2)" 
@@ -281,7 +287,7 @@ POL_SetupWindow_login ()
 	fi
 	[ "$3" = "" ] || register_link="$3"
 	
-	Result="$(echo "$POL_COOKIE	POL_SetupWindow_login	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$register_link" | nc "$POL_HOST" "$POL_PORT")"
+	Result="$(echo "$POL_COOKIE	POL_SetupWindow_login	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$register_link" | ncns "$POL_HOST" "$POL_PORT")"
 	POL_LOGIN="$(echo $Result | cut -d'~' -f1)" 
 	POL_PASSWORD="$(echo $Result | cut -d'~' -f2)" 
 }
@@ -298,7 +304,7 @@ POL_SetupWindow_textbox_multiline ()
 	# Same than POL_SetupWindow_textbox, except that it accepts multiline
 	# Usage: POL_SetupWindow_textbox_multiline [message] [title] [default value]
 	
-	APP_ANSWER="$(echo "$POL_COOKIE	POL_SetupWindow_textbox_multiline	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$(POL_Untab "$3")" | nc "$POL_HOST" "$POL_PORT")"
+	APP_ANSWER="$(echo "$POL_COOKIE	POL_SetupWindow_textbox_multiline	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$(POL_Untab "$3")" | ncns "$POL_HOST" "$POL_PORT")"
 	APP_ANSWER="${APP_ANSWER//\\n/
 }" # Not the end of POL_SetupWindow_textbox_multiline
 
