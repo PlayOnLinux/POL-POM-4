@@ -120,7 +120,8 @@ if [ "$1" = "--run" ]; then
 	shift
 	
 	FILENAME="$1"
-	if [ ! "${FILENAME::1}" = "/" ]; then
+	
+	if [ "$FILENAME" -a ! "${FILENAME::1}" = "/" ]; then
 		FILENAME="$WorkingDirectory/$FILENAME"
 	fi
 	

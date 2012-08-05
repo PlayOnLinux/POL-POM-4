@@ -29,6 +29,7 @@ if [ ! -e "$POL_USER_ROOT/shortcuts/$app" ]; then
 	echo "$1 is not installed."
 	exit
 fi
+
 if [ "$2" ]; then
 	POL_Debug_Message "App to run: $app"
 	POL_Debug_Message "File to run: $doc"
