@@ -46,7 +46,7 @@ class POLWeb(threading.Thread):
         self.WebVersion = ""
         self.Show = False
         self.perc = -1
-
+        self.updating = True
     def sendToStatusBar(self, message, gauge):
         self.sendToStatusBarStr = message
         self.Gauge = gauge
@@ -72,6 +72,7 @@ class POLWeb(threading.Thread):
             self.sendToStatusBar(_('{0} website is unavailable. Please check your connexion').format(os.environ["APPLICATION_TITLE"]), False)
         else:
             self.sendToStatusBar(_("Refreshing {0}").format(os.environ["APPLICATION_TITLE"]), True)
+            self.updating = True
             exe = ['bash',Variables.playonlinux_env+"/bash/pol_update_list"]
 
             p = subprocess.Popen(exe, stdout=subprocess.PIPE)
@@ -86,7 +87,8 @@ class POLWeb(threading.Thread):
 
                 if(retcode is not None):
                     break
-
+ 
+            self.updating = False
             if(playonlinux.VersionLower(os.environ["VERSION"],self.WebVersion)):
                 self.sendToStatusBar(_('An updated version of {0} is available').format(os.environ["APPLICATION_TITLE"])+" ("+self.WebVersion+")",False)
                 if(os.environ["DEBIAN_PACKAGE"] == "FALSE"):
@@ -501,7 +503,7 @@ class MainWindow(wx.Frame):
         else:
             self.jauge_update.Hide()
 
-        if(self.updater.Show == True):
+        if(self.updater.updating == True):
             self.sb.Show()
             try:
                 self.installFrame.panelItems.Hide()
