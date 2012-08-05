@@ -23,14 +23,16 @@ source "$PLAYONLINUX/lib/sources"
 
 app="$1"
 doc="$2"
-POL_Debug_Message "App to run: $app"
-POL_Debug_Message "File to run: $doc"
 
-if [ "${doc::1}" != "/" ]; then
-	doc="$WorkingDirectory/$doc"
+if [ "$2" ]; then
+	POL_Debug_Message "App to run: $app"
+	POL_Debug_Message "File to run: $doc"
+
+	if [ "${doc::1}" != "/" ]; then
+		doc="$WorkingDirectory/$doc"
+	fi
+	pref="$(POL_Shortcut_GetPrefix "$app")"
+	POL_Wine_SelectPrefix "$pref"	
+	realpath="$(POL_Wine winepath -w "$doc")"
 fi
-pref="$(POL_Shortcut_GetPrefix "$app")"
-POL_Wine_SelectPrefix "$pref"	
-realpath="$(POL_Wine winepath -w "$doc")"
-	
 bash "$POL_USER_ROOT/shortcuts/$app" "$realpath"
