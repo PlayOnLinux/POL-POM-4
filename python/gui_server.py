@@ -69,7 +69,11 @@ class gui_server(threading.Thread):
         while(result == False):
             #try:
             if pid in self.parent.windowList:
-                result = self.parent.windowList[pid].getResult()
+                try:
+                    result = self.parent.windowList[pid].getResult()
+                except:
+                    result = "Error_1"
+                    break
             else:
                 break
             #except: # Object is destroyed

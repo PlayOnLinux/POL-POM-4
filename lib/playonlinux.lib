@@ -820,6 +820,7 @@ POL_Restart ()
 }
 POL_System_RegisterPID()
 {
+	[ "$POL_PORT" = "0" ] && return
 	echo "$POL_COOKIE	POL_System_RegisterPID	$1" | ncs "$POL_HOST" "$POL_PORT" 
 }
 POL_Config_CheckGL()

@@ -32,7 +32,12 @@ POL_Untab()
 ncs()
 {
 	# Silent netcat
-	nc "$@" > /dev/null 2> /dev/null
+	result="$(nc "$@")"
+	if [ "$result" = "Error_1" ]; then
+		POL_SimpleMessage "Error #001.\nPlease go to playonlinux.com to get help."
+		POL_SetupWindow_Close
+		exit
+	fi
 }
 POL_SetupWindow_Init ()
 {

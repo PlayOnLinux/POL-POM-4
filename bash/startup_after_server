@@ -20,7 +20,10 @@
 # This is the startup script (after POL server)
 
 [ "$PLAYONLINUX" = "" ] && exit 0
+[ "$POL_PORT" = "0" ] && exit 1 # I need the server here
+
 source "$PLAYONLINUX/lib/sources" 
+
 
 # Plugins
 install_plugins
