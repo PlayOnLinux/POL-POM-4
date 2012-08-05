@@ -34,8 +34,7 @@ ncs()
 	# Silent netcat
 	result="$(nc "$@")"
 	if [ "$result" = "Error_1" ]; then
-		POL_SimpleMessage "Error #001.\nPlease go to playonlinux.com to get help."
-		POL_SetupWindow_Close
+		POL_SimpleMessage "Error #001. Please go to playonlinux.com to get help."
 		exit
 	fi
 }
