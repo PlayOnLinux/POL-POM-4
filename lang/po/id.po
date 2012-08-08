@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-07-30 19:01+0200\n"
+"POT-Creation-Date: 2012-08-06 19:01+0200\n"
 "PO-Revision-Date: 2012-03-19 12:40+0000\n"
 "Last-Translator: Satrya Pratama <Unknown>\n"
 "Language-Team: Indonesian <id@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-07-31 04:35+0000\n"
-"X-Generator: Launchpad (build 15702)\n"
+"X-Launchpad-Export-Date: 2012-08-07 04:35+0000\n"
+"X-Generator: Launchpad (build 15745)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -1170,14 +1170,14 @@ msgstr ""
 msgid "Waiting for $TITLE to be installed"
 msgstr ""
 
-#: PlayOnLinux_Scripts/Diablo_III_:52
+#: PlayOnLinux_Scripts/Diablo_III_:54
 #, sh-format
 msgid ""
 "$TITLE has been installed.\\n\\nA special thank to Erich Hoover for his wine "
 "patch (AcceptEx Fix)"
 msgstr ""
 
-#: PlayOnLinux_Scripts/Diablo_III_:52
+#: PlayOnLinux_Scripts/Diablo_III_:54
 #, sh-format
 msgid ""
 "If you have Error 3007 on connecting, open a terminal and type:\\necho "
@@ -1285,7 +1285,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:109 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:411 lib/wine.lib:994 lib/wine.lib:1024
+#: bash/winebash:27 lib/setupwindow.lib:421 lib/wine.lib:994 lib/wine.lib:1024
 #, sh-format
 msgid "Please wait..."
 msgstr ""
@@ -1335,11 +1335,13 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Commandos_2_and_3_:39
 #: PlayOnLinux_Scripts/GOG.com___Dark_Fall__Lights_Out_:40
 #: PlayOnLinux_Scripts/GOG.com___Dark_Fall__The_Journal_:38
+#: PlayOnLinux_Scripts/GOG.com___Darkstone_:43
 #: PlayOnLinux_Scripts/GOG.com___Descent_3_:38
 #: PlayOnLinux_Scripts/GOG.com___Deus_Ex_GOTY_Edition_:38
 #: PlayOnLinux_Scripts/GOG.com___Disciples_2_Gold_:39
 #: PlayOnLinux_Scripts/GOG.com___Divine_Divinity_:36
 #: PlayOnLinux_Scripts/GOG.com___Dragonsphere_:38
+#: PlayOnLinux_Scripts/GOG.com___Duke_Nukem_3D_Atomic_Edition_:38
 #: PlayOnLinux_Scripts/GOG.com___Duke_Nukem__Manhattan_Project_:38
 #: PlayOnLinux_Scripts/GOG.com___Dungeon_Keeper_2_:39
 #: PlayOnLinux_Scripts/GOG.com___Dungeons_and_Dragons__Dragonshard_:36
@@ -1375,6 +1377,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Lands_of_Lore_1_and_2_:39
 #: PlayOnLinux_Scripts/GOG.com___Legend_of_Grimrock_:38
 #: PlayOnLinux_Scripts/GOG.com___Little_Big_Adventure_:38
+#: PlayOnLinux_Scripts/GOG.com___Little_Big_Adventure_2_:38
 #: PlayOnLinux_Scripts/GOG.com___Lure_of_the_Temptress_:37
 #: PlayOnLinux_Scripts/GOG.com___MDK_2_:38
 #: PlayOnLinux_Scripts/GOG.com___Master_of_Orion_1_and_2_:39
@@ -1392,6 +1395,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Populous_2_:38
 #: PlayOnLinux_Scripts/GOG.com___Postal_2_Complete_:39
 #: PlayOnLinux_Scripts/GOG.com___Prince_of_Persia__The_Sands_of_Time_:38
+#: PlayOnLinux_Scripts/GOG.com___Psychonauts_:38
 #: PlayOnLinux_Scripts/GOG.com___Realms_of_Arkania_3_:38
 #: PlayOnLinux_Scripts/GOG.com___Realms_of_the_Haunting_:38
 #: PlayOnLinux_Scripts/GOG.com___Redneck_Rampage_Collection_:40
@@ -2775,7 +2779,7 @@ msgid "Choose the name of the virtual drive"
 msgstr ""
 
 #: bash/expert/Executer:22 bash/expert/Executer:27 bash/expert/Executer:29
-#: python/mainwindow.py:233
+#: python/mainwindow.py:235
 #, sh-format
 msgid "Run a local script"
 msgstr ""
@@ -2993,7 +2997,7 @@ msgstr ""
 
 #: bash/first_use:310
 #, sh-format
-msgid "This wizard will help you prepare $APPLICATION_TITLE environement"
+msgid "This wizard will help you prepare $APPLICATION_TITLE environment"
 msgstr ""
 
 #: bash/first_use:324
@@ -3104,7 +3108,7 @@ msgid "Use another version of Wine"
 msgstr ""
 
 #: bash/manual_install:160 bash/manual_install:195 bash/polconfigurator:95
-#: python/configure.py:156 python/mainwindow.py:539 python/mainwindow.py:571
+#: python/configure.py:156 python/mainwindow.py:541 python/mainwindow.py:573
 #, sh-format
 msgid "Configure Wine"
 msgstr "Konfigurasi Wine"
@@ -3322,7 +3326,7 @@ msgstr ""
 msgid "Graphics"
 msgstr ""
 
-#: bash/playonlinux_online:69 python/install.py:215 python/mainwindow.py:263
+#: bash/playonlinux_online:69 python/install.py:215 python/mainwindow.py:265
 #: python/options.py:384
 #, sh-format
 msgid "Internet"
@@ -3338,7 +3342,7 @@ msgstr ""
 msgid "Office"
 msgstr ""
 
-#: bash/playonlinux_online:69 lib/setupwindow.lib:328 python/install.py:218
+#: bash/playonlinux_online:69 lib/setupwindow.lib:338 python/install.py:218
 #, sh-format
 msgid "Other"
 msgstr ""
@@ -3427,8 +3431,8 @@ msgstr ""
 msgid "is not an icon extension"
 msgstr ""
 
-#: bash/polconfigurator:96 python/configure.py:164 python/mainwindow.py:543
-#: python/mainwindow.py:584
+#: bash/polconfigurator:96 python/configure.py:164 python/mainwindow.py:545
+#: python/mainwindow.py:586
 #, sh-format
 msgid "Registry Editor"
 msgstr ""
@@ -3530,9 +3534,7 @@ msgstr ""
 
 #: bash/run_app:112
 #, sh-format
-msgid ""
-"$PACKAGE crashed.\\n\\nYou need to enable debugging to get more details.\\"
-"nPlease go to configure menu"
+msgid "$PACKAGE crashed.\\nClick on debug link to get more details."
 msgstr ""
 
 #: bash/run_app:114
@@ -3596,7 +3598,7 @@ msgid ""
 msgstr ""
 
 #: bash/uninstall:25 bash/uninstall:53 bash/uninstall:56 bash/uninstall:58
-#: lib/playonlinux.lib:702
+#: lib/playonlinux.lib:700
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
 msgstr ""
@@ -3616,7 +3618,7 @@ msgstr ""
 msgid "This wizard will help you to uninstall: "
 msgstr ""
 
-#: bash/uninstall:53 lib/playonlinux.lib:702
+#: bash/uninstall:53 lib/playonlinux.lib:700
 #, sh-format
 msgid "Uninstalling..."
 msgstr ""
@@ -3654,12 +3656,20 @@ msgstr ""
 #: lib/debug.lib:126
 #, sh-format
 msgid ""
+"$APPLICATION_TITLE has encountered an error. If the program does not work "
+"correctly, it might be the cause of the problem.\\nVisit www.$POL_DNS to get "
+"further information"
+msgstr ""
+
+#: lib/debug.lib:140
+#, sh-format
+msgid ""
 "$APPLICATION_TITLE has encountered an error. If the program your are "
 "installing does not work correctly, it might be the cause of the problem.\\"
 "nVisit www.$POL_DNS to get further information"
 msgstr ""
 
-#: lib/debug.lib:139
+#: lib/debug.lib:153
 #, sh-format
 msgid ""
 "$APPLICATION_TITLE has encountered a fatal error. $APPLICATION_TITLE will "
@@ -3725,33 +3735,33 @@ msgstr ""
 msgid "Making shortcut..."
 msgstr ""
 
-#: lib/playonlinux.lib:700
+#: lib/playonlinux.lib:698
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr ""
 
-#: lib/playonlinux.lib:807
+#: lib/playonlinux.lib:805
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:808
+#: lib/playonlinux.lib:806
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:809
+#: lib/playonlinux.lib:807
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:810
+#: lib/playonlinux.lib:808
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
@@ -3781,153 +3791,152 @@ msgstr ""
 #: lib/scripts.lib:306
 #, sh-format
 msgid ""
-"Binary not found: $BINARY\\n\\nHave you installed the program to the default "
+"Binary not found: $BINARY\\nHave you installed the program to the default "
 "location?"
 msgstr ""
 
-#: lib/scripts.lib:426 lib/scripts.lib:675
+#: lib/scripts.lib:430 lib/scripts.lib:679
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr ""
 
-#: lib/scripts.lib:428 lib/scripts.lib:478
+#: lib/scripts.lib:432 lib/scripts.lib:482
 #, sh-format
 msgid "An error happened during download."
 msgstr ""
 
-#: lib/scripts.lib:428 lib/scripts.lib:445 lib/scripts.lib:478
-#: lib/scripts.lib:492
+#: lib/scripts.lib:432 lib/scripts.lib:449 lib/scripts.lib:482
+#: lib/scripts.lib:496
 #, sh-format
 msgid "Do you want to retry?"
 msgstr ""
 
-#: lib/scripts.lib:445 lib/scripts.lib:492
+#: lib/scripts.lib:449 lib/scripts.lib:496
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 
-#: lib/scripts.lib:580
+#: lib/scripts.lib:584
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
 msgstr ""
 
-#: lib/scripts.lib:587
+#: lib/scripts.lib:591
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr ""
 
-#: lib/scripts.lib:591
+#: lib/scripts.lib:595
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr ""
 
-#: lib/scripts.lib:606
+#: lib/scripts.lib:610
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:637
+#: lib/scripts.lib:641
 #, sh-format
 msgid "Copying ${filename}"
 msgstr ""
 
-#: lib/scripts.lib:650
+#: lib/scripts.lib:654
 #, sh-format
 msgid "File size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:736
+#: lib/scripts.lib:740
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
 "n$APPLICATION_TITLE $NEEDED is required."
 msgstr ""
 
-#: lib/scripts.lib:751
+#: lib/scripts.lib:755
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
 "$NEEDED is recommended to continue."
 msgstr ""
 
-#: lib/scripts.lib:782
+#: lib/scripts.lib:786
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr ""
 
-#: lib/setupwindow.lib:86
+#: lib/setupwindow.lib:96
 #, sh-format
 msgid " on your computer."
 msgstr ""
 
-#: lib/setupwindow.lib:86
+#: lib/setupwindow.lib:96
 #, sh-format
 msgid " will be installed in: "
 msgstr ""
 
-#: lib/setupwindow.lib:86
+#: lib/setupwindow.lib:96
 #, sh-format
 msgid "Click Next to start"
 msgstr ""
 
-#: lib/setupwindow.lib:86
+#: lib/setupwindow.lib:96
 #, sh-format
 msgid "This installation program is provided by: "
 msgstr ""
 
-#: lib/setupwindow.lib:86
+#: lib/setupwindow.lib:96
 #, sh-format
 msgid "This program was created by: "
 msgstr ""
 
-#: lib/setupwindow.lib:86
+#: lib/setupwindow.lib:96
 #, sh-format
 msgid "This wizard will help you install "
 msgstr ""
 
-#: lib/setupwindow.lib:86
+#: lib/setupwindow.lib:96
 #, sh-format
 msgid "Welcome to $APPLICATION_TITLE Installation Wizard."
 msgstr ""
 
-#: lib/setupwindow.lib:110
+#: lib/setupwindow.lib:120
 #, sh-format
 msgid ""
 "One or more program(s) are missing. Please install them and run the script "
 "again."
 msgstr ""
 
-#: lib/setupwindow.lib:112 python/guiv3.py:724 python/lib/irc.py:291
-#: python/lib/irc.py.bak:291 python/mainwindow.py:1059
-#: python/mainwindow.py:1082 python/mainwindow.py:1089
-#: python/mainwindow.py:1098 python/mainwindow.py:1110
-#: python/mainwindow.py:1122 python/wrapper.py:120
+#: lib/setupwindow.lib:122 python/guiv3.py:724 python/lib/irc.py:291
+#: python/mainwindow.py:1061 python/mainwindow.py:1084
+#: python/mainwindow.py:1091 python/mainwindow.py:1100
+#: python/mainwindow.py:1112 python/mainwindow.py:1124 python/wrapper.py:122
 #, sh-format
 msgid "Error"
 msgstr ""
 
-#: lib/setupwindow.lib:327
+#: lib/setupwindow.lib:337
 #, sh-format
 msgid "Where is mounted your CD-ROM?"
 msgstr ""
 
-#: lib/setupwindow.lib:329 python/install.py:279
+#: lib/setupwindow.lib:339 python/install.py:279
 #, sh-format
 msgid "Refresh"
 msgstr ""
 
-#: lib/setupwindow.lib:360
+#: lib/setupwindow.lib:370
 #, sh-format
 msgid "Reading your device"
 msgstr ""
 
-#: lib/setupwindow.lib:375
+#: lib/setupwindow.lib:385
 #, sh-format
 msgid "Error: Unable to find the CD-ROM!"
 msgstr ""
 
-#: lib/setupwindow.lib:389
+#: lib/setupwindow.lib:399
 #, sh-format
 msgid ""
 "$TITLE needs to read the PC part of a hybrid CD-Rom.\\n\\nBy default, MacOS "
@@ -3936,101 +3945,101 @@ msgid ""
 "attempt to read the PC-Part of your CD?"
 msgstr ""
 
-#: lib/setupwindow.lib:441
+#: lib/setupwindow.lib:451
 #, sh-format
 msgid ""
 "Don't forget to go to PlayOnMac tools menu -> Read a PC CD-Rom before "
 "running your game"
 msgstr ""
 
-#: lib/setupwindow.lib:452
+#: lib/setupwindow.lib:462
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is copying files:"
 msgstr ""
 
-#: lib/setupwindow.lib:537 lib/setupwindow.lib:686
+#: lib/setupwindow.lib:547 lib/setupwindow.lib:696
 #, sh-format
 msgid "Scanning the virtual drive ..."
 msgstr ""
 
-#: lib/setupwindow.lib:551
+#: lib/setupwindow.lib:561
 #, sh-format
 msgid "How much memory does your graphics board have?"
 msgstr ""
 
-#: lib/setupwindow.lib:560
+#: lib/setupwindow.lib:570
 #, sh-format
 msgid "Video card does not have enough memory"
 msgstr ""
 
-#: lib/setupwindow.lib:561
+#: lib/setupwindow.lib:571
 #, sh-format
 msgid ""
 "Your video card does not have enough memory!\\nIt might prevent the game "
 "from working"
 msgstr ""
 
-#: lib/setupwindow.lib:575
+#: lib/setupwindow.lib:585
 #, sh-format
 msgid "Use Steam Store version"
 msgstr ""
 
-#: lib/setupwindow.lib:576
+#: lib/setupwindow.lib:586
 #, sh-format
 msgid "Use Steam Store demo version"
 msgstr ""
 
-#: lib/setupwindow.lib:577
+#: lib/setupwindow.lib:587
 #, sh-format
 msgid "Use Desura Store version"
 msgstr ""
 
-#: lib/setupwindow.lib:578
+#: lib/setupwindow.lib:588
 #, sh-format
 msgid "Use Desura Store demo version"
 msgstr ""
 
-#: lib/setupwindow.lib:579
+#: lib/setupwindow.lib:589
 #, sh-format
 msgid "Use Origin Store version"
 msgstr ""
 
-#: lib/setupwindow.lib:580
+#: lib/setupwindow.lib:590
 #, sh-format
 msgid "Use Origin Store demo version"
 msgstr ""
 
-#: lib/setupwindow.lib:582
+#: lib/setupwindow.lib:592
 #, sh-format
 msgid "Use a setup file in my computer"
 msgstr ""
 
-#: lib/setupwindow.lib:583
+#: lib/setupwindow.lib:593
 #, sh-format
 msgid "Use CD-ROM(s)"
 msgstr ""
 
-#: lib/setupwindow.lib:584
+#: lib/setupwindow.lib:594
 #, sh-format
 msgid "Use DVD-ROM(s)"
 msgstr ""
 
-#: lib/setupwindow.lib:585
+#: lib/setupwindow.lib:595
 #, sh-format
 msgid "Download the program"
 msgstr ""
 
-#: lib/setupwindow.lib:650
+#: lib/setupwindow.lib:660
 #, sh-format
 msgid "Please choose an installation method"
 msgstr ""
 
-#: lib/setupwindow.lib:688
+#: lib/setupwindow.lib:698
 #, sh-format
 msgid "I don't want to make another shortcut"
 msgstr ""
 
-#: lib/setupwindow.lib:689 python/guiv3.py:146
+#: lib/setupwindow.lib:699 python/guiv3.py:146
 #, sh-format
 msgid "Browse"
 msgstr ""
@@ -4172,8 +4181,8 @@ msgstr ""
 msgid "Wine uninstaller"
 msgstr ""
 
-#: python/configure.py:235 python/install.py:278 python/mainwindow.py:198
-#: python/mainwindow.py:349
+#: python/configure.py:235 python/install.py:278 python/mainwindow.py:200
+#: python/mainwindow.py:351
 msgid "Install"
 msgstr ""
 
@@ -4235,7 +4244,7 @@ msgid ""
 "If you change "
 msgstr ""
 
-#: python/configure.py:560 python/mainwindow.py:880 python/mainwindow.py:882
+#: python/configure.py:560 python/mainwindow.py:882 python/mainwindow.py:884
 msgid "{0} configuration"
 msgstr ""
 
@@ -4247,8 +4256,8 @@ msgstr ""
 msgid "New"
 msgstr ""
 
-#: python/configure.py:587 python/mainwindow.py:199 python/mainwindow.py:350
-#: python/mainwindow.py:559 python/options.py:207
+#: python/configure.py:587 python/mainwindow.py:201 python/mainwindow.py:352
+#: python/mainwindow.py:561 python/options.py:207
 msgid "Remove"
 msgstr ""
 
@@ -4256,7 +4265,7 @@ msgstr ""
 msgid "Install packages"
 msgstr ""
 
-#: python/configure.py:606 python/mainwindow.py:333
+#: python/configure.py:606 python/mainwindow.py:335
 msgid "Display"
 msgstr ""
 
@@ -4276,8 +4285,8 @@ msgstr ""
 msgid "Are you sure you want to delete {0} ?"
 msgstr ""
 
-#: python/debug.py:39 python/mainwindow.py:255 python/mainwindow.py:855
-#: python/mainwindow.py:938
+#: python/debug.py:39 python/mainwindow.py:257 python/mainwindow.py:857
+#: python/mainwindow.py:940
 msgid "{0} debugger"
 msgstr ""
 
@@ -4305,8 +4314,12 @@ msgstr ""
 msgid "Install scripts"
 msgstr ""
 
-#: python/gui_server.py:124
-msgid "Error. Please use POL_SetupWindow_Init first"
+#: python/gui_server.py:48 python/gui_server.py:49
+msgid "Error: Unable to reserve a valid port"
+msgstr ""
+
+#: python/gui_server.py:154
+msgid "WARNING. Please use POL_SetupWindow_Init first"
 msgstr ""
 
 #: python/guiv3.py:116
@@ -4437,7 +4450,7 @@ msgstr ""
 msgid "Join a channel"
 msgstr ""
 
-#: python/irc.py:257 python/mainwindow.py:682
+#: python/irc.py:257 python/mainwindow.py:684
 msgid "Messenger"
 msgstr ""
 
@@ -4447,18 +4460,18 @@ msgid ""
 "you want to close it?"
 msgstr ""
 
-#: python/lib/irc.py:291 python/lib/irc.py.bak:291
+#: python/lib/irc.py:291
 msgid "Sorry, this person does not want to receive private messages"
 msgstr ""
 
-#: python/lib/irc.py:304 python/lib/irc.py.bak:304
+#: python/lib/irc.py:304
 msgid ""
 "Sorry {0} messenger service is not available for the moment.\n"
 "\n"
 "Please retry later"
 msgstr ""
 
-#: python/lib/playonlinux.py:27 python/lib/playonlinux.py.bak:27
+#: python/lib/playonlinux.py:27
 msgid "There is nothing installed to run .{0} files."
 msgstr ""
 
@@ -4470,240 +4483,240 @@ msgstr ""
 msgid "Refreshing {0}"
 msgstr ""
 
-#: python/mainwindow.py:91 python/mainwindow.py:93
+#: python/mainwindow.py:93 python/mainwindow.py:95
 msgid "An updated version of {0} is available"
 msgstr ""
 
-#: python/mainwindow.py:197 python/mainwindow.py:345 python/mainwindow.py:691
+#: python/mainwindow.py:199 python/mainwindow.py:347 python/mainwindow.py:693
 msgid "Run"
 msgstr ""
 
-#: python/mainwindow.py:201
+#: python/mainwindow.py:203
 msgid "Donate"
 msgstr ""
 
-#: python/mainwindow.py:202
+#: python/mainwindow.py:204
 msgid "Exit"
 msgstr ""
 
-#: python/mainwindow.py:206
+#: python/mainwindow.py:208
 msgid "Small icons"
 msgstr ""
 
-#: python/mainwindow.py:207
+#: python/mainwindow.py:209
 msgid "Medium icons"
 msgstr ""
 
-#: python/mainwindow.py:208
+#: python/mainwindow.py:210
 msgid "Large icons"
 msgstr ""
 
-#: python/mainwindow.py:209
+#: python/mainwindow.py:211
 msgid "Very large icons"
 msgstr ""
 
-#: python/mainwindow.py:221
+#: python/mainwindow.py:223
 msgid "Manage Wine versions"
 msgstr ""
 
-#: python/mainwindow.py:227
+#: python/mainwindow.py:229
 msgid "Read a PC CD-Rom"
 msgstr ""
 
-#: python/mainwindow.py:237
+#: python/mainwindow.py:239
 msgid "Close all {0} software"
 msgstr ""
 
-#: python/mainwindow.py:241
+#: python/mainwindow.py:243
 msgid "{0} console"
 msgstr ""
 
-#: python/mainwindow.py:251
+#: python/mainwindow.py:253
 msgid "{0} messenger"
 msgstr ""
 
-#: python/mainwindow.py:267 python/options.py:388
+#: python/mainwindow.py:269 python/options.py:388
 msgid "File associations"
 msgstr ""
 
-#: python/mainwindow.py:274
+#: python/mainwindow.py:276
 msgid "About {0}"
 msgstr ""
 
-#: python/mainwindow.py:303 python/mainwindow.py:307
+#: python/mainwindow.py:305 python/mainwindow.py:309
 msgid "Plugin manager"
 msgstr ""
 
-#: python/mainwindow.py:332
+#: python/mainwindow.py:334
 msgid "File"
 msgstr ""
 
-#: python/mainwindow.py:334
+#: python/mainwindow.py:336
 msgid "Tools"
 msgstr ""
 
-#: python/mainwindow.py:335 python/mainwindow.py:680
+#: python/mainwindow.py:337 python/mainwindow.py:682
 msgid "Settings"
 msgstr ""
 
-#: python/mainwindow.py:336 python/options.py:387
+#: python/mainwindow.py:338 python/options.py:387
 msgid "Plugins"
 msgstr ""
 
-#: python/mainwindow.py:346 python/mainwindow.py:693
+#: python/mainwindow.py:348 python/mainwindow.py:695
 msgid "Close"
 msgstr ""
 
-#: python/mainwindow.py:352 python/mainwindow.py:697 python/options.py:208
+#: python/mainwindow.py:354 python/mainwindow.py:699 python/options.py:208
 msgid "Configure"
 msgstr ""
 
-#: python/mainwindow.py:547
+#: python/mainwindow.py:549
 msgid "Open the application's directory"
 msgstr ""
 
-#: python/mainwindow.py:551 python/mainwindow.py:705
+#: python/mainwindow.py:553 python/mainwindow.py:707
 msgid "Read the manual"
 msgstr ""
 
-#: python/mainwindow.py:555
+#: python/mainwindow.py:557
 msgid "Set the icon"
 msgstr ""
 
-#: python/mainwindow.py:563
+#: python/mainwindow.py:565
 msgid "Close this application"
 msgstr ""
 
-#: python/mainwindow.py:574
+#: python/mainwindow.py:576
 msgid "KillApp"
 msgstr ""
 
-#: python/mainwindow.py:581
+#: python/mainwindow.py:583
 msgid "No manual found for {0}"
 msgstr ""
 
-#: python/mainwindow.py:678
+#: python/mainwindow.py:680
 msgid "Install a program"
 msgstr ""
 
-#: python/mainwindow.py:685
+#: python/mainwindow.py:687
 msgid "Update GIT"
 msgstr ""
 
-#: python/mainwindow.py:695
+#: python/mainwindow.py:697
 msgid "Debug"
 msgstr ""
 
-#: python/mainwindow.py:699
+#: python/mainwindow.py:701
 msgid "Create a shortcut"
 msgstr ""
 
-#: python/mainwindow.py:701
+#: python/mainwindow.py:703
 msgid "Open the directory"
 msgstr ""
 
-#: python/mainwindow.py:708
+#: python/mainwindow.py:710
 msgid "Uninstall"
 msgstr ""
 
-#: python/mainwindow.py:828 python/mainwindow.py:899 python/mainwindow.py:944
+#: python/mainwindow.py:830 python/mainwindow.py:901 python/mainwindow.py:946
 msgid "Please select a program."
 msgstr ""
 
-#: python/mainwindow.py:836 python/mainwindow.py:838 python/mainwindow.py:840
+#: python/mainwindow.py:838 python/mainwindow.py:840 python/mainwindow.py:842
 msgid "{0} settings"
 msgstr ""
 
-#: python/mainwindow.py:906
+#: python/mainwindow.py:908
 msgid "{0} install menu"
 msgstr ""
 
-#: python/mainwindow.py:915
+#: python/mainwindow.py:917
 msgid "{0} wine versions manager"
 msgstr ""
 
-#: python/mainwindow.py:946
+#: python/mainwindow.py:948
 msgid "The virtual drive associated with {0} ({1}) does no longer exists."
 msgstr ""
 
-#: python/mainwindow.py:973
+#: python/mainwindow.py:975
 msgid "Are you sure you want to close all {0} Windows?"
 msgstr ""
 
-#: python/mainwindow.py:1012
+#: python/mainwindow.py:1014
 msgid "Run your Windows programs on "
 msgstr ""
 
-#: python/mainwindow.py:1013
+#: python/mainwindow.py:1015
 msgid ""
 "PlayOnLinux and PlayOnMac team\n"
 "Under GPL licence version 3"
 msgstr ""
 
-#: python/mainwindow.py:1014
+#: python/mainwindow.py:1016
 msgid "Developer and Website: "
 msgstr ""
 
-#: python/mainwindow.py:1015
+#: python/mainwindow.py:1017
 msgid "Scriptors: "
 msgstr ""
 
-#: python/mainwindow.py:1016
+#: python/mainwindow.py:1018
 msgid "Packager: "
 msgstr ""
 
-#: python/mainwindow.py:1017
+#: python/mainwindow.py:1019
 msgid "Icons:"
 msgstr ""
 
-#: python/mainwindow.py:1018
+#: python/mainwindow.py:1020
 msgid "The following people contributed to this program: "
 msgstr ""
 
-#: python/mainwindow.py:1019
+#: python/mainwindow.py:1021
 msgid "Translations:"
 msgstr ""
 
-#: python/mainwindow.py:1020
+#: python/mainwindow.py:1022
 msgid "Read TRANSLATORS file"
 msgstr ""
 
-#: python/mainwindow.py:1059 python/wrapper.py:120
-msgid "{0} is not able to start POL_SetupWindow_server."
+#: python/mainwindow.py:1061
+msgid "{0} is not able to start PlayOnLinux Setup Window server."
 msgstr ""
 
-#: python/mainwindow.py:1082
+#: python/mainwindow.py:1084
 msgid ""
 "{0} cannot find {1}.\n"
 "\n"
 msgstr ""
 
-#: python/mainwindow.py:1089
+#: python/mainwindow.py:1091
 msgid "{0} is not supposed to be run as root. Sorry"
 msgstr ""
 
-#: python/mainwindow.py:1098
+#: python/mainwindow.py:1100
 msgid ""
 "{0} is unable to find 32bits OpenGL libraries.\n"
 "\n"
 "You might encounter problem with your games"
 msgstr ""
 
-#: python/mainwindow.py:1110
+#: python/mainwindow.py:1112
 msgid ""
 "{0} is unable to find 64bits OpenGL libraries.\n"
 "\n"
 "You might encounter problem with your games"
 msgstr ""
 
-#: python/mainwindow.py:1122
+#: python/mainwindow.py:1124
 msgid ""
 "Your filesystem might prevent {0} from running correctly.\n"
 "\n"
 "Please open {0} in a terminal to get more details"
 msgstr ""
 
-#: python/mainwindow.py:1126
+#: python/mainwindow.py:1128
 msgid ""
 "Do you want to help {0} to make a compatibility database?\n"
 "\n"
@@ -4718,11 +4731,11 @@ msgid ""
 "These information will be very precious for us to help people."
 msgstr ""
 
-#: python/mainwindow.py:1177
+#: python/mainwindow.py:1180
 msgid "Are you sure you want to  want to install {0} package?"
 msgstr ""
 
-#: python/mainwindow.py:1184 python/mainwindow.py:1186
+#: python/mainwindow.py:1187 python/mainwindow.py:1189
 msgid ""
 "You are trying to open a script design for {0}! It might not work as expected"
 msgstr ""
@@ -4813,4 +4826,8 @@ msgstr ""
 
 #: python/wine_versions.py:326
 msgid "Are you sure you want to delete wine {0}?"
+msgstr ""
+
+#: python/wrapper.py:122
+msgid "{0} is not able to start POL_SetupWindow_server."
 msgstr ""
