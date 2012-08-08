@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2012-08-07 19:00:52+02:00\n"
+"POT-Creation-Date: 2012-08-08 19:01:02+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -210,7 +210,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Age_Of_Wonders_:36
 #: PlayOnLinux_Scripts/Assassin_s_Creed_:55
 #: PlayOnLinux_Scripts/Need_For_Speed_III___Hot_Pursuit_:34
-#: PlayOnLinux_Scripts/Theme_Hospital_:39
+#: PlayOnLinux_Scripts/Theme_Hospital_:43
 #: PlayOnLinux_Scripts/Warcraft_III__Reign_of_Chaos_:30
 #: PlayOnLinux_Scripts/Warcraft_III__The_Frozen_Throne_:36
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:80
@@ -278,7 +278,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Super_Street_Fighter_IV___Arcade_Edition_:88
 #: PlayOnLinux_Scripts/TERA_:48 PlayOnLinux_Scripts/Team_Fortress_2_:88
 #: PlayOnLinux_Scripts/The_Secret_World_:53
-#: PlayOnLinux_Scripts/The_Witcher_:132 PlayOnLinux_Scripts/Theme_Hospital_:53
+#: PlayOnLinux_Scripts/The_Witcher_:132 PlayOnLinux_Scripts/Theme_Hospital_:57
 #: PlayOnLinux_Scripts/Warcraft_III__Reign_of_Chaos_:38
 #: PlayOnLinux_Scripts/Warcraft_III__The_Frozen_Throne_:44
 #: PlayOnLinux_Scripts/Worms_Reloaded_:78
@@ -352,8 +352,8 @@ msgstr ""
 #: PlayOnLinux_Scripts/Runes_Of_Magic_:49
 #: PlayOnLinux_Scripts/Ski_Challenge_2012_:40 PlayOnLinux_Scripts/Spotify_:66
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_II__Daggerfall_:67
-#: PlayOnLinux_Scripts/Theme_Hospital_:42
-#: PlayOnLinux_Scripts/Theme_Hospital_:54
+#: PlayOnLinux_Scripts/Theme_Hospital_:46
+#: PlayOnLinux_Scripts/Theme_Hospital_:58
 #: PlayOnLinux_Scripts/Toontown_Online_:26
 #: PlayOnLinux_Scripts/Toontown_Online_:33
 #: PlayOnLinux_Scripts/Universal_Extractor_:42
@@ -370,7 +370,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/ISIS_Draw_2.3_:34
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:221
 #: PlayOnLinux_Scripts/SFR_LiberTalk_:57
-#: PlayOnLinux_Scripts/Theme_Hospital_:62
+#: PlayOnLinux_Scripts/Theme_Hospital_:66
 #: PlayOnLinux_Scripts/Wow_Cartographe_:58
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:97
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:68
@@ -536,7 +536,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Photofiltre_6.5.2_:21 PlayOnLinux_Scripts/Rage_:95
 #: PlayOnLinux_Scripts/Rome_Total_War__Gold_Edition__:56
 #: PlayOnLinux_Scripts/Safari_:60
-#: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:66
+#: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:59
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:178
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_:54
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Shivering_Isle_:70
@@ -1191,7 +1191,6 @@ msgid "$TITLE has been installed successfully"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Divinity_II___The_Dragon_Knight_Saga_:61
-#: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:62
 #, sh-format
 msgid ""
 "Click on \"Forward\" ONLY when the game installation is finished\\nor you "
@@ -1868,11 +1867,11 @@ msgid ""
 "resolution of a shortcut, use its configurator."
 msgstr ""
 
-#: PlayOnLinux_Scripts/Internet_Explorer_6_:67
+#: PlayOnLinux_Scripts/Internet_Explorer_6_:68
 #: PlayOnLinux_Scripts/Internet_Explorer_7_:167
 #: PlayOnLinux_Scripts/POL_Install_directmusic_:47
 #: PlayOnLinux_Scripts/POL_Install_dxfullsetup_:26
-#: PlayOnLinux_Scripts/POL_Install_ie6_:64
+#: PlayOnLinux_Scripts/POL_Install_ie6_:62
 #: PlayOnLinux_Scripts/POL_Install_xact_:49
 #: PlayOnLinux_Scripts/POL_Install_xinput_:41
 #, sh-format
@@ -1950,7 +1949,12 @@ msgstr ""
 msgid "$TITLE has been successfully installed"
 msgstr ""
 
-#: PlayOnLinux_Scripts/Microsoft_Office_2010_:70
+#: PlayOnLinux_Scripts/Microsoft_Office_2010_:43
+#, sh-format
+msgid "Please select $TITLE setup file"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Microsoft_Office_2010_:79
 #, sh-format
 msgid ""
 "$TITLE has been installed successfully\\n\\nIf an installation Windows "
@@ -2385,11 +2389,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/Sonic_Fan_Remix_:37
 #, sh-format
 msgid "Downloading $TITLE Freeware..."
-msgstr ""
-
-#: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:48
-#, sh-format
-msgid "Waiting for users commands..."
 msgstr ""
 
 #: PlayOnLinux_Scripts/Steam_:46
