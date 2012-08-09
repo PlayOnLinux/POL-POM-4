@@ -75,7 +75,7 @@ to the file name or packaging format." >> "$REPERTOIRE/tmp/licence"
 
 			echo "$(eval_gettext 'Downloading: ')tahoma32.exe"
 			POL_SetupWindow_set_text "$(eval_gettext 'Downloading: ')tahoma32.exe"
-			$POL_WGET http://download.microsoft.com/download/office97pro/fonts/1/w95/en-us/tahoma32.exe
+			$POL_WGET ftp://ftp.microsoft.com/softlib/MSLFILES/TAHOMA32.EXE
 			POL_SetupWindow_pulse 100
 			sleep 1
 			PULSE=1
