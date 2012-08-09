@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-07-30 19:01+0200\n"
-"PO-Revision-Date: 2012-05-08 12:28+0000\n"
-"Last-Translator: Aleksi Kinnunen <Unknown>\n"
+"POT-Creation-Date: 2012-08-06 19:01+0200\n"
+"PO-Revision-Date: 2012-08-06 13:24+0000\n"
+"Last-Translator: Tuomas Lähteenmäki <Unknown>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-07-31 04:35+0000\n"
-"X-Generator: Launchpad (build 15702)\n"
+"X-Launchpad-Export-Date: 2012-08-07 04:35+0000\n"
+"X-Generator: Launchpad (build 15745)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -78,11 +78,11 @@ msgstr "Valitse suoritettava toiminto"
 
 #: Capture plugin:15
 msgid "Please choose a PID capture file to play"
-msgstr ""
+msgstr "Ole hyvä, ja valitse PID tallennustiedosto soitettavaksi"
 
 #: Capture plugin:16
 msgid "Please choose an OGV capture file to play"
-msgstr ""
+msgstr "Ole hyvä, ja valitse OGV tiedosto soitettavaksi"
 
 #: Capture plugin:17
 msgid "Please choose a capture file to convert"
@@ -90,7 +90,7 @@ msgstr "Ole hyvä ja valitse mikä kaapattu tiedosto muunnetaan"
 
 #: Capture plugin:18
 msgid "You must choose a capture to read"
-msgstr ""
+msgstr "Sinun täytyy valita tallennus luettavaksi"
 
 #: Capture plugin:19
 msgid "You must choose a capture to convert"
@@ -108,6 +108,8 @@ msgstr "Lisätäänkö videoon PlayOnLinux-logo?"
 msgid ""
 "Warning: For correct video encoding,\\nresolution MUST be a multiple of 16"
 msgstr ""
+"Jotta videon enkoodaus onnistuisi,\\nresoluutio TÄYTYISI olla kerrottu "
+"16:lla."
 
 #: Capture plugin:23
 msgid ""
@@ -126,18 +128,23 @@ msgid ""
 "Define your encoding options for pass 1 \\n (leave defaults if you do not "
 "know what to do)"
 msgstr ""
+"Tarkenna sinun enkoodausasetuksesi onnistuaksesi \\n (jätä oletusasetukset "
+"jos et tiedä mitä tehdä)"
 
 #: Capture plugin:26
 msgid ""
 "Define your encoding options for pass 2 \\n (leave defaults if you do not "
 "know what to do)"
 msgstr ""
+"Tarkenna enkoodaus asetuksesi onnistuaksesi 2 \\n (jätä oletusasetukset jos "
+"et tiedä mitä tehdä)"
 
 #: Capture plugin:27
 msgid ""
 "Define your encoding options \\n (leave defaults if you do not know what to "
 "do)"
 msgstr ""
+"Tarkenna enkoodaus asetuksesi \\n (jätä oletukset jos et tiedä mitä tehdä)"
 
 #: Capture plugin:28
 msgid "Please wait while your video is being encoded..."
@@ -164,6 +171,9 @@ msgid ""
 "Welcome in Advanced Wine Configuration, an optimization’s system for Wine "
 "created by GNU_Raziel. If you does not know what to choose, LEAVE DEFAULTS"
 msgstr ""
+"Tervetuloa Edistyneeseen Winen hallintaan, optimisointijärjestelmään joka on "
+"tehty Winelle GNU_Razielin toimesta. Jos et tiedä mitä sinun pitäisi valita, "
+"jätä OLETUSASETUKSET"
 
 #: Advanced Wine Configuration Plugin:8
 msgid "Choose a game"
@@ -183,11 +193,11 @@ msgstr "Aktivoidaanko GLSL-tuki?"
 
 #: Advanced Wine Configuration Plugin:13
 msgid "Choose Offscreen Rendering Mode?"
-msgstr ""
+msgstr "Valitse Offscreen renderöintimoodi?"
 
 #: Advanced Wine Configuration Plugin:14
 msgid "Choose Render Target Lock Mode?"
-msgstr ""
+msgstr "Valitse Renderöintikohteen lukitsemismoodi?"
 
 #: Advanced Wine Configuration Plugin:15
 msgid "Activate Multisampling support?"
@@ -205,6 +215,8 @@ msgstr "Optimointi valmis"
 msgid ""
 "Welcome in Detour, a plugin witch enable you to create post-install shorcuts."
 msgstr ""
+"Tervetuloa Detouriin, liitännäinen joka auttaa sinua tekemään post-install "
+"kuvakkeita."
 
 #: Detour plugin:5
 msgid "Choose an application"
@@ -406,11 +418,13 @@ msgid ""
 "nClose COMPLETELY the Steam interface, \\nso that the installation script "
 "can continue."
 msgstr ""
+"Kun $TITLE lataus Steamissa on valmistunut,\\nÄlä PAINA Play:ta.\\n\\nSulje "
+"KOKONAAN Steamin käyttäjäliittymä \\noettä asennusskripti voi jatkaa."
 
 #: PlayOnLinux_Scripts/Age_Of_Wonders_:70
 #, sh-format
 msgid "The introdution movie was renamed because it doesnt"
-msgstr ""
+msgstr "Esittelyvideon nimeä muutettiin koska se ei"
 
 #: PlayOnLinux_Scripts/Aion_:47
 #, sh-format
@@ -419,6 +433,9 @@ msgid ""
 "nClose COMPLETELY the Launcher interface, \\nso that the installation script "
 "can continue.\\n\\nAlso, decline .NET 2.0 installation by the Launcher."
 msgstr ""
+"Kun Launcherin asennus on valmistunut,\\nÄlä PAINA Play:ta.\\n\\nSulje "
+"Launcherin käyttäjäliittymä TÄYSIN,\\njotta asennusskripti voi jatkaa.\\n\\"
+"nLisäksi, älä hyväksy .NET 2.0:n asennusta kun Launcher ehdottaa sitä."
 
 #: PlayOnLinux_Scripts/Alan_Wake_:81
 #: PlayOnLinux_Scripts/Alice___Madness_Returns_:80
@@ -460,19 +477,22 @@ msgid ""
 "nClose COMPLETELY the Steam interface, \\nso that the installation script "
 "can continue"
 msgstr ""
+"Kun $TITLE n lataus on valmistunut Steamin toimesta,\\nÄlä PAINA Play:ta.\\"
+"n\\nSulje Steamin käyttäjäliittymä TÄYSIN,\\njotta asennusskripti voi jatkaa "
+"toimiaan."
 
 #: PlayOnLinux_Scripts/Alien_Breed_2___Assault_:83
 #: PlayOnLinux_Scripts/Alien_Breed_3___Descent_:83
 #: PlayOnLinux_Scripts/Alien_Breed___Impact_:83
 #, sh-format
 msgid "If .NET 3.0 installation fail, dont"
-msgstr ""
+msgstr "Jos .NET 3.0 asennus epäonnistuu, älä"
 
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:30
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:40
 #, sh-format
 msgid "You dont have to install DirectX or use GLSetup."
-msgstr ""
+msgstr "Sinun ei tarvitse asentaa DirectX:ää tai käyttää GLSetupia"
 
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:39
 #: PlayOnLinux_Scripts/Alt.Binz_:40
@@ -490,14 +510,14 @@ msgstr "Ole hyvä ja valitse suoritettava asennustiedosto."
 #: PlayOnLinux_Scripts/Microsoft_Word_Viewer_2003_:24
 #, sh-format
 msgid "Please select the installation file to run."
-msgstr ""
+msgstr "Valitse suoritettava asennustiedosto."
 
 #: PlayOnLinux_Scripts/Amazon_Kindle_:29
 #: PlayOnLinux_Scripts/Microsoft_Excel_Viewer_2003_:30
 #: PlayOnLinux_Scripts/Microsoft_Word_Viewer_2003_:31
 #, sh-format
 msgid "Installation in progress."
-msgstr ""
+msgstr "Asentaminen on käynnissä."
 
 #: PlayOnLinux_Scripts/Ancients_of_Ooga_:51
 #: PlayOnLinux_Scripts/Ancients_of_Ooga_:55
@@ -509,6 +529,8 @@ msgid ""
 "Click on \"Forward\" ONLY when Steam game installation\\nwill be finished or "
 "you will have to redo the installation."
 msgstr ""
+"Paina Eteenpäin VAIN SILLOIN kun Steam pelin asennus\\n on valmis tai sinun "
+"täytyy tehdä asennus uudestaan."
 
 #: PlayOnLinux_Scripts/Ancients_of_Ooga_:59
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_:88
@@ -611,7 +633,7 @@ msgstr "$TITLE on asennettu onnistuneesti."
 #: PlayOnLinux_Scripts/Wolfenstein_:48
 #, sh-format
 msgid "Please insert game media into your disk drive"
-msgstr ""
+msgstr "Ole hyvä, ja aseta pelilevyke levyasemaan"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:23
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:23
@@ -638,7 +660,7 @@ msgstr "Tervetuloa $TITLE korjaustiedosto $PVERSION asennusohjelmaan"
 #: PlayOnLinux_Scripts/Wolfenstein_Patch_1.2_:28
 #, sh-format
 msgid "Game is not installed"
-msgstr ""
+msgstr "Peliä ei ole asennettu"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:42
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:42
@@ -648,7 +670,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Witcher_2___Enhanced_Edition_Patch_:42
 #, sh-format
 msgid "Steam have is own automatic update system"
-msgstr ""
+msgstr "Steamilla on oma automaattinen päivitysjärjestelmä"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:51
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:51
@@ -685,6 +707,8 @@ msgid ""
 "Wait while the patch is downloading...\\nThis operation can take time, "
 "depending of your connexion"
 msgstr ""
+"Ole hyvä, ja odota hetki kun päivitystä ladataan...\\nTässä voi kestää "
+"hetki, riippuen laajakaistan nopeudestasi"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_:73
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_:75 PlayOnLinux_Scripts/Blur_:52
@@ -811,7 +835,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Witcher_:102
 #, sh-format
 msgid "Please insert the game media into your disk drive"
-msgstr ""
+msgstr "Ole hyvä, ja aseta pelilevyke levyasemaan"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_:51 PlayOnLinux_Scripts/Baldur_s_Gate_:59
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_:51
@@ -824,6 +848,8 @@ msgstr ""
 #, sh-format
 msgid "When the game setup will ask for next Disk\\nclick on \\\"Forward\\\""
 msgstr ""
+"Kun pelin asentaja pyytää asettamaan seuraavan levykkeen levykeasemaan,\\n\\"
+"paina \\\"Seuraava\\\""
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_:54 PlayOnLinux_Scripts/Baldur_s_Gate_:62
 #: PlayOnLinux_Scripts/Baldur_s_Gate_:67 PlayOnLinux_Scripts/Baldur_s_Gate_:72
@@ -836,7 +862,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Witcher_:113
 #, sh-format
 msgid "Please insert the next game media into your disk drive"
-msgstr ""
+msgstr "Ole hyvä, ja aseta seuraava pelilevyke levyasemaan"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:48
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:49
@@ -873,12 +899,12 @@ msgstr "Japaninkielinen versio"
 #: PlayOnLinux_Scripts/Borderlands_:59 PlayOnLinux_Scripts/Fallout_3_:57
 #, sh-format
 msgid "Which version do you have?"
-msgstr "Mikä versio sinulla on"
+msgstr "Mikä versio sinulla on?"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_:68
 #, sh-format
 msgid "This addon automatically install patch 2.5.26461"
-msgstr ""
+msgstr "Tämä liitännäinen asentaa automaattisesti päivityksen 2.5.26461"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:56
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:63
@@ -896,13 +922,13 @@ msgstr ""
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:43
 #, sh-format
 msgid "Select first patch to execute"
-msgstr ""
+msgstr "Valitse ensimmäinen päivitys suoritettavaksi"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:46
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:46
 #, sh-format
 msgid "Select second patch to execute"
-msgstr ""
+msgstr "Valitse toinen päivitys suoritettavaksi"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:51
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:52
@@ -926,7 +952,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_:68
 #, sh-format
 msgid "This addon automatically install patch 1.3.5511"
-msgstr ""
+msgstr "Tämä liitännäinen asentaa automaattisesti päivityksen 1.3.5511"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:51
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:57
@@ -949,6 +975,8 @@ msgid ""
 "You must disable anti-piracy protections of this game\\nif you want to play "
 "it with wine"
 msgstr ""
+"Anti-piraatti suojaus täytyy ottaa pois päältä jos\\nhaluat pelata sitä "
+"Winellä"
 
 #: PlayOnLinux_Scripts/Blur_:102 PlayOnLinux_Scripts/Borderlands_:120
 #: PlayOnLinux_Scripts/Cars_2_:83
@@ -1021,6 +1049,8 @@ msgid ""
 "Steam installation has been detected\\nwould you like to install this game "
 "in the same virtual drive?"
 msgstr ""
+"Steam-asennus on havaittu\\nHaluatko asentaa tämän pelin samaan "
+"virtuaaliasemaan?"
 
 #: PlayOnLinux_Scripts/Call_of_Duty__Modern_Warfare_3_:46
 #: PlayOnLinux_Scripts/Call_of_Duty__Modern_Warfare_3_:48
@@ -1043,6 +1073,8 @@ msgstr "Kyllä"
 msgid ""
 "Warning: GameShadow wont work.\\nPlease de-select during installation."
 msgstr ""
+"Varoitus: GameShadow ei toimi.\\nOle hyvä, ja ota se pois käytöstä "
+"asennusvaiheessa."
 
 #: PlayOnLinux_Scripts/CivCity_Rome_:62
 #: PlayOnLinux_Scripts/Dungeon_Siege_III_:59
@@ -1055,6 +1087,8 @@ msgid ""
 "Do not forget to close Steam when downloading\\nis finished, so that "
 "$APPLICATION_TITLE can continue\\nto install your game."
 msgstr ""
+"Älä unohda sammuttaa Steamia kun lataus\\n on suoritettu, jotta "
+"$APPLICATION_TITLE voi jatkaa/n pelisi asentamista."
 
 #: PlayOnLinux_Scripts/CivCity_Rome_Patch_1.1_:23
 #: PlayOnLinux_Scripts/Dragon_Age_2_Patch_1.03_:24
@@ -1097,6 +1131,11 @@ msgid ""
 "images may work with certain software, however I know that Mounty does not "
 "work for this."
 msgstr ""
+"HUOMIO: Tämä asennusohjelma vaatii että käytät CD:tä, jos latasit ilmaisen "
+"ISO-levykuvan EA:n julkaisemana, ole hyvä ja polta ne CD:lle tai DVD:lle "
+"käyttäen esimerkiksi Braseron kaltaista ohjelmaa, ja aseta polttamasi levyke "
+"CD asemaan. ISO-levykuvan mounttaaminen saattaa toimia joillekkin "
+"ohjelmille, mutta tiedän, että Mounty ei toimi tässä tapauksessa."
 
 #: PlayOnLinux_Scripts/Crysis_2_Patch_1.9_and_HiRes_Texture_Pack_:52
 #: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_Patch_1.02_:52
@@ -1187,25 +1226,30 @@ msgstr "Pieni hetki, ladataan $TITLE..."
 #, sh-format
 msgid "Please select the setup file downloaded on $EDITOR website"
 msgstr ""
+"Ole hyvä, ja valitse asennustiedosto joka ladattiin $EDITOR nettisivuilta"
 
 #: PlayOnLinux_Scripts/Diablo_III_:39
 #, sh-format
 msgid "Waiting for $TITLE to be installed"
-msgstr ""
+msgstr "Odotetaan että $TITLE asennetaan"
 
-#: PlayOnLinux_Scripts/Diablo_III_:52
+#: PlayOnLinux_Scripts/Diablo_III_:54
 #, sh-format
 msgid ""
 "$TITLE has been installed.\\n\\nA special thank to Erich Hoover for his wine "
 "patch (AcceptEx Fix)"
 msgstr ""
+"$TITLE on asennettu.\\n\\nErikoiskiitokset Erich Hooverille hänen Wine "
+"korjauksestaan (AcceptEx Fix)"
 
-#: PlayOnLinux_Scripts/Diablo_III_:52
+#: PlayOnLinux_Scripts/Diablo_III_:54
 #, sh-format
 msgid ""
 "If you have Error 3007 on connecting, open a terminal and type:\\necho "
 "0|sudo tee /proc/sys/kernel/yama/ptrace_scope"
 msgstr ""
+"Jos sinulla on Virhe (Error) 3007 yhteyden muodostamisessa, avaa pääte "
+"(terminal) ja kirjoita:\\necho 0|sudo tee /proc/sys/kernel/yama/ptrace_scope"
 
 #: PlayOnLinux_Scripts/Diablo_II_:51 PlayOnLinux_Scripts/SimCity_2000_:47
 #, sh-format
@@ -1215,7 +1259,7 @@ msgstr "Asennetaan $TITLE"
 #: PlayOnLinux_Scripts/Diablo_II___Lord_Of_Destruction_:29
 #, sh-format
 msgid "Please insert $TITLE disc"
-msgstr "Ole hyvä ja aseta $TITLE cd"
+msgstr "Ole hyvä ja aseta $TITLE levyke"
 
 #: PlayOnLinux_Scripts/Diablo_II___Lord_Of_Destruction_:43
 #, sh-format
@@ -1229,6 +1273,8 @@ msgid ""
 "Click on \"Forward\" ONLY when the game installation is finished\\nor you "
 "will have to redo the installation."
 msgstr ""
+"Paina \"Eteenpäin\" VAIN silloin kuin pelin asennus on suoritettu\\ntai "
+"sinun täytyy asentaa peli uudelleen."
 
 #: PlayOnLinux_Scripts/Dragon_Age_2_:45
 #: PlayOnLinux_Scripts/Dragon_Age_2_Demo_:51
@@ -1240,23 +1286,23 @@ msgstr "Jos asennusohjelma vaatii DirectX asennnusta, valitse ei."
 #: PlayOnLinux_Scripts/Dragon_Age_2_Demo_:104
 #, sh-format
 msgid "$TITLE_CONFIG will be started\\nClose it after your hardwares"
-msgstr ""
+msgstr "$TITLE_CONFIG aloitetaan\\nSulje se komponenttien jälkeen"
 
 #: PlayOnLinux_Scripts/Dragon_Age_2___DLC_:23
 #, sh-format
 msgid "Welcome in the DLCs Installer for $TITLE"
-msgstr ""
+msgstr "Tervetuloa DLCn Asentajaan $TITLE :lle"
 
 #: PlayOnLinux_Scripts/Dragon_Age_2___DLC_:41
 #: PlayOnLinux_Scripts/Fallout_3___DLC_:39
 #, sh-format
 msgid "Select a DLC to install"
-msgstr ""
+msgstr "Valitse DLC asennettavaksi"
 
 #: PlayOnLinux_Scripts/Dragon_Age_2___DLC_:46
 #, sh-format
 msgid "DLC for $TITLE has been\\ninstalled successfully."
-msgstr ""
+msgstr "DLC $TITLE :lle on\\nasennettu onnistuneesti."
 
 #: PlayOnLinux_Scripts/Dragon_Age___Awakening_:64
 #, sh-format
@@ -1278,7 +1324,7 @@ msgstr "Ladataan Winen korjauspäivitystä..."
 #: PlayOnLinux_Scripts/Duke_Nukem_Forever_:123 PlayOnLinux_Scripts/TERA_:64
 #, sh-format
 msgid "$TITLE must be fully installed for this fix to work"
-msgstr ""
+msgstr "$TITLE täytyy olla täysin asennettuna, että korjaus toimii"
 
 #: PlayOnLinux_Scripts/Dungeon_Siege_III_:111
 #, sh-format
@@ -1286,6 +1332,8 @@ msgid ""
 "You must not set shadow level to its maximum\\nor you will have to delete "
 "and redo installation of the game."
 msgstr ""
+"Sinun ei pidä asettaa varjojen tasoa maksimitasolle\\ntai sinun täytyy "
+"poistaa ja asentaa peli uudelleen."
 
 #: PlayOnLinux_Scripts/EA_s_Origin_:40
 #, sh-format
@@ -1298,7 +1346,7 @@ msgstr "Pieni hetki, ladataan $TITLE..."
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:46
 #, sh-format
 msgid "Please insert the first game media into your disk drive"
-msgstr ""
+msgstr "Ole hyvä, ja aseta pelilevyke levyasemaan."
 
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:39
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:47
@@ -1309,7 +1357,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:109 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:411 lib/wine.lib:994 lib/wine.lib:1024
+#: bash/winebash:27 lib/setupwindow.lib:421 lib/wine.lib:994 lib/wine.lib:1024
 #, sh-format
 msgid "Please wait..."
 msgstr "Pieni hetki..."
@@ -1318,7 +1366,7 @@ msgstr "Pieni hetki..."
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:36
 #, sh-format
 msgid "Please insert the second game media into your disk drive"
-msgstr ""
+msgstr "Ole hyvä, ja aseta toinen pelilevyke levyasemaan."
 
 #: PlayOnLinux_Scripts/Fable___The_Lost_Chapters_:67
 #, sh-format
@@ -1337,7 +1385,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Fallout_3___DLC_:22
 #, sh-format
 msgid "Welcome in the DLC Installer for $TITLE"
-msgstr ""
+msgstr "Tervetuloa DLC-asentajaan $TITLE :lle"
 
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising_:36
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:97
@@ -1363,11 +1411,13 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Commandos_2_and_3_:39
 #: PlayOnLinux_Scripts/GOG.com___Dark_Fall__Lights_Out_:40
 #: PlayOnLinux_Scripts/GOG.com___Dark_Fall__The_Journal_:38
+#: PlayOnLinux_Scripts/GOG.com___Darkstone_:43
 #: PlayOnLinux_Scripts/GOG.com___Descent_3_:38
 #: PlayOnLinux_Scripts/GOG.com___Deus_Ex_GOTY_Edition_:38
 #: PlayOnLinux_Scripts/GOG.com___Disciples_2_Gold_:39
 #: PlayOnLinux_Scripts/GOG.com___Divine_Divinity_:36
 #: PlayOnLinux_Scripts/GOG.com___Dragonsphere_:38
+#: PlayOnLinux_Scripts/GOG.com___Duke_Nukem_3D_Atomic_Edition_:38
 #: PlayOnLinux_Scripts/GOG.com___Duke_Nukem__Manhattan_Project_:38
 #: PlayOnLinux_Scripts/GOG.com___Dungeon_Keeper_2_:39
 #: PlayOnLinux_Scripts/GOG.com___Dungeons_and_Dragons__Dragonshard_:36
@@ -1403,6 +1453,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Lands_of_Lore_1_and_2_:39
 #: PlayOnLinux_Scripts/GOG.com___Legend_of_Grimrock_:38
 #: PlayOnLinux_Scripts/GOG.com___Little_Big_Adventure_:38
+#: PlayOnLinux_Scripts/GOG.com___Little_Big_Adventure_2_:38
 #: PlayOnLinux_Scripts/GOG.com___Lure_of_the_Temptress_:37
 #: PlayOnLinux_Scripts/GOG.com___MDK_2_:38
 #: PlayOnLinux_Scripts/GOG.com___Master_of_Orion_1_and_2_:39
@@ -1420,6 +1471,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Populous_2_:38
 #: PlayOnLinux_Scripts/GOG.com___Postal_2_Complete_:39
 #: PlayOnLinux_Scripts/GOG.com___Prince_of_Persia__The_Sands_of_Time_:38
+#: PlayOnLinux_Scripts/GOG.com___Psychonauts_:38
 #: PlayOnLinux_Scripts/GOG.com___Realms_of_Arkania_3_:38
 #: PlayOnLinux_Scripts/GOG.com___Realms_of_the_Haunting_:38
 #: PlayOnLinux_Scripts/GOG.com___Redneck_Rampage_Collection_:40
@@ -1480,29 +1532,29 @@ msgstr "Virhe asentaessa arkistoa"
 #: PlayOnLinux_Scripts/Gothic_3_Community_patch_:32
 #, sh-format
 msgid "Please install $TITLE_REQUIRED first"
-msgstr ""
+msgstr "Ole hyvä, ja asenna $TITLE_REQUIRED ensin"
 
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:47
 #, sh-format
 msgid "Lite (702MB), fix major issues (18 cutscenes)"
-msgstr ""
+msgstr "Minimi (702MB), korjaa suurimmat ongelmat (18 välielokuvaa)"
 
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:48
 #, sh-format
 msgid "Full (1.5GB), fix even minor issues (49 cutscenes)"
-msgstr ""
+msgstr "Täysi (1.5GB), korjaa pienetkin ongelmat (49 välielokuvaa)"
 
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:49
 #, sh-format
 msgid "Which version do you want to install?"
-msgstr ""
+msgstr "Minkä version haluat asentaa?"
 
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:83
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_II__Daggerfall_:62
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_II__Daggerfall_:71
 #, sh-format
 msgid "Decompressing archive..."
-msgstr ""
+msgstr "Puretaan pakettia..."
 
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:101
 #, sh-format
@@ -1510,6 +1562,8 @@ msgid ""
 "Advent Revising patch has been installed;\\nDont forget to leave some email "
 "to Setz for his work."
 msgstr ""
+"Advent Revising:in päivitys on asennettu onnistuneesti;\\n Älä unohda "
+"lähettää sähköpostia Setz:lle hänen työnsä ansiosta."
 
 #: PlayOnLinux_Scripts/GOG.com___Age_of_Wonders__Shadow_Magic_:20
 #: PlayOnLinux_Scripts/GOG.com___Painkiller__Black_Edition_:20
@@ -1525,11 +1579,15 @@ msgid ""
 "that you will get better performance out of the OpenGL renderer;\\nYou can "
 "select it after clicking on \"Show all devices\"."
 msgstr ""
+"Ensimmäisellä käynnistyskerralla peli tunnistaa automaattisesti saatavilla "
+"olevat renderöijät.\\nLuultavasti saat paremman suorituskyvyn OpenGL-"
+"renderöijällä.;\\nVoit valita sen, kun olet painanut \"Näytä kaikki "
+"laitteet\"."
 
 #: PlayOnLinux_Scripts/GOG.com___Deus_Ex_GOTY_Edition_:94
 #, sh-format
 msgid "Run $TITLE in safe mode?"
-msgstr ""
+msgstr "Käynnistä $TITLE vikasietotilassa?"
 
 #: PlayOnLinux_Scripts/GOG.com___Dungeon_Keeper_2_:20
 #, sh-format
@@ -1543,11 +1601,14 @@ msgid ""
 "nstability issues, specially under Windows XP/Seven.\\nYou can re-enable "
 "hardware acceleration in the configurator."
 msgstr ""
+"GOG julkaisun oletus on 800x600 software-renderöinnin ylitsepääsy\\n vakaus "
+"ongelmat, etenkin käytettäessä Windows XP/7:aa.\\n Voit laittaa "
+"rautakiihdytyksen takaisin päälle konfiguraattorissa."
 
 #: PlayOnLinux_Scripts/GOG.com___Dungeon_Keeper_2_:80
 #, sh-format
 msgid "Rendering"
-msgstr ""
+msgstr "Renderöidään"
 
 #: PlayOnLinux_Scripts/GOG.com___Dungeon_Keeper_2_:80
 #: PlayOnLinux_Scripts/GOG.com___Dungeon_Keeper_2_:82
@@ -1564,13 +1625,13 @@ msgstr "Ei muutosta"
 #: PlayOnLinux_Scripts/GOG.com___Dungeon_Keeper_2_:88
 #, sh-format
 msgid "800x600 software rendering (GOG defaults)"
-msgstr ""
+msgstr "800x600 Software renderöinti (GOG oletus)"
 
 #: PlayOnLinux_Scripts/GOG.com___Dungeon_Keeper_2_:81
 #: PlayOnLinux_Scripts/GOG.com___Dungeon_Keeper_2_:107
 #, sh-format
 msgid "Hardware 3D"
-msgstr ""
+msgstr "Rauta 3D"
 
 #: PlayOnLinux_Scripts/GOG.com___Dungeon_Keeper_2_:124
 #, sh-format
@@ -1578,28 +1639,30 @@ msgid ""
 "You can now change the resolution inside game options.\\nThe game can become "
 "unstable at high resolutions, so you may have\\nto experiment a bit."
 msgstr ""
+"Voit nyt vaihtaa resoluution pelin asetuksissa.\\nPeli voi tulla epävakaaksi "
+"suurilla resoluutiolla, joten sinun voi täytyä\\nkokeilla hieman."
 
 #: PlayOnLinux_Scripts/GOG.com___Far_Cry_:23
 #, sh-format
 msgid "CryEngine Sandbox"
-msgstr ""
+msgstr "CryEngine Hiekkalaatikko"
 
 #: PlayOnLinux_Scripts/GOG.com___Far_Cry_:52
 #, sh-format
 msgid "Could not find program directory"
-msgstr ""
+msgstr "Ei voinut löytää ohjelman hakemistoa"
 
 #: PlayOnLinux_Scripts/GOG.com___Far_Cry_:63
 #, sh-format
 msgid "The level editor"
-msgstr ""
+msgstr "Tasomuokkain"
 
 #: PlayOnLinux_Scripts/GOG.com___Far_Cry_:64
 #: PlayOnLinux_Scripts/GOG.com___Giants__Citizen_Kabuto_:51
 #: PlayOnLinux_Scripts/GOG.com___Painkiller__Black_Edition_:54
 #, sh-format
 msgid "What extra shortcuts should be created?"
-msgstr ""
+msgstr "Mitä lisäpikakuvakkeita tulisi luoda?"
 
 #: PlayOnLinux_Scripts/GOG.com___Far_Cry_:81
 #, sh-format
@@ -1607,6 +1670,8 @@ msgid ""
 "Default video settings are a bit low for modern computers,\\nremember to "
 "click on \"Auto-detect\" in advanced video settings."
 msgstr ""
+"Oletusvideoasetukset ovat liian pienet moderneille tietokoneille.\\"
+"nMuistathan painaa \"Auto-detect\" edistyneissä videoasetuksissa."
 
 #: PlayOnLinux_Scripts/GOG.com___Flatout_:56
 #, sh-format
@@ -1614,16 +1679,18 @@ msgid ""
 "Think about disabling triple-buffering in settings,\\nas it is not fully "
 "supported by Wine yet."
 msgstr ""
+"Mieti \"triple-buffering\":n poistamista käytöstä asetuksissa,\\nkoska Wine "
+"ei tue sitä vielä kokonaan."
 
 #: PlayOnLinux_Scripts/GOG.com___Giants__Citizen_Kabuto_:20
 #, sh-format
 msgid "Dedicated Server Editor"
-msgstr ""
+msgstr "Dedicated Server Muokkain"
 
 #: PlayOnLinux_Scripts/GOG.com___Giants__Citizen_Kabuto_:50
 #, sh-format
 msgid "The dedicated server"
-msgstr ""
+msgstr "Dedicated Server"
 
 #: PlayOnLinux_Scripts/GOG.com___Gothic_3_:65
 #, sh-format
@@ -1631,12 +1698,14 @@ msgid ""
 "It is highly recommended that you install the Community patch now, as it "
 "contains LOTS of bug fixes and enhancements over the original game."
 msgstr ""
+"On todella suositeltavaa, että asennat Yhteisöpäivityksen nyt, koska siinä "
+"on PALJON bugikorjauksia ja parannuksia sitten alkuperäispelin."
 
 #: PlayOnLinux_Scripts/GOG.com___Iron_Storm_:20
 #: PlayOnLinux_Scripts/GOG.com___Painkiller__Black_Edition_:21
 #, sh-format
 msgid "Dedicated Server"
-msgstr ""
+msgstr "Dedicated Server"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:72
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:78
@@ -1724,12 +1793,12 @@ msgstr "Visuaalinen laatu"
 #: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:40
 #, sh-format
 msgid "Do you want to read original thread in GOG.com forums?"
-msgstr ""
+msgstr "Haluatko lukea alkuperäisen threadin GOG.com foorumeilla?"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:50
 #, sh-format
 msgid "Error while uncompressing the archive"
-msgstr ""
+msgstr "Virhe purettaessa pakettia"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:57
 #, sh-format
@@ -1738,6 +1807,9 @@ msgid ""
 "wizard for Outcast.\\nAnd dont forget to leave a message to Zenger on GoG "
 "forums!"
 msgstr ""
+"Päivitys voidaan nyt aktivoida ja konfiguroida\\nPlayOnLinux:in "
+"asennusvelhosta Outcast:lle.\\nÄlä myöskään unohda lähettää viestiä "
+"Zenger:lle GoG foorumeilla!"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:66
 #, sh-format
@@ -1750,11 +1822,13 @@ msgid ""
 "Check that the resolution has been changed\\n(eventually set to \\\"HI-RES\\"
 "\") in the loader."
 msgstr ""
+"Varmista, että resoluutio on vaihdettu\\n(vihdoin vaihdettu \\\"HI-RES\\\") "
+"lataajassa."
 
 #: PlayOnLinux_Scripts/GOG.com___Painkiller__Black_Edition_:53
 #, sh-format
 msgid "Dedicated server"
-msgstr ""
+msgstr "Dedicated server"
 
 #: PlayOnLinux_Scripts/GOG.com___Prince_of_Persia__The_Sands_of_Time_:63
 #, sh-format
@@ -1762,11 +1836,13 @@ msgid ""
 "If you can barely distinguish a landscape behind main menu,\\ndisable FOG in "
 "graphic options."
 msgstr ""
+"Jos voit hädin tuskin saada selvää maisemista päävalikon takana,\\nota FOG "
+"pois päältä graafisissa asetuksissa."
 
 #: PlayOnLinux_Scripts/GOG.com___Sanitarium_:60
 #, sh-format
 msgid "(windowed)"
-msgstr ""
+msgstr "(ikkunoitu)"
 
 #: PlayOnLinux_Scripts/GOG.com___Starflight_1_and_2_:20
 #, sh-format
@@ -1784,7 +1860,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:48
 #, sh-format
 msgid "Go there now?"
-msgstr ""
+msgstr "Mene tänne nyt?"
 
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:48
 #, sh-format
@@ -1794,12 +1870,12 @@ msgstr "Voit ladata arkistoidun tiedoston:"
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:58
 #, sh-format
 msgid "Now you must install the modpack in directory:"
-msgstr ""
+msgstr "Nyt sinun täytyy asentaa modpack hakemistoosi."
 
 #: PlayOnLinux_Scripts/GOG.com___Two_Worlds__Epic_Edition_:49
 #, sh-format
 msgid "temp directory missing"
-msgstr ""
+msgstr "temp hakemisto on hukassa"
 
 #: PlayOnLinux_Scripts/GOG.com___Two_Worlds__Epic_Edition_:76
 #, sh-format
@@ -1813,7 +1889,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Two_Worlds__Epic_Edition_:110
 #, sh-format
 msgid "Control Panel"
-msgstr ""
+msgstr "Ohjauspaneeli"
 
 #: PlayOnLinux_Scripts/GOG.com___Ultima_Worlds_of_Adventure_2__Martian_Dreams_:56
 #: PlayOnLinux_Scripts/GOG.com___Worlds_of_Ultima__The_Savage_Empire_:54
@@ -1833,7 +1909,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Goblins_3_:21
 #, sh-format
 msgid "Please select the game language"
-msgstr ""
+msgstr "Valise pelin kieli"
 
 #: PlayOnLinux_Scripts/Gothic_3_:82
 #, sh-format
@@ -1858,12 +1934,12 @@ msgstr "$TITLE on asennettu"
 #: PlayOnLinux_Scripts/Heroes_of_Might_and_Magic_V_:42
 #, sh-format
 msgid "Please insert the DVD-ROM"
-msgstr ""
+msgstr "Ole hyvä ja lisää DVD-ROM"
 
 #: PlayOnLinux_Scripts/Guild_Wars_2_:70
 #, sh-format
 msgid "Downloading $TITLE client"
-msgstr ""
+msgstr "Ladataan $TITLE asiakasta"
 
 #: PlayOnLinux_Scripts/Guild_Wars_2_:84
 #, sh-format
@@ -1876,12 +1952,12 @@ msgstr ""
 #: PlayOnLinux_Scripts/Halo_Combat_Evolved_:41
 #, sh-format
 msgid "Select the file to install"
-msgstr ""
+msgstr "Valitse asennettava tiedosto"
 
 #: PlayOnLinux_Scripts/Halo_Combat_Evolved_:70
 #, sh-format
 msgid "Updating $TITLE"
-msgstr ""
+msgstr "Päivitetään $TITLE"
 
 #: PlayOnLinux_Scripts/Infinity_Engine_widescreen_mod_:50
 #, sh-format
@@ -1926,17 +2002,17 @@ msgstr ""
 #: PlayOnLinux_Scripts/League_Of_Legends_:74
 #, sh-format
 msgid "Please select LeagueOfLegends.tar file:"
-msgstr ""
+msgstr "Valitse LeagueOfLegends.tar tiedosto:"
 
 #: PlayOnLinux_Scripts/Mass_Effect_:48
 #, sh-format
 msgid "Please insert game media 1 into your disk drive"
-msgstr ""
+msgstr "Ole hyvä ja lisää pelin ensimmäinen levy levyasemaasi"
 
 #: PlayOnLinux_Scripts/Mass_Effect_:56
 #, sh-format
 msgid "Please insert game media 2 into your disk drive"
-msgstr ""
+msgstr "Ole hyvä ja lisää pelin toinen levy levyasemaasi"
 
 #: PlayOnLinux_Scripts/Mass_Effect_2_:64
 #: PlayOnLinux_Scripts/Prince_of_Persia___The_Forgotten_Sands_:69
@@ -2034,7 +2110,7 @@ msgstr ""
 #: python/install.py:551
 #, sh-format
 msgid "Please read this"
-msgstr ""
+msgstr "Ole hyvä ja lue tämä"
 
 #: PlayOnLinux_Scripts/POL_GoG_download_:30
 #, sh-format
@@ -2049,7 +2125,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_GoG_download_:59
 #, sh-format
 msgid "Gog.com login failed, try again?"
-msgstr ""
+msgstr "Gog.com kirjautuminen epäonnistui, yritä uudelleen?"
 
 #: PlayOnLinux_Scripts/POL_GoG_download_:82
 #: PlayOnLinux_Scripts/POL_GoG_download_:92
@@ -2108,7 +2184,7 @@ msgstr "Asennetaan DirectMusic"
 #: PlayOnLinux_Scripts/POL_Install_wmpcodecs_:10
 #, sh-format
 msgid "This package does not work on a 64-bit installation"
-msgstr ""
+msgstr "Tämä paketti ei toimi 64-bittisessä asennuksessa"
 
 #: PlayOnLinux_Scripts/POL_Install_dotnet40_:53
 #, sh-format
@@ -2118,7 +2194,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_dsound_:11
 #, sh-format
 msgid "Installing Dsound DLL..."
-msgstr "Asennetaan Dsound DLL..."
+msgstr "Asennetaan Dsound DLL-tiedostoa"
 
 #: PlayOnLinux_Scripts/POL_Install_dxfullsetup_:12
 #, sh-format
@@ -2264,17 +2340,17 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_wininet_:12
 #, sh-format
 msgid "Installing Wininet DLL..."
-msgstr ""
+msgstr "Asennetaan Wininet DLL-tiedostoja"
 
 #: PlayOnLinux_Scripts/POL_Install_xact_:14
 #, sh-format
 msgid "Installing Xact dlls..."
-msgstr ""
+msgstr "Asennetaan Xact dll -tiedostoja"
 
 #: PlayOnLinux_Scripts/POL_Install_xinput_:12
 #, sh-format
 msgid "Installing Xinput dlls..."
-msgstr ""
+msgstr "Asennetaan Xinput dll -tiedostoja"
 
 #: PlayOnLinux_Scripts/POL_Remove_gfwl_:14
 #, sh-format
@@ -2307,7 +2383,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Sudo_UnhideCdrom_:21
 #, sh-format
 msgid "Please read carrefully"
-msgstr ""
+msgstr "Ole hyvä ja lue huolellisesti"
 
 #: PlayOnLinux_Scripts/POL_Sudo_UnhideCdrom_:13
 #, sh-format
@@ -2373,7 +2449,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/SimCity_2000_:40
 #, sh-format
 msgid "Please select the MS-DOS version of setup file:"
-msgstr ""
+msgstr "Valitse MS-DOS version asennustiedosto:"
 
 #: PlayOnLinux_Scripts/Slender_:20
 #, sh-format
@@ -2386,7 +2462,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Slender_:30
 #, sh-format
 msgid "Select downloaded ZIP file here"
-msgstr ""
+msgstr "Valitse ladatava ZIP-tiedosto täältä"
 
 #: PlayOnLinux_Scripts/Slender_:31
 #, sh-format
@@ -2430,7 +2506,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Surfer_8_:12
 #, sh-format
 msgid "Please select the install file."
-msgstr ""
+msgstr "Ole hyvä ja valitse asennustiedosto"
 
 #: PlayOnLinux_Scripts/Surfer_8_:14
 #, sh-format
@@ -2762,7 +2838,7 @@ msgstr "Minkälainen ongelma sinulla on?"
 #: bash/bug_report:50
 #, sh-format
 msgid "Don't join any log file"
-msgstr "Älä lisää mitään lokitiedostoa"
+msgstr "Älä lisää mitään lokitiedostoon"
 
 #: bash/bug_report:53 bash/manual_install:27 bash/manual_install:112
 #: bash/manual_install:118 bash/manual_install:195
@@ -2773,7 +2849,7 @@ msgstr "Manuaalinen asennus"
 #: bash/bug_report:54 bash/run_exe:24
 #, sh-format
 msgid "Automatic installation"
-msgstr ""
+msgstr "Automaattinen asennus"
 
 #: bash/bug_report:65
 #, sh-format
@@ -2810,7 +2886,7 @@ msgstr ""
 #: bash/create_prefix:25
 #, sh-format
 msgid "Virtual drive creator"
-msgstr ""
+msgstr "Virtuaaliasema luoja"
 
 #: bash/create_prefix:28
 #, sh-format
@@ -2822,7 +2898,7 @@ msgstr ""
 #: bash/create_prefix:30
 #, sh-format
 msgid "What kind of virtual drive do you want to create"
-msgstr ""
+msgstr "Minkälaisen virtuaaliaseman haluat luoda"
 
 #: bash/create_prefix:54
 #, sh-format
@@ -2843,7 +2919,7 @@ msgid "Choose the name of the virtual drive"
 msgstr "Ole hyvä ja nimeä virtuaaliasemasi"
 
 #: bash/expert/Executer:22 bash/expert/Executer:27 bash/expert/Executer:29
-#: python/mainwindow.py:233
+#: python/mainwindow.py:235
 #, sh-format
 msgid "Run a local script"
 msgstr "Suorita paikallinen skripti"
@@ -2868,7 +2944,7 @@ msgstr "Virhe!"
 #: bash/expert/Executer:38
 #, sh-format
 msgid "File not found!"
-msgstr "Tiedostoa ei löytymyt!"
+msgstr "Tiedostoa ei löytynyt!"
 
 #: bash/first_use:32 bash/first_use:49 bash/first_use:53 bash/first_use:64
 #: bash/first_use:82 bash/first_use:106
@@ -3066,9 +3142,8 @@ msgstr ""
 
 #: bash/first_use:310
 #, sh-format
-msgid "This wizard will help you prepare $APPLICATION_TITLE environement"
+msgid "This wizard will help you prepare $APPLICATION_TITLE environment"
 msgstr ""
-"Tämä asennusohjelma asentaa $APPLICATION_TITLE-ohjelmiston tietokoneeseen."
 
 #: bash/first_use:324
 #, sh-format
@@ -3078,7 +3153,7 @@ msgstr "Kiitos, että asensit $APPLICATION_TITLE-ohjelmiston."
 #: bash/install_gecko:25
 #, sh-format
 msgid "$APPLICATION_TITLE Gecko installer"
-msgstr ""
+msgstr "$APPLICATION_TITLE Gecko asentaja"
 
 #: bash/install_wver:27
 #, sh-format
@@ -3114,7 +3189,7 @@ msgstr ""
 #: bash/make_shortcut:35
 #, sh-format
 msgid "Creating shortcut..."
-msgstr ""
+msgstr "Luodaan pikakuvake..."
 
 #: bash/make_shortcut:37
 #, sh-format
@@ -3179,7 +3254,7 @@ msgid "Use another version of Wine"
 msgstr "Käytä toista versiota Winestä"
 
 #: bash/manual_install:160 bash/manual_install:195 bash/polconfigurator:95
-#: python/configure.py:156 python/mainwindow.py:539 python/mainwindow.py:571
+#: python/configure.py:156 python/mainwindow.py:541 python/mainwindow.py:573
 #, sh-format
 msgid "Configure Wine"
 msgstr "Winen asetukset"
@@ -3315,20 +3390,20 @@ msgstr "Suoritetaan..."
 #: bash/playonlinux-pkg:115
 #, sh-format
 msgid "Cleaning..."
-msgstr "Puhdistetaan."
+msgstr "Puhdistetaan..."
 
 #: bash/playonlinux_online:32
 #, sh-format
 msgid ""
 "This is the list of the scripts you sent to us. You can run one of them"
 msgstr ""
-"Tämä on lista skriptejä, joita olet lähettänyt meille. Voit suorittaa yhden "
+"Tässä on lista skriptejä, joita olet lähettänyt meille. Voit suorittaa yhden "
 "niistä"
 
 #: bash/playonlinux_online:42
 #, sh-format
 msgid "You do not seems to have any personal script"
-msgstr ""
+msgstr "Sinulla ei näytä olevan yhtään omaa scriptiä"
 
 #: bash/playonlinux_online:47
 #, sh-format
@@ -3399,7 +3474,7 @@ msgstr "Pelit"
 msgid "Graphics"
 msgstr "Grafiikka"
 
-#: bash/playonlinux_online:69 python/install.py:215 python/mainwindow.py:263
+#: bash/playonlinux_online:69 python/install.py:215 python/mainwindow.py:265
 #: python/options.py:384
 #, sh-format
 msgid "Internet"
@@ -3415,7 +3490,7 @@ msgstr "Multimedia"
 msgid "Office"
 msgstr "Toimisto"
 
-#: bash/playonlinux_online:69 lib/setupwindow.lib:328 python/install.py:218
+#: bash/playonlinux_online:69 lib/setupwindow.lib:338 python/install.py:218
 #, sh-format
 msgid "Other"
 msgstr "Muut"
@@ -3450,7 +3525,7 @@ msgstr ""
 #: bash/playonlinux_online:102
 #, sh-format
 msgid "You must be able to run this program!"
-msgstr "Sinun täytyy pystyä ajaa tämä ohjelma!"
+msgstr "Sinun täytyy pystyä ajamaan tämä ohjelma!"
 
 #: bash/playonlinux_online:107
 #, sh-format
@@ -3482,7 +3557,7 @@ msgstr ""
 #: bash/polconfigurator:33
 #, sh-format
 msgid "Killing programs in the virtual drive..."
-msgstr ""
+msgstr "Tappaa ohjelmat virtuaaliasemasta..."
 
 #: bash/polconfigurator:79
 #, sh-format
@@ -3504,8 +3579,8 @@ msgstr "Rikkinäinen tiedostopääte"
 msgid "is not an icon extension"
 msgstr "ei ole kuvake"
 
-#: bash/polconfigurator:96 python/configure.py:164 python/mainwindow.py:543
-#: python/mainwindow.py:584
+#: bash/polconfigurator:96 python/configure.py:164 python/mainwindow.py:545
+#: python/mainwindow.py:586
 #, sh-format
 msgid "Registry Editor"
 msgstr "Rekisterimuokkain"
@@ -3553,7 +3628,7 @@ msgstr "Valitse suoritettava toiminto"
 #: bash/read_pc_cd:25
 #, sh-format
 msgid "PC CD-ROM reader"
-msgstr ""
+msgstr "PC CD-ROM asema"
 
 #: bash/read_pc_cd:33
 #, sh-format
@@ -3566,17 +3641,17 @@ msgstr ""
 #: bash/read_pc_cd:34
 #, sh-format
 msgid "Eject a PC CD-ROM"
-msgstr ""
+msgstr "Avaa PC:n CD-asema"
 
 #: bash/read_pc_cd:34
 #, sh-format
 msgid "Read a PC CD-ROM"
-msgstr ""
+msgstr "Lue PC CD-ROM"
 
 #: bash/read_pc_cd:34
 #, sh-format
 msgid "What do you want to do?"
-msgstr ""
+msgstr "Mitä haluat tehdä?"
 
 #: bash/read_pc_cd:38
 #, sh-format
@@ -3588,12 +3663,12 @@ msgstr ""
 #: bash/read_pc_cd:51
 #, sh-format
 msgid "Please choose a CD-ROM"
-msgstr ""
+msgstr "Valitse CD-ROM"
 
 #: bash/read_pc_cd:97
 #, sh-format
 msgid "Please choose a CD-ROM to eject"
-msgstr ""
+msgstr "Valitse avattava CD-ROM asema"
 
 #: bash/run_app:83
 #, sh-format
@@ -3607,15 +3682,13 @@ msgstr "$APPLICATION_TITLE virheenjäljittäjä käynnistyy..."
 
 #: bash/run_app:112
 #, sh-format
-msgid ""
-"$PACKAGE crashed.\\n\\nYou need to enable debugging to get more details.\\"
-"nPlease go to configure menu"
-msgstr ""
+msgid "$PACKAGE crashed.\\nClick on debug link to get more details."
+msgstr "$PACKAGE kaatui.\\nKlikkaa linkkiä saadaksesi lisätietoja."
 
 #: bash/run_app:114
 #, sh-format
 msgid "$PACKAGE crashed."
-msgstr ""
+msgstr "$PACKAGE kaatui."
 
 #: bash/run_exe:31
 #, sh-format
@@ -3673,7 +3746,7 @@ msgid ""
 msgstr ""
 
 #: bash/uninstall:25 bash/uninstall:53 bash/uninstall:56 bash/uninstall:58
-#: lib/playonlinux.lib:702
+#: lib/playonlinux.lib:700
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
 msgstr "$APPLICATION_TITLE Asennuksen poisto"
@@ -3693,7 +3766,7 @@ msgstr "Jatka napsauttamalla Seuraava."
 msgid "This wizard will help you to uninstall: "
 msgstr "Tämä asennusohjelma poistaa ohjelman: "
 
-#: bash/uninstall:53 lib/playonlinux.lib:702
+#: bash/uninstall:53 lib/playonlinux.lib:700
 #, sh-format
 msgid "Uninstalling..."
 msgstr "Poistetaan..."
@@ -3711,24 +3784,32 @@ msgstr "Pikakuvaketta ei löydy"
 #: bash/update_git:25
 #, sh-format
 msgid "$APPLICATION_TITLE auto-updater"
-msgstr ""
+msgstr "$APPLICATION_TITLE automaattinen päivittäjä"
 
 #: bash/update_git:27
 #, sh-format
 msgid "Updating $APPLICATION_TITLE from GIT..."
-msgstr ""
+msgstr "Päivitetään $APPLICATION_TITLE GIT:istä..."
 
 #: bash/update_git:31
 #, sh-format
 msgid "Do you want to update and restart $APPLICATION_TITLE?"
-msgstr ""
+msgstr "Haluatko päivittää ja uudelleen käynnistää $APPLICATION_TITLE?"
 
 #: bash/update_git:37
 #, sh-format
 msgid "Already up-to-date."
-msgstr ""
+msgstr "Jo ajantasalla"
 
 #: lib/debug.lib:126
+#, sh-format
+msgid ""
+"$APPLICATION_TITLE has encountered an error. If the program does not work "
+"correctly, it might be the cause of the problem.\\nVisit www.$POL_DNS to get "
+"further information"
+msgstr ""
+
+#: lib/debug.lib:140
 #, sh-format
 msgid ""
 "$APPLICATION_TITLE has encountered an error. If the program your are "
@@ -3736,7 +3817,7 @@ msgid ""
 "nVisit www.$POL_DNS to get further information"
 msgstr ""
 
-#: lib/debug.lib:139
+#: lib/debug.lib:153
 #, sh-format
 msgid ""
 "$APPLICATION_TITLE has encountered a fatal error. $APPLICATION_TITLE will "
@@ -3778,7 +3859,7 @@ msgstr ""
 #: lib/playonlinux.lib:327
 #, sh-format
 msgid "Here the source code of the script. Check it carefully"
-msgstr ""
+msgstr "Tässä on lähdekoodi scriptistä. Tarkista huolellisesti"
 
 #: lib/playonlinux.lib:347
 #, sh-format
@@ -3803,33 +3884,33 @@ msgstr ""
 msgid "Making shortcut..."
 msgstr "Luodaan pikakuvaketta..."
 
-#: lib/playonlinux.lib:700
+#: lib/playonlinux.lib:698
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr "Haluatko poistaa virtuaaliaseman:"
 
-#: lib/playonlinux.lib:807
+#: lib/playonlinux.lib:805
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:808
+#: lib/playonlinux.lib:806
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:809
+#: lib/playonlinux.lib:807
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:810
+#: lib/playonlinux.lib:808
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
@@ -3859,32 +3940,32 @@ msgstr "Asennetaan liitännäistä: "
 #: lib/scripts.lib:306
 #, sh-format
 msgid ""
-"Binary not found: $BINARY\\n\\nHave you installed the program to the default "
+"Binary not found: $BINARY\\nHave you installed the program to the default "
 "location?"
 msgstr ""
 
-#: lib/scripts.lib:426 lib/scripts.lib:675
+#: lib/scripts.lib:430 lib/scripts.lib:679
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr "Pieni hetki, $APPLICATION_TITLE lataa tiedostoa:"
 
-#: lib/scripts.lib:428 lib/scripts.lib:478
+#: lib/scripts.lib:432 lib/scripts.lib:482
 #, sh-format
 msgid "An error happened during download."
 msgstr ""
 
-#: lib/scripts.lib:428 lib/scripts.lib:445 lib/scripts.lib:478
-#: lib/scripts.lib:492
+#: lib/scripts.lib:432 lib/scripts.lib:449 lib/scripts.lib:482
+#: lib/scripts.lib:496
 #, sh-format
 msgid "Do you want to retry?"
-msgstr ""
+msgstr "Yritetäänkö uudelleen?"
 
-#: lib/scripts.lib:445 lib/scripts.lib:492
+#: lib/scripts.lib:449 lib/scripts.lib:496
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 
-#: lib/scripts.lib:580
+#: lib/scripts.lib:584
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
@@ -3892,86 +3973,86 @@ msgstr ""
 "7z ei ole asennettu, ole hyvä ja tarkista että 7z on asennettu tai yritä "
 "uudelleen"
 
-#: lib/scripts.lib:587
+#: lib/scripts.lib:591
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr "Paikannus epäonnistui ${dest}  ${archive}"
 
-#: lib/scripts.lib:591
+#: lib/scripts.lib:595
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr "Puretaan ${filename} sijainnista ${archivename}"
 
-#: lib/scripts.lib:606
+#: lib/scripts.lib:610
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr "Puretun tiedoston koko ei täsmää!"
 
-#: lib/scripts.lib:637
+#: lib/scripts.lib:641
 #, sh-format
 msgid "Copying ${filename}"
 msgstr "Kopioidaan ${filename}"
 
-#: lib/scripts.lib:650
+#: lib/scripts.lib:654
 #, sh-format
 msgid "File size does not match!"
 msgstr "Tiedostokoko ei vastaa!"
 
-#: lib/scripts.lib:736
+#: lib/scripts.lib:740
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
 "n$APPLICATION_TITLE $NEEDED is required."
 msgstr ""
 
-#: lib/scripts.lib:751
+#: lib/scripts.lib:755
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
 "$NEEDED is recommended to continue."
 msgstr ""
 
-#: lib/scripts.lib:782
+#: lib/scripts.lib:786
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr ""
 
-#: lib/setupwindow.lib:86
+#: lib/setupwindow.lib:96
 #, sh-format
 msgid " on your computer."
 msgstr " tähän tietokoneeseen."
 
-#: lib/setupwindow.lib:86
+#: lib/setupwindow.lib:96
 #, sh-format
 msgid " will be installed in: "
 msgstr " asennetaan sijaintiin: "
 
-#: lib/setupwindow.lib:86
+#: lib/setupwindow.lib:96
 #, sh-format
 msgid "Click Next to start"
 msgstr "Aloita napsauttamalla Seuraava."
 
-#: lib/setupwindow.lib:86
+#: lib/setupwindow.lib:96
 #, sh-format
 msgid "This installation program is provided by: "
 msgstr "Tämän asennusohjelman kehittäjä on: "
 
-#: lib/setupwindow.lib:86
+#: lib/setupwindow.lib:96
 #, sh-format
 msgid "This program was created by: "
 msgstr "Tämän ohjelman kehittäjä on: "
 
-#: lib/setupwindow.lib:86
+#: lib/setupwindow.lib:96
 #, sh-format
 msgid "This wizard will help you install "
 msgstr "Tämä asennusohjelma asentaa ohjelman "
 
-#: lib/setupwindow.lib:86
+#: lib/setupwindow.lib:96
 #, sh-format
 msgid "Welcome to $APPLICATION_TITLE Installation Wizard."
 msgstr "Tervetuloa $APPLICATION_TITLE Asennusohjelmaan."
 
-#: lib/setupwindow.lib:110
+#: lib/setupwindow.lib:120
 #, sh-format
 msgid ""
 "One or more program(s) are missing. Please install them and run the script "
@@ -3980,36 +4061,35 @@ msgstr ""
 "Yksi tai useampi ohjelma on hukassa. Ole hyvä ja suorita asennus scripti "
 "uudestaan."
 
-#: lib/setupwindow.lib:112 python/guiv3.py:724 python/lib/irc.py:291
-#: python/lib/irc.py.bak:291 python/mainwindow.py:1059
-#: python/mainwindow.py:1082 python/mainwindow.py:1089
-#: python/mainwindow.py:1098 python/mainwindow.py:1110
-#: python/mainwindow.py:1122 python/wrapper.py:120
+#: lib/setupwindow.lib:122 python/guiv3.py:724 python/lib/irc.py:291
+#: python/mainwindow.py:1061 python/mainwindow.py:1084
+#: python/mainwindow.py:1091 python/mainwindow.py:1100
+#: python/mainwindow.py:1112 python/mainwindow.py:1124 python/wrapper.py:122
 #, sh-format
 msgid "Error"
 msgstr "Virhe"
 
-#: lib/setupwindow.lib:327
+#: lib/setupwindow.lib:337
 #, sh-format
 msgid "Where is mounted your CD-ROM?"
 msgstr "Missä on liitetty CD-asema?"
 
-#: lib/setupwindow.lib:329 python/install.py:279
+#: lib/setupwindow.lib:339 python/install.py:279
 #, sh-format
 msgid "Refresh"
 msgstr "Päivitä"
 
-#: lib/setupwindow.lib:360
+#: lib/setupwindow.lib:370
 #, sh-format
 msgid "Reading your device"
 msgstr ""
 
-#: lib/setupwindow.lib:375
+#: lib/setupwindow.lib:385
 #, sh-format
 msgid "Error: Unable to find the CD-ROM!"
 msgstr "Virhe: CD-asemaa ei löydy!"
 
-#: lib/setupwindow.lib:389
+#: lib/setupwindow.lib:399
 #, sh-format
 msgid ""
 "$TITLE needs to read the PC part of a hybrid CD-Rom.\\n\\nBy default, MacOS "
@@ -4018,101 +4098,103 @@ msgid ""
 "attempt to read the PC-Part of your CD?"
 msgstr ""
 
-#: lib/setupwindow.lib:441
+#: lib/setupwindow.lib:451
 #, sh-format
 msgid ""
 "Don't forget to go to PlayOnMac tools menu -> Read a PC CD-Rom before "
 "running your game"
 msgstr ""
 
-#: lib/setupwindow.lib:452
+#: lib/setupwindow.lib:462
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is copying files:"
 msgstr "Pieni hetki, $APPLICATION_TITLE kopioi tiedostoja:"
 
-#: lib/setupwindow.lib:537 lib/setupwindow.lib:686
+#: lib/setupwindow.lib:547 lib/setupwindow.lib:696
 #, sh-format
 msgid "Scanning the virtual drive ..."
 msgstr "Virtuaaliasemaa skannataan ..."
 
-#: lib/setupwindow.lib:551
+#: lib/setupwindow.lib:561
 #, sh-format
 msgid "How much memory does your graphics board have?"
 msgstr "Kuinka paljon muistia on näytönohjaimessasi?"
 
-#: lib/setupwindow.lib:560
+#: lib/setupwindow.lib:570
 #, sh-format
 msgid "Video card does not have enough memory"
 msgstr "Näytönohjaimessasi ei ole tarpeeksi muistia"
 
-#: lib/setupwindow.lib:561
+#: lib/setupwindow.lib:571
 #, sh-format
 msgid ""
 "Your video card does not have enough memory!\\nIt might prevent the game "
 "from working"
 msgstr ""
+"Näytönohjaimessasi ei ole tarpeeksi muistia!\\nSe saattaa estää pelin "
+"toiminnan"
 
-#: lib/setupwindow.lib:575
+#: lib/setupwindow.lib:585
 #, sh-format
 msgid "Use Steam Store version"
-msgstr "Käytä Steam kauppa versiota"
+msgstr "Käytä Steam Store versiota"
 
-#: lib/setupwindow.lib:576
+#: lib/setupwindow.lib:586
 #, sh-format
 msgid "Use Steam Store demo version"
-msgstr "Käytä Steam kaupan demo versiota"
+msgstr "Käytä Steam Store demo versiota"
 
-#: lib/setupwindow.lib:577
+#: lib/setupwindow.lib:587
 #, sh-format
 msgid "Use Desura Store version"
-msgstr ""
+msgstr "Käytä Desura Store versiota"
 
-#: lib/setupwindow.lib:578
+#: lib/setupwindow.lib:588
 #, sh-format
 msgid "Use Desura Store demo version"
-msgstr ""
+msgstr "Käytä Desura Store demo versiota"
 
-#: lib/setupwindow.lib:579
+#: lib/setupwindow.lib:589
 #, sh-format
 msgid "Use Origin Store version"
-msgstr ""
+msgstr "Käytä Origin Store versiota"
 
-#: lib/setupwindow.lib:580
+#: lib/setupwindow.lib:590
 #, sh-format
 msgid "Use Origin Store demo version"
-msgstr ""
+msgstr "Käytä Origin Store demo versiota"
 
-#: lib/setupwindow.lib:582
+#: lib/setupwindow.lib:592
 #, sh-format
 msgid "Use a setup file in my computer"
 msgstr "Käytä asennustiedostoa omalta tietokoneelta"
 
-#: lib/setupwindow.lib:583
+#: lib/setupwindow.lib:593
 #, sh-format
 msgid "Use CD-ROM(s)"
 msgstr "Käytä CD-ROM"
 
-#: lib/setupwindow.lib:584
+#: lib/setupwindow.lib:594
 #, sh-format
 msgid "Use DVD-ROM(s)"
 msgstr "Käytä DVD-ROM"
 
-#: lib/setupwindow.lib:585
+#: lib/setupwindow.lib:595
 #, sh-format
 msgid "Download the program"
 msgstr "Lataa ohjelma"
 
-#: lib/setupwindow.lib:650
+#: lib/setupwindow.lib:660
 #, sh-format
 msgid "Please choose an installation method"
 msgstr "Valitse asennustapa"
 
-#: lib/setupwindow.lib:688
+#: lib/setupwindow.lib:698
 #, sh-format
 msgid "I don't want to make another shortcut"
 msgstr "En halua tehdä toista pikakuvaketta"
 
-#: lib/setupwindow.lib:689 python/guiv3.py:146
+#: lib/setupwindow.lib:699 python/guiv3.py:146
 #, sh-format
 msgid "Browse"
 msgstr "Selaa"
@@ -4120,7 +4202,7 @@ msgstr "Selaa"
 #: lib/website.lib:29
 #, sh-format
 msgid "Connect to your $APPLICATION_TITLE account"
-msgstr ""
+msgstr "Yhdistetään sinun $APPLICATION_TITLE tiliisi"
 
 #: lib/website.lib:128
 #, sh-format
@@ -4137,7 +4219,7 @@ msgstr ""
 #: lib/wine.lib:417
 #, sh-format
 msgid "Scanning your hardware..."
-msgstr ""
+msgstr "Skannataan kovalevyä"
 
 #: lib/wine.lib:500 lib/wine.lib:665
 #, sh-format
@@ -4181,7 +4263,7 @@ msgstr ""
 #: lib/wine.lib:998 lib/wine.lib:1027
 #, sh-format
 msgid "Install is done"
-msgstr ""
+msgstr "Asennus on valmis"
 
 #: lib/wine.lib:1031 lib/wine.lib:1032
 #, sh-format
@@ -4212,7 +4294,7 @@ msgstr "Luo uusi pikakuvake tähän virtuaaliasemaan."
 
 #: python/configure.py:129
 msgid "Name"
-msgstr "Nimi:"
+msgstr "Nimi"
 
 #: python/configure.py:130
 msgid "Wine version"
@@ -4224,7 +4306,7 @@ msgstr "Virtuaaliasema"
 
 #: python/configure.py:133
 msgid "Arguments"
-msgstr ""
+msgstr "Parametrit"
 
 #: python/configure.py:137
 msgid "Run configuration wizard"
@@ -4236,7 +4318,7 @@ msgstr "Windowsin uudelleenkäynnistys"
 
 #: python/configure.py:181
 msgid "Repair virtual drive"
-msgstr ""
+msgstr "Korjaa virtuaaliasema"
 
 #: python/configure.py:190
 msgid "Command prompt"
@@ -4252,10 +4334,10 @@ msgstr "Tapa prosessi"
 
 #: python/configure.py:212
 msgid "Wine uninstaller"
-msgstr ""
+msgstr "Winen poistaja"
 
-#: python/configure.py:235 python/install.py:278 python/mainwindow.py:198
-#: python/mainwindow.py:349
+#: python/configure.py:235 python/install.py:278 python/mainwindow.py:200
+#: python/mainwindow.py:351
 msgid "Install"
 msgstr "Asenna"
 
@@ -4309,15 +4391,17 @@ msgstr "Suorita .exe-tiedosto tässä virtuaaliasemassa"
 
 #: python/configure.py:492
 msgid "Command to exec before running the program"
-msgstr ""
+msgstr "Anna exec komento ennen ohjelman suorittamista"
 
 #: python/configure.py:503
 msgid ""
 "Be careful!\n"
 "If you change "
 msgstr ""
+"Ole varovainen!\n"
+"Jos muutat "
 
-#: python/configure.py:560 python/mainwindow.py:880 python/mainwindow.py:882
+#: python/configure.py:560 python/mainwindow.py:882 python/mainwindow.py:884
 msgid "{0} configuration"
 msgstr "{0} asetukset"
 
@@ -4329,8 +4413,8 @@ msgstr ""
 msgid "New"
 msgstr "Uusi"
 
-#: python/configure.py:587 python/mainwindow.py:199 python/mainwindow.py:350
-#: python/mainwindow.py:559 python/options.py:207
+#: python/configure.py:587 python/mainwindow.py:201 python/mainwindow.py:352
+#: python/mainwindow.py:561 python/options.py:207
 msgid "Remove"
 msgstr "Poista"
 
@@ -4338,7 +4422,7 @@ msgstr "Poista"
 msgid "Install packages"
 msgstr "Asenna paketit"
 
-#: python/configure.py:606 python/mainwindow.py:333
+#: python/configure.py:606 python/mainwindow.py:335
 msgid "Display"
 msgstr "Näytä"
 
@@ -4358,10 +4442,10 @@ msgstr "Haluatko varmasti poistaa virtuaaliaseman?"
 msgid "Are you sure you want to delete {0} ?"
 msgstr ""
 
-#: python/debug.py:39 python/mainwindow.py:255 python/mainwindow.py:855
-#: python/mainwindow.py:938
+#: python/debug.py:39 python/mainwindow.py:257 python/mainwindow.py:857
+#: python/mainwindow.py:940
 msgid "{0} debugger"
-msgstr ""
+msgstr "{0}-debuggeri"
 
 #: python/debug.py:50
 msgid "Please select a debug file"
@@ -4377,7 +4461,7 @@ msgstr ""
 
 #: python/debug.py:153 python/debug.py:207
 msgid "Virtual drives"
-msgstr ""
+msgstr "Virtuaaliasemat"
 
 #: python/debug.py:184
 msgid "Report a problem about {0}"
@@ -4385,10 +4469,14 @@ msgstr ""
 
 #: python/debug.py:206
 msgid "Install scripts"
+msgstr "Asenna scripti"
+
+#: python/gui_server.py:48 python/gui_server.py:49
+msgid "Error: Unable to reserve a valid port"
 msgstr ""
 
-#: python/gui_server.py:124
-msgid "Error. Please use POL_SetupWindow_Init first"
+#: python/gui_server.py:154
+msgid "WARNING. Please use POL_SetupWindow_Init first"
 msgstr ""
 
 #: python/guiv3.py:116
@@ -4437,7 +4525,7 @@ msgstr "/"
 
 #: python/guiv3.py:724
 msgid "You cannot close this window"
-msgstr ""
+msgstr "Et voi sulkea tätä ikkunaa"
 
 #: python/install.py:114 python/install.py:116
 msgid "No description"
@@ -4445,15 +4533,15 @@ msgstr "Ei kuvausta"
 
 #: python/install.py:246
 msgid "Search"
-msgstr ""
+msgstr "Etsi"
 
 #: python/install.py:258
 msgid "No-cd needed"
-msgstr ""
+msgstr "cd:tä ei tarvita"
 
 #: python/install.py:265
 msgid "Commercial"
-msgstr ""
+msgstr "Kaupallinen"
 
 #: python/install.py:289
 msgid "Install a non-listed program"
@@ -4466,6 +4554,10 @@ msgid ""
 " - Leave the default location\n"
 " - Do not tick the checkbox 'Run the program' if asked."
 msgstr ""
+"Kun {0} asennetaan Windows ohjelmaa: \n"
+"\n"
+" - Jätä oletussijainti\n"
+" - Älä rastita valintaruutua \"Suorita ohjelma\"."
 
 #: python/install.py:439
 msgid ""
@@ -4482,6 +4574,9 @@ msgid ""
 "{0} does not support piracy. Therefore, we won't give any support to patch "
 "it."
 msgstr ""
+"Tämä ohjelma vaatii no-cd korjaustiedoston toimiakseen.\n"
+"\n"
+"{0} ei tue piratismia. Siksi emme anna mitään tukea paikkaustiedostolle."
 
 #: python/install.py:548
 msgid ""
@@ -4513,13 +4608,13 @@ msgstr "Katkaise"
 
 #: python/irc.py:140
 msgid "Leave"
-msgstr ""
+msgstr "Poistu"
 
 #: python/irc.py:227
 msgid "Join a channel"
 msgstr "Liity kanavalle"
 
-#: python/irc.py:257 python/mainwindow.py:682
+#: python/irc.py:257 python/mainwindow.py:684
 msgid "Messenger"
 msgstr "Pikaviestin"
 
@@ -4529,18 +4624,18 @@ msgid ""
 "you want to close it?"
 msgstr "Haluatko varmasti sulkea tämän ikkunan? Viestit poistetaan."
 
-#: python/lib/irc.py:291 python/lib/irc.py.bak:291
+#: python/lib/irc.py:291
 msgid "Sorry, this person does not want to receive private messages"
 msgstr ""
 
-#: python/lib/irc.py:304 python/lib/irc.py.bak:304
+#: python/lib/irc.py:304
 msgid ""
 "Sorry {0} messenger service is not available for the moment.\n"
 "\n"
 "Please retry later"
 msgstr ""
 
-#: python/lib/playonlinux.py:27 python/lib/playonlinux.py.bak:27
+#: python/lib/playonlinux.py:27
 msgid "There is nothing installed to run .{0} files."
 msgstr ""
 
@@ -4552,240 +4647,244 @@ msgstr "{0} www-sivua ei saatavissa. Tarkista yhteytesi."
 msgid "Refreshing {0}"
 msgstr "Päivittää {0}"
 
-#: python/mainwindow.py:91 python/mainwindow.py:93
+#: python/mainwindow.py:93 python/mainwindow.py:95
 msgid "An updated version of {0} is available"
 msgstr "Päivitys on saatavilla"
 
-#: python/mainwindow.py:197 python/mainwindow.py:345 python/mainwindow.py:691
+#: python/mainwindow.py:199 python/mainwindow.py:347 python/mainwindow.py:693
 msgid "Run"
 msgstr "Suorita"
 
-#: python/mainwindow.py:201
+#: python/mainwindow.py:203
 msgid "Donate"
 msgstr "Lahjoita"
 
-#: python/mainwindow.py:202
+#: python/mainwindow.py:204
 msgid "Exit"
 msgstr "Lopeta"
 
-#: python/mainwindow.py:206
+#: python/mainwindow.py:208
 msgid "Small icons"
 msgstr "Pienet kuvakkeet"
 
-#: python/mainwindow.py:207
+#: python/mainwindow.py:209
 msgid "Medium icons"
 msgstr "Keskikokoiset kuvakkeet"
 
-#: python/mainwindow.py:208
+#: python/mainwindow.py:210
 msgid "Large icons"
 msgstr "Suuret kuvakkeet"
 
-#: python/mainwindow.py:209
+#: python/mainwindow.py:211
 msgid "Very large icons"
 msgstr "Erittäin suuret kuvakkeet"
 
-#: python/mainwindow.py:221
+#: python/mainwindow.py:223
 msgid "Manage Wine versions"
 msgstr "Wine-versioiden hallinta"
 
-#: python/mainwindow.py:227
+#: python/mainwindow.py:229
 msgid "Read a PC CD-Rom"
-msgstr ""
+msgstr "Lue PC CD-Rom"
 
-#: python/mainwindow.py:237
+#: python/mainwindow.py:239
 msgid "Close all {0} software"
 msgstr "Sulje kaikki {0}in ohjelmat"
 
-#: python/mainwindow.py:241
+#: python/mainwindow.py:243
 msgid "{0} console"
 msgstr "{0}-konsoli"
 
-#: python/mainwindow.py:251
+#: python/mainwindow.py:253
 msgid "{0} messenger"
 msgstr "{0}-pikaviestin"
 
-#: python/mainwindow.py:267 python/options.py:388
+#: python/mainwindow.py:269 python/options.py:388
 msgid "File associations"
-msgstr ""
+msgstr "Tiedostoassosiaatiot"
 
-#: python/mainwindow.py:274
+#: python/mainwindow.py:276
 msgid "About {0}"
 msgstr "Tietoja"
 
-#: python/mainwindow.py:303 python/mainwindow.py:307
+#: python/mainwindow.py:305 python/mainwindow.py:309
 msgid "Plugin manager"
 msgstr "Lisäosien hallinta"
 
-#: python/mainwindow.py:332
+#: python/mainwindow.py:334
 msgid "File"
 msgstr "Tiedosto"
 
-#: python/mainwindow.py:334
+#: python/mainwindow.py:336
 msgid "Tools"
 msgstr "Työkalut"
 
-#: python/mainwindow.py:335 python/mainwindow.py:680
+#: python/mainwindow.py:337 python/mainwindow.py:682
 msgid "Settings"
 msgstr "Asetukset"
 
-#: python/mainwindow.py:336 python/options.py:387
+#: python/mainwindow.py:338 python/options.py:387
 msgid "Plugins"
 msgstr "Lisäosat"
 
-#: python/mainwindow.py:346 python/mainwindow.py:693
+#: python/mainwindow.py:348 python/mainwindow.py:695
 msgid "Close"
-msgstr ""
+msgstr "Sulje"
 
-#: python/mainwindow.py:352 python/mainwindow.py:697 python/options.py:208
+#: python/mainwindow.py:354 python/mainwindow.py:699 python/options.py:208
 msgid "Configure"
 msgstr "Asetukset"
 
-#: python/mainwindow.py:547
+#: python/mainwindow.py:549
 msgid "Open the application's directory"
 msgstr "Avaa sovelluksen kansio"
 
-#: python/mainwindow.py:551 python/mainwindow.py:705
+#: python/mainwindow.py:553 python/mainwindow.py:707
 msgid "Read the manual"
-msgstr ""
+msgstr "Lue ohjekirjasta"
 
-#: python/mainwindow.py:555
+#: python/mainwindow.py:557
 msgid "Set the icon"
 msgstr "Aseta kuvake"
 
-#: python/mainwindow.py:563
+#: python/mainwindow.py:565
 msgid "Close this application"
 msgstr "Sulje sovellus"
 
-#: python/mainwindow.py:574
+#: python/mainwindow.py:576
 msgid "KillApp"
 msgstr "Tapa ohjelma"
 
-#: python/mainwindow.py:581
+#: python/mainwindow.py:583
 msgid "No manual found for {0}"
-msgstr ""
+msgstr "Ohjekirjaa ei löytynyt {0}"
 
-#: python/mainwindow.py:678
+#: python/mainwindow.py:680
 msgid "Install a program"
-msgstr ""
+msgstr "Asenna ohjelma"
 
-#: python/mainwindow.py:685
+#: python/mainwindow.py:687
 msgid "Update GIT"
-msgstr ""
+msgstr "Päivitä GIT"
 
-#: python/mainwindow.py:695
+#: python/mainwindow.py:697
 msgid "Debug"
-msgstr ""
-
-#: python/mainwindow.py:699
-msgid "Create a shortcut"
-msgstr ""
+msgstr "Virheenjäljitys"
 
 #: python/mainwindow.py:701
+msgid "Create a shortcut"
+msgstr "Luo pikakuvake"
+
+#: python/mainwindow.py:703
 msgid "Open the directory"
-msgstr ""
+msgstr "Avaa hakemisto"
 
-#: python/mainwindow.py:708
+#: python/mainwindow.py:710
 msgid "Uninstall"
-msgstr ""
+msgstr "Poista asennus"
 
-#: python/mainwindow.py:828 python/mainwindow.py:899 python/mainwindow.py:944
+#: python/mainwindow.py:830 python/mainwindow.py:901 python/mainwindow.py:946
 msgid "Please select a program."
-msgstr ""
+msgstr "Valitse ohjelma"
 
-#: python/mainwindow.py:836 python/mainwindow.py:838 python/mainwindow.py:840
+#: python/mainwindow.py:838 python/mainwindow.py:840 python/mainwindow.py:842
 msgid "{0} settings"
 msgstr "{0} asetukset"
 
-#: python/mainwindow.py:906
+#: python/mainwindow.py:908
 msgid "{0} install menu"
-msgstr "{0}asennusvalikko"
+msgstr "{0} asennusvalikko"
 
-#: python/mainwindow.py:915
+#: python/mainwindow.py:917
 msgid "{0} wine versions manager"
 msgstr "{0} - Winen versiohallinta"
 
-#: python/mainwindow.py:946
+#: python/mainwindow.py:948
 msgid "The virtual drive associated with {0} ({1}) does no longer exists."
 msgstr ""
 
-#: python/mainwindow.py:973
+#: python/mainwindow.py:975
 msgid "Are you sure you want to close all {0} Windows?"
 msgstr "Haluatko varmasti sulkea kaikki {0}in ikkunat?"
 
-#: python/mainwindow.py:1012
+#: python/mainwindow.py:1014
 msgid "Run your Windows programs on "
 msgstr "Suorita Windows-ohjelmia "
 
-#: python/mainwindow.py:1013
+#: python/mainwindow.py:1015
 msgid ""
 "PlayOnLinux and PlayOnMac team\n"
 "Under GPL licence version 3"
 msgstr ""
+"PlayOnLinux ja PlayOnMac tiimi\n"
+"GPL licence version 3 alla"
 
-#: python/mainwindow.py:1014
+#: python/mainwindow.py:1016
 msgid "Developer and Website: "
 msgstr "Kehittäjä ja nettisivut: "
 
-#: python/mainwindow.py:1015
+#: python/mainwindow.py:1017
 msgid "Scriptors: "
 msgstr "Ohjelmoijat: "
 
-#: python/mainwindow.py:1016
+#: python/mainwindow.py:1018
 msgid "Packager: "
 msgstr "Paketoijat: "
 
-#: python/mainwindow.py:1017
+#: python/mainwindow.py:1019
 msgid "Icons:"
 msgstr "Kuvakkeet:"
 
-#: python/mainwindow.py:1018
+#: python/mainwindow.py:1020
 msgid "The following people contributed to this program: "
 msgstr "Nämä henkilöt ovat tehneet lahjoituksen ohjelman kehitykselle: "
 
-#: python/mainwindow.py:1019
+#: python/mainwindow.py:1021
 msgid "Translations:"
 msgstr "Kääntäjät:"
 
-#: python/mainwindow.py:1020
+#: python/mainwindow.py:1022
 msgid "Read TRANSLATORS file"
 msgstr "Lue KÄÄNTÄJÄT tiedosto"
 
-#: python/mainwindow.py:1059 python/wrapper.py:120
-msgid "{0} is not able to start POL_SetupWindow_server."
+#: python/mainwindow.py:1061
+msgid "{0} is not able to start PlayOnLinux Setup Window server."
 msgstr ""
 
-#: python/mainwindow.py:1082
+#: python/mainwindow.py:1084
 msgid ""
 "{0} cannot find {1}.\n"
 "\n"
 msgstr ""
+"{0} ei löydy {1}.\n"
+"\n"
 
-#: python/mainwindow.py:1089
+#: python/mainwindow.py:1091
 msgid "{0} is not supposed to be run as root. Sorry"
 msgstr ""
 
-#: python/mainwindow.py:1098
+#: python/mainwindow.py:1100
 msgid ""
 "{0} is unable to find 32bits OpenGL libraries.\n"
 "\n"
 "You might encounter problem with your games"
 msgstr ""
 
-#: python/mainwindow.py:1110
+#: python/mainwindow.py:1112
 msgid ""
 "{0} is unable to find 64bits OpenGL libraries.\n"
 "\n"
 "You might encounter problem with your games"
 msgstr ""
 
-#: python/mainwindow.py:1122
+#: python/mainwindow.py:1124
 msgid ""
 "Your filesystem might prevent {0} from running correctly.\n"
 "\n"
 "Please open {0} in a terminal to get more details"
 msgstr ""
 
-#: python/mainwindow.py:1126
+#: python/mainwindow.py:1128
 msgid ""
 "Do you want to help {0} to make a compatibility database?\n"
 "\n"
@@ -4800,11 +4899,11 @@ msgid ""
 "These information will be very precious for us to help people."
 msgstr ""
 
-#: python/mainwindow.py:1177
+#: python/mainwindow.py:1180
 msgid "Are you sure you want to  want to install {0} package?"
 msgstr "Haluatko varmasti asentaa paketin \"{0}\"?"
 
-#: python/mainwindow.py:1184 python/mainwindow.py:1186
+#: python/mainwindow.py:1187 python/mainwindow.py:1189
 msgid ""
 "You are trying to open a script design for {0}! It might not work as expected"
 msgstr ""
@@ -4839,7 +4938,7 @@ msgstr "Asennetut lisäosat"
 
 #: python/options.py:206
 msgid "Add"
-msgstr ""
+msgstr "Lisää"
 
 #: python/options.py:209 python/options.py:337
 msgid "Enable"
@@ -4851,7 +4950,7 @@ msgstr "Valitse lisäosa"
 
 #: python/options.py:263
 msgid "What is the extension?"
-msgstr ""
+msgstr "Mikä on lisäosa?"
 
 #: python/options.py:275
 msgid "Assigned program"
@@ -4859,7 +4958,7 @@ msgstr ""
 
 #: python/options.py:277
 msgid "Delete"
-msgstr ""
+msgstr "Poista"
 
 #: python/options.py:305
 msgid "Are you sure you want to install: "
@@ -4896,3 +4995,7 @@ msgstr "Winen versiot"
 #: python/wine_versions.py:326
 msgid "Are you sure you want to delete wine {0}?"
 msgstr "Haluatko varmasti poistaa Winen?"
+
+#: python/wrapper.py:122
+msgid "{0} is not able to start POL_SetupWindow_server."
+msgstr ""
