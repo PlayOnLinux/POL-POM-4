@@ -42,8 +42,7 @@ import guiv3 as gui, install, options, wine_versions as wver, sp, configure, thr
 class MainWindow(wx.Frame):
     def __init__(self,parent,id,title):
 
-        wx.Frame.__init__(self, parent, 1000, title, size = (0,0), style=wx.NO_BORDER) # I know, that's not clean at all
-
+        wx.Frame.__init__(self, parent, 1000, title, size = (0,0), style=wx.NO_BORDER|wx.WS_EX_BLOCK_EVENTS|wx.FRAME_NO_TASKBAR|wx.FRAME_SHAPED) # I know, that's not clean at all
         self.windowList = {}
         self.registeredPid = []
         self.myScript = None
@@ -127,7 +126,7 @@ class PlayOnLinuxApp(wx.App):
    
         self.SetTopWindow(self.frame)
         self.frame.Show(True)
-        
+        self.frame.Hide()
         return True
   
 
