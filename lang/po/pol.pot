@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2012-08-09 19:01:07+02:00\n"
+"POT-Creation-Date: 2012-08-10 19:02:17+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -506,7 +506,8 @@ msgstr ""
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_:88
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_:95
 #: PlayOnLinux_Scripts/Baldur_s_Gate_:88
-#: PlayOnLinux_Scripts/Baldur_s_Gate_II_:83 PlayOnLinux_Scripts/Blur_:64
+#: PlayOnLinux_Scripts/Baldur_s_Gate_II_:83
+#: PlayOnLinux_Scripts/Battlefield_1942_:30 PlayOnLinux_Scripts/Blur_:64
 #: PlayOnLinux_Scripts/Borderlands_:78
 #: PlayOnLinux_Scripts/Call_of_Duty___Black_Ops_:61
 #: PlayOnLinux_Scripts/Cars_2_:52
@@ -934,6 +935,15 @@ msgid ""
 "it with wine"
 msgstr ""
 
+#: PlayOnLinux_Scripts/Battlefield_1942_:44
+#: PlayOnLinux_Scripts/POL_Function_NoCDWarning_:1
+#, sh-format
+msgid ""
+"Be careful! To run $TITLE with $APPLICATION_TITLE, you must install a No-CD "
+"patch even if you have a legal version.\\n\\nPlease remember that "
+"$APPLICATION_TITLE is strongly against piracy, and will never support it."
+msgstr ""
+
 #: PlayOnLinux_Scripts/Blur_:102 PlayOnLinux_Scripts/Borderlands_:120
 #: PlayOnLinux_Scripts/Cars_2_:83
 #: PlayOnLinux_Scripts/Clive_Barker_s_Jericho_:112
@@ -1351,6 +1361,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Gabriel_Knight_3__Blood_of_the_Sacred__of_the_Damned_:38
 #: PlayOnLinux_Scripts/GOG.com___Gemini_Rue_:38
 #: PlayOnLinux_Scripts/GOG.com___Giants__Citizen_Kabuto_:37
+#: PlayOnLinux_Scripts/GOG.com___Gobliiins_pack_:41
 #: PlayOnLinux_Scripts/GOG.com___Gothic_:38
 #: PlayOnLinux_Scripts/GOG.com___Gothic_2_Gold_:38
 #: PlayOnLinux_Scripts/GOG.com___Gothic_3_:38
@@ -1996,7 +2007,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Microsoft_Office_2010_Activation_:54
 #, sh-format
 msgid ""
-"No $TTILE installation found.\\n\\nPlease use the $TITLE installation script!"
+"No $TITLE installation found.\\n\\nPlease use the $TITLE installation script!"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:182
@@ -2316,6 +2327,35 @@ msgid ""
 "To continue, PlayOnLinux needs to remount your CD-ROM with unhide option."
 msgstr ""
 
+#: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:8
+#, sh-format
+msgid "Please insert the first disc"
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:13
+#, sh-format
+msgid ""
+"Read this carefully!\\n\\nWhen the $TITLE installer ask you to change your "
+"cdrom, please come back to this $APPLICATION_TITLE window"
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:17
+#, sh-format
+msgid ""
+"When the installer ask you to insert the cdrom number $CDNumber, click next."
+"\\n\\nDo not click next before!"
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:20
+#, sh-format
+msgid "Now, insert the cdrom number $CDNumber."
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:25
+#, sh-format
+msgid "Now you can go back to the $TITLE installation window to continue"
+msgstr ""
+
 #: PlayOnLinux_Scripts/Q.U.B.E_:94 PlayOnLinux_Scripts/Star_Twine_:72
 #, sh-format
 msgid ""
@@ -2390,6 +2430,13 @@ msgstr ""
 #: PlayOnLinux_Scripts/Sonic_Fan_Remix_:37
 #, sh-format
 msgid "Downloading $TITLE Freeware..."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:90
+#, sh-format
+msgid ""
+"If you have a runtime error when running the game, open a terminal and type:"
+"\\necho 0|sudo tee /proc/sys/kernel/yama/ptrace_scope"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Steam_:46
@@ -3932,7 +3979,7 @@ msgstr ""
 #: lib/setupwindow.lib:122 python/guiv3.py:724 python/lib/irc.py:291
 #: python/mainwindow.py:1061 python/mainwindow.py:1084
 #: python/mainwindow.py:1091 python/mainwindow.py:1100
-#: python/mainwindow.py:1112 python/mainwindow.py:1124 python/wrapper.py:122
+#: python/mainwindow.py:1112 python/mainwindow.py:1124 python/wrapper.py:121
 #, sh-format
 msgid "Error"
 msgstr ""
@@ -4849,6 +4896,6 @@ msgstr ""
 msgid "Are you sure you want to delete wine {0}?"
 msgstr ""
 
-#: python/wrapper.py:122
+#: python/wrapper.py:121
 msgid "{0} is not able to start POL_SetupWindow_server."
 msgstr ""
