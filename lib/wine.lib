@@ -354,6 +354,7 @@ POL_LoadVar_Device ()
 	# Get GPU device id and vendor id
 	# Results are stored in VendorID and DeviceID variables
 
+	POL_SetupWindow_wait "$(eval_gettext 'Please wait while $APPLICATION_TITLE is scanning your hardware')" "$TITLE"
 	POL_Debug_Message "Gettings GPU informations"
 	if [ "$POL_OS" = "Linux" ]; then
 		[ -x /usr/sbin/lspci ] && LSPCI=/usr/sbin/lspci || LSPCI=lspci
