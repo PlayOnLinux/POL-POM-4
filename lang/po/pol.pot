@@ -7,11 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-<<<<<<< HEAD
-"POT-Creation-Date: 2012-08-11 19:00:56+02:00\n"
-=======
-"POT-Creation-Date: 2012-08-12 19:00:55+02:00\n"
->>>>>>> d663b891c9ec592d3d70a1ceb837257bb4e3ab07
+"POT-Creation-Date: 2012-08-13 19:00:59+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1289,7 +1285,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:109 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:421 lib/wine.lib:994 lib/wine.lib:1024
+#: bash/winebash:27 lib/setupwindow.lib:421 lib/wine.lib:995 lib/wine.lib:1025
 #, sh-format
 msgid "Please wait..."
 msgstr ""
@@ -1321,7 +1317,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Alone_in_the_Dark_1_:39
 #: PlayOnLinux_Scripts/GOG.com___Alone_in_the_Dark_2_:38
 #: PlayOnLinux_Scripts/GOG.com___Alone_in_the_Dark_3_:38
-#: PlayOnLinux_Scripts/GOG.com___Alpha_Centauri_:40
+#: PlayOnLinux_Scripts/GOG.com___Alpha_Centauri_:44
 #: PlayOnLinux_Scripts/GOG.com___Anachronox_:38
 #: PlayOnLinux_Scripts/GOG.com___Another_World__15th_Anniversary_Edition_:38
 #: PlayOnLinux_Scripts/GOG.com___Arcanum_:38
@@ -1501,16 +1497,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Painkiller__Black_Edition_:52
 #, sh-format
 msgid "Editor"
-msgstr ""
-
-#: PlayOnLinux_Scripts/GOG.com___Alpha_Centauri_:48
-#, sh-format
-msgid "Making a backup of sounds"
-msgstr ""
-
-#: PlayOnLinux_Scripts/GOG.com___Alpha_Centauri_:54
-#, sh-format
-msgid "Fixing sounds gain"
 msgstr ""
 
 #: PlayOnLinux_Scripts/GOG.com___Deus_Ex_GOTY_Edition_:74
@@ -2448,6 +2434,12 @@ msgstr ""
 msgid "Downloading $TITLE Freeware..."
 msgstr ""
 
+#: PlayOnLinux_Scripts/Starcraft_:23
+#: PlayOnLinux_Scripts/Starcraft___BroodWar_:18
+#, sh-format
+msgid "Please select $TITLE file setup"
+msgstr ""
+
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:90
 #, sh-format
 msgid ""
@@ -3213,7 +3205,7 @@ msgstr ""
 msgid "What would you like to do before installation?"
 msgstr ""
 
-#: bash/manual_install:206 lib/scripts.lib:373
+#: bash/manual_install:206 lib/scripts.lib:379
 #, sh-format
 msgid "Please make your choice"
 msgstr ""
@@ -3762,7 +3754,7 @@ msgid ""
 msgstr ""
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:886 lib/wine.lib:920
+#: lib/wine.lib:887 lib/wine.lib:921
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr ""
@@ -3872,80 +3864,80 @@ msgstr ""
 msgid "Installing plugin: "
 msgstr ""
 
-#: lib/scripts.lib:306
+#: lib/scripts.lib:312
 #, sh-format
 msgid ""
 "Binary not found: $BINARY\\nHave you installed the program to the default "
 "location?"
 msgstr ""
 
-#: lib/scripts.lib:430 lib/scripts.lib:679
+#: lib/scripts.lib:436 lib/scripts.lib:685
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr ""
 
-#: lib/scripts.lib:432 lib/scripts.lib:482
+#: lib/scripts.lib:438 lib/scripts.lib:488
 #, sh-format
 msgid "An error happened during download."
 msgstr ""
 
-#: lib/scripts.lib:432 lib/scripts.lib:449 lib/scripts.lib:482
-#: lib/scripts.lib:496
+#: lib/scripts.lib:438 lib/scripts.lib:455 lib/scripts.lib:488
+#: lib/scripts.lib:502
 #, sh-format
 msgid "Do you want to retry?"
 msgstr ""
 
-#: lib/scripts.lib:449 lib/scripts.lib:496
+#: lib/scripts.lib:455 lib/scripts.lib:502
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 
-#: lib/scripts.lib:584
+#: lib/scripts.lib:590
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
 msgstr ""
 
-#: lib/scripts.lib:591
+#: lib/scripts.lib:597
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr ""
 
-#: lib/scripts.lib:595
+#: lib/scripts.lib:601
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr ""
 
-#: lib/scripts.lib:610
+#: lib/scripts.lib:616
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:641
+#: lib/scripts.lib:647
 #, sh-format
 msgid "Copying ${filename}"
 msgstr ""
 
-#: lib/scripts.lib:654
+#: lib/scripts.lib:660
 #, sh-format
 msgid "File size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:740
+#: lib/scripts.lib:746
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\n"
 "$APPLICATION_TITLE $NEEDED is required."
 msgstr ""
 
-#: lib/scripts.lib:755
+#: lib/scripts.lib:761
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
 "$NEEDED is recommended to continue."
 msgstr ""
 
-#: lib/scripts.lib:786
+#: lib/scripts.lib:792
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr ""
@@ -4145,61 +4137,66 @@ msgid ""
 "valid."
 msgstr ""
 
-#: lib/wine.lib:417
+#: lib/wine.lib:357
+#, sh-format
+msgid "Please wait while $APPLICATION_TITLE is scanning your hardware"
+msgstr ""
+
+#: lib/wine.lib:418
 #, sh-format
 msgid "Scanning your hardware..."
 msgstr ""
 
-#: lib/wine.lib:500 lib/wine.lib:665
+#: lib/wine.lib:501 lib/wine.lib:666
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
 "message"
 msgstr ""
 
-#: lib/wine.lib:724
+#: lib/wine.lib:725
 #, sh-format
 msgid "Unable to find version: "
 msgstr ""
 
-#: lib/wine.lib:730 lib/wine.lib:731
+#: lib/wine.lib:731 lib/wine.lib:732
 #, sh-format
 msgid "Downloading Wine: "
 msgstr ""
 
-#: lib/wine.lib:740
+#: lib/wine.lib:741
 #, sh-format
 msgid "The download seems to have failed."
 msgstr ""
 
-#: lib/wine.lib:742
+#: lib/wine.lib:743
 #, sh-format
 msgid "Extracting Wine..."
 msgstr ""
 
-#: lib/wine.lib:994 lib/wine.lib:1024
+#: lib/wine.lib:995 lib/wine.lib:1025
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr ""
 
-#: lib/wine.lib:998 lib/wine.lib:1027
+#: lib/wine.lib:999 lib/wine.lib:1028
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
 "have to reinstall $SOFTNAME"
 msgstr ""
 
-#: lib/wine.lib:998 lib/wine.lib:1027
+#: lib/wine.lib:999 lib/wine.lib:1028
 #, sh-format
 msgid "Install is done"
 msgstr ""
 
-#: lib/wine.lib:1031 lib/wine.lib:1032
+#: lib/wine.lib:1032 lib/wine.lib:1033
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr ""
 
-#: lib/wine.lib:1040
+#: lib/wine.lib:1041
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr ""
