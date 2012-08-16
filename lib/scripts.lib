@@ -362,11 +362,14 @@ POL_Call()
 		if [ "$polMd5" = "68b329da9893e34099c7d8ad5cb9c940" ] || [ "$polMd5" = "0f1b63a74ab217a19270be0df9e0590d" ] # Empty file
 		then
 			POL_Debug_Error "Function $1 does not exist!"
+			exitcode="1"
 		else
 			POL_Source "$@"
+			exitcode="$?"
 		fi
 		cd "$OLD_PC_DIR"
 	fi
+	return "$exitcode"
 }
 POL_Call_list ()
 {
