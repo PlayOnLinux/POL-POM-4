@@ -90,6 +90,11 @@ cd "$REPERTOIRE/shortcuts"
 export POL_IgnoreWineErrors="True"
 
 $(POL_Config_Read PRE_RUNNING)
+
+if [ "$(POL_Config_Read DONT_KILL_ON_EXIT)" = "TRUE" ]; then
+	export POL_DONT_REGISTER_PID="TRUE"
+fi
+
 if [ -e "$POL_USER_ROOT/configurations/pre_shortcut/$PACKAGE" ]; then
 	source "$POL_USER_ROOT/configurations/pre_shortcut/$PACKAGE"
 fi

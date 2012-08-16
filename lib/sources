@@ -37,9 +37,10 @@ then
 	source "$PLAYONLINUX/lib/dosbox.lib"
 	[ "$DEBIAN_PACKAGE" = "TRUE" ] && source "$PLAYONLINUX/lib/debian.lib"
 fi
-if [ ! "$ONLY_ONCE" ]
-then
+if [ ! "$ONLY_ONCE" ]; then
 	set -o monitor
 	export ONLY_ONCE="1"
 fi
-POL_System_RegisterPID "$$"
+if [ ! "$POL_DONT_REGISTER_PID" ]; then
+	POL_System_RegisterPID "$$"
+fi
