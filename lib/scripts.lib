@@ -449,11 +449,13 @@ POL_Download ()
 			POL_Debug_Warning "POL_Download - MD5 is missing!"
 		elif [ "$2" = "NO_MD5" ]
 		then
-			POL_Debug_Message "Skipping MD5 checksum control"		    
+			POL_Debug_Message "Skipping MD5 checksum control"
 		else
 			local LOCAL_MD5="$(POL_MD5_file "$FICHIER")"
-			if [ ! "$2" = "$LOCAL_MD5" ]
+			if [ "$2" = "$LOCAL_MD5" ]
 			then
+				POL_Debug_Message "Download MD5 matches"
+			else
 				local SERVER_MD5="$2"
 				POL_SetupWindow_question "$(eval_gettext 'Error ! Files mismatch\n\nLocal : $LOCAL_MD5\nServer : $SERVER_MD5')\n\n$(eval_gettext 'Do you want to retry?')"
 				if [ "$APP_ANSWER" = "TRUE" ]; then
@@ -462,7 +464,7 @@ POL_Download ()
 					POL_Debug_Error "POL_Download - MD5 sum mismatch ! ($i attempt)"
 				fi
 			fi
-		fi	
+		fi
 	fi
 }
 POL_Download_Resource ()
@@ -479,8 +481,10 @@ POL_Download_Resource ()
 	[ "$3" ] && i="$3" || i=1
 	mkdir -p "$POL_USER_ROOT/ressources/$3"
 	cd "$POL_USER_ROOT/ressources/$3"
-	if [ ! -e "$FICHIER" ] || [ ! "$(POL_MD5_file "$FICHIER")" = "$2" ]
+	if [ -e "$FICHIER" ] && [ "$(POL_MD5_file "$FICHIER")" = "$2" ]
 	then
+		POL_Debug_Message "Resource already present"
+	else
 		if [ "$URL" = "" ]
 		then
 			POL_Debug_Error "POL_Download - URL is missing !"
@@ -499,8 +503,10 @@ POL_Download_Resource ()
 				POL_Debug_Warning "POL_Download - MD5 is missing !"
 			else
 				local LOCAL_MD5="$(POL_MD5_file "$FICHIER")"
-				if [ ! "$2" = "$LOCAL_MD5" ]
+				if [ "$2" = "$LOCAL_MD5" ]
 				then
+					POL_Debug_Message "Download MD5 matches"
+				else
 					local SERVER_MD5="$2"
 					POL_SetupWindow_question "$(eval_gettext 'Error ! Files mismatch\n\nLocal : $LOCAL_MD5\nServer : $SERVER_MD5')\n\n$(eval_gettext 'Do you want to retry?')"
 					if [ "$APP_ANSWER" = "FALSE" ]; then
