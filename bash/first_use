@@ -25,89 +25,17 @@ export XQUARTZ_VERSION="2.7.1"
 
 install_fonts () # Install Microsoft Fonts
 {
-	if [ ! -e "$REPERTOIRE/configurations/msfonts_installed" ]
-	then
-		
-	#	POL_SetupWindow_Init "$PLAYONLINUX/etc/setups/fonts/top.png" "$PLAYONLINUX/etc/setups/fonts/left.jpg"
-		POL_SetupWindow_message "$(eval_gettext "Microsoft fonts aren't installed; I'll install them for you.")$(eval_gettext "\nPlease make sure you are connected to the Internet.")" "$(eval_gettext 'Microsoft fonts')" 
-		echo -e "---$(eval_gettext " Licence translated into your language ")---
-$(eval_gettext "These fonts were provided by Microsoft\n\"in the interest of cross-platform compatibility\".")
-$(eval_gettext "This is no longer the case, but they are still available from third parties.")
-
-$(eval_gettext "You are free to download these fonts and use them for your own use,\nbut you may not redistribute them in modified form,\nincluding changes to the file name or packaging format.")\n" > "$REPERTOIRE/tmp/licence"
-		echo "---$(eval_gettext " Original licence ")---
-These fonts were provided by Microsoft \"in the interest of
-cross-platform compatibility\".
-This is no longer the case, but they are still available from
-third parties.
-
-You are free to download these fonts and use them for your own use,
-but you may not redistribute them in modified form, including changes
-to the file name or packaging format." >> "$REPERTOIRE/tmp/licence"
-		cat "$REPERTOIRE/tmp/licence"
-
-		POL_SetupWindow_licence "$(eval_gettext 'Please read and accept the following:')" "$(eval_gettext 'Microsoft fonts')" "$REPERTOIRE/tmp/licence"
+	if [ ! -e "$REPERTOIRE/configurations/msfonts_installed" ]; then
 		WebVersion=$($POL_WGET $SITE/check.txt -O-)
-		if [ "$WebVersion" == "" ]
-		then
+		if [ "$WebVersion" == "" ]; then
 			POL_SetupWindow_message "$(eval_gettext 'The PlayOnLinux website is unavailable.')$(eval_gettext "\nPlease make sure you are connected to the Internet.")" "$(eval_gettext 'Microsoft fonts')"
 			POL_SetupWindow_Close
+			return 1
 		else
-			rm -r "$REPERTOIRE/fonts/" 2> /dev/null
-			rm "$REPERTOIRE/fonts" 2> /dev/null
-			rm "$REPERTOIRE/configurations/fonts_installed" 2> /dev/null
-			FONTDIR="$REPERTOIRE/fonts/"
-			mkdir -p "$FONTDIR"
-			FONTS_INSTALLER="andale32.exe arialb32.exe arial32.exe comic32.exe courie32.exe georgi32.exe impact32.exe times32.exe trebuc32.exe verdan32.exe webdin32.exe"
-			cd "$FONTDIR"
-			PULSE=1
-			POL_SetupWindow_pulsebar "$(eval_gettext 'Downloading fonts')" "$(eval_gettext 'Microsoft fonts')"
-
-			for font in $FONTS_INSTALLER
-			do
-			 sleep 0.1
-			 POL_SetupWindow_set_text "$(eval_gettext 'Downloading: ')$font..."
-			 echo "$(eval_gettext 'Downloading: ')$font..."
-			 $POL_WGET "http://heanet.dl.sourceforge.net/sourceforge/corefonts/$font"
-			 PULSE=$(( PULSE + 8 ))
-			 POL_SetupWindow_pulse $PULSE
-			done
-
-			echo "$(eval_gettext 'Downloading: ')tahoma32.exe"
-			POL_SetupWindow_set_text "$(eval_gettext 'Downloading: ')tahoma32.exe"
-			$POL_WGET ftp://ftp.microsoft.com/softlib/MSLFILES/TAHOMA32.EXE
-			POL_SetupWindow_pulse 100
-			sleep 1
-			PULSE=1
-			POL_SetupWindow_pulsebar "$(eval_gettext 'Installing fonts')" "$(eval_gettext 'Microsoft fonts')"
-
-			for font in $FONTS_INSTALLER
-			do
-			 sleep 0.1
-			 POL_SetupWindow_set_text "$(eval_gettext 'Installing: ')$font..."
-			 echo "$(eval_gettext 'Installing: ')$font..."
-			 cabextract "$font" > /dev/null
-			 PULSE=$(( PULSE + 8 ))
-			 POL_SetupWindow_pulse $PULSE
-			 sleep 0.1
-			done
-
-			POL_SetupWindow_set_text "$(eval_gettext 'Installing: ')tahoma32.exe"
-			echo "$(eval_gettext 'Installing: ')tahoma32.exe"
-			cabextract tahoma32.exe > /dev/null
-			POL_SetupWindow_pulse 100
-			sleep 1
-			rm *.exe
-			rm *.done
-			rm *.dll
-			rm *.inf
-			rm *.txt
-			touch "$REPERTOIRE/configurations/msfonts_installed"
-			POL_SetupWindow_message "$(eval_gettext 'Microsoft fonts have been installed successfully.')" "$(eval_gettext 'Microsoft fonts')"
-		#	POL_SetupWindow_Close
-
-		fi
+			POL_Call POL_Internal_InstallFonts || return 1
+		fi	
 	fi
+	return 0
 }
 
 
@@ -317,11 +245,15 @@ fi
 if [ "$DEBIAN_PACKAGE" = "TRUE" ]; then
 	fonts_install
 else
-	install_fonts
+	if ! install_fonts; then
+		POL_SetupWindow_message "$(eval_gettext 'Error while installing fonts')" "$TITLE"
+		POL_SetupWindow_Close
+		exit 0
+	fi
 fi
 
-install_prefix
-POL_SetupWindow_message "$(eval_gettext 'Thank you for using $APPLICATION_TITLE')" "$(eval_gettext '$APPLICATION_TITLE first use')"
+POL_SetupWindow_message "$(eval_gettext 'Enjoy using $APPLICATION_TITLE')" "$(eval_gettext '$APPLICATION_TITLE first use')"
 POL_SetupWindow_Close
 POL_Config_Write FIRST_USE TRUE
 POL_Config_Write GECKO_INSTALLED TRUE
+exit 0
