@@ -102,6 +102,10 @@ else:
         os.environ["PATH"] = os.environ["PATH"]+":/usr/lib/wine-unstable/"
     elif(os.path.exists("/usr/lib32/wine-unstable/wineserver")):
         os.environ["PATH"] = os.environ["PATH"]+":/usr/lib32/wine-unstable/"
+    elif(os.path.exists("/usr/lib/i386-linux-gnu/wine-unstable/wineserver")):
+        os.environ["PATH"] = os.environ["PATH"]+":/usr/lib/i386-linux-gnu/wine-unstable/"
+    elif(os.path.exists("/usr/lib/i386-linux-gnu/wine-stable/wineserver")):
+        os.environ["PATH"] = os.environ["PATH"]+":/usr/lib/i386-linux-gnu/wine-stable/"
 
 os.environ["PATH_ORIGIN"] = os.environ["PATH"]
 os.environ["LD_PATH_ORIGIN"] = os.environ["LD_LIBRARY_PATH"]
