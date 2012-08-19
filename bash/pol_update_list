@@ -19,6 +19,7 @@
 
 
 # This script calls maj_check to update POL
+export DONT_MONTIOR="TRUE"
 [ "$PLAYONLINUX" = "" ] && exit 0
 source "$PLAYONLINUX/lib/sources"
 
