@@ -75,7 +75,7 @@ class POLWeb(threading.Thread):
             self.updating = True
             exe = ['bash',Variables.playonlinux_env+"/bash/pol_update_list"]
 
-            p = subprocess.Popen(exe, stdout=subprocess.PIPE)
+            p = subprocess.Popen(exe, stdout=subprocess.PIPE, preexec_fn=lambda: os.setpgid(os.getpid(), os.getpid()))
 
             while(True):
                 retcode = p.poll() #returns None while subprocess is running
