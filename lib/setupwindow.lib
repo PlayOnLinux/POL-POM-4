@@ -744,7 +744,7 @@ get_existing_POL_SetupWindow_shortcut_creator()
 	cd "$REPERTOIRE/shortcuts"
 	for file in *
 	do
-		if [ ! "$(cat "$file" | grep $WINEPREFIX)" = "" ]
+		if [ -e "$file" ] && [ ! "$(cat "$file" | grep $WINEPREFIX)" = "" ]
 		then
 			cat "$file" | grep "POL_Wine " | awk '{print $2}' | tr -d "\""
 		fi
