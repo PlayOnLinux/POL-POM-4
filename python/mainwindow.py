@@ -345,7 +345,7 @@ class MainWindow(wx.Frame):
 
         self.toolbar = self.CreateToolBar(wx.TB_TEXT)
         self.toolbar.SetToolBitmapSize(iconSize)
-        self.searchbox = wx.SearchCtrl( self.toolbar, 124, size=(50,50), style=wx.SIMPLE_BORDER )
+        self.searchbox = wx.SearchCtrl( self.toolbar, 124, style=wx.RAISED_BORDER )
         self.playTool = self.toolbar.AddLabelTool(wx.ID_OPEN, _("Run"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/play.png"))
         self.stopTool = self.toolbar.AddLabelTool(123, _("Close"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/stop.png"))
 
@@ -355,8 +355,15 @@ class MainWindow(wx.Frame):
         self.toolbar.AddSeparator()
         self.toolbar.AddLabelTool(121, _("Configure"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/configure.png"))
 
-        self.toolbar.AddStretchableSpace()
-        self.toolbar.AddControl( self.searchbox , _("Search")) 
+        try: 
+                self.toolbar.AddStretchableSpace()
+        except:
+                self.toolbar.AddSeparator()
+
+        if(os.environ["POL_OS"] == "Mac"):
+                self.toolbar.AddControl( self.searchbox , _("Search")) 
+        else:
+                self.toolbar.AddControl( self.searchbox ) 
 
         self.toolbar.Realize()
         self.Reload(self)
