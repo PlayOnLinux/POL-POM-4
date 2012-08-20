@@ -360,9 +360,9 @@ class MainWindow(wx.Frame):
         except:
                 self.toolbar.AddSeparator()
 
-        if(os.environ["POL_OS"] == "Mac"):
+        try:
                 self.toolbar.AddControl( self.searchbox , _("Search")) 
-        else:
+        except:
                 self.toolbar.AddControl( self.searchbox ) 
                 self.searchbox.SetDescriptiveText(_("Search"))
 
