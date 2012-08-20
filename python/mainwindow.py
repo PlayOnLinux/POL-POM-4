@@ -339,11 +339,13 @@ class MainWindow(wx.Frame):
         self.menubar.Append(self.help_menu, "&Help")
 
         #self.menubar.Append(self.help_menu, _("About"))
+        
         self.SetMenuBar(self.menubar)
         iconSize = (32,32)
 
         self.toolbar = self.CreateToolBar(wx.TB_TEXT)
         self.toolbar.SetToolBitmapSize(iconSize)
+        self.searchbox = wx.SearchCtrl( self.toolbar, 124, size=(50,50), style=wx.SIMPLE_BORDER )
         self.playTool = self.toolbar.AddLabelTool(wx.ID_OPEN, _("Run"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/play.png"))
         self.stopTool = self.toolbar.AddLabelTool(123, _("Close"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/stop.png"))
 
@@ -352,6 +354,9 @@ class MainWindow(wx.Frame):
         self.removeTool = self.toolbar_remove = self.toolbar.AddLabelTool(wx.ID_DELETE, _("Remove"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/delete.png"))
         self.toolbar.AddSeparator()
         self.toolbar.AddLabelTool(121, _("Configure"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/configure.png"))
+
+        self.toolbar.AddStretchableSpace()
+        self.toolbar.AddControl( self.searchbox , _("Search")) 
 
         self.toolbar.Realize()
         self.Reload(self)
@@ -382,6 +387,7 @@ class MainWindow(wx.Frame):
         wx.EVT_MENU(self, 115,  self.killall)
         wx.EVT_MENU(self, 121,  self.Configure)
         wx.EVT_MENU(self, 122,  self.Package)
+        wx.EVT_TEXT(self, 124,  self.Reload)
 
         #Options
         wx.EVT_MENU(self, 210,  self.Options)
@@ -798,21 +804,23 @@ class MainWindow(wx.Frame):
         else:
             self.iconFolder = "full_size";
         for game in self.games: #METTRE EN 32x32
-            if(not os.path.isdir(Variables.playonlinux_rep+"/shortcuts/"+game)):
-                if(os.path.exists(Variables.playonlinux_rep+"/icones/"+self.iconFolder+"/"+game)):
-                    file_icone = Variables.playonlinux_rep+"/icones/"+self.iconFolder+"/"+game
-                else:
-                    file_icone = Variables.playonlinux_env+"/etc/playonlinux.png"
+            if(self.searchbox.GetValue().encode("utf-8","replace").lower() in game.lower()):
+                if(not os.path.isdir(Variables.playonlinux_rep+"/shortcuts/"+game)):
+                    if(os.path.exists(Variables.playonlinux_rep+"/icones/"+self.iconFolder+"/"+game)):
+                         file_icone = Variables.playonlinux_rep+"/icones/"+self.iconFolder+"/"+game
+                    else:
+                        file_icone = Variables.playonlinux_env+"/etc/playonlinux.png"
 
-                try:
-                    self.bitmap = wx.Image(file_icone)
-                    self.bitmap.Rescale(self.iconSize,self.iconSize,wx.IMAGE_QUALITY_HIGH)
-                    self.bitmap = self.bitmap.ConvertToBitmap()
-                    self.images.Add(self.bitmap)
-                except:
-                    pass
-                item = self.list_game.AppendItem(root, game, self.i)
-                self.i += 1
+                    try:
+                        self.bitmap = wx.Image(file_icone)
+                        self.bitmap.Rescale(self.iconSize,self.iconSize,wx.IMAGE_QUALITY_HIGH)
+                        self.bitmap = self.bitmap.ConvertToBitmap()
+                        self.images.Add(self.bitmap)
+                    except:
+                        pass
+                    
+                    item = self.list_game.AppendItem(root, game, self.i)
+                    self.i += 1
         self.generate_menu(None)
 
         if(os.environ["POL_OS"] == "Mac"):
