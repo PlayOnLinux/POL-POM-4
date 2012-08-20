@@ -358,8 +358,13 @@ class MainWindow(wx.Frame):
 
         try: 
                 self.toolbar.AddStretchableSpace()
+                self.SpaceHack = False
         except:
-                self.toolbar.AddSeparator()
+                # wxpython 2.8 does not support AddStretchableSpace(). This is a dirty workaround for this.
+                self.dirtyHack = wx.StaticText(self.toolbar)
+                self.SpaceHack = True
+                self.toolbar.AddControl( self.dirtyHack ) 
+                self.UpdateSearchHackSize()
 
         if(os.environ["POL_OS"] == "Mac"):
                 self.toolbar.AddControl( self.searchbox , _("Search")) 
@@ -435,8 +440,26 @@ class MainWindow(wx.Frame):
         wx.EVT_MENU(self, 234, self.UninstallGame)
         wx.EVT_MENU(self, 235, self.RKill)
         wx.EVT_MENU(self, 236, self.ReadMe)
+        self.Bind(wx.EVT_SIZE, self.ResizeWindow)
+
         self.MgrAddPage()
+
+    def ResizeWindow(self, e):
+        self.UpdateGaugePos()
+        self.UpdateSearchHackSize()
        
+    def UpdateSearchHackSize(self):
+        if(self.SpaceHack == True):
+            self.dirtyHack.SetLabel("")
+            self.dirtyHack.SetSize((self.GetSize()[0]-500,1))
+
+    def UpdateGaugePos(self):
+        if(os.environ["POL_OS"] == "Mac"):
+            hauteur = 2;
+        else:
+            hauteur = 6;
+        self.jauge_update.SetPosition((self.GetSize()[0]-100, hauteur))
+
     def SetupWindowTimer_SendToGui(self, recvData):
         recvData = recvData.split("\t")
         while(self.SetupWindowTimer_action != None):
