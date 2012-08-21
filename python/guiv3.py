@@ -330,7 +330,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         if(os.environ["POL_OS"] == "Mac"):
             os.system("open "+url)
         else:
-            os.system("xdg-open "+surl)
+            os.system("xdg-open "+url)
 
 
     def POL_SetupWindow_textbox(self, message, title, value):
