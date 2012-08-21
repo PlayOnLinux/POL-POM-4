@@ -796,3 +796,13 @@ POL_SimpleMessage ()
 
 	echo "$POL_COOKIE	SimpleMessage	$(POL_Untab "$1")" | ncs "$POL_HOST" "$POL_PORT"
 }
+
+POL_SetupWindow_SetID()
+{
+	echo "$POL_COOKIE	POL_SetupWindow_SetID	$$	$1" | ncs "$POL_HOST" "$POL_PORT"	
+}
+
+POL_SetupWindow_UnsetID()
+{
+	echo "$POL_COOKIE	POL_SetupWindow_UnsetID" | ncs "$POL_HOST" "$POL_PORT"	
+}

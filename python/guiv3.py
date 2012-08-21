@@ -140,6 +140,11 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
         self.NextButton = wx.Button(self.footer, wx.ID_FORWARD, _("Next"), pos=(340,0),size=(85,37))
         self.BackButton = wx.Button(self.footer, wx.ID_FORWARD, _("Back"), pos=(250,0),size=(85,37))
+        self.InfoScript = wx.StaticBitmap(self.footer, -1, wx.Bitmap(os.environ['PLAYONLINUX']+"/resources/images/setups/about.png"), pos=(10,8))
+        self.InfoScript.Hide()
+        self.script_ID = 0
+        self.InfoScript.Bind(wx.EVT_LEFT_DOWN, self.InfoClick)
+        self.InfoScript.SetCursor(wx.StockCursor(wx.CURSOR_HAND))
 
         self.NoButton = wx.Button(self.footer, wx.ID_NO, _("No"), pos=(430,0),size=(85,37))
         self.YesButton = wx.Button(self.footer, wx.ID_YES, _("Yes"), pos=(340,0), size=(85,37))
@@ -313,7 +318,21 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release)
         self.DrawImage()
     
-  
+    def POL_SetupWindow_SetID(self, script_id):
+        self.InfoScript.Show()
+        self.script_ID = script_id
+
+    def POL_SetupWindow_UnsetID(self):
+        self.InfoScript.Hide()
+
+    def InfoClick(self, e):
+        url = "http://www.playonlinux.com/en/app-"+self.script_ID+".html"
+        if(os.environ["POL_OS"] == "Mac"):
+            os.system("open "+url)
+        else:
+            os.system("xdg-open "+surl)
+
+
     def POL_SetupWindow_textbox(self, message, title, value):
         self.Destroy_all()
         self.DrawDefault(message, title)

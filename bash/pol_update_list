@@ -28,8 +28,7 @@ config_maj() # Celle ci est exécuté à chaque ligne (wget | config_maj), elle 
 	read line
 	num="$line"
 	i=0
-	while [ ! "$line" = "" ]; do
-		read line
+	while read line; do
 		[ "$line" = "" ] && break
 		echo $(( i*100/num ))
 		file=$(echo "$line" | cut -d "/" -f 1)
