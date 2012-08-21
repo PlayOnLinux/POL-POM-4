@@ -364,8 +364,14 @@ POL_Call()
 			POL_Debug_Error "Function $1 does not exist!"
 			exitcode="1"
 		else
+			POL_Debug_Message "----- Starting function $1 -----" 
+			POL_Debug_LogToPrefix "----- Starting function $1 -----" 
 			POL_Source "$@"
 			exitcode="$?"
+			POL_Debug_Message "----- Ending function $1 -----" 
+			POL_Debug_LogToPrefix "----- Ending function $1 -----" 
+			
+
 		fi
 		cd "$OLD_PC_DIR"
 	fi
