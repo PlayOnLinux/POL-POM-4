@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2012-08-20 19:00:58+02:00\n"
+"POT-Creation-Date: 2012-08-21 19:00:56+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -994,7 +994,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:36
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:50
 #: PlayOnLinux_Scripts/Portal_:36 PlayOnLinux_Scripts/Team_Fortress_2_:36
-#: python/guiv3.py:144
+#: python/guiv3.py:149
 #, sh-format
 msgid "No"
 msgstr ""
@@ -1022,7 +1022,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:52
 #: PlayOnLinux_Scripts/Portal_:36 PlayOnLinux_Scripts/Portal_:38
 #: PlayOnLinux_Scripts/Team_Fortress_2_:36
-#: PlayOnLinux_Scripts/Team_Fortress_2_:38 python/guiv3.py:145
+#: PlayOnLinux_Scripts/Team_Fortress_2_:38 python/guiv3.py:150
 #, sh-format
 msgid "Yes"
 msgstr ""
@@ -1848,12 +1848,12 @@ msgstr ""
 msgid "Downloading $TITLE client"
 msgstr ""
 
-#: PlayOnLinux_Scripts/Guild_Wars_2_:84
+#: PlayOnLinux_Scripts/Guild_Wars_2_:85
 #, sh-format
 msgid ""
 "Because of wine bug #30512, dowloading will often crash, just relaunch the "
 "client and download will resume from where it stopped. Download percentage "
-"reset but don\\t"
+"reset but do not worry, it do not restart from the beginning."
 msgstr ""
 
 #: PlayOnLinux_Scripts/Halo_Combat_Evolved_:41
@@ -3221,7 +3221,7 @@ msgstr ""
 msgid "What would you like to do before installation?"
 msgstr ""
 
-#: bash/manual_install:206 lib/scripts.lib:382
+#: bash/manual_install:206 lib/scripts.lib:388
 #, sh-format
 msgid "Please make your choice"
 msgstr ""
@@ -3887,73 +3887,73 @@ msgid ""
 "location?"
 msgstr ""
 
-#: lib/scripts.lib:439 lib/scripts.lib:694
+#: lib/scripts.lib:445 lib/scripts.lib:700
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr ""
 
-#: lib/scripts.lib:441 lib/scripts.lib:495
+#: lib/scripts.lib:447 lib/scripts.lib:501
 #, sh-format
 msgid "An error happened during download."
 msgstr ""
 
-#: lib/scripts.lib:441 lib/scripts.lib:460 lib/scripts.lib:495
-#: lib/scripts.lib:511
+#: lib/scripts.lib:447 lib/scripts.lib:466 lib/scripts.lib:501
+#: lib/scripts.lib:517
 #, sh-format
 msgid "Do you want to retry?"
 msgstr ""
 
-#: lib/scripts.lib:460 lib/scripts.lib:511
+#: lib/scripts.lib:466 lib/scripts.lib:517
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 
-#: lib/scripts.lib:599
+#: lib/scripts.lib:605
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
 msgstr ""
 
-#: lib/scripts.lib:606
+#: lib/scripts.lib:612
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr ""
 
-#: lib/scripts.lib:610
+#: lib/scripts.lib:616
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr ""
 
-#: lib/scripts.lib:625
+#: lib/scripts.lib:631
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:656
+#: lib/scripts.lib:662
 #, sh-format
 msgid "Copying ${filename}"
 msgstr ""
 
-#: lib/scripts.lib:669
+#: lib/scripts.lib:675
 #, sh-format
 msgid "File size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:755
+#: lib/scripts.lib:761
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\n"
 "$APPLICATION_TITLE $NEEDED is required."
 msgstr ""
 
-#: lib/scripts.lib:770
+#: lib/scripts.lib:776
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
 "$NEEDED is recommended to continue."
 msgstr ""
 
-#: lib/scripts.lib:801
+#: lib/scripts.lib:807
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr ""
@@ -4000,7 +4000,7 @@ msgid ""
 "again."
 msgstr ""
 
-#: lib/setupwindow.lib:122 python/guiv3.py:724 python/lib/irc.py:291
+#: lib/setupwindow.lib:122 python/guiv3.py:743 python/lib/irc.py:291
 #: python/mainwindow.py:1101 python/mainwindow.py:1124
 #: python/mainwindow.py:1131 python/mainwindow.py:1140
 #: python/mainwindow.py:1152 python/mainwindow.py:1164 python/wrapper.py:121
@@ -4131,7 +4131,7 @@ msgstr ""
 msgid "I don't want to make another shortcut"
 msgstr ""
 
-#: lib/setupwindow.lib:699 python/guiv3.py:146
+#: lib/setupwindow.lib:699 python/guiv3.py:151
 #, sh-format
 msgid "Browse"
 msgstr ""
@@ -4435,35 +4435,35 @@ msgstr ""
 msgid "Back"
 msgstr ""
 
-#: python/guiv3.py:154
+#: python/guiv3.py:159
 msgid "I Agree"
 msgstr ""
 
-#: python/guiv3.py:155
+#: python/guiv3.py:160
 msgid "Show virtual drives"
 msgstr ""
 
-#: python/guiv3.py:176
+#: python/guiv3.py:181
 msgid "Login: "
 msgstr ""
 
-#: python/guiv3.py:177
+#: python/guiv3.py:182
 msgid "Password: "
 msgstr ""
 
-#: python/guiv3.py:180
+#: python/guiv3.py:185
 msgid "Register"
 msgstr ""
 
-#: python/guiv3.py:277
+#: python/guiv3.py:282
 msgid "MB downloaded"
 msgstr ""
 
-#: python/guiv3.py:277
+#: python/guiv3.py:282
 msgid "of"
 msgstr ""
 
-#: python/guiv3.py:724
+#: python/guiv3.py:743
 msgid "You cannot close this window"
 msgstr ""
 
