@@ -73,6 +73,11 @@ clean_tmp ()
 	# Usage: clean_tmp
 	# Be careful, it might be very dangerous !
 	# Cleanup is done in background
+	if [ "$POL_OS" = "Linux" ]; then # Don't clean tmp if POL is already running.
+		if [ "$(ps aux | grep '[p]ython mainwindow\.py' | wc -l)" -lt 1 ]; then
+			POL_Debug_Message "PlayOnLinux seems to be already running. Don't cleaning tmp"
+		fi	
+	fi
 	POL_Debug_Message "Cleaning temp directory"
 	mv "$POL_USER_ROOT/tmp" "$POL_USER_ROOT/tmp$$"
 	mkdir -p "$POL_USER_ROOT/tmp"
