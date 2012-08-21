@@ -30,8 +30,6 @@ else:
     os_pref = "linux"
 
 lib.lng.Lang()
-timeout = 2
-#socket.setdefaulttimeout(timeout)
 
 def SetWineVersion(game, version):
     cfile = Variables.playonlinux_rep+"shortcuts/"+game
@@ -126,15 +124,13 @@ class getVersions(threading.Thread):
             if(self.thread_message == "get"):
                 wfolder = os_pref+"-"+self.architecture
                 try :
-                    socket.setdefaulttimeout(timeout)
 
                     url = os.environ["WINE_SITE"]+"/"+wfolder+".lst"
 
                     #print(url)
                     req = urllib2.Request(url)
-                    handle = urllib2.urlopen(req)
+                    handle = urllib2.urlopen(req, timeout = 2)
                     time.sleep(1)
-                    socket.setdefaulttimeout(None)
                     available_versions = handle.read()
                     available_versions = string.split(available_versions,"\n")
 
@@ -156,7 +152,6 @@ class getVersions(threading.Thread):
                     time.sleep(1)
                     self.thread_message = "Err"
                     self.versions = ["Wine packages website is unavailable"]
-                    socket.setdefaulttimeout(None)
 
             else:
                 time.sleep(0.2)
