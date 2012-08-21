@@ -804,5 +804,5 @@ POL_SetupWindow_SetID()
 
 POL_SetupWindow_UnsetID()
 {
-	echo "$POL_COOKIE	POL_SetupWindow_UnsetID" | ncs "$POL_HOST" "$POL_PORT"	
+	echo "$POL_COOKIE	POL_SetupWindow_UnsetID	$$" | ncs "$POL_HOST" "$POL_PORT"	
 }

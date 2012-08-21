@@ -165,7 +165,7 @@ def readAction(object):
 
     if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_UnsetID'):
          if(len(object.SetupWindowTimer_action) == 2):
-             object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_SetID()
+             object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_UnsetID()
 
     if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_shortcut_list'):
          if(len(object.SetupWindowTimer_action) == 4):
