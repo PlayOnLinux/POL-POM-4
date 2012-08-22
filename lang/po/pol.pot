@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2012-08-21 19:00:56+02:00\n"
+"POT-Creation-Date: 2012-08-22 19:01:03+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -276,7 +276,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Street_Fighter_X_Tekken_:82
 #: PlayOnLinux_Scripts/Street_Fighter_X_Tekken_:101
 #: PlayOnLinux_Scripts/Super_Street_Fighter_IV___Arcade_Edition_:88
-#: PlayOnLinux_Scripts/TERA_:48 PlayOnLinux_Scripts/Team_Fortress_2_:88
+#: PlayOnLinux_Scripts/TERA_:48 PlayOnLinux_Scripts/Team_Fortress_2_:65
 #: PlayOnLinux_Scripts/The_Secret_World_:53
 #: PlayOnLinux_Scripts/The_Witcher_:132 PlayOnLinux_Scripts/Theme_Hospital_:57
 #: PlayOnLinux_Scripts/Warcraft_III__Reign_of_Chaos_:38
@@ -442,7 +442,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Star_Wars___The_Force_Unleashed___Ultimate_Sith_Edition_:140
 #: PlayOnLinux_Scripts/Street_Fighter_X_Tekken_:94
 #: PlayOnLinux_Scripts/Super_Street_Fighter_IV___Arcade_Edition_:81
-#: PlayOnLinux_Scripts/Team_Fortress_2_:95
+#: PlayOnLinux_Scripts/Team_Fortress_2_:72
 #: PlayOnLinux_Scripts/The_Witcher_:125
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_:94
 #: PlayOnLinux_Scripts/Worms_Reloaded_:71
@@ -993,8 +993,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:36
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:36
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:50
-#: PlayOnLinux_Scripts/Portal_:36 PlayOnLinux_Scripts/Team_Fortress_2_:36
-#: python/guiv3.py:149
+#: PlayOnLinux_Scripts/Portal_:36 python/guiv3.py:149
 #, sh-format
 msgid "No"
 msgstr ""
@@ -1004,7 +1003,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:36
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:36
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:50
-#: PlayOnLinux_Scripts/Portal_:36 PlayOnLinux_Scripts/Team_Fortress_2_:36
+#: PlayOnLinux_Scripts/Portal_:36
 #, sh-format
 msgid ""
 "Steam installation has been detected\\nwould you like to install this game "
@@ -1021,8 +1020,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:50
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:52
 #: PlayOnLinux_Scripts/Portal_:36 PlayOnLinux_Scripts/Portal_:38
-#: PlayOnLinux_Scripts/Team_Fortress_2_:36
-#: PlayOnLinux_Scripts/Team_Fortress_2_:38 python/guiv3.py:150
+#: python/guiv3.py:150
 #, sh-format
 msgid "Yes"
 msgstr ""
@@ -3690,7 +3688,7 @@ msgid ""
 msgstr ""
 
 #: bash/uninstall:25 bash/uninstall:53 bash/uninstall:56 bash/uninstall:58
-#: lib/playonlinux.lib:703
+#: lib/playonlinux.lib:709
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
 msgstr ""
@@ -3710,7 +3708,7 @@ msgstr ""
 msgid "This wizard will help you to uninstall: "
 msgstr ""
 
-#: bash/uninstall:53 lib/playonlinux.lib:703
+#: bash/uninstall:53 lib/playonlinux.lib:709
 #, sh-format
 msgid "Uninstalling..."
 msgstr ""
@@ -3785,13 +3783,13 @@ msgstr ""
 msgid "Setting Program Files var"
 msgstr ""
 
-#: lib/playonlinux.lib:235 lib/playonlinux.lib:241 lib/playonlinux.lib:247
-#: lib/playonlinux.lib:253 lib/playonlinux.lib:259 lib/playonlinux.lib:265
+#: lib/playonlinux.lib:241 lib/playonlinux.lib:247 lib/playonlinux.lib:253
+#: lib/playonlinux.lib:259 lib/playonlinux.lib:265 lib/playonlinux.lib:271
 #, sh-format
 msgid "This function is disabled in the PlayOnlinux environment."
 msgstr ""
 
-#: lib/playonlinux.lib:326
+#: lib/playonlinux.lib:332
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -3799,12 +3797,12 @@ msgid ""
 "responsible from it.\\nPlease ensure you know what you are doing !"
 msgstr ""
 
-#: lib/playonlinux.lib:327
+#: lib/playonlinux.lib:333
 #, sh-format
 msgid "Here the source code of the script. Check it carefully"
 msgstr ""
 
-#: lib/playonlinux.lib:348
+#: lib/playonlinux.lib:354
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -3812,48 +3810,48 @@ msgid ""
 "responsible from it.\\nPlease ensure you know what you are doing!"
 msgstr ""
 
-#: lib/playonlinux.lib:349
+#: lib/playonlinux.lib:355
 #, sh-format
 msgid "External library"
 msgstr ""
 
-#: lib/playonlinux.lib:349
+#: lib/playonlinux.lib:355
 #, sh-format
 msgid "Here the source code of the script. Check it carrefully"
 msgstr ""
 
-#: lib/playonlinux.lib:582
+#: lib/playonlinux.lib:588
 #, sh-format
 msgid "Making shortcut..."
 msgstr ""
 
-#: lib/playonlinux.lib:701
+#: lib/playonlinux.lib:707
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr ""
 
-#: lib/playonlinux.lib:808
+#: lib/playonlinux.lib:814
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:809
+#: lib/playonlinux.lib:815
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:810
+#: lib/playonlinux.lib:816
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:811
+#: lib/playonlinux.lib:817
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
@@ -4909,19 +4907,19 @@ msgstr ""
 msgid "You must restart {0} for the changes to take effect."
 msgstr ""
 
-#: python/wine_versions.py:199
+#: python/wine_versions.py:194
 msgid "Installed Wine versions: "
 msgstr ""
 
-#: python/wine_versions.py:200
+#: python/wine_versions.py:195
 msgid "Available Wine versions: "
 msgstr ""
 
-#: python/wine_versions.py:207
+#: python/wine_versions.py:202
 msgid "Wine versions"
 msgstr ""
 
-#: python/wine_versions.py:326
+#: python/wine_versions.py:321
 msgid "Are you sure you want to delete wine {0}?"
 msgstr ""
 
