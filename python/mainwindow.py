@@ -1108,22 +1108,36 @@ class PlayOnLinuxApp(wx.App):
         self.frame.Show(True)
         
         return True
-    def singleCheck(self, package, fatal=True):
+
+    def _executableFound(self, executable):
         devnull = open('/dev/null', 'wb')
         try:
-            returncode=subprocess.call(["which",package],stdout=devnull)
+            returncode = subprocess.call(["which",executable],stdout=devnull)
+            return (returncode == 0)
         except:
-            returncode=255
+            return False
 
-        if(fatal == True):
-            message = "You need to install it to continue"
-        else:
-            message = "You should install it to use {0}"
+    def _singleCheck(self, executable, package, fatal):
+        if not self._executableFound(executable):
+            message = _("{0} cannot find {1}")
+            if package is not None:
+                message += _(" (from {2})")
 
-        if(returncode != 0):
-            wx.MessageBox(_("{0} cannot find {1}.\n\n"+message).format(os.environ["APPLICATION_TITLE"],package),_("Error"))
-            if(fatal == True):
+            if fatal:
+                verdict = _("You need to install it to continue")
+            else:
+                verdict = _("You should install it to use {0}")
+
+            wx.MessageBox(("%s\n\n%s" % (message, verdict)).format(os.environ["APPLICATION_TITLE"], executable, package), _("Error"))
+
+            if fatal:
                 os._exit(0)
+
+    def singleCheck(self, executable, package=None):
+        self._singleCheck(executable, package, False)
+
+    def singleCheckFatal(self, executable, package=None):
+        self._singleCheck(executable, package, True)
 
     def systemCheck(self):
         #### Root uid check
@@ -1171,20 +1185,21 @@ class PlayOnLinuxApp(wx.App):
                     playonlinux.SetSettings("SEND_REPORT","TRUE")
 
         #### Other import checks
-        self.singleCheck("nc")
-        self.singleCheck("tar")
-        self.singleCheck("cabextract")
-        self.singleCheck("convert")
-        self.singleCheck("wget")
-        self.singleCheck("gpg")
+        self.singleCheckFatal("nc", package="Netcat")
+        self.singleCheckFatal("tar")
+        self.singleCheckFatal("cabextract")
+        self.singleCheckFatal("convert", package="ImageMagick")
+        self.singleCheckFatal("wget", package="Wget")
+        self.singleCheckFatal("gpg", package="GnuPG")
+
         if(os.environ["DEBIAN_PACKAGE"] == "FALSE"):
-            self.singleCheck("xterm",False)
-        self.singleCheck("gettext.sh",False)
-        self.singleCheck("icotool",False)
-        self.singleCheck("wrestool",False)
-        self.singleCheck("wine",False)
-        self.singleCheck("unzip",False)
-        self.singleCheck("7z",False)
+            self.singleCheck("xterm")
+        self.singleCheck("gettext.sh", package="gettext")  # gettext-base on Debian
+        self.singleCheck("icotool", package="icoutils")
+        self.singleCheck("wrestool", package="icoutils")
+        self.singleCheck("wine", package="Wine")
+        self.singleCheck("unzip", package="InfoZIP")
+        self.singleCheck("7z", package="P7ZIP full")  # p7zip-full on Debian
 
     def BringWindowToFront(self):
         try: # it's possible for this event to come when the frame is closed
