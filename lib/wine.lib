@@ -952,7 +952,7 @@ EOF
 		shift
 	done
  
-	POL_Debug_Message "Overriting DLLs"
+	POL_Debug_Message "Overriding DLLs"
 	POL_SetupWindow_wait_next_signal "Please wait" "$TITLE"
 	POL_Wine regedit "$POL_USER_ROOT/tmp/override-dll.reg"
 }
