@@ -480,11 +480,15 @@ POL_Wine ()
 		WINEMENUBUILDER_ALERT="Done"
 	fi
 	if [ "$1" = "regedit" -a ! "$2" = "" ]; then
-		POL_Debug_LogToPrefix "Content of $2"
-		echo '-----------' >> "$WINEPREFIX/playonlinux.log"
-		cat "$2" >> "$WINEPREFIX/playonlinux.log"
-		echo '-----------' >> "$WINEPREFIX/playonlinux.log"
-	elif [ "$1" = "regedit" ]; then 
+		if [ -e "$2" ]; then
+			POL_Debug_LogToPrefix "Content of $2"
+			(echo '-----------'
+			 cat "$2"
+			 echo '-----------') >> "$WINEPREFIX/playonlinux.log"
+		else
+			POL_Debug_LogToPrefix "regedit parameter '$2' is not a file, not dumped to log"
+		fi
+	elif [ "$1" = "regedit" ]; then
 		POL_Debug_LogToPrefix "User modified something in the registry manually"
 	fi
 
