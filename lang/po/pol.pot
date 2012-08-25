@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2012-08-24 19:00:58+02:00\n"
+"POT-Creation-Date: 2012-08-25 19:00:59+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -209,8 +209,11 @@ msgstr ""
 #: PlayOnLinux_Scripts/Age_Of_Empires_II___The_Age_of_Kings_:55
 #: PlayOnLinux_Scripts/Age_Of_Wonders_:36
 #: PlayOnLinux_Scripts/Assassin_s_Creed_:55
+#: PlayOnLinux_Scripts/Myst_III__Exile_:36
+#: PlayOnLinux_Scripts/Myst_IV__Revelation_:33
 #: PlayOnLinux_Scripts/Need_For_Speed_III___Hot_Pursuit_:34
 #: PlayOnLinux_Scripts/Theme_Hospital_:43
+#: PlayOnLinux_Scripts/Tomb_Raider__The_Last_Revelation_:34
 #: PlayOnLinux_Scripts/Warcraft_III__Reign_of_Chaos_:30
 #: PlayOnLinux_Scripts/Warcraft_III__The_Frozen_Throne_:36
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:80
@@ -1283,7 +1286,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:109 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:421 lib/wine.lib:995 lib/wine.lib:1025
+#: bash/winebash:27 lib/setupwindow.lib:421 lib/wine.lib:999 lib/wine.lib:1029
 #, sh-format
 msgid "Please wait..."
 msgstr ""
@@ -2015,6 +2018,11 @@ msgstr ""
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:182
 #, sh-format
 msgid "Check which components do you want to install additionally:"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Myst_III__Exile_:45
+#, sh-format
+msgid "Coping install files, please wait..."
 msgstr ""
 
 #: PlayOnLinux_Scripts/OnLive_:42
@@ -3768,7 +3776,7 @@ msgid ""
 msgstr ""
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:887 lib/wine.lib:921
+#: lib/wine.lib:891 lib/wine.lib:925
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr ""
@@ -3999,9 +4007,9 @@ msgid ""
 msgstr ""
 
 #: lib/setupwindow.lib:122 python/guiv3.py:743 python/lib/irc.py:291
-#: python/mainwindow.py:1101 python/mainwindow.py:1124
-#: python/mainwindow.py:1131 python/mainwindow.py:1140
-#: python/mainwindow.py:1152 python/mainwindow.py:1164 python/wrapper.py:121
+#: python/mainwindow.py:1101 python/mainwindow.py:1131
+#: python/mainwindow.py:1145 python/mainwindow.py:1154
+#: python/mainwindow.py:1166 python/mainwindow.py:1178 python/wrapper.py:121
 #, sh-format
 msgid "Error"
 msgstr ""
@@ -4161,56 +4169,56 @@ msgstr ""
 msgid "Scanning your hardware..."
 msgstr ""
 
-#: lib/wine.lib:501 lib/wine.lib:666
+#: lib/wine.lib:505 lib/wine.lib:670
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
 "message"
 msgstr ""
 
-#: lib/wine.lib:725
+#: lib/wine.lib:729
 #, sh-format
 msgid "Unable to find version: "
 msgstr ""
 
-#: lib/wine.lib:731 lib/wine.lib:732
+#: lib/wine.lib:735 lib/wine.lib:736
 #, sh-format
 msgid "Downloading Wine: "
 msgstr ""
 
-#: lib/wine.lib:741
+#: lib/wine.lib:745
 #, sh-format
 msgid "The download seems to have failed."
 msgstr ""
 
-#: lib/wine.lib:743
+#: lib/wine.lib:747
 #, sh-format
 msgid "Extracting Wine..."
 msgstr ""
 
-#: lib/wine.lib:995 lib/wine.lib:1025
+#: lib/wine.lib:999 lib/wine.lib:1029
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr ""
 
-#: lib/wine.lib:999 lib/wine.lib:1028
+#: lib/wine.lib:1003 lib/wine.lib:1032
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
 "have to reinstall $SOFTNAME"
 msgstr ""
 
-#: lib/wine.lib:999 lib/wine.lib:1028
+#: lib/wine.lib:1003 lib/wine.lib:1032
 #, sh-format
 msgid "Install is done"
 msgstr ""
 
-#: lib/wine.lib:1032 lib/wine.lib:1033
+#: lib/wine.lib:1036 lib/wine.lib:1037
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr ""
 
-#: lib/wine.lib:1041
+#: lib/wine.lib:1045
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr ""
@@ -4780,38 +4788,48 @@ msgstr ""
 msgid "{0} is not able to start PlayOnLinux Setup Window server."
 msgstr ""
 
-#: python/mainwindow.py:1124
-msgid ""
-"{0} cannot find {1}.\n"
-"\n"
+#: python/mainwindow.py:1122
+msgid "{0} cannot find {1}"
 msgstr ""
 
-#: python/mainwindow.py:1131
+#: python/mainwindow.py:1124
+msgid " (from {2})"
+msgstr ""
+
+#: python/mainwindow.py:1127
+msgid "You need to install it to continue"
+msgstr ""
+
+#: python/mainwindow.py:1129
+msgid "You should install it to use {0}"
+msgstr ""
+
+#: python/mainwindow.py:1145
 msgid "{0} is not supposed to be run as root. Sorry"
 msgstr ""
 
-#: python/mainwindow.py:1140
+#: python/mainwindow.py:1154
 msgid ""
 "{0} is unable to find 32bits OpenGL libraries.\n"
 "\n"
 "You might encounter problem with your games"
 msgstr ""
 
-#: python/mainwindow.py:1152
+#: python/mainwindow.py:1166
 msgid ""
 "{0} is unable to find 64bits OpenGL libraries.\n"
 "\n"
 "You might encounter problem with your games"
 msgstr ""
 
-#: python/mainwindow.py:1164
+#: python/mainwindow.py:1178
 msgid ""
 "Your filesystem might prevent {0} from running correctly.\n"
 "\n"
 "Please open {0} in a terminal to get more details"
 msgstr ""
 
-#: python/mainwindow.py:1168
+#: python/mainwindow.py:1182
 msgid ""
 "Do you want to help {0} to make a compatibility database?\n"
 "\n"
@@ -4826,11 +4844,11 @@ msgid ""
 "These information will be very precious for us to help people."
 msgstr ""
 
-#: python/mainwindow.py:1220
+#: python/mainwindow.py:1235
 msgid "Are you sure you want to  want to install {0} package?"
 msgstr ""
 
-#: python/mainwindow.py:1227 python/mainwindow.py:1229
+#: python/mainwindow.py:1242 python/mainwindow.py:1244
 msgid ""
 "You are trying to open a script design for {0}! It might not work as expected"
 msgstr ""
