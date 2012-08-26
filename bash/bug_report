@@ -88,7 +88,7 @@ POL_Website_Init
 contenu="$(cat "$LOGFILE")"
 DESCRIPTION="$(POL_Website_urlparse "$DESCRIPTION")"
 BUGTITLE="$(POL_Website_urlparse "$BUGTITLE")"
-SCRIPTTITLE="$(POL_Website_urlparse "$LOGTITLE")"
+SCRIPTTITLE="$(POL_Website_urlencode "$LOGTITLE")"
 
 POL_Website_Request "http://www.playonlinux.com/bugs/getScriptTrackerName.php?id=$SCRIPTTITLE"
 
