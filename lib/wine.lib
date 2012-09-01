@@ -906,8 +906,18 @@ POL_Wine_PrefixCreate()
 			# System wineversion
 			## Really bad idea
 			## export WINEARCH=win32
-			POL_Debug_InitPrefix
+			if [ ! "$POL_ARCH" = "" ]; then
+				if [ "$POL_ARCH" = "x86" ]; then
+					export WINEARCH=win32
+				else
+					export WINEARCH=win64
+				fi
+				POL_Debug_Message "Setting WINEARCH to $WINEARCH"
+			fi
+			
 			wine wineboot
+			POL_Debug_InitPrefix
+			
 			if [ -e "$WINEPREFIX/drive_c/windows/syswow64" ] # It is a 64 bits prefix
 			then
 				POL_Config_PrefixWrite "ARCH" "amd64"
