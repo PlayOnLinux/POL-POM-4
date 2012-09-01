@@ -683,6 +683,7 @@ POL_Wine_SelectPrefix()
 	export DOSPREFIX="$WINEPREFIX"
 	if [ -e "$WINEPREFIX/playonlinux.cfg" ]; then
 		export POL_WINEVERSION="$(POL_Config_PrefixRead VERSION)"
+		POL_System_SetArch "$(POL_Config_PrefixRead ARCH)"
 	else
 		touch "$WINEPREFIX/playonlinux.cfg" 2> /dev/null
 	fi
