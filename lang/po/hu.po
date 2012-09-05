@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hu1\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2012-08-27 19:00+0200\n"
+"POT-Creation-Date: 2012-09-03 19:07+0200\n"
 "PO-Revision-Date: 2012-02-20 20:18+0000\n"
 "Last-Translator: zs.dani1@gmail.com <Unknown>\n"
 "Language-Team: hungarian <mypclinuxos.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-08-28 05:15+0000\n"
-"X-Generator: Launchpad (build 15864)\n"
+"X-Launchpad-Export-Date: 2012-09-04 04:42+0000\n"
+"X-Generator: Launchpad (build 15890)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -254,7 +254,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/F.E.A.R._3_:50 PlayOnLinux_Scripts/F.E.A.R._3_:63
 #: PlayOnLinux_Scripts/Fable_III_:91 PlayOnLinux_Scripts/Far_Cry_2_:80
 #: PlayOnLinux_Scripts/Google_SketchUp_:48
-#: PlayOnLinux_Scripts/Guild_Wars_2_:74 PlayOnLinux_Scripts/Half_Life_1_:30
+#: PlayOnLinux_Scripts/Guild_Wars_2_:75 PlayOnLinux_Scripts/Half_Life_1_:30
 #: PlayOnLinux_Scripts/Half_Life_2_:108
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:88
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:88
@@ -530,7 +530,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Dead_Rising_2_:62 PlayOnLinux_Scripts/Dead_Space_:62
 #: PlayOnLinux_Scripts/Dead_Space_2_:85
 #: PlayOnLinux_Scripts/Deus_Ex___Human_Revolution_:65
-#: PlayOnLinux_Scripts/Devil_May_Cry_4_:63 PlayOnLinux_Scripts/Diablo_II_:44
+#: PlayOnLinux_Scripts/Devil_May_Cry_4_:63 PlayOnLinux_Scripts/Diablo_II_:48
 #: PlayOnLinux_Scripts/Divinity_II___The_Dragon_Knight_Saga_:73
 #: PlayOnLinux_Scripts/Dragon_Age_2_:65
 #: PlayOnLinux_Scripts/Dragon_Age___Awakening_:56
@@ -593,7 +593,7 @@ msgid "Installation in progress..."
 msgstr "Telepítés folyamatban..."
 
 #: PlayOnLinux_Scripts/Anno_1602_:76 PlayOnLinux_Scripts/Cadstd_Lite_3.7.0_:40
-#: PlayOnLinux_Scripts/Diablo_II_:72 PlayOnLinux_Scripts/IZArc_:42
+#: PlayOnLinux_Scripts/Diablo_II_:67 PlayOnLinux_Scripts/IZArc_:42
 #: PlayOnLinux_Scripts/Mount_and_Blade___Warband_:82
 #: PlayOnLinux_Scripts/Safari_:77
 #: PlayOnLinux_Scripts/Windows_Media_Player_10_:80
@@ -1193,7 +1193,8 @@ msgid ""
 "0|sudo tee /proc/sys/kernel/yama/ptrace_scope"
 msgstr ""
 
-#: PlayOnLinux_Scripts/Diablo_II_:51 PlayOnLinux_Scripts/SimCity_2000_:47
+#: PlayOnLinux_Scripts/Diablo_II_:25 PlayOnLinux_Scripts/Diablo_II_:50
+#: PlayOnLinux_Scripts/SimCity_2000_:47
 #, sh-format
 msgid "Installing $TITLE"
 msgstr ""
@@ -1293,7 +1294,8 @@ msgstr ""
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:109 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:421 lib/wine.lib:999 lib/wine.lib:1029
+#: bash/winebash:27 lib/setupwindow.lib:421 lib/wine.lib:1010
+#: lib/wine.lib:1040
 #, sh-format
 msgid "Please wait..."
 msgstr ""
@@ -1364,8 +1366,10 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Fallout_2_:38
 #: PlayOnLinux_Scripts/GOG.com___Fallout_Tactics_:38
 #: PlayOnLinux_Scripts/GOG.com___Far_Cry_:42
+#: PlayOnLinux_Scripts/GOG.com___Far_Cry_2_:40
 #: PlayOnLinux_Scripts/GOG.com___Flatout_:38
 #: PlayOnLinux_Scripts/GOG.com___Forgotten_Realms__Demon_Stone_:38
+#: PlayOnLinux_Scripts/GOG.com___Freedom_Force_vs._the_3rd_Reich_:38
 #: PlayOnLinux_Scripts/GOG.com___Freespace_2_:38
 #: PlayOnLinux_Scripts/GOG.com___Gabriel_Knight_1__Sins_of_the_Fathers_:38
 #: PlayOnLinux_Scripts/GOG.com___Gabriel_Knight_2__The_Beast_Within_:38
@@ -1446,6 +1450,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Theme_Hospital_:38
 #: PlayOnLinux_Scripts/GOG.com___Thief_2_:40
 #: PlayOnLinux_Scripts/GOG.com___Tom_Clancy_s_Ghost_Recon_:38
+#: PlayOnLinux_Scripts/GOG.com___Torchlight_:42
 #: PlayOnLinux_Scripts/GOG.com___Two_Worlds__Epic_Edition_:36
 #: PlayOnLinux_Scripts/GOG.com___Tyrian_2000_:38
 #: PlayOnLinux_Scripts/GOG.com___UFO__Afterlight_:38
@@ -1852,12 +1857,7 @@ msgstr ""
 msgid "Please insert the DVD-ROM"
 msgstr ""
 
-#: PlayOnLinux_Scripts/Guild_Wars_2_:70
-#, sh-format
-msgid "Downloading $TITLE client"
-msgstr ""
-
-#: PlayOnLinux_Scripts/Guild_Wars_2_:91
+#: PlayOnLinux_Scripts/Guild_Wars_2_:92
 #, sh-format
 msgid ""
 "Because of wine bug #30512, dowloading will often crash, just relaunch the "
@@ -2432,26 +2432,26 @@ msgstr ""
 msgid "Please insert the first disc"
 msgstr ""
 
-#: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:13
+#: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:14
 #, sh-format
 msgid ""
 "Read this carefully!\\n\\nWhen the $TITLE installer ask you to change your "
 "cdrom, please come back to this $APPLICATION_TITLE window"
 msgstr ""
 
-#: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:17
+#: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:18
 #, sh-format
 msgid ""
 "When the installer ask you to insert the cdrom number $CDNumber, click "
 "next.\\n\\nDo not click next before!"
 msgstr ""
 
-#: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:20
+#: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:21
 #, sh-format
 msgid "Now, insert the cdrom number $CDNumber."
 msgstr ""
 
-#: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:25
+#: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:27
 #, sh-format
 msgid "Now you can go back to the $TITLE installation window to continue"
 msgstr ""
@@ -2888,7 +2888,7 @@ msgid "Don't join any log file"
 msgstr ""
 
 #: bash/bug_report:53 bash/manual_install:27 bash/manual_install:112
-#: bash/manual_install:118 bash/manual_install:195
+#: bash/manual_install:118 bash/manual_install:212
 #, sh-format
 msgid "Manual installation"
 msgstr ""
@@ -2937,7 +2937,7 @@ msgid ""
 "help you to make a new virtual drive"
 msgstr ""
 
-#: bash/create_prefix:30
+#: bash/create_prefix:30 bash/manual_install:191
 #, sh-format
 msgid "What kind of virtual drive do you want to create"
 msgstr ""
@@ -3221,7 +3221,7 @@ msgstr ""
 msgid "Use another version of Wine"
 msgstr ""
 
-#: bash/manual_install:160 bash/manual_install:195 bash/polconfigurator:95
+#: bash/manual_install:160 bash/manual_install:212 bash/polconfigurator:95
 #: python/configure.py:156 python/mainwindow.py:579 python/mainwindow.py:611
 #, sh-format
 msgid "Configure Wine"
@@ -3242,37 +3242,37 @@ msgstr ""
 msgid "What would you like to do before installation?"
 msgstr ""
 
-#: bash/manual_install:206 lib/scripts.lib:388
+#: bash/manual_install:223 lib/scripts.lib:388
 #, sh-format
 msgid "Please make your choice"
 msgstr ""
 
-#: bash/manual_install:230
+#: bash/manual_install:247
 #, sh-format
 msgid "Looking for runnable CD-ROMs"
 msgstr ""
 
-#: bash/manual_install:253
+#: bash/manual_install:270
 #, sh-format
 msgid "Select another file"
 msgstr ""
 
-#: bash/manual_install:261
+#: bash/manual_install:278
 #, sh-format
 msgid "Please choose a way to install your program"
 msgstr ""
 
-#: bash/manual_install:270
+#: bash/manual_install:287
 #, sh-format
 msgid "Please select the install file to run."
 msgstr ""
 
-#: bash/manual_install:300
+#: bash/manual_install:317
 #, sh-format
 msgid "You must choose a file!"
 msgstr ""
 
-#: bash/manual_install:306
+#: bash/manual_install:323
 #, sh-format
 msgid "$APPLICATION_TITLE is installing your application..."
 msgstr ""
@@ -3792,7 +3792,7 @@ msgid ""
 msgstr ""
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:891 lib/wine.lib:925
+#: lib/wine.lib:892 lib/wine.lib:936
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr ""
@@ -4192,49 +4192,49 @@ msgid ""
 "message"
 msgstr ""
 
-#: lib/wine.lib:729
+#: lib/wine.lib:730
 #, sh-format
 msgid "Unable to find version: "
 msgstr ""
 
-#: lib/wine.lib:735 lib/wine.lib:736
+#: lib/wine.lib:736 lib/wine.lib:737
 #, sh-format
 msgid "Downloading Wine: "
 msgstr ""
 
-#: lib/wine.lib:745
+#: lib/wine.lib:746
 #, sh-format
 msgid "The download seems to have failed."
 msgstr ""
 
-#: lib/wine.lib:747
+#: lib/wine.lib:748
 #, sh-format
 msgid "Extracting Wine..."
 msgstr ""
 
-#: lib/wine.lib:999 lib/wine.lib:1029
+#: lib/wine.lib:1010 lib/wine.lib:1040
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr ""
 
-#: lib/wine.lib:1003 lib/wine.lib:1032
+#: lib/wine.lib:1014 lib/wine.lib:1043
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
 "have to reinstall $SOFTNAME"
 msgstr ""
 
-#: lib/wine.lib:1003 lib/wine.lib:1032
+#: lib/wine.lib:1014 lib/wine.lib:1043
 #, sh-format
 msgid "Install is done"
 msgstr ""
 
-#: lib/wine.lib:1036 lib/wine.lib:1037
+#: lib/wine.lib:1047 lib/wine.lib:1048
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr ""
 
-#: lib/wine.lib:1045
+#: lib/wine.lib:1056
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr ""

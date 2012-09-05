@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2012-08-27 19:00+0200\n"
-"PO-Revision-Date: 2012-08-25 07:15+0000\n"
+"POT-Creation-Date: 2012-09-03 19:07+0200\n"
+"PO-Revision-Date: 2012-08-30 18:13+0000\n"
 "Last-Translator: rob <linuxned@gmail.com>\n"
 "Language-Team: nl_NL.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-08-28 05:14+0000\n"
-"X-Generator: Launchpad (build 15864)\n"
+"X-Launchpad-Export-Date: 2012-09-04 04:42+0000\n"
+"X-Generator: Launchpad (build 15890)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -271,7 +271,7 @@ msgstr "Voer spelschijf in in schijfstation."
 #: PlayOnLinux_Scripts/F.E.A.R._3_:50 PlayOnLinux_Scripts/F.E.A.R._3_:63
 #: PlayOnLinux_Scripts/Fable_III_:91 PlayOnLinux_Scripts/Far_Cry_2_:80
 #: PlayOnLinux_Scripts/Google_SketchUp_:48
-#: PlayOnLinux_Scripts/Guild_Wars_2_:74 PlayOnLinux_Scripts/Half_Life_1_:30
+#: PlayOnLinux_Scripts/Guild_Wars_2_:75 PlayOnLinux_Scripts/Half_Life_1_:30
 #: PlayOnLinux_Scripts/Half_Life_2_:108
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:88
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:88
@@ -558,7 +558,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Dead_Rising_2_:62 PlayOnLinux_Scripts/Dead_Space_:62
 #: PlayOnLinux_Scripts/Dead_Space_2_:85
 #: PlayOnLinux_Scripts/Deus_Ex___Human_Revolution_:65
-#: PlayOnLinux_Scripts/Devil_May_Cry_4_:63 PlayOnLinux_Scripts/Diablo_II_:44
+#: PlayOnLinux_Scripts/Devil_May_Cry_4_:63 PlayOnLinux_Scripts/Diablo_II_:48
 #: PlayOnLinux_Scripts/Divinity_II___The_Dragon_Knight_Saga_:73
 #: PlayOnLinux_Scripts/Dragon_Age_2_:65
 #: PlayOnLinux_Scripts/Dragon_Age___Awakening_:56
@@ -621,7 +621,7 @@ msgid "Installation in progress..."
 msgstr "Bezig met installeren…"
 
 #: PlayOnLinux_Scripts/Anno_1602_:76 PlayOnLinux_Scripts/Cadstd_Lite_3.7.0_:40
-#: PlayOnLinux_Scripts/Diablo_II_:72 PlayOnLinux_Scripts/IZArc_:42
+#: PlayOnLinux_Scripts/Diablo_II_:67 PlayOnLinux_Scripts/IZArc_:42
 #: PlayOnLinux_Scripts/Mount_and_Blade___Warband_:82
 #: PlayOnLinux_Scripts/Safari_:77
 #: PlayOnLinux_Scripts/Windows_Media_Player_10_:80
@@ -1263,7 +1263,8 @@ msgstr ""
 "Indien u een foutmelding 3007 krijgt tijdens het verbinden, open dan een "
 "terminalvenster en typ:\\necho 0|sudo tee /proc/sys/kernel/yama/ptrace_scope"
 
-#: PlayOnLinux_Scripts/Diablo_II_:51 PlayOnLinux_Scripts/SimCity_2000_:47
+#: PlayOnLinux_Scripts/Diablo_II_:25 PlayOnLinux_Scripts/Diablo_II_:50
+#: PlayOnLinux_Scripts/SimCity_2000_:47
 #, sh-format
 msgid "Installing $TITLE"
 msgstr "$TITLE wordt geïnstalleerd"
@@ -1372,7 +1373,8 @@ msgstr "Voer eerste spelschijf in in schijfstation."
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:109 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:421 lib/wine.lib:999 lib/wine.lib:1029
+#: bash/winebash:27 lib/setupwindow.lib:421 lib/wine.lib:1010
+#: lib/wine.lib:1040
 #, sh-format
 msgid "Please wait..."
 msgstr "Een moment geduld…"
@@ -1443,8 +1445,10 @@ msgstr "Welkom in het DLC-installatieprogramma voor $TITLE"
 #: PlayOnLinux_Scripts/GOG.com___Fallout_2_:38
 #: PlayOnLinux_Scripts/GOG.com___Fallout_Tactics_:38
 #: PlayOnLinux_Scripts/GOG.com___Far_Cry_:42
+#: PlayOnLinux_Scripts/GOG.com___Far_Cry_2_:40
 #: PlayOnLinux_Scripts/GOG.com___Flatout_:38
 #: PlayOnLinux_Scripts/GOG.com___Forgotten_Realms__Demon_Stone_:38
+#: PlayOnLinux_Scripts/GOG.com___Freedom_Force_vs._the_3rd_Reich_:38
 #: PlayOnLinux_Scripts/GOG.com___Freespace_2_:38
 #: PlayOnLinux_Scripts/GOG.com___Gabriel_Knight_1__Sins_of_the_Fathers_:38
 #: PlayOnLinux_Scripts/GOG.com___Gabriel_Knight_2__The_Beast_Within_:38
@@ -1525,6 +1529,7 @@ msgstr "Welkom in het DLC-installatieprogramma voor $TITLE"
 #: PlayOnLinux_Scripts/GOG.com___Theme_Hospital_:38
 #: PlayOnLinux_Scripts/GOG.com___Thief_2_:40
 #: PlayOnLinux_Scripts/GOG.com___Tom_Clancy_s_Ghost_Recon_:38
+#: PlayOnLinux_Scripts/GOG.com___Torchlight_:42
 #: PlayOnLinux_Scripts/GOG.com___Two_Worlds__Epic_Edition_:36
 #: PlayOnLinux_Scripts/GOG.com___Tyrian_2000_:38
 #: PlayOnLinux_Scripts/GOG.com___UFO__Afterlight_:38
@@ -1977,12 +1982,7 @@ msgstr "$TITLE is geïnstalleerd"
 msgid "Please insert the DVD-ROM"
 msgstr "Voer de dvd-rom in"
 
-#: PlayOnLinux_Scripts/Guild_Wars_2_:70
-#, sh-format
-msgid "Downloading $TITLE client"
-msgstr "Downloaden $TITLE-client"
-
-#: PlayOnLinux_Scripts/Guild_Wars_2_:91
+#: PlayOnLinux_Scripts/Guild_Wars_2_:92
 #, sh-format
 msgid ""
 "Because of wine bug #30512, dowloading will often crash, just relaunch the "
@@ -2189,7 +2189,7 @@ msgstr "Controleer welke extra componenten u nog meer wilt installeren:"
 #: PlayOnLinux_Scripts/Myst_III__Exile_:45
 #, sh-format
 msgid "Coping install files, please wait..."
-msgstr ""
+msgstr "Installatiebestanden kopiëren, even geduld..."
 
 #: PlayOnLinux_Scripts/OnLive_:42
 #, sh-format
@@ -2585,7 +2585,7 @@ msgstr "Spel voor Windows Live verwijderen…"
 #, sh-format
 msgid "Game For Windows Live is not installed\\nskipping uninstall routine."
 msgstr ""
-"Spel voor Windows Live is niet geïnstalleerd\\nverwijderingsroutine wordt "
+"Spel voor Windows Live is niet geïnstalleerd\\ndeïnstallatieroutine wordt "
 "overgeslagen."
 
 #: PlayOnLinux_Scripts/POL_Sudo_RehideCdrom_:13
@@ -2627,7 +2627,7 @@ msgstr ""
 msgid "Please insert the first disc"
 msgstr "Voer schijf 1 in"
 
-#: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:13
+#: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:14
 #, sh-format
 msgid ""
 "Read this carefully!\\n\\nWhen the $TITLE installer ask you to change your "
@@ -2637,7 +2637,7 @@ msgstr ""
 "$TITLE vraagt om een andere cd-rom , kom dan a.u.b. terug naar dit "
 "$APPLICATION_TITLE-venster"
 
-#: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:17
+#: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:18
 #, sh-format
 msgid ""
 "When the installer ask you to insert the cdrom number $CDNumber, click "
@@ -2646,12 +2646,12 @@ msgstr ""
 "Wanneer het installatieprogramma vraagt om cd-rom nummer $CDNumber, klik dan "
 "op Volgende.\\n\\nKlik NIET eerder op Volgende!"
 
-#: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:20
+#: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:21
 #, sh-format
 msgid "Now, insert the cdrom number $CDNumber."
 msgstr "Voer nu cdrom nummer $CDNumber in."
 
-#: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:25
+#: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:27
 #, sh-format
 msgid "Now you can go back to the $TITLE installation window to continue"
 msgstr ""
@@ -3137,7 +3137,7 @@ msgid "Don't join any log file"
 msgstr "Geen logbestand meesturen"
 
 #: bash/bug_report:53 bash/manual_install:27 bash/manual_install:112
-#: bash/manual_install:118 bash/manual_install:195
+#: bash/manual_install:118 bash/manual_install:212
 #, sh-format
 msgid "Manual installation"
 msgstr "Handmatige installatie"
@@ -3190,7 +3190,7 @@ msgstr ""
 "Welkom bij $APPLICATION_TITLE virtueel station aanmaken.\\n\\nHiermee kunt u "
 "een nieuw virtueel station aanmaken"
 
-#: bash/create_prefix:30
+#: bash/create_prefix:30 bash/manual_install:191
 #, sh-format
 msgid "What kind of virtual drive do you want to create"
 msgstr "Wat voor soort virtueel station wilt u aanmaken"
@@ -3494,7 +3494,7 @@ msgstr "Selecteer een programma"
 msgid "Use another version of Wine"
 msgstr "Gebruik een andere versie van Wine"
 
-#: bash/manual_install:160 bash/manual_install:195 bash/polconfigurator:95
+#: bash/manual_install:160 bash/manual_install:212 bash/polconfigurator:95
 #: python/configure.py:156 python/mainwindow.py:579 python/mainwindow.py:611
 #, sh-format
 msgid "Configure Wine"
@@ -3515,37 +3515,37 @@ msgstr "Als u het niet weet, deselecteer dan alles"
 msgid "What would you like to do before installation?"
 msgstr "Wat wilt u doen vooraf aan de installatie?"
 
-#: bash/manual_install:206 lib/scripts.lib:388
+#: bash/manual_install:223 lib/scripts.lib:388
 #, sh-format
 msgid "Please make your choice"
 msgstr "Maak een keuze"
 
-#: bash/manual_install:230
+#: bash/manual_install:247
 #, sh-format
 msgid "Looking for runnable CD-ROMs"
 msgstr "Zoeken naar uitvoerbare cd-roms"
 
-#: bash/manual_install:253
+#: bash/manual_install:270
 #, sh-format
 msgid "Select another file"
 msgstr "Selecteer een ander bestand"
 
-#: bash/manual_install:261
+#: bash/manual_install:278
 #, sh-format
 msgid "Please choose a way to install your program"
 msgstr "Selecteer een manier om uw programma te installeren"
 
-#: bash/manual_install:270
+#: bash/manual_install:287
 #, sh-format
 msgid "Please select the install file to run."
 msgstr "Selecteer het installatiebestand om uit te voeren."
 
-#: bash/manual_install:300
+#: bash/manual_install:317
 #, sh-format
 msgid "You must choose a file!"
 msgstr "U moet een bestand selecteren!"
 
-#: bash/manual_install:306
+#: bash/manual_install:323
 #, sh-format
 msgid "$APPLICATION_TITLE is installing your application..."
 msgstr "$APPLICATION_TITLE installeert uw programma…"
@@ -4013,12 +4013,12 @@ msgstr ""
 #: lib/playonlinux.lib:709
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
-msgstr "$APPLICATION_TITLE-verwijdering"
+msgstr "$APPLICATION_TITLE-deïnstallatie"
 
 #: bash/uninstall:29
 #, sh-format
 msgid "Please select a program to uninstall"
-msgstr "Selecteer een programma dat u wilt verwijderen"
+msgstr "Selecteer een programma dat u wilt deïnstalleren"
 
 #: bash/uninstall:40
 #, sh-format
@@ -4028,17 +4028,17 @@ msgstr "Klik op Volgende om door te gaan."
 #: bash/uninstall:40
 #, sh-format
 msgid "This wizard will help you to uninstall: "
-msgstr "Deze wizard zal u helpen met het verwijderen van: "
+msgstr "Deze wizard zal u helpen met het deïnstalleren van: "
 
 #: bash/uninstall:53 lib/playonlinux.lib:709
 #, sh-format
 msgid "Uninstalling..."
-msgstr "Bezig met verwijderen…"
+msgstr "Bezig met deïnstalleren…"
 
 #: bash/uninstall:56
 #, sh-format
 msgid " has been uninstalled successfully."
-msgstr " is met succes verwijderd."
+msgstr " is met succes gedeïnstalleerd."
 
 #: bash/uninstall:58
 #, sh-format
@@ -4099,7 +4099,7 @@ msgstr ""
 "voor meer informatie"
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:891 lib/wine.lib:925
+#: lib/wine.lib:892 lib/wine.lib:936
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr "Een moment geduld, het virtuele station wordt aangemaakt…"
@@ -4538,32 +4538,32 @@ msgstr ""
 "Wine lijkt vastgelopen te zijn\\n\\nWanneer uw programma gewoon werkt, dan "
 "kunt u dit bericht negeren"
 
-#: lib/wine.lib:729
+#: lib/wine.lib:730
 #, sh-format
 msgid "Unable to find version: "
 msgstr "Kan versie niet vinden: "
 
-#: lib/wine.lib:735 lib/wine.lib:736
+#: lib/wine.lib:736 lib/wine.lib:737
 #, sh-format
 msgid "Downloading Wine: "
 msgstr "Wine downloaden: "
 
-#: lib/wine.lib:745
+#: lib/wine.lib:746
 #, sh-format
 msgid "The download seems to have failed."
 msgstr "De download lijkt te zijn mislukt."
 
-#: lib/wine.lib:747
+#: lib/wine.lib:748
 #, sh-format
 msgid "Extracting Wine..."
 msgstr "Bezig met uitpakken van Wine…"
 
-#: lib/wine.lib:999 lib/wine.lib:1029
+#: lib/wine.lib:1010 lib/wine.lib:1040
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "Een moment geduld, $SOFTNAME wordt geïnstalleerd…"
 
-#: lib/wine.lib:1003 lib/wine.lib:1032
+#: lib/wine.lib:1014 lib/wine.lib:1043
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
@@ -4572,17 +4572,17 @@ msgstr ""
 "Let op! Dit zal het installatieproces beëindigen. Indien de installatie nog "
 "niet voltooid was, zult u $SOFTNAME opnieuw moeten installeren"
 
-#: lib/wine.lib:1003 lib/wine.lib:1032
+#: lib/wine.lib:1014 lib/wine.lib:1043
 #, sh-format
 msgid "Install is done"
 msgstr "Installatie is voltooid"
 
-#: lib/wine.lib:1036 lib/wine.lib:1037
+#: lib/wine.lib:1047 lib/wine.lib:1048
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr "Klik alleen op \"Volgende\" wanneer de installatie voltooid is"
 
-#: lib/wine.lib:1045
+#: lib/wine.lib:1056
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr "Een moment geduld, $APPLICATION_TITLE simuleert een herstart"
@@ -4598,8 +4598,8 @@ msgstr ""
 "Waarschuwing:\n"
 "\n"
 "Dit hulpmiddel is  voor ervaren gebruikers.\n"
-"Om een programma met {0} te verwijderen, dient u het geassocieerde virtuele "
-"station te verwijderen"
+"Om een programma met {0} te deïnstalleren, dient u het geassocieerde "
+"virtuele station te verwijderen"
 
 #: python/configure.py:125 python/configure.py:603
 msgid "General"
@@ -4651,7 +4651,7 @@ msgstr "Processen beëindigen"
 
 #: python/configure.py:212
 msgid "Wine uninstaller"
-msgstr "Wine-verwijdering"
+msgstr "Wine-deïnstallatie"
 
 #: python/configure.py:235 python/install.py:279 python/mainwindow.py:200
 #: python/mainwindow.py:353
@@ -5116,7 +5116,7 @@ msgstr "Map openen"
 
 #: python/mainwindow.py:748
 msgid "Uninstall"
-msgstr "Verwijderen"
+msgstr "Deïnstalleren"
 
 #: python/mainwindow.py:870 python/mainwindow.py:941 python/mainwindow.py:986
 msgid "Please select a program."
@@ -5188,19 +5188,19 @@ msgstr "{0} kon PlayOnLinux Setup Window server niet starten."
 
 #: python/mainwindow.py:1122
 msgid "{0} cannot find {1}"
-msgstr ""
+msgstr "{0} kan {1} niet vinden"
 
 #: python/mainwindow.py:1124
 msgid " (from {2})"
-msgstr ""
+msgstr " (van {2})"
 
 #: python/mainwindow.py:1127
 msgid "You need to install it to continue"
-msgstr ""
+msgstr "U dient het te installeren om door te gaan"
 
 #: python/mainwindow.py:1129
 msgid "You should install it to use {0}"
-msgstr ""
+msgstr "U dient het te installeren om {0} te gebruiken"
 
 #: python/mainwindow.py:1145
 msgid "{0} is not supposed to be run as root. Sorry"
