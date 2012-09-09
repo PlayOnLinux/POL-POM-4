@@ -34,7 +34,14 @@ class gui_server(threading.Thread):
         return ''.join([choice(chars) for i in range(length)])
 
     def handler(self, connection, addr):
-        self.temp = connection.recv(2048)
+        self.temp = "";
+        while True:
+            self.tempc = connection.recv(2048);
+           
+            self.temp += self.tempc
+            if "\n" in self.tempc:
+                break;
+
         self.result = self.interact(self.temp.replace("\n",""))
         connection.send(self.result)
         try: 
