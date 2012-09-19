@@ -37,7 +37,7 @@ class IRCClient(threading.Thread):
         return "<A href=\"%s\">%s</A>" % (url, url)
 
     def urlvivify(self, string):
-        return re.sub(r'((?:ftp://|https?://|news://)[-a-zA-Z0-9._/%?=&#]*)', self._vivify, string, 0, re.I)
+        return re.sub(r'((?:[fF][tT][pP]://|[hH][tT][tT][pP][sS]?://|[nN][eE][wW][sS]://)[-a-zA-Z0-9._/%?=&#]*)', self._vivify, string, 0)
 
     def connect(self): # Se connecte au serveur IRC
         if(self.ircconnected == False):
