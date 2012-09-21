@@ -98,7 +98,10 @@ install_x11()
 		/System/Library/CoreServices/Installer.app/Contents/MacOS/Installer /Volumes/$FilePrefix-$XQUARTZ_VERSION/$FilePrefix.pkg
 		umount /Volumes/$FilePrefix-$XQUARTZ_VERSION
 		POL_Internal_RunXQuartz
-		POL_Internal_XQuartz_Warning
+		
+		if [ ! "FORCE_X11_Reinstall" = "True" ]; then
+			POL_Internal_XQuartz_Warning
+		fi
 		POL_SetupWindow_message "$(eval_gettext "XQuartz has been installed.")" "$STEP_TITLE"
 	fi
 	
