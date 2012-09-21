@@ -21,7 +21,8 @@
 [ "$PLAYONLINUX" = "" ] && exit 0
 source "$PLAYONLINUX/lib/sources" 
 
-export XQUARTZ_VERSION="2.7.1"
+export XQUARTZ_VERSION_LEO="2.7.1"
+export XQUARTZ_VERSION="2.7.4_rc1"
 
 install_fonts () # Install Microsoft Fonts
 {
@@ -60,7 +61,7 @@ install_x11()
 {
 	if [ "$OSX_VERSION" = "9" ]
 	then
-		XQuartzUrl="http://xquartz.macosforge.org/downloads/Leopard/X11-$XQUARTZ_VERSION.dmg"
+		XQuartzUrl="http://xquartz.macosforge.org/downloads/Leopard/X11-$XQUARTZ_VERSION_LEO.dmg"
 		FilePrefix="X11"
 	else
 		XQuartzUrl="http://xquartz.macosforge.org/downloads/SL/XQuartz-$XQUARTZ_VERSION.dmg"
@@ -238,8 +239,7 @@ else
 	POL_SetupWindow_free_presentation "$(eval_gettext '$APPLICATION_TITLE first use')" "$(eval_gettext 'It appears it is the first time you are using 	$APPLICATION_TITLE.')\n$(eval_gettext 'This wizard will help you prepare $APPLICATION_TITLE environment')\n$(eval_gettext "Please ensure you are connected to the internet.")"
 fi
 
-[ "$POL_OS" == "Mac" ] && [ ! -e "/Applications/Utilities/XQuartz.app" ] && [ ! "$OSX_VERSION" = "11" ] &&  install_x11
-
+[ "$POL_OS" == "Mac" ] && [ ! -e "/Applications/Utilities/XQuartz.app" ] && install_x11
 [ "$POL_OS" == "Mac" ] && [ "$OSX_VERSION" = "9" ] &&  install_x11
 
 if [ "$DEBIAN_PACKAGE" = "TRUE" ]; then
