@@ -252,6 +252,16 @@ else
 	fi
 fi
 
+if [ "$OSX_VERSION" = "11" -a "$OSX_SUB_VERSION" -gt "4" ] || [ "$OSX_VERSION" = "12" -a "$OSX_SUB_VERSION" -gt "1" ]; then
+	# XQuartz 2.7.4 is needed here... See http://bugs.winehq.org/show_bug.cgi?id=31751
+	XVERSION="$(cat "/Applications/Utilities/XQuartz.app/Contents/Info.plist" | grep -A1 "<key>CFBundleShortVersionString</key>" | tail -n1 | cut -d '>' -f2 | cut -d '<' -f1)"
+	if VersionLower "$XVERSION" "2.7.4"; then
+		export FORCE_X11_Reinstall="True"
+		install_x11
+	fi
+fi 
+
+
 POL_SetupWindow_message "$(eval_gettext 'Enjoy using $APPLICATION_TITLE')" "$(eval_gettext '$APPLICATION_TITLE first use')"
 POL_SetupWindow_Close
 POL_Config_Write FIRST_USE TRUE
