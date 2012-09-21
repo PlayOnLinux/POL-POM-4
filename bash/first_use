@@ -230,6 +230,7 @@ EOF
 	export POL_WINEVERSION=""
 }
 migrate_oldpol
+
 POL_SetupWindow_Init --protect
 if [ "$(POL_Config_Read FIRST_FIRST_USE)" = "TRUE" ]
 then
