@@ -35,11 +35,13 @@ if [ ! "$(POL_Config_Read FIRST_USE)" = "TRUE" ]; then
 	bash "$PLAYONLINUX/bash/first_use"
 elif [ "$POL_OS" = "Mac" -a ! -e "/Applications/Utilities/XQuartz.app" -a "$OSX_VERSION" != "11" ]; then
 	bash "$PLAYONLINUX/bash/first_use"
-elif [ "$OSX_VERSION" = "11" -a "$OSX_SUB_VERSION" -gt "4" ] || [ "$OSX_VERSION" = "12" -a "$OSX_SUB_VERSION" -gt "1" ]; then
-	# XQuartz 2.7.4 is needed here... See http://bugs.winehq.org/show_bug.cgi?id=31751
-	XVERSION="$(cat "/Applications/Utilities/XQuartz.app/Contents/Info.plist" | grep -A1 "<key>CFBundleShortVersionString</key>" | tail -n1 | cut -d '>' -f2 | cut -d '<' -f1)"
-	if VersionLower "$XVERSION" "2.7.4"; then
+elif [ "$POL_OS" = "Mac" ]; then
+	if [ "$OSX_VERSION" = "11" -a "$OSX_SUB_VERSION" -gt "4" ] || [ "$OSX_VERSION" = "12" -a "$OSX_SUB_VERSION" -gt "1" ]; then
+		# XQuartz 2.7.4 is needed here... See http://bugs.winehq.org/show_bug.cgi?id=31751
+		XVERSION="$(cat "/Applications/Utilities/XQuartz.app/Contents/Info.plist" | grep -A1 "<key>CFBundleShortVersionString</key>" | tail -n1 | cut -d '>' -f2 | cut -d '<' -f1)"
+		if VersionLower "$XVERSION" "2.7.4"; then
 			bash "$PLAYONLINUX/bash/first_use"
+		fi
 	fi
 fi 
 
