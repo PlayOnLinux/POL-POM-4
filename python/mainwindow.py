@@ -1182,7 +1182,7 @@ class PlayOnLinuxApp(wx.App):
                 if(wx.YES == wx.MessageBox(_('Do you want to help {0} to make a compatibility database?\n\nIf you click yes, the following things will be sent to us anonymously the first time you run a Windows program:\n\n- You graphic card model\n- Your OS version\n- If graphic drivers are installed or not.\n\n\nThese information will be very precious for us to help people.').format(os.environ["APPLICATION_TITLE"]).decode("utf-8","replace"), os.environ["APPLICATION_TITLE"],style=wx.YES_NO | wx.ICON_QUESTION)):
                     playonlinux.SetSettings("SEND_REPORT","TRUE")
                 else:
-                    playonlinux.SetSettings("SEND_REPORT","TRUE")
+                    playonlinux.SetSettings("SEND_REPORT","FALSE")
 
         #### Other import checks
         self.singleCheckFatal("nc", package="Netcat")
