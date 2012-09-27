@@ -328,9 +328,9 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
     def InfoClick(self, e):
         url = "http://www.playonlinux.com/en/app-"+self.script_ID+".html"
         if(os.environ["POL_OS"] == "Mac"):
-            os.system("open "+url)
+            os.system("open "+url+" &")
         else:
-            os.system("xdg-open "+url)
+            os.system("xdg-open "+url+" &")
 
 
     def POL_SetupWindow_textbox(self, message, title, value):
