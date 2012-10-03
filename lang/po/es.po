@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2012-09-24 19:01+0200\n"
-"PO-Revision-Date: 2012-09-12 20:26+0000\n"
+"POT-Creation-Date: 2012-10-01 19:01+0200\n"
+"PO-Revision-Date: 2012-09-28 18:51+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitoschido@gmail.com>\n"
 "Language-Team: es_ES.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-09-25 04:34+0000\n"
-"X-Generator: Launchpad (build 16019)\n"
+"X-Launchpad-Export-Date: 2012-10-02 05:09+0000\n"
+"X-Generator: Launchpad (build 16061)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -1400,6 +1400,7 @@ msgstr "Bienvenido al instalador de DLC para $TITLE"
 #: PlayOnLinux_Scripts/GOG.com___Dark_Fall__The_Journal_:38
 #: PlayOnLinux_Scripts/GOG.com___Darkstone_:43
 #: PlayOnLinux_Scripts/GOG.com___Descent_3_:38
+#: PlayOnLinux_Scripts/GOG.com___Deus_Ex_2__Invisible_War_:39
 #: PlayOnLinux_Scripts/GOG.com___Deus_Ex_GOTY_Edition_:38
 #: PlayOnLinux_Scripts/GOG.com___Disciples_2_Gold_:39
 #: PlayOnLinux_Scripts/GOG.com___Divine_Divinity_:36
@@ -1516,6 +1517,7 @@ msgstr "Bienvenido al instalador de DLC para $TITLE"
 #: PlayOnLinux_Scripts/GOG.com___Wallace_and_Gromits_Grand_Adventures_:42
 #: PlayOnLinux_Scripts/GOG.com___Worlds_of_Ultima__The_Savage_Empire_:38
 #: PlayOnLinux_Scripts/GOG.com___XIII_:37
+#: PlayOnLinux_Scripts/GOG.com___Zeus_and_Poseidon_:39
 #: PlayOnLinux_Scripts/Infinity_Engine_widescreen_mod_:62
 #: PlayOnLinux_Scripts/Ski_Challenge_2012_:47
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_I__Arena_:66
@@ -4441,7 +4443,7 @@ msgstr "Conectar con su cuenta de $APPLICATION_TITLE"
 #: lib/website.lib:128
 #, sh-format
 msgid "Connecting..."
-msgstr "Conectando..."
+msgstr "Conectando…"
 
 #: lib/website.lib:133
 #, sh-format
@@ -4449,7 +4451,8 @@ msgid ""
 "Failed to connect !\\nPlease ensure that your login and your password are "
 "valid."
 msgstr ""
-"¡Imposible conectar!\\n Asegúrese de que su login y contraseña son correctas."
+"Falló la conexión.\\nAsegúrese de que su nombre de usuario y contraseña son "
+"válidos."
 
 #: lib/wine.lib:357
 #, sh-format
@@ -5131,11 +5134,11 @@ msgstr ""
 
 #: python/mainwindow.py:1127
 msgid "You need to install it to continue"
-msgstr ""
+msgstr "Es necesaria su instalación para continuar"
 
 #: python/mainwindow.py:1129
 msgid "You should install it to use {0}"
-msgstr ""
+msgstr "Debería ser instalado para su uso  {0}"
 
 #: python/mainwindow.py:1145
 msgid "{0} is not supposed to be run as root. Sorry"
