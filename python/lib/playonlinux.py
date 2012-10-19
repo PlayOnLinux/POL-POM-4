@@ -336,7 +336,7 @@ def getArgs(shortcut): # Get prefix name from shortcut
     fichier = string.split(fichier,"\n")
     i = 0
     while(i < len(fichier)):
-        if("POL_Wine" in fichier[i]):
+        if("POL_Wine " in fichier[i]):
             break
         i += 1
 
@@ -395,7 +395,7 @@ def writeArgs(game, args):
 
     while(i < len(fichier)): # On retire l'eventuel
         fichier[i] = fichier[i].replace("\n","")
-        if("POL_Wine" not in fichier[i]):
+        if("POL_Wine " not in fichier[i]):
             line.append(fichier[i])
         else:
             try:

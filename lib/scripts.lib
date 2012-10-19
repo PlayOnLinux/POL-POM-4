@@ -31,7 +31,7 @@ POL_Shortcut_InsertBeforeWine ()
 	CommandsToInsert="$2"
 
 	COMMANDS="${CommandsToInsert}" perl -ni -e '
-            if(!$done && /^POL_Wine/) {
+            if(!$done && /^POL_Wine /) {
                 print "$ENV{COMMANDS}\n";
                 $done=1;
             }
