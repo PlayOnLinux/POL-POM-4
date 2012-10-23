@@ -40,7 +40,7 @@ ncns()
 	if [ "$POL_OS" = "Mac" -o "$(POL_Config_Read FORCE_LEGACY_NETCAT)" = "TRUE" ]; then
 		nc "$@"
 	else
-		nc -q -1 "$@" || nc "$@"
+		nc -q -1 "$@" 2> /dev/null || nc "$@"
 		# Differents possibilities
 	fi
 }
