@@ -25,28 +25,12 @@ import lib.lng, lib.playonlinux as playonlinux
 lib.lng.Lang()
 
 
-# Create sub-class in order to overide error 206 which means a partial file is being sent,
-class dummy_URL_opener (urllib.FancyURLopener):
-    def http_error_206 (self, url, fp, errcode, errmsg, headers, data=None):
-        print "206" 
-        pass
-
 class Download(threading.Thread):
     def __init__(self, url, local):
         threading.Thread.__init__(self)
         self.url = url
         self.local = local
         self.taille_fichier = 0
-        
-        self.URL_handler = dummy_URL_opener ()
-        
-        if os.path.exists (self.local):
-            print "exist"
-            self.taille_fichier_actuel = os.path.getsize (self.local)
-            self.URL_handler.addheader ("Range","bytes=%s-" % (self.taille_fichier_actuel))
-        else:
-            self.taille_fichier_actuel = 0
-    
         self.taille_bloc = 0
         self.nb_blocs = 0
         self.finished = False
@@ -57,24 +41,10 @@ class Download(threading.Thread):
         self.nb_blocs = nb_blocs
         self.taille_bloc = taille_bloc
         self.taille_fichier = taille_fichier
-        
-    def onHookResuming(self, nb_blocs, taille_bloc, taille_fichier):
-        self.nb_blocs = nb_blocs
-        self.taille_bloc = taille_bloc
-        self.taille_fichier = taille_fichier
-          
-        self.localFile.write (self.localTmpFile.read (8192))
-        
+
     def download(self):
         try:
-            if self.taille_fichier_actuel != 0:
-                self.localFile    = open (self.local, "ab")
-                self.localTmpFile = open (self.local + "_tmp", "wb")
-                self.URL_handler.open (self.url, self.local + "_tmp", reporthook = self.onHookResuming)
-                self.localFile.close ()
-                self.localTmpFile.close ()
-            else:
-                urllib.urlretrieve(self.url, self.local, reporthook = self.onHook)
+            urllib.urlretrieve(self.url, self.local, reporthook = self.onHook)
         except:
             self.failed = True
         self.finished = True
