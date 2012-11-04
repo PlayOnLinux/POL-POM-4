@@ -943,7 +943,14 @@ POL_Wine_PrefixCreate()
 			wine wineboot
 		fi
 	fi
-	sleep 3 # We wait 3 seconds, so that we are sure that .reg file are created
+
+	# Make sure that .reg files are created
+	if which wineserver; then
+		wineserver -w
+	else
+		POL_Debug_Message "Warning, wineserver not found"
+		sleep 4
+	fi
 	POL_LoadVar_PROGRAMFILES
 }
 POL_Wine_OverrideDLL()
