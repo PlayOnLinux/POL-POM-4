@@ -93,6 +93,11 @@ POL_System_SetArch()
 	
 	POL_Debug_Message "POL_ARCH set to $POL_ARCH"
 }
+POL_System_HomeSpaceLeft()
+{
+	# Return the space left in the home partition
+	df "$HOME" | tail -n1 | awk '{print $4}'
+}
 POL_Shortcut_GetPrefix()
 {
 	# Get a prefixname from a shortcut
@@ -529,8 +534,7 @@ POL_Download_GetSize()
 {
 	# Get the size of a distant file
 	# Usage: POL_Download_GetSize [URL]
-	wget "$1" --spider --server-response -O - 2>&1 | sed -ne '/Content-Length/{s/.*: //;p}'
-	
+	wget "$1" --spider --server-response -O - 2>&1 | sed -ne '/Content-Length/{s/.*: //;p}'	
 }
 POL_MD5 ()
 {
