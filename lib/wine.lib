@@ -952,6 +952,7 @@ POL_Wine_PrefixCreate()
 		sleep 4
 	fi
 	POL_LoadVar_PROGRAMFILES
+	$(POL_Config_Read POST_PREFIXCREATE)
 }
 POL_Wine_OverrideDLL()
 {
