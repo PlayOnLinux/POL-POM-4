@@ -952,7 +952,8 @@ POL_Wine_PrefixCreate()
 		sleep 4
 	fi
 	POL_LoadVar_PROGRAMFILES
-	$(POL_Config_Read POST_PREFIXCREATE)
+	[ -e "$POL_USER_ROOT/configurations/post_prefixcreate" ] && \
+	    source "$POL_USER_ROOT/configurations/post_prefixcreate"
 }
 POL_Wine_OverrideDLL()
 {
