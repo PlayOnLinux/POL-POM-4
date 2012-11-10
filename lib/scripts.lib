@@ -100,10 +100,9 @@ POL_System_HomeSpaceLeft()
 }
 POL_System_EnoughSpace()
 {
-	# Return 0 if we have enough space, 1 otherwise
+	# Set exitcode to 0 if we have enough space, 1 otherwise
 	# Usage POL_System_HomeSpaceLeft [ Space required ]
-	
-	return [ "$1" -gt "$(POL_System_HomeSpaceLeft)" ]
+	[ "$1" -le "$(POL_System_HomeSpaceLeft)" ]
 }
 POL_Shortcut_GetPrefix()
 {
@@ -458,7 +457,8 @@ POL_Download ()
 	else
 		neededSpace="$(POL_Download_GetSize "$URL")"
 		if [ "$neededSpace" ]; then
-			[ "$(POL_System_EnoughSpace "$neededSpace")" ] || POL_Debug_Error "$(eval_gettext 'No enough space to download:\n$url')"
+			let neededSpace=neededSpace/1024
+			POL_System_EnoughSpace "$neededSpace" || POL_Debug_Error "$(eval_gettext 'No enough space to download:\n$URL ($neededSpace KB)')"
 		fi
 		POL_SetupWindow_download "$(eval_gettext 'Please wait while $APPLICATION_TITLE is downloading:')\n$FICHIER" "$TITLE" "$URL"
                 if [ "$Result" = "Fail" ]; then
@@ -515,7 +515,8 @@ POL_Download_Resource ()
 		else
 			neededSpace="$(POL_Download_GetSize "$URL")"
 			if [ "$neededSpace" ]; then
-				[ "$(POL_System_EnoughSpace "$neededSpace")" ] || POL_Debug_Error "$(eval_gettext 'No enough space to download:\n$url')"
+				let neededSpace=neededSpace/1024
+				POL_System_EnoughSpace "$neededSpace" || POL_Debug_Error "$(eval_gettext 'No enough space to download:\n$URL ($neededSpace KB)')"
 			fi
 			[ -e "$FICHIER" ] && rm "$FICHIER"
 			POL_SetupWindow_download "$(eval_gettext "Please wait while $APPLICATION_TITLE is downloading:") $FICHIER" "$TITLE" "$URL"
@@ -648,7 +649,7 @@ POL_System_ExtractSingleFile ()
     while kill -0 $szpid 2>/dev/null; do
         #POL_SetupWindow_pulse $(((`stat -c%s "$dest"` * 100) / "$size")) # Does not work for Mac OS
 		sleep 1
-		POL_SetupWindow_pulse $(((`ls -l "$dest" | awk '{print $5}'` * 100) / $size))
+		POL_SetupWindow_pulse $(( (`ls -l "$dest" | awk '{print $5}'` * 100) / $size ))
     done
 
     POL_SetupWindow_pulse 100
