@@ -96,7 +96,7 @@ POL_System_SetArch()
 POL_System_HomeSpaceLeft()
 {
 	# Return the space left in the home partition
-	df "$HOME" | tail -n1 | awk '{print $4}'
+	df -k "$HOME" | tail -n1 | awk '{print $4}'
 }
 POL_System_EnoughSpace()
 {
