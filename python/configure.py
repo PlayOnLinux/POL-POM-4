@@ -145,7 +145,7 @@ class Onglets(wx.Notebook):
     def install_package(self, event):
         selectedPackage = self.packageList.getPackageFromName(self.Menu.GetItemText(self.Menu.GetSelection()));
                 
-
+        
         if(self.s_isPrefix == False):
             os.system("bash "+Variables.playonlinux_env+"/bash/installpolpackages \""+self.s_title.encode('utf-8','replace')+"\" "+selectedPackage+" &")
         else:
@@ -299,8 +299,9 @@ class Onglets(wx.Notebook):
         self.imagePackages = wx.ImageList(22, 22)
     
             
+        self.desPackags = wx.StaticText(self.panelPackages, -1, _("Be careful! Installing one of these package can break your virtual drive."), (10,40), wx.DefaultSize)
             
-        self.Menu = wx.TreeCtrl(self.panelPackages, 99, pos=(15,45),size=(530,290), style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT|Variables.widget_borders)
+        self.Menu = wx.TreeCtrl(self.panelPackages, 99, pos=(15,75),size=(530,260), style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT|Variables.widget_borders)
         self.Menu.SetSpacing(0);
         self.Menu.SetImageList(self.imagePackages)
         self.imagePackages.RemoveAll()
