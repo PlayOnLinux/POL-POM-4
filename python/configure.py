@@ -28,9 +28,71 @@ import lib.wine as wine
 import lib.Variables as Variables
 import lib.lng as lng
 
+class PackageList():
+    def __init__(self):
+        self.available_packages = [];
+        self.loadList();
+        
+    def loadList(self):
+        try :
+            self.available_packages = open(Variables.playonlinux_rep+"/configurations/listes/POL_Functions","r").read()
+        except IOError as e: # File does not exits ; it will be created when pol is updated
+            pass
+        
+    def getList(self):
+        return self.available_packages;
+        
+    def getCutList(self):
+        clist = self.available_packages.split("\n")
+        flist = []
+        for key in clist:
+            if("POL_Install" in key):
+                flist.append(key)
+        return flist
+        
+    def getParsedList(self):
+        clist = self.getCutList();
+        flist = [];
+        for key in clist:
+            flist.append(PackageList.getNameFromPackageLine(key))
+        return flist;
+    
+    def getNameFromId(self, id):
+        return self.getParsedList()[id];
+        
+    def getPackageFromName(self, selectedPackage):
+        broken = False;
+        for key in self.getCutList():
+            key_split = key.split(":")
+            try: 
+                if(key_split[1] == selectedPackage): # We found it
+                    selectedPackage = key_split[0];
+                    broken = True;
+                    break;
+
+            except IndexError, e: # Index error : There is no ':' in the line, so the content of the line is the package we want to install. No need to continue
+                broken = True;
+                break;
+            
+        if(broken == False):
+            selectedPackage = "POL_Install_"+selectedPackage
+        return selectedPackage;
+    
+    
+    @staticmethod
+    def getNameFromPackageLine(package):
+        try:
+            realName = package.split(":")[1].replace("POL_Install_","")
+        except IndexError, e:
+            realName = package.replace("POL_Install_","")
+        return realName;
+    
+    
 class Onglets(wx.Notebook):
     # Classe dérivée du wx.Notebook
+    
     def __init__(self, parent):
+        self.packageList = PackageList();
         self.notebook = wx.Notebook.__init__(self, parent, -1)
         self.typing = False
         self.changing_selection = False
@@ -81,10 +143,13 @@ class Onglets(wx.Notebook):
         os.system("bash \""+Variables.playonlinux_rep+"/configurations/configurators/"+self.s_title+"\" &")
 
     def install_package(self, event):
+        selectedPackage = self.packageList.getPackageFromName(self.Menu.GetItemText(self.Menu.GetSelection()));
+                
+
         if(self.s_isPrefix == False):
-            os.system("bash "+Variables.playonlinux_env+"/bash/installpolpackages \""+self.s_title.encode('utf-8','replace')+"\" POL_Install_"+self.available_packages_[self.Menu.GetSelection()]+" &")
+            os.system("bash "+Variables.playonlinux_env+"/bash/installpolpackages \""+self.s_title.encode('utf-8','replace')+"\" "+selectedPackage+" &")
         else:
-            os.system("bash "+Variables.playonlinux_env+"/bash/installpolpackages --prefix \""+self.s_prefix.encode('utf-8','replace')+"\" POL_Install_"+self.available_packages_[self.Menu.GetSelection()]+" &")
+            os.system("bash "+Variables.playonlinux_env+"/bash/installpolpackages --prefix \""+self.s_prefix.encode('utf-8','replace')+"\" "+selectedPackage+" &")
 
     def AddGeneralChamp(self, title, shortname, value, num):
         self.general_elements[shortname+"_text"] = wx.StaticText(self.panelGeneral, -1, title,pos=(15,19+num*40))
@@ -230,24 +295,35 @@ class Onglets(wx.Notebook):
         self.panelPackages = wx.Panel(self, -1)
         self.txtPackages = wx.StaticText(self.panelPackages, -1, _(nom), (10,10), wx.DefaultSize)
         self.txtPackages.SetFont(self.fontTitle)
+        
+        self.imagePackages = wx.ImageList(22, 22)
+    
+            
+            
+        self.Menu = wx.TreeCtrl(self.panelPackages, 99, pos=(15,45),size=(530,290), style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT|Variables.widget_borders)
+        self.Menu.SetSpacing(0);
+        self.Menu.SetImageList(self.imagePackages)
+        self.imagePackages.RemoveAll()
 
-        self.Menu = wx.ListBox(self.panelPackages, 99, pos=(15,45),size=(530,235), style=Variables.widget_borders)
-        self.PackageButton = wx.Button(self.panelPackages, 98, _("Install"), pos=(10,295))
+        self.rootPackages = self.Menu.AddRoot("")
+        self.i = 0
 
-        try :
-            self.available_packages = open(Variables.playonlinux_rep+"/configurations/listes/POL_Functions","r").read()
-            self.available_packages = string.split(self.available_packages,"/")
-            self.available_packages_ = []
-            for key in self.available_packages:
-                if("POL_Install" in key):
-                    self.available_packages_.append(key.replace("POL_Install_",""))
-            self.available_packages.sort()
-            self.Menu.InsertItems(self.available_packages_,0)
-            self.Menu.Select(0)
-        except : # File does not exits ; it will be created when pol is updated
-            pass
-        #$REPERTOIRE/configurations/listes/
-        wx.EVT_LISTBOX_DCLICK(self, 99, self.install_package)
+        for app in self.packageList.getParsedList():
+                self.icon_look_for = Variables.playonlinux_rep+"/configurations/icones/"+self.packageList.getPackageFromName(app)
+                if(os.path.exists(self.icon_look_for)):
+                    try:
+                        self.imagePackages.Add(wx.Bitmap(self.icon_look_for))
+                    except:
+                        pass
+                else:
+                    self.imagePackages.Add(wx.Bitmap(Variables.playonlinux_env+"/etc/playonlinux22.png"))
+                self.Menu.AppendItem(self.rootPackages, app, self.i)
+                self.i = self.i+1
+                
+        self.PackageButton = wx.Button(self.panelPackages, 98, _("Install"), pos=(20+530-150,345), size=(150,30))
+
+
+        wx.EVT_TREE_ITEM_ACTIVATED(self, 99, self.install_package)
         wx.EVT_BUTTON(self, 98, self.install_package)
 
 

@@ -56,13 +56,30 @@ config_maj() # Celle ci est exécuté à chaque ligne (wget | config_maj), elle 
 		i=$(( i + 1 ))
 	done
 }
+get_packages_icons()
+{
+	while read line; do
+		content="$(echo "$line" | cut -d ":" -f 1)"
+		if [ ! -e "$POL_USER_ROOT/configurations/icones/$content" ]; then
+			$POL_WGET "$SITE/V2_data/icones/$content" -O "$POL_USER_ROOT/configurations/icones/$content"
+		fi
+		taille="$(du "$POL_USER_ROOT/configurations/icones/$content")"
+		taille="${taille:0:1}"
+		if [ "$taille" = "0" ]; then
+			rm "$POL_USER_ROOT/configurations/icones/$content"
+		fi
+	done
+}
 maj_check ()
 {
 	#clean_tmp
 	WEB_TIMESTAMP="$($POL_WGET "$SITE/update_mark.txt" -O- 2> /dev/null)"
 	LAST_TIMESTAMP="$(POL_Config_Read LAST_TIMESTAMP)"
 
-	$POL_WGET "$SITE/V4_data/repository/getf.php" -O- > "$REPERTOIRE/configurations/POL_Functions" && mv "$REPERTOIRE/configurations/POL_Functions" "$REPERTOIRE/configurations/listes/POL_Functions"
+	if $POL_WGET "$SITE/V4_data/repository/get_packages.php" -O- > "$REPERTOIRE/configurations/POL_Functions"; then
+		 mv "$REPERTOIRE/configurations/POL_Functions" "$REPERTOIRE/configurations/listes/POL_Functions"
+		 cat "$REPERTOIRE/configurations/listes/POL_Functions" | grep ':1$' | get_packages_icons
+	fi
 	# Gecko
 	$POL_WGET "$GECKO_SITE/gecko.lst" -O- > "$REPERTOIRE/tmp/gecko.lst" && mv "$REPERTOIRE/tmp/gecko.lst" "$REPERTOIRE/configurations/listes/gecko.lst"
 	if [ ! "$WEB_TIMESTAMP" = "" ] && [ ! "$WEB_TIMESTAMP" = "$LAST_TIMESTAMP" ] # On évite les mises à jours inutiles

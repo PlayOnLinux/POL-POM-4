@@ -422,5 +422,5 @@ def POL_Open(arg):
     else:
         os.system("xdg-open \""+arg+"\"&")
 
-def POL_System(arg):
-    os.system("bash \""+os.environ["PLAYONLINUX"]+"/bash/bash_wrapper\" "+arg)
+def POL_Error(message):
+    wx.MessageBox(message,_("{0} error").format(os.environ["APPLICATION_TITLE"]))
