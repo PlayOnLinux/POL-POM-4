@@ -299,7 +299,7 @@ class Onglets(wx.Notebook):
         self.imagePackages = wx.ImageList(22, 22)
     
             
-        self.desPackags = wx.StaticText(self.panelPackages, -1, _("Be careful! Installing one of these package can break your virtual drive."), (10,40), wx.DefaultSize)
+        self.desPackags = wx.StaticText(self.panelPackages, -1, _("Be careful! Installing one of these components can break your virtual drive."), (10,40), wx.DefaultSize)
             
         self.Menu = wx.TreeCtrl(self.panelPackages, 99, pos=(15,75),size=(530,260), style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT|Variables.widget_borders)
         self.Menu.SetSpacing(0);
@@ -679,7 +679,7 @@ class MainWindow(wx.Frame):
 
         self.onglets.General(_("General"))
         self.onglets.Wine("Wine")
-        self.onglets.Packages(_("Install packages"))
+        self.onglets.Packages(_("Install components"))
         self.onglets.Display(_("Display"))
         self.onglets.Miscellaneous(_("Miscellaneous"))
 
