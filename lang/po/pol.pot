@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2012-11-14 19:01:10+01:00\n"
+"POT-Creation-Date: 2012-11-15 19:01:02+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1366,7 +1366,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Sacred_Gold_:39
 #: PlayOnLinux_Scripts/GOG.com___Sam_and_Max__The_Devils_Playhouse_:42
 #: PlayOnLinux_Scripts/GOG.com___Sanitarium_:49
-#: PlayOnLinux_Scripts/GOG.com___Screamer_:39
 #: PlayOnLinux_Scripts/GOG.com___Septerra_Core__Legacy_of_the_Creator_:37
 #: PlayOnLinux_Scripts/GOG.com___Silver_:39
 #: PlayOnLinux_Scripts/GOG.com___Simon_the_Sorcerer_:39
@@ -1378,7 +1377,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Still_Life_:39
 #: PlayOnLinux_Scripts/GOG.com___Syberia_:39
 #: PlayOnLinux_Scripts/GOG.com___Syberia_2_:39
-#: PlayOnLinux_Scripts/GOG.com___Teenagent_:39
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_:41
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:63
 #: PlayOnLinux_Scripts/GOG.com___Tex_Murphy__The_Pandora_Directive_:36
@@ -3117,7 +3115,7 @@ msgid "Use another version of Wine"
 msgstr ""
 
 #: bash/manual_install:160 bash/manual_install:212 bash/polconfigurator:95
-#: python/configure.py:156 python/mainwindow.py:579 python/mainwindow.py:611
+#: python/configure.py:221 python/mainwindow.py:579 python/mainwindow.py:611
 #, sh-format
 msgid "Configure Wine"
 msgstr ""
@@ -3439,7 +3437,7 @@ msgstr ""
 msgid "is not an icon extension"
 msgstr ""
 
-#: bash/polconfigurator:96 python/configure.py:164 python/mainwindow.py:583
+#: bash/polconfigurator:96 python/configure.py:229 python/mainwindow.py:583
 #: python/mainwindow.py:624
 #, sh-format
 msgid "Registry Editor"
@@ -4138,7 +4136,7 @@ msgstr ""
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr ""
 
-#: python/configure.py:55
+#: python/configure.py:117
 msgid ""
 "Warning:\n"
 "\n"
@@ -4147,159 +4145,164 @@ msgid ""
 "associated"
 msgstr ""
 
-#: python/configure.py:125 python/configure.py:603
+#: python/configure.py:190 python/configure.py:680
 msgid "General"
 msgstr ""
 
-#: python/configure.py:128
+#: python/configure.py:193
 msgid "Make a new shortcut from this virtual drive"
 msgstr ""
 
-#: python/configure.py:129
+#: python/configure.py:194
 msgid "Name"
 msgstr ""
 
-#: python/configure.py:130
+#: python/configure.py:195
 msgid "Wine version"
 msgstr ""
 
-#: python/configure.py:131
+#: python/configure.py:196
 msgid "Virtual drive"
 msgstr ""
 
-#: python/configure.py:133
+#: python/configure.py:198
 msgid "Arguments"
 msgstr ""
 
-#: python/configure.py:137
+#: python/configure.py:202
 msgid "Run configuration wizard"
 msgstr ""
 
-#: python/configure.py:173
+#: python/configure.py:238
 msgid "Windows reboot"
 msgstr ""
 
-#: python/configure.py:181
+#: python/configure.py:246
 msgid "Repair virtual drive"
 msgstr ""
 
-#: python/configure.py:190
+#: python/configure.py:255
 msgid "Command prompt"
 msgstr ""
 
-#: python/configure.py:197
+#: python/configure.py:262
 msgid "Task manager"
 msgstr ""
 
-#: python/configure.py:205
+#: python/configure.py:270
 msgid "Kill processes"
 msgstr ""
 
-#: python/configure.py:212
+#: python/configure.py:277
 msgid "Wine uninstaller"
 msgstr ""
 
-#: python/configure.py:235 python/install.py:279 python/mainwindow.py:200
+#: python/configure.py:302
+msgid ""
+"Be careful! Installing one of these package can break your virtual drive."
+msgstr ""
+
+#: python/configure.py:324 python/install.py:279 python/mainwindow.py:200
 #: python/mainwindow.py:353
 msgid "Install"
 msgstr ""
 
-#: python/configure.py:308
+#: python/configure.py:385
 msgid "Open program's directory"
 msgstr ""
 
-#: python/configure.py:331
+#: python/configure.py:408
 msgid "Open virtual drive's directory"
 msgstr ""
 
-#: python/configure.py:472
+#: python/configure.py:549
 msgid "GLSL Support"
 msgstr ""
 
-#: python/configure.py:473
+#: python/configure.py:550
 msgid "Direct Draw Renderer"
 msgstr ""
 
-#: python/configure.py:474
+#: python/configure.py:551
 msgid "Video memory size"
 msgstr ""
 
-#: python/configure.py:475
+#: python/configure.py:552
 msgid "Offscreen rendering mode"
 msgstr ""
 
-#: python/configure.py:476
+#: python/configure.py:553
 msgid "Render target mode lock"
 msgstr ""
 
-#: python/configure.py:477
+#: python/configure.py:554
 msgid "Multisampling"
 msgstr ""
 
-#: python/configure.py:478
+#: python/configure.py:555
 msgid "Strict Draw Ordering"
 msgstr ""
 
-#: python/configure.py:488
+#: python/configure.py:565
 msgid "Mouse warp override"
 msgstr ""
 
-#: python/configure.py:490
+#: python/configure.py:567
 msgid "Open a shell"
 msgstr ""
 
-#: python/configure.py:491
+#: python/configure.py:568
 msgid "Run a .exe file in this virtual drive"
 msgstr ""
 
-#: python/configure.py:492
+#: python/configure.py:569
 msgid "Command to exec before running the program"
 msgstr ""
 
-#: python/configure.py:503
+#: python/configure.py:580
 msgid ""
 "Be careful!\n"
 "If you change "
 msgstr ""
 
-#: python/configure.py:560 python/mainwindow.py:922 python/mainwindow.py:924
+#: python/configure.py:637 python/mainwindow.py:922 python/mainwindow.py:924
 msgid "{0} configuration"
 msgstr ""
 
-#: python/configure.py:568
+#: python/configure.py:645
 msgid "Please select a program or a virtual drive to configure"
 msgstr ""
 
-#: python/configure.py:586 python/options.py:280
+#: python/configure.py:663 python/options.py:280
 msgid "New"
 msgstr ""
 
-#: python/configure.py:587 python/mainwindow.py:201 python/mainwindow.py:354
+#: python/configure.py:664 python/mainwindow.py:201 python/mainwindow.py:354
 #: python/mainwindow.py:599 python/options.py:207
 msgid "Remove"
 msgstr ""
 
-#: python/configure.py:605
+#: python/configure.py:682
 msgid "Install packages"
 msgstr ""
 
-#: python/configure.py:606 python/mainwindow.py:335
+#: python/configure.py:683 python/mainwindow.py:335
 msgid "Display"
 msgstr ""
 
-#: python/configure.py:607
+#: python/configure.py:684
 msgid "Miscellaneous"
 msgstr ""
 
-#: python/configure.py:635
+#: python/configure.py:712
 msgid "This virtual drive is protected"
 msgstr ""
 
-#: python/configure.py:637
+#: python/configure.py:714
 msgid "Are you sure you want to delete {0} virtual drive ?"
 msgstr ""
 
-#: python/configure.py:644
+#: python/configure.py:721
 msgid "Are you sure you want to delete {0} ?"
 msgstr ""
 
@@ -4491,6 +4494,10 @@ msgstr ""
 
 #: python/lib/playonlinux.py:27
 msgid "There is nothing installed to run .{0} files."
+msgstr ""
+
+#: python/lib/playonlinux.py:426
+msgid "{0} error"
 msgstr ""
 
 #: python/mainwindow.py:72
