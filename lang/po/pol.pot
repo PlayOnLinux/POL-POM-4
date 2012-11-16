@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2012-11-15 19:01:02+01:00\n"
+"POT-Creation-Date: 2012-11-16 19:01:05+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -750,7 +750,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Star_Wars___The_Force_Unleashed_2_:119
 #: PlayOnLinux_Scripts/Star_Wars___The_Force_Unleashed___Ultimate_Sith_Edition_:118
 #: PlayOnLinux_Scripts/Star_Wars___The_Old_Republic_:71
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_V___Skyrim_:78
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_V___Skyrim_:77
 #: PlayOnLinux_Scripts/The_Witcher_:102
 #, sh-format
 msgid "Please insert the game media into your disk drive"
@@ -2112,7 +2112,7 @@ msgid ""
 "continue."
 msgstr ""
 
-#: PlayOnLinux_Scripts/POL_Install_steam_:24
+#: PlayOnLinux_Scripts/POL_Install_steam_:25
 #, sh-format
 msgid "Please wait while Steam is downloaded..."
 msgstr ""
@@ -2570,12 +2570,19 @@ msgid ""
 "check pp 4-5."
 msgstr ""
 
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_V___Skyrim_:85
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_V___Skyrim_:84
 #, sh-format
 msgid ""
 "When $TITLE download by Steam is finished, do NOT click on Play.\\n\\nClose "
 "COMPLETELY the Steam interface, \\nso that the installation script can "
 "continue"
+msgstr ""
+
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_V___Skyrim_:90
+#, sh-format
+msgid ""
+"If the game crashes at startup, open a terminal and type:\\necho 0|sudo tee /"
+"proc/sys/kernel/yama/ptrace_scope"
 msgstr ""
 
 #: PlayOnLinux_Scripts/The_Witcher_:55 PlayOnLinux_Scripts/The_Witcher_:57
@@ -3604,7 +3611,7 @@ msgid ""
 msgstr ""
 
 #: bash/uninstall:25 bash/uninstall:53 bash/uninstall:56 bash/uninstall:58
-#: lib/playonlinux.lib:709
+#: lib/playonlinux.lib:710
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
 msgstr ""
@@ -3624,7 +3631,7 @@ msgstr ""
 msgid "This wizard will help you to uninstall: "
 msgstr ""
 
-#: bash/uninstall:53 lib/playonlinux.lib:709
+#: bash/uninstall:53 lib/playonlinux.lib:710
 #, sh-format
 msgid "Uninstalling..."
 msgstr ""
@@ -3718,7 +3725,7 @@ msgstr ""
 msgid "Here the source code of the script. Check it carefully"
 msgstr ""
 
-#: lib/playonlinux.lib:354
+#: lib/playonlinux.lib:355
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -3726,48 +3733,48 @@ msgid ""
 "responsible from it.\\nPlease ensure you know what you are doing!"
 msgstr ""
 
-#: lib/playonlinux.lib:355
+#: lib/playonlinux.lib:356
 #, sh-format
 msgid "External library"
 msgstr ""
 
-#: lib/playonlinux.lib:355
+#: lib/playonlinux.lib:356
 #, sh-format
 msgid "Here the source code of the script. Check it carrefully"
 msgstr ""
 
-#: lib/playonlinux.lib:588
+#: lib/playonlinux.lib:589
 #, sh-format
 msgid "Making shortcut..."
 msgstr ""
 
-#: lib/playonlinux.lib:707
+#: lib/playonlinux.lib:708
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr ""
 
-#: lib/playonlinux.lib:814
+#: lib/playonlinux.lib:815
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:815
+#: lib/playonlinux.lib:816
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:816
+#: lib/playonlinux.lib:817
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:817
+#: lib/playonlinux.lib:818
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
@@ -4199,7 +4206,7 @@ msgstr ""
 
 #: python/configure.py:302
 msgid ""
-"Be careful! Installing one of these package can break your virtual drive."
+"Be careful! Installing one of these components can break your virtual drive."
 msgstr ""
 
 #: python/configure.py:324 python/install.py:279 python/mainwindow.py:200
@@ -4283,7 +4290,7 @@ msgid "Remove"
 msgstr ""
 
 #: python/configure.py:682
-msgid "Install packages"
+msgid "Install components"
 msgstr ""
 
 #: python/configure.py:683 python/mainwindow.py:335
