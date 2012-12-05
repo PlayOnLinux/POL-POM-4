@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
 "POT-Creation-Date: 2012-11-18 19:01+0100\n"
-"PO-Revision-Date: 2012-10-29 05:50+0000\n"
+"PO-Revision-Date: 2012-11-30 17:46+0000\n"
 "Last-Translator: Adolfo Jayme Barrientos <fitoschido@gmail.com>\n"
 "Language-Team: es_ES.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-11-19 04:34+0000\n"
-"X-Generator: Launchpad (build 16278)\n"
+"X-Launchpad-Export-Date: 2012-12-01 04:33+0000\n"
+"X-Generator: Launchpad (build 16319)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -2791,6 +2791,8 @@ msgid ""
 "If the game crashes at startup, open a terminal and type:\\necho 0|sudo tee "
 "/proc/sys/kernel/yama/ptrace_scope"
 msgstr ""
+"Si el juego se bloquea al inicio, abra una terminal y escriba:\\necho 0|sudo "
+"tee /proc/sys/kernel/yama/ptrace_scope"
 
 #: PlayOnLinux_Scripts/The_Witcher_:55 PlayOnLinux_Scripts/The_Witcher_:57
 #, sh-format
@@ -3105,7 +3107,7 @@ msgstr "¿Qué versión de Wine le gustaría utilizar?"
 #: bash/create_prefix:62
 #, sh-format
 msgid "Choose the name of the virtual drive"
-msgstr "Elije el nombre de la unidad virtual"
+msgstr "Elija el nombre de la unidad virtual"
 
 #: bash/expert/Executer:22 bash/expert/Executer:27 bash/expert/Executer:29
 #: python/mainwindow.py:235
@@ -4123,7 +4125,7 @@ msgstr ""
 #: lib/scripts.lib:461 lib/scripts.lib:519
 #, sh-format
 msgid "No enough space to download:\\n$URL ($neededSpace KB)"
-msgstr ""
+msgstr "No hay espacio disponible para descargar:\\n$URL ($neededSpace KB)"
 
 #: lib/scripts.lib:463 lib/scripts.lib:728
 #, sh-format
@@ -4633,7 +4635,7 @@ msgstr "Quitar"
 
 #: python/configure.py:682
 msgid "Install components"
-msgstr ""
+msgstr "Instalar componentes"
 
 #: python/configure.py:683 python/mainwindow.py:335
 msgid "Display"
@@ -4873,7 +4875,7 @@ msgstr "No hay nada instalado para ejecutar. {0} archivos."
 
 #: python/lib/playonlinux.py:426
 msgid "{0} error"
-msgstr ""
+msgstr "{0} error"
 
 #: python/mainwindow.py:72
 msgid "{0} website is unavailable. Please check your connexion"
