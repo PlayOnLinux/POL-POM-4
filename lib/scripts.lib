@@ -552,7 +552,7 @@ POL_Download_GetSize()
 {
 	# Get the size of a distant file
 	# Usage: POL_Download_GetSize [URL]
-	wget "$1" --spider --server-response -O - 2>&1 | sed -ne '/Content-Length/{s/.*: //;p}'	
+	wget "$1" --spider --server-response -O - 2>&1 | sed -ne '/Content-Length/{s/.*: //;p}'	| tail -n1
 }
 POL_MD5 ()
 {
