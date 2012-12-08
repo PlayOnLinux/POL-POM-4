@@ -439,7 +439,7 @@ class InstallWindow(wx.Frame):
                         if(split[1] == "1"):
                             wx.MessageBox(_("This program is currently in testing.\n\nIt might not work as expected. Your feedback, positive or negative, is specially important to improve this installer."),_("Please read this"))
                         if(split[2] == "1"):
-                            wx.MessageBox(_("This program needs a no-cd patch to run.\n\n{0} does not support piracy. Therefore, we won't give any support to patch it.").format(os.environ["APPLICATION_TITLE"]),_("Please read this"))
+                            wx.MessageBox(_("This program contains a protection against copy (DRM) incompatible with emulation.\nThe only workaround is to use a \"no-cd\" patch, but since those can also be used for piracy purposes we won't give any support on this matter."), _("Please read this"))
 
             os.system("bash \""+Variables.playonlinux_env+"/bash/install\" \""+InstallApplication.encode("utf-8","replace")+"\"&")
 
@@ -549,7 +549,7 @@ class InstallWindow(wx.Frame):
                 wx.MessageBox(_("By enabling this, you will have access to testing installers.\n\n{0} cannot ensure that your app will work without any problems").format(os.environ["APPLICATION_TITLE"]),_("Please read this"))
         if(chk_id == 402):
             if(self.nocdChk.IsChecked() == 1):
-                wx.MessageBox(_("By enabling this, you will have access to installers that need a no-cd patch to run.\n\n{0} does not support piracy. Therefore, we won't give any support to patch your program.").format(os.environ["APPLICATION_TITLE"]),_("Please read this"))
+                wx.MessageBox(_("By enabling this, you will have access to installers for programs that contain protections against copy (DRM) incompatible with emulation.\nThe only workaround is to use \"no-cd\" patches, but since those can also be used for piracy purposes we won't give any support on this matter."), _("Please read this"))
 
         if(self.searchbox.GetValue() == ""):
             self.AddApps(self, noevent=True)
