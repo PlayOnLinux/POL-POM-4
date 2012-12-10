@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2012-12-09 19:00:55+01:00\n"
+"POT-Creation-Date: 2012-12-10 19:01:10+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1240,8 +1240,8 @@ msgstr ""
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:109 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:421 lib/wine.lib:1017
-#: lib/wine.lib:1047
+#: bash/winebash:27 lib/setupwindow.lib:421 lib/wine.lib:1053
+#: lib/wine.lib:1083
 #, sh-format
 msgid "Please wait..."
 msgstr ""
@@ -3129,7 +3129,7 @@ msgstr ""
 msgid "What would you like to do before installation?"
 msgstr ""
 
-#: bash/manual_install:223 lib/scripts.lib:399
+#: bash/manual_install:223 lib/scripts.lib:402
 #, sh-format
 msgid "Please make your choice"
 msgstr ""
@@ -3678,7 +3678,7 @@ msgid ""
 msgstr ""
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:892 lib/wine.lib:935
+#: lib/wine.lib:894 lib/wine.lib:971
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr ""
@@ -3788,85 +3788,85 @@ msgstr ""
 msgid "Installing plugin: "
 msgstr ""
 
-#: lib/scripts.lib:323
+#: lib/scripts.lib:326
 #, sh-format
 msgid ""
 "Binary not found: $BINARY\\nHave you installed the program to the default "
 "location?"
 msgstr ""
 
-#: lib/scripts.lib:461 lib/scripts.lib:519
+#: lib/scripts.lib:464 lib/scripts.lib:522
 #, sh-format
 msgid "No enough space to download:\\n$URL ($neededSpace KB)"
 msgstr ""
 
-#: lib/scripts.lib:463 lib/scripts.lib:728
+#: lib/scripts.lib:466 lib/scripts.lib:731
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr ""
 
-#: lib/scripts.lib:465 lib/scripts.lib:524
+#: lib/scripts.lib:468 lib/scripts.lib:527
 #, sh-format
 msgid "An error happened during download."
 msgstr ""
 
-#: lib/scripts.lib:465 lib/scripts.lib:484 lib/scripts.lib:524
-#: lib/scripts.lib:540
+#: lib/scripts.lib:468 lib/scripts.lib:487 lib/scripts.lib:527
+#: lib/scripts.lib:543
 #, sh-format
 msgid "Do you want to retry?"
 msgstr ""
 
-#: lib/scripts.lib:484 lib/scripts.lib:540
+#: lib/scripts.lib:487 lib/scripts.lib:543
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 
-#: lib/scripts.lib:633
+#: lib/scripts.lib:636
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
 msgstr ""
 
-#: lib/scripts.lib:640
+#: lib/scripts.lib:643
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr ""
 
-#: lib/scripts.lib:644
+#: lib/scripts.lib:647
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr ""
 
-#: lib/scripts.lib:659
+#: lib/scripts.lib:662
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:690
+#: lib/scripts.lib:693
 #, sh-format
 msgid "Copying ${filename}"
 msgstr ""
 
-#: lib/scripts.lib:703
+#: lib/scripts.lib:706
 #, sh-format
 msgid "File size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:789
+#: lib/scripts.lib:792
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\n"
 "$APPLICATION_TITLE $NEEDED is required."
 msgstr ""
 
-#: lib/scripts.lib:804
+#: lib/scripts.lib:807
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
 "$NEEDED is recommended to continue."
 msgstr ""
 
-#: lib/scripts.lib:835
+#: lib/scripts.lib:838
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr ""
@@ -4076,56 +4076,81 @@ msgstr ""
 msgid "Scanning your hardware..."
 msgstr ""
 
-#: lib/wine.lib:505 lib/wine.lib:670
+#: lib/wine.lib:507 lib/wine.lib:672
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
 "message"
 msgstr ""
 
-#: lib/wine.lib:730
+#: lib/wine.lib:732
 #, sh-format
 msgid "Unable to find version: "
 msgstr ""
 
-#: lib/wine.lib:736 lib/wine.lib:737
+#: lib/wine.lib:738 lib/wine.lib:739
 #, sh-format
 msgid "Downloading Wine: "
 msgstr ""
 
-#: lib/wine.lib:746
+#: lib/wine.lib:748
 #, sh-format
 msgid "The download seems to have failed."
 msgstr ""
 
-#: lib/wine.lib:748
+#: lib/wine.lib:750
 #, sh-format
 msgid "Extracting Wine..."
 msgstr ""
 
-#: lib/wine.lib:1017 lib/wine.lib:1047
+#: lib/wine.lib:900
+#, sh-format
+msgid "Overwrite (usually works, no guarantee)"
+msgstr ""
+
+#: lib/wine.lib:901
+#, sh-format
+msgid "Erase (virtual drive content will be lost)"
+msgstr ""
+
+#: lib/wine.lib:902
+#, sh-format
+msgid "Abort installation"
+msgstr ""
+
+#: lib/wine.lib:915
+#, sh-format
+msgid "The target virtual drive $PREFNAME already exists:"
+msgstr ""
+
+#: lib/wine.lib:927
+#, sh-format
+msgid "User abort"
+msgstr ""
+
+#: lib/wine.lib:1053 lib/wine.lib:1083
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr ""
 
-#: lib/wine.lib:1021 lib/wine.lib:1050
+#: lib/wine.lib:1057 lib/wine.lib:1086
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
 "have to reinstall $SOFTNAME"
 msgstr ""
 
-#: lib/wine.lib:1021 lib/wine.lib:1050
+#: lib/wine.lib:1057 lib/wine.lib:1086
 #, sh-format
 msgid "Install is done"
 msgstr ""
 
-#: lib/wine.lib:1054 lib/wine.lib:1055
+#: lib/wine.lib:1090 lib/wine.lib:1091
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr ""
 
-#: lib/wine.lib:1063
+#: lib/wine.lib:1099
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr ""
@@ -4423,10 +4448,10 @@ msgstr ""
 
 #: python/install.py:442
 msgid ""
-"This program needs a no-cd patch to run.\n"
-"\n"
-"{0} does not support piracy. Therefore, we won't give any support to patch "
-"it."
+"This program contains a protection against copy (DRM) incompatible with "
+"emulation.\n"
+"The only workaround is to use a \"no-cd\" patch, but since those can also be "
+"used for piracy purposes we won't give any support on this matter."
 msgstr ""
 
 #: python/install.py:549
@@ -4438,11 +4463,10 @@ msgstr ""
 
 #: python/install.py:552
 msgid ""
-"By enabling this, you will have access to installers that need a no-cd patch "
-"to run.\n"
-"\n"
-"{0} does not support piracy. Therefore, we won't give any support to patch "
-"your program."
+"By enabling this, you will have access to installers for programs that "
+"contain protections against copy (DRM) incompatible with emulation.\n"
+"The only workaround is to use \"no-cd\" patches, but since those can also be "
+"used for piracy purposes we won't give any support on this matter."
 msgstr ""
 
 #: python/irc.py:137
