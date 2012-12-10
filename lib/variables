@@ -74,10 +74,11 @@ EXIT_ERROR=255
 EXIT_SUCCES=0
 
 # Default architecture
-export POL_ARCH="x86"
+export POL_USER_ARCH="x86"
+export POL_ARCH="$POL_USER_ARCH"
 
 # Divers trucs
-export IGNORE_ICON_DIR="false"	
+export IGNORE_ICON_DIR="false"
 export GNUPGHOME="$REPERTOIRE/gpg"
 
 # Drivers problem

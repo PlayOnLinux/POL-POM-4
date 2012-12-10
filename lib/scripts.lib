@@ -75,8 +75,9 @@ POL_System_SetArch()
 	# Set the architecture to use for the current script
 	# Usage: POL_System_SetArch (auto|x86|amd64)
 	# If amd64 is specified and not supported, the script will end
-	
-	# Auto, x86, amd64
+
+	# $1 = Auto, x86, amd64
+	# $2 = detected, if the result of an automatic selection
 
 	if [ ! "$1" == "x86" ] && [ ! "$1" == "amd64" ]
 	then
@@ -89,8 +90,10 @@ POL_System_SetArch()
 	if [ "$1" == "amd64" ]
 	then
 		[ "$AMD64_COMPATIBLE" == "True" ] && export POL_ARCH="amd64" || POL_Debug_Fatal "amd64 is not supported by your system"
-	fi	
-	
+	fi
+
+	[ "$2" = "detected" ] || POL_USER_ARCH="$POL_ARCH"
+
 	POL_Debug_Message "POL_ARCH set to $POL_ARCH"
 }
 POL_System_HomeSpaceLeft()
@@ -552,7 +555,7 @@ POL_Download_GetSize()
 {
 	# Get the size of a distant file
 	# Usage: POL_Download_GetSize [URL]
-	wget "$1" --spider --server-response -O - 2>&1 | sed -ne '/Content-Length/{s/.*: //;p}'	
+	wget "$1" --spider --server-response -O - 2>&1 | sed -ne '/Content-Length/{s/.*: //;p}'	| tail -n1
 }
 POL_MD5 ()
 {
