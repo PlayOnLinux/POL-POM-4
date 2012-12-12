@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-11-18 19:01+0100\n"
+"POT-Creation-Date: 2012-12-10 19:01+0100\n"
 "PO-Revision-Date: 2012-10-25 19:38+0000\n"
 "Last-Translator: Arthur Henrique Guimarães de Oliveira <warthur2@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-11-19 04:35+0000\n"
-"X-Generator: Launchpad (build 16278)\n"
+"X-Launchpad-Export-Date: 2012-12-11 04:36+0000\n"
+"X-Generator: Launchpad (build 16356)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -324,7 +324,8 @@ msgstr "Por favor, selecione o arquivo de instalação a ser executado."
 #: PlayOnLinux_Scripts/GOG.com___Gothic_3_Community_patch_:56
 #: PlayOnLinux_Scripts/GOG.com___Knights_and_Merchants__The_Peasants_Rebellion_:34
 #: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:49
-#: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:61
+#: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:59
+#: PlayOnLinux_Scripts/Google_Picasa_3.9_:55
 #: PlayOnLinux_Scripts/Infinity_Engine_widescreen_mod_:25
 #: PlayOnLinux_Scripts/Runes_Of_Magic_:49 PlayOnLinux_Scripts/Spotify_:66
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_II__Daggerfall_:68
@@ -344,7 +345,7 @@ msgstr "Por favor, aguarde enquanto $TITLE é instalado."
 #: PlayOnLinux_Scripts/Google_SketchUp_:67
 #: PlayOnLinux_Scripts/ISIS_Draw_2.3_:34
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:221
-#: PlayOnLinux_Scripts/SFR_LiberTalk_:57
+#: PlayOnLinux_Scripts/SFR_LiberTalk_:57 PlayOnLinux_Scripts/The_Sims_3_:51
 #: PlayOnLinux_Scripts/Theme_Hospital_:66
 #: PlayOnLinux_Scripts/Wow_Cartographe_:58
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:97
@@ -452,12 +453,13 @@ msgid "You dont have to install DirectX or use GLSetup."
 msgstr "Você não tem que instalar DirectX ou usar GLSetup."
 
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:39
-#: PlayOnLinux_Scripts/Alt.Binz_:40
+#: PlayOnLinux_Scripts/Alt.Binz_:40 PlayOnLinux_Scripts/Driftmoon_:43
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:42
 #: PlayOnLinux_Scripts/GOG.com___Gothic_3_Community_patch_:46
-#: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:53
+#: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:51
+#: PlayOnLinux_Scripts/Google_Picasa_3.9_:54
 #: PlayOnLinux_Scripts/POL_GoG_setup_:30 PlayOnLinux_Scripts/SFR_LiberTalk_:36
-#: PlayOnLinux_Scripts/Toontown_Online_:25
+#: PlayOnLinux_Scripts/The_Sims_3_:50 PlayOnLinux_Scripts/Toontown_Online_:25
 #, sh-format
 msgid "Please select the setup file to run."
 msgstr "Por favor selecione o arquivo de instalação para abrir."
@@ -1317,8 +1319,8 @@ msgstr "Por favor, insira a primeira mídia do jogo no seu drive."
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:109 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:421 lib/wine.lib:1017
-#: lib/wine.lib:1047
+#: bash/winebash:27 lib/setupwindow.lib:421 lib/wine.lib:1053
+#: lib/wine.lib:1083
 #, sh-format
 msgid "Please wait..."
 msgstr "Por favor, aguarde..."
@@ -1349,12 +1351,11 @@ msgstr "Bem vindo ao instalador do DLC de $TITLE"
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising_:37
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:98
 #: PlayOnLinux_Scripts/GOG.com___Age_of_Wonders_:40
-#: PlayOnLinux_Scripts/GOG.com___Age_of_Wonders_2___The_Wizard_s_Throne_:40
+#: PlayOnLinux_Scripts/GOG.com___Age_of_Wonders_2__The_Wizard_s_Throne_:40
 #: PlayOnLinux_Scripts/GOG.com___Age_of_Wonders__Shadow_Magic_:40
 #: PlayOnLinux_Scripts/GOG.com___Alien_Breed_and_Tower_Assault_:40
-#: PlayOnLinux_Scripts/GOG.com___Alone_in_the_Dark_1_:40
-#: PlayOnLinux_Scripts/GOG.com___Alone_in_the_Dark_2_:39
-#: PlayOnLinux_Scripts/GOG.com___Alone_in_the_Dark_3_:39
+#: PlayOnLinux_Scripts/GOG.com___Alone_in_the_Dark_2_:46
+#: PlayOnLinux_Scripts/GOG.com___Alone_in_the_Dark_3_:46
 #: PlayOnLinux_Scripts/GOG.com___Alpha_Centauri_:45
 #: PlayOnLinux_Scripts/GOG.com___Anachronox_:39
 #: PlayOnLinux_Scripts/GOG.com___Another_World__15th_Anniversary_Edition_:39
@@ -1362,17 +1363,10 @@ msgstr "Bem vindo ao instalador do DLC de $TITLE"
 #: PlayOnLinux_Scripts/GOG.com___Arma__Cold_War_Assault_:40
 #: PlayOnLinux_Scripts/GOG.com___Arx_Fatalis_:42
 #: PlayOnLinux_Scripts/GOG.com___Back_To_The_Future_The_Game_:42
-#: PlayOnLinux_Scripts/GOG.com___Baldur_s_Gate_II_Complete_:39
-#: PlayOnLinux_Scripts/GOG.com___Baldur_s_Gate__The_Original_Saga_:39
 #: PlayOnLinux_Scripts/GOG.com___Betrayal_at_Krondor_Pack_:40
 #: PlayOnLinux_Scripts/GOG.com___Beyond_Good_and_Evil_:41
 #: PlayOnLinux_Scripts/GOG.com___Blackwell_Bundle_:42
 #: PlayOnLinux_Scripts/GOG.com___BloodRayne_:42
-#: PlayOnLinux_Scripts/GOG.com___Broken_Sword_1__Shadow_of_The_Templars_:40
-#: PlayOnLinux_Scripts/GOG.com___Broken_Sword_2__The_Smoking_Mirror_:37
-#: PlayOnLinux_Scripts/GOG.com___Broken_Sword_3__The_Sleeping_Dragon_:37
-#: PlayOnLinux_Scripts/GOG.com___Broken_Sword_4__The_Angel_of_Death_:42
-#: PlayOnLinux_Scripts/GOG.com___Chronicles_of_Riddick__Assault_on_Dark_Athena_:39
 #: PlayOnLinux_Scripts/GOG.com___Commandos_2_and_3_:40
 #: PlayOnLinux_Scripts/GOG.com___Dark_Fall__Lights_Out_:41
 #: PlayOnLinux_Scripts/GOG.com___Dark_Fall__The_Journal_:39
@@ -1383,15 +1377,12 @@ msgstr "Bem vindo ao instalador do DLC de $TITLE"
 #: PlayOnLinux_Scripts/GOG.com___Disciples_2_Gold_:40
 #: PlayOnLinux_Scripts/GOG.com___Divine_Divinity_:37
 #: PlayOnLinux_Scripts/GOG.com___Dreamfall__The_longest_journey_:39
-#: PlayOnLinux_Scripts/GOG.com___Duke_Nukem_3D_Atomic_Edition_:39
 #: PlayOnLinux_Scripts/GOG.com___Duke_Nukem__Manhattan_Project_:39
-#: PlayOnLinux_Scripts/GOG.com___Dungeons_and_Dragons__Dragonshard_:37
 #: PlayOnLinux_Scripts/GOG.com___Enclave_:42
 #: PlayOnLinux_Scripts/GOG.com___Evil_Genius_:39
 #: PlayOnLinux_Scripts/GOG.com___Far_Cry_:43
 #: PlayOnLinux_Scripts/GOG.com___Far_Cry_2_:41
 #: PlayOnLinux_Scripts/GOG.com___Flatout_:39
-#: PlayOnLinux_Scripts/GOG.com___Forgotten_Realms__Demon_Stone_:39
 #: PlayOnLinux_Scripts/GOG.com___Freedom_Force_vs._the_3rd_Reich_:39
 #: PlayOnLinux_Scripts/GOG.com___Gabriel_Knight_1__Sins_of_the_Fathers_:39
 #: PlayOnLinux_Scripts/GOG.com___Gabriel_Knight_2__The_Beast_Within_:39
@@ -1404,8 +1395,6 @@ msgstr "Bem vindo ao instalador do DLC de $TITLE"
 #: PlayOnLinux_Scripts/GOG.com___Gothic_3_Community_patch_:58
 #: PlayOnLinux_Scripts/GOG.com___Ground_Control_2_:45
 #: PlayOnLinux_Scripts/GOG.com___Guilty_Gear_X2_Reload_:39
-#: PlayOnLinux_Scripts/GOG.com___Icewind_Dale_Complete_:39
-#: PlayOnLinux_Scripts/GOG.com___Icewind_Dale_II_Complete_:39
 #: PlayOnLinux_Scripts/GOG.com___In_Cold_Blood_:39
 #: PlayOnLinux_Scripts/GOG.com___Incoming_and_Incoming_Forces_:40
 #: PlayOnLinux_Scripts/GOG.com___Iron_Storm_:38
@@ -1413,28 +1402,20 @@ msgstr "Bem vindo ao instalador do DLC de $TITLE"
 #: PlayOnLinux_Scripts/GOG.com___Jagged_Alliance_2_:39
 #: PlayOnLinux_Scripts/GOG.com___Kingpin__Life_of_Crime_:39
 #: PlayOnLinux_Scripts/GOG.com___Knights_and_Merchants__The_Peasants_Rebellion_:39
-#: PlayOnLinux_Scripts/GOG.com___Lands_of_Lore_1_and_2_:40
 #: PlayOnLinux_Scripts/GOG.com___Legacy_of_Kain__Defiance_:39
 #: PlayOnLinux_Scripts/GOG.com___Legacy_of_Kain__Soul_Reaver_:39
 #: PlayOnLinux_Scripts/GOG.com___Legacy_of_Kain__Soul_Reaver_2_:39
 #: PlayOnLinux_Scripts/GOG.com___Legend_of_Grimrock_:39
 #: PlayOnLinux_Scripts/GOG.com___Little_Big_Adventure_:39
 #: PlayOnLinux_Scripts/GOG.com___Little_Big_Adventure_2_:39
-#: PlayOnLinux_Scripts/GOG.com___Master_of_Magic_:39
-#: PlayOnLinux_Scripts/GOG.com___Master_of_Orion_1_and_2_:40
 #: PlayOnLinux_Scripts/GOG.com___Might_and_Magic_6_Pack_:48
 #: PlayOnLinux_Scripts/GOG.com___Might_and_Magic_7_:39
 #: PlayOnLinux_Scripts/GOG.com___Myst_Uru_Complete_Chronicles_:39
-#: PlayOnLinux_Scripts/GOG.com___Neverwinter_Nights_Diamond_Edition_:43
 #: PlayOnLinux_Scripts/GOG.com___Normality_:39
 #: PlayOnLinux_Scripts/GOG.com___Oddworld__Abe_s_Exoddus_:39
 #: PlayOnLinux_Scripts/GOG.com___Oddworld__Abe_s_Oddysee_:39
-#: PlayOnLinux_Scripts/GOG.com___One_Unit_Whole_Blood_:40
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:39
 #: PlayOnLinux_Scripts/GOG.com___Painkiller__Black_Edition_:41
-#: PlayOnLinux_Scripts/GOG.com___Pirates_Pack_:40
-#: PlayOnLinux_Scripts/GOG.com___Planescape__Torment_:39
-#: PlayOnLinux_Scripts/GOG.com___Populous_2_:39
 #: PlayOnLinux_Scripts/GOG.com___Postal_2_Complete_:40
 #: PlayOnLinux_Scripts/GOG.com___Prince_of_Persia__The_Sands_of_Time_:39
 #: PlayOnLinux_Scripts/GOG.com___Psychonauts_:39
@@ -1447,6 +1428,7 @@ msgstr "Bem vindo ao instalador do DLC de $TITLE"
 #: PlayOnLinux_Scripts/GOG.com___Sam_and_Max__The_Devils_Playhouse_:42
 #: PlayOnLinux_Scripts/GOG.com___Sanitarium_:49
 #: PlayOnLinux_Scripts/GOG.com___Septerra_Core__Legacy_of_the_Creator_:37
+#: PlayOnLinux_Scripts/GOG.com___Shadowgrounds_:56
 #: PlayOnLinux_Scripts/GOG.com___Silver_:39
 #: PlayOnLinux_Scripts/GOG.com___Simon_the_Sorcerer_:39
 #: PlayOnLinux_Scripts/GOG.com___Simon_the_Sorcerer_2_:39
@@ -1457,8 +1439,7 @@ msgstr "Bem vindo ao instalador do DLC de $TITLE"
 #: PlayOnLinux_Scripts/GOG.com___Still_Life_:39
 #: PlayOnLinux_Scripts/GOG.com___Syberia_:39
 #: PlayOnLinux_Scripts/GOG.com___Syberia_2_:39
-#: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_:41
-#: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:63
+#: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:61
 #: PlayOnLinux_Scripts/GOG.com___Tex_Murphy__The_Pandora_Directive_:36
 #: PlayOnLinux_Scripts/GOG.com___Tex_Murphy__Under_a_Killing_Moon_:39
 #: PlayOnLinux_Scripts/GOG.com___The_Feeble_Files_:37
@@ -1467,18 +1448,14 @@ msgstr "Bem vindo ao instalador do DLC de $TITLE"
 #: PlayOnLinux_Scripts/GOG.com___The_Longest_Journey_:39
 #: PlayOnLinux_Scripts/GOG.com___The_Nations_Gold_Edition_:39
 #: PlayOnLinux_Scripts/GOG.com___The_Whispered_World_:39
-#: PlayOnLinux_Scripts/GOG.com___The_Witcher_Enhanced_Edition_Directors_Cut_:37
-#: PlayOnLinux_Scripts/GOG.com___Theme_Hospital_:39
 #: PlayOnLinux_Scripts/GOG.com___Thief_2_:41
 #: PlayOnLinux_Scripts/GOG.com___Thief_Gold_:42
 #: PlayOnLinux_Scripts/GOG.com___Tom_Clancy_s_Ghost_Recon_:39
 #: PlayOnLinux_Scripts/GOG.com___Torchlight_:43
 #: PlayOnLinux_Scripts/GOG.com___Torins_Passage_:39
-#: PlayOnLinux_Scripts/GOG.com___Total_Annihilation__Kingdoms_:39
 #: PlayOnLinux_Scripts/GOG.com___Two_Worlds__Epic_Edition_:37
 #: PlayOnLinux_Scripts/GOG.com___UFO__Afterlight_:39
 #: PlayOnLinux_Scripts/GOG.com___UFO__Aftermath_:39
-#: PlayOnLinux_Scripts/GOG.com___Ultima_Underworld_1_and_2_:40
 #: PlayOnLinux_Scripts/GOG.com___Unreal_2_:41
 #: PlayOnLinux_Scripts/GOG.com___Unreal_Gold_:40
 #: PlayOnLinux_Scripts/GOG.com___Wallace_and_Gromits_Grand_Adventures_:42
@@ -1496,7 +1473,7 @@ msgstr "Ocorreu um erro instalando o arquivo"
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:29
 #: PlayOnLinux_Scripts/GOG.com___Gothic_3_Community_patch_:33
 #: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:32
-#: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:39
+#: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:37
 #, sh-format
 msgid "Please install $TITLE_REQUIRED first"
 msgstr "Por favor, instale $TITLE_REQUIRED primeiro"
@@ -1533,7 +1510,7 @@ msgstr ""
 "o Setz comentando o seu trabalho."
 
 #: PlayOnLinux_Scripts/GOG.com___Age_of_Wonders_:20
-#: PlayOnLinux_Scripts/GOG.com___Age_of_Wonders_2___The_Wizard_s_Throne_:20
+#: PlayOnLinux_Scripts/GOG.com___Age_of_Wonders_2__The_Wizard_s_Throne_:20
 #: PlayOnLinux_Scripts/GOG.com___Age_of_Wonders__Shadow_Magic_:20
 #: PlayOnLinux_Scripts/GOG.com___Painkiller__Black_Edition_:20
 #: PlayOnLinux_Scripts/GOG.com___Painkiller__Black_Edition_:51
@@ -1761,7 +1738,7 @@ msgstr "(em janela)"
 msgid "Code wheel"
 msgstr "Seleção de código"
 
-#: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_:61
+#: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_:56
 #, sh-format
 msgid ""
 "It is highly recommended to now install the Circle of Eight Modpack\\nto fix "
@@ -1773,17 +1750,17 @@ msgstr ""
 "conteúdos\\n(para modpacks \"NC\"). \\nUse o script PlayOnLinux dedicado na "
 "seção patches."
 
-#: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:49
+#: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:47
 #, sh-format
 msgid "Go there now?"
 msgstr "Ir até lá agora?"
 
-#: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:49
+#: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:47
 #, sh-format
 msgid "You can download the archive file from:"
 msgstr "Você pode baixar este arquivo de:"
 
-#: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:59
+#: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:57
 #, sh-format
 msgid "Now you must install the modpack in directory:"
 msgstr "Agora você deve instalar o modpack no diretório:"
@@ -1935,7 +1912,7 @@ msgstr ""
 "Aviso: Você não pode marcar a caixa de seleção \"Executar $TITLE\" quando a "
 "instalação concluír"
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:79
+#: PlayOnLinux_Scripts/League_Of_Legends_:74
 #, sh-format
 msgid "Please select LeagueOfLegends.tar file:"
 msgstr "Por favor, selecione o arquivo LeagueOfLegends.tar:"
@@ -2153,6 +2130,7 @@ msgstr "Instalando o Adobe Air"
 #: PlayOnLinux_Scripts/POL_Install_d3dx9_:11
 #: PlayOnLinux_Scripts/POL_Install_d3dx9_36_:11
 #: PlayOnLinux_Scripts/POL_Install_d3dx9_40_:11
+#: PlayOnLinux_Scripts/POL_Install_d3dx9_43_:11
 #, sh-format
 msgid "Installing DirectX 9 dlls..."
 msgstr "Instalando as dll's do DirectX 9..."
@@ -2177,7 +2155,7 @@ msgstr "Por favor, aguarde enquanto o download do Desura é feito..."
 msgid "Installing DirectMusic"
 msgstr "Instalando DirectMusic"
 
-#: PlayOnLinux_Scripts/POL_Install_dotnet11_:15
+#: PlayOnLinux_Scripts/POL_Install_dotnet11_:21
 #: PlayOnLinux_Scripts/POL_Install_dotnet11sp1_:10
 #: PlayOnLinux_Scripts/POL_Install_dotnet20_:12
 #: PlayOnLinux_Scripts/POL_Install_dotnet20sp1_:10
@@ -2648,7 +2626,7 @@ msgstr "Por favor selecione um nome para o drive virtual"
 msgid "Downloading $TITLE"
 msgstr "Baixando $TITLE"
 
-#: PlayOnLinux_Scripts/Steam_:83
+#: PlayOnLinux_Scripts/Steam_:84
 #, sh-format
 msgid ""
 "If you want to install $TITLE in another virtual drive\\nRun this installer "
@@ -2790,6 +2768,16 @@ msgstr ""
 msgid ""
 "If the game crashes at startup, open a terminal and type:\\necho 0|sudo tee "
 "/proc/sys/kernel/yama/ptrace_scope"
+msgstr ""
+
+#: PlayOnLinux_Scripts/The_Sims_3_:40
+#, sh-format
+msgid "The Sims 3"
+msgstr ""
+
+#: PlayOnLinux_Scripts/The_Sims_3_:41
+#, sh-format
+msgid "The Sims 3 Launcher"
 msgstr ""
 
 #: PlayOnLinux_Scripts/The_Witcher_:55 PlayOnLinux_Scripts/The_Witcher_:57
@@ -3400,7 +3388,7 @@ msgstr "Se você não sabe, desmarque todos"
 msgid "What would you like to do before installation?"
 msgstr "O que você gostaria de fazer antes da instalação?"
 
-#: bash/manual_install:223 lib/scripts.lib:399
+#: bash/manual_install:223 lib/scripts.lib:402
 #, sh-format
 msgid "Please make your choice"
 msgstr "Por favor, faça a sua escolha"
@@ -3978,7 +3966,7 @@ msgstr ""
 "processo de instalação.\\nVisite www.$POL_DNS para obter mais informações"
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:892 lib/wine.lib:935
+#: lib/wine.lib:894 lib/wine.lib:971
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr "Por favor aguarde enquanto a unidade virtual está sendo criada..."
@@ -4105,42 +4093,42 @@ msgstr "Atualizando plug-in. Anterior: "
 msgid "Installing plugin: "
 msgstr "Instalando plug-in: "
 
-#: lib/scripts.lib:323
+#: lib/scripts.lib:326
 #, sh-format
 msgid ""
 "Binary not found: $BINARY\\nHave you installed the program to the default "
 "location?"
 msgstr ""
 
-#: lib/scripts.lib:461 lib/scripts.lib:519
+#: lib/scripts.lib:464 lib/scripts.lib:522
 #, sh-format
 msgid "No enough space to download:\\n$URL ($neededSpace KB)"
 msgstr ""
 
-#: lib/scripts.lib:463 lib/scripts.lib:728
+#: lib/scripts.lib:466 lib/scripts.lib:731
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr "Por favor aguarde enquanto $APPLICATION_TITLE está baixando:"
 
-#: lib/scripts.lib:465 lib/scripts.lib:524
+#: lib/scripts.lib:468 lib/scripts.lib:527
 #, sh-format
 msgid "An error happened during download."
 msgstr "Ocorreu um erro durante o download."
 
-#: lib/scripts.lib:465 lib/scripts.lib:484 lib/scripts.lib:524
-#: lib/scripts.lib:540
+#: lib/scripts.lib:468 lib/scripts.lib:487 lib/scripts.lib:527
+#: lib/scripts.lib:543
 #, sh-format
 msgid "Do you want to retry?"
 msgstr "Deseja repetir?"
 
-#: lib/scripts.lib:484 lib/scripts.lib:540
+#: lib/scripts.lib:487 lib/scripts.lib:543
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 "Erro ! Incompatibilidade de arquivos\\n\\nLocal : $LOCAL_MD5\\nServidor : "
 "$SERVER_MD5"
 
-#: lib/scripts.lib:633
+#: lib/scripts.lib:636
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
@@ -4148,32 +4136,32 @@ msgstr ""
 "7z não está instalado, verifique se você tem instalado o 7zip e tente "
 "novamente"
 
-#: lib/scripts.lib:640
+#: lib/scripts.lib:643
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr "Falha ao localizar ${dest} de ${archive}"
 
-#: lib/scripts.lib:644
+#: lib/scripts.lib:647
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr "Extraindo ${filename} de ${archivename}"
 
-#: lib/scripts.lib:659
+#: lib/scripts.lib:662
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr "Tamanho do arquivo extraído não corresponde!"
 
-#: lib/scripts.lib:690
+#: lib/scripts.lib:693
 #, sh-format
 msgid "Copying ${filename}"
 msgstr "Copiando ${filename}"
 
-#: lib/scripts.lib:703
+#: lib/scripts.lib:706
 #, sh-format
 msgid "File size does not match!"
 msgstr "Tamanho do arquivo não corresponde!"
 
-#: lib/scripts.lib:789
+#: lib/scripts.lib:792
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
@@ -4182,7 +4170,7 @@ msgstr ""
 "Desculpe, $APPLICATION_TITLE $VERSION é muito antigo para continuar.\\"
 "n$APPLICATION_TITLE $NEEDED é necessário."
 
-#: lib/scripts.lib:804
+#: lib/scripts.lib:807
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
@@ -4191,7 +4179,7 @@ msgstr ""
 "Aviso: Você está executando $APPLICATION_TITLE $VERSION.\\"
 "n$APPLICATION_TITLE $NEEDED é recomendado para continuar."
 
-#: lib/scripts.lib:835
+#: lib/scripts.lib:838
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr "Perfil de $AUTHOR"
@@ -4412,7 +4400,7 @@ msgstr ""
 msgid "Scanning your hardware..."
 msgstr "Escaneando seu hardware"
 
-#: lib/wine.lib:505 lib/wine.lib:670
+#: lib/wine.lib:507 lib/wine.lib:672
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
@@ -4421,32 +4409,57 @@ msgstr ""
 "Wine parece ter deixado de funcionar\\n\\nSe seu programa está sendo "
 "executado, apenas ignore esta mensagem"
 
-#: lib/wine.lib:730
+#: lib/wine.lib:732
 #, sh-format
 msgid "Unable to find version: "
 msgstr "Incapaz de encontrar a versão: "
 
-#: lib/wine.lib:736 lib/wine.lib:737
+#: lib/wine.lib:738 lib/wine.lib:739
 #, sh-format
 msgid "Downloading Wine: "
 msgstr "Baixando o Wine: "
 
-#: lib/wine.lib:746
+#: lib/wine.lib:748
 #, sh-format
 msgid "The download seems to have failed."
 msgstr "O download parece ter falhado."
 
-#: lib/wine.lib:748
+#: lib/wine.lib:750
 #, sh-format
 msgid "Extracting Wine..."
 msgstr "Extraindo o Wine..."
 
-#: lib/wine.lib:1017 lib/wine.lib:1047
+#: lib/wine.lib:900
+#, sh-format
+msgid "Overwrite (usually works, no guarantee)"
+msgstr ""
+
+#: lib/wine.lib:901
+#, sh-format
+msgid "Erase (virtual drive content will be lost)"
+msgstr ""
+
+#: lib/wine.lib:902
+#, sh-format
+msgid "Abort installation"
+msgstr ""
+
+#: lib/wine.lib:915
+#, sh-format
+msgid "The target virtual drive $PREFNAME already exists:"
+msgstr ""
+
+#: lib/wine.lib:927
+#, sh-format
+msgid "User abort"
+msgstr ""
+
+#: lib/wine.lib:1053 lib/wine.lib:1083
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "Por favor aguarde enquanto $SOFTNAME é instalado..."
 
-#: lib/wine.lib:1021 lib/wine.lib:1050
+#: lib/wine.lib:1057 lib/wine.lib:1086
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
@@ -4455,18 +4468,18 @@ msgstr ""
 "Tenha cuidado! Isso vai matar processo de instalação. Se não estiver "
 "terminado, você precisará reinstalar $SOFTNAME"
 
-#: lib/wine.lib:1021 lib/wine.lib:1050
+#: lib/wine.lib:1057 lib/wine.lib:1086
 #, sh-format
 msgid "Install is done"
 msgstr "Instalação está feita"
 
-#: lib/wine.lib:1054 lib/wine.lib:1055
+#: lib/wine.lib:1090 lib/wine.lib:1091
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr ""
 "Clique em próximo somente quando o processo de instalação estiver terminado"
 
-#: lib/wine.lib:1063
+#: lib/wine.lib:1099
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr ""
@@ -4782,14 +4795,11 @@ msgstr ""
 
 #: python/install.py:442
 msgid ""
-"This program needs a no-cd patch to run.\n"
-"\n"
-"{0} does not support piracy. Therefore, we won't give any support to patch "
-"it."
+"This program contains a protection against copy (DRM) incompatible with "
+"emulation.\n"
+"The only workaround is to use a \"no-cd\" patch, but since those can also be "
+"used for piracy purposes we won't give any support on this matter."
 msgstr ""
-"Este programa precisa de um patch de no-cd para ser executado.\n"
-"\n"
-"{0} não incentiva a pirataria. Portanto, não damos nenhum suporte o patch."
 
 #: python/install.py:549
 msgid ""
@@ -4800,11 +4810,10 @@ msgstr ""
 
 #: python/install.py:552
 msgid ""
-"By enabling this, you will have access to installers that need a no-cd patch "
-"to run.\n"
-"\n"
-"{0} does not support piracy. Therefore, we won't give any support to patch "
-"your program."
+"By enabling this, you will have access to installers for programs that "
+"contain protections against copy (DRM) incompatible with emulation.\n"
+"The only workaround is to use \"no-cd\" patches, but since those can also be "
+"used for piracy purposes we won't give any support on this matter."
 msgstr ""
 
 #: python/irc.py:137
