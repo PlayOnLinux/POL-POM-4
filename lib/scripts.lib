@@ -501,11 +501,13 @@ POL_Download_Resource ()
 
 	POL_Debug_Message "Downloading resource $1"
 	# 1 - URL
-	# 2 - MD5 SUM
+	# 2 - (MD5 SUM)
+	# 3 - (Subfolder)
+	# 4 - (retry count)
 	local URL="$1"
 	local FICHIER="${URL##*/}"
 	local i
-	[ "$3" ] && i="$3" || i=1
+	[ "$4" ] && i="$4" || i=1
 	mkdir -p "$POL_USER_ROOT/ressources/$3"
 	cd "$POL_USER_ROOT/ressources/$3"
 	if [ -e "$FICHIER" ] && [ "$(POL_MD5_file "$FICHIER")" = "$2" ]
@@ -528,7 +530,7 @@ POL_Download_Resource ()
 				if [ "$APP_ANSWER" = "FALSE" ]; then
 					POL_Debug_Error "POL_Download - error during download! ($i attempt)"
 				else
-					POL_Download_Resource "$1" "$2" "$(( i + 1))"
+					POL_Download_Resource "$1" "$2" "$3" "$(( i + 1))"
 				fi
 	                elif [ "$2" = "" ]
 			then
@@ -544,7 +546,7 @@ POL_Download_Resource ()
 					if [ "$APP_ANSWER" = "FALSE" ]; then
 						POL_Debug_Error "POL_Download_Resource - MD5 sum mismatch ! ($i attempt)"
 					else
-						POL_Download_Resource "$1" "$2" "$(( i + 1 ))"
+						POL_Download_Resource "$1" "$2" "$3" "$(( i + 1 ))"
 					fi
 				fi
 			fi
