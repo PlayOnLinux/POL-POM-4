@@ -10,15 +10,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2012-12-10 19:01+0100\n"
-"PO-Revision-Date: 2012-08-26 23:15+0000\n"
+"POT-Creation-Date: 2012-12-17 19:01+0100\n"
+"PO-Revision-Date: 2012-12-11 18:43+0000\n"
 "Last-Translator: Adam Maćkowiak <Unknown>\n"
 "Language-Team: pl_PL.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-12-11 04:36+0000\n"
-"X-Generator: Launchpad (build 16356)\n"
+"X-Launchpad-Export-Date: 2012-12-18 04:34+0000\n"
+"X-Generator: Launchpad (build 16372)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -1518,6 +1518,9 @@ msgid ""
 "that you will get better performance out of the OpenGL renderer;\\nYou can "
 "select it after clicking on \"Show all devices\"."
 msgstr ""
+"Podczas pierwszego uruchamiania gra automatycznie wykryje dostępne "
+"renderery.\\nJest prawdopodobne, że renderer OpenGL dl lepsze osiągi.\\"
+"nMożesz go wybrać po kliknięciu na \"Pokaż wszystkie urządzenia\"."
 
 #: PlayOnLinux_Scripts/GOG.com___Deus_Ex_GOTY_Edition_:93
 #, sh-format
@@ -2198,7 +2201,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_linuxtrack_wine_:9
 #, sh-format
 msgid "Installing Linuxtrack-wine DLL..."
-msgstr ""
+msgstr "Instalowanie biblioteki DLL Linuxtrack-wine..."
 
 #: PlayOnLinux_Scripts/POL_Install_mono210_:15
 #, sh-format
@@ -2576,7 +2579,7 @@ msgstr "Niestety, to nie jest obsługiwany plik .zip"
 #: PlayOnLinux_Scripts/Soldat_:28
 #, sh-format
 msgid "Installation finished"
-msgstr ""
+msgstr "Instalacja zakończona"
 
 #: PlayOnLinux_Scripts/Sonic_Fan_Remix_:37
 #, sh-format
@@ -2749,16 +2752,18 @@ msgid ""
 "If the game crashes at startup, open a terminal and type:\\necho 0|sudo tee "
 "/proc/sys/kernel/yama/ptrace_scope"
 msgstr ""
+"Jeżeli gra zawiesza się przy uruchamianiu, otwórz terminal i uruchom: \\"
+"necho 0|sudo tee /proc/sys/kernel/yama/ptrace_scope"
 
 #: PlayOnLinux_Scripts/The_Sims_3_:40
 #, sh-format
 msgid "The Sims 3"
-msgstr ""
+msgstr "The Sims 3"
 
 #: PlayOnLinux_Scripts/The_Sims_3_:41
 #, sh-format
 msgid "The Sims 3 Launcher"
-msgstr ""
+msgstr "Program uruchamiający The Sims 3"
 
 #: PlayOnLinux_Scripts/The_Witcher_:55 PlayOnLinux_Scripts/The_Witcher_:57
 #, sh-format
@@ -4075,34 +4080,35 @@ msgstr ""
 "Plik binarny nie znaleziony: $BINARY\\nCzy program został zainstalowany w "
 "domyślnej lokalizacji?"
 
-#: lib/scripts.lib:464 lib/scripts.lib:522
+#: lib/scripts.lib:464 lib/scripts.lib:524
 #, sh-format
 msgid "No enough space to download:\\n$URL ($neededSpace KB)"
 msgstr ""
+"Nie ma wystarczającej ilości miejsca aby pobrać:\\n$URL ($neededSpace KB)"
 
-#: lib/scripts.lib:466 lib/scripts.lib:731
+#: lib/scripts.lib:466 lib/scripts.lib:733
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr "Proszę czekać, $APPLICATION_TITLE pobiera:"
 
-#: lib/scripts.lib:468 lib/scripts.lib:527
+#: lib/scripts.lib:468 lib/scripts.lib:529
 #, sh-format
 msgid "An error happened during download."
 msgstr "Wystąpił błąd podczas pobierania."
 
-#: lib/scripts.lib:468 lib/scripts.lib:487 lib/scripts.lib:527
-#: lib/scripts.lib:543
+#: lib/scripts.lib:468 lib/scripts.lib:487 lib/scripts.lib:529
+#: lib/scripts.lib:545
 #, sh-format
 msgid "Do you want to retry?"
 msgstr "Ponowić próbę?"
 
-#: lib/scripts.lib:487 lib/scripts.lib:543
+#: lib/scripts.lib:487 lib/scripts.lib:545
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 "Błąd! Pliki nie zgadzają się\\n\\nLokalny: $LOCAL_MD5\\nZdalny: $SERVER_MD5"
 
-#: lib/scripts.lib:636
+#: lib/scripts.lib:638
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
@@ -4110,32 +4116,32 @@ msgstr ""
 "7z nie jest zainstalowany, sprawdź czy 7zip jest zainstalowany i spróbuj "
 "ponownie"
 
-#: lib/scripts.lib:643
+#: lib/scripts.lib:645
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr "Nie można odnaleźć ${dest} z ${archive}"
 
-#: lib/scripts.lib:647
+#: lib/scripts.lib:649
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr "Rozpakowywanie ${filename} z ${archivename}"
 
-#: lib/scripts.lib:662
+#: lib/scripts.lib:664
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr "Rozmiar pliku rozpakowanego nie zgadza się!"
 
-#: lib/scripts.lib:693
+#: lib/scripts.lib:695
 #, sh-format
 msgid "Copying ${filename}"
 msgstr "Kopiowanie ${filename}"
 
-#: lib/scripts.lib:706
+#: lib/scripts.lib:708
 #, sh-format
 msgid "File size does not match!"
 msgstr "Rozmiar pliku nie zgadza się!"
 
-#: lib/scripts.lib:792
+#: lib/scripts.lib:794
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
@@ -4144,7 +4150,7 @@ msgstr ""
 "$APPLICATION_TITLE $VERSION jest zbyt stary aby kontynuować.\\"
 "n$APPLICATION_TITLE $NEEDED jest wymagany."
 
-#: lib/scripts.lib:807
+#: lib/scripts.lib:809
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
@@ -4153,7 +4159,7 @@ msgstr ""
 "Uwaga: Używasz $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE $NEEDED "
 "jest zalecana, aby kontynuować."
 
-#: lib/scripts.lib:838
+#: lib/scripts.lib:840
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr "Profil $AUTHOR"
@@ -4406,27 +4412,27 @@ msgstr "Rozpakowywanie Wine..."
 #: lib/wine.lib:900
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
-msgstr ""
+msgstr "Nadpisz (zazwyczaj działa, brak gwarancji)"
 
 #: lib/wine.lib:901
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
-msgstr ""
+msgstr "Wyczyść (zawartość wirtualnego dysku twardego zostanie utracona)"
 
 #: lib/wine.lib:902
 #, sh-format
 msgid "Abort installation"
-msgstr ""
+msgstr "Anuluj instalację"
 
 #: lib/wine.lib:915
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
-msgstr ""
+msgstr "Docelowy wirtualny dysk twardy $PREFNAME już istnieje:"
 
 #: lib/wine.lib:927
 #, sh-format
 msgid "User abort"
-msgstr ""
+msgstr "Anulowano"
 
 #: lib/wine.lib:1053 lib/wine.lib:1083
 #, sh-format
@@ -4527,6 +4533,8 @@ msgstr "Deinstalator wine"
 msgid ""
 "Be careful! Installing one of these components can break your virtual drive."
 msgstr ""
+"Bądź ostrożny! Instalacja tych komponentów może uszkodzić twój wirtualny "
+"dysk twardy."
 
 #: python/configure.py:324 python/install.py:279 python/mainwindow.py:200
 #: python/mainwindow.py:353
@@ -4612,7 +4620,7 @@ msgstr "Usuń"
 
 #: python/configure.py:682
 msgid "Install components"
-msgstr ""
+msgstr "Zainstaluj komponenty"
 
 #: python/configure.py:683 python/mainwindow.py:335
 msgid "Display"
@@ -4770,6 +4778,11 @@ msgid ""
 "The only workaround is to use a \"no-cd\" patch, but since those can also be "
 "used for piracy purposes we won't give any support on this matter."
 msgstr ""
+"Ten program zawiera zabezpieczenia przeciwko kopiowaniu (DRM) "
+"niekompatybilne z emulatorem.\n"
+"Jedynym obejściem jest użycie patcha \"no-cd\", ponieważ może on zostać "
+"użyty również do uruchomienia pirackiej wersji nie wspieramy tego "
+"rozwiązania."
 
 #: python/install.py:549
 msgid ""
@@ -4788,6 +4801,12 @@ msgid ""
 "The only workaround is to use \"no-cd\" patches, but since those can also be "
 "used for piracy purposes we won't give any support on this matter."
 msgstr ""
+"Zaznaczając tą opcję, otrzymasz dostęp do instalatorów programów które "
+"zawierają zabezpieczenia przeciwko kopiowaniu (DRM) niekompatybilne z "
+"emulatorem.\n"
+"Jedynym obejściem jest użycie patcha \"no-cd\", ponieważ może on zostać "
+"użyty również do uruchomienia pirackiej wersji nie wspieramy tego "
+"rozwiązania."
 
 #: python/irc.py:137
 msgid "Send"
@@ -4841,7 +4860,7 @@ msgstr "Nie zainstalowano niczego do uruchomienia plików .{0}."
 
 #: python/lib/playonlinux.py:426
 msgid "{0} error"
-msgstr ""
+msgstr "Błąd {0}"
 
 #: python/mainwindow.py:72
 msgid "{0} website is unavailable. Please check your connexion"
