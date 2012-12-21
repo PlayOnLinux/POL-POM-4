@@ -24,7 +24,7 @@
 export SILENT="TRUE"
 SCRIPTNAME="$1"
 shift
-if [ "$PYTHON" = ""]
+if [ "$PYTHON" = "" ]
 then
 	PYTHON="python"
 fi
