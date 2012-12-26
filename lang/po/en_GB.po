@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-12-17 19:01+0100\n"
-"PO-Revision-Date: 2012-11-23 23:15+0000\n"
-"Last-Translator: Richard Sparrow <richard.sparrow@hotmail.co.uk>\n"
+"POT-Creation-Date: 2012-12-24 19:00+0100\n"
+"PO-Revision-Date: 2012-12-21 23:35+0000\n"
+"Last-Translator: Anthony Harrington <untaintableangel@ubuntu.com>\n"
 "Language-Team: English (United Kingdom) <en_GB@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-12-18 04:35+0000\n"
-"X-Generator: Launchpad (build 16372)\n"
+"X-Launchpad-Export-Date: 2012-12-25 04:37+0000\n"
+"X-Generator: Launchpad (build 16378)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -867,7 +867,7 @@ msgid ""
 "depending of your connexion."
 msgstr ""
 "Please wait while the 1st patch is downloading...\\nThis operation can take "
-"some time depending on your connection."
+"some time, depending on your connection."
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:43
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:43
@@ -1344,7 +1344,6 @@ msgstr "Welcome to the DLC Installer for $TITLE"
 #: PlayOnLinux_Scripts/GOG.com___Alien_Breed_and_Tower_Assault_:40
 #: PlayOnLinux_Scripts/GOG.com___Alone_in_the_Dark_2_:46
 #: PlayOnLinux_Scripts/GOG.com___Alone_in_the_Dark_3_:46
-#: PlayOnLinux_Scripts/GOG.com___Alpha_Centauri_:45
 #: PlayOnLinux_Scripts/GOG.com___Anachronox_:39
 #: PlayOnLinux_Scripts/GOG.com___Another_World__15th_Anniversary_Edition_:39
 #: PlayOnLinux_Scripts/GOG.com___Arcanum_:39
@@ -1396,7 +1395,6 @@ msgstr "Welcome to the DLC Installer for $TITLE"
 #: PlayOnLinux_Scripts/GOG.com___Legend_of_Grimrock_:39
 #: PlayOnLinux_Scripts/GOG.com___Little_Big_Adventure_:39
 #: PlayOnLinux_Scripts/GOG.com___Little_Big_Adventure_2_:39
-#: PlayOnLinux_Scripts/GOG.com___Might_and_Magic_6_Pack_:48
 #: PlayOnLinux_Scripts/GOG.com___Might_and_Magic_7_:39
 #: PlayOnLinux_Scripts/GOG.com___Myst_Uru_Complete_Chronicles_:39
 #: PlayOnLinux_Scripts/GOG.com___Normality_:39
@@ -1868,7 +1866,7 @@ msgstr ""
 "All supported Infinity Engine games are already patched.\\nTo modify the "
 "screen resolution of a shortcut, use its configurator."
 
-#: PlayOnLinux_Scripts/Internet_Explorer_6_:71
+#: PlayOnLinux_Scripts/Internet_Explorer_6_:74
 #: PlayOnLinux_Scripts/Internet_Explorer_6_Service_Pack_1_:68
 #: PlayOnLinux_Scripts/Internet_Explorer_7_:168
 #: PlayOnLinux_Scripts/POL_Install_directmusic_:47
@@ -3998,7 +3996,7 @@ msgstr "Making shortcut..."
 msgid "Do you want to delete the virtual drive:"
 msgstr "Do you want to delete the virtual drive:"
 
-#: lib/playonlinux.lib:815
+#: lib/playonlinux.lib:819
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
@@ -4007,7 +4005,7 @@ msgstr ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:816
+#: lib/playonlinux.lib:820
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
@@ -4016,7 +4014,7 @@ msgstr ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:817
+#: lib/playonlinux.lib:821
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
@@ -4025,7 +4023,7 @@ msgstr ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:818
+#: lib/playonlinux.lib:822
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
