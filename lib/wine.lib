@@ -875,7 +875,19 @@ POL_Wine_SetVersionPrefix()
 	[ ! "$1" = "" ] && export POL_WINEVERSION="$1"
 	[ "$WINEPREFIX" = "" ] && POL_Debug_Fatal "WINEPREFIX is not set!"
 
-	POL_Config_PrefixWrite "VERSION" "$POL_WINEVERSION"	
+	POL_Config_PrefixWrite "VERSION" "$POL_WINEVERSION"
+}
+POL_Wine_PrefixDelete()
+{
+	# cf MainWindow.DeletePrefix()
+	for file in "$POL_USER_ROOT/shortcuts/"*
+	do
+		if [ -e "$file" ] && [ ! "$(cat "$file" | grep $WINEPREFIX)" = "" ]
+		then
+			rm "$file"
+		fi
+	done
+	rm -rf "$WINEPREFIX"
 }
 POL_Wine_PrefixCreate()
 {
@@ -895,7 +907,7 @@ POL_Wine_PrefixCreate()
 	[ "$POL_ARCH" = "" ] && POL_System_SetArch "auto"
 	[ "$WINEPREFIX" = "" ] && POL_Debug_Fatal "WINEPREFIX is not set!"
 
-        if [ -e "$WINEPREFIX" ]; then
+	if [ -e "$WINEPREFIX" ]; then
 		POL_Debug_Message "Prefix already exists"
 		LNG_OVERWRITE="$(eval_gettext 'Overwrite (usually works, no guarantee)')"
 		LNG_ERASE="$(eval_gettext 'Erase (virtual drive content will be lost)')"
@@ -916,10 +928,11 @@ POL_Wine_PrefixCreate()
 		case "$APP_ANSWER" in
 			"$LNG_OVERWRITE")
 				POL_Debug_Message "Overwrite Prefix"
+				# Should we revert what has been autodetected by SelectPrefix here too?
 				;;
 			"$LNG_ERASE")
-			POL_Debug_Message "Erase Prefix"
-				rm -r "$WINEPREFIX"
+				POL_Debug_Message "Erase Prefix"
+				POL_Wine_PrefixDelete
 				# Revert what could have been autodetected with SelectPrefix
 				POL_ARCH="$POL_USER_ARCH"
 				;;
