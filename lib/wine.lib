@@ -237,11 +237,14 @@ Set_Desktop ()
 	POL_Debug_Message "Setting Desktop : $1 $2 $3"
 	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
-	local n
-	[ "$1" = "On" ] && n="$2x$3"
-	[ "$1" = "Off" ] && n="-1"
-	if [ -n "$n" ]; then
-		POL_Wine_UpdateRegistryWinePair 'X11 Driver' 'Desktop' "$n"
+	if [ "$1" = "Off" ]; then
+		POL_Wine_UpdateRegistryWinePair 'X11 Driver' 'Desktop' "-1"
+		# Remove key
+		POL_Wine_UpdateRegistryWinePair 'Explorer' 'Desktop' 'default'
+	elif [ "$1" = "On" ]; then
+		POL_Wine_UpdateRegistryWinePair 'X11 Driver' 'Desktop' "$2x$3"
+		POL_Wine_UpdateRegistryWinePair "Explorer\\Desktops" 'Default' "$2x$3"
+		POL_Wine_UpdateRegistryWinePair 'Explorer' 'Desktop' 'Default'
 	else
 		POL_Debug_Warning "Unrecognized flag '$1'"
 	fi
