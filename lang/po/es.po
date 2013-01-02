@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2012-12-24 19:00+0100\n"
-"PO-Revision-Date: 2012-12-13 23:50+0000\n"
-"Last-Translator: Adolfo Jayme Barrientos <fitoschido@gmail.com>\n"
+"POT-Creation-Date: 2012-12-31 19:26+0100\n"
+"PO-Revision-Date: 2013-01-01 03:49+0000\n"
+"Last-Translator: Victor Roman <Unknown>\n"
 "Language-Team: es_ES.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-12-25 04:37+0000\n"
+"X-Launchpad-Export-Date: 2013-01-01 04:35+0000\n"
 "X-Generator: Launchpad (build 16378)\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -454,6 +454,7 @@ msgstr "Usted no tiene que instalar DirectX o GLSetup."
 #: PlayOnLinux_Scripts/Alt.Binz_:40 PlayOnLinux_Scripts/Driftmoon_:43
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:42
 #: PlayOnLinux_Scripts/GOG.com___Gothic_3_Community_patch_:46
+#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:50
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:51
 #: PlayOnLinux_Scripts/Google_Picasa_3.9_:54
 #: PlayOnLinux_Scripts/POL_GoG_setup_:30 PlayOnLinux_Scripts/SFR_LiberTalk_:36
@@ -1322,8 +1323,8 @@ msgstr "Inserte el primer disco en la unidad"
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:109 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:421 lib/wine.lib:1053
-#: lib/wine.lib:1083
+#: bash/winebash:27 lib/setupwindow.lib:421 lib/wine.lib:1069
+#: lib/wine.lib:1099
 #, sh-format
 msgid "Please wait..."
 msgstr "Por favor, espere..."
@@ -1397,6 +1398,7 @@ msgstr "Bienvenido al instalador de DLC para $TITLE"
 #: PlayOnLinux_Scripts/GOG.com___Gothic_3_Community_patch_:58
 #: PlayOnLinux_Scripts/GOG.com___Ground_Control_2_:45
 #: PlayOnLinux_Scripts/GOG.com___Guilty_Gear_X2_Reload_:39
+#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:57
 #: PlayOnLinux_Scripts/GOG.com___In_Cold_Blood_:39
 #: PlayOnLinux_Scripts/GOG.com___Incoming_and_Incoming_Forces_:40
 #: PlayOnLinux_Scripts/GOG.com___Iron_Storm_:38
@@ -1473,6 +1475,7 @@ msgstr "Error mientras se instalaba el archivo"
 
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:29
 #: PlayOnLinux_Scripts/GOG.com___Gothic_3_Community_patch_:33
+#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:36
 #: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:32
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:37
 #, sh-format
@@ -1580,6 +1583,18 @@ msgid ""
 msgstr ""
 "Es muy recomendado que instale el parche de la Comunidad ahora, ya que "
 "contiene muchas correcciones de bugs y mejoras en el juego original."
+
+#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:46
+#: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:47
+#, sh-format
+msgid "Go there now?"
+msgstr "¿Ir allí ahora?"
+
+#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:46
+#: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:47
+#, sh-format
+msgid "You can download the archive file from:"
+msgstr "Puede descargar el archivo desde:"
 
 #: PlayOnLinux_Scripts/GOG.com___Iron_Storm_:20
 #: PlayOnLinux_Scripts/GOG.com___Painkiller__Black_Edition_:21
@@ -1748,16 +1763,6 @@ msgstr ""
 "resolver muchos problemas con este juego, y, opcionalmente, añadir nuevos "
 "contenidos \\ n (por \"NC\" modpacks). \\ ¿Desea utilizar la secuencia de "
 "comandos dedicada en la sección PlayOnLinux parches?"
-
-#: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:47
-#, sh-format
-msgid "Go there now?"
-msgstr "¿Ir allí ahora?"
-
-#: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:47
-#, sh-format
-msgid "You can download the archive file from:"
-msgstr "Puede descargar el archivo desde:"
 
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:57
 #, sh-format
@@ -2773,12 +2778,12 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Sims_3_:40
 #, sh-format
 msgid "The Sims 3"
-msgstr ""
+msgstr "The Sims 3"
 
 #: PlayOnLinux_Scripts/The_Sims_3_:41
 #, sh-format
 msgid "The Sims 3 Launcher"
-msgstr ""
+msgstr "Lanzador de The Sims 3"
 
 #: PlayOnLinux_Scripts/The_Witcher_:55 PlayOnLinux_Scripts/The_Witcher_:57
 #, sh-format
@@ -3975,7 +3980,7 @@ msgstr ""
 "información."
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:894 lib/wine.lib:971
+#: lib/wine.lib:909 lib/wine.lib:987
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr "Espere mientras se crea la unidad virtual"
@@ -4396,18 +4401,18 @@ msgstr ""
 "Falló la conexión.\\nAsegúrese de que su nombre de usuario y contraseña son "
 "válidos."
 
-#: lib/wine.lib:357
+#: lib/wine.lib:360
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is scanning your hardware"
 msgstr ""
 "Por favor, espere mientras $APPLICATION_TITLE esté explorando su hardware"
 
-#: lib/wine.lib:418
+#: lib/wine.lib:421
 #, sh-format
 msgid "Scanning your hardware..."
 msgstr "Explorando su hardware ..."
 
-#: lib/wine.lib:507 lib/wine.lib:672
+#: lib/wine.lib:510 lib/wine.lib:675
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
@@ -4416,57 +4421,57 @@ msgstr ""
 "Wine parece haber fallado\\n\\nsí el programa está funcionando, ignore este "
 "mensaje"
 
-#: lib/wine.lib:732
+#: lib/wine.lib:735
 #, sh-format
 msgid "Unable to find version: "
 msgstr "Incapaz de encontrar la versión: "
 
-#: lib/wine.lib:738 lib/wine.lib:739
+#: lib/wine.lib:741 lib/wine.lib:742
 #, sh-format
 msgid "Downloading Wine: "
 msgstr "Descargando Wine: "
 
-#: lib/wine.lib:748
+#: lib/wine.lib:751
 #, sh-format
 msgid "The download seems to have failed."
 msgstr "La descarga parece haber fallado."
 
-#: lib/wine.lib:750
+#: lib/wine.lib:753
 #, sh-format
 msgid "Extracting Wine..."
 msgstr "Extrayendo Wine..."
 
-#: lib/wine.lib:900
+#: lib/wine.lib:915
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr "Sobreescribir (usualmente funciona, no hay garantía)"
 
-#: lib/wine.lib:901
+#: lib/wine.lib:916
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
-msgstr ""
+msgstr "Borrar (contenido del disco virtual se perderá)"
 
-#: lib/wine.lib:902
+#: lib/wine.lib:917
 #, sh-format
 msgid "Abort installation"
 msgstr ""
 
-#: lib/wine.lib:915
+#: lib/wine.lib:930
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr ""
 
-#: lib/wine.lib:927
+#: lib/wine.lib:943
 #, sh-format
 msgid "User abort"
 msgstr ""
 
-#: lib/wine.lib:1053 lib/wine.lib:1083
+#: lib/wine.lib:1069 lib/wine.lib:1099
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "Espere mientras se instala $SOFTNAME..."
 
-#: lib/wine.lib:1057 lib/wine.lib:1086
+#: lib/wine.lib:1073 lib/wine.lib:1102
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
@@ -4475,18 +4480,18 @@ msgstr ""
 "Cuidado! Esto detendrá los procesos instalados. Sí no están finalizados, "
 "tendrá que reinstalar $SOFTNAME"
 
-#: lib/wine.lib:1057 lib/wine.lib:1086
+#: lib/wine.lib:1073 lib/wine.lib:1102
 #, sh-format
 msgid "Install is done"
 msgstr "La instalación ha finalizado"
 
-#: lib/wine.lib:1090 lib/wine.lib:1091
+#: lib/wine.lib:1106 lib/wine.lib:1107
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr ""
 "Pulse Siguiente sólo cuando el proceso de instalación haya finalizado"
 
-#: lib/wine.lib:1099
+#: lib/wine.lib:1115
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr "$APPLICATION_TITLE está simulando un reinicio. Favor esperar"
@@ -4561,6 +4566,8 @@ msgstr "Desistalador de Wine"
 msgid ""
 "Be careful! Installing one of these components can break your virtual drive."
 msgstr ""
+"¡Ten cuidado! Instalar uno de estos componentes puede romper su disco "
+"virtual."
 
 #: python/configure.py:324 python/install.py:279 python/mainwindow.py:200
 #: python/mainwindow.py:353

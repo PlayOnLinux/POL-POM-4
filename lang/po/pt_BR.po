@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-12-24 19:00+0100\n"
+"POT-Creation-Date: 2012-12-31 19:26+0100\n"
 "PO-Revision-Date: 2012-10-25 19:38+0000\n"
 "Last-Translator: Arthur Henrique Guimarães de Oliveira <warthur2@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2012-12-25 04:37+0000\n"
+"X-Launchpad-Export-Date: 2013-01-01 04:36+0000\n"
 "X-Generator: Launchpad (build 16378)\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -456,6 +456,7 @@ msgstr "Você não tem que instalar DirectX ou usar GLSetup."
 #: PlayOnLinux_Scripts/Alt.Binz_:40 PlayOnLinux_Scripts/Driftmoon_:43
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:42
 #: PlayOnLinux_Scripts/GOG.com___Gothic_3_Community_patch_:46
+#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:50
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:51
 #: PlayOnLinux_Scripts/Google_Picasa_3.9_:54
 #: PlayOnLinux_Scripts/POL_GoG_setup_:30 PlayOnLinux_Scripts/SFR_LiberTalk_:36
@@ -1319,8 +1320,8 @@ msgstr "Por favor, insira a primeira mídia do jogo no seu drive."
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:109 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:421 lib/wine.lib:1053
-#: lib/wine.lib:1083
+#: bash/winebash:27 lib/setupwindow.lib:421 lib/wine.lib:1069
+#: lib/wine.lib:1099
 #, sh-format
 msgid "Please wait..."
 msgstr "Por favor, aguarde..."
@@ -1394,6 +1395,7 @@ msgstr "Bem vindo ao instalador do DLC de $TITLE"
 #: PlayOnLinux_Scripts/GOG.com___Gothic_3_Community_patch_:58
 #: PlayOnLinux_Scripts/GOG.com___Ground_Control_2_:45
 #: PlayOnLinux_Scripts/GOG.com___Guilty_Gear_X2_Reload_:39
+#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:57
 #: PlayOnLinux_Scripts/GOG.com___In_Cold_Blood_:39
 #: PlayOnLinux_Scripts/GOG.com___Incoming_and_Incoming_Forces_:40
 #: PlayOnLinux_Scripts/GOG.com___Iron_Storm_:38
@@ -1470,6 +1472,7 @@ msgstr "Ocorreu um erro instalando o arquivo"
 
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:29
 #: PlayOnLinux_Scripts/GOG.com___Gothic_3_Community_patch_:33
+#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:36
 #: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:32
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:37
 #, sh-format
@@ -1578,6 +1581,18 @@ msgstr ""
 "É altamente recomendado que você instale o patch da Comunidade agora, porque "
 "ele contém MUITAS correções de erros e melhoramentos em relação ao jogo "
 "original."
+
+#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:46
+#: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:47
+#, sh-format
+msgid "Go there now?"
+msgstr "Ir até lá agora?"
+
+#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:46
+#: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:47
+#, sh-format
+msgid "You can download the archive file from:"
+msgstr "Você pode baixar este arquivo de:"
 
 #: PlayOnLinux_Scripts/GOG.com___Iron_Storm_:20
 #: PlayOnLinux_Scripts/GOG.com___Painkiller__Black_Edition_:21
@@ -1747,16 +1762,6 @@ msgstr ""
 "corrigir muitos problemas com este jogo, e opcionalmente adicionar novos "
 "conteúdos\\n(para modpacks \"NC\"). \\nUse o script PlayOnLinux dedicado na "
 "seção patches."
-
-#: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:47
-#, sh-format
-msgid "Go there now?"
-msgstr "Ir até lá agora?"
-
-#: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:47
-#, sh-format
-msgid "You can download the archive file from:"
-msgstr "Você pode baixar este arquivo de:"
 
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:57
 #, sh-format
@@ -3964,7 +3969,7 @@ msgstr ""
 "processo de instalação.\\nVisite www.$POL_DNS para obter mais informações"
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:894 lib/wine.lib:971
+#: lib/wine.lib:909 lib/wine.lib:987
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr "Por favor aguarde enquanto a unidade virtual está sendo criada..."
@@ -4388,17 +4393,17 @@ msgid ""
 "valid."
 msgstr "Falha ao conectar !\\nVerifique se seu login e senha são válidos."
 
-#: lib/wine.lib:357
+#: lib/wine.lib:360
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is scanning your hardware"
 msgstr ""
 
-#: lib/wine.lib:418
+#: lib/wine.lib:421
 #, sh-format
 msgid "Scanning your hardware..."
 msgstr "Escaneando seu hardware"
 
-#: lib/wine.lib:507 lib/wine.lib:672
+#: lib/wine.lib:510 lib/wine.lib:675
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
@@ -4407,57 +4412,57 @@ msgstr ""
 "Wine parece ter deixado de funcionar\\n\\nSe seu programa está sendo "
 "executado, apenas ignore esta mensagem"
 
-#: lib/wine.lib:732
+#: lib/wine.lib:735
 #, sh-format
 msgid "Unable to find version: "
 msgstr "Incapaz de encontrar a versão: "
 
-#: lib/wine.lib:738 lib/wine.lib:739
+#: lib/wine.lib:741 lib/wine.lib:742
 #, sh-format
 msgid "Downloading Wine: "
 msgstr "Baixando o Wine: "
 
-#: lib/wine.lib:748
+#: lib/wine.lib:751
 #, sh-format
 msgid "The download seems to have failed."
 msgstr "O download parece ter falhado."
 
-#: lib/wine.lib:750
+#: lib/wine.lib:753
 #, sh-format
 msgid "Extracting Wine..."
 msgstr "Extraindo o Wine..."
 
-#: lib/wine.lib:900
+#: lib/wine.lib:915
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr ""
 
-#: lib/wine.lib:901
+#: lib/wine.lib:916
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
 msgstr ""
 
-#: lib/wine.lib:902
+#: lib/wine.lib:917
 #, sh-format
 msgid "Abort installation"
 msgstr ""
 
-#: lib/wine.lib:915
+#: lib/wine.lib:930
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr ""
 
-#: lib/wine.lib:927
+#: lib/wine.lib:943
 #, sh-format
 msgid "User abort"
 msgstr ""
 
-#: lib/wine.lib:1053 lib/wine.lib:1083
+#: lib/wine.lib:1069 lib/wine.lib:1099
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "Por favor aguarde enquanto $SOFTNAME é instalado..."
 
-#: lib/wine.lib:1057 lib/wine.lib:1086
+#: lib/wine.lib:1073 lib/wine.lib:1102
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
@@ -4466,18 +4471,18 @@ msgstr ""
 "Tenha cuidado! Isso vai matar processo de instalação. Se não estiver "
 "terminado, você precisará reinstalar $SOFTNAME"
 
-#: lib/wine.lib:1057 lib/wine.lib:1086
+#: lib/wine.lib:1073 lib/wine.lib:1102
 #, sh-format
 msgid "Install is done"
 msgstr "Instalação está feita"
 
-#: lib/wine.lib:1090 lib/wine.lib:1091
+#: lib/wine.lib:1106 lib/wine.lib:1107
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr ""
 "Clique em próximo somente quando o processo de instalação estiver terminado"
 
-#: lib/wine.lib:1099
+#: lib/wine.lib:1115
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr ""
