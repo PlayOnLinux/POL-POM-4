@@ -247,25 +247,28 @@ class InstallWindow(wx.Frame):
         #position += self.searchcaption.GetSize()[0]+5
         self.searchbox = wx.SearchCtrl(self.panelItems, 110, size=(250,22), pos=(position,9))
         self.searchbox.SetDescriptiveText(_("Search"))
-        position += self.searchbox.GetSize()[0]+10
+        position += self.searchbox.GetSize()[0]+20
+
+        self.filterscaption = wx.StaticText(self.panelItems, -1, _("Include:"), (position,82-71+self.search_offset), wx.DefaultSize)
+        position += self.filterscaption.GetSize()[0]+10
 
         self.testingChk = wx.CheckBox(self.panelItems, 401, pos=(position,82-71), size=wx.DefaultSize)
-        position += 20+self.search_offset
+        position += 15+self.search_offset
         self.testingCapt = wx.StaticText(self.panelItems, -1, _("Testing"), (position,82-71+self.search_offset), wx.DefaultSize)
-        position += self.testingCapt.GetSize()[0]+5
+        position += self.testingCapt.GetSize()[0]+10
 
         self.nocdChk = wx.CheckBox(self.panelItems, 402, pos=(position,82-71), size=wx.DefaultSize)
-        position += 20+self.search_offset
+        position += 15+self.search_offset
         self.noDvDCapt = wx.StaticText(self.panelItems, -1, _("No-cd needed"), (position,82-71+self.search_offset), wx.DefaultSize)
 
-        position += self.noDvDCapt.GetSize()[0]+5
+        position += self.noDvDCapt.GetSize()[0]+10
 
         self.freeChk = wx.CheckBox(self.panelItems, 403, pos=(position,82-71), size=wx.DefaultSize)
         self.freeChk.SetValue(True)
-        position += 20+self.search_offset
+        position += 15+self.search_offset
         self.FreeCapt = wx.StaticText(self.panelItems, -1, _("Commercial"), (position,82-71+self.search_offset), wx.DefaultSize)
 
-        position += self.FreeCapt.GetSize()[0]+5
+        position += self.FreeCapt.GetSize()[0]+10
         self.star_x = position
 
         self.lasthtml_content = ""
