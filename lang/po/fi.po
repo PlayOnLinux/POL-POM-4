@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2013-01-03 19:01+0100\n"
+"POT-Creation-Date: 2013-01-10 19:01+0100\n"
 "PO-Revision-Date: 2012-11-10 19:12+0000\n"
 "Last-Translator: emp <emp500@hotmail.com>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-01-04 04:35+0000\n"
-"X-Generator: Launchpad (build 16393)\n"
+"X-Launchpad-Export-Date: 2013-01-11 04:32+0000\n"
+"X-Generator: Launchpad (build 16412)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -277,9 +277,9 @@ msgstr "Ole hyvä ja laita peli levyasemaasi."
 #: PlayOnLinux_Scripts/Kingdoms_of_Amalur___Reckoning_:87
 #: PlayOnLinux_Scripts/Magicka_:80 PlayOnLinux_Scripts/Mass_Effect_:75
 #: PlayOnLinux_Scripts/Monkey_Island_2_Special_Edition_:79
-#: PlayOnLinux_Scripts/Mozilla_Firefox_:167
+#: PlayOnLinux_Scripts/Mozilla_Firefox_:165
 #: PlayOnLinux_Scripts/Need_For_Speed_III___Hot_Pursuit_:53
-#: PlayOnLinux_Scripts/NosTale_:46 PlayOnLinux_Scripts/OnLive_:48
+#: PlayOnLinux_Scripts/NosTale_:46 PlayOnLinux_Scripts/OnLive_:49
 #: PlayOnLinux_Scripts/Portal_:88 PlayOnLinux_Scripts/Portal_2_:73
 #: PlayOnLinux_Scripts/Portal_2_:87
 #: PlayOnLinux_Scripts/Prince_of_Persia___The_Forgotten_Sands_:85
@@ -1300,7 +1300,7 @@ msgstr ""
 "Sinun ei pidä asettaa varjojen tasoa maksimitasolle\\ntai sinun täytyy "
 "poistaa ja asentaa peli uudelleen."
 
-#: PlayOnLinux_Scripts/EA_s_Origin_:40
+#: PlayOnLinux_Scripts/EA_s_Origin_:32
 #, sh-format
 msgid "Downloading $TITLE, please wait..."
 msgstr "Pieni hetki, ladataan $TITLE..."
@@ -1878,7 +1878,7 @@ msgid "Registering libraries, please wait\\n(It can take a while)"
 msgstr "Rekisteröidään kirjastoja, pieni hetki\\n(Tämä voi kestää hetken)"
 
 #: PlayOnLinux_Scripts/Internet_Explorer_7_:57
-#: PlayOnLinux_Scripts/Mozilla_Firefox_:75
+#: PlayOnLinux_Scripts/Mozilla_Firefox_:74
 #, sh-format
 msgid "Which language version would you like to install?"
 msgstr "Minkä kieliversion haluat asentaa?"
@@ -2007,12 +2007,12 @@ msgstr "Tarkista, mitkä komponentit haluat asentaa lisäksi:"
 msgid "Coping install files, please wait..."
 msgstr ""
 
-#: PlayOnLinux_Scripts/OnLive_:42
+#: PlayOnLinux_Scripts/OnLive_:43
 #, sh-format
 msgid "Wait until it gets downloaded and installed"
 msgstr ""
 
-#: PlayOnLinux_Scripts/OnLive_:50
+#: PlayOnLinux_Scripts/OnLive_:51
 #, sh-format
 msgid "Installation in progress"
 msgstr "Asennus on meneillään"
@@ -2042,9 +2042,9 @@ msgid ""
 "No filename extension specified, skipping association to native application."
 msgstr ""
 
-#: PlayOnLinux_Scripts/POL_GoG_Extract_:29 python/install.py:424
-#: python/install.py:440 python/install.py:442 python/install.py:549
-#: python/install.py:552
+#: PlayOnLinux_Scripts/POL_GoG_Extract_:29 python/install.py:427
+#: python/install.py:443 python/install.py:445 python/install.py:552
+#: python/install.py:555
 #, sh-format
 msgid "Please read this"
 msgstr "Ole hyvä ja lue tämä"
@@ -2082,6 +2082,7 @@ msgstr "Asennetaan Adobe Air"
 
 #: PlayOnLinux_Scripts/POL_Install_d3dcompiler_43_:11
 #: PlayOnLinux_Scripts/POL_Install_d3dx9_:11
+#: PlayOnLinux_Scripts/POL_Install_d3dx9_35_:11
 #: PlayOnLinux_Scripts/POL_Install_d3dx9_36_:11
 #: PlayOnLinux_Scripts/POL_Install_d3dx9_40_:11
 #: PlayOnLinux_Scripts/POL_Install_d3dx9_43_:11
@@ -3516,7 +3517,7 @@ msgstr "Päivitykset"
 msgid "Select a category for your program"
 msgstr "Ole hyvä ja valitse mihin kategoriaan ohjelma kuuluu?"
 
-#: bash/playonlinux_online:69 python/install.py:254
+#: bash/playonlinux_online:69 python/install.py:257
 #, sh-format
 msgid "Testing"
 msgstr "Koekäytössä"
@@ -4090,7 +4091,7 @@ msgstr "Virhe"
 msgid "Where is mounted your CD-ROM?"
 msgstr "Missä on liitetty CD-asema?"
 
-#: lib/setupwindow.lib:339 python/install.py:280
+#: lib/setupwindow.lib:339 python/install.py:283
 #, sh-format
 msgid "Refresh"
 msgstr "Päivitä"
@@ -4387,7 +4388,7 @@ msgid ""
 "Be careful! Installing one of these components can break your virtual drive."
 msgstr ""
 
-#: python/configure.py:324 python/install.py:279 python/mainwindow.py:200
+#: python/configure.py:324 python/install.py:282 python/mainwindow.py:200
 #: python/mainwindow.py:353
 msgid "Install"
 msgstr "Asenna"
@@ -4534,7 +4535,7 @@ msgstr ""
 msgid "{0} Wizard"
 msgstr "{0}in Ohjattu toiminto"
 
-#: python/guiv3.py:137 python/install.py:278 python/options.py:376
+#: python/guiv3.py:137 python/install.py:281 python/options.py:376
 msgid "Cancel"
 msgstr "Peruuta"
 
@@ -4586,19 +4587,23 @@ msgstr "Ei kuvausta"
 msgid "Search"
 msgstr "Etsi"
 
-#: python/install.py:259
+#: python/install.py:252
+msgid "Include:"
+msgstr ""
+
+#: python/install.py:262
 msgid "No-cd needed"
 msgstr "cd:tä ei tarvita"
 
-#: python/install.py:266
+#: python/install.py:269
 msgid "Commercial"
 msgstr "Kaupallinen"
 
-#: python/install.py:290
+#: python/install.py:293
 msgid "Install a non-listed program"
 msgstr "Asenna listaamaton ohjelma"
 
-#: python/install.py:424
+#: python/install.py:427
 msgid ""
 "When {0} installs a Windows program: \n"
 "\n"
@@ -4610,7 +4615,7 @@ msgstr ""
 " - Jätä oletussijainti\n"
 " - Älä rastita valintaruutua \"Suorita ohjelma\"."
 
-#: python/install.py:440
+#: python/install.py:443
 msgid ""
 "This program is currently in testing.\n"
 "\n"
@@ -4618,7 +4623,7 @@ msgid ""
 "specially important to improve this installer."
 msgstr ""
 
-#: python/install.py:442
+#: python/install.py:445
 msgid ""
 "This program contains a protection against copy (DRM) incompatible with "
 "emulation.\n"
@@ -4626,14 +4631,14 @@ msgid ""
 "used for piracy purposes we won't give any support on this matter."
 msgstr ""
 
-#: python/install.py:549
+#: python/install.py:552
 msgid ""
 "By enabling this, you will have access to testing installers.\n"
 "\n"
 "{0} cannot ensure that your app will work without any problems"
 msgstr ""
 
-#: python/install.py:552
+#: python/install.py:555
 msgid ""
 "By enabling this, you will have access to installers for programs that "
 "contain protections against copy (DRM) incompatible with emulation.\n"

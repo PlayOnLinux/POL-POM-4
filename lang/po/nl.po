@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2013-01-03 19:01+0100\n"
-"PO-Revision-Date: 2012-12-22 16:02+0000\n"
+"POT-Creation-Date: 2013-01-10 19:01+0100\n"
+"PO-Revision-Date: 2013-01-08 18:37+0000\n"
 "Last-Translator: rob <linuxned@gmail.com>\n"
 "Language-Team: nl_NL.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-01-04 04:35+0000\n"
-"X-Generator: Launchpad (build 16393)\n"
+"X-Launchpad-Export-Date: 2013-01-11 04:31+0000\n"
+"X-Generator: Launchpad (build 16412)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -280,9 +280,9 @@ msgstr "Voer spelschijf in in schijfstation."
 #: PlayOnLinux_Scripts/Kingdoms_of_Amalur___Reckoning_:87
 #: PlayOnLinux_Scripts/Magicka_:80 PlayOnLinux_Scripts/Mass_Effect_:75
 #: PlayOnLinux_Scripts/Monkey_Island_2_Special_Edition_:79
-#: PlayOnLinux_Scripts/Mozilla_Firefox_:167
+#: PlayOnLinux_Scripts/Mozilla_Firefox_:165
 #: PlayOnLinux_Scripts/Need_For_Speed_III___Hot_Pursuit_:53
-#: PlayOnLinux_Scripts/NosTale_:46 PlayOnLinux_Scripts/OnLive_:48
+#: PlayOnLinux_Scripts/NosTale_:46 PlayOnLinux_Scripts/OnLive_:49
 #: PlayOnLinux_Scripts/Portal_:88 PlayOnLinux_Scripts/Portal_2_:73
 #: PlayOnLinux_Scripts/Portal_2_:87
 #: PlayOnLinux_Scripts/Prince_of_Persia___The_Forgotten_Sands_:85
@@ -946,7 +946,7 @@ msgid ""
 "$APPLICATION_TITLE is strongly against piracy, and will never support it."
 msgstr ""
 "Opgepast! Om $TITLE te kunnen draaien met $APPLICATION_TITLE, heeft u een No-"
-"CD patch nodig zelfs als u een legale versie hebt.\\n\\nHoud er rekening mee "
+"cd-patch nodig zelfs als u een legale versie hebt.\\n\\nHoud er rekening mee "
 "dat $APPLICATION_TITLE sterk tegen piraterij is, en het nooit zal "
 "ondersteunen."
 
@@ -1305,7 +1305,7 @@ msgstr ""
 "U moet het schaduwniveau niet op het maximum instellen\\anders moet u het "
 "verwijderen en moet u de installatie opnieuw uitvoeren."
 
-#: PlayOnLinux_Scripts/EA_s_Origin_:40
+#: PlayOnLinux_Scripts/EA_s_Origin_:32
 #, sh-format
 msgid "Downloading $TITLE, please wait..."
 msgstr "Een moment geduld, $TITLE wordt gedownload…"
@@ -1914,7 +1914,7 @@ msgstr ""
 "duren)"
 
 #: PlayOnLinux_Scripts/Internet_Explorer_7_:57
-#: PlayOnLinux_Scripts/Mozilla_Firefox_:75
+#: PlayOnLinux_Scripts/Mozilla_Firefox_:74
 #, sh-format
 msgid "Which language version would you like to install?"
 msgstr "Welke taalversie wilt u installeren?"
@@ -2066,12 +2066,12 @@ msgstr "Controleer welke extra componenten u nog meer wilt installeren:"
 msgid "Coping install files, please wait..."
 msgstr "Installatiebestanden kopiëren, even geduld..."
 
-#: PlayOnLinux_Scripts/OnLive_:42
+#: PlayOnLinux_Scripts/OnLive_:43
 #, sh-format
 msgid "Wait until it gets downloaded and installed"
 msgstr "Wacht totdat het is gedownload en geïnstalleerd"
 
-#: PlayOnLinux_Scripts/OnLive_:50
+#: PlayOnLinux_Scripts/OnLive_:51
 #, sh-format
 msgid "Installation in progress"
 msgstr "Bezig met installeren"
@@ -2106,9 +2106,9 @@ msgstr ""
 "Geen bestandsnaamextensie aangegeven, associatie met oorspronkelijke "
 "programma wordt overgeslagen."
 
-#: PlayOnLinux_Scripts/POL_GoG_Extract_:29 python/install.py:424
-#: python/install.py:440 python/install.py:442 python/install.py:549
-#: python/install.py:552
+#: PlayOnLinux_Scripts/POL_GoG_Extract_:29 python/install.py:427
+#: python/install.py:443 python/install.py:445 python/install.py:552
+#: python/install.py:555
 #, sh-format
 msgid "Please read this"
 msgstr "Lees dit a.u.b. door"
@@ -2147,6 +2147,7 @@ msgstr "Adobe Air installeren"
 
 #: PlayOnLinux_Scripts/POL_Install_d3dcompiler_43_:11
 #: PlayOnLinux_Scripts/POL_Install_d3dx9_:11
+#: PlayOnLinux_Scripts/POL_Install_d3dx9_35_:11
 #: PlayOnLinux_Scripts/POL_Install_d3dx9_36_:11
 #: PlayOnLinux_Scripts/POL_Install_d3dx9_40_:11
 #: PlayOnLinux_Scripts/POL_Install_d3dx9_43_:11
@@ -3650,7 +3651,7 @@ msgstr "Patches"
 msgid "Select a category for your program"
 msgstr "Selecteer een categorie voor uw programma"
 
-#: bash/playonlinux_online:69 python/install.py:254
+#: bash/playonlinux_online:69 python/install.py:257
 #, sh-format
 msgid "Testing"
 msgstr "Testen"
@@ -4273,7 +4274,7 @@ msgstr "Fout"
 msgid "Where is mounted your CD-ROM?"
 msgstr "Waar is uw cd-rom aangekoppeld?"
 
-#: lib/setupwindow.lib:339 python/install.py:280
+#: lib/setupwindow.lib:339 python/install.py:283
 #, sh-format
 msgid "Refresh"
 msgstr "Verversen"
@@ -4590,7 +4591,7 @@ msgstr ""
 "Opgepast! Het installeren van een van deze componenten kan uw virtuele "
 "station breken."
 
-#: python/configure.py:324 python/install.py:279 python/mainwindow.py:200
+#: python/configure.py:324 python/install.py:282 python/mainwindow.py:200
 #: python/mainwindow.py:353
 msgid "Install"
 msgstr "Installeren"
@@ -4737,7 +4738,7 @@ msgstr "WAARSCHUWING. gebruik a.u.b. eerst POL_SetupWindow_Init"
 msgid "{0} Wizard"
 msgstr "{0}-wizard"
 
-#: python/guiv3.py:137 python/install.py:278 python/options.py:376
+#: python/guiv3.py:137 python/install.py:281 python/options.py:376
 msgid "Cancel"
 msgstr "Annuleren"
 
@@ -4789,19 +4790,23 @@ msgstr "Geen omschrijving"
 msgid "Search"
 msgstr "Zoeken"
 
-#: python/install.py:259
-msgid "No-cd needed"
-msgstr "Geen cd nodig"
+#: python/install.py:252
+msgid "Include:"
+msgstr ""
 
-#: python/install.py:266
+#: python/install.py:262
+msgid "No-cd needed"
+msgstr "No-cd-patch vereist"
+
+#: python/install.py:269
 msgid "Commercial"
 msgstr "Commercieel"
 
-#: python/install.py:290
+#: python/install.py:293
 msgid "Install a non-listed program"
 msgstr "Een niet in de lijst opgenomen programma installeren"
 
-#: python/install.py:424
+#: python/install.py:427
 msgid ""
 "When {0} installs a Windows program: \n"
 "\n"
@@ -4813,7 +4818,7 @@ msgstr ""
 " - Wijzig de standaardlocatie dan niet\n"
 " - Vink ook niet 'Programma draaien' aan, indien dit gevraagd wordt."
 
-#: python/install.py:440
+#: python/install.py:443
 msgid ""
 "This program is currently in testing.\n"
 "\n"
@@ -4825,15 +4830,20 @@ msgstr ""
 "Mogelijk werkt het niet zoals verwacht. Uw feedback, positieve of negatieve, "
 "is heel belangrijk om dit installatieprogramma te verbeteren."
 
-#: python/install.py:442
+#: python/install.py:445
 msgid ""
 "This program contains a protection against copy (DRM) incompatible with "
 "emulation.\n"
 "The only workaround is to use a \"no-cd\" patch, but since those can also be "
 "used for piracy purposes we won't give any support on this matter."
 msgstr ""
+"Dit programma bevat een beveiliging tegen kopiëren hebben (DRM), waardoor "
+"deze ongeschikt is voor emulatie.\n"
+"Om dit te omzeilen heeft u een zogenaamde \"No-cd-patch\" nodig, maar omdat "
+"deze ook voor piraterij-doeleinden gebruikt kan worden, geven wij hier geen "
+"ondersteuning voor."
 
-#: python/install.py:549
+#: python/install.py:552
 msgid ""
 "By enabling this, you will have access to testing installers.\n"
 "\n"
@@ -4844,13 +4854,19 @@ msgstr ""
 "\n"
 "{0} kan niet garanderen dat uw programma zonder problemen zal werken"
 
-#: python/install.py:552
+#: python/install.py:555
 msgid ""
 "By enabling this, you will have access to installers for programs that "
 "contain protections against copy (DRM) incompatible with emulation.\n"
 "The only workaround is to use \"no-cd\" patches, but since those can also be "
 "used for piracy purposes we won't give any support on this matter."
 msgstr ""
+"Door dit in te schakelen krijgt u toegang tot installatieprogramma's die een "
+"beveiliging tegen kopiëren hebben (DRM), waardoor ze ongeschikt zijn voor "
+"emulatie.\n"
+"Om dit te omzeilen heeft u zogenaamde \"No-cd-patches\" nodig, maar omdat "
+"deze ook voor piraterij-doeleinden gebruikt kunnen worden, geven wij hier "
+"geen ondersteuning voor."
 
 #: python/irc.py:137
 msgid "Send"

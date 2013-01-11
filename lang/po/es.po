@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2013-01-03 19:01+0100\n"
-"PO-Revision-Date: 2013-01-01 03:49+0000\n"
-"Last-Translator: Victor Roman <Unknown>\n"
+"POT-Creation-Date: 2013-01-10 19:01+0100\n"
+"PO-Revision-Date: 2013-01-06 17:43+0000\n"
+"Last-Translator: Adolfo Jayme Barrientos <fitoschido@gmail.com>\n"
 "Language-Team: es_ES.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-01-04 04:36+0000\n"
-"X-Generator: Launchpad (build 16393)\n"
+"X-Launchpad-Export-Date: 2013-01-11 04:33+0000\n"
+"X-Generator: Launchpad (build 16412)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -278,9 +278,9 @@ msgstr "Inserte el disco de juego en la unidad de disco."
 #: PlayOnLinux_Scripts/Kingdoms_of_Amalur___Reckoning_:87
 #: PlayOnLinux_Scripts/Magicka_:80 PlayOnLinux_Scripts/Mass_Effect_:75
 #: PlayOnLinux_Scripts/Monkey_Island_2_Special_Edition_:79
-#: PlayOnLinux_Scripts/Mozilla_Firefox_:167
+#: PlayOnLinux_Scripts/Mozilla_Firefox_:165
 #: PlayOnLinux_Scripts/Need_For_Speed_III___Hot_Pursuit_:53
-#: PlayOnLinux_Scripts/NosTale_:46 PlayOnLinux_Scripts/OnLive_:48
+#: PlayOnLinux_Scripts/NosTale_:46 PlayOnLinux_Scripts/OnLive_:49
 #: PlayOnLinux_Scripts/Portal_:88 PlayOnLinux_Scripts/Portal_2_:73
 #: PlayOnLinux_Scripts/Portal_2_:87
 #: PlayOnLinux_Scripts/Prince_of_Persia___The_Forgotten_Sands_:85
@@ -1301,7 +1301,7 @@ msgstr ""
 "No debe establecer el nivel de sombras al máximo\\no tendrá que borrar y "
 "reinstalar el juego."
 
-#: PlayOnLinux_Scripts/EA_s_Origin_:40
+#: PlayOnLinux_Scripts/EA_s_Origin_:32
 #, sh-format
 msgid "Downloading $TITLE, please wait..."
 msgstr "Descargando $TITLE, espere por favor..."
@@ -1899,7 +1899,7 @@ msgstr ""
 "unos momentos)"
 
 #: PlayOnLinux_Scripts/Internet_Explorer_7_:57
-#: PlayOnLinux_Scripts/Mozilla_Firefox_:75
+#: PlayOnLinux_Scripts/Mozilla_Firefox_:74
 #, sh-format
 msgid "Which language version would you like to install?"
 msgstr "¿Qué versión quiere instalar?"
@@ -2050,12 +2050,12 @@ msgstr "Compruebe que componentes desea instalar de manera adicional:"
 msgid "Coping install files, please wait..."
 msgstr "Copiando archivos de instalación, espera por favor..."
 
-#: PlayOnLinux_Scripts/OnLive_:42
+#: PlayOnLinux_Scripts/OnLive_:43
 #, sh-format
 msgid "Wait until it gets downloaded and installed"
 msgstr "Espere hasta que esté descargado e instalado"
 
-#: PlayOnLinux_Scripts/OnLive_:50
+#: PlayOnLinux_Scripts/OnLive_:51
 #, sh-format
 msgid "Installation in progress"
 msgstr "Instalación en progreso"
@@ -2090,9 +2090,9 @@ msgstr ""
 "No se ha indicado una extensión de nombre de archivo. Se evita asociarlo a "
 "aplicaciones nativas."
 
-#: PlayOnLinux_Scripts/POL_GoG_Extract_:29 python/install.py:424
-#: python/install.py:440 python/install.py:442 python/install.py:549
-#: python/install.py:552
+#: PlayOnLinux_Scripts/POL_GoG_Extract_:29 python/install.py:427
+#: python/install.py:443 python/install.py:445 python/install.py:552
+#: python/install.py:555
 #, sh-format
 msgid "Please read this"
 msgstr "Lea el siguiente mensaje"
@@ -2130,6 +2130,7 @@ msgstr "Instalando Adobe Air"
 
 #: PlayOnLinux_Scripts/POL_Install_d3dcompiler_43_:11
 #: PlayOnLinux_Scripts/POL_Install_d3dx9_:11
+#: PlayOnLinux_Scripts/POL_Install_d3dx9_35_:11
 #: PlayOnLinux_Scripts/POL_Install_d3dx9_36_:11
 #: PlayOnLinux_Scripts/POL_Install_d3dx9_40_:11
 #: PlayOnLinux_Scripts/POL_Install_d3dx9_43_:11
@@ -3632,7 +3633,7 @@ msgstr "Parches"
 msgid "Select a category for your program"
 msgstr "Seleccione una categoría para su programa"
 
-#: bash/playonlinux_online:69 python/install.py:254
+#: bash/playonlinux_online:69 python/install.py:257
 #, sh-format
 msgid "Testing"
 msgstr "En pruebas"
@@ -4251,7 +4252,7 @@ msgstr "Error"
 msgid "Where is mounted your CD-ROM?"
 msgstr "¿Dónde está montado su CD-ROM?"
 
-#: lib/setupwindow.lib:339 python/install.py:280
+#: lib/setupwindow.lib:339 python/install.py:283
 #, sh-format
 msgid "Refresh"
 msgstr "Actualizar"
@@ -4454,17 +4455,17 @@ msgstr "Borrar (contenido del disco virtual se perderá)"
 #: lib/wine.lib:917
 #, sh-format
 msgid "Abort installation"
-msgstr ""
+msgstr "Interrumpir la instalación"
 
 #: lib/wine.lib:930
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
-msgstr ""
+msgstr "La unidad virtual de destino $PREFNAME ya existe:"
 
 #: lib/wine.lib:943
 #, sh-format
 msgid "User abort"
-msgstr ""
+msgstr "Interrumpido por el usuario"
 
 #: lib/wine.lib:1069 lib/wine.lib:1099
 #, sh-format
@@ -4569,7 +4570,7 @@ msgstr ""
 "¡Ten cuidado! Instalar uno de estos componentes puede romper su disco "
 "virtual."
 
-#: python/configure.py:324 python/install.py:279 python/mainwindow.py:200
+#: python/configure.py:324 python/install.py:282 python/mainwindow.py:200
 #: python/mainwindow.py:353
 msgid "Install"
 msgstr "Instalar"
@@ -4716,7 +4717,7 @@ msgstr "ATENCIÓN: Por favor, use en primer lugar POL_SetupWindow_Init"
 msgid "{0} Wizard"
 msgstr "{0} Asistente"
 
-#: python/guiv3.py:137 python/install.py:278 python/options.py:376
+#: python/guiv3.py:137 python/install.py:281 python/options.py:376
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -4768,19 +4769,23 @@ msgstr "Sin descripción"
 msgid "Search"
 msgstr "Búsqueda"
 
-#: python/install.py:259
+#: python/install.py:252
+msgid "Include:"
+msgstr ""
+
+#: python/install.py:262
 msgid "No-cd needed"
 msgstr "No es necesario CD"
 
-#: python/install.py:266
+#: python/install.py:269
 msgid "Commercial"
 msgstr "Comercial"
 
-#: python/install.py:290
+#: python/install.py:293
 msgid "Install a non-listed program"
 msgstr "Instalar un programa no-listado"
 
-#: python/install.py:424
+#: python/install.py:427
 msgid ""
 "When {0} installs a Windows program: \n"
 "\n"
@@ -4792,7 +4797,7 @@ msgstr ""
 " - Dejar de la ubicación predeterminada\n"
 " - No marcar la casilla \"Ejecutar el programa\" si se solicita."
 
-#: python/install.py:440
+#: python/install.py:443
 msgid ""
 "This program is currently in testing.\n"
 "\n"
@@ -4804,7 +4809,7 @@ msgstr ""
 "Puede que no funcione como se espera. Sus comentarios, positivos o "
 "negativos, es importante para mejorar especialmente el instalador."
 
-#: python/install.py:442
+#: python/install.py:445
 msgid ""
 "This program contains a protection against copy (DRM) incompatible with "
 "emulation.\n"
@@ -4812,7 +4817,7 @@ msgid ""
 "used for piracy purposes we won't give any support on this matter."
 msgstr ""
 
-#: python/install.py:549
+#: python/install.py:552
 msgid ""
 "By enabling this, you will have access to testing installers.\n"
 "\n"
@@ -4822,7 +4827,7 @@ msgstr ""
 "\n"
 "{0} no se puede asegurar de que su aplicación funcionará sin ningún problema"
 
-#: python/install.py:552
+#: python/install.py:555
 msgid ""
 "By enabling this, you will have access to installers for programs that "
 "contain protections against copy (DRM) incompatible with emulation.\n"
