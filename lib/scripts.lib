@@ -877,3 +877,9 @@ POL_Shortcut_MakeDesktopShortcut()
 		generer_icone "$iconPath" "$PACKAGE" "$DESKTOP" "$PLAYONLINUX/playonlinux --run \"$PACKAGE\""
 	fi
 }
+POL_System_is32bit()
+{
+	# Check if the file (1) is a 32bit executable
+	
+	file "$1" | grep -q "PE32"
+}
