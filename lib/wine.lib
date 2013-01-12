@@ -883,13 +883,14 @@ POL_Wine_SetVersionPrefix()
 POL_Wine_PrefixDelete()
 {
 	# cf MainWindow.DeletePrefix()
-	for file in "$POL_USER_ROOT/shortcuts/"*
-	do
-		if [ -e "$file" ] && [ ! "$(cat "$file" | grep $WINEPREFIX)" = "" ]
-		then
-			rm "$file"
-		fi
-	done
+
+	#for file in "$POL_USER_ROOT/shortcuts/"*
+	#do
+	#	if [ -e "$file" ] && [ ! "$(cat "$file" | grep $WINEPREFIX)" = "" ]
+	#	then
+	#		rm "$file"
+	#	fi
+	#done
 	rm -rf "$WINEPREFIX"
 }
 POL_Wine_PrefixCreate()
