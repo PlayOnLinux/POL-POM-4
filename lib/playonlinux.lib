@@ -740,7 +740,7 @@ function VersionLower ()
 	if  grep -q -- '-' <<< $1 ; then
 		[ $versionA1 -lt $versionB1 ] && return 0
 		[ $versionA1 -le $versionB1 ] && [ $versionA2 -lt $versionB2 ] && return 0
-		[ $versionA1 -le $versionB1 ] && [ $versionA2 -le $versionB2 ] && [ $versionA3 -lt $versionB3 ] && return 0
+		[ $versionA1 -le $versionB1 ] && [ $versionA2 -le $versionB2 ] && [ $versionA3 -le $versionB3 ] && return 0
 		return 1
 	fi
 	[ $versionA1 -lt $versionB1 ] && return 0

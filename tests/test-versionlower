@@ -1,0 +1,43 @@
+#!/bin/bash
+
+[ -z "$PLAYONLINUX" ] && exit 0
+source "$PLAYONLINUX/lib/sources"
+
+assert () {
+    local v1="$1"
+    local v2="$2"
+    local expected=$3
+    echo -n "VersionLower $1 $2"
+    VersionLower "$v1" "$v2"
+    local result=$?
+    if [ $result -ne $expected ]; then
+        echo "  expected $expected / found $result"
+    fi
+    echo ""
+}
+
+    # Return 0 if version1 is lower than version2
+    # Usage: VersionLower [version1] [version2]
+
+
+assert "4.0.0" "5.0.0" 0
+assert "4.0.0" "4.0.0" 1
+assert "4.0.0" "3.0.0" 1
+
+assert "4.0.0" "4.1.0" 0
+assert "4.1.0" "4.1.0" 1
+assert "4.1.0" "4.0.0" 1
+
+assert "4.0.0" "4.0.1" 0
+assert "4.0.1" "4.0.1" 1
+assert "4.0.1" "4.0.0" 1
+
+# 4.0.0-dev < 4.0.0 < 4.0.1-dev < 4.0.1
+assert "4.0.0-dev" "4.0.0" 0
+assert "4.0.0" "4.0.0-dev" 1
+
+assert "4.0.0" "4.0.1-dev" 0
+assert "4.0.1-dev" "4.0.0" 1
+
+echo "All tests passed."
+
