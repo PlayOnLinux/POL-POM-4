@@ -248,13 +248,13 @@ def VersionLower(version1, version2):
         dev2 = False
 
     if(version1[0] == version2[0]):
-        if(dev1 == True or dev2 == False):
-            return False
-        else:
+        if(dev1 == True and dev2 == False):
             return True
+        else:
+            return False
 
-    version1 = string.split(version1[0],".")
-    version2 = string.split(version2[0],".")
+    version1 = [ int(digit) for digit in string.split(version1[0],".") ]
+    version2 = [ int(digit) for digit in string.split(version2[0],".") ]
 
     if(version1[0] < version2[0]):
         return True
