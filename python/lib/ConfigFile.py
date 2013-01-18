@@ -28,7 +28,7 @@ class ConfigFile()
          return("")
          
 
-   def setSettings(setting, value):
+   def setSetting(self, setting, value):
       try:
          configFileContent = open(self.configFile,"r").readlines()
          fileExists = True
@@ -61,7 +61,7 @@ class ConfigFile()
            configFileContent_write.write(line[i]+"\n")
            i+=1
 
-   def DeleteSettings(setting):
+   def deleteSetting(self, setting):
       try:
          configFileContent = open(self.configFile,"r").readlines()
          fileExists = True
@@ -86,4 +86,7 @@ class ConfigFile()
       while(i < len(line)): 
           configFileContent_write.write(line[i]+"\n")
           i+=1
-   
+
+class GlobalConfigFile(ConfigFile):
+    def __init__(self):
+        self.configFile = variables.pol_user_root + "/playonlinux.cfg"

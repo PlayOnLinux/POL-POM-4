@@ -102,9 +102,16 @@ class Shortcut()
            shortcutFileWrite.write(lines[i]+"\n")
            i+=1
            
-           
+   def delete(self):
+       os.remove(self.getPath())
+       
    @staticmethod
    def getList():
        shortcutList = os.listdir(SHORTCUTS_PATH)
        shortcutList.sort()
+       
+       # Get a list of object instead of a list of strings
+       for ndx, member in enumerate(shortcutList):
+           shortcutList[ndx] = Shortcut(shortcutList[ndx])
+           
        return shortcutList
