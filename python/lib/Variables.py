@@ -113,9 +113,10 @@ os.environ["DYLDPATH_ORIGIN"] = os.environ["DYLD_LIBRARY_PATH"]
 
 playonlinux_env = os.environ["PLAYONLINUX"]
 playonlinux_rep = os.environ["REPERTOIRE"]
+pol_user_root = os.environ["REPERTOIRE"]
 version = os.environ["VERSION"]
 current_user = os.environ["USER"]
-
+pol_os = os.environ["POL_OS"]
 os.environ["WGETRC"] = os.environ["POL_USER_ROOT"]+"/configurations/wgetrc"
 
 ## Proxy settings
