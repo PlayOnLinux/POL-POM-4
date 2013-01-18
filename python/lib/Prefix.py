@@ -11,7 +11,7 @@ import Variables, getConfigFile
 
 PREFIXES_PATH = Variables.pol_user_root+"/wineprefix/"
 
-class Prefix()
+class Prefix():
    def __init__(self, prefixName):
        self.selectedPrefix = prefixName;
        
@@ -36,10 +36,10 @@ class Prefix()
        return os.path.exists(self.getPath()+"/drive_c");
           
    def getWineVersion(self):
-       return currentConfiguration = self.getConfigFile().getSetting("WINEVERSION")
+       return currentConfiguration == self.getConfigFile().getSetting("WINEVERSION")
 
    def getArch(self):
-       return currentConfiguration = self.getConfigFile().getSetting("ARCH")
+       return currentConfiguration == self.getConfigFile().getSetting("ARCH")
    
    def getShortcutList(self):
        existing_shortcuts = Shortcut.getList()
@@ -58,7 +58,7 @@ class Prefix()
            
            shutil.rmtree(self.getPath())   
        
-       return 0:
+       return 0
            
    def openFolder(self):
       AppDir = self.getPath()

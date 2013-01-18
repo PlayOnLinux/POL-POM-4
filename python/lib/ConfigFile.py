@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 # Copyright (C) 2007-2013 PlayOnLinux Team
-
-class ConfigFile()
+import Variables
+class ConfigFile():
    def __init__(self, filePath):
        self.configFile = filePath;
        
@@ -51,15 +51,15 @@ class ConfigFile()
             i += 1
            
        # If the line is not found in the config file, we add it at the end
-       if(found == False):
-           line.append(setting+"="+value)
+      if(found == False):
+         line.append(setting+"="+value)
 
        # Now, we rewrite the config file
-       configFileContent_write = open(self.configFile,"w")
-       i = 0
-       while(i < len(line)):
-           configFileContent_write.write(line[i]+"\n")
-           i+=1
+      configFileContent_write = open(self.configFile,"w")
+      i = 0
+      while(i < len(line)):
+         configFileContent_write.write(line[i]+"\n")
+         i+=1
 
    def deleteSetting(self, setting):
       try:
@@ -89,4 +89,4 @@ class ConfigFile()
 
 class GlobalConfigFile(ConfigFile):
     def __init__(self):
-        self.configFile = variables.pol_user_root + "/playonlinux.cfg"
+        self.configFile = Variables.pol_user_root + "/playonlinux.cfg"
