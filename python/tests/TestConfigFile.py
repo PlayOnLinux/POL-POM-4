@@ -1,7 +1,7 @@
 import unittest
 import os
 import tempfile
-from ConfigFile import ConfigFile
+from lib.ConfigFile import ConfigFile
 
 class TestConfigFile(unittest.TestCase):
     def setUp(self):

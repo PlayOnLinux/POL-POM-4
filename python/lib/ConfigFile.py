@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 
 # Copyright (C) 2007-2013 PlayOnLinux Team
-import Variables
 
 class ConfigFile(object):
    def __init__(self, filePath):
@@ -90,4 +89,5 @@ class ConfigFile(object):
 
 class GlobalConfigFile(ConfigFile):
     def __init__(self):
+        import Variables
         self.configFile = variables.pol_user_root + "/playonlinux.cfg"
