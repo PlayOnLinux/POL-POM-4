@@ -7,13 +7,13 @@
 import os, string, shutil
 
 # playonlinux imports
-import Variables, getConfigFile
+import Variables, ConfigFile
 
 PREFIXES_PATH = Variables.pol_user_root+"/wineprefix/"
 
 class Prefix():
    def __init__(self, prefixName):
-       self.selectedPrefix = prefixName;
+       self.selectedPrefix = prefixName
        
    def getName(self):
        return self.selectedPrefix
@@ -23,17 +23,17 @@ class Prefix():
 
    def getConfigFile(self):
        # Return the config file object corresponding to the config file in the prefix
-       return getConfigFile(self.getConfigFilePath());
+       return getConfigFile(self.getConfigFilePath())
        
    def getPath(self):
-       return PREFIXES_PATH+self.selectedPrefix;
+       return PREFIXES_PATH+self.selectedPrefix
              
    def exists(self):
        # Return true if the prefix exists
-       return os.path.exists(self.getPath());
+       return os.path.exists(self.getPath())
        
    def created(self):
-       return os.path.exists(self.getPath()+"/drive_c");
+       return os.path.exists(self.getPath()+"/drive_c")
           
    def getWineVersion(self):
        return currentConfiguration == self.getConfigFile().getSetting("WINEVERSION")
