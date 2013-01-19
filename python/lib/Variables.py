@@ -10,7 +10,7 @@ try :
     os.environ["POL_OS"]
 except :
     print "ERROR ! Please define POL_OS environment var first."
-    os._exit(1)
+    sys.exit(1)
 
 # Variables mixte 1
 os.environ["POL_PORT"] = "0"
