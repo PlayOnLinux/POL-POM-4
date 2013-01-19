@@ -3,10 +3,10 @@
 
 # Copyright (C) 2007-2013 PlayOnLinux Team
 
-class ConfigFile()
+class ConfigFile(object):
    def __init__(self, filePath):
-       self.configFile = filePath;
-       
+       self.configFile = filePath
+
    def getSetting(self, setting):
       try:
          configFileContent = open(self.configFile,"r").readlines()
@@ -26,7 +26,7 @@ class ConfigFile()
          return(line[1])
       except:
          return("")
-         
+
 
    def setSetting(self, setting, value):
       try:
@@ -37,7 +37,7 @@ class ConfigFile()
 
       line = []
       found = False
-       
+
       if(fileExists):
          # Try to overwrite the current setting
          i = 0
@@ -49,17 +49,17 @@ class ConfigFile()
             else:
                line.append(configFileContent[i])
             i += 1
-           
-       # If the line is not found in the config file, we add it at the end
-       if(found == False):
-           line.append(setting+"="+value)
 
-       # Now, we rewrite the config file
-       configFileContent_write = open(self.configFile,"w")
-       i = 0
-       while(i < len(line)):
-           configFileContent_write.write(line[i]+"\n")
-           i+=1
+      # If the line is not found in the config file, we add it at the end
+      if(found == False):
+          line.append(setting+"="+value)
+
+      # Now, we rewrite the config file
+      configFileContent_write = open(self.configFile,"w")
+      i = 0
+      while(i < len(line)):
+          configFileContent_write.write(line[i]+"\n")
+          i+=1
 
    def deleteSetting(self, setting):
       try:
@@ -69,7 +69,7 @@ class ConfigFile()
          fileExists = False
 
       line = []
-       
+
       if(fileExists):
          configFileContent = open(self.configFile,"r").readlines()
          i = 0
@@ -83,7 +83,7 @@ class ConfigFile()
 
       # Now, we rewrite the config file
       i = 0
-      while(i < len(line)): 
+      while(i < len(line)):
           configFileContent_write.write(line[i]+"\n")
           i+=1
 
