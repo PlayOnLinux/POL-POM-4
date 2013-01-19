@@ -5,9 +5,9 @@
 import os, random, sys, string
 import wx, lib.playonlinux as playonlinux
 
-global pol_user_root, windows_add_size, windows_add_playonmac, widget_borders, os_name, archi, version, current_user, pol_os
-
 def initialization():
+    global pol_user_root, windows_add_size, windows_add_playonmac, widget_borders, os_name, archi, version, current_user, pol_os
+
     # Un ptit check
     try :
         os.environ["POL_OS"]
