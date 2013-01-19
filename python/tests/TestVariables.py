@@ -8,11 +8,13 @@ class TestVariables(unittest.TestCase):
 
     def _init(self):
         import lib.Variables as Variables
+        Variables.initialization()
 
     def tearDown(self):
-        if 'Variables' in sys.modules:
-            del(sys.modules['Variables'])
-            del Variables
+        # Modules unload does not work
+        #if 'Variables' in sys.modules:
+        #    del(sys.modules['Variables'])
+        #    del Variables
         os.environ = self.environ_backup
 
 

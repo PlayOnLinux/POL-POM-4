@@ -90,4 +90,4 @@ class ConfigFile(object):
 class GlobalConfigFile(ConfigFile):
     def __init__(self):
         import Variables
-        self.configFile = variables.pol_user_root + "/playonlinux.cfg"
+        self.configFile = Variables.pol_user_root + "/playonlinux.cfg"
