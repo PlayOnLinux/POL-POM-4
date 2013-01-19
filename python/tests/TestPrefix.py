@@ -1,16 +1,17 @@
 import unittest
 import tempfile
 import shutil
+import random
 
 from InitEnv import InitEnv
 
 class TestPrefix(InitEnv):
     def setUp(self):
         InitEnv.setUp(self)
-        from lib.Prefix import Prefix
-        self.old_prefixes_path = Prefix.PREFIXES_PATH
+        from lib.Prefix import *
+        self.old_prefixes_path = PREFIXES_PATH
         self.prefixes_path = tempfile.mkdtemp()
-        Prefix.PREFIXES_PATH = self.prefixes_path
+        PREFIXES_PATH = self.prefixes_path
 
         self.prefix_name = 'Prefix%d' % (random.randint(1,100000000),)
         self.prefix = Prefix(self.prefix_name)
@@ -56,23 +57,27 @@ class TestPrefix(InitEnv):
         self.assertEqual(self.prefix.delete(), 0)
 
     def test_delete_existing(self):
-        self.prefix.create()
+        self.prefix.createPath()
         self.assertEqual(self.prefix.delete(), 0)
 
     def test_delete_default(self):
+        from lib.Prefix import *
         self.prefix = Prefix("default")
-        self.prefix.create()
+        self.prefix.createPath()
         self.assertEqual(self.prefix.delete(), 1)
 
     def test_list_no_prefix(self):
+        from lib.Prefix import *
         self.assertEqual(Prefix.getList(), [])
 
     def test_list_one_prefix(self):
-        self.prefix.create()
-        self.assertEqual(Prefix.getList(), [self.prefix_name])
+        from lib.Prefix import *
+        self.prefix.createPath()
+        self.assertEqual(Prefix.getList(), [self.prefix])
 
     def tearDown(self):
-        Prefix.PREFIXES_PATH = self.old_prefixes_path
+        from lib.Prefix import *
+        PREFIXES_PATH = self.old_prefixes_path
         shutil.rmtree(self.prefixes_path, ignore_errors=True)
         InitEnv.tearDown(self)
 
