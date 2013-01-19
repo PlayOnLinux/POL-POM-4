@@ -13,15 +13,21 @@ class TestVariables(unittest.TestCase):
             del(os.environ["POL_OS"])
         import Variables
 
-    def _init_linux(self):
-        self._init("Linux")
+    def tearDown(self):
+        if 'Variables' in sys.modules:
+            del(sys.modules['Variables'])
+        os.environ = self.environ_backup
 
-    def _init_osx(self):
-        self._init("Mac")
 
+class TestVariablesNoOS(TestVariables):
+    def _init(self):
+        TestVariables._init(self, None)
+    
     def test_checks_pol_os_present(self):
-        self.assertRaises(SystemExit, self._init(None))
+        self.assertRaises(SystemExit, self._init)
 
+
+class TestVariablesSupportedOS(TestVariables):
     def _common_variables_present(self):
         self.assertIn('PLAYONLINUX', os.environ)
         self.assertIn('VERSION', os.environ)
@@ -51,22 +57,28 @@ class TestVariables(unittest.TestCase):
         self.assertIn('DYLDPATH_ORIGIN', os.environ)
         self.assertIn('WGETRC', os.environ)
 
+
+class TestVariablesLinux(TestVariablesSupportedOS):
+    def _init(self):
+        TestVariables._init(self, "Linux")
+
     def test_linux_environment(self):
-        self._init_linux()
+        self._init()
         self.assertEqual(on.environ["POL_OS"], "Linux")
         self._common_variables_present()
 
+
+class TestVariablesOSX(TestVariablesSupportedOS):
+    def _init(self):
+        TestVariables._init(self, "Mac")
+
     def test_osx_environment(self):
-        self._init_osx()
+        self._init()
         self.assertEqual(on.environ["POL_OS"], "Mac")
         self._common_variables_present()
         self.assertIn('PLAYONMAC', os.environ)
         self.assertIn('MAGICK_HOME', os.environ)
 
-    def tearDown(self):
-        if 'Variables' in sys.modules:
-            del(sys.modules['Variables'])
-        os.environ = self.environ_backup
 
 if __name__=='__main__':
     unittest.main()
