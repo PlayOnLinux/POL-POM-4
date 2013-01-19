@@ -119,6 +119,7 @@ def initialization():
     pol_os = os.environ["POL_OS"]
     os.environ["WGETRC"] = os.environ["POL_USER_ROOT"]+"/configurations/wgetrc"
 
+def proxy_initialization():
     ## Proxy settings
     if(playonlinux.GetSettings("PROXY_ENABLED") == "1"):
         if(playonlinux.GetSettings("PROXY_URL") != ""):
