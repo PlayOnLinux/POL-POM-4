@@ -31,6 +31,15 @@ class TestConfigFile(unittest.TestCase):
         self.config.deleteSetting('toto')
         self.assertEqual(self.config.getSetting('toto'), '')
 
+    def test_ambiguous_values(self):
+        self.config.setSetting('toto', 'tata=')
+        self.config.setSetting('tata', 'toto=')
+        self.assertEqual(self.config.getSetting('toto'), 'tata=')
+        self.assertEqual(self.config.getSetting('tata'), 'toto=')
+
+# TODO
+# - check allowed characters in both name and value
+
     def tearDown(self):
         try:
             os.unlink(self.filename)
