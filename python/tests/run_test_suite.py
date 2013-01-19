@@ -4,5 +4,6 @@
 import unittest
 from TestConfigFile import TestConfigFile
 from TestVariables import TestVariablesNoOS, TestVariablesLinux, TestVariablesOSX
+from TestPrefix import TestPrefix
 
 unittest.main()
