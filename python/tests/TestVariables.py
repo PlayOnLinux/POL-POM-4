@@ -12,14 +12,15 @@ class TestVariables(unittest.TestCase):
     def tearDown(self):
         if 'Variables' in sys.modules:
             del(sys.modules['Variables'])
+            del Variables
         os.environ = self.environ_backup
 
 
 class TestVariablesNoOS(TestVariables):
-    def _init(self):
+    def setUp(self):
+        TestVariables.setUp(self)
         if "POL_OS" in os.environ:
             del(os.environ["POL_OS"])
-        TestVariables._init(self)
     
     def test_checks_pol_os_present(self):
         self.assertRaises(SystemExit, self._init)
@@ -57,25 +58,25 @@ class TestVariablesSupportedOS(TestVariables):
 
 
 class TestVariablesLinux(TestVariablesSupportedOS):
-    def _init(self):
+    def setUp(self):
+        TestVariablesSupportedOS.setUp(self)
         os.environ["POL_OS"] = "Linux"
         os.environ["MACHTYPE"] = "x86_64"
         TestVariables._init(self)
 
     def test_linux_environment(self):
-        self._init()
         self.assertEqual(os.environ["POL_OS"], "Linux")
         self._common_variables_present()
 
 
 class TestVariablesOSX(TestVariablesSupportedOS):
-    def _init(self):
+    def setUp(self):
+        TestVariablesSupportedOS.setUp(self)
         os.environ["POL_OS"] = "Mac"
         os.environ["MACHTYPE"] = "x86_64-apple-darwin12"
         TestVariables._init(self)
 
     def test_osx_environment(self):
-        self._init()
         self.assertEqual(os.environ["POL_OS"], "Mac")
         self._common_variables_present()
         self.assertIn('PLAYONMAC', os.environ)
