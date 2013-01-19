@@ -25,11 +25,21 @@ class TestConfigFile(unittest.TestCase):
         self.assertEqual(self.config.getSetting('toto'), 'tata')
         self.assertEqual(self.config.getSetting('riri'), 'fifi')
 
+    def test_overwrite_setting(self):
+        self.config.setSetting('toto', 'tata')
+        self.config.setSetting('toto', 'tutu')
+        self.assertEqual(self.config.getSetting('toto'), 'tutu')
+
     def test_delete_setting(self):
         self.config.setSetting('toto', 'tata')
         self.assertEqual(self.config.getSetting('toto'), 'tata')
         self.config.deleteSetting('toto')
         self.assertEqual(self.config.getSetting('toto'), '')
+
+    def test_delete_non_existing_setting(self):
+        self.config.setSetting('toto', 'tata')
+        self.config.deleteSetting('riri')
+        self.assertEqual(self.config.getSetting('toto'), 'tata')
 
 # TODO
 # - define and check all allowed characters in both name and value
