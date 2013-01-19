@@ -69,7 +69,7 @@ class Prefix():
             os.system("xdg-open "+AppDir)
         
    def createPath(self):
-       os.mkdirs(self.getPath())
+       os.makedirs(self.getPath())
        
    def createLog(self):
        open(self.getPath()+"/playonlinux.log","a").write("")
