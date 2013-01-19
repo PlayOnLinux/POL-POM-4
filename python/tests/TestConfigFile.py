@@ -31,14 +31,18 @@ class TestConfigFile(unittest.TestCase):
         self.config.deleteSetting('toto')
         self.assertEqual(self.config.getSetting('toto'), '')
 
+# TODO
+# - define and check all allowed characters in both name and value
+
+    def test_equal_sign_in_value(self):
+        self.config.setSetting('toto', 'this=that')
+        self.assertEqual(self.config.getSetting('toto'), 'this=that')
+
     def test_ambiguous_values(self):
         self.config.setSetting('toto', 'tata=')
         self.config.setSetting('tata', 'toto=')
         self.assertEqual(self.config.getSetting('toto'), 'tata=')
         self.assertEqual(self.config.getSetting('tata'), 'toto=')
-
-# TODO
-# - check allowed characters in both name and value
 
     def tearDown(self):
         try:
