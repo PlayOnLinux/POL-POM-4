@@ -11,7 +11,7 @@ import Variables, ConfigFile
 
 SHORTCUTS_PATH = Variables.pol_user_root+"/shortcuts/"
 
-class Shortcut()
+class Shortcut():
    def __init__(self, shortcutName):
        self.selectedShortcut = shortcutName;
 

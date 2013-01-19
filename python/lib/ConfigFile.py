@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 # Copyright (C) 2007-2013 PlayOnLinux Team
+import Variables
 
 class ConfigFile(object):
    def __init__(self, filePath):
