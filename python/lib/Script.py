@@ -16,6 +16,10 @@ class Script(object):
       
    # Fixme
    def checkSignature(self): 
+       if(self.needSignature == False):
+           return True
+           
+       # Fixme
        return True
        
    def getProgramArray(self, args = []):
