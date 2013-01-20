@@ -11,6 +11,7 @@ from Context import Context
 class Script(object):
    def __init__(self, path):
       self.path = path
+      self.needSignature = True
       return True
       
    # Fixme
@@ -37,6 +38,7 @@ class PrivateScript(Script):
    def __init__(self, path):
       self.context = Context()
       self.path = self.context.getAppPath()+"/bash/"+path
+      self.needSignature = False
      
    # No need to check the signature, because it is an internal script
    def checkSignature(self):

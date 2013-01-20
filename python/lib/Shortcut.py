@@ -11,13 +11,14 @@ import Variables, ConfigFile
 
 SHORTCUTS_PATH = Variables.pol_user_root+"/shortcuts/"
 
-class Shortcut():
+class Shortcut(Script):
    def __init__(self, shortcutName):
-       self.selectedShortcut = shortcutName;
-
+      self.selectedShortcut = shortcutName;
+      self.path = SHORTCUTS_PATH+self.selectedShortcut
+      self.needSignature = False
    # Get the shortcut script path
    def getPath(self):
-       return SHORTCUTS_PATH+self.selectedShortcut;
+       return self.path;
    
    # List of script's line
    def getScriptLines(self):
@@ -134,7 +135,9 @@ class Shortcut():
            
    def delete(self):
        os.remove(self.getPath())
-       
+     
+
+         
    @staticmethod
    def getList():
        shortcutList = os.listdir(SHORTCUTS_PATH)
