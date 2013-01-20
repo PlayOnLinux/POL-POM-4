@@ -709,37 +709,37 @@ class MainWindow(wx.Frame):
         i = 0;
         self.menuGaucheAddTitle("pol_title", os.environ["APPLICATION_TITLE"], i)
         i+=1
-        self.menuGaucheAddLink("pol_prgm_install", _("Install a program"), i,context.getUserRoot()+"/resources/images/menu/add.png",self.InstallMenu)
+        self.menuGaucheAddLink("pol_prgm_install", _("Install a program"), i,context.getAppPath()+"/resources/images/menu/add.png",self.InstallMenu)
         i+=1
-        self.menuGaucheAddLink("pol_prgm_settings", _("Settings"), i,context.getUserRoot()+"/resources/images/menu/settings.png",self.Options)
+        self.menuGaucheAddLink("pol_prgm_settings", _("Settings"), i,context.getAppPath()+"/resources/images/menu/settings.png",self.Options)
         i+=1
-        self.menuGaucheAddLink("pol_prgm_messenger", _("Messenger"), i,context.getUserRoot()+"/resources/images/menu/people.png",self.OpenIrc)
+        self.menuGaucheAddLink("pol_prgm_messenger", _("Messenger"), i,context.getAppPath()+"/resources/images/menu/people.png",self.OpenIrc)
         if(os.path.exists(os.environ["PLAYONLINUX"]+"/.git/")):
             i+=1
-            self.menuGaucheAddLink("pol_git", _("Update GIT"), i,context.getUserRoot()+"/resources/images/menu/update_git.png",self.UpdateGIT)
+            self.menuGaucheAddLink("pol_git", _("Update GIT"), i,context.getAppPath()+"/resources/images/menu/update_git.png",self.UpdateGIT)
 
         if(shortcut != None):
             i+=2
             self.menuGaucheAddTitle("prgm_title", shortcut, i)
             i+=1
-            self.menuGaucheAddLink("pol_prgm_run", _("Run"), i,context.getUserRoot()+"/resources/images/menu/media-playback-start.png",self.Run)
+            self.menuGaucheAddLink("pol_prgm_run", _("Run"), i,context.getAppPath()+"/resources/images/menu/media-playback-start.png",self.Run)
             i+=1
-            self.menuGaucheAddLink("pol_prgm_kill", _("Close"), i,context.getUserRoot()+"/resources/images/menu/media-playback-stop.png",self.RKill)
+            self.menuGaucheAddLink("pol_prgm_kill", _("Close"), i,context.getAppPath()+"/resources/images/menu/media-playback-stop.png",self.RKill)
             i+=1
-            self.menuGaucheAddLink("pol_prgm_rundebug", _("Debug"), i,context.getUserRoot()+"/resources/images/menu/bug.png",self.RunDebug)
+            self.menuGaucheAddLink("pol_prgm_rundebug", _("Debug"), i,context.getAppPath()+"/resources/images/menu/bug.png",self.RunDebug)
             i+=1
-            self.menuGaucheAddLink("pol_prgm_configure", _("Configure"), i,context.getUserRoot()+"/resources/images/menu/run.png",self.Configure)
+            self.menuGaucheAddLink("pol_prgm_configure", _("Configure"), i,context.getAppPath()+"/resources/images/menu/run.png",self.Configure)
             i+=1
-            self.menuGaucheAddLink("pol_prgm_shortcut", _("Create a shortcut"), i,context.getUserRoot()+"/resources/images/menu/shortcut.png",self.Package)
+            self.menuGaucheAddLink("pol_prgm_shortcut", _("Create a shortcut"), i,context.getAppPath()+"/resources/images/menu/shortcut.png",self.Package)
             i+=1
-            self.menuGaucheAddLink("pol_prgm_adddir", _("Open the directory"), i,context.getUserRoot()+"/resources/images/menu/folder-wine.png",self.GoToAppDir)
+            self.menuGaucheAddLink("pol_prgm_adddir", _("Open the directory"), i,context.getAppPath()+"/resources/images/menu/folder-wine.png",self.GoToAppDir)
 
             if(os.path.exists(os.environ["POL_USER_ROOT"]+"/configurations/manuals/"+shortcut)):
                 i+=1
-                self.menuGaucheAddLink("pol_prgm_readme", _("Read the manual"), i,context.getUserRoot()+"/resources/images/menu/manual.png",self.ReadMe)
+                self.menuGaucheAddLink("pol_prgm_readme", _("Read the manual"), i,context.getAppPath()+"/resources/images/menu/manual.png",self.ReadMe)
 
             i+=1
-            self.menuGaucheAddLink("pol_prgm_uninstall", _("Uninstall"), i,context.getUserRoot()+"/resources/images/menu/window-close.png",self.UninstallGame)
+            self.menuGaucheAddLink("pol_prgm_uninstall", _("Uninstall"), i,context.getAppPath()+"/resources/images/menu/window-close.png",self.UninstallGame)
 
 
             self.linksfile = os.environ["POL_USER_ROOT"]+"/configurations/links/"+shortcut

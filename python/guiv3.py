@@ -20,7 +20,7 @@
 
 import wx, wx.animate, os, getopt, sys, urllib, signal, time, string, urlparse, codecs, time, threading, socket
 from subprocess import Popen,PIPE
-import lib.Variables as Variables
+import lib.Variables as Variables, lib.Context as Context
 import lib.lng, lib.playonlinux as playonlinux
 lib.lng.Lang()
 
@@ -55,8 +55,11 @@ class Download(threading.Thread):
 class POL_SetupFrame(wx.Frame): #fenêtre principale
     def __init__(self, titre, POL_SetupWindowID, Arg1, Arg2, Arg3):
         wx.Frame.__init__(self, None, -1, title = titre, style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX, size = (520, 398+Variables.windows_add_size))
+        
+        
+        
         self.bash_pid = POL_SetupWindowID
-        self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
+        self.SetIcon(wx.Icon(context.getAppPath()+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
         self.gauge_i = 0
         self.fichier = ""
         self.last_time = int(round(time.time() * 1000))
@@ -65,7 +68,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         # Le fichier de lecture
 
         if(Arg1 == "None"):
-            self.small_image = wx.Bitmap(Variables.playonlinux_env+"/resources/images/setups/default/top.png")
+            self.small_image = wx.Bitmap(context.getAppPath()+"/resources/images/setups/default/top.png")
         else:
             self.small_image = wx.Bitmap(Arg1)
 
@@ -73,9 +76,9 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
         if(Arg2 == "None"):
             if(os.environ["POL_OS"] == "Linux"):
-                self.big_image = wx.Bitmap(Variables.playonlinux_env+"/resources/images/setups/default/playonlinux.jpg")
+                self.big_image = wx.Bitmap(context.getAppPath()+"/resources/images/setups/default/playonlinux.jpg")
             else:
-                self.big_image = wx.Bitmap(Variables.playonlinux_env+"/resources/images/setups/default/playonmac.jpg")
+                self.big_image = wx.Bitmap(context.getAppPath()+"/resources/images/setups/default/playonmac.jpg")
         else:
             self.big_image = wx.Bitmap(Arg2)
 
@@ -213,7 +216,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         
     def GetLoaderFromAngle(self, angle):
         if(angle >= 1 and angle <= 12):
-            image = wx.Image(Variables.playonlinux_env+"/resources/images/setups/wait/"+str(angle)+".png")
+            image = wx.Image(context.getAppPath()+"/resources/images/setups/wait/"+str(angle)+".png")
         return image.ConvertToBitmap()
         
     def Destroy_all(self):
@@ -560,7 +563,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.Menu.SetPosition((20,85+self.space*16))
         self.Menu.Clear()
 
-        self.areaList = os.listdir(Variables.playonlinux_rep+"/wineprefix/")
+        self.areaList = os.listdir(context.getUserRoot()+"/wineprefix/")
         self.areaList.sort()
 
         for file in self.areaList:
@@ -743,22 +746,22 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
             wx.MessageBox(_("You cannot close this window").format(os.environ["APPLICATION_TITLE"]),_("Error"))
 
     def add_games(self):
-        apps = os.listdir(Variables.playonlinux_rep+"/shortcuts/")
+        apps = os.listdir(context.getUserRoot()+"/shortcuts/")
         apps.sort()
         self.images.RemoveAll()
         self.MenuGames.DeleteAllItems()
         self.root = self.MenuGames.AddRoot("")
         i = 0
         for app in apps:
-            appfile = Variables.playonlinux_rep+"/shortcuts/"+app
+            appfile = context.getUserRoot()+"/shortcuts/"+app
             if(not os.path.isdir(appfile)):
                 fichier = open(appfile,"r").read()
 
                 if("POL_Wine " in fichier):
-                    if(os.path.exists(Variables.playonlinux_rep+"/icones/32/"+app)):
-                        file_icon = Variables.playonlinux_rep+"/icones/32/"+app
+                    if(os.path.exists(context.getUserRoot()+"/icones/32/"+app)):
+                        file_icon = context.getUserRoot()+"/icones/32/"+app
                     else:
-                        file_icon = Variables.playonlinux_env+"/etc/playonlinux32.png"
+                        file_icon = context.getAppPath()+"/etc/playonlinux32.png"
 
                     bitmap = wx.Image(file_icon)
                     bitmap.Rescale(22,22,wx.IMAGE_QUALITY_HIGH)
@@ -782,7 +785,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
             if(os.path.exists(current_icon)):
                 file_icon = current_icon
             else:
-                file_icon = Variables.playonlinux_env+"/etc/playonlinux32.png"
+                file_icon = context.getAppPath()+"/etc/playonlinux32.png"
 
             bitmap = wx.Image(file_icon)
             bitmap.Rescale(22,22,wx.IMAGE_QUALITY_HIGH)
@@ -865,3 +868,4 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
             self.Menu.Hide()
         self.Refresh()
 
+context = Context.Context()
