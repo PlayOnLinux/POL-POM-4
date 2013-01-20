@@ -74,6 +74,33 @@ class Prefix():
    def createLog(self):
        open(self.getPath()+"/playonlinux.log","a").write("")
        
+   def LoadRegValues(values):
+       cfile = self.getPath()+"/user.reg"
+       result = {}
+
+
+       for element in values:
+           result[element] = "default"
+
+       try:
+           fichier = open(cfile,"r").readlines()
+       except:
+           return result
+
+       for line in fichier:
+           line = line.replace("\n","")
+           found = False
+           for element in values:
+               if(element in line):
+                   line = line.replace("\"","")
+                   line = string.split(line, "=")
+                   line = line[1]
+                   result[element] = line
+                   found = True
+                   break
+
+       return(result)
+       
    def wine(self, exePath, exeArgs = [], errors = True):
        # Fixme : Add FORCE_OSX_DOCK support?
        
