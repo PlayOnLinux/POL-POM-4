@@ -24,9 +24,7 @@ import wx, time, shlex
 
 import wine_versions
 import lib.playonlinux as playonlinux
-import lib.wine as wine
 import lib.Variables as Variables
-import lib.lng as lng
 
 class MainWindow(wx.Frame):
     def __init__(self,parent,id,title,logcheck="/dev/null",logtype=None):

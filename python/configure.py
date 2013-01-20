@@ -24,10 +24,8 @@ import wx, time, shlex
 
 import wine_versions
 import lib.playonlinux as playonlinux
-import lib.wine as wine
 import lib.Variables as Variables
-import lib.lng as lng
-
+import lib.Prefix as Prefix
 class PackageList():
     def __init__(self):
         self.available_packages = [];
@@ -413,7 +411,10 @@ class Onglets(wx.Notebook):
 
         self.Refresh()
         self.elements = ["UseGLSL","DirectDrawRenderer","VideoMemorySize","OffscreenRenderingMode","RenderTargetModeLock","Multisampling","StrictDrawOrdering","MouseWarpOverride"]
-        self.settings = wine.LoadRegValues(self.s_prefix,self.elements)
+        
+        # Fixme!
+        self.currentPrefix = Prefix(self.s_prefix)
+        self.settings = self.currentPrefix.LoadRegValues(self.elements)
         #print self.settings
         self.get_current_settings("UseGLSL")
         self.get_current_settings("DirectDrawRenderer")

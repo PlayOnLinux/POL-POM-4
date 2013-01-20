@@ -23,86 +23,16 @@ import os, getopt, sys, urllib, signal, string, time, webbrowser, gettext, local
 import wx, wx.aui
 
 # PlayOnLinux imports
-import lib.Context as Context
+from lib.Context import Context
+from lib.System import System
+from lib.Script import PrivateScript
+from POLWeb import POLWeb
+
 import lib.playonlinux as playonlinux, lib.Variables as Variables
 import guiv3 as gui, install, options, wine_versions as wver, sp, configure, debug, gui_server
 import irc as ircgui
 
-# This thread manage updates
-class POLWeb(threading.Thread):
-    def __init__(self):
-        threading.Thread.__init__(self)
-        self.sendToStatusBarStr = ""
-        self.sendAlertStr = None
-        self.Gauge = False
-        self.WebVersion = ""
-        self.Show = False
-        self.perc = -1
-        self.updating = True
-        
-    def sendToStatusBar(self, message, gauge):
-        self.sendToStatusBarStr = message
-        self.Gauge = gauge
-        self.Show = True
 
-    def sendPercentage(self, n):
-        self.perc = n
-
-    def sendAlert(self, message):
-        self.sendAlertStr = message
-
-    def LastVersion(self):
-        if(os.environ["POL_OS"] == "Mac"):
-            fichier_online="version_mac"
-        else:
-            fichier_online="version2"
-        return os.popen(os.environ["POL_WGET"]+' "'+os.environ["SITE"]+'/'+fichier_online+'.php?v='+os.environ["VERSION"]+'" -T 30 -O-','r').read()
-
-    def real_check(self):
-        self.WebVersion = self.LastVersion()
-
-        if(self.WebVersion == ""):
-            self.sendToStatusBar(_('{0} website is unavailable. Please check your connexion').format(os.environ["APPLICATION_TITLE"]), False)
-        else:
-            self.sendToStatusBar(_("Refreshing {0}").format(os.environ["APPLICATION_TITLE"]), True)
-            self.updating = True
-            exe = ['bash',context.getAppPath()+"/bash/pol_update_list"]
-
-            p = subprocess.Popen(exe, stdout=subprocess.PIPE, preexec_fn=lambda: os.setpgid(os.getpid(), os.getpid()))
-
-            while(True):
-                retcode = p.poll() #returns None while subprocess is running
-                line = p.stdout.readline()
-                try:
-                    self.sendPercentage(int(line))
-                except:
-                    pass
-
-                if(retcode is not None):
-                    break
- 
-            self.updating = False
-            if(playonlinux.VersionLower(os.environ["VERSION"],self.WebVersion)):
-                self.sendToStatusBar(_('An updated version of {0} is available').format(os.environ["APPLICATION_TITLE"])+" ("+self.WebVersion+")",False)
-                if(os.environ["DEBIAN_PACKAGE"] == "FALSE"):
-                    self.sendAlert(_('An updated version of {0} is available').format(os.environ["APPLICATION_TITLE"])+" ("+self.WebVersion+")")
-                os.environ["POL_UPTODATE"] = "FALSE"
-            else:
-                self.Show = False
-                self.perc = -1
-                os.environ["POL_UPTODATE"] = "TRUE"
-
-        self.wantcheck = False
-
-    def check(self):
-        self.wantcheck = True
-
-    def run(self):
-        self.check()
-        while(1):
-            if(self.wantcheck == True):
-                self.real_check()
-            time.sleep(1)
 
 class MainWindow(wx.Frame):
     def __init__(self,parent,id,title):
@@ -1061,6 +991,8 @@ class MainWindow(wx.Frame):
             self.aboutBox.SetWebSite("http://www.playonlinux.com")
         wx.AboutBox(self.aboutBox)
 
+
+
 class PlayOnLinuxApp(wx.App):
     def OnInit(self):
         close = False
@@ -1137,15 +1069,14 @@ class PlayOnLinuxApp(wx.App):
 
     def systemCheck(self):
         #### Root uid check
-        if(os.popen("id -u").read() == "0\n" or os.popen("id -u").read() == "0"):
+        if(System.isRunAsRoot()):
             wx.MessageBox(_("{0} is not supposed to be run as root. Sorry").format(os.environ["APPLICATION_TITLE"]),_("Error"))
             os._exit(0)
 
         #### 32 bits OpenGL check
-        try:
-            returncode=subprocess.call([os.environ["PLAYONLINUX"]+"/bash/check_gl","x86"])
-        except:
-            returncode=255
+        check_gl = PrivateScript("check_gl")
+        returncode = check_gl.run(["x86"])
+        
         if(os.environ["POL_OS"] == "Linux" and returncode != 0):
             wx.MessageBox(_("{0} is unable to find 32bits OpenGL libraries.\n\nYou might encounter problem with your games").format(os.environ["APPLICATION_TITLE"]),_("Error"))
             os.environ["OpenGL32"] = "0"
@@ -1228,7 +1159,7 @@ class PlayOnLinuxApp(wx.App):
             os.system("bash \"$PLAYONLINUX/bash/run_exe\" \""+filename+"\" &")
 
         elif(file_extension == "pol" or file_extension == "POL"):
-            if(wx.YES == wx.MessageBox(_('Are you sure you want to  want to install {0} package?').format(filename).decode("utf-8","replace"), os.environ["APPLICATION_TITLE"],style=wx.YES_NO | wx.ICON_QUESTION)):
+            if(wx.YES == wx.MessageBox(_('Are you sure you want to install {0} package?').format(filename).decode("utf-8","replace"), os.environ["APPLICATION_TITLE"],style=wx.YES_NO | wx.ICON_QUESTION)):
                 os.system("bash \"$PLAYONLINUX/bash/playonlinux-pkg\" -i \""+filename+"\" &")
         else:
             playonlinux.open_document(filename,file_extension.lower())
@@ -1246,6 +1177,6 @@ class PlayOnLinuxApp(wx.App):
         self.BringWindowToFront()
 
 
-context = Context.Context()
+context = Context()
 app = PlayOnLinuxApp(redirect=False)
 app.MainLoop()

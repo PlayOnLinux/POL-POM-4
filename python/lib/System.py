@@ -11,7 +11,7 @@ class System(object):
       return True
 
    @staticmethod
-   def runAsRoot(self):
+   def isRunAsRoot():
        return (os.popen("id -u").read() == "0\n" or os.popen("id -u").read() == "0")
       
    

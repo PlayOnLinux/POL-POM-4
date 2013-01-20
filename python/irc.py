@@ -24,9 +24,7 @@ import wx, time
 
 import wine_versions
 import lib.playonlinux as playonlinux
-import lib.wine as wine
 import lib.Variables as Variables
-import lib.lng as lng
 import lib.irc as irc
 from wx.lib.ClickableHtmlWindow import PyClickableHtmlWindow
 

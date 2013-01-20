@@ -27,7 +27,6 @@ from select import select
 #from subprocess import Popen,PIPE
 
 import lib.Variables as Variables
-import lib.lng as lng
 import lib.playonlinux as playonlinux
 
 class getPlugins(threading.Thread):

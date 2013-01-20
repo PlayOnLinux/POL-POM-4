@@ -22,14 +22,13 @@ import wxversion, os, getopt, sys, urllib, signal, socket, codecs, string, shuti
 import wx, wx.animate
 
 import lib.Variables as Variables
-import lib.lng, threading
+import threading
 
 if(os.environ["POL_OS"] == "Mac"):
     os_pref = "darwin"
 else:
     os_pref = "linux"
 
-lib.lng.Lang()
 
 
 class getVersions(threading.Thread):

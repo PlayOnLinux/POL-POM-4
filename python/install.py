@@ -22,7 +22,6 @@ import os, sys, codecs, string, socket, urllib, urllib2
 import wx.html, threading, time, wx.animate
 
 import lib.Variables as Variables, sp
-import lib.lng
 import lib.playonlinux as playonlinux
 from wx.lib.ClickableHtmlWindow import PyClickableHtmlWindow
 

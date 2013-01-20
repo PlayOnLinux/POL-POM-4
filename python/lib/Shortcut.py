@@ -66,7 +66,37 @@ class Shortcut():
            args = ""
 
        return args       
-             
+
+   def writeArgs(game, args):
+      cfile = context.getUserRoot()+"shortcuts/"+game
+      fichier = open(cfile,"r").readlines()
+      i = 0
+      line = []
+
+      while(i < len(fichier)):
+         fichier[i] = fichier[i].replace("\n","")
+         if("POL_Wine " not in fichier[i]):
+            line.append(fichier[i])
+         else:
+            try:
+               old_string = shlex.split(fichier[i])
+               new_string = shlex.split(str(args))
+               new_string = old_string[0:2] + new_string
+               new_string = " ".join([ pipes.quote(x) for x in new_string])
+
+               new_string = new_string+' "$@"'
+               line.append(new_string)
+            except:
+               line.append(fichier[i])
+        i += 1
+
+      fichier_write = open(cfile,"w")
+      i = 0
+      while(i < len(line)): # On ecrit
+         fichier_write.write(line[i]+"\n")
+         i+=1
+
+
    def isDebug(self):
        try:
            shortcutFile = self.getScriptLines()
