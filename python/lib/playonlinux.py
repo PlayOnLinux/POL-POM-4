@@ -31,7 +31,6 @@ def open_document(path, ext):
         except:
              os.system("bash "+Variables.playonlinux_env+"/bash/run_app \""+script+"\" \""+winpath(script,path)+"\"&")
 
-# Deprecated, used in POL < 4.0
 def GetWineVersion(game):
     cfile = Variables.playonlinux_rep+"shortcuts/"+game
     fichier = open(cfile,"r").readlines()
