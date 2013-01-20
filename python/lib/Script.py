@@ -9,8 +9,9 @@ import subprocess, os
 from Context import Context
 
 class Script(object):
-   def __init__(self, path):
+   def __init__(self, path, args):
       self.path = path
+      self.args = args
       self.needSignature = True
       return True
       
@@ -25,27 +26,25 @@ class Script(object):
        args.insert(0,"bash")
        return args
        
-   def run(self, args):
-       if(self.checkSignature() || !self.needSignature):
+   def run(self):
+       if(self.checkSignature() or not self.needSignature):
           try:
-               returncode = subprocess.call(self.getProgramArray(args))
+               returncode = subprocess.call(self.getProgramArray(self.args))
                return returnCode
           
           except:
               return 255
-        else:
-           return 300 # Wrong signature
+       else:
+          return 300 # Wrong signature
 
-   def runPoll(self, args = []):
-       if(self.checkSignature() || !self.needSignature):
-           return subprocess.Popen(self.getProgramArray(args), stdout = subprocess.PIPE, preexec_fn = lambda: os.setpgid(os.getpid(), os.getpid()))
+   def runPoll(self):
+       if(self.checkSignature() or not self.needSignature):
+           return subprocess.Popen(self.getProgramArray(self.args), stdout = subprocess.PIPE, preexec_fn = lambda: os.setpgid(os.getpid(), os.getpid()))
 
 class PrivateScript(Script):
-   def __init__(self, path):
+   def __init__(self, path, args = []):
       self.context = Context()
       self.path = self.context.getAppPath()+"/bash/"+path
+      self.args = args
       self.needSignature = False
-     
-   # No need to check the signature, because it is an internal script
-   def checkSignature(self):
-       return True
+  

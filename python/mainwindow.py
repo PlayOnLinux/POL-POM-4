@@ -1068,8 +1068,8 @@ class PlayOnLinuxApp(wx.App):
             os._exit(0)
 
         #### 32 bits OpenGL check
-        check_gl = PrivateScript("check_gl")
-        returncode = check_gl.run(["x86"])
+        check_gl = PrivateScript("check_gl",["x86"])
+        returncode = check_gl.run()
         
         if(os.environ["POL_OS"] == "Linux" and returncode != 0):
             wx.MessageBox(_("{0} is unable to find 32bits OpenGL libraries.\n\nYou might encounter problem with your games").format(os.environ["APPLICATION_TITLE"]),_("Error"))
