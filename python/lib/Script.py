@@ -16,9 +16,7 @@ class Script(object):
       
    # Fixme
    def checkSignature(self): 
-       if(self.needSignature == False):
-           return True
-           
+                
        # Fixme
        return True
        
@@ -28,16 +26,20 @@ class Script(object):
        return args
        
    def run(self, args):
-       try:
-          returncode = subprocess.call(self.getProgramArray(args))
-          return returnCode
+       if(self.checkSignature() || !self.needSignature):
+          try:
+               returncode = subprocess.call(self.getProgramArray(args))
+               return returnCode
           
-       except:
-          return 255
+          except:
+              return 255
+        else:
+           return 300 # Wrong signature
 
    def runPoll(self, args = []):
-       return subprocess.Popen(self.getProgramArray(args), stdout = subprocess.PIPE, preexec_fn = lambda: os.setpgid(os.getpid(), os.getpid()))
-       
+       if(self.checkSignature() || !self.needSignature):
+           return subprocess.Popen(self.getProgramArray(args), stdout = subprocess.PIPE, preexec_fn = lambda: os.setpgid(os.getpid(), os.getpid()))
+
 class PrivateScript(Script):
    def __init__(self, path):
       self.context = Context()
