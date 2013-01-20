@@ -20,6 +20,7 @@ encoding = 'utf-8'
 
 import threading, os, subprocess, time
 from lib.Context import Context
+from lib.Script import PrivateScript
 import lib.playonlinux as playonlinux #FIXME
 
 class POLWeb(threading.Thread):
@@ -60,12 +61,12 @@ class POLWeb(threading.Thread):
         else:
             self.sendToStatusBar(_("Refreshing {0}").format(os.environ["APPLICATION_TITLE"]), True)
             self.updating = True
-            exe = ['bash',self.context.getAppPath()+"/bash/pol_update_list"]
+            bash_updater = PrivateScript("pol_update_list")
 
-            p = subprocess.Popen(exe, stdout=subprocess.PIPE, preexec_fn=lambda: os.setpgid(os.getpid(), os.getpid()))
+            p = bash_updater.runPoll()
 
             while(True):
-                retcode = p.poll() #returns None while subprocess is running
+                retcode = p.poll() 
                 line = p.stdout.readline()
                 try:
                     self.sendPercentage(int(line))

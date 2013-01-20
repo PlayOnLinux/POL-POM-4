@@ -3,7 +3,7 @@
 # Copyright (C) 2013 - Quentin PARIS
 
 # Python
-import subprocess
+import subprocess, os
 
 # PlayOnLinux libs
 from Context import Context
@@ -17,16 +17,21 @@ class Script(object):
    def checkSignature(self): 
        return True
        
+   def getProgramArray(self, args = []):
+       args.insert(0,self.path)
+       args.insert(0,"bash")
+       return args
+       
    def run(self, args):
        try:
-          args.prepend(self.path)
-          args.prepend("bash")
-          returncode = subprocess.call(args)
+          returncode = subprocess.call(self.getProgramArray(args))
           return returnCode
           
        except:
           return 255
-       
+
+   def runPoll(self, args = []):
+       return subprocess.Popen(self.getProgramArray(args), stdout = subprocess.PIPE, preexec_fn = lambda: os.setpgid(os.getpid(), os.getpid()))
        
 class PrivateScript(Script):
    def __init__(self, path):
