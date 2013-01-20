@@ -29,6 +29,16 @@ class gui_server(threading.Thread):
         # This dictionnary will contain every created setup window
         self.parent = parent
 
+    def waitForServer(self):
+        i = 0
+        while(os.environ["POL_PORT"] == "0"):
+            time.sleep(0.01)
+            if(i >= 300):
+                 wx.MessageBox(_("{0} is not able to start PlayOnLinux Setup Window server.").format(os.environ["APPLICATION_TITLE"]),_("Error"))
+                 os._exit(0)
+                 break
+            i+=1
+            
     def GenCookie(self, length=20, chars=string.letters + string.digits):
         return ''.join([random.SystemRandom().choice(chars) for i in range(length)])
 

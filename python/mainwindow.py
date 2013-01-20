@@ -946,6 +946,7 @@ class MainWindow(wx.Frame):
             playonlinux.SetSettings("MAINWINDOW_Y",str(self.PositionToSave[1]))
             self._mgr.UnInit()
             # I know, that's very ugly, but I have no choice for the moment
+            
             self.perspective = self._mgr.SavePerspective().split("|")
             self.perspective = self.perspective[len(self.perspective) - 2].split("=")
 
@@ -1021,15 +1022,8 @@ class PlayOnLinuxApp(wx.App):
         # Gui Server
         self.POLServer = gui_server.gui_server(self.frame)
         self.POLServer.start()
+        self.POLServer.waitForServer()
         
-        i = 0
-        while(os.environ["POL_PORT"] == "0"):
-            time.sleep(0.01)
-            if(i >= 300):
-                 wx.MessageBox(_("{0} is not able to start PlayOnLinux Setup Window server.").format(os.environ["APPLICATION_TITLE"]),_("Error"))
-                 os._exit(0)
-                 break
-            i+=1 
         os.system("bash \"$PLAYONLINUX/bash/startup_after_server\" &")
    
         self.SetTopWindow(self.frame)
