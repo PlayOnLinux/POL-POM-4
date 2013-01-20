@@ -8,6 +8,10 @@ import subprocess, os
 # PlayOnLinux libs
 from Context import Context
 
+class ErrBadSignature(Exception):
+   def __str__(self):
+      return repr(_("The signature of the script is wrong"))
+
 class Script(object):
    def __init__(self, path, args):
       self.path = path
@@ -31,11 +35,10 @@ class Script(object):
           try:
                returncode = subprocess.call(self.getProgramArray(self.args))
                return returnCode
-          
           except:
               return 255
        else:
-          return 300 # Wrong signature
+          raise ErrBadSignature
 
    def runPoll(self):
        if(self.checkSignature() or not self.needSignature):
