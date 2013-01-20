@@ -3,7 +3,7 @@
 # Copyright (C) 2011 - Quentin PARIS
 
 import os, random, sys, string
-import wx, lib.playonlinux as playonlinux
+import wx, playonlinux as playonlinux
 
 def initialization():
     global pol_user_root, windows_add_size, windows_add_playonmac, widget_borders, os_name, archi, version, current_user, pol_os
