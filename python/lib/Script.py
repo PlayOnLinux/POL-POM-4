@@ -5,15 +5,12 @@
 # Python
 import subprocess, os
 
-# PlayOnLinux libs
-from Context import Context
-
 class ErrBadSignature(Exception):
    def __str__(self):
       return repr(_("The signature of the script is wrong"))
 
 class Script(object):
-   def __init__(self, path, args):
+   def __init__(self, context, path, args):
       self.path = path
       self.args = args
       self.needSignature = True
@@ -45,8 +42,8 @@ class Script(object):
            return subprocess.Popen(self.getProgramArray(self.args), stdout = subprocess.PIPE, preexec_fn = lambda: os.setpgid(os.getpid(), os.getpid()))
 
 class PrivateScript(Script):
-   def __init__(self, path, args = []):
-      self.context = Context()
+   def __init__(self, context, path, args = []):
+      self.context = context
       self.path = self.context.getAppPath()+"/bash/"+path
       self.args = args
       self.needSignature = False

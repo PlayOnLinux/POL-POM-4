@@ -21,16 +21,21 @@ import string
 
 
 class gui_server(threading.Thread):
-    def __init__(self, parent): 
+    def __init__(self, context, parent): 
+
         threading.Thread.__init__(self)
+        
+        self.context = context
+        
         self._host = '127.0.0.1'
         self._port = 30000
         self._running = True
         # This dictionnary will contain every created setup window
         self.parent = parent
-
+        
     def waitForServer(self):
         i = 0
+        
         while(os.environ["POL_PORT"] == "0"):
             time.sleep(0.01)
             if(i >= 300):
@@ -71,6 +76,7 @@ class gui_server(threading.Thread):
            self.acceptor.listen(10)
            os.environ["POL_PORT"] = str(self._port)
            os.environ["POL_COOKIE"] = self.GenCookie()
+
         except socket.error, msg:       
            self._port += 1
            self.initServer()

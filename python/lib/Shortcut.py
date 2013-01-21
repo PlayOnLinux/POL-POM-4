@@ -12,9 +12,9 @@ import Variables, ConfigFile
 SHORTCUTS_PATH = Variables.pol_user_root+"/shortcuts/"
 
 class Shortcut(PrivateScript):
-   def __init__(self, shortcutName):
+   def __init__(self, context, shortcutName):
       self.selectedShortcut = shortcutName;
-      self.context = Context()
+      self.context = context 
       self.path = self.context.getAppPath()+"/bash/run_app"
       self.args = [shortcutName]
       self.needSignature = False

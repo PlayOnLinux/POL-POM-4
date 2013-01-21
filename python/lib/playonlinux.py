@@ -3,7 +3,7 @@
 
 # Copyright (C) 2007-2010 PlayOnLinux Team
 
-import Variables, os, string
+import os, string
 import shlex, pipes, wx
 import Context
 

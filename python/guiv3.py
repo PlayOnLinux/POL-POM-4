@@ -20,7 +20,7 @@
 
 import wx, wx.animate, os, getopt, sys, urllib, signal, time, string, urlparse, codecs, time, threading, socket
 from subprocess import Popen,PIPE
-import lib.Variables as Variables, lib.Context as Context
+import lib.Context as Context
 import lib.playonlinux as playonlinux
 
 
@@ -52,7 +52,7 @@ class Download(threading.Thread):
         self.download()
 
 class POL_SetupFrame(wx.Frame): #fenêtre principale
-    def __init__(self, titre, POL_SetupWindowID, Arg1, Arg2, Arg3):
+    def __init__(self, context, titre, POL_SetupWindowID, Arg1, Arg2, Arg3):
         wx.Frame.__init__(self, None, -1, title = titre, style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX, size = (520, 398+Variables.windows_add_size))
         
         
