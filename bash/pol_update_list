@@ -31,14 +31,7 @@ config_maj() # Celle ci est exécuté à chaque ligne (wget | config_maj), elle 
         echo 0
 	while read line; do
 		[ "$line" = "" ] && break
-		file=$(echo "$line" | cut -d "/" -f 1)
-		content=$(echo "$line" | cut -d "/" -f 2)
-		download_icon=$(echo "$line" | cut -d "/" -f 3)
-		testing=$(echo "$line" | cut -d "/" -f 4)
-		nocd=$(echo "$line" | cut -d "/" -f 5)
-		free=$(echo "$line" | cut -d "/" -f 6)
-		
-		#download_des=$(echo "$line" | cut -d "/" -f 5)
+		IFS="/" read file content download_icon testing nocd free <<< "$line"
 
 		echo "$content~$testing~$nocd~$free" >> "$file"
 		echo "$content~$testing~$nocd~$free" >> "search"
