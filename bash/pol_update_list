@@ -28,9 +28,9 @@ config_maj() # Celle ci est exécuté à chaque ligne (wget | config_maj), elle 
 	read line
 	num="$line"
 	i=0
+	echo -n "" > "$POL_USER_ROOT/tmp/icons_fetch_list"
 	while read line; do
 		[ "$line" = "" ] && break
-		echo $(( i*100/num ))
 		file=$(echo "$line" | cut -d "/" -f 1)
 		content=$(echo "$line" | cut -d "/" -f 2)
 		download_icon=$(echo "$line" | cut -d "/" -f 3)
@@ -42,33 +42,36 @@ config_maj() # Celle ci est exécuté à chaque ligne (wget | config_maj), elle 
 
 		echo "$content~$testing~$nocd~$free" >> "$file"
 		echo "$content~$testing~$nocd~$free" >> "search"
-		echo $PWD
-		if [ "$download_icon" = "1" ]; then
-			if [ ! -e "$POL_USER_ROOT/configurations/icones/$content" ]; then
-				$POL_WGET "$SITE/V2_data/icones/$content" -O "$POL_USER_ROOT/configurations/icones/$content"
-			fi
-			taille="$(du "$POL_USER_ROOT/configurations/icones/$content")"
-			taille="${taille:0:1}"
-			if [ "$taille" = "0" ]; then
-				rm "$POL_USER_ROOT/configurations/icones/$content"
-			fi
+		if [ "$download_icon" = "1" -a ! -e "$POL_USER_ROOT/configurations/icones/$content" ]; then
+			echo "$SITE/V2_data/icones/$content" >> "$POL_USER_ROOT/tmp/icons_fetch_list"
 		fi
-		i=$(( i + 1 ))
 	done
+        cd "$POL_USER_ROOT/configurations/icones"
+	$POL_WGET -nd -i "$POL_USER_ROOT/tmp/icons_fetch_list"
+	while read line; do
+		echo $(( i*100/num ))
+		echo $PWD
+		content="$(basename "$line")"
+		[ -e "$content" -a ! -s "$content" ] && rm "$content"
+		i=$(( i + 1 ))
+	done < "$POL_USER_ROOT/tmp/icons_fetch_list"
+	rm -f "$POL_USER_ROOT/tmp/icons_fetch_list"
 }
 get_packages_icons()
 {
+	echo -n "" > "$POL_USER_ROOT/tmp/icons_fetch_list"
 	while read line; do
 		content="$(echo "$line" | cut -d ":" -f 1)"
 		if [ ! -e "$POL_USER_ROOT/configurations/icones/$content" ]; then
-			$POL_WGET "$SITE/V2_data/icones/$content" -O "$POL_USER_ROOT/configurations/icones/$content"
-		fi
-		taille="$(du "$POL_USER_ROOT/configurations/icones/$content")"
-		taille="${taille:0:1}"
-		if [ "$taille" = "0" ]; then
-			rm "$POL_USER_ROOT/configurations/icones/$content"
+			echo "$SITE/V2_data/icones/$content" >> "$POL_USER_ROOT/tmp/icons_fetch_list"
 		fi
 	done
+        cd "$POL_USER_ROOT/configurations/icones"
+	$POL_WGET -nd -i "$POL_USER_ROOT/tmp/icons_fetch_list"
+	while read line; do
+		content="$(basename "$line")"
+		[ -e "$content" -a ! -s "$content" ] && rm "$content"
+	done < "$POL_USER_ROOT/tmp/icons_fetch_list"
 }
 maj_check ()
 {
