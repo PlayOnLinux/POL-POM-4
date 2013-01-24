@@ -25,12 +25,12 @@ source "$PLAYONLINUX/lib/sources"
 
 config_maj() # Celle ci est exécuté à chaque ligne (wget | config_maj), elle traite tout
 {
-	read line
-	num="$line"
+	read num
 	i=0
+	num=0
+        echo 0
 	while read line; do
 		[ "$line" = "" ] && break
-		echo $(( i*100/num ))
 		file=$(echo "$line" | cut -d "/" -f 1)
 		content=$(echo "$line" | cut -d "/" -f 2)
 		download_icon=$(echo "$line" | cut -d "/" -f 3)
@@ -42,33 +42,40 @@ config_maj() # Celle ci est exécuté à chaque ligne (wget | config_maj), elle 
 
 		echo "$content~$testing~$nocd~$free" >> "$file"
 		echo "$content~$testing~$nocd~$free" >> "search"
-		echo $PWD
-		if [ "$download_icon" = "1" ]; then
-			if [ ! -e "$POL_USER_ROOT/configurations/icones/$content" ]; then
-				$POL_WGET "$SITE/V2_data/icones/$content" -O "$POL_USER_ROOT/configurations/icones/$content"
-			fi
-			taille="$(du "$POL_USER_ROOT/configurations/icones/$content")"
-			taille="${taille:0:1}"
-			if [ "$taille" = "0" ]; then
-				rm "$POL_USER_ROOT/configurations/icones/$content"
-			fi
+		if [ "$download_icon" = "1" -a ! -e "$POL_USER_ROOT/configurations/icones/$content" ]; then
+			echo "$SITE/V2_data/icones/$content"
+			num=$(( num + 1 ))
 		fi
-		i=$(( i + 1 ))
-	done
+	done > "$POL_USER_ROOT/tmp/icons_fetch_list"
+	if [ $num -gt 0 ]; then
+	        cd "$POL_USER_ROOT/configurations/icones"
+		$POL_WGET --quiet=no -nv -nd -i "$POL_USER_ROOT/tmp/icons_fetch_list" 2>&1 |\
+		sed -ue '/URL:/!d; s/^.*-> "\(.*\)".*$/\1/'|\
+		while read content; do
+			[ -e "$content" -a ! -s "$content" ] && rm "$content"
+			i=$(( i + 1 ))
+			echo $(( i*100/num ))
+		done
+	else
+		echo 100
+	fi
+	rm "$POL_USER_ROOT/tmp/icons_fetch_list" 2>/dev/null
 }
 get_packages_icons()
 {
 	while read line; do
 		content="$(echo "$line" | cut -d ":" -f 1)"
 		if [ ! -e "$POL_USER_ROOT/configurations/icones/$content" ]; then
-			$POL_WGET "$SITE/V2_data/icones/$content" -O "$POL_USER_ROOT/configurations/icones/$content"
+			echo "$SITE/V2_data/icones/$content"
 		fi
-		taille="$(du "$POL_USER_ROOT/configurations/icones/$content")"
-		taille="${taille:0:1}"
-		if [ "$taille" = "0" ]; then
-			rm "$POL_USER_ROOT/configurations/icones/$content"
-		fi
+	done > "$POL_USER_ROOT/tmp/icons_fetch_list2"
+        cd "$POL_USER_ROOT/configurations/icones"
+	$POL_WGET --quiet=no -nv -nd -i "$POL_USER_ROOT/tmp/icons_fetch_list2" 2>&1 |\
+	sed -ue '/URL:/!d; s/^.*-> "\(.*\)".*$/\1/'|\
+	while read content; do
+		[ -e "$content" -a ! -s "$content" ] && rm "$content"
 	done
+	rm "$POL_USER_ROOT/tmp/icons_fetch_list2" 2>/dev/null
 }
 maj_check ()
 {
