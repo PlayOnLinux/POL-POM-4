@@ -1,5 +1,6 @@
 -> 4.1.10
 - Huge icons download speedup by reusing a single HTTP connection
+- Make sure debug mode is disabled when using playonlinux --run; Debug may still be used in playonlinux-bash though
 
 -> 4.1.9
 - POL_System_is32bit

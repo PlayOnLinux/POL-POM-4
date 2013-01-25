@@ -128,6 +128,12 @@ if [ "$1" = "--run" ]; then
 	if [ -e "$FILENAME" ]; then ## Trying to open a file
 		exec ./playonlinux-bash "$POLDIR/bash/document_reader" "$NAME" "$FILENAME"
 	else
+		# SetDebugState(game, False)
+		# export WINEDEBUG= found and is not WINEDEBUG="-all"?
+		if grep '^export WINEDEBUG=' "$HOME/.PlayOnLinux/shortcuts/$NAME"|grep -qv 'WINEDEBUG="-all"'; then
+			cp "$HOME/.PlayOnLinux/shortcuts/$NAME" "$POL_USER_ROOT/tmp/debug_$NAME" && \
+			sed -e 's/^export WINEDEBUG="\(.*\)"/export WINEDEBUG="-all"/' "$POL_USER_ROOT/tmp/debug_$NAME" > "$HOME/.PlayOnLinux/shortcuts/$NAME"
+		fi
 		exec ./playonlinux-bash "$HOME/.PlayOnLinux/shortcuts/$NAME" "$@"
 	fi
 else
