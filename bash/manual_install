@@ -125,7 +125,10 @@ then
 fi
 if [ "$menu" = "$LNG_LI_NEW" ]
 then
-	POL_SetupWindow_textbox "$(eval_gettext "Please type a name for your application's virtual drive.\nThis name shouldn't contain spaces.")" "$TITLE"
+	while true; do
+		POL_SetupWindow_textbox "$(eval_gettext "Please type a name for your application's virtual drive.\nThis name shouldn't contain spaces.")" "$TITLE"
+		[[ "$APP_ANSWER" =~ [/\ ] ]] || break
+	done
 	PREFIXNAME="$APP_ANSWER"
 	SCRIPTPATH="$POL_USER_ROOT/scripts/${APP_ANSWER}_${INSTALL_NUMBER}"
 	SCRIPTNAME="${APP_ANSWER}_${INSTALL_NUMBER}"
