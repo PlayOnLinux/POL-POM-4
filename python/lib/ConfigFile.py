@@ -3,6 +3,8 @@
 
 # Copyright (C) 2007-2013 PlayOnLinux Team
 
+import string
+
 class ConfigFile(object):
    def __init__(self, filePath):
        self.configFile = filePath
@@ -21,13 +23,22 @@ class ConfigFile(object):
             line = configFileContent[i]
             break
          i += 1
-      try:
-         line = string.split(line,"=")
-         return(line[1])
-      except:
-         return("")
+      
+      if(line == ""):
+          return ""
+          
+      line = string.split(line,"=")
+      return(line[1])
+     
 
-
+   def getIntSetting(self, setting, default = 0):
+       valeur = self.getSetting(setting)
+       try:
+           valeurInt = int(valeur)
+       except ValueError as e:
+           valeurInt = default
+       return valeurInt
+       
    def setSetting(self, setting, value):
       try:
          configFileContent = open(self.configFile,"r").readlines()
@@ -88,6 +99,5 @@ class ConfigFile(object):
           i+=1
 
 class GlobalConfigFile(ConfigFile):
-    def __init__(self):
-        import Variables
-        self.configFile = Variables.pol_user_root + "/playonlinux.cfg"
+    def __init__(self, context):
+        self.configFile = context.getUserRoot() + "/playonlinux.cfg"

@@ -27,6 +27,7 @@ from lib.Context import Context
 from lib.System import System
 from lib.Script import PrivateScript
 from POLWeb import POLWeb
+from lib.ConfigFile import GlobalConfigFile
 
 import lib.playonlinux as playonlinux
 import guiv3 as gui, gui_server#, install, options, wine_versions as wver, sp, configure, debug, gui_server
@@ -44,7 +45,8 @@ class MainWindow(wx.Frame):
         self.windowList = {}
         self.registeredPid = []
         self.windowOpened = 0
-
+        self.playonlinuxSettings = GlobalConfigFile(self.context)
+        
         # Manage updater
         self.updater = POLWeb(context)
         self.updater.start()
@@ -57,37 +59,32 @@ class MainWindow(wx.Frame):
         signal.signal(signal.SIGINT, self.ForceClose)
         
         # Window size
-        try:
-            self.windowWidth = int(playonlinux.GetSettings("MAINWINDOW_WIDTH"))
-            self.windowHeight = int(playonlinux.GetSettings("MAINWINDOW_HEIGHT"))
-            self.SetSize((self.windowWidth,self.windowHeight))
-        except:
-            self.windowWidth = 450
-            self.windowHeight = 450
+        
+    
+        self.windowWidth = self.playonlinuxSettings.getIntSetting("MAINWINDOW_WIDTH", default = 450)
+        self.windowHeight = self.playonlinuxSettings.getIntSetting("MAINWINDOW_HEIGHT", default = 450)
+        self.SetSize((self.windowWidth,self.windowHeight))
+        
 
         # Window position
-        try:
-            self.windowx = int(playonlinux.GetSettings("MAINWINDOW_X"))
-            self.windowy = int(playonlinux.GetSettings("MAINWINDOW_Y"))
-            self.screen_width = wx.Display().GetGeometry()[2]
-            self.screen_height = wx.Display().GetGeometry()[3]
+        self.windowx = self.playonlinuxSettings.getIntSetting("MAINWINDOW_X", default = 30)
+        self.windowy = self.playonlinuxSettings.getIntSetting("MAINWINDOW_Y", default = 30)
+        self.screen_width = wx.Display().GetGeometry()[2]
+        self.screen_height = wx.Display().GetGeometry()[3]
 
-            if(self.screen_width >= self.windowx and self.screen_height >= self.windowy):
-                self.SetPosition((self.windowx, self.windowy))
-            else:
-                self.Center(wx.BOTH)
-        except:
+        if(self.screen_width >= self.windowx and self.screen_height >= self.windowy):
+            self.SetPosition((self.windowx, self.windowy))
+        else:
             self.Center(wx.BOTH)
+        
 
-
-        try: self.iconSize = int(playonlinux.GetSettings("ICON_SIZE"))
-        except: self.iconSize = 32
+        self.iconSize = self.playonlinuxSettings.getIntSetting("ICON_SIZE", default = 32)
+        
 
         self.images = wx.ImageList(self.iconSize, self.iconSize)
         self.imagesEmpty = wx.ImageList(1,1)
 
 
-        self.sendAlertStr = None
 
         ## Fonts
         if(os.environ["POL_OS"] == "Mac"):
@@ -106,13 +103,11 @@ class MainWindow(wx.Frame):
 
         self._mgr = wx.aui.AuiManager(self)
         self.menu_gauche = wx.Panel(self,-1)
-
-
-
         self._mgr.AddPane(self.list_game, wx.CENTER)
 
 
         self.filemenu = wx.Menu()
+        
         ### On MacOS X, preference is always on the main menu
         if(os.environ["POL_OS"] == "Mac"):
             prefItem = self.filemenu.Append(wx.ID_PREFERENCES, text = "&Preferences")
@@ -132,6 +127,7 @@ class MainWindow(wx.Frame):
         self.icon24 = self.displaymenu.AppendRadioItem(502, _("Medium icons"))
         self.icon32 = self.displaymenu.AppendRadioItem(503, _("Large icons"))
         self.icon48 = self.displaymenu.AppendRadioItem(504, _("Very large icons"))
+        
         if(self.iconSize == 16):
             self.icon16.Check(True)
         if(self.iconSize == 24):
@@ -141,99 +137,63 @@ class MainWindow(wx.Frame):
         if(self.iconSize == 48):
             self.icon48.Check(True)
 
-        self.expertmenu = wx.Menu()
 
-        self.winever_item = wx.MenuItem(self.expertmenu, 107, _("Manage Wine versions"))
-        self.winever_item.SetBitmap(wx.Bitmap(self.context.getAppPath()+"/resources/images/menu/wine.png"))
-        self.expertmenu.AppendItem(self.winever_item)
+        # Expert menu
+        self.expertmenu = wx.Menu()
+        self.addMenuItem(107,  _('Manage Wine versions'), "wine.png", self.expertmenu)
 
         if(os.environ["POL_OS"] == "Mac"):
             self.expertmenu.AppendSeparator()
-            self.pccd_item = wx.MenuItem(self.expertmenu, 113, _("Read a PC CD-Rom"))
-            self.pccd_item.SetBitmap(wx.Bitmap(self.context.getAppPath()+"/resources/images/menu/cdrom.png"))
-            self.expertmenu.AppendItem(self.pccd_item)
+            self.addMenuItem(113,  _('Read a PC cdrom'), "cdrom.png", self.expertmenu)
+            
 
         self.expertmenu.AppendSeparator()
-
-        self.run_item = wx.MenuItem(self.expertmenu, 108, _("Run a local script"))
-        self.run_item.SetBitmap(wx.Bitmap(self.context.getAppPath()+"/resources/images/menu/run.png"))
-        self.expertmenu.AppendItem(self.run_item)
-
-        self.wineserv_item = wx.MenuItem(self.expertmenu, 115, _('Close all {0} software').format(os.environ["APPLICATION_TITLE"]))
-        self.wineserv_item.SetBitmap(wx.Bitmap(self.context.getAppPath()+"/resources/images/menu/wineserver.png"))
-        self.expertmenu.AppendItem(self.wineserv_item)
-
-        self.polshell_item = wx.MenuItem(self.expertmenu, 109, _('{0} console').format(os.environ["APPLICATION_TITLE"]))
-        self.polshell_item.SetBitmap(wx.Bitmap(self.context.getAppPath()+"/resources/images/menu/polshell.png"))
-        self.expertmenu.AppendItem(self.polshell_item)
-
+        self.addMenuItem(108,  _('Run a local script'), "run.png", self.expertmenu)
+        self.addMenuItem(115,  _('Close all {0} software').format(os.environ["APPLICATION_TITLE"]), "wineserver.png", self.expertmenu)
+        self.addMenuItem(110, _("{0} debugger").format(os.environ["APPLICATION_TITLE"]), "bug.png", self.expertmenu)
+        self.addMenuItem(109, _('{0} console').format(os.environ["APPLICATION_TITLE"]), "polshell.png", self.expertmenu)
+       
         self.expertmenu.AppendSeparator()
-
-        self.pol_online = wx.MenuItem(self.expertmenu, 112, os.environ["APPLICATION_TITLE"]+" online")
-        self.pol_online.SetBitmap(wx.Bitmap(self.context.getAppPath()+"/resources/images/menu/playonlinux_online.png"))
-        self.expertmenu.AppendItem(self.pol_online)
-
-        self.chat_item = wx.MenuItem(self.expertmenu, 111, _("{0} messenger").format(os.environ["APPLICATION_TITLE"]))
-        self.chat_item.SetBitmap(wx.Bitmap(self.context.getAppPath()+"/resources/images/menu/people.png"))
-        self.expertmenu.AppendItem(self.chat_item)
-
-        self.bug_item = wx.MenuItem(self.expertmenu, 110, _("{0} debugger").format(os.environ["APPLICATION_TITLE"]))
-        self.bug_item.SetBitmap(wx.Bitmap(self.context.getAppPath()+"/resources/images/menu/bug.png"))
-        self.expertmenu.AppendItem(self.bug_item)
-
-
+        self.addMenuItem(112, os.environ["APPLICATION_TITLE"]+" online", "playonlinux_online.png", self.expertmenu)
+        self.addMenuItem(111, _("{0} messenger").format(os.environ["APPLICATION_TITLE"]), "people.png", self.expertmenu)
+        
+        # Option menu
         self.optionmenu = wx.Menu()
-
-
-        self.option_item = wx.MenuItem(self.expertmenu, 211, _("Internet"))
-        self.option_item.SetBitmap(wx.Bitmap(self.context.getAppPath()+"/etc/onglet/internet-web-browser.png"))
-        self.optionmenu.AppendItem(self.option_item)
-
-        self.option_item = wx.MenuItem(self.expertmenu, 212, _("File associations"))
-        self.option_item.SetBitmap(wx.Bitmap(self.context.getAppPath()+"/resources/images/menu/extensions.png"))
-        self.optionmenu.AppendItem(self.option_item)
-
-
+        
+        self.addMenuItem(221, _("Internet"), "internet.png", self.optionmenu)
+        self.addMenuItem(212,  _("File associations"), "extensions.png", self.optionmenu)
+        self.addMenuItem(213,  _("Plugin manager"), "plugins.png", self.optionmenu)
 
         self.help_menu = wx.Menu()
-        self.help_menu.Append(wx.ID_ABOUT, _('About {0}').format(os.environ["APPLICATION_TITLE"]))
+        self.addMenuItem(wx.ID_ABOUT,  _('About {0}').format(os.environ["APPLICATION_TITLE"]), None, self.help_menu)
+
         self.pluginsmenu = wx.Menu()
 
-        files=os.listdir(self.context.getAppPath()+"/plugins")
-        files.sort()
+        plugin_files = os.listdir(self.context.getAppPath()+"/plugins")
+        plugin_files.sort()
         self.plugin_list = []
-        self.i = 0
-        self.j = 0
         
-        while(self.i < len(files)):
-            if(os.path.exists(self.context.getUserRoot()+"/plugins/"+files[self.i]+"/scripts/menu")):
-                if(os.path.exists(self.context.getUserRoot()+"/plugins/"+files[self.i]+"/enabled")):
-                    self.plugin_item = wx.MenuItem(self.expertmenu, 300+self.j, files[self.i])
+        for plugin in plugin_files:
+            if(os.path.exists(self.context.getUserRoot()+"/plugins/"+plugin+"/scripts/menu")):
+                if(os.path.exists(self.context.getUserRoot()+"/plugins/"+plugin+"/enabled")):
 
-                    self.icon_look_for = self.context.getUserRoot()+"/plugins/"+files[self.i]+"/icon"
-                    if(os.path.exists(self.icon_look_for)):
-                        self.bitmap = wx.Bitmap(self.icon_look_for)
-                    else:
-                        self.bitmap = wx.Bitmap(self.context.getAppPath()+"/etc/playonlinux16.png")
+                    plugin_icon = self.context.getUserRoot()+"/plugins/"+plugin+"/icon"
+                    
+                    if(not os.path.exists(plugin_icon)):
+                        plugin_icon = self.context.getAppPath()+"/etc/playonlinux16.png"
 
-                    self.plugin_item.SetBitmap(self.bitmap)
-                    self.pluginsmenu.AppendItem(self.plugin_item)
-                    wx.EVT_MENU(self, 300+self.j,  self.run_plugin)
-                    self.plugin_list.append(files[self.i])
-                    self.j += 1
-            self.i += 1
+                    self.addMenuItem(300+self+j, plugin, plugin_icon, self.pluginsmenu)
+                    wx.EVT_MENU(self, 300+self.j, self.run_plugin)
+                    self.plugin_list.append(plugin)
 
-        if(self.j > 0):
+        if(len(self.plugin_list) > 0):
             self.pluginsmenu.AppendSeparator()
 
         self.option_item_p = wx.MenuItem(self.expertmenu, 214, _("Plugin manager"))
         self.option_item_p.SetBitmap(wx.Bitmap(self.context.getAppPath()+"/etc/onglet/package-x-generic.png"))
         self.pluginsmenu.AppendItem(self.option_item_p)
 
-        self.option_item = wx.MenuItem(self.expertmenu, 214, _("Plugin manager"))
-        self.option_item.SetBitmap(wx.Bitmap(self.context.getAppPath()+"/etc/onglet/package-x-generic.png"))
-        self.optionmenu.AppendItem(self.option_item)
-
+     
 
         self.last_string = ""
 
@@ -492,9 +452,9 @@ class MainWindow(wx.Frame):
             except:
                 pass
                 
-        if(self.updater.sendAlertStr != self.sendAlertStr):
-            wx.MessageBox(self.updater.sendAlertStr, os.environ["APPLICATION_TITLE"])
-            self.sendAlertStr = self.updater.sendAlertStr
+        self.alert = self.updater.getAlert()
+        if(self.alert != None):
+            wx.MessageBox(self.alert, os.environ["APPLICATION_TITLE"])
 
     def RMBInGameList(self, event):
         self.GameListPopUpMenu = wx.Menu()
@@ -530,6 +490,17 @@ class MainWindow(wx.Frame):
         self.PopupMenu(self.GameListPopUpMenu, event.GetPoint())
 
 
+    def addMenuItem(self, id, title, icon, menu):
+        if(icon != None):
+            item = wx.MenuItem(menu, id, _(title))
+            os.chdir(self.context.getAppPath()+"/resources/images/menu/")
+            
+            item.SetBitmap(wx.Bitmap(icon))
+            menu.AppendItem(item)
+        else:
+            menu.Append(id, title)
+            
+        
     def RWineConfigurator(self, event):
         self.RConfigure(_("Configure Wine"), "nothing")
 

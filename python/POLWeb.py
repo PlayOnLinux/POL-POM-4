@@ -45,6 +45,11 @@ class POLWeb(threading.Thread):
     def sendAlert(self, message):
         self.sendAlertStr = message
 
+    def getAlert(self):
+        alert = self.sendAlertStr
+        self.sendAlertStr = None
+        return alert
+        
     def LastVersion(self):
         if(os.environ["POL_OS"] == "Mac"):
             fichier_online="version_mac"
