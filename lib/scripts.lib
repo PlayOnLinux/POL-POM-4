@@ -734,7 +734,8 @@ POL_System_wget ()
 
 	prev=0
         set -o pipefail
-	${POL_WGET/-q} -v -c "$url" "$@" 2>&1 | \
+	# make sure the grep input matches at least once so that grep exitcode does not mask wget's one
+	(echo '0%'; ${POL_WGET/-q} -v -c "$url" "$@" 2>&1) | \
 	grep -o --line-buffered '[0-9]\{1,2\}%' | \
 	while read perc; do
 		if [ -n "$perc" -a "$perc" != "$prev" ]; then
