@@ -742,7 +742,21 @@ POL_System_wget ()
 			POL_SetupWindow_pulse ${perc%%%}
 			prev="$perc"
 		fi
-	done || POL_Debug_Fatal "POL_System_wget failed, error $? !"
+	done
+	local code=$?
+	if [ $code -ne 0 ]; then
+		# man wget
+		local msg="error $code"
+		[ $code -eq 1 ] && msg="Generic error code"
+		[ $code -eq 2 ] && msg="Parse error"
+		[ $code -eq 3 ] && msg="File I/O error"
+		[ $code -eq 4 ] && msg="Network failure"
+		[ $code -eq 5 ] && msg="SSL verification failure"
+		[ $code -eq 6 ] && msg="Username/Password authentication failure"
+		[ $code -eq 7 ] && msg="Protocol errors"
+		[ $code -eq 8 ] && msg="Server issued an error response"
+		POL_Debug_Fatal "POL_System_wget failed: $msg"
+	fi
         set +o pipefail
 
 	POL_SetupWindow_pulse 100

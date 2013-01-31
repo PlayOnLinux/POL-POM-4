@@ -3,6 +3,7 @@
 - Make sure debug mode is disabled when using playonlinux --run; Debug may still be used in playonlinux-bash though
 - Make sure entered prefix name contains no space or slash during manual installations
 - POL_System_wget: make sure the pipelined wget exitcode is not masked by grep's one
+- POL_System_wget: interpret wget exitcodes
 
 -> 4.1.9
 - POL_System_is32bit
