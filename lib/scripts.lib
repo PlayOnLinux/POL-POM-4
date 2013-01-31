@@ -722,7 +722,7 @@ POL_System_mv ()
 POL_System_wget ()
 {
 	# Wget with a progressbar
-	# Usage: Same than wget except that the title of the file is the first parameter, URL must be the second one parameter
+	# Usage: Same than wget except that URL must be the first parameter, the title of the file is the second parameter
 
 	url="$1"
 	POL_Debug_Message "Downloading $1 with wget"
