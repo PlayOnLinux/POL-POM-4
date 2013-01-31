@@ -42,7 +42,7 @@ config_maj() # Celle ci est exécuté à chaque ligne (wget | config_maj), elle 
 	done > "$POL_USER_ROOT/tmp/icons_fetch_list"
 	if [ $num -gt 0 ]; then
 	        cd "$POL_USER_ROOT/configurations/icones"
-		$POL_WGET --quiet=no -nv -nd -i "$POL_USER_ROOT/tmp/icons_fetch_list" 2>&1 |\
+		${POL_WGET/-q} -nv -nd -i "$POL_USER_ROOT/tmp/icons_fetch_list" 2>&1 |\
 		sed -ue '/URL:/!d; s/^.*-> "\(.*\)".*$/\1/'|\
 		while read content; do
 			[ -e "$content" -a ! -s "$content" ] && rm "$content"
@@ -63,7 +63,7 @@ get_packages_icons()
 		fi
 	done > "$POL_USER_ROOT/tmp/icons_fetch_list2"
         cd "$POL_USER_ROOT/configurations/icones"
-	$POL_WGET --quiet=no -nv -nd -i "$POL_USER_ROOT/tmp/icons_fetch_list2" 2>&1 |\
+	${POL_WGET/-q} -nv -nd -i "$POL_USER_ROOT/tmp/icons_fetch_list2" 2>&1 |\
 	sed -ue '/URL:/!d; s/^.*-> "\(.*\)".*$/\1/'|\
 	while read content; do
 		[ -e "$content" -a ! -s "$content" ] && rm "$content"
