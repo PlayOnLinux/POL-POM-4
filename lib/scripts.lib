@@ -346,7 +346,7 @@ POL_Shortcut()
 				else
 					iconPath="$PLAYONLINUX/etc/playonlinux.png"
 				fi
-				generer_icone "$iconPath" "$NOMICONE_" "$DESKTOP" "$PLAYONLINUX/playonlinux --run \"$NOMICONE_\""
+				generer_icone "$iconPath" "$NOMICONE_" "$DESKTOP" "$PLAYONLINUX/playonlinux --run \"$NOMICONE_\"" "$Binaire"
 			fi
 		fi
 	fi
@@ -889,7 +889,8 @@ POL_Shortcut_MakeDesktopShortcut()
 		else
 			iconPath="$PLAYONLINUX/etc/playonlinux.png"
 		fi
-		generer_icone "$iconPath" "$PACKAGE" "$DESKTOP" "$PLAYONLINUX/playonlinux --run \"$PACKAGE\""
+		local binary=echo "$(awk '/^POL_Wine/ {b=$2} END {print b}' "$HOME/.PlayOnLinux/shortcuts/$PACKAGE")"
+		generer_icone "$iconPath" "$PACKAGE" "$DESKTOP" "$PLAYONLINUX/playonlinux --run \"$PACKAGE\"" "$binary"
 	fi
 }
 POL_System_is32bit()

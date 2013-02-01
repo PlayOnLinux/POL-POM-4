@@ -605,7 +605,8 @@ generer_icone ()
 	NOMCOURT="$NOMICONE"
 	PLACE="$3"
 	EXECUTER="$4"
-	
+	BINARY="$5"
+
 	mkdir -p "$PLACE"
 	cd "$PLACE"
 	echo "[Desktop Entry]" > "$NOMCOURT.desktop"
@@ -616,6 +617,7 @@ generer_icone ()
 	echo "Exec=$EXECUTER %F" >> "$NOMCOURT.desktop"
 	echo "Icon=$ICONE" >> "$NOMCOURT.desktop"
 	echo "Name[fr_FR]=$NOMICONE" >> "$NOMCOURT.desktop"
+	echo "StartupWMClass=$BINARY" >> "$NOMCOURT.desktop"
 	chmod +x "$NOMCOURT.desktop"
 }
 
