@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2013-02-01 19:00:41+01:00\n"
+"POT-Creation-Date: 2013-02-02 19:01:16+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -351,12 +351,12 @@ msgid ""
 "can continue."
 msgstr ""
 
-#: PlayOnLinux_Scripts/Ableton_Live_8_:41
+#: PlayOnLinux_Scripts/Ableton_Live_8_:42
 #, sh-format
 msgid "Please select $TITLE Install file:"
 msgstr ""
 
-#: PlayOnLinux_Scripts/Ableton_Live_8_:49
+#: PlayOnLinux_Scripts/Ableton_Live_8_:50
 #, sh-format
 msgid ""
 "NOTICE: To register, when it opens asking for registration, drag-and-drop "
@@ -1756,6 +1756,18 @@ msgid ""
 "reset but do not worry, it do not restart from the beginning."
 msgstr ""
 
+#: PlayOnLinux_Scripts/Guitar_Rig_5_:38
+#, sh-format
+msgid ""
+"Please select $TITLE install file. During installation, uncheck all extra "
+"drivers it wants to install:"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Guitar_Rig_5_:46
+#, sh-format
+msgid "NOTICE: For low-latency audio, look into WineASIO."
+msgstr ""
+
 #: PlayOnLinux_Scripts/Halo_Combat_Evolved_:41
 #, sh-format
 msgid "Select the file to install"
@@ -1764,6 +1776,20 @@ msgstr ""
 #: PlayOnLinux_Scripts/Halo_Combat_Evolved_:70
 #, sh-format
 msgid "Updating $TITLE"
+msgstr ""
+
+#: PlayOnLinux_Scripts/ImgBurn_:38
+#, sh-format
+msgid ""
+"Please select $TITLE install file. DO NOT CHECK RUN IMGBURN AT END OF "
+"INSTALLATION:"
+msgstr ""
+
+#: PlayOnLinux_Scripts/ImgBurn_:46
+#, sh-format
+msgid ""
+"NOTICE: POL does not condone piracy. Please use $TITLE in a respectable "
+"manner"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Infinity_Engine_widescreen_mod_:52
@@ -3572,7 +3598,7 @@ msgid ""
 msgstr ""
 
 #: bash/uninstall:25 bash/uninstall:53 bash/uninstall:56 bash/uninstall:58
-#: lib/playonlinux.lib:710
+#: lib/playonlinux.lib:712
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
 msgstr ""
@@ -3592,7 +3618,7 @@ msgstr ""
 msgid "This wizard will help you to uninstall: "
 msgstr ""
 
-#: bash/uninstall:53 lib/playonlinux.lib:710
+#: bash/uninstall:53 lib/playonlinux.lib:712
 #, sh-format
 msgid "Uninstalling..."
 msgstr ""
@@ -3709,33 +3735,33 @@ msgstr ""
 msgid "Making shortcut..."
 msgstr ""
 
-#: lib/playonlinux.lib:708
+#: lib/playonlinux.lib:710
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr ""
 
-#: lib/playonlinux.lib:819
+#: lib/playonlinux.lib:821
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:820
+#: lib/playonlinux.lib:822
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:821
+#: lib/playonlinux.lib:823
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:822
+#: lib/playonlinux.lib:824
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
