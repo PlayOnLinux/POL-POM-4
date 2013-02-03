@@ -890,7 +890,7 @@ POL_Shortcut_MakeDesktopShortcut()
 			iconPath="$PLAYONLINUX/etc/playonlinux.png"
 		fi
 		# http://stackoverflow.com/questions/8939580/bash-split-a-string-exactly-like-readline-would-split-it
-		eval set -- $(awk '/^POL_Wine / {b=$2} END {print b}' "$POL_USER_ROOT/shortcuts/$PACKAGE")
+		eval set -- $(grep '^POL_Wine ' "$POL_USER_ROOT/shortcuts/$PACKAGE"|tail -n 1)
 		local binary="$2"
 		generer_icone "$iconPath" "$PACKAGE" "$DESKTOP" "$PLAYONLINUX/playonlinux --run \"$PACKAGE\"" "$binary"
 	fi
