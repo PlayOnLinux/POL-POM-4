@@ -94,18 +94,13 @@ if (os.environ["POL_OS"] == "Mac"):
 
     os.environ["DYLD_LIBRARY_PATH"] = os.environ["PLAYONLINUX"]+"/../unix/tools/lib/dyld:" + os.environ["PLAYONLINUX"]+"/../unix/image_magick/lib:"+ os.environ["DYLD_LIBRARY_PATH"]
 else:
-    if(os.path.exists("/usr/lib/wine/wineserver")): # Debian maintener decided for some unknown reason not to let wineserver binary into PATH...
-        os.environ["PATH"] = os.environ["PATH"]+":/usr/lib/wine/"
-    elif(os.path.exists("/usr/lib32/wine/wineserver")):
-        os.environ["PATH"] = os.environ["PATH"]+":/usr/lib32/wine/"
-    elif(os.path.exists("/usr/lib/wine-unstable/wineserver")):
-        os.environ["PATH"] = os.environ["PATH"]+":/usr/lib/wine-unstable/"
-    elif(os.path.exists("/usr/lib32/wine-unstable/wineserver")):
-        os.environ["PATH"] = os.environ["PATH"]+":/usr/lib32/wine-unstable/"
-    elif(os.path.exists("/usr/lib/i386-linux-gnu/wine-unstable/wineserver")):
-        os.environ["PATH"] = os.environ["PATH"]+":/usr/lib/i386-linux-gnu/wine-unstable/"
-    elif(os.path.exists("/usr/lib/i386-linux-gnu/wine-stable/wineserver")):
-        os.environ["PATH"] = os.environ["PATH"]+":/usr/lib/i386-linux-gnu/wine-stable/"
+    # Debian maintainer decided for some reason not to let wineserver binary into PATH...
+    for winepath in ('/usr/lib/wine', '/usr/lib/wine-unstable', \
+                     '/usr/lib/i386-linux-gnu/wine', '/usr/lib/i386-linux-gnu/wine-unstable', \
+                     '/usr/lib32/wine', '/usr/lib32/wine-unstable'):
+        if os.path.exists('%s/wineserver' % (winepath,)):
+            os.environ["PATH"] += ':%s' % (winepath,)
+            break
 
 os.environ["PATH_ORIGIN"] = os.environ["PATH"]
 os.environ["LD_PATH_ORIGIN"] = os.environ["LD_LIBRARY_PATH"]
