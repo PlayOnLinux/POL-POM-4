@@ -889,7 +889,7 @@ POL_Shortcut_MakeDesktopShortcut()
 		else
 			iconPath="$PLAYONLINUX/etc/playonlinux.png"
 		fi
-		local binary=echo "$(awk '/^POL_Wine/ {b=$2} END {print b}' "$POL_USER_ROOT/shortcuts/$PACKAGE")"
+		local binary="$(awk '/^POL_Wine/ {b=$2} END {print b}' "$POL_USER_ROOT/shortcuts/$PACKAGE")"
 		generer_icone "$iconPath" "$PACKAGE" "$DESKTOP" "$PLAYONLINUX/playonlinux --run \"$PACKAGE\"" "$binary"
 	fi
 }
