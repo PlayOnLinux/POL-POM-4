@@ -5,6 +5,8 @@
 - POL_System_wget: make sure the pipelined wget exitcode is not masked by grep's one
 - POL_System_wget: interpret wget exitcodes
 - genere_icone(): pick the right icon instead of Wine generic one (reported by Simon/excalibr on IRC) (#1815)
+- (experimental) WINEDEBUG prefix setting, modify the amount of   logging when debugging is enabled. I'm not sure of the right scope,
+  should it be per-shortcut, like the old "enable debugging" flag, or even global?
 
 -> 4.1.9
 - POL_System_is32bit

@@ -143,13 +143,14 @@ def GetDebugState(game):
 
     for line in fichier:
         line = line.replace("\n","")
-        if(line == 'export WINEDEBUG="-all"'):
-            return False
-        if(line == 'export WINEDEBUG=""'):
-            return True
+        if('export WINEDEBUG=' in line):
+            if(line == 'export WINEDEBUG="-all"'):
+                return False
+            else:
+                return True
     return False
 
-def SetDebugState(game, state):
+def SetDebugState(game, prefix, state):
     cfile = Variables.playonlinux_rep+"shortcuts/"+game
     try:
         fichier = open(cfile,"r").readlines()
@@ -161,7 +162,7 @@ def SetDebugState(game, state):
         line = line.replace("\n","")
         if('export WINEDEBUG=' in line):
             if(state == True):
-                line = 'export WINEDEBUG=""'
+                line = 'export WINEDEBUG="%s"' % GetSettings('WINEDEBUG', prefix)
             else:
                 line = 'export WINEDEBUG="-all"'
         lines.append(line)

@@ -967,7 +967,7 @@ class MainWindow(wx.Frame):
         game_prefix = playonlinux.getPrefix(game_exec)
 
         if(s_debug == False):
-            playonlinux.SetDebugState(game_exec, False)
+            playonlinux.SetDebugState(game_exec, game_prefix, False)
 
         if(os.path.exists(os.environ["POL_USER_ROOT"]+"/wineprefix/"+game_prefix)):
             if(game_exec != ""):
@@ -990,7 +990,7 @@ class MainWindow(wx.Frame):
     def RunDebug(self, event):
         game_exec = self.GetSelectedProgram()
         game_prefix = playonlinux.getPrefix(game_exec)
-        playonlinux.SetDebugState(game_exec, True)
+        playonlinux.SetDebugState(game_exec, game_prefix, True)
         self.Run(self, True)
  
     def POLDie(self):

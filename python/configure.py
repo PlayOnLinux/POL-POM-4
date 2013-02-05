@@ -193,9 +193,11 @@ class Onglets(wx.Notebook):
         self.AddGeneralButton(_("Make a new shortcut from this virtual drive"),"newshort",1)
         self.AddGeneralChamp(_("Name"),"name","",2)
         self.AddGeneralElement(_("Wine version"),"wineversion",[],[],3)
-        self.AddGeneralElement(_("Virtual drive"),"wineprefix",playonlinux.Get_Drives(),playonlinux.Get_Drives(),4)
+        self.AddGeneralChamp(_("Debug flags"), "winedebug", "", 4)
 
-        self.AddGeneralChamp(_("Arguments"),"arguments","",5)
+        self.AddGeneralElement(_("Virtual drive"), "wineprefix", playonlinux.Get_Drives(), playonlinux.Get_Drives(), 5)
+
+        self.AddGeneralChamp(_("Arguments"), "arguments", "", 6)
 
         self.configurator_title = wx.StaticText(self.panelGeneral, -1, "", (10,294), wx.DefaultSize)
         self.configurator_title.SetFont(self.fontTitle)
@@ -203,10 +205,11 @@ class Onglets(wx.Notebook):
 
 
         wx.EVT_TEXT(self, 202, self.setname)
-        wx.EVT_TEXT(self, 205, self.setargs)
+        wx.EVT_TEXT(self, 206, self.setargs)
+        wx.EVT_TEXT(self, 204, self.setwinedebug)
 
         wx.EVT_COMBOBOX(self, 203, self.assign)
-        wx.EVT_COMBOBOX(self, 204, self.assignPrefix)
+        wx.EVT_COMBOBOX(self, 205, self.assignPrefix)
         wx.EVT_BUTTON(self, 601, self.Parent.Parent.Parent.WineVersion)
 
     def Wine(self, nom):
@@ -429,6 +432,7 @@ class Onglets(wx.Notebook):
             self.arch = "x86"
 
         self.UpdateVersions(self.arch)
+        self.general_elements["winedebug"].SetValue(playonlinux.GetSettings("WINEDEBUG", self.s_prefix))
         try:
             self.display_elements["pre_run"].SetValue(open(os.environ["POL_USER_ROOT"]+"/configurations/pre_shortcut/"+self.s_title,'r').read())
         except:
@@ -590,6 +594,9 @@ class Onglets(wx.Notebook):
         new_args = self.general_elements["arguments"].GetValue()
         playonlinux.writeArgs(self.s_title, new_args)
 
+    def setwinedebug(self, event):
+        new_winedebug = self.general_elements["winedebug"].GetValue()
+        playonlinux.SetSettings('WINEDEBUG', new_winedebug, self.s_prefix)
 
     def setname(self, event):
         new_name = self.general_elements["name"].GetValue()
