@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2013-01-28 19:00+0100\n"
+"POT-Creation-Date: 2013-02-04 19:00+0100\n"
 "PO-Revision-Date: 2012-10-25 19:38+0000\n"
 "Last-Translator: Arthur Henrique Guimarães de Oliveira <warthur2@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-01-29 05:10+0000\n"
-"X-Generator: Launchpad (build 16451)\n"
+"X-Launchpad-Export-Date: 2013-02-05 04:34+0000\n"
+"X-Generator: Launchpad (build 16468)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -377,16 +377,26 @@ msgstr ""
 "nFeche COMPLETAMENTE a interface do Steam, \\npara que o script de "
 "instalação possa continuar."
 
-#: PlayOnLinux_Scripts/Ableton_Live_8_:41
+#: PlayOnLinux_Scripts/Ableton_Live_8_:42
 #, sh-format
 msgid "Please select $TITLE Install file:"
 msgstr ""
 
-#: PlayOnLinux_Scripts/Ableton_Live_8_:49
+#: PlayOnLinux_Scripts/Ableton_Live_8_:50
 #, sh-format
 msgid ""
 "NOTICE: To register, when it opens asking for registration, drag-and-drop "
 "your reg file into $TITLE"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Absynth_5_:30 PlayOnLinux_Scripts/Traktor_Pro_2_:30
+#, sh-format
+msgid "Please select $TITLE install file:"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Absynth_5_:49 PlayOnLinux_Scripts/Guitar_Rig_5_:46
+#, sh-format
+msgid "NOTICE: For low-latency audio, look into WineASIO."
 msgstr ""
 
 #: PlayOnLinux_Scripts/Age_Of_Wonders_:70
@@ -468,7 +478,7 @@ msgstr "Você não tem que instalar DirectX ou usar GLSetup."
 #: PlayOnLinux_Scripts/Alt.Binz_:40 PlayOnLinux_Scripts/Driftmoon_:43
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:42
 #: PlayOnLinux_Scripts/GOG.com___Gothic_3_Community_patch_:46
-#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:54
+#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:51
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:51
 #: PlayOnLinux_Scripts/Google_Picasa_3.9_:54
 #: PlayOnLinux_Scripts/POL_GoG_setup_:30 PlayOnLinux_Scripts/SFR_LiberTalk_:36
@@ -1243,6 +1253,11 @@ msgstr "Por favor insira o disco $TITLE"
 msgid "$TITLE has been installed successfully"
 msgstr "$TITLE foi instalado com sucesso."
 
+#: PlayOnLinux_Scripts/Divine_Divinity_:43
+#, sh-format
+msgid " $TITLE has been successfully installed."
+msgstr ""
+
 #: PlayOnLinux_Scripts/Divinity_II___The_Dragon_Knight_Saga_:61
 #, sh-format
 msgid ""
@@ -1409,7 +1424,7 @@ msgstr "Bem vindo ao instalador do DLC de $TITLE"
 #: PlayOnLinux_Scripts/GOG.com___Gothic_3_Community_patch_:58
 #: PlayOnLinux_Scripts/GOG.com___Ground_Control_2_:45
 #: PlayOnLinux_Scripts/GOG.com___Guilty_Gear_X2_Reload_:39
-#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:61
+#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:58
 #: PlayOnLinux_Scripts/GOG.com___In_Cold_Blood_:39
 #: PlayOnLinux_Scripts/GOG.com___Incoming_and_Incoming_Forces_:40
 #: PlayOnLinux_Scripts/GOG.com___Iron_Storm_:38
@@ -1486,7 +1501,7 @@ msgstr "Ocorreu um erro instalando o arquivo"
 
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:29
 #: PlayOnLinux_Scripts/GOG.com___Gothic_3_Community_patch_:33
-#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:40
+#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:37
 #: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:32
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:37
 #, sh-format
@@ -1596,13 +1611,13 @@ msgstr ""
 "ele contém MUITAS correções de erros e melhoramentos em relação ao jogo "
 "original."
 
-#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:50
+#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:47
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:47
 #, sh-format
 msgid "Go there now?"
 msgstr "Ir até lá agora?"
 
-#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:50
+#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:47
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:47
 #, sh-format
 msgid "You can download the archive file from:"
@@ -1871,6 +1886,13 @@ msgstr ""
 "que parou. A porcentagem concluída do download será reiniciada, mas não se "
 "preocupe, o processo de download não será feito novamente do início."
 
+#: PlayOnLinux_Scripts/Guitar_Rig_5_:38
+#, sh-format
+msgid ""
+"Please select $TITLE install file. During installation, uncheck all extra "
+"drivers it wants to install:"
+msgstr ""
+
 #: PlayOnLinux_Scripts/Halo_Combat_Evolved_:41
 #, sh-format
 msgid "Select the file to install"
@@ -1880,6 +1902,20 @@ msgstr "Selecione o arquivo para instalar"
 #, sh-format
 msgid "Updating $TITLE"
 msgstr "Atualizando $TITLE"
+
+#: PlayOnLinux_Scripts/ImgBurn_:38
+#, sh-format
+msgid ""
+"Please select $TITLE install file. DO NOT CHECK RUN IMGBURN AT END OF "
+"INSTALLATION:"
+msgstr ""
+
+#: PlayOnLinux_Scripts/ImgBurn_:46
+#, sh-format
+msgid ""
+"NOTICE: POL does not condone piracy. Please use $TITLE in a respectable "
+"manner"
+msgstr ""
 
 #: PlayOnLinux_Scripts/Infinity_Engine_widescreen_mod_:52
 #, sh-format
@@ -2506,6 +2542,21 @@ msgstr ""
 "Por favor insira o disco 3 em seu driver de disco. \\n Se não tiver feito "
 "ainda."
 
+#: PlayOnLinux_Scripts/Reaper_4_:30
+#, sh-format
+msgid ""
+"Please select $TITLE install file. Do NOT run Reaper after install has "
+"finished."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Reaper_4_:47
+#, sh-format
+msgid ""
+"NOTICE: For low-latency audio, look into WineASIO. An aftermarket, low-"
+"latency audio interface is recommended. Your MIDI controllers should work as "
+"expected."
+msgstr ""
+
 #: PlayOnLinux_Scripts/Rome_Total_War__Gold_Edition__:72
 #, sh-format
 msgid ""
@@ -2839,6 +2890,13 @@ msgid ""
 msgstr ""
 "Instalando as dlls vcrun2008 e wininet e desativando d3d9 e d3d8 para forçar "
 "o jogo a usar OpenGL"
+
+#: PlayOnLinux_Scripts/Traktor_Pro_2_:49
+#, sh-format
+msgid ""
+"NOTICE: For low-latency audio, look into WineASIO. Your MIDI controllers "
+"should work as expected."
+msgstr ""
 
 #: PlayOnLinux_Scripts/Tribes___Ascent_:46
 #, sh-format
@@ -3850,7 +3908,7 @@ msgstr ""
 "as configurações antigas?"
 
 #: bash/uninstall:25 bash/uninstall:53 bash/uninstall:56 bash/uninstall:58
-#: lib/playonlinux.lib:710
+#: lib/playonlinux.lib:712
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
 msgstr "Desinstalador de $APPLICATION_TITLE"
@@ -3870,7 +3928,7 @@ msgstr "Clique em Avançar para continuar."
 msgid "This wizard will help you to uninstall: "
 msgstr "Este assistente irá ajudá-lo a desinstalar: "
 
-#: bash/uninstall:53 lib/playonlinux.lib:710
+#: bash/uninstall:53 lib/playonlinux.lib:712
 #, sh-format
 msgid "Uninstalling..."
 msgstr "Desinstalando..."
@@ -4001,12 +4059,12 @@ msgstr "Aqui está o código fonte do script. Verifique com cuidado"
 msgid "Making shortcut..."
 msgstr "Criando atalho..."
 
-#: lib/playonlinux.lib:708
+#: lib/playonlinux.lib:710
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr "Você quer excluir a unidade virtual:"
 
-#: lib/playonlinux.lib:819
+#: lib/playonlinux.lib:821
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
@@ -4015,7 +4073,7 @@ msgstr ""
 "O seguinte arquivo está localizado em um arquivo de sistemas FAT32.\\nIsso "
 "pode impedir que o Wine funcione\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:820
+#: lib/playonlinux.lib:822
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
@@ -4024,7 +4082,7 @@ msgstr ""
 "O seguinte arquivo está localizado em um sistema de arquivos NTFS.\\nIsso "
 "pode impedir que o Wine funcione\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:821
+#: lib/playonlinux.lib:823
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
@@ -4033,7 +4091,7 @@ msgstr ""
 "O seguinte arquivo está localizado em um sistema de arquivos FUSE.\\nIsso "
 "pode impedir que o Wine funcione\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:822
+#: lib/playonlinux.lib:824
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
@@ -4130,7 +4188,7 @@ msgstr "Copiando ${filename}"
 msgid "File size does not match!"
 msgstr "Tamanho do arquivo não corresponde!"
 
-#: lib/scripts.lib:794
+#: lib/scripts.lib:809
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
@@ -4139,7 +4197,7 @@ msgstr ""
 "Desculpe, $APPLICATION_TITLE $VERSION é muito antigo para continuar.\\"
 "n$APPLICATION_TITLE $NEEDED é necessário."
 
-#: lib/scripts.lib:809
+#: lib/scripts.lib:824
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
@@ -4148,7 +4206,7 @@ msgstr ""
 "Aviso: Você está executando $APPLICATION_TITLE $VERSION.\\"
 "n$APPLICATION_TITLE $NEEDED é recomendado para continuar."
 
-#: lib/scripts.lib:840
+#: lib/scripts.lib:855
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr "Perfil de $AUTHOR"

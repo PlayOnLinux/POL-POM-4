@@ -2,20 +2,21 @@
 # Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
 # This file is distributed under the same license as the playonlinux package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
-#
+# Abuyop <abuyop@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2013-01-28 19:00+0100\n"
-"PO-Revision-Date: 2013-01-24 01:11+0000\n"
+"POT-Creation-Date: 2013-02-04 19:00+0100\n"
+"PO-Revision-Date: 2013-02-04 08:52+0000\n"
 "Last-Translator: abuyop <Unknown>\n"
-"Language-Team: Malay <ms@li.org>\n"
+"Language-Team: malay loco team\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-01-29 05:09+0000\n"
-"X-Generator: Launchpad (build 16451)\n"
+"X-Launchpad-Export-Date: 2013-02-05 04:33+0000\n"
+"X-Generator: Launchpad (build 16468)\n"
+"Language: ms\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -376,12 +377,12 @@ msgstr ""
 "Bila $TITLE dimuat turun oleh Steam telah selesai,\\nJANGAN klik Main.\\n\\"
 "nTUTUP dahulu antaramuka Steam, \\nsupaya skrip pemasangan boleh diteruskan."
 
-#: PlayOnLinux_Scripts/Ableton_Live_8_:41
+#: PlayOnLinux_Scripts/Ableton_Live_8_:42
 #, sh-format
 msgid "Please select $TITLE Install file:"
 msgstr "Sila pilih fail Pemasangan $TITLE:"
 
-#: PlayOnLinux_Scripts/Ableton_Live_8_:49
+#: PlayOnLinux_Scripts/Ableton_Live_8_:50
 #, sh-format
 msgid ""
 "NOTICE: To register, when it opens asking for registration, drag-and-drop "
@@ -389,6 +390,16 @@ msgid ""
 msgstr ""
 "PERHATIAN: Untuk medaftar, bila ia menanya untuk pendaftaran, seret-dan-"
 "lepas fail reg anda kedalam $TITLE"
+
+#: PlayOnLinux_Scripts/Absynth_5_:30 PlayOnLinux_Scripts/Traktor_Pro_2_:30
+#, sh-format
+msgid "Please select $TITLE install file:"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Absynth_5_:49 PlayOnLinux_Scripts/Guitar_Rig_5_:46
+#, sh-format
+msgid "NOTICE: For low-latency audio, look into WineASIO."
+msgstr "PERHATIAN: Untuk audio latensi-rendah, cari di dalam WineASIO."
 
 #: PlayOnLinux_Scripts/Age_Of_Wonders_:70
 #, sh-format
@@ -468,7 +479,7 @@ msgstr "Anda tidak perlu pasang DirectX atau guna GLSetup."
 #: PlayOnLinux_Scripts/Alt.Binz_:40 PlayOnLinux_Scripts/Driftmoon_:43
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:42
 #: PlayOnLinux_Scripts/GOG.com___Gothic_3_Community_patch_:46
-#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:54
+#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:51
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:51
 #: PlayOnLinux_Scripts/Google_Picasa_3.9_:54
 #: PlayOnLinux_Scripts/POL_GoG_setup_:30 PlayOnLinux_Scripts/SFR_LiberTalk_:36
@@ -1247,6 +1258,11 @@ msgstr "Sila masukkan cakera $TITLE"
 msgid "$TITLE has been installed successfully"
 msgstr "$TITLE telah berjaya dipasang"
 
+#: PlayOnLinux_Scripts/Divine_Divinity_:43
+#, sh-format
+msgid " $TITLE has been successfully installed."
+msgstr " $TITLE telah berjaya dipasang"
+
 #: PlayOnLinux_Scripts/Divinity_II___The_Dragon_Knight_Saga_:61
 #, sh-format
 msgid ""
@@ -1412,7 +1428,7 @@ msgstr "Selamat datang ke Pemasang DLC untuk $TITLE"
 #: PlayOnLinux_Scripts/GOG.com___Gothic_3_Community_patch_:58
 #: PlayOnLinux_Scripts/GOG.com___Ground_Control_2_:45
 #: PlayOnLinux_Scripts/GOG.com___Guilty_Gear_X2_Reload_:39
-#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:61
+#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:58
 #: PlayOnLinux_Scripts/GOG.com___In_Cold_Blood_:39
 #: PlayOnLinux_Scripts/GOG.com___Incoming_and_Incoming_Forces_:40
 #: PlayOnLinux_Scripts/GOG.com___Iron_Storm_:38
@@ -1489,7 +1505,7 @@ msgstr "Ralat semasa memasang arkib"
 
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:29
 #: PlayOnLinux_Scripts/GOG.com___Gothic_3_Community_patch_:33
-#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:40
+#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:37
 #: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:32
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:37
 #, sh-format
@@ -1561,7 +1577,7 @@ msgstr "Tidak dapat cari direktori program"
 #: PlayOnLinux_Scripts/GOG.com___Far_Cry_:62
 #, sh-format
 msgid "The level editor"
-msgstr "Penyuntin aras"
+msgstr "Penyunting aras"
 
 #: PlayOnLinux_Scripts/GOG.com___Far_Cry_:63
 #: PlayOnLinux_Scripts/GOG.com___Painkiller__Black_Edition_:53
@@ -1603,13 +1619,13 @@ msgstr ""
 "mengandungi BANYAK pembaikan pepijat dan penambahbaikan berbanding permainan "
 "asal."
 
-#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:50
+#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:47
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:47
 #, sh-format
 msgid "Go there now?"
 msgstr "Pergi ke sana sekarang?"
 
-#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:50
+#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:47
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:47
 #, sh-format
 msgid "You can download the archive file from:"
@@ -1778,16 +1794,20 @@ msgid ""
 "many issues with this game, and optionally add new content\\n(for \"NC\" "
 "modpacks).\\nUse the dedicated PlayOnLinux script in patches section."
 msgstr ""
+"Sangat disarankan memasang Pek Mod Circle of Eight Modpack\\nuntuk membaiki "
+"pelbagai isu dari permainan ini, dan secara pilihan menambah kandungan baru\\"
+"n(bagi pek mod \"NC\").\\nGuna skrip PlayOnLinux yang disediakan di dalam "
+"bahagian tampalan."
 
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:57
 #, sh-format
 msgid "Now you must install the modpack in directory:"
-msgstr ""
+msgstr "Sekarang anda mesti pasang pek mod dalam direktori:"
 
 #: PlayOnLinux_Scripts/GOG.com___Two_Worlds__Epic_Edition_:48
 #, sh-format
 msgid "temp directory missing"
-msgstr ""
+msgstr "direktori sementara hilang"
 
 #: PlayOnLinux_Scripts/GOG.com___Two_Worlds__Epic_Edition_:75
 #, sh-format
@@ -1797,6 +1817,11 @@ msgid ""
 "nhttp://www.insidetwoworlds.com/local_links.php?linkid=21&catid=13 for "
 "details.\\nInstall it?"
 msgstr ""
+"Panel Kawalan Two Worlds adalah alat disediakan oleh komuniti "
+"InsideTwoWorlds,\\nyang membolehkan anda tweak parameter dan urus mod\\"
+"nuntuk permainan ini. Rujuk\\"
+"nhttp://www.insidetwoworlds.com/local_links.php?linkid=21&catid=13 untuk "
+"perincian.\\nPasang ia?"
 
 #: PlayOnLinux_Scripts/GOG.com___Two_Worlds__Epic_Edition_:110
 #, sh-format
@@ -1810,6 +1835,8 @@ msgid ""
 "The codes needed to start a new game can be found in the\\ndocumentation;\\"
 "nRight-click the game icon, \"Read the manual\"."
 msgstr ""
+"Kod diperlukan untuk memulakan permainan baru boleh ditemui di dalam\\"
+"ndokumentasi;\\nKlik-kanan pada ikon permainan, \"Baca panduan\"."
 
 #: PlayOnLinux_Scripts/GOG.com___Unreal_Gold_:67
 #, sh-format
@@ -1817,16 +1844,19 @@ msgid ""
 "On first run the game will autodetect available renderers.\\nIt is likely "
 "that you will get better performance out of the OpenGL renderer."
 msgstr ""
+"Kali pertama permainan berjalan, ia akan kesan-sendiri penerap yang ada.\\"
+"nBerkemungkinan anda akan memperoleh prestasi yang lebih baik daripada "
+"penerap OpenGL."
 
 #: PlayOnLinux_Scripts/Goblins_3_:21
 #, sh-format
 msgid "Please select the game language"
-msgstr ""
+msgstr "Sila pilih bahasa permainan"
 
 #: PlayOnLinux_Scripts/Gothic_3_:82
 #, sh-format
 msgid "Choose the game resolution"
-msgstr ""
+msgstr "Pilih resolusi permainan"
 
 #: PlayOnLinux_Scripts/Gothic_3_:96
 #, sh-format
@@ -1835,18 +1865,22 @@ msgid ""
 "besides system cursor in the game's window.\\n\\n2)Fullscreen mode:\\nAll "
 "works besides the sky, it is black.\\n\\n\\n\\nWhat mode do you prefer?"
 msgstr ""
+"Kini anda boleh memilih mod permainan:\\n1)Mod bertetingkap:\\nSemua "
+"berfungsi kecuali kursor sistem di dalam tetingkap permainan.\\n\\n2)Mod "
+"skrin penuh:\\nSemua berfungsi kecuali langit, ia menjadi hitam.\\n\\n\\n\\"
+"nMod mana pilihan anda?"
 
 #: PlayOnLinux_Scripts/Gothic_3_:110
 #, sh-format
 msgid "$TITLE is installed"
-msgstr ""
+msgstr "$TITLE telah dipasang"
 
 #: PlayOnLinux_Scripts/Guild_Wars_:53
 #: PlayOnLinux_Scripts/Halo_Combat_Evolved_:33
 #: PlayOnLinux_Scripts/Heroes_of_Might_and_Magic_V_:42
 #, sh-format
 msgid "Please insert the DVD-ROM"
-msgstr ""
+msgstr "Sila sisipkan DVD-ROM"
 
 #: PlayOnLinux_Scripts/Guild_Wars_2_:99
 #, sh-format
@@ -1855,26 +1889,57 @@ msgid ""
 "client and download will resume from where it stopped. Download percentage "
 "reset but do not worry, it do not restart from the beginning."
 msgstr ""
+"Oleh kerana pepijat wine #30512, muat turun akan kerap mengalami kerosakan, "
+"hanya lancar semula klien dan muat turun akan disambung kembali dari "
+"kedudukan ia berhenti sebelum ini. Peratusan muat turun telah ditetapkan "
+"semula tetapi jangan risau, ia tidak bermula daripada permulaan muat turun."
+
+#: PlayOnLinux_Scripts/Guitar_Rig_5_:38
+#, sh-format
+msgid ""
+"Please select $TITLE install file. During installation, uncheck all extra "
+"drivers it wants to install:"
+msgstr ""
+"Sila pilih fail pemasangan $TITLE. Semasa pemasangan, jangan tanda semua "
+"pemacu tambahan yang ia mahu pasangkan:"
 
 #: PlayOnLinux_Scripts/Halo_Combat_Evolved_:41
 #, sh-format
 msgid "Select the file to install"
-msgstr ""
+msgstr "Pilih fail untuk dipasang"
 
 #: PlayOnLinux_Scripts/Halo_Combat_Evolved_:70
 #, sh-format
 msgid "Updating $TITLE"
+msgstr "Mengemaskini $TITLE"
+
+#: PlayOnLinux_Scripts/ImgBurn_:38
+#, sh-format
+msgid ""
+"Please select $TITLE install file. DO NOT CHECK RUN IMGBURN AT END OF "
+"INSTALLATION:"
 msgstr ""
+"Sila pilih fail pemasangan $TITLE. JANGAN TANDA JALANKAN IMGBURN DI "
+"PENGHUJUNG PEMASANGAN:"
+
+#: PlayOnLinux_Scripts/ImgBurn_:46
+#, sh-format
+msgid ""
+"NOTICE: POL does not condone piracy. Please use $TITLE in a respectable "
+"manner"
+msgstr ""
+"PERHATIAN: POL tidak menyebelahi cetak rompak. Sila guna $TITLE dengan "
+"mengikut penggunaan yang sah"
 
 #: PlayOnLinux_Scripts/Infinity_Engine_widescreen_mod_:52
 #, sh-format
 msgid "Could not find executable $EXE in virtual disk $PREFIX"
-msgstr ""
+msgstr "Tidak dapat cari boleh laku $EXE dalam cakera maya $PREFIX"
 
 #: PlayOnLinux_Scripts/Infinity_Engine_widescreen_mod_:107
 #, sh-format
 msgid "No supported Infinity Engine game found."
-msgstr ""
+msgstr "Tiada Enjin permainan Infinity ditemui."
 
 #: PlayOnLinux_Scripts/Infinity_Engine_widescreen_mod_:109
 #, sh-format
@@ -1882,6 +1947,8 @@ msgid ""
 "All supported Infinity Engine games already patched.\\nTo modify the screen "
 "resolution of a shortcut, use its configurator."
 msgstr ""
+"Semua Enjin permainan Infinity sudah ditampal.\\nUntuk mengubahsuai resolusi "
+"skrin bagi pintasan, guna penkonfigurnya."
 
 #: PlayOnLinux_Scripts/Internet_Explorer_6_:76
 #: PlayOnLinux_Scripts/Internet_Explorer_6_Service_Pack_1_:68
@@ -1894,47 +1961,49 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_xinput_:41
 #, sh-format
 msgid "Registering libraries, please wait\\n(It can take a while)"
-msgstr ""
+msgstr "Mendaftar pustaka, tunggu sebentar\\n(Ia mengambil sedikit masa)"
 
 #: PlayOnLinux_Scripts/Internet_Explorer_7_:57
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:72
 #, sh-format
 msgid "Which language version would you like to install?"
-msgstr ""
+msgstr "Versi bahasa yang manakah anda hendak pasang?"
 
 #: PlayOnLinux_Scripts/League_Of_Legends_:62
 #, sh-format
 msgid ""
 "Warning: You must not tick the checkbox \"Run $TITLE\" when setup is done"
 msgstr ""
+"Amaran: Anda tidak boleh tanda  pada kotak tanda \"Jalankan $TITLE\" bila "
+"persediaan telah selesai"
 
 #: PlayOnLinux_Scripts/League_Of_Legends_:74
 #, sh-format
 msgid "Please select LeagueOfLegends.tar file:"
-msgstr ""
+msgstr "Sila pilih fail LeagueOfLegends.tar:"
 
 #: PlayOnLinux_Scripts/Mass_Effect_:48
 #, sh-format
 msgid "Please insert game media 1 into your disk drive"
-msgstr ""
+msgstr "Sila sisipkan media permainan 1 ke dalam cakera keras anda"
 
 #: PlayOnLinux_Scripts/Mass_Effect_:56
 #, sh-format
 msgid "Please insert game media 2 into your disk drive"
-msgstr ""
+msgstr "Sila sisipkan media permainan 2 ke dalam cakera keras anda"
 
 #: PlayOnLinux_Scripts/Mass_Effect_2_:64
 #: PlayOnLinux_Scripts/Prince_of_Persia___The_Forgotten_Sands_:69
 #, sh-format
 msgid "Digital Deluxe version"
-msgstr ""
+msgstr "Versi Digital Deluxe"
 
 #: PlayOnLinux_Scripts/Mass_Effect_2_:64
 #: PlayOnLinux_Scripts/Prince_of_Persia___The_Forgotten_Sands_:69
 #: PlayOnLinux_Scripts/The_Witcher_:55
 #, sh-format
 msgid "Which edition do you have?"
-msgstr ""
+msgstr "Edisi yang manakah anda ada?"
 
 #: PlayOnLinux_Scripts/Mass_Effect_3_:70
 #: PlayOnLinux_Scripts/Star_Wars___The_Old_Republic_:101
@@ -1945,6 +2014,9 @@ msgid ""
 "Play.\\n\\nClose COMPLETELY the Origin interface, \\nso that the "
 "installation script can continue."
 msgstr ""
+"Origin akan dilancarkan, buka akaun anda\\ndan pilih pemasangan $TITLE.\\n\\"
+"nBila muat turun $TITLE selesai,\\nJANGAN klik pada Main.\\n\\nTutup "
+"SEPENUHNYA antaramuka Origin, \\nsupaya skrip pemasangan dapat diteruskan."
 
 #: PlayOnLinux_Scripts/Microsoft_Excel_Viewer_2003_:12
 #: PlayOnLinux_Scripts/Microsoft_Word_Viewer_2003_:13
@@ -1956,21 +2028,26 @@ msgid ""
 "complex doc or docx documents. If you want to edit a document, use "
 "LibreOffice, OpenOffice or some other editor. "
 msgstr ""
+"Prosedur ini akan memasang Microsoft Office $TITLE, ia adalah perisian "
+"percuma yang membolehkan anda lihat dokumen .doc dan .docx, tetapi anda "
+"tidak boleh menyuntingnya. Program bertujuan untuk pengguna yang tidak dapat "
+"paparkan dokumen doc atau docx yang komplek. Jika anda mahu sunting dokumen, "
+"guna LibreOffice, OpenOffice atau lain-lain penyunting. "
 
 #: PlayOnLinux_Scripts/Microsoft_Money_2005_:33
 #, sh-format
 msgid "Where is $TITLE install file?"
-msgstr ""
+msgstr "Lokasi fail pemasangan $TITLE?"
 
 #: PlayOnLinux_Scripts/Microsoft_Office_2007_:46
 #, sh-format
 msgid "$TITLE has been successfully installed"
-msgstr ""
+msgstr "$TITLE telah berjaya dipasang"
 
 #: PlayOnLinux_Scripts/Microsoft_Office_2010_:43
 #, sh-format
 msgid "Please select $TITLE setup file"
-msgstr ""
+msgstr "Sila pilih fail persediaan $TITLE:"
 
 #: PlayOnLinux_Scripts/Microsoft_Office_2010_:79
 #, sh-format
@@ -1978,21 +2055,23 @@ msgid ""
 "$TITLE has been installed successfully\\n\\nIf an installation Windows "
 "prevent your programs from running, you must remove and reinstall $TITLE"
 msgstr ""
+"$TITLE telah berjaya dipasang\\n\\nJika pemasangan Windows menghalang "
+"program anda daripada dijalankan, anda mesti buang dan pasang semula $TITLE"
 
 #: PlayOnLinux_Scripts/Microsoft_Office_2010_Activation_:27
 #, sh-format
 msgid "Which type of activation?"
-msgstr ""
+msgstr "Jenis pengaktifan?"
 
 #: PlayOnLinux_Scripts/Microsoft_Office_2010_Activation_:32
 #, sh-format
 msgid "Insert address of license server!"
-msgstr ""
+msgstr "Sisipkan alamat pelayan lesen!"
 
 #: PlayOnLinux_Scripts/Microsoft_Office_2010_Activation_:34
 #, sh-format
 msgid "Insert port of license server!"
-msgstr ""
+msgstr "Sisipkan port pelayan lesen!"
 
 #: PlayOnLinux_Scripts/Microsoft_Office_2010_Activation_:37
 #, sh-format
@@ -2001,6 +2080,9 @@ msgid ""
 "the registry?\\n\\nLicense server name: $licenseServerName\\nLicense server "
 "port: $licenseServerPort"
 msgstr ""
+"Adakah data untuk pelayan lesen adalah betul?\\nBolehkan nilai ini ditambah "
+"ke dalam registry?\\n\\nNama pelayan lesen: $licenseServerName\\nPort "
+"pelayan lesen: $licenseServerPort"
 
 #: PlayOnLinux_Scripts/Microsoft_Office_2010_Activation_:49
 #, sh-format
@@ -2009,42 +2091,46 @@ msgid ""
 "nOne for initialising and one for registration.\\n\\nJust start, close and "
 "restart $TITLE!"
 msgstr ""
+"$TITLE sepatutnya kini diaktifkan.\\nMungkin dua kali permulaan $TITLE "
+"diperlukan:\\nYang pertama untuk mengawalkan dan satu lagi untuk "
+"pendaftaran.\\n\\nHanya mulakan, tutup dan mulakan semula $TITLE!"
 
 #: PlayOnLinux_Scripts/Microsoft_Office_2010_Activation_:54
 #, sh-format
 msgid ""
 "No $TITLE installation found.\\n\\nPlease use the $TITLE installation script!"
 msgstr ""
+"Tiada pemasangan $TITLE ditemui.\\n\\nSila guna skrip pemasangan $TITLE!"
 
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:180
 #, sh-format
 msgid "Check which components do you want to install additionally:"
-msgstr ""
+msgstr "Periksa komponen yang manakah anda ingin pasang lagi:"
 
 #: PlayOnLinux_Scripts/Myst_III__Exile_:45
 #, sh-format
 msgid "Coping install files, please wait..."
-msgstr ""
+msgstr "Menyalin fail pemasangan, tunggu sebentar..."
 
 #: PlayOnLinux_Scripts/OnLive_:43
 #, sh-format
 msgid "Wait until it gets downloaded and installed"
-msgstr ""
+msgstr "Tunggu sehingga ia dimuat turun dan dipasangkan"
 
 #: PlayOnLinux_Scripts/OnLive_:51
 #, sh-format
 msgid "Installation in progress"
-msgstr ""
+msgstr "Pemasangan sedang diproses"
 
 #: PlayOnLinux_Scripts/POL_Function_OverrideDLL_:27
 #, sh-format
 msgid "Please wait"
-msgstr ""
+msgstr "Tunggu sebentar"
 
 #: PlayOnLinux_Scripts/POL_Function_RootCommand_:8
 #, sh-format
 msgid "No root command specified, abording installation."
-msgstr ""
+msgstr "Tiada perintah root dinyatakan, menghenti paksa pemasangan."
 
 #: PlayOnLinux_Scripts/POL_Function_RootCommand_:13
 #: PlayOnLinux_Scripts/POL_Function_RootCommand_:17
@@ -2054,50 +2140,56 @@ msgid ""
 "however, for this script, it s mandatory. So, we give you the command you "
 "must type yourself for this installation to go on :"
 msgstr ""
+"Falsafah PlayOnLinux/PlayOnMac adalah tidak sesekali meminta kata laluan "
+"pengguna-super, namun, bagi skrip ini, ia adalah kemestian. Jadi, kami "
+"berikan pada anda perintah yang anda mesti taip sendiri untuk pemasangan ini "
+"diteruskan :"
 
 #: PlayOnLinux_Scripts/POL_Function_SetNativeExtension_:10
 #, sh-format
 msgid ""
 "No filename extension specified, skipping association to native application."
 msgstr ""
+"Tiada sambungan nama fail dinyatakan, melangkau asosiasi dengan aplikasi "
+"tabii."
 
 #: PlayOnLinux_Scripts/POL_GoG_Extract_:29 python/install.py:427
 #: python/install.py:443 python/install.py:445 python/install.py:552
 #: python/install.py:555
 #, sh-format
 msgid "Please read this"
-msgstr ""
+msgstr "Sila baca ini"
 
 #: PlayOnLinux_Scripts/POL_GoG_download_:37
 #, sh-format
 msgid "In what directory do you want to download GOG files?"
-msgstr ""
+msgstr "Dalam direktori yang manakah anda mahu muat turun fail GOG?"
 
 #: PlayOnLinux_Scripts/POL_GoG_download_:46
 #, sh-format
 msgid "Please enter your gog.com login to download $BASENAME"
-msgstr ""
+msgstr "Sila masukkan daftar masuk gog.com anda untuk memuat turun $BASENAME"
 
 #: PlayOnLinux_Scripts/POL_GoG_download_:66
 #, sh-format
 msgid "Gog.com login failed, try again?"
-msgstr ""
+msgstr "Gagal mendaftar masuk ke Gog.com, cuba sekali lagi?"
 
 #: PlayOnLinux_Scripts/POL_GoG_download_:89
 #: PlayOnLinux_Scripts/POL_GoG_download_:99
 #, sh-format
 msgid "Checking piece integrity..."
-msgstr ""
+msgstr "Menyemak integriti cebisan..."
 
 #: PlayOnLinux_Scripts/POL_GoG_setup_:18
 #, sh-format
 msgid "Do you want to download $TITLE from GOG.com?"
-msgstr ""
+msgstr "Anda mahu muat turun $TITLE dari GOG.com?"
 
 #: PlayOnLinux_Scripts/POL_Install_AdobeAir_:6
 #, sh-format
 msgid "Installing Adobe Air"
-msgstr ""
+msgstr "Memasang Adobe Air"
 
 #: PlayOnLinux_Scripts/POL_Install_d3dcompiler_43_:11
 #: PlayOnLinux_Scripts/POL_Install_d3dx9_:11
@@ -2107,27 +2199,27 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_d3dx9_43_:11
 #, sh-format
 msgid "Installing DirectX 9 dlls..."
-msgstr ""
+msgstr "Memasang dll DirectX 9..."
 
 #: PlayOnLinux_Scripts/POL_Install_d3dx10_:11
 #, sh-format
 msgid "Installing DirectX 10 dlls..."
-msgstr ""
+msgstr "Memasang dll DirectX 10..."
 
 #: PlayOnLinux_Scripts/POL_Install_d3dx11_:11
 #, sh-format
 msgid "Installing DirectX 11 dlls..."
-msgstr ""
+msgstr "Memasang dll DirectX 11..."
 
 #: PlayOnLinux_Scripts/POL_Install_desura_:16
 #, sh-format
 msgid "Please wait while Desura is downloaded..."
-msgstr ""
+msgstr "Sila tunggu ketika Desura dimuat turun..."
 
 #: PlayOnLinux_Scripts/POL_Install_directmusic_:11
 #, sh-format
 msgid "Installing DirectMusic"
-msgstr ""
+msgstr "Memasang DirectMusic"
 
 #: PlayOnLinux_Scripts/POL_Install_dotnet11_:21
 #: PlayOnLinux_Scripts/POL_Install_dotnet11sp1_:10
@@ -2142,54 +2234,54 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_wmpcodecs_:10
 #, sh-format
 msgid "This package does not work on a 64-bit installation"
-msgstr ""
+msgstr "Pakej ini tidak berfungsi pada pemasangan 64-bit"
 
 #: PlayOnLinux_Scripts/POL_Install_dotnet40_:53
 #, sh-format
 msgid ".NET Framework 4.0 might fail to install"
-msgstr ""
+msgstr ".NET Framework 4.0 mungkin gagal dipasang"
 
 #: PlayOnLinux_Scripts/POL_Install_dsound_:11
 #, sh-format
 msgid "Installing Dsound DLL..."
-msgstr ""
+msgstr "Memasang DLL Dsound..."
 
 #: PlayOnLinux_Scripts/POL_Install_dxfullsetup_:12
 #, sh-format
 msgid "Installing DirectX runtime"
-msgstr ""
+msgstr "Memasang masa jalan DirectX"
 
 #: PlayOnLinux_Scripts/POL_Install_gecko_:101
 #, sh-format
 msgid "Downloading gecko ..."
-msgstr ""
+msgstr "Memuat turun gecko ..."
 
 #: PlayOnLinux_Scripts/POL_Install_gfwl86_:3
 #, sh-format
 msgid "Installing Games For Windows Live"
-msgstr ""
+msgstr "Memasang Games For Windows Live"
 
 #: PlayOnLinux_Scripts/POL_Install_gfwl_:28
 #: PlayOnLinux_Scripts/POL_Remove_gfwl_:14
 #, sh-format
 msgid "Downloading Game For Windows Live..."
-msgstr ""
+msgstr "Memuat turun Game For Windows Live..."
 
 #: PlayOnLinux_Scripts/POL_Install_gfwl_:33
 #, sh-format
 msgid ""
 "Warning : GFWL seems to be already installed.\\nForcing reinstallation."
-msgstr ""
+msgstr "Amaran : GFWL kelihatan sudah dipasang.\\nMemaksa pemasangan semula."
 
 #: PlayOnLinux_Scripts/POL_Install_linuxtrack_wine_:9
 #, sh-format
 msgid "Installing Linuxtrack-wine DLL..."
-msgstr ""
+msgstr "Memasang DLL Linuxtrack-wine..."
 
 #: PlayOnLinux_Scripts/POL_Install_origin_:21
 #, sh-format
 msgid "Downloading Origin, please wait..."
-msgstr ""
+msgstr "Memuat turun Origin, sila tunggu..."
 
 #: PlayOnLinux_Scripts/POL_Install_origin_:30
 #, sh-format
@@ -2197,28 +2289,32 @@ msgid ""
 "Setup will launch Origin after installation\\n close it COMPLETELY to "
 "continue."
 msgstr ""
+"Persediaan akan lancarkan Origin selepas pemasangan\\n tutup ia SEPENUHNYA "
+"untuk teruskan."
 
 #: PlayOnLinux_Scripts/POL_Install_steam_:27
 #, sh-format
 msgid "Please wait while Steam is downloaded..."
-msgstr ""
+msgstr "Sila tunggu ketika Steam dimuat turun..."
 
 #: PlayOnLinux_Scripts/POL_Install_ubigamelauncher_:13
 #, sh-format
 msgid ""
 "Please wait while $APPLICATION_TITLE is downloading Ubisoft Game Launcher"
 msgstr ""
+"Sila tunggu ketika $APPLICATION_TITLE memuat turun Pelancar Permainan Ubisoft"
 
 #: PlayOnLinux_Scripts/POL_Install_vbrun6_:12
 #, sh-format
 msgid "Installing Visual Basic runtime"
-msgstr ""
+msgstr "Memasang masa jalan Visual Basic"
 
 #: PlayOnLinux_Scripts/POL_Install_vcrun2008_:37
 #, sh-format
 msgid ""
 "Warning : vcrun2008 seems to be already installed.\\nForcing reinstallation."
 msgstr ""
+"Amaran : vcrun2008 kelihatan sudah dipasang.\\nMemaksa pemasangan semula."
 
 #: PlayOnLinux_Scripts/POL_Install_vcrun2008_:41
 #, sh-format
@@ -2226,12 +2322,15 @@ msgid ""
 "VCRun2008 might fail to install because your PlayOnLinux version is too old. "
 "Please update."
 msgstr ""
+"VCRun2008 mungkin gagal dipasang kerana versi PlayOnLinyx anda terlalu tua. "
+"Sila kemaskini ia."
 
 #: PlayOnLinux_Scripts/POL_Install_vcrun2010_:25
 #, sh-format
 msgid ""
 "Warning : vcrun2010 seems to be already installed.\\nForcing reinstallation."
 msgstr ""
+"Amaran : vcrun2010 kelihatan sudah dipasang.\\nMemaksa pemasangan semula."
 
 #: PlayOnLinux_Scripts/POL_Install_vcrun2010_:31
 #, sh-format
@@ -2239,16 +2338,18 @@ msgid ""
 "VCRun2010 might fail to install because your PlayOnLinux version is too old. "
 "Please update."
 msgstr ""
+"VCRun2010 mungkin gagal dipasang kerana versi PlayOnLinyx anda terlalu tua. "
+"Sila kemaskini ia."
 
 #: PlayOnLinux_Scripts/POL_Install_xact_:14
 #, sh-format
 msgid "Installing Xact dlls..."
-msgstr ""
+msgstr "Memasang dll Xact..."
 
 #: PlayOnLinux_Scripts/POL_Install_xinput_:12
 #, sh-format
 msgid "Installing Xinput dlls..."
-msgstr ""
+msgstr "Memasang dll Xinput..."
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:1
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:20
@@ -2257,17 +2358,17 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:82 bash/first_use:32
 #, sh-format
 msgid "Microsoft fonts"
-msgstr ""
+msgstr "Microsoft fonts"
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:1
 #, sh-format
 msgid "Microsoft fonts aren't installed; I'll install them for you."
-msgstr ""
+msgstr "Microsoft fonts tidak dipasang; Saya akan pasangkannya untuk anda."
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:3
 #, sh-format
 msgid " Licence translated into your language "
-msgstr ""
+msgstr " Lesen diterjemah dalam bahasa anda "
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:4
 #, sh-format
@@ -2275,12 +2376,15 @@ msgid ""
 "These fonts were provided by Microsoft\\n\"in the interest of cross-platform "
 "compatibility\"."
 msgstr ""
+"Fon ini disediakan oleh Microsoft\\n\"atas dasar keserasian platform-"
+"berbilang\"."
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:5
 #, sh-format
 msgid ""
 "This is no longer the case, but they are still available from third parties."
 msgstr ""
+"Ini tidak lagi menjadi isu, tetapi ia masih lagi tersedia dari pihak ketiga."
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:7
 #, sh-format
@@ -2289,21 +2393,24 @@ msgid ""
 "you may not redistribute them in modified form,\\nincluding changes to the "
 "file name or packaging format."
 msgstr ""
+"Anda bebas memuat turun fon ini dan guna ia untuk kegunaan anda sendiri, \\"
+"ntetapi anda tidak boleh edar ia dalam bentuk ubahsuai.\\ntermasuklah "
+"perubahan pada nama fail atau format pakej."
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:9
 #, sh-format
 msgid " Original licence "
-msgstr ""
+msgstr " Lesen asal "
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:20
 #, sh-format
 msgid "Please read and accept the following:"
-msgstr ""
+msgstr "Sila baca dan terima yang berikut:"
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:32
 #, sh-format
 msgid "Downloading fonts"
-msgstr ""
+msgstr "Memuat turun fon"
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:37
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:38
@@ -2311,12 +2418,12 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:45
 #, sh-format
 msgid "Downloading: "
-msgstr ""
+msgstr "Memuat turun: "
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:52
 #, sh-format
 msgid "Installing fonts"
-msgstr ""
+msgstr "Memasang fon"
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:57
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:58
@@ -2324,27 +2431,27 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:66
 #, sh-format
 msgid "Installing: "
-msgstr ""
+msgstr "Memasang: "
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:72
 #, sh-format
 msgid "Cleaning"
-msgstr ""
+msgstr "Membersihkan"
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:82
 #, sh-format
 msgid "Microsoft fonts have been installed successfully."
-msgstr ""
+msgstr "Microsoft fonts telah berjaya dipasang."
 
 #: PlayOnLinux_Scripts/POL_Remove_gfwl_:16
 #, sh-format
 msgid "Remove Game For Windows Live..."
-msgstr ""
+msgstr "Buang Game For Windows Live..."
 
 #: PlayOnLinux_Scripts/POL_Remove_gfwl_:23
 #, sh-format
 msgid "Game For Windows Live is not installed\\nskipping uninstall routine."
-msgstr ""
+msgstr "Game For Windows Live tidak dipasang\\nmelangkau rutin nyahpasang."
 
 #: PlayOnLinux_Scripts/POL_Sudo_RehideCdrom_:13
 #, sh-format
@@ -2352,6 +2459,8 @@ msgid ""
 "To continue, PlayOnLinux needs to umount your CD-ROM previously mounted with "
 "unhide option."
 msgstr ""
+"Untuk teruskan, PlayOnLinux perlu tanggalkan CD-ROM terdahulu anda yang mana "
+"telah dilekap dengan pilihan unhide."
 
 #: PlayOnLinux_Scripts/POL_Sudo_RehideCdrom_:15
 #: PlayOnLinux_Scripts/POL_Sudo_UnhideCdrom_:15
@@ -2360,23 +2469,27 @@ msgid ""
 "We need to have sudo access on your computer. Therefore, your root password "
 "will be asked. Here is the commands PlayOnLinux will run as root:"
 msgstr ""
+"Kami memerlukan capaian sudo dalam komputer anda. Maka, kata laluan root "
+"anda akan ditanya. Disini perintah PlayOnLinux akan dijalankan sebagai root:"
 
 #: PlayOnLinux_Scripts/POL_Sudo_RehideCdrom_:20
 #: PlayOnLinux_Scripts/POL_Sudo_UnhideCdrom_:21
 #, sh-format
 msgid "Please read carrefully"
-msgstr ""
+msgstr "Sila baca dengan teliti"
 
 #: PlayOnLinux_Scripts/POL_Sudo_UnhideCdrom_:13
 #, sh-format
 msgid ""
 "To continue, PlayOnLinux needs to remount your CD-ROM with unhide option."
 msgstr ""
+"Untuk teruskan, PlayOnLinux perlu lekap semula CD-ROM anda dengan pilihan "
+"unhide."
 
 #: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:8
 #, sh-format
 msgid "Please insert the first disc"
-msgstr ""
+msgstr "Sila sisip cakera pertama"
 
 #: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:14
 #, sh-format
@@ -2384,6 +2497,8 @@ msgid ""
 "Read this carefully!\\n\\nWhen the $TITLE installer ask you to change your "
 "cdrom, please come back to this $APPLICATION_TITLE window"
 msgstr ""
+"Baca ia dengan teliti!\\n\\nBila pemasang $TITLE meminta anda mengubah cdrom "
+"anda, sila kembali ke tetingkap $APPLICATION_TITLE ini"
 
 #: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:18
 #, sh-format
@@ -2391,16 +2506,19 @@ msgid ""
 "When the installer ask you to insert the cdrom number $CDNumber, click "
 "next.\\n\\nDo not click next before!"
 msgstr ""
+"Bila pemasang meminta anda sisipkan cdrom bernombor $CDNumber, klik "
+"berikutnya.\\n\\nJangan klik berikutnya sebelum ini!"
 
 #: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:21
 #, sh-format
 msgid "Now, insert the cdrom number $CDNumber."
-msgstr ""
+msgstr "Sekarang, sisip cdrom bernombor $CDNumber."
 
 #: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:27
 #, sh-format
 msgid "Now you can go back to the $TITLE installation window to continue"
 msgstr ""
+"Sekarang anda boleh kembali ke tetingkap pemasangan $TITLE untuk teruskan"
 
 #: PlayOnLinux_Scripts/Q.U.B.E_:94 PlayOnLinux_Scripts/Star_Twine_:72
 #, sh-format
@@ -2409,21 +2527,41 @@ msgid ""
 "nClose COMPLETELY the Desura interface, \\nso that the installation script "
 "can continue"
 msgstr ""
+"Bila muat turun $TITLE melalui Desura telah selesai,\\nJANGAN klik pada "
+"main.\\n\\nTUTUP antaramuka Desura dahulu, \\nsupaya skrip pemasangan boleh "
+"diteruskan"
 
 #: PlayOnLinux_Scripts/Rage_:63 PlayOnLinux_Scripts/Rage_:70
 #: PlayOnLinux_Scripts/Rage_:77
 #, sh-format
 msgid "Wait while installation is prepared..."
-msgstr ""
+msgstr "Tunggu semasa pemasangan disediakan..."
 
 #: PlayOnLinux_Scripts/Rage_:67
 #, sh-format
 msgid "Please insert disk 2 into your disk drive\\nif not already done."
 msgstr ""
+"Sila sisip cakera 2 ke dalam pemacu cakera anda\\njika belum lagi selesai."
 
 #: PlayOnLinux_Scripts/Rage_:74
 #, sh-format
 msgid "Please insert disk 3 into your disk drive\\nif not already done."
+msgstr ""
+"Sila sisip cakera 3 ke dalam pemacu cakera anda\\njika belum lagi selesai."
+
+#: PlayOnLinux_Scripts/Reaper_4_:30
+#, sh-format
+msgid ""
+"Please select $TITLE install file. Do NOT run Reaper after install has "
+"finished."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Reaper_4_:47
+#, sh-format
+msgid ""
+"NOTICE: For low-latency audio, look into WineASIO. An aftermarket, low-"
+"latency audio interface is recommended. Your MIDI controllers should work as "
+"expected."
 msgstr ""
 
 #: PlayOnLinux_Scripts/Rome_Total_War__Gold_Edition__:72
@@ -2432,11 +2570,13 @@ msgid ""
 "$TITLE is installed!\\n\\nNote!\\n1)Reboot wine\\n2)Set correct output "
 "device in wine audio settings\\n3)Have fun!"
 msgstr ""
+"$TITLE telah dipasang!\\n\\nPerhatian!\\n1)Buat semula wine\\n2)Tetapkan "
+"peranti output yang betul di dalam tetapan audio wine\\n3)Selamat mencuba!"
 
 #: PlayOnLinux_Scripts/Runes_Of_Magic_:43
 #, sh-format
 msgid "You can download $TITLE install file here:"
-msgstr ""
+msgstr "Anda boleh muat turun fail pemasangan $TITLE disini:"
 
 #: PlayOnLinux_Scripts/Safari_:50 PlayOnLinux_Scripts/Safari_:61
 #, sh-format
@@ -2444,11 +2584,13 @@ msgid ""
 "During the install process, please deselect\\n\"Install Bonjour for "
 "Windows\" and \"Automaticaly update Safari\"."
 msgstr ""
+"Semasa proses pemasangan, sila nyahpilih\\n\"Pasang Bonjour untuk Windows\" "
+"dan \"Kemaskini Safari secara automatik\"."
 
 #: PlayOnLinux_Scripts/SimCity_2000_:40
 #, sh-format
 msgid "Please select the MS-DOS version of setup file:"
-msgstr ""
+msgstr "Sila pilih veris MS-DOS bagi fail persediaan:"
 
 #: PlayOnLinux_Scripts/Slender_:20
 #, sh-format
@@ -2457,37 +2599,40 @@ msgid ""
 "able to find it via a Google search, you will need Slender_v0_9_1.zip for "
 "this script to complete."
 msgstr ""
+"Jika anda belum lagi memuat turun permainan, anda perlu lakukannya. Anda "
+"boleh mencarinya melalui Google search, anda perlukan Slender_v0_9_1.zip "
+"supaya skrip ini diselesaikan."
 
 #: PlayOnLinux_Scripts/Slender_:30
 #, sh-format
 msgid "Select downloaded ZIP file here"
-msgstr ""
+msgstr "Pilih fail ZIP yang dimuat turun disini"
 
 #: PlayOnLinux_Scripts/Slender_:31
 #, sh-format
 msgid "Extracting Slender..."
-msgstr ""
+msgstr "Mengekstrak Slender..."
 
 #: PlayOnLinux_Scripts/Slender_:32
 #, sh-format
 msgid "Sorry, but that was not a valid .zip file"
-msgstr ""
+msgstr "Maat, ia bukanlah fail .zip yang sah"
 
 #: PlayOnLinux_Scripts/Soldat_:28
 #, sh-format
 msgid "Installation finished"
-msgstr ""
+msgstr "Pemasangan selesai"
 
 #: PlayOnLinux_Scripts/Sonic_Fan_Remix_:37
 #, sh-format
 msgid "Downloading $TITLE Freeware..."
-msgstr ""
+msgstr "Memuat turun Perisian Percuma $TITLE..."
 
 #: PlayOnLinux_Scripts/Starcraft_:23
 #: PlayOnLinux_Scripts/Starcraft___BroodWar_:18
 #, sh-format
 msgid "Please select $TITLE file setup"
-msgstr ""
+msgstr "Sil pilih persediaan fail $TITLE"
 
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:90
 #, sh-format
@@ -2495,16 +2640,18 @@ msgid ""
 "If you have a runtime error when running the game, open a terminal and "
 "type:\\necho 0|sudo tee /proc/sys/kernel/yama/ptrace_scope"
 msgstr ""
+"Jika anda mempunyai Ralat masa jalan semasa menjalankan permainan, buka "
+"terminal dan taip:\\necho 0|sudo tee /proc/sys/kernel/yama/ptrace_scope"
 
 #: PlayOnLinux_Scripts/Steam_:46
 #, sh-format
 msgid "Please choose a virtual drive name"
-msgstr ""
+msgstr "Sila pilih nama pemacu maya"
 
 #: PlayOnLinux_Scripts/Steam_:65
 #, sh-format
 msgid "Downloading $TITLE"
-msgstr ""
+msgstr "Memuat turun $TITLE"
 
 #: PlayOnLinux_Scripts/Steam_:84
 #, sh-format
@@ -2512,16 +2659,18 @@ msgid ""
 "If you want to install $TITLE in another virtual drive\\nRun this installer "
 "again"
 msgstr ""
+"Jika anda mahu pasang $TITLE di dalam pemacu maya lain\\nJalankan pemasang "
+"ini sekali lagi"
 
 #: PlayOnLinux_Scripts/Surfer_8_:12
 #, sh-format
 msgid "Please select the install file."
-msgstr ""
+msgstr "Sila pilih fail pemasangan."
 
 #: PlayOnLinux_Scripts/Surfer_8_:14
 #, sh-format
 msgid "PlayOnLinux is installing your application..."
-msgstr ""
+msgstr "PlayOnLinux sedang memasang aplikasi anda..."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:50
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:75
@@ -2530,7 +2679,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:150
 #, sh-format
 msgid "\"Horse Armor Pack\" installation will begin..."
-msgstr ""
+msgstr "Pemasangan \"Horse Armor Pack\" akan bermula..."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:53
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:78
@@ -2539,7 +2688,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:153
 #, sh-format
 msgid "\"Knights of the Nine\" installation will begin..."
-msgstr ""
+msgstr "Pemasangan \"Knights of the Nine\" akan bermula..."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:56
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:81
@@ -2548,7 +2697,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:156
 #, sh-format
 msgid "\"Mehrunes Razor\" installation will begin..."
-msgstr ""
+msgstr "Pemasangan \"Mehrunes Razor\" akan bermula..."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:59
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:84
@@ -2557,7 +2706,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:159
 #, sh-format
 msgid "\"Orrery\" installation will begin..."
-msgstr ""
+msgstr "Pemasangan \"Orrery\" akan bermula..."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:62
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:87
@@ -2566,7 +2715,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:162
 #, sh-format
 msgid "\"Spell Tomes\" installation will begin..."
-msgstr ""
+msgstr "Pemasangan \"Spell Tomes\" akan bermula..."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:65
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:90
@@ -2575,7 +2724,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:165
 #, sh-format
 msgid "\"Thieves Den\" installation will begin..."
-msgstr ""
+msgstr "Pemasangan \"Thieves Den\" akan bermula..."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:68
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:93
@@ -2584,7 +2733,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:168
 #, sh-format
 msgid "\"Vile Lair\" installation will begin..."
-msgstr ""
+msgstr "Pemasangan \"Vile Lair\" akan bermula..."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:71
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:96
@@ -2593,7 +2742,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:171
 #, sh-format
 msgid "\"Wizard Tower\" installation will begin..."
-msgstr ""
+msgstr "Pemasangan \"Wizard Tower\" akan bermula..."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:185
 #, sh-format
@@ -2601,6 +2750,8 @@ msgid ""
 "If you do not have \"Shivering Isle\" addon\\nyou must update this game "
 "before using it."
 msgstr ""
+"Jika anda tidak mempunyai tambahan \"Shivering Isle\"\\nanda mesti kemaskini "
+"permainan ini sebelum menggunakannya."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_:93
 #, sh-format
@@ -2608,11 +2759,14 @@ msgid ""
 "If you do not have \"Shivering Isle\" addon\\n you must update this game "
 "before using it."
 msgstr ""
+"Jika anda tidak mempunyai tambahan \"Shivering Isle\"\\n anda mesti "
+"kemaskini permainan ini sebelum menggunakannya."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Shivering_Isle_:77
 #, sh-format
 msgid "This addon automatically patch the game to 1.2.0416."
 msgstr ""
+"Tambahan ini akan menampal permainan secara automatik ke versi 1.2.0416."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_I__Arena_:90
 #, sh-format
@@ -2621,6 +2775,9 @@ msgid ""
 "ndocumentation;\\nRight-click the game icon, \"Read the manual\" then check "
 "pp 4-5."
 msgstr ""
+"Kod diperlukan untuk keluar dari first dungeon boleh ditemui di dalam\\"
+"ndokumentasi;\\nKlik-kanan pada ikon permainan, \"Baca panduan\" kemudian "
+"periksa hlmn 4-5."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_V___Skyrim_:84
 #, sh-format
@@ -2629,6 +2786,9 @@ msgid ""
 "COMPLETELY the Steam interface, \\nso that the installation script can "
 "continue"
 msgstr ""
+"Bila muat turun $TITLE melalui Steam telah selesai, JANGAN klik pada main.\\"
+"n\\nTutup SEPENUHNYA antaramuka Steam dahulu, \\nsupaya skrip pemasangan "
+"boleh diteruskan"
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_V___Skyrim_:90
 #, sh-format
@@ -2636,56 +2796,61 @@ msgid ""
 "If the game crashes at startup, open a terminal and type:\\necho 0|sudo tee "
 "/proc/sys/kernel/yama/ptrace_scope"
 msgstr ""
+"Jika permainan mengalami kerosakan semasa permulaan, buka terminal dan "
+"taip:\\necho 0|sudo tee /proc/sys/kernel/yama/ptrace_scope"
 
 #: PlayOnLinux_Scripts/The_Sims_3_:40
 #, sh-format
 msgid "The Sims 3"
-msgstr ""
+msgstr "The Sims 3"
 
 #: PlayOnLinux_Scripts/The_Sims_3_:41
 #, sh-format
 msgid "The Sims 3 Launcher"
-msgstr ""
+msgstr "Pelancar The Sims 3"
 
 #: PlayOnLinux_Scripts/The_Witcher_:55 PlayOnLinux_Scripts/The_Witcher_:57
 #, sh-format
 msgid "Enhanced Edition"
-msgstr ""
+msgstr "Edisi Dipertingkatkan"
 
 #: PlayOnLinux_Scripts/The_Witcher_:55
 #, sh-format
 msgid "Standard Edition"
-msgstr ""
+msgstr "Edisi Standard"
 
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_:78
 #, sh-format
 msgid "When the game setup will ask for next disk\\nclick on \"Forward\""
 msgstr ""
+"Bila persediaan permainan meminta cakera berikutnya\\nklik pada \"Maju\""
 
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_:81
 #, sh-format
 msgid "Please insert next media into your disk drive"
-msgstr ""
+msgstr "Sila sisipkan media permainan berikutnya ke dalam pemacu cakera anda"
 
 #: PlayOnLinux_Scripts/The_Witcher_2___Enhanced_Edition_Patch_:23
 #, sh-format
 msgid "Welcome in the $PVERSION installer for $TITLE"
-msgstr ""
+msgstr "Selamat datang ke pemasang $PVERSION untuk $TITLE"
 
 #: PlayOnLinux_Scripts/The_Witcher_Patch_1.5_:29
 #, sh-format
 msgid "This game already have Enhanced Edition\\nand only need patch 1.5"
 msgstr ""
+"Permainan ini sudah memiliki Edisi Dipertingkatkan\\ndab hanya perlukan "
+"tampalan 1.5"
 
 #: PlayOnLinux_Scripts/The_Witcher_Patch_1.5_:76
 #, sh-format
 msgid "Select first patch (EE Upgrade) to execute"
-msgstr ""
+msgstr "Sila pilih tampalan pertama (Tatar EE) untuk dilakukan"
 
 #: PlayOnLinux_Scripts/The_Witcher_Patch_1.5_:79
 #, sh-format
 msgid "Select second patch (1.5) to execute"
-msgstr ""
+msgstr "Pilih tampalan kedua (1.5) untuk dilakukan"
 
 #: PlayOnLinux_Scripts/The_Witcher_Patch_1.5_:104
 #, sh-format
@@ -2693,6 +2858,8 @@ msgid ""
 "Wait while the patch 1 is downloading...\\nThis operation can take time, "
 "depending of your connexion."
 msgstr ""
+"Tunggu ketika tampalan 1 dimuat turun... \\nOperasi ini mengambil masa, "
+"bergantung kepada sambungan anda."
 
 #: PlayOnLinux_Scripts/The_Witcher_Patch_1.5_:105
 #, sh-format
@@ -2700,6 +2867,8 @@ msgid ""
 "Wait while the patch 2 is downloading...\\nThis operation can take time, "
 "depending of your connexion."
 msgstr ""
+"Tunggu ketika tampalan 2 dimuat turun... \\nOperasi ini mengambil masa, "
+"bergantung kepada sambungan anda."
 
 #: PlayOnLinux_Scripts/The_Witcher_Patch_1.5_:106
 #, sh-format
@@ -2707,6 +2876,8 @@ msgid ""
 "Wait while the patch 3 is downloading...\\nThis operation can take time, "
 "depending of your connexion."
 msgstr ""
+"Tunggu ketika tampalan 3 dimuat turun... \\nOperasi ini mengambil masa, "
+"bergantung kepada sambungan anda."
 
 #: PlayOnLinux_Scripts/The_Witcher_Patch_1.5_:107
 #, sh-format
@@ -2714,11 +2885,13 @@ msgid ""
 "Wait while the patch 4 is downloading...\\nThis operation can take time, "
 "depending of your connexion."
 msgstr ""
+"Tunggu ketika tampalan 4 dimuat turun... \\nOperasi ini mengambil masa, "
+"bergantung kepada sambungan anda."
 
 #: PlayOnLinux_Scripts/The_Witcher_Patch_1.5_:108
 #, sh-format
 msgid "Donwload finished.\\nPatches installation will begin"
-msgstr ""
+msgstr "Muat turun selesai.\\nPemasangan tampalan akan bermula"
 
 #: PlayOnLinux_Scripts/Toontown_Online_:17
 #, sh-format
@@ -2726,16 +2899,25 @@ msgid ""
 "Installing vcrun2008 and wininet and disabling d3d9 and d3d8 dlls to force "
 "the game to use OpenGL"
 msgstr ""
+"Memasang vcrun2008 dan wininet serta melumpuhkan dll d3d9 dan d3d8 untuk "
+"paksa permainan menggunakan OpenGL"
+
+#: PlayOnLinux_Scripts/Traktor_Pro_2_:49
+#, sh-format
+msgid ""
+"NOTICE: For low-latency audio, look into WineASIO. Your MIDI controllers "
+"should work as expected."
+msgstr ""
 
 #: PlayOnLinux_Scripts/Tribes___Ascent_:46
 #, sh-format
 msgid "Downloading latest English setup..."
-msgstr ""
+msgstr "Memuat turun persediaan Bahasa Inggeris yang terkini..."
 
 #: PlayOnLinux_Scripts/Vantage_Master_Online_:30
 #, sh-format
 msgid "Do you want to browse $TITLE website?"
-msgstr ""
+msgstr "Anda hendak layar laman sesawang $TITLE?"
 
 #: PlayOnLinux_Scripts/Warcraft_III__Reign_of_Chaos_:35
 #: PlayOnLinux_Scripts/Warcraft_III__The_Frozen_Throne_:41
@@ -2744,17 +2926,21 @@ msgid ""
 "The CD-ROM version is out to date. Do not forget to update $TITLE if you "
 "want it to run correctly with $APPLICATION_TITLE"
 msgstr ""
+"Versi CD-ROM sudah lapuk. Jangan lupa kemaskini $TITLE jika anda mahu "
+"jalankannya dengan $APPLICATION_TITLE"
 
 #: PlayOnLinux_Scripts/Wolfenstein_Patch_1.2_:53
 #, sh-format
 msgid ""
 "Your browser will pop, download patch from it and uncompress it please"
 msgstr ""
+"Pelayar anda akan ditimbulkan, muat turun tampalan darinya dan janga lupa "
+"menyahmampatnya"
 
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:36
 #, sh-format
 msgid "Please choose"
-msgstr ""
+msgstr "Sila pilih"
 
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:39
 #: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:39
@@ -2764,6 +2950,8 @@ msgstr ""
 msgid ""
 "Please insert game media 1 into your disk drive\\nif not already done."
 msgstr ""
+"Sila sisipkan media permainan 1 ke dalam pemacu cakera anda\\njika belum "
+"lagi selesai."
 
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:45
 #: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:45
@@ -2772,6 +2960,8 @@ msgstr ""
 msgid ""
 "Please insert game media 2 into your disk drive\\nif not already done."
 msgstr ""
+"Sila sisipkan media permainan 2 ke dalam pemacu cakera anda\\njika belum "
+"lagi selesai."
 
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:51
 #: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:51
@@ -2780,6 +2970,8 @@ msgstr ""
 msgid ""
 "Please insert game media 3 into your disk drive\\nif not already done."
 msgstr ""
+"Sila sisipkan media permainan 3 ke dalam pemacu cakera anda\\njika belum "
+"lagi selesai."
 
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:57
 #: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:57
@@ -2787,39 +2979,43 @@ msgstr ""
 msgid ""
 "Please insert game media 4 into your disk drive\\nif not already done."
 msgstr ""
+"Sila sisipkan media permainan 4 ke dalam pemacu cakera anda\\njika belum "
+"lagi selesai."
 
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:65
 #, sh-format
 msgid ""
 "Please insert game media 5 into your disk drive\\nif not already done."
 msgstr ""
+"Sila sisipkan media permainan 5 ke dalam pemacu cakera anda\\njika belum "
+"lagi selesai."
 
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:23
 #, sh-format
 msgid "Welcome in the patch $PVERSION installer for $TITLE."
-msgstr ""
+msgstr "Selamat datang ke pemasang tampalan $PVERSION untuk $TITLE."
 
 #: PlayOnLinux_Scripts/Zoo_Tycoon_2___Ultimate_Collection_:63
 #, sh-format
 msgid "Click Forward when the installation is finished"
-msgstr ""
+msgstr "Klik Maju bila pemasangan telah selesai"
 
 #: PlayOnLinux_Scripts/Zoo_Tycoon_2___Ultimate_Collection_:69
 #, sh-format
 msgid "The CD protection of this game doesnt"
-msgstr ""
+msgstr "Perlindungan CD bagi permainan ini tidak"
 
 #: bash/bug_report:31
 #, sh-format
 msgid "Report a bug"
-msgstr ""
+msgstr "Laporkan pepijat"
 
 #: bash/bug_report:36
 #, sh-format
 msgid ""
 "Please give the more details as you can, otherwise, it will be very "
 "difficult to help you"
-msgstr ""
+msgstr "Sila berikan perincian, jika tidak, adalah sukar membantu anda"
 
 #: bash/bug_report:36
 #, sh-format
@@ -2827,6 +3023,8 @@ msgid ""
 "This wizard will help you to report a bug about an officially supported "
 "program."
 msgstr ""
+"Bestari ini akan membantu anda laporkan pepijat mengenai program yang "
+"disokong secara rasmi."
 
 #: bash/bug_report:40
 #, sh-format
@@ -2834,57 +3032,59 @@ msgid ""
 "Your $APPLICATION_TITLE version is not up to date.\\nYou must update "
 "$APPLICATION_TITLE before sending a bug report.\\nThank you"
 msgstr ""
+"Veris $APPLICATION_TITLE anda sudah lapuk.\\nAnda mesti kemaskini "
+"$APPLICATION_TITLE sebelum menghantar laporan pepijatt.\\nTerima kasih"
 
 #: bash/bug_report:46
 #, sh-format
 msgid "I have a problem with a software"
-msgstr ""
+msgstr "Saya mempunyai masalah dengan perisian"
 
 #: bash/bug_report:46
 #, sh-format
 msgid "My problem concerns $APPLICATION_TITLE itself"
-msgstr ""
+msgstr "Masalah saya berkenaan $APPLICATION_TITLE"
 
 #: bash/bug_report:46
 #, sh-format
 msgid "What kind of problem do you have?"
-msgstr ""
+msgstr "Apakah jenis masalah yang anda hadapi?"
 
 #: bash/bug_report:50
 #, sh-format
 msgid "Don't join any log file"
-msgstr ""
+msgstr "Jangan sertakan sebarang fail log"
 
 #: bash/bug_report:53 bash/manual_install:27 bash/manual_install:112
 #: bash/manual_install:118 bash/manual_install:215
 #, sh-format
 msgid "Manual installation"
-msgstr ""
+msgstr "Pemasangan manual"
 
 #: bash/bug_report:54 bash/run_exe:24
 #, sh-format
 msgid "Automatic installation"
-msgstr ""
+msgstr "Pemasangan automatik"
 
 #: bash/bug_report:65
 #, sh-format
 msgid "Choose the log file corresponding to your software."
-msgstr ""
+msgstr "Pilih fail log yang berkaitan dengan program anda."
 
 #: bash/bug_report:69
 #, sh-format
 msgid "Please give a very short description (title, english only)"
-msgstr ""
+msgstr "Sila beri keterangan ringkas (tajuk, bahasa sahaja)"
 
 #: bash/bug_report:71
 #, sh-format
 msgid "Please explain your problem clearly (english only):"
-msgstr ""
+msgstr "Sila jelaskan masalah anda (Bahasa Inggeris sahaja):"
 
 #: bash/bug_report:83
 #, sh-format
 msgid "Sorry, we need a detailed description."
-msgstr ""
+msgstr "Maaf, kami perlukan keterangan terperinci."
 
 #: bash/bug_report:104
 #, sh-format
@@ -2892,11 +3092,13 @@ msgid ""
 "Thank you !\\n\\nYour report has been sent.\\n\\nWe will do our best to send "
 "you an answer by mail very soon"
 msgstr ""
+"Terima kasih !\\n\\nLaporan anda telah dihantar.\\n\\nKami akan membalasnya "
+"melalui mel dengan jawapan yang terbaik nanti"
 
 #: bash/create_prefix:25
 #, sh-format
 msgid "Virtual drive creator"
-msgstr ""
+msgstr "Pencipta pemacu maya"
 
 #: bash/create_prefix:28
 #, sh-format
@@ -2904,11 +3106,13 @@ msgid ""
 "Welcome to $APPLICATION_TITLE virtual drive creator.\\n\\nThis tool will "
 "help you to make a new virtual drive"
 msgstr ""
+"Selamat datang ke pencipta pemacu maya $APPLICATION_TITLE.\\n\\nAlat ini "
+"akan membantu anda membuat pemacu maya baru"
 
 #: bash/create_prefix:30 bash/manual_install:194
 #, sh-format
 msgid "What kind of virtual drive do you want to create"
-msgstr ""
+msgstr "Apakah jenis pemacu maya yang anda hendak ciptakan"
 
 #: bash/create_prefix:54
 #, sh-format
@@ -2916,124 +3120,129 @@ msgid ""
 "(If this list is empty, please install a wine version with wine version "
 "manager)"
 msgstr ""
+"(Jika senarai ini kosong, sila pasang versi wine dengan pengurus versi wine)"
 
 #: bash/create_prefix:54 bash/manual_install:180
 #, sh-format
 msgid "Which version of Wine would you like to use?"
-msgstr ""
+msgstr "Versi wine yang manakah anda mahu gunakan?"
 
 #: bash/create_prefix:62
 #, sh-format
 msgid "Choose the name of the virtual drive"
-msgstr ""
+msgstr "Pilih nama bagi pemacu maya"
 
 #: bash/expert/Executer:22 bash/expert/Executer:27 bash/expert/Executer:29
 #: python/mainwindow.py:235
 #, sh-format
 msgid "Run a local script"
-msgstr ""
+msgstr "Jalankan skrip setempat"
 
 #: bash/expert/Executer:27
 #, sh-format
 msgid ""
 "This wizard will help you to run an unofficial $APPLICATION_TITLE Script."
 msgstr ""
+"Bestari ini akan membantu anda jalankan Skrip $APPLICATION_TITLE tidak rasmi."
 
 #: bash/expert/Executer:29
 #, sh-format
 msgid "Choose a valid $APPLICATION_TITLE script to run."
-msgstr ""
+msgstr "Pilih skrip $APPLICATION_TITLE yang sah untuk dijalankan."
 
 #: bash/expert/Executer:38
 #, sh-format
 msgid "Error!"
-msgstr ""
+msgstr "Ralat!"
 
 #: bash/expert/Executer:38
 #, sh-format
 msgid "File not found!"
-msgstr ""
+msgstr "Fail tidak ditemui!"
 
 #: bash/first_use:32
 #, sh-format
 msgid "The PlayOnLinux website is unavailable."
-msgstr ""
+msgstr "Laman sesawang PlayOnLinux tidak tersedia."
 
 #: bash/first_use:32
 #, sh-format
 msgid "\\nPlease make sure you are connected to the Internet."
-msgstr ""
+msgstr "\\nSila pastikan anda telah bersambung dengan internet."
 
 #: bash/first_use:46
 #, sh-format
 msgid "Please read this carefully"
-msgstr ""
+msgstr "Sila baca ini dengan teliti"
 
 #: bash/first_use:48
 #, sh-format
 msgid "XQuartz $XQUARTZ_VERSION has been installed on your computer."
-msgstr ""
+msgstr "XQuartz $XQUARTZ_VERSION telah dipasang dalam komputer anda."
 
 #: bash/first_use:49
 #, sh-format
 msgid "However, it won't be activated until you reboot your computer."
 msgstr ""
+"Namun, ia tidak akan diaktifkan sehinggalah anda but semula komputer anda."
 
 #: bash/first_use:51
 #, sh-format
 msgid "Please reboot your computer now, and run PlayOnMac"
-msgstr ""
+msgstr "Sila but semula komputer anda sekarang, dan jalankan PlayOnMac"
 
 #: bash/first_use:54
 #, sh-format
 msgid "Pleaase read this carefully."
-msgstr ""
+msgstr "Sila baca ini dengan teliti."
 
 #: bash/first_use:73
 #, sh-format
 msgid ""
 "To ensure that your games will be compatible, PlayOnMac must install XQuartz"
 msgstr ""
+"Untuk memastikan permainan anda menjadi serasi, PlayOnMac mesti memasang "
+"XQuartz"
 
 #: bash/first_use:75
 #, sh-format
 msgid "PlayOnMac needs to install XQuartz to work"
-msgstr ""
+msgstr "PlayOnMac perlu pasangkan XQuartz untuk berfungsi dengan baik"
 
 #: bash/first_use:77
 #, sh-format
 msgid "Don't install XQuartz for the moment"
-msgstr ""
+msgstr "Jangan pasang XQuartz buat masa ini"
 
 #: bash/first_use:77
 #, sh-format
 msgid "I've downloaded the file by myself"
-msgstr ""
+msgstr "Saya telah muat turun fail tersebut"
 
 #: bash/first_use:77
 #, sh-format
 msgid "Please download XQuartz for me"
-msgstr ""
+msgstr "Sila muat turun XQuartz untuk saya"
 
 #: bash/first_use:80
 #, sh-format
 msgid "Downloading XQuartz"
-msgstr ""
+msgstr "Memuat turun XQuartz"
 
 #: bash/first_use:85
 #, sh-format
 msgid "Where is"
-msgstr ""
+msgstr "Di mana"
 
 #: bash/first_use:92
 #, sh-format
 msgid "Installing XQuartz..."
-msgstr ""
+msgstr "Memasang XQuartz..."
 
 #: bash/first_use:105
 #, sh-format
 msgid "XQuartz has been installed."
-msgstr ""
+msgstr "XQuartz telah dipasang."
 
 #: bash/first_use:111
 #, sh-format
@@ -3041,112 +3250,118 @@ msgid ""
 "Unable to install XQuartz! You must install it to improve games "
 "compatibility."
 msgstr ""
+"Tidak boleh pasang XQuartz! Anda mesti pasang ia untuk mempertingkatkan "
+"keserasian permainan."
 
 #: bash/first_use:121
 #, sh-format
 msgid "Default virtual drive configuration"
-msgstr ""
+msgstr "Konfigurasi pemacu maya lalai"
 
 #: bash/first_use:122
 #, sh-format
 msgid "$APPLICATION_TITLE is making a virtual windows hard drive"
-msgstr ""
+msgstr "$APPLICATION_TITLE sedang membuat pemacu keras windows maya"
 
 #: bash/first_use:240 bash/first_use:243 bash/first_use:271
 #, sh-format
 msgid "$APPLICATION_TITLE first use"
-msgstr ""
+msgstr "Penggunaan pertama kali $APPLICATION_TITLE"
 
 #: bash/first_use:240
 #, sh-format
 msgid "$APPLICATION_TITLE is going to finish its preparation"
-msgstr ""
+msgstr "$APPLICATION_TITLE sedang menyiapkan penyediaannya"
 
 #: bash/first_use:240 bash/first_use:243
 #, sh-format
 msgid "Please ensure you are connected to the internet."
-msgstr ""
+msgstr "Sila pastikan anda telah bersambung dengan internet."
 
 #: bash/first_use:243
 #, sh-format
 msgid "It appears it is the first time you are using \t$APPLICATION_TITLE."
 msgstr ""
+"Kelihatan ini merupakan kali pertama anda menggunakan \t$APPLICATION_TITLE."
 
 #: bash/first_use:243
 #, sh-format
 msgid "This wizard will help you prepare $APPLICATION_TITLE environment"
 msgstr ""
+"Bestari ini akan membantu anda menyediakan persekitaran untuk "
+"$APPLICATION_TITLE"
 
 #: bash/first_use:253
 #, sh-format
 msgid "Error while installing fonts"
-msgstr ""
+msgstr "Ralat semasa memasang fon"
 
 #: bash/first_use:271
 #, sh-format
 msgid "Enjoy using $APPLICATION_TITLE"
-msgstr ""
+msgstr "Selamat menggunakan $APPLICATION_TITLE"
 
 #: bash/install_gecko:25
 #, sh-format
 msgid "$APPLICATION_TITLE Gecko installer"
-msgstr ""
+msgstr "Pemasang Gecko $APPLICATION_TITLE"
 
 #: bash/install_wver:27
 #, sh-format
 msgid "This wizard will help you to install Wine: "
-msgstr ""
+msgstr "Bestari ini akan membantu anda memasang Wine: "
 
 #: bash/install_wver:27
 #, sh-format
 msgid "on the $APPLICATION_TITLE environment."
-msgstr ""
+msgstr "dalam persekitaran $APPLICATION_TITLE."
 
 #: bash/installpolpackages:26 bash/polconfigurator:23 bash/winebash:27
 #, sh-format
 msgid "$APPLICATION_TITLE Application Configurator"
-msgstr ""
+msgstr "Penkonfigur Aplikasi $APPLICATION_TITLE"
 
 #: bash/killall:26
 #, sh-format
 msgid ""
 "Are you sure you want to shutdown all active $APPLICATION_TITLE applications?"
 msgstr ""
+"Anda pasti hendak matikan semua aplikasi $APPLICATION_TITLE yang aktif?"
 
 #: bash/make_shortcut:25
 #, sh-format
 msgid "$APPLICATION_TITLE shortcut creator"
-msgstr ""
+msgstr "Pencipta pintasan $APPLICATION_TITLE"
 
 #: bash/make_shortcut:30
 #, sh-format
 msgid "Please choose a software to package"
-msgstr ""
+msgstr "Sila pilih perisian untuk dipakejkan"
 
 #: bash/make_shortcut:35
 #, sh-format
 msgid "Creating shortcut..."
-msgstr ""
+msgstr "Mencipta pintasan..."
 
 #: bash/make_shortcut:37
 #, sh-format
 msgid "The shortcut has been placed on your desktop"
-msgstr ""
+msgstr "Pintasan telah diletak pada dekstop anda"
 
 #: bash/make_shortcut:57
 #, sh-format
 msgid "Copying virtual drive"
-msgstr ""
+msgstr "Menyalin pemacu maya"
 
 #: bash/manual_install:52
 #, sh-format
 msgid "Autorun"
-msgstr ""
+msgstr "Jalan-sendiri"
 
 #: bash/manual_install:52
 #, sh-format
 msgid "No setup location found in autorun.inf"
-msgstr ""
+msgstr "Tiada lokasi persediaan ditemui dalam autorun.inf"
 
 #: bash/manual_install:112
 #, sh-format
@@ -3156,21 +3371,25 @@ msgid ""
 "the tools\\n\\nWarning: We are unable to guarantee that your application "
 "will work perfectly."
 msgstr ""
+"Selamat datang ke bestari pemasangan manual $APPLICATION_TITLE.\\n\\nSkrip "
+"ini akan membolehkan anda memasang sebarang program pada $APPLICATION dan "
+"guna ia dengan semua alatan\\n\\nAmaran: Kami tidak dapat memberikan jaminan "
+"aplikasi anda akan berfungsi dengan sempurna."
 
 #: bash/manual_install:114
 #, sh-format
 msgid "Install a program in a new virtual drive"
-msgstr ""
+msgstr "Pasang program di dalam pemacu maya baru"
 
 #: bash/manual_install:115
 #, sh-format
 msgid "Edit or update an existing application"
-msgstr ""
+msgstr "Sunting atau kemaskini aplikasi sedia ada"
 
 #: bash/manual_install:118
 #, sh-format
 msgid "What would you like to do?"
-msgstr ""
+msgstr "Apakah yang anda ingin lakukan?"
 
 #: bash/manual_install:129
 #, sh-format
@@ -3178,166 +3397,170 @@ msgid ""
 "Please type a name for your application's virtual drive.\\nThis name "
 "shouldn't contain spaces."
 msgstr ""
+"Sila taip nama bagi pemacu maya aplikasi anda.\\nNama ini tidak boleh "
+"mengandungi jarak."
 
 #: bash/manual_install:141
 #, sh-format
 msgid "Please choose a program"
-msgstr ""
+msgstr "Sila pilih satu program"
 
 #: bash/manual_install:162
 #, sh-format
 msgid "Use another version of Wine"
-msgstr ""
+msgstr "Guna versi wine yang lain"
 
 #: bash/manual_install:163 bash/manual_install:215 bash/polconfigurator:95
 #: python/configure.py:221 python/mainwindow.py:579 python/mainwindow.py:611
 #, sh-format
 msgid "Configure Wine"
-msgstr ""
+msgstr "Konfigur Wine"
 
 #: bash/manual_install:164
 #, sh-format
 msgid "Install some libraries"
-msgstr ""
+msgstr "Pasang beberapa pustaka"
 
 #: bash/manual_install:167
 #, sh-format
 msgid "If you don't know, unselect all"
-msgstr ""
+msgstr "Jika anda tidak tahu, nyahpilih semua"
 
 #: bash/manual_install:167
 #, sh-format
 msgid "What would you like to do before installation?"
-msgstr ""
+msgstr "Apa yang anda hendak buat sebelum pemasangan?"
 
 #: bash/manual_install:226 lib/scripts.lib:402
 #, sh-format
 msgid "Please make your choice"
-msgstr ""
+msgstr "Sila buat pilihan"
 
 #: bash/manual_install:250
 #, sh-format
 msgid "Looking for runnable CD-ROMs"
-msgstr ""
+msgstr "Mencari CD-ROM yang boleh berjalan"
 
 #: bash/manual_install:273
 #, sh-format
 msgid "Select another file"
-msgstr ""
+msgstr "Pilih fail lain"
 
 #: bash/manual_install:281
 #, sh-format
 msgid "Please choose a way to install your program"
-msgstr ""
+msgstr "Sila pilih cara untuk memasang program anda"
 
 #: bash/manual_install:290
 #, sh-format
 msgid "Please select the install file to run."
-msgstr ""
+msgstr "Sila pilih fail pemasangan untuk dijalankan."
 
 #: bash/manual_install:320
 #, sh-format
 msgid "You must choose a file!"
-msgstr ""
+msgstr "Anda mesti pilih satu fail!"
 
 #: bash/manual_install:326
 #, sh-format
 msgid "$APPLICATION_TITLE is installing your application..."
-msgstr ""
+msgstr "$APPLICATION_TITLE sedang memasang aplikasi anda..."
 
 #: bash/playonlinux-pkg:25
 #, sh-format
 msgid "$APPLICATION_TITLE package manager: "
-msgstr ""
+msgstr "Pengurus pakej $APPLICATION_TITLE: "
 
 #: bash/playonlinux-pkg:39
 #, sh-format
 msgid "Usage: "
-msgstr ""
+msgstr "Penggunaan: "
 
 #: bash/playonlinux-pkg:40
 #, sh-format
 msgid "\tChoose a file"
-msgstr ""
+msgstr "\tPilih satu fail"
 
 #: bash/playonlinux-pkg:40 bash/playonlinux-pkg:41 bash/playonlinux-pkg:42
 #: bash/playonlinux-pkg:43
 #, sh-format
 msgid " or "
-msgstr ""
+msgstr " atau "
 
 #: bash/playonlinux-pkg:41
 #, sh-format
 msgid "\tExtract the package"
-msgstr ""
+msgstr "\tEkstrak pakej"
 
 #: bash/playonlinux-pkg:42
 #, sh-format
 msgid "\tInstall the package"
-msgstr ""
+msgstr "\tPasang pakej"
 
 #: bash/playonlinux-pkg:43
 #, sh-format
 msgid "\tShow this message"
-msgstr ""
+msgstr "\tPapar mesej ini"
 
 #: bash/playonlinux-pkg:47
 #, sh-format
 msgid "Choose a package to install"
-msgstr ""
+msgstr "Pilih satu pakej untuk dipasang"
 
 #: bash/playonlinux-pkg:47
 #, sh-format
 msgid "PlayOnLinux package manager"
-msgstr ""
+msgstr "Pengurus pakej PlayOnLinux"
 
 #: bash/playonlinux-pkg:63
 #, sh-format
 msgid "Unable to find the file: "
-msgstr ""
+msgstr "Tidak boleh cari fail: "
 
 #: bash/playonlinux-pkg:69 bash/playonlinux-pkg:92 bash/playonlinux-pkg:103
 #: bash/playonlinux-pkg:108
 #, sh-format
 msgid " isn't a valid PlayOnLinux package!"
-msgstr ""
+msgstr " bukanlah pakej PlayOnLinux yang sah!"
 
 #: bash/playonlinux-pkg:69 bash/playonlinux-pkg:86 bash/playonlinux-pkg:92
 #: bash/playonlinux-pkg:103 bash/playonlinux-pkg:108
 #, sh-format
 msgid "This file: "
-msgstr ""
+msgstr "Fail ini: "
 
 #: bash/playonlinux-pkg:86
 #, sh-format
 msgid " does not exist!"
-msgstr ""
+msgstr " tidak wujud!"
 
 #: bash/playonlinux-pkg:99
 #, sh-format
 msgid "Extracting: "
-msgstr ""
+msgstr "Mengekstrak: "
 
 #: bash/playonlinux-pkg:111 bash/playonlinux_online:38
 #, sh-format
 msgid "Running..."
-msgstr ""
+msgstr "Menjalankan..."
 
 #: bash/playonlinux-pkg:115
 #, sh-format
 msgid "Cleaning..."
-msgstr ""
+msgstr "Membersihkan..."
 
 #: bash/playonlinux_online:32
 #, sh-format
 msgid ""
 "This is the list of the scripts you sent to us. You can run one of them"
 msgstr ""
+"Ini merupakan senarai skrip yang anda hantar kepada kami. Anda boleh "
+"jalankan salah satu daripadanya"
 
 #: bash/playonlinux_online:42
 #, sh-format
 msgid "You do not seems to have any personal script"
-msgstr ""
+msgstr "Anda kelihatan tidak mempunyai sebarang skrip peribadi"
 
 #: bash/playonlinux_online:47
 #, sh-format
@@ -3345,11 +3568,13 @@ msgid ""
 "If you have successfully installed a program with 'Install a non-listed\\"
 "nsoftware' button, it will allow you to add this program in our list"
 msgstr ""
+"Jika anda berjaya memasang program dengan butang 'Pasang perisian bukan-\\"
+"ntersenarai', ia membolehkan anda tambah program ini ke dalam senarai kami"
 
 #: bash/playonlinux_online:47
 #, sh-format
 msgid "This tools will allow you to help us :"
-msgstr ""
+msgstr "Alatan ini akan membolehkan anda bantu kami :"
 
 #: bash/playonlinux_online:47
 #, sh-format
@@ -3357,92 +3582,93 @@ msgid ""
 "We're going to ask you some questions, please be as much accurate as\\"
 "npossible"
 msgstr ""
+"Kami akan menanya anda beberapa soalan, sila jawab setepat yang mungkin"
 
 #: bash/playonlinux_online:55
 #, sh-format
 msgid "Choose the file corresponding to your program."
-msgstr ""
+msgstr "Pilih fail yang berkaitan dengan program anda."
 
 #: bash/playonlinux_online:59
 #, sh-format
 msgid "Does your program run?"
-msgstr ""
+msgstr "Adakah program anda berjalan?"
 
 #: bash/playonlinux_online:62
 #, sh-format
 msgid "What is the title of your program?"
-msgstr ""
+msgstr "Apakah tajuk program anda?"
 
 #: bash/playonlinux_online:64
 #, sh-format
 msgid "What is the editor of your program?"
-msgstr ""
+msgstr "Apa penyunting program anda?"
 
 #: bash/playonlinux_online:66
 #, sh-format
 msgid "What is the editor website of your program?"
-msgstr ""
+msgstr "Apa penyunting laman sesawang bagi program anda?"
 
 #: bash/playonlinux_online:69 python/install.py:210
 #, sh-format
 msgid "Accessories"
-msgstr ""
+msgstr "Aksesori"
 
 #: bash/playonlinux_online:69 python/install.py:211
 #, sh-format
 msgid "Development"
-msgstr ""
+msgstr "Pembangunan"
 
 #: bash/playonlinux_online:69 python/install.py:212
 #, sh-format
 msgid "Education"
-msgstr ""
+msgstr "Pendidikan"
 
 #: bash/playonlinux_online:69 python/install.py:213
 #, sh-format
 msgid "Games"
-msgstr ""
+msgstr "Permainan"
 
 #: bash/playonlinux_online:69 python/install.py:214
 #, sh-format
 msgid "Graphics"
-msgstr ""
+msgstr "Grafik"
 
 #: bash/playonlinux_online:69 python/install.py:215 python/mainwindow.py:265
 #: python/options.py:384
 #, sh-format
 msgid "Internet"
-msgstr ""
+msgstr "Internet"
 
 #: bash/playonlinux_online:69 python/install.py:216
 #, sh-format
 msgid "Multimedia"
-msgstr ""
+msgstr "Multimedia"
 
 #: bash/playonlinux_online:69 python/install.py:217
 #, sh-format
 msgid "Office"
-msgstr ""
+msgstr "Pejabat"
 
 #: bash/playonlinux_online:69 lib/setupwindow.lib:338 python/install.py:218
 #, sh-format
 msgid "Other"
-msgstr ""
+msgstr "Lain-lain"
 
 #: bash/playonlinux_online:69 python/install.py:219
 #, sh-format
 msgid "Patches"
-msgstr ""
+msgstr "Tampalan"
 
 #: bash/playonlinux_online:69
 #, sh-format
 msgid "Select a category for your program"
-msgstr ""
+msgstr "Pilih kategori bagi program anda"
 
 #: bash/playonlinux_online:69 python/install.py:257
 #, sh-format
 msgid "Testing"
-msgstr ""
+msgstr "Pengujian"
 
 #: bash/playonlinux_online:72
 #, sh-format
@@ -3450,36 +3676,41 @@ msgid ""
 "What feature of your program does not work?\\nIf everything works, please "
 "mention it"
 msgstr ""
+"Apakah fitur bagi program anda yang tidka berfungsi\\nJika semuanya "
+"berfungsi dengan baik, sila jelaskannya"
 
 #: bash/playonlinux_online:74
 #, sh-format
 msgid "Write any change you made to wine configuration here:"
 msgstr ""
+"Tulis sebarang perubahan yang anda buat terhadap konfigurasi wine disini:"
 
 #: bash/playonlinux_online:102
 #, sh-format
 msgid "You must be able to run this program!"
-msgstr ""
+msgstr "Anda mesti boleh menjalankan program ini!"
 
 #: bash/playonlinux_online:107
 #, sh-format
 msgid "Run one of your personal scripts"
-msgstr ""
+msgstr "Jalankan salah satu skrip peribadi anda"
 
 #: bash/playonlinux_online:108
 #, sh-format
 msgid "Send to us a working script generated by manual installation"
 msgstr ""
+"Hantar kepada kami skrip yang berfungsi yang dijana dengan pemasangan manual"
 
 #: bash/playonlinux_online:109
 #, sh-format
 msgid "Logout"
-msgstr ""
+msgstr "Daftar Keluar"
 
 #: bash/playonlinux_online:110
 #, sh-format
 msgid "You are connected to $APPLICATION_TITLE online as $POL_LOGIN"
 msgstr ""
+"Anda kin bersambung ke $APPLICATION_TITLE atas-talian sebagai $POL_LOGIN"
 
 #: bash/playonlinux_online:124
 #, sh-format
@@ -3487,82 +3718,84 @@ msgid ""
 "You have been successfully logged out of $APPLICATION_TITLE Online\\nYou can "
 "safely close this window"
 msgstr ""
+"Anda berjaya mendaftar keluar dari $APPLICATION_TITLE Atas-talian\\nAnda "
+"boleh menutup tetingkap ini dengan selamat"
 
 #: bash/polconfigurator:33
 #, sh-format
 msgid "Killing programs in the virtual drive..."
-msgstr ""
+msgstr "Mematikan program di dalam pemacu maya..."
 
 #: bash/polconfigurator:79
 #, sh-format
 msgid "Icon selection"
-msgstr ""
+msgstr "Pemilihan ikon"
 
 #: bash/polconfigurator:79
 #, sh-format
 msgid "Please select an icon file"
-msgstr ""
+msgstr "Sila pilih fail ikon"
 
 #: bash/polconfigurator:86
 #, sh-format
 msgid "Bad file extension"
-msgstr ""
+msgstr "Sambungan fail teruk"
 
 #: bash/polconfigurator:86
 #, sh-format
 msgid "is not an icon extension"
-msgstr ""
+msgstr "bukanlah sambungan ikon"
 
 #: bash/polconfigurator:96 python/configure.py:229 python/mainwindow.py:583
 #: python/mainwindow.py:624
 #, sh-format
 msgid "Registry Editor"
-msgstr ""
+msgstr "Penyunting Registry"
 
 #: bash/polconfigurator:97
 #, sh-format
 msgid "Kill all prefix processes"
-msgstr ""
+msgstr "Matikan semua proses prefix"
 
 #: bash/polconfigurator:98
 #, sh-format
 msgid "Update wineprefix"
-msgstr ""
+msgstr "Kemaskini wineprofix"
 
 #: bash/polconfigurator:99
 #, sh-format
 msgid "Simulate Windows reboot"
-msgstr ""
+msgstr "Simulasikan but semula Windows"
 
 #: bash/polconfigurator:100
 #, sh-format
 msgid "Use Advanced Wine Configuration plugin"
-msgstr ""
+msgstr "Guna pemalam Konfigurasi Wine Lanjutan"
 
 #: bash/polconfigurator:101
 #, sh-format
 msgid "Use PlayOnLinux's configurator for"
-msgstr ""
+msgstr "Guna pengkonfigur PlayOnLinux untuk"
 
 #: bash/polconfigurator:103
 #, sh-format
 msgid "Change the icon"
-msgstr ""
+msgstr "Ubah ikon"
 
 #: bash/polconfigurator:104
 #, sh-format
 msgid "Use WineTricks"
-msgstr ""
+msgstr "Guna WineTricks"
 
 #: bash/polconfigurator:123
 #, sh-format
 msgid "Please choose an action to perform"
-msgstr ""
+msgstr "Sila pilih satu tindakan untuk dilakukan"
 
 #: bash/read_pc_cd:25
 #, sh-format
 msgid "PC CD-ROM reader"
-msgstr ""
+msgstr "Pemaca CD-ROM PC"
 
 #: bash/read_pc_cd:33
 #, sh-format
@@ -3571,21 +3804,24 @@ msgid ""
 "tool ONLY if you CD-ROM is a hybride CD-ROM (Compatible with Windows and "
 "MacOS), and if you are not able to see the Windows part"
 msgstr ""
+"Alat ini membantu Mac anda baca bahagian PC bagi CD-ROM.\\n\\nGuna alat ini "
+"hanya CD-ROM anda adalah CD-ROM hibrid (Serasi dengan Windows dan MacOS), "
+"dan jika anda tidak dapat melihat bahagian Windows"
 
 #: bash/read_pc_cd:34
 #, sh-format
 msgid "Eject a PC CD-ROM"
-msgstr ""
+msgstr "Lenting CD-ROM PC"
 
 #: bash/read_pc_cd:34
 #, sh-format
 msgid "Read a PC CD-ROM"
-msgstr ""
+msgstr "Baca CD-Rom PC"
 
 #: bash/read_pc_cd:34
 #, sh-format
 msgid "What do you want to do?"
-msgstr ""
+msgstr "Apa yang anda hendak buat?"
 
 #: bash/read_pc_cd:38
 #, sh-format
@@ -3593,36 +3829,39 @@ msgid ""
 "Please insert your CD-ROM, and press next only when Finder has found the Mac "
 "OS part of your CD-ROM"
 msgstr ""
+"Sila sisipkan CD-ROM anda, dan tekan maju hanya bila Finder telah menemui "
+"bahagian Mac OS bagi CD-ROM anda"
 
 #: bash/read_pc_cd:51
 #, sh-format
 msgid "Please choose a CD-ROM"
-msgstr ""
+msgstr "Sila pilih CD-ROM"
 
 #: bash/read_pc_cd:97
 #, sh-format
 msgid "Please choose a CD-ROM to eject"
-msgstr ""
+msgstr "Sila pilih CD-ROM untuk dilentingkan"
 
 #: bash/run_app:83
 #, sh-format
 msgid "Please choose a software to run"
-msgstr ""
+msgstr "Sila pilih perisian untuk dijalankan"
 
 #: bash/run_app:114
 #, sh-format
 msgid "$APPLICATION_TITLE debugger is starting..."
-msgstr ""
+msgstr "Penyahpepijat $APPLICATION_TITLE sedang dimulakan..."
 
 #: bash/run_app:117
 #, sh-format
 msgid "$PACKAGE crashed.\\nClick on debug link to get more details."
 msgstr ""
+"$PACKAGE mengalami kerosakan.\\nKlik pada pautan nyahpepijat untuk perincian."
 
 #: bash/run_app:119
 #, sh-format
 msgid "$PACKAGE crashed."
-msgstr ""
+msgstr "$PACKAGE mengalami kerosakan."
 
 #: bash/run_exe:31
 #, sh-format
@@ -3631,46 +3870,51 @@ msgid ""
 "on your computer.\\n\\nBe careful! This program is not officially supported "
 "by $APPLICATION_TITLE.\\nTherefore, it might not work as expected"
 msgstr ""
+"Selamat datang ke pembantu $APPLICATION_TITLE.\\nIa akan membantu anda "
+"memasang  $file dalam komputer anda.\\n\\nBerhati-hati! Program tidak "
+"disokong secara rasmi oleh $APPLICATION_TITLE.\\nMaka, ia berkemungkinan "
+"tidak berfungsi sepertimana yang diharapkan"
 
 #: bash/run_exe:32
 #, sh-format
 msgid "What is the name of you program?"
-msgstr ""
+msgstr "Apakah nama program anda?"
 
 #: bash/run_exe:39
 #, sh-format
 msgid "$APPLICATION_TITLE is installing $PRGM_NAME"
-msgstr ""
+msgstr "$APPLICATION_TITLE sedang memasang $PRGM_NAME"
 
 #: bash/run_exe:43
 #, sh-format
 msgid "Installation finished."
-msgstr ""
+msgstr "Pemasangan selesai."
 
 #: bash/run_exe:48
 #, sh-format
 msgid "$APPLICATION_TITLE is running your program"
-msgstr ""
+msgstr "$APPLICATION_TITLE sedang menjalankan program anda"
 
 #: bash/run_exe:63
 #, sh-format
 msgid "Waiting for the first-assistant to be finished"
-msgstr ""
+msgstr "Menunggu pembantu-pertama selesai"
 
 #: bash/run_exe:97
 #, sh-format
 msgid "$APPLICATION_TITLE is analysing your application"
-msgstr ""
+msgstr "$APPLICATION_TITLE sedang menganalisis aplikasi anda"
 
 #: bash/run_exe:106
 #, sh-format
 msgid "Do you want $APPLICATION_TITLE to install it automatically for you?"
 msgstr ""
+"Anda hendak $APPLICATION_TITLE memasangnya secara automatik untuk anda?"
 
 #: bash/run_exe:106
 #, sh-format
 msgid "We have detected that the program you want to install is :"
-msgstr ""
+msgstr "Kami telah mengesan bahawa program yang anda mahu pasang adalah :"
 
 #: bash/run_exe:119
 #, sh-format
@@ -3678,62 +3922,64 @@ msgid ""
 "$APPLICATION_TITLE has already run this program.\\nDo you want to keep the "
 "old settings ?"
 msgstr ""
+"$APPLICATION_TITLE telahpun menjalankan program ini.\\nAnda hendak kekalkan "
+"tetapan lama ?"
 
 #: bash/uninstall:25 bash/uninstall:53 bash/uninstall:56 bash/uninstall:58
-#: lib/playonlinux.lib:710
+#: lib/playonlinux.lib:712
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
-msgstr ""
+msgstr "Penyahpasang $APPLICATION_TITLE"
 
 #: bash/uninstall:29
 #, sh-format
 msgid "Please select a program to uninstall"
-msgstr ""
+msgstr "Sila pilih program untuk dinyahpasang"
 
 #: bash/uninstall:40
 #, sh-format
 msgid "Click Next to continue."
-msgstr ""
+msgstr "Klik Berikutnya untuk teruskan."
 
 #: bash/uninstall:40
 #, sh-format
 msgid "This wizard will help you to uninstall: "
-msgstr ""
+msgstr "Bestari ini akan membantu anda menyahpasang: "
 
-#: bash/uninstall:53 lib/playonlinux.lib:710
+#: bash/uninstall:53 lib/playonlinux.lib:712
 #, sh-format
 msgid "Uninstalling..."
-msgstr ""
+msgstr "Menyahpasang..."
 
 #: bash/uninstall:56
 #, sh-format
 msgid " has been uninstalled successfully."
-msgstr ""
+msgstr " telah berjaya dinyahpasang."
 
 #: bash/uninstall:58
 #, sh-format
 msgid "Cannot find the shortcut"
-msgstr ""
+msgstr "Tidak dapat cari pintasan"
 
 #: bash/update_git:25
 #, sh-format
 msgid "$APPLICATION_TITLE auto-updater"
-msgstr ""
+msgstr "Pengemaskini-automatik $APPLICATION_TITLE"
 
 #: bash/update_git:27
 #, sh-format
 msgid "Updating $APPLICATION_TITLE from GIT..."
-msgstr ""
+msgstr "Mengemaskini $APPLICATION_TITLE dari GIT..."
 
 #: bash/update_git:31
 #, sh-format
 msgid "Do you want to update and restart $APPLICATION_TITLE?"
-msgstr ""
+msgstr "Anda hendak kemaskini dan mulakan semula $APPLICATION_TITLE?"
 
 #: bash/update_git:37
 #, sh-format
 msgid "Already up-to-date."
-msgstr ""
+msgstr "Sudahpun dikemaskini."
 
 #: lib/debug.lib:126
 #, sh-format
@@ -3742,6 +3988,9 @@ msgid ""
 "correctly, it might be the cause of the problem.\\nVisit www.$POL_DNS to get "
 "further information"
 msgstr ""
+"$APPLICATION_TITLE telah mengalami ralat. Jika program tidak berfungsi "
+"dengan baik, ia mungkin punca masalah.\\nLawati www.$POL_DNS untuk maklumat "
+"lanjut"
 
 #: lib/debug.lib:140
 #, sh-format
@@ -3750,6 +3999,9 @@ msgid ""
 "installing does not work correctly, it might be the cause of the problem.\\"
 "nVisit www.$POL_DNS to get further information"
 msgstr ""
+"$APPLICATION_TITLE telah mengalami ralat. Jika program yang anda pasang "
+"tidak berfungsi dengan baik, ia mungkin punca masalah.\\nLawati www.$POL_DNS "
+"untuk maklumat lanjut"
 
 #: lib/debug.lib:153
 #, sh-format
@@ -3758,28 +4010,30 @@ msgid ""
 "stop the installation process.\\nVisit www.$POL_DNS to get further "
 "information"
 msgstr ""
+"$APPLICATION_TITLE telah mengalami ralat mati. $APPLICATION_TITLE akan "
+"hentikan proses pemasangan.\\nLawati www.$POL_DNS untuk maklumat lanjut"
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
 #: lib/wine.lib:910 lib/wine.lib:988
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
-msgstr ""
+msgstr "Sila tunggu semasa pemacu maya dicipta..."
 
 #: lib/deprecated.lib:427
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a Windows reboot"
-msgstr ""
+msgstr "Sila tunggu semasa $APPLICATION_TITLE mensimulasi but semula Windows"
 
 #: lib/deprecated.lib:559
 #, sh-format
 msgid "Setting Program Files var"
-msgstr ""
+msgstr "Menetapkan var Program Files"
 
 #: lib/playonlinux.lib:241 lib/playonlinux.lib:247 lib/playonlinux.lib:253
 #: lib/playonlinux.lib:259 lib/playonlinux.lib:265 lib/playonlinux.lib:271
 #, sh-format
 msgid "This function is disabled in the PlayOnlinux environment."
-msgstr ""
+msgstr "Fungsi ini dilumpuhkan di dalam persekitaran PlayOnLinux."
 
 #: lib/playonlinux.lib:332
 #, sh-format
@@ -3788,11 +4042,14 @@ msgid ""
 "valid\\n\\nPlayOnLinux has not approved this script and will not be "
 "responsible from it.\\nPlease ensure you know what you are doing !"
 msgstr ""
+"Amaran !!\\n\\nTandatangan skrip yang anda cuba jalankan TIDAK sah\\n\\"
+"nPlayOnLinux tidak pernah mengesahkan skrip ini dan tidak akan "
+"bertanggungjawab darinya.\\nSila pastikan anda tahu apa yang anda buat !"
 
 #: lib/playonlinux.lib:333
 #, sh-format
 msgid "Here the source code of the script. Check it carefully"
-msgstr ""
+msgstr "Disini merupakan kod sumber skrip. Periksa ia dengan hati-hati"
 
 #: lib/playonlinux.lib:355
 #, sh-format
@@ -3801,74 +4058,85 @@ msgid ""
 "valid\\n\\n$APPLICATION_TITLE has not approved this script and will not be "
 "responsible from it.\\nPlease ensure you know what you are doing!"
 msgstr ""
+"Amaran !!\\n\\nTandatangan skrip yang anda cuba jalankan TIDAK sah\\n\\"
+"n$APPLICATION_TITLE tidak pernah mengesahkan skrip ini dan tidak akan "
+"bertanggungjawab darinya.\\nSila pastikan anda tahu apa yang anda buat!"
 
 #: lib/playonlinux.lib:356
 #, sh-format
 msgid "External library"
-msgstr ""
+msgstr "Pustaka luaran"
 
 #: lib/playonlinux.lib:356
 #, sh-format
 msgid "Here the source code of the script. Check it carrefully"
-msgstr ""
+msgstr "Disini merupakan kod sumber skrip. Periksa ia dengan hati-hati"
 
 #: lib/playonlinux.lib:589
 #, sh-format
 msgid "Making shortcut..."
-msgstr ""
+msgstr "Membuat pintasan..."
 
-#: lib/playonlinux.lib:708
+#: lib/playonlinux.lib:710
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
-msgstr ""
+msgstr "Anda hendak padam pemacu maya:"
 
-#: lib/playonlinux.lib:819
+#: lib/playonlinux.lib:821
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
+"Fail berikut berada dalam sistem fail FAT32.\\nIa mungkin menghalang wine "
+"berfungsi dalam\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:820
+#: lib/playonlinux.lib:822
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
+"Fail berikut berada dalam sistem fail NTFS.\\nIa mungkin menghalang wine "
+"berfungsi dalam\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:821
+#: lib/playonlinux.lib:823
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
+"Fail berikut berada dalam sistem fail fuse.\\nIa mungkin menghalang wine "
+"berfungsi dalam\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:822
+#: lib/playonlinux.lib:824
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
 "prevent wine from working\\n\\n$FilePath"
 msgstr ""
+"Fail berikut berada dalam sistem fail terlekap noexec.\\nIa mungkin "
+"menghalang wine berfungsi dalam\\n\\n$FilePath"
 
 #: lib/plugins.lib:65
 #, sh-format
 msgid "Checking plugin: "
-msgstr ""
+msgstr "Memeriksa pemalam: "
 
 #: lib/plugins.lib:93
 #, sh-format
 msgid "New: "
-msgstr ""
+msgstr "Baru: "
 
 #: lib/plugins.lib:93
 #, sh-format
 msgid "Updating plugin. Previous: "
-msgstr ""
+msgstr "Mengemaskini pemalam. Terdahulu: "
 
 #: lib/plugins.lib:112
 #, sh-format
 msgid "Installing plugin: "
-msgstr ""
+msgstr "Memasang pemalam: "
 
 #: lib/scripts.lib:326
 #, sh-format
@@ -3876,117 +4144,126 @@ msgid ""
 "Binary not found: $BINARY\\nHave you installed the program to the default "
 "location?"
 msgstr ""
+"Binari tidak ditemui:  $BINARY\\nAdakah anda memasang program ke lokasi "
+"lalainya?"
 
 #: lib/scripts.lib:464 lib/scripts.lib:524
 #, sh-format
 msgid "No enough space to download:\\n$URL ($neededSpace KB)"
-msgstr ""
+msgstr "Ruang tidak mencukupi untuk memuat turun:\\n$URL ($neededSpace KB)"
 
 #: lib/scripts.lib:466 lib/scripts.lib:733
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
-msgstr ""
+msgstr "Sila tunggu semasa $APPLICATION_TITLE memuat turun:"
 
 #: lib/scripts.lib:468 lib/scripts.lib:529
 #, sh-format
 msgid "An error happened during download."
-msgstr ""
+msgstr "Ralat berlaku semasa muat turn."
 
 #: lib/scripts.lib:468 lib/scripts.lib:487 lib/scripts.lib:529
 #: lib/scripts.lib:545
 #, sh-format
 msgid "Do you want to retry?"
-msgstr ""
+msgstr "Anda hendak cuba lagi?"
 
 #: lib/scripts.lib:487 lib/scripts.lib:545
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
+"Ralat ! Fail tidak sepadan\\n\\nSetempat : $LOCAL_MD5\\nPelayan : $SERVER_MD5"
 
 #: lib/scripts.lib:638
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
 msgstr ""
+"7z tidak dipasang, sila semak sama ada anda telah memasang 7zip dan cuba "
+"sekali lagi"
 
 #: lib/scripts.lib:645
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
-msgstr ""
+msgstr "Gagal mencari ${dest} dari ${archive}"
 
 #: lib/scripts.lib:649
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
-msgstr ""
+msgstr "Mengekstrak ${filename} dari ${archivename}"
 
 #: lib/scripts.lib:664
 #, sh-format
 msgid "Extracted file size does not match!"
-msgstr ""
+msgstr "Saiz fail terekstrak tidak sepadan!"
 
 #: lib/scripts.lib:695
 #, sh-format
 msgid "Copying ${filename}"
-msgstr ""
+msgstr "Menyalin ${filename}"
 
 #: lib/scripts.lib:708
 #, sh-format
 msgid "File size does not match!"
-msgstr ""
+msgstr "Saiz fail tidak sepadan!"
 
-#: lib/scripts.lib:794
+#: lib/scripts.lib:809
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
 "n$APPLICATION_TITLE $NEEDED is required."
 msgstr ""
+"Maaf, $APPLICATION_TITLE $VERSION terlalu tua untuk diteruskan.\\"
+"n$APPLICATION_TITLE $NEEDED diperlukan."
 
-#: lib/scripts.lib:809
+#: lib/scripts.lib:824
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
 "$NEEDED is recommended to continue."
 msgstr ""
+"Amaran: Anda kini menjalankan $APPLICATION_TITLE $VERSION.\\"
+"n$APPLICATION_TITLE $NEEDED disarankan untuk diteruskan."
 
-#: lib/scripts.lib:840
+#: lib/scripts.lib:855
 #, sh-format
 msgid "$AUTHOR profile"
-msgstr ""
+msgstr "Profil $AUTHOR"
 
 #: lib/setupwindow.lib:96
 #, sh-format
 msgid " on your computer."
-msgstr ""
+msgstr " pada komputer anda."
 
 #: lib/setupwindow.lib:96
 #, sh-format
 msgid " will be installed in: "
-msgstr ""
+msgstr " akan dipasang dalam: "
 
 #: lib/setupwindow.lib:96
 #, sh-format
 msgid "Click Next to start"
-msgstr ""
+msgstr "Klik Berikutnya untuk mula"
 
 #: lib/setupwindow.lib:96
 #, sh-format
 msgid "This installation program is provided by: "
-msgstr ""
+msgstr "Program pemasangan ini disediakan oleh: "
 
 #: lib/setupwindow.lib:96
 #, sh-format
 msgid "This program was created by: "
-msgstr ""
+msgstr "Program ini telah dicipta oleh: "
 
 #: lib/setupwindow.lib:96
 #, sh-format
 msgid "This wizard will help you install "
-msgstr ""
+msgstr "Bestari ini akan membantu anda pasang "
 
 #: lib/setupwindow.lib:96
 #, sh-format
 msgid "Welcome to $APPLICATION_TITLE Installation Wizard."
-msgstr ""
+msgstr "Selamat datang ke Bestari Pemasangan $APPLICATION_TITLE."
 
 #: lib/setupwindow.lib:120
 #, sh-format
@@ -3994,6 +4271,8 @@ msgid ""
 "One or more program(s) are missing. Please install them and run the script "
 "again."
 msgstr ""
+"Satu atau lebih program telah hilang. Sila pasang ia dan jalankan skrip "
+"sekali lagi."
 
 #: lib/setupwindow.lib:122 python/guiv3.py:743 python/lib/irc.py:291
 #: python/mainwindow.py:1101 python/mainwindow.py:1131
@@ -4001,27 +4280,27 @@ msgstr ""
 #: python/mainwindow.py:1166 python/mainwindow.py:1178 python/wrapper.py:121
 #, sh-format
 msgid "Error"
-msgstr ""
+msgstr "Ralat"
 
 #: lib/setupwindow.lib:337
 #, sh-format
 msgid "Where is mounted your CD-ROM?"
-msgstr ""
+msgstr "Dimanakan CD-ROM anda dilekap?"
 
 #: lib/setupwindow.lib:339 python/install.py:283
 #, sh-format
 msgid "Refresh"
-msgstr ""
+msgstr "Segar Semula"
 
 #: lib/setupwindow.lib:370
 #, sh-format
 msgid "Reading your device"
-msgstr ""
+msgstr "Membaca peranti anda"
 
 #: lib/setupwindow.lib:385
 #, sh-format
 msgid "Error: Unable to find the CD-ROM!"
-msgstr ""
+msgstr "Ralat: Tidak dapat cari CD-ROM!"
 
 #: lib/setupwindow.lib:399
 #, sh-format
@@ -4031,6 +4310,10 @@ msgid ""
 "compatible with recent versions of Mac OS.\\n\\nDo you want PlayOnMac to "
 "attempt to read the PC-Part of your CD?"
 msgstr ""
+"$TITLE perlu baca bahagian PC daripada CD-Rom hibird.\\n\\nSecara lalai, "
+"MacOS hanya memberikan anda capaian ke bahagian the Mac daripada cd-rom, "
+"yang mana tidak serasi dengan versi terkini Mac OS.\\n\\nAnda mahu PlayOnMac "
+"cuba membaca bahagian PC CD anda?"
 
 #: lib/setupwindow.lib:451
 #, sh-format
@@ -4038,26 +4321,28 @@ msgid ""
 "Don't forget to go to PlayOnMac tools menu -> Read a PC CD-Rom before "
 "running your game"
 msgstr ""
+"Jangan lupa pergi ke menu alatan PlayOnMac -> Baca CD-Rom PC sebelum "
+"menjalankan permainan anda"
 
 #: lib/setupwindow.lib:462
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is copying files:"
-msgstr ""
+msgstr "Sila tunggu semasa $APPLICATION_TITLE menyalin fail:"
 
 #: lib/setupwindow.lib:547 lib/setupwindow.lib:696
 #, sh-format
 msgid "Scanning the virtual drive ..."
-msgstr ""
+msgstr "Mengimbas pemacu maya ..."
 
 #: lib/setupwindow.lib:561
 #, sh-format
 msgid "How much memory does your graphics board have?"
-msgstr ""
+msgstr "Berapa banyak ingatan papan grafik anda miliki?"
 
 #: lib/setupwindow.lib:570
 #, sh-format
 msgid "Video card does not have enough memory"
-msgstr ""
+msgstr "Kad video tidak mempunyai ingatan yang mencukupi"
 
 #: lib/setupwindow.lib:571
 #, sh-format
@@ -4065,81 +4350,83 @@ msgid ""
 "Your video card does not have enough memory!\\nIt might prevent the game "
 "from working"
 msgstr ""
+"Kad video anda tidak mempunyai ingatan yang mencukupi!\\nIa menghalang "
+"permainan daripada berfungsi"
 
 #: lib/setupwindow.lib:585
 #, sh-format
 msgid "Use Steam Store version"
-msgstr ""
+msgstr "Guna versi Kedai Steam"
 
 #: lib/setupwindow.lib:586
 #, sh-format
 msgid "Use Steam Store demo version"
-msgstr ""
+msgstr "Guna versi demo Kedai Steam"
 
 #: lib/setupwindow.lib:587
 #, sh-format
 msgid "Use Desura Store version"
-msgstr ""
+msgstr "Guna versi Kedai Desura"
 
 #: lib/setupwindow.lib:588
 #, sh-format
 msgid "Use Desura Store demo version"
-msgstr ""
+msgstr "Guna versi demo Kedai Desura"
 
 #: lib/setupwindow.lib:589
 #, sh-format
 msgid "Use Origin Store version"
-msgstr ""
+msgstr "Guna versi Kedai Origin"
 
 #: lib/setupwindow.lib:590
 #, sh-format
 msgid "Use Origin Store demo version"
-msgstr ""
+msgstr "Guna versi demo Kedai Origin"
 
 #: lib/setupwindow.lib:592
 #, sh-format
 msgid "Use a setup file in my computer"
-msgstr ""
+msgstr "Guna fail persediaan di dalam komputer saya"
 
 #: lib/setupwindow.lib:593
 #, sh-format
 msgid "Use CD-ROM(s)"
-msgstr ""
+msgstr "Guna CD-ROM"
 
 #: lib/setupwindow.lib:594
 #, sh-format
 msgid "Use DVD-ROM(s)"
-msgstr ""
+msgstr "Guna DVD-ROM"
 
 #: lib/setupwindow.lib:595
 #, sh-format
 msgid "Download the program"
-msgstr ""
+msgstr "Mut turun program"
 
 #: lib/setupwindow.lib:660
 #, sh-format
 msgid "Please choose an installation method"
-msgstr ""
+msgstr "Sila pilih kaedah pemasangan"
 
 #: lib/setupwindow.lib:698
 #, sh-format
 msgid "I don't want to make another shortcut"
-msgstr ""
+msgstr "Saya tidak mahu buat pintasan lain"
 
 #: lib/setupwindow.lib:699 python/guiv3.py:151
 #, sh-format
 msgid "Browse"
-msgstr ""
+msgstr "Layar"
 
 #: lib/website.lib:29
 #, sh-format
 msgid "Connect to your $APPLICATION_TITLE account"
-msgstr ""
+msgstr "Sambung ke akaun $APPLICATION_TITLE anda"
 
 #: lib/website.lib:128
 #, sh-format
 msgid "Connecting..."
-msgstr ""
+msgstr "Menyambung..."
 
 #: lib/website.lib:133
 #, sh-format
@@ -4147,16 +4434,18 @@ msgid ""
 "Failed to connect !\\nPlease ensure that your login and your password are "
 "valid."
 msgstr ""
+"Gagal menyambung !\\nSila pastikan daftar masuk dan kata laluan anda adalah "
+"betul."
 
 #: lib/wine.lib:360
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is scanning your hardware"
-msgstr ""
+msgstr "Sila tunggu semasa $APPLICATION_TITLE mengimbas perkakasan anda"
 
 #: lib/wine.lib:421
 #, sh-format
 msgid "Scanning your hardware..."
-msgstr ""
+msgstr "Mengimbas perkakasan anda..."
 
 #: lib/wine.lib:510 lib/wine.lib:675
 #, sh-format
@@ -4164,56 +4453,58 @@ msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
 "message"
 msgstr ""
+"Wine kelihatan mengalami kerosakan\\n\\nJika program masih berjalan, abaikan "
+"mesej ini"
 
 #: lib/wine.lib:735
 #, sh-format
 msgid "Unable to find version: "
-msgstr ""
+msgstr "Tidak boleh cari versi: "
 
 #: lib/wine.lib:741 lib/wine.lib:742
 #, sh-format
 msgid "Downloading Wine: "
-msgstr ""
+msgstr "Memuat turun Wine: "
 
 #: lib/wine.lib:751
 #, sh-format
 msgid "The download seems to have failed."
-msgstr ""
+msgstr "Muat turun kelihatan telah mengalami kegagalan."
 
 #: lib/wine.lib:753
 #, sh-format
 msgid "Extracting Wine..."
-msgstr ""
+msgstr "Mengekstrak Wine..."
 
 #: lib/wine.lib:916
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
-msgstr ""
+msgstr "Tulis-ganti (biasanya berfungsi, tetapi tiada jaminan)"
 
 #: lib/wine.lib:917
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
-msgstr ""
+msgstr "Padam (kandungan pemacu maya akan hilang)"
 
 #: lib/wine.lib:918
 #, sh-format
 msgid "Abort installation"
-msgstr ""
+msgstr "Henti paksa pemasangan"
 
 #: lib/wine.lib:931
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
-msgstr ""
+msgstr "Pemacu maya sasaran $PREFNAME sudah wujud:"
 
 #: lib/wine.lib:944
 #, sh-format
 msgid "User abort"
-msgstr ""
+msgstr "Pengguna henti paksa"
 
 #: lib/wine.lib:1070 lib/wine.lib:1100
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
-msgstr ""
+msgstr "Sila tunggu semasa $SOFTNAME dipasang..."
 
 #: lib/wine.lib:1074 lib/wine.lib:1103
 #, sh-format
@@ -4221,21 +4512,23 @@ msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
 "have to reinstall $SOFTNAME"
 msgstr ""
+"Berhati-hati! Ia akan matikan proses pemasangan. Jika ia masih belum "
+"selesai, anda perlu pasang semula $SOFTNAME"
 
 #: lib/wine.lib:1074 lib/wine.lib:1103
 #, sh-format
 msgid "Install is done"
-msgstr ""
+msgstr "Pemasangan selesai"
 
 #: lib/wine.lib:1107 lib/wine.lib:1108
 #, sh-format
 msgid "Press next only when the installation process is finished"
-msgstr ""
+msgstr "Tekan maju hanya bila proses pemasangan telah selesai"
 
 #: lib/wine.lib:1116
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
-msgstr ""
+msgstr "Sila tunggu semasa $APPLICATION_TITLE mensimulasi but semula"
 
 #: python/configure.py:117
 msgid ""
@@ -4245,276 +4538,285 @@ msgid ""
 "To uninstall cleanly a program with {0}, you must delete the virtual drive "
 "associated"
 msgstr ""
+"Amaran:\n"
+"\n"
+"Alat ini hanya untuk pengguna mahir.\n"
+"Untuk menyahpasang secara bersih program dengan {0}, anda mesti memadam "
+"pemacu maya yang berkaitan dengannya"
 
 #: python/configure.py:190 python/configure.py:680
 msgid "General"
-msgstr ""
+msgstr "Am"
 
 #: python/configure.py:193
 msgid "Make a new shortcut from this virtual drive"
-msgstr ""
+msgstr "Buat pintasan baru dari pemacu maya ini"
 
 #: python/configure.py:194
 msgid "Name"
-msgstr ""
+msgstr "Nama"
 
 #: python/configure.py:195
 msgid "Wine version"
-msgstr ""
+msgstr "Versi Wine"
 
 #: python/configure.py:196
 msgid "Virtual drive"
-msgstr ""
+msgstr "Pemacu maya"
 
 #: python/configure.py:198
 msgid "Arguments"
-msgstr ""
+msgstr "Argumen"
 
 #: python/configure.py:202
 msgid "Run configuration wizard"
-msgstr ""
+msgstr "Jalankan bestari konfigurasi"
 
 #: python/configure.py:238
 msgid "Windows reboot"
-msgstr ""
+msgstr "But semul Windows"
 
 #: python/configure.py:246
 msgid "Repair virtual drive"
-msgstr ""
+msgstr "Baiki pemacu maya"
 
 #: python/configure.py:255
 msgid "Command prompt"
-msgstr ""
+msgstr "Promp perintah"
 
 #: python/configure.py:262
 msgid "Task manager"
-msgstr ""
+msgstr "Pengurus Tugas"
 
 #: python/configure.py:270
 msgid "Kill processes"
-msgstr ""
+msgstr "Matikan proses"
 
 #: python/configure.py:277
 msgid "Wine uninstaller"
-msgstr ""
+msgstr "Penyahpasang Wine"
 
 #: python/configure.py:302
 msgid ""
 "Be careful! Installing one of these components can break your virtual drive."
 msgstr ""
+"Berhati-hati! Memasang salah satu komponen ini boleh merosakkan pemacu maya "
+"anda."
 
 #: python/configure.py:324 python/install.py:282 python/mainwindow.py:200
 #: python/mainwindow.py:353
 msgid "Install"
-msgstr ""
+msgstr "Pasang"
 
 #: python/configure.py:385
 msgid "Open program's directory"
-msgstr ""
+msgstr "Buka direktori program"
 
 #: python/configure.py:408
 msgid "Open virtual drive's directory"
-msgstr ""
+msgstr "Buka direktori pemacu maya"
 
 #: python/configure.py:549
 msgid "GLSL Support"
-msgstr ""
+msgstr "Sokongan GLSL"
 
 #: python/configure.py:550
 msgid "Direct Draw Renderer"
-msgstr ""
+msgstr "Penerap Direct Draw"
 
 #: python/configure.py:551
 msgid "Video memory size"
-msgstr ""
+msgstr "Saiz ingatan video"
 
 #: python/configure.py:552
 msgid "Offscreen rendering mode"
-msgstr ""
+msgstr "Mod penerapan luar-skrin"
 
 #: python/configure.py:553
 msgid "Render target mode lock"
-msgstr ""
+msgstr "Terap kuncian mod sasaran"
 
 #: python/configure.py:554
 msgid "Multisampling"
-msgstr ""
+msgstr "Persampelan-berbilang"
 
 #: python/configure.py:555
 msgid "Strict Draw Ordering"
-msgstr ""
+msgstr "Penertiban Lukis Ketat"
 
 #: python/configure.py:565
 msgid "Mouse warp override"
-msgstr ""
+msgstr "Batal ledingan tetikus"
 
 #: python/configure.py:567
 msgid "Open a shell"
-msgstr ""
+msgstr "Buka shell"
 
 #: python/configure.py:568
 msgid "Run a .exe file in this virtual drive"
-msgstr ""
+msgstr "Jalankan fail .exe di dalam pemacu maya ini"
 
 #: python/configure.py:569
 msgid "Command to exec before running the program"
-msgstr ""
+msgstr "Perintah untuk dilakukan sebelum menjalankan program"
 
 #: python/configure.py:580
 msgid ""
 "Be careful!\n"
 "If you change "
 msgstr ""
+"Berhati-hati!\n"
+"Jika anda ubah "
 
 #: python/configure.py:637 python/mainwindow.py:922 python/mainwindow.py:924
 msgid "{0} configuration"
-msgstr ""
+msgstr "Konfigurasi {0}"
 
 #: python/configure.py:645
 msgid "Please select a program or a virtual drive to configure"
-msgstr ""
+msgstr "Sila pilih program atau pemacu maya untuk dikonfigurkan"
 
 #: python/configure.py:663 python/options.py:280
 msgid "New"
-msgstr ""
+msgstr "Baru"
 
 #: python/configure.py:664 python/mainwindow.py:201 python/mainwindow.py:354
 #: python/mainwindow.py:599 python/options.py:207
 msgid "Remove"
-msgstr ""
+msgstr "Buang"
 
 #: python/configure.py:682
 msgid "Install components"
-msgstr ""
+msgstr "Pasang komponen"
 
 #: python/configure.py:683 python/mainwindow.py:335
 msgid "Display"
-msgstr ""
+msgstr "Paparan"
 
 #: python/configure.py:684
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Pelbagai"
 
 #: python/configure.py:712
 msgid "This virtual drive is protected"
-msgstr ""
+msgstr "Pemacu maya ini dilindungi"
 
 #: python/configure.py:714
 msgid "Are you sure you want to delete {0} virtual drive ?"
-msgstr ""
+msgstr "Anda pasti hendak memadam pemacu maya {0}?"
 
 #: python/configure.py:721
 msgid "Are you sure you want to delete {0} ?"
-msgstr ""
+msgstr "Anda pasti hendak memadam {0}?"
 
 #: python/debug.py:39 python/mainwindow.py:257 python/mainwindow.py:897
 #: python/mainwindow.py:980
 msgid "{0} debugger"
-msgstr ""
+msgstr "Penyahpepijat {0}"
 
 #: python/debug.py:50
 msgid "Please select a debug file"
-msgstr ""
+msgstr "Sila pilih fail nyahpepijat"
 
 #: python/debug.py:76
 msgid "Locate this logfile"
-msgstr ""
+msgstr "Cari fail log ini"
 
 #: python/debug.py:99
 msgid "The file is named : {0}"
-msgstr ""
+msgstr "Fail dinamakan : {0}"
 
 #: python/debug.py:153 python/debug.py:207
 msgid "Virtual drives"
-msgstr ""
+msgstr "Pemacu maya"
 
 #: python/debug.py:184
 msgid "Report a problem about {0}"
-msgstr ""
+msgstr "Laporkan masalah mengenai {0}"
 
 #: python/debug.py:206
 msgid "Install scripts"
-msgstr ""
+msgstr "Pasang skrip"
 
 #: python/gui_server.py:54 python/gui_server.py:55
 msgid "Error: Unable to reserve a valid port"
-msgstr ""
+msgstr "Ralat: Tidak boleh simpan port yang sah"
 
 #: python/gui_server.py:160
 msgid "WARNING. Please use POL_SetupWindow_Init first"
-msgstr ""
+msgstr "AMARAN. Sila guna POL_SetupWindow_Init dahulu"
 
 #: python/guiv3.py:116
 msgid "{0} Wizard"
-msgstr ""
+msgstr "Bestari {0}"
 
 #: python/guiv3.py:137 python/install.py:281 python/options.py:376
 msgid "Cancel"
-msgstr ""
+msgstr "Batal"
 
 #: python/guiv3.py:141
 msgid "Next"
-msgstr ""
+msgstr "Maju"
 
 #: python/guiv3.py:142
 msgid "Back"
-msgstr ""
+msgstr "Undur"
 
 #: python/guiv3.py:159
 msgid "I Agree"
-msgstr ""
+msgstr "Saya Setuju"
 
 #: python/guiv3.py:160
 msgid "Show virtual drives"
-msgstr ""
+msgstr "Papar pemacu maya"
 
 #: python/guiv3.py:181
 msgid "Login: "
-msgstr ""
+msgstr "Daftar Masuk: "
 
 #: python/guiv3.py:182
 msgid "Password: "
-msgstr ""
+msgstr "Kata Laluan: "
 
 #: python/guiv3.py:185
 msgid "Register"
-msgstr ""
+msgstr "Daftar"
 
 #: python/guiv3.py:282
 msgid "MB downloaded"
-msgstr ""
+msgstr "MB dimuat turun"
 
 #: python/guiv3.py:282
 msgid "of"
-msgstr ""
+msgstr "dari"
 
 #: python/guiv3.py:743
 msgid "You cannot close this window"
-msgstr ""
+msgstr "Anda tidak boleh tutup tetingkap ini"
 
 #: python/install.py:114 python/install.py:116
 msgid "No description"
-msgstr ""
+msgstr "Tiada keterangan"
 
 #: python/install.py:249 python/mainwindow.py:369 python/mainwindow.py:372
 msgid "Search"
-msgstr ""
+msgstr "Gelintar"
 
 #: python/install.py:252
 msgid "Include:"
-msgstr ""
+msgstr "Termasuk:"
 
 #: python/install.py:262
 msgid "No-cd needed"
-msgstr ""
+msgstr "Tiada-cd diperlukan"
 
 #: python/install.py:269
 msgid "Commercial"
-msgstr ""
+msgstr "Komersial"
 
 #: python/install.py:293
 msgid "Install a non-listed program"
-msgstr ""
+msgstr "Pasang program yang tidak-tersenarai"
 
 #: python/install.py:427
 msgid ""
@@ -4523,6 +4825,10 @@ msgid ""
 " - Leave the default location\n"
 " - Do not tick the checkbox 'Run the program' if asked."
 msgstr ""
+"Bila {0} memasang program Windows: \n"
+"\n"
+" - Biarkan lokasi lalai\n"
+" - Jangan tanda kotak tanda 'Jalankan program' jika ditanya."
 
 #: python/install.py:443
 msgid ""
@@ -4531,6 +4837,10 @@ msgid ""
 "It might not work as expected. Your feedback, positive or negative, is "
 "specially important to improve this installer."
 msgstr ""
+"Program ini buat masa ini masih di dalam pengujian.\n"
+"\n"
+"Ia mungkin tidak berfungsi sepertimana yang diharapkan. Maklumbalas anda, "
+"positif atau negatif, adalah penting untuk mempertingkatkan pemasang ini."
 
 #: python/install.py:445
 msgid ""
@@ -4539,6 +4849,11 @@ msgid ""
 "The only workaround is to use a \"no-cd\" patch, but since those can also be "
 "used for piracy purposes we won't give any support on this matter."
 msgstr ""
+"Program ini mengandungi perlindungan terhadap penyalinan (DRM) yang mana ia "
+"tidak serasi dengan emulasi.\n"
+"Cara lain adalah dengan menggunakan tampalan \"tanpa-cd\", tetapi oleh "
+"kerana ia boleh digunakan atas tujuan cetak rompak kami tidak menyokongnya "
+"lagi."
 
 #: python/install.py:552
 msgid ""
@@ -4546,6 +4861,9 @@ msgid ""
 "\n"
 "{0} cannot ensure that your app will work without any problems"
 msgstr ""
+"Dengan membenarkan ini, anda akan mempunyai capaian ke pemasang pengujian.\n"
+"\n"
+"{0} tidak dapat pastikan aplikasi anda akan berfungsi tanpa sebarang masalah"
 
 #: python/install.py:555
 msgid ""
@@ -4554,40 +4872,48 @@ msgid ""
 "The only workaround is to use \"no-cd\" patches, but since those can also be "
 "used for piracy purposes we won't give any support on this matter."
 msgstr ""
+"Dengan membenarkan ini, anda akan mempunyai capaian ke pemasang untuk "
+"program ini mengandungi perlindungan terhadap penyalinan (DRM) yang mana ia "
+"tidak serasi dengan emulasi.\n"
+"Cara lain adalah dengan menggunakan tampalan \"tanpa-cd\", tetapi oleh "
+"kerana ia boleh digunakan atas tujuan cetak rompak kami tidak menyokongnya "
+"lagi."
 
 #: python/irc.py:137
 msgid "Send"
-msgstr ""
+msgstr "Hantar"
 
 #: python/irc.py:138
 msgid "Connect"
-msgstr ""
+msgstr "Sambung"
 
 #: python/irc.py:139
 msgid "Disconnect"
-msgstr ""
+msgstr "Putuskan"
 
 #: python/irc.py:140
 msgid "Leave"
-msgstr ""
+msgstr "Biarkan"
 
 #: python/irc.py:227
 msgid "Join a channel"
-msgstr ""
+msgstr "Sertai saluran"
 
 #: python/irc.py:257 python/mainwindow.py:722
 msgid "Messenger"
-msgstr ""
+msgstr "Pemesej"
 
 #: python/irc.py:273
 msgid ""
 "If you close this window, you cannot read further replies. Are you sure that "
 "you want to close it?"
 msgstr ""
+"Jika anda tutup tetingkap ini, anda tidak dapat baca balasan lanjutan. Anda "
+"pasti hendak menutupnya?"
 
 #: python/lib/irc.py:291
 msgid "Sorry, this person does not want to receive private messages"
-msgstr ""
+msgstr "Maaf, orang ini tidak mahu menerima mesej peribadi"
 
 #: python/lib/irc.py:304
 msgid ""
@@ -4595,244 +4921,249 @@ msgid ""
 "\n"
 "Please retry later"
 msgstr ""
+"Maaf perkhidmatan pemesej {0} tidak tersedia buat masa ini.\n"
+"\n"
+"Sila cuba lagi kemudian"
 
 #: python/lib/playonlinux.py:27
 msgid "There is nothing installed to run .{0} files."
-msgstr ""
+msgstr "Tiada apa yang dipasang untuk menjalankan fail .{0}."
 
 #: python/lib/playonlinux.py:426
 msgid "{0} error"
-msgstr ""
+msgstr "Ralat {0}"
 
 #: python/mainwindow.py:72
 msgid "{0} website is unavailable. Please check your connexion"
-msgstr ""
+msgstr "Laman {0} tidak tersedia. Sila semak sambungan anda"
 
 #: python/mainwindow.py:74
 msgid "Refreshing {0}"
-msgstr ""
+msgstr "Menyegar Semula {0}"
 
 #: python/mainwindow.py:93 python/mainwindow.py:95
 msgid "An updated version of {0} is available"
-msgstr ""
+msgstr "Versi terkemaskini {0} sudah tersedia"
 
 #: python/mainwindow.py:199 python/mainwindow.py:349 python/mainwindow.py:731
 msgid "Run"
-msgstr ""
+msgstr "Jalan"
 
 #: python/mainwindow.py:203
 msgid "Donate"
-msgstr ""
+msgstr "Beri Sumbangan"
 
 #: python/mainwindow.py:204
 msgid "Exit"
-msgstr ""
+msgstr "Keluar"
 
 #: python/mainwindow.py:208
 msgid "Small icons"
-msgstr ""
+msgstr "Ikon kecil"
 
 #: python/mainwindow.py:209
 msgid "Medium icons"
-msgstr ""
+msgstr "Ikon sederhana"
 
 #: python/mainwindow.py:210
 msgid "Large icons"
-msgstr ""
+msgstr "Ikon besar"
 
 #: python/mainwindow.py:211
 msgid "Very large icons"
-msgstr ""
+msgstr "Ikon sangat besar"
 
 #: python/mainwindow.py:223
 msgid "Manage Wine versions"
-msgstr ""
+msgstr "Urus versi Wine"
 
 #: python/mainwindow.py:229
 msgid "Read a PC CD-Rom"
-msgstr ""
+msgstr "Baca CD-Rom PC"
 
 #: python/mainwindow.py:239
 msgid "Close all {0} software"
-msgstr ""
+msgstr "Tutup semua perisian {0}"
 
 #: python/mainwindow.py:243
 msgid "{0} console"
-msgstr ""
+msgstr "Konsol {0}"
 
 #: python/mainwindow.py:253
 msgid "{0} messenger"
-msgstr ""
+msgstr "Pemesej {0}"
 
 #: python/mainwindow.py:269 python/options.py:388
 msgid "File associations"
-msgstr ""
+msgstr "Asosiasi fail"
 
 #: python/mainwindow.py:276
 msgid "About {0}"
-msgstr ""
+msgstr "Perihal {0}"
 
 #: python/mainwindow.py:305 python/mainwindow.py:309
 msgid "Plugin manager"
-msgstr ""
+msgstr "Pengurus pemalam"
 
 #: python/mainwindow.py:334
 msgid "File"
-msgstr ""
+msgstr "Fail"
 
 #: python/mainwindow.py:336
 msgid "Tools"
-msgstr ""
+msgstr "Alatan"
 
 #: python/mainwindow.py:337 python/mainwindow.py:720
 msgid "Settings"
-msgstr ""
+msgstr "Tetapan"
 
 #: python/mainwindow.py:338 python/options.py:387
 msgid "Plugins"
-msgstr ""
+msgstr "Pemalam"
 
 #: python/mainwindow.py:350 python/mainwindow.py:733
 msgid "Close"
-msgstr ""
+msgstr "Tutup"
 
 #: python/mainwindow.py:356 python/mainwindow.py:737 python/options.py:208
 msgid "Configure"
-msgstr ""
+msgstr "Konfigur"
 
 #: python/mainwindow.py:587
 msgid "Open the application's directory"
-msgstr ""
+msgstr "Buka direktori aplikasi"
 
 #: python/mainwindow.py:591 python/mainwindow.py:745
 msgid "Read the manual"
-msgstr ""
+msgstr "Baca panduan"
 
 #: python/mainwindow.py:595
 msgid "Set the icon"
-msgstr ""
+msgstr "Tetapkan ikon"
 
 #: python/mainwindow.py:603
 msgid "Close this application"
-msgstr ""
+msgstr "Tutup aplikasi ini"
 
 #: python/mainwindow.py:614
 msgid "KillApp"
-msgstr ""
+msgstr "MatikanApl"
 
 #: python/mainwindow.py:621
 msgid "No manual found for {0}"
-msgstr ""
+msgstr "Tiada panduan ditemui untuk {0}"
 
 #: python/mainwindow.py:718
 msgid "Install a program"
-msgstr ""
+msgstr "Pasang program"
 
 #: python/mainwindow.py:725
 msgid "Update GIT"
-msgstr ""
+msgstr "Kemaskini GIT"
 
 #: python/mainwindow.py:735
 msgid "Debug"
-msgstr ""
+msgstr "Nyahpepijat"
 
 #: python/mainwindow.py:739
 msgid "Create a shortcut"
-msgstr ""
+msgstr "Cipta satu pintasan"
 
 #: python/mainwindow.py:741
 msgid "Open the directory"
-msgstr ""
+msgstr "Buka direktori"
 
 #: python/mainwindow.py:748
 msgid "Uninstall"
-msgstr ""
+msgstr "Nyahpasang"
 
 #: python/mainwindow.py:870 python/mainwindow.py:941 python/mainwindow.py:986
 msgid "Please select a program."
-msgstr ""
+msgstr "Sila pilih satu program."
 
 #: python/mainwindow.py:878 python/mainwindow.py:880 python/mainwindow.py:882
 msgid "{0} settings"
-msgstr ""
+msgstr "Tetapan {0}"
 
 #: python/mainwindow.py:948
 msgid "{0} install menu"
-msgstr ""
+msgstr "Menu pemasangan {0}"
 
 #: python/mainwindow.py:957
 msgid "{0} wine versions manager"
-msgstr ""
+msgstr "Pengurus versi wine {0}"
 
 #: python/mainwindow.py:988
 msgid "The virtual drive associated with {0} ({1}) does no longer exists."
-msgstr ""
+msgstr "Pemacu maya berkaitan dengan {0} ({1}) tidak lagi wujud."
 
 #: python/mainwindow.py:1015
 msgid "Are you sure you want to close all {0} Windows?"
-msgstr ""
+msgstr "Anda pasti hendak menutup semua tetingkap {0}?"
 
 #: python/mainwindow.py:1054
 msgid "Run your Windows programs on "
-msgstr ""
+msgstr "Jalankan program Windows anda pada "
 
 #: python/mainwindow.py:1055
 msgid ""
 "PlayOnLinux and PlayOnMac team\n"
 "Under GPL licence version 3"
 msgstr ""
+"Pasukan PlayOnLinux dan PlayOnMa\n"
+"Dibawah lesen GPL versi 3"
 
 #: python/mainwindow.py:1056
 msgid "Developer and Website: "
-msgstr ""
+msgstr "Pembangun dan Laman Sesawang: "
 
 #: python/mainwindow.py:1057
 msgid "Scriptors: "
-msgstr ""
+msgstr "Penulis Skrip: "
 
 #: python/mainwindow.py:1058
 msgid "Packager: "
-msgstr ""
+msgstr "Pembuat Pakej: "
 
 #: python/mainwindow.py:1059
 msgid "Icons:"
-msgstr ""
+msgstr "Ikon:"
 
 #: python/mainwindow.py:1060
 msgid "The following people contributed to this program: "
-msgstr ""
+msgstr "Individu berikut telah memberi sumbangan pada program ini: "
 
 #: python/mainwindow.py:1061
 msgid "Translations:"
-msgstr ""
+msgstr "Terjemahan:"
 
 #: python/mainwindow.py:1062
 msgid "Read TRANSLATORS file"
-msgstr ""
+msgstr "Baca fail TRANSLATORS"
 
 #: python/mainwindow.py:1101
 msgid "{0} is not able to start PlayOnLinux Setup Window server."
-msgstr ""
+msgstr "{0} tidak boleh memulakan pelayar Tetingkap Persediaan PlayOnLinux."
 
 #: python/mainwindow.py:1122
 msgid "{0} cannot find {1}"
-msgstr ""
+msgstr "{0} tidak dapat cari {1}"
 
 #: python/mainwindow.py:1124
 msgid " (from {2})"
-msgstr ""
+msgstr " (dari {2})"
 
 #: python/mainwindow.py:1127
 msgid "You need to install it to continue"
-msgstr ""
+msgstr "Anda perlu memasangnya untuk teruskan"
 
 #: python/mainwindow.py:1129
 msgid "You should install it to use {0}"
-msgstr ""
+msgstr "Anda patut pasang ia supaya dapat guna {0}"
 
 #: python/mainwindow.py:1145
 msgid "{0} is not supposed to be run as root. Sorry"
-msgstr ""
+msgstr "{0} tidak sepatutnya dijalankan sebagai root. Maaf"
 
 #: python/mainwindow.py:1154
 msgid ""
@@ -4840,6 +5171,9 @@ msgid ""
 "\n"
 "You might encounter problem with your games"
 msgstr ""
+"{0} tidak dapat cari pustaka OpenGL 32bits.\n"
+"\n"
+"Anda akan menghadapi masalah dengan permainan anda"
 
 #: python/mainwindow.py:1166
 msgid ""
@@ -4847,6 +5181,9 @@ msgid ""
 "\n"
 "You might encounter problem with your games"
 msgstr ""
+"{0} tidak dapat cari pustaka OpenGL 64bits.\n"
+"\n"
+"Anda akan menghadapi masalah dengan permainan anda"
 
 #: python/mainwindow.py:1178
 msgid ""
@@ -4854,6 +5191,9 @@ msgid ""
 "\n"
 "Please open {0} in a terminal to get more details"
 msgstr ""
+"Sistem fail anda mungkin menghalang {0} dijalankan dengan baik.\n"
+"\n"
+"Sila buka {0} dalam terminal untuk perincian"
 
 #: python/mainwindow.py:1182
 msgid ""
@@ -4869,104 +5209,117 @@ msgid ""
 "\n"
 "These information will be very precious for us to help people."
 msgstr ""
+"Anda inign membantu {0} membina pangkalan data keserasian?\n"
+"\n"
+"Jika anda klik ya, perkara berikut akan dihantar kepada kami secara awanama "
+"kali pertama anda menjalankan program Windows:\n"
+"\n"
+"- Mod kad grafik anda\n"
+"- Versi OS anda\n"
+"- Jika pemacu grafik dipasang atau tidak dipasang.\n"
+"\n"
+"\n"
+"Maklumat ini sangat penting untuk kami membantu pengguna."
 
 #: python/mainwindow.py:1235
 msgid "Are you sure you want to  want to install {0} package?"
-msgstr ""
+msgstr "Anda pasti hendak memasang pakej {0}?"
 
 #: python/mainwindow.py:1242 python/mainwindow.py:1244
 msgid ""
 "You are trying to open a script design for {0}! It might not work as expected"
 msgstr ""
+"Anda cuba membuka rekabentuk skrin bagi {0}! Ia mungkin tidak berfungsi "
+"sepertimana yang diharapkan"
 
 #: python/options.py:116
 msgid "Proxy configuration"
-msgstr ""
+msgstr "Konfigurasi proksi"
 
 #: python/options.py:129
 msgid "Set a proxy"
-msgstr ""
+msgstr "Tetapkan proksi"
 
 #: python/options.py:132
 msgid "Proxy address"
-msgstr ""
+msgstr "Alamat proksi"
 
 #: python/options.py:135
 msgid "Proxy port"
-msgstr ""
+msgstr "Port proksi"
 
 #: python/options.py:138
 msgid "Proxy login"
-msgstr ""
+msgstr "Daftar masuk proksi"
 
 #: python/options.py:141
 msgid "Proxy password"
-msgstr ""
+msgstr "Kata laluan proksi"
 
 #: python/options.py:188
 msgid "Installed plugins"
-msgstr ""
+msgstr "Pemalam dipasamg"
 
 #: python/options.py:206
 msgid "Add"
-msgstr ""
+msgstr "Tambah"
 
 #: python/options.py:209 python/options.py:337
 msgid "Enable"
-msgstr ""
+msgstr "Benarkan"
 
 #: python/options.py:210
 msgid "Choose a plugin"
-msgstr ""
+msgstr "Pilih satu pemalam"
 
 #: python/options.py:263
 msgid "What is the extension?"
-msgstr ""
+msgstr "Apakah itu sambungan?"
 
 #: python/options.py:275
 msgid "Assigned program"
-msgstr ""
+msgstr "Program terumpuk"
 
 #: python/options.py:277
 msgid "Delete"
-msgstr ""
+msgstr "Padam"
 
 #: python/options.py:305
 msgid "Are you sure you want to install: "
-msgstr ""
+msgstr "Anda pasti hendak memasang: "
 
 #: python/options.py:313
 msgid "Are you sure you want to delete: "
-msgstr ""
+msgstr "Anda pasti hendak memadam: "
 
 #: python/options.py:334
 msgid "Disable"
-msgstr ""
+msgstr "Dilumpuhkan"
 
 #: python/options.py:375
 msgid "Apply"
-msgstr ""
+msgstr "Laksana"
 
 #: python/options.py:412
 msgid "You must restart {0} for the changes to take effect."
-msgstr ""
+msgstr "Anda perlu mulakan semula {0} supaya perubahan berkesan."
 
 #: python/wine_versions.py:194
 msgid "Installed Wine versions: "
-msgstr ""
+msgstr "Versi Wine dipasang: "
 
 #: python/wine_versions.py:195
 msgid "Available Wine versions: "
-msgstr ""
+msgstr "Versi Wine tersedia: "
 
 #: python/wine_versions.py:202
 msgid "Wine versions"
-msgstr ""
+msgstr "Versi Wine"
 
 #: python/wine_versions.py:321
 msgid "Are you sure you want to delete wine {0}?"
-msgstr ""
+msgstr "Anda pasti hendak memadam wine {0}?"
 
 #: python/wrapper.py:121
 msgid "{0} is not able to start POL_SetupWindow_server."
-msgstr ""
+msgstr "{0} tidak boleh memulakan POL_SetupWindow_server."

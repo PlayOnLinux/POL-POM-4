@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2013-01-28 19:00+0100\n"
+"POT-Creation-Date: 2013-02-04 19:00+0100\n"
 "PO-Revision-Date: 2012-12-21 03:40+0000\n"
 "Last-Translator: Esben Aaberg <esben_aaberg@yahoo.com>\n"
 "Language-Team: Danish <da@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-01-29 05:08+0000\n"
-"X-Generator: Launchpad (build 16451)\n"
+"X-Launchpad-Export-Date: 2013-02-05 04:32+0000\n"
+"X-Generator: Launchpad (build 16468)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -372,16 +372,26 @@ msgid ""
 "can continue."
 msgstr ""
 
-#: PlayOnLinux_Scripts/Ableton_Live_8_:41
+#: PlayOnLinux_Scripts/Ableton_Live_8_:42
 #, sh-format
 msgid "Please select $TITLE Install file:"
 msgstr ""
 
-#: PlayOnLinux_Scripts/Ableton_Live_8_:49
+#: PlayOnLinux_Scripts/Ableton_Live_8_:50
 #, sh-format
 msgid ""
 "NOTICE: To register, when it opens asking for registration, drag-and-drop "
 "your reg file into $TITLE"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Absynth_5_:30 PlayOnLinux_Scripts/Traktor_Pro_2_:30
+#, sh-format
+msgid "Please select $TITLE install file:"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Absynth_5_:49 PlayOnLinux_Scripts/Guitar_Rig_5_:46
+#, sh-format
+msgid "NOTICE: For low-latency audio, look into WineASIO."
 msgstr ""
 
 #: PlayOnLinux_Scripts/Age_Of_Wonders_:70
@@ -458,7 +468,7 @@ msgstr "Du behøver ikke at installere DirectX eller bruge GLSetup"
 #: PlayOnLinux_Scripts/Alt.Binz_:40 PlayOnLinux_Scripts/Driftmoon_:43
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:42
 #: PlayOnLinux_Scripts/GOG.com___Gothic_3_Community_patch_:46
-#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:54
+#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:51
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:51
 #: PlayOnLinux_Scripts/Google_Picasa_3.9_:54
 #: PlayOnLinux_Scripts/POL_GoG_setup_:30 PlayOnLinux_Scripts/SFR_LiberTalk_:36
@@ -1211,6 +1221,11 @@ msgstr ""
 msgid "$TITLE has been installed successfully"
 msgstr "Installationen af $TITLE lykkedes"
 
+#: PlayOnLinux_Scripts/Divine_Divinity_:43
+#, sh-format
+msgid " $TITLE has been successfully installed."
+msgstr ""
+
 #: PlayOnLinux_Scripts/Divinity_II___The_Dragon_Knight_Saga_:61
 #, sh-format
 msgid ""
@@ -1369,7 +1384,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Gothic_3_Community_patch_:58
 #: PlayOnLinux_Scripts/GOG.com___Ground_Control_2_:45
 #: PlayOnLinux_Scripts/GOG.com___Guilty_Gear_X2_Reload_:39
-#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:61
+#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:58
 #: PlayOnLinux_Scripts/GOG.com___In_Cold_Blood_:39
 #: PlayOnLinux_Scripts/GOG.com___Incoming_and_Incoming_Forces_:40
 #: PlayOnLinux_Scripts/GOG.com___Iron_Storm_:38
@@ -1446,7 +1461,7 @@ msgstr "Fejl under installation af arkivet"
 
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:29
 #: PlayOnLinux_Scripts/GOG.com___Gothic_3_Community_patch_:33
-#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:40
+#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:37
 #: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:32
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:37
 #, sh-format
@@ -1546,13 +1561,13 @@ msgid ""
 "contains LOTS of bug fixes and enhancements over the original game."
 msgstr ""
 
-#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:50
+#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:47
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:47
 #, sh-format
 msgid "Go there now?"
 msgstr ""
 
-#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:50
+#: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:47
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:47
 #, sh-format
 msgid "You can download the archive file from:"
@@ -1792,6 +1807,13 @@ msgid ""
 "reset but do not worry, it do not restart from the beginning."
 msgstr ""
 
+#: PlayOnLinux_Scripts/Guitar_Rig_5_:38
+#, sh-format
+msgid ""
+"Please select $TITLE install file. During installation, uncheck all extra "
+"drivers it wants to install:"
+msgstr ""
+
 #: PlayOnLinux_Scripts/Halo_Combat_Evolved_:41
 #, sh-format
 msgid "Select the file to install"
@@ -1800,6 +1822,20 @@ msgstr ""
 #: PlayOnLinux_Scripts/Halo_Combat_Evolved_:70
 #, sh-format
 msgid "Updating $TITLE"
+msgstr ""
+
+#: PlayOnLinux_Scripts/ImgBurn_:38
+#, sh-format
+msgid ""
+"Please select $TITLE install file. DO NOT CHECK RUN IMGBURN AT END OF "
+"INSTALLATION:"
+msgstr ""
+
+#: PlayOnLinux_Scripts/ImgBurn_:46
+#, sh-format
+msgid ""
+"NOTICE: POL does not condone piracy. Please use $TITLE in a respectable "
+"manner"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Infinity_Engine_widescreen_mod_:52
@@ -2366,6 +2402,21 @@ msgstr ""
 msgid "Please insert disk 3 into your disk drive\\nif not already done."
 msgstr ""
 
+#: PlayOnLinux_Scripts/Reaper_4_:30
+#, sh-format
+msgid ""
+"Please select $TITLE install file. Do NOT run Reaper after install has "
+"finished."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Reaper_4_:47
+#, sh-format
+msgid ""
+"NOTICE: For low-latency audio, look into WineASIO. An aftermarket, low-"
+"latency audio interface is recommended. Your MIDI controllers should work as "
+"expected."
+msgstr ""
+
 #: PlayOnLinux_Scripts/Rome_Total_War__Gold_Edition__:72
 #, sh-format
 msgid ""
@@ -2665,6 +2716,13 @@ msgstr ""
 msgid ""
 "Installing vcrun2008 and wininet and disabling d3d9 and d3d8 dlls to force "
 "the game to use OpenGL"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Traktor_Pro_2_:49
+#, sh-format
+msgid ""
+"NOTICE: For low-latency audio, look into WineASIO. Your MIDI controllers "
+"should work as expected."
 msgstr ""
 
 #: PlayOnLinux_Scripts/Tribes___Ascent_:46
@@ -3620,7 +3678,7 @@ msgid ""
 msgstr ""
 
 #: bash/uninstall:25 bash/uninstall:53 bash/uninstall:56 bash/uninstall:58
-#: lib/playonlinux.lib:710
+#: lib/playonlinux.lib:712
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
 msgstr ""
@@ -3640,7 +3698,7 @@ msgstr ""
 msgid "This wizard will help you to uninstall: "
 msgstr ""
 
-#: bash/uninstall:53 lib/playonlinux.lib:710
+#: bash/uninstall:53 lib/playonlinux.lib:712
 #, sh-format
 msgid "Uninstalling..."
 msgstr ""
@@ -3757,33 +3815,33 @@ msgstr ""
 msgid "Making shortcut..."
 msgstr ""
 
-#: lib/playonlinux.lib:708
+#: lib/playonlinux.lib:710
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr ""
 
-#: lib/playonlinux.lib:819
+#: lib/playonlinux.lib:821
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:820
+#: lib/playonlinux.lib:822
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:821
+#: lib/playonlinux.lib:823
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:822
+#: lib/playonlinux.lib:824
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
@@ -3874,21 +3932,21 @@ msgstr ""
 msgid "File size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:794
+#: lib/scripts.lib:809
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
 "n$APPLICATION_TITLE $NEEDED is required."
 msgstr ""
 
-#: lib/scripts.lib:809
+#: lib/scripts.lib:824
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
 "$NEEDED is recommended to continue."
 msgstr ""
 
-#: lib/scripts.lib:840
+#: lib/scripts.lib:855
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr ""
