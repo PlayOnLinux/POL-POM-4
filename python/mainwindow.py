@@ -820,7 +820,7 @@ class MainWindow(wx.Frame):
 
     def Reload(self, event):
         self.games = os.listdir(Variables.playonlinux_rep+"shortcuts/")
-        self.games.sort()
+        self.games.sort(key=str.upper)
         
         try:
             self.games.remove(".DS_Store")
