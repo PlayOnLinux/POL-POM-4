@@ -68,20 +68,22 @@ fi
 fi
 POL_SetupWindow_textbox "$(eval_gettext "Please give a very short description (title, english only)")" "$POL_DEBUG_TITLE"
 BUGTITLE="$APP_ANSWER"
-POL_SetupWindow_textbox_multiline "$(eval_gettext "Please explain your problem clearly (english only):")" "$POL_DEBUG_TITLE" "- what were you doing when the problem occurred?- what did you expect?- what happened instead?- anything else to report?"
+TEMPLATE="- what were you doing when the problem occurred?- what did you expect?- what happened instead?- anything else to report?"
+POL_SetupWindow_textbox_multiline "$(eval_gettext "Please explain your problem clearly (english only):")" "$POL_DEBUG_TITLE" "$TEMPLATE"
 
-if [ "$LOGTITLE" = "" ]
-then
-DESCRIPTION="$APP_ANSWER"
-else
-DESCRIPTION="$APP_ANSWER
-
-[code language%3Dconsole]$(cat "$POL_USER_ROOT/logs/$LOGTITLE/$LOGTITLE.log")[/code]"
-fi
-if [ "$BUGTITLE" = "" ] || [ "$DESCRIPTION" = "" ]
+if [ -z "$BUGTITLE" -o -z "$DESCRIPTION" -o "$DESCRIPTION" = "$TEMPLATE" ]
 then
 	POL_SetupWindow_message "$(eval_gettext 'Sorry, we need a detailed description.')" "$TITLE"
 	POL_SetupWindow_Close
+fi
+
+if [ "$LOGTITLE" = "" ]
+then
+	DESCRIPTION="$APP_ANSWER"
+else
+	DESCRIPTION="$APP_ANSWER
+
+[code language%3Dconsole]$(cat "$POL_USER_ROOT/logs/$LOGTITLE/$LOGTITLE.log")[/code]"
 fi
 POL_Website_login
 POL_Website_Init
