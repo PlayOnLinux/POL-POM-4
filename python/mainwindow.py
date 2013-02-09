@@ -734,6 +734,8 @@ class MainWindow(wx.Frame):
             i+=1
             self.menuGaucheAddLink("pol_prgm_rundebug", _("Debug"), i,Variables.playonlinux_env+"/resources/images/menu/bug.png",self.RunDebug)
             i+=1
+            self.menuGaucheAddLink("pol_prgm_reportproblem", _("Report a problem"), i,Variables.playonlinux_env+"/resources/images/menu/bug.png",self.ReportProblem)
+            i+=1
             self.menuGaucheAddLink("pol_prgm_configure", _("Configure"), i,Variables.playonlinux_env+"/resources/images/menu/run.png",self.Configure)
             i+=1
             self.menuGaucheAddLink("pol_prgm_shortcut", _("Create a shortcut"), i,Variables.playonlinux_env+"/resources/images/menu/shortcut.png",self.Package)
@@ -992,6 +994,12 @@ class MainWindow(wx.Frame):
         game_prefix = playonlinux.getPrefix(game_exec)
         playonlinux.SetDebugState(game_exec, game_prefix, True)
         self.Run(self, True)
+
+    def ReportProblem(self, event):
+        game_exec = self.GetSelectedProgram()
+        game_log = playonlinux.getLog(game_exec)
+        if game_log:
+            os.system('env LOGTITLE="'+game_log+'" bash "'+os.environ["PLAYONLINUX"]+'/bash/bug_report" &')
  
     def POLDie(self):
         for pid in self.registeredPid:

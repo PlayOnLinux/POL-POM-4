@@ -134,6 +134,20 @@ def DeleteSettings(setting, prefix='_POL_'):
         i+=1
 
 
+def getLog(game):
+    cfile = Variables.playonlinux_rep+"shortcuts/"+game
+    try:
+        fichier = open(cfile,"r").readlines()
+    except:
+        return None
+
+    for line in fichier:
+        line = line.replace("\n","")
+        if('#POL_Log=' in line):
+            line = string.split(line,"=")
+            return(line[1])
+    return None
+
 def GetDebugState(game):
     cfile = Variables.playonlinux_rep+"shortcuts/"+game
     try:
