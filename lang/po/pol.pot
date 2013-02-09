@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2013-02-08 19:00:49+01:00\n"
+"POT-Creation-Date: 2013-02-09 19:00:44+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1311,7 +1311,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Arx_Fatalis_:42
 #: PlayOnLinux_Scripts/GOG.com___Back_To_The_Future_The_Game_:42
 #: PlayOnLinux_Scripts/GOG.com___Betrayal_at_Krondor_Pack_:40
-#: PlayOnLinux_Scripts/GOG.com___Beyond_Good_and_Evil_:41
 #: PlayOnLinux_Scripts/GOG.com___Blackwell_Bundle_:42
 #: PlayOnLinux_Scripts/GOG.com___BloodRayne_:42
 #: PlayOnLinux_Scripts/GOG.com___Commandos_2_and_3_:40
@@ -1329,7 +1328,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Evil_Genius_:39
 #: PlayOnLinux_Scripts/GOG.com___Flatout_:39
 #: PlayOnLinux_Scripts/GOG.com___Freedom_Force_vs._the_3rd_Reich_:39
-#: PlayOnLinux_Scripts/GOG.com___Gabriel_Knight_1__Sins_of_the_Fathers_:39
 #: PlayOnLinux_Scripts/GOG.com___Gabriel_Knight_2__The_Beast_Within_:39
 #: PlayOnLinux_Scripts/GOG.com___Gabriel_Knight_3__Blood_of_the_Sacred__of_the_Damned_:39
 #: PlayOnLinux_Scripts/GOG.com___Gemini_Rue_:39
@@ -1354,7 +1352,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Legend_of_Grimrock_:39
 #: PlayOnLinux_Scripts/GOG.com___Little_Big_Adventure_:39
 #: PlayOnLinux_Scripts/GOG.com___Little_Big_Adventure_2_:39
-#: PlayOnLinux_Scripts/GOG.com___Might_and_Magic_7_:39
 #: PlayOnLinux_Scripts/GOG.com___Myst_Uru_Complete_Chronicles_:39
 #: PlayOnLinux_Scripts/GOG.com___Normality_:39
 #: PlayOnLinux_Scripts/GOG.com___Oddworld__Abe_s_Exoddus_:39
@@ -1379,7 +1376,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Simon_the_Sorcerer_2_:39
 #: PlayOnLinux_Scripts/GOG.com___Space_Quest_4__5__6_:41
 #: PlayOnLinux_Scripts/GOG.com___Space_Rangers_2__Reboot_:39
-#: PlayOnLinux_Scripts/GOG.com___Splinter_Cell_:39
 #: PlayOnLinux_Scripts/GOG.com___Star_Wolves_:39
 #: PlayOnLinux_Scripts/GOG.com___Still_Life_:39
 #: PlayOnLinux_Scripts/GOG.com___Syberia_:39
@@ -3937,9 +3933,9 @@ msgid ""
 msgstr ""
 
 #: lib/setupwindow.lib:122 python/guiv3.py:743 python/lib/irc.py:291
-#: python/mainwindow.py:1101 python/mainwindow.py:1131
-#: python/mainwindow.py:1145 python/mainwindow.py:1154
-#: python/mainwindow.py:1166 python/mainwindow.py:1178 python/wrapper.py:121
+#: python/mainwindow.py:1109 python/mainwindow.py:1139
+#: python/mainwindow.py:1153 python/mainwindow.py:1162
+#: python/mainwindow.py:1174 python/mainwindow.py:1186 python/wrapper.py:121
 #, sh-format
 msgid "Error"
 msgstr ""
@@ -4311,7 +4307,7 @@ msgid ""
 "If you change "
 msgstr ""
 
-#: python/configure.py:644 python/mainwindow.py:922 python/mainwindow.py:924
+#: python/configure.py:644 python/mainwindow.py:924 python/mainwindow.py:926
 msgid "{0} configuration"
 msgstr ""
 
@@ -4352,8 +4348,8 @@ msgstr ""
 msgid "Are you sure you want to delete {0} ?"
 msgstr ""
 
-#: python/debug.py:39 python/mainwindow.py:257 python/mainwindow.py:897
-#: python/mainwindow.py:980
+#: python/debug.py:39 python/mainwindow.py:257 python/mainwindow.py:899
+#: python/mainwindow.py:982
 msgid "{0} debugger"
 msgstr ""
 
@@ -4545,7 +4541,7 @@ msgstr ""
 msgid "There is nothing installed to run .{0} files."
 msgstr ""
 
-#: python/lib/playonlinux.py:427
+#: python/lib/playonlinux.py:441
 msgid "{0} error"
 msgstr ""
 
@@ -4641,7 +4637,7 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-#: python/mainwindow.py:356 python/mainwindow.py:737 python/options.py:208
+#: python/mainwindow.py:356 python/mainwindow.py:739 python/options.py:208
 msgid "Configure"
 msgstr ""
 
@@ -4649,7 +4645,7 @@ msgstr ""
 msgid "Open the application's directory"
 msgstr ""
 
-#: python/mainwindow.py:591 python/mainwindow.py:745
+#: python/mainwindow.py:591 python/mainwindow.py:747
 msgid "Read the manual"
 msgstr ""
 
@@ -4681,126 +4677,130 @@ msgstr ""
 msgid "Debug"
 msgstr ""
 
-#: python/mainwindow.py:739
-msgid "Create a shortcut"
+#: python/mainwindow.py:737
+msgid "Report a problem"
 msgstr ""
 
 #: python/mainwindow.py:741
+msgid "Create a shortcut"
+msgstr ""
+
+#: python/mainwindow.py:743
 msgid "Open the directory"
 msgstr ""
 
-#: python/mainwindow.py:748
+#: python/mainwindow.py:750
 msgid "Uninstall"
 msgstr ""
 
-#: python/mainwindow.py:870 python/mainwindow.py:941 python/mainwindow.py:986
+#: python/mainwindow.py:872 python/mainwindow.py:943 python/mainwindow.py:988
 msgid "Please select a program."
 msgstr ""
 
-#: python/mainwindow.py:878 python/mainwindow.py:880 python/mainwindow.py:882
+#: python/mainwindow.py:880 python/mainwindow.py:882 python/mainwindow.py:884
 msgid "{0} settings"
 msgstr ""
 
-#: python/mainwindow.py:948
+#: python/mainwindow.py:950
 msgid "{0} install menu"
 msgstr ""
 
-#: python/mainwindow.py:957
+#: python/mainwindow.py:959
 msgid "{0} wine versions manager"
 msgstr ""
 
-#: python/mainwindow.py:988
+#: python/mainwindow.py:990
 msgid "The virtual drive associated with {0} ({1}) does no longer exists."
 msgstr ""
 
-#: python/mainwindow.py:1015
+#: python/mainwindow.py:1023
 msgid "Are you sure you want to close all {0} Windows?"
 msgstr ""
 
-#: python/mainwindow.py:1054
+#: python/mainwindow.py:1062
 msgid "Run your Windows programs on "
 msgstr ""
 
-#: python/mainwindow.py:1055
+#: python/mainwindow.py:1063
 msgid ""
 "PlayOnLinux and PlayOnMac team\n"
 "Under GPL licence version 3"
 msgstr ""
 
-#: python/mainwindow.py:1056
+#: python/mainwindow.py:1064
 msgid "Developer and Website: "
 msgstr ""
 
-#: python/mainwindow.py:1057
+#: python/mainwindow.py:1065
 msgid "Scriptors: "
 msgstr ""
 
-#: python/mainwindow.py:1058
+#: python/mainwindow.py:1066
 msgid "Packager: "
 msgstr ""
 
-#: python/mainwindow.py:1059
+#: python/mainwindow.py:1067
 msgid "Icons:"
 msgstr ""
 
-#: python/mainwindow.py:1060
+#: python/mainwindow.py:1068
 msgid "The following people contributed to this program: "
 msgstr ""
 
-#: python/mainwindow.py:1061
+#: python/mainwindow.py:1069
 msgid "Translations:"
 msgstr ""
 
-#: python/mainwindow.py:1062
+#: python/mainwindow.py:1070
 msgid "Read TRANSLATORS file"
 msgstr ""
 
-#: python/mainwindow.py:1101
+#: python/mainwindow.py:1109
 msgid "{0} is not able to start PlayOnLinux Setup Window server."
 msgstr ""
 
-#: python/mainwindow.py:1122
+#: python/mainwindow.py:1130
 msgid "{0} cannot find {1}"
 msgstr ""
 
-#: python/mainwindow.py:1124
+#: python/mainwindow.py:1132
 msgid " (from {2})"
 msgstr ""
 
-#: python/mainwindow.py:1127
+#: python/mainwindow.py:1135
 msgid "You need to install it to continue"
 msgstr ""
 
-#: python/mainwindow.py:1129
+#: python/mainwindow.py:1137
 msgid "You should install it to use {0}"
 msgstr ""
 
-#: python/mainwindow.py:1145
+#: python/mainwindow.py:1153
 msgid "{0} is not supposed to be run as root. Sorry"
 msgstr ""
 
-#: python/mainwindow.py:1154
+#: python/mainwindow.py:1162
 msgid ""
 "{0} is unable to find 32bits OpenGL libraries.\n"
 "\n"
 "You might encounter problem with your games"
 msgstr ""
 
-#: python/mainwindow.py:1166
+#: python/mainwindow.py:1174
 msgid ""
 "{0} is unable to find 64bits OpenGL libraries.\n"
 "\n"
 "You might encounter problem with your games"
 msgstr ""
 
-#: python/mainwindow.py:1178
+#: python/mainwindow.py:1186
 msgid ""
 "Your filesystem might prevent {0} from running correctly.\n"
 "\n"
 "Please open {0} in a terminal to get more details"
 msgstr ""
 
-#: python/mainwindow.py:1182
+#: python/mainwindow.py:1190
 msgid ""
 "Do you want to help {0} to make a compatibility database?\n"
 "\n"
@@ -4815,11 +4815,11 @@ msgid ""
 "These information will be very precious for us to help people."
 msgstr ""
 
-#: python/mainwindow.py:1235
+#: python/mainwindow.py:1243
 msgid "Are you sure you want to  want to install {0} package?"
 msgstr ""
 
-#: python/mainwindow.py:1242 python/mainwindow.py:1244
+#: python/mainwindow.py:1250 python/mainwindow.py:1252
 msgid ""
 "You are trying to open a script design for {0}! It might not work as expected"
 msgstr ""
