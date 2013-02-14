@@ -141,9 +141,9 @@ def readAction(object):
 
     if(object.SetupWindowTimer_action[0] == 'POL_System_RegisterPID'):
         if(len(object.SetupWindowTimer_action) == 2):
-            object.registeredPid.append(object.SetupWindowTimer_action[1])
+            object.registeredPid.append(int(object.SetupWindowTimer_action[1]))
             object.SetupWindowTimer_action = None
-            return False  
+            return False
 
     if(len(object.SetupWindowTimer_action) <= 1):
         object.SetupWindowTimer_action = None

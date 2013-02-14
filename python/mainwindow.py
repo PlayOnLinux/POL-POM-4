@@ -1000,18 +1000,18 @@ class MainWindow(wx.Frame):
         game_log = playonlinux.getLog(game_exec)
         if game_log:
             os.system('env LOGTITLE="'+game_log+'" bash "'+os.environ["PLAYONLINUX"]+'/bash/bug_report" &')
- 
+
     def POLDie(self):
         for pid in self.registeredPid:
-            os.system("kill -9 -"+pid+" 2> /dev/null")
-            os.system("kill -9 "+pid+" 2> /dev/null") 
+            os.system("kill -9 -%d 2> /dev/null" % pid)
+            os.system("kill -9 %d 2> /dev/null" % pid) 
         app.POLServer.closeServer()
         os._exit(0)
 
     def POLRestart(self):
         for pid in self.registeredPid:
-            os.system("kill -9 -"+pid+" 2> /dev/null")
-            os.system("kill -9 "+pid+" 2> /dev/null") 
+            os.system("kill -9 -%d 2> /dev/null" % pid)
+            os.system("kill -9 %d 2> /dev/null" % pid) 
         app.POLServer.closeServer()
         os._exit(63) # Restart code
 
@@ -1020,7 +1020,18 @@ class MainWindow(wx.Frame):
         self.POLDie()
 
     def ClosePol(self, event):
-        if(playonlinux.GetSettings("DONT_ASK_BEFORE_CLOSING") == "TRUE" or wx.YES == wx.MessageBox(_('Are you sure you want to close all {0} Windows?').format(os.environ["APPLICATION_TITLE"]).decode("utf-8","replace"),os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
+        pids = []
+        for pid in self.registeredPid:
+            try:
+                os.kill(pid, 0)
+                pid_exists = True
+                pids.append(pid)
+            except OSError:
+                pid_exists = False
+            print "Registered PID: %d (%s)" % (pid, 'Present' if pid_exists else 'Missing')
+        self.registeredPid = pids
+
+        if(playonlinux.GetSettings("DONT_ASK_BEFORE_CLOSING") == "TRUE" or self.registeredPid == [] or wx.YES == wx.MessageBox(_('Are you sure you want to close all {0} Windows?').format(os.environ["APPLICATION_TITLE"]).decode("utf-8","replace"),os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
             self.SizeToSave = self.GetSize();
             self.PositionToSave = self.GetPosition();
             # Save size and position

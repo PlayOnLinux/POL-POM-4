@@ -67,12 +67,12 @@ class MainWindow(wx.Frame):
             return gui_server.readAction(self)
         if(self.myScript.programrunning == False):
             self.POLDie()
-           
-  
+
+
     def POLDie(self):
         for pid in self.registeredPid:
-            os.system("kill -9 -"+pid+" 2> /dev/null")
-            os.system("kill -9 "+pid+" 2> /dev/null") 
+            os.system("kill -9 -%d 2> /dev/null" % pid)
+            os.system("kill -9 %d 2> /dev/null" % pid) 
         app.POLServer.closeServer()
         os._exit(0)
 
