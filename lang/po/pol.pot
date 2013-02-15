@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2013-02-14 19:00:50+01:00\n"
+"POT-Creation-Date: 2013-02-15 19:00:47+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1270,8 +1270,8 @@ msgstr ""
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:109 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:421 lib/wine.lib:1070
-#: lib/wine.lib:1100
+#: bash/winebash:27 lib/setupwindow.lib:421 lib/wine.lib:1073
+#: lib/wine.lib:1103
 #, sh-format
 msgid "Please wait..."
 msgstr ""
@@ -3705,7 +3705,7 @@ msgid ""
 msgstr ""
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:910 lib/wine.lib:988
+#: lib/wine.lib:910 lib/wine.lib:991
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr ""
@@ -3941,9 +3941,9 @@ msgid ""
 msgstr ""
 
 #: lib/setupwindow.lib:122 python/guiv3.py:743 python/lib/irc.py:291
-#: python/mainwindow.py:1109 python/mainwindow.py:1139
-#: python/mainwindow.py:1153 python/mainwindow.py:1162
-#: python/mainwindow.py:1174 python/mainwindow.py:1186 python/wrapper.py:121
+#: python/mainwindow.py:1120 python/mainwindow.py:1150
+#: python/mainwindow.py:1164 python/mainwindow.py:1173
+#: python/mainwindow.py:1185 python/mainwindow.py:1197 python/wrapper.py:121
 #, sh-format
 msgid "Error"
 msgstr ""
@@ -4150,34 +4150,34 @@ msgstr ""
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr ""
 
-#: lib/wine.lib:944
+#: lib/wine.lib:947
 #, sh-format
 msgid "User abort"
 msgstr ""
 
-#: lib/wine.lib:1070 lib/wine.lib:1100
+#: lib/wine.lib:1073 lib/wine.lib:1103
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr ""
 
-#: lib/wine.lib:1074 lib/wine.lib:1103
+#: lib/wine.lib:1077 lib/wine.lib:1106
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
 "have to reinstall $SOFTNAME"
 msgstr ""
 
-#: lib/wine.lib:1074 lib/wine.lib:1103
+#: lib/wine.lib:1077 lib/wine.lib:1106
 #, sh-format
 msgid "Install is done"
 msgstr ""
 
-#: lib/wine.lib:1107 lib/wine.lib:1108
+#: lib/wine.lib:1110 lib/wine.lib:1111
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr ""
 
-#: lib/wine.lib:1116
+#: lib/wine.lib:1119
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr ""
@@ -4721,94 +4721,94 @@ msgstr ""
 msgid "The virtual drive associated with {0} ({1}) does no longer exists."
 msgstr ""
 
-#: python/mainwindow.py:1023
+#: python/mainwindow.py:1034
 msgid "Are you sure you want to close all {0} Windows?"
 msgstr ""
 
-#: python/mainwindow.py:1062
+#: python/mainwindow.py:1073
 msgid "Run your Windows programs on "
 msgstr ""
 
-#: python/mainwindow.py:1063
+#: python/mainwindow.py:1074
 msgid ""
 "PlayOnLinux and PlayOnMac team\n"
 "Under GPL licence version 3"
 msgstr ""
 
-#: python/mainwindow.py:1064
+#: python/mainwindow.py:1075
 msgid "Developer and Website: "
 msgstr ""
 
-#: python/mainwindow.py:1065
+#: python/mainwindow.py:1076
 msgid "Scriptors: "
 msgstr ""
 
-#: python/mainwindow.py:1066
+#: python/mainwindow.py:1077
 msgid "Packager: "
 msgstr ""
 
-#: python/mainwindow.py:1067
+#: python/mainwindow.py:1078
 msgid "Icons:"
 msgstr ""
 
-#: python/mainwindow.py:1068
+#: python/mainwindow.py:1079
 msgid "The following people contributed to this program: "
 msgstr ""
 
-#: python/mainwindow.py:1069
+#: python/mainwindow.py:1080
 msgid "Translations:"
 msgstr ""
 
-#: python/mainwindow.py:1070
+#: python/mainwindow.py:1081
 msgid "Read TRANSLATORS file"
 msgstr ""
 
-#: python/mainwindow.py:1109
+#: python/mainwindow.py:1120
 msgid "{0} is not able to start PlayOnLinux Setup Window server."
 msgstr ""
 
-#: python/mainwindow.py:1130
+#: python/mainwindow.py:1141
 msgid "{0} cannot find {1}"
 msgstr ""
 
-#: python/mainwindow.py:1132
+#: python/mainwindow.py:1143
 msgid " (from {2})"
 msgstr ""
 
-#: python/mainwindow.py:1135
+#: python/mainwindow.py:1146
 msgid "You need to install it to continue"
 msgstr ""
 
-#: python/mainwindow.py:1137
+#: python/mainwindow.py:1148
 msgid "You should install it to use {0}"
 msgstr ""
 
-#: python/mainwindow.py:1153
+#: python/mainwindow.py:1164
 msgid "{0} is not supposed to be run as root. Sorry"
 msgstr ""
 
-#: python/mainwindow.py:1162
+#: python/mainwindow.py:1173
 msgid ""
 "{0} is unable to find 32bits OpenGL libraries.\n"
 "\n"
 "You might encounter problem with your games"
 msgstr ""
 
-#: python/mainwindow.py:1174
+#: python/mainwindow.py:1185
 msgid ""
 "{0} is unable to find 64bits OpenGL libraries.\n"
 "\n"
 "You might encounter problem with your games"
 msgstr ""
 
-#: python/mainwindow.py:1186
+#: python/mainwindow.py:1197
 msgid ""
 "Your filesystem might prevent {0} from running correctly.\n"
 "\n"
 "Please open {0} in a terminal to get more details"
 msgstr ""
 
-#: python/mainwindow.py:1190
+#: python/mainwindow.py:1201
 msgid ""
 "Do you want to help {0} to make a compatibility database?\n"
 "\n"
@@ -4823,11 +4823,11 @@ msgid ""
 "These information will be very precious for us to help people."
 msgstr ""
 
-#: python/mainwindow.py:1243
+#: python/mainwindow.py:1254
 msgid "Are you sure you want to  want to install {0} package?"
 msgstr ""
 
-#: python/mainwindow.py:1250 python/mainwindow.py:1252
+#: python/mainwindow.py:1261 python/mainwindow.py:1263
 msgid ""
 "You are trying to open a script design for {0}! It might not work as expected"
 msgstr ""
