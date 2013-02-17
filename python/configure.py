@@ -18,7 +18,7 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-import os, sys, string, shutil
+import os, sys, string, stat, shutil
 import wx, time, shlex
 #from subprocess import Popen,PIPE
 
@@ -723,7 +723,7 @@ class MainWindow(wx.Frame):
                     for element in mylist:
                         if(playonlinux.getPrefix(element).lower() == self.onglets.s_prefix.lower()):
                             os.remove(Variables.playonlinux_rep+"/shortcuts/"+element)
-                    shutil.rmtree(Variables.playonlinux_rep+"/wineprefix/"+self.onglets.s_prefix)
+                    self._delete_directory(Variables.playonlinux_rep+"/wineprefix/"+self.onglets.s_prefix)
         else:
             if(wx.YES == wx.MessageBox(_("Are you sure you want to delete {0} ?").format(self.onglets.s_title.encode("utf-8","replace")).decode("utf-8","replace"), os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
                 os.remove(Variables.playonlinux_rep+"/shortcuts/"+self.onglets.s_title)
@@ -731,6 +731,31 @@ class MainWindow(wx.Frame):
         self.onglets.s_isPrefix = True
         self.change_program("default",True)
         self.list_game.SelectItem(self.prefixes_item["default"])
+
+    def _delete_directory(self, root_path):
+        """
+        Remove a directory tree, making sure no directory rights get in the way.
+        It assumes everything is owned by the user however.
+        """
+
+        # need exec right to dereference content
+        # need read right to list content
+        # need write right to remove content
+        needed_dir_rights = stat.S_IXUSR|stat.S_IRUSR|stat.S_IWUSR
+
+        # topdown=True, the default, is necessary to fix directories rights
+        # before trying to list them
+        for dirname, dirs, files in os.walk(root_path):
+            for dir in dirs:
+                fullpath = os.path.join(dirname, dir)
+                # To speed up the process, only modify metadata when necessary
+                attr = os.stat(fullpath)
+                if attr.st_mode & needed_dir_rights != needed_dir_rights:
+                    print "%s rights need fixing" % fullpath
+                    os.chmod(fullpath, needed_dir_rights)
+
+        # Alright, now we should be able to proceed
+        shutil.rmtree(root_path)
 
 
     def AutoReload(self, event):
