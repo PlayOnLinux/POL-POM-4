@@ -99,13 +99,18 @@ POL_System_SetArch()
 POL_System_HomeSpaceLeft()
 {
 	# Return the space left in the home partition
-	df -k "$HOME" | tail -n1 | awk '{print $4}'
+	df -P -k "$HOME" | tail -n1 | awk '{print $4}'
+}
+POL_System_UserRootSpaceLeft()
+{
+	# Return the space left in the home partition
+	df -P -k "$POL_USER_ROOT" | tail -n1 | awk '{print $4}'
 }
 POL_System_EnoughSpace()
 {
 	# Set exitcode to 0 if we have enough space, 1 otherwise
-	# Usage POL_System_HomeSpaceLeft [ Space required ]
-	[ "$1" -le "$(POL_System_HomeSpaceLeft)" ]
+	# Usage POL_System_EnoughSpace [ Space required ]
+	[ "$1" -le "$(POL_System_UserRootSpaceLeft)" ]
 }
 POL_Shortcut_GetPrefix()
 {

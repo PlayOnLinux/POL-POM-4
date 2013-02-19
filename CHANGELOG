@@ -14,6 +14,9 @@
 - do not ask for confirmation to close PlayOnLinux if there's no program started
 - do not suggest bug reporting if a script has been canceled by the user because a prefix already existed
 - virtual drive removal should now overpass bad directory rights (caused by WMP9 for example) (#1732)
+- POL_System_HomeSpaceLeft fix for df multiline output (#1890)
+- added POL_System_UserRootSpaceLeft, in case ~/.PlayOnLinux is a symlink or a mount
+- use POL_System_UserRootSpaceLeft in POL_System_EnoughSpace
 
 -> 4.1.9
 - POL_System_is32bit
