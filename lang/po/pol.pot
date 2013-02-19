@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2013-02-18 19:00:49+01:00\n"
+"POT-Creation-Date: 2013-02-19 19:00:47+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -323,7 +323,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/ISIS_Draw_2.3_:34
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:218
 #: PlayOnLinux_Scripts/SFR_LiberTalk_:57 PlayOnLinux_Scripts/The_Sims_3_:51
-#: PlayOnLinux_Scripts/Theme_Hospital_:66
+#: PlayOnLinux_Scripts/Theme_Hospital_:66 PlayOnLinux_Scripts/Tree[d]_:61
 #: PlayOnLinux_Scripts/Wow_Cartographe_:58
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:97
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:68
@@ -2451,6 +2451,21 @@ msgstr ""
 msgid "PlayOnLinux is installing your application..."
 msgstr ""
 
+#: PlayOnLinux_Scripts/Terraria_:62
+#, sh-format
+msgid ""
+"Install Terraria in Steam. Run the Terraria when Steam is installed. Steam "
+"install xna framework the game. Close Steam."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Terraria_:82
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_V___Skyrim_:90
+#, sh-format
+msgid ""
+"If the game crashes at startup, open a terminal and type:\\necho 0|sudo tee /"
+"proc/sys/kernel/yama/ptrace_scope"
+msgstr ""
+
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:50
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:75
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:100
@@ -2556,13 +2571,6 @@ msgid ""
 "When $TITLE download by Steam is finished, do NOT click on Play.\\n\\nClose "
 "COMPLETELY the Steam interface, \\nso that the installation script can "
 "continue"
-msgstr ""
-
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_V___Skyrim_:90
-#, sh-format
-msgid ""
-"If the game crashes at startup, open a terminal and type:\\necho 0|sudo tee /"
-"proc/sys/kernel/yama/ptrace_scope"
 msgstr ""
 
 #: PlayOnLinux_Scripts/The_Sims_3_:40
@@ -2748,6 +2756,16 @@ msgstr ""
 msgid ""
 "Wine does not support USB yet. You will not able to sync your iDevices with "
 "$APPLICATION_TITLE. Sorry"
+msgstr ""
+
+#: PlayOnLinux_Scripts/iTunes_10_:50
+#, sh-format
+msgid "Where did you download iTunesSetup.exe?"
+msgstr ""
+
+#: PlayOnLinux_Scripts/iTunes_10_:53
+#, sh-format
+msgid "Please select the 32bit version of iTunes"
 msgstr ""
 
 #: bash/bug_report:31
@@ -3151,7 +3169,7 @@ msgstr ""
 msgid "What would you like to do before installation?"
 msgstr ""
 
-#: bash/manual_install:226 lib/scripts.lib:402
+#: bash/manual_install:226 lib/scripts.lib:407
 #, sh-format
 msgid "Please make your choice"
 msgstr ""
@@ -3810,85 +3828,85 @@ msgstr ""
 msgid "Installing plugin: "
 msgstr ""
 
-#: lib/scripts.lib:326
+#: lib/scripts.lib:331
 #, sh-format
 msgid ""
 "Binary not found: $BINARY\\nHave you installed the program to the default "
 "location?"
 msgstr ""
 
-#: lib/scripts.lib:464 lib/scripts.lib:524
+#: lib/scripts.lib:469 lib/scripts.lib:529
 #, sh-format
 msgid "No enough space to download:\\n$URL ($neededSpace KB)"
 msgstr ""
 
-#: lib/scripts.lib:466 lib/scripts.lib:733
+#: lib/scripts.lib:471 lib/scripts.lib:738
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr ""
 
-#: lib/scripts.lib:468 lib/scripts.lib:529
+#: lib/scripts.lib:473 lib/scripts.lib:534
 #, sh-format
 msgid "An error happened during download."
 msgstr ""
 
-#: lib/scripts.lib:468 lib/scripts.lib:487 lib/scripts.lib:529
-#: lib/scripts.lib:545
+#: lib/scripts.lib:473 lib/scripts.lib:492 lib/scripts.lib:534
+#: lib/scripts.lib:550
 #, sh-format
 msgid "Do you want to retry?"
 msgstr ""
 
-#: lib/scripts.lib:487 lib/scripts.lib:545
+#: lib/scripts.lib:492 lib/scripts.lib:550
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 
-#: lib/scripts.lib:638
+#: lib/scripts.lib:643
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
 msgstr ""
 
-#: lib/scripts.lib:645
+#: lib/scripts.lib:650
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr ""
 
-#: lib/scripts.lib:649
+#: lib/scripts.lib:654
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr ""
 
-#: lib/scripts.lib:664
+#: lib/scripts.lib:669
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:695
+#: lib/scripts.lib:700
 #, sh-format
 msgid "Copying ${filename}"
 msgstr ""
 
-#: lib/scripts.lib:708
+#: lib/scripts.lib:713
 #, sh-format
 msgid "File size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:809
+#: lib/scripts.lib:814
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\n"
 "$APPLICATION_TITLE $NEEDED is required."
 msgstr ""
 
-#: lib/scripts.lib:824
+#: lib/scripts.lib:829
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
 "$NEEDED is recommended to continue."
 msgstr ""
 
-#: lib/scripts.lib:855
+#: lib/scripts.lib:860
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr ""
