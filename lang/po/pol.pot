@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2013-02-20 19:00:51+01:00\n"
+"POT-Creation-Date: 2013-02-21 19:00:55+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1825,6 +1825,22 @@ msgstr ""
 #: PlayOnLinux_Scripts/League_Of_Legends_:74
 #, sh-format
 msgid "Please select LeagueOfLegends.tar file:"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Legend_of_Grimrock_:54
+#: PlayOnLinux_Scripts/Steam___Legend_of_Grimrock_:54
+#, sh-format
+msgid "Install $TITLE in Steam."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Legend_of_Grimrock_:66
+#: PlayOnLinux_Scripts/Steam___Legend_of_Grimrock_:66
+#: PlayOnLinux_Scripts/Ufo__aftermath_:44
+#, sh-format
+msgid ""
+"$TITLE has been successfully installed.\\n\\nIf the game crashes at startup, "
+"open a terminal and type:\\necho 0|sudo tee /proc/sys/kernel/yama/"
+"ptrace_scope"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Legions__Overdrive_:47 PlayOnLinux_Scripts/Soldat_:28
