@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2013-02-24 19:00:49+01:00\n"
+"POT-Creation-Date: 2013-02-25 19:00:49+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -568,6 +568,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Mount_and_Blade___Warband_:82
 #: PlayOnLinux_Scripts/PlanetSide_2_:48 PlayOnLinux_Scripts/Safari_:77
 #: PlayOnLinux_Scripts/Windows_Media_Player_10_:80
+#: PlayOnLinux_Scripts/World_Of_Tanks_:53
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:137
 #: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:97
 #: PlayOnLinux_Scripts/World_Of_Warcraft___Wrath_of_the_Lich_King_:75
@@ -1363,7 +1364,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Runaway__A_Road_Adventure_:40
 #: PlayOnLinux_Scripts/GOG.com___Sacred_Gold_:39
 #: PlayOnLinux_Scripts/GOG.com___Sam_and_Max__The_Devils_Playhouse_:42
-#: PlayOnLinux_Scripts/GOG.com___Sanitarium_:49
+#: PlayOnLinux_Scripts/GOG.com___Sanitarium_:58
 #: PlayOnLinux_Scripts/GOG.com___Septerra_Core__Legacy_of_the_Creator_:37
 #: PlayOnLinux_Scripts/GOG.com___Shadowgrounds_:56
 #: PlayOnLinux_Scripts/GOG.com___Silver_:39
@@ -1406,6 +1407,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:38
 #: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:32
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:37
+#: PlayOnLinux_Scripts/League_of_Legends__ingame_shop_icons_fix_:29
 #, sh-format
 msgid "Please install $TITLE_REQUIRED first"
 msgstr ""
@@ -1654,7 +1656,7 @@ msgid ""
 "graphic options."
 msgstr ""
 
-#: PlayOnLinux_Scripts/GOG.com___Sanitarium_:59
+#: PlayOnLinux_Scripts/GOG.com___Sanitarium_:68
 #, sh-format
 msgid "(windowed)"
 msgstr ""
@@ -1827,6 +1829,19 @@ msgstr ""
 msgid "Please select LeagueOfLegends.tar file:"
 msgstr ""
 
+#: PlayOnLinux_Scripts/League_of_Legends__ingame_shop_icons_fix_:32
+#, sh-format
+msgid ""
+"This patch replaces ingame shop icons with altered ones that Wine can "
+"display correctly.\\nMake sure $TITLE_REQUIRED is fully updated before "
+"running this patch."
+msgstr ""
+
+#: PlayOnLinux_Scripts/League_of_Legends__ingame_shop_icons_fix_:55
+#, sh-format
+msgid "Patching will take several minutes, please be patient..."
+msgstr ""
+
 #: PlayOnLinux_Scripts/Legend_of_Grimrock_:54
 #, sh-format
 msgid "Install $TITLE in Steam."
@@ -1843,6 +1858,7 @@ msgstr ""
 
 #: PlayOnLinux_Scripts/Legions__Overdrive_:47
 #: PlayOnLinux_Scripts/PlanetSide_2_:48 PlayOnLinux_Scripts/Soldat_:28
+#: PlayOnLinux_Scripts/World_Of_Tanks_:53
 #, sh-format
 msgid "Installation finished"
 msgstr ""
@@ -2714,6 +2730,14 @@ msgstr ""
 #: PlayOnLinux_Scripts/Wolfenstein_Patch_1.2_:53
 #, sh-format
 msgid "Your browser will pop, download patch from it and uncompress it please"
+msgstr ""
+
+#: PlayOnLinux_Scripts/World_Of_Tanks_:44
+#, sh-format
+msgid ""
+"Attention: After installation is complete, the patcher will load. Please "
+"close the patcher before logging in or finish updating to complete the "
+"installation. After this, you can run \"$TITLE\" when setup is done"
 msgstr ""
 
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:36
