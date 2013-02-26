@@ -25,10 +25,13 @@ source "$PLAYONLINUX/lib/sources"
 
 config_maj() # Celle ci est exécuté à chaque ligne (wget | config_maj), elle traite tout
 {
-	read num
-	i=0
-	num=0
+	read totlines
+
+	# Display 10% for fetching lists, plus 90% for fetching icons
         echo 0
+        echo -n "" > "$POL_USER_ROOT/tmp/icons_fetch_list"
+	numfetch=0
+	lines=0
 	while read line; do
 		[ "$line" = "" ] && break
 		IFS="/" read file content download_icon testing nocd free <<< "$line"
@@ -36,18 +39,23 @@ config_maj() # Celle ci est exécuté à chaque ligne (wget | config_maj), elle 
 		echo "$content~$testing~$nocd~$free" >> "$file"
 		echo "$content~$testing~$nocd~$free" >> "search"
 		if [ "$download_icon" = "1" -a ! -e "$POL_USER_ROOT/configurations/icones/$content" ]; then
-			echo "$SITE/V2_data/icones/$content"
-			num=$(( num + 1 ))
+			echo "$SITE/V2_data/icones/$content" >> "$POL_USER_ROOT/tmp/icons_fetch_list"
+			numfetch=$(( numfetch + 1 ))
 		fi
-	done > "$POL_USER_ROOT/tmp/icons_fetch_list"
-	if [ $num -gt 0 ]; then
+		lines=$(( lines + 1 ))
+		echo $(( lines*10/totlines ))
+	done
+
+	if [ $numfetch -gt 0 ]; then
+		echo 10
+		i=0
 	        cd "$POL_USER_ROOT/configurations/icones"
 		${POL_WGET/-q} -nv -nd -i "$POL_USER_ROOT/tmp/icons_fetch_list" 2>&1 |\
 		sed -ue '/URL:/!d; s/^.*-> "\(.*\)".*$/\1/'|\
 		while read content; do
 			[ -e "$content" -a ! -s "$content" ] && rm "$content"
 			i=$(( i + 1 ))
-			echo $(( i*100/num ))
+			echo $(( 10 + i*90/numfetch ))
 		done
 	else
 		echo 100
