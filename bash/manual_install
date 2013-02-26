@@ -208,8 +208,11 @@ else
         WINEVERSIONLIST="System"
 fi
 
-POL_Wine_PrefixCreate
-echo "POL_SetupWindow_prefixcreate" >> "$SCRIPTPATH"
+if [ "$menu" = "$LNG_LI_NEW" ]
+then
+	POL_Wine_PrefixCreate
+	echo "POL_SetupWindow_prefixcreate" >> "$SCRIPTPATH"
+fi
 
 #Running WineConfiguration
 if [ "$(echo $WHATTORUNBEFORE | grep -o "$LNG_WC_CONFWINE")" == "$LNG_WC_CONFWINE" ]

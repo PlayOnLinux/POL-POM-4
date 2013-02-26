@@ -18,6 +18,7 @@
 - added POL_System_UserRootSpaceLeft, in case ~/.PlayOnLinux is a symlink or a mount
 - use POL_System_UserRootSpaceLeft in POL_System_EnoughSpace
 - if exists, look for mounted devices in /media/$USER/ directory (Ubuntu Quantal, #1893)
+- manual_install: don't call POL_Wine_PrefixCreate on patch installation
 
 -> 4.1.9
 - POL_System_is32bit
