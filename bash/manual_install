@@ -67,7 +67,7 @@ run_autorun()
 	fi
 
 	# Assumes last component is "autorun.inf", in root directory
-	cdromDirIs="${1/*}"
+	cdromDirIs="${1%/*}"
 	if [ "$IconIs" = "" ]
 	then
 		$IconIs = "null"
