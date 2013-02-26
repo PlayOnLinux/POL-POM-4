@@ -29,15 +29,15 @@ TITLE="$(eval_gettext 'Manual installation')"
 NOBUGREPORT="YES"
 run_autorun()
 {
-	POL_Debug_Message "Scanning autorun : $1"		
+	POL_Debug_Message "Scanning autorun : $1"
 	NUMSTEP="3"
-	open=$(grep "open" -i "$1")
+	open=$(grep -i "^open" "$1")
 	open=${open//" = "/"="}
-	
-	icon=$(grep "icon" -i "$1")
+
+	icon=$(grep -i "^icon" "$1")
 	icon=${icon//" = "/"="}
 
-	name=$(grep "Name" -i "$1")
+	name=$(grep -i "^name" "$1")
 	name=${name//" = "/"="}
 
 	SetupIs=$(echo "$open" | cut -d\= -f2)
@@ -65,7 +65,9 @@ run_autorun()
 		IconIsNum=${#IconIs}
 		IconIs=${IconIs:0:$(( IconIsNum -1 ))}
 	fi
-	cdromDirIs="$MEDIA_DIR/$(echo $1 | cut -d / -f3)"
+
+	# Assumes last component is "autorun.inf", in root directory
+	cdromDirIs="${1/*}"
 	if [ "$IconIs" = "" ]
 	then
 		$IconIs = "null"
@@ -244,9 +246,9 @@ fi
 
 [ "$POL_OS" = "Mac" ] && MEDIA_DIR="/Volumes"
 if [ "$POL_OS" = "Linux" ]; then
-	DEVICES="/media"
+	MEDIA_DIR="/media"
 	# Ubuntu Quantal workaround
-	[ -d "/media/$USER" ] && DEVICES="/media/$USER"
+	[ -d "/media/$USER" ] && MEDIA_DIR="/media/$USER"
 fi
 
 A_LIST=""
