@@ -323,7 +323,11 @@ POL_SetupWindow_cdrom ()
 	LIST_DEVICES_=""
 	
 	[ "$POL_OS" = "Mac" ] && DEVICES="/Volumes"
-	[ "$POL_OS" = "Linux" ] && DEVICES="/media"
+	if [ "$POL_OS" = "Linux" ]; then
+		DEVICES="/media"
+		# Ubuntu Quantal workaround
+		[ -d "/media/$USER" ] && DEVICES="/media/$USER"
+	fi
 	
 	cd "$DEVICES"
 	for device in *

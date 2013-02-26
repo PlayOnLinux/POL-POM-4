@@ -242,8 +242,12 @@ then
 fi
 
 
-[ "$POL_OS" == "Mac" ] && MEDIA_DIR="/Volumes"
-[ "$POL_OS" == "Linux" ] && MEDIA_DIR="/media"
+[ "$POL_OS" = "Mac" ] && MEDIA_DIR="/Volumes"
+if [ "$POL_OS" = "Linux" ]; then
+	DEVICES="/media"
+	# Ubuntu Quantal workaround
+	[ -d "/media/$USER" ] && DEVICES="/media/$USER"
+fi
 
 A_LIST=""
 i=0
