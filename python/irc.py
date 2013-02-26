@@ -270,7 +270,7 @@ class IrcClient(wx.Frame):
         self.timer.Start(200)
 
     def CloseIRC(self, event):
-        if(wx.YES == wx.MessageBox(_('If you close this window, you cannot read further replies. Are you sure that you want to close it?').format(os.environ["APPLICATION_TITLE"]).decode("utf-8","replace"), os.environ["APPLICATION_TITLE"] ,style=wx.YES_NO | wx.ICON_QUESTION)):
+        if(not irc.ircconnected or wx.YES == wx.MessageBox(_('If you close this window, you cannot read further replies. Are you sure that you want to close it?').format(os.environ["APPLICATION_TITLE"]).decode("utf-8","replace"), os.environ["APPLICATION_TITLE"] ,style=wx.YES_NO | wx.ICON_QUESTION)):
             self.onglets.EventStop(self)
             self.Destroy()
 
