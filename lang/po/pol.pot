@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2013-02-25 19:00:49+01:00\n"
+"POT-Creation-Date: 2013-02-26 19:00:52+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -640,6 +640,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Fallout_3_Patch_1.07_:51
 #: PlayOnLinux_Scripts/Far_Cry_2_Patch_1.03_:50
 #: PlayOnLinux_Scripts/Mass_Effect_2___Patch_1.02_:51
+#: PlayOnLinux_Scripts/Red_Faction_:59
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_Patch_1.2.0416_:43
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_Patch_1.35_:51
 #: PlayOnLinux_Scripts/The_Witcher_2___Enhanced_Edition_Patch_:51
@@ -1272,7 +1273,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:109 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:421 lib/wine.lib:1073
+#: bash/winebash:27 lib/setupwindow.lib:425 lib/wine.lib:1073
 #: lib/wine.lib:1103
 #, sh-format
 msgid "Please wait..."
@@ -2398,6 +2399,19 @@ msgid ""
 "expected."
 msgstr ""
 
+#: PlayOnLinux_Scripts/Red_Faction_:79
+#, sh-format
+msgid "Error while installing patch."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Red_Faction_:91
+#, sh-format
+msgid ""
+"$TITLE and patch has been successfully installed.\\n\\nIf the game crashes "
+"at startup, open a terminal and type:\\necho 0|sudo tee /proc/sys/kernel/"
+"yama/ptrace_scope"
+msgstr ""
+
 #: PlayOnLinux_Scripts/Rome_Total_War__Gold_Edition__:72
 #, sh-format
 msgid ""
@@ -2883,8 +2897,8 @@ msgstr ""
 msgid "Don't join any log file"
 msgstr ""
 
-#: bash/bug_report:53 bash/manual_install:27 bash/manual_install:112
-#: bash/manual_install:118 bash/manual_install:215
+#: bash/bug_report:53 bash/manual_install:27 bash/manual_install:114
+#: bash/manual_install:120 bash/manual_install:220
 #, sh-format
 msgid "Manual installation"
 msgstr ""
@@ -2933,7 +2947,7 @@ msgid ""
 "help you to make a new virtual drive"
 msgstr ""
 
-#: bash/create_prefix:30 bash/manual_install:194
+#: bash/create_prefix:30 bash/manual_install:196
 #, sh-format
 msgid "What kind of virtual drive do you want to create"
 msgstr ""
@@ -2945,7 +2959,7 @@ msgid ""
 "manager)"
 msgstr ""
 
-#: bash/create_prefix:54 bash/manual_install:180
+#: bash/create_prefix:54 bash/manual_install:182
 #, sh-format
 msgid "Which version of Wine would you like to use?"
 msgstr ""
@@ -3176,7 +3190,7 @@ msgstr ""
 msgid "No setup location found in autorun.inf"
 msgstr ""
 
-#: bash/manual_install:112
+#: bash/manual_install:114
 #, sh-format
 msgid ""
 "Welcome to $APPLICATION_TITLE manual installation wizard.\\n\\nThis script "
@@ -3185,90 +3199,90 @@ msgid ""
 "will work perfectly."
 msgstr ""
 
-#: bash/manual_install:114
+#: bash/manual_install:116
 #, sh-format
 msgid "Install a program in a new virtual drive"
 msgstr ""
 
-#: bash/manual_install:115
+#: bash/manual_install:117
 #, sh-format
 msgid "Edit or update an existing application"
 msgstr ""
 
-#: bash/manual_install:118
+#: bash/manual_install:120
 #, sh-format
 msgid "What would you like to do?"
 msgstr ""
 
-#: bash/manual_install:129
+#: bash/manual_install:131
 #, sh-format
 msgid ""
 "Please type a name for your application's virtual drive.\\nThis name "
 "shouldn't contain spaces."
 msgstr ""
 
-#: bash/manual_install:141
+#: bash/manual_install:143
 #, sh-format
 msgid "Please choose a program"
 msgstr ""
 
-#: bash/manual_install:162
+#: bash/manual_install:164
 #, sh-format
 msgid "Use another version of Wine"
 msgstr ""
 
-#: bash/manual_install:163 bash/manual_install:215 bash/polconfigurator:95
+#: bash/manual_install:165 bash/manual_install:220 bash/polconfigurator:95
 #: python/configure.py:224 python/mainwindow.py:579 python/mainwindow.py:611
 #, sh-format
 msgid "Configure Wine"
 msgstr ""
 
-#: bash/manual_install:164
+#: bash/manual_install:166
 #, sh-format
 msgid "Install some libraries"
 msgstr ""
 
-#: bash/manual_install:167
+#: bash/manual_install:169
 #, sh-format
 msgid "If you don't know, unselect all"
 msgstr ""
 
-#: bash/manual_install:167
+#: bash/manual_install:169
 #, sh-format
 msgid "What would you like to do before installation?"
 msgstr ""
 
-#: bash/manual_install:226 lib/scripts.lib:407
+#: bash/manual_install:231 lib/scripts.lib:407
 #, sh-format
 msgid "Please make your choice"
 msgstr ""
 
-#: bash/manual_install:250
+#: bash/manual_install:259
 #, sh-format
 msgid "Looking for runnable CD-ROMs"
 msgstr ""
 
-#: bash/manual_install:273
+#: bash/manual_install:282
 #, sh-format
 msgid "Select another file"
 msgstr ""
 
-#: bash/manual_install:281
+#: bash/manual_install:290
 #, sh-format
 msgid "Please choose a way to install your program"
 msgstr ""
 
-#: bash/manual_install:290
+#: bash/manual_install:299
 #, sh-format
 msgid "Please select the install file to run."
 msgstr ""
 
-#: bash/manual_install:320
+#: bash/manual_install:329
 #, sh-format
 msgid "You must choose a file!"
 msgstr ""
 
-#: bash/manual_install:326
+#: bash/manual_install:335
 #, sh-format
 msgid "$APPLICATION_TITLE is installing your application..."
 msgstr ""
@@ -3451,7 +3465,7 @@ msgstr ""
 msgid "Office"
 msgstr ""
 
-#: bash/playonlinux_online:69 lib/setupwindow.lib:338 python/install.py:218
+#: bash/playonlinux_online:69 lib/setupwindow.lib:342 python/install.py:218
 #, sh-format
 msgid "Other"
 msgstr ""
@@ -4030,27 +4044,27 @@ msgstr ""
 msgid "Error"
 msgstr ""
 
-#: lib/setupwindow.lib:337
+#: lib/setupwindow.lib:341
 #, sh-format
 msgid "Where is mounted your CD-ROM?"
 msgstr ""
 
-#: lib/setupwindow.lib:339 python/install.py:283
+#: lib/setupwindow.lib:343 python/install.py:283
 #, sh-format
 msgid "Refresh"
 msgstr ""
 
-#: lib/setupwindow.lib:370
+#: lib/setupwindow.lib:374
 #, sh-format
 msgid "Reading your device"
 msgstr ""
 
-#: lib/setupwindow.lib:385
+#: lib/setupwindow.lib:389
 #, sh-format
 msgid "Error: Unable to find the CD-ROM!"
 msgstr ""
 
-#: lib/setupwindow.lib:399
+#: lib/setupwindow.lib:403
 #, sh-format
 msgid ""
 "$TITLE needs to read the PC part of a hybrid CD-Rom.\\n\\nBy default, MacOS "
@@ -4059,101 +4073,101 @@ msgid ""
 "attempt to read the PC-Part of your CD?"
 msgstr ""
 
-#: lib/setupwindow.lib:451
+#: lib/setupwindow.lib:455
 #, sh-format
 msgid ""
 "Don't forget to go to PlayOnMac tools menu -> Read a PC CD-Rom before "
 "running your game"
 msgstr ""
 
-#: lib/setupwindow.lib:462
+#: lib/setupwindow.lib:466
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is copying files:"
 msgstr ""
 
-#: lib/setupwindow.lib:547 lib/setupwindow.lib:696
+#: lib/setupwindow.lib:551 lib/setupwindow.lib:700
 #, sh-format
 msgid "Scanning the virtual drive ..."
 msgstr ""
 
-#: lib/setupwindow.lib:561
+#: lib/setupwindow.lib:565
 #, sh-format
 msgid "How much memory does your graphics board have?"
 msgstr ""
 
-#: lib/setupwindow.lib:570
+#: lib/setupwindow.lib:574
 #, sh-format
 msgid "Video card does not have enough memory"
 msgstr ""
 
-#: lib/setupwindow.lib:571
+#: lib/setupwindow.lib:575
 #, sh-format
 msgid ""
 "Your video card does not have enough memory!\\nIt might prevent the game "
 "from working"
 msgstr ""
 
-#: lib/setupwindow.lib:585
+#: lib/setupwindow.lib:589
 #, sh-format
 msgid "Use Steam Store version"
 msgstr ""
 
-#: lib/setupwindow.lib:586
+#: lib/setupwindow.lib:590
 #, sh-format
 msgid "Use Steam Store demo version"
 msgstr ""
 
-#: lib/setupwindow.lib:587
+#: lib/setupwindow.lib:591
 #, sh-format
 msgid "Use Desura Store version"
 msgstr ""
 
-#: lib/setupwindow.lib:588
+#: lib/setupwindow.lib:592
 #, sh-format
 msgid "Use Desura Store demo version"
 msgstr ""
 
-#: lib/setupwindow.lib:589
+#: lib/setupwindow.lib:593
 #, sh-format
 msgid "Use Origin Store version"
 msgstr ""
 
-#: lib/setupwindow.lib:590
+#: lib/setupwindow.lib:594
 #, sh-format
 msgid "Use Origin Store demo version"
 msgstr ""
 
-#: lib/setupwindow.lib:592
+#: lib/setupwindow.lib:596
 #, sh-format
 msgid "Use a setup file in my computer"
 msgstr ""
 
-#: lib/setupwindow.lib:593
+#: lib/setupwindow.lib:597
 #, sh-format
 msgid "Use CD-ROM(s)"
 msgstr ""
 
-#: lib/setupwindow.lib:594
+#: lib/setupwindow.lib:598
 #, sh-format
 msgid "Use DVD-ROM(s)"
 msgstr ""
 
-#: lib/setupwindow.lib:595
+#: lib/setupwindow.lib:599
 #, sh-format
 msgid "Download the program"
 msgstr ""
 
-#: lib/setupwindow.lib:660
+#: lib/setupwindow.lib:664
 #, sh-format
 msgid "Please choose an installation method"
 msgstr ""
 
-#: lib/setupwindow.lib:698
+#: lib/setupwindow.lib:702
 #, sh-format
 msgid "I don't want to make another shortcut"
 msgstr ""
 
-#: lib/setupwindow.lib:699 python/guiv3.py:151
+#: lib/setupwindow.lib:703 python/guiv3.py:151
 #, sh-format
 msgid "Browse"
 msgstr ""
