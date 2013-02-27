@@ -20,6 +20,7 @@
 - if exists, look for mounted devices in /media/$USER/ directory (Ubuntu Quantal, #1893)
 - manual_install: don't call POL_Wine_PrefixCreate on patch installation
 - irc: only warn about closing window when connected
+- Debug log all user inputs (POL_SetupWindow_textbox, etc.)
 
 -> 4.1.9
 - POL_System_is32bit

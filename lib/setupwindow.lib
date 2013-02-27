@@ -190,7 +190,7 @@ POL_SetupWindow_textbox ()
 	# Result is sent in $APP_ANSWER variable
 
 	APP_ANSWER="$(echo "$POL_COOKIE	POL_SetupWindow_textbox	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3" | ncns "$POL_HOST" "$POL_PORT")"
-
+        POL_Debug_Message "textbox answer: $APP_ANSWER"
 }
 POL_SetupWindow_browse ()
 {
@@ -199,14 +199,16 @@ POL_SetupWindow_browse ()
 	# Result is sent in $APP_ANSWER variable
 	[ "$4" = "" ] && SUPPORTED="All" || SUPPORTED="$4"
 	APP_ANSWER="$(echo "$POL_COOKIE	POL_SetupWindow_browse	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	$PWD	$SUPPORTED" | ncns "$POL_HOST" "$POL_PORT")"
+	POL_Debug_Message "browser answer: $APP_ANSWER"
 }
 POL_SetupWindow_question ()
 {
 	# Shows a yes/no question
 	# Usage: POL_SetupWindow_question [message] [title]
 	# Result is sent in $APP_ANSWER variable (TRUE or FALSE)
-	
+
 	APP_ANSWER="$(echo "$POL_COOKIE	POL_SetupWindow_question	$$	$(POL_Untab "$1")	$(POL_Untab "$2")" | ncns "$POL_HOST" "$POL_PORT")"
+	POL_Debug_Message "question answer: $APP_ANSWER"
 }
 POL_SetupWindow_menu ()
 {
@@ -215,30 +217,34 @@ POL_SetupWindow_menu ()
 	# Result is sent in $APP_ANSWER variable
 
 	APP_ANSWER="$(echo "$POL_COOKIE	POL_SetupWindow_menu	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	$4" | ncns "$POL_HOST" "$POL_PORT")"
+	POL_Debug_Message "menu answer: $APP_ANSWER"
 }
 POL_SetupWindow_icon_menu ()
 {
 	# Shows a menu with icons
 	# Usage: POL_SetupWindow_icon_menu [message] [title] [list] [separator] [icons list] [icons folder]
 	# Result is sent in $APP_ANSWER variable
-	
+
 	APP_ANSWER="$(echo "$POL_COOKIE	POL_SetupWindow_icon_menu	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	$4	$5	$6" | ncns "$POL_HOST" "$POL_PORT")"
+	POL_Debug_Message "icon_menu answer: $APP_ANSWER"
 }
 POL_SetupWindow_checkbox_list ()
 {
 	# Shows a list of checkbox
 	# Usage: POL_SetupWindow_checkbox [message] [title] [list] [separator]
 	# Checked boxes are sent in $APP_ANSWER variable, with the same separator
-	
+
 	APP_ANSWER="$(echo "$POL_COOKIE	POL_SetupWindow_checkbox_list	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	$4" | ncns "$POL_HOST" "$POL_PORT")"
+	POL_Debug_Message "checkbox_list answer: $APP_ANSWER"
 }
 POL_SetupWindow_menu_num ()
 {
 	# Shows a menu
 	# Usage: POL_SetupWindow_menu_num [message] [title] [list] [separator]
 	# The number of the result is sent in $APP_ANSWER variable
-	
+
 	APP_ANSWER="$(echo "$POL_COOKIE	POL_SetupWindow_menu_num	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	$4" | ncns "$POL_HOST" "$POL_PORT")"
+	POL_Debug_Message "menu_num answer: $APP_ANSWER"
 }
 POL_SetupWindow_menu_list ()
 {
@@ -307,7 +313,7 @@ POL_SetupWindow_textbox_multiline ()
 	APP_ANSWER="$(echo "$POL_COOKIE	POL_SetupWindow_textbox_multiline	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$(POL_Untab "$3")" | ncns "$POL_HOST" "$POL_PORT")"
 	APP_ANSWER="${APP_ANSWER//\\n/
 }" # Not the end of POL_SetupWindow_textbox_multiline
-
+	POL_Debug_Message "textbox_multiline answer: $(echo "$APP_ANSWER"|head -n1)[...]"
 }
 
 
@@ -362,6 +368,7 @@ POL_SetupWindow_cdrom ()
 	then
 		CDROM="$DEVICES/cdrom"
 	fi
+	POL_Debug_Message "cdrom answer: $CDROM"
 }
 POL_SetupWindow_check_cdrom ()
 {
