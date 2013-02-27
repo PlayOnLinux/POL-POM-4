@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2013-02-18 19:00+0100\n"
-"PO-Revision-Date: 2013-02-15 19:19+0000\n"
+"POT-Creation-Date: 2013-02-25 19:00+0100\n"
+"PO-Revision-Date: 2013-02-19 20:44+0000\n"
 "Last-Translator: rob <linuxned@gmail.com>\n"
 "Language-Team: nl_NL.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-02-19 04:32+0000\n"
-"X-Generator: Launchpad (build 16491)\n"
+"X-Launchpad-Export-Date: 2013-02-26 04:32+0000\n"
+"X-Generator: Launchpad (build 16506)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -347,7 +347,7 @@ msgstr "Een moment geduld, $TITLE wordt geïnstalleerd."
 #: PlayOnLinux_Scripts/ISIS_Draw_2.3_:34
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:218
 #: PlayOnLinux_Scripts/SFR_LiberTalk_:57 PlayOnLinux_Scripts/The_Sims_3_:51
-#: PlayOnLinux_Scripts/Theme_Hospital_:66
+#: PlayOnLinux_Scripts/Theme_Hospital_:66 PlayOnLinux_Scripts/Tree[d]_:61
 #: PlayOnLinux_Scripts/Wow_Cartographe_:58
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:97
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:68
@@ -602,8 +602,9 @@ msgstr "Bezig met installeren…"
 #: PlayOnLinux_Scripts/Diablo_II_:67 PlayOnLinux_Scripts/IZArc_:42
 #: PlayOnLinux_Scripts/Legions__Overdrive_:47
 #: PlayOnLinux_Scripts/Mount_and_Blade___Warband_:82
-#: PlayOnLinux_Scripts/Safari_:77
+#: PlayOnLinux_Scripts/PlanetSide_2_:48 PlayOnLinux_Scripts/Safari_:77
 #: PlayOnLinux_Scripts/Windows_Media_Player_10_:80
+#: PlayOnLinux_Scripts/World_Of_Tanks_:53
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:137
 #: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:97
 #: PlayOnLinux_Scripts/World_Of_Warcraft___Wrath_of_the_Lich_King_:75
@@ -1083,8 +1084,8 @@ msgid ""
 "Do not forget to close Steam when downloading\\nis finished, so that "
 "$APPLICATION_TITLE can continue\\nto install your game."
 msgstr ""
-"Vergeet niet om Steam te sluiten nadat het downloaden\\nis voltooid, zodat "
-"$APPLICATION_TITLE door kan gaan\\nmet het installeren van uw spel."
+"Vergeet niet om Steam af te sluiten nadat het downloaden\\nis voltooid, "
+"zodat $APPLICATION_TITLE door kan gaan\\nmet het installeren van uw spel."
 
 #: PlayOnLinux_Scripts/CivCity_Rome_Patch_1.1_:23
 #: PlayOnLinux_Scripts/Dragon_Age_2_Patch_1.03_:24
@@ -1451,7 +1452,7 @@ msgstr "Welkom in het DLC-installatieprogramma voor $TITLE"
 #: PlayOnLinux_Scripts/GOG.com___Runaway__A_Road_Adventure_:40
 #: PlayOnLinux_Scripts/GOG.com___Sacred_Gold_:39
 #: PlayOnLinux_Scripts/GOG.com___Sam_and_Max__The_Devils_Playhouse_:42
-#: PlayOnLinux_Scripts/GOG.com___Sanitarium_:49
+#: PlayOnLinux_Scripts/GOG.com___Sanitarium_:58
 #: PlayOnLinux_Scripts/GOG.com___Septerra_Core__Legacy_of_the_Creator_:37
 #: PlayOnLinux_Scripts/GOG.com___Shadowgrounds_:56
 #: PlayOnLinux_Scripts/GOG.com___Silver_:39
@@ -1494,6 +1495,7 @@ msgstr "Fout tijdens installeren van archief"
 #: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:38
 #: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:32
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:37
+#: PlayOnLinux_Scripts/League_of_Legends__ingame_shop_icons_fix_:29
 #, sh-format
 msgid "Please install $TITLE_REQUIRED first"
 msgstr "Installeer $TITLE_REQUIRED a.u.b. eerst"
@@ -1763,7 +1765,7 @@ msgstr ""
 "Als u amper een landschap achter het hoofdmenu kunt onderscheiden\\n\r\n"
 "dient u FOG (mist) uit te schakelen in het graphic-menu."
 
-#: PlayOnLinux_Scripts/GOG.com___Sanitarium_:59
+#: PlayOnLinux_Scripts/GOG.com___Sanitarium_:68
 #, sh-format
 msgid "(windowed)"
 msgstr "(in venster)"
@@ -1915,6 +1917,8 @@ msgid ""
 "NOTICE: POL does not condone piracy. Please use $TITLE in a respectable "
 "manner"
 msgstr ""
+"LET OP: POL keurt piraterij af. Gebruik $TITLE daarom op een fatsoenlijke "
+"manier"
 
 #: PlayOnLinux_Scripts/Infinity_Engine_widescreen_mod_:52
 #, sh-format
@@ -1971,7 +1975,36 @@ msgstr ""
 msgid "Please select LeagueOfLegends.tar file:"
 msgstr "Selecteer het LeagueOfLegends.tar-bestand:"
 
-#: PlayOnLinux_Scripts/Legions__Overdrive_:47 PlayOnLinux_Scripts/Soldat_:28
+#: PlayOnLinux_Scripts/League_of_Legends__ingame_shop_icons_fix_:32
+#, sh-format
+msgid ""
+"This patch replaces ingame shop icons with altered ones that Wine can "
+"display correctly.\\nMake sure $TITLE_REQUIRED is fully updated before "
+"running this patch."
+msgstr ""
+
+#: PlayOnLinux_Scripts/League_of_Legends__ingame_shop_icons_fix_:55
+#, sh-format
+msgid "Patching will take several minutes, please be patient..."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Legend_of_Grimrock_:54
+#, sh-format
+msgid "Install $TITLE in Steam."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Legend_of_Grimrock_:66
+#: PlayOnLinux_Scripts/Ufo__aftermath_:44
+#, sh-format
+msgid ""
+"$TITLE has been successfully installed.\\n\\nIf the game crashes at startup, "
+"open a terminal and type:\\necho 0|sudo tee "
+"/proc/sys/kernel/yama/ptrace_scope"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Legions__Overdrive_:47
+#: PlayOnLinux_Scripts/PlanetSide_2_:48 PlayOnLinux_Scripts/Soldat_:28
+#: PlayOnLinux_Scripts/World_Of_Tanks_:53
 #, sh-format
 msgid "Installation finished"
 msgstr "Installatie voltooid"
@@ -2529,6 +2562,14 @@ msgid "Now you can go back to the $TITLE installation window to continue"
 msgstr ""
 "U kunt nu teruggaan naar het $TITLE-installatievenster om door te gaan"
 
+#: PlayOnLinux_Scripts/PlanetSide_2_:39
+#, sh-format
+msgid ""
+"Attention: After installation is complete, the patcher will load. Please "
+"close the patcher before logging in to complete the installation. After "
+"this, you can run \"$TITLE\" when setup is done"
+msgstr ""
+
 #: PlayOnLinux_Scripts/Q.U.B.E_:94 PlayOnLinux_Scripts/Star_Twine_:72
 #, sh-format
 msgid ""
@@ -2677,6 +2718,23 @@ msgstr "Selecteer het installatiebestand."
 msgid "PlayOnLinux is installing your application..."
 msgstr "PlayOnLinux is bezig met het installeren van uw programma…"
 
+#: PlayOnLinux_Scripts/Terraria_:62
+#, sh-format
+msgid ""
+"Install Terraria in Steam. Run the Terraria when Steam is installed. Steam "
+"install xna framework the game. Close Steam."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Terraria_:82
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_V___Skyrim_:90
+#, sh-format
+msgid ""
+"If the game crashes at startup, open a terminal and type:\\necho 0|sudo tee "
+"/proc/sys/kernel/yama/ptrace_scope"
+msgstr ""
+"Wanneer een spel vastloopt bij het opstarten, open dan een terminal en typ:\\"
+"necho 0|sudo tee /proc/sys/kernel/yama/ptrace_scope"
+
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:50
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:75
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:100
@@ -2793,15 +2851,6 @@ msgstr ""
 "Wanneer het downloaden van $TITLE door Steam is voltooid, klik dan NIET op "
 "afspelen.\\n\\nSluit de Steam-interface VOLLEDIG af, \\nzodat het "
 "installatiescript door kan gaan"
-
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_V___Skyrim_:90
-#, sh-format
-msgid ""
-"If the game crashes at startup, open a terminal and type:\\necho 0|sudo tee "
-"/proc/sys/kernel/yama/ptrace_scope"
-msgstr ""
-"Wanneer een spel vastloopt bij het opstarten, open dan een terminal en typ:\\"
-"necho 0|sudo tee /proc/sys/kernel/yama/ptrace_scope"
 
 #: PlayOnLinux_Scripts/The_Sims_3_:40
 #, sh-format
@@ -2943,6 +2992,14 @@ msgstr ""
 "Uw browser zal geopend worden, download de patch en pak deze daarna uit "
 "a.u.b."
 
+#: PlayOnLinux_Scripts/World_Of_Tanks_:44
+#, sh-format
+msgid ""
+"Attention: After installation is complete, the patcher will load. Please "
+"close the patcher before logging in or finish updating to complete the "
+"installation. After this, you can run \"$TITLE\" when setup is done"
+msgstr ""
+
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:36
 #, sh-format
 msgid "Please choose"
@@ -2991,6 +3048,28 @@ msgstr "Voer spelschijf 5 in in schijfstation\\nindien nog niet gedaan."
 msgid "Welcome in the patch $PVERSION installer for $TITLE."
 msgstr "Welkom in het patch-installatieprogramma $PVERSION voor $TITLE."
 
+#: PlayOnLinux_Scripts/Zoo_Tycoon_2__Zookeeper_Collection_:31
+#, sh-format
+msgid "Transferring files from Disc 1"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Zoo_Tycoon_2__Zookeeper_Collection_:36
+#, sh-format
+msgid "Please insert \"$TITLE\" disc 2"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Zoo_Tycoon_2__Zookeeper_Collection_:39
+#, sh-format
+msgid "Transferring files from Disc 2"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Zoo_Tycoon_2__Zookeeper_Collection_:43
+#, sh-format
+msgid ""
+"Please select MORE OPTIONS, then uncheck the RUN \"$TITLE\" AFTER "
+"INSTALLATION option. If you do not, the install will fail!"
+msgstr ""
+
 #: PlayOnLinux_Scripts/Zoo_Tycoon_2___Ultimate_Collection_:63
 #, sh-format
 msgid "Click Forward when the installation is finished"
@@ -3004,7 +3083,7 @@ msgstr "De cd-beveiliging van dit spel niet"
 #: PlayOnLinux_Scripts/iTunes_10_:19
 #, sh-format
 msgid "Do you want to install $TITLE to sync an USB device?"
-msgstr ""
+msgstr "Wilt u $TITLE installeren om een USB-apparaat te synchroniseren?"
 
 #: PlayOnLinux_Scripts/iTunes_10_:22
 #, sh-format
@@ -3012,6 +3091,18 @@ msgid ""
 "Wine does not support USB yet. You will not able to sync your iDevices with "
 "$APPLICATION_TITLE. Sorry"
 msgstr ""
+"Wine kent nog geen ondersteuning voor USB. Daardoor is het niet mogelijk om "
+"uw iApparaten met $APPLICATION_TITLE te synchroniseren. Onze excuses"
+
+#: PlayOnLinux_Scripts/iTunes_10_:50
+#, sh-format
+msgid "Where did you download iTunesSetup.exe?"
+msgstr "Waar heeft u iTunesSetup.exe gedownload?"
+
+#: PlayOnLinux_Scripts/iTunes_10_:53
+#, sh-format
+msgid "Please select the 32bit version of iTunes"
+msgstr "Selecteer a.u.b. de 32bit-versie van iTunes"
 
 #: bash/bug_report:31
 #, sh-format
@@ -3444,7 +3535,7 @@ msgstr "Als u het niet weet, deselecteer dan alles"
 msgid "What would you like to do before installation?"
 msgstr "Wat wilt u doen vooraf aan de installatie?"
 
-#: bash/manual_install:226 lib/scripts.lib:402
+#: bash/manual_install:226 lib/scripts.lib:407
 #, sh-format
 msgid "Please make your choice"
 msgstr "Maak een keuze"
@@ -4153,7 +4244,7 @@ msgstr "Plug-in bijwerken. Vorige: "
 msgid "Installing plugin: "
 msgstr "Installeren plug-in: "
 
-#: lib/scripts.lib:326
+#: lib/scripts.lib:331
 #, sh-format
 msgid ""
 "Binary not found: $BINARY\\nHave you installed the program to the default "
@@ -4162,67 +4253,67 @@ msgstr ""
 "Binair niet gevonden: $BINARY\\nHeeft u het programma geïnstalleerd op de "
 "standaardlocatie?"
 
-#: lib/scripts.lib:464 lib/scripts.lib:524
+#: lib/scripts.lib:469 lib/scripts.lib:529
 #, sh-format
 msgid "No enough space to download:\\n$URL ($neededSpace KB)"
 msgstr "Niet genoeg ruimte om te downloaden:\\n$URL ($neededSpace KB)"
 
-#: lib/scripts.lib:466 lib/scripts.lib:733
+#: lib/scripts.lib:471 lib/scripts.lib:738
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr ""
 "Een moment geduld, $APPLICATION_TITLE is bezig met het downloaden van:"
 
-#: lib/scripts.lib:468 lib/scripts.lib:529
+#: lib/scripts.lib:473 lib/scripts.lib:534
 #, sh-format
 msgid "An error happened during download."
 msgstr "Er is een fout opgetreden tijdens het downloaden."
 
-#: lib/scripts.lib:468 lib/scripts.lib:487 lib/scripts.lib:529
-#: lib/scripts.lib:545
+#: lib/scripts.lib:473 lib/scripts.lib:492 lib/scripts.lib:534
+#: lib/scripts.lib:550
 #, sh-format
 msgid "Do you want to retry?"
 msgstr "Wilt u het opnieuw proberen?"
 
-#: lib/scripts.lib:487 lib/scripts.lib:545
+#: lib/scripts.lib:492 lib/scripts.lib:550
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 "Fout ! Bestanden komen niet overeen\\n\\nLokaal : $LOCAL_MD5\\nServer : "
 "$SERVER_MD5"
 
-#: lib/scripts.lib:638
+#: lib/scripts.lib:643
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
 msgstr "7z is niet geïnstalleerd, installeer 7zip en probeer het dan opnieuw"
 
-#: lib/scripts.lib:645
+#: lib/scripts.lib:650
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr "Kon ${dest} niet vinden in ${archive}"
 
-#: lib/scripts.lib:649
+#: lib/scripts.lib:654
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr "${filename} wordt uitgepakt vanuit ${archivename}"
 
-#: lib/scripts.lib:664
+#: lib/scripts.lib:669
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr "Grootte van uitgepakte bestand komt niet overeen!"
 
-#: lib/scripts.lib:695
+#: lib/scripts.lib:700
 #, sh-format
 msgid "Copying ${filename}"
 msgstr "${filename} wordt gekopieerd"
 
-#: lib/scripts.lib:708
+#: lib/scripts.lib:713
 #, sh-format
 msgid "File size does not match!"
 msgstr "Grootte van uitgepakte bestand komt niet overeen!"
 
-#: lib/scripts.lib:809
+#: lib/scripts.lib:814
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
@@ -4231,7 +4322,7 @@ msgstr ""
 "Sorry, $APPLICATION_TITLE $VERSION is te oud om door te kunnen gaan.\\"
 "n$APPLICATION_TITLE $NEEDED wordt vereist."
 
-#: lib/scripts.lib:824
+#: lib/scripts.lib:829
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
@@ -4240,7 +4331,7 @@ msgstr ""
 "Waarschuwing: U draait momenteel $APPLICATION_TITLE $VERSION.\\"
 "n$APPLICATION_TITLE versie $NEEDED wordt aanbevolen om mee door te gaan."
 
-#: lib/scripts.lib:855
+#: lib/scripts.lib:860
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr "$AUTHOR-profiel"
