@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2013-02-26 19:00:52+01:00\n"
+"POT-Creation-Date: 2013-02-27 19:00:51+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -322,9 +322,9 @@ msgstr ""
 #: PlayOnLinux_Scripts/Google_SketchUp_:67
 #: PlayOnLinux_Scripts/ISIS_Draw_2.3_:34
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:218
-#: PlayOnLinux_Scripts/SFR_LiberTalk_:57 PlayOnLinux_Scripts/The_Sims_3_:51
-#: PlayOnLinux_Scripts/Theme_Hospital_:66 PlayOnLinux_Scripts/Tree[d]_:61
-#: PlayOnLinux_Scripts/Wow_Cartographe_:58
+#: PlayOnLinux_Scripts/Pro_Pilkki_2_:64 PlayOnLinux_Scripts/SFR_LiberTalk_:57
+#: PlayOnLinux_Scripts/The_Sims_3_:51 PlayOnLinux_Scripts/Theme_Hospital_:66
+#: PlayOnLinux_Scripts/Tree[d]_:61 PlayOnLinux_Scripts/Wow_Cartographe_:58
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:97
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:68
 #, sh-format
@@ -640,7 +640,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Fallout_3_Patch_1.07_:51
 #: PlayOnLinux_Scripts/Far_Cry_2_Patch_1.03_:50
 #: PlayOnLinux_Scripts/Mass_Effect_2___Patch_1.02_:51
-#: PlayOnLinux_Scripts/Red_Faction_:59
+#: PlayOnLinux_Scripts/Red_Faction_:55
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_Patch_1.2.0416_:43
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_Patch_1.35_:51
 #: PlayOnLinux_Scripts/The_Witcher_2___Enhanced_Edition_Patch_:51
@@ -1449,6 +1449,16 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Painkiller__Black_Edition_:51
 #, sh-format
 msgid "Editor"
+msgstr ""
+
+#: PlayOnLinux_Scripts/GOG.com___Commandos_Ammo_Pack_:31
+#, sh-format
+msgid "This install script requires ffmpeg"
+msgstr ""
+
+#: PlayOnLinux_Scripts/GOG.com___Commandos_Ammo_Pack_:74
+#, sh-format
+msgid "Converting videos..."
 msgstr ""
 
 #: PlayOnLinux_Scripts/GOG.com___Deus_Ex_GOTY_Edition_:73
@@ -2360,6 +2370,11 @@ msgid ""
 "this, you can run \"$TITLE\" when setup is done"
 msgstr ""
 
+#: PlayOnLinux_Scripts/Pro_Pilkki_2_:54
+#, sh-format
+msgid "Error while installing game."
+msgstr ""
+
 #: PlayOnLinux_Scripts/Q.U.B.E_:94 PlayOnLinux_Scripts/Star_Twine_:72
 #, sh-format
 msgid ""
@@ -2399,12 +2414,12 @@ msgid ""
 "expected."
 msgstr ""
 
-#: PlayOnLinux_Scripts/Red_Faction_:79
+#: PlayOnLinux_Scripts/Red_Faction_:75
 #, sh-format
 msgid "Error while installing patch."
 msgstr ""
 
-#: PlayOnLinux_Scripts/Red_Faction_:91
+#: PlayOnLinux_Scripts/Red_Faction_:87
 #, sh-format
 msgid ""
 "$TITLE and patch has been successfully installed.\\n\\nIf the game crashes "
@@ -2504,14 +2519,15 @@ msgstr ""
 msgid "PlayOnLinux is installing your application..."
 msgstr ""
 
-#: PlayOnLinux_Scripts/Terraria_:62
+#: PlayOnLinux_Scripts/Terraria_:56
 #, sh-format
 msgid ""
-"Install Terraria in Steam. Run the Terraria when Steam is installed. Steam "
-"install xna framework the game. Close Steam."
+"Install Terraria in Steam. Run the Terraria when Steam is installed the "
+"game. Steam install xna framework the game. Close the Steam so that the "
+"installer can continue."
 msgstr ""
 
-#: PlayOnLinux_Scripts/Terraria_:82
+#: PlayOnLinux_Scripts/Terraria_:66
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_V___Skyrim_:90
 #, sh-format
 msgid ""
