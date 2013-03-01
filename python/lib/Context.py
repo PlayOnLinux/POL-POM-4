@@ -43,6 +43,9 @@ class Context(object):
    
    def getUserRoot(self):
        return self.getEnv("REPERTOIRE") # FIXME 
+     
+   def getAppName(self):
+       return self.getEnv("APPLICATION_TITLE")
 
    def getAppVersion(self):
        return self.getEnv("VERSION")
@@ -118,7 +121,10 @@ class Context(object):
        
    def getOS(self):
        return self.pol_os
-       
+     
+   def getHomeDir(self):
+       return self.getEnv("HOME")
+         
    def is64bit(self):
        if(self.getArch() == "x86_64" and self.getOS() == "Linux"):
            return True

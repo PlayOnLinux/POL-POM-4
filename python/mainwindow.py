@@ -27,6 +27,7 @@ from lib.Context import Context
 from lib.System import System
 from lib.Script import PrivateScript
 from POLWeb import POLWeb
+from lib.UI import UI
 from lib.ConfigFile import GlobalConfigFile
 
 import lib.playonlinux as playonlinux
@@ -37,15 +38,18 @@ import guiv3 as gui, gui_server#, install, options, wine_versions as wver, sp, c
 
 class MainWindow(wx.Frame):
     def __init__(self, context, parent, id, title):
+        
+        # Get context, settings, and UI rules
         self.context = context
-        wx.Frame.__init__(self, parent, 1000, title, size = (515,450))
-        self.SetMinSize((400,400))
-        self.SetIcon(wx.Icon(self.context.getAppPath()+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
-
-        self.windowList = {}
-        self.registeredPid = []
-        self.windowOpened = 0
+        self.ui = UI(self.context);
+        
         self.playonlinuxSettings = GlobalConfigFile(self.context)
+       
+        # Some vars
+        self.windowList = {}    # List of POL_SetupWindow opened
+        self.registeredPid = [] # List of bash pids belonging to POL 
+        self.windowOpened = 0   # Number of POL_SetupWindow opened
+        
         
         # Manage updater
         self.updater = POLWeb(context)
@@ -58,44 +62,15 @@ class MainWindow(wx.Frame):
         # Catch CTRL+C
         signal.signal(signal.SIGINT, self.ForceClose)
         
-        # Window size
-        
-    
-        self.windowWidth = self.playonlinuxSettings.getIntSetting("MAINWINDOW_WIDTH", default = 450)
-        self.windowHeight = self.playonlinuxSettings.getIntSetting("MAINWINDOW_HEIGHT", default = 450)
-        self.SetSize((self.windowWidth,self.windowHeight))
+        # Init window
+        self.drawWindow(parent, id, title)
         
 
-        # Window position
-        self.windowx = self.playonlinuxSettings.getIntSetting("MAINWINDOW_X", default = 30)
-        self.windowy = self.playonlinuxSettings.getIntSetting("MAINWINDOW_Y", default = 30)
-        self.screen_width = wx.Display().GetGeometry()[2]
-        self.screen_height = wx.Display().GetGeometry()[3]
-
-        if(self.screen_width >= self.windowx and self.screen_height >= self.windowy):
-            self.SetPosition((self.windowx, self.windowy))
-        else:
-            self.Center(wx.BOTH)
-        
-
-        self.iconSize = self.playonlinuxSettings.getIntSetting("ICON_SIZE", default = 32)
-        
-
+        # Widgets
         self.images = wx.ImageList(self.iconSize, self.iconSize)
         self.imagesEmpty = wx.ImageList(1,1)
 
 
-
-        ## Fonts
-        if(os.environ["POL_OS"] == "Mac"):
-            self.fontTitre = wx.Font(14, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, False, "", wx.FONTENCODING_DEFAULT)
-            self.fontText = wx.Font(12, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL,False, "", wx.FONTENCODING_DEFAULT)
-        else :
-            self.fontTitre = wx.Font(10, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, False, "", wx.FONTENCODING_DEFAULT)
-            self.fontText = wx.Font(8, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL,False, "", wx.FONTENCODING_DEFAULT)
-
-
-        ## List game
         self.list_game = wx.TreeCtrl(self, 105, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT)
         self.list_game.SetSpacing(0);
         self.list_game.SetIndent(5);
@@ -142,20 +117,20 @@ class MainWindow(wx.Frame):
         self.expertmenu = wx.Menu()
         self.addMenuItem(107,  _('Manage Wine versions'), "wine.png", self.expertmenu)
 
-        if(os.environ["POL_OS"] == "Mac"):
+        if(self.context.getOS == "Mac"):
             self.expertmenu.AppendSeparator()
             self.addMenuItem(113,  _('Read a PC cdrom'), "cdrom.png", self.expertmenu)
             
 
         self.expertmenu.AppendSeparator()
         self.addMenuItem(108,  _('Run a local script'), "run.png", self.expertmenu)
-        self.addMenuItem(115,  _('Close all {0} software').format(os.environ["APPLICATION_TITLE"]), "wineserver.png", self.expertmenu)
-        self.addMenuItem(110, _("{0} debugger").format(os.environ["APPLICATION_TITLE"]), "bug.png", self.expertmenu)
-        self.addMenuItem(109, _('{0} console').format(os.environ["APPLICATION_TITLE"]), "polshell.png", self.expertmenu)
+        self.addMenuItem(115,  _('Close all {0} software').format(self.context.getAppName()), "wineserver.png", self.expertmenu)
+        self.addMenuItem(110, _("{0} debugger").format(self.context.getAppName()), "bug.png", self.expertmenu)
+        self.addMenuItem(109, _('{0} console').format(self.context.getAppName()), "polshell.png", self.expertmenu)
        
         self.expertmenu.AppendSeparator()
-        self.addMenuItem(112, os.environ["APPLICATION_TITLE"]+" online", "playonlinux_online.png", self.expertmenu)
-        self.addMenuItem(111, _("{0} messenger").format(os.environ["APPLICATION_TITLE"]), "people.png", self.expertmenu)
+        self.addMenuItem(112, self.context.getAppName()+" online", "playonlinux_online.png", self.expertmenu)
+        self.addMenuItem(111, _("{0} messenger").format(self.context.getAppName()), "people.png", self.expertmenu)
         
         # Option menu
         self.optionmenu = wx.Menu()
@@ -165,7 +140,7 @@ class MainWindow(wx.Frame):
         self.addMenuItem(213,  _("Plugin manager"), "plugins.png", self.optionmenu)
 
         self.help_menu = wx.Menu()
-        self.addMenuItem(wx.ID_ABOUT,  _('About {0}').format(os.environ["APPLICATION_TITLE"]), None, self.help_menu)
+        self.addMenuItem(wx.ID_ABOUT,  _('About {0}').format(self.context.getAppName()), None, self.help_menu)
 
         self.pluginsmenu = wx.Menu()
 
@@ -329,6 +304,32 @@ class MainWindow(wx.Frame):
 
         self.MgrAddPage()
 
+    def drawWindow(self, parent, id, title):
+        wx.Frame.__init__(self, parent, 1000, title, size = (515,450))
+        self.SetIcon(wx.Icon(self.context.getAppPath()+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
+        
+        ### Window behavior
+        # Window size
+        self.SetMinSize((400,400))
+        self.windowWidth = self.playonlinuxSettings.getIntSetting("MAINWINDOW_WIDTH", default = 450)
+        self.windowHeight = self.playonlinuxSettings.getIntSetting("MAINWINDOW_HEIGHT", default = 450)
+        self.SetSize((self.windowWidth,self.windowHeight))
+        
+
+        # Window position
+        self.windowx = self.playonlinuxSettings.getIntSetting("MAINWINDOW_X", default = 30)
+        self.windowy = self.playonlinuxSettings.getIntSetting("MAINWINDOW_Y", default = 30)
+        self.screen_width = wx.Display().GetGeometry()[2]
+        self.screen_height = wx.Display().GetGeometry()[3]
+
+        if(self.screen_width >= self.windowx and self.screen_height >= self.windowy):
+            self.SetPosition((self.windowx, self.windowy))
+        else:
+            self.Center(wx.BOTH)
+        
+        # Icon size
+        self.iconSize = self.playonlinuxSettings.getIntSetting("ICON_SIZE", default = 32)
+        
     def ResizeWindow(self, e):
         self.UpdateGaugePos()
         self.UpdateSearchHackSize()
@@ -454,7 +455,7 @@ class MainWindow(wx.Frame):
                 
         self.alert = self.updater.getAlert()
         if(self.alert != None):
-            wx.MessageBox(self.alert, os.environ["APPLICATION_TITLE"])
+            wx.MessageBox(self.alert, self.context.getAppName())
 
     def RMBInGameList(self, event):
         self.GameListPopUpMenu = wx.Menu()
@@ -512,7 +513,7 @@ class MainWindow(wx.Frame):
         if(os.path.exists(os.environ["POL_USER_ROOT"]+"/configurations/manuals/"+game_exec)):
             playonlinux.POL_Open(os.environ["POL_USER_ROOT"]+"/configurations/manuals/"+game_exec)
         else:
-            wx.MessageBox(_("No manual found for {0}").format(game_exec), os.environ["APPLICATION_TITLE"])
+            wx.MessageBox(_("No manual found for {0}").format(game_exec), self.context.getAppName())
 
     def RRegistryEditor(self, event):
         self.RConfigure(_("Registry Editor"), "nothing")
@@ -560,7 +561,7 @@ class MainWindow(wx.Frame):
         playonlinux.open_folder(self.game_exec)
 
     def ChangeIcon(self, event):
-        self.IconDir = Variables.homedir+"/.local/share/icons/"
+        self.IconDir = self.context.getHomeDir()+"/.local/share/icons/"
         self.SupprotedIconExt = "All|*.xpm;*.XPM;*.png;*.PNG;*.ico;*.ICO;*.jpg;*.JPG;*.jpeg;*.JPEG;*.bmp;*.BMP\
         \|XPM (*.xpm)|*.xpm;*.XPM\
         \|PNG (*.png)|*.png;*.PNG\
@@ -607,7 +608,7 @@ class MainWindow(wx.Frame):
         self.menuImage = {}
 
         i = 0;
-        self.menuGaucheAddTitle("pol_title", os.environ["APPLICATION_TITLE"], i)
+        self.menuGaucheAddTitle("pol_title", self.context.getAppName(), i)
         i+=1
         self.menuGaucheAddLink("pol_prgm_install", _("Install a program"), i,self.context.getAppPath()+"/resources/images/menu/add.png",self.InstallMenu)
         i+=1
@@ -676,7 +677,7 @@ class MainWindow(wx.Frame):
     def menuGaucheAddTitle(self,id,text,pos):
         self.menuElem[id] = wx.StaticText(self.menu_gauche, -1, text,pos=(5,5+pos*20))
         self.menuElem[id].SetForegroundColour((0,0,0)) # For dark themes
-        self.menuElem[id].SetFont(self.fontTitre)
+        self.menuElem[id].SetFont(self.ui.getFontTitle())
 
 
     def menuGaucheAddLink(self,id,text,pos,image,evt,url=None):
@@ -761,7 +762,7 @@ class MainWindow(wx.Frame):
         if(game_exec != ""):
             os.system("bash \""+self.context.getAppPath()+"/bash/polconfigurator\" \""+game_exec+"\" \""+function_to_run+"\" \""+firstargument+"\"&")
         else:
-            wx.MessageBox(_("Please select a program."), os.environ["APPLICATION_TITLE"])
+            wx.MessageBox(_("Please select a program."), self.context.getAppName())
 
 
     def Options(self, event):
@@ -769,11 +770,11 @@ class MainWindow(wx.Frame):
         try:
             self.optionFrame.SetFocus()
         except:
-            self.optionFrame = options.MainWindow(self, -1, _("{0} settings").format(os.environ["APPLICATION_TITLE"]), 2)
+            self.optionFrame = options.MainWindow(self, -1, _("{0} settings").format(self.context.getAppName()), 2)
             if(onglet == 211):
-                self.optionFrame = options.MainWindow(self, -1, _("{0} settings").format(os.environ["APPLICATION_TITLE"]), 0)
+                self.optionFrame = options.MainWindow(self, -1, _("{0} settings").format(self.context.getAppName()), 0)
             if(onglet == 214):
-                self.optionFrame = options.MainWindow(self, -1, _("{0} settings").format(os.environ["APPLICATION_TITLE"]), 1)
+                self.optionFrame = options.MainWindow(self, -1, _("{0} settings").format(self.context.getAppName()), 1)
             self.optionFrame.Center(wx.BOTH)
             self.optionFrame.Show(True)
 
@@ -788,7 +789,7 @@ class MainWindow(wx.Frame):
             self.debugFrame.Show()
             self.debugFrame.SetFocus()
         except:
-            self.debugFrame = debug.MainWindow(None, -1, _("{0} debugger").format(os.environ["APPLICATION_TITLE"]))
+            self.debugFrame = debug.MainWindow(None, -1, _("{0} debugger").format(self.context.getAppName()))
             self.debugFrame.Center(wx.BOTH)
             self.debugFrame.Show()
 
@@ -813,9 +814,9 @@ class MainWindow(wx.Frame):
 
         except:
             if(game_exec == ""):
-                self.configureFrame = configure.MainWindow(self, -1, _("{0} configuration").format(os.environ["APPLICATION_TITLE"]),"default",True)
+                self.configureFrame = configure.MainWindow(self, -1, _("{0} configuration").format(self.context.getAppName()),"default",True)
             else:
-                self.configureFrame = configure.MainWindow(self, -1, _("{0} configuration").format(os.environ["APPLICATION_TITLE"]),game_exec.decode("utf-8","replace"),False)
+                self.configureFrame = configure.MainWindow(self, -1, _("{0} configuration").format(self.context.getAppName()),game_exec.decode("utf-8","replace"),False)
 
 
             self.configureFrame.Center(wx.BOTH)
@@ -832,14 +833,14 @@ class MainWindow(wx.Frame):
         if(game_exec != ""):
             os.system("bash \""+self.context.getAppPath()+"/bash/uninstall\" \""+game_exec.encode("utf-8","replace")+"\"&")
         else:
-            wx.MessageBox(_("Please select a program."), os.environ["APPLICATION_TITLE"])
+            wx.MessageBox(_("Please select a program."), self.context.getAppName())
 
     def InstallMenu(self, event):
         try:
             self.installFrame.Show(True)
             self.installFrame.SetFocus()
         except:
-            self.installFrame = install.InstallWindow(self, -1, _('{0} install menu').format(os.environ["APPLICATION_TITLE"]))
+            self.installFrame = install.InstallWindow(self, -1, _('{0} install menu').format(self.context.getAppName()))
             self.installFrame.Center(wx.BOTH)
             self.installFrame.Show(True)
 
@@ -848,7 +849,7 @@ class MainWindow(wx.Frame):
             self.wversion.Show()
             self.wversion.SetFocus()
         except:
-            self.wversion = wver.MainWindow(None, -1, _('{0} wine versions manager').format(os.environ["APPLICATION_TITLE"]))
+            self.wversion = wver.MainWindow(None, -1, _('{0} wine versions manager').format(self.context.getAppName()))
             self.wversion.Center(wx.BOTH)
             self.wversion.Show(True)
 
@@ -871,15 +872,15 @@ class MainWindow(wx.Frame):
                         self.debugFrame.Show()
                         self.debugFrame.SetFocus()
                     except:
-                        self.debugFrame = debug.MainWindow(None, -1, _("{0} debugger").format(os.environ["APPLICATION_TITLE"]),game_prefix,0)
+                        self.debugFrame = debug.MainWindow(None, -1, _("{0} debugger").format(self.context.getAppName()),game_prefix,0)
                         self.debugFrame.Center(wx.BOTH)
                         self.debugFrame.Show()
 
                 os.system("bash "+self.context.getAppPath()+"/bash/run_app \""+game_exec+"\"&")
             else:
-                wx.MessageBox(_("Please select a program."), os.environ["APPLICATION_TITLE"])
+                wx.MessageBox(_("Please select a program."), self.context.getAppName())
         else:
-            wx.MessageBox(_("The virtual drive associated with {0} ({1}) does no longer exists.").format(game_exec, game_prefix), os.environ["APPLICATION_TITLE"])
+            wx.MessageBox(_("The virtual drive associated with {0} ({1}) does no longer exists.").format(game_exec, game_prefix), self.context.getAppName())
 
     def RunDebug(self, event):
         game_exec = self.GetSelectedProgram()
@@ -906,12 +907,12 @@ class MainWindow(wx.Frame):
         self.POLDie()
 
     def ClosePol(self, event):
-        if(playonlinux.GetSettings("DONT_ASK_BEFORE_CLOSING") == "TRUE" or wx.YES == wx.MessageBox(_('Are you sure you want to close all {0} Windows?').format(os.environ["APPLICATION_TITLE"]).decode("utf-8","replace"),os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
+        if(playonlinux.GetSettings("DONT_ASK_BEFORE_CLOSING") == "TRUE" or wx.YES == wx.MessageBox(_('Are you sure you want to close all {0} Windows?').format(self.context.getAppName()).decode("utf-8","replace"),self.context.getAppName(), style=wx.YES_NO | wx.ICON_QUESTION)):
             self.SizeToSave = self.GetSize();
             self.PositionToSave = self.GetPosition();
             # Save size and position
             playonlinux.SetSettings("MAINWINDOW_WIDTH",str(self.SizeToSave[0]))
-            playonlinux.SetSettings("MAINWINDOW_HEIGHT",str(self.SizeToSave[1]-Variables.windows_add_playonmac*56))
+            playonlinux.SetSettings("MAINWINDOW_HEIGHT",str(self.SizeToSave[1] - self.ui.AddMacOffset(56)))
             playonlinux.SetSettings("MAINWINDOW_X",str(self.PositionToSave[0]))
             playonlinux.SetSettings("MAINWINDOW_Y",str(self.PositionToSave[1]))
             self._mgr.UnInit()
@@ -944,8 +945,8 @@ class MainWindow(wx.Frame):
             self.aboutBox.SetIcon(wx.Icon(self.context.getAppPath()+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
 
 
-        self.aboutBox.SetName(os.environ["APPLICATION_TITLE"])
-        self.aboutBox.SetVersion(Variables.version)
+        self.aboutBox.SetName(self.context.getAppName())
+        self.aboutBox.SetVersion(self.context.getAppVersion())
         self.aboutBox.SetDescription(_("Run your Windows programs on "+os.environ["POL_OS"]+" !"))
         self.aboutBox.SetCopyright("© 2007-2012 "+_("PlayOnLinux and PlayOnMac team\nUnder GPL licence version 3"))
         self.aboutBox.AddDeveloper(_("Developer and Website: ")+"Tinou (Pâris Quentin), MulX (Petit Aymeric)")
@@ -984,11 +985,11 @@ class PlayOnLinuxApp(wx.App):
         if(close == True and exe_present == False):
             os._exit(0)
 
-        self.SetClassName(os.environ["APPLICATION_TITLE"])
-        self.SetAppName(os.environ["APPLICATION_TITLE"])
+        self.SetClassName(self.context.getAppName())
+        self.SetAppName(self.context.getAppName())
 
         
-        self.frame = MainWindow(self.context, None, -1, os.environ["APPLICATION_TITLE"])
+        self.frame = MainWindow(self.context, None, -1, self.context.getAppName())
         
         # Gui Server
         self.POLServer = gui_server.gui_server(self.context, self.frame)
@@ -1021,7 +1022,7 @@ class PlayOnLinuxApp(wx.App):
             else:
                 verdict = _("You should install it to use {0}")
 
-            wx.MessageBox(("%s\n\n%s" % (message, verdict)).format(os.environ["APPLICATION_TITLE"], executable, package), _("Error"))
+            wx.MessageBox(("%s\n\n%s" % (message, verdict)).format(self.context.getAppName(), executable, package), _("Error"))
 
             if fatal:
                 os._exit(0)
@@ -1035,7 +1036,7 @@ class PlayOnLinuxApp(wx.App):
     def systemCheck(self):
         #### Root uid check
         if(System.isRunAsRoot()):
-            wx.MessageBox(_("{0} is not supposed to be run as root. Sorry").format(os.environ["APPLICATION_TITLE"]),_("Error"))
+            wx.MessageBox(_("{0} is not supposed to be run as root. Sorry").format(self.context.getAppName()),_("Error"))
             os._exit(0)
 
         #### 32 bits OpenGL check
@@ -1043,7 +1044,7 @@ class PlayOnLinuxApp(wx.App):
         returncode = check_gl.run()
         
         if(os.environ["POL_OS"] == "Linux" and returncode != 0):
-            wx.MessageBox(_("{0} is unable to find 32bits OpenGL libraries.\n\nYou might encounter problem with your games").format(os.environ["APPLICATION_TITLE"]),_("Error"))
+            wx.MessageBox(_("{0} is unable to find 32bits OpenGL libraries.\n\nYou might encounter problem with your games").format(self.context.getAppName()),_("Error"))
             os.environ["OpenGL32"] = "0"
         else:
             os.environ["OpenGL32"] = "1"
@@ -1055,7 +1056,7 @@ class PlayOnLinuxApp(wx.App):
             except:
                 returncode=255
         if(os.environ["AMD64_COMPATIBLE"] == "True" and os.environ["POL_OS"] == "Linux" and returncode != 0):
-            wx.MessageBox(_("{0} is unable to find 64bits OpenGL libraries.\n\nYou might encounter problem with your games").format(os.environ["APPLICATION_TITLE"]),_("Error"))
+            wx.MessageBox(_("{0} is unable to find 64bits OpenGL libraries.\n\nYou might encounter problem with your games").format(self.context.getAppName()),_("Error"))
             os.environ["OpenGL64"] = "0"
         else:
             os.environ["OpenGL64"] = "1"
@@ -1067,11 +1068,11 @@ class PlayOnLinuxApp(wx.App):
             except:
                 returncode=255
             if(os.environ["POL_OS"] == "Linux" and returncode != 0):
-                wx.MessageBox(_("Your filesystem might prevent {0} from running correctly.\n\nPlease open {0} in a terminal to get more details").format(os.environ["APPLICATION_TITLE"]),_("Error"))
+                wx.MessageBox(_("Your filesystem might prevent {0} from running correctly.\n\nPlease open {0} in a terminal to get more details").format(self.context.getAppName()),_("Error"))
 
         if(os.environ["DEBIAN_PACKAGE"] == "FALSE"):
             if(playonlinux.GetSettings("SEND_REPORT") == ""):
-                if(wx.YES == wx.MessageBox(_('Do you want to help {0} to make a compatibility database?\n\nIf you click yes, the following things will be sent to us anonymously the first time you run a Windows program:\n\n- You graphic card model\n- Your OS version\n- If graphic drivers are installed or not.\n\n\nThese information will be very precious for us to help people.').format(os.environ["APPLICATION_TITLE"]).decode("utf-8","replace"), os.environ["APPLICATION_TITLE"],style=wx.YES_NO | wx.ICON_QUESTION)):
+                if(wx.YES == wx.MessageBox(_('Do you want to help {0} to make a compatibility database?\n\nIf you click yes, the following things will be sent to us anonymously the first time you run a Windows program:\n\n- You graphic card model\n- Your OS version\n- If graphic drivers are installed or not.\n\n\nThese information will be very precious for us to help people.').format(self.context.getAppName()).decode("utf-8","replace"), self.context.getAppName(),style=wx.YES_NO | wx.ICON_QUESTION)):
                     playonlinux.SetSettings("SEND_REPORT","TRUE")
                 else:
                     playonlinux.SetSettings("SEND_REPORT","FALSE")
@@ -1124,16 +1125,16 @@ class PlayOnLinuxApp(wx.App):
             os.system("bash \"$PLAYONLINUX/bash/run_exe\" \""+filename+"\" &")
 
         elif(file_extension == "pol" or file_extension == "POL"):
-            if(wx.YES == wx.MessageBox(_('Are you sure you want to install {0} package?').format(filename).decode("utf-8","replace"), os.environ["APPLICATION_TITLE"],style=wx.YES_NO | wx.ICON_QUESTION)):
+            if(wx.YES == wx.MessageBox(_('Are you sure you want to install {0} package?').format(filename).decode("utf-8","replace"), self.context.getAppName(),style=wx.YES_NO | wx.ICON_QUESTION)):
                 os.system("bash \"$PLAYONLINUX/bash/playonlinux-pkg\" -i \""+filename+"\" &")
         else:
             playonlinux.open_document(filename,file_extension.lower())
 
     def MacOpenURL(self, url):
         if(os.environ["POL_OS"] == "Mac" and "playonlinux://" in url):
-            wx.MessageBox(_("You are trying to open a script design for {0}! It might not work as expected").format("PlayOnLinux"), os.environ["APPLICATION_TITLE"])
+            wx.MessageBox(_("You are trying to open a script design for {0}! It might not work as expected").format("PlayOnLinux"), self.context.getAppName())
         if(os.environ["POL_OS"] == "Linux" and "playonmac://" in url):
-            wx.MessageBox(_("You are trying to open a script design for {0}! It might not work as expected").format("PlayOnMac"), os.environ["APPLICATION_TITLE"])
+            wx.MessageBox(_("You are trying to open a script design for {0}! It might not work as expected").format("PlayOnMac"), self.context.getAppName())
 
         os.system("bash \"$PLAYONLINUX/bash/playonlinux-url_handler\" \""+url+"\" &")
 
