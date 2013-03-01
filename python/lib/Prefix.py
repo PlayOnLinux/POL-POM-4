@@ -9,10 +9,10 @@ import os, string, shutil
 # playonlinux imports
 import Variables, ConfigFile
 
-PREFIXES_PATH = Variables.pol_user_root+"/wineprefix/"
 
 class Prefix():
-   def __init__(self, prefixName):
+   def __init__(self, context, prefixName):
+       self.context = context
        self.selectedPrefix = prefixName
        
    def getName(self):
@@ -26,7 +26,7 @@ class Prefix():
        return getConfigFile(self.getConfigFilePath())
        
    def getPath(self):
-       return PREFIXES_PATH+self.selectedPrefix
+       return self.context.getUserRoot()+"/wineprefix/"+self.selectedPrefix
              
    def exists(self):
        # Return true if the prefix exists
@@ -35,12 +35,19 @@ class Prefix():
    def created(self):
        return os.path.exists(self.getPath()+"/drive_c")
           
-   def getWineVersion(self):
-       return currentConfiguration == self.getConfigFile().getSetting("WINEVERSION")
+   def getWineVersionString(self):
+       return self.getConfigFile().getSetting("WINEVERSION")
 
    def getArch(self):
-       return currentConfiguration == self.getConfigFile().getSetting("ARCH")
+       arch = self.getConfigFile().getSetting("ARCH")
+       if(arch == ""):
+           return "x86"
+       else:
+           return arch
    
+   def getWineVersion():
+       return WineVersion(self.context, self.getWineVersion(), self.getArch())
+       
    def getShortcutList(self):
        existing_shortcuts = Shortcut.getList()
        suitableShortcuts = []
@@ -181,8 +188,8 @@ class Prefix():
        """
           
    @staticmethod
-   def getList():
-       prefixList = os.listdir(PREFIXES_PATH)
+   def getList(context):
+       prefixList = os.listdir(context.getUserRoot())
        prefixList.sort()
        
        # Get a list of object instead of a list of strings

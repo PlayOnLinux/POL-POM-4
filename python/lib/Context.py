@@ -79,7 +79,8 @@ class Context(object):
 
       # Image Magick on OSX
       self.setEnv("MAGICK_HOME",self.getAppPath()+"/../unix/image_magick/")
-      
+    
+ 
    def initWineEnvironement(self):
       self.setEnv("WINEDLLOVERRIDES","winemenubuilder.exe=d")
 
@@ -121,7 +122,10 @@ class Context(object):
        
    def getOS(self):
        return self.pol_os
-     
+       
+   def getOSCodeName(self):
+       return self.os_name
+       
    def getHomeDir(self):
        return self.getEnv("HOME")
          
@@ -130,7 +134,10 @@ class Context(object):
            return True
        else:
            return False
-               
+           
+   def isDebianPackage(self):
+       return (os.environ["DEBIAN_PACKAGE"] == "TRUE")
+             
    def getEnv(self, var):
       try :
          return os.environ[var]

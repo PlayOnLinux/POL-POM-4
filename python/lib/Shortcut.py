@@ -7,9 +7,10 @@
 import string
 
 # playonlinux imports
-import Variables, ConfigFile
+import ConfigFile
 
-SHORTCUTS_PATH = Variables.pol_user_root+"/shortcuts/"
+from lib.Script import PrivateScript
+from lib.Prefix import Prefix
 
 class Shortcut(PrivateScript):
    def __init__(self, context, shortcutName):
@@ -19,16 +20,29 @@ class Shortcut(PrivateScript):
       self.args = [shortcutName]
       self.needSignature = False
       
+      
+   def getName(self):
+       return self.selectedShortcut
+       
+   # Set additional args
+   def setArgs(self, args = []):
+       self.args = [shortcutName] + args
+       
    # Get the shortcut script path
    def getPath(self):
        return self.path;
-   
+  
+   # Get shortcut path
+   def getShortcutPath(self):
+      return self.context.getUserRoot()+"/shortcuts/"+self.getName(); 
+      
    # List of script's line
    def getScriptLines(self):
-       shortcutFile = open(self.getPath(),'r').read()
+       shortcutFile = open(self.getShortcutPath(),'r').read()
        shortcutFile = string.split(shortcutFile,"\n")
        return shortcutFile
        
+ 
    # Get the prefix object from shortcut
    def getPrefix(self): 
        shortcutFile = self.getScriptLines()
@@ -38,17 +52,19 @@ class Shortcut(PrivateScript):
            if("export WINEPREFIX=" in shortcutFile[i]):
                break
            i += 1
-
+           
+       
        prefix = string.split(shortcutFile[i],"\"")
+      
        prefix = prefix[1].replace("//","/")
        prefix = string.split(prefix,"/")
 
-       if(Variables.pol_os == "Mac"):
+       if(self.context.getOS() == "Mac"):
           dirStoreName="PlayOnMac"
        else:
           dirStoreName=".PlayOnLinux"
           
-       prefix = Prefix(prefix[prefix.index(dirStoreName) + 2])
+       prefix = Prefix(self.context, prefix[prefix.index(dirStoreName) + 2])
        
 
        return prefix
@@ -92,7 +108,7 @@ class Shortcut(PrivateScript):
                line.append(new_string)
             except:
                line.append(fichier[i])
-        i += 1
+         i += 1
 
       fichier_write = open(cfile,"w")
       i = 0
@@ -139,11 +155,24 @@ class Shortcut(PrivateScript):
    def delete(self):
        os.remove(self.getPath())
      
+   def windowPath(self, unixPath):
+      if(unixPath[0] != "/"):
+         unixPath = os.environ["WorkingDirectory"]+"/"+unixPath
+        
+      path = os.path.realpath(path)
+      prefix = self.getPrefix()
+      
+      prefixName = prefix.getName()
+      
+      ver = prefix.getWineVersion()
+      
+      if(ver.exists()):
+        return(os.popen("env WINEPREFIX='"+self.prefix.getPath()+"/' '"+self.ver.getWineBinary()+"' winepath -w '"+unixPath+"'").read().replace("\n","").replace("\r",""))
 
          
    @staticmethod
-   def getList():
-       shortcutList = os.listdir(SHORTCUTS_PATH)
+   def getList(context):
+       shortcutList = os.listdir(context.getAppPath()+"/shortcuts/")
        shortcutList.sort()
        
        # Get a list of object instead of a list of strings

@@ -101,3 +101,7 @@ class ConfigFile(object):
 class GlobalConfigFile(ConfigFile):
     def __init__(self, context):
         self.configFile = context.getUserRoot() + "/playonlinux.cfg"
+
+class FiletypeConfigFile(ConfigFile):
+    def __init__(self, context):
+        self.configFile = context.getUserRoot() + "/extensions.cfg"

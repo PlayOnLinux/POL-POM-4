@@ -51,10 +51,13 @@ class POLWeb(threading.Thread):
         return alert
         
     def LastVersion(self):
-        if(os.environ["POL_OS"] == "Mac"):
+        
+        if(self.context.getOS() == "Mac"):
             fichier_online="version_mac"
         else:
             fichier_online="version2"
+        
+        ## FIXME !!
         return os.popen(os.environ["POL_WGET"]+' "'+os.environ["SITE"]+'/'+fichier_online+'.php?v='+os.environ["VERSION"]+'" -T 30 -O-','r').read()
 
     def real_check(self):
