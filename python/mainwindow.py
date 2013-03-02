@@ -69,25 +69,23 @@ class POLWeb(threading.Thread):
         self.WebVersion = self.LastVersion()
 
         if(self.WebVersion == ""):
-            self.sendToStatusBar(_('{0} website is unavailable. Please check your connexion').format(os.environ["APPLICATION_TITLE"]), False)
+            self.sendToStatusBar(_('{0} website is unavailable. Please check your connection').format(os.environ["APPLICATION_TITLE"]), False)
         else:
             self.sendToStatusBar(_("Refreshing {0}").format(os.environ["APPLICATION_TITLE"]), True)
+            self.sendPercentage(0)
             self.updating = True
             exe = ['bash',Variables.playonlinux_env+"/bash/pol_update_list"]
 
-            p = subprocess.Popen(exe, stdout=subprocess.PIPE, preexec_fn=lambda: os.setpgid(os.getpid(), os.getpid()))
+            p = subprocess.Popen(exe, stdout=subprocess.PIPE, bufsize=1, preexec_fn=lambda: os.setpgid(os.getpid(), os.getpid()))
 
-            while(True):
-                retcode = p.poll() #returns None while subprocess is running
-                line = p.stdout.readline()
+            # http://stackoverflow.com/questions/2804543/read-subprocess-stdout-line-by-line
+            # workaround for issue 12268 with pipes http://bugs.python.org/issue12268
+            for line in iter(p.stdout.readline, ''):
                 try:
                     self.sendPercentage(int(line))
-                except:
+                except ValueError:
                     pass
-
-                if(retcode is not None):
-                    break
- 
+  
             self.updating = False
             if(playonlinux.VersionLower(os.environ["VERSION"],self.WebVersion)):
                 self.sendToStatusBar(_('An updated version of {0} is available').format(os.environ["APPLICATION_TITLE"])+" ("+self.WebVersion+")",False)

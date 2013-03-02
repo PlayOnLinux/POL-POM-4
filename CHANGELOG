@@ -21,6 +21,7 @@
 - manual_install: don't call POL_Wine_PrefixCreate on patch installation
 - irc: only warn about closing window when connected
 - Debug log all user inputs (POL_SetupWindow_textbox, etc.)
+- mainwindow.py: try to handle EINTR while reading from pol_update_list pipe (#1687)
 
 -> 4.1.9
 - POL_System_is32bit
