@@ -3,6 +3,11 @@
 # Copyright (C) 2013 - Quentin PARIS
 
 from lib.Context import Context
+from lib.System import System
+from lib.ConfigFile import GlobalConfigFile 
+from lib.ConfigFile import CustomConfigFile
+
+
 import os, string, wx, gettext
 
 class Environement(object):
@@ -19,91 +24,17 @@ class Environement(object):
           self.alreadyInit = True
           self.initEnvironement()
      
-   def initEnvironement(self):     
+   def initEnvironement(self):  
+      self.system = System()
+      
+      
       self.pol_os = self.getEnv("POL_OS")
+     
       if(self.pol_os == ""):
           print "ERROR ! Please define POL_OS environment var first."
-          os._exit(1)
-      else:
-          Context().setOS(self.pol_os)
-     
-      self.setEnv("PLAYONLINUX",self.getAppPath())
-      self.setEnv("SITE","http://repository.playonlinux.com")
-      self.setEnv("POL_PORT","0")
-      self.setEnv("VERSION","5.0-dev")
-      self.setEnv("WINE_SITE","http://www.playonlinux.com/wine/binaries")
-      self.setEnv("GECKO_SITE","http://www.playonlinux.com/wine/gecko")
-      self.setEnv("DEBIAN_PACKAGE", "FALSE")
+          self.system.hardExit(1)
+         
       
-      if(self.pol_os == "Linux"):
-          self.initPOLEnvironement()
-
-      if(self.pol_os == "Mac"):
-          self.initPOMEnvironement()
-          
-      #self.setEnv("AMD64_COMPATIBLE",str(self.is64bit()).upper())
-      self.setEnv("POL_USER_ROOT",self.getEnv("REPERTOIRE"))
-      self.setEnv("WGETRC", self.getUserRoot()+"/configurations/wgetrc")
-      self.initWineEnvironement()
-      
-   def initPOLself(self):
-      
-      self.setEnv("REPERTOIRE",self.getEnv("HOME")+"/.PlayOnLinux/")
-      self.setEnv("APPLICATION_TITLE","PlayOnLinux")
-      self.setEnv("POL_DNS","playonlinux.com")
-      
-      if not os.path.exists("/proc/net/if_inet6"):
-          self.setEnv("POL_WGET","wget -q")
-      else:
-          self.setEnv("POL_WGET","wget --prefer-family=IPv4 -q")
-          
-      Context().setAppName("PlayOnLinux")
-          
-   def initPOMEnvironement(self):
-      self.setEnv("PLAYONMAC",self.getEnv("PLAYONLINUX"))
-      self.setEnv("REPERTOIRE",self.getEnv("HOME")+"/Library/PlayOnMac/")
-      self.setEnv("APPLICATION_TITLE","PlayOnMac")
-      self.setEnv("POL_DNS","playonmac.com")
-      self.setEnv("POL_WGET","wget --prefer-family=IPv4 -q")
-
-      # Image Magick on OSX
-      self.setEnv("MAGICK_HOME",self.getAppPath()+"/../unix/image_magick/")
-      Context().setAppName("PlayOnMac")
-      
-   def initWineEnvironement(self):
-      self.setEnv("WINEDLLOVERRIDES","winemenubuilder.exe=d")
-
-      self.fixWineOnDebian()
-      if (Context().getOS() == "Mac"):
-         self.setEnv("PATH" , self.getAppPath()+"/../unix/wine/bin:" + self.getAppPath()+"/../unix/image_magick/bin:" + self.getAppPath()+"/../unix/tools/bin/:" + self.getEnv("PATH") )
-         self.setEnv("LD_LIBRARY_PATH" , self.getAppPath()+"/../unix/wine/lib/:"  + self.getAppPath()+"/../unix/image_magick/lib:"+ self.getAppPath()+"/../unix/tools/lib/ld:/usr/X11/lib/:" + self.getEnv("LD_LIBRARY_PATH") )
-         self.setEnv("DYLD_LIBRARY_PATH" ,  self.getAppPath()+"/../unix/tools/lib/dyld:" + self.getAppPath()+"/../unix/image_magick/lib:"+ self.getEnv("DYLD_LIBRARY_PATH") )
-      self.savePath()
-      
-   def savePath(self):
-       self.setEnv("PATH_ORIGIN", self.getEnv("PATH"))
-       self.setEnv("LD_PATH_ORIGIN", self.getEnv("LD_LIBRARY_PATH"))
-       self.setEnv("DYLDPATH_ORIGIN", self.getEnv("DYLD_LIBRARY_PATH"))
-
-   def restorePath(self):
-       self.setEnv("PATH", self.getEnv("PATH_ORIGIN"))
-       self.setEnv("LD_LIBRARY_PATH", self.getEnv("LD_PATH_ORIGIN"))
-       self.setEnv("DYLD_LIBRARY_PATH", self.getEnv("DYLDPATH_ORIGIN"))
-       
-   # Fix for a bug caused by debian's packaging
-   def fixWineOnDebian(self):
-       if(os.path.exists("/usr/lib/wine/wineserver")): 
-           self.setEnv("PATH" , self.getEnv("PATH")+":/usr/lib/wine/")
-       elif(os.path.exists("/usr/lib32/wine/wineserver")):
-           self.setEnv("PATH" , self.getEnv("PATH")+":/usr/lib32/wine/")
-       elif(os.path.exists("/usr/lib/wine-unstable/wineserver")):
-           self.setEnv("PATH" , self.getEnv("PATH")+":/usr/lib/wine-unstable/")
-       elif(os.path.exists("/usr/lib32/wine-unstable/wineserver")):
-           self.setEnv("PATH" , self.getEnv("PATH")+":/usr/lib32/wine-unstable/")
-       elif(os.path.exists("/usr/lib/i386-linux-gnu/wine-unstable/wineserver")):
-           self.setEnv("PATH" , self.getEnv("PATH")+":/usr/lib/i386-linux-gnu/wine-unstable/")
-       elif(os.path.exists("/usr/lib/i386-linux-gnu/wine-stable/wineserver")):
-           self.setEnv("PATH" , self.getEnv("PATH")+":/usr/lib/i386-linux-gnu/wine-stable/")
          
    def getAppPath(self):
           return os.path.realpath(os.path.realpath(__file__)+"/../../../") 
@@ -121,14 +52,18 @@ class Environement(object):
    def getArch(self):
        archi = string.split(self.getEnv("MACHTYPE"),"-")
        return archi[0]
-       
- 
    
    def getUserRoot(self):
-       return self.getEnv("POL_USER_ROOT") 
+       if(self.pol_os == "Linux"):
+          return self.getEnv("HOME")+"/.PlayOnLinux/"
           
+       if(self.pol_os == "Mac"):
+          return self.getEnv("HOME")+"/Library/PlayOnMac/"
        
+       
+   # Create a context from the environement
    def createContext(self):
+       Context().setOS(self.pol_os)
        Context().setAppPath(self.getAppPath()) 
        Context().setUserRoot(self.getUserRoot()) 
        
@@ -137,6 +72,12 @@ class Environement(object):
        else:
            Context().set64bit(False)
            
-       Context().setDebianPackage((os.environ["DEBIAN_PACKAGE"] == "TRUE"))
+       self.globalConfig = GlobalConfigFile()
+       self.customConfig = CustomConfigFile()
        
-              
+       
+       isDebian = self.globalConfig.getSetting("DEBIAN_PACKAGE") == "TRUE"
+       Context().setDebianPackage(isDebian)
+       Context().setAppVersion(self.globalConfig.getSetting("VERSION"))
+       Context().setAppName(self.customConfig.getSetting("APPLICATION_TITLE"))
+       

@@ -102,6 +102,17 @@ class ConfigFile(object):
 
 class GlobalConfigFile(ConfigFile):
     def __init__(self):
+        self.configFile = Context().getAppPath() + "/etc/global.cfg"
+ 
+class CustomConfigFile(ConfigFile):
+    def __init__(self):
+        if(Context().getOS() == "Mac"):
+            self.configFile = Context().getAppPath() + "/etc/playonmac.cfg"
+        if(Context().getOS() == "Linux"):
+            self.configFile = Context().getAppPath() + "/etc/playonlinux.cfg"
+                   
+class UserConfigFile(ConfigFile):
+    def __init__(self):
         self.configFile = Context().getUserRoot() + "/playonlinux.cfg"
 
 class FiletypeConfigFile(ConfigFile):

@@ -25,7 +25,7 @@ import wx, wx.aui
 
 from POLWeb import POLWeb
 from lib.UIHelper import UIHelper
-from lib.ConfigFile import GlobalConfigFile
+from lib.ConfigFile import UserConfigFile
 from lib.Context import Context
 from lib.System import System
 from lib.Shortcut import Shortcut
@@ -42,7 +42,7 @@ class MainWindow(wx.Frame):
         
         # Get context, settings, and UI rules
         #self.ui = UI(Context());
-        self.playonlinuxSettings = GlobalConfigFile()
+        self.playonlinuxSettings = UserConfigFile()
         self.playonlinuxSystem = System()
         
         self.windowList = {}    # List of POL_SetupWindow opened
@@ -931,10 +931,10 @@ class MainWindow(wx.Frame):
 
     def About(self, event):
         self.aboutBox = wx.AboutDialogInfo()
-        if(self.getOS() == "Linux"):
+        if(Context().getOS() == "Linux"):
             self.aboutBox.SetIcon(wx.Icon(Context().getAppPath()+"/resources/icons/playonlinux.png", wx.BITMAP_TYPE_ANY))
 
-
+        
         self.aboutBox.SetName(Context().getAppName())
         self.aboutBox.SetVersion(Context().getAppVersion())
         self.aboutBox.SetDescription(_("Run your Windows programs on "+os.environ["POL_OS"]+" !"))

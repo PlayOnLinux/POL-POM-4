@@ -37,7 +37,7 @@ class GuiServer(threading.Thread):
         self.tryingPort = 30000
         
         self._running = True
-        
+        self.cookie = None
        
     def getRunningPort(self):
         return self.runningPort
@@ -53,8 +53,9 @@ class GuiServer(threading.Thread):
         
     def successRunServer(self):
         self.runningPort = self.tryingPort
-        Environement().setEnv("POL_PORT", self.runningPort)
-        Environement().setEnv("POL_COOKIE", self.GenCookie())
+
+    def getCookie(self):
+        return self.cookie
 
     def isServerRunning(self):
         return self.runningPort != 0
@@ -71,25 +72,11 @@ class GuiServer(threading.Thread):
             i+=1
             
     def GenCookie(self, length=20, chars=string.letters + string.digits):
-        return ''.join([random.SystemRandom().choice(chars) for i in range(length)])
+        if(self.cookie == None):
+            self.cookie = ''.join([random.SystemRandom().choice(chars) for i in range(length)])
+        return self.cookie
 
-    def handler(self, connection, addr):
-        self.temp = "";
-        while True:
-            self.tempc = connection.recv(2048);
-           
-            self.temp += self.tempc
-            if "\n" in self.tempc:
-                break;
 
-        self.result = self.interact(self.temp.replace("\n",""))
-        connection.send(self.result)
-        
-        try: 
-           connection.shutdown(1)
-           connection.close()
-        except:
-           pass
            
     def initServer(self):
         if(self.tryingPort  >= 30020):
@@ -140,7 +127,24 @@ class GuiServer(threading.Thread):
 
 
     
+    def handler(self, connection, addr):
+        self.temp = "";
+        while True:
+            self.tempc = connection.recv(2048);
+           
+            self.temp += self.tempc
+            if "\n" in self.tempc:
+                break;
+
+        self.result = self.interact(self.temp.replace("\n",""))
+        connection.send(self.result)
         
+        try: 
+           connection.shutdown(1)
+           connection.close()
+        except:
+           pass
+               
     def run(self): 
         self.initServer()
         self.i = 0

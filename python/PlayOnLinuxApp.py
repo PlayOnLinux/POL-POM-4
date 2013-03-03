@@ -27,7 +27,7 @@ from lib.Environement import Environement
 from lib.Context import Context
 from lib.SystemCheck import SystemCheck
 from lib.Script import PrivateScript
-from lib.ConfigFile import GlobalConfigFile
+from lib.ConfigFile import UserConfigFile
 from lib.File import File
 from lib.GuiServer import GuiServer
 from lib.UI import UI
@@ -46,7 +46,7 @@ class PlayOnLinuxApp(wx.App):
         
     
     
-        self.playonlinuxSettings = GlobalConfigFile()
+        self.playonlinuxSettings = UserConfigFile()
         
         #Context().setUIHelper(UIHelper())
         
@@ -116,13 +116,13 @@ class PlayOnLinuxApp(wx.App):
 
 
     def initLanguage(self):
-        if(os.environ["DEBIAN_PACKAGE"] == "TRUE"):
+        if(Context().isDebianPackage()):
             languages = os.listdir('/usr/share/locale')
         else:
             languages = os.listdir(Context().getAppPath()+'/lang/locale')
 
         langid = wx.LANGUAGE_DEFAULT
-        if(os.environ["DEBIAN_PACKAGE"] == "TRUE"):
+        if(Context().isDebianPackage()):
             localedir = "/usr/share/locale"
         else:
             localedir = os.path.join(Context().getAppPath(), "lang/locale")
