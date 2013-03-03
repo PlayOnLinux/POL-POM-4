@@ -2,12 +2,14 @@
 # Copyright (C) 2007-2010 PlayOnLinux Team
 # Copyright (C) 2011 - Quentin PARIS
 
-import os, wx
+import os, wx, subprocess
+
 from lib.Script import PrivateScript
 from lib.Executable import Executable
-
-import subprocess
 from lib.Context import Context
+from lib.System import System
+
+from views.Error import Error
 
 class SystemCheck(object):
     
@@ -15,6 +17,7 @@ class SystemCheck(object):
    def __init__(self):
       self.context = Context()
       self.system = System()
+      
    def isRunAsRoot(self):
        return (os.popen("id -u").read() == "0\n" or os.popen("id -u").read() == "0")
       
@@ -42,7 +45,7 @@ class SystemCheck(object):
            else:
                verdict = _("You should install it to use {0}")
 
-           wx.MessageBox(("%s\n\n%s" % (message, verdict)).format(self.context.getAppName(), executable, package), _("Error"))
+           Error( ("%s\n\n%s" % (message, verdict) )
 
            if fatal:
                self.appDie()
@@ -53,7 +56,7 @@ class SystemCheck(object):
        returncode = check_gl.run()
         
        if(self.context.getOS() == "Linux" and returncode != 0):
-           wx.MessageBox(_("{0} is unable to find 32bits OpenGL libraries.\n\nYou might encounter problem with your games").format(self.context.getAppName()),_("Error"))
+           Error(_("{0} is unable to find 32bits OpenGL libraries.\n\nYou might encounter problem with your games"))
            os.environ["OpenGL32"] = "0"
        else:
            os.environ["OpenGL32"] = "1"
@@ -64,7 +67,7 @@ class SystemCheck(object):
            returncode = check_gl_64.run()
            
            if(returncode != 0):
-               wx.MessageBox(_("{0} is unable to find 64bits OpenGL libraries.\n\nYou might encounter problem with your games").format(self.context.getAppName()),_("Error"))
+               Error(_("{0} is unable to find 64bits OpenGL libraries.\n\nYou might encounter problem with your games"))
                os.environ["OpenGL64"] = "0"
            else:
                os.environ["OpenGL64"] = "1"
@@ -75,13 +78,13 @@ class SystemCheck(object):
        if(self.context.getOS() == "Linux"):
            returncode = PrivateScript("check_fs").run()
            if(returncode != 0):
-               wx.MessageBox(_("Your filesystem might prevent {0} from running correctly.\n\nPlease open {0} in a terminal to get more details").format(self.context.getAppName()),_("Error"))
+               Error(_("Your filesystem might prevent {APP} from running correctly.\n\nPlease open {APP} in a terminal to get more details"))
        
               
    def doFullCheck(self):
        # Run as root ?
        if(self.isRunAsRoot()):
-           wx.MessageBox(_("{0} is not supposed to be run as root. Sorry").format(self.context.getAppName()),_("Error"))
+           Error(_("{APP} is not supposed to be run as root. Sorry"))
            self.system.hardExit(1)
 
        # Filesystem and OpenGL check
