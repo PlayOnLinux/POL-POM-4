@@ -34,8 +34,6 @@ from lib.Script import PrivateGUIScript
 
 # Views
 from views.Question import Question
-#import lib.playonlinux as playonlinux
-import guiv3 as gui
 
 #, install, options, wine_versions as wver, sp, configure, debug, gui_server
 #import irc as ircgui

@@ -16,13 +16,14 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-import socket, threading, thread, guiv3 as gui, os, wx, time, random
+import socket, threading, thread, os, wx, time, random
 import string
 
 from lib.Context import Context
 from lib.Environement import Environement
 from lib.UIHelper import UIHelper
 
+from views.SetupWindow import SetupWindow
 from views.Error import Error
 
 class GuiServer(threading.Thread):
@@ -194,7 +195,7 @@ class GuiServer(threading.Thread):
 
         if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_Init'):
             if(len(object.SetupWindowTimer_action) == 5):
-                object.windowList[object.SetupWindowTimer_action[1]] = gui.POL_SetupFrame(Context().getAppName(),object.SetupWindowTimer_action[1],object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[4])
+                object.windowList[object.SetupWindowTimer_action[1]] = SetupWindow(Context().getAppName(),object.SetupWindowTimer_action[1],object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[4])
                 object.windowList[object.SetupWindowTimer_action[1]].Center(wx.BOTH)
                 object.windowList[object.SetupWindowTimer_action[1]].Show(True)
                 Context().incWindowOpened()

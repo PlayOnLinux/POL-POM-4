@@ -25,6 +25,7 @@ class Script(Executable):
       self.args = args
       self.needSignature = True
       self.execEnv = Environement()
+      self.setEnv()
       
    def checkSignature(self):    
        # Fixme
@@ -57,6 +58,7 @@ class PrivateScript(Script):
       self.args = args
       self.needSignature = False
       self.execEnv = Environement()
+      self.setEnv()
       
 class GUIScript(Script):
     def setEnv(self):
