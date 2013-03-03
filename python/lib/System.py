@@ -8,9 +8,10 @@ from Context import Context
 
 class System(object):
     def __init__(self):
-        self.context = Context()
+        return None
         
     def killRegisteredPids(self):
+        self.context = Context()
         for pid in self.context.getRegisteredPids():
             os.system("kill -9 -"+pid+" 2> /dev/null")
             os.system("kill -9 "+pid+" 2> /dev/null")

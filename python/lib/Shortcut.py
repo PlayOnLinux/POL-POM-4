@@ -169,7 +169,9 @@ class Shortcut(PrivateScript):
       if(ver.exists()):
         return(os.popen("env WINEPREFIX='"+self.prefix.getPath()+"/' '"+self.ver.getWineBinary()+"' winepath -w '"+unixPath+"'").read().replace("\n","").replace("\r",""))
 
-         
+   def uninstall(self):
+       print "I will uninstall "+self.getName()
+           
    @staticmethod
    def getList(context):
        shortcutList = os.listdir(context.getAppPath()+"/shortcuts/")

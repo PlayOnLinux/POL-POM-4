@@ -1,3 +1,17 @@
+
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+
+	
+
 #!/bin/bash
 
 # Copyright (C) 2007-2010 PlayOnLinux Team
@@ -15,10 +29,9 @@
 
 # You should have received a copy of the GNU General Public License along
 # with this program; if not, write to the Free Software Foundation, Inc.,
-# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 [ "$PLAYONLINUX" = "" ] && exit 0
 source "$PLAYONLINUX/lib/sources"
 
-[ "$DEBIAN_PACKAGE" = "FALSE" ] && TITLEADD="-T $APPLICATION_TITLE"
-"$POL_TERM" $TITLEADD -e "$PLAYONLINUX/bash/polshell_script"
+bash --rcfile "$PLAYONLINUX/etc/pol_bash"

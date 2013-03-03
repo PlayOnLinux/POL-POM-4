@@ -20,11 +20,17 @@ class Context(object):
           self.alreadyInit
       except AttributeError:
           self.alreadyInit = True
-         
+          
           self.registeredPid = [] # List of bash pids belonging to POL 
           self.windowOpened = 0   # Number of POL_SetupWindow opened   
+          self.created = False    # The context is initialized, but not created
 
+   def isCreated(self):
+       return self.created
 
+   def setCreated(self):
+       self.created = True
+       
    # Getters and setters
    
    # PlayOnLinux OS (Linux or Mac)

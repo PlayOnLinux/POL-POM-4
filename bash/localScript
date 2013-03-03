@@ -17,8 +17,29 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
 
+
 [ "$PLAYONLINUX" = "" ] && exit 0
 source "$PLAYONLINUX/lib/sources"
+export TITLE="$(eval_gettext "Run a local script")"
 
-[ "$DEBIAN_PACKAGE" = "FALSE" ] && TITLEADD="-T $APPLICATION_TITLE"
-"$POL_TERM" $TITLEADD -e "$PLAYONLINUX/bash/polshell_script"
+cd $HOME
+POL_SetupWindow_Init # "$PLAYONLINUX/etc/setups/exec/top.png" "$PLAYONLINUX/etc/setups/exec/left.jpg"
+
+POL_SetupWindow_free_presentation "$(eval_gettext "Run a local script")" "$(eval_gettext 'This wizard will help you to run an unofficial $APPLICATION_TITLE Script.')"
+
+POL_SetupWindow_browse "$(eval_gettext 'Choose a valid $APPLICATION_TITLE script to run.')" "$(eval_gettext "Run a local script")" ""
+SCRIPT="$APP_ANSWER"
+if [ "$?" = "1" ]
+then
+	POL_SetupWindow_Close
+	exit
+fi
+if [ ! -e "$SCRIPT" ]
+then
+	POL_SetupWindow_message "$(eval_gettext "File not found!")" "$(eval_gettext "Error!")"
+	POL_SetupWindow_Close
+	exit
+fi
+POL_SetupWindow_Close
+POL_Bash "$SCRIPT"
+exit 0

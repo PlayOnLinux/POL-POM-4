@@ -4,6 +4,8 @@
 
 import os, wx
 from lib.Script import PrivateScript
+from lib.Executable import Executable
+
 import subprocess
 from lib.Context import Context
 
@@ -20,11 +22,12 @@ class SystemCheck(object):
        return (os.popen("id -u").read() == "0\n" or os.popen("id -u").read() == "0")
       
    
-   def executableFound(self, executable):
+   def executableFound(self, executableToCheck):
        devnull = open('/dev/null', 'wb')
+       
        try:
-           returncode = subprocess.call(["which",executable],stdout=devnull)
-           return (returncode == 0)
+           which = Executable("which",[executableToCheck])
+           return (which.run() == 0)
        except OSError:
            return False
 

@@ -54,13 +54,13 @@ class Download(threading.Thread):
 
 class POL_SetupFrame(wx.Frame): #fenêtre principale
     def __init__(self, titre, POL_SetupWindowID, Arg1, Arg2, Arg3):
-        self.context = Context()
+        
         
         wx.Frame.__init__(self, None, -1, title = titre, style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX, size = (520, 398 + UIHelper().addWindowMacOffset()))
         
         
         self.bash_pid = POL_SetupWindowID
-        self.SetIcon(wx.Icon(self.context.getAppPath()+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
+        self.SetIcon(wx.Icon(Context().getAppPath()+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
         self.gauge_i = 0
         self.fichier = ""
         self.last_time = int(round(time.time() * 1000))
@@ -69,17 +69,17 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         # Le fichier de lecture
 
         if(Arg1 == "None"):
-            self.small_image = wx.Bitmap(self.context.getAppPath()+"/resources/images/setups/default/top.png")
+            self.small_image = wx.Bitmap(Context().getAppPath()+"/resources/images/setups/default/top.png")
         else:
             self.small_image = wx.Bitmap(Arg1)
 
         self.small_x = 520 - self.small_image.GetWidth()
 
         if(Arg2 == "None"):
-            if(os.environ["POL_OS"] == "Linux"):
-                self.big_image = wx.Bitmap(self.context.getAppPath()+"/resources/images/setups/default/playonlinux.jpg")
+            if(Context().getOS() == "Linux"):
+                self.big_image = wx.Bitmap(Context().getAppPath()+"/resources/images/setups/default/playonlinux.jpg")
             else:
-                self.big_image = wx.Bitmap(self.context.getAppPath()+"/resources/images/setups/default/playonmac.jpg")
+                self.big_image = wx.Bitmap(Context().getAppPath()+"/resources/images/setups/default/playonmac.jpg")
         else:
             self.big_image = wx.Bitmap(Arg2)
 
@@ -93,7 +93,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
     def make_gui(self):
         # Fonts
-        if(os.environ["POL_OS"] == "Mac"):
+        if(Context().getOS() == "Mac"):
             self.fontTitre = wx.Font(14, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, False, "", wx.FONTENCODING_DEFAULT)
             self.fontText = wx.Font(12, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL,False, "", wx.FONTENCODING_DEFAULT)
         else :
@@ -117,7 +117,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
 
         # Text
-        self.titre_header = wx.StaticText(self.header, -1, _('{0} Wizard').format(os.environ["APPLICATION_TITLE"]),pos=(5,5), size=(340,356),style=wx.ST_NO_AUTORESIZE)
+        self.titre_header = wx.StaticText(self.header, -1, _('{0} Wizard').format(Context().getAppName()),pos=(5,5), size=(340,356),style=wx.ST_NO_AUTORESIZE)
         self.titre_header.SetFont(self.fontTitre)
         self.titre_header.SetForegroundColour((0,0,0)) # For dark themes
 
@@ -144,7 +144,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
         self.NextButton = wx.Button(self.footer, wx.ID_FORWARD, _("Next"), pos=(340,0),size=(85,37))
         self.BackButton = wx.Button(self.footer, wx.ID_FORWARD, _("Back"), pos=(250,0),size=(85,37))
-        self.InfoScript = wx.StaticBitmap(self.footer, -1, wx.Bitmap(os.environ['PLAYONLINUX']+"/resources/images/setups/about.png"), pos=(10,8))
+        self.InfoScript = wx.StaticBitmap(self.footer, -1, wx.Bitmap(Context().getAppPath()+"/resources/images/setups/about.png"), pos=(10,8))
         self.InfoScript.Hide()
         self.script_ID = 0
         self.InfoScript.Bind(wx.EVT_LEFT_DOWN, self.InfoClick)
@@ -154,7 +154,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.YesButton = wx.Button(self.footer, wx.ID_YES, _("Yes"), pos=(340,0), size=(85,37))
         self.browse = wx.Button(self.panel, 103, _("Browse"), size=(130,40))
         self.browse_text = wx.StaticText(self.panel, -1, "")
-        self.browse_image = wx.StaticBitmap(self.panel, -1, wx.Bitmap(os.environ['PLAYONLINUX']+"/etc/playonlinux.png"))
+        self.browse_image = wx.StaticBitmap(self.panel, -1, wx.Bitmap(Context().getAppPath()+"/etc/playonlinux.png"))
 
         # D'autres trucs
         self.champ = wx.TextCtrl(self.panel, 400, "",size=(300,22))
@@ -199,7 +199,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         wx.EVT_HYPERLINK(self, 303, self.POL_register)
 
         # Debug Window
-        self.debugImage = wx.StaticBitmap(self.panel, -1, wx.Bitmap(os.environ["PLAYONLINUX"]+"/resources/images/setups/face-sad.png"), (196,130))
+        self.debugImage = wx.StaticBitmap(self.panel, -1, wx.Bitmap(Context().getAppPath()+"/resources/images/setups/face-sad.png"), (196,130))
         self.debugZone = wx.TextCtrl(self.panel, -1, "",size=wx.Size(440,82), pos=(40,274),style=UIHelper().widgetBorders()|wx.TE_MULTILINE|wx.TE_READONLY)
 
         # Hide all
@@ -217,7 +217,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         
     def GetLoaderFromAngle(self, angle):
         if(angle >= 1 and angle <= 12):
-            image = wx.Image(self.context.getAppPath()+"/resources/images/setups/wait/"+str(angle)+".png")
+            image = wx.Image(Context().getAppPath()+"/resources/images/setups/wait/"+str(angle)+".png")
         return image.ConvertToBitmap()
         
     def Destroy_all(self):
@@ -331,7 +331,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
     def InfoClick(self, e):
         url = "http://www.playonlinux.com/en/app-"+self.script_ID+".html"
-        if(os.environ["POL_OS"] == "Mac"):
+        if(Context().getOS() == "Mac"):
             os.system("open "+url+" &")
         else:
             os.system("xdg-open "+url+" &")
@@ -564,7 +564,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.Menu.SetPosition((20,85+self.space*16))
         self.Menu.Clear()
 
-        self.areaList = os.listdir(self.context.getUserRoot()+"/wineprefix/")
+        self.areaList = os.listdir(Context().getUserRoot()+"/wineprefix/")
         self.areaList.sort()
 
         for file in self.areaList:
@@ -633,13 +633,13 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
 
     def POL_register(self, event):
-        if(os.environ["POL_OS"] == "Mac"):
+        if(Context().getOS() == "Mac"):
             os.system("open "+self.register_link)
         else:
             os.system("xdg-open "+self.register_link)
 
     def RunCommand(self, event, command,confirm):
-        if(confirm == "0" or wx.YES == wx.MessageBox(confirm.decode("utf-8","replace"), os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
+        if(confirm == "0" or wx.YES == wx.MessageBox(confirm.decode("utf-8","replace"), Context().getAppName(), style=wx.YES_NO | wx.ICON_QUESTION)):
             os.system(command+"&");
 
     def DrawImage(self):
@@ -744,25 +744,25 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
             os.system("kill -9 -"+self.bash_pid+" 2> /dev/null")
             os.system("kill -9 "+self.bash_pid+" 2> /dev/null") 
         else:
-            wx.MessageBox(_("You cannot close this window").format(os.environ["APPLICATION_TITLE"]),_("Error"))
+            wx.MessageBox(_("You cannot close this window").format(Context().getAppName()),_("Error"))
 
     def add_games(self):
-        apps = os.listdir(self.context.getUserRoot()+"/shortcuts/")
+        apps = os.listdir(Context().getUserRoot()+"/shortcuts/")
         apps.sort()
         self.images.RemoveAll()
         self.MenuGames.DeleteAllItems()
         self.root = self.MenuGames.AddRoot("")
         i = 0
         for app in apps:
-            appfile = self.context.getUserRoot()+"/shortcuts/"+app
+            appfile = Context().getUserRoot()+"/shortcuts/"+app
             if(not os.path.isdir(appfile)):
                 fichier = open(appfile,"r").read()
 
                 if("POL_Wine " in fichier):
-                    if(os.path.exists(self.context.getUserRoot()+"/icones/32/"+app)):
-                        file_icon = self.context.getUserRoot()+"/icones/32/"+app
+                    if(os.path.exists(Context().getUserRoot()+"/icones/32/"+app)):
+                        file_icon = Context().getUserRoot()+"/icones/32/"+app
                     else:
-                        file_icon = self.context.getAppPath()+"/etc/playonlinux32.png"
+                        file_icon = Context().getAppPath()+"/etc/playonlinux32.png"
 
                     bitmap = wx.Image(file_icon)
                     bitmap.Rescale(22,22,wx.IMAGE_QUALITY_HIGH)
@@ -786,7 +786,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
             if(os.path.exists(current_icon)):
                 file_icon = current_icon
             else:
-                file_icon = self.context.getAppPath()+"/etc/playonlinux32.png"
+                file_icon = Context().getAppPath()+"/etc/playonlinux32.png"
 
             bitmap = wx.Image(file_icon)
             bitmap.Rescale(22,22,wx.IMAGE_QUALITY_HIGH)
@@ -822,18 +822,18 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
             
             if(".exe" in filePathBaseName and os.path.getsize(filePath) <= 30*1024*1024):
                 try:
-                    tmpPath = os.environ['POL_USER_ROOT']+"/tmp/browse"+self.bash_pid+".png"
+                    tmpPath = Context().getUserRoot()+"/tmp/browse"+self.bash_pid+".png"
                     try: os.path.remove(tmpPath)
                     except: pass
                     playonlinux.POL_System("POL_ExtractBiggestIcon \""+filePath+"\" "+tmpPath)
                     if(os.path.exists(tmpPath)):
                         browse_image = wx.Image(tmpPath)
                     else:
-                        browse_image = wx.Image(os.environ['PLAYONLINUX']+"/etc/playonlinux.png")
+                        browse_image = wx.Image(Context().getAppPath()+"/etc/playonlinux.png")
                 except:
-                    browse_image = wx.Image(os.environ['PLAYONLINUX']+"/etc/playonlinux.png")
+                    browse_image = wx.Image(Context().getAppPath()+"/etc/playonlinux.png")
             else:
-                browse_image = wx.Image(os.environ['PLAYONLINUX']+"/etc/playonlinux.png")
+                browse_image = wx.Image(Context().getAppPath()+"/etc/playonlinux.png")
             
             if(browse_image.GetWidth() >= 48):
                 browse_image.Rescale(48,48,wx.IMAGE_QUALITY_HIGH)

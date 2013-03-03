@@ -55,7 +55,7 @@ class GuiServer(threading.Thread):
         self.runningPort = self.tryingPort
 
     def getCookie(self):
-        return self.cookie
+        return self.GenCookie()
 
     def isServerRunning(self):
         return self.runningPort != 0
@@ -81,7 +81,7 @@ class GuiServer(threading.Thread):
     def initServer(self):
         if(self.tryingPort  >= 30020):
            print _("Error: Unable to reserve a valid port")
-           wx.MessageBox(_("Error: Unable to reserve a valid port"),os.environ["APPLICATION_TITLE"])
+           wx.MessageBox(_("Error: Unable to reserve a valid port"),Context().getAppName())
            os._exit(0)
            
         try:
@@ -157,7 +157,7 @@ class GuiServer(threading.Thread):
            
     def readAction(self):
         object = self.mainWindow
-        if(object.SetupWindowTimer_action[0] != os.environ["POL_COOKIE"]):
+        if(object.SetupWindowTimer_action[0] != self.getCookie()):
             print "Bad cookie!"
             object.SetupWindowTimer_action = None
             return False
@@ -166,7 +166,7 @@ class GuiServer(threading.Thread):
 
         if(object.SetupWindowTimer_action[0] == "SimpleMessage"):
             if(len(object.SetupWindowTimer_action) == 2):
-                wx.MessageBox(object.SetupWindowTimer_action[1],os.environ["APPLICATION_TITLE"])
+                wx.MessageBox(object.SetupWindowTimer_action[1],Context().getAppName())
                 object.SetupWindowTimer_action = None
                 return False 
 
@@ -194,7 +194,7 @@ class GuiServer(threading.Thread):
 
         if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_Init'):
             if(len(object.SetupWindowTimer_action) == 5):
-                object.windowList[object.SetupWindowTimer_action[1]] = gui.POL_SetupFrame(os.environ["APPLICATION_TITLE"],object.SetupWindowTimer_action[1],object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[4])
+                object.windowList[object.SetupWindowTimer_action[1]] = gui.POL_SetupFrame(Context().getAppName(),object.SetupWindowTimer_action[1],object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[4])
                 object.windowList[object.SetupWindowTimer_action[1]].Center(wx.BOTH)
                 object.windowList[object.SetupWindowTimer_action[1]].Show(True)
                 Context().incWindowOpened()

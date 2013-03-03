@@ -29,12 +29,20 @@ from lib.ConfigFile import UserConfigFile
 from lib.Context import Context
 from lib.System import System
 from lib.Shortcut import Shortcut
+from lib.Script import PrivateGUIScript
 
 #import lib.playonlinux as playonlinux
 import guiv3 as gui
 
 #, install, options, wine_versions as wver, sp, configure, debug, gui_server
 #import irc as ircgui
+
+# Exceptions
+class ErrNoProgramSelected(Exception):
+   def __str__(self):
+      return repr(_("You must select a program"))
+
+
 
 class MainWindow(wx.Frame):
     def __init__(self, parent, id, title):
@@ -82,7 +90,7 @@ class MainWindow(wx.Frame):
         self.filemenu = wx.Menu()
         
         ### On MacOS X, preference is always on the main menu
-        if(os.environ["POL_OS"] == "Mac"):
+        if(Context().getOS() == "Mac"):
             prefItem = self.filemenu.Append(wx.ID_PREFERENCES, text = "&Preferences")
             self.Bind(wx.EVT_MENU, self.Options, prefItem)
 
@@ -174,7 +182,7 @@ class MainWindow(wx.Frame):
         self.sb.SetStatusWidths([self.GetSize()[0], -1])
         self.sb.SetStatusText("", 0)
 
-        if(os.environ["POL_OS"] == "Mac"):
+        if(Context().getOS() == "Mac"):
             hauteur = 2;
         else:
             hauteur = 6;
@@ -336,7 +344,7 @@ class MainWindow(wx.Frame):
             self.dirtyHack.SetSize((50,1))
 
     def UpdateGaugePos(self):
-        if(os.environ["POL_OS"] == "Mac"):
+        if(Context().getOS() == "Mac"):
             hauteur = 2;
         else:
             hauteur = 6;
@@ -505,8 +513,8 @@ class MainWindow(wx.Frame):
 
     def ReadMe(self, event):
         game_exec = self.GetSelectedProgram()
-        if(os.path.exists(os.environ["POL_USER_ROOT"]+"/configurations/manuals/"+game_exec)):
-            playonlinux.POL_Open(os.environ["POL_USER_ROOT"]+"/configurations/manuals/"+game_exec)
+        if(os.path.exists(Context().getUserRoot()+"/configurations/manuals/"+game_exec)):
+            playonlinux.POL_Open(Context().getUserRoot()+"/configurations/manuals/"+game_exec)
         else:
             wx.MessageBox(_("No manual found for {0}").format(game_exec), Context().getAppName())
 
@@ -611,7 +619,7 @@ class MainWindow(wx.Frame):
         self.addLinkToLeftMenu("pol_prgm_settings", _("Settings"), i,Context().getAppPath()+"/resources/images/menu/settings.png",self.Options)
         i+=1
         self.addLinkToLeftMenu("pol_prgm_messenger", _("Messenger"), i,Context().getAppPath()+"/resources/images/menu/people.png",self.OpenIrc)
-        if(os.path.exists(os.environ["PLAYONLINUX"]+"/.git/")):
+        if(os.path.exists(Context().getAppPath()+"/.git/")):
             i+=1
             self.addLinkToLeftMenu("pol_git", _("Update GIT"), i,Context().getAppPath()+"/resources/images/menu/update_git.png",self.UpdateGIT)
 
@@ -631,7 +639,7 @@ class MainWindow(wx.Frame):
             i+=1
             self.addLinkToLeftMenu("pol_prgm_adddir", _("Open the directory"), i,Context().getAppPath()+"/resources/images/menu/folder-wine.png",self.GoToAppDir)
 
-            if(os.path.exists(os.environ["POL_USER_ROOT"]+"/configurations/manuals/"+shortcut)):
+            if(os.path.exists(Context().getUserRoot()+"/configurations/manuals/"+shortcut)):
                 i+=1
                 self.addLinkToLeftMenu("pol_prgm_readme", _("Read the manual"), i,Context().getAppPath()+"/resources/images/menu/manual.png",self.ReadMe)
 
@@ -639,7 +647,7 @@ class MainWindow(wx.Frame):
             self.addLinkToLeftMenu("pol_prgm_uninstall", _("Uninstall"), i,Context().getAppPath()+"/resources/images/menu/window-close.png",self.UninstallGame)
 
 
-            self.linksfile = os.environ["POL_USER_ROOT"]+"/configurations/links/"+shortcut
+            self.linksfile = Context().getUserRoot()+"/configurations/links/"+shortcut
             if(os.path.exists(self.linksfile)):
                 self.linksc = open(self.linksfile,"r").read().split("\n")
                 for line in self.linksc:
@@ -651,7 +659,7 @@ class MainWindow(wx.Frame):
 
                         self.addLinkToLeftMenu("url_"+str(i), line[0], i,Context().getUserRoot()+"/resources/images/menu/star.png",None,line[1])
 
-            icon = os.environ["POL_USER_ROOT"]+"/icones/full_size/"+shortcut
+            icon = Context().getUserRoot()+"/icones/full_size/"+shortcut
 
             self.perspective = self._mgr.SavePerspective().split("|")
             self.perspective = self.perspective[len(self.perspective) - 2].split("=")
@@ -704,7 +712,7 @@ class MainWindow(wx.Frame):
             wx.EVT_HYPERLINK(self, 10000+pos, evt)
 
     def donate(self, event):
-        if(os.environ["POL_OS"] == "Mac"):
+        if(Context().getOS() == "Mac"):
             webbrowser.open("http://www.playonmac.com/en/donate.html")
         else:
             webbrowser.open("http://www.playonlinux.com/en/donate.html")
@@ -746,7 +754,7 @@ class MainWindow(wx.Frame):
                     self.i += 1
         self.generate_menu(None)
 
-        if(os.environ["POL_OS"] == "Mac"):
+        if(Context().getOS() == "Mac"):
             self.playTool.Enable(False)
             self.stopTool.Enable(False)
             self.removeTool.Enable(False)
@@ -775,10 +783,10 @@ class MainWindow(wx.Frame):
             self.optionFrame.Show(True)
 
     def killall(self, event):
-        os.system("bash \""+Context().getAppPath()+"/bash/killall\"&")
+        PrivateGUIScript("killall").runPoll()
 
     def Executer(self, event):
-        os.system("bash \""+Context().getAppPath()+"/bash/expert/Executer\"&")
+        PrivateGUIScript("localScript").runPoll()
 
     def BugReport(self, event):
         try:
@@ -797,9 +805,9 @@ class MainWindow(wx.Frame):
         os.system("bash \""+Context().getAppPath()+"/bash/read_pc_cd\" &")
 
     def PolShell(self, event):
-        #Variables.run_x_server()
-        os.system("bash \""+Context().getAppPath()+"/bash/expert/PolShell\"&")
-
+        PrivateGUIScript("POLShell").runPoll()
+        #print "Test"
+        
     def Configure(self, event):
         game_exec = self.GetSelectedProgram()
         try:
@@ -825,11 +833,8 @@ class MainWindow(wx.Frame):
         os.system("bash \""+Context().getAppPath()+"/bash/make_shortcut\" \""+game_exec.encode("utf-8","replace")+"\"&")
 
     def UninstallGame(self, event):
-        game_exec = self.GetSelectedProgram()
-        if(game_exec != ""):
-            os.system("bash \""+Context().getAppPath()+"/bash/uninstall\" \""+game_exec.encode("utf-8","replace")+"\"&")
-        else:
-            wx.MessageBox(_("Please select a program."), Context().getAppName())
+        shortcutToUninstall = self.GetSelectedProgram()
+        shortcutToUninstall.uninstall()
 
     def InstallMenu(self, event):
         try:
@@ -851,6 +856,9 @@ class MainWindow(wx.Frame):
 
     def GetSelectedProgram(self):
         selectedName = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8","replace")
+        if(selectedName == ""):
+            raise ErrNoProgramSelected
+            
         return Shortcut(Context(), selectedName)
         
     def Run(self, event, s_debug=False):
@@ -937,7 +945,7 @@ class MainWindow(wx.Frame):
         
         self.aboutBox.SetName(Context().getAppName())
         self.aboutBox.SetVersion(Context().getAppVersion())
-        self.aboutBox.SetDescription(_("Run your Windows programs on "+os.environ["POL_OS"]+" !"))
+        self.aboutBox.SetDescription(_("Run your Windows programs on "+Context().getOS()+" !"))
         self.aboutBox.SetCopyright("© 2007-2013 "+_("PlayOnLinux and PlayOnMac team\nUnder GPL licence version 3"))
         self.aboutBox.AddDeveloper(_("Developer and Website: ")+"Tinou (Pâris Quentin), MulX (Petit Aymeric)")
         self.aboutBox.AddDeveloper(_("Scriptors: ")+"GNU_Raziel")
@@ -947,7 +955,7 @@ class MainWindow(wx.Frame):
         self.aboutBox.AddTranslator(_("Translations:"))
         self.aboutBox.AddTranslator(_("Read TRANSLATORS file"))
 
-        if(os.environ["POL_OS"] == "Mac"):
+        if(Context().getOS() == "Mac"):
             self.aboutBox.SetWebSite("http://www.playonmac.com")
         else:
             self.aboutBox.SetWebSite("http://www.playonlinux.com")
