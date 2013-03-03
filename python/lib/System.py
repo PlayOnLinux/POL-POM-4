@@ -5,13 +5,13 @@
 import os
 
 class System(object):
-    
-   
-   def __init__(self):
-      return True
+    def __init__(self, context):
+        self.context = context
+        
+    def killRegisteredPids():
+        for pid in self.context.getRegisteredPids():
+            os.system("kill -9 -"+pid+" 2> /dev/null")
+            os.system("kill -9 "+pid+" 2> /dev/null")
 
-   @staticmethod
-   def isRunAsRoot():
-       return (os.popen("id -u").read() == "0\n" or os.popen("id -u").read() == "0")
-      
+  
    

@@ -5,6 +5,8 @@
 
 import string
 
+from lib.Context import Context
+
 class ConfigFile(object):
    def __init__(self, filePath):
        self.configFile = filePath
@@ -99,9 +101,9 @@ class ConfigFile(object):
           i+=1
 
 class GlobalConfigFile(ConfigFile):
-    def __init__(self, context):
-        self.configFile = context.getUserRoot() + "/playonlinux.cfg"
+    def __init__(self):
+        self.configFile = Context().getUserRoot() + "/playonlinux.cfg"
 
 class FiletypeConfigFile(ConfigFile):
-    def __init__(self, context):
-        self.configFile = context.getUserRoot() + "/extensions.cfg"
+    def __init__(self):
+        self.configFile = Context().getUserRoot() + "/extensions.cfg"

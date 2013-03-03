@@ -7,7 +7,7 @@
 import os, string, shutil
 
 # playonlinux imports
-import Variables, ConfigFile
+import ConfigFile
 
 
 class Prefix():

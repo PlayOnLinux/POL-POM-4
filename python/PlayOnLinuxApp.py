@@ -23,66 +23,71 @@ import os, getopt, sys, urllib, signal, string, time, webbrowser, gettext, local
 import wx, wx.aui
 
 # PlayOnLinux imports
+from lib.Environement import Environement
 from lib.Context import Context
 from lib.SystemCheck import SystemCheck
 from lib.Script import PrivateScript
 from lib.ConfigFile import GlobalConfigFile
 from lib.File import File
+from lib.GuiServer import GuiServer
+from lib.UI import UI
 
 
 # Views
 from views.MainWindow import MainWindow
 
-import gui_server
-
-
 
 
 class PlayOnLinuxApp(wx.App):
     def OnInit(self):
-        
-        # Create a context
-        self.context = Context()
-        self.context.initLanguage()
-        
-        self.playonlinuxSettings = GlobalConfigFile(self.context)
-        
-        PrivateScript(self.context, "startup").run()
-        SystemCheck(self.context).doFullCheck()
-        
-        
-        close = False
-        exe_present = False
-        
-        for f in  sys.argv[1:]:
-            self.MacOpenFile(f)
-            if(".exe" in f or ".EXE" in f):
-                exe_present = True
-            close = True
 
-        if(close == True and exe_present == False):
-            os._exit(0)
-
+        Environement().createContext()
+        self.initLanguage()
+        
+    
+    
+        self.playonlinuxSettings = GlobalConfigFile()
+        
+        #Context().setUIHelper(UIHelper())
+        
+        PrivateScript("startup").run()
+        SystemCheck().doFullCheck()
+        
+        # Anonymous reports ?
+        self.askForReports()
+        
+        # Open documents opened with POL
+        self.openDocuments() 
         
 
-        self.SetClassName(self.context.getAppName())
-        self.SetAppName(self.context.getAppName())
-        self.frame = MainWindow(self.context, None, -1, self.context.getAppName())
+        self.SetClassName(Context().getAppName())
+        self.SetAppName(Context().getAppName())
+        self.frame = MainWindow(None, -1, Context().getAppName())
         
         # Gui Server
-        self.context.initPOLServer(self.frame)
+        Context().setPOLServer(self.initPOLServer())
         
-        PrivateScript(self.context, "startup_after_server").runPoll()
+        PrivateScript("startup_after_server").runPoll()
    
         self.SetTopWindow(self.frame)
         self.frame.Show(True)
         
         return True
 
+    def openDocuments(self):
+        for f in  sys.argv[1:]:
+            self.MacOpenFile(f)
+            
+    def initPOLServer(self):
+        self.POLServer = GuiServer(self.frame)
+        self.POLServer.start()
+        self.POLServer.waitForServer()
+        return self.POLServer
+        
     def askForReports(self):
-        if(not self.context.isDebianPackage()):
+        if(not Context().isDebianPackage()):
             if(self.playonlinuxSettings.getSetting("SEND_REPORT") == ""):
-                if(wx.YES == wx.MessageBox(_('Do you want to help {0} to make a compatibility database?\n\nIf you click yes, the following things will be sent to us anonymously the first time you run a Windows program:\n\n- You graphic card model\n- Your OS version\n- If graphic drivers are installed or not.\n\n\nThese information will be very precious for us to help people.').format(self.context.getAppName()).decode("utf-8","replace"), self.context.getAppName(),style=wx.YES_NO | wx.ICON_QUESTION)):
+                if(wx.YES == wx.MessageBox(_('Do you want to help {0} to make a compatibility database?\n\nIf you click yes, the following things will be sent to us anonymously the first time you run a Windows program:\n\n- You graphic card model\n- Your OS version\n- If graphic drivers are installed or not.\n\n\nThese information will be very precious for us to help people.').format(Context().getAppName()).decode("utf-8","replace"), Context().getAppName(),style=wx.YES_NO | wx.ICON_QUESTION)):
                     self.playonlinuxSettings.setSetting("SEND_REPORT","TRUE")
                 else:
                     self.playonlinuxSettings.setSetting("SEND_REPORT","FALSE")
@@ -95,20 +100,40 @@ class PlayOnLinuxApp(wx.App):
             pass
 
     def MacOpenFile(self, filename):
-        draggedFile = File(filename)
-        draggedFile.openCleverWay()
+        openedFile = File(filename)
+        openedFile.openCleverWay()
 
     def MacOpenURL(self, url):
-        if(os.environ["POL_OS"] == "Mac" and "playonlinux://" in url):
-            wx.MessageBox(_("You are trying to open a script design for {0}! It might not work as expected").format("PlayOnLinux"), self.context.getAppName())
-        if(os.environ["POL_OS"] == "Linux" and "playonmac://" in url):
-            wx.MessageBox(_("You are trying to open a script design for {0}! It might not work as expected").format("PlayOnMac"), self.context.getAppName())
+        if(Context().getOS() == "Mac" and "playonlinux://" in url):
+            wx.MessageBox(_("You are trying to open a script design for {0}! It might not work as expected").format("PlayOnLinux"), Context().getAppName())
+        if(Context().getOS() == "Linux" and "playonmac://" in url):
+            wx.MessageBox(_("You are trying to open a script design for {0}! It might not work as expected").format("PlayOnMac"), Context().getAppName())
 
-        os.system("bash \"$PLAYONLINUX/bash/playonlinux-url_handler\" \""+url+"\" &")
+        PrivateScript("playonlinux-url_handler",[url]).runPoll()
 
     def MacReopenApp(self):
         self.BringWindowToFront()
 
 
+    def initLanguage(self):
+        if(os.environ["DEBIAN_PACKAGE"] == "TRUE"):
+            languages = os.listdir('/usr/share/locale')
+        else:
+            languages = os.listdir(Context().getAppPath()+'/lang/locale')
+
+        langid = wx.LANGUAGE_DEFAULT
+        if(os.environ["DEBIAN_PACKAGE"] == "TRUE"):
+            localedir = "/usr/share/locale"
+        else:
+            localedir = os.path.join(Context().getAppPath(), "lang/locale")
+
+        domain = "pol"
+        mylocale = wx.Locale(langid)
+        mylocale.AddCatalogLookupPathPrefix(localedir)
+        mylocale.AddCatalog(domain)
+
+        mytranslation = gettext.translation(domain, localedir, [mylocale.GetCanonicalName()], fallback = True)
+        mytranslation.install()
+        
 app = PlayOnLinuxApp(redirect=False)
 app.MainLoop()

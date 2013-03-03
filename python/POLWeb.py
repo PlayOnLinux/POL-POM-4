@@ -21,11 +21,12 @@ encoding = 'utf-8'
 import threading, os, subprocess, time
 from lib.Script import PrivateScript
 import lib.playonlinux as playonlinux #FIXME
+from lib.Context import Context
 
 class POLWeb(threading.Thread):
-    def __init__(self, context):
+    def __init__(self):
         threading.Thread.__init__(self)
-        self.context = context
+        self.context = Context()
         self.sendToStatusBarStr = ""
         self.sendAlertStr = None
         self.Gauge = False
@@ -68,7 +69,7 @@ class POLWeb(threading.Thread):
         else:
             self.sendToStatusBar(_("Refreshing {0}").format(os.environ["APPLICATION_TITLE"]), True)
             self.updating = True
-            bash_updater = PrivateScript(self.context, "pol_update_list")
+            bash_updater = PrivateScript("pol_update_list")
 
             p = bash_updater.runPoll()
 

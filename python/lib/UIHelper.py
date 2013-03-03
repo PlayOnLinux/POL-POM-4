@@ -4,17 +4,27 @@
 # Copyright (C) 2007-2013 PlayOnLinux Team
 
 # python imports
-import string
+import string, wx
 
 # playonlinux imports
-import Variables, wx
+from lib.Context import Context
 
-class UI():
-   def __init__(self, context):
-       self.context = context;
-
+class UIHelper(object):
+   instance = None    
+   
+   def __new__(myClass):
+       if(myClass.instance is None):
+           myClass.instance = object.__new__(myClass)
+       return myClass.instance
+       
+   def __init__(self):
+      try: 
+          self.alreadyInit
+      except AttributeError:
+          self.alreadyInit = True
+       
    def getFontTitle(self):
-       if(self.context.getOS() == "Mac"):
+       if(Context().getOS() == "Mac"):
            textSize = 14;
        else:
            textSize = 10;
@@ -22,7 +32,7 @@ class UI():
        return wx.Font(textSize, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, False, "", wx.FONTENCODING_DEFAULT)
        
    def getFontText(self):
-       if(self.context.getOS() == "Mac"):
+       if(Context().getOS() == "Mac"):
            textSize = 12;
        else:
            textSize = 8;
@@ -30,7 +40,7 @@ class UI():
        return wx.Font(textSize, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL,False, "", wx.FONTENCODING_DEFAULT)
 
    def AddMacOffset(self, size):
-       if(self.context.getOS == "Mac"):
+       if(Context().getOS() == "Mac"):
            return size;
        else:
            return 0;

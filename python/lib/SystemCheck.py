@@ -5,12 +5,13 @@
 import os, wx
 from lib.Script import PrivateScript
 import subprocess
+from lib.Context import Context
 
 class SystemCheck(object):
     
    
-   def __init__(self, context):
-      self.context = context
+   def __init__(self):
+      self.context = Context()
       
    def appDie(self):
        os._exit(0)
@@ -48,7 +49,7 @@ class SystemCheck(object):
 
    def doOpenGLCheck():
        # 32 bits OpenGL check
-       check_gl = PrivateScript(self.context, "check_gl",["x86"])
+       check_gl = PrivateScript("check_gl",["x86"])
        returncode = check_gl.run()
         
        if(self.context.getOS() == "Linux" and returncode != 0):
@@ -59,7 +60,7 @@ class SystemCheck(object):
 
        # 64 bits OpenGL check
        if(self.context.is64bit()):
-           check_gl_64 = PrivateScript(self.context, "check_gl",["amd64"])
+           check_gl_64 = PrivateScript("check_gl",["amd64"])
            returncode = check_gl_64.run()
            
            if(returncode != 0):
@@ -72,7 +73,7 @@ class SystemCheck(object):
    def doFileSystemCheck(self):
        # Filesystem check
        if(self.context.getOS() == "Linux"):
-           returncode = PrivateScript(self.context, "check_fs").run()
+           returncode = PrivateScript("check_fs").run()
            if(returncode != 0):
                wx.MessageBox(_("Your filesystem might prevent {0} from running correctly.\n\nPlease open {0} in a terminal to get more details").format(self.context.getAppName()),_("Error"))
        

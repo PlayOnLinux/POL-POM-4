@@ -1,188 +1,106 @@
 #!/usr/bin/env python
 # Copyright (C) 2007-2010 PlayOnLinux Team
-# Copyright (C) 2011 - Quentin PARIS
+# Copyright (C) 2013 - Quentin PARIS
 
 import os, random, sys, string, gettext, locale
 import wx, wxversion
-import gui_server
 
+
+# Singleton
 class Context(object):
-   def __init__(self):
-      self.pol_os = self.getEnv("POL_OS")
-      self.POLServer = None
-      self.initEnvironement()
-      # Fixme. We could detect that automatically
-      if(self.pol_os == "None"):
-         print "ERROR ! Please define POL_OS environment var first."
-         os._exit(1)
-      
-      # Vars needed for PlayOnLinux_Server
-      self.windowList = {}    # List of POL_SetupWindow opened
-      self.registeredPid = [] # List of bash pids belonging to POL 
-      self.windowOpened = 0   # Number of POL_SetupWindow opened
-      
-      
-   # Bash script backward compatibility. We are going to clean that
-   def initEnvironement(self):
-      self.setEnv("PLAYONLINUX",self.getAppPath())
-      self.setEnv("SITE","http://repository.playonlinux.com")
-      self.setEnv("POL_PORT","0")
-      self.setEnv("VERSION","5.0-dev")
-      self.setEnv("WINE_SITE","http://www.playonlinux.com/wine/binaries")
-      self.setEnv("GECKO_SITE","http://www.playonlinux.com/wine/gecko")
-      self.setEnv("DEBIAN_PACKAGE", "FALSE")
-      
-      if(self.pol_os == "Linux"):
-          self.initPOLEnvironement()
-
-      if(self.pol_os == "Mac"):
-          self.initPOMEnvironement()
-          
-      self.setEnv("AMD64_COMPATIBLE",str(self.is64bit()).upper())
-      self.setEnv("POL_USER_ROOT",self.getEnv("REPERTOIRE"))
-      self.setEnv("OS_NAME", self.os_name)
-      self.setEnv("WGETRC", self.getUserRoot()+"/configurations/wgetrc")
-      self.initWineEnvironement()
-       
-   def getAppPath(self):
-       return os.path.realpath(os.path.realpath(__file__)+"/../../../")
+   instance = None    
    
-   def getUserRoot(self):
-       return self.getEnv("REPERTOIRE") # FIXME 
-     
-   def getAppName(self):
-       return self.getEnv("APPLICATION_TITLE")
-
-   def getAppVersion(self):
-       return self.getEnv("VERSION")
-           
-   def initPOLEnvironement(self):
-      self.setEnv("REPERTOIRE",self.getEnv("HOME")+"/.PlayOnLinux/")
-      self.setEnv("APPLICATION_TITLE","PlayOnLinux")
-      self.setEnv("POL_DNS","playonlinux.com")
-      
-      if not os.path.exists("/proc/net/if_inet6"):
-          self.setEnv("POL_WGET","wget -q")
-      else:
-          self.setEnv("POL_WGET","wget --prefer-family=IPv4 -q")
-          
-      self.windows_add_size = 0;
-      self.windows_add_playonmac = 0;
-      self.widget_borders = wx.RAISED_BORDER
-      self.os_name = "linux"
-          
-   def initPOMEnvironement(self):
-      self.setEnv("PLAYONMAC",self.getEnv("PLAYONLINUX"))
-      self.setEnv("REPERTOIRE",self.getEnv("HOME")+"/Library/PlayOnMac/")
-      self.setEnv("APPLICATION_TITLE","PlayOnMac")
-      self.setEnv("POL_DNS","playonmac.com")
-      self.setEnv("POL_WGET","wget --prefer-family=IPv4 -q")
-      
-      self.windows_add_size = 20;
-      self.windows_add_playonmac = 1;
-      self.widget_borders = wx.SIMPLE_BORDER
-      self.os_name = "darwin"
-
-      # Image Magick on OSX
-      self.setEnv("MAGICK_HOME",self.getAppPath()+"/../unix/image_magick/")
-    
- 
-   def initWineEnvironement(self):
-      self.setEnv("WINEDLLOVERRIDES","winemenubuilder.exe=d")
-
-      self.fixWineOnDebian()
-      if (os.environ["POL_OS"] == "Mac"):
-         self.setEnv("PATH" , self.getAppPath()+"/../unix/wine/bin:" + self.getAppPath()+"/../unix/image_magick/bin:" + self.getAppPath()+"/../unix/tools/bin/:" + self.getEnv("PATH") )
-         self.setEnv("LD_LIBRARY_PATH" , self.getAppPath()+"/../unix/wine/lib/:"  + self.getAppPath()+"/../unix/image_magick/lib:"+ self.getAppPath()+"/../unix/tools/lib/ld:/usr/X11/lib/:" + self.getEnv("LD_LIBRARY_PATH") )
-         self.setEnv("DYLD_LIBRARY_PATH" ,  self.getAppPath()+"/../unix/tools/lib/dyld:" + self.getAppPath()+"/../unix/image_magick/lib:"+ self.getEnv("DYLD_LIBRARY_PATH") )
-      self.savePath()
-      
-   def savePath(self):
-       self.setEnv("PATH_ORIGIN", self.getEnv("PATH"))
-       self.setEnv("LD_PATH_ORIGIN", self.getEnv("LD_LIBRARY_PATH"))
-       self.setEnv("DYLDPATH_ORIGIN", self.getEnv("DYLD_LIBRARY_PATH"))
-
-   def restorePath(self):
-       self.setEnv("PATH", self.getEnv("PATH_ORIGIN"))
-       self.setEnv("LD_LIBRARY_PATH", self.getEnv("LD_PATH_ORIGIN"))
-       self.setEnv("DYLD_LIBRARY_PATH", self.getEnv("DYLDPATH_ORIGIN"))
+   def __new__(myClass):
+       if(myClass.instance is None):
+           myClass.instance = object.__new__(myClass)
+       return myClass.instance
        
-   # Fix for a bug caused by debian's packaging
-   def fixWineOnDebian(self):
-       if(os.path.exists("/usr/lib/wine/wineserver")): 
-           self.setEnv("PATH" , self.getEnv("PATH")+":/usr/lib/wine/")
-       elif(os.path.exists("/usr/lib32/wine/wineserver")):
-           self.setEnv("PATH" , self.getEnv("PATH")+":/usr/lib32/wine/")
-       elif(os.path.exists("/usr/lib/wine-unstable/wineserver")):
-           self.setEnv("PATH" , self.getEnv("PATH")+":/usr/lib/wine-unstable/")
-       elif(os.path.exists("/usr/lib32/wine-unstable/wineserver")):
-           self.setEnv("PATH" , self.getEnv("PATH")+":/usr/lib32/wine-unstable/")
-       elif(os.path.exists("/usr/lib/i386-linux-gnu/wine-unstable/wineserver")):
-           self.setEnv("PATH" , self.getEnv("PATH")+":/usr/lib/i386-linux-gnu/wine-unstable/")
-       elif(os.path.exists("/usr/lib/i386-linux-gnu/wine-stable/wineserver")):
-           self.setEnv("PATH" , self.getEnv("PATH")+":/usr/lib/i386-linux-gnu/wine-stable/")
-                     
-   def getArch(self):
-       archi = string.split(self.getEnv("MACHTYPE"),"-")
-       return archi[0]
-       
+   def __init__(self):
+      try: 
+          self.alreadyInit
+      except AttributeError:
+          self.alreadyInit = True
+          
+         
+          self.registeredPid = [] # List of bash pids belonging to POL 
+          self.windowOpened = 0   # Number of POL_SetupWindow opened   
+
+
+   # Getters and setters
+   
+   # PlayOnLinux OS (Linux or Mac)
    def getOS(self):
        return self.pol_os
-       
-   def getOSCodeName(self):
-       return self.os_name
-       
-   def getHomeDir(self):
-       return self.getEnv("HOME")
          
+   def setOS(self, os):
+       self.pol_os = os
+   
+   def getCodeName(self):
+       if(self.getOS == "Linux"):
+           return "linux"
+       if(self.getOS == "Mac"):
+           return "darwin"
+         
+   # App path 
+   def getAppPath(self):
+      return self.appPath
+         
+   def setAppPath(self, path):
+      self.appPath = path
+         
+   # User root
+   def getUserRoot(self):
+       return self.userRoot
+      
+   def setUserRoot(self, path):
+       self.userRoot = path
+         
+   # 64 bits
    def is64bit(self):
-       if(self.getArch() == "x86_64" and self.getOS() == "Linux"):
-           return True
-       else:
-           return False
-           
+       return self.is64
+   
+   def set64bit(self, isit):
+       self.is64 = isit;
+
+   
+   # Application name (Exemple : PlayOnLinux)
+   def getAppName(self):
+       return self.appName
+       
+   def setAppName(self, title):
+       self.appName = title 
+       
+   def getAppVersion(self):
+       return self.appVersion
+ 
+   def setAppVersion(self, version):
+       self.appVersion = version
+   
+   def setDebianPackage(self, value):
+       self.isDebian = value
+       
    def isDebianPackage(self):
-       return (os.environ["DEBIAN_PACKAGE"] == "TRUE")
-             
-   def getEnv(self, var):
-      try :
-         return os.environ[var]
-      except :
-         return ""
-            
-   def setEnv(self, var, content):
-        os.environ[var] = content
-
-   def initLanguage(self):
-       if(os.environ["DEBIAN_PACKAGE"] == "TRUE"):
-           languages = os.listdir('/usr/share/locale')
-       else:
-           languages = os.listdir(self.getAppPath()+'/lang/locale')
-
-       langid = wx.LANGUAGE_DEFAULT
-       if(os.environ["DEBIAN_PACKAGE"] == "TRUE"):
-           localedir = "/usr/share/locale"
-       else:
-           localedir = os.path.join(self.getAppPath(), "lang/locale")
-
-       domain = "pol"
-       mylocale = wx.Locale(langid)
-       mylocale.AddCatalogLookupPathPrefix(localedir)
-       mylocale.AddCatalog(domain)
-
-       mytranslation = gettext.translation(domain, localedir, [mylocale.GetCanonicalName()], fallback = True)
-       mytranslation.install()
+       return self.isDebian
        
        
-   # PlayOnLinux server 
-   def initPOLServer(self, frame):
-       self.POLServer = gui_server.gui_server(self, frame)
-       self.POLServer.start()
-       self.POLServer.waitForServer()
-        
+   # Server
+   def setPOLServer(self, server):
+      self.POLServer = server
+      
    def getPOLServer(self):
-       return self.POLServer
-         
+      return self.POLServer;
+      
+   def getRegisteredPid(self):
+       return self.registeredPid
+      
+   def getWindowOpened(self):
+       return self.windowOpened
+      
+   def incWindowOpened(self):
+       self.windowOpened += 1
+   
+   def decWindowOpened(self):
+       self.windowOpened -= 1  
 """
 
 def proxy_initialization():
