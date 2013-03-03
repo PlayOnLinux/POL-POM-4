@@ -15,4 +15,5 @@ class Modal():
       
    def show(self):
        content = self.content.replace("{APP}",Context().getAppName())
+       
        wx.MessageBox(content, self.title)

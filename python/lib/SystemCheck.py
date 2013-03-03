@@ -27,7 +27,7 @@ class SystemCheck(object):
        
        try:
            which = Executable("which",[executableToCheck])
-           return (which.run() == 0)
+           return (which.runSilently() == 0)
        except OSError:
            return False
 

@@ -31,6 +31,9 @@ from lib.System import System
 from lib.Shortcut import Shortcut
 from lib.Script import PrivateGUIScript
 
+
+# Views
+from views.Question import Question
 #import lib.playonlinux as playonlinux
 import guiv3 as gui
 
@@ -783,10 +786,10 @@ class MainWindow(wx.Frame):
             self.optionFrame.Show(True)
 
     def killall(self, event):
-        PrivateGUIScript("killall").runPoll()
+        PrivateGUIScript("killall").runBackground()
 
     def Executer(self, event):
-        PrivateGUIScript("localScript").runPoll()
+        PrivateGUIScript("localScript").runBackground()
 
     def BugReport(self, event):
         try:
@@ -805,7 +808,7 @@ class MainWindow(wx.Frame):
         os.system("bash \""+Context().getAppPath()+"/bash/read_pc_cd\" &")
 
     def PolShell(self, event):
-        PrivateGUIScript("POLShell").runPoll()
+        PrivateGUIScript("POLShell").runBackground()
         #print "Test"
         
     def Configure(self, event):
@@ -930,7 +933,7 @@ class MainWindow(wx.Frame):
         self.playonlinuxSettings.setSetting("PANEL_POSITION",str(self.myPosition))
         
     def ClosePol(self, event):
-        if(self.playonlinuxSettings.getSetting("DONT_ASK_BEFORE_CLOSING") == "TRUE" or wx.YES == wx.MessageBox(_('Are you sure you want to close all {0} Windows?').format(Context().getAppName()).decode("utf-8","replace"),Context().getAppName(), style=wx.YES_NO | wx.ICON_QUESTION)):
+        if(self.playonlinuxSettings.getSetting("DONT_ASK_BEFORE_CLOSING") == "TRUE" or Question(_('Are you sure you want to close all {APP_NAME} Windows?')).getAnswer()):
             self.saveWindowParametersToConfig()
             self.savePanelParametersToConfig()
             self.playonlinuxSystem.polDie()

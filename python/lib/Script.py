@@ -24,7 +24,7 @@ class Script(Executable):
       self.path = path
       self.args = args
       self.needSignature = True
-  
+      self.execEnv = Environement()
       
    def checkSignature(self):    
        # Fixme
@@ -56,6 +56,7 @@ class PrivateScript(Script):
       self.path = self.context.getAppPath()+"/bash/"+path
       self.args = args
       self.needSignature = False
+      self.execEnv = Environement()
       
 class GUIScript(Script):
     def setEnv(self):

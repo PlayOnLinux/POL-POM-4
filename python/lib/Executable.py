@@ -17,7 +17,9 @@ class Executable(object):
    def __init__(self, path, args):
       self.path = path
       self.args = args  
-       
+      self.execEnv = Environement()
+      self.setEnv()
+      
    def getProgramArray(self):
        args = self.args
        args.insert(0,self.path)
@@ -94,23 +96,22 @@ class Executable(object):
 
        
    def callPopen(self):
-       
-       self.execEnv = Environement()
-       self.setEnv()
-       
        myProcess = subprocess.Popen(self.getProgramArray(), stdout = subprocess.PIPE, preexec_fn = lambda: os.setpgid(os.getpid(), os.getpid()), env = self.execEnv.get())
        return myProcess
-     
-       
+    
+   def runSilently(self):
+      devnull = open('/dev/null', 'wb')
+      myProcess = subprocess.Popen(self.getProgramArray(), stdout = devnull, env = self.execEnv.get())
+      return myProcess.wait()
+      
    def run(self):
-      myProcess = self.callPopen()
-      while(myProcess.poll() == None):
-          output = myProcess.communicate()[0].replace("\n","")
-          if(output != ""):
-              print output
-          
-      return myProcess.poll()
+      myProcess = subprocess.Popen(self.getProgramArray(), env = self.execEnv.get())
+      return myProcess.wait()
 
    def runPoll(self):
       myProcess = self.callPopen()
       return myProcess
+
+   def runBackground(self):
+       subprocess.Popen(self.getProgramArray(), env = self.execEnv.get())
+       
