@@ -738,25 +738,29 @@ class MainWindow(wx.Frame):
         It assumes everything is owned by the user however.
         """
 
-        # need exec right to dereference content
-        # need read right to list content
-        # need write right to remove content
-        needed_dir_rights = stat.S_IXUSR|stat.S_IRUSR|stat.S_IWUSR
+        # Handle symlink
+        if os.path.islink(root_path):
+            os.remove(root_path)
+            # Shall we warn the user that the target prefix has not been cleared?
+        else:
+            # need exec right to dereference content
+            # need read right to list content
+            # need write right to remove content
+            needed_dir_rights = stat.S_IXUSR|stat.S_IRUSR|stat.S_IWUSR
 
-        # topdown=True, the default, is necessary to fix directories rights
-        # before trying to list them
-        for dirname, dirs, files in os.walk(root_path):
-            for dir in dirs:
-                fullpath = os.path.join(dirname, dir)
-                # To speed up the process, only modify metadata when necessary
-                attr = os.stat(fullpath)
-                if attr.st_mode & needed_dir_rights != needed_dir_rights:
-                    print "%s rights need fixing" % fullpath
-                    os.chmod(fullpath, needed_dir_rights)
+            # topdown=True, the default, is necessary to fix directories rights
+            # before trying to list them
+            for dirname, dirs, files in os.walk(root_path):
+                for dir in dirs:
+                    fullpath = os.path.join(dirname, dir)
+                    # To speed up the process, only modify metadata when necessary
+                    attr = os.stat(fullpath)
+                    if attr.st_mode & needed_dir_rights != needed_dir_rights:
+                        print "%s rights need fixing" % fullpath
+                        os.chmod(fullpath, needed_dir_rights)
 
-        # Alright, now we should be able to proceed
-        shutil.rmtree(root_path)
-
+            # Alright, now we should be able to proceed
+            shutil.rmtree(root_path)
 
     def AutoReload(self, event):
         if(self.onglets.typing == False):
