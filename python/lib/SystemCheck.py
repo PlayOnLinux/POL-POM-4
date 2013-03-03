@@ -14,10 +14,7 @@ class SystemCheck(object):
    
    def __init__(self):
       self.context = Context()
-      
-   def appDie(self):
-       os._exit(0)
-       
+      self.system = System()
    def isRunAsRoot(self):
        return (os.popen("id -u").read() == "0\n" or os.popen("id -u").read() == "0")
       
@@ -85,7 +82,7 @@ class SystemCheck(object):
        # Run as root ?
        if(self.isRunAsRoot()):
            wx.MessageBox(_("{0} is not supposed to be run as root. Sorry").format(self.context.getAppName()),_("Error"))
-           self.appDie()
+           self.system.hardExit(1)
 
        # Filesystem and OpenGL check
        if(self.context.getOS() == "Linux"):
