@@ -43,6 +43,8 @@ class MainWindow(wx.Frame):
         # Get context, settings, and UI rules
         #self.ui = UI(Context());
         self.playonlinuxSettings = GlobalConfigFile()
+        self.playonlinuxSystem = System()
+        
         self.windowList = {}    # List of POL_SetupWindow opened
         
         # Manage updater
@@ -883,30 +885,17 @@ class MainWindow(wx.Frame):
         playonlinux.SetDebugState(game_exec, True)
         self.Run(self, True)
  
-    def POLDie(self):
-        for pid in Context().getRegisteredPids():
-            os.system("kill -9 -"+pid+" 2> /dev/null")
-            os.system("kill -9 "+pid+" 2> /dev/null") 
-        Context().getPOLServer().closeServer()
-        os._exit(0)
-
-    def POLRestart(self):
-        for pid in Context().getRegisteredPids():
-            os.system("kill -9 -"+pid+" 2> /dev/null")
-            os.system("kill -9 "+pid+" 2> /dev/null") 
-        Context().getPOLServer().closeServer()
-        os._exit(63) # Restart code
 
     def CatchCtrlC(self, signal): # Catch SIGINT
         print "\nCtrl+C pressed. Killing all processes..."
-        self.POLDie()
+        self.playonlinuxSystem.polDie()
 
     def saveWindowParametersToConfig(self):
         self.SizeToSave = self.GetSize();
         self.PositionToSave = self.GetPosition();
         # Save size and position
         self.playonlinuxSettings.setSetting("MAINWINDOW_WIDTH",str(self.SizeToSave[0]))
-        self.playonlinuxSettings.setSetting("MAINWINDOW_HEIGHT",str(self.SizeToSave[1] - UIHelper().AddMacOffset(56)))
+        self.playonlinuxSettings.setSetting("MAINWINDOW_HEIGHT",str(self.SizeToSave[1] - UIHelper().addMacOffset(56)))
         self.playonlinuxSettings.setSetting("MAINWINDOW_X",str(self.PositionToSave[0]))
         self.playonlinuxSettings.setSetting("MAINWINDOW_Y",str(self.PositionToSave[1]))
         
@@ -936,7 +925,7 @@ class MainWindow(wx.Frame):
         if(self.playonlinuxSettings.getSetting("DONT_ASK_BEFORE_CLOSING") == "TRUE" or wx.YES == wx.MessageBox(_('Are you sure you want to close all {0} Windows?').format(Context().getAppName()).decode("utf-8","replace"),Context().getAppName(), style=wx.YES_NO | wx.ICON_QUESTION)):
             self.saveWindowParametersToConfig()
             self.savePanelParametersToConfig()
-            self.POLDie()
+            self.playonlinuxSystem.polDie()
             
         return None
 

@@ -21,6 +21,9 @@
 import wx, wx.animate, os, getopt, sys, urllib, signal, time, string, urlparse, codecs, time, threading, socket
 from subprocess import Popen,PIPE
 
+from lib.Context import Context
+from lib.UIHelper import UIHelper
+
 
 class Download(threading.Thread):
     def __init__(self, url, local):
@@ -50,10 +53,10 @@ class Download(threading.Thread):
         self.download()
 
 class POL_SetupFrame(wx.Frame): #fenêtre principale
-    def __init__(self, context, titre, POL_SetupWindowID, Arg1, Arg2, Arg3):
-        self.context = context
+    def __init__(self, titre, POL_SetupWindowID, Arg1, Arg2, Arg3):
+        self.context = Context()
         
-        wx.Frame.__init__(self, None, -1, title = titre, style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX, size = (520, 398+self.context.windows_add_size))
+        wx.Frame.__init__(self, None, -1, title = titre, style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX, size = (520, 398 + UIHelper().addWindowMacOffset()))
         
         
         self.bash_pid = POL_SetupWindowID
@@ -98,10 +101,10 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
             self.fontText = wx.Font(8, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL,False, "", wx.FONTENCODING_DEFAULT)
 
         # GUI elements
-        self.panel = wx.Panel(self, -1, pos=(0,0), size=((520, 398+self.context.windows_add_size)))
-        self.header = wx.Panel(self.panel, -1, style=self.context.widget_borders, size=(522,65))
+        self.panel = wx.Panel(self, -1, pos=(0,0), size=((520, 398 + UIHelper().addWindowMacOffset())))
+        self.header = wx.Panel(self.panel, -1, style = UIHelper().widgetBorders(), size=(522,65))
         self.header.SetBackgroundColour((255,255,255))
-        self.footer = wx.Panel(self.panel, -1, size=(522,45), pos=(-1,358), style=self.context.widget_borders)
+        self.footer = wx.Panel(self.panel, -1, size=(522,45), pos=(-1,358), style = UIHelper().widgetBorders())
 
         # Panels
         self.MainPanel = wx.Panel(self.panel, -1, pos=(150,0), size=(370,356))
@@ -156,11 +159,11 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         # D'autres trucs
         self.champ = wx.TextCtrl(self.panel, 400, "",size=(300,22))
 
-        self.bigchamp = wx.TextCtrl(self.panel, -1, "",size=wx.Size(460,240), pos=(30,105),style=self.context.widget_borders|wx.TE_MULTILINE)
+        self.bigchamp = wx.TextCtrl(self.panel, -1, "",size=wx.Size(460,240), pos=(30,105),style = UIHelper().widgetBorders()|wx.TE_MULTILINE)
         self.MCheckBox = wx.CheckBox(self.panel, 302, _("I Agree"), pos=(20,325))
         self.PCheckBox = wx.CheckBox(self.panel, 304, _("Show virtual drives"), pos=(20,325))
-        self.Menu = wx.ListBox(self.panel, 104, pos=(25,105),size=(460,220), style=self.context.widget_borders)
-        self.scrolled_panel = wx.ScrolledWindow(self.panel, -1, pos=(20,100), size=(460,220), style=self.context.widget_borders|wx.HSCROLL|wx.VSCROLL)
+        self.Menu = wx.ListBox(self.panel, 104, pos=(25,105),size=(460,220), style = UIHelper().widgetBorders())
+        self.scrolled_panel = wx.ScrolledWindow(self.panel, -1, pos=(20,100), size=(460,220), style= UIHelper().widgetBorders()|wx.HSCROLL|wx.VSCROLL)
         self.scrolled_panel.SetBackgroundColour((255,255,255))
         self.texte_panel = wx.StaticText(self.scrolled_panel, -1, "",pos=(5,5))
 
@@ -173,7 +176,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.current_angle = 1
     
         self.images = wx.ImageList(22, 22)
-        self.MenuGames = wx.TreeCtrl(self.panel, 111, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT|self.context.widget_borders, pos=(25,105),size=(460,220))
+        self.MenuGames = wx.TreeCtrl(self.panel, 111, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT|UIHelper().widgetBorders(), pos=(25,105),size=(460,220))
         self.MenuGames.SetImageList(self.images)
         self.MenuGames.SetSpacing(0)
         
@@ -197,7 +200,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
         # Debug Window
         self.debugImage = wx.StaticBitmap(self.panel, -1, wx.Bitmap(os.environ["PLAYONLINUX"]+"/resources/images/setups/face-sad.png"), (196,130))
-        self.debugZone = wx.TextCtrl(self.panel, -1, "",size=wx.Size(440,82), pos=(40,274),style=self.context.widget_borders|wx.TE_MULTILINE|wx.TE_READONLY)
+        self.debugZone = wx.TextCtrl(self.panel, -1, "",size=wx.Size(440,82), pos=(40,274),style=UIHelper().widgetBorders()|wx.TE_MULTILINE|wx.TE_READONLY)
 
         # Hide all
         self.Destroy_all()

@@ -20,6 +20,10 @@ import socket, threading, thread, guiv3 as gui, os, wx, time, random
 import string
 
 from lib.Context import Context
+from lib.Environement import Environement
+from lib.UIHelper import UIHelper
+
+from views.Error import Error
 
 class GuiServer(threading.Thread):
     def __init__(self, parent): 
@@ -28,23 +32,42 @@ class GuiServer(threading.Thread):
         
         self.mainWindow = parent
         
-        self._host = '127.0.0.1'
-        self._port = 30000
+        self.host = '127.0.0.1'
+        self.runningPort = 0
+        self.tryingPort = 30000
+        
         self._running = True
         
+       
+    def getRunningPort(self):
+        return self.runningPort
         
-        # This dictionnary will contain every created setup window
-        self.parent = parent
+    def setRunningPort(self, port):
+        self.runningPort = port   
+        
+    def incRunningPort(self):
+        self.runningPort += 1;
+        
+    def incTryingPort(self):
+        self.tryingPort += 1;
+        
+    def successRunServer(self):
+        self.runningPort = self.tryingPort
+        Environement().setEnv("POL_PORT", self.runningPort)
+        Environement().setEnv("POL_COOKIE", self.GenCookie())
+
+    def isServerRunning(self):
+        return self.runningPort != 0
         
     def waitForServer(self):
         i = 0
         
-        while(os.environ["POL_PORT"] == "0"):
+        while(not self.isServerRunning()):
             time.sleep(0.01)
             if(i >= 300):
-                 wx.MessageBox(_("{0} is not able to start PlayOnLinux Setup Window server.").format(os.environ["APPLICATION_TITLE"]),_("Error"))
-                 os._exit(0)
-                 break
+                Error('{APP} is not able to start {APP} Setup Window server.')
+                os._exit(0)
+                break
             i+=1
             
     def GenCookie(self, length=20, chars=string.letters + string.digits):
@@ -61,6 +84,7 @@ class GuiServer(threading.Thread):
 
         self.result = self.interact(self.temp.replace("\n",""))
         connection.send(self.result)
+        
         try: 
            connection.shutdown(1)
            connection.close()
@@ -68,20 +92,19 @@ class GuiServer(threading.Thread):
            pass
            
     def initServer(self):
-        if(self._port  >= 30020):
+        if(self.tryingPort  >= 30020):
            print _("Error: Unable to reserve a valid port")
            wx.MessageBox(_("Error: Unable to reserve a valid port"),os.environ["APPLICATION_TITLE"])
            os._exit(0)
            
         try:
            self.acceptor = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-           self.acceptor.bind ( ( str(self._host), int(self._port) ) )
+           self.acceptor.bind ( ( str(self.host), int(self.tryingPort) ) )
            self.acceptor.listen(10)
-           os.environ["POL_PORT"] = str(self._port)
-           os.environ["POL_COOKIE"] = self.GenCookie()
-
+           self.successRunServer()
+           
         except socket.error, msg:       
-           self._port += 1
+           self.incTryingPort()
            self.initServer()
         
 
@@ -92,12 +115,10 @@ class GuiServer(threading.Thread):
     def waitRelease(self, pid):
         result = False
         while(result == False):
-            #try:
+            
             if pid in self.mainWindow.windowList:
-                try:
-                    result = Context().windowList[pid].getResult()
-                except:
-                    break
+                result = self.mainWindow.windowList[pid].getResult()
+                
             else:
                 break
             
@@ -108,7 +129,7 @@ class GuiServer(threading.Thread):
 
     def interact(self, recvData):
        self.mainWindow.SetupWindowTimer_SendToGui(recvData)
-       time.sleep(0.1 + self.parent.SetupWindowTimer_delay/100.) # We divide by 100, because parent.SWT_delay is in ms, and we want a 10x faster
+       time.sleep(0.1 + self.mainWindow.SetupWindowTimer_delay/100.) # We divide by 100, because parent.SWT_delay is in ms, and we want a 10x faster
        sentData = recvData.split("\t")
        if(len(sentData) > 2):
            gotData = self.waitRelease(sentData[2])
@@ -169,10 +190,10 @@ class GuiServer(threading.Thread):
 
         if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_Init'):
             if(len(object.SetupWindowTimer_action) == 5):
-                object.windowList[object.SetupWindowTimer_action[1]] = gui.POL_SetupFrame(object.context, os.environ["APPLICATION_TITLE"],object.SetupWindowTimer_action[1],object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[4])
+                object.windowList[object.SetupWindowTimer_action[1]] = gui.POL_SetupFrame(os.environ["APPLICATION_TITLE"],object.SetupWindowTimer_action[1],object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[4])
                 object.windowList[object.SetupWindowTimer_action[1]].Center(wx.BOTH)
                 object.windowList[object.SetupWindowTimer_action[1]].Show(True)
-                object.windowOpened += 1
+                Context().incWindowOpened()
         else:
             if(object.SetupWindowTimer_action[1] not in object.windowList):
                 print(_("WARNING. Please use POL_SetupWindow_Init first"))

@@ -57,9 +57,6 @@ class Environement(object):
       else:
           self.setEnv("POL_WGET","wget --prefer-family=IPv4 -q")
           
-      #Context().getUI().windows_add_size = 0;
-      #windows_add_playonmac = 0;
-      #widget_borders = wx.RAISED_BORDER
       Context().setAppName("PlayOnLinux")
           
    def initPOMEnvironement(self):
@@ -68,10 +65,6 @@ class Environement(object):
       self.setEnv("APPLICATION_TITLE","PlayOnMac")
       self.setEnv("POL_DNS","playonmac.com")
       self.setEnv("POL_WGET","wget --prefer-family=IPv4 -q")
-      
-      #windows_add_size = 20;
-      #windows_add_playonmac = 1;
-      #widget_borders = wx.SIMPLE_BORDER
 
       # Image Magick on OSX
       self.setEnv("MAGICK_HOME",self.getAppPath()+"/../unix/image_magick/")
@@ -116,7 +109,7 @@ class Environement(object):
           return os.path.realpath(os.path.realpath(__file__)+"/../../../") 
    
    def setEnv(self, var, content):
-        os.environ[var] = content
+        os.environ[var] = str(content)
                
    def getEnv(self, var):
       try :

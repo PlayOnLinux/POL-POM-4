@@ -39,8 +39,19 @@ class UIHelper(object):
            
        return wx.Font(textSize, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL,False, "", wx.FONTENCODING_DEFAULT)
 
-   def AddMacOffset(self, size):
+   def addMacOffset(self, size):
        if(Context().getOS() == "Mac"):
            return size;
        else:
            return 0;
+           
+   def addWindowMacOffset(self):
+       return self.addMacOffset(20)
+       
+       
+   def widgetBorders(self):
+       if(Context().getOS() == "Mac"):
+           return wx.SIMPLE_BORDER
+       else:
+           return wx.RAISED_BORDER;
+       

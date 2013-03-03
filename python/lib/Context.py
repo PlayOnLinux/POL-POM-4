@@ -90,7 +90,7 @@ class Context(object):
    def getPOLServer(self):
       return self.POLServer;
       
-   def getRegisteredPid(self):
+   def getRegisteredPids(self):
        return self.registeredPid
       
    def getWindowOpened(self):
