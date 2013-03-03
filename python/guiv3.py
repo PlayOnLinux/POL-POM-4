@@ -20,8 +20,6 @@
 
 import wx, wx.animate, os, getopt, sys, urllib, signal, time, string, urlparse, codecs, time, threading, socket
 from subprocess import Popen,PIPE
-import lib.Context as Context
-import lib.playonlinux as playonlinux
 
 
 class Download(threading.Thread):

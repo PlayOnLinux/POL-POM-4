@@ -4,16 +4,22 @@
 
 import os, random, sys, string, gettext, locale
 import wx, wxversion
+import gui_server
 
 class Context(object):
    def __init__(self):
       self.pol_os = self.getEnv("POL_OS")
-        
+      self.POLServer = None
       self.initEnvironement()
       # Fixme. We could detect that automatically
       if(self.pol_os == "None"):
          print "ERROR ! Please define POL_OS environment var first."
          os._exit(1)
+      
+      # Vars needed for PlayOnLinux_Server
+      self.windowList = {}    # List of POL_SetupWindow opened
+      self.registeredPid = [] # List of bash pids belonging to POL 
+      self.windowOpened = 0   # Number of POL_SetupWindow opened
       
       
    # Bash script backward compatibility. We are going to clean that
@@ -167,6 +173,16 @@ class Context(object):
        mytranslation = gettext.translation(domain, localedir, [mylocale.GetCanonicalName()], fallback = True)
        mytranslation.install()
        
+       
+   # PlayOnLinux server 
+   def initPOLServer(self, frame):
+       self.POLServer = gui_server.gui_server(self, frame)
+       self.POLServer.start()
+       self.POLServer.waitForServer()
+        
+   def getPOLServer(self):
+       return self.POLServer
+         
 """
 
 def proxy_initialization():

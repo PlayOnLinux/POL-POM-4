@@ -26,6 +26,7 @@ class gui_server(threading.Thread):
         threading.Thread.__init__(self)
         
         self.context = context
+        self.mainWindow = parent
         
         self._host = '127.0.0.1'
         self._port = 30000
@@ -90,9 +91,9 @@ class gui_server(threading.Thread):
         result = False
         while(result == False):
             #try:
-            if pid in self.parent.windowList:
+            if pid in self.context.windowList:
                 try:
-                    result = self.parent.windowList[pid].getResult()
+                    result = self.context.windowList[pid].getResult()
                 except:
                     break
             else:
@@ -104,7 +105,7 @@ class gui_server(threading.Thread):
         return result
 
     def interact(self, recvData):
-       self.parent.SetupWindowTimer_SendToGui(recvData)
+       self.mainWindow.SetupWindowTimer_SendToGui(recvData)
        time.sleep(0.1 + self.parent.SetupWindowTimer_delay/100.) # We divide by 100, because parent.SWT_delay is in ms, and we want a 10x faster
        sentData = recvData.split("\t")
        if(len(sentData) > 2):

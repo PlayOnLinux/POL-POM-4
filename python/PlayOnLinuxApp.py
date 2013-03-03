@@ -70,10 +70,7 @@ class PlayOnLinuxApp(wx.App):
         self.frame = MainWindow(self.context, None, -1, self.context.getAppName())
         
         # Gui Server
-        self.POLServer = gui_server.gui_server(self.context, self.frame)
-        self.POLServer.start()
-        self.POLServer.waitForServer()
-        
+        self.context.initPOLServer(self.frame)
         
         PrivateScript(self.context, "startup_after_server").runPoll()
    
@@ -110,7 +107,6 @@ class PlayOnLinuxApp(wx.App):
         os.system("bash \"$PLAYONLINUX/bash/playonlinux-url_handler\" \""+url+"\" &")
 
     def MacReopenApp(self):
-        #sys.exit()
         self.BringWindowToFront()
 
 

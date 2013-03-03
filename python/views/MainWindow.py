@@ -40,11 +40,6 @@ class MainWindow(wx.Frame):
         self.context = context
         self.ui = UI(self.context);
         self.playonlinuxSettings = GlobalConfigFile(self.context)
-       
-        # Some vars
-        self.windowList = {}    # List of POL_SetupWindow opened
-        self.registeredPid = [] # List of bash pids belonging to POL 
-        self.windowOpened = 0   # Number of POL_SetupWindow opened
         
         
         # Manage updater
@@ -56,7 +51,7 @@ class MainWindow(wx.Frame):
         self.menuImage = {}
 
         # Catch CTRL+C
-        signal.signal(signal.SIGINT, self.ForceClose)
+        signal.signal(signal.SIGINT, self.CatchCtrlC)
         
         # Init window
         self.drawWindow(parent, id, title)
@@ -354,8 +349,7 @@ class MainWindow(wx.Frame):
             self.SetupWindowTimer_delay = time
 
     def SetupWindowAction(self, event):
-        
-        if(self.windowOpened == 0):
+        if(self.context.windowOpened == 0):
             self.SetupWindow_TimerRestart(100)
         else:
             self.SetupWindow_TimerRestart(10)
@@ -889,49 +883,56 @@ class MainWindow(wx.Frame):
         for pid in self.registeredPid:
             os.system("kill -9 -"+pid+" 2> /dev/null")
             os.system("kill -9 "+pid+" 2> /dev/null") 
-        app.POLServer.closeServer()
+        self.context.getPOLServer().closeServer()
         os._exit(0)
 
     def POLRestart(self):
         for pid in self.registeredPid:
             os.system("kill -9 -"+pid+" 2> /dev/null")
             os.system("kill -9 "+pid+" 2> /dev/null") 
-        app.POLServer.closeServer()
+        self.context.getPOLServer().closeServer()
         os._exit(63) # Restart code
 
-    def ForceClose(self, signal, frame): # Catch SIGINT
+    def CatchCtrlC(self, signal, frame): # Catch SIGINT
         print "\nCtrl+C pressed. Killing all processes..."
         self.POLDie()
 
-    def ClosePol(self, event):
-        if(self.playonlinuxSettings.getSetting("DONT_ASK_BEFORE_CLOSING") == "TRUE" or wx.YES == wx.MessageBox(_('Are you sure you want to close all {0} Windows?').format(self.context.getAppName()).decode("utf-8","replace"),self.context.getAppName(), style=wx.YES_NO | wx.ICON_QUESTION)):
-            self.SizeToSave = self.GetSize();
-            self.PositionToSave = self.GetPosition();
-            # Save size and position
-            self.playonlinuxSettings.setSetting("MAINWINDOW_WIDTH",str(self.SizeToSave[0]))
-            self.playonlinuxSettings.setSetting("MAINWINDOW_HEIGHT",str(self.SizeToSave[1] - self.ui.AddMacOffset(56)))
-            self.playonlinuxSettings.setSetting("MAINWINDOW_X",str(self.PositionToSave[0]))
-            self.playonlinuxSettings.setSetting("MAINWINDOW_Y",str(self.PositionToSave[1]))
-            self._mgr.UnInit()
-            # I know, that's very ugly, but I have no choice for the moment
+    def saveWindowParametersToConfig(self):
+        self.SizeToSave = self.GetSize();
+        self.PositionToSave = self.GetPosition();
+        # Save size and position
+        self.playonlinuxSettings.setSetting("MAINWINDOW_WIDTH",str(self.SizeToSave[0]))
+        self.playonlinuxSettings.setSetting("MAINWINDOW_HEIGHT",str(self.SizeToSave[1] - self.ui.AddMacOffset(56)))
+        self.playonlinuxSettings.setSetting("MAINWINDOW_X",str(self.PositionToSave[0]))
+        self.playonlinuxSettings.setSetting("MAINWINDOW_Y",str(self.PositionToSave[1]))
+        
+    def savePanelParametersToConfig(self):
+        # Very ugly, need to be fixed
+        self._mgr.UnInit()
             
-            self.perspective = self._mgr.SavePerspective().split("|")
-            self.perspective = self.perspective[len(self.perspective) - 2].split("=")
+        self.perspective = self._mgr.SavePerspective().split("|")
+        self.perspective = self.perspective[len(self.perspective) - 2].split("=")
 
-            self.DockType = self.perspective[0]
-            self.mySize = 200
+        self.DockType = self.perspective[0]
+        self.mySize = 200
+        self.myPosition = "LEFT"
+
+        if(self.DockType == "dock_size(4,0,0)"):
+            self.mySize = int(self.perspective[1]) - 2
             self.myPosition = "LEFT"
 
-            if(self.DockType == "dock_size(4,0,0)"):
-                self.mySize = int(self.perspective[1]) - 2
-                self.myPosition = "LEFT"
+        if(self.DockType == "dock_size(2,0,1)" or self.DockType == "dock_size(2,0,0)" or "dock_size(2," in self.DockType):
+            self.mySize = int(self.perspective[1]) - 2
+            self.myPosition = "RIGHT"
 
-            if(self.DockType == "dock_size(2,0,1)" or self.DockType == "dock_size(2,0,0)" or "dock_size(2," in self.DockType):
-                self.mySize = int(self.perspective[1]) - 2
-                self.myPosition = "RIGHT"
-
-            self.playonlinuxSettings.setSetting("PANEL_SIZE",str(self.mySize))
-            self.playonlinuxSettings.setSetting("PANEL_POSITION",str(self.myPosition))
+        self.playonlinuxSettings.setSetting("PANEL_SIZE",str(self.mySize))
+        self.playonlinuxSettings.setSetting("PANEL_POSITION",str(self.myPosition))
+        
+    def ClosePol(self, event):
+        if(self.playonlinuxSettings.getSetting("DONT_ASK_BEFORE_CLOSING") == "TRUE" or wx.YES == wx.MessageBox(_('Are you sure you want to close all {0} Windows?').format(self.context.getAppName()).decode("utf-8","replace"),self.context.getAppName(), style=wx.YES_NO | wx.ICON_QUESTION)):
+            self.saveWindowParametersToConfig()
+            self.savePanelParametersToConfig()
+           
 
             self.POLDie()
         return None
@@ -939,13 +940,13 @@ class MainWindow(wx.Frame):
     def About(self, event):
         self.aboutBox = wx.AboutDialogInfo()
         if(os.environ["POL_OS"] == "Linux"):
-            self.aboutBox.SetIcon(wx.Icon(self.context.getAppPath()+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
+            self.aboutBox.SetIcon(wx.Icon(self.context.getAppPath()+"/resources/icons/playonlinux.png", wx.BITMAP_TYPE_ANY))
 
 
         self.aboutBox.SetName(self.context.getAppName())
         self.aboutBox.SetVersion(self.context.getAppVersion())
         self.aboutBox.SetDescription(_("Run your Windows programs on "+os.environ["POL_OS"]+" !"))
-        self.aboutBox.SetCopyright("© 2007-2012 "+_("PlayOnLinux and PlayOnMac team\nUnder GPL licence version 3"))
+        self.aboutBox.SetCopyright("© 2007-2013 "+_("PlayOnLinux and PlayOnMac team\nUnder GPL licence version 3"))
         self.aboutBox.AddDeveloper(_("Developer and Website: ")+"Tinou (Pâris Quentin), MulX (Petit Aymeric)")
         self.aboutBox.AddDeveloper(_("Scriptors: ")+"GNU_Raziel")
         self.aboutBox.AddDeveloper(_("Packager: ")+"MulX (Petit Aymeric), Tinou (Pâris Quentin)")
