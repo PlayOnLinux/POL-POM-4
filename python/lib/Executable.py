@@ -24,6 +24,7 @@ class Executable(object):
    def getProgramArray(self):
        args = self.args[:]
        args.insert(0,self.path)
+       print args
        return args
 
    # Set environement vars from context and from config file

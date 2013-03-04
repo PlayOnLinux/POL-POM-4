@@ -1,10 +1,127 @@
 #!/bin/bash
+
+# Copyright (C) 2011 Pâris Quentin
+
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+
+# This script is called when POL/POM runs a program.
 [ "$PLAYONLINUX" = "" ] && exit 0
 source "$PLAYONLINUX/lib/sources"
-export WINEPREFIX="/Users/tinou/Library/PlayOnMac//wineprefix/InternetExplorer6"
-export WINEDEBUG="-all"
-#POL_Log=Internet Explorer 6
-#ScriptID=Internet Explorer 6
-cd "/Users/tinou/Library/PlayOnMac//wineprefix/InternetExplorer6/drive_c/.//Program Files/Internet Explorer"
-POL_Wine "IEXPLORE.EXE"  "$@"
 
+TITLE="$APPLICATION_TITLE"
+
+send_stat()
+{
+# Time
+delta="$(( EndTime - StartTime ))"
+
+# vms
+vms="$(POL_Config_Read VMS)"
+[ "$vms" = "" ] && vms="0"
+# OpenGL32
+
+# OpenGL64
+
+# DISTRO
+POL_LoadVar_Distro
+DISTRO="${DISTRO//'~'/ }"
+
+# Script name
+ScriptName="$(cat "$PACKAGE" | grep ScriptID | cut -d '=' -f2)"
+
+# ExitCode
+if [ "$(cat "$PACKAGE" | grep '\[ "$WINEDEBUG" = "-all" \] && exit 0')" = "" ]; then
+ExitCode="$1"
+else
+ExitCode="-1"
+fi
+
+# OS (currentOS ; 0 = linux ; 1 = Mac)
+[ "$POL_OS" = "Linux" ] && currentOS="0" || currentOS="1"
+
+# User Report = -1
+
+# Unique anonymous id (autorisation to edit the review)
+if [ ! -e "$POL_USER_ROOT/configurations/reports/$PACKAGE" ]; then
+UniqId="$(perl -e 'print int(rand(10000000000000000))')"
+else
+UniqId="$(cat "$POL_USER_ROOT/configurations/reports/$PACKAGE")"
+fi
+# Wine version
+Prefix="$(POL_Shortcut_GetPrefix "$PACKAGE")"
+Version="$(POL_Config_PrefixRead VERSION "$Prefix")"
+PArch="$(POL_Config_PrefixRead ARCH "$Prefix")"
+[ "$PArch" = "x86" ] && archty="0" || archty="1"
+# AMD64
+[ "$AMD64_COMPATIBLE" = "True" ] && amd64_set="1" || amd64_set="0"
+
+if [ "$ScriptName" ]; then
+# Device Infos
+POL_LoadVar_Device
+
+Info="$(printf "$VendorID~$DeviceID~$currentOS~$ScriptName~$amd64_set~$OpenGL32~$OpenGL64~$Version~$ExitCode~$DISTRO~$vms~$UniqId~$archty~$PACKAGE~$VERSION~$delta" | POL_base64)"
+POL_Website_GET "http://www.playonlinux.com/api/s.php?data=$(POL_Website_urlencode "$Info")"
+echo "$UniqId" > "$POL_USER_ROOT/configurations/reports/$PACKAGE"
+fi
+}
+if [ "$1" ]; then
+PACKAGE="$1"
+else
+POL_SetupWindow_Init
+POL_SetupWindow_games "$(eval_gettext "Please choose a software to run")" "$TITLE"
+PACKAGE="$APP_ANSWER"
+POL_SetupWindow_Close
+fi
+
+cd "$REPERTOIRE/shortcuts"
+
+export POL_IgnoreWineErrors="True"
+
+$(POL_Config_Read PRE_RUNNING)
+
+if [ "$(POL_Config_Read DONT_KILL_ON_EXIT)" = "TRUE" ]; then
+export POL_DONT_REGISTER_PID="TRUE"
+fi
+
+if [ -e "$POL_USER_ROOT/configurations/pre_shortcut/$PACKAGE" ]; then
+source "$POL_USER_ROOT/configurations/pre_shortcut/$PACKAGE"
+fi
+shift
+# export FORCE_OSX_DOCK="TRUE"
+POL_Wine_EnableOSXNativeDock
+export COMMON_NAME="$PACKAGE"
+
+StartTime="$(date +%s)"
+bash "$PACKAGE" "$@"
+ExitCode="$?"
+EndTime="$(date +%s)"
+
+
+if [ ! "$ExitCode" = "0" ]; then
+POL_SetupWindow_Init
+POL_SetupWindow_wait "$(eval_gettext '$APPLICATION_TITLE debugger is starting...')" "$TITLE"
+if [ ! "$(cat "$PACKAGE" | grep 'export WINEDEBUG="-all"')" = "" ]
+then
+POL_Debug_ErrorSilent "$(eval_gettext '$PACKAGE crashed.\nClick on debug link to get more details.')"
+else
+POL_Debug_ErrorSilent "$(eval_gettext '$PACKAGE crashed.')"
+fi
+POL_SetupWindow_Close
+fi
+$(POL_Config_Read POST_RUNNING)
+
+if [ "$(POL_Config_Read SEND_REPORT)" = "TRUE" ] && [ "$DEBIAN_PACKAGE" = "FALSE" ]; then
+send_stat "$ExitCode"
+fi

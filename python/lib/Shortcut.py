@@ -22,16 +22,13 @@ class Shortcut(PrivateScript):
       
       self.needSignature = False
       self.context = Context()
-      #self.setArgs(args)
-      
+
+      args = args[:]
+      args.insert(0, shortcutName)
       PrivateScript.__init__(self, "run_app", args)
       
    def getName(self):
        return self.shortcutName
-       
-   # Set additional args
-   def setArgs(self, args = []):
-       self.args = [self.shortcutName] + args
        
    # Get the shortcut script path
    def getPath(self):

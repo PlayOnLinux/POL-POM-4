@@ -941,6 +941,7 @@ class MainWindow(wx.Frame):
 
     def GetSelectedProgram(self):
         selectedName = self.appList.GetItemText(self.appList.GetSelection()).encode("utf-8","replace")
+        
         if(selectedName == ""):
             raise ErrNoProgramSelected
             
@@ -965,7 +966,7 @@ class MainWindow(wx.Frame):
                         self.debugFrame = debug.MainWindow(None, -1, _("{0} debugger").format(Context().getAppName()),game_prefix.getName(),0)
                         self.debugFrame.Center(wx.BOTH)
                         self.debugFrame.Show()
-
+  
                 selectedProgram.runPoll()
             else:
                 wx.MessageBox(_("Please select a program."), Context().getAppName())
