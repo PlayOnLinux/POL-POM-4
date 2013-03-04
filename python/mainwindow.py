@@ -18,7 +18,7 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 encoding = 'utf-8'
 
-import os, getopt, sys, urllib, signal, string, time, webbrowser, gettext, locale, sys, shutil, subprocess, signal
+import os, getopt, sys, urllib, signal, string, time, webbrowser, gettext, locale, sys, shutil, subprocess
 
 try :
     os.environ["POL_OS"]
@@ -63,9 +63,7 @@ class POLWeb(threading.Thread):
             fichier_online="version_mac"
         else:
             fichier_online="version2"
-        process_in = os.popen(os.environ["POL_WGET"]+' "'+os.environ["SITE"]+'/'+fichier_online+'.php?v='+os.environ["VERSION"]+'" -T 30 -O-','r')
-        time.sleep(0.01)
-        return process_in.read()
+        return os.popen(os.environ["POL_WGET"]+' "'+os.environ["SITE"]+'/'+fichier_online+'.php?v='+os.environ["VERSION"]+'" -T 30 -O-','r').read()
 
     def real_check(self):
         self.WebVersion = self.LastVersion()
@@ -80,8 +78,6 @@ class POLWeb(threading.Thread):
 
             p = subprocess.Popen(exe, stdout=subprocess.PIPE, bufsize=1, preexec_fn=lambda: os.setpgid(os.getpid(), os.getpid()))
 
-            # https://fricorder.googlecode.com/svn-history/r34/trunk/build.py
-            time.sleep(0.01)    # to avoid "IOError: [Errno 4] Interrupted system call"
             for line in iter(p.stdout.readline, ''):
                 try:
                     self.sendPercentage(int(line))
@@ -1268,8 +1264,19 @@ class PlayOnLinuxApp(wx.App):
         #sys.exit()
         self.BringWindowToFront()
 
-lng.Lang()
+# Idea taken from flacon
+def setSigchldHandler():
+    signal.signal(signal.SIGCHLD, handleSigchld)
+    if hasattr(signal, 'siginterrupt'):
+        signal.siginterrupt(signal.SIGCHLD, False)
 
+def handleSigchld(number, frame):
+    # Apparently some UNIX systems automatically resent the SIGCHLD
+    # handler to SIG_DFL.  Reset it just in case.
+    setSigchldHandler()
+
+setSigchldHandler()
+lng.Lang()
 
 app = PlayOnLinuxApp(redirect=False)
 app.MainLoop()
