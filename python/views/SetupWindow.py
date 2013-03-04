@@ -24,33 +24,8 @@ from subprocess import Popen,PIPE
 from lib.Context import Context
 from lib.UIHelper import UIHelper
 from lib.GuiServer import GuiServer
+from lib.Download import Download
 
-class Download(threading.Thread):
-    def __init__(self, url, local):
-        threading.Thread.__init__(self)
-        self.url = url
-        self.local = local
-        self.taille_fichier = 0
-        self.taille_bloc = 0
-        self.nb_blocs = 0
-        self.finished = False
-        self.start()
-        self.failed = False
-
-    def onHook(self, nb_blocs, taille_bloc, taille_fichier):
-        self.nb_blocs = nb_blocs
-        self.taille_bloc = taille_bloc
-        self.taille_fichier = taille_fichier
-
-    def download(self):
-        try:
-            urllib.urlretrieve(self.url, self.local, reporthook = self.onHook)
-        except:
-            self.failed = True
-        self.finished = True
-
-    def run(self):
-        self.download()
 
 class SetupWindow(wx.Frame): #fenêtre principale
     def __init__(self, title, scriptPid, topImage, leftImage, isProtected):
@@ -83,11 +58,11 @@ class SetupWindow(wx.Frame): #fenêtre principale
        
 
         
-        self.make_gui()
+        self.drawGUI()
 
         wx.EVT_CLOSE(self, self.Cancel)
 
-    def make_gui(self):
+    def drawGUI(self):
         # GUI elements
         self.panel = wx.Panel(self, -1, pos=(0,0), size=((520, 398 + UIHelper().addWindowMacOffset())))
         self.header = wx.Panel(self.panel, -1, style = UIHelper().widgetBorders(), size=(522,65))
@@ -160,7 +135,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
 
         
         
-        self.animation = wx.StaticBitmap(self.panel, -1, self.GetLoaderFromAngle(1), (228,170))
+        self.animation = wx.StaticBitmap(self.panel, -1, self.getLoaderFromAngle(1), (228,170))
         self.current_angle = 1
     
         self.images = wx.ImageList(22, 22)
@@ -191,26 +166,24 @@ class SetupWindow(wx.Frame): #fenêtre principale
         self.debugZone = wx.TextCtrl(self.panel, -1, "",size=wx.Size(440,82), pos=(40,274),style=UIHelper().widgetBorders()|wx.TE_MULTILINE|wx.TE_READONLY)
 
         # Hide all
-        self.Destroy_all()
-        self.Result = ""
+        self.hideAll()
         self.animation.Show()
         self.footer.Hide()
         
         # Set the timer
         self.timer = wx.Timer(self, 3)
-        self.Bind(wx.EVT_TIMER, self.TimerAction, self.timer)
+        self.Bind(wx.EVT_TIMER, self.timerAction, self.timer)
         self.timer.Start(100)
-        self.Timer_downloading = False
-        self.Timer_animate = True
+        self.timerDownload = False
+        self.timerAnimate = True
         
-    def GetLoaderFromAngle(self, angle):
+    def getLoaderFromAngle(self, angle):
         if(angle >= 1 and angle <= 12):
             image = wx.Image(Context().getAppPath()+"/resources/images/setups/wait/"+str(angle)+".png")
         return image.ConvertToBitmap()
         
-    def Destroy_all(self):
+    def hideAll(self):
         self.footer.Show()
-        self.Result = None
         self.header.Hide()
         self.leftImageWidget.Hide()
         self.CancelButton.Hide()
@@ -246,55 +219,49 @@ class SetupWindow(wx.Frame): #fenêtre principale
         self.MCheckBox.SetValue(False)
         self.PCheckBox.SetValue(False)
         self.animation.Hide()
-        self.Timer_animate = False
+        self.timerAnimate = False
         self.debugImage.Hide()
         self.debugZone.Hide()
         self.Refresh()
 
-        
-    def getResult(self):
-        return self.Result
-            
-    def TimerAction(self, event):
+                
+    def timerAction(self, event):
         ## If the setup window is downloading a file, we need to update the progress bar
-        if(self.Timer_downloading == True):
+        if(self.timerDownload == True):
             if(self.downloader.taille_bloc != 0):
-                self.nb_blocs_max = self.downloader.taille_fichier / self.downloader.taille_bloc
-                self.gauge.SetRange(self.nb_blocs_max)
-                self.gauge.SetValue(self.downloader.nb_blocs)
+                self.gauge.SetRange(self.downloader.getMaxNbBlock())
+                self.gauge.SetValue(self.downloader.getNbBlocks())
 
-                self.tailleFichierB = float(self.downloader.taille_fichier / 1048576.0)
-                self.octetsLoadedB = float((self.downloader.nb_blocs * self.downloader.taille_bloc) / 1048576.0)
-                self.octetsLoadedN = round(self.octetsLoadedB, 1)
-                self.tailleFichierN = round(self.tailleFichierB, 1)
+                tailleFichierN = str(round(self.downloader.getFileSizeInBytes(), 1))
+                octetsLoadedN = str(round(self.downloader.getLoadedSizeInBytes(), 1))
 
-                self.estimation_txt = str(self.octetsLoadedN) + " "+_("of")+" " + str(self.tailleFichierN) + " "+_("MB downloaded")
-                self.txtEstimation.SetLabel(self.estimation_txt)
+                self.txtEstimation.SetLabel(_("{0} of {1} MB downloaded").format(octetsLoadedN, tailleFichierN))
 
-            if(self.downloader.finished == True):
-                if(self.downloader.failed == True):
+            if(self.downloader.isFinished()):
+                if(self.downloader.hasFailed()):
                     self.release_but_fail(self)
                 else:
                     self.release(self)
-                self.Timer_downloading = False
+                    
+                self.timerDownload = False
 
-        if(self.Timer_animate == True):
+        if(self.timerAnimate == True):
             self.current_angle = ((self.current_angle + 1) % 12)
-            self.animation.SetBitmap(self.GetLoaderFromAngle(self.current_angle + 1))
+            self.animation.SetBitmap(self.getLoaderFromAngle(self.current_angle + 1))
             
     ### Theses methods command the window. There are called by mainWindow when it reads the queue
     def POL_SetupWindow_message(self, message, title):
-        self.Destroy_all()
+        self.hideAll()
         self.DrawDefault(message, title)
 
         self.DrawCancel()
         self.DrawNext()
         wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release)
 
-    def POL_SetupWindow_free_presentation(self, message, titre):
-        self.Destroy_all()
+    def POL_SetupWindow_free_presentation(self, title, message):
+        self.hideAll()
         self.MainPanel.Show()
-        self.titreP.SetLabel(titre.decode("utf8","replace"))
+        self.titreP.SetLabel(title.decode("utf8","replace"))
         self.titreP.Wrap(280)
 
         self.texteP.SetLabel(message.decode("utf8","replace").replace("\\n","\n").replace("\\t","\t"))
@@ -323,7 +290,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
 
 
     def POL_SetupWindow_textbox(self, message, title, value):
-        self.Destroy_all()
+        self.hideAll()
         self.DrawDefault(message, title)
 
         self.space = message.count("\\n")+1
@@ -354,7 +321,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
         self.SendBash()
 
     def POL_SetupWindow_download(self, message, title, url, localfile): 
-        self.Destroy_all()
+        self.hideAll()
         self.DrawDefault(message, title)
         self.space = message.count("\\n")+1
         self.gauge.Show()
@@ -364,21 +331,21 @@ class SetupWindow(wx.Frame): #fenêtre principale
         self.DrawCancel()
         self.DrawNext()
         self.NextButton.Enable(False)
-        self.DownloadFile(url, localfile)
+        self.downloadFile(url, localfile)
 
     def POL_SetupWindow_wait(self, message, title):
-        self.Destroy_all()
+        self.hideAll()
         self.DrawDefault(message, title)
         self.NextButton.Enable(False)
         self.animation.Show()
-        self.Timer_animate = True
+        self.timerAnimate = True
         self.DrawCancel()
         self.DrawNext()
         self.NextButton.Enable(False)
         self.SendBash()
 
     def POL_SetupWindow_pulsebar(self, message, title):
-        self.Destroy_all()
+        self.hideAll()
         self.DrawDefault(message, title)
 
         self.NextButton.Enable(False)
@@ -402,14 +369,14 @@ class SetupWindow(wx.Frame): #fenêtre principale
             self.RunCommand(event,command,alert),self.WaitButton)
 
     def POL_SetupWindow_question(self, message, title):
-        self.Destroy_all()
+        self.hideAll()
         self.DrawDefault(message, title)
 
         self.YesButton.Show()
         self.NoButton.Show()
 
     def POL_SetupWindow_menu(self, message, title, liste, cut, numtype=False):
-        self.Destroy_all()
+        self.hideAll()
         self.DrawDefault(message, title)
 
         self.space = message.count("\\n")+1
@@ -443,7 +410,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
 
 
     def POL_SetupWindow_login(self, message, title, register_url):
-        self.Destroy_all()
+        self.hideAll()
         self.DrawDefault(message, title)
 
         self.space = message.count("\\n")+1
@@ -461,7 +428,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
         wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_login)
 
     def POL_SetupWindow_textbox_multiline(self, message, title, value):
-        self.Destroy_all()
+        self.hideAll()
         self.DrawDefault(message, title)
         self.space = message.count("\\n")+1
 
@@ -475,7 +442,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
         wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_bigchamp)
 
     def POL_SetupWindow_checkbox_list(self, message, title, liste, cut):
-        self.Destroy_all()
+        self.hideAll()
         self.DrawDefault(message, title)
 
         self.scrolled_panel.Show()
@@ -509,7 +476,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
 
 
     def POL_SetupWindow_shortcut_list(self, message, title):
-        self.Destroy_all()
+        self.hideAll()
         self.DrawDefault(message, title)
 
         self.add_games()
@@ -524,7 +491,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
         wx.EVT_TREE_ITEM_ACTIVATED(self, 111, self.release_menugame)
 
     def POL_SetupWindow_icon_menu(self, message, title, items, cut, icon_folder, icon_list):
-        self.Destroy_all()
+        self.hideAll()
         self.DrawDefault(message, title)
 
         self.add_menu_icons(items, cut, icon_list, icon_folder);
@@ -539,7 +506,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
         wx.EVT_TREE_ITEM_ACTIVATED(self, 111, self.release_menugame)
 
     def POL_SetupWindow_prefix_selector(self, message, title):
-        self.Destroy_all()
+        self.hideAll()
         self.DrawDefault(message, title)
 
         self.add_games()
@@ -571,7 +538,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
 
 
     def POL_SetupWindow_licence(self, message, title, licence_file):
-        self.Destroy_all()
+        self.hideAll()
         self.DrawDefault(message, title)
 
         try:
@@ -595,7 +562,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
 
 
     def POL_SetupWindow_file(self, message, title, filetoread):
-        self.Destroy_all()
+        self.hideAll()
         self.DrawDefault(message, title)
 
         try:
@@ -768,7 +735,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
             if(os.path.exists(current_icon)):
                 file_icon = current_icon
             else:
-                file_icon = Context().getAppPath()+"/etc/playonlinux32.png"
+                file_icon = Context().getAppPath()+"/ressources/icons/playonlinux32.png"
 
             bitmap = wx.Image(file_icon)
             bitmap.Rescale(22,22,wx.IMAGE_QUALITY_HIGH)
@@ -821,12 +788,12 @@ class SetupWindow(wx.Frame): #fenêtre principale
         self.FileDialog.Destroy()
 
 
-    def DownloadFile(self, url, localB):    #url = url a récupérer, localB le fichier où enregistrer la modification sans nom de fichier
+    def downloadFile(self, url, localB):   
         self.chemin = urlparse.urlsplit(url)[2]
         self.nomFichier = self.chemin.split('/')[-1]
         self.local = localB + self.nomFichier
         self.downloader = Download(url, self.local)
-        self.Timer_downloading = True
+        self.timerDownload = True
 
 
     def agree(self, event):
