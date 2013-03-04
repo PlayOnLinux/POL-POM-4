@@ -67,7 +67,7 @@ class GuiServer(threading.Thread):
         while(not self.isServerRunning()):
             time.sleep(0.01)
             if(i >= 300):
-                Error('{APP} is not able to start {APP} Setup Window server.')
+                Error('[APP] is not able to start [APP] Setup Window server.')
                 os._exit(0)
                 break
             i+=1

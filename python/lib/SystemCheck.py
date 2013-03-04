@@ -35,17 +35,17 @@ class SystemCheck(object):
        if not self.executableFound(executable):
            
            if package is not None:
-               message = _("{0} cannot find {1} from {2}")
+               message = _("[APP] cannot find {1} from {2}").fo
            else:
-               message = _("{0} cannot find {1}")
+               message = _("[APP] cannot find {1}")
                
 
-           if fatal:
+           if (fatal):
                verdict = _("You need to install it to continue")
            else:
                verdict = _("You should install it to use {0}")
 
-           Error( ("%s\n\n%s" % (message, verdict) )
+           Error( "%s\n\n%s" % (message, verdict) )
 
            if fatal:
                self.appDie()
@@ -56,7 +56,7 @@ class SystemCheck(object):
        returncode = check_gl.run()
         
        if(self.context.getOS() == "Linux" and returncode != 0):
-           Error(_("{0} is unable to find 32bits OpenGL libraries.\n\nYou might encounter problem with your games"))
+           Error(_("[APP] is unable to find 32bits OpenGL libraries.\n\nYou might encounter problem with your games"))
            os.environ["OpenGL32"] = "0"
        else:
            os.environ["OpenGL32"] = "1"
@@ -67,7 +67,7 @@ class SystemCheck(object):
            returncode = check_gl_64.run()
            
            if(returncode != 0):
-               Error(_("{0} is unable to find 64bits OpenGL libraries.\n\nYou might encounter problem with your games"))
+               Error(_("[APP] is unable to find 64bits OpenGL libraries.\n\nYou might encounter problem with your games"))
                os.environ["OpenGL64"] = "0"
            else:
                os.environ["OpenGL64"] = "1"
@@ -78,13 +78,13 @@ class SystemCheck(object):
        if(self.context.getOS() == "Linux"):
            returncode = PrivateScript("check_fs").run()
            if(returncode != 0):
-               Error(_("Your filesystem might prevent {APP} from running correctly.\n\nPlease open {APP} in a terminal to get more details"))
+               Error(_("Your filesystem might prevent [APP] from running correctly.\n\nPlease open [APP] in a terminal to get more details"))
        
               
    def doFullCheck(self):
        # Run as root ?
        if(self.isRunAsRoot()):
-           Error(_("{APP} is not supposed to be run as root. Sorry"))
+           Error(_("[APP] is not supposed to be run as root. Sorry"))
            self.system.hardExit(1)
 
        # Filesystem and OpenGL check

@@ -53,5 +53,10 @@ class UIHelper(object):
        if(Context().getOS() == "Mac"):
            return wx.SIMPLE_BORDER
        else:
-           return wx.RAISED_BORDER;
-       
+           return wx.RAISED_BORDER
+   
+   def updateJaugeMarginTop(self):
+       if(Context().getOS() == "Mac"):
+           return 2
+       else:
+           return 6      

@@ -69,7 +69,7 @@ class MainWindow(wx.Frame):
         
         # Init window
         self.drawWindow(parent, id, title)
-        
+            
         # Icon size
         self.iconSize = self.playonlinuxSettings.getIntSetting("ICON_SIZE", default = 32)
         
@@ -78,16 +78,99 @@ class MainWindow(wx.Frame):
         self.imagesEmpty = wx.ImageList(1,1)
 
 
-        self.list_game = wx.TreeCtrl(self, 105, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT)
-        self.list_game.SetSpacing(0);
-        self.list_game.SetIndent(5);
-        self.list_game.SetImageList(self.images)
+        self.appList = wx.TreeCtrl(self, 105, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT)
+        self.appList.SetSpacing(0);
+        self.appList.SetIndent(5);
+        self.appList.SetImageList(self.images)
 
+
+
+        # Left panel
         self._mgr = wx.aui.AuiManager(self)
-        self.menu_gauche = wx.Panel(self,-1)
-        self._mgr.AddPane(self.list_game, wx.CENTER)
+        self.leftPanel = wx.Panel(self,-1)
+        self._mgr.AddPane(self.appList, wx.CENTER)
+        self.MgrAddPage()
+        
+        
+        # Menubar
+        self.drawMenuBar()
+        
+
+     
+
+        self.last_string = ""
+
+        self.sb = wx.StatusBar(self, -1 )
+        self.sb.SetFieldsCount(2)
+        self.sb.SetStatusWidths([self.GetSize()[0], -1])
+        self.sb.SetStatusText("", 0)
+
+        self.jauge_update = wx.Gauge(self.sb, -1, 100, (self.GetSize()[0]-100, UIHelper().updateJaugeMarginTop()), size=(100,16))
+        self.jauge_update.Pulse()
+        self.jauge_update.Hide()
+        self.SetStatusBar(self.sb)
+
+        
+        self.drawToolBar()
+        
+        self.Reload(self)
 
 
+    
+        # Program list event
+        wx.EVT_CLOSE(self, self.ClosePol)
+        wx.EVT_TREE_ITEM_ACTIVATED(self, 105, self.Run)
+        wx.EVT_TREE_SEL_CHANGED(self, 105, self.Select)
+
+
+        # PlayOnLinux main timer
+        self.timer = wx.Timer(self, 1)
+        self.Bind(wx.EVT_TIMER, self.TimerAction, self.timer)
+        self.timer.Start(1000)
+        self.Timer_LastShortcutList = None
+        self.Timer_LastIconList = None
+  
+        # SetupWindow timer. The server is in another thread and GUI must be run from the main thread
+        self.SetupWindowTimer = wx.Timer(self, 2)
+        self.Bind(wx.EVT_TIMER, self.SetupWindowAction, self.SetupWindowTimer)
+        self.SetupWindowTimer_action = None
+        self.SetupWindowTimer.Start(100)
+        self.SetupWindowTimer_delay = 100
+
+        #Pop-up menu for game list: beginning
+        wx.EVT_TREE_ITEM_MENU(self, 105, self.RMBInGameList)
+
+        self.Bind(wx.EVT_SIZE, self.ResizeWindow)
+
+
+
+    def drawWindow(self, parent, id, title):
+        wx.Frame.__init__(self, parent, 1000, title, size = (515,450))
+        self.SetIcon(wx.Icon(Context().getAppPath()+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
+        
+        ### Window behavior
+        # Window size
+        self.SetMinSize((400,400))
+        self.windowWidth = self.playonlinuxSettings.getIntSetting("MAINWINDOW_WIDTH", default = 450)
+        self.windowHeight = self.playonlinuxSettings.getIntSetting("MAINWINDOW_HEIGHT", default = 450)
+        self.SetSize((self.windowWidth,self.windowHeight))
+        
+
+        # Window position
+        self.windowx = self.playonlinuxSettings.getIntSetting("MAINWINDOW_X", default = 30)
+        self.windowy = self.playonlinuxSettings.getIntSetting("MAINWINDOW_Y", default = 30)
+        self.screen_width = wx.Display().GetGeometry()[2]
+        self.screen_height = wx.Display().GetGeometry()[3]
+
+        if(self.screen_width >= self.windowx and self.screen_height >= self.windowy):
+            self.SetPosition((self.windowx, self.windowy))
+        else:
+            self.Center(wx.BOTH)
+        
+
+        
+        
+    def drawMenuBar(self):
         self.filemenu = wx.Menu()
         
         ### On MacOS X, preference is always on the main menu
@@ -109,6 +192,7 @@ class MainWindow(wx.Frame):
         self.icon24 = self.displaymenu.AppendRadioItem(502, _("Medium icons"))
         self.icon32 = self.displaymenu.AppendRadioItem(503, _("Large icons"))
         self.icon48 = self.displaymenu.AppendRadioItem(504, _("Very large icons"))
+        
         
         if(self.iconSize == 16):
             self.icon16.Check(True)
@@ -173,28 +257,6 @@ class MainWindow(wx.Frame):
 
         self.addMenuItem(214,  _("Plugin manager"), "plugins.png", self.pluginsmenu)
         
-
-     
-
-        self.last_string = ""
-
-        self.sb = wx.StatusBar(self, -1 )
-        self.sb.SetFieldsCount(2)
-        self.sb.SetStatusWidths([self.GetSize()[0], -1])
-        self.sb.SetStatusText("", 0)
-
-        if(Context().getOS() == "Mac"):
-            hauteur = 2;
-        else:
-            hauteur = 6;
-        self.jauge_update = wx.Gauge(self.sb, -1, 100, (self.GetSize()[0]-100, hauteur), size=(100,16))
-        self.jauge_update.Pulse()
-        self.jauge_update.Hide()
-        self.SetStatusBar(self.sb)
-
-        
-        ## MenuBar
-
         self.menubar = wx.MenuBar()
         self.menubar.Append(self.filemenu, _("File"))
         self.menubar.Append(self.displaymenu, _("Display"))
@@ -202,51 +264,9 @@ class MainWindow(wx.Frame):
         self.menubar.Append(self.optionmenu, _("Settings"))
         self.menubar.Append(self.pluginsmenu, _("Plugins"))
         self.menubar.Append(self.help_menu, "&Help")
-
-        #self.menubar.Append(self.help_menu, _("About"))
-        
+                
         self.SetMenuBar(self.menubar)
-        iconSize = (32,32)
-
-        self.toolbar = self.CreateToolBar(wx.TB_TEXT)
-        self.toolbar.SetToolBitmapSize(iconSize)
-        self.searchbox = wx.SearchCtrl( self.toolbar, 124, style=wx.RAISED_BORDER )
-        self.playTool = self.toolbar.AddLabelTool(wx.ID_OPEN, _("Run"), wx.Bitmap(Context().getAppPath()+"/resources/images/toolbar/play.png"))
-        self.stopTool = self.toolbar.AddLabelTool(123, _("Close"), wx.Bitmap(Context().getAppPath()+"/resources/images/toolbar/stop.png"))
-
-        self.toolbar.AddSeparator()
-        self.toolbar.AddLabelTool(wx.ID_ADD, _("Install"), wx.Bitmap(Context().getAppPath()+"/resources/images/toolbar/install.png"))
-        self.removeTool = self.toolbar_remove = self.toolbar.AddLabelTool(wx.ID_DELETE, _("Remove"), wx.Bitmap(Context().getAppPath   ()+"/resources/images/toolbar/delete.png"))
-        self.toolbar.AddSeparator()
-        self.toolbar.AddLabelTool(121, _("Configure"), wx.Bitmap(Context().getAppPath()+"/resources/images/toolbar/configure.png"))
-
-        try: 
-                self.toolbar.AddStretchableSpace()
-                self.SpaceHack = False
-        except:
-                # wxpython 2.8 does not support AddStretchableSpace(). This is a dirty workaround for this.
-                self.dirtyHack = wx.StaticText(self.toolbar)
-                self.SpaceHack = True
-                self.toolbar.AddControl( self.dirtyHack ) 
-                self.UpdateSearchHackSize()
-
-        try:
-                self.toolbar.AddControl( self.searchbox , _("Search")) 
-        except:
-                self.toolbar.AddControl( self.searchbox ) 
-                self.searchbox.SetDescriptiveText(_("Search"))
-
-
-        self.toolbar.Realize()
-        self.Reload(self)
-        wx.EVT_MENU(self, wx.ID_OPEN,  self.Run)
-        wx.EVT_MENU(self, 123,  self.RKill)
-
-        wx.EVT_MENU(self, wx.ID_ADD,  self.InstallMenu)
-        wx.EVT_MENU(self, wx.ID_ABOUT,  self.About)
-        wx.EVT_MENU(self,  wx.ID_EXIT,  self.ClosePol)
-        wx.EVT_MENU(self,  wx.ID_DELETE,  self.UninstallGame)
-
+        
         # Display
         wx.EVT_MENU(self, 501,  self.iconDisplay)
         wx.EVT_MENU(self, 502,  self.iconDisplay)
@@ -275,64 +295,51 @@ class MainWindow(wx.Frame):
         wx.EVT_MENU(self, 213,  self.Options)
         wx.EVT_MENU(self, 214,  self.Options)
         wx.EVT_MENU(self, 215,  self.Options)
-
+        
+        # Miscellaneous
         wx.EVT_MENU(self, 216,  self.donate)
-
-        wx.EVT_CLOSE(self, self.ClosePol)
-        wx.EVT_TREE_ITEM_ACTIVATED(self, 105, self.Run)
-        wx.EVT_TREE_SEL_CHANGED(self, 105, self.Select)
-
-
-        # PlayOnLinux main timer
-        self.timer = wx.Timer(self, 1)
-        self.Bind(wx.EVT_TIMER, self.TimerAction, self.timer)
-        self.timer.Start(1000)
-        self.Timer_LastShortcutList = None
-        self.Timer_LastIconList = None
-  
-        # SetupWindow timer. The server is in another thread and GUI must be run from the main thread
-        self.SetupWindowTimer = wx.Timer(self, 2)
-        self.Bind(wx.EVT_TIMER, self.SetupWindowAction, self.SetupWindowTimer)
-        self.SetupWindowTimer_action = None
-        self.SetupWindowTimer.Start(100)
-        self.SetupWindowTimer_delay = 100
-
-        #Pop-up menu for game list: beginning
-        wx.EVT_TREE_ITEM_MENU(self, 105, self.RMBInGameList)
-        wx.EVT_MENU(self, 230, self.RWineConfigurator)
-        wx.EVT_MENU(self, 231, self.RRegistryEditor)
-        wx.EVT_MENU(self, 232, self.GoToAppDir)
-        wx.EVT_MENU(self, 233, self.ChangeIcon)
-        wx.EVT_MENU(self, 234, self.UninstallGame)
-        wx.EVT_MENU(self, 235, self.RKill)
-        wx.EVT_MENU(self, 236, self.ReadMe)
-        self.Bind(wx.EVT_SIZE, self.ResizeWindow)
-
-        self.MgrAddPage()
-
-    def drawWindow(self, parent, id, title):
-        wx.Frame.__init__(self, parent, 1000, title, size = (515,450))
-        self.SetIcon(wx.Icon(Context().getAppPath()+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
         
-        ### Window behavior
-        # Window size
-        self.SetMinSize((400,400))
-        self.windowWidth = self.playonlinuxSettings.getIntSetting("MAINWINDOW_WIDTH", default = 450)
-        self.windowHeight = self.playonlinuxSettings.getIntSetting("MAINWINDOW_HEIGHT", default = 450)
-        self.SetSize((self.windowWidth,self.windowHeight))
+        
+    def drawToolBar(self):
+        self.toolbar = self.CreateToolBar(wx.TB_TEXT)
+        self.toolbar.SetToolBitmapSize((32,32))
+        self.searchbox = wx.SearchCtrl( self.toolbar, 124, style=wx.RAISED_BORDER )
+        self.playTool = self.toolbar.AddLabelTool(wx.ID_OPEN, _("Run"), wx.Bitmap(Context().getAppPath()+"/resources/images/toolbar/play.png"))
+        self.stopTool = self.toolbar.AddLabelTool(123, _("Close"), wx.Bitmap(Context().getAppPath()+"/resources/images/toolbar/stop.png"))
+
+        self.toolbar.AddSeparator()
+        self.toolbar.AddLabelTool(wx.ID_ADD, _("Install"), wx.Bitmap(Context().getAppPath()+"/resources/images/toolbar/install.png"))
+        self.removeTool = self.toolbar_remove = self.toolbar.AddLabelTool(wx.ID_DELETE, _("Remove"), wx.Bitmap(Context().getAppPath   ()+"/resources/images/toolbar/delete.png"))
+        self.toolbar.AddSeparator()
+        self.toolbar.AddLabelTool(121, _("Configure"), wx.Bitmap(Context().getAppPath()+"/resources/images/toolbar/configure.png"))
+
+        try: 
+                self.toolbar.AddStretchableSpace()
+                self.SpaceHack = False
+        except:
+                # wxpython 2.8 does not support AddStretchableSpace(). This is a dirty workaround for this.
+                self.dirtyHack = wx.StaticText(self.toolbar)
+                self.SpaceHack = True
+                self.toolbar.AddControl( self.dirtyHack ) 
+                self.UpdateSearchHackSize()
+
+        try:
+                self.toolbar.AddControl( self.searchbox , _("Search")) 
+        except:
+                self.toolbar.AddControl( self.searchbox ) 
+                self.searchbox.SetDescriptiveText(_("Search"))
+
+        self.toolbar.Realize()
+        
+        wx.EVT_MENU(self, wx.ID_OPEN,  self.Run)
+        wx.EVT_MENU(self, 123,  self.RKill)
+
+        wx.EVT_MENU(self, wx.ID_ADD,  self.InstallMenu)
+        wx.EVT_MENU(self, wx.ID_ABOUT,  self.About)
+        wx.EVT_MENU(self,  wx.ID_EXIT,  self.ClosePol)
+        wx.EVT_MENU(self,  wx.ID_DELETE,  self.UninstallGame)
         
 
-        # Window position
-        self.windowx = self.playonlinuxSettings.getIntSetting("MAINWINDOW_X", default = 30)
-        self.windowy = self.playonlinuxSettings.getIntSetting("MAINWINDOW_Y", default = 30)
-        self.screen_width = wx.Display().GetGeometry()[2]
-        self.screen_height = wx.Display().GetGeometry()[3]
-
-        if(self.screen_width >= self.windowx and self.screen_height >= self.windowy):
-            self.SetPosition((self.windowx, self.windowy))
-        else:
-            self.Center(wx.BOTH)
-        
         
         
     def ResizeWindow(self, e):
@@ -401,10 +408,10 @@ class MainWindow(wx.Frame):
 
 
         if(self.LoadPosition == "LEFT"):
-            self._mgr.AddPane(self.menu_gauche, wx.aui.AuiPaneInfo().Name('Actions').Caption('Actions').Left().BestSize((self.LoadSize,400)).Floatable(True).CloseButton(False).TopDockable(False).BottomDockable(False))
+            self._mgr.AddPane(self.leftPanel, wx.aui.AuiPaneInfo().Name('Actions').Caption('Actions').Left().BestSize((self.LoadSize,400)).Floatable(True).CloseButton(False).TopDockable(False).BottomDockable(False))
         else:
-            self._mgr.AddPane(self.menu_gauche, wx.aui.AuiPaneInfo().Name('Actions').Caption('Actions').Right().BestSize((self.LoadSize,400)).Floatable(True).CloseButton(False).TopDockable(False).BottomDockable(False))
-        self.menu_gauche.Show()
+            self._mgr.AddPane(self.leftPanel, wx.aui.AuiPaneInfo().Name('Actions').Caption('Actions').Right().BestSize((self.LoadSize,400)).Floatable(True).CloseButton(False).TopDockable(False).BottomDockable(False))
+        self.leftPanel.Show()
 
         self._mgr.Update()
 
@@ -493,7 +500,16 @@ class MainWindow(wx.Frame):
         self.GameListPopUpMenu.AppendItem(self.ChangeIcon)
 
         self.PopupMenu(self.GameListPopUpMenu, event.GetPoint())
-
+        
+        # Register events
+        wx.EVT_MENU(self, 230, self.RWineConfigurator)
+        wx.EVT_MENU(self, 231, self.RRegistryEditor)
+        wx.EVT_MENU(self, 232, self.GoToAppDir)
+        wx.EVT_MENU(self, 233, self.ChangeIcon)
+        wx.EVT_MENU(self, 234, self.UninstallGame)
+        wx.EVT_MENU(self, 235, self.RKill)
+        wx.EVT_MENU(self, 236, self.ReadMe)
+        
 
     def addMenuItem(self, id, title, icon, menu):
         if(icon != None):
@@ -543,10 +559,10 @@ class MainWindow(wx.Frame):
             self.iconSize = 48
 
         self.playonlinuxSettings.setSetting("ICON_SIZE",str(self.iconSize))
-        self.list_game.SetImageList(self.imagesEmpty)
+        self.appList.SetImageList(self.imagesEmpty)
         self.images.Destroy()
         self.images = wx.ImageList(self.iconSize, self.iconSize)
-        self.list_game.SetImageList(self.images)
+        self.appList.SetImageList(self.images)
 
 
         self.Reload(self)
@@ -675,12 +691,12 @@ class MainWindow(wx.Frame):
                     if(self.bitmap.GetWidth() >= 48):
                         self.bitmap.Rescale(48,48,wx.IMAGE_QUALITY_HIGH)
                         self.bitmap = self.bitmap.ConvertToBitmap()
-                        self.menuBitmap = wx.StaticBitmap(self.menu_gauche, id=-1, bitmap=self.bitmap, pos=(left_pos,20+(i+2)*20))
+                        self.menuBitmap = wx.StaticBitmap(self.leftPanel, id=-1, bitmap=self.bitmap, pos=(left_pos,20+(i+2)*20))
                 except:
                     pass
 
     def menuGaucheAddTitle(self,id,text,pos):
-        self.menuElem[id] = wx.StaticText(self.menu_gauche, -1, text,pos=(5,5+pos*20))
+        self.menuElem[id] = wx.StaticText(self.leftPanel, -1, text,pos=(5,5+pos*20))
         self.menuElem[id].SetForegroundColour((0,0,0)) # For dark themes
         self.menuElem[id].SetFont(UIHelper().getFontTitle())
 
@@ -695,15 +711,15 @@ class MainWindow(wx.Frame):
             self.bitmap = wx.Image(menu_icone)
             self.bitmap.Rescale(16,16,wx.IMAGE_QUALITY_HIGH)
             self.bitmap = self.bitmap.ConvertToBitmap()
-            self.menuImage[id] = wx.StaticBitmap(self.menu_gauche, id=-1, bitmap=self.bitmap, pos=(10,15+pos*20))
+            self.menuImage[id] = wx.StaticBitmap(self.leftPanel, id=-1, bitmap=self.bitmap, pos=(10,15+pos*20))
 
         except:
             pass
 
         if(url == None):
-            self.menuElem[id] = wx.HyperlinkCtrl(self.menu_gauche, 10000+pos, text, "", pos=(35,15+pos*20))
+            self.menuElem[id] = wx.HyperlinkCtrl(self.leftPanel, 10000+pos, text, "", pos=(35,15+pos*20))
         else:
-            self.menuElem[id] = wx.HyperlinkCtrl(self.menu_gauche, 10000+pos, text, url, pos=(35,15+pos*20))
+            self.menuElem[id] = wx.HyperlinkCtrl(self.leftPanel, 10000+pos, text, url, pos=(35,15+pos*20))
 
         self.menuElem[id].SetNormalColour(wx.Colour(0,0,0))
         self.menuElem[id].SetVisitedColour(wx.Colour(0,0,0))
@@ -727,9 +743,9 @@ class MainWindow(wx.Frame):
         except:
             pass
             
-        self.list_game.DeleteAllItems()
+        self.appList.DeleteAllItems()
         self.images.RemoveAll()
-        root = self.list_game.AddRoot("")
+        root = self.appList.AddRoot("")
         self.i = 0
         if(self.iconSize <= 32):
             self.iconFolder = "32";
@@ -751,7 +767,7 @@ class MainWindow(wx.Frame):
                     except:
                         pass
                     
-                    item = self.list_game.AppendItem(root, game, self.i)
+                    item = self.appList.AppendItem(root, game, self.i)
                     self.i += 1
         self.generate_menu(None)
 
@@ -856,7 +872,7 @@ class MainWindow(wx.Frame):
             self.wversion.Show(True)
 
     def GetSelectedProgram(self):
-        selectedName = self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8","replace")
+        selectedName = self.appList.GetItemText(self.appList.GetSelection()).encode("utf-8","replace")
         if(selectedName == ""):
             raise ErrNoProgramSelected
             
@@ -895,7 +911,7 @@ class MainWindow(wx.Frame):
         self.Run(self, True)
  
 
-    def CatchCtrlC(self, signal): # Catch SIGINT
+    def CatchCtrlC(self, signal, event): # Catch SIGINT
         print "\nCtrl+C pressed. Killing all processes..."
         self.playonlinuxSystem.polDie()
 
@@ -931,7 +947,7 @@ class MainWindow(wx.Frame):
         self.playonlinuxSettings.setSetting("PANEL_POSITION",str(self.myPosition))
         
     def ClosePol(self, event):
-        if(self.playonlinuxSettings.getSetting("DONT_ASK_BEFORE_CLOSING") == "TRUE" or Question(_('Are you sure you want to close all {APP_NAME} Windows?')).getAnswer()):
+        if(self.playonlinuxSettings.getSetting("DONT_ASK_BEFORE_CLOSING") == "TRUE" or Question(_('Are you sure you want to close all [APP] Windows?')).getAnswer()):
             self.saveWindowParametersToConfig()
             self.savePanelParametersToConfig()
             self.playonlinuxSystem.polDie()

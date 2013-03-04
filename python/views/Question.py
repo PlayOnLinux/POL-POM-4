@@ -17,7 +17,7 @@ class Question(Modal):
       self.show()
        
    def show(self):
-       content = self.content.replace("{APP}",Context().getAppName())
+       content = self.content.replace("[APP]",Context().getAppName())
        self.answer = (wx.YES == wx.MessageBox(content, self.title, style=wx.YES_NO | wx.ICON_QUESTION))
    
    def getAnswer(self):
