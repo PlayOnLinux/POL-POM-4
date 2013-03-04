@@ -87,14 +87,6 @@ class Context(object):
    def isDebianPackage(self):
        return self.isDebian
        
-       
-   # Server
-   def setPOLServer(self, server):
-      self.POLServer = server
-      
-   def getPOLServer(self):
-      return self.POLServer;
-      
    def getRegisteredPids(self):
        return self.registeredPid
       
@@ -106,3 +98,6 @@ class Context(object):
    
    def decWindowOpened(self):
        self.windowOpened -= 1  
+
+   def registerPid(self, pid):
+       self.registeredPid.append(pid)

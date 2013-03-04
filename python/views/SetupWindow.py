@@ -53,53 +53,41 @@ class Download(threading.Thread):
         self.download()
 
 class SetupWindow(wx.Frame): #fenêtre principale
-    def __init__(self, titre, POL_SetupWindowID, Arg1, Arg2, Arg3):
+    def __init__(self, title, scriptPid, topImage, leftImage, protectedWindow):
         
         
-        wx.Frame.__init__(self, None, -1, title = titre, style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX, size = (520, 398 + UIHelper().addWindowMacOffset()))
+        wx.Frame.__init__(self, None, -1, title, style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX, size = (520, 398 + UIHelper().addWindowMacOffset()))
+        self.SetIcon(wx.Icon(Context().getAppPath()+"/resources/icons/playonlinux.png", wx.BITMAP_TYPE_ANY))
+        self.Center(wx.BOTH)
+        self.Show(True)
+        
+        self.bash_pid = scriptPid
+        self.protectedWindow = protectedWindow
         
         
-        self.bash_pid = POL_SetupWindowID
-        self.SetIcon(wx.Icon(Context().getAppPath()+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
-        self.gauge_i = 0
-        self.fichier = ""
-        self.last_time = int(round(time.time() * 1000))
-        self.ProtectedWindow = False
-
-        # Le fichier de lecture
-
-        if(Arg1 == "None"):
-            self.small_image = wx.Bitmap(Context().getAppPath()+"/resources/images/setups/default/top.png")
+        
+        if(os.path.exists(topImage)):
+            self.topImage = wx.Bitmap(topImage)
         else:
-            self.small_image = wx.Bitmap(Arg1)
-
-        self.small_x = 520 - self.small_image.GetWidth()
-
-        if(Arg2 == "None"):
+            self.topImage = wx.Bitmap(Context().getAppPath()+"/resources/images/setups/default/top.png")
+        
+        if(os.path.exists(leftImage)):
+            self.leftImage = wx.Bitmap(topImage)
+        else:
             if(Context().getOS() == "Linux"):
-                self.big_image = wx.Bitmap(Context().getAppPath()+"/resources/images/setups/default/playonlinux.jpg")
+                self.leftImage = wx.Bitmap(Context().getAppPath()+"/resources/images/setups/default/playonlinux.jpg")
             else:
-                self.big_image = wx.Bitmap(Context().getAppPath()+"/resources/images/setups/default/playonmac.jpg")
-        else:
-            self.big_image = wx.Bitmap(Arg2)
+                self.leftImage = wx.Bitmap(Context().getAppPath()+"/resources/images/setups/default/playonmac.jpg")
+            
+                
+       
 
-        if(Arg3 == "protect"):
-            self.ProtectedWindow = True
-        self.oldfichier = ""
         
         self.make_gui()
 
         wx.EVT_CLOSE(self, self.Cancel)
 
     def make_gui(self):
-        # Fonts
-        if(Context().getOS() == "Mac"):
-            self.fontTitre = wx.Font(14, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, False, "", wx.FONTENCODING_DEFAULT)
-            self.fontText = wx.Font(12, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL,False, "", wx.FONTENCODING_DEFAULT)
-        else :
-            self.fontTitre = wx.Font(10, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, False, "", wx.FONTENCODING_DEFAULT)
-            self.fontText = wx.Font(8, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL,False, "", wx.FONTENCODING_DEFAULT)
-
         # GUI elements
         self.panel = wx.Panel(self, -1, pos=(0,0), size=((520, 398 + UIHelper().addWindowMacOffset())))
         self.header = wx.Panel(self.panel, -1, style = UIHelper().widgetBorders(), size=(522,65))
@@ -112,14 +100,14 @@ class SetupWindow(wx.Frame): #fenêtre principale
 
 
         # Images
-        self.top_image = wx.StaticBitmap(self.header, -1, self.small_image, (self.small_x,0), wx.DefaultSize)
-        self.left_image = wx.StaticBitmap(self.panel, -1, self.big_image, (0,0), wx.DefaultSize)
+        self.topImageWidget = wx.StaticBitmap(self.header, -1, self.topImage, (520 - self.toImage.GetWidth() , 0), wx.DefaultSize)
+        self.leftImageWidget = wx.StaticBitmap(self.panel, -1, self.leftImage, (0,0), wx.DefaultSize)
 
 
         # Text
-        self.titre_header = wx.StaticText(self.header, -1, _('{0} Wizard').format(Context().getAppName()),pos=(5,5), size=(340,356),style=wx.ST_NO_AUTORESIZE)
-        self.titre_header.SetFont(self.fontTitre)
-        self.titre_header.SetForegroundColour((0,0,0)) # For dark themes
+        titreHeader = wx.StaticText(self.header, -1, _('{0} Wizard').format(Context().getAppName()),pos=(5,5), size=(340,356),style=wx.ST_NO_AUTORESIZE)
+        titreHeader.SetFont(UIHelper().getFontTitle())
+        titreHeader.SetForegroundColour((0,0,0)) # For dark themes
 
         self.texte = wx.StaticText(self.panel, -1, "",pos=(20,80),size=(480,275),style=wx.ST_NO_AUTORESIZE)
         self.texte_bis = wx.StaticText(self.panel, -1, "",size=(480,30),style=wx.ST_NO_AUTORESIZE)
@@ -130,7 +118,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
         self.texteP.SetForegroundColour((0,0,0)) # For dark themes
 
         self.titreP = wx.StaticText(self.MainPanel, -1,"",pos=(5,5), size=(340,356))
-        self.titreP.SetFont(self.fontTitre)
+        self.titreP.SetFont(UIHelper().getFontTitle())
         self.titreP.SetForegroundColour((0,0,0)) # For dark themes
 
         self.txtEstimation = wx.StaticText(self.panel, -1, "",size=(480,30),style=wx.ST_NO_AUTORESIZE)
@@ -139,7 +127,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
 
         # Buttons
         self.CancelButton = wx.Button(self.footer, wx.ID_CANCEL, _("Cancel"), pos=(430,0),size=(85,37))
-        if(self.ProtectedWindow == True):
+        if(self.protectedWindow == True):
             self.CancelButton.Enable(False)
 
         self.NextButton = wx.Button(self.footer, wx.ID_FORWARD, _("Next"), pos=(340,0),size=(85,37))
@@ -271,7 +259,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
             return self.Result
             
     def TimerAction(self, event):
-        ## If the setup window is downloading a file, it is a good occasion to update the progresbar
+        ## If the setup window is downloading a file, we need to update the progress bar
         if(self.Timer_downloading == True):
             if(self.downloader.taille_bloc != 0):
                 self.nb_blocs_max = self.downloader.taille_fichier / self.downloader.taille_bloc
@@ -297,7 +285,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
             self.current_angle = ((self.current_angle + 1) % 12)
             self.animation.SetBitmap(self.GetLoaderFromAngle(self.current_angle + 1))
             
-    ### Theses methods command the window. There are called directly by the server
+    ### Theses methods command the window. There are called by mainWindow when it reads the queue
     def POL_SetupWindow_message(self, message, title):
         self.Destroy_all()
         self.DrawDefault(message, title)
@@ -738,7 +726,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
         self.NextButton.Enable(False)
 
     def Cancel(self, event):
-        if(self.ProtectedWindow == False):
+        if(self.protectedWindow == False):
             self.Destroy()
             time.sleep(0.1)
             os.system("kill -9 -"+self.bash_pid+" 2> /dev/null")

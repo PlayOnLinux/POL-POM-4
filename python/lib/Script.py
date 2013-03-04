@@ -14,6 +14,7 @@ from lib.ConfigFile import CustomConfigFile
 from lib.ConfigFile import UserConfigFile
 
 from lib.Environement import Environement
+from lib.GuiServer import GuiServer
 
 class ErrBadSignature(Exception):
    def __str__(self):
@@ -65,8 +66,8 @@ class GUIScript(Script):
         Script.setEnv(self)
         # Set by the GUI server
         
-        self.execEnv.setEnv("POL_PORT", Context().getPOLServer().getRunningPort())
-        self.execEnv.setEnv("POL_COOKIE", Context().getPOLServer().getCookie())
+        self.execEnv.setEnv("POL_PORT", GuiServer().getRunningPort())
+        self.execEnv.setEnv("POL_COOKIE", GuiServer().getCookie())
   
         
         
@@ -75,7 +76,8 @@ class PrivateGUIScript(PrivateScript):
         PrivateScript.setEnv(self)
         
         # Set by the GUI server
-        self.execEnv.setEnv("POL_PORT", Context().getPOLServer().getRunningPort())
-        self.execEnv.setEnv("POL_COOKIE", Context().getPOLServer().getCookie())
+        self.execEnv.setEnv("POL_PORT", GuiServer().getRunningPort())
+        self.execEnv.setEnv("POL_COOKIE", GuiServer().getCookie())
+
   
         

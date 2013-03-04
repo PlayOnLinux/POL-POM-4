@@ -25,6 +25,7 @@ import wx, wx.aui
 # PlayOnLinux imports
 from lib.Environement import Environement
 from lib.Context import Context
+from lib.System import System
 from lib.SystemCheck import SystemCheck
 from lib.Script import PrivateScript
 from lib.ConfigFile import UserConfigFile
@@ -43,12 +44,8 @@ class PlayOnLinuxApp(wx.App):
 
         Environement().createContext()
         self.initLanguage()
-        
-    
-    
         self.playonlinuxSettings = UserConfigFile()
         
-        #Context().setUIHelper(UIHelper())
         
         PrivateScript("startup").run()
         SystemCheck().doFullCheck()
@@ -65,12 +62,15 @@ class PlayOnLinuxApp(wx.App):
         self.frame = MainWindow(None, -1, Context().getAppName())
         
         # Gui Server
-        Context().setPOLServer(self.initPOLServer())
+        self.initPOLServer()
         
         PrivateScript("startup_after_server").runBackground()
    
         self.SetTopWindow(self.frame)
         self.frame.Show(True)
+        
+        # Catch CTRL+C
+        signal.signal(signal.SIGINT, self.CatchCtrlC)
         
         return True
 
@@ -79,7 +79,8 @@ class PlayOnLinuxApp(wx.App):
             self.MacOpenFile(f)
             
     def initPOLServer(self):
-        self.POLServer = GuiServer(self.frame)
+        self.POLServer = GuiServer()
+        self.POLServer.setMainWindow(self.frame)
         self.POLServer.start()
         self.POLServer.waitForServer()
         return self.POLServer
@@ -114,7 +115,10 @@ class PlayOnLinuxApp(wx.App):
     def MacReopenApp(self):
         self.BringWindowToFront()
 
-
+    def CatchCtrlC(self, signal, event): # Catch SIGINT
+        print "\nCtrl+C pressed. Killing all processes..."
+        System().polDie()
+        
     def initLanguage(self):
         if(Context().isDebianPackage()):
             languages = os.listdir('/usr/share/locale')

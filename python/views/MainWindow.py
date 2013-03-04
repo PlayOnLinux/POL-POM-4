@@ -18,7 +18,7 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 # Python imports
-import os, getopt, sys, urllib, signal, string, time, webbrowser, gettext, locale, sys, shutil, subprocess, signal, threading
+import os, getopt, sys, urllib, string, time, webbrowser, gettext, locale, sys, shutil, subprocess, threading
 import wx, wx.aui
 
 # PlayOnLinux
@@ -30,10 +30,12 @@ from lib.Context import Context
 from lib.System import System
 from lib.Shortcut import Shortcut
 from lib.Script import PrivateGUIScript
-
+from lib.GuiServer import GuiServer
 
 # Views
+from views.SetupWindow import SetupWindow
 from views.Question import Question
+from views.Message import Message
 
 #, install, options, wine_versions as wver, sp, configure, debug, gui_server
 #import irc as ircgui
@@ -63,9 +65,6 @@ class MainWindow(wx.Frame):
         # These lists contain the dock links and images 
         self.menuElem = {}
         self.menuImage = {}
-
-        # Catch CTRL+C
-        signal.signal(signal.SIGINT, self.CatchCtrlC)
         
         # Init window
         self.drawWindow(parent, id, title)
@@ -132,7 +131,7 @@ class MainWindow(wx.Frame):
   
         # SetupWindow timer. The server is in another thread and GUI must be run from the main thread
         self.SetupWindowTimer = wx.Timer(self, 2)
-        self.Bind(wx.EVT_TIMER, self.SetupWindowAction, self.SetupWindowTimer)
+        self.Bind(wx.EVT_TIMER, self.readGuiServerQueue, self.SetupWindowTimer)
         self.SetupWindowTimer_action = None
         self.SetupWindowTimer.Start(100)
         self.SetupWindowTimer_delay = 100
@@ -338,9 +337,7 @@ class MainWindow(wx.Frame):
         wx.EVT_MENU(self, wx.ID_ABOUT,  self.About)
         wx.EVT_MENU(self,  wx.ID_EXIT,  self.ClosePol)
         wx.EVT_MENU(self,  wx.ID_DELETE,  self.UninstallGame)
-        
 
-        
         
     def ResizeWindow(self, e):
         self.UpdateGaugePos()
@@ -357,28 +354,60 @@ class MainWindow(wx.Frame):
         else:
             hauteur = 6;
         self.jauge_update.SetPosition((self.GetSize()[0]-100, hauteur))
-
-    def SetupWindowTimer_SendToGui(self, recvData):
-        recvData = recvData.split("\t")
-        while(self.SetupWindowTimer_action != None):
-            time.sleep(0.1)
-        self.SetupWindowTimer_action = recvData
         
-    def SetupWindow_TimerRestart(self, time):
+      
+      
+        
+        
+    ## Manage GuiServer Queue
+    
+    # To save CPU time, we make the SetupWindow timer slower if there are no windows open. We make it faster when a window is opened to get the GUI more responsive
+    def changeSetupWindowTimer(self, time):
         if(time != self.SetupWindowTimer_delay):
             self.SetupWindowTimer.Stop()
             self.SetupWindowTimer.Start(time)
             self.SetupWindowTimer_delay = time
 
-    def SetupWindowAction(self, event):
+    # Each time the timer is called, we decide if we need to change the time, and we read the queue
+    def readGuiServerQueue(self, event):
         if(Context().getWindowOpened() == 0):
-            self.SetupWindow_TimerRestart(100)
+            self.changeSetupWindowTimer(100)
         else:
-            self.SetupWindow_TimerRestart(10)
-
-        if(self.SetupWindowTimer_action != None):                           
-            return Context().getPOLServer().readAction()
+            self.changeSetupWindowTimer(10)
             
+        queue = GuiServer().getQueue()
+    
+        while(not queue.isEmpty()):
+            self.doGuiTask(queue.getTask())
+            queue.shift()
+ 
+    # Do a task
+    def doGuiTask(self, data):
+        command = data[0]
+        scriptPid = data[1]
+        
+        if(command == "SimpleMessage"):
+            Message(data[2])
+        
+        if(command == "POL_Die"):
+            self.playonlinuxSystem.polDie()
+        
+        if(command == "POL_Restart"):
+            self.playonlinuxSystem.polRestart()
+            
+        if(command == 'POL_System_RegisterPID'):
+            Context().registerPid(scriptPid)        
+        
+        if(command == 'POL_SetupWindow_Init'):
+            if(len(data) == 5):
+                isProtected = data[5] == "TRUE"
+                self.windowList[scriptPid] = SetupWindow(title = data[2], scriptPid = scriptPid, topImage = data[3], leftImage = data[4], isProtected)
+                Context().incWindowOpened()    
+           
+           
+           
+           
+           
            
     def TimerAction(self, event):
         self.StatusRead()
@@ -909,11 +938,7 @@ class MainWindow(wx.Frame):
         game_prefix = playonlinux.getPrefix(game_exec)
         playonlinux.SetDebugState(game_exec, True)
         self.Run(self, True)
- 
 
-    def CatchCtrlC(self, signal, event): # Catch SIGINT
-        print "\nCtrl+C pressed. Killing all processes..."
-        self.playonlinuxSystem.polDie()
 
     def saveWindowParametersToConfig(self):
         self.SizeToSave = self.GetSize();

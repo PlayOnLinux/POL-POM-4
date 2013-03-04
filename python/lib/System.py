@@ -5,6 +5,7 @@
 import os
 
 from Context import Context
+from lib.GuiServer import GuiServer
 
 class System(object):
     def __init__(self):
@@ -22,7 +23,7 @@ class System(object):
    
     def softExit(self, code = 0):
         self.killRegisteredPids()
-        self.context.getPOLServer().closeServer()
+        GuiServer().closeServer()
         self.hardExit(code)
         
     def polDie(self):
