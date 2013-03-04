@@ -24,7 +24,7 @@ from subprocess import Popen,PIPE
 from lib.Context import Context
 from lib.UIHelper import UIHelper
 from lib.GuiServer import GuiServer
-from lib.Download import Download
+from lib.Downloader import Downloader
 
 
 class SetupWindow(wx.Frame): #fenêtre principale
@@ -792,7 +792,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
         self.chemin = urlparse.urlsplit(url)[2]
         self.nomFichier = self.chemin.split('/')[-1]
         self.local = localB + self.nomFichier
-        self.downloader = Download(url, self.local)
+        self.downloader = Downloader(url, self.local)
         self.timerDownload = True
 
 

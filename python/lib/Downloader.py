@@ -16,8 +16,9 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
+import threading
 
-class Download(threading.Thread):
+class Downloader(threading.Thread):
     def __init__(self, url, local):
         threading.Thread.__init__(self)
         self.url = url
@@ -37,7 +38,7 @@ class Download(threading.Thread):
         return float(self.fileSize / 1048576.0)
 
     def getLoadedSizeInBytes():
-        return float(self.nbBlocks * self.blockSize) / 1048576.0)
+        return float( (self.nbBlocks * self.blockSize) / 1048576.0)
         
     def getBlockSize():
         return self.blockSize
