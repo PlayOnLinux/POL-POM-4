@@ -10,19 +10,7 @@ import string, wx
 from lib.Context import Context
 
 class UIHelper(object):
-   instance = None    
    
-   def __new__(myClass):
-       if(myClass.instance is None):
-           myClass.instance = object.__new__(myClass)
-       return myClass.instance
-       
-   def __init__(self):
-      try: 
-          self.alreadyInit
-      except AttributeError:
-          self.alreadyInit = True
-       
    def getFontTitle(self):
        if(Context().getOS() == "Mac"):
            textSize = 14;
