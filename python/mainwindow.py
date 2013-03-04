@@ -63,7 +63,9 @@ class POLWeb(threading.Thread):
             fichier_online="version_mac"
         else:
             fichier_online="version2"
-        return os.popen(os.environ["POL_WGET"]+' "'+os.environ["SITE"]+'/'+fichier_online+'.php?v='+os.environ["VERSION"]+'" -T 30 -O-','r').read()
+        process_in = os.popen(os.environ["POL_WGET"]+' "'+os.environ["SITE"]+'/'+fichier_online+'.php?v='+os.environ["VERSION"]+'" -T 30 -O-','r')
+        time.sleep(0.01)
+        return process_in.read()
 
     def real_check(self):
         self.WebVersion = self.LastVersion()
