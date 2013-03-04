@@ -98,14 +98,19 @@ class gui_server(threading.Thread):
 
        return(str(gotData))
 
-              
 
-    def run(self): 
+
+    def run(self):
         self.initServer()
         self.i = 0
-     
+
         while self._running:
-            self.connection, self.addr = self.acceptor.accept()
+            try:
+                self.connection, self.addr = self.acceptor.accept()
+            except socket.error as (errno, msg):
+                if errno == 4: # Interrupted system call
+                    continue
+
             thread.start_new_thread(self.handler, (self.connection,self.addr))
             self.i += 1
             #channel.close()
