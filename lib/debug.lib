@@ -124,7 +124,7 @@ POL_Debug_ErrorSilent()
 	[ "$SETUPWINDOW_INIT" = "true" ] || StandAloneWindow="true"
 	[ "$StandAloneWindow" = "true" ] && POL_SetupWindow_Init
 	MESSAGE="$(eval_gettext '$APPLICATION_TITLE has encountered an error. If the program does not work correctly, it might be the cause of the problem.\nVisit www.$POL_DNS to get further information')"
-	echo "$POL_COOKIE	POL_Debug	$$	$MESSAGE	$TITLE	Error in ${FUNCNAME[1]}\n$(POL_Untab "$@")" | ncns "$POL_HOST" "$POL_PORT"
+	echo "$POL_COOKIE	POL_SetupWindow_debug	$$	$MESSAGE	$TITLE	Error in ${FUNCNAME[1]}\n$(POL_Untab "$@")" | ncns "$POL_HOST" "$POL_PORT"
 	[ "$StandAloneWindow" = "true" ] && POL_SetupWindow_Close 
 }
 POL_Debug_Error()
@@ -138,7 +138,7 @@ POL_Debug_Error()
 	[ "$SETUPWINDOW_INIT" = "true" ] || StandAloneWindow="true"
 	[ "$StandAloneWindow" = "true" ] && POL_SetupWindow_Init
 	MESSAGE="$(eval_gettext '$APPLICATION_TITLE has encountered an error. If the program your are installing does not work correctly, it might be the cause of the problem.\nVisit www.$POL_DNS to get further information')"
-	echo "$POL_COOKIE	POL_Debug	$$	$MESSAGE	$TITLE	Error in ${FUNCNAME[1]}\n$(POL_Untab "$@")" | ncns "$POL_HOST" "$POL_PORT"
+	echo "$POL_COOKIE	POL_SetupWindow_debug	$$	$MESSAGE	$TITLE	Error in ${FUNCNAME[1]}\n$(POL_Untab "$@")" | ncns "$POL_HOST" "$POL_PORT"
 	[ "$StandAloneWindow" = "true" ] && POL_SetupWindow_Close || export POL_SCRIPT_FAILED="YES"
 }
 POL_Debug_Fatal()
@@ -151,7 +151,7 @@ POL_Debug_Fatal()
 	echo -e "[${FUNCNAME[1]}] ${POL_Color_RedBold}Fatal:${POL_Color_Reset} $@" 1>&2
 	[ "$SETUPWINDOW_INIT" = "true" ] || POL_SetupWindow_Init
 	MESSAGE="$(eval_gettext '$APPLICATION_TITLE has encountered a fatal error. $APPLICATION_TITLE will stop the installation process.\nVisit www.$POL_DNS to get further information')"
-	echo "$POL_COOKIE	POL_Debug	$$	$MESSAGE	$TITLE	Error in ${FUNCNAME[1]}\n$(POL_Untab "$@")" | ncns "$POL_HOST" "$POL_PORT"
+	echo "$POL_COOKIE	POL_SetupWindow_debug	$$	$MESSAGE	$TITLE	Error in ${FUNCNAME[1]}\n$(POL_Untab "$@")" | ncns "$POL_HOST" "$POL_PORT"
 	export POL_SCRIPT_FAILED="YES"
 	POL_SetupWindow_Close
 	exit 1

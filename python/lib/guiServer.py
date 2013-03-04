@@ -22,6 +22,7 @@ import string
 from lib.Context import Context
 from lib.UIHelper import UIHelper
 from lib.GuiServerQueue import GuiServerQueue
+from lib.GuiServerState import GuiServerState
 
 class GuiServer(threading.Thread):
     instance = None    
@@ -45,11 +46,16 @@ class GuiServer(threading.Thread):
         
             self._running = True
             self.cookie = None
+            
             self.queue = GuiServerQueue()
+            self.state = GuiServerState()
        
     def getQueue(self):
         return self.queue
-             
+
+    def getState(self):
+        return self.state
+        
     def setMainWindow(self, window):
         self.mainWindow = window
             
@@ -57,19 +63,16 @@ class GuiServer(threading.Thread):
         return self.runningPort
         
     def setRunningPort(self, port):
-        self.runningPort = port   
-        
-    def incRunningPort(self):
-        self.runningPort += 1;
-        
-    def incTryingPort(self):
-        self.tryingPort += 1;
+        self.runningPort = port  
         
     def successRunServer(self):
         self.runningPort = self.tryingPort
 
-    def getCookie(self):
-        return self.GenCookie()
+    def getCookie(self, length=20, chars=string.letters + string.digits):
+        if(self.cookie == None):
+            self.cookie = ''.join([random.SystemRandom().choice(chars) for i in range(length)])
+        return self.cookie
+        
 
     def isServerRunning(self):
         return self.runningPort != 0
@@ -80,17 +83,12 @@ class GuiServer(threading.Thread):
         while(not self.isServerRunning()):
             time.sleep(0.01)
             if(i >= 300):
+                # Fixme! 
                 Error('[APP] is not able to start [APP] Setup Window server.')
                 os._exit(0)
                 break
             i+=1
             
-    def GenCookie(self, length=20, chars=string.letters + string.digits):
-        if(self.cookie == None):
-            self.cookie = ''.join([random.SystemRandom().choice(chars) for i in range(length)])
-        return self.cookie
-
-
            
     def initServer(self):
         if(self.tryingPort  >= 30020):
@@ -105,7 +103,7 @@ class GuiServer(threading.Thread):
            self.successRunServer()
            
         except socket.error, msg:       
-           self.incTryingPort()
+           self.tryingPort += 1;
            self.initServer()
         
 
@@ -113,51 +111,41 @@ class GuiServer(threading.Thread):
         self.acceptor.close()
         self._running = False
 
-    def waitRelease(self, pid):
-        result = False
-        while(result == False):
-            
-            if pid in self.mainWindow.windowList:
-                result = self.mainWindow.windowList[pid].getResult()
-                
-            else:
-                break
-            
-            
-            time.sleep(0.1) 
-        
-        return result
 
-    def interact(self, recvData):
+    def processReceivedData(self, recvData):
        recvData = recvData.split("\t")
-       
+       pid = recvData[2]
        if(recvData[0] != self.getCookie()):
            print "Bad cookie!"
            return ""
 
        recvData = recvData[1:]
        self.queue.add(recvData)
+       self.state.set(pid, None)
+       
+       # Wait until GUI has send a new answer
+       while True:
 
-       if(len(recvData) > 2):
-           gotData = str(self.waitRelease(recvData[2]))
-       else:
-           gotData = ""
-
-       return(gotData)
+           dataFromGui = self.state.read(pid)
+           
+           if(dataFromGui != None):
+               return dataFromGui
+            
+           time.sleep(0.1)   
 
 
     
     def handler(self, connection, addr):
-        self.temp = "";
+        data = "";
         while True:
-            self.tempc = connection.recv(2048);
+            buff = connection.recv(2048);
            
-            self.temp += self.tempc
-            if "\n" in self.tempc:
+            data += buff
+            if "\n" in buff:
+                data = data.replace("\n","")
                 break;
 
-        self.result = self.interact(self.temp.replace("\n",""))
-        connection.send(self.result)
+        connection.send(self.processReceivedData(data))
         
         try: 
            connection.shutdown(1)
@@ -172,147 +160,3 @@ class GuiServer(threading.Thread):
             thread.start_new_thread(self.handler, (self.connection,self.addr))
 
         
-        
-        
-        """
-        if(data[0] == "SimpleMessage"):
-            if(len(data) == 2):
-                wx.MessageBox(data[1],Context().getAppName())
-                return False 
-
-        if(data[0] == "POL_Die"):
-            if(len(data) == 1):
-                object.POLDie()            
-                return False  
-
-        if(data[0] == "POL_Restart"):
-            if(len(data) == 1):
-                object.POLRestart()            
-                return False  
-
-        if(data[0] == 'POL_System_RegisterPID'):
-            if(len(data) == 2):
-                Context().registeredPid.append(data[1])
-                return False  
-
-        if(len(data) <= 1):
-            data = None
-            return False
-
-        if(data[0] == 'POL_SetupWindow_Init'):
-            if(len(data) == 5):
-                #self.mainWindow.windowList[data[1]] = SetupWindow(Context().getAppName(),data[1],data[2],data[3],data[4])
-                #self.mainWindow.windowList[data[1]].Center(wx.BOTH)
-                #self.mainWindow.windowList[data[1]].Show(True)
-                self.mainWindow.createSetupWindow()
-                Context().incWindowOpened()
-        else:
-            if(data[1] not in self.mainWindow.windowList):
-                print(_("WARNING. Please use POL_SetupWindow_Init first"))
-                return False 
-    
-        if(data[0] == 'POL_SetupWindow_message'):
-            if(len(data) == 4):
-                object.windowList[data[1]].POL_SetupWindow_message(data[2],data[3])
-
-        if(data[0] == 'POL_SetupWindow_SetID'):
-            if(len(data) == 3):
-                object.windowList[data[1]].POL_SetupWindow_SetID(data[2])
-
-        if(data[0] == 'POL_SetupWindow_UnsetID'):
-            if(len(data) == 2):
-                object.windowList[data[1]].POL_SetupWindow_UnsetID()
-
-        if(data[0] == 'POL_SetupWindow_shortcut_list'):
-            if(len(data) == 4):
-                object.windowList[data[1]].POL_SetupWindow_shortcut_list(data[2],data[3])
-             
-        if(data[0] == 'POL_SetupWindow_prefix_selector'):
-            if(len(data) == 4):
-                object.windowList[data[1]].POL_SetupWindow_prefix_selector(data[2],data[3])
-   
-        if(data[0] == 'POL_SetupWindow_pulsebar'):
-            if(len(data) == 4):
-                object.windowList[data[1]].POL_SetupWindow_pulsebar(data[2],data[3])
-
-        if(data[0] == 'POL_SetupWindow_question'):
-            if(len(data) == 4):
-               object.windowList[data[1]].POL_SetupWindow_question(data[2],data[3])
-
-        if(data[0] == 'POL_SetupWindow_wait'):
-           if(len(data) == 4):
-               object.windowList[data[1]].POL_SetupWindow_wait(data[2],data[3])
-
-        if(data[0] == 'POL_SetupWindow_wait_bis'):
-           if(len(data) == 7):
-               object.windowList[data[1]].POL_SetupWindow_wait_b(data[2],data[3],data[4],data[5],data[6])
-
-        if(data[0] == 'POL_SetupWindow_free_presentation'):
-           if(len(data) == 4):
-               object.windowList[data[1]].POL_SetupWindow_free_presentation(data[3],data[2])
-
-        if(data[0] == 'POL_SetupWindow_textbox'):
-           if(len(data) == 5):
-               object.windowList[data[1]].POL_SetupWindow_textbox(data[2],data[3],data[4])
-
-        if(data[0] == 'POL_Debug'):
-           if(len(data) == 5):
-               object.windowList[data[1]].POL_Debug(data[2],data[3],data[4])
-
-        if(data[0] == 'POL_SetupWindow_textbox_multiline'):
-           if(len(data) == 5):
-               object.windowList[data[1]].POL_SetupWindow_textbox_multiline(data[2],data[3],data[4])
-
- 
-        if(data[0] == 'POL_SetupWindow_browse'):
-           if(len(data) == 7):
-               object.windowList[data[1]].POL_SetupWindow_browse(data[2],data[3],data[4],data[5],data[6])
-
-        if(data[0] == 'POL_SetupWindow_download'):
-           if(len(data) == 6):
-               object.windowList[data[1]].POL_SetupWindow_download(data[2],data[3],data[4],data[5])
-
-        if(data[0] == 'POL_SetupWindow_Close'):
-           if(len(data) == 2):
-               object.windowList[data[1]].Destroy()
-               del object.windowList[data[1]]
-               object.windowOpened -= 1
-
-        if(data[0] == 'POL_SetupWindow_menu'):
-           if(len(data) == 6):
-               object.windowList[data[1]].POL_SetupWindow_menu(data[2],data[3],data[4],data[5], False)
-
-        if(data[0] == 'POL_SetupWindow_menu_num'):
-           if(len(data) == 6):
-               object.windowList[data[1]].POL_SetupWindow_menu(data[2],data[3],data[4],data[5], True)
-    
-        if(data[0] == 'POL_SetupWindow_checkbox_list'):
-           if(len(data) == 6):
-               object.windowList[data[1]].POL_SetupWindow_checkbox_list(data[2],data[3],data[4],data[5])
-    
-        if(data[0] == 'POL_SetupWindow_icon_menu'):
-           if(len(data) == 8):
-               object.windowList[data[1]].POL_SetupWindow_icon_menu(data[2],data[3],data[4],data[5], data[6], data[7])
-    
-        if(data[0] == 'POL_SetupWindow_licence'):
-           if(len(data) == 5):
-               object.windowList[data[1]].POL_SetupWindow_licence(data[2],data[3],data[4])
-    
-        if(data[0] == 'POL_SetupWindow_login'):
-           if(len(data) == 5):
-               object.windowList[data[1]].POL_SetupWindow_login(data[2],data[3],data[4])
-    
-        if(data[0] == 'POL_SetupWindow_file'):
-           if(len(data) == 5):
-               object.windowList[data[1]].POL_SetupWindow_file(data[2],data[3],data[4])
-            
-        if(data[0] == 'POL_SetupWindow_pulse'):
-           if(len(data) == 3):
-               object.windowList[data[1]].POL_SetupWindow_Pulse(data[2])
-    
-        if(data[0] == 'POL_SetupWindow_set_text'):
-           if(len(data) == 3):
-               object.windowList[data[1]].POL_SetupWindow_PulseText(data[2])
-    
-        data = None
-        """

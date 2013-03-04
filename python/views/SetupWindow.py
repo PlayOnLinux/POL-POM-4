@@ -23,7 +23,7 @@ from subprocess import Popen,PIPE
 
 from lib.Context import Context
 from lib.UIHelper import UIHelper
-
+from lib.GuiServer import GuiServer
 
 class Download(threading.Thread):
     def __init__(self, url, local):
@@ -53,7 +53,7 @@ class Download(threading.Thread):
         self.download()
 
 class SetupWindow(wx.Frame): #fenêtre principale
-    def __init__(self, title, scriptPid, topImage, leftImage, protectedWindow):
+    def __init__(self, title, scriptPid, topImage, leftImage, isProtected):
         
         
         wx.Frame.__init__(self, None, -1, title, style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX, size = (520, 398 + UIHelper().addWindowMacOffset()))
@@ -61,8 +61,8 @@ class SetupWindow(wx.Frame): #fenêtre principale
         self.Center(wx.BOTH)
         self.Show(True)
         
-        self.bash_pid = scriptPid
-        self.protectedWindow = protectedWindow
+        self.bashPid = scriptPid
+        self.protectedWindow = isProtected
         
         
         
@@ -100,7 +100,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
 
 
         # Images
-        self.topImageWidget = wx.StaticBitmap(self.header, -1, self.topImage, (520 - self.toImage.GetWidth() , 0), wx.DefaultSize)
+        self.topImageWidget = wx.StaticBitmap(self.header, -1, self.topImage, (520 - self.topImage.GetWidth() , 0), wx.DefaultSize)
         self.leftImageWidget = wx.StaticBitmap(self.panel, -1, self.leftImage, (0,0), wx.DefaultSize)
 
 
@@ -212,7 +212,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
         self.footer.Show()
         self.Result = None
         self.header.Hide()
-        self.left_image.Hide()
+        self.leftImageWidget.Hide()
         self.CancelButton.Hide()
         self.MainPanel.Hide()
         self.NextButton.Hide()
@@ -253,10 +253,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
 
         
     def getResult(self):
-        if(self.Result == None):
-            return False
-        else:
-            return self.Result
+        return self.Result
             
     def TimerAction(self, event):
         ## If the setup window is downloading a file, we need to update the progress bar
@@ -340,7 +337,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
         wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_champ)
         wx.EVT_TEXT_ENTER(self, 400, self.release_champ)
 
-    def POL_Debug(self, message, title, value):
+    def POL_SetupWindow_debug(self, message, title, value):
         self.POL_SetupWindow_message(message, title)
         self.debugImage.Show()
         self.debugZone.Show()
@@ -631,7 +628,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
             os.system(command+"&");
 
     def DrawImage(self):
-        self.left_image.Show()
+        self.leftImageWidget.Show()
 
     def DrawHeader(self):
         self.header.Show()
@@ -651,10 +648,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
         self.NextButton.Show()
 
     def SendBash(self, var=""):
-        self.Result = var
-
-    def SendBashT(self, var):
-        self.Result = var
+        GuiServer().getState().set(self.bashPid, var)
 
     def release(self, event):
         self.SendBash()
@@ -691,7 +685,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
         self.NextButton.Enable(False)
 
     def release_bigchamp(self, event):
-        self.SendBashT(self.bigchamp.GetValue().replace("\n","\\n").encode("utf-8","replace"))
+        self.SendBash(self.bigchamp.GetValue().replace("\n","\\n").encode("utf-8","replace"))
         self.NextButton.Enable(False)
 
     def release_menu(self,event):
@@ -729,8 +723,8 @@ class SetupWindow(wx.Frame): #fenêtre principale
         if(self.protectedWindow == False):
             self.Destroy()
             time.sleep(0.1)
-            os.system("kill -9 -"+self.bash_pid+" 2> /dev/null")
-            os.system("kill -9 "+self.bash_pid+" 2> /dev/null") 
+            os.system("kill -9 -"+self.bashPid+" 2> /dev/null")
+            os.system("kill -9 "+self.bashPid+" 2> /dev/null") 
         else:
             wx.MessageBox(_("You cannot close this window").format(Context().getAppName()),_("Error"))
 
@@ -784,13 +778,6 @@ class SetupWindow(wx.Frame): #fenêtre principale
             i+=1
 
 
-    def DemanderPourcent(self, event):
-        self.NextButton.Enable(False)
-        if self.p.poll() == None:
-            self.gauge.Pulse()
-        else:
-            self.SendBash("Ok")
-
 
     def Parcourir(self, event):
         if(self.supportedfiles == "All"):
@@ -810,7 +797,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
             
             if(".exe" in filePathBaseName and os.path.getsize(filePath) <= 30*1024*1024):
                 try:
-                    tmpPath = Context().getUserRoot()+"/tmp/browse"+self.bash_pid+".png"
+                    tmpPath = Context().getUserRoot()+"/tmp/browse"+self.bashPid+".png"
                     try: os.path.remove(tmpPath)
                     except: pass
                     playonlinux.POL_System("POL_ExtractBiggestIcon \""+filePath+"\" "+tmpPath)
