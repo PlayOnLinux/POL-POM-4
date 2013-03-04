@@ -54,6 +54,7 @@ class Downloader(threading.Thread):
         
     def hasFailed():
         return self.failed
+        
     # Downloader  
     def onHook(self, nbBlocks, blockSize, fileSize):
         self.nbBlocks = nbBlocks
@@ -66,6 +67,13 @@ class Downloader(threading.Thread):
         except:
             self.failed = True
         self.finished = True
-
+ 
+    def getContent(self):
+        while(not self.finished):
+            time.sleep(0.1)
+        
+        if(not self.failed):
+            return open(self.local, "r").read()
+            
     def run(self):
         self.download()

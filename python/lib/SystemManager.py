@@ -7,7 +7,7 @@ import os
 from Context import Context
 from lib.GuiServer import GuiServer
 
-class System(object):
+class SystemManager(object):
     def __init__(self):
         return None
         

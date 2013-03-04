@@ -27,7 +27,7 @@ from POLWeb import POLWeb
 from lib.UIHelper import UIHelper
 from lib.ConfigFile import UserConfigFile
 from lib.Context import Context
-from lib.System import System
+from lib.SystemManager import SystemManager
 from lib.Shortcut import Shortcut
 from lib.Script import PrivateGUIScript
 from lib.GuiServer import GuiServer
@@ -54,7 +54,7 @@ class MainWindow(wx.Frame):
         # Get context, settings, and UI rules
         #self.ui = UI(Context());
         self.playonlinuxSettings = UserConfigFile()
-        self.playonlinuxSystem = System()
+        self.playonlinuxSystem = SystemManager()
         
         self.windowList = {}    # List of POL_SetupWindow opened
         

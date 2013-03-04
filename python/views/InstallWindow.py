@@ -20,8 +20,11 @@
 import os, sys, codecs, string, socket, urllib, urllib2
 import wx, wx.html, threading, time, wx.animate
 
-import views.sp as sp
 from wx.lib.ClickableHtmlWindow import PyClickableHtmlWindow
+
+from views.sp import sp
+from lib.Context import Context
+from lib.Environement import Environement
 
 class Wminiature(wx.Frame):
     def __init__(self,parent,id,title,img):
@@ -146,39 +149,6 @@ class getDescription(threading.Thread):
 
 
 class InstallWindow(wx.Frame):
-    def addCat(self, name, icon, iid):
-        espace=80;
-        if(os.environ["POL_OS"] == "Mac"):
-            offset = 10
-            w_offset = 5
-        else:
-            offset = 2
-            w_offset = 10
-
-
-        self.cats_icons[name] = wx.BitmapButton(self.panelButton, 2000+iid, wx.Bitmap(icon), (0,0), style=wx.NO_BORDER)
-
-        self.cats_links[name] = wx.HyperlinkCtrl(self.panelButton, 3000+iid, name, "", pos=(0,52))
-        mataille = self.cats_links[name].GetSize()[0]
-        mataille2 = self.cats_icons[name].GetSize()[0]
-        image_pos = (espace-mataille2)/2+espace*iid;
-
-        self.cats_links[name].SetPosition((espace*iid+espace/2-mataille/2,47))
-        self.cats_icons[name].SetPosition((image_pos,offset))
-
-        #self.cats_icons[name].SetSize((espace,100))
-
-        wx.EVT_HYPERLINK(self, 3000+iid, self.AddApps)
-        wx.EVT_BUTTON(self, 2000+iid, self.AddApps)
-
-        #self.cats_icons[name].Bind(wx.EVT_LEFT_DOWN, 2000+iid, self.AddApps)
-        self.cats_links[name].SetNormalColour(wx.Colour(0,0,0))
-        self.cats_links[name].SetVisitedColour(wx.Colour(0,0,0))
-        self.cats_links[name].SetHoverColour(wx.Colour(0,0,0))
-        self.cats_links[name].SetBackgroundColour((255,255,255))
-
-        self.cats_links[name].SetFont(self.fontText)
-
     def __init__(self,parent,id,title):
         wx.Frame.__init__(self, parent, -1, title, size = (800, 550+Variables.windows_add_size), style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX)
         self.cats_icons = {}
@@ -323,6 +293,40 @@ class InstallWindow(wx.Frame):
         #wx.EVT_CHECKBOX(self, 111, self.manual)
         #Timer, regarde toute les secondes si il faut actualiser la liste
 
+
+    def addCat(self, name, icon, iid):
+        espace=80;
+        if(os.environ["POL_OS"] == "Mac"):
+            offset = 10
+            w_offset = 5
+        else:
+            offset = 2
+            w_offset = 10
+
+
+        self.cats_icons[name] = wx.BitmapButton(self.panelButton, 2000+iid, wx.Bitmap(icon), (0,0), style=wx.NO_BORDER)
+
+        self.cats_links[name] = wx.HyperlinkCtrl(self.panelButton, 3000+iid, name, "", pos=(0,52))
+        mataille = self.cats_links[name].GetSize()[0]
+        mataille2 = self.cats_icons[name].GetSize()[0]
+        image_pos = (espace-mataille2)/2+espace*iid;
+
+        self.cats_links[name].SetPosition((espace*iid+espace/2-mataille/2,47))
+        self.cats_icons[name].SetPosition((image_pos,offset))
+
+        #self.cats_icons[name].SetSize((espace,100))
+
+        wx.EVT_HYPERLINK(self, 3000+iid, self.AddApps)
+        wx.EVT_BUTTON(self, 2000+iid, self.AddApps)
+
+        #self.cats_icons[name].Bind(wx.EVT_LEFT_DOWN, 2000+iid, self.AddApps)
+        self.cats_links[name].SetNormalColour(wx.Colour(0,0,0))
+        self.cats_links[name].SetVisitedColour(wx.Colour(0,0,0))
+        self.cats_links[name].SetHoverColour(wx.Colour(0,0,0))
+        self.cats_links[name].SetBackgroundColour((255,255,255))
+
+        self.cats_links[name].SetFont(self.fontText)
+        
     def TimerAction(self, event):
         if(self.lasthtml_content != self.description.htmlContent):
             self.SetImg(self.description.miniature)

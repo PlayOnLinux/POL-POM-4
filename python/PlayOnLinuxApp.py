@@ -25,7 +25,7 @@ import wx, wx.aui
 # PlayOnLinux imports
 from lib.Environement import Environement
 from lib.Context import Context
-from lib.System import System
+from lib.SystemManager import SystemManager
 from lib.SystemCheck import SystemCheck
 from lib.Script import PrivateScript
 from lib.ConfigFile import UserConfigFile
@@ -118,7 +118,7 @@ class PlayOnLinuxApp(wx.App):
 
     def CatchCtrlC(self, signal, event): # Catch SIGINT
         print "\nCtrl+C pressed. Killing all processes..."
-        System().polDie()
+        SystemManager().polDie()
         
     def initLanguage(self):
         if(Context().isDebianPackage()):

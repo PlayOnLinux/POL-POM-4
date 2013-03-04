@@ -20,13 +20,18 @@ encoding = 'utf-8'
 
 import threading, os, subprocess, time
 from lib.Script import PrivateScript
-import lib.playonlinux as playonlinux #FIXME
 from lib.Context import Context
+from lib.Downloader import Downloader
+from lib.Environement import Environement
+from lib.SystemManager import SystemManager
+
 
 class POLWeb(threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)
         self.context = Context()
+        self.systemManager = SystemManager()
+        
         self.sendToStatusBarStr = ""
         self.sendAlertStr = None
         self.Gauge = False
@@ -58,8 +63,13 @@ class POLWeb(threading.Thread):
         else:
             fichier_online="version2"
         
-        ## FIXME !!
-        return os.popen(os.environ["POL_WGET"]+' "'+os.environ["SITE"]+'/'+fichier_online+'.php?v='+os.environ["VERSION"]+'" -T 30 -O-','r').read()
+        url = Environement().getSetting("SITE")+"/"+fichier_online+".php?v="+Context().getAppVersion()
+
+        latestVersionDownload = Downloader(url, )
+        latestVersionDownload.start()
+        currentVersion = latestVersionDownload.getContent()
+        print currentVersion
+    
 
     def real_check(self):
         self.WebVersion = self.LastVersion()
