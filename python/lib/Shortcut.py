@@ -9,36 +9,37 @@ import string
 # playonlinux imports
 import ConfigFile
 
+from lib.Context import Context
 from lib.Script import PrivateScript
 from lib.Prefix import Prefix
+from lib.Environement import Environement
 
 class Shortcut(PrivateScript):
-   def __init__(self, context, shortcutName):
-      self.selectedShortcut = shortcutName;
-      self.context = context 
-      self.path = self.context.getAppPath()+"/bash/run_app"
-      self.args = [shortcutName]
-      self.needSignature = False
+   def __init__(self, shortcutName, args = []):
+      self.shortcutName = shortcutName
+      self.shortcutPath = Context().getUserRoot()+"/shortcuts/"+shortcutName
       
+      
+      self.needSignature = False
+      self.context = Context()
+      #self.setArgs(args)
+      
+      PrivateScript.__init__(self, "run_app", args)
       
    def getName(self):
-       return self.selectedShortcut
+       return self.shortcutName
        
    # Set additional args
    def setArgs(self, args = []):
-       self.args = [shortcutName] + args
+       self.args = [self.shortcutName] + args
        
    # Get the shortcut script path
    def getPath(self):
-       return self.path;
+       return self.shortcutPath;
   
-   # Get shortcut path
-   def getShortcutPath(self):
-      return self.context.getUserRoot()+"/shortcuts/"+self.getName(); 
-      
    # List of script's line
    def getScriptLines(self):
-       shortcutFile = open(self.getShortcutPath(),'r').read()
+       shortcutFile = open(self.getPath(),'r').read()
        shortcutFile = string.split(shortcutFile,"\n")
        return shortcutFile
        

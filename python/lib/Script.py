@@ -21,22 +21,16 @@ class ErrBadSignature(Exception):
       return repr(_("The signature of the script is wrong"))
 
 class Script(Executable):
-   def __init__(self, path, args):
-      self.path = path
-      self.args = args
+   def __init__(self, scriptPath, args):
+      args = args[:]
+      args.insert(0, scriptPath)
+      Executable.__init__(self, "bash", args)
       self.needSignature = True
-      self.execEnv = Environement()
-      self.setEnv()
+
       
    def checkSignature(self):    
        # Fixme
        return True
-       
-   def getProgramArray(self):
-       args = self.args
-       args.insert(0,self.path)
-       args.insert(0,"bash")
-       return args
        
    def run(self):  
        if(self.checkSignature() or not self.needSignature):
@@ -53,13 +47,9 @@ class Script(Executable):
 
 class PrivateScript(Script):
    def __init__(self, path, args = []):
-      self.context = Context()
-      
-      self.path = self.context.getAppPath()+"/bash/"+path
-      self.args = args
+      Script.__init__(self, Context().getAppPath()+"/bash/"+path, args)
       self.needSignature = False
-      self.execEnv = Environement()
-      self.setEnv()
+
       
 class GUIScript(Script):
     def setEnv(self):

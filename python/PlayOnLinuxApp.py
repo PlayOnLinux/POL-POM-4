@@ -64,6 +64,7 @@ class PlayOnLinuxApp(wx.App):
         # Gui Server
         self.initPOLServer()
         
+        
         PrivateScript("startup_after_server").runBackground()
    
         self.SetTopWindow(self.frame)

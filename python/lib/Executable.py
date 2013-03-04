@@ -15,16 +15,18 @@ from lib.Environement import Environement
 
 class Executable(object):
    def __init__(self, path, args):
-      self.path = path
-      self.args = args  
+       
+      self.path = path[:]
+      self.args = args[:]  
       self.execEnv = Environement()
       self.setEnv()
       
    def getProgramArray(self):
-       args = self.args
+       args = self.args[:]
        args.insert(0,self.path)
+       print args
        return args
-        
+
    # Set environement vars from context and from config file
    def setPath(self):
        execEnv = self.execEnv

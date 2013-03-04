@@ -417,6 +417,9 @@ class MainWindow(wx.Frame):
             except KeyError:
                 print "Please use POL_SetupWindow_Init first"
            
+        
+        
+        # Other 
         setupWindowCommands = ["POL_SetupWindow_message", "POL_SetupWindow_SetID", "POL_SetupWindow_UnsetID", 
         "POL_SetupWindow_shortcut_list", "POL_SetupWindow_prefix_selector", "POL_SetupWindow_pulsebar", "POL_SetupWindow_question", 
         "POL_SetupWindow_wait", "POL_SetupWindow_wait_bis", "POL_SetupWindow_free_presentation", "POL_SetupWindow_textbox", 
@@ -941,12 +944,12 @@ class MainWindow(wx.Frame):
         if(selectedName == ""):
             raise ErrNoProgramSelected
             
-        return Shortcut(Context(), selectedName)
+        return Shortcut(selectedName)
         
     def Run(self, event, s_debug=False):
         selectedProgram = self.GetSelectedProgram()
-        game_exec = self.GetSelectedProgram().getName()
-        game_prefix = self.GetSelectedProgram().getPrefix()
+        game_exec = selectedProgram.getName()
+        game_prefix = selectedProgram.getPrefix()
 
         if(s_debug == False):
             selectedProgram.setDebug(False)
