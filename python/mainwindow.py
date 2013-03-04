@@ -78,8 +78,8 @@ class POLWeb(threading.Thread):
 
             p = subprocess.Popen(exe, stdout=subprocess.PIPE, bufsize=1, preexec_fn=lambda: os.setpgid(os.getpid(), os.getpid()))
 
-            # http://stackoverflow.com/questions/2804543/read-subprocess-stdout-line-by-line
-            # workaround for issue 12268 with pipes http://bugs.python.org/issue12268
+            # https://fricorder.googlecode.com/svn-history/r34/trunk/build.py
+            time.sleep(0.01)    # to avoid "IOError: [Errno 4] Interrupted system call"
             for line in iter(p.stdout.readline, ''):
                 try:
                     self.sendPercentage(int(line))
