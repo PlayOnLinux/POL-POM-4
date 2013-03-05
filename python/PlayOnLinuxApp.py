@@ -37,7 +37,8 @@ from lib.UI import UI
 # Views
 from views.MainWindow import MainWindow
 
-
+# tmp
+import sys, traceback, threading
 
 class PlayOnLinuxApp(wx.App):
     def OnInit(self):
@@ -140,5 +141,33 @@ class PlayOnLinuxApp(wx.App):
         mytranslation = gettext.translation(domain, localedir, [mylocale.GetCanonicalName()], fallback = True)
         mytranslation.install()
         
-app = PlayOnLinuxApp(redirect=False)
-app.MainLoop()
+      
+    # Should not be used alone
+    def hardExit(self, code = 0):
+        self.frame.Destroy()
+        
+        for thread_id, frame in sys._current_frames().iteritems():
+            name = thread_id
+            for thread in threading.enumerate():
+                if thread.ident == thread_id:
+                    name = thread.name
+            traceback.print_stack(frame)
+      
+        #sys.exit(code)
+        #wx.Exit()
+        #os._exit(code)
+   
+    def softExit(self, code = 0):
+        GuiServer().closeServer()
+        self.hardExit(code)
+        
+    def polDie(self):
+        self.softExit(0)
+        
+    def polReset(self):
+        self.softExit(63)
+    
+    
+playOnLinuxApp = PlayOnLinuxApp(redirect=False)
+playOnLinuxApp.MainLoop()
+#Context().setApp(playOnLinuxApp)

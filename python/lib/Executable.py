@@ -3,7 +3,7 @@
 # Copyright (C) 2013 - Quentin PARIS
 
 # Python
-import subprocess, os, time
+import subprocess, os, time, threading
 from lib.Context import Context
 
 from lib.ConfigFile import GlobalConfigFile 
@@ -15,7 +15,7 @@ from lib.Environement import Environement
 
 class Executable(object):
    def __init__(self, path, args):
-       
+      self.pid = 0
       self.path = path[:]
       self.args = args[:]  
       self.execEnv = Environement()
@@ -96,23 +96,36 @@ class Executable(object):
        self.setPath()
 
        
-   def callPopen(self):
-       myProcess = subprocess.Popen(self.getProgramArray(), stdout = subprocess.PIPE, preexec_fn = lambda: os.setpgid(os.getpid(), os.getpid()), env = self.execEnv.get())
+   def callPopen(self, stdout = None):
+       #myProcess = subprocess.Popen(self.getProgramArray(), stdout = subprocess.PIPE, preexec_fn = lambda: os.setpgid(os.getpid(), os.getpid()), env = self.execEnv.get())
+       if(stdout == None):
+           myProcess = subprocess.Popen(self.getProgramArray(), env = self.execEnv.get())
+       else :
+           myProcess = subprocess.Popen(self.getProgramArray(), stdout = stdout, env = self.execEnv.get())
+       self.pid = myProcess.pid
        return myProcess
     
+   # These two methods run the script and return the exitcode
    def runSilently(self):
       devnull = open('/dev/null', 'wb')
-      myProcess = subprocess.Popen(self.getProgramArray(), stdout = devnull, env = self.execEnv.get())
+      myProcess = self.callPopen(devnull)
       return myProcess.wait()
       
    def run(self):
-      myProcess = subprocess.Popen(self.getProgramArray(), env = self.execEnv.get())
-      return myProcess.wait()
+      process = self.callPopen()
+      return process.wait()
 
-   def runPoll(self):
-      myProcess = self.callPopen()
-      return myProcess
+   def runPipe(self):
+      process = self.callPopen( subprocess.PIPE )
+      return process
 
    def runBackground(self):
-       subprocess.Popen(self.getProgramArray(), env = self.execEnv.get())
-       
+       process = self.callPopen()
+       print process.pid
+       return process
+        
+   def __del__(self):
+       print "I will destroy "+str(self.pid)+str(self.getProgramArray())
+       if(self.pid != 0):
+          os.system("kill -9 -"+str(self.pid)+" 2> /dev/null")
+          os.system("kill -9 "+str(self.pid)+" 2> /dev/null")

@@ -49,12 +49,9 @@ class ErrNoProgramSelected(Exception):
 
 class MainWindow(wx.Frame):
     def __init__(self, parent, id, title):
+        self.parent = parent
         
-        
-        # Get context, settings, and UI rules
-        #self.ui = UI(Context());
         self.playonlinuxSettings = UserConfigFile()
-        self.playonlinuxSystem = SystemManager()
         
         self.windowList = {}    # List of POL_SetupWindow opened
         
@@ -391,11 +388,11 @@ class MainWindow(wx.Frame):
             GuiServer().getState().release(scriptPid)
             
         if(command == "POL_Die"):
-            self.playonlinuxSystem.polDie()
+            playOnLinuxApppolDie()
             GuiServer().getState().release(scriptPid)
         
         if(command == "POL_Restart"):
-            self.playonlinuxSystem.polRestart()
+            playOnLinuxApp.polRestart()
             GuiServer().getState().release(scriptPid)
             
         if(command == 'POL_System_RegisterPID'):
@@ -890,7 +887,8 @@ class MainWindow(wx.Frame):
         os.system("bash \""+Context().getAppPath()+"/bash/read_pc_cd\" &")
 
     def PolShell(self, event):
-        PrivateGUIScript("POLShell").runBackground()
+        self.polshell = PrivateGUIScript("POLShell")
+        self.polshell.runBackground()
         #print "Test"
         
     def Configure(self, event):
@@ -1015,7 +1013,7 @@ class MainWindow(wx.Frame):
         if(self.playonlinuxSettings.getSetting("DONT_ASK_BEFORE_CLOSING") == "TRUE" or Question(_('Are you sure you want to close all [APP] Windows?')).getAnswer()):
             self.saveWindowParametersToConfig()
             self.savePanelParametersToConfig()
-            self.playonlinuxSystem.polDie()
+            wx.GetApp().polDie()
             
         return None
 

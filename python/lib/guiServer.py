@@ -16,7 +16,7 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-import socket, threading, thread, os, wx, time, random
+import socket, threading, thread, os, wx, time, random, select
 import string
 
 from lib.Context import Context
@@ -37,9 +37,9 @@ class GuiServer(threading.Thread):
             self.alreadyInit
             
         except AttributeError:
-            self.alreadyInit = True
+            self.alreadyInit = True 
             threading.Thread.__init__(self)
-            
+            self.daemon = True
             self.host = '127.0.0.1'
             self.runningPort = 0
             self.tryingPort = 30000
@@ -49,7 +49,7 @@ class GuiServer(threading.Thread):
             
             self.queue = GuiServerQueue()
             self.state = GuiServerState()
-       
+            
     def getQueue(self):
         return self.queue
 
@@ -108,9 +108,9 @@ class GuiServer(threading.Thread):
         
 
     def closeServer(self):
+        
         self.acceptor.close()
         self._running = False
-
 
     def processReceivedData(self, recvData):
        recvData = recvData.split("\t")
@@ -147,16 +147,13 @@ class GuiServer(threading.Thread):
 
         connection.send(self.processReceivedData(data))
         
-        try: 
-           connection.shutdown(1)
-           connection.close()
-        except:
-           pass
+        connection.shutdown(1)
+        connection.close()
                
     def run(self): 
         self.initServer()
-        while self._running:
-            self.connection, self.addr = self.acceptor.accept()
-            thread.start_new_thread(self.handler, (self.connection,self.addr))
+        while self._running:        
+            connection, addr = self.acceptor.accept()
+            thread.start_new_thread(self.handler, (connection, addr))
 
         
