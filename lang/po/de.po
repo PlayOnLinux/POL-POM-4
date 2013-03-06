@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2013-02-25 19:00+0100\n"
-"PO-Revision-Date: 2013-02-24 13:17+0000\n"
+"POT-Creation-Date: 2013-03-04 19:00+0100\n"
+"PO-Revision-Date: 2013-03-04 00:05+0000\n"
 "Last-Translator: raymond <Unknown>\n"
 "Language-Team: de_DE.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-02-26 04:32+0000\n"
-"X-Generator: Launchpad (build 16506)\n"
+"X-Launchpad-Export-Date: 2013-03-05 04:34+0000\n"
+"X-Generator: Launchpad (build 16514)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -343,13 +343,14 @@ msgid "Please wait while $TITLE is installed."
 msgstr "Bitte warten Sie, während $TITLE installiert wird."
 
 #: PlayOnLinux_Scripts/7_Zip_:47 PlayOnLinux_Scripts/Age_Of_Wonders_:82
-#: PlayOnLinux_Scripts/Alt.Binz_:60 PlayOnLinux_Scripts/Geoplan_Geospace_:34
+#: PlayOnLinux_Scripts/Alt.Binz_:60 PlayOnLinux_Scripts/Company_of_Heroes_:73
+#: PlayOnLinux_Scripts/Geoplan_Geospace_:34
 #: PlayOnLinux_Scripts/Google_SketchUp_:67
 #: PlayOnLinux_Scripts/ISIS_Draw_2.3_:34
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:218
-#: PlayOnLinux_Scripts/SFR_LiberTalk_:57 PlayOnLinux_Scripts/The_Sims_3_:51
-#: PlayOnLinux_Scripts/Theme_Hospital_:66 PlayOnLinux_Scripts/Tree[d]_:61
-#: PlayOnLinux_Scripts/Wow_Cartographe_:58
+#: PlayOnLinux_Scripts/Pro_Pilkki_2_:64 PlayOnLinux_Scripts/SFR_LiberTalk_:57
+#: PlayOnLinux_Scripts/The_Sims_3_:51 PlayOnLinux_Scripts/Theme_Hospital_:66
+#: PlayOnLinux_Scripts/Tree[d]_:61 PlayOnLinux_Scripts/Wow_Cartographe_:58
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:97
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:68
 #, sh-format
@@ -602,11 +603,11 @@ msgstr "Installation läuft..."
 
 #: PlayOnLinux_Scripts/Anno_1602_:76 PlayOnLinux_Scripts/Cadstd_Lite_3.7.0_:40
 #: PlayOnLinux_Scripts/Diablo_II_:67 PlayOnLinux_Scripts/IZArc_:42
-#: PlayOnLinux_Scripts/Legions__Overdrive_:47
+#: PlayOnLinux_Scripts/Legions__Overdrive_:48
 #: PlayOnLinux_Scripts/Mount_and_Blade___Warband_:82
-#: PlayOnLinux_Scripts/PlanetSide_2_:48 PlayOnLinux_Scripts/Safari_:77
+#: PlayOnLinux_Scripts/PlanetSide_2_:49 PlayOnLinux_Scripts/Safari_:77
 #: PlayOnLinux_Scripts/Windows_Media_Player_10_:80
-#: PlayOnLinux_Scripts/World_Of_Tanks_:53
+#: PlayOnLinux_Scripts/World_Of_Tanks_:54
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:137
 #: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:97
 #: PlayOnLinux_Scripts/World_Of_Warcraft___Wrath_of_the_Lich_King_:75
@@ -678,6 +679,7 @@ msgstr "Steam hat ein eigenes automatische Update-System"
 #: PlayOnLinux_Scripts/Fallout_3_Patch_1.07_:51
 #: PlayOnLinux_Scripts/Far_Cry_2_Patch_1.03_:50
 #: PlayOnLinux_Scripts/Mass_Effect_2___Patch_1.02_:51
+#: PlayOnLinux_Scripts/Red_Faction_:55
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_Patch_1.2.0416_:43
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_Patch_1.35_:51
 #: PlayOnLinux_Scripts/The_Witcher_2___Enhanced_Edition_Patch_:51
@@ -1144,6 +1146,18 @@ msgstr ""
 "einer verschiedener Software arbeiten, aber ich weiß, dass Mounty nicht "
 "funktioniert."
 
+#: PlayOnLinux_Scripts/Company_of_Heroes_:65
+#: PlayOnLinux_Scripts/Legend_of_Grimrock_:54
+#, sh-format
+msgid "Install $TITLE in Steam."
+msgstr "Installiere $TITLE in Steam."
+
+#: PlayOnLinux_Scripts/Company_of_Heroes_:67
+#: PlayOnLinux_Scripts/Freelancer_:53 PlayOnLinux_Scripts/Pro_Pilkki_2_:54
+#, sh-format
+msgid "Error while installing game."
+msgstr "Fehler während der Installation des Spiels."
+
 #: PlayOnLinux_Scripts/Crysis_2_Patch_1.9_and_HiRes_Texture_Pack_:52
 #: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_Patch_1.02_:52
 #, sh-format
@@ -1376,7 +1390,7 @@ msgstr "Bitte legen Sie das erste Spiel-Medium in Ihr Laufwerk ein"
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:109 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:421 lib/wine.lib:1073
+#: bash/winebash:27 lib/setupwindow.lib:432 lib/wine.lib:1073
 #: lib/wine.lib:1103
 #, sh-format
 msgid "Please wait..."
@@ -1404,6 +1418,16 @@ msgstr ""
 #, sh-format
 msgid "Welcome in the DLC Installer for $TITLE"
 msgstr "Herzlich Willkommen beim DLC Installationsprogramm für $TITLE"
+
+#: PlayOnLinux_Scripts/Freelancer_:75 PlayOnLinux_Scripts/Red_Faction_:75
+#, sh-format
+msgid "Error while installing patch."
+msgstr "Fehler während der Installation des Patches."
+
+#: PlayOnLinux_Scripts/Freelancer_:84
+#, sh-format
+msgid "$TITLE and $PATCHVERSION patch has been successfully installed."
+msgstr "$TITLE und $PATCHVERSION wurden erfolgreich installiert."
 
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising_:37
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:98
@@ -1557,6 +1581,16 @@ msgstr ""
 #, sh-format
 msgid "Editor"
 msgstr "Editor"
+
+#: PlayOnLinux_Scripts/GOG.com___Commandos_Ammo_Pack_:31
+#, sh-format
+msgid "This install script requires ffmpeg"
+msgstr "Das Installationsskript benötigt ffmpeg"
+
+#: PlayOnLinux_Scripts/GOG.com___Commandos_Ammo_Pack_:74
+#, sh-format
+msgid "Converting videos..."
+msgstr "Konvertiere Videos..."
 
 #: PlayOnLinux_Scripts/GOG.com___Deus_Ex_GOTY_Edition_:73
 #, sh-format
@@ -1998,16 +2032,14 @@ msgid ""
 "display correctly.\\nMake sure $TITLE_REQUIRED is fully updated before "
 "running this patch."
 msgstr ""
+"Dieser Patch ersetzt ingame shop Icons mit veränderten, die Wine korrekt "
+"anzeigen kann.\\nStellen Sie sicher, dass $TITLE_REQUIRED vollständig "
+"aktualisiert wurde, bevor Sie dieses Update ausführen."
 
 #: PlayOnLinux_Scripts/League_of_Legends__ingame_shop_icons_fix_:55
 #, sh-format
 msgid "Patching will take several minutes, please be patient..."
-msgstr ""
-
-#: PlayOnLinux_Scripts/Legend_of_Grimrock_:54
-#, sh-format
-msgid "Install $TITLE in Steam."
-msgstr "Installiere $TITLE in Steam."
+msgstr "Patching wird einige Minuten dauern, bitte haben Sie Geduld..."
 
 #: PlayOnLinux_Scripts/Legend_of_Grimrock_:66
 #: PlayOnLinux_Scripts/Ufo__aftermath_:44
@@ -2021,9 +2053,9 @@ msgstr ""
 "abstürzt, öffnen Sie ein Terminal und geben Sie:\\necho 0 | sudo tee "
 "/proc/sys/kernel/yama/ptrace_scope."
 
-#: PlayOnLinux_Scripts/Legions__Overdrive_:47
-#: PlayOnLinux_Scripts/PlanetSide_2_:48 PlayOnLinux_Scripts/Soldat_:28
-#: PlayOnLinux_Scripts/World_Of_Tanks_:53
+#: PlayOnLinux_Scripts/Legions__Overdrive_:48
+#: PlayOnLinux_Scripts/PlanetSide_2_:49 PlayOnLinux_Scripts/Soldat_:28
+#: PlayOnLinux_Scripts/World_Of_Tanks_:54
 #, sh-format
 msgid "Installation finished"
 msgstr "Installation abgeschlossen"
@@ -2575,7 +2607,7 @@ msgstr ""
 "Jetzt können Sie zurück an den $TITLE Installationsfenster gehen, um "
 "fortzufahren"
 
-#: PlayOnLinux_Scripts/PlanetSide_2_:39
+#: PlayOnLinux_Scripts/PlanetSide_2_:40
 #, sh-format
 msgid ""
 "Attention: After installation is complete, the patcher will load. Please "
@@ -2633,6 +2665,17 @@ msgstr ""
 "HINWEIS: Für Low-Latency-Audio schaue in WineASIO. Ein Aftermarket, Low-"
 "Latency-Audio-Interface wird empfohlen. Ihre MIDI-Controller sollte wie "
 "erwartet funktionieren."
+
+#: PlayOnLinux_Scripts/Red_Faction_:87
+#, sh-format
+msgid ""
+"$TITLE and patch has been successfully installed.\\n\\nIf the game crashes "
+"at startup, open a terminal and type:\\necho 0|sudo tee "
+"/proc/sys/kernel/yama/ptrace_scope"
+msgstr ""
+"$TITLE und Patch wurde erfolgreich installiert.\\n\\nWenn das Spiel beim "
+"Starten abstürzt, öffnen Sie ein Terminal und geben Sie ein:\\necho 0|sudo "
+"tee /proc/sys/kernel/yama/ptrace_scope"
 
 #: PlayOnLinux_Scripts/Rome_Total_War__Gold_Edition__:72
 #, sh-format
@@ -2738,16 +2781,18 @@ msgstr "Bitte wählen Sie die Installationsdatei."
 msgid "PlayOnLinux is installing your application..."
 msgstr "PlayOnLinux installiert Ihre Applikation..."
 
-#: PlayOnLinux_Scripts/Terraria_:62
+#: PlayOnLinux_Scripts/Terraria_:56
 #, sh-format
 msgid ""
-"Install Terraria in Steam. Run the Terraria when Steam is installed. Steam "
-"install xna framework the game. Close Steam."
+"Install Terraria in Steam. Run the Terraria when Steam is installed the "
+"game. Steam install xna framework the game. Close the Steam so that the "
+"installer can continue."
 msgstr ""
-"Installiere Terraria in Steam. Führen Sie Terraria in Steam aus. Steam "
-"installiert das XNA Frameworkl. Schließen Steam."
+"Installiere Terraria in Steam. Führen Sie Terraria aus, wenn Steam das Spiel "
+"installiert hat. Steam installiert XNA Framework für das Spiel. Schließen "
+"Sie Steam, so dass das Installationsprogramm fortgesetzt werden kann."
 
-#: PlayOnLinux_Scripts/Terraria_:82
+#: PlayOnLinux_Scripts/Terraria_:66
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_V___Skyrim_:90
 #, sh-format
 msgid ""
@@ -3014,13 +3059,17 @@ msgid ""
 msgstr ""
 "Ihr Browser wird ein Popup öffnen, herunterladen des Patches und entpacke es"
 
-#: PlayOnLinux_Scripts/World_Of_Tanks_:44
+#: PlayOnLinux_Scripts/World_Of_Tanks_:45
 #, sh-format
 msgid ""
 "Attention: After installation is complete, the patcher will load. Please "
 "close the patcher before logging in or finish updating to complete the "
 "installation. After this, you can run \"$TITLE\" when setup is done"
 msgstr ""
+"Achtung: Nachdem die Installation abgeschlossen ist, wird der Patcher "
+"geladen. Bitte schließen Sie den Patcher vor der Anmeldung oder beenden Sie "
+"das Patchen, um die Installation abzuschließen. Danach können Sie \"$TITLE\" "
+"ausführen, wenn Setup abgeschlossen ist."
 
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:36
 #, sh-format
@@ -3083,17 +3132,17 @@ msgstr "Willkommen beim Patch-Installer $PVERSION für $TITLE."
 #: PlayOnLinux_Scripts/Zoo_Tycoon_2__Zookeeper_Collection_:31
 #, sh-format
 msgid "Transferring files from Disc 1"
-msgstr ""
+msgstr "Übertrage Dateien von Disc 1"
 
 #: PlayOnLinux_Scripts/Zoo_Tycoon_2__Zookeeper_Collection_:36
 #, sh-format
 msgid "Please insert \"$TITLE\" disc 2"
-msgstr ""
+msgstr "Bitte legen Sie \"$TITLE\" Disc 2 ein"
 
 #: PlayOnLinux_Scripts/Zoo_Tycoon_2__Zookeeper_Collection_:39
 #, sh-format
 msgid "Transferring files from Disc 2"
-msgstr ""
+msgstr "Übertrage Dateien von Disc 2"
 
 #: PlayOnLinux_Scripts/Zoo_Tycoon_2__Zookeeper_Collection_:43
 #, sh-format
@@ -3101,6 +3150,9 @@ msgid ""
 "Please select MORE OPTIONS, then uncheck the RUN \"$TITLE\" AFTER "
 "INSTALLATION option. If you do not, the install will fail!"
 msgstr ""
+"Bitte wählen Sie WEITERE OPTIONEN, und deaktivieren Sie AUSFÜHREN \"$TITLE\" "
+"NACH DER INSTALLATIONS Option. Wenn Sie das nicht tun, schlägt die "
+"Installation fehl!"
 
 #: PlayOnLinux_Scripts/Zoo_Tycoon_2___Ultimate_Collection_:63
 #, sh-format
@@ -3189,8 +3241,8 @@ msgstr "Was haben Sie für ein Problem?"
 msgid "Don't join any log file"
 msgstr "Keine Logfile anlegen"
 
-#: bash/bug_report:53 bash/manual_install:27 bash/manual_install:112
-#: bash/manual_install:118 bash/manual_install:215
+#: bash/bug_report:53 bash/manual_install:27 bash/manual_install:114
+#: bash/manual_install:120 bash/manual_install:220
 #, sh-format
 msgid "Manual installation"
 msgstr "Manuelle Installation"
@@ -3246,7 +3298,7 @@ msgstr ""
 "Willkommen bei $APPLICATION_TITLE virtueller Laufwerk Ersteller.\\n\\nDas "
 "Tool hilft Ihnen, ein neues virtuelles Laufwerk zu erstellen"
 
-#: bash/create_prefix:30 bash/manual_install:194
+#: bash/create_prefix:30 bash/manual_install:196
 #, sh-format
 msgid "What kind of virtual drive do you want to create"
 msgstr "Welche Art von virtuellen Laufwerk wollen Sie erstellen"
@@ -3260,7 +3312,7 @@ msgstr ""
 "(Wenn diese Liste leer ist, installieren Sie bitte einen Wine Version mit "
 "dem Wine-Version Manager)"
 
-#: bash/create_prefix:54 bash/manual_install:180
+#: bash/create_prefix:54 bash/manual_install:182
 #, sh-format
 msgid "Which version of Wine would you like to use?"
 msgstr "Welche Version von Wine möchte Sie nutzen?"
@@ -3271,7 +3323,7 @@ msgid "Choose the name of the virtual drive"
 msgstr "Wählen Sie einen Namen für das virtuelle Laufwerk"
 
 #: bash/expert/Executer:22 bash/expert/Executer:27 bash/expert/Executer:29
-#: python/mainwindow.py:235
+#: python/mainwindow.py:233
 #, sh-format
 msgid "Run a local script"
 msgstr "Ein lokales Skript ausführen"
@@ -3503,7 +3555,7 @@ msgstr "Autorun"
 msgid "No setup location found in autorun.inf"
 msgstr "Setup-Ort in autorun.inf nicht gefunden"
 
-#: bash/manual_install:112
+#: bash/manual_install:114
 #, sh-format
 msgid ""
 "Welcome to $APPLICATION_TITLE manual installation wizard.\\n\\nThis script "
@@ -3516,22 +3568,22 @@ msgstr ""
 "zu installieren und Sie es mit allen Tools verwenden können\\n\\nWarnung: "
 "Wir können nicht garantieren, dass Ihre Anwendung perfekt funktioniert."
 
-#: bash/manual_install:114
+#: bash/manual_install:116
 #, sh-format
 msgid "Install a program in a new virtual drive"
 msgstr "Installiere ein Programm in einem neuem virtuellen Laufwerk"
 
-#: bash/manual_install:115
+#: bash/manual_install:117
 #, sh-format
 msgid "Edit or update an existing application"
 msgstr "Editiere oder aktualisiere eine bestehende Applikation"
 
-#: bash/manual_install:118
+#: bash/manual_install:120
 #, sh-format
 msgid "What would you like to do?"
 msgstr "Wie möchten Sie fortfahren?"
 
-#: bash/manual_install:129
+#: bash/manual_install:131
 #, sh-format
 msgid ""
 "Please type a name for your application's virtual drive.\\nThis name "
@@ -3540,68 +3592,68 @@ msgstr ""
 "Bitte geben Sie einen Namen für Ihre Anwendung des virtuellen Laufwerks "
 "ein.\\nDer Name sollte keine Leerzeichen enthalten."
 
-#: bash/manual_install:141
+#: bash/manual_install:143
 #, sh-format
 msgid "Please choose a program"
 msgstr "Bitte wähle ein Programm"
 
-#: bash/manual_install:162
+#: bash/manual_install:164
 #, sh-format
 msgid "Use another version of Wine"
 msgstr "Benutze eine andere Version von Wine"
 
-#: bash/manual_install:163 bash/manual_install:215 bash/polconfigurator:95
-#: python/configure.py:224 python/mainwindow.py:579 python/mainwindow.py:611
+#: bash/manual_install:165 bash/manual_install:220 bash/polconfigurator:95
+#: python/configure.py:224 python/mainwindow.py:577 python/mainwindow.py:609
 #, sh-format
 msgid "Configure Wine"
 msgstr "Wine konfigurieren"
 
-#: bash/manual_install:164
+#: bash/manual_install:166
 #, sh-format
 msgid "Install some libraries"
 msgstr "Installiere einige Bibliotheken"
 
-#: bash/manual_install:167
+#: bash/manual_install:169
 #, sh-format
 msgid "If you don't know, unselect all"
 msgstr "Wenn Sie es nicht wissen, deaktivieren Sie alle"
 
-#: bash/manual_install:167
+#: bash/manual_install:169
 #, sh-format
 msgid "What would you like to do before installation?"
 msgstr "Was möchten Sie vor der Installation tun?"
 
-#: bash/manual_install:226 lib/scripts.lib:407
+#: bash/manual_install:231 lib/scripts.lib:407
 #, sh-format
 msgid "Please make your choice"
 msgstr "Bitte wählen Sie"
 
-#: bash/manual_install:250
+#: bash/manual_install:259
 #, sh-format
 msgid "Looking for runnable CD-ROMs"
 msgstr "Suche nach laufenden CD-ROMs"
 
-#: bash/manual_install:273
+#: bash/manual_install:282
 #, sh-format
 msgid "Select another file"
 msgstr "Wähle eine andere Datei"
 
-#: bash/manual_install:281
+#: bash/manual_install:290
 #, sh-format
 msgid "Please choose a way to install your program"
 msgstr "Wählen Sie einen Weg zum Installieren Ihres Programms"
 
-#: bash/manual_install:290
+#: bash/manual_install:299
 #, sh-format
 msgid "Please select the install file to run."
 msgstr "Bitte wähle die Installationsdatei zum Ausführen."
 
-#: bash/manual_install:320
+#: bash/manual_install:329
 #, sh-format
 msgid "You must choose a file!"
 msgstr "Sie müssen eine Datei auswählen!"
 
-#: bash/manual_install:326
+#: bash/manual_install:335
 #, sh-format
 msgid "$APPLICATION_TITLE is installing your application..."
 msgstr "$APPLICATION_TITLE installiert Ihre Applikation..."
@@ -3776,7 +3828,7 @@ msgstr "Spiele"
 msgid "Graphics"
 msgstr "Grafik"
 
-#: bash/playonlinux_online:69 python/install.py:215 python/mainwindow.py:265
+#: bash/playonlinux_online:69 python/install.py:215 python/mainwindow.py:263
 #: python/options.py:384
 #, sh-format
 msgid "Internet"
@@ -3792,7 +3844,7 @@ msgstr "Unterhaltung"
 msgid "Office"
 msgstr "Büro"
 
-#: bash/playonlinux_online:69 lib/setupwindow.lib:338 python/install.py:218
+#: bash/playonlinux_online:69 lib/setupwindow.lib:348 python/install.py:218
 #, sh-format
 msgid "Other"
 msgstr "Anderes"
@@ -3889,8 +3941,8 @@ msgstr "Ungültige Dateierweiterung"
 msgid "is not an icon extension"
 msgstr "ist keine Symbolerweiterung"
 
-#: bash/polconfigurator:96 python/configure.py:232 python/mainwindow.py:583
-#: python/mainwindow.py:624
+#: bash/polconfigurator:96 python/configure.py:232 python/mainwindow.py:581
+#: python/mainwindow.py:622
 #, sh-format
 msgid "Registry Editor"
 msgstr "Registrierungseditor"
@@ -4425,34 +4477,34 @@ msgstr ""
 "Sie das Skript erneut aus."
 
 #: lib/setupwindow.lib:122 python/guiv3.py:743 python/lib/irc.py:291
-#: python/mainwindow.py:1120 python/mainwindow.py:1150
-#: python/mainwindow.py:1164 python/mainwindow.py:1173
-#: python/mainwindow.py:1185 python/mainwindow.py:1197 python/wrapper.py:121
+#: python/mainwindow.py:1118 python/mainwindow.py:1148
+#: python/mainwindow.py:1162 python/mainwindow.py:1171
+#: python/mainwindow.py:1183 python/mainwindow.py:1195 python/wrapper.py:121
 #, sh-format
 msgid "Error"
 msgstr "Fehler"
 
-#: lib/setupwindow.lib:337
+#: lib/setupwindow.lib:347
 #, sh-format
 msgid "Where is mounted your CD-ROM?"
 msgstr "Wohin ist Ihr CD-ROM gemountet?"
 
-#: lib/setupwindow.lib:339 python/install.py:283
+#: lib/setupwindow.lib:349 python/install.py:283
 #, sh-format
 msgid "Refresh"
 msgstr "Aktualisieren"
 
-#: lib/setupwindow.lib:370
+#: lib/setupwindow.lib:381
 #, sh-format
 msgid "Reading your device"
 msgstr "Lese Ihr Laufwerk"
 
-#: lib/setupwindow.lib:385
+#: lib/setupwindow.lib:396
 #, sh-format
 msgid "Error: Unable to find the CD-ROM!"
 msgstr "Fehler: Die CD kann nicht gefunden werden!"
 
-#: lib/setupwindow.lib:399
+#: lib/setupwindow.lib:410
 #, sh-format
 msgid ""
 "$TITLE needs to read the PC part of a hybrid CD-Rom.\\n\\nBy default, MacOS "
@@ -4465,7 +4517,7 @@ msgstr ""
 "nicht kompatibel mit neueren Versionen von Mac OS ist.\\n\\ nMöchten Sie, "
 "dass PlayOnMac versucht, den PC-Teil der CD zu lesen?"
 
-#: lib/setupwindow.lib:451
+#: lib/setupwindow.lib:462
 #, sh-format
 msgid ""
 "Don't forget to go to PlayOnMac tools menu -> Read a PC CD-Rom before "
@@ -4474,27 +4526,27 @@ msgstr ""
 "Vergessen Sie nicht, bis PlayOnMac Werkzeuge Menü -> Lesen Sie die PC CD-"
 "ROM, bevor Sie Ihr Spiel ausführen"
 
-#: lib/setupwindow.lib:462
+#: lib/setupwindow.lib:473
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is copying files:"
 msgstr "Bitte warten Sie, während $APPLICATION_TITLE die Dateien kopiert:"
 
-#: lib/setupwindow.lib:547 lib/setupwindow.lib:696
+#: lib/setupwindow.lib:558 lib/setupwindow.lib:707
 #, sh-format
 msgid "Scanning the virtual drive ..."
 msgstr "Durchsuche das virtuelle Laufwerk"
 
-#: lib/setupwindow.lib:561
+#: lib/setupwindow.lib:572
 #, sh-format
 msgid "How much memory does your graphics board have?"
 msgstr "Über wieviel Arbeitsspeicher verfügt Ihre Grafikkarte"
 
-#: lib/setupwindow.lib:570
+#: lib/setupwindow.lib:581
 #, sh-format
 msgid "Video card does not have enough memory"
 msgstr "Ihre Grafikkarte verfügt über nicht ausreichend Arbeitsspeicher"
 
-#: lib/setupwindow.lib:571
+#: lib/setupwindow.lib:582
 #, sh-format
 msgid ""
 "Your video card does not have enough memory!\\nIt might prevent the game "
@@ -4503,67 +4555,67 @@ msgstr ""
 "Ihre Grafikkarte hat nicht genügend Speicher!\\nEs könnte des Spiels beim "
 "Ausführen verhindern"
 
-#: lib/setupwindow.lib:585
+#: lib/setupwindow.lib:596
 #, sh-format
 msgid "Use Steam Store version"
 msgstr "Bitte verwenden Sie die Steam Store Version"
 
-#: lib/setupwindow.lib:586
+#: lib/setupwindow.lib:597
 #, sh-format
 msgid "Use Steam Store demo version"
 msgstr "Benutze Steam Store Demo Version"
 
-#: lib/setupwindow.lib:587
+#: lib/setupwindow.lib:598
 #, sh-format
 msgid "Use Desura Store version"
 msgstr "Benutze Desura Store Version"
 
-#: lib/setupwindow.lib:588
+#: lib/setupwindow.lib:599
 #, sh-format
 msgid "Use Desura Store demo version"
 msgstr "Benutze Desura Store Demo Version"
 
-#: lib/setupwindow.lib:589
+#: lib/setupwindow.lib:600
 #, sh-format
 msgid "Use Origin Store version"
 msgstr "Benutze Origin Store Version"
 
-#: lib/setupwindow.lib:590
+#: lib/setupwindow.lib:601
 #, sh-format
 msgid "Use Origin Store demo version"
 msgstr "Benutze Origin Store Demo Version"
 
-#: lib/setupwindow.lib:592
+#: lib/setupwindow.lib:603
 #, sh-format
 msgid "Use a setup file in my computer"
 msgstr "Benutze die Setup-Datei auf meinem Computer"
 
-#: lib/setupwindow.lib:593
+#: lib/setupwindow.lib:604
 #, sh-format
 msgid "Use CD-ROM(s)"
 msgstr "Benutze CD-ROM(s)"
 
-#: lib/setupwindow.lib:594
+#: lib/setupwindow.lib:605
 #, sh-format
 msgid "Use DVD-ROM(s)"
 msgstr "Benutze DVD-ROM(s)"
 
-#: lib/setupwindow.lib:595
+#: lib/setupwindow.lib:606
 #, sh-format
 msgid "Download the program"
 msgstr "Herunterladen des Programms"
 
-#: lib/setupwindow.lib:660
+#: lib/setupwindow.lib:671
 #, sh-format
 msgid "Please choose an installation method"
 msgstr "Bitte wählen Sie eine Installationsmethode"
 
-#: lib/setupwindow.lib:698
+#: lib/setupwindow.lib:709
 #, sh-format
 msgid "I don't want to make another shortcut"
 msgstr "Ich möchte keinen anderen Shortcut erzeugen"
 
-#: lib/setupwindow.lib:699 python/guiv3.py:151
+#: lib/setupwindow.lib:710 python/guiv3.py:151
 #, sh-format
 msgid "Browse"
 msgstr "Durchsuchen"
@@ -4758,8 +4810,8 @@ msgstr ""
 "Seien Sie vorsichtig! Installieren einer dieser Komponenten kann Ihr "
 "virtuelles Laufwerk beeinflussen."
 
-#: python/configure.py:327 python/install.py:282 python/mainwindow.py:200
-#: python/mainwindow.py:353
+#: python/configure.py:327 python/install.py:282 python/mainwindow.py:198
+#: python/mainwindow.py:351
 msgid "Install"
 msgstr "Installieren"
 
@@ -4823,7 +4875,7 @@ msgstr ""
 "Seien Sie vorsichtig!\n"
 "Wenn Sie ändern "
 
-#: python/configure.py:644 python/mainwindow.py:924 python/mainwindow.py:926
+#: python/configure.py:644 python/mainwindow.py:922 python/mainwindow.py:924
 msgid "{0} configuration"
 msgstr "{0} Konfiguration"
 
@@ -4836,8 +4888,8 @@ msgstr ""
 msgid "New"
 msgstr "Neu"
 
-#: python/configure.py:671 python/mainwindow.py:201 python/mainwindow.py:354
-#: python/mainwindow.py:599 python/options.py:207
+#: python/configure.py:671 python/mainwindow.py:199 python/mainwindow.py:352
+#: python/mainwindow.py:597 python/options.py:207
 msgid "Remove"
 msgstr "Entfernen"
 
@@ -4845,7 +4897,7 @@ msgstr "Entfernen"
 msgid "Install components"
 msgstr "Installiere Komponenten"
 
-#: python/configure.py:690 python/mainwindow.py:335
+#: python/configure.py:690 python/mainwindow.py:333
 msgid "Display"
 msgstr "Anzeige"
 
@@ -4866,8 +4918,8 @@ msgstr ""
 msgid "Are you sure you want to delete {0} ?"
 msgstr "Sind Sie sich sicher, dass Sie {0} löschen wollen?"
 
-#: python/debug.py:39 python/mainwindow.py:257 python/mainwindow.py:899
-#: python/mainwindow.py:982
+#: python/debug.py:39 python/mainwindow.py:255 python/mainwindow.py:897
+#: python/mainwindow.py:980
 msgid "{0} debugger"
 msgstr "{0} debugger"
 
@@ -4955,7 +5007,7 @@ msgstr "Sie können dieses Fenster nicht schließen"
 msgid "No description"
 msgstr "Keine Beschreibung"
 
-#: python/install.py:249 python/mainwindow.py:369 python/mainwindow.py:372
+#: python/install.py:249 python/mainwindow.py:367 python/mainwindow.py:370
 msgid "Search"
 msgstr "Suchen"
 
@@ -5058,7 +5110,7 @@ msgstr "Verlassen"
 msgid "Join a channel"
 msgstr "Kanal betreten"
 
-#: python/irc.py:257 python/mainwindow.py:722
+#: python/irc.py:257 python/mainwindow.py:720
 msgid "Messenger"
 msgstr "Sofortnachrichtendienst"
 
@@ -5093,185 +5145,185 @@ msgid "{0} error"
 msgstr "{0} Fehler"
 
 #: python/mainwindow.py:72
-msgid "{0} website is unavailable. Please check your connexion"
+msgid "{0} website is unavailable. Please check your connection"
 msgstr ""
-"{0} Internetseite ist nicht erreichbar. Bitte prüfen Sie ihre Verbindung"
+"{0} Website ist nicht verfügbar. Bitte überprüfen Sie Ihre Verbindung"
 
 #: python/mainwindow.py:74
 msgid "Refreshing {0}"
 msgstr "Aktualisiere {0}"
 
-#: python/mainwindow.py:93 python/mainwindow.py:95
+#: python/mainwindow.py:91 python/mainwindow.py:93
 msgid "An updated version of {0} is available"
 msgstr "Eine aktualisierte Version von {0} ist verfügbar"
 
-#: python/mainwindow.py:199 python/mainwindow.py:349 python/mainwindow.py:731
+#: python/mainwindow.py:197 python/mainwindow.py:347 python/mainwindow.py:729
 msgid "Run"
 msgstr "Ausführen"
 
-#: python/mainwindow.py:203
+#: python/mainwindow.py:201
 msgid "Donate"
 msgstr "Spenden"
 
-#: python/mainwindow.py:204
+#: python/mainwindow.py:202
 msgid "Exit"
 msgstr "Beenden"
 
-#: python/mainwindow.py:208
+#: python/mainwindow.py:206
 msgid "Small icons"
 msgstr "Kleine Symbole"
 
-#: python/mainwindow.py:209
+#: python/mainwindow.py:207
 msgid "Medium icons"
 msgstr "Mittelgroße Symbole"
 
-#: python/mainwindow.py:210
+#: python/mainwindow.py:208
 msgid "Large icons"
 msgstr "Große Symbole"
 
-#: python/mainwindow.py:211
+#: python/mainwindow.py:209
 msgid "Very large icons"
 msgstr "Sehr große Symbole"
 
-#: python/mainwindow.py:223
+#: python/mainwindow.py:221
 msgid "Manage Wine versions"
 msgstr "Wine-Versionen verwalten"
 
-#: python/mainwindow.py:229
+#: python/mainwindow.py:227
 msgid "Read a PC CD-Rom"
 msgstr "Lese eine PC CD-ROM"
 
-#: python/mainwindow.py:239
+#: python/mainwindow.py:237
 msgid "Close all {0} software"
 msgstr "Wähle alle {0} Software"
 
-#: python/mainwindow.py:243
+#: python/mainwindow.py:241
 msgid "{0} console"
 msgstr "{0} Konsole"
 
-#: python/mainwindow.py:253
+#: python/mainwindow.py:251
 msgid "{0} messenger"
 msgstr "{0} Sofortnachrichtendienst"
 
-#: python/mainwindow.py:269 python/options.py:388
+#: python/mainwindow.py:267 python/options.py:388
 msgid "File associations"
 msgstr "Dateizuordnungen"
 
-#: python/mainwindow.py:276
+#: python/mainwindow.py:274
 msgid "About {0}"
 msgstr "Über {0}"
 
-#: python/mainwindow.py:305 python/mainwindow.py:309
+#: python/mainwindow.py:303 python/mainwindow.py:307
 msgid "Plugin manager"
 msgstr "Erweiterungen-Verwaltung"
 
-#: python/mainwindow.py:334
+#: python/mainwindow.py:332
 msgid "File"
 msgstr "Datei"
 
-#: python/mainwindow.py:336
+#: python/mainwindow.py:334
 msgid "Tools"
 msgstr "Werkzeuge"
 
-#: python/mainwindow.py:337 python/mainwindow.py:720
+#: python/mainwindow.py:335 python/mainwindow.py:718
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: python/mainwindow.py:338 python/options.py:387
+#: python/mainwindow.py:336 python/options.py:387
 msgid "Plugins"
 msgstr "Erweiterungen"
 
-#: python/mainwindow.py:350 python/mainwindow.py:733
+#: python/mainwindow.py:348 python/mainwindow.py:731
 msgid "Close"
 msgstr "Beenden"
 
-#: python/mainwindow.py:356 python/mainwindow.py:739 python/options.py:208
+#: python/mainwindow.py:354 python/mainwindow.py:737 python/options.py:208
 msgid "Configure"
 msgstr "Konfigurieren"
 
-#: python/mainwindow.py:587
+#: python/mainwindow.py:585
 msgid "Open the application's directory"
 msgstr "Anwendungsverzeichnis öffnen"
 
-#: python/mainwindow.py:591 python/mainwindow.py:747
+#: python/mainwindow.py:589 python/mainwindow.py:745
 msgid "Read the manual"
 msgstr "Handbuch lesen"
 
-#: python/mainwindow.py:595
+#: python/mainwindow.py:593
 msgid "Set the icon"
 msgstr "Symbol festlegen"
 
-#: python/mainwindow.py:603
+#: python/mainwindow.py:601
 msgid "Close this application"
 msgstr "Diese Anwendung schließen"
 
-#: python/mainwindow.py:614
+#: python/mainwindow.py:612
 msgid "KillApp"
 msgstr "KillApp"
 
-#: python/mainwindow.py:621
+#: python/mainwindow.py:619
 msgid "No manual found for {0}"
 msgstr "Kein Handbuch für {0}"
 
-#: python/mainwindow.py:718
+#: python/mainwindow.py:716
 msgid "Install a program"
 msgstr "Installiere ein Programm"
 
-#: python/mainwindow.py:725
+#: python/mainwindow.py:723
 msgid "Update GIT"
 msgstr "Update GIT"
 
-#: python/mainwindow.py:735
+#: python/mainwindow.py:733
 msgid "Debug"
 msgstr "Debug"
 
-#: python/mainwindow.py:737
+#: python/mainwindow.py:735
 msgid "Report a problem"
 msgstr "Problem melden"
 
-#: python/mainwindow.py:741
+#: python/mainwindow.py:739
 msgid "Create a shortcut"
 msgstr "Erstelle ein Shortcut"
 
-#: python/mainwindow.py:743
+#: python/mainwindow.py:741
 msgid "Open the directory"
 msgstr "Öffnet ein Verzeichnis"
 
-#: python/mainwindow.py:750
+#: python/mainwindow.py:748
 msgid "Uninstall"
 msgstr "Deinstallieren"
 
-#: python/mainwindow.py:872 python/mainwindow.py:943 python/mainwindow.py:988
+#: python/mainwindow.py:870 python/mainwindow.py:941 python/mainwindow.py:986
 msgid "Please select a program."
 msgstr "Bitte wähle ein Programm"
 
-#: python/mainwindow.py:880 python/mainwindow.py:882 python/mainwindow.py:884
+#: python/mainwindow.py:878 python/mainwindow.py:880 python/mainwindow.py:882
 msgid "{0} settings"
 msgstr "{0} Einstellungen"
 
-#: python/mainwindow.py:950
+#: python/mainwindow.py:948
 msgid "{0} install menu"
 msgstr "{0} Installationsmenü"
 
-#: python/mainwindow.py:959
+#: python/mainwindow.py:957
 msgid "{0} wine versions manager"
 msgstr "{0} Wine-Version-Verwaltung"
 
-#: python/mainwindow.py:990
+#: python/mainwindow.py:988
 msgid "The virtual drive associated with {0} ({1}) does no longer exists."
 msgstr ""
 "Das virtuelle Laufwerk welches in Verbindung mit {0} ({1}) steht, existiert "
 "nicht länger."
 
-#: python/mainwindow.py:1034
+#: python/mainwindow.py:1032
 msgid "Are you sure you want to close all {0} Windows?"
 msgstr "Sind Sie sicher, dass Sie alle Fenster von {0} schließen möchten?"
 
-#: python/mainwindow.py:1073
+#: python/mainwindow.py:1071
 msgid "Run your Windows programs on "
 msgstr "Führen Sie ihr Windows-Programm aus auf "
 
-#: python/mainwindow.py:1074
+#: python/mainwindow.py:1072
 msgid ""
 "PlayOnLinux and PlayOnMac team\n"
 "Under GPL licence version 3"
@@ -5279,74 +5331,74 @@ msgstr ""
 "PlayOnLinux und PlayOnMac Team\n"
 "Unter GPL Lizenz Version 3"
 
-#: python/mainwindow.py:1075
+#: python/mainwindow.py:1073
 msgid "Developer and Website: "
 msgstr "Entwickler und Internetauftritt: "
 
-#: python/mainwindow.py:1076
+#: python/mainwindow.py:1074
 msgid "Scriptors: "
 msgstr "Skriptschreiber: "
 
-#: python/mainwindow.py:1077
+#: python/mainwindow.py:1075
 msgid "Packager: "
 msgstr "Programm zum Erstellen von Paketen: "
 
-#: python/mainwindow.py:1078
+#: python/mainwindow.py:1076
 msgid "Icons:"
 msgstr "Symbole:"
 
-#: python/mainwindow.py:1079
+#: python/mainwindow.py:1077
 msgid "The following people contributed to this program: "
 msgstr "Die folgenden Personen haben zu diesem Programm beigetragen: "
 
-#: python/mainwindow.py:1080
+#: python/mainwindow.py:1078
 msgid "Translations:"
 msgstr "Übersetzungen:"
 
-#: python/mainwindow.py:1081
+#: python/mainwindow.py:1079
 msgid "Read TRANSLATORS file"
 msgstr "Lese TRANSLATORS Datei"
 
-#: python/mainwindow.py:1120
+#: python/mainwindow.py:1118
 msgid "{0} is not able to start PlayOnLinux Setup Window server."
 msgstr "{0} konnte PlayOnLinux-Installationsfenster-Server nicht starten."
 
-#: python/mainwindow.py:1141
+#: python/mainwindow.py:1139
 msgid "{0} cannot find {1}"
 msgstr "{0} kann nicht {1} finden"
 
-#: python/mainwindow.py:1143
+#: python/mainwindow.py:1141
 msgid " (from {2})"
 msgstr " (von {2})"
 
-#: python/mainwindow.py:1146
+#: python/mainwindow.py:1144
 msgid "You need to install it to continue"
 msgstr "Sie müssen es installieren, um fortzufahren"
 
-#: python/mainwindow.py:1148
+#: python/mainwindow.py:1146
 msgid "You should install it to use {0}"
 msgstr "Sie sollten es installieren um {0} verwenden zu können"
 
-#: python/mainwindow.py:1164
+#: python/mainwindow.py:1162
 msgid "{0} is not supposed to be run as root. Sorry"
 msgstr ""
 "{0} kann nicht mit Administratorrechten ausgeführt werden. Entschuldigung"
 
-#: python/mainwindow.py:1173
+#: python/mainwindow.py:1171
 msgid ""
 "{0} is unable to find 32bits OpenGL libraries.\n"
 "\n"
 "You might encounter problem with your games"
 msgstr "{0} ist nicht in der Lage 32bits OpenGL-Bibliotheken zu finden."
 
-#: python/mainwindow.py:1185
+#: python/mainwindow.py:1183
 msgid ""
 "{0} is unable to find 64bits OpenGL libraries.\n"
 "\n"
 "You might encounter problem with your games"
 msgstr "{0} ist nicht in der Lage 64bits OpenGL-Bibliotheken zu finden."
 
-#: python/mainwindow.py:1197
+#: python/mainwindow.py:1195
 msgid ""
 "Your filesystem might prevent {0} from running correctly.\n"
 "\n"
@@ -5356,7 +5408,7 @@ msgstr ""
 "\n"
 "Bitte öffnen Sie {0} in einem Terminal, um mehr Details zu erhalten"
 
-#: python/mainwindow.py:1201
+#: python/mainwindow.py:1199
 msgid ""
 "Do you want to help {0} to make a compatibility database?\n"
 "\n"
@@ -5381,11 +5433,11 @@ msgstr ""
 "\n"
 "Diese Informationen sind sehr wertvoll für uns um die Menschen zu helfen."
 
-#: python/mainwindow.py:1254
+#: python/mainwindow.py:1252
 msgid "Are you sure you want to  want to install {0} package?"
 msgstr "Sind Sie sicher, dass sie das {0}-Paket installieren wollen?"
 
-#: python/mainwindow.py:1261 python/mainwindow.py:1263
+#: python/mainwindow.py:1259 python/mainwindow.py:1261
 msgid ""
 "You are trying to open a script design for {0}! It might not work as expected"
 msgstr ""
