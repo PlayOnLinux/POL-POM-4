@@ -24,7 +24,8 @@ class Shortcut():
    def run(self):
        arguments = [self.shortcutName] + self.args
        self.shortcutScript = PrivateGUIScript("run_app", arguments)
-       self.shortcutScript.runBackground()
+       self.shortcutScript.start()
+       
        
    def getName(self):
        return self.shortcutName

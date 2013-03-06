@@ -27,7 +27,10 @@ class SystemCheck(object):
        
        try:
            which = Executable("which",[executableToCheck])
-           return (which.runSilently() == 0)
+           which.start()
+           which.waitProcessEnd()
+           
+           return (which.getRetCode() == 0)
        except OSError:
            return False
 
@@ -35,9 +38,9 @@ class SystemCheck(object):
        if not self.executableFound(executable):
            
            if package is not None:
-               message = _("[APP] cannot find {1} from {2}").fo
+               message = _("[APP] cannot find {0} from {1}").format(executable, package)
            else:
-               message = _("[APP] cannot find {1}")
+               message = _("[APP] cannot find {0}").format(executable)
                
 
            if (fatal):
@@ -48,7 +51,7 @@ class SystemCheck(object):
            Error( "%s\n\n%s" % (message, verdict) )
 
            if fatal:
-               self.appDie()
+               wx.GetApp().softExit()
 
    def doOpenGLCheck():
        # 32 bits OpenGL check

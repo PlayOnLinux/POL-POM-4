@@ -16,7 +16,7 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-import threading
+import threading, time, urllib
 
 class Downloader(threading.Thread):
     def __init__(self, url, local):
@@ -27,7 +27,6 @@ class Downloader(threading.Thread):
         self.blockSize = 0
         self.nbBlocks = 0
         self.finished = False
-        self.start()
         self.failed = False
 
     # Getters
@@ -62,6 +61,7 @@ class Downloader(threading.Thread):
         self.fileSize = fileSize
 
     def download(self):
+        # FIXME
         try:
             urllib.urlretrieve(self.url, self.local, reporthook = self.onHook)
         except:

@@ -4,15 +4,13 @@
 
 # Python
 import subprocess, os
+
+# PlayOnLinux
 from lib.Executable import Executable
-
-
 from lib.Context import Context
-
 from lib.ConfigFile import GlobalConfigFile 
 from lib.ConfigFile import CustomConfigFile
 from lib.ConfigFile import UserConfigFile
-
 from lib.Environement import Environement
 from lib.GuiServer import GuiServer
 
@@ -70,4 +68,11 @@ class PrivateGUIScript(PrivateScript):
         self.execEnv.setEnv("POL_COOKIE", GuiServer().getCookie())
 
   
-        
+class POLUpdaterScript(PrivateScript):
+     def __init__(self, parent):
+         self.parent = parent
+         PrivateScript.__init__(self, "pol_update_list", [])   
+             
+     def parseScriptOut(self, line):
+         if(line.isdigit()):
+             self.parent.sendPercentage(int(line)) 

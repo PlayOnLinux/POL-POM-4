@@ -393,11 +393,7 @@ class MainWindow(wx.Frame):
         
         if(command == "POL_Restart"):
             playOnLinuxApp.polRestart()
-            GuiServer().getState().release(scriptPid)
-            
-        if(command == 'POL_System_RegisterPID'):
-            Context().registerPid(scriptPid)  
-            GuiServer().getState().release(scriptPid)      
+            GuiServer().getState().release(scriptPid)   
         
         if(command == 'POL_SetupWindow_Init'):
            if(len(data) == 6):
@@ -865,10 +861,10 @@ class MainWindow(wx.Frame):
             self.optionFrame.Show(True)
 
     def killall(self, event):
-        PrivateGUIScript("killall").runBackground()
+        PrivateGUIScript("killall").start()
 
     def Executer(self, event):
-        PrivateGUIScript("localScript").runBackground()
+        PrivateGUIScript("localScript").start()
 
     def BugReport(self, event):
         try:
@@ -888,7 +884,7 @@ class MainWindow(wx.Frame):
 
     def PolShell(self, event):
         self.polshell = PrivateGUIScript("POLShell")
-        self.polshell.runBackground()
+        self.polshell.start()
         #print "Test"
         
     def Configure(self, event):

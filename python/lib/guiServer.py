@@ -24,6 +24,11 @@ from lib.UIHelper import UIHelper
 from lib.GuiServerQueue import GuiServerQueue
 from lib.GuiServerState import GuiServerState
 
+
+class ErrServerIsNotRunning(Exception):
+   def __str__(self):
+      return repr(_("The server is not running"))
+      
 class GuiServer(threading.Thread):
     instance = None    
    
@@ -52,7 +57,7 @@ class GuiServer(threading.Thread):
             
     def getQueue(self):
         return self.queue
-
+        
     def getState(self):
         return self.state
         
@@ -108,8 +113,11 @@ class GuiServer(threading.Thread):
         
 
     def closeServer(self):
-        
-        self.acceptor.close()
+        try:
+            self.acceptor.close()
+        except AttributeError:
+            raise ErrServerIsNotRunning
+            
         self._running = False
 
     def processReceivedData(self, recvData):

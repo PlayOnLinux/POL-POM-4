@@ -21,23 +21,24 @@ encoding = 'utf-8'
 # Python imports
 import os, getopt, sys, urllib, signal, string, time, webbrowser, gettext, locale, sys, shutil, subprocess, signal, threading
 import wx, wx.aui
+import sys, traceback, threading
 
 # PlayOnLinux imports
 from lib.Environement import Environement
 from lib.Context import Context
 from lib.SystemCheck import SystemCheck
 from lib.Script import PrivateScript
+from lib.Executable import Executable
 from lib.ConfigFile import UserConfigFile
 from lib.File import File
-from lib.GuiServer import GuiServer
+from lib.GuiServer import GuiServer, ErrServerIsNotRunning
 from lib.UI import UI
-
 
 # Views
 from views.MainWindow import MainWindow
+from views.Question import Question
+from views.Message import Message
 
-# tmp
-import sys, traceback, threading
 
 class PlayOnLinuxApp(wx.App):
     def OnInit(self):
@@ -47,7 +48,10 @@ class PlayOnLinuxApp(wx.App):
         self.playonlinuxSettings = UserConfigFile()
         
         
-        PrivateScript("startup").run()
+        startupScript = PrivateScript("startup")
+        startupScript.start()
+        startupScript.waitProcessEnd()
+        
         SystemCheck().doFullCheck()
         
         # Anonymous reports ?
@@ -62,17 +66,19 @@ class PlayOnLinuxApp(wx.App):
         self.frame = MainWindow(None, -1, Context().getAppName())
         self.SetTopWindow(self.frame)
         self.frame.Show(True)
+        
         # Gui Server
         self.initPOLServer()
         
-        
-        PrivateScript("startup_after_server").runBackground()
-   
-        
+        # Startup Script after servr
+        self.startupScript = PrivateScript("startup_after_server")
+        self.startupScript.start()
         
         # Catch CTRL+C
         signal.signal(signal.SIGINT, self.CatchCtrlC)
         
+        # Exiting
+        self.exiting = False
         return True
 
     def openDocuments(self):
@@ -89,29 +95,26 @@ class PlayOnLinuxApp(wx.App):
     def askForReports(self):
         if(not Context().isDebianPackage()):
             if(self.playonlinuxSettings.getSetting("SEND_REPORT") == ""):
-                if(wx.YES == wx.MessageBox(_('Do you want to help {0} to make a compatibility database?\n\nIf you click yes, the following things will be sent to us anonymously the first time you run a Windows program:\n\n- You graphic card model\n- Your OS version\n- If graphic drivers are installed or not.\n\n\nThese information will be very precious for us to help people.').format(Context().getAppName()).decode("utf-8","replace"), Context().getAppName(),style=wx.YES_NO | wx.ICON_QUESTION)):
+                if(Question(_('Do you want to help [APP] to make a compatibility database?\n\nIf you click yes, the following things will be sent to us anonymously the first time you run a Windows program:\n\n- You graphic card model\n- Your OS version\n- If graphic drivers are installed or not.\n\n\nThese information will be very precious for us to help people.'))):
                     self.playonlinuxSettings.setSetting("SEND_REPORT","TRUE")
                 else:
                     self.playonlinuxSettings.setSetting("SEND_REPORT","FALSE")
                     
     def BringWindowToFront(self):
-        # FIXME
-        try: # it's possible for this event to come when the frame is closed
-            self.GetTopWindow().Raise()
-        except:
-            pass
-
+        self.GetTopWindow().Raise()
+       
     def MacOpenFile(self, filename):
         openedFile = File(filename)
         openedFile.openCleverWay()
 
     def MacOpenURL(self, url):
         if(Context().getOS() == "Mac" and "playonlinux://" in url):
-            wx.MessageBox(_("You are trying to open a script design for {0}! It might not work as expected").format("PlayOnLinux"), Context().getAppName())
+            Message(_("You are trying to open a script design for {0}! It might not work as expected").format("PlayOnLinux"))
         if(Context().getOS() == "Linux" and "playonmac://" in url):
-            wx.MessageBox(_("You are trying to open a script design for {0}! It might not work as expected").format("PlayOnMac"), Context().getAppName())
+            Message(_("You are trying to open a script design for {0}! It might not work as expected").format("PlayOnMac"))
 
-        PrivateScript("playonlinux-url_handler",[url]).runPoll()
+        self.urlHandler = PrivateScript("playonlinux-url_handler",[url])
+        self.urlHandler.run()
 
     def MacReopenApp(self):
         self.BringWindowToFront()
@@ -123,17 +126,13 @@ class PlayOnLinuxApp(wx.App):
     def initLanguage(self):
         if(Context().isDebianPackage()):
             languages = os.listdir('/usr/share/locale')
-        else:
-            languages = os.listdir(Context().getAppPath()+'/lang/locale')
-
-        langid = wx.LANGUAGE_DEFAULT
-        if(Context().isDebianPackage()):
             localedir = "/usr/share/locale"
         else:
-            localedir = os.path.join(Context().getAppPath(), "lang/locale")
+            languages = os.listdir(Context().getAppPath()+'/lang/locale')
+            localedir = os.path.join(Context().getAppPath(), "lang/locale")        
 
         domain = "pol"
-        mylocale = wx.Locale(langid)
+        mylocale = wx.Locale(wx.LANGUAGE_DEFAULT)
         mylocale.AddCatalogLookupPathPrefix(localedir)
         mylocale.AddCatalog(domain)
 
@@ -141,13 +140,36 @@ class PlayOnLinuxApp(wx.App):
         mytranslation.install()
         
       
-    # Should not be used alone
+    # Manage PlayOnLinux Exit
+    def isExiting(self):
+        try:
+            return self.exiting
+        except AttributeError: #self.exiting is not existing yet, the application has just been launced
+            return False
+            
+    # Should not be used.
     def hardExit(self, code = 0):
         os._exit(code)
    
     def softExit(self, code = 0):
-        GuiServer().closeServer()
-        self.frame.Destroy()
+        self.exiting = True
+        # Close GUI Server
+        try:
+            GuiServer().closeServer()
+        except ErrServerIsNotRunning:
+            pass
+            
+        # Destroy main window
+        try:
+            self.frame.Destroy()
+        except AttributeError: # The frame does not exist yet
+            pass
+            
+        # Close all scripts
+        for thread in threading.enumerate():
+            if(isinstance(thread, Executable)):
+                thread.__del__()
+            
         return code
         #sys.exit(code)
         

@@ -41,6 +41,3 @@ fi
 if [ ! "$POL_DONT_REGISTER_PID" ]; then
 	POL_System_RegisterPID "$$"
 fi
-
-printf "$$ ---- $0 $@"
-set -o | grep -i monitor

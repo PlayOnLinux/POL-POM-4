@@ -793,6 +793,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
         self.nomFichier = self.chemin.split('/')[-1]
         self.local = localB + self.nomFichier
         self.downloader = Downloader(url, self.local)
+        self.downloader.start()
         self.timerDownload = True
 
 

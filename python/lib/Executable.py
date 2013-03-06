@@ -12,15 +12,30 @@ from lib.ConfigFile import UserConfigFile
 
 from lib.Environement import Environement
 
+class ErrExecutableIsRunning(Exception):
+   def __str__(self):
+      return repr(_("The process is running"))
 
-class Executable(object):
+class ErrExecutableIsNotRunning(Exception):
+   def __str__(self):
+      return repr(_("The process is not running"))
+      
+class Executable(threading.Thread):
    def __init__(self, path, args):
+      threading.Thread.__init__(self)
       self.pid = 0
       self.path = path[:]
       self.args = args[:]  
       self.execEnv = Environement()
       self.setEnv()
+      self.retcode = None
+      self.waitingStart = True # Avoid synchronisation problems
+      self.running = False
+      self.keepAlive = False
       
+   def setKeepAlive(self, value = True):
+       self.keepAlive = value
+       
    def getProgramArray(self):
        args = self.args[:]
        args.insert(0,self.path)
@@ -95,34 +110,57 @@ class Executable(object):
        
        self.setPath()
 
-       
-   def callPopen(self, stdout = None):
-       #myProcess = subprocess.Popen(self.getProgramArray(), stdout = subprocess.PIPE, preexec_fn = lambda: os.setpgid(os.getpid(), os.getpid()), env = self.execEnv.get())
-       if(stdout == None):
-           myProcess = subprocess.Popen(self.getProgramArray(), preexec_fn = lambda: os.setpgid(os.getpid(), os.getpid()), env = self.execEnv.get())
-       else :
-           myProcess = subprocess.Popen(self.getProgramArray(), preexec_fn = lambda: os.setpgid(os.getpid(), os.getpid()), stdout = stdout, env = self.execEnv.get())
-       self.pid = myProcess.pid
-       return myProcess
+      
     
    # These two methods run the script and return the exitcode
-   def runSilently(self):
-      devnull = open('/dev/null', 'wb')
-      myProcess = self.callPopen(devnull)
-      return myProcess.wait()
-      
+   def parseScriptOut(self, line):
+       # This method is made to be overwritten
+       return
+       
    def run(self):
-      process = self.callPopen()
-      return process.wait()
+      
+      process = subprocess.Popen(self.getProgramArray(), bufsize=1, preexec_fn = lambda: os.setpgid(os.getpid(), os.getpid()), stdout = subprocess.PIPE, env = self.execEnv.get())
+      self.running = True
+      self.process = process
+      self.pid = process.pid
+      self.waitingStart = False
+      
+      while(True):
+          line = process.stdout.readline()
 
-   def runPipe(self):
-      process = self.callPopen( subprocess.PIPE )
-      return process
-
-   def runBackground(self):
-       process = self.callPopen()
-       print process.pid
-       return process
+          self.parseScriptOut(line.replace("\n",""))
+          
+          self.retcode = process.poll() 
+          if(self.retcode is not None):
+              break
+              
+      self.running = False
+      
+      # Need to be tested
+      if(not self.keepAlive):
+          del self 
+              
+   def isRunning(self):
+       return self.running
+  
+   def getRetCode(self):
+       if(self.isRunning()):
+           raise ErrExecutableIsRunning
+       else:
+           return self.retcode
+ 
+   def getPid(self):
+       if(not self.isRunning()):
+           raise ErrExecutableIsNotRunning
+       else:
+           return self.pid
+      
+           
+   def waitProcessEnd(self):
+       while (self.isRunning() or self.waitingStart):
+           time.sleep(0.01)
+       
+       self.waitingStart = True
         
    def __del__(self):
        print "I will destroy "+str(self.pid)+str(self.getProgramArray())
