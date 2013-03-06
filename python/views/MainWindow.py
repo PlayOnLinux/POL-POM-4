@@ -946,7 +946,8 @@ class MainWindow(wx.Frame):
         return Shortcut(selectedName)
         
     def Run(self, event, s_debug=False):
-        selectedProgram = self.GetSelectedProgram()
+        self.selectedProgram =  self.GetSelectedProgram()
+        selectedProgram = self.selectedProgram
         game_exec = selectedProgram.getName()
         game_prefix = selectedProgram.getPrefix()
 
@@ -965,7 +966,7 @@ class MainWindow(wx.Frame):
                         self.debugFrame.Center(wx.BOTH)
                         self.debugFrame.Show()
   
-                selectedProgram.runPoll()
+                selectedProgram.run()
             else:
                 wx.MessageBox(_("Please select a program."), Context().getAppName())
         else:

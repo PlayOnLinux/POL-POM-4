@@ -99,9 +99,9 @@ class Executable(object):
    def callPopen(self, stdout = None):
        #myProcess = subprocess.Popen(self.getProgramArray(), stdout = subprocess.PIPE, preexec_fn = lambda: os.setpgid(os.getpid(), os.getpid()), env = self.execEnv.get())
        if(stdout == None):
-           myProcess = subprocess.Popen(self.getProgramArray(), env = self.execEnv.get())
+           myProcess = subprocess.Popen(self.getProgramArray(), preexec_fn = lambda: os.setpgid(os.getpid(), os.getpid()), env = self.execEnv.get())
        else :
-           myProcess = subprocess.Popen(self.getProgramArray(), stdout = stdout, env = self.execEnv.get())
+           myProcess = subprocess.Popen(self.getProgramArray(), preexec_fn = lambda: os.setpgid(os.getpid(), os.getpid()), stdout = stdout, env = self.execEnv.get())
        self.pid = myProcess.pid
        return myProcess
     

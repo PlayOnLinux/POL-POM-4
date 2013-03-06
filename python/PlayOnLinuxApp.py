@@ -25,7 +25,6 @@ import wx, wx.aui
 # PlayOnLinux imports
 from lib.Environement import Environement
 from lib.Context import Context
-from lib.SystemManager import SystemManager
 from lib.SystemCheck import SystemCheck
 from lib.Script import PrivateScript
 from lib.ConfigFile import UserConfigFile
@@ -61,15 +60,15 @@ class PlayOnLinuxApp(wx.App):
         self.SetClassName(Context().getAppName())
         self.SetAppName(Context().getAppName())
         self.frame = MainWindow(None, -1, Context().getAppName())
-        
+        self.SetTopWindow(self.frame)
+        self.frame.Show(True)
         # Gui Server
         self.initPOLServer()
         
         
         PrivateScript("startup_after_server").runBackground()
    
-        self.SetTopWindow(self.frame)
-        self.frame.Show(True)
+        
         
         # Catch CTRL+C
         signal.signal(signal.SIGINT, self.CatchCtrlC)
@@ -119,7 +118,7 @@ class PlayOnLinuxApp(wx.App):
 
     def CatchCtrlC(self, signal, event): # Catch SIGINT
         print "\nCtrl+C pressed. Killing all processes..."
-        SystemManager().polDie()
+        self.polDie()
         
     def initLanguage(self):
         if(Context().isDebianPackage()):
@@ -144,22 +143,13 @@ class PlayOnLinuxApp(wx.App):
       
     # Should not be used alone
     def hardExit(self, code = 0):
-        self.frame.Destroy()
-        
-        for thread_id, frame in sys._current_frames().iteritems():
-            name = thread_id
-            for thread in threading.enumerate():
-                if thread.ident == thread_id:
-                    name = thread.name
-            traceback.print_stack(frame)
-      
-        #sys.exit(code)
-        #wx.Exit()
-        #os._exit(code)
+        os._exit(code)
    
     def softExit(self, code = 0):
         GuiServer().closeServer()
-        self.hardExit(code)
+        self.frame.Destroy()
+        return code
+        #sys.exit(code)
         
     def polDie(self):
         self.softExit(0)

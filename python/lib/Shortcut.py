@@ -10,23 +10,22 @@ import string
 import ConfigFile
 
 from lib.Context import Context
-from lib.Script import PrivateScript
+from lib.Script import PrivateGUIScript
 from lib.Prefix import Prefix
 from lib.Environement import Environement
 
-class Shortcut(PrivateScript):
+class Shortcut():
    def __init__(self, shortcutName, args = []):
+      self.args = args[:]
       self.shortcutName = shortcutName
-      self.shortcutPath = Context().getUserRoot()+"/shortcuts/"+shortcutName
-      
-      
-      self.needSignature = False
       self.context = Context()
-
-      args = args[:]
-      args.insert(0, shortcutName)
-      PrivateScript.__init__(self, "run_app", args)
+      self.shortcutPath = self.context.getUserRoot()+"/shortcuts/"+shortcutName
       
+   def run(self):
+       arguments = [self.shortcutName] + self.args
+       self.shortcutScript = PrivateGUIScript("run_app", arguments)
+       self.shortcutScript.runBackground()
+       
    def getName(self):
        return self.shortcutName
        
