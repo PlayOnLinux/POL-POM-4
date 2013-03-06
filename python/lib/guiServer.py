@@ -21,7 +21,7 @@ import string
 
 from lib.Context import Context
 from lib.UIHelper import UIHelper
-from lib.GuiServerQueue import GuiServerQueue
+from lib.Queue import Queue
 from lib.GuiServerState import GuiServerState
 
 
@@ -52,7 +52,7 @@ class GuiServer(threading.Thread):
             self._running = True
             self.cookie = None
             
-            self.queue = GuiServerQueue()
+            self.queue = Queue()
             self.state = GuiServerState()
             
     def getQueue(self):

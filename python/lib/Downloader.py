@@ -61,7 +61,7 @@ class Downloader(threading.Thread):
         self.fileSize = fileSize
 
     def download(self):
-        # FIXME
+        # FIXME, exception need to be explicite
         try:
             urllib.urlretrieve(self.url, self.local, reporthook = self.onHook)
         except:

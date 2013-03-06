@@ -31,6 +31,8 @@ from lib.SystemManager import SystemManager
 from lib.Shortcut import Shortcut
 from lib.Script import PrivateGUIScript
 from lib.GuiServer import GuiServer
+from lib.Shortcut import ShortcutListFromFolder
+
 
 # Views
 from views.SetupWindow import SetupWindow
@@ -53,7 +55,8 @@ class MainWindow(wx.Frame):
         
         self.playonlinuxSettings = UserConfigFile()
         
-        self.windowList = {}    # List of POL_SetupWindow opened
+        # 
+        self.windowList = {}    # Dictionnary of POL_SetupWindow opened
         
         # Manage updater
         self.updater = POLWeb()
@@ -66,53 +69,30 @@ class MainWindow(wx.Frame):
         # Init window
         self.drawWindow(parent, id, title)
             
-        # Icon size
-        self.iconSize = self.playonlinuxSettings.getIntSetting("ICON_SIZE", default = 32)
+        # App List
+        self.drawAppList()
         
-        # Widgets
-        self.images = wx.ImageList(self.iconSize, self.iconSize)
-        self.imagesEmpty = wx.ImageList(1,1)
-
-
-        self.appList = wx.TreeCtrl(self, 105, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT)
-        self.appList.SetSpacing(0);
-        self.appList.SetIndent(5);
-        self.appList.SetImageList(self.images)
-
-
-
         # Left panel
         self._mgr = wx.aui.AuiManager(self)
         self.leftPanel = wx.Panel(self,-1)
         self._mgr.AddPane(self.appList, wx.CENTER)
         self.MgrAddPage()
-        
-        
+             
+
         # Menubar
         self.drawMenuBar()
         
-
-     
-
-        self.last_string = ""
-
-        self.sb = wx.StatusBar(self, -1 )
-        self.sb.SetFieldsCount(2)
-        self.sb.SetStatusWidths([self.GetSize()[0], -1])
-        self.sb.SetStatusText("", 0)
-
-        self.jauge_update = wx.Gauge(self.sb, -1, 100, (self.GetSize()[0]-100, UIHelper().updateJaugeMarginTop()), size=(100,16))
-        self.jauge_update.Pulse()
-        self.jauge_update.Hide()
-        self.SetStatusBar(self.sb)
-
+        # Status bar
+        self.drawStatusBar()
         
+        # Tool Bar
         self.drawToolBar()
+
         
-        self.Reload(self)
-
-
-    
+        self.writeShortcutsToWidget(True)
+        
+        
+        
         # Program list event
         wx.EVT_CLOSE(self, self.ClosePol)
         wx.EVT_TREE_ITEM_ACTIVATED(self, 105, self.Run)
@@ -123,13 +103,10 @@ class MainWindow(wx.Frame):
         self.timer = wx.Timer(self, 1)
         self.Bind(wx.EVT_TIMER, self.TimerAction, self.timer)
         self.timer.Start(1000)
-        self.Timer_LastShortcutList = None
-        self.Timer_LastIconList = None
   
         # SetupWindow timer. The server is in another thread and GUI must be run from the main thread
         self.SetupWindowTimer = wx.Timer(self, 2)
         self.Bind(wx.EVT_TIMER, self.readGuiServerQueue, self.SetupWindowTimer)
-        self.SetupWindowTimer_action = None
         self.SetupWindowTimer.Start(100)
         self.SetupWindowTimer_delay = 100
 
@@ -139,7 +116,21 @@ class MainWindow(wx.Frame):
         self.Bind(wx.EVT_SIZE, self.ResizeWindow)
 
 
-
+    def drawAppList(self):
+        self.iconSize = self.playonlinuxSettings.getIntSetting("ICON_SIZE", default = 32)
+        self.shortcutList = ShortcutListFromFolder(Context().getUserRoot()+"/shortcuts/")
+        self.appList = wx.TreeCtrl(self, 105, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT)
+        
+        self.imagesAppList = wx.ImageList(self.iconSize, self.iconSize)
+        self.imagesAppListEmpty = wx.ImageList(1,1)
+        
+        
+        self.appList.SetSpacing(0);
+        self.appList.SetIndent(5);
+        self.appList.SetImageList(self.imagesAppList)
+        
+        
+        
     def drawWindow(self, parent, id, title):
         wx.Frame.__init__(self, parent, 1000, title, size = (515,450))
         self.SetIcon(wx.Icon(Context().getAppPath()+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
@@ -268,21 +259,19 @@ class MainWindow(wx.Frame):
         wx.EVT_MENU(self, 502,  self.iconDisplay)
         wx.EVT_MENU(self, 503,  self.iconDisplay)
         wx.EVT_MENU(self, 504,  self.iconDisplay)
-        wx.EVT_MENU(self, 505,  self.displayMen)
 
         # Expert
-        wx.EVT_MENU(self, 101,  self.Reload)
         wx.EVT_MENU(self, 107,  self.WineVersion)
-        wx.EVT_MENU(self, 108,  self.Executer)
+        wx.EVT_MENU(self, 108,  self.scriptRunLocalScript)
         wx.EVT_MENU(self, 109,  self.PolShell)
         wx.EVT_MENU(self, 110,  self.BugReport)
         wx.EVT_MENU(self, 111,  self.OpenIrc)
         wx.EVT_MENU(self, 112,  self.POLOnline)
         wx.EVT_MENU(self, 113,  self.PCCd)
-        wx.EVT_MENU(self, 115,  self.killall)
+        wx.EVT_MENU(self, 115,  self.scriptKillall)
         wx.EVT_MENU(self, 121,  self.Configure)
         wx.EVT_MENU(self, 122,  self.Package)
-        wx.EVT_TEXT(self, 124,  self.Reload)
+        wx.EVT_TEXT(self, 124,  self.searchEvent)
 
         #Options
         wx.EVT_MENU(self, 210,  self.Options)
@@ -336,21 +325,23 @@ class MainWindow(wx.Frame):
         wx.EVT_MENU(self,  wx.ID_DELETE,  self.UninstallGame)
 
         
+    def drawStatusBar(self):
+        self.statusBar = wx.StatusBar(self, -1 )
+        self.statusBar.SetFieldsCount(2)
+        self.statusBar.SetStatusWidths([self.GetSize()[0], -1])
+        self.statusBar.SetStatusText("", 0)
+
+        self.jaugeUpdate = wx.Gauge(self.statusBar, -1, 100, (self.GetSize()[0]-100, UIHelper().updateJaugeMarginTop()), size=(100,16))
+        self.jaugeUpdate.Pulse()
+        self.jaugeUpdate.Hide()
+        self.SetStatusBar(self.statusBar)
+        
+        
     def ResizeWindow(self, e):
-        self.UpdateGaugePos()
-        self.UpdateSearchHackSize()
-       
-    def UpdateSearchHackSize(self):
+        self.jaugeUpdate.SetPosition((self.GetSize()[0]-100, UIHelper().updateJaugeMarginTop()))
         if(self.SpaceHack == True):
             self.dirtyHack.SetLabel("")
             self.dirtyHack.SetSize((50,1))
-
-    def UpdateGaugePos(self):
-        if(Context().getOS() == "Mac"):
-            hauteur = 2;
-        else:
-            hauteur = 6;
-        self.jauge_update.SetPosition((self.GetSize()[0]-100, hauteur))
         
       
       
@@ -427,12 +418,13 @@ class MainWindow(wx.Frame):
             try:
                 setupWindowObject = self.windowList[scriptPid]
             except KeyError:
-                print "Please use POL_SetupWindow_Init first"
+                print "Err. Please use POL_SetupWindow_Init first"
+                GuiServer().getState().release(scriptPid)  
             else: 
                 try:
                     setupWindowFunction = getattr(setupWindowObject, command)
                 except AttributeError:
-                    print 'Function not found "%s" (%s)' % (command, arguments)
+                    Error ('Function not found "%s" (%s)' % (command, arguments) )
                 else:
                     try:
                         setupWindowFunction(*arguments)
@@ -443,13 +435,10 @@ class MainWindow(wx.Frame):
            
     def TimerAction(self, event):
         self.StatusRead()
+        self.writeShortcutsToWidget()
         # We read shortcut folder to see if it has to be rescanned
-        currentShortcuts = os.path.getmtime(Context().getUserRoot()+"/shortcuts")
-        currentIcons = os.path.getmtime(Context().getUserRoot()+"/icones/32")
-        if(currentShortcuts != self.Timer_LastShortcutList or currentIcons != self.Timer_LastIconList):
-            self.Reload(self)
-            self.Timer_LastShortcutList = currentShortcuts
-            self.Timer_LastIconList = currentIcons
+        
+        
             
     def MgrAddPage(self):
         try:
@@ -476,29 +465,24 @@ class MainWindow(wx.Frame):
 
         self._mgr.Update()
 
-    def displayMen(self, event):
-        self.playonlinuxSettings.setSetting("PANEL_POSITION","LEFT")
-        if(self.panDisplay.IsChecked()):
-            self.MgrAddPage()
-
     def StatusRead(self):
-        self.sb.SetStatusText(self.updater.sendToStatusBarStr, 0)
+        self.statusBar.SetStatusText(self.updater.sendToStatusBarStr, 0)
         if(self.updater.Gauge == True):
             perc = self.updater.perc
             if(perc == -1):
-                self.jauge_update.Pulse()
+                self.jaugeUpdate.Pulse()
             else:
                 try:
                     self.installFrame.percentageText.SetLabel(str(perc)+" %")
                 except:
                     pass
-                self.jauge_update.SetValue(perc)
-            self.jauge_update.Show()
+                self.jaugeUpdate.SetValue(perc)
+            self.jaugeUpdate.Show()
         else:
-            self.jauge_update.Hide()
+            self.jaugeUpdate.Hide()
 
         if(self.updater.updating == True):
-            self.sb.Show()
+            self.statusBar.Show()
             try:
                 self.installFrame.panelItems.Hide()
                 self.installFrame.panelManual.Hide()
@@ -512,7 +496,7 @@ class MainWindow(wx.Frame):
             except:
                 pass
         else:
-            self.sb.Hide()
+            self.statusBar.Hide()
             try:
                 if(self.installFrame.currentPanel == 1):
                     self.installFrame.panelManual.Show()
@@ -590,7 +574,7 @@ class MainWindow(wx.Frame):
         self.RConfigure(_("KillApp"), "nothing")
 
     def ReadMe(self, event):
-        game_exec = self.GetSelectedProgram()
+        game_exec = self.getSelectedShortcut()
         if(os.path.exists(Context().getUserRoot()+"/configurations/manuals/"+game_exec)):
             playonlinux.POL_Open(Context().getUserRoot()+"/configurations/manuals/"+game_exec)
         else:
@@ -600,7 +584,7 @@ class MainWindow(wx.Frame):
         self.RConfigure(_("Registry Editor"), "nothing")
 
     def run_plugin(self, event):
-        game_exec = self.GetSelectedProgram()
+        game_exec = self.getSelectedShortcut()
         plugin=self.plugin_list[event.GetId()-300]
         try :
             os.system("bash \""+Context().getUserRoot()+"/plugins/"+plugin+"/scripts/menu\" \""+game_exec+"\"&")
@@ -620,10 +604,10 @@ class MainWindow(wx.Frame):
             self.iconSize = 48
 
         self.playonlinuxSettings.setSetting("ICON_SIZE",str(self.iconSize))
-        self.appList.SetImageList(self.imagesEmpty)
-        self.images.Destroy()
-        self.images = wx.ImageList(self.iconSize, self.iconSize)
-        self.appList.SetImageList(self.images)
+        self.appList.SetImageList(self.imagesAppListEmpty)
+        self.imagesAppList.Destroy()
+        self.imagesAppList = wx.ImageList(self.iconSize, self.iconSize)
+        self.appList.SetImageList(self.imagesAppList)
 
 
         self.Reload(self)
@@ -638,7 +622,7 @@ class MainWindow(wx.Frame):
 
 
     def GoToAppDir(self, event):
-        self.game_exec = self.GetSelectedProgram()
+        self.game_exec = self.getSelectedShortcut()
         playonlinux.open_folder(self.game_exec)
 
     def ChangeIcon(self, event):
@@ -660,7 +644,7 @@ class MainWindow(wx.Frame):
             #Pop-up menu for game list: ending
 
     def Select(self, event):
-        game_exec = self.GetSelectedProgram().getName()
+        game_exec = self.getSelectedShortcut().getName()
         
         self.read = open(Context().getUserRoot()+"shortcuts/"+game_exec,"r").readlines()
         self.i = 0;
@@ -795,52 +779,33 @@ class MainWindow(wx.Frame):
         else:
             webbrowser.open("http://www.playonlinux.com/en/donate.html")
 
-    def Reload(self, event):
-        self.games = os.listdir(Context().getUserRoot()+"shortcuts/")
-        self.games.sort()
-        
-        try:
-            self.games.remove(".DS_Store")
-        except:
-            pass
+    def writeShortcutsToWidget(self, forceRefresh = False, searchFilter = ""):
+        if(self.shortcutList.updateShortcutsFromFolder() or forceRefresh):
+            self.appList.DeleteAllItems()
+            self.imagesAppList.RemoveAll()
+            root = self.appList.AddRoot("")
+            i = 0
+         
+            for shortcut in self.shortcutList.get():
+               if(searchFilter in shortcut.getName().lower()):
+                   self.imagesAppList.Add(shortcut.getWxIcon(self.iconSize))
+                   self.appList.AppendItem(root, shortcut.getName(), i)
+                   i+=1
+               
+            self.generate_menu(None)
             
-        self.appList.DeleteAllItems()
-        self.images.RemoveAll()
-        root = self.appList.AddRoot("")
-        self.i = 0
-        if(self.iconSize <= 32):
-            self.iconFolder = "32";
-        else:
-            self.iconFolder = "full_size";
-        for game in self.games: #METTRE EN 32x32
-            if(self.searchbox.GetValue().encode("utf-8","replace").lower() in game.lower()):
-                if(not os.path.isdir(Context().getUserRoot()+"/shortcuts/"+game)):
-                    if(os.path.exists(Context().getUserRoot()+"/icones/"+self.iconFolder+"/"+game)):
-                         file_icone = Context().getUserRoot()+"/icones/"+self.iconFolder+"/"+game
-                    else:
-                        file_icone = Context().getAppPath()+"/etc/playonlinux.png"
-
-                    try:
-                        self.bitmap = wx.Image(file_icone)
-                        self.bitmap.Rescale(self.iconSize,self.iconSize,wx.IMAGE_QUALITY_HIGH)
-                        self.bitmap = self.bitmap.ConvertToBitmap()
-                        self.images.Add(self.bitmap)
-                    except:
-                        pass
-                    
-                    item = self.appList.AppendItem(root, game, self.i)
-                    self.i += 1
-        self.generate_menu(None)
-
-        if(Context().getOS() == "Mac"):
-            self.playTool.Enable(False)
-            self.stopTool.Enable(False)
-            self.removeTool.Enable(False)
+            if(Context().getOS() == "Mac"):
+                self.playTool.Enable(False)
+                self.stopTool.Enable(False)
+                self.removeTool.Enable(False)
+                
+    def searchEvent(self, event):
+        self.writeShortcutsToWidget(forceRefresh = True, searchFilter = self.searchbox.GetValue().encode("utf-8","replace").lower())
 
 
     def RConfigure(self, function_to_run, firstargument):
         """Starts polconfigurator remotely."""
-        game_exec = self.GetSelectedProgram()
+        game_exec = self.getSelectedShortcut()
         if(game_exec != ""):
             os.system("bash \""+Context().getAppPath()+"/bash/polconfigurator\" \""+game_exec+"\" \""+function_to_run+"\" \""+firstargument+"\"&")
         else:
@@ -860,10 +825,10 @@ class MainWindow(wx.Frame):
             self.optionFrame.Center(wx.BOTH)
             self.optionFrame.Show(True)
 
-    def killall(self, event):
+    def scriptKillall(self, event):
         PrivateGUIScript("killall").start()
 
-    def Executer(self, event):
+    def scriptRunLocalScript(self, event):
         PrivateGUIScript("localScript").start()
 
     def BugReport(self, event):
@@ -888,7 +853,7 @@ class MainWindow(wx.Frame):
         #print "Test"
         
     def Configure(self, event):
-        game_exec = self.GetSelectedProgram()
+        game_exec = self.getSelectedShortcut()
         try:
             self.configureFrame.Show(True)
             self.configureFrame.SetFocus()
@@ -908,11 +873,11 @@ class MainWindow(wx.Frame):
         #os.system("bash \""+Context().getUserRoot()+"/bash/polconfigurator\" \""+game_exec+"\"&")
 
     def Package(self, event):
-        game_exec = self.GetSelectedProgram()
+        game_exec = self.getSelectedShortcut()
         os.system("bash \""+Context().getAppPath()+"/bash/make_shortcut\" \""+game_exec.encode("utf-8","replace")+"\"&")
 
     def UninstallGame(self, event):
-        shortcutToUninstall = self.GetSelectedProgram()
+        shortcutToUninstall = self.getSelectedShortcut()
         shortcutToUninstall.uninstall()
 
     def InstallMenu(self, event):
@@ -933,7 +898,7 @@ class MainWindow(wx.Frame):
             self.wversion.Center(wx.BOTH)
             self.wversion.Show(True)
 
-    def GetSelectedProgram(self):
+    def getSelectedShortcut(self):
         selectedName = self.appList.GetItemText(self.appList.GetSelection()).encode("utf-8","replace")
         
         if(selectedName == ""):
@@ -942,7 +907,7 @@ class MainWindow(wx.Frame):
         return Shortcut(selectedName)
         
     def Run(self, event, s_debug=False):
-        self.selectedProgram =  self.GetSelectedProgram()
+        self.selectedProgram =  self.getSelectedShortcut()
         selectedProgram = self.selectedProgram
         game_exec = selectedProgram.getName()
         game_prefix = selectedProgram.getPrefix()
@@ -969,8 +934,7 @@ class MainWindow(wx.Frame):
             wx.MessageBox(_("The virtual drive associated with {0} ({1}) does no longer exists.").format(game_exec, game_prefix.getName()), Context().getAppName())
 
     def RunDebug(self, event):
-        game_exec = self.GetSelectedProgram()
-        game_prefix = playonlinux.getPrefix(game_exec)
+        game_exec = self.getSelectedShortcut()
         playonlinux.SetDebugState(game_exec, True)
         self.Run(self, True)
 
@@ -1006,13 +970,6 @@ class MainWindow(wx.Frame):
         self.playonlinuxSettings.setSetting("PANEL_SIZE",str(self.mySize))
         self.playonlinuxSettings.setSetting("PANEL_POSITION",str(self.myPosition))
         
-    def ClosePol(self, event):
-        if(self.playonlinuxSettings.getSetting("DONT_ASK_BEFORE_CLOSING") == "TRUE" or Question(_('Are you sure you want to close all [APP] Windows?')).getAnswer()):
-            self.saveWindowParametersToConfig()
-            self.savePanelParametersToConfig()
-            wx.GetApp().polDie()
-            
-        return None
 
     def About(self, event):
         self.aboutBox = wx.AboutDialogInfo()
@@ -1037,3 +994,12 @@ class MainWindow(wx.Frame):
         else:
             self.aboutBox.SetWebSite("http://www.playonlinux.com")
         wx.AboutBox(self.aboutBox)
+        
+        
+    def ClosePol(self, event):
+        if(self.playonlinuxSettings.getSetting("DONT_ASK_BEFORE_CLOSING") == "TRUE" or Question(_('Are you sure you want to close all [APP] Windows?')).getAnswer()):
+            self.saveWindowParametersToConfig()
+            self.savePanelParametersToConfig()
+            wx.GetApp().polDie()
+            
+        

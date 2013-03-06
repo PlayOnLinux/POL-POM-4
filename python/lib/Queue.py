@@ -22,7 +22,7 @@ import string
 from lib.Context import Context
 from lib.UIHelper import UIHelper
 
-class GuiServerQueue():        
+class Queue():        
     def __init__(self): 
       self.queue = []
       

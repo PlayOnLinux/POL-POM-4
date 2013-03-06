@@ -4,7 +4,7 @@
 # Copyright (C) 2007-2013 PlayOnLinux Team
 
 # python imports
-import string
+import string, os, wx
 
 # playonlinux imports
 import ConfigFile
@@ -14,7 +14,52 @@ from lib.Script import PrivateGUIScript
 from lib.Prefix import Prefix
 from lib.Environement import Environement
 
-class Shortcut():
+class ShortcutList(object):
+   def __init__(self, shortcutList = []):
+       self.shortcutList = shortcutList[:]
+       
+   def get(self):
+       return self.shortcutList
+       
+class ShortcutListFromFolder(ShortcutList):
+   def __init__(self, folder):
+       self.folder = folder
+
+       shortcutList = self.getShortcutsFromFolder()
+       ShortcutList.__init__(self, shortcutList)
+       self.folderTime = self.getShortcutsFolderTime()
+        
+   def getShortcutsFolderTime(self):
+       return os.path.getmtime(self.folder)
+       
+   def getShortcutsFromFolder(self):
+       shortcutList = os.listdir(self.folder)
+       shortcutList.sort()
+       
+       # FIXME
+       try :
+           shortcutList.remove(".DS_Store")
+       except ValueError:
+           pass
+           
+       # Get a list of object instead of a list of strings
+       for ndx, member in enumerate(shortcutList):
+           shortcutList[ndx] = Shortcut(member)
+       return shortcutList
+        
+   # Update shortcuts from folder, return True if changes have been made
+   def updateShortcutsFromFolder(self):
+        folderTime = self.getShortcutsFolderTime()
+        if(folderTime != self.folderTime):
+            shortcutList = self.getShortcutsFromFolder()
+            self.shortcutList = shortcutList
+            changed = True
+        else:
+            changed = False
+        
+        return changed
+        
+class Shortcut(object):
    def __init__(self, shortcutName, args = []):
       self.args = args[:]
       self.shortcutName = shortcutName
@@ -167,16 +212,24 @@ class Shortcut():
       if(ver.exists()):
         return(os.popen("env WINEPREFIX='"+self.prefix.getPath()+"/' '"+self.ver.getWineBinary()+"' winepath -w '"+unixPath+"'").read().replace("\n","").replace("\r",""))
 
+   def getWxIcon(self, iconSize = 32):
+       if(iconSize == 32):
+           iconFolder = "32"
+       else:
+           iconFolder = "full_size"
+           
+       iconPath = Context().getUserRoot()+"/icones/"+iconFolder+"/"+self.getName()
+       if(not os.path.exists(iconPath)):
+           iconPath = Context().getAppPath()+"/etc/playonlinux.png"
+
+       #try:
+       bitmap = wx.Image(iconPath)
+       bitmap.Rescale(iconSize,iconSize,wx.IMAGE_QUALITY_HIGH)
+       bitmap = bitmap.ConvertToBitmap()
+       return bitmap    
+       #except:
+       #    pass
+           
+               
    def uninstall(self):
        print "I will uninstall "+self.getName()
-           
-   @staticmethod
-   def getList(context):
-       shortcutList = os.listdir(context.getAppPath()+"/shortcuts/")
-       shortcutList.sort()
-       
-       # Get a list of object instead of a list of strings
-       for ndx, member in enumerate(shortcutList):
-           shortcutList[ndx] = Shortcut(shortcutList[ndx])
-           
-       return shortcutList
