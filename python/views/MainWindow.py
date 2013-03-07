@@ -246,14 +246,13 @@ class MainWindow(wx.Frame):
         self.menubar.Append(self.optionmenu, _("Settings"))
         self.menubar.Append(self.pluginsmenu, _("Plugins"))
         self.menubar.Append(self.help_menu, "&Help")
-                
         self.SetMenuBar(self.menubar)
         
         # Display
-        wx.EVT_MENU(self, 501,  self.iconDisplay)
-        wx.EVT_MENU(self, 502,  self.iconDisplay)
-        wx.EVT_MENU(self, 503,  self.iconDisplay)
-        wx.EVT_MENU(self, 504,  self.iconDisplay)
+        wx.EVT_MENU(self, 501,  self.changeIconSize)
+        wx.EVT_MENU(self, 502,  self.changeIconSize)
+        wx.EVT_MENU(self, 503,  self.changeIconSize)
+        wx.EVT_MENU(self, 504,  self.changeIconSize)
 
         # Expert
         wx.EVT_MENU(self, 107,  self.WineVersion)
@@ -436,26 +435,18 @@ class MainWindow(wx.Frame):
         
             
     def MgrAddPage(self):
-        try:
-            self.LoadSize = int(self.playonlinuxSettings.getSetting("PANEL_SIZE"))
-        except:
-            self.LoadSize = 150
+        loadSize = self.playonlinuxSettings.getIntSetting("PANEL_SIZE", default = 150)
+        loadPosition = self.playonlinuxSettings.getSetting("PANEL_POSITION")
+        
+        if(loadSize < 20):
+            loadSize = 20
+        if(loadSize > 1000):
+            loadSize = 1000
 
-        try:
-            self.LoadPosition = self.playonlinuxSettings.getSetting("PANEL_POSITION")
-        except:
-            self.LoadPosition = "LEFT"
-
-        if(self.LoadSize < 20):
-            self.LoadSize = 20
-        if(self.LoadSize > 1000):
-            self.LoadSize = 1000
-
-
-        if(self.LoadPosition == "LEFT"):
-            self._mgr.AddPane(self.leftPanel, wx.aui.AuiPaneInfo().Name('Actions').Caption('Actions').Left().BestSize((self.LoadSize,400)).Floatable(True).CloseButton(False).TopDockable(False).BottomDockable(False))
+        if(loadPosition == "LEFT"):
+            self._mgr.AddPane(self.leftPanel, wx.aui.AuiPaneInfo().Name('Actions').Caption('Actions').Left().BestSize((loadSize,400)).Floatable(True).CloseButton(False).TopDockable(False).BottomDockable(False))
         else:
-            self._mgr.AddPane(self.leftPanel, wx.aui.AuiPaneInfo().Name('Actions').Caption('Actions').Right().BestSize((self.LoadSize,400)).Floatable(True).CloseButton(False).TopDockable(False).BottomDockable(False))
+            self._mgr.AddPane(self.leftPanel, wx.aui.AuiPaneInfo().Name('Actions').Caption('Actions').Right().BestSize((loadSize,400)).Floatable(True).CloseButton(False).TopDockable(False).BottomDockable(False))
         self.leftPanel.Show()
 
         self._mgr.Update()
@@ -586,7 +577,7 @@ class MainWindow(wx.Frame):
         except :
             pass
 
-    def iconDisplay(self, event):
+    def changeIconSize(self, event):
         iconEvent = event.GetId()
 
         if(iconEvent == 501):

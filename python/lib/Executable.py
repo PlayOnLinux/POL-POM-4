@@ -115,10 +115,9 @@ class Executable(threading.Thread):
    # These two methods run the script and return the exitcode
    def parseScriptOut(self, line):
        # This method is made to be overwritten
-       return
+       print line
        
    def run(self):
-      
       process = subprocess.Popen(self.getProgramArray(), bufsize=1, preexec_fn = lambda: os.setpgid(os.getpid(), os.getpid()), stdout = subprocess.PIPE, env = self.execEnv.get())
       self.running = True
       self.process = process
