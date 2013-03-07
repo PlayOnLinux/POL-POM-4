@@ -222,14 +222,19 @@ class Shortcut(object):
        if(not os.path.exists(iconPath)):
            iconPath = Context().getAppPath()+"/etc/playonlinux.png"
 
-       #try:
-       bitmap = wx.Image(iconPath)
-       bitmap.Rescale(iconSize,iconSize,wx.IMAGE_QUALITY_HIGH)
-       bitmap = bitmap.ConvertToBitmap()
-       return bitmap    
-       #except:
-       #    pass
-           
+       try:
+          bitmap = wx.Image(iconPath)
+          bitmap.Rescale(iconSize,iconSize,wx.IMAGE_QUALITY_HIGH)
+          bitmap = bitmap.ConvertToBitmap()
+          return bitmap  
+          
+       except wx._core.PyAssertionError: 
+          iconPath = Context().getAppPath()+"/etc/playonlinux.png"
+          bitmap = wx.Image(iconPath)
+          bitmap.Rescale(iconSize,iconSize,wx.IMAGE_QUALITY_HIGH)
+          bitmap = bitmap.ConvertToBitmap()
+          return bitmap    
+   
                
    def uninstall(self):
        print "I will uninstall "+self.getName()

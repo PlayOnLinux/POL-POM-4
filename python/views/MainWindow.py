@@ -119,15 +119,10 @@ class MainWindow(wx.Frame):
     def drawAppList(self):
         self.iconSize = self.playonlinuxSettings.getIntSetting("ICON_SIZE", default = 32)
         self.shortcutList = ShortcutListFromFolder(Context().getUserRoot()+"/shortcuts/")
+        
         self.appList = wx.TreeCtrl(self, 105, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT)
-        
-        self.imagesAppList = wx.ImageList(self.iconSize, self.iconSize)
-        self.imagesAppListEmpty = wx.ImageList(1,1)
-        
-        
         self.appList.SetSpacing(0);
         self.appList.SetIndent(5);
-        self.appList.SetImageList(self.imagesAppList)
         
         
         
@@ -592,7 +587,7 @@ class MainWindow(wx.Frame):
             pass
 
     def iconDisplay(self, event):
-        iconEvent=event.GetId()
+        iconEvent = event.GetId()
 
         if(iconEvent == 501):
             self.iconSize = 16
@@ -604,13 +599,7 @@ class MainWindow(wx.Frame):
             self.iconSize = 48
 
         self.playonlinuxSettings.setSetting("ICON_SIZE",str(self.iconSize))
-        self.appList.SetImageList(self.imagesAppListEmpty)
-        self.imagesAppList.Destroy()
-        self.imagesAppList = wx.ImageList(self.iconSize, self.iconSize)
-        self.appList.SetImageList(self.imagesAppList)
-
-
-        self.Reload(self)
+        self.writeShortcutsToWidget(forceRefresh = True)
 
     def OpenIrc(self, event):
         self.irc = ircgui.IrcClient(self)
@@ -781,8 +770,15 @@ class MainWindow(wx.Frame):
 
     def writeShortcutsToWidget(self, forceRefresh = False, searchFilter = ""):
         if(self.shortcutList.updateShortcutsFromFolder() or forceRefresh):
-            self.appList.DeleteAllItems()
-            self.imagesAppList.RemoveAll()
+            self.appList.DeleteAllItems()       
+            self.appList.SetImageList(wx.ImageList(1,1))
+            try:
+                self.imagesAppList.Destroy()
+            except AttributeError: #imagesAppList does not exist, no problem
+                pass
+            self.imagesAppList = wx.ImageList(self.iconSize, self.iconSize)
+            self.appList.SetImageList(self.imagesAppList)
+            
             root = self.appList.AddRoot("")
             i = 0
          
