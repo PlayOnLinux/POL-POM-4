@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2013-03-07 19:00:56+01:00\n"
+"POT-Creation-Date: 2013-03-08 19:00:55+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1092,6 +1092,28 @@ msgstr ""
 msgid "Select 2nd patch to execute"
 msgstr ""
 
+#: PlayOnLinux_Scripts/DC_Universe_Online_:40
+#: PlayOnLinux_Scripts/PlanetSide_2_:40
+#, sh-format
+msgid ""
+"Attention: After installation is complete, the patcher will load. Please "
+"close the patcher before logging in to complete the installation. After "
+"this, you can run \"$TITLE\" when setup is done"
+msgstr ""
+
+#: PlayOnLinux_Scripts/DC_Universe_Online_:49
+#, sh-format
+msgid "$TITLE has been installed successfully. See you on the Battle Field!"
+msgstr ""
+
+#: PlayOnLinux_Scripts/DC_Universe_Online_:49
+#: PlayOnLinux_Scripts/Legions__Overdrive_:48
+#: PlayOnLinux_Scripts/PlanetSide_2_:49 PlayOnLinux_Scripts/Soldat_:28
+#: PlayOnLinux_Scripts/World_Of_Tanks_:62
+#, sh-format
+msgid "Installation finished"
+msgstr ""
+
 #: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_Patch_1.02_:25
 #, sh-format
 msgid "Welcome in the patch $PVERSION1 and $PVERSION2 installer for $TITLE"
@@ -1419,7 +1441,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Wallace_and_Gromits_Grand_Adventures_:42
 #: PlayOnLinux_Scripts/GOG.com___Zeus_and_Poseidon_:39
 #: PlayOnLinux_Scripts/Infinity_Engine_widescreen_mod_:64
-#: PlayOnLinux_Scripts/POL_GoG_install_:9 PlayOnLinux_Scripts/Poker_Stars_:36
+#: PlayOnLinux_Scripts/POL_GoG_install_:9 PlayOnLinux_Scripts/Poker_Stars_:37
 #: PlayOnLinux_Scripts/Ski_Challenge_2012_:49
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_I__Arena_:67
 #: PlayOnLinux_Scripts/Universal_Extractor_:45
@@ -1884,13 +1906,6 @@ msgid ""
 "$TITLE has been successfully installed.\\n\\nIf the game crashes at startup, "
 "open a terminal and type:\\necho 0|sudo tee /proc/sys/kernel/yama/"
 "ptrace_scope"
-msgstr ""
-
-#: PlayOnLinux_Scripts/Legions__Overdrive_:48
-#: PlayOnLinux_Scripts/PlanetSide_2_:49 PlayOnLinux_Scripts/Soldat_:28
-#: PlayOnLinux_Scripts/World_Of_Tanks_:62
-#, sh-format
-msgid "Installation finished"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Mass_Effect_:48
@@ -2379,14 +2394,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:27
 #, sh-format
 msgid "Now you can go back to the $TITLE installation window to continue"
-msgstr ""
-
-#: PlayOnLinux_Scripts/PlanetSide_2_:40
-#, sh-format
-msgid ""
-"Attention: After installation is complete, the patcher will load. Please "
-"close the patcher before logging in to complete the installation. After "
-"this, you can run \"$TITLE\" when setup is done"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Q.U.B.E_:94 PlayOnLinux_Scripts/Star_Twine_:72
