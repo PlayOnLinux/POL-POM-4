@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2013-03-11 19:00:48+01:00\n"
+"POT-Creation-Date: 2013-03-12 19:00:51+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -353,11 +353,13 @@ msgid ""
 msgstr ""
 
 #: PlayOnLinux_Scripts/Ableton_Live_8_:42
+#: PlayOnLinux_Scripts/Ableton_Live_9_:42
 #, sh-format
 msgid "Please select $TITLE Install file:"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Ableton_Live_8_:50
+#: PlayOnLinux_Scripts/Ableton_Live_9_:50
 #, sh-format
 msgid ""
 "NOTICE: To register, when it opens asking for registration, drag-and-drop "
@@ -1303,7 +1305,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:39
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:47
 #: PlayOnLinux_Scripts/POL_Function_FontsSmoothRGB_:1
-#: PlayOnLinux_Scripts/POL_GoG_download_:49
+#: PlayOnLinux_Scripts/POL_GoG_download_:48
 #: PlayOnLinux_Scripts/POL_Install_DisableCrashDialog_:5
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:34
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
@@ -1875,15 +1877,48 @@ msgstr ""
 msgid "Which language version would you like to install?"
 msgstr ""
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:62
+#: PlayOnLinux_Scripts/League_Of_Legends_:36
+#, sh-format
+msgid "glxinfo is not installed. Please install mesa-utils package"
+msgstr ""
+
+#: PlayOnLinux_Scripts/League_Of_Legends_:39
+#, sh-format
+msgid ""
+"Warning! S3TC compression is not available on your system.\\n\\nIf you have "
+"a free driver, you might need to install a proprietary driver \\n"
+"\\nOtherwise, you can enable it by installing libtxc-dxtn0 package, but you "
+"might get slower results"
+msgstr ""
+
+#: PlayOnLinux_Scripts/League_Of_Legends_:51
+#, sh-format
+msgid "Please select League Of Legends setup.exe file:"
+msgstr ""
+
+#: PlayOnLinux_Scripts/League_Of_Legends_:55
+#, sh-format
+msgid "What version would you like to install?"
+msgstr ""
+
+#: PlayOnLinux_Scripts/League_Of_Legends_:101
+#, sh-format
+msgid ""
+"Downloader crashed, likely because it opened more files than allowed. It "
+"will be restarted in the hope it completes its job."
+msgstr ""
+
+#: PlayOnLinux_Scripts/League_Of_Legends_:105
 #, sh-format
 msgid ""
 "Warning: You must not tick the checkbox \"Run $TITLE\" when setup is done"
 msgstr ""
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:74
+#: PlayOnLinux_Scripts/League_Of_Legends_:127
 #, sh-format
-msgid "Please select LeagueOfLegends.tar file:"
+msgid ""
+"You should now have a League of Legends directory on your desktop containing "
+"its installer. You may keep it to speed up reinstallations."
 msgstr ""
 
 #: PlayOnLinux_Scripts/League_of_Legends__ingame_shop_icons_fix_:32
@@ -2063,23 +2098,23 @@ msgstr ""
 msgid "Please read this"
 msgstr ""
 
-#: PlayOnLinux_Scripts/POL_GoG_download_:37
+#: PlayOnLinux_Scripts/POL_GoG_download_:36
 #, sh-format
 msgid "In what directory do you want to download GOG files?"
 msgstr ""
 
-#: PlayOnLinux_Scripts/POL_GoG_download_:47
+#: PlayOnLinux_Scripts/POL_GoG_download_:46
 #, sh-format
 msgid "Please enter your gog.com login to download $BASENAME"
 msgstr ""
 
-#: PlayOnLinux_Scripts/POL_GoG_download_:67
+#: PlayOnLinux_Scripts/POL_GoG_download_:66
 #, sh-format
 msgid "Gog.com login failed, try again?"
 msgstr ""
 
-#: PlayOnLinux_Scripts/POL_GoG_download_:90
-#: PlayOnLinux_Scripts/POL_GoG_download_:100
+#: PlayOnLinux_Scripts/POL_GoG_download_:89
+#: PlayOnLinux_Scripts/POL_GoG_download_:99
 #, sh-format
 msgid "Checking piece integrity..."
 msgstr ""
@@ -2748,7 +2783,14 @@ msgid ""
 "the game to use OpenGL"
 msgstr ""
 
-#: PlayOnLinux_Scripts/Traktor_Pro_2_:49
+#: PlayOnLinux_Scripts/Traktor_Pro_2_:42
+#, sh-format
+msgid ""
+"During installation, please UNCHECK all drivers for the NI controllers and "
+"audio interfaces. The install will fail if left checked, and are not needed."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Traktor_Pro_2_:50
 #, sh-format
 msgid ""
 "NOTICE: For low-latency audio, look into WineASIO. Your MIDI controllers "
