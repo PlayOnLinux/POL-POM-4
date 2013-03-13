@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2013-03-04 19:00+0100\n"
-"PO-Revision-Date: 2013-02-28 11:53+0000\n"
+"POT-Creation-Date: 2013-03-11 19:00+0100\n"
+"PO-Revision-Date: 2013-03-09 00:46+0000\n"
 "Last-Translator: abuyop <Unknown>\n"
 "Language-Team: malay loco team\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-03-05 04:35+0000\n"
-"X-Generator: Launchpad (build 16514)\n"
+"X-Launchpad-Export-Date: 2013-03-12 04:33+0000\n"
+"X-Generator: Launchpad (build 16524)\n"
 "Language: ms\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -485,6 +485,7 @@ msgstr "Anda tidak perlu pasang DirectX atau guna GLSetup."
 #: PlayOnLinux_Scripts/Google_Picasa_3.9_:54
 #: PlayOnLinux_Scripts/POL_GoG_setup_:30 PlayOnLinux_Scripts/SFR_LiberTalk_:36
 #: PlayOnLinux_Scripts/The_Sims_3_:50 PlayOnLinux_Scripts/Toontown_Online_:25
+#: PlayOnLinux_Scripts/iTunes_10_:50
 #, sh-format
 msgid "Please select the setup file to run."
 msgstr "Sila pilih fail persediaan untuk dijalankan."
@@ -604,7 +605,7 @@ msgstr "Pemasangan di dalam proses..."
 #: PlayOnLinux_Scripts/Mount_and_Blade___Warband_:82
 #: PlayOnLinux_Scripts/PlanetSide_2_:49 PlayOnLinux_Scripts/Safari_:77
 #: PlayOnLinux_Scripts/Windows_Media_Player_10_:80
-#: PlayOnLinux_Scripts/World_Of_Tanks_:54
+#: PlayOnLinux_Scripts/World_Of_Tanks_:62
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:137
 #: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:97
 #: PlayOnLinux_Scripts/World_Of_Warcraft___Wrath_of_the_Lich_King_:75
@@ -1157,6 +1158,31 @@ msgstr "Pilih tampalan pertama untuk dilakukan"
 msgid "Select 2nd patch to execute"
 msgstr "Pilih tampalan ke-2 untuk dilakukan"
 
+#: PlayOnLinux_Scripts/DC_Universe_Online_:40
+#: PlayOnLinux_Scripts/PlanetSide_2_:40
+#, sh-format
+msgid ""
+"Attention: After installation is complete, the patcher will load. Please "
+"close the patcher before logging in to complete the installation. After "
+"this, you can run \"$TITLE\" when setup is done"
+msgstr ""
+"Perhatian: Selepas pemasangan selesai, penampal akan dimuatkan. Sila tutup "
+"penampal sebelum mendaftar masuk untuk selesaikan pemasangan. Selepas ini, "
+"anda boleh jalankan \"$TITLE\" bila persediaan selesai."
+
+#: PlayOnLinux_Scripts/DC_Universe_Online_:49
+#, sh-format
+msgid "$TITLE has been installed successfully. See you on the Battle Field!"
+msgstr "$TITLE telah berjaya dipasang. Mari ke menuju ke Medan Perang!"
+
+#: PlayOnLinux_Scripts/DC_Universe_Online_:49
+#: PlayOnLinux_Scripts/Legions__Overdrive_:48
+#: PlayOnLinux_Scripts/PlanetSide_2_:49 PlayOnLinux_Scripts/Soldat_:28
+#: PlayOnLinux_Scripts/World_Of_Tanks_:62
+#, sh-format
+msgid "Installation finished"
+msgstr "Pemasangan selesai"
+
 #: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_Patch_1.02_:25
 #, sh-format
 msgid "Welcome in the patch $PVERSION1 and $PVERSION2 installer for $TITLE"
@@ -1406,7 +1432,7 @@ msgstr "Ralat semasa memasang tampalan."
 #: PlayOnLinux_Scripts/Freelancer_:84
 #, sh-format
 msgid "$TITLE and $PATCHVERSION patch has been successfully installed."
-msgstr ""
+msgstr "$TITLE dan tampalan $PATCHVERSION telah berjaya dipasang."
 
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising_:37
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:98
@@ -1503,7 +1529,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Wallace_and_Gromits_Grand_Adventures_:42
 #: PlayOnLinux_Scripts/GOG.com___Zeus_and_Poseidon_:39
 #: PlayOnLinux_Scripts/Infinity_Engine_widescreen_mod_:64
-#: PlayOnLinux_Scripts/POL_GoG_install_:9
+#: PlayOnLinux_Scripts/POL_GoG_install_:9 PlayOnLinux_Scripts/Poker_Stars_:37
 #: PlayOnLinux_Scripts/Ski_Challenge_2012_:49
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_I__Arena_:67
 #: PlayOnLinux_Scripts/Universal_Extractor_:45
@@ -2028,13 +2054,6 @@ msgstr ""
 "$TITLE telah berjaya dipasang.\\n\\nJika permainan mengalami kerosakan "
 "semasa permulaan, buka terminal dan taip:\\necho 0|sudo tee "
 "/proc/sys/kernel/yama/ptrace_scope"
-
-#: PlayOnLinux_Scripts/Legions__Overdrive_:48
-#: PlayOnLinux_Scripts/PlanetSide_2_:49 PlayOnLinux_Scripts/Soldat_:28
-#: PlayOnLinux_Scripts/World_Of_Tanks_:54
-#, sh-format
-msgid "Installation finished"
-msgstr "Pemasangan selesai"
 
 #: PlayOnLinux_Scripts/Mass_Effect_:48
 #, sh-format
@@ -2574,17 +2593,6 @@ msgid "Now you can go back to the $TITLE installation window to continue"
 msgstr ""
 "Sekarang anda boleh kembali ke tetingkap pemasangan $TITLE untuk teruskan"
 
-#: PlayOnLinux_Scripts/PlanetSide_2_:40
-#, sh-format
-msgid ""
-"Attention: After installation is complete, the patcher will load. Please "
-"close the patcher before logging in to complete the installation. After "
-"this, you can run \"$TITLE\" when setup is done"
-msgstr ""
-"Perhatian: Selepas pemasangan selesai, penampal akan dimuatkan. Sila tutup "
-"penampal sebelum mendaftar masuk untuk selesaikan pemasangan. Selepas ini, "
-"anda boleh jalankan \"$TITLE\" bila persediaan selesai."
-
 #: PlayOnLinux_Scripts/Q.U.B.E_:94 PlayOnLinux_Scripts/Star_Twine_:72
 #, sh-format
 msgid ""
@@ -3027,7 +3035,7 @@ msgstr ""
 "Pelayar anda akan ditimbulkan, muat turun tampalan darinya dan janga lupa "
 "menyahmampatnya"
 
-#: PlayOnLinux_Scripts/World_Of_Tanks_:45
+#: PlayOnLinux_Scripts/World_Of_Tanks_:52
 #, sh-format
 msgid ""
 "Attention: After installation is complete, the patcher will load. Please "
@@ -3144,11 +3152,6 @@ msgid ""
 msgstr ""
 "Wine tidak menyokong USB buat masa ini. Anda tidak boleh menyegerak iDevice "
 "anda dengan $APPLICATION_TITLE. Mohon maaf atas kelemahan ini"
-
-#: PlayOnLinux_Scripts/iTunes_10_:50
-#, sh-format
-msgid "Where did you download iTunesSetup.exe?"
-msgstr "Dimana anda muat turun iTunesSetup.exe?"
 
 #: PlayOnLinux_Scripts/iTunes_10_:53
 #, sh-format
@@ -3283,7 +3286,7 @@ msgid "Choose the name of the virtual drive"
 msgstr "Pilih nama bagi pemacu maya"
 
 #: bash/expert/Executer:22 bash/expert/Executer:27 bash/expert/Executer:29
-#: python/mainwindow.py:233
+#: python/mainwindow.py:231
 #, sh-format
 msgid "Run a local script"
 msgstr "Jalankan skrip setempat"
@@ -3561,7 +3564,7 @@ msgid "Use another version of Wine"
 msgstr "Guna versi wine yang lain"
 
 #: bash/manual_install:165 bash/manual_install:220 bash/polconfigurator:95
-#: python/configure.py:224 python/mainwindow.py:577 python/mainwindow.py:609
+#: python/configure.py:224 python/mainwindow.py:575 python/mainwindow.py:607
 #, sh-format
 msgid "Configure Wine"
 msgstr "Konfigur Wine"
@@ -3784,7 +3787,7 @@ msgstr "Permainan"
 msgid "Graphics"
 msgstr "Grafik"
 
-#: bash/playonlinux_online:69 python/install.py:215 python/mainwindow.py:263
+#: bash/playonlinux_online:69 python/install.py:215 python/mainwindow.py:261
 #: python/options.py:384
 #, sh-format
 msgid "Internet"
@@ -3896,8 +3899,8 @@ msgstr "Sambungan fail teruk"
 msgid "is not an icon extension"
 msgstr "bukanlah sambungan ikon"
 
-#: bash/polconfigurator:96 python/configure.py:232 python/mainwindow.py:581
-#: python/mainwindow.py:622
+#: bash/polconfigurator:96 python/configure.py:232 python/mainwindow.py:579
+#: python/mainwindow.py:620
 #, sh-format
 msgid "Registry Editor"
 msgstr "Penyunting Registry"
@@ -4145,13 +4148,10 @@ msgstr ""
 #: lib/debug.lib:140
 #, sh-format
 msgid ""
-"$APPLICATION_TITLE has encountered an error. If the program your are "
+"$APPLICATION_TITLE has encountered an error. If the program you are "
 "installing does not work correctly, it might be the cause of the problem.\\"
 "nVisit www.$POL_DNS to get further information"
 msgstr ""
-"$APPLICATION_TITLE telah mengalami ralat. Jika program yang anda pasang "
-"tidak berfungsi dengan baik, ia mungkin punca masalah.\\nLawati www.$POL_DNS "
-"untuk maklumat lanjut"
 
 #: lib/debug.lib:153
 #, sh-format
@@ -4425,9 +4425,9 @@ msgstr ""
 "sekali lagi."
 
 #: lib/setupwindow.lib:122 python/guiv3.py:743 python/lib/irc.py:291
-#: python/mainwindow.py:1118 python/mainwindow.py:1148
-#: python/mainwindow.py:1162 python/mainwindow.py:1171
-#: python/mainwindow.py:1183 python/mainwindow.py:1195 python/wrapper.py:121
+#: python/mainwindow.py:1116 python/mainwindow.py:1146
+#: python/mainwindow.py:1160 python/mainwindow.py:1169
+#: python/mainwindow.py:1181 python/mainwindow.py:1193 python/wrapper.py:121
 #, sh-format
 msgid "Error"
 msgstr "Ralat"
@@ -4757,8 +4757,8 @@ msgstr ""
 "Berhati-hati! Memasang salah satu komponen ini boleh merosakkan pemacu maya "
 "anda."
 
-#: python/configure.py:327 python/install.py:282 python/mainwindow.py:198
-#: python/mainwindow.py:351
+#: python/configure.py:327 python/install.py:282 python/mainwindow.py:196
+#: python/mainwindow.py:349
 msgid "Install"
 msgstr "Pasang"
 
@@ -4822,7 +4822,7 @@ msgstr ""
 "Berhati-hati!\n"
 "Jika anda ubah "
 
-#: python/configure.py:644 python/mainwindow.py:922 python/mainwindow.py:924
+#: python/configure.py:644 python/mainwindow.py:920 python/mainwindow.py:922
 msgid "{0} configuration"
 msgstr "Konfigurasi {0}"
 
@@ -4834,8 +4834,8 @@ msgstr "Sila pilih program atau pemacu maya untuk dikonfigurkan"
 msgid "New"
 msgstr "Baru"
 
-#: python/configure.py:671 python/mainwindow.py:199 python/mainwindow.py:352
-#: python/mainwindow.py:597 python/options.py:207
+#: python/configure.py:671 python/mainwindow.py:197 python/mainwindow.py:350
+#: python/mainwindow.py:595 python/options.py:207
 msgid "Remove"
 msgstr "Buang"
 
@@ -4843,7 +4843,7 @@ msgstr "Buang"
 msgid "Install components"
 msgstr "Pasang komponen"
 
-#: python/configure.py:690 python/mainwindow.py:333
+#: python/configure.py:690 python/mainwindow.py:331
 msgid "Display"
 msgstr "Paparan"
 
@@ -4863,8 +4863,8 @@ msgstr "Anda pasti hendak memadam pemacu maya {0}?"
 msgid "Are you sure you want to delete {0} ?"
 msgstr "Anda pasti hendak memadam {0}?"
 
-#: python/debug.py:39 python/mainwindow.py:255 python/mainwindow.py:897
-#: python/mainwindow.py:980
+#: python/debug.py:39 python/mainwindow.py:253 python/mainwindow.py:895
+#: python/mainwindow.py:978
 msgid "{0} debugger"
 msgstr "Penyahpepijat {0}"
 
@@ -4896,7 +4896,7 @@ msgstr "Pasang skrip"
 msgid "Error: Unable to reserve a valid port"
 msgstr "Ralat: Tidak boleh simpan port yang sah"
 
-#: python/gui_server.py:160
+#: python/gui_server.py:165
 msgid "WARNING. Please use POL_SetupWindow_Init first"
 msgstr "AMARAN. Sila guna POL_SetupWindow_Init dahulu"
 
@@ -4952,7 +4952,7 @@ msgstr "Anda tidak boleh tutup tetingkap ini"
 msgid "No description"
 msgstr "Tiada keterangan"
 
-#: python/install.py:249 python/mainwindow.py:367 python/mainwindow.py:370
+#: python/install.py:249 python/mainwindow.py:365 python/mainwindow.py:368
 msgid "Search"
 msgstr "Gelintar"
 
@@ -5053,7 +5053,7 @@ msgstr "Biarkan"
 msgid "Join a channel"
 msgstr "Sertai saluran"
 
-#: python/irc.py:257 python/mainwindow.py:720
+#: python/irc.py:257 python/mainwindow.py:718
 msgid "Messenger"
 msgstr "Pemesej"
 
@@ -5089,181 +5089,181 @@ msgstr "Ralat {0}"
 
 #: python/mainwindow.py:72
 msgid "{0} website is unavailable. Please check your connection"
-msgstr ""
+msgstr "Laman sesawang {0} tidak tersedia. Sila semak sambungan anda"
 
 #: python/mainwindow.py:74
 msgid "Refreshing {0}"
 msgstr "Menyegar Semula {0}"
 
-#: python/mainwindow.py:91 python/mainwindow.py:93
+#: python/mainwindow.py:89 python/mainwindow.py:91
 msgid "An updated version of {0} is available"
 msgstr "Versi terkemaskini {0} sudah tersedia"
 
-#: python/mainwindow.py:197 python/mainwindow.py:347 python/mainwindow.py:729
+#: python/mainwindow.py:195 python/mainwindow.py:345 python/mainwindow.py:727
 msgid "Run"
 msgstr "Jalan"
 
-#: python/mainwindow.py:201
+#: python/mainwindow.py:199
 msgid "Donate"
 msgstr "Beri Sumbangan"
 
-#: python/mainwindow.py:202
+#: python/mainwindow.py:200
 msgid "Exit"
 msgstr "Keluar"
 
-#: python/mainwindow.py:206
+#: python/mainwindow.py:204
 msgid "Small icons"
 msgstr "Ikon kecil"
 
-#: python/mainwindow.py:207
+#: python/mainwindow.py:205
 msgid "Medium icons"
 msgstr "Ikon sederhana"
 
-#: python/mainwindow.py:208
+#: python/mainwindow.py:206
 msgid "Large icons"
 msgstr "Ikon besar"
 
-#: python/mainwindow.py:209
+#: python/mainwindow.py:207
 msgid "Very large icons"
 msgstr "Ikon sangat besar"
 
-#: python/mainwindow.py:221
+#: python/mainwindow.py:219
 msgid "Manage Wine versions"
 msgstr "Urus versi Wine"
 
-#: python/mainwindow.py:227
+#: python/mainwindow.py:225
 msgid "Read a PC CD-Rom"
 msgstr "Baca CD-Rom PC"
 
-#: python/mainwindow.py:237
+#: python/mainwindow.py:235
 msgid "Close all {0} software"
 msgstr "Tutup semua perisian {0}"
 
-#: python/mainwindow.py:241
+#: python/mainwindow.py:239
 msgid "{0} console"
 msgstr "Konsol {0}"
 
-#: python/mainwindow.py:251
+#: python/mainwindow.py:249
 msgid "{0} messenger"
 msgstr "Pemesej {0}"
 
-#: python/mainwindow.py:267 python/options.py:388
+#: python/mainwindow.py:265 python/options.py:388
 msgid "File associations"
 msgstr "Asosiasi fail"
 
-#: python/mainwindow.py:274
+#: python/mainwindow.py:272
 msgid "About {0}"
 msgstr "Perihal {0}"
 
-#: python/mainwindow.py:303 python/mainwindow.py:307
+#: python/mainwindow.py:301 python/mainwindow.py:305
 msgid "Plugin manager"
 msgstr "Pengurus pemalam"
 
-#: python/mainwindow.py:332
+#: python/mainwindow.py:330
 msgid "File"
 msgstr "Fail"
 
-#: python/mainwindow.py:334
+#: python/mainwindow.py:332
 msgid "Tools"
 msgstr "Alatan"
 
-#: python/mainwindow.py:335 python/mainwindow.py:718
+#: python/mainwindow.py:333 python/mainwindow.py:716
 msgid "Settings"
 msgstr "Tetapan"
 
-#: python/mainwindow.py:336 python/options.py:387
+#: python/mainwindow.py:334 python/options.py:387
 msgid "Plugins"
 msgstr "Pemalam"
 
-#: python/mainwindow.py:348 python/mainwindow.py:731
+#: python/mainwindow.py:346 python/mainwindow.py:729
 msgid "Close"
 msgstr "Tutup"
 
-#: python/mainwindow.py:354 python/mainwindow.py:737 python/options.py:208
+#: python/mainwindow.py:352 python/mainwindow.py:735 python/options.py:208
 msgid "Configure"
 msgstr "Konfigur"
 
-#: python/mainwindow.py:585
+#: python/mainwindow.py:583
 msgid "Open the application's directory"
 msgstr "Buka direktori aplikasi"
 
-#: python/mainwindow.py:589 python/mainwindow.py:745
+#: python/mainwindow.py:587 python/mainwindow.py:743
 msgid "Read the manual"
 msgstr "Baca panduan"
 
-#: python/mainwindow.py:593
+#: python/mainwindow.py:591
 msgid "Set the icon"
 msgstr "Tetapkan ikon"
 
-#: python/mainwindow.py:601
+#: python/mainwindow.py:599
 msgid "Close this application"
 msgstr "Tutup aplikasi ini"
 
-#: python/mainwindow.py:612
+#: python/mainwindow.py:610
 msgid "KillApp"
 msgstr "MatikanApl"
 
-#: python/mainwindow.py:619
+#: python/mainwindow.py:617
 msgid "No manual found for {0}"
 msgstr "Tiada panduan ditemui untuk {0}"
 
-#: python/mainwindow.py:716
+#: python/mainwindow.py:714
 msgid "Install a program"
 msgstr "Pasang program"
 
-#: python/mainwindow.py:723
+#: python/mainwindow.py:721
 msgid "Update GIT"
 msgstr "Kemaskini GIT"
 
-#: python/mainwindow.py:733
+#: python/mainwindow.py:731
 msgid "Debug"
 msgstr "Nyahpepijat"
 
-#: python/mainwindow.py:735
+#: python/mainwindow.py:733
 msgid "Report a problem"
 msgstr "Laporkan masalah"
 
-#: python/mainwindow.py:739
+#: python/mainwindow.py:737
 msgid "Create a shortcut"
 msgstr "Cipta satu pintasan"
 
-#: python/mainwindow.py:741
+#: python/mainwindow.py:739
 msgid "Open the directory"
 msgstr "Buka direktori"
 
-#: python/mainwindow.py:748
+#: python/mainwindow.py:746
 msgid "Uninstall"
 msgstr "Nyahpasang"
 
-#: python/mainwindow.py:870 python/mainwindow.py:941 python/mainwindow.py:986
+#: python/mainwindow.py:868 python/mainwindow.py:939 python/mainwindow.py:984
 msgid "Please select a program."
 msgstr "Sila pilih satu program."
 
-#: python/mainwindow.py:878 python/mainwindow.py:880 python/mainwindow.py:882
+#: python/mainwindow.py:876 python/mainwindow.py:878 python/mainwindow.py:880
 msgid "{0} settings"
 msgstr "Tetapan {0}"
 
-#: python/mainwindow.py:948
+#: python/mainwindow.py:946
 msgid "{0} install menu"
 msgstr "Menu pemasangan {0}"
 
-#: python/mainwindow.py:957
+#: python/mainwindow.py:955
 msgid "{0} wine versions manager"
 msgstr "Pengurus versi wine {0}"
 
-#: python/mainwindow.py:988
+#: python/mainwindow.py:986
 msgid "The virtual drive associated with {0} ({1}) does no longer exists."
 msgstr "Pemacu maya berkaitan dengan {0} ({1}) tidak lagi wujud."
 
-#: python/mainwindow.py:1032
+#: python/mainwindow.py:1030
 msgid "Are you sure you want to close all {0} Windows?"
 msgstr "Anda pasti hendak menutup semua tetingkap {0}?"
 
-#: python/mainwindow.py:1071
+#: python/mainwindow.py:1069
 msgid "Run your Windows programs on "
 msgstr "Jalankan program Windows anda pada "
 
-#: python/mainwindow.py:1072
+#: python/mainwindow.py:1070
 msgid ""
 "PlayOnLinux and PlayOnMac team\n"
 "Under GPL licence version 3"
@@ -5271,59 +5271,59 @@ msgstr ""
 "Pasukan PlayOnLinux dan PlayOnMa\n"
 "Dibawah lesen GPL versi 3"
 
-#: python/mainwindow.py:1073
+#: python/mainwindow.py:1071
 msgid "Developer and Website: "
 msgstr "Pembangun dan Laman Sesawang: "
 
-#: python/mainwindow.py:1074
+#: python/mainwindow.py:1072
 msgid "Scriptors: "
 msgstr "Penulis Skrip: "
 
-#: python/mainwindow.py:1075
+#: python/mainwindow.py:1073
 msgid "Packager: "
 msgstr "Pembuat Pakej: "
 
-#: python/mainwindow.py:1076
+#: python/mainwindow.py:1074
 msgid "Icons:"
 msgstr "Ikon:"
 
-#: python/mainwindow.py:1077
+#: python/mainwindow.py:1075
 msgid "The following people contributed to this program: "
 msgstr "Individu berikut telah memberi sumbangan pada program ini: "
 
-#: python/mainwindow.py:1078
+#: python/mainwindow.py:1076
 msgid "Translations:"
 msgstr "Terjemahan:"
 
-#: python/mainwindow.py:1079
+#: python/mainwindow.py:1077
 msgid "Read TRANSLATORS file"
 msgstr "Baca fail TRANSLATORS"
 
-#: python/mainwindow.py:1118
+#: python/mainwindow.py:1116
 msgid "{0} is not able to start PlayOnLinux Setup Window server."
 msgstr "{0} tidak boleh memulakan pelayar Tetingkap Persediaan PlayOnLinux."
 
-#: python/mainwindow.py:1139
+#: python/mainwindow.py:1137
 msgid "{0} cannot find {1}"
 msgstr "{0} tidak dapat cari {1}"
 
-#: python/mainwindow.py:1141
+#: python/mainwindow.py:1139
 msgid " (from {2})"
 msgstr " (dari {2})"
 
-#: python/mainwindow.py:1144
+#: python/mainwindow.py:1142
 msgid "You need to install it to continue"
 msgstr "Anda perlu memasangnya untuk teruskan"
 
-#: python/mainwindow.py:1146
+#: python/mainwindow.py:1144
 msgid "You should install it to use {0}"
 msgstr "Anda patut pasang ia supaya dapat guna {0}"
 
-#: python/mainwindow.py:1162
+#: python/mainwindow.py:1160
 msgid "{0} is not supposed to be run as root. Sorry"
 msgstr "{0} tidak sepatutnya dijalankan sebagai root. Maaf"
 
-#: python/mainwindow.py:1171
+#: python/mainwindow.py:1169
 msgid ""
 "{0} is unable to find 32bits OpenGL libraries.\n"
 "\n"
@@ -5333,7 +5333,7 @@ msgstr ""
 "\n"
 "Anda akan menghadapi masalah dengan permainan anda"
 
-#: python/mainwindow.py:1183
+#: python/mainwindow.py:1181
 msgid ""
 "{0} is unable to find 64bits OpenGL libraries.\n"
 "\n"
@@ -5343,7 +5343,7 @@ msgstr ""
 "\n"
 "Anda akan menghadapi masalah dengan permainan anda"
 
-#: python/mainwindow.py:1195
+#: python/mainwindow.py:1193
 msgid ""
 "Your filesystem might prevent {0} from running correctly.\n"
 "\n"
@@ -5353,7 +5353,7 @@ msgstr ""
 "\n"
 "Sila buka {0} dalam terminal untuk perincian"
 
-#: python/mainwindow.py:1199
+#: python/mainwindow.py:1197
 msgid ""
 "Do you want to help {0} to make a compatibility database?\n"
 "\n"
@@ -5379,11 +5379,11 @@ msgstr ""
 "\n"
 "Maklumat ini sangat penting untuk kami membantu pengguna."
 
-#: python/mainwindow.py:1252
+#: python/mainwindow.py:1250
 msgid "Are you sure you want to  want to install {0} package?"
 msgstr "Anda pasti hendak memasang pakej {0}?"
 
-#: python/mainwindow.py:1259 python/mainwindow.py:1261
+#: python/mainwindow.py:1257 python/mainwindow.py:1259
 msgid ""
 "You are trying to open a script design for {0}! It might not work as expected"
 msgstr ""
