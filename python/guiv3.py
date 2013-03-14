@@ -843,8 +843,11 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
 
     def DownloadFile(self, url, localB):    #url = url a récupérer, localB le fichier où enregistrer la modification
-        if localB[-1] == '/':
+        if os.path.isdir(localB):
             # localB is a directory, append the filename to use
+            # * in a perfect world this should be removed and the
+            # client be always responsible for providing the filename
+            # it wants/expects
             self.chemin = urlparse.urlsplit(url)[2]
             self.nomFichier = self.chemin.split('/')[-1]
             self.local = localB + self.nomFichier
