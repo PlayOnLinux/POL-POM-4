@@ -173,13 +173,13 @@ POL_SetupWindow_wait ()
 	# POL_SetupWindow_wait_next_signal in shorter
 	POL_SetupWindow_wait_next_signal "$@"
 }
-POL_SetupWindow_download () 
+POL_SetupWindow_download ()
 {
 	# Download a file and place it to the current directory
-	# Usage: POL_SetupWindow_download [message] [title] [url]
+	# Usage: POL_SetupWindow_download [message] [title] [url] [file]
 	# /!\ Scriptors should directly use POL_Download
-	
-	Result="$(echo "$POL_COOKIE	POL_SetupWindow_download	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	$PWD/" | ncns "$POL_HOST" "$POL_PORT")"
+
+	Result="$(echo "$POL_COOKIE	POL_SetupWindow_download	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	$(POL_Untab "$PWD/$4")" | ncns "$POL_HOST" "$POL_PORT")"
 	# FIXME: Result should send 'fail' if the download has failed. Maybe we could catch it
 }
 

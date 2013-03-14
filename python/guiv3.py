@@ -842,10 +842,14 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.FileDialog.Destroy()
 
 
-    def DownloadFile(self, url, localB):    #url = url a récupérer, localB le fichier où enregistrer la modification sans nom de fichier
-        self.chemin = urlparse.urlsplit(url)[2]
-        self.nomFichier = self.chemin.split('/')[-1]
-        self.local = localB + self.nomFichier
+    def DownloadFile(self, url, localB):    #url = url a récupérer, localB le fichier où enregistrer la modification
+        if localB[-1] == '/':
+            # localB is a directory, append the filename to use
+            self.chemin = urlparse.urlsplit(url)[2]
+            self.nomFichier = self.chemin.split('/')[-1]
+            self.local = localB + self.nomFichier
+        else:
+            self.local = localB
         self.downloader = Download(url, self.local)
         self.Timer_downloading = True
 
