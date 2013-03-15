@@ -468,7 +468,7 @@ POL_Download ()
 			let neededSpace=neededSpace/1024
 			POL_System_EnoughSpace "$neededSpace" || POL_Debug_Error "$(eval_gettext 'No enough space to download:\n$URL ($neededSpace KB)')"
 		fi
-		POL_SetupWindow_download "$(eval_gettext 'Please wait while $APPLICATION_TITLE is downloading:')\n$FICHIER" "$TITLE" "$URL" "$FICHIER"
+		POL_SetupWindow_download "$(eval_gettext 'Please wait while $APPLICATION_TITLE is downloading:')\n$FICHIER" "$TITLE" "$URL" "$PWD/$FICHIER"
                 if [ "$Result" = "Fail" ]; then
 			POL_SetupWindow_question "$(eval_gettext 'An error happened during download.')\n\n$(eval_gettext 'Do you want to retry?')"
 			if [ "$APP_ANSWER" = "FALSE" ]; then
