@@ -519,7 +519,13 @@ POL_Download_Resource ()
 	then
 		POL_Debug_Message "Resource already present"
 	else
-		if [ "$URL" = "" ]
+		WTCACHE=""
+		[ -d "$HOME/.cache/winetricks" ] && WTCACHE="$(find $HOME/.cache/winetricks -type f -a -iname "$FICHIER" | tail -n 1)"
+		if [ -n "$WTCACHE" -a "$(POL_MD5_file "$WTCACHE")" = "$2" ]
+		then
+			ln "$WTCACHE" "$FICHIER" || cp "$WTCACHE" "$FICHIER"
+			POL_Debug_Message "Resource found in winetricks cache"
+		elif [ "$URL" = "" ]
 		then
 			POL_Debug_Error "POL_Download - URL is missing !"
 		else
@@ -530,14 +536,14 @@ POL_Download_Resource ()
 			fi
 			[ -e "$FICHIER" ] && rm "$FICHIER"
 			POL_SetupWindow_download "$(eval_gettext "Please wait while $APPLICATION_TITLE is downloading:") $FICHIER" "$TITLE" "$URL"
-	                if [ "$Result" = "Fail" ]; then
+			if [ "$Result" = "Fail" ]; then
 				POL_SetupWindow_question "$(eval_gettext 'An error happened during download.')\n\n$(eval_gettext 'Do you want to retry?')"
 				if [ "$APP_ANSWER" = "FALSE" ]; then
 					POL_Debug_Error "POL_Download - error during download! ($i attempt)"
 				else
 					POL_Download_Resource "$1" "$2" "$3" "$(( i + 1))"
 				fi
-	                elif [ "$2" = "" ]
+			elif [ "$2" = "" ]
 			then
 				POL_Debug_Warning "POL_Download - MD5 is missing !"
 			else

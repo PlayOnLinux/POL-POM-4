@@ -27,6 +27,7 @@
 - Fix typo (#1932)
 - POL_SetupWindow_download: accept a directory or a filename as 4th parameter
 - POL_Download: accept URLs with "query strings", that get included in local filename
+- (experimental) if missing, look for resources in winetricks cache before attempting download (#1963)
 
 -> 4.1.9
 - POL_System_is32bit
