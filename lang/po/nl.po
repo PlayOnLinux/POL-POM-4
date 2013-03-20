@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2013-03-11 19:00+0100\n"
-"PO-Revision-Date: 2013-03-09 08:44+0000\n"
+"POT-Creation-Date: 2013-03-18 19:00+0100\n"
+"PO-Revision-Date: 2013-03-15 17:59+0000\n"
 "Last-Translator: rob <linuxned@gmail.com>\n"
 "Language-Team: nl_NL.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-03-12 04:32+0000\n"
-"X-Generator: Launchpad (build 16524)\n"
+"X-Launchpad-Export-Date: 2013-03-19 05:09+0000\n"
+"X-Generator: Launchpad (build 16532)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -380,11 +380,13 @@ msgstr ""
 "installatiescript door kan gaan."
 
 #: PlayOnLinux_Scripts/Ableton_Live_8_:42
+#: PlayOnLinux_Scripts/Ableton_Live_9_:42
 #, sh-format
 msgid "Please select $TITLE Install file:"
 msgstr "Selecteer het $TITLE-installatiebestand:"
 
 #: PlayOnLinux_Scripts/Ableton_Live_8_:50
+#: PlayOnLinux_Scripts/Ableton_Live_9_:50
 #, sh-format
 msgid ""
 "NOTICE: To register, when it opens asking for registration, drag-and-drop "
@@ -437,6 +439,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:95
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:95
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:109
+#: PlayOnLinux_Scripts/Little_Inferno_Steam_:69
 #: PlayOnLinux_Scripts/Magicka_:73
 #: PlayOnLinux_Scripts/Monkey_Island_2_Special_Edition_:72
 #: PlayOnLinux_Scripts/Portal_:95 PlayOnLinux_Scripts/Portal_2_:80
@@ -484,6 +487,8 @@ msgstr "U hoeft geen DirectX te installeren of GLSetup te gebruiken."
 #: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:52
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:51
 #: PlayOnLinux_Scripts/Google_Picasa_3.9_:54
+#: PlayOnLinux_Scripts/League_Of_Legends_:51
+#: PlayOnLinux_Scripts/League_Of_Legends_:120
 #: PlayOnLinux_Scripts/POL_GoG_setup_:30 PlayOnLinux_Scripts/SFR_LiberTalk_:36
 #: PlayOnLinux_Scripts/The_Sims_3_:50 PlayOnLinux_Scripts/Toontown_Online_:25
 #: PlayOnLinux_Scripts/iTunes_10_:50
@@ -1160,7 +1165,7 @@ msgstr "Selecteer de 1ste patch om uit te voeren"
 msgid "Select 2nd patch to execute"
 msgstr "Selecteer de 2de patch om uit te voeren"
 
-#: PlayOnLinux_Scripts/DC_Universe_Online_:40
+#: PlayOnLinux_Scripts/DC_Universe_Online_:43
 #: PlayOnLinux_Scripts/PlanetSide_2_:40
 #, sh-format
 msgid ""
@@ -1172,12 +1177,12 @@ msgstr ""
 "de patch af voordat u zich aanmeldt om de installatie te voltooien. Hierna "
 "kunt u \"$TITLE\" draaien wanneer het instellen is voltooid"
 
-#: PlayOnLinux_Scripts/DC_Universe_Online_:49
+#: PlayOnLinux_Scripts/DC_Universe_Online_:52
 #, sh-format
 msgid "$TITLE has been installed successfully. See you on the Battle Field!"
 msgstr "$TITLE is succesvol geïnstalleerd. Zie je op het slagveld!"
 
-#: PlayOnLinux_Scripts/DC_Universe_Online_:49
+#: PlayOnLinux_Scripts/DC_Universe_Online_:52
 #: PlayOnLinux_Scripts/Legions__Overdrive_:48
 #: PlayOnLinux_Scripts/PlanetSide_2_:49 PlayOnLinux_Scripts/Soldat_:28
 #: PlayOnLinux_Scripts/World_Of_Tanks_:62
@@ -1394,13 +1399,13 @@ msgstr "Voer eerste spelschijf in in schijfstation."
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:39
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:47
 #: PlayOnLinux_Scripts/POL_Function_FontsSmoothRGB_:1
-#: PlayOnLinux_Scripts/POL_GoG_download_:49
+#: PlayOnLinux_Scripts/POL_GoG_download_:48
 #: PlayOnLinux_Scripts/POL_Install_DisableCrashDialog_:5
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:34
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:109 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:432 lib/wine.lib:1073
+#: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:1073
 #: lib/wine.lib:1103
 #, sh-format
 msgid "Please wait..."
@@ -2022,7 +2027,47 @@ msgstr ""
 msgid "Which language version would you like to install?"
 msgstr "Welke taalversie wilt u installeren?"
 
+#: PlayOnLinux_Scripts/League_Of_Legends_:36
+#, sh-format
+msgid "glxinfo is not installed. Please install mesa-utils package"
+msgstr "glxinfo is niet geïnstalleerd. Installeer het mesa-utils-pakket"
+
+#: PlayOnLinux_Scripts/League_Of_Legends_:39
+#, sh-format
+msgid ""
+"Warning! S3TC compression is not available on your system.\\n\\nIf you have "
+"a free driver, you might need to install a proprietary driver \\n\\"
+"nOtherwise, you can enable it by installing libtxc-dxtn0 package, but you "
+"might get slower results"
+msgstr ""
+"Waarschuwing! S3TC-compressie is niet beschikbaar op uw systeem.\\n\\nIndien "
+"u een vrije driver heeft, is het misschien noodzakelijk om een niet-vrije "
+"driver te installeren \\n\\nAnders kunt u dit ook inschakelen door het "
+"libtxc-dxtn0-pakket te installeren, maar de resultaten zijn mogelijk "
+"langzamer"
+
 #: PlayOnLinux_Scripts/League_Of_Legends_:62
+#, sh-format
+msgid "What version would you like to install?"
+msgstr "Welke versie wilt u installeren?"
+
+#: PlayOnLinux_Scripts/League_Of_Legends_:108
+#, sh-format
+msgid ""
+"Downloader crashed, likely because it opened more files than allowed. It "
+"will be restarted in the hope it completes its job."
+msgstr ""
+"Het downloaden is vastgelopen, mogelijk omdat er meer bestanden gedownload "
+"worden dan toegestaan. Het downloaden zal opnieuw gestart worden, hopelijk "
+"wordt de downloadtaak dan voltooid."
+
+#: PlayOnLinux_Scripts/League_Of_Legends_:117
+#, sh-format
+msgid "The installer could not be found in the default download directory."
+msgstr ""
+"Het installatieprogramma kon niet gevonden worden in de standaarddownloadmap."
+
+#: PlayOnLinux_Scripts/League_Of_Legends_:125
 #, sh-format
 msgid ""
 "Warning: You must not tick the checkbox \"Run $TITLE\" when setup is done"
@@ -2030,10 +2075,15 @@ msgstr ""
 "Waarschuwing: u moet niet de keuze \"Run $TITLE\" selecteren wanneer de "
 "installatie is voltooid"
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:74
+#: PlayOnLinux_Scripts/League_Of_Legends_:147
 #, sh-format
-msgid "Please select LeagueOfLegends.tar file:"
-msgstr "Selecteer het LeagueOfLegends.tar-bestand:"
+msgid ""
+"You should now have a League of Legends directory on your desktop containing "
+"its installer. You may keep it to speed up reinstallations."
+msgstr ""
+"U zou nu een League of Legends-map op uw bureaublad moeten zien met daarin "
+"het installatieprogramma. U zou deze kunnen bewaren zodat u sneller een "
+"eventuele herinstallatie kan doen."
 
 #: PlayOnLinux_Scripts/League_of_Legends__ingame_shop_icons_fix_:32
 #, sh-format
@@ -2241,24 +2291,24 @@ msgstr ""
 msgid "Please read this"
 msgstr "Lees dit a.u.b. door"
 
-#: PlayOnLinux_Scripts/POL_GoG_download_:37
+#: PlayOnLinux_Scripts/POL_GoG_download_:36
 #, sh-format
 msgid "In what directory do you want to download GOG files?"
 msgstr "In welke map wilt u de COG-bestanden downloaden?"
 
-#: PlayOnLinux_Scripts/POL_GoG_download_:47
+#: PlayOnLinux_Scripts/POL_GoG_download_:46
 #, sh-format
 msgid "Please enter your gog.com login to download $BASENAME"
 msgstr ""
 "Voer a.u.b. uw aanmeldgegevens in voor gog.com om $BASENAME te downloaden"
 
-#: PlayOnLinux_Scripts/POL_GoG_download_:67
+#: PlayOnLinux_Scripts/POL_GoG_download_:66
 #, sh-format
 msgid "Gog.com login failed, try again?"
 msgstr "Aanmelden op Gog.com is mislukt, opnieuw proberen?"
 
-#: PlayOnLinux_Scripts/POL_GoG_download_:90
-#: PlayOnLinux_Scripts/POL_GoG_download_:100
+#: PlayOnLinux_Scripts/POL_GoG_download_:89
+#: PlayOnLinux_Scripts/POL_GoG_download_:99
 #, sh-format
 msgid "Checking piece integrity..."
 msgstr "Integriteit van stukken controleren..."
@@ -2656,6 +2706,9 @@ msgid ""
 "latency audio interface is recommended. Your MIDI controllers should work as "
 "expected."
 msgstr ""
+"LET OP: Voor low-latency audio, bekijk a.u.b. WineASIO. Een aftermarket low-"
+"latency audio-interface wordt aanbevolen. Uw MIDI-controlepanelen zouden "
+"moeten werken."
 
 #: PlayOnLinux_Scripts/Red_Faction_:87
 #, sh-format
@@ -3010,19 +3063,39 @@ msgstr ""
 "vcrun2008 en wininet installeren en d3d9 en d3d8 dlls uitschakelen om spel "
 "te forceren om OpenGL te gebruiken"
 
-#: PlayOnLinux_Scripts/Traktor_Pro_2_:49
+#: PlayOnLinux_Scripts/Traktor_Pro_2_:42
+#, sh-format
+msgid ""
+"During installation, please UNCHECK all drivers for the NI controllers and "
+"audio interfaces. The install will fail if left checked, and are not needed."
+msgstr ""
+"VINK tijdens de installatie alle extra drivers UIT voor de NI-"
+"controlepanelen en audio-interfaces. De installatie zal mislukken wanneer u "
+"deze aangevinkt laat en ze niet nodig zijn."
+
+#: PlayOnLinux_Scripts/Traktor_Pro_2_:50
 #, sh-format
 msgid ""
 "NOTICE: For low-latency audio, look into WineASIO. Your MIDI controllers "
 "should work as expected."
 msgstr ""
-"LET OP: Voor low-latency audio, bekijk a.u.b. WineASIO. Uw MIDI-controllers "
-"zouden moeten werken."
+"LET OP: Voor low-latency audio, bekijk a.u.b. WineASIO. Uw MIDI-"
+"controlepanelen zouden moeten werken."
 
 #: PlayOnLinux_Scripts/Tribes___Ascent_:46
 #, sh-format
 msgid "Downloading latest English setup..."
 msgstr "Laatste Engelse instellingen worden gedownload…"
+
+#: PlayOnLinux_Scripts/UTAU_4.16_:16
+#, sh-format
+msgid "ja_JP.utf8 locale must be installed for $TITLE to work."
+msgstr ""
+
+#: PlayOnLinux_Scripts/UTAU_4.16_:38
+#, sh-format
+msgid "Would you like to enable the English GUI Patch?"
+msgstr ""
 
 #: PlayOnLinux_Scripts/Vantage_Master_Online_:30
 #, sh-format
@@ -3810,7 +3883,7 @@ msgstr "Multimedia"
 msgid "Office"
 msgstr "Kantoor"
 
-#: bash/playonlinux_online:69 lib/setupwindow.lib:348 python/install.py:218
+#: bash/playonlinux_online:69 lib/setupwindow.lib:349 python/install.py:218
 #, sh-format
 msgid "Other"
 msgstr "Anders"
@@ -4158,6 +4231,9 @@ msgid ""
 "installing does not work correctly, it might be the cause of the problem.\\"
 "nVisit www.$POL_DNS to get further information"
 msgstr ""
+"Er heeft zich een fout voorgedaan in $APPLICATION_TITLE. Indien het "
+"programma dat u installeert niet goed werkt, dan kan dit de reden van het "
+"probleem zijn.\\nGa naar www.$POL_DNS voor meer informatie"
 
 #: lib/debug.lib:153
 #, sh-format
@@ -4440,27 +4516,27 @@ msgstr ""
 msgid "Error"
 msgstr "Fout"
 
-#: lib/setupwindow.lib:347
+#: lib/setupwindow.lib:348
 #, sh-format
 msgid "Where is mounted your CD-ROM?"
 msgstr "Waar is uw cd-rom aangekoppeld?"
 
-#: lib/setupwindow.lib:349 python/install.py:283
+#: lib/setupwindow.lib:350 python/install.py:283
 #, sh-format
 msgid "Refresh"
 msgstr "Verversen"
 
-#: lib/setupwindow.lib:381
+#: lib/setupwindow.lib:382
 #, sh-format
 msgid "Reading your device"
 msgstr "Uw apparaat lezen"
 
-#: lib/setupwindow.lib:396
+#: lib/setupwindow.lib:397
 #, sh-format
 msgid "Error: Unable to find the CD-ROM!"
 msgstr "Fout: kan de cd-rom niet vinden!"
 
-#: lib/setupwindow.lib:410
+#: lib/setupwindow.lib:411
 #, sh-format
 msgid ""
 "$TITLE needs to read the PC part of a hybrid CD-Rom.\\n\\nBy default, MacOS "
@@ -4473,7 +4549,7 @@ msgstr ""
 "niet geschikt is voor recente versies van Mac OS.\\n\\nWilt u dat PlayOnMac "
 "probeert om het PC-gedeelte van uw cd te lezen?"
 
-#: lib/setupwindow.lib:462
+#: lib/setupwindow.lib:463
 #, sh-format
 msgid ""
 "Don't forget to go to PlayOnMac tools menu -> Read a PC CD-Rom before "
@@ -4482,29 +4558,29 @@ msgstr ""
 "Vergeet niet om naar het PlayOnMac-hulpmiddelenmenu te gaan -> Een PC-cd-rom "
 "lezen voordat u uw spel gaat draaien"
 
-#: lib/setupwindow.lib:473
+#: lib/setupwindow.lib:474
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is copying files:"
 msgstr ""
 "Een moment geduld, $APPLICATION_TITLE is bezig met het kopiëren van "
 "bestanden:"
 
-#: lib/setupwindow.lib:558 lib/setupwindow.lib:707
+#: lib/setupwindow.lib:559 lib/setupwindow.lib:708
 #, sh-format
 msgid "Scanning the virtual drive ..."
 msgstr "Virtuele station wordt doorzocht…"
 
-#: lib/setupwindow.lib:572
+#: lib/setupwindow.lib:573
 #, sh-format
 msgid "How much memory does your graphics board have?"
 msgstr "Hoe groot is uw grafische geheugen?"
 
-#: lib/setupwindow.lib:581
+#: lib/setupwindow.lib:582
 #, sh-format
 msgid "Video card does not have enough memory"
 msgstr "Uw videokaart heeft te weinig geheugen"
 
-#: lib/setupwindow.lib:582
+#: lib/setupwindow.lib:583
 #, sh-format
 msgid ""
 "Your video card does not have enough memory!\\nIt might prevent the game "
@@ -4512,67 +4588,67 @@ msgid ""
 msgstr ""
 "Uw videokaart heeft te weinig geheugen!\\nMogelijk werkt het spel niet"
 
-#: lib/setupwindow.lib:596
+#: lib/setupwindow.lib:597
 #, sh-format
 msgid "Use Steam Store version"
 msgstr "Steam Store-versie gebruiken"
 
-#: lib/setupwindow.lib:597
+#: lib/setupwindow.lib:598
 #, sh-format
 msgid "Use Steam Store demo version"
 msgstr "Steam Store-demoversie gebruiken"
 
-#: lib/setupwindow.lib:598
+#: lib/setupwindow.lib:599
 #, sh-format
 msgid "Use Desura Store version"
 msgstr "Desura Store-versie gebruiken"
 
-#: lib/setupwindow.lib:599
+#: lib/setupwindow.lib:600
 #, sh-format
 msgid "Use Desura Store demo version"
 msgstr "Desura Store-demoversie gebruiken"
 
-#: lib/setupwindow.lib:600
+#: lib/setupwindow.lib:601
 #, sh-format
 msgid "Use Origin Store version"
 msgstr "Origin Store-versie gebruiken"
 
-#: lib/setupwindow.lib:601
+#: lib/setupwindow.lib:602
 #, sh-format
 msgid "Use Origin Store demo version"
 msgstr "Origin Store-demoversie gebruiken"
 
-#: lib/setupwindow.lib:603
+#: lib/setupwindow.lib:604
 #, sh-format
 msgid "Use a setup file in my computer"
 msgstr "Gebruik een installatiebestand op mijn computer"
 
-#: lib/setupwindow.lib:604
+#: lib/setupwindow.lib:605
 #, sh-format
 msgid "Use CD-ROM(s)"
 msgstr "Gebruik cd-rom(s)"
 
-#: lib/setupwindow.lib:605
+#: lib/setupwindow.lib:606
 #, sh-format
 msgid "Use DVD-ROM(s)"
 msgstr "Gebruik dvd-rom(s)"
 
-#: lib/setupwindow.lib:606
+#: lib/setupwindow.lib:607
 #, sh-format
 msgid "Download the program"
 msgstr "Download het programma"
 
-#: lib/setupwindow.lib:671
+#: lib/setupwindow.lib:672
 #, sh-format
 msgid "Please choose an installation method"
 msgstr "Selecteer een installatiemethode"
 
-#: lib/setupwindow.lib:709
+#: lib/setupwindow.lib:710
 #, sh-format
 msgid "I don't want to make another shortcut"
 msgstr "Ik wil geen andere snelkoppeling maken"
 
-#: lib/setupwindow.lib:710 python/guiv3.py:151
+#: lib/setupwindow.lib:711 python/guiv3.py:151
 #, sh-format
 msgid "Browse"
 msgstr "Bladeren"

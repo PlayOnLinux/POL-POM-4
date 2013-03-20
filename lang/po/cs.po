@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2013-03-11 19:00+0100\n"
-"PO-Revision-Date: 2013-03-04 08:17+0000\n"
+"POT-Creation-Date: 2013-03-18 19:00+0100\n"
+"PO-Revision-Date: 2013-03-16 09:09+0000\n"
 "Last-Translator: Tadeáš Pařík <tadeas.parik@gmail.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-03-12 04:32+0000\n"
-"X-Generator: Launchpad (build 16524)\n"
+"X-Launchpad-Export-Date: 2013-03-19 05:09+0000\n"
+"X-Generator: Launchpad (build 16532)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -376,11 +376,13 @@ msgstr ""
 "skript."
 
 #: PlayOnLinux_Scripts/Ableton_Live_8_:42
+#: PlayOnLinux_Scripts/Ableton_Live_9_:42
 #, sh-format
 msgid "Please select $TITLE Install file:"
 msgstr "Vyberte prosím instalační soubor $TITLE:"
 
 #: PlayOnLinux_Scripts/Ableton_Live_8_:50
+#: PlayOnLinux_Scripts/Ableton_Live_9_:50
 #, sh-format
 msgid ""
 "NOTICE: To register, when it opens asking for registration, drag-and-drop "
@@ -433,6 +435,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:95
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:95
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:109
+#: PlayOnLinux_Scripts/Little_Inferno_Steam_:69
 #: PlayOnLinux_Scripts/Magicka_:73
 #: PlayOnLinux_Scripts/Monkey_Island_2_Special_Edition_:72
 #: PlayOnLinux_Scripts/Portal_:95 PlayOnLinux_Scripts/Portal_2_:80
@@ -479,6 +482,8 @@ msgstr "Nemusíte instalovat DirectX nebo používat GLSetup."
 #: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:52
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:51
 #: PlayOnLinux_Scripts/Google_Picasa_3.9_:54
+#: PlayOnLinux_Scripts/League_Of_Legends_:51
+#: PlayOnLinux_Scripts/League_Of_Legends_:120
 #: PlayOnLinux_Scripts/POL_GoG_setup_:30 PlayOnLinux_Scripts/SFR_LiberTalk_:36
 #: PlayOnLinux_Scripts/The_Sims_3_:50 PlayOnLinux_Scripts/Toontown_Online_:25
 #: PlayOnLinux_Scripts/iTunes_10_:50
@@ -1154,7 +1159,7 @@ msgstr "Vyber první aktualizaci"
 msgid "Select 2nd patch to execute"
 msgstr "Vyber druhou aktualizaci"
 
-#: PlayOnLinux_Scripts/DC_Universe_Online_:40
+#: PlayOnLinux_Scripts/DC_Universe_Online_:43
 #: PlayOnLinux_Scripts/PlanetSide_2_:40
 #, sh-format
 msgid ""
@@ -1166,12 +1171,12 @@ msgstr ""
 "uzavřete tohoto správce ještě před přihlášením se. Potom to a po ukončení "
 "nastavení můžete spustit \"$TITLE\""
 
-#: PlayOnLinux_Scripts/DC_Universe_Online_:49
+#: PlayOnLinux_Scripts/DC_Universe_Online_:52
 #, sh-format
 msgid "$TITLE has been installed successfully. See you on the Battle Field!"
-msgstr ""
+msgstr "$TITLE byl úspěšně nainstalován. Uvidíme se v Battle Field!"
 
-#: PlayOnLinux_Scripts/DC_Universe_Online_:49
+#: PlayOnLinux_Scripts/DC_Universe_Online_:52
 #: PlayOnLinux_Scripts/Legions__Overdrive_:48
 #: PlayOnLinux_Scripts/PlanetSide_2_:49 PlayOnLinux_Scripts/Soldat_:28
 #: PlayOnLinux_Scripts/World_Of_Tanks_:62
@@ -1386,13 +1391,13 @@ msgstr "Vložte prosím první herní disk do mechaniky"
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:39
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:47
 #: PlayOnLinux_Scripts/POL_Function_FontsSmoothRGB_:1
-#: PlayOnLinux_Scripts/POL_GoG_download_:49
+#: PlayOnLinux_Scripts/POL_GoG_download_:48
 #: PlayOnLinux_Scripts/POL_Install_DisableCrashDialog_:5
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:34
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:109 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:432 lib/wine.lib:1073
+#: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:1073
 #: lib/wine.lib:1103
 #, sh-format
 msgid "Please wait..."
@@ -2005,17 +2010,54 @@ msgstr "Registrování knihoven, vyčkejte prosím\\n(může to chvilku trvat)"
 msgid "Which language version would you like to install?"
 msgstr "Jakou jazykovou verzi chcete nainstalovat?"
 
+#: PlayOnLinux_Scripts/League_Of_Legends_:36
+#, sh-format
+msgid "glxinfo is not installed. Please install mesa-utils package"
+msgstr "glxinfo není nainstalováno. Nainstalujte prosím balík mesa-utils"
+
+#: PlayOnLinux_Scripts/League_Of_Legends_:39
+#, sh-format
+msgid ""
+"Warning! S3TC compression is not available on your system.\\n\\nIf you have "
+"a free driver, you might need to install a proprietary driver \\n\\"
+"nOtherwise, you can enable it by installing libtxc-dxtn0 package, but you "
+"might get slower results"
+msgstr ""
+"Varování! Komprese S3TC není ve vašem systému dostupná.\\n\\nJestliže "
+"používáte svobodný ovladač, bude asi potřeba doinstalovat ovladač "
+"proprietární \\n\\nMůžete ho povolit nainstalováním libtxc-dxtn0 balíku, "
+"výsledky mohou být ovšem pomalejší"
+
 #: PlayOnLinux_Scripts/League_Of_Legends_:62
+#, sh-format
+msgid "What version would you like to install?"
+msgstr "Kterou verzi chcete nainstalovat?"
+
+#: PlayOnLinux_Scripts/League_Of_Legends_:108
+#, sh-format
+msgid ""
+"Downloader crashed, likely because it opened more files than allowed. It "
+"will be restarted in the hope it completes its job."
+msgstr ""
+
+#: PlayOnLinux_Scripts/League_Of_Legends_:117
+#, sh-format
+msgid "The installer could not be found in the default download directory."
+msgstr "Instalátor nenalezen ve výchozím adresáři pro stahování."
+
+#: PlayOnLinux_Scripts/League_Of_Legends_:125
 #, sh-format
 msgid ""
 "Warning: You must not tick the checkbox \"Run $TITLE\" when setup is done"
 msgstr ""
 "Varování: Po dokončení instalace nesmíte zaškrtnout \"Spustit $TITLE\""
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:74
+#: PlayOnLinux_Scripts/League_Of_Legends_:147
 #, sh-format
-msgid "Please select LeagueOfLegends.tar file:"
-msgstr "Vyberte prosím soubor LeagueOfLegends.tar:"
+msgid ""
+"You should now have a League of Legends directory on your desktop containing "
+"its installer. You may keep it to speed up reinstallations."
+msgstr ""
 
 #: PlayOnLinux_Scripts/League_of_Legends__ingame_shop_icons_fix_:32
 #, sh-format
@@ -2223,23 +2265,23 @@ msgstr ""
 msgid "Please read this"
 msgstr "Prosím čtěte následující"
 
-#: PlayOnLinux_Scripts/POL_GoG_download_:37
+#: PlayOnLinux_Scripts/POL_GoG_download_:36
 #, sh-format
 msgid "In what directory do you want to download GOG files?"
 msgstr "Do kterého adresáře chcete stáhnout GOG soubory?"
 
-#: PlayOnLinux_Scripts/POL_GoG_download_:47
+#: PlayOnLinux_Scripts/POL_GoG_download_:46
 #, sh-format
 msgid "Please enter your gog.com login to download $BASENAME"
 msgstr "Prosím zadejte své gog.com přihlášení ke stažení $BASENAME"
 
-#: PlayOnLinux_Scripts/POL_GoG_download_:67
+#: PlayOnLinux_Scripts/POL_GoG_download_:66
 #, sh-format
 msgid "Gog.com login failed, try again?"
 msgstr "Selhalo přihlášení k GOG.com, zkusit znovu?"
 
-#: PlayOnLinux_Scripts/POL_GoG_download_:90
-#: PlayOnLinux_Scripts/POL_GoG_download_:100
+#: PlayOnLinux_Scripts/POL_GoG_download_:89
+#: PlayOnLinux_Scripts/POL_GoG_download_:99
 #, sh-format
 msgid "Checking piece integrity..."
 msgstr "Kontrola integrity této části..."
@@ -2984,7 +3026,14 @@ msgstr ""
 "Probíhá instalace vcrun2008 a wininet a pro vynucené použití OpenGL budou "
 "zakázány knihovny d3d9 a d3d8"
 
-#: PlayOnLinux_Scripts/Traktor_Pro_2_:49
+#: PlayOnLinux_Scripts/Traktor_Pro_2_:42
+#, sh-format
+msgid ""
+"During installation, please UNCHECK all drivers for the NI controllers and "
+"audio interfaces. The install will fail if left checked, and are not needed."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Traktor_Pro_2_:50
 #, sh-format
 msgid ""
 "NOTICE: For low-latency audio, look into WineASIO. Your MIDI controllers "
@@ -2997,6 +3046,16 @@ msgstr ""
 #, sh-format
 msgid "Downloading latest English setup..."
 msgstr "Stahuje se nejaktuálnější anglické nastavení"
+
+#: PlayOnLinux_Scripts/UTAU_4.16_:16
+#, sh-format
+msgid "ja_JP.utf8 locale must be installed for $TITLE to work."
+msgstr ""
+
+#: PlayOnLinux_Scripts/UTAU_4.16_:38
+#, sh-format
+msgid "Would you like to enable the English GUI Patch?"
+msgstr ""
 
 #: PlayOnLinux_Scripts/Vantage_Master_Online_:30
 #, sh-format
@@ -3781,7 +3840,7 @@ msgstr "Multimédia"
 msgid "Office"
 msgstr "Kancelář"
 
-#: bash/playonlinux_online:69 lib/setupwindow.lib:348 python/install.py:218
+#: bash/playonlinux_online:69 lib/setupwindow.lib:349 python/install.py:218
 #, sh-format
 msgid "Other"
 msgstr "Jiné"
@@ -4127,6 +4186,9 @@ msgid ""
 "installing does not work correctly, it might be the cause of the problem.\\"
 "nVisit www.$POL_DNS to get further information"
 msgstr ""
+"$APPLICATION_TITLE zaznamenala chybu. Jestliže program, který instalujete "
+"nepracuje správně, může to být zapříčiněno právě tímto problémem.\\"
+"nNavštivte www.$POL_DNS pro více informací"
 
 #: lib/debug.lib:153
 #, sh-format
@@ -4409,27 +4471,27 @@ msgstr ""
 msgid "Error"
 msgstr "Chyba"
 
-#: lib/setupwindow.lib:347
+#: lib/setupwindow.lib:348
 #, sh-format
 msgid "Where is mounted your CD-ROM?"
 msgstr "Kde je připojena vaše CD-ROM?"
 
-#: lib/setupwindow.lib:349 python/install.py:283
+#: lib/setupwindow.lib:350 python/install.py:283
 #, sh-format
 msgid "Refresh"
 msgstr "Obnovit"
 
-#: lib/setupwindow.lib:381
+#: lib/setupwindow.lib:382
 #, sh-format
 msgid "Reading your device"
 msgstr "Načítání vašeho zařízení"
 
-#: lib/setupwindow.lib:396
+#: lib/setupwindow.lib:397
 #, sh-format
 msgid "Error: Unable to find the CD-ROM!"
 msgstr "Chyba: Nelze najít CD-ROM!"
 
-#: lib/setupwindow.lib:410
+#: lib/setupwindow.lib:411
 #, sh-format
 msgid ""
 "$TITLE needs to read the PC part of a hybrid CD-Rom.\\n\\nBy default, MacOS "
@@ -4442,7 +4504,7 @@ msgstr ""
 "kompatibilní s aktuální verzí Mac OS.\\n\\nChcete, aby se PlayOnMac pokusil "
 "načíst PC část CD-ROM?"
 
-#: lib/setupwindow.lib:462
+#: lib/setupwindow.lib:463
 #, sh-format
 msgid ""
 "Don't forget to go to PlayOnMac tools menu -> Read a PC CD-Rom before "
@@ -4451,27 +4513,27 @@ msgstr ""
 "Nezapomeňte jít do nabídky nástrojů PlayOnMac -> Číst PC CD-ROM před "
 "spuštěním hry"
 
-#: lib/setupwindow.lib:473
+#: lib/setupwindow.lib:474
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is copying files:"
 msgstr "Vyčkejte prosím, dokud $APPLICATION_TITLE nezkopíruje soubory:"
 
-#: lib/setupwindow.lib:558 lib/setupwindow.lib:707
+#: lib/setupwindow.lib:559 lib/setupwindow.lib:708
 #, sh-format
 msgid "Scanning the virtual drive ..."
 msgstr "Skenuji virtuální disk ..."
 
-#: lib/setupwindow.lib:572
+#: lib/setupwindow.lib:573
 #, sh-format
 msgid "How much memory does your graphics board have?"
 msgstr "Kolik paměti má vaše gragická karta?"
 
-#: lib/setupwindow.lib:581
+#: lib/setupwindow.lib:582
 #, sh-format
 msgid "Video card does not have enough memory"
 msgstr "Grafická karta nemá dostatek paměti"
 
-#: lib/setupwindow.lib:582
+#: lib/setupwindow.lib:583
 #, sh-format
 msgid ""
 "Your video card does not have enough memory!\\nIt might prevent the game "
@@ -4479,67 +4541,67 @@ msgid ""
 msgstr ""
 "Vaše grafická karta nemá dostatek paměti!\\nMůže to způsobit nefunkčnost hry"
 
-#: lib/setupwindow.lib:596
+#: lib/setupwindow.lib:597
 #, sh-format
 msgid "Use Steam Store version"
 msgstr "Použijte Steam Store verzi"
 
-#: lib/setupwindow.lib:597
+#: lib/setupwindow.lib:598
 #, sh-format
 msgid "Use Steam Store demo version"
 msgstr "Použijte Steam Store demo verzi"
 
-#: lib/setupwindow.lib:598
+#: lib/setupwindow.lib:599
 #, sh-format
 msgid "Use Desura Store version"
 msgstr "Použít Desura store verzi"
 
-#: lib/setupwindow.lib:599
+#: lib/setupwindow.lib:600
 #, sh-format
 msgid "Use Desura Store demo version"
 msgstr "Použít Desura store demo verzi"
 
-#: lib/setupwindow.lib:600
+#: lib/setupwindow.lib:601
 #, sh-format
 msgid "Use Origin Store version"
 msgstr "Použít Origin store verzi"
 
-#: lib/setupwindow.lib:601
+#: lib/setupwindow.lib:602
 #, sh-format
 msgid "Use Origin Store demo version"
 msgstr "Použít Origin store demo verzi"
 
-#: lib/setupwindow.lib:603
+#: lib/setupwindow.lib:604
 #, sh-format
 msgid "Use a setup file in my computer"
 msgstr "Použít soubor nastavení v počítači"
 
-#: lib/setupwindow.lib:604
+#: lib/setupwindow.lib:605
 #, sh-format
 msgid "Use CD-ROM(s)"
 msgstr "Použijte CD-ROM(y)"
 
-#: lib/setupwindow.lib:605
+#: lib/setupwindow.lib:606
 #, sh-format
 msgid "Use DVD-ROM(s)"
 msgstr "Použijte DVD-ROM(y)"
 
-#: lib/setupwindow.lib:606
+#: lib/setupwindow.lib:607
 #, sh-format
 msgid "Download the program"
 msgstr "Stáhnout program"
 
-#: lib/setupwindow.lib:671
+#: lib/setupwindow.lib:672
 #, sh-format
 msgid "Please choose an installation method"
 msgstr "Vyberte prosím způsob instalace"
 
-#: lib/setupwindow.lib:709
+#: lib/setupwindow.lib:710
 #, sh-format
 msgid "I don't want to make another shortcut"
 msgstr "Nechci vytvářet další zástupce"
 
-#: lib/setupwindow.lib:710 python/guiv3.py:151
+#: lib/setupwindow.lib:711 python/guiv3.py:151
 #, sh-format
 msgid "Browse"
 msgstr "Procházet"

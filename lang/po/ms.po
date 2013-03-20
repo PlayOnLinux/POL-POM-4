@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2013-03-11 19:00+0100\n"
-"PO-Revision-Date: 2013-03-09 00:46+0000\n"
+"POT-Creation-Date: 2013-03-18 19:00+0100\n"
+"PO-Revision-Date: 2013-03-17 01:15+0000\n"
 "Last-Translator: abuyop <Unknown>\n"
 "Language-Team: malay loco team\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-03-12 04:33+0000\n"
-"X-Generator: Launchpad (build 16524)\n"
+"X-Launchpad-Export-Date: 2013-03-19 05:10+0000\n"
+"X-Generator: Launchpad (build 16532)\n"
 "Language: ms\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -379,11 +379,13 @@ msgstr ""
 "nTUTUP dahulu antaramuka Steam, \\nsupaya skrip pemasangan boleh diteruskan."
 
 #: PlayOnLinux_Scripts/Ableton_Live_8_:42
+#: PlayOnLinux_Scripts/Ableton_Live_9_:42
 #, sh-format
 msgid "Please select $TITLE Install file:"
 msgstr "Sila pilih fail Pemasangan $TITLE:"
 
 #: PlayOnLinux_Scripts/Ableton_Live_8_:50
+#: PlayOnLinux_Scripts/Ableton_Live_9_:50
 #, sh-format
 msgid ""
 "NOTICE: To register, when it opens asking for registration, drag-and-drop "
@@ -436,6 +438,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:95
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:95
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:109
+#: PlayOnLinux_Scripts/Little_Inferno_Steam_:69
 #: PlayOnLinux_Scripts/Magicka_:73
 #: PlayOnLinux_Scripts/Monkey_Island_2_Special_Edition_:72
 #: PlayOnLinux_Scripts/Portal_:95 PlayOnLinux_Scripts/Portal_2_:80
@@ -483,6 +486,8 @@ msgstr "Anda tidak perlu pasang DirectX atau guna GLSetup."
 #: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:52
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:51
 #: PlayOnLinux_Scripts/Google_Picasa_3.9_:54
+#: PlayOnLinux_Scripts/League_Of_Legends_:51
+#: PlayOnLinux_Scripts/League_Of_Legends_:120
 #: PlayOnLinux_Scripts/POL_GoG_setup_:30 PlayOnLinux_Scripts/SFR_LiberTalk_:36
 #: PlayOnLinux_Scripts/The_Sims_3_:50 PlayOnLinux_Scripts/Toontown_Online_:25
 #: PlayOnLinux_Scripts/iTunes_10_:50
@@ -1158,7 +1163,7 @@ msgstr "Pilih tampalan pertama untuk dilakukan"
 msgid "Select 2nd patch to execute"
 msgstr "Pilih tampalan ke-2 untuk dilakukan"
 
-#: PlayOnLinux_Scripts/DC_Universe_Online_:40
+#: PlayOnLinux_Scripts/DC_Universe_Online_:43
 #: PlayOnLinux_Scripts/PlanetSide_2_:40
 #, sh-format
 msgid ""
@@ -1170,12 +1175,12 @@ msgstr ""
 "penampal sebelum mendaftar masuk untuk selesaikan pemasangan. Selepas ini, "
 "anda boleh jalankan \"$TITLE\" bila persediaan selesai."
 
-#: PlayOnLinux_Scripts/DC_Universe_Online_:49
+#: PlayOnLinux_Scripts/DC_Universe_Online_:52
 #, sh-format
 msgid "$TITLE has been installed successfully. See you on the Battle Field!"
 msgstr "$TITLE telah berjaya dipasang. Mari ke menuju ke Medan Perang!"
 
-#: PlayOnLinux_Scripts/DC_Universe_Online_:49
+#: PlayOnLinux_Scripts/DC_Universe_Online_:52
 #: PlayOnLinux_Scripts/Legions__Overdrive_:48
 #: PlayOnLinux_Scripts/PlanetSide_2_:49 PlayOnLinux_Scripts/Soldat_:28
 #: PlayOnLinux_Scripts/World_Of_Tanks_:62
@@ -1389,13 +1394,13 @@ msgstr "Sila sisipkan media permainan pertama ke dalam pemacu cakera anda"
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:39
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:47
 #: PlayOnLinux_Scripts/POL_Function_FontsSmoothRGB_:1
-#: PlayOnLinux_Scripts/POL_GoG_download_:49
+#: PlayOnLinux_Scripts/POL_GoG_download_:48
 #: PlayOnLinux_Scripts/POL_Install_DisableCrashDialog_:5
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:34
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:109 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:432 lib/wine.lib:1073
+#: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:1073
 #: lib/wine.lib:1103
 #, sh-format
 msgid "Please wait..."
@@ -2014,7 +2019,45 @@ msgstr "Mendaftar pustaka, tunggu sebentar\\n(Ia mengambil sedikit masa)"
 msgid "Which language version would you like to install?"
 msgstr "Versi bahasa yang manakah anda hendak pasang?"
 
+#: PlayOnLinux_Scripts/League_Of_Legends_:36
+#, sh-format
+msgid "glxinfo is not installed. Please install mesa-utils package"
+msgstr "glxinfo tidak dipasang. Sila pasang pakej meta-utils"
+
+#: PlayOnLinux_Scripts/League_Of_Legends_:39
+#, sh-format
+msgid ""
+"Warning! S3TC compression is not available on your system.\\n\\nIf you have "
+"a free driver, you might need to install a proprietary driver \\n\\"
+"nOtherwise, you can enable it by installing libtxc-dxtn0 package, but you "
+"might get slower results"
+msgstr ""
+"Amaran! pemampatan S3TC tidak tersedia dalam sistem anda.\\n\\nJika anda "
+"mempunyai pemacu bebas, anda perlu juga memasang pemacu proprietari\\n\\"
+"nJika tidak, anda boleh benarkannya dengan memasang pakej libtxc-dxtn0, "
+"tetapi anda akan dapat keputusan dengan lebih lambat"
+
 #: PlayOnLinux_Scripts/League_Of_Legends_:62
+#, sh-format
+msgid "What version would you like to install?"
+msgstr "Versi manakah yang anda hendak pasang?"
+
+#: PlayOnLinux_Scripts/League_Of_Legends_:108
+#, sh-format
+msgid ""
+"Downloader crashed, likely because it opened more files than allowed. It "
+"will be restarted in the hope it completes its job."
+msgstr ""
+"Pemuat turun mengalami kerosakan, ia berkemungkinan ia buka lebih dari satu "
+"fail daripada yang dibenarkan. Ia akan dimulakan semula untuk menyelesaikan "
+"kerja tersebut."
+
+#: PlayOnLinux_Scripts/League_Of_Legends_:117
+#, sh-format
+msgid "The installer could not be found in the default download directory."
+msgstr "Pemasang tidak ditemui dalam direktori muat turun lalai."
+
+#: PlayOnLinux_Scripts/League_Of_Legends_:125
 #, sh-format
 msgid ""
 "Warning: You must not tick the checkbox \"Run $TITLE\" when setup is done"
@@ -2022,10 +2065,15 @@ msgstr ""
 "Amaran: Anda tidak boleh tanda  pada kotak tanda \"Jalankan $TITLE\" bila "
 "persediaan telah selesai"
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:74
+#: PlayOnLinux_Scripts/League_Of_Legends_:147
 #, sh-format
-msgid "Please select LeagueOfLegends.tar file:"
-msgstr "Sila pilih fail LeagueOfLegends.tar:"
+msgid ""
+"You should now have a League of Legends directory on your desktop containing "
+"its installer. You may keep it to speed up reinstallations."
+msgstr ""
+"Anda kini mempunyai direktori League of Legend pada dekstop anda yang mana "
+"mengandungi pemasangnya. Anda boleh menyimpannya untuk melajukan pemasangan "
+"semula."
 
 #: PlayOnLinux_Scripts/League_of_Legends__ingame_shop_icons_fix_:32
 #, sh-format
@@ -2233,23 +2281,23 @@ msgstr ""
 msgid "Please read this"
 msgstr "Sila baca ini"
 
-#: PlayOnLinux_Scripts/POL_GoG_download_:37
+#: PlayOnLinux_Scripts/POL_GoG_download_:36
 #, sh-format
 msgid "In what directory do you want to download GOG files?"
 msgstr "Dalam direktori yang manakah anda mahu muat turun fail GOG?"
 
-#: PlayOnLinux_Scripts/POL_GoG_download_:47
+#: PlayOnLinux_Scripts/POL_GoG_download_:46
 #, sh-format
 msgid "Please enter your gog.com login to download $BASENAME"
 msgstr "Sila masukkan daftar masuk gog.com anda untuk memuat turun $BASENAME"
 
-#: PlayOnLinux_Scripts/POL_GoG_download_:67
+#: PlayOnLinux_Scripts/POL_GoG_download_:66
 #, sh-format
 msgid "Gog.com login failed, try again?"
 msgstr "Gagal mendaftar masuk ke Gog.com, cuba sekali lagi?"
 
-#: PlayOnLinux_Scripts/POL_GoG_download_:90
-#: PlayOnLinux_Scripts/POL_GoG_download_:100
+#: PlayOnLinux_Scripts/POL_GoG_download_:89
+#: PlayOnLinux_Scripts/POL_GoG_download_:99
 #, sh-format
 msgid "Checking piece integrity..."
 msgstr "Menyemak integriti cebisan..."
@@ -2998,7 +3046,17 @@ msgstr ""
 "Memasang vcrun2008 dan wininet serta melumpuhkan dll d3d9 dan d3d8 untuk "
 "paksa permainan menggunakan OpenGL"
 
-#: PlayOnLinux_Scripts/Traktor_Pro_2_:49
+#: PlayOnLinux_Scripts/Traktor_Pro_2_:42
+#, sh-format
+msgid ""
+"During installation, please UNCHECK all drivers for the NI controllers and "
+"audio interfaces. The install will fail if left checked, and are not needed."
+msgstr ""
+"Semasa pemasangan, sila BUANG TANDA semua pemacu untuk pengawal NI dan "
+"antaramuka audio. Pemasangan akan gagal jika dibiarkan bertanda, dan ianya "
+"tidak diperlukan."
+
+#: PlayOnLinux_Scripts/Traktor_Pro_2_:50
 #, sh-format
 msgid ""
 "NOTICE: For low-latency audio, look into WineASIO. Your MIDI controllers "
@@ -3011,6 +3069,17 @@ msgstr ""
 #, sh-format
 msgid "Downloading latest English setup..."
 msgstr "Memuat turun persediaan Bahasa Inggeris yang terkini..."
+
+#: PlayOnLinux_Scripts/UTAU_4.16_:16
+#, sh-format
+msgid "ja_JP.utf8 locale must be installed for $TITLE to work."
+msgstr ""
+"Penyetempatan ja_JP.utf8 mesti dipasang supaya $TITLE dapat berfungsi."
+
+#: PlayOnLinux_Scripts/UTAU_4.16_:38
+#, sh-format
+msgid "Would you like to enable the English GUI Patch?"
+msgstr "Anda hendak benarkan tampalan GUI Bahasa Inggeris?"
 
 #: PlayOnLinux_Scripts/Vantage_Master_Online_:30
 #, sh-format
@@ -3803,7 +3872,7 @@ msgstr "Multimedia"
 msgid "Office"
 msgstr "Pejabat"
 
-#: bash/playonlinux_online:69 lib/setupwindow.lib:348 python/install.py:218
+#: bash/playonlinux_online:69 lib/setupwindow.lib:349 python/install.py:218
 #, sh-format
 msgid "Other"
 msgstr "Lain-lain"
@@ -4152,6 +4221,9 @@ msgid ""
 "installing does not work correctly, it might be the cause of the problem.\\"
 "nVisit www.$POL_DNS to get further information"
 msgstr ""
+"$APPLICATION_TITLE mengalami ralat. Jika program yang anda pasang tidak "
+"berfungsi dengan baik, ia mungkin disebabkan oleh masalah tersebut.\\nLawati "
+"www.$POL_DNS untuk maklumat lanjut"
 
 #: lib/debug.lib:153
 #, sh-format
@@ -4432,27 +4504,27 @@ msgstr ""
 msgid "Error"
 msgstr "Ralat"
 
-#: lib/setupwindow.lib:347
+#: lib/setupwindow.lib:348
 #, sh-format
 msgid "Where is mounted your CD-ROM?"
 msgstr "Dimanakan CD-ROM anda dilekap?"
 
-#: lib/setupwindow.lib:349 python/install.py:283
+#: lib/setupwindow.lib:350 python/install.py:283
 #, sh-format
 msgid "Refresh"
 msgstr "Segar Semula"
 
-#: lib/setupwindow.lib:381
+#: lib/setupwindow.lib:382
 #, sh-format
 msgid "Reading your device"
 msgstr "Membaca peranti anda"
 
-#: lib/setupwindow.lib:396
+#: lib/setupwindow.lib:397
 #, sh-format
 msgid "Error: Unable to find the CD-ROM!"
 msgstr "Ralat: Tidak dapat cari CD-ROM!"
 
-#: lib/setupwindow.lib:410
+#: lib/setupwindow.lib:411
 #, sh-format
 msgid ""
 "$TITLE needs to read the PC part of a hybrid CD-Rom.\\n\\nBy default, MacOS "
@@ -4465,7 +4537,7 @@ msgstr ""
 "yang mana tidak serasi dengan versi terkini Mac OS.\\n\\nAnda mahu PlayOnMac "
 "cuba membaca bahagian PC CD anda?"
 
-#: lib/setupwindow.lib:462
+#: lib/setupwindow.lib:463
 #, sh-format
 msgid ""
 "Don't forget to go to PlayOnMac tools menu -> Read a PC CD-Rom before "
@@ -4474,27 +4546,27 @@ msgstr ""
 "Jangan lupa pergi ke menu alatan PlayOnMac -> Baca CD-Rom PC sebelum "
 "menjalankan permainan anda"
 
-#: lib/setupwindow.lib:473
+#: lib/setupwindow.lib:474
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is copying files:"
 msgstr "Sila tunggu semasa $APPLICATION_TITLE menyalin fail:"
 
-#: lib/setupwindow.lib:558 lib/setupwindow.lib:707
+#: lib/setupwindow.lib:559 lib/setupwindow.lib:708
 #, sh-format
 msgid "Scanning the virtual drive ..."
 msgstr "Mengimbas pemacu maya ..."
 
-#: lib/setupwindow.lib:572
+#: lib/setupwindow.lib:573
 #, sh-format
 msgid "How much memory does your graphics board have?"
 msgstr "Berapa banyak ingatan papan grafik anda miliki?"
 
-#: lib/setupwindow.lib:581
+#: lib/setupwindow.lib:582
 #, sh-format
 msgid "Video card does not have enough memory"
 msgstr "Kad video tidak mempunyai ingatan yang mencukupi"
 
-#: lib/setupwindow.lib:582
+#: lib/setupwindow.lib:583
 #, sh-format
 msgid ""
 "Your video card does not have enough memory!\\nIt might prevent the game "
@@ -4503,67 +4575,67 @@ msgstr ""
 "Kad video anda tidak mempunyai ingatan yang mencukupi!\\nIa menghalang "
 "permainan daripada berfungsi"
 
-#: lib/setupwindow.lib:596
+#: lib/setupwindow.lib:597
 #, sh-format
 msgid "Use Steam Store version"
 msgstr "Guna versi Kedai Steam"
 
-#: lib/setupwindow.lib:597
+#: lib/setupwindow.lib:598
 #, sh-format
 msgid "Use Steam Store demo version"
 msgstr "Guna versi demo Kedai Steam"
 
-#: lib/setupwindow.lib:598
+#: lib/setupwindow.lib:599
 #, sh-format
 msgid "Use Desura Store version"
 msgstr "Guna versi Kedai Desura"
 
-#: lib/setupwindow.lib:599
+#: lib/setupwindow.lib:600
 #, sh-format
 msgid "Use Desura Store demo version"
 msgstr "Guna versi demo Kedai Desura"
 
-#: lib/setupwindow.lib:600
+#: lib/setupwindow.lib:601
 #, sh-format
 msgid "Use Origin Store version"
 msgstr "Guna versi Kedai Origin"
 
-#: lib/setupwindow.lib:601
+#: lib/setupwindow.lib:602
 #, sh-format
 msgid "Use Origin Store demo version"
 msgstr "Guna versi demo Kedai Origin"
 
-#: lib/setupwindow.lib:603
+#: lib/setupwindow.lib:604
 #, sh-format
 msgid "Use a setup file in my computer"
 msgstr "Guna fail persediaan di dalam komputer saya"
 
-#: lib/setupwindow.lib:604
+#: lib/setupwindow.lib:605
 #, sh-format
 msgid "Use CD-ROM(s)"
 msgstr "Guna CD-ROM"
 
-#: lib/setupwindow.lib:605
+#: lib/setupwindow.lib:606
 #, sh-format
 msgid "Use DVD-ROM(s)"
 msgstr "Guna DVD-ROM"
 
-#: lib/setupwindow.lib:606
+#: lib/setupwindow.lib:607
 #, sh-format
 msgid "Download the program"
 msgstr "Mut turun program"
 
-#: lib/setupwindow.lib:671
+#: lib/setupwindow.lib:672
 #, sh-format
 msgid "Please choose an installation method"
 msgstr "Sila pilih kaedah pemasangan"
 
-#: lib/setupwindow.lib:709
+#: lib/setupwindow.lib:710
 #, sh-format
 msgid "I don't want to make another shortcut"
 msgstr "Saya tidak mahu buat pintasan lain"
 
-#: lib/setupwindow.lib:710 python/guiv3.py:151
+#: lib/setupwindow.lib:711 python/guiv3.py:151
 #, sh-format
 msgid "Browse"
 msgstr "Layar"
