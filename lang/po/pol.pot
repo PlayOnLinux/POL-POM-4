@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2013-03-21 19:00:51+01:00\n"
+"POT-Creation-Date: 2013-03-22 19:00:53+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -319,6 +319,7 @@ msgstr ""
 
 #: PlayOnLinux_Scripts/7_Zip_:47 PlayOnLinux_Scripts/Age_Of_Wonders_:82
 #: PlayOnLinux_Scripts/Alt.Binz_:60 PlayOnLinux_Scripts/Company_of_Heroes_:73
+#: PlayOnLinux_Scripts/EVE_online_:133
 #: PlayOnLinux_Scripts/Geoplan_Geospace_:34
 #: PlayOnLinux_Scripts/Google_SketchUp_:67
 #: PlayOnLinux_Scripts/ISIS_Draw_2.3_:34
@@ -366,7 +367,8 @@ msgid ""
 "your reg file into $TITLE"
 msgstr ""
 
-#: PlayOnLinux_Scripts/Absynth_5_:30 PlayOnLinux_Scripts/Traktor_Pro_2_:30
+#: PlayOnLinux_Scripts/Absynth_5_:30 PlayOnLinux_Scripts/EVE_online_:79
+#: PlayOnLinux_Scripts/Traktor_Pro_2_:30
 #, sh-format
 msgid "Please select $TITLE install file:"
 msgstr ""
@@ -1295,6 +1297,47 @@ msgstr ""
 #: PlayOnLinux_Scripts/EA_s_Origin_:32
 #, sh-format
 msgid "Downloading $TITLE, please wait..."
+msgstr ""
+
+#: PlayOnLinux_Scripts/EVE_online_:66
+#, sh-format
+msgid ""
+"Requires about 18Gb free space.\\n\\n\n"
+"As well, an additional 5Gb in your /home/ folder if you will use online "
+"installer.\\n\n"
+"Recommend using offline installer."
+msgstr ""
+
+#: PlayOnLinux_Scripts/EVE_online_:74
+#, sh-format
+msgid "You want to open $TITLE download page in your browser?"
+msgstr ""
+
+#: PlayOnLinux_Scripts/EVE_online_:88
+#, sh-format
+msgid "Checking latest version..."
+msgstr ""
+
+#: PlayOnLinux_Scripts/EVE_online_:113
+#, sh-format
+msgid ""
+"You want to create symbolic link for $TITLE settings in your /home/ folder?"
+"\\n(Recommend yes.)"
+msgstr ""
+
+#: PlayOnLinux_Scripts/EVE_online_:116
+#, sh-format
+msgid "Creating symlinks..."
+msgstr ""
+
+#: PlayOnLinux_Scripts/EVE_online_:132
+#, sh-format
+msgid ""
+"Known issues:\\n\\n1) Loading EULA on the first run can take a long (5min) "
+"time.\\n\\n2) The Captain's Quarters feature is broken for most (all?) users."
+"\\nIf you crash after selecting a character try hitting escape at the login "
+"screen and disabling Captain's Quarters under the graphics selection.\\n"
+"(This feature is considered useless by most Eve Players.)"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:34
