@@ -28,6 +28,8 @@
 - POL_SetupWindow_download: accept a directory or a filename as 4th parameter
 - POL_Download: accept URLs with "query strings", that get included in local filename
 - (experimental) if missing, look for resources in winetricks cache before attempting download (#1963)
+- Add POL_Wine_DelOverrideDLL, POL_Wine_DelAppOverrideDLL (#1989)
+- POL_Wine_OverrideDLL and POL_Wine_AppOverrideDLL cleanups
 
 -> 4.1.9
 - POL_System_is32bit
