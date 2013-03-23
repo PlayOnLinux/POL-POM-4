@@ -47,7 +47,7 @@ then
 	
 	# Shortcut
 	rm -f "$REPERTOIRE/shortcuts/$ProgramUninstall"
-	rm -f "$HOME/.local/share/applications/$ProgramUninstall.desktop"
+	rm -f "$HOME/.local/share/applications/playonlinux-$ProgramUninstall.desktop"
 	rm -f "$DESKTOP/$ProgramUninstall.desktop"
 	
 	POL_SetupWindow_wait "$(eval_gettext 'Uninstalling...')" "$(eval_gettext '$APPLICATION_TITLE Uninstaller')" 

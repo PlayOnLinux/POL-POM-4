@@ -354,7 +354,7 @@ POL_Shortcut()
 			# Do nothing on Mac OS
 			if [ -n "$Categories" -a "$POL_OS" = "Linux" ]; then
 				LOCALAPPS="$HOME/.local/share/applications"
-				generer_icone "$iconPath" "$NOMICONE_" "$LOCALAPPS" "$PLAYONLINUX/playonlinux --run \"$NOMICONE_\"" "$Binaire" "$Categories"
+				generer_icone "$iconPath" "playonlinux-$NOMICONE_" "$LOCALAPPS" "$PLAYONLINUX/playonlinux --run \"$NOMICONE_\"" "$Binaire" "$Categories"
 			fi
 		fi
 
