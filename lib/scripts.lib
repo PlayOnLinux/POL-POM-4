@@ -275,13 +275,14 @@ POL_ExtractBiggestIcon()
 }
 POL_Shortcut()
 {
-	# Make a shortcut 
-	# Usage: POL_Shortcut [binary] [shortcut name] [playonlinux website icon] [argument]
+	# Make a shortcut
+	# Usage: POL_Shortcut [binary] [shortcut name] [playonlinux website icon] [argument] [categories]
 	# If playonlinux website icon is not specified, playonlinux will try to extract it from the program
 	# Possibly to use a path instead of the executable.
 
 	Binaire="$1"
 	SpecialArg="$4"
+	Categories="$5"
 	if [ "$2" = "" ]
 	then
 		NOMICONE_="$1"
@@ -295,7 +296,7 @@ POL_Shortcut()
 	ICON_WEB_NAME="$3"
 	ICON_OK=0
 
-	## On chope le dossier du binaire
+	## Find executable directory
 	cd "$WINEPREFIX" || POL_Debug_Fatal "Prefixe $WINEPREFIX does not exists"
 	cd drive_c || POL_Debug_Fatal "drive_c folder does not exists"
 
@@ -330,28 +331,39 @@ POL_Shortcut()
 		BINARY="$1"
 		POL_Debug_Error "$(eval_gettext 'Binary not found: $BINARY\nHave you installed the program to the default location?')"
 	else
-		## On génère le binaire 
-		echo "#!/bin/bash" > "$REPERTOIRE/shortcuts/$NOMICONE_"
-		echo "[ \"\$PLAYONLINUX\" = \"\" ] && exit 0" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
-		echo "source \"\$PLAYONLINUX/lib/sources\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
-		echo "export WINEPREFIX=\"$WINEPREFIX\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
-		echo "export WINEDEBUG=\"-all\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
-		[ ! "$LOGTITLE" = "" ] && echo "#POL_Log=$LOGTITLE" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
-		[ "$SCRIPTID" ] && echo "#ScriptID=$SCRIPTID" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
-		echo "cd \"$WINEPREFIX/drive_c/$binary_dir\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
-		echo "POL_Wine \"$Binaire\" $SpecialArg \"\$@\"" >> "$REPERTOIRE/shortcuts/$NOMICONE_"
+		## We generate shortcut
+		(echo "#!/bin/bash"
+		echo "[ \"\$PLAYONLINUX\" = \"\" ] && exit 0"
+		echo "source \"\$PLAYONLINUX/lib/sources\""
+		echo "export WINEPREFIX=\"$WINEPREFIX\""
+		echo "export WINEDEBUG=\"-all\""
+		[ -n "$LOGTITLE" ] && echo "#POL_Log=$LOGTITLE"
+		[ -n "$SCRIPTID" ] && echo "#ScriptID=$SCRIPTID"
+		echo "cd \"$WINEPREFIX/drive_c/$binary_dir\""
+		echo "POL_Wine \"$Binaire\" $SpecialArg \"\$@\"") > "$REPERTOIRE/shortcuts/$NOMICONE_"
 		chmod +x "$REPERTOIRE/shortcuts/$NOMICONE_"
-	
+
+		if [ -f "$REPERTOIRE/icones/full_size/$NOMICONE_" ]; then # L'icone existe...
+			iconPath="$REPERTOIRE/icones/full_size/$NOMICONE_"
+		else
+			iconPath="$PLAYONLINUX/etc/playonlinux.png"
+		fi
+
+		# Menus
+		if [ ! "$(POL_Config_Read NO_MENU_ICON)" = "TRUE" ]; then
+			if [ -n "$Categories" ]; then
+				LOCALAPPS="$HOME/.local/share/applications"
+				generer_icone "$iconPath" "$NOMICONE_" "$LOCALAPPS" "$PLAYONLINUX/playonlinux --run \"$NOMICONE_\"" "$Binaire" "$Categories"
+			fi
+		fi
+
+		# Desktop
 		if [ ! "$(POL_Config_Read NO_DESKTOP_ICON)" = "TRUE" ]; then
 			if [ "$POL_OS" = "Mac" ]; then
-				POL_SetupWindow_AutoApp "$NOMICONE_"	
+				POL_SetupWindow_AutoApp "$NOMICONE_"
 			else
-				if [ -f "$REPERTOIRE/icones/full_size/$NOMICONE_" ]; then # L'icone existe...
-					iconPath="$REPERTOIRE/icones/full_size/$NOMICONE_"
-				else
-					iconPath="$PLAYONLINUX/etc/playonlinux.png"
-				fi
-				generer_icone "$iconPath" "$NOMICONE_" "$DESKTOP" "$PLAYONLINUX/playonlinux --run \"$NOMICONE_\"" "$Binaire"
+
+	                        generer_icone "$iconPath" "$NOMICONE_" "$DESKTOP" "$PLAYONLINUX/playonlinux --run \"$NOMICONE_\"" "$Binaire" "$Categories"
 			fi
 		fi
 	fi
@@ -903,7 +915,7 @@ POL_Shortcut_MakeDesktopShortcut()
 		# http://stackoverflow.com/questions/8939580/bash-split-a-string-exactly-like-readline-would-split-it
 		eval set -- $(grep '^POL_Wine ' "$POL_USER_ROOT/shortcuts/$PACKAGE"|tail -n 1)
 		local binary="$2"
-		generer_icone "$iconPath" "$PACKAGE" "$DESKTOP" "$PLAYONLINUX/playonlinux --run \"$PACKAGE\"" "$binary"
+		generer_icone "$iconPath" "$PACKAGE" "$DESKTOP" "$PLAYONLINUX/playonlinux --run \"$PACKAGE\"" "$binary" ""
 	fi
 }
 POL_System_is32bit()

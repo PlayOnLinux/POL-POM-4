@@ -598,26 +598,28 @@ generer_icone ()
 {
 	# Generate a shortcut
 	# "Equivalent" of POL_SetupWindow_AutoApp for linux
-	# Usage: generer_icone [icon image file] [name of the file] [directory] [software to run]
-	
+	# Usage: generer_icone [icon image file] [name of the file] [directory] [software to run] [wm class] [categories]
+
 	ICONE="$1"
 	NOMICONE="$2"
 	NOMCOURT="$NOMICONE"
 	PLACE="$3"
 	EXECUTER="$4"
-	BINARY="$5"
+	WMCLASS="$5"
+	CATEGORIES="$6"
 
 	mkdir -p "$PLACE"
 	cd "$PLACE"
-	echo "[Desktop Entry]" > "$NOMCOURT.desktop"
-	echo "Encoding=UTF-8" >> "$NOMCOURT.desktop"
-	echo "Name=$NOMICONE" >> "$NOMCOURT.desktop"
-	echo "Comment=PlayOnLinux" >> "$NOMCOURT.desktop"
-	echo "Type=Application" >> "$NOMCOURT.desktop"
-	echo "Exec=$EXECUTER %F" >> "$NOMCOURT.desktop"
-	echo "Icon=$ICONE" >> "$NOMCOURT.desktop"
-	echo "Name[fr_FR]=$NOMICONE" >> "$NOMCOURT.desktop"
-	echo "StartupWMClass=$BINARY" >> "$NOMCOURT.desktop"
+	(echo "[Desktop Entry]"
+	echo "Encoding=UTF-8"
+	echo "Name=$NOMICONE"
+	echo "Comment=PlayOnLinux"
+	echo "Type=Application"
+	echo "Exec=$EXECUTER %F"
+	echo "Icon=$ICONE"
+	echo "Name[fr_FR]=$NOMICONE"
+	echo "StartupWMClass=$WMCLASS"
+	echo "Categories=$CATEGORIES") > "$NOMCOURT.desktop"
 	chmod +x "$NOMCOURT.desktop"
 }
 

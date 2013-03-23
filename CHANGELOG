@@ -30,6 +30,10 @@
 - (experimental) if missing, look for resources in winetricks cache before attempting download (#1963)
 - Add POL_Wine_DelOverrideDLL, POL_Wine_DelAppOverrideDLL (#1989)
 - POL_Wine_OverrideDLL and POL_Wine_AppOverrideDLL cleanups
+- Support creation of desktop menu entries (#1943). POL_Shortcut needs
+  an extra parameter, categories, for the entry to be created. And
+  similarly to NO_DESKTOP_ICON setting, a NO_MENU_ICON can be set to
+  TRUE to prevent desktop menu entries from being created.
 
 -> 4.1.9
 - POL_System_is32bit
