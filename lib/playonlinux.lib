@@ -598,15 +598,16 @@ generer_icone ()
 {
 	# Generate a shortcut
 	# "Equivalent" of POL_SetupWindow_AutoApp for linux
-	# Usage: generer_icone [icon image file] [name of the file] [directory] [software to run] [wm class] [categories]
+	# Usage: generer_icone [icon image file] [name of the software] [directory] [software to run] [wm class] [categories] [shorcut filename prefix]
 
 	ICONE="$1"
 	NOMICONE="$2"
-	NOMCOURT="$NOMICONE"
 	PLACE="$3"
 	EXECUTER="$4"
 	WMCLASS="$5"
 	CATEGORIES="$6"
+        ICOPREFIX="$7"
+	NOMCOURT="${ICOPREFIX}${NOMICONE}"
 
 	mkdir -p "$PLACE"
 	cd "$PLACE"
