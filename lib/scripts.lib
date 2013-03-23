@@ -351,7 +351,8 @@ POL_Shortcut()
 
 		# Menus
 		if [ ! "$(POL_Config_Read NO_MENU_ICON)" = "TRUE" ]; then
-			if [ -n "$Categories" ]; then
+			# Do nothing on Mac OS
+			if [ -n "$Categories" -a "$POL_OS" = "Linux" ]; then
 				LOCALAPPS="$HOME/.local/share/applications"
 				generer_icone "$iconPath" "$NOMICONE_" "$LOCALAPPS" "$PLAYONLINUX/playonlinux --run \"$NOMICONE_\"" "$Binaire" "$Categories"
 			fi
