@@ -257,7 +257,7 @@ def VersionLower(version1, version2):
         dev1 = False
 
     try:
-        if(version1[2] != ""):
+        if(version2[1] != ""):
             dev2 = True
     except:
         dev2 = False
@@ -269,7 +269,12 @@ def VersionLower(version1, version2):
             return False
 
     version1 = [ int(digit) for digit in string.split(version1[0],".") ]
+    while len(version1) < 3:
+        version1.append(0)
+
     version2 = [ int(digit) for digit in string.split(version2[0],".") ]
+    while len(version2) < 3:
+        version2.append(0)
 
     if(version1[0] < version2[0]):
         return True
