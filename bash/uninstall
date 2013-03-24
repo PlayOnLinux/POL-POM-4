@@ -15,17 +15,27 @@
 
 # You should have received a copy of the GNU General Public License along
 # with this program; if not, write to the Free Software Foundation, Inc.,
-# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 # Uninstall a program
 
 [ "$PLAYONLINUX" = "" ] && exit 0
 source "$PLAYONLINUX/lib/sources"
 
+INTERACTIVE=1
+if [ "$1" = "--non-interactive" ]; then
+	unset INTERACTIVE
+	shift
+fi
+
 TITLE="$(eval_gettext '$APPLICATION_TITLE Uninstaller')"
-POL_SetupWindow_Init "$PLAYONLINUX/resources/images/setups/delete/top.png" "$PLAYONLINUX/resources/images/setups/delete/left.jpg"
+[ -n "$INTERACTIVE" ] && POL_SetupWindow_Init "$PLAYONLINUX/resources/images/setups/delete/top.png" "$PLAYONLINUX/resources/images/setups/delete/left.jpg"
 
 if [ "$1" = "" ]; then
+	if [ -z "$INTERACTIVE" ]; then
+		echo "Syntax: $0 [--non-interactive] \"Shortcut name\"" >&2
+		exit 1
+	fi
 	POL_SetupWindow_shortcuts_list "$(eval_gettext 'Please select a program to uninstall')" "$TITLE"
 	ProgramUninstall="$APP_ANSWER"
 else
@@ -37,24 +47,31 @@ if [ -e "$NOM_JEU" ]
 then
 	application_prefixe=$(detect_wineprefix "$ProgramUninstall")
 	delete_var=$ProgramUninstall
-	POL_SetupWindow_free_presentation "$TITLE" "$(eval_gettext "This wizard will help you to uninstall: ")$delete_var\n$(eval_gettext "Click Next to continue.")"
-	
+	[ -n "$INTERACTIVE" ] && POL_SetupWindow_free_presentation "$TITLE" "$(eval_gettext "This wizard will help you to uninstall: ")$delete_var\n$(eval_gettext "Click Next to continue.")"
+
 	# Icones
 	rm -f "$REPERTOIRE/icones/32/$ProgramUninstall"
 	rm -f "$REPERTOIRE/icones/full_size/$ProgramUninstall"
 	rm -f "$POL_USER_ROOT/configurations/reports/$ProgramUninstall" 2> /dev/null
 	rm -f "$POL_USER_ROOT/configurations/links/$ProgramUninstall" 2> /dev/null
-	
+
 	# Shortcut
 	rm -f "$REPERTOIRE/shortcuts/$ProgramUninstall"
 	rm -f "$HOME/.local/share/applications/playonlinux-$ProgramUninstall.desktop"
 	rm -f "$DESKTOP/$ProgramUninstall.desktop"
-	
-	POL_SetupWindow_wait "$(eval_gettext 'Uninstalling...')" "$(eval_gettext '$APPLICATION_TITLE Uninstaller')" 
-	sleep 1
-	clean_wineprefix $application_prefixe
-	POL_SetupWindow_message "$delete_var$(eval_gettext ' has been uninstalled successfully.')" "$(eval_gettext '$APPLICATION_TITLE Uninstaller')"
+
+	# Note: only interactive mode checks if the prefix should be removed
+	if [ -n "$INTERACTIVE" ]; then
+		POL_SetupWindow_wait "$(eval_gettext 'Uninstalling...')" "$(eval_gettext '$APPLICATION_TITLE Uninstaller')" 
+		sleep 1
+		clean_wineprefix $application_prefixe
+		POL_SetupWindow_message "$delete_var$(eval_gettext ' has been uninstalled successfully.')" "$(eval_gettext '$APPLICATION_TITLE Uninstaller')"
+	fi
 else
+	if [ -z "$INTERACTIVE" ]; then
+		echo "Error, shortcut $ProgramUninstall not found" >&2
+		exit 2
+	fi
 	POL_SetupWindow_message "$(eval_gettext "Cannot find the shortcut")" "$(eval_gettext '$APPLICATION_TITLE Uninstaller')"
 fi
-POL_SetupWindow_Close
+[ -n "$INTERACTIVE" ] && POL_SetupWindow_Close
