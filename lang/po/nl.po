@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2013-03-18 19:00+0100\n"
+"POT-Creation-Date: 2013-03-25 19:00+0100\n"
 "PO-Revision-Date: 2013-03-15 17:59+0000\n"
 "Last-Translator: rob <linuxned@gmail.com>\n"
 "Language-Team: nl_NL.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-03-19 05:09+0000\n"
-"X-Generator: Launchpad (build 16532)\n"
+"X-Launchpad-Export-Date: 2013-03-26 04:32+0000\n"
+"X-Generator: Launchpad (build 16540)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -326,7 +326,7 @@ msgstr "Selecteer het installatiebestand om uit te voeren"
 #: PlayOnLinux_Scripts/GOG.com___Knights_and_Merchants__The_Peasants_Rebellion_:34
 #: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:49
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:59
-#: PlayOnLinux_Scripts/Google_Picasa_3.9_:55
+#: PlayOnLinux_Scripts/Google_Picasa_3.9_:56
 #: PlayOnLinux_Scripts/Infinity_Engine_widescreen_mod_:25
 #: PlayOnLinux_Scripts/Runes_Of_Magic_:49 PlayOnLinux_Scripts/Spotify_:66
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_II__Daggerfall_:68
@@ -343,6 +343,7 @@ msgstr "Een moment geduld, $TITLE wordt geïnstalleerd."
 
 #: PlayOnLinux_Scripts/7_Zip_:47 PlayOnLinux_Scripts/Age_Of_Wonders_:82
 #: PlayOnLinux_Scripts/Alt.Binz_:60 PlayOnLinux_Scripts/Company_of_Heroes_:73
+#: PlayOnLinux_Scripts/EVE_online_:133
 #: PlayOnLinux_Scripts/Geoplan_Geospace_:34
 #: PlayOnLinux_Scripts/Google_SketchUp_:67
 #: PlayOnLinux_Scripts/ISIS_Draw_2.3_:34
@@ -395,7 +396,8 @@ msgstr ""
 "LET OP: wanneer u wordt gevraagd om uzelf te registreren, versleep dan het "
 "registratiebestand naar $TITLE"
 
-#: PlayOnLinux_Scripts/Absynth_5_:30 PlayOnLinux_Scripts/Traktor_Pro_2_:30
+#: PlayOnLinux_Scripts/Absynth_5_:30 PlayOnLinux_Scripts/EVE_online_:79
+#: PlayOnLinux_Scripts/Traktor_Pro_2_:30
 #, sh-format
 msgid "Please select $TITLE install file:"
 msgstr "Selecteer het $TITLE-installatiebestand:"
@@ -486,9 +488,8 @@ msgstr "U hoeft geen DirectX te installeren of GLSetup te gebruiken."
 #: PlayOnLinux_Scripts/GOG.com___Gothic_3_Community_patch_:46
 #: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:52
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:51
-#: PlayOnLinux_Scripts/Google_Picasa_3.9_:54
-#: PlayOnLinux_Scripts/League_Of_Legends_:51
-#: PlayOnLinux_Scripts/League_Of_Legends_:120
+#: PlayOnLinux_Scripts/Google_Picasa_3.9_:55
+#: PlayOnLinux_Scripts/League_Of_Legends_:52
 #: PlayOnLinux_Scripts/POL_GoG_setup_:30 PlayOnLinux_Scripts/SFR_LiberTalk_:36
 #: PlayOnLinux_Scripts/The_Sims_3_:50 PlayOnLinux_Scripts/Toontown_Online_:25
 #: PlayOnLinux_Scripts/iTunes_10_:50
@@ -1388,6 +1389,47 @@ msgstr ""
 msgid "Downloading $TITLE, please wait..."
 msgstr "Een moment geduld, $TITLE wordt gedownload…"
 
+#: PlayOnLinux_Scripts/EVE_online_:66
+#, sh-format
+msgid ""
+"Requires about 18Gb free space.\\n\\n\n"
+"As well, an additional 5Gb in your /home/ folder if you will use online "
+"installer.\\n\n"
+"Recommend using offline installer."
+msgstr ""
+
+#: PlayOnLinux_Scripts/EVE_online_:74
+#, sh-format
+msgid "You want to open $TITLE download page in your browser?"
+msgstr ""
+
+#: PlayOnLinux_Scripts/EVE_online_:88
+#, sh-format
+msgid "Checking latest version..."
+msgstr ""
+
+#: PlayOnLinux_Scripts/EVE_online_:113
+#, sh-format
+msgid ""
+"You want to create symbolic link for $TITLE settings in your /home/ folder?\\"
+"n(Recommend yes.)"
+msgstr ""
+
+#: PlayOnLinux_Scripts/EVE_online_:116
+#, sh-format
+msgid "Creating symlinks..."
+msgstr ""
+
+#: PlayOnLinux_Scripts/EVE_online_:132
+#, sh-format
+msgid ""
+"Known issues:\\n\\n1) Loading EULA on the first run can take a long (5min) "
+"time.\\n\\n2) The Captain's Quarters feature is broken for most (all?) "
+"users.\\nIf you crash after selecting a character try hitting escape at the "
+"login screen and disabling Captain's Quarters under the graphics selection.\\"
+"n(This feature is considered useless by most Eve Players.)"
+msgstr ""
+
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:34
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:51
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:29
@@ -1405,8 +1447,8 @@ msgstr "Voer eerste spelschijf in in schijfstation."
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:109 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:1073
-#: lib/wine.lib:1103
+#: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:1111
+#: lib/wine.lib:1141
 #, sh-format
 msgid "Please wait..."
 msgstr "Een moment geduld…"
@@ -2027,12 +2069,12 @@ msgstr ""
 msgid "Which language version would you like to install?"
 msgstr "Welke taalversie wilt u installeren?"
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:36
+#: PlayOnLinux_Scripts/League_Of_Legends_:37
 #, sh-format
 msgid "glxinfo is not installed. Please install mesa-utils package"
 msgstr "glxinfo is niet geïnstalleerd. Installeer het mesa-utils-pakket"
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:39
+#: PlayOnLinux_Scripts/League_Of_Legends_:40
 #, sh-format
 msgid ""
 "Warning! S3TC compression is not available on your system.\\n\\nIf you have "
@@ -2046,12 +2088,12 @@ msgstr ""
 "libtxc-dxtn0-pakket te installeren, maar de resultaten zijn mogelijk "
 "langzamer"
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:62
+#: PlayOnLinux_Scripts/League_Of_Legends_:63
 #, sh-format
 msgid "What version would you like to install?"
 msgstr "Welke versie wilt u installeren?"
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:108
+#: PlayOnLinux_Scripts/League_Of_Legends_:128
 #, sh-format
 msgid ""
 "Downloader crashed, likely because it opened more files than allowed. It "
@@ -2061,13 +2103,7 @@ msgstr ""
 "worden dan toegestaan. Het downloaden zal opnieuw gestart worden, hopelijk "
 "wordt de downloadtaak dan voltooid."
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:117
-#, sh-format
-msgid "The installer could not be found in the default download directory."
-msgstr ""
-"Het installatieprogramma kon niet gevonden worden in de standaarddownloadmap."
-
-#: PlayOnLinux_Scripts/League_Of_Legends_:125
+#: PlayOnLinux_Scripts/League_Of_Legends_:137
 #, sh-format
 msgid ""
 "Warning: You must not tick the checkbox \"Run $TITLE\" when setup is done"
@@ -2075,15 +2111,12 @@ msgstr ""
 "Waarschuwing: u moet niet de keuze \"Run $TITLE\" selecteren wanneer de "
 "installatie is voltooid"
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:147
+#: PlayOnLinux_Scripts/League_Of_Legends_:159
 #, sh-format
 msgid ""
-"You should now have a League of Legends directory on your desktop containing "
-"its installer. You may keep it to speed up reinstallations."
+"You should now have a League of Legends directory containing its installer. "
+"You may keep it to speed up reinstallations."
 msgstr ""
-"U zou nu een League of Legends-map op uw bureaublad moeten zien met daarin "
-"het installatieprogramma. U zou deze kunnen bewaren zodat u sneller een "
-"eventuele herinstallatie kan doen."
 
 #: PlayOnLinux_Scripts/League_of_Legends__ingame_shop_icons_fix_:32
 #, sh-format
@@ -3663,7 +3696,7 @@ msgstr "Als u het niet weet, deselecteer dan alles"
 msgid "What would you like to do before installation?"
 msgstr "Wat wilt u doen vooraf aan de installatie?"
 
-#: bash/manual_install:231 lib/scripts.lib:407
+#: bash/manual_install:231 lib/scripts.lib:420
 #, sh-format
 msgid "Please make your choice"
 msgstr "Maak een keuze"
@@ -4157,38 +4190,38 @@ msgstr ""
 "$APPLICATION_TITLE heeft dit programma al eens gedraaid.\\nWilt u de oude "
 "instellingen behouden ?"
 
-#: bash/uninstall:25 bash/uninstall:53 bash/uninstall:56 bash/uninstall:58
-#: lib/playonlinux.lib:712
+#: bash/uninstall:31 bash/uninstall:65 bash/uninstall:68 bash/uninstall:75
+#: lib/playonlinux.lib:715
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
 msgstr "$APPLICATION_TITLE-deïnstallatie"
 
-#: bash/uninstall:29
+#: bash/uninstall:39
 #, sh-format
 msgid "Please select a program to uninstall"
 msgstr "Selecteer een programma dat u wilt deïnstalleren"
 
-#: bash/uninstall:40
+#: bash/uninstall:50
 #, sh-format
 msgid "Click Next to continue."
 msgstr "Klik op Volgende om door te gaan."
 
-#: bash/uninstall:40
+#: bash/uninstall:50
 #, sh-format
 msgid "This wizard will help you to uninstall: "
 msgstr "Deze wizard zal u helpen met het deïnstalleren van: "
 
-#: bash/uninstall:53 lib/playonlinux.lib:712
+#: bash/uninstall:65 lib/playonlinux.lib:715
 #, sh-format
 msgid "Uninstalling..."
 msgstr "Bezig met deïnstalleren…"
 
-#: bash/uninstall:56
+#: bash/uninstall:68
 #, sh-format
 msgid " has been uninstalled successfully."
 msgstr " is met succes gedeïnstalleerd."
 
-#: bash/uninstall:58
+#: bash/uninstall:75
 #, sh-format
 msgid "Cannot find the shortcut"
 msgstr "Kan de snelkoppeling niet vinden"
@@ -4310,12 +4343,12 @@ msgstr "Hier is de broncode van het script. Controleer het zorgvuldig"
 msgid "Making shortcut..."
 msgstr "Snelkoppeling wordt aangemaakt…"
 
-#: lib/playonlinux.lib:710
+#: lib/playonlinux.lib:713
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr "Wilt u het virtuele station verwijderen:"
 
-#: lib/playonlinux.lib:821
+#: lib/playonlinux.lib:824
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
@@ -4324,7 +4357,7 @@ msgstr ""
 "Het volgende bestand bevindt zich in een FAT32-bestandssysteem.\\nDit kan er "
 "mogelijk voor zorgen dat wine niet werkt\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:822
+#: lib/playonlinux.lib:825
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
@@ -4333,7 +4366,7 @@ msgstr ""
 "Het volgende bestand bevindt zich in een NTFS-bestandssysteem.\\nDit kan er "
 "mogelijk voor zorgen dat wine niet werkt\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:823
+#: lib/playonlinux.lib:826
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
@@ -4342,7 +4375,7 @@ msgstr ""
 "Het volgende bestand bevindt zich in een FUSE-bestandssysteem.\\nDit kan er "
 "mogelijk voor zorgen dat wine niet werkt\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:824
+#: lib/playonlinux.lib:827
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
@@ -4372,7 +4405,7 @@ msgstr "Plug-in bijwerken. Vorige: "
 msgid "Installing plugin: "
 msgstr "Installeren plug-in: "
 
-#: lib/scripts.lib:331
+#: lib/scripts.lib:332
 #, sh-format
 msgid ""
 "Binary not found: $BINARY\\nHave you installed the program to the default "
@@ -4381,67 +4414,67 @@ msgstr ""
 "Binair niet gevonden: $BINARY\\nHeeft u het programma geïnstalleerd op de "
 "standaardlocatie?"
 
-#: lib/scripts.lib:469 lib/scripts.lib:529
+#: lib/scripts.lib:482 lib/scripts.lib:548
 #, sh-format
 msgid "No enough space to download:\\n$URL ($neededSpace KB)"
 msgstr "Niet genoeg ruimte om te downloaden:\\n$URL ($neededSpace KB)"
 
-#: lib/scripts.lib:471 lib/scripts.lib:738
+#: lib/scripts.lib:484 lib/scripts.lib:757
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr ""
 "Een moment geduld, $APPLICATION_TITLE is bezig met het downloaden van:"
 
-#: lib/scripts.lib:473 lib/scripts.lib:534
+#: lib/scripts.lib:486 lib/scripts.lib:553
 #, sh-format
 msgid "An error happened during download."
 msgstr "Er is een fout opgetreden tijdens het downloaden."
 
-#: lib/scripts.lib:473 lib/scripts.lib:492 lib/scripts.lib:534
-#: lib/scripts.lib:550
+#: lib/scripts.lib:486 lib/scripts.lib:505 lib/scripts.lib:553
+#: lib/scripts.lib:569
 #, sh-format
 msgid "Do you want to retry?"
 msgstr "Wilt u het opnieuw proberen?"
 
-#: lib/scripts.lib:492 lib/scripts.lib:550
+#: lib/scripts.lib:505 lib/scripts.lib:569
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 "Fout ! Bestanden komen niet overeen\\n\\nLokaal : $LOCAL_MD5\\nServer : "
 "$SERVER_MD5"
 
-#: lib/scripts.lib:643
+#: lib/scripts.lib:662
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
 msgstr "7z is niet geïnstalleerd, installeer 7zip en probeer het dan opnieuw"
 
-#: lib/scripts.lib:650
+#: lib/scripts.lib:669
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr "Kon ${dest} niet vinden in ${archive}"
 
-#: lib/scripts.lib:654
+#: lib/scripts.lib:673
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr "${filename} wordt uitgepakt vanuit ${archivename}"
 
-#: lib/scripts.lib:669
+#: lib/scripts.lib:688
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr "Grootte van uitgepakte bestand komt niet overeen!"
 
-#: lib/scripts.lib:700
+#: lib/scripts.lib:719
 #, sh-format
 msgid "Copying ${filename}"
 msgstr "${filename} wordt gekopieerd"
 
-#: lib/scripts.lib:713
+#: lib/scripts.lib:732
 #, sh-format
 msgid "File size does not match!"
 msgstr "Grootte van uitgepakte bestand komt niet overeen!"
 
-#: lib/scripts.lib:814
+#: lib/scripts.lib:833
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
@@ -4450,7 +4483,7 @@ msgstr ""
 "Sorry, $APPLICATION_TITLE $VERSION is te oud om door te kunnen gaan.\\"
 "n$APPLICATION_TITLE $NEEDED wordt vereist."
 
-#: lib/scripts.lib:829
+#: lib/scripts.lib:848
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
@@ -4459,7 +4492,7 @@ msgstr ""
 "Waarschuwing: U draait momenteel $APPLICATION_TITLE $VERSION.\\"
 "n$APPLICATION_TITLE versie $NEEDED wordt aanbevolen om mee door te gaan."
 
-#: lib/scripts.lib:860
+#: lib/scripts.lib:879
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr "$AUTHOR-profiel"
@@ -4736,12 +4769,12 @@ msgstr "Virtuele doelstation $PREFNAME bestaat al:"
 msgid "User abort"
 msgstr "Afgebroken door gebruiker"
 
-#: lib/wine.lib:1073 lib/wine.lib:1103
+#: lib/wine.lib:1111 lib/wine.lib:1141
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "Een moment geduld, $SOFTNAME wordt geïnstalleerd…"
 
-#: lib/wine.lib:1077 lib/wine.lib:1106
+#: lib/wine.lib:1115 lib/wine.lib:1144
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
@@ -4750,17 +4783,17 @@ msgstr ""
 "Opgepast! Dit zal het installatieproces beëindigen. Indien de installatie "
 "nog niet voltooid was, zult u $SOFTNAME opnieuw moeten installeren"
 
-#: lib/wine.lib:1077 lib/wine.lib:1106
+#: lib/wine.lib:1115 lib/wine.lib:1144
 #, sh-format
 msgid "Install is done"
 msgstr "Installatie is voltooid"
 
-#: lib/wine.lib:1110 lib/wine.lib:1111
+#: lib/wine.lib:1148 lib/wine.lib:1149
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr "Klik alleen op \"Volgende\" wanneer de installatie voltooid is"
 
-#: lib/wine.lib:1119
+#: lib/wine.lib:1157
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr "Een moment geduld, $APPLICATION_TITLE simuleert een herstart"
@@ -5169,7 +5202,7 @@ msgstr ""
 msgid "There is nothing installed to run .{0} files."
 msgstr "Er is niets geïnstalleerd om .{0}-bestanden te draaien."
 
-#: python/lib/playonlinux.py:441
+#: python/lib/playonlinux.py:446
 msgid "{0} error"
 msgstr "{0}-fout"
 

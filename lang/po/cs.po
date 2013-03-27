@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2013-03-18 19:00+0100\n"
-"PO-Revision-Date: 2013-03-16 09:09+0000\n"
+"POT-Creation-Date: 2013-03-25 19:00+0100\n"
+"PO-Revision-Date: 2013-03-25 06:58+0000\n"
 "Last-Translator: Tadeáš Pařík <tadeas.parik@gmail.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-03-19 05:09+0000\n"
-"X-Generator: Launchpad (build 16532)\n"
+"X-Launchpad-Export-Date: 2013-03-26 04:32+0000\n"
+"X-Generator: Launchpad (build 16540)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -322,7 +322,7 @@ msgstr "Zvolte spouštěcí instalační soubor"
 #: PlayOnLinux_Scripts/GOG.com___Knights_and_Merchants__The_Peasants_Rebellion_:34
 #: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:49
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:59
-#: PlayOnLinux_Scripts/Google_Picasa_3.9_:55
+#: PlayOnLinux_Scripts/Google_Picasa_3.9_:56
 #: PlayOnLinux_Scripts/Infinity_Engine_widescreen_mod_:25
 #: PlayOnLinux_Scripts/Runes_Of_Magic_:49 PlayOnLinux_Scripts/Spotify_:66
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_II__Daggerfall_:68
@@ -339,6 +339,7 @@ msgstr "Počkejte prosím, než se $TITLE nainstaluje."
 
 #: PlayOnLinux_Scripts/7_Zip_:47 PlayOnLinux_Scripts/Age_Of_Wonders_:82
 #: PlayOnLinux_Scripts/Alt.Binz_:60 PlayOnLinux_Scripts/Company_of_Heroes_:73
+#: PlayOnLinux_Scripts/EVE_online_:133
 #: PlayOnLinux_Scripts/Geoplan_Geospace_:34
 #: PlayOnLinux_Scripts/Google_SketchUp_:67
 #: PlayOnLinux_Scripts/ISIS_Draw_2.3_:34
@@ -391,7 +392,8 @@ msgstr ""
 "POZNÁMKA: K registraci, budete-li o ni požádáni, je nutné \"chytit\" a "
 "\"pustit\" registrační soubor $TITLE"
 
-#: PlayOnLinux_Scripts/Absynth_5_:30 PlayOnLinux_Scripts/Traktor_Pro_2_:30
+#: PlayOnLinux_Scripts/Absynth_5_:30 PlayOnLinux_Scripts/EVE_online_:79
+#: PlayOnLinux_Scripts/Traktor_Pro_2_:30
 #, sh-format
 msgid "Please select $TITLE install file:"
 msgstr "Zvolte, prosím, instalačíní soubor $TITLE:"
@@ -481,9 +483,8 @@ msgstr "Nemusíte instalovat DirectX nebo používat GLSetup."
 #: PlayOnLinux_Scripts/GOG.com___Gothic_3_Community_patch_:46
 #: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:52
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:51
-#: PlayOnLinux_Scripts/Google_Picasa_3.9_:54
-#: PlayOnLinux_Scripts/League_Of_Legends_:51
-#: PlayOnLinux_Scripts/League_Of_Legends_:120
+#: PlayOnLinux_Scripts/Google_Picasa_3.9_:55
+#: PlayOnLinux_Scripts/League_Of_Legends_:52
 #: PlayOnLinux_Scripts/POL_GoG_setup_:30 PlayOnLinux_Scripts/SFR_LiberTalk_:36
 #: PlayOnLinux_Scripts/The_Sims_3_:50 PlayOnLinux_Scripts/Toontown_Online_:25
 #: PlayOnLinux_Scripts/iTunes_10_:50
@@ -1380,6 +1381,58 @@ msgstr ""
 msgid "Downloading $TITLE, please wait..."
 msgstr "Stahuje se $TITLE, prosím vyčkejte..."
 
+#: PlayOnLinux_Scripts/EVE_online_:66
+#, sh-format
+msgid ""
+"Requires about 18Gb free space.\\n\\n\n"
+"As well, an additional 5Gb in your /home/ folder if you will use online "
+"installer.\\n\n"
+"Recommend using offline installer."
+msgstr ""
+"Je potřeba asi 18Gb prostoru.\\n\\n\n"
+"V případě že bude používat on-line instalátor, je potřeba dalších 5Gb ve "
+"adresáři /home/.\\n\n"
+"Je doporučeno použití off-line instalátoru."
+
+#: PlayOnLinux_Scripts/EVE_online_:74
+#, sh-format
+msgid "You want to open $TITLE download page in your browser?"
+msgstr "Chcete otevřít stránku pro stažení $TITLE ve vašem prohlížeči?"
+
+#: PlayOnLinux_Scripts/EVE_online_:88
+#, sh-format
+msgid "Checking latest version..."
+msgstr "Kontrola aktuální verze..."
+
+#: PlayOnLinux_Scripts/EVE_online_:113
+#, sh-format
+msgid ""
+"You want to create symbolic link for $TITLE settings in your /home/ folder?\\"
+"n(Recommend yes.)"
+msgstr ""
+"Chcete vytvořit symbolický odkaz pro nastavení $TITLE ve vašem adresáři "
+"/home/?\\n(Doporučeno ano.)"
+
+#: PlayOnLinux_Scripts/EVE_online_:116
+#, sh-format
+msgid "Creating symlinks..."
+msgstr "Vytváření symbolického odkazu..."
+
+#: PlayOnLinux_Scripts/EVE_online_:132
+#, sh-format
+msgid ""
+"Known issues:\\n\\n1) Loading EULA on the first run can take a long (5min) "
+"time.\\n\\n2) The Captain's Quarters feature is broken for most (all?) "
+"users.\\nIf you crash after selecting a character try hitting escape at the "
+"login screen and disabling Captain's Quarters under the graphics selection.\\"
+"n(This feature is considered useless by most Eve Players.)"
+msgstr ""
+"Známe problémy:\\n\\n1) Načtení dokumentu EULA může při prvním spuštění "
+"trvat delší dobu (5min).\\n\\n2) Volba Captain's Quarters je nefunkční pro "
+"všechny (?) uživatele.\\nJestliže po vybrání postavy dojde k pádu, opusťte "
+"přihlašovací obrazovku a v nastavení videa zakažte volbu Captain's "
+"Quarters.\\n(Tato volba není považována za užitečnou.)"
+
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:34
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:51
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:29
@@ -1397,8 +1450,8 @@ msgstr "Vložte prosím první herní disk do mechaniky"
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:109 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:1073
-#: lib/wine.lib:1103
+#: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:1111
+#: lib/wine.lib:1141
 #, sh-format
 msgid "Please wait..."
 msgstr "Čekejte prosím…"
@@ -2010,12 +2063,12 @@ msgstr "Registrování knihoven, vyčkejte prosím\\n(může to chvilku trvat)"
 msgid "Which language version would you like to install?"
 msgstr "Jakou jazykovou verzi chcete nainstalovat?"
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:36
+#: PlayOnLinux_Scripts/League_Of_Legends_:37
 #, sh-format
 msgid "glxinfo is not installed. Please install mesa-utils package"
 msgstr "glxinfo není nainstalováno. Nainstalujte prosím balík mesa-utils"
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:39
+#: PlayOnLinux_Scripts/League_Of_Legends_:40
 #, sh-format
 msgid ""
 "Warning! S3TC compression is not available on your system.\\n\\nIf you have "
@@ -2028,36 +2081,35 @@ msgstr ""
 "proprietární \\n\\nMůžete ho povolit nainstalováním libtxc-dxtn0 balíku, "
 "výsledky mohou být ovšem pomalejší"
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:62
+#: PlayOnLinux_Scripts/League_Of_Legends_:63
 #, sh-format
 msgid "What version would you like to install?"
 msgstr "Kterou verzi chcete nainstalovat?"
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:108
+#: PlayOnLinux_Scripts/League_Of_Legends_:128
 #, sh-format
 msgid ""
 "Downloader crashed, likely because it opened more files than allowed. It "
 "will be restarted in the hope it completes its job."
 msgstr ""
+"Stahování nebylo úspěšné, pravděpodobně kvůli otevření více souborů než je "
+"dovoleno. Služba bude restartována, aby mohla dokončit stávající položky."
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:117
-#, sh-format
-msgid "The installer could not be found in the default download directory."
-msgstr "Instalátor nenalezen ve výchozím adresáři pro stahování."
-
-#: PlayOnLinux_Scripts/League_Of_Legends_:125
+#: PlayOnLinux_Scripts/League_Of_Legends_:137
 #, sh-format
 msgid ""
 "Warning: You must not tick the checkbox \"Run $TITLE\" when setup is done"
 msgstr ""
 "Varování: Po dokončení instalace nesmíte zaškrtnout \"Spustit $TITLE\""
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:147
+#: PlayOnLinux_Scripts/League_Of_Legends_:159
 #, sh-format
 msgid ""
-"You should now have a League of Legends directory on your desktop containing "
-"its installer. You may keep it to speed up reinstallations."
+"You should now have a League of Legends directory containing its installer. "
+"You may keep it to speed up reinstallations."
 msgstr ""
+"Nyní byste měli mít adresář League of Legends obsahující instalátor. Můžete "
+"ho použít pro urychlení reinstalace."
 
 #: PlayOnLinux_Scripts/League_of_Legends__ingame_shop_icons_fix_:32
 #, sh-format
@@ -3032,6 +3084,8 @@ msgid ""
 "During installation, please UNCHECK all drivers for the NI controllers and "
 "audio interfaces. The install will fail if left checked, and are not needed."
 msgstr ""
+"Během instalace ODŠKRTNĚTE všechny NI ovladače a zvuková zařízení. Instalace "
+"nebude úspěšná, budou-li tyto volby vybrány a nebudou-li potřeba."
 
 #: PlayOnLinux_Scripts/Traktor_Pro_2_:50
 #, sh-format
@@ -3050,12 +3104,12 @@ msgstr "Stahuje se nejaktuálnější anglické nastavení"
 #: PlayOnLinux_Scripts/UTAU_4.16_:16
 #, sh-format
 msgid "ja_JP.utf8 locale must be installed for $TITLE to work."
-msgstr ""
+msgstr "ja_JP.utf8 musí být nainstalován pro fungující instalaci $TITLE."
 
 #: PlayOnLinux_Scripts/UTAU_4.16_:38
 #, sh-format
 msgid "Would you like to enable the English GUI Patch?"
-msgstr ""
+msgstr "Chcete povolit anglickou verzi patche?"
 
 #: PlayOnLinux_Scripts/Vantage_Master_Online_:30
 #, sh-format
@@ -3622,7 +3676,7 @@ msgstr "Pokud nevíte, vše odznačte."
 msgid "What would you like to do before installation?"
 msgstr "Co chcete udělat ještě před instalací?"
 
-#: bash/manual_install:231 lib/scripts.lib:407
+#: bash/manual_install:231 lib/scripts.lib:420
 #, sh-format
 msgid "Please make your choice"
 msgstr "Vyberte si prosím"
@@ -4113,38 +4167,38 @@ msgstr ""
 "$APPLICATION_TITLE již v minulosti tuto aplikaci spustila.\\nChcete zachovat "
 "stará nastavení?"
 
-#: bash/uninstall:25 bash/uninstall:53 bash/uninstall:56 bash/uninstall:58
-#: lib/playonlinux.lib:712
+#: bash/uninstall:31 bash/uninstall:65 bash/uninstall:68 bash/uninstall:75
+#: lib/playonlinux.lib:715
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
 msgstr "Odinstalátor $APPLICATION_TITLE"
 
-#: bash/uninstall:29
+#: bash/uninstall:39
 #, sh-format
 msgid "Please select a program to uninstall"
 msgstr "Vyberte, prosím, program k odinstalování"
 
-#: bash/uninstall:40
+#: bash/uninstall:50
 #, sh-format
 msgid "Click Next to continue."
 msgstr "Pro pokračování klikněte na Další"
 
-#: bash/uninstall:40
+#: bash/uninstall:50
 #, sh-format
 msgid "This wizard will help you to uninstall: "
 msgstr "Tento průvodce vás provede odinstalací: "
 
-#: bash/uninstall:53 lib/playonlinux.lib:712
+#: bash/uninstall:65 lib/playonlinux.lib:715
 #, sh-format
 msgid "Uninstalling..."
 msgstr "Odinstalace..."
 
-#: bash/uninstall:56
+#: bash/uninstall:68
 #, sh-format
 msgid " has been uninstalled successfully."
 msgstr " byl odinstalován úspěšně."
 
-#: bash/uninstall:58
+#: bash/uninstall:75
 #, sh-format
 msgid "Cannot find the shortcut"
 msgstr "Nelze najít zástupce"
@@ -4265,12 +4319,12 @@ msgstr "Zde je zdrojový kód skriptu. Velmi pečlivě ho zkontrolujte."
 msgid "Making shortcut..."
 msgstr "Vytváří se zástupce..."
 
-#: lib/playonlinux.lib:710
+#: lib/playonlinux.lib:713
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr "Chcete smazat virtuální disk:"
 
-#: lib/playonlinux.lib:821
+#: lib/playonlinux.lib:824
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
@@ -4279,7 +4333,7 @@ msgstr ""
 "Následující soubor je umístěn na souborovém systému FAT32.\\nTo může "
 "způsobit nefunkčnost wine\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:822
+#: lib/playonlinux.lib:825
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
@@ -4288,7 +4342,7 @@ msgstr ""
 "Následující soubor je umístěn na souborovém systému NTFS.\\nTo může způsobit "
 "nefunkčnost wine\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:823
+#: lib/playonlinux.lib:826
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
@@ -4297,7 +4351,7 @@ msgstr ""
 "Následující soubor je umístěn na fuse souborovém systému.\\nTo může způsobit "
 "nefunkčnost wine\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:824
+#: lib/playonlinux.lib:827
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
@@ -4326,7 +4380,7 @@ msgstr "Aktualizuje se zásuvný modul. Předchozí: "
 msgid "Installing plugin: "
 msgstr "Instaluje se zásuvný modul: "
 
-#: lib/scripts.lib:331
+#: lib/scripts.lib:332
 #, sh-format
 msgid ""
 "Binary not found: $BINARY\\nHave you installed the program to the default "
@@ -4335,35 +4389,35 @@ msgstr ""
 "Binární soubor nebyl nalezen: $BINARY\\nJe program nainstalován do výchozího "
 "umístění?"
 
-#: lib/scripts.lib:469 lib/scripts.lib:529
+#: lib/scripts.lib:482 lib/scripts.lib:548
 #, sh-format
 msgid "No enough space to download:\\n$URL ($neededSpace KB)"
 msgstr "Není dostatek místa ke stažení:\\n$URL ($neededSpace KB)"
 
-#: lib/scripts.lib:471 lib/scripts.lib:738
+#: lib/scripts.lib:484 lib/scripts.lib:757
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr "Počkejte prosím, než $APPLICATION_TITLE dokončí stahování:"
 
-#: lib/scripts.lib:473 lib/scripts.lib:534
+#: lib/scripts.lib:486 lib/scripts.lib:553
 #, sh-format
 msgid "An error happened during download."
 msgstr "Při stahování nastala chyba."
 
-#: lib/scripts.lib:473 lib/scripts.lib:492 lib/scripts.lib:534
-#: lib/scripts.lib:550
+#: lib/scripts.lib:486 lib/scripts.lib:505 lib/scripts.lib:553
+#: lib/scripts.lib:569
 #, sh-format
 msgid "Do you want to retry?"
 msgstr "Zkusit znovu?"
 
-#: lib/scripts.lib:492 lib/scripts.lib:550
+#: lib/scripts.lib:505 lib/scripts.lib:569
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 "Chyba ! Soubory nesouhlasí\\n\\nMístní kontrolní MD5 součet: $LOCAL_MD5\\"
 "nKontrolní MD5 součet na serveru: $SERVER_MD5"
 
-#: lib/scripts.lib:643
+#: lib/scripts.lib:662
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
@@ -4371,32 +4425,32 @@ msgstr ""
 "Vypadá to, že 7z není nainstalován. Zkontrolujte prosím, zda je 7zip "
 "nainstalován a zkuste to znovu"
 
-#: lib/scripts.lib:650
+#: lib/scripts.lib:669
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr "Nemohu nalézt ${dest} v ${archive}"
 
-#: lib/scripts.lib:654
+#: lib/scripts.lib:673
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr "Extrahuje se ${filename} z ${archivename}"
 
-#: lib/scripts.lib:669
+#: lib/scripts.lib:688
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr "Velikost extrahovaného souboru nesouhlasí!"
 
-#: lib/scripts.lib:700
+#: lib/scripts.lib:719
 #, sh-format
 msgid "Copying ${filename}"
 msgstr "Kopíruje se ${filename}"
 
-#: lib/scripts.lib:713
+#: lib/scripts.lib:732
 #, sh-format
 msgid "File size does not match!"
 msgstr "Velikost souboru nesouhlasí!"
 
-#: lib/scripts.lib:814
+#: lib/scripts.lib:833
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
@@ -4405,7 +4459,7 @@ msgstr ""
 "$APPLICATION_TITLE $VERSION je příliš stará pro pokračování.\\"
 "n$APPLICATION_TITLE $NEEDED je vyžadována."
 
-#: lib/scripts.lib:829
+#: lib/scripts.lib:848
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
@@ -4414,7 +4468,7 @@ msgstr ""
 "Varování: Máte spuštěnou aplikaci $APPLICATION_TITLE $VERSION.\\nPro "
 "pokračování je však doporučena aplikace $APPLICATION_TITLE $NEEDED."
 
-#: lib/scripts.lib:860
+#: lib/scripts.lib:879
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr "profil $AUTHOR"
@@ -4689,12 +4743,12 @@ msgstr "Cíl $PREFNAME virtuálního disku již existuje:"
 msgid "User abort"
 msgstr "Uživatelské přerušení"
 
-#: lib/wine.lib:1073 lib/wine.lib:1103
+#: lib/wine.lib:1111 lib/wine.lib:1141
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "Vyčkejte, dokud nebude program $SOFTNAME nainstalován..."
 
-#: lib/wine.lib:1077 lib/wine.lib:1106
+#: lib/wine.lib:1115 lib/wine.lib:1144
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
@@ -4703,17 +4757,17 @@ msgstr ""
 "Opatrně! Tohle ukončí instalační proces. Pokud neskončí korektně, tak bude "
 "potřeba $SOFTNAME přeinstalovat"
 
-#: lib/wine.lib:1077 lib/wine.lib:1106
+#: lib/wine.lib:1115 lib/wine.lib:1144
 #, sh-format
 msgid "Install is done"
 msgstr "Instalace je hotova"
 
-#: lib/wine.lib:1110 lib/wine.lib:1111
+#: lib/wine.lib:1148 lib/wine.lib:1149
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr "Stiskněte Další jen pokud byla instalace již dokončena"
 
-#: lib/wine.lib:1119
+#: lib/wine.lib:1157
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr "Vyčkejte prosím, $APPLICATION_TITLE simuluje restart"
@@ -5118,7 +5172,7 @@ msgstr ""
 msgid "There is nothing installed to run .{0} files."
 msgstr "Není nainstalováno nic spustitelného. {0} souborů."
 
-#: python/lib/playonlinux.py:441
+#: python/lib/playonlinux.py:446
 msgid "{0} error"
 msgstr "{0} chyba"
 
