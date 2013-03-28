@@ -722,11 +722,11 @@ class MainWindow(wx.Frame):
                     mylist = os.listdir(Variables.playonlinux_rep+"/shortcuts")
                     for element in mylist:
                         if(playonlinux.getPrefix(element).lower() == self.onglets.s_prefix.lower()):
-                            os.system("bash "+Variables.playonlinux_env+"/bash/uninstall --non-interactive \""+element.encode('utf-8', 'replace')+"\"")
+                            os.system("bash "+Variables.playonlinux_env+"/bash/uninstall --non-interactive \""+element.encode('utf-8', 'replace')+"\" &")
                     self._delete_directory(Variables.playonlinux_rep+"/wineprefix/"+self.onglets.s_prefix)
         else:
             if(wx.YES == wx.MessageBox(_("Are you sure you want to delete {0} ?").format(self.onglets.s_title.encode("utf-8","replace")).decode("utf-8","replace"), os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
-                os.system("bash "+Variables.playonlinux_env+"/bash/uninstall --non-interactive \""+self.onglets.s_title.encode('utf-8', 'replace')+"\"")
+                os.system("bash "+Variables.playonlinux_env+"/bash/uninstall --non-interactive \""+self.onglets.s_title.encode('utf-8', 'replace')+"\" &")
 
         self.onglets.s_isPrefix = True
         self.change_program("default",True)
