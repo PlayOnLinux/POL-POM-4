@@ -62,30 +62,22 @@ POL_Website_urlencode() # Un peu violente celle la
 	# Encode strings to url
 	# Usage: POL_Website_urlencode [string]
 	
-arg="$@"
-i="0"
-while [ "$i" -lt ${#arg} ]; do
-        c=${arg:$i:1}
-        if echo "$c" | grep -q '[0-9a-zA-Z]'; then
-                echo -n "$c"
-        else
-                printf %%%02X \'"$c"
-        fi
-        i=$((i+1))
-done
+	echo "$(perl -MURI::Escape -e 'print uri_escape($ARGV[0]);' "$1")"
+	
 }
 POL_Website_urlparse()
 {
 	# Parse a value to put it in a url
 	# Usage: POL_Website_urlparse [strings]
 	
+	POL_Website_urlencode "$@"
 	# & %26
 	# = %3D
-	chars="$1"
-	chars="${chars//'&'/%26}"
-	chars="${chars//'='/%3D}"
-	chars="${chars//'+'/%2B}"
-	echo "$chars"
+	# chars="$1"
+	# chars="${chars//'&'/%26}"
+	# chars="${chars//'='/%3D}"
+	# chars="${chars//'+'/%2B}"
+	# echo "$chars"
 }
 POL_Website_Close()
 {
