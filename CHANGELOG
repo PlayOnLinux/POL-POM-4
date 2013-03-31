@@ -3,6 +3,10 @@
   make sure desktop icons, menu entries, etc. are also removed.
 - fix Python's VersionLower (infinite source of bugs)
 - Update © in about box LP: #1160801
+- Fix a huge problem in bug reporting I introduced in 4.2... I thought
+  it tested it well, this is depressing. Without testers, without
+  users testing beta versions, it seems there's no way to get bugfree
+  releases.
 
 -> 4.2
 - Huge icons download speedup by reusing a single HTTP connection
