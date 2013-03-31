@@ -68,7 +68,7 @@ fi
 fi
 POL_SetupWindow_textbox "$(eval_gettext "Please give a very short description (title, english only)")" "$POL_DEBUG_TITLE"
 BUGTITLE="$APP_ANSWER"
-TEMPLATE="- what were you doing when the problem occurred?- what did you expect?- what happened instead?- anything else to report?"
+TEMPLATE="- What were you doing when the problem occurred?- What did you expect?- What happened instead?- Anything else to report?"
 POL_SetupWindow_textbox_multiline "$(eval_gettext "Please explain your problem clearly (english only):")" "$POL_DEBUG_TITLE" "$TEMPLATE"
 
 if [ -z "$BUGTITLE" -o -z "$APP_ANSWER" -o "$APP_ANSWER" = "$TEMPLATE" ]
