@@ -89,6 +89,7 @@ POL_Website_login
 POL_Website_Init
 contenu="$(cat "$LOGFILE")"
 DESCRIPTION="$(POL_Website_urlparse "$DESCRIPTION")"
+
 BUGTITLE="$(POL_Website_urlparse "$BUGTITLE")"
 SCRIPTTITLE="$(POL_Website_urlencode "$LOGTITLE")"
 
@@ -99,6 +100,7 @@ TrackerId="$(POL_Website_Result)"
 if [ "$TrackerId" = "0" ]; then
 	POL_SetupWindow_message "Error! This script seems to be no longer existing in our database" "$TITLE"
 else
+	
 	POL_Website_Request "http://bugs.playonlinux.com/en/new-$TRACKER.html" "priority=2&tracker=$TrackerId&title=[Bug report] $BUGTITLE&message=$DESCRIPTION&submit=Send&just_return_id=1"
 	BugURL="$(POL_Website_Result)"
 	POL_Website_Close
