@@ -83,7 +83,7 @@ then
 else
 	DESCRIPTION="$APP_ANSWER
 
-[code language%3Dconsole]$(cat "$POL_USER_ROOT/logs/$LOGTITLE/$LOGTITLE.log")[/code]"
+[code language=console]$(cat "$POL_USER_ROOT/logs/$LOGTITLE/$LOGTITLE.log")[/code]"
 fi
 POL_Website_login
 POL_Website_Init
