@@ -97,9 +97,9 @@ else
 	#POL_Website_Request "http://bugs.playonlinux.com/en/new-$TRACKER.html" "priority=2&tracker=$TrackerId&title=$BUGTITLE&message=$DESCRIPTION&submit=Send&just_return_id=1"
 	if [ "$LOGTITLE" = "" ]
 	then
-		POL_Website_curl "http://bugs.playonlinux.com/en/new-$TRACKER.html" -F priority=2 -F "tracker=$TRACKER" -F title="$BUGTITLE" -F message="$DESCRIPTION" -F submit=Send -F just_return_id=1
+		POL_Website_curl "http://bugs.playonlinux.com/en/new-$TRACKER.html" -F priority=2 -F "tracker=$TrackerId" -F title="$BUGTITLE" -F message="$DESCRIPTION" -F submit=Send -F just_return_id=1
 	else
-		POL_Website_curl "http://bugs.playonlinux.com/en/new-$TRACKER.html" -F priority=2 -F "tracker=$TRACKER" -F title="$BUGTITLE" -F message="$DESCRIPTION" -F submit=Send -F just_return_id=1 -F bugfile="@$POL_USER_ROOT/logs/$LOGTITLE/$LOGTITLE.log"
+		POL_Website_curl "http://bugs.playonlinux.com/en/new-$TRACKER.html" -F priority=2 -F "tracker=$TrackerId" -F title="$BUGTITLE" -F message="$DESCRIPTION" -F submit=Send -F just_return_id=1 -F bugfile="@$POL_USER_ROOT/logs/$LOGTITLE/$LOGTITLE.log"
 	fi
 	BugURL="$(POL_Website_Result)"
 	POL_Website_Close
