@@ -77,21 +77,14 @@ then
 	POL_SetupWindow_Close
 fi
 
-if [ "$LOGTITLE" = "" ]
-then
-	DESCRIPTION="$APP_ANSWER"
-else
-	DESCRIPTION="$APP_ANSWER
-
-[code language=console]$(cat "$POL_USER_ROOT/logs/$LOGTITLE/$LOGTITLE.log")[/code]"
-fi
+DESCRIPTION="$APP_ANSWER"
+	
 POL_Website_login
 POL_Website_Init
-contenu="$(cat "$LOGFILE")"
-DESCRIPTION="$(POL_Website_urlparse "$DESCRIPTION")"
+DESCRIPTION="$DESCRIPTION"
 
-BUGTITLE="$(POL_Website_urlparse "$BUGTITLE")"
-SCRIPTTITLE="$(POL_Website_urlencode "$LOGTITLE")"
+BUGTITLE="$BUGTITLE"
+SCRIPTTITLE="$LOGTITLE"
 
 POL_Website_Request "http://www.playonlinux.com/bugs/getScriptTrackerName.php?id=$SCRIPTTITLE"
 
@@ -101,7 +94,13 @@ if [ "$TrackerId" = "0" ]; then
 	POL_SetupWindow_message "Error! This script seems to be no longer existing in our database" "$TITLE"
 else
 	
-	POL_Website_Request "http://bugs.playonlinux.com/en/new-$TRACKER.html" "priority=2&tracker=$TrackerId&title=$BUGTITLE&message=$DESCRIPTION&submit=Send&just_return_id=1"
+	#POL_Website_Request "http://bugs.playonlinux.com/en/new-$TRACKER.html" "priority=2&tracker=$TrackerId&title=$BUGTITLE&message=$DESCRIPTION&submit=Send&just_return_id=1"
+	if [ "$LOGTITLE" = "" ]
+	then
+		POL_Website_curl "http://bugs.playonlinux.com/en/new-$TRACKER.html" -F priority=2 -F "tracker=$TRACKER" -F title="$BUGTITLE" -F message="$DESCRIPTION" -F submit=Send -F just_return_id=1
+	else
+		POL_Website_curl "http://bugs.playonlinux.com/en/new-$TRACKER.html" -F priority=2 -F "tracker=$TRACKER" -F title="$BUGTITLE" -F message="$DESCRIPTION" -F submit=Send -F just_return_id=1 -F bugfile="@$POL_USER_ROOT/logs/$LOGTITLE/$LOGTITLE.log"
+	fi
 	BugURL="$(POL_Website_Result)"
 	POL_Website_Close
 	POL_Website_logout

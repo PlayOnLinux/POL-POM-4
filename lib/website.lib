@@ -92,6 +92,13 @@ POL_Website_Request()
 	POL_Debug_Message "POST $1"
 	$POL_WGET "$1" --post-data="$2" --load-cookies "$REPERTOIRE/login_info" -O- -q > "$POL_USER_ROOT/tmp/POL_Website_data"
 }
+POL_Website_curl()
+{
+	url="$1"
+	shift
+	> "$POL_USER_ROOT/tmp/POL_Website_data"
+	$POL_CURL -b "$REPERTOIRE/login_info" -o "$POL_USER_ROOT/tmp/POL_Website_data" "$@" "$url"
+}
 POL_Website_POST()
 {
 	# Make a POST request

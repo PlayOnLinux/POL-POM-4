@@ -53,6 +53,8 @@ if (os.environ["POL_OS"] == "Linux"):
     else:
         os.environ["POL_WGET"] = "wget --prefer-family=IPv4 -q"
 
+os.environ["POL_CURL"] = "curl"
+
 archi = string.split(os.environ["MACHTYPE"],"-")
 archi = archi[0]
 

@@ -1206,6 +1206,8 @@ class PlayOnLinuxApp(wx.App):
         self.singleCheckFatal("cabextract")
         self.singleCheckFatal("convert", package="ImageMagick")
         self.singleCheckFatal("wget", package="Wget")
+        self.singleCheckFatal("curl", package="cURL")
+        
         self.singleCheckFatal("gpg", package="GnuPG")
 
         if(os.environ["DEBIAN_PACKAGE"] == "FALSE"):
