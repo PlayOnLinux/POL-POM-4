@@ -253,6 +253,7 @@ class InstallWindow(wx.Frame):
         position += self.filterscaption.GetSize()[0]+10
 
         self.testingChk = wx.CheckBox(self.panelItems, 401, pos=(position,82-71), size=wx.DefaultSize)
+        self.testingChk.SetValue(True)
         position += 15+self.search_offset
         self.testingCapt = wx.StaticText(self.panelItems, -1, _("Testing"), (position,82-71+self.search_offset), wx.DefaultSize)
         position += self.testingCapt.GetSize()[0]+10
@@ -529,7 +530,11 @@ class InstallWindow(wx.Frame):
                         pass
                 else:
                     self.imagesapps.Add(wx.Bitmap(Variables.playonlinux_env+"/etc/playonlinux22.png"))
-                self.list_apps.AppendItem(self.root_apps, appname, self.i)
+                itemId = self.list_apps.AppendItem(self.root_apps, appname, self.i)
+                if int(testing) == 1:
+                    # (255,255,214) is web site color for beta, but it's not very visible next to plain white,
+                    # and red is the color of danger
+                    self.list_apps.SetItemBackgroundColour(itemId, (255,214,214))
                 self.i = self.i+1
 
     def DelApps(self):
