@@ -6,17 +6,20 @@
 
 from lib.ConfigFile import FiletypeConfigFile
 from Script import PrivateScript
+from lib.Tools import uniqid
+from lib.Context import Context
 
 import wx
 
 class File(object):
-   def __init__(self, context, path):
+   def __init__(self, path):
        self.path = path
-       self.context = context
+       self.context = Context()
  
-   def getFileType(self):
-       # Fixme /Folder.ext/file.app should bug here
-     
+   def getPath(self):
+       return self.path
+       
+   def getFileType(self): 
        file_extension = string.split(self.path,".")
        file_extension = file_extension[len(file_extension) - 1]
        return file_extension.lower()
@@ -44,3 +47,12 @@ class File(object):
            
            shortcut.setArgs(shortcut.windowPath(path))
            shortcut.runPoll()
+           
+
+   @staticmethod
+   def generateTmpFile():
+       polTmpDirectory = Context().getUserRoot()+"/tmp/"
+       filePath = polTmpDirectory+uniqid()+".tmp"
+       return File(filePath)
+       
+    

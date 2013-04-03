@@ -30,30 +30,34 @@ class Downloader(threading.Thread):
         self.failed = False
 
     # Getters
-    def getFileSize():
+    def getFileSize(self):
         return self.fileSize
   
-    def getFileSizeInBytes():
+    def getFileSizeInBytes(self):
         return float(self.fileSize / 1048576.0)
 
-    def getLoadedSizeInBytes():
+    def getLoadedSizeInBytes(self):
         return float( (self.nbBlocks * self.blockSize) / 1048576.0)
         
-    def getBlockSize():
+    def getBlockSize(self):
         return self.blockSize
         
-    def getNbBlocks():
+    def getNbBlocks(self):
         return self.nbBlocks
     
-    def getMaxNbBlocks():
+    def getMaxNbBlocks(self):
         return self.getFileSize() / self.getBlockSize()
     
-    def isFinished():
+    def isFinished(self):
         return self.finished
         
-    def hasFailed():
+    def hasFailed(self):
         return self.failed
-        
+       
+    def waitEnd(self):
+        while(not self.finished):
+            time.sleep(0.1)
+             
     # Downloader  
     def onHook(self, nbBlocks, blockSize, fileSize):
         self.nbBlocks = nbBlocks
@@ -69,8 +73,7 @@ class Downloader(threading.Thread):
         self.finished = True
  
     def getContent(self):
-        while(not self.finished):
-            time.sleep(0.1)
+        self.waitEnd()
         
         if(not self.failed):
             return open(self.local, "r").read()

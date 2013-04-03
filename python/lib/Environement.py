@@ -7,7 +7,7 @@ from lib.System import System
 from lib.ConfigFile import GlobalConfigFile 
 from lib.ConfigFile import CustomConfigFile
 from lib.ConfigFile import UserConfigFile
-
+from lib.Version import Version
 
 import os, string, wx, gettext
 
@@ -103,6 +103,6 @@ class Environement(object):
        isDebian = self.getSetting("DEBIAN_PACKAGE") == "TRUE"
        
        Context().setDebianPackage(isDebian)
-       Context().setAppVersion(self.getSetting("VERSION"))
+       Context().setAppVersion(Version(self.getSetting("VERSION")))
        Context().setAppName(self.getSetting("APPLICATION_TITLE"))
        

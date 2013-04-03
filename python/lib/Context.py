@@ -101,3 +101,12 @@ class Context(object):
 
    def registerPid(self, pid):
        self.registeredPid.append(pid)
+       
+   def setUpToDate(self, value):
+       self.upToDate = value
+       
+   def isUpToDate(self):
+       try:
+           return self.upToDate
+       except AttributeError:
+           return True

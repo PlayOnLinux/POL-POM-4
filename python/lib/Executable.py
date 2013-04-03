@@ -80,6 +80,11 @@ class Executable(threading.Thread):
        execEnv.setEnv("REPERTOIRE", Context().getUserRoot()) # ( Backward compatibility )
        execEnv.setEnv("POL_USER_ROOT", Context().getUserRoot())
        
+       if(Context().isUpToDate()):
+           execEnv.setEnv("POL_UPTODATE", "FALSE")
+       else:
+           execEnv.setEnv("POL_UPTODATE", "TRUE")
+           
        # WGET
        execEnv.setEnv("WGETRC", Context().getUserRoot()+"/configurations/wgetrc")
        if(os.path.exists("/proc/net/if_inet6") or Context().getOS == "Mac"):
@@ -162,7 +167,6 @@ class Executable(threading.Thread):
        self.waitingStart = True
         
    def __del__(self):
-       print "I will destroy "+str(self.pid)+str(self.getProgramArray())
        if(self.pid != 0):
           os.system("kill -9 -"+str(self.pid)+" 2> /dev/null")
           os.system("kill -9 "+str(self.pid)+" 2> /dev/null")

@@ -5,16 +5,19 @@
 # Python
 
 from lib.ConfigFile import FiletypeConfigFile
-import wx, os
+
+import wx, os, string
 
 class Version(object):
     def __init__(self, version):
         self.version = version
         
     def lowerThan(self, versionToCompare):
-        version1 = string.split(this.version, "-")
-        version2 = string.split(versionToCompare, "-")
+        version1 = string.split(self.getStringVersion(), "-")
+        version2 = string.split(versionToCompare.getStringVersion(), "-")
 
+
+        
         try:
             if(version1[1] != ""):
                 dev1 = True
@@ -55,6 +58,10 @@ class Version(object):
                 return False
         else:
             return False
-                
-    def __str__(self):
+      
+    def getStringVersion(self):
         return self.version
+                  
+    def __str__(self):
+        return "Version : "+self.version
+
