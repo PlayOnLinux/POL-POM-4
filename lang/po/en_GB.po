@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2013-03-25 19:00+0100\n"
-"PO-Revision-Date: 2013-03-22 21:27+0000\n"
+"POT-Creation-Date: 2013-03-28 19:00+0100\n"
+"PO-Revision-Date: 2013-03-27 22:34+0000\n"
 "Last-Translator: Anthony Harrington <untaintableangel@ubuntu.com>\n"
 "Language-Team: English (United Kingdom) <en_GB@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-03-26 04:34+0000\n"
-"X-Generator: Launchpad (build 16540)\n"
+"X-Launchpad-Export-Date: 2013-03-29 04:34+0000\n"
+"X-Generator: Launchpad (build 16546)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -1380,16 +1380,20 @@ msgid ""
 "installer.\\n\n"
 "Recommend using offline installer."
 msgstr ""
+"Requires about 18GB of free space.\\n\\n\n"
+"As well as an additional 5GB in your /home/ folder if you wish to use the "
+"online installer.\\n\n"
+"It's recommended to use the offline installer."
 
 #: PlayOnLinux_Scripts/EVE_online_:74
 #, sh-format
 msgid "You want to open $TITLE download page in your browser?"
-msgstr ""
+msgstr "You want to open the $TITLE download page in your browser?"
 
 #: PlayOnLinux_Scripts/EVE_online_:88
 #, sh-format
 msgid "Checking latest version..."
-msgstr ""
+msgstr "Checking latest version..."
 
 #: PlayOnLinux_Scripts/EVE_online_:113
 #, sh-format
@@ -1397,11 +1401,13 @@ msgid ""
 "You want to create symbolic link for $TITLE settings in your /home/ folder?\\"
 "n(Recommend yes.)"
 msgstr ""
+"You want to create symbolic link for $TITLE settings in your /home/ folder?\\"
+"n(Recommend yes.)"
 
 #: PlayOnLinux_Scripts/EVE_online_:116
 #, sh-format
 msgid "Creating symlinks..."
-msgstr ""
+msgstr "Creating symlinks..."
 
 #: PlayOnLinux_Scripts/EVE_online_:132
 #, sh-format
@@ -1412,6 +1418,11 @@ msgid ""
 "login screen and disabling Captain's Quarters under the graphics selection.\\"
 "n(This feature is considered useless by most Eve Players.)"
 msgstr ""
+"Known issues:\\n\\n1) Loading EULA on the first run can take a long (5min) "
+"time.\\n\\n2) The Captain's Quarters feature is broken for most (all?) "
+"users.\\nIf you crash after selecting a character, try hitting escape at the "
+"login screen and disabling Captain's Quarters under the graphics selection.\\"
+"n(This feature is considered useless by most Eve Players.)"
 
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:34
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:51
@@ -1990,7 +2001,7 @@ msgid ""
 "Please select $TITLE install file. DO NOT CHECK RUN IMGBURN AT END OF "
 "INSTALLATION:"
 msgstr ""
-"Please select $TITLE install file. DO NOT CHECK RUN IMGBURN AT END OF "
+"Please select the $TITLE install file. DO NOT CHECK RUN IMGBURN AT END OF "
 "INSTALLATION:"
 
 #: PlayOnLinux_Scripts/ImgBurn_:46
@@ -2085,6 +2096,8 @@ msgid ""
 "You should now have a League of Legends directory containing its installer. "
 "You may keep it to speed up reinstallations."
 msgstr ""
+"You should now have a League of Legends directory containing its installer. "
+"You may keep it to speed up reinstallations."
 
 #: PlayOnLinux_Scripts/League_of_Legends__ingame_shop_icons_fix_:32
 #, sh-format
@@ -3347,7 +3360,7 @@ msgid "Choose the name of the virtual drive"
 msgstr "Choose the name of the virtual drive"
 
 #: bash/expert/Executer:22 bash/expert/Executer:27 bash/expert/Executer:29
-#: python/mainwindow.py:231
+#: python/mainwindow.py:232
 #, sh-format
 msgid "Run a local script"
 msgstr "Run a local script"
@@ -3620,7 +3633,7 @@ msgid "Use another version of Wine"
 msgstr "Use another version of Wine"
 
 #: bash/manual_install:165 bash/manual_install:220 bash/polconfigurator:95
-#: python/configure.py:224 python/mainwindow.py:575 python/mainwindow.py:607
+#: python/configure.py:224 python/mainwindow.py:576 python/mainwindow.py:608
 #, sh-format
 msgid "Configure Wine"
 msgstr "Configure Wine"
@@ -3842,7 +3855,7 @@ msgstr "Games"
 msgid "Graphics"
 msgstr "Graphics"
 
-#: bash/playonlinux_online:69 python/install.py:215 python/mainwindow.py:261
+#: bash/playonlinux_online:69 python/install.py:215 python/mainwindow.py:262
 #: python/options.py:384
 #, sh-format
 msgid "Internet"
@@ -3951,8 +3964,8 @@ msgstr "Bad file extension"
 msgid "is not an icon extension"
 msgstr "is not an icon extension"
 
-#: bash/polconfigurator:96 python/configure.py:232 python/mainwindow.py:579
-#: python/mainwindow.py:620
+#: bash/polconfigurator:96 python/configure.py:232 python/mainwindow.py:580
+#: python/mainwindow.py:621
 #, sh-format
 msgid "Registry Editor"
 msgstr "Registry Editor"
@@ -4477,9 +4490,9 @@ msgstr ""
 "again."
 
 #: lib/setupwindow.lib:122 python/guiv3.py:743 python/lib/irc.py:291
-#: python/mainwindow.py:1116 python/mainwindow.py:1146
-#: python/mainwindow.py:1160 python/mainwindow.py:1169
-#: python/mainwindow.py:1181 python/mainwindow.py:1193 python/wrapper.py:121
+#: python/mainwindow.py:1117 python/mainwindow.py:1147
+#: python/mainwindow.py:1161 python/mainwindow.py:1170
+#: python/mainwindow.py:1182 python/mainwindow.py:1194 python/wrapper.py:121
 #, sh-format
 msgid "Error"
 msgstr "Error"
@@ -4809,8 +4822,8 @@ msgstr ""
 "Be careful! Installing one of these components could break your virtual "
 "drive."
 
-#: python/configure.py:327 python/install.py:282 python/mainwindow.py:196
-#: python/mainwindow.py:349
+#: python/configure.py:327 python/install.py:282 python/mainwindow.py:197
+#: python/mainwindow.py:350
 msgid "Install"
 msgstr "Install"
 
@@ -4874,7 +4887,7 @@ msgstr ""
 "Be careful!\n"
 "If you change "
 
-#: python/configure.py:644 python/mainwindow.py:920 python/mainwindow.py:922
+#: python/configure.py:644 python/mainwindow.py:921 python/mainwindow.py:923
 msgid "{0} configuration"
 msgstr "{0} configuration"
 
@@ -4886,8 +4899,8 @@ msgstr "Please select a program or a virtual drive to configure"
 msgid "New"
 msgstr "New"
 
-#: python/configure.py:671 python/mainwindow.py:197 python/mainwindow.py:350
-#: python/mainwindow.py:595 python/options.py:207
+#: python/configure.py:671 python/mainwindow.py:198 python/mainwindow.py:351
+#: python/mainwindow.py:596 python/options.py:207
 msgid "Remove"
 msgstr "Remove"
 
@@ -4895,7 +4908,7 @@ msgstr "Remove"
 msgid "Install components"
 msgstr "Install components"
 
-#: python/configure.py:690 python/mainwindow.py:331
+#: python/configure.py:690 python/mainwindow.py:332
 msgid "Display"
 msgstr "Display"
 
@@ -4915,8 +4928,8 @@ msgstr "Are you sure you want to delete the {0} virtual drive ?"
 msgid "Are you sure you want to delete {0} ?"
 msgstr "Are you sure you want to delete {0} ?"
 
-#: python/debug.py:39 python/mainwindow.py:253 python/mainwindow.py:895
-#: python/mainwindow.py:978
+#: python/debug.py:39 python/mainwindow.py:254 python/mainwindow.py:896
+#: python/mainwindow.py:979
 msgid "{0} debugger"
 msgstr "{0} debugger"
 
@@ -5004,7 +5017,7 @@ msgstr "You cannot close this window"
 msgid "No description"
 msgstr "No description"
 
-#: python/install.py:249 python/mainwindow.py:365 python/mainwindow.py:368
+#: python/install.py:249 python/mainwindow.py:366 python/mainwindow.py:369
 msgid "Search"
 msgstr "Search"
 
@@ -5102,7 +5115,7 @@ msgstr "Leave"
 msgid "Join a channel"
 msgstr "Join a channel"
 
-#: python/irc.py:257 python/mainwindow.py:718
+#: python/irc.py:257 python/mainwindow.py:719
 msgid "Messenger"
 msgstr "Messenger"
 
@@ -5136,183 +5149,183 @@ msgstr "There is nothing installed to run .{0} files."
 msgid "{0} error"
 msgstr "{0} error"
 
-#: python/mainwindow.py:72
+#: python/mainwindow.py:73
 msgid "{0} website is unavailable. Please check your connection"
 msgstr "{0} website is unavailable. Please check your connection"
 
-#: python/mainwindow.py:74
+#: python/mainwindow.py:75
 msgid "Refreshing {0}"
 msgstr "Refreshing {0}"
 
-#: python/mainwindow.py:89 python/mainwindow.py:91
+#: python/mainwindow.py:90 python/mainwindow.py:92
 msgid "An updated version of {0} is available"
 msgstr "An updated version of {0} is available"
 
-#: python/mainwindow.py:195 python/mainwindow.py:345 python/mainwindow.py:727
+#: python/mainwindow.py:196 python/mainwindow.py:346 python/mainwindow.py:728
 msgid "Run"
 msgstr "Run"
 
-#: python/mainwindow.py:199
+#: python/mainwindow.py:200
 msgid "Donate"
 msgstr "Donate"
 
-#: python/mainwindow.py:200
+#: python/mainwindow.py:201
 msgid "Exit"
 msgstr "Exit"
 
-#: python/mainwindow.py:204
+#: python/mainwindow.py:205
 msgid "Small icons"
 msgstr "Small icons"
 
-#: python/mainwindow.py:205
+#: python/mainwindow.py:206
 msgid "Medium icons"
 msgstr "Medium icons"
 
-#: python/mainwindow.py:206
+#: python/mainwindow.py:207
 msgid "Large icons"
 msgstr "Large icons"
 
-#: python/mainwindow.py:207
+#: python/mainwindow.py:208
 msgid "Very large icons"
 msgstr "Very large icons"
 
-#: python/mainwindow.py:219
+#: python/mainwindow.py:220
 msgid "Manage Wine versions"
 msgstr "Manage Wine versions"
 
-#: python/mainwindow.py:225
+#: python/mainwindow.py:226
 msgid "Read a PC CD-Rom"
 msgstr "Read a PC CD-ROM"
 
-#: python/mainwindow.py:235
+#: python/mainwindow.py:236
 msgid "Close all {0} software"
 msgstr "Close all {0} software"
 
-#: python/mainwindow.py:239
+#: python/mainwindow.py:240
 msgid "{0} console"
 msgstr "{0} console"
 
-#: python/mainwindow.py:249
+#: python/mainwindow.py:250
 msgid "{0} messenger"
 msgstr "{0} messenger"
 
-#: python/mainwindow.py:265 python/options.py:388
+#: python/mainwindow.py:266 python/options.py:388
 msgid "File associations"
 msgstr "File associations"
 
-#: python/mainwindow.py:272
+#: python/mainwindow.py:273
 msgid "About {0}"
 msgstr "About {0}"
 
-#: python/mainwindow.py:301 python/mainwindow.py:305
+#: python/mainwindow.py:302 python/mainwindow.py:306
 msgid "Plugin manager"
 msgstr "Plug-in manager"
 
-#: python/mainwindow.py:330
+#: python/mainwindow.py:331
 msgid "File"
 msgstr "File"
 
-#: python/mainwindow.py:332
+#: python/mainwindow.py:333
 msgid "Tools"
 msgstr "Tools"
 
-#: python/mainwindow.py:333 python/mainwindow.py:716
+#: python/mainwindow.py:334 python/mainwindow.py:717
 msgid "Settings"
 msgstr "Settings"
 
-#: python/mainwindow.py:334 python/options.py:387
+#: python/mainwindow.py:335 python/options.py:387
 msgid "Plugins"
 msgstr "Plug-ins"
 
-#: python/mainwindow.py:346 python/mainwindow.py:729
+#: python/mainwindow.py:347 python/mainwindow.py:730
 msgid "Close"
 msgstr "Close"
 
-#: python/mainwindow.py:352 python/mainwindow.py:735 python/options.py:208
+#: python/mainwindow.py:353 python/mainwindow.py:736 python/options.py:208
 msgid "Configure"
 msgstr "Configure"
 
-#: python/mainwindow.py:583
+#: python/mainwindow.py:584
 msgid "Open the application's directory"
 msgstr "Open the application's directory"
 
-#: python/mainwindow.py:587 python/mainwindow.py:743
+#: python/mainwindow.py:588 python/mainwindow.py:744
 msgid "Read the manual"
 msgstr "Read the Manual"
 
-#: python/mainwindow.py:591
+#: python/mainwindow.py:592
 msgid "Set the icon"
 msgstr "Set the icon"
 
-#: python/mainwindow.py:599
+#: python/mainwindow.py:600
 msgid "Close this application"
 msgstr "Close this application"
 
-#: python/mainwindow.py:610
+#: python/mainwindow.py:611
 msgid "KillApp"
 msgstr "KillApp"
 
-#: python/mainwindow.py:617
+#: python/mainwindow.py:618
 msgid "No manual found for {0}"
 msgstr "No Manual found for {0}"
 
-#: python/mainwindow.py:714
+#: python/mainwindow.py:715
 msgid "Install a program"
 msgstr "Install a program"
 
-#: python/mainwindow.py:721
+#: python/mainwindow.py:722
 msgid "Update GIT"
 msgstr "Update GIT"
 
-#: python/mainwindow.py:731
+#: python/mainwindow.py:732
 msgid "Debug"
 msgstr "Debug"
 
-#: python/mainwindow.py:733
+#: python/mainwindow.py:734
 msgid "Report a problem"
 msgstr "Report a problem"
 
-#: python/mainwindow.py:737
+#: python/mainwindow.py:738
 msgid "Create a shortcut"
 msgstr "Create a shortcut"
 
-#: python/mainwindow.py:739
+#: python/mainwindow.py:740
 msgid "Open the directory"
 msgstr "Open the directory"
 
-#: python/mainwindow.py:746
+#: python/mainwindow.py:747
 msgid "Uninstall"
 msgstr "Uninstall"
 
-#: python/mainwindow.py:868 python/mainwindow.py:939 python/mainwindow.py:984
+#: python/mainwindow.py:869 python/mainwindow.py:940 python/mainwindow.py:985
 msgid "Please select a program."
 msgstr "Please select a program."
 
-#: python/mainwindow.py:876 python/mainwindow.py:878 python/mainwindow.py:880
+#: python/mainwindow.py:877 python/mainwindow.py:879 python/mainwindow.py:881
 msgid "{0} settings"
 msgstr "{0} settings"
 
-#: python/mainwindow.py:946
+#: python/mainwindow.py:947
 msgid "{0} install menu"
 msgstr "{0} install menu"
 
-#: python/mainwindow.py:955
+#: python/mainwindow.py:956
 msgid "{0} wine versions manager"
 msgstr "{0} wine versions manager"
 
-#: python/mainwindow.py:986
+#: python/mainwindow.py:987
 msgid "The virtual drive associated with {0} ({1}) does no longer exists."
 msgstr "The virtual drive associated with {0} ({1}) no longer exists."
 
-#: python/mainwindow.py:1030
+#: python/mainwindow.py:1031
 msgid "Are you sure you want to close all {0} Windows?"
 msgstr "Are you sure you want to close all {0} windows?"
 
-#: python/mainwindow.py:1069
+#: python/mainwindow.py:1070
 msgid "Run your Windows programs on "
 msgstr "Run your Windows programs on "
 
-#: python/mainwindow.py:1070
+#: python/mainwindow.py:1071
 msgid ""
 "PlayOnLinux and PlayOnMac team\n"
 "Under GPL licence version 3"
@@ -5320,59 +5333,59 @@ msgstr ""
 "PlayOnLinux and PlayOnMac team\n"
 "Under GPL licence version 3"
 
-#: python/mainwindow.py:1071
+#: python/mainwindow.py:1072
 msgid "Developer and Website: "
 msgstr "Developer and Website: "
 
-#: python/mainwindow.py:1072
+#: python/mainwindow.py:1073
 msgid "Scriptors: "
 msgstr "Scriptors: "
 
-#: python/mainwindow.py:1073
+#: python/mainwindow.py:1074
 msgid "Packager: "
 msgstr "Packager: "
 
-#: python/mainwindow.py:1074
+#: python/mainwindow.py:1075
 msgid "Icons:"
 msgstr "Icons:"
 
-#: python/mainwindow.py:1075
+#: python/mainwindow.py:1076
 msgid "The following people contributed to this program: "
 msgstr "The following people contributed to this program: "
 
-#: python/mainwindow.py:1076
+#: python/mainwindow.py:1077
 msgid "Translations:"
 msgstr "Translations:"
 
-#: python/mainwindow.py:1077
+#: python/mainwindow.py:1078
 msgid "Read TRANSLATORS file"
 msgstr "Read TRANSLATORS file"
 
-#: python/mainwindow.py:1116
+#: python/mainwindow.py:1117
 msgid "{0} is not able to start PlayOnLinux Setup Window server."
 msgstr "{0} is not able to start the PlayOnLinux Set-up Window server."
 
-#: python/mainwindow.py:1137
+#: python/mainwindow.py:1138
 msgid "{0} cannot find {1}"
 msgstr "{0} cannot find {1}"
 
-#: python/mainwindow.py:1139
+#: python/mainwindow.py:1140
 msgid " (from {2})"
 msgstr " (from {2})"
 
-#: python/mainwindow.py:1142
+#: python/mainwindow.py:1143
 msgid "You need to install it to continue"
 msgstr "You need to install it to continue"
 
-#: python/mainwindow.py:1144
+#: python/mainwindow.py:1145
 msgid "You should install it to use {0}"
 msgstr "You should install it to use {0}"
 
-#: python/mainwindow.py:1160
+#: python/mainwindow.py:1161
 msgid "{0} is not supposed to be run as root. Sorry"
 msgstr "{0} is not supposed to be run as root."
 
-#: python/mainwindow.py:1169
+#: python/mainwindow.py:1170
 msgid ""
 "{0} is unable to find 32bits OpenGL libraries.\n"
 "\n"
@@ -5382,7 +5395,7 @@ msgstr ""
 "\n"
 "You may encounter problems with your games"
 
-#: python/mainwindow.py:1181
+#: python/mainwindow.py:1182
 msgid ""
 "{0} is unable to find 64bits OpenGL libraries.\n"
 "\n"
@@ -5392,7 +5405,7 @@ msgstr ""
 "\n"
 "You may encounter problems with your games"
 
-#: python/mainwindow.py:1193
+#: python/mainwindow.py:1194
 msgid ""
 "Your filesystem might prevent {0} from running correctly.\n"
 "\n"
@@ -5402,7 +5415,7 @@ msgstr ""
 "\n"
 "Please open {0} in a terminal to get more details"
 
-#: python/mainwindow.py:1197
+#: python/mainwindow.py:1198
 msgid ""
 "Do you want to help {0} to make a compatibility database?\n"
 "\n"
@@ -5428,11 +5441,11 @@ msgstr ""
 "\n"
 "These information will be very precious for us to help people."
 
-#: python/mainwindow.py:1250
+#: python/mainwindow.py:1251
 msgid "Are you sure you want to  want to install {0} package?"
 msgstr "Are you sure you want to  want to install {0} package?"
 
-#: python/mainwindow.py:1257 python/mainwindow.py:1259
+#: python/mainwindow.py:1258 python/mainwindow.py:1260
 msgid ""
 "You are trying to open a script design for {0}! It might not work as expected"
 msgstr ""
