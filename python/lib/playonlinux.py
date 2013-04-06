@@ -86,27 +86,34 @@ def SetSettings(setting, value, prefix='_POL_'):
     else:
         cfile = Variables.playonlinux_rep+"/wineprefix/"+prefix+"/playonlinux.cfg"
 
-    fichier = open(cfile,"r").readlines()
-    i = 0
-    line = []
-    found = False
-    while(i < len(fichier)):
-        fichier[i] = fichier[i].replace("\n","")
-        if(setting+"=" in fichier[i]):
+    try:
+        fichier = open(cfile,"r").readlines()
+    except:
+        pass
+    else:
+        i = 0
+        line = []
+        found = False
+        while(i < len(fichier)):
+            fichier[i] = fichier[i].replace("\n","")
+            if(setting+"=" in fichier[i]):
+                line.append(setting+"="+value)
+                found = True
+            else:
+                line.append(fichier[i])
+            i += 1
+        if(found == False):
             line.append(setting+"="+value)
-            found = True
+
+        try:
+            fichier_write = open(cfile,"w")
+        except IOError:
+            pass
         else:
-            line.append(fichier[i])
-        i += 1
-    if(found == False):
-        line.append(setting+"="+value)
-
-    fichier_write = open(cfile,"w")
-
-    i = 0
-    while(i < len(line)): # On ecrit
-        fichier_write.write(line[i]+"\n")
-        i+=1
+            i = 0
+            while(i < len(line)): # On ecrit
+                fichier_write.write(line[i]+"\n")
+                i+=1
 
 def DeleteSettings(setting, prefix='_POL_'):
     if(prefix == "_POL_"):
