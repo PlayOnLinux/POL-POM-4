@@ -492,33 +492,33 @@ Fixes to critial problem
 * ADD: playonlinux-cmd now support all function POL_SW_* (guiv3) in shell mode.
 * Full rebuild of translation template using xgettext. Python and Shell.
 * Better use of the gettext function and string corrections for:
-	-> python/wine_versions.py
-	-> python/guiv3.py
-	-> python/telecharger.py
-	-> python/options.py
-	-> python/mainwindow.py
-	-> python/message_one.py
-	-> bash/LiveInstall
-	-> bash/autorun
-	-> bash/daemon/autorun
-	-> bash/uninstall
-	-> bash/expert/Executer
-	-> bash/expert/kill_wineserver
-	-> bash/install_wver
-	-> bash/killall
-	-> bash/polconfigurator (always used?)
-	-> bash/system_info
-	-> bash/check_maj
-	-> bash/check_maj_
-	-> lib/applications
-	-> lib/check_depend
-	-> lib/interface_v3
-	-> lib/main
-	-> lib/wine
-	-> lib/interface (+ cleaning)
-	-> playonlinux-cmd
-	-> playonlinux-pkg
-	-> Plugins: Capture
+	* python/wine_versions.py
+	* python/guiv3.py
+	* python/telecharger.py
+	* python/options.py
+	* python/mainwindow.py
+	* python/message_one.py
+	* bash/LiveInstall
+	* bash/autorun
+	* bash/daemon/autorun
+	* bash/uninstall
+	* bash/expert/Executer
+	* bash/expert/kill_wineserver
+	* bash/install_wver
+	* bash/killall
+	* bash/polconfigurator (always used?)
+	* bash/system_info
+	* bash/check_maj
+	* bash/check_maj_
+	* lib/applications
+	* lib/check_depend
+	* lib/interface_v3
+	* lib/main
+	* lib/wine
+	* lib/interface (+ cleaning)
+	* playonlinux-cmd
+	* playonlinux-pkg
+	* Plugins: Capture
 * Removing some unused files plus cleaning some files. 
 * Update copyright header. 
 
