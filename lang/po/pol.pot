@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2013-04-05 19:00:43+02:00\n"
+"POT-Creation-Date: 2013-04-07 19:00:51+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1444,7 +1444,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Descent_3_:39
 #: PlayOnLinux_Scripts/GOG.com___Deus_Ex_2__Invisible_War_:39
 #: PlayOnLinux_Scripts/GOG.com___Disciples_2_Gold_:40
-#: PlayOnLinux_Scripts/GOG.com___Duke_Nukem__Manhattan_Project_:39
 #: PlayOnLinux_Scripts/GOG.com___Enclave_:42
 #: PlayOnLinux_Scripts/GOG.com___Evil_Genius_:39
 #: PlayOnLinux_Scripts/GOG.com___Flatout_:39
@@ -1485,11 +1484,8 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Silver_:39
 #: PlayOnLinux_Scripts/GOG.com___Simon_the_Sorcerer_:39
 #: PlayOnLinux_Scripts/GOG.com___Simon_the_Sorcerer_2_:39
-#: PlayOnLinux_Scripts/GOG.com___Space_Rangers_2__Reboot_:39
 #: PlayOnLinux_Scripts/GOG.com___Star_Wolves_:39
 #: PlayOnLinux_Scripts/GOG.com___Still_Life_:39
-#: PlayOnLinux_Scripts/GOG.com___Syberia_:39
-#: PlayOnLinux_Scripts/GOG.com___Syberia_2_:39
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:64
 #: PlayOnLinux_Scripts/GOG.com___Tex_Murphy__The_Pandora_Directive_:36
 #: PlayOnLinux_Scripts/GOG.com___Tex_Murphy__Under_a_Killing_Moon_:39
@@ -1531,7 +1527,7 @@ msgstr ""
 msgid "Editor"
 msgstr ""
 
-#: PlayOnLinux_Scripts/GOG.com___Commandos_Ammo_Pack_:31
+#: PlayOnLinux_Scripts/GOG.com___Commandos_Ammo_Pack_:27
 #, sh-format
 msgid "This install script requires ffmpeg"
 msgstr ""
@@ -2145,10 +2141,25 @@ msgstr ""
 msgid "Gog.com login failed, try again?"
 msgstr ""
 
-#: PlayOnLinux_Scripts/POL_GoG_download_:89
-#: PlayOnLinux_Scripts/POL_GoG_download_:99
+#: PlayOnLinux_Scripts/POL_GoG_download_:88
+#: PlayOnLinux_Scripts/POL_GoG_download_:100
 #, sh-format
 msgid "Checking piece integrity..."
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_GoG_download_:102
+#, sh-format
+msgid "Download failed"
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_GoG_download_:104
+#, sh-format
+msgid "Download seems to be corrupted"
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_GoG_download_:113
+#, sh-format
+msgid "Retry?"
 msgstr ""
 
 #: PlayOnLinux_Scripts/POL_GoG_setup_:18
@@ -2611,6 +2622,7 @@ msgid ""
 msgstr ""
 
 #: PlayOnLinux_Scripts/Terraria_:66
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_V___Skyrim_:103
 #, sh-format
 msgid ""
 "If the game crashes at startup, open a terminal and type:\\necho 0|sudo tee /"
@@ -4772,7 +4784,7 @@ msgstr ""
 msgid "There is nothing installed to run .{0} files."
 msgstr ""
 
-#: python/lib/playonlinux.py:446
+#: python/lib/playonlinux.py:453
 msgid "{0} error"
 msgstr ""
 
