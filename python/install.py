@@ -429,7 +429,7 @@ class InstallWindow(wx.Frame):
                 playonlinux.SetSettings("FIRST_INSTALL_DONE","TRUE")
 
             if(os.path.exists(Variables.playonlinux_rep+"/configurations/listes/search")):
-                content = open(Variables.playonlinux_rep+"/configurations/listes/search","r").read().split("\n")
+                content = codecs.open(Variables.playonlinux_rep+"/configurations/listes/search", "r", "utf-8").read().split("\n")
                 found = False
                 for line in content:
                     split = line.split("~")
