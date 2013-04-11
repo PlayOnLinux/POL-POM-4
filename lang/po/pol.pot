@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2013-04-06 19:00:47+02:00\n"
+"POT-Creation-Date: 2013-04-11 19:00:54+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -454,7 +454,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:55
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:53
 #: PlayOnLinux_Scripts/Google_Picasa_3.9_:55
-#: PlayOnLinux_Scripts/League_Of_Legends_:52
+#: PlayOnLinux_Scripts/League_Of_Legends_:53
 #: PlayOnLinux_Scripts/POL_GoG_setup_:30 PlayOnLinux_Scripts/SFR_LiberTalk_:36
 #: PlayOnLinux_Scripts/The_Sims_3_:50 PlayOnLinux_Scripts/Toontown_Online_:25
 #: PlayOnLinux_Scripts/iTunes_10_:50
@@ -781,7 +781,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Revelations_:74
 #: PlayOnLinux_Scripts/Baldur_s_Gate_:43 PlayOnLinux_Scripts/Baldur_s_Gate_:80
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_:43 PlayOnLinux_Scripts/Fable_III_:72
-#: PlayOnLinux_Scripts/Far_Cry_2_:62
+#: PlayOnLinux_Scripts/Far_Cry_2_:62 PlayOnLinux_Scripts/Freelancer_:51
 #: PlayOnLinux_Scripts/Prince_of_Persia___The_Forgotten_Sands_:60
 #: PlayOnLinux_Scripts/Star_Wars___The_Force_Unleashed_2_:119
 #: PlayOnLinux_Scripts/Star_Wars___The_Force_Unleashed___Ultimate_Sith_Edition_:118
@@ -1080,7 +1080,7 @@ msgid "Install $TITLE in Steam."
 msgstr ""
 
 #: PlayOnLinux_Scripts/Company_of_Heroes_:67
-#: PlayOnLinux_Scripts/Freelancer_:53 PlayOnLinux_Scripts/Pro_Pilkki_2_:54
+#: PlayOnLinux_Scripts/Freelancer_:54 PlayOnLinux_Scripts/Pro_Pilkki_2_:54
 #, sh-format
 msgid "Error while installing game."
 msgstr ""
@@ -1382,12 +1382,12 @@ msgstr ""
 msgid "Welcome in the DLC Installer for $TITLE"
 msgstr ""
 
-#: PlayOnLinux_Scripts/Freelancer_:75 PlayOnLinux_Scripts/Red_Faction_:75
+#: PlayOnLinux_Scripts/Freelancer_:76 PlayOnLinux_Scripts/Red_Faction_:75
 #, sh-format
 msgid "Error while installing patch."
 msgstr ""
 
-#: PlayOnLinux_Scripts/Freelancer_:84
+#: PlayOnLinux_Scripts/Freelancer_:85
 #, sh-format
 msgid "$TITLE and $PATCHVERSION patch has been successfully installed."
 msgstr ""
@@ -1419,6 +1419,7 @@ msgid "Which version do you want to install?"
 msgstr ""
 
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:86
+#: PlayOnLinux_Scripts/League_Of_Legends_:65
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_II__Daggerfall_:63
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_II__Daggerfall_:72
 #, sh-format
@@ -1444,7 +1445,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Descent_3_:39
 #: PlayOnLinux_Scripts/GOG.com___Deus_Ex_2__Invisible_War_:39
 #: PlayOnLinux_Scripts/GOG.com___Disciples_2_Gold_:40
-#: PlayOnLinux_Scripts/GOG.com___Duke_Nukem__Manhattan_Project_:39
 #: PlayOnLinux_Scripts/GOG.com___Enclave_:42
 #: PlayOnLinux_Scripts/GOG.com___Evil_Genius_:39
 #: PlayOnLinux_Scripts/GOG.com___Flatout_:39
@@ -1485,7 +1485,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Silver_:39
 #: PlayOnLinux_Scripts/GOG.com___Simon_the_Sorcerer_:39
 #: PlayOnLinux_Scripts/GOG.com___Simon_the_Sorcerer_2_:39
-#: PlayOnLinux_Scripts/GOG.com___Space_Rangers_2__Reboot_:39
 #: PlayOnLinux_Scripts/GOG.com___Star_Wolves_:39
 #: PlayOnLinux_Scripts/GOG.com___Still_Life_:39
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:64
@@ -1907,12 +1906,12 @@ msgstr ""
 msgid "Which language version would you like to install?"
 msgstr ""
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:37
+#: PlayOnLinux_Scripts/League_Of_Legends_:38
 #, sh-format
 msgid "glxinfo is not installed. Please install mesa-utils package"
 msgstr ""
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:40
+#: PlayOnLinux_Scripts/League_Of_Legends_:41
 #, sh-format
 msgid ""
 "Warning! S3TC compression is not available on your system.\\n\\nIf you have "
@@ -1921,29 +1920,22 @@ msgid ""
 "might get slower results"
 msgstr ""
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:63
+#: PlayOnLinux_Scripts/League_Of_Legends_:56
 #, sh-format
-msgid "What version would you like to install?"
+msgid "Cant install using the official downloader, sorry"
 msgstr ""
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:128
-#, sh-format
-msgid ""
-"Downloader crashed, likely because it opened more files than allowed. It "
-"will be restarted in the hope it completes its job."
-msgstr ""
-
-#: PlayOnLinux_Scripts/League_Of_Legends_:137
+#: PlayOnLinux_Scripts/League_Of_Legends_:90
 #, sh-format
 msgid ""
 "Warning: You must not tick the checkbox \"Run $TITLE\" when setup is done"
 msgstr ""
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:159
+#: PlayOnLinux_Scripts/League_Of_Legends_:107
 #, sh-format
 msgid ""
-"You should now have a League of Legends directory containing its installer. "
-"You may keep it to speed up reinstallations."
+"You should now have a League of Legends directory on your desktop containing "
+"its installer. You may keep it to speed up reinstallations."
 msgstr ""
 
 #: PlayOnLinux_Scripts/League_of_Legends__ingame_shop_icons_fix_:29
@@ -2143,10 +2135,25 @@ msgstr ""
 msgid "Gog.com login failed, try again?"
 msgstr ""
 
-#: PlayOnLinux_Scripts/POL_GoG_download_:89
-#: PlayOnLinux_Scripts/POL_GoG_download_:99
+#: PlayOnLinux_Scripts/POL_GoG_download_:88
+#: PlayOnLinux_Scripts/POL_GoG_download_:100
 #, sh-format
 msgid "Checking piece integrity..."
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_GoG_download_:102
+#, sh-format
+msgid "Download failed"
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_GoG_download_:104
+#, sh-format
+msgid "Download seems to be corrupted"
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_GoG_download_:113
+#, sh-format
+msgid "Retry?"
 msgstr ""
 
 #: PlayOnLinux_Scripts/POL_GoG_setup_:18
@@ -4771,7 +4778,7 @@ msgstr ""
 msgid "There is nothing installed to run .{0} files."
 msgstr ""
 
-#: python/lib/playonlinux.py:446
+#: python/lib/playonlinux.py:453
 msgid "{0} error"
 msgstr ""
 
