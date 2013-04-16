@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2013-04-15 19:00:52+02:00\n"
+"POT-Creation-Date: 2013-04-16 19:00:46+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -247,7 +247,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/F.E.A.R._3_:50 PlayOnLinux_Scripts/F.E.A.R._3_:63
 #: PlayOnLinux_Scripts/Fable_III_:91 PlayOnLinux_Scripts/Far_Cry_2_:80
 #: PlayOnLinux_Scripts/Google_SketchUp_:48
-#: PlayOnLinux_Scripts/Guild_Wars_2_:76 PlayOnLinux_Scripts/Half_Life_2_:108
+#: PlayOnLinux_Scripts/Guild_Wars_2_:70 PlayOnLinux_Scripts/Half_Life_2_:108
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:88
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:88
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:102
@@ -364,7 +364,7 @@ msgid ""
 msgstr ""
 
 #: PlayOnLinux_Scripts/Absynth_5_:30 PlayOnLinux_Scripts/EVE_online_:79
-#: PlayOnLinux_Scripts/Traktor_Pro_2_:30
+#: PlayOnLinux_Scripts/FL_Studio_10_:30 PlayOnLinux_Scripts/Traktor_Pro_2_:30
 #, sh-format
 msgid "Please select $TITLE install file:"
 msgstr ""
@@ -1371,6 +1371,20 @@ msgstr ""
 msgid "Please insert the second game media into your disk drive"
 msgstr ""
 
+#: PlayOnLinux_Scripts/FL_Studio_10_:42
+#, sh-format
+msgid ""
+"During installation, please UNCHECK the option for ASIO4ALL, and UNCHECK run "
+"FL Studio at end of install."
+msgstr ""
+
+#: PlayOnLinux_Scripts/FL_Studio_10_:50 PlayOnLinux_Scripts/Traktor_Pro_2_:50
+#, sh-format
+msgid ""
+"NOTICE: For low-latency audio, look into WineASIO. Your MIDI controllers "
+"should work as expected."
+msgstr ""
+
 #: PlayOnLinux_Scripts/Fable___The_Lost_Chapters_:67
 #, sh-format
 msgid "Please insert media 3 into your disk drive\\nif not already done."
@@ -1461,7 +1475,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Little_Big_Adventure_:39
 #: PlayOnLinux_Scripts/GOG.com___Normality_:39
 #: PlayOnLinux_Scripts/GOG.com___Painkiller__Black_Edition_:41
-#: PlayOnLinux_Scripts/GOG.com___Psychonauts_:39
 #: PlayOnLinux_Scripts/GOG.com___Realms_of_Arkania_1_and_2_:40
 #: PlayOnLinux_Scripts/GOG.com___Realms_of_Arkania_3_:39
 #: PlayOnLinux_Scripts/GOG.com___Realms_of_the_Haunting_:39
@@ -1486,7 +1499,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Two_Worlds__Epic_Edition_:37
 #: PlayOnLinux_Scripts/GOG.com___UFO__Afterlight_:39
 #: PlayOnLinux_Scripts/GOG.com___UFO__Aftermath_:39
-#: PlayOnLinux_Scripts/GOG.com___Unreal_2_:41
 #: PlayOnLinux_Scripts/GOG.com___Wallace_and_Gromits_Grand_Adventures_:42
 #: PlayOnLinux_Scripts/Infinity_Engine_widescreen_mod_:64
 #: PlayOnLinux_Scripts/POL_GoG_install_:9 PlayOnLinux_Scripts/Poker_Stars_:37
@@ -1816,7 +1828,7 @@ msgstr ""
 msgid "Please insert the DVD-ROM"
 msgstr ""
 
-#: PlayOnLinux_Scripts/Guild_Wars_2_:92
+#: PlayOnLinux_Scripts/Guild_Wars_2_:86
 #, sh-format
 msgid ""
 "Because of wine bug #30512, dowloading will often crash, just relaunch the "
@@ -2864,13 +2876,6 @@ msgstr ""
 msgid ""
 "During installation, please UNCHECK all drivers for the NI controllers and "
 "audio interfaces. The install will fail if left checked, and are not needed."
-msgstr ""
-
-#: PlayOnLinux_Scripts/Traktor_Pro_2_:50
-#, sh-format
-msgid ""
-"NOTICE: For low-latency audio, look into WineASIO. Your MIDI controllers "
-"should work as expected."
 msgstr ""
 
 #: PlayOnLinux_Scripts/Tribes___Ascent_:46
