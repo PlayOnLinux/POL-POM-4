@@ -24,10 +24,6 @@
 export SILENT="TRUE"
 SCRIPTNAME="$1"
 shift
-if [ "$PYTHON" = "" ]
-then
-	PYTHON="python"
-fi
 if [ "$SCRIPTNAME" = "" ]
 then
 	echo "Usage : playonlinux-bash [script]"
@@ -41,7 +37,8 @@ then
 	CURDIR="$(pwd)"
 	export MACHTYPE
 	cd "$WorkingDirectory"
-	"$PYTHON" "$CURDIR/python/wrapper.py" "$SCRIPTNAME" "$@"
+       	source "$CURDIR/bash/find_python"
+	"$POL_PYTHON" "$CURDIR/python/wrapper.py" "$SCRIPTNAME" "$@"
 else
 	bash "$SCRIPTNAME" "$@"
 fi

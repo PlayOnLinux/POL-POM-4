@@ -2,6 +2,8 @@
 
 * Changelog move from plaintext to Markdown syntax.
 * read script lists in utf8 when looking up script to install (#2076)
+* (experimental) new algorithm to find installed Python version,
+  implements fallback which is probably overkill (#2122)
 
 # 4.2.1
 

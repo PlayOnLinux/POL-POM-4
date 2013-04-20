@@ -69,48 +69,14 @@ fi
 
 [ "$(uname -s)" = "Linux" ] || die "This script must be run on a linux system"
 
-export PYTHON="python"
+export POL_PYTHON=""
 export POL_OS="Linux"
 export UBUNTU_MENUPROXY=0 
 export MACHTYPE
 
 [ "$PLAYONLINUX" = "" ] || die "You are already in a PlayOnLinux environment" 
 
-# On part a la recherche de python. (Pourquoi est-ce que certaines distros ne le mette pas dans /usr/bin/python, comme tout le monde :'( )
-if [ "$(which $PYTHON)" ]; then
-	PythonBin="$PYTHON"
-	PythonFound="True"
-fi
-
-if [ ! "$PythonFound" = "True" ]; then
-	if [ "$(which python2)" ]
-	then
-		PythonBin="python2"
-		PythonFound="True"
-	fi
-fi
-
-if [ ! "$PythonFound" = "True" ]; then
-	if [ "$(which python2.6)" ]
-	then
-		PythonBin="python2.6"
-		PythonFound="True"
-	fi
-fi
-
-if [ ! "$PythonFound" = "True" ]; then
-	if [ "$(which python2.7)" ]
-	then
-		PythonBin="python2.7"
-		PythonFound="True"
-	fi
-fi
-
-
-if [ ! "$PythonFound" = "True" ]; then
-	echo "Please install python before trying to run PlayOnLinux"
-	exit
-fi
+source "$POLDIR/bash/find_python"
 
 if [ "$1" = "--run" ]; then
 	cd "$POLDIR"
@@ -138,12 +104,14 @@ if [ "$1" = "--run" ]; then
 	fi
 else
 	cd "$POLDIR/python"
-	"$PythonBin" mainwindow.py "$@"
-	exitcode=$?
-	if [ $exitcode -ne 0 -a $exitcode -ne 63 ]; then
-		python2.6 mainwindow.py "$@"
+        while [ "$POL_PYTHON" != "none" ]; do
+		"$POL_PYTHON" mainwindow.py "$@"
 		exitcode=$?
-	fi
+                [ $exitcode -eq 0 -o $exitcode -eq 63 ] && break
+
+		# Do we really want this fallback algorithm?
+                search_python
+	done
 fi
 
 [ $exitcode -eq 63 ] && exec "$POLDIR/playonlinux"

@@ -1,0 +1,55 @@
+#!/bin/bash
+
+# Python versions
+search_python () {
+	while [ "$POL_PYTHON" != "none" ]; do
+		if [ "$POL_PYTHON" ]; then
+			echo -n "Look for $POL_PYTHON... " 1>&2
+			if [ "$(which $POL_PYTHON)" ]; then
+				local Version=$($POL_PYTHON --version 2>&1 |sed -e 's/^Python //')
+				echo "$Version" 1>&2
+				case "$Version" in
+				    2.6.*|2.7.*)
+					return
+					;;
+				    2.5.*)
+					# Compatibility broken a while ago
+					;;
+				    3.*)
+					# Not supported because of wxPython
+					;;
+				    *)
+					echo "Unexpected python version $Version" 1>&2
+					;;
+               			esac
+			else
+				echo "" 1>&2
+			fi
+		fi
+
+		# list of interpreter names to try, in order
+		next_python "python"
+		next_python "python2.7"
+		next_python "python2.6"
+		next_python "python2"
+		next_python "none"
+	done
+}
+
+next_python () {
+	if [ "$POL_PYTHON" = "$1" ]; then
+		# will pick the next one
+		POL_PYTHON=""
+	elif [ -z "$POL_PYTHON" ]; then
+		POL_PYTHON="$1"
+	fi
+}
+
+if [ -z "$POL_PYTHON" ]; then
+	search_python
+
+	if [ "$POL_PYTHON" = "none" ]; then
+		echo "Please install python before trying to run PlayOnLinux" 1>&2
+		exit 1
+	fi
+fi
