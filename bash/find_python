@@ -4,22 +4,25 @@
 search_python () {
 	while [ "$POL_PYTHON" != "none" ]; do
 		if [ "$POL_PYTHON" ]; then
-			echo -n "Look for $POL_PYTHON... " 1>&2
+			echo -n "Looking for $POL_PYTHON... " 1>&2
 			if [ "$(which $POL_PYTHON)" ]; then
 				local Version=$($POL_PYTHON --version 2>&1 |sed -e 's/^Python //')
-				echo "$Version" 1>&2
+				echo -n "$Version - " 1>&2
 				case "$Version" in
 				    2.6.*|2.7.*)
+				        echo "selected" 1>&2
 					return
 					;;
 				    2.5.*)
-					# Compatibility broken a while ago
+				        # Compatibility broken a while ago
+					echo "skipped" 1>&2
 					;;
 				    3.*)
 					# Not supported because of wxPython
+					echo "skipped" 1>&2
 					;;
 				    *)
-					echo "Unexpected python version $Version" 1>&2
+					echo "unexpected version" 1>&2
 					;;
                			esac
 			else
