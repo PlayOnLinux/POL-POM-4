@@ -4,6 +4,10 @@
 * read script lists in utf8 when looking up script to install (#2076)
 * (experimental) new algorithm to find installed Python version,
   implements fallback which is probably overkill (#2122)
+* New version of PlayOnLinux Vault 4.0.4:
+  - Adding lzop compression if available (fast compression with medium
+    compression rate).
+  - Add a "Save" shortcut in PlayOnLinux side panel
 
 # 4.2.1
 
