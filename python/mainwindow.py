@@ -745,6 +745,8 @@ class MainWindow(wx.Frame):
 
             i+=1
             self.menuGaucheAddLink("pol_prgm_uninstall", _("Uninstall"), i,Variables.playonlinux_env+"/resources/images/menu/window-close.png",self.UninstallGame)
+            i+=1
+            self.menuGaucheAddLink("pol_prgm_polvaultsave", _("Save"), i,Variables.playonlinux_env+"/resources/images/menu/polvault.png",self.PolVaultSaveGame)
 
 
             self.linksfile = os.environ["POL_USER_ROOT"]+"/configurations/links/"+shortcut
@@ -936,6 +938,13 @@ class MainWindow(wx.Frame):
         game_exec = self.GetSelectedProgram()
         if(game_exec != ""):
             os.system("bash \""+Variables.playonlinux_env+"/bash/uninstall\" \""+game_exec.encode("utf-8","replace")+"\"&")
+        else:
+            wx.MessageBox(_("Please select a program."), os.environ["APPLICATION_TITLE"])
+
+    def PolVaultSaveGame(self, event):
+        game_exec = self.GetSelectedProgram()
+        if(game_exec != ""):
+			os.system('bash "' + Variables.playonlinux_rep + 'plugins/PlayOnLinux Vault/scripts/menu" --app "' + game_exec.encode("utf-8","replace") + '" &')
         else:
             wx.MessageBox(_("Please select a program."), os.environ["APPLICATION_TITLE"])
 
