@@ -742,11 +742,11 @@ class MainWindow(wx.Frame):
             if(os.path.exists(os.environ["POL_USER_ROOT"]+"/configurations/manuals/"+shortcut)):
                 i+=1
                 self.menuGaucheAddLink("pol_prgm_readme", _("Read the manual"), i,Variables.playonlinux_env+"/resources/images/menu/manual.png",self.ReadMe)
+            i+=1
+            self.menuGaucheAddLink("pol_prgm_polvaultsave", _("Save"), i,Variables.playonlinux_env+"/resources/images/menu/polvault.png",self.PolVaultSaveGame)
 
             i+=1
             self.menuGaucheAddLink("pol_prgm_uninstall", _("Uninstall"), i,Variables.playonlinux_env+"/resources/images/menu/window-close.png",self.UninstallGame)
-            i+=1
-            self.menuGaucheAddLink("pol_prgm_polvaultsave", _("Save"), i,Variables.playonlinux_env+"/resources/images/menu/polvault.png",self.PolVaultSaveGame)
 
 
             self.linksfile = os.environ["POL_USER_ROOT"]+"/configurations/links/"+shortcut
