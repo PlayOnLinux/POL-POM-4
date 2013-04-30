@@ -19,9 +19,6 @@
 import socket, threading, thread, os, wx, time, random
 import string
 
-from lib.Context import Context
-from lib.UIHelper import UIHelper
-
 class Queue():        
     def __init__(self): 
       self.queue = []

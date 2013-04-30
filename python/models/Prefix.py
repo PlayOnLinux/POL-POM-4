@@ -11,8 +11,8 @@ import ConfigFile
 
 
 class Prefix():
-   def __init__(self, context, prefixName):
-       self.context = context
+   def __init__(self, prefixName):
+       self.context = PlayOnLinux()
        self.selectedPrefix = prefixName
        
    def getName(self):

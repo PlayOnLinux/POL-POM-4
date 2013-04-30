@@ -21,24 +21,12 @@
 import os, getopt, sys, urllib, string, time, webbrowser, gettext, locale, sys, shutil, subprocess, threading
 import wx, wx.aui
 
-# PlayOnLinux
-
-from POLWeb import POLWeb
-from lib.UIHelper import UIHelper
-from lib.ConfigFile import UserConfigFile
-from lib.Context import Context
-from lib.SystemManager import SystemManager
-from lib.Shortcut import Shortcut
-from lib.Script import PrivateGUIScript
-from lib.GuiServer import GuiServer
-from lib.Shortcut import ShortcutListFromFolder
-
-
 # Views
 from views.SetupWindow import SetupWindow
 from views.Question import Question
 from views.Message import Message
 
+from controllers.Controller import *
 #, install, options, wine_versions as wver, sp, configure, debug, gui_server
 #import irc as ircgui
 
@@ -52,10 +40,7 @@ class ErrNoProgramSelected(Exception):
 class MainWindow(wx.Frame):
     def __init__(self, parent, id, title):
         self.parent = parent
-        
-        self.playonlinuxSettings = UserConfigFile()
-        
-        # 
+            
         self.windowList = {}    # Dictionnary of POL_SetupWindow opened
         
         # Manage updater

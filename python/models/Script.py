@@ -6,13 +6,10 @@
 import subprocess, os
 
 # PlayOnLinux
-from lib.Executable import Executable
-from lib.Context import Context
-from lib.ConfigFile import GlobalConfigFile 
-from lib.ConfigFile import CustomConfigFile
-from lib.ConfigFile import UserConfigFile
-from lib.Environement import Environement
-from lib.GuiServer import GuiServer
+from models.Executable import Executable
+from models.PlayOnLinux import PlayOnLinux
+from models.Environement import Environement
+from models.GuiServer import GuiServer
 
 class ErrBadSignature(Exception):
    def __str__(self):
@@ -45,7 +42,7 @@ class Script(Executable):
 
 class PrivateScript(Script):
    def __init__(self, path, args = []):
-      Script.__init__(self, Context().getAppPath()+"/bash/"+path, args)
+      Script.__init__(self, PlayOnLinux().getAppPath()+"/bash/"+path, args)
       self.needSignature = False
 
       

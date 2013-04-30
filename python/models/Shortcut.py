@@ -9,7 +9,7 @@ import string, os, wx
 # playonlinux imports
 import ConfigFile
 
-from lib.Context import Context
+from lib.PlayOnLinux import PlayOnLinux
 from lib.Script import PrivateGUIScript
 from lib.Prefix import Prefix
 from lib.Environement import Environement
@@ -63,7 +63,7 @@ class Shortcut(object):
    def __init__(self, shortcutName, args = []):
       self.args = args[:]
       self.shortcutName = shortcutName
-      self.context = Context()
+      self.context = PlayOnLinux()
       self.shortcutPath = self.context.getUserRoot()+"/shortcuts/"+shortcutName
       
    def run(self):
@@ -218,9 +218,9 @@ class Shortcut(object):
        else:
            iconFolder = "full_size"
            
-       iconPath = Context().getUserRoot()+"/icones/"+iconFolder+"/"+self.getName()
+       iconPath = PlayOnLinux().getUserRoot()+"/icones/"+iconFolder+"/"+self.getName()
        if(not os.path.exists(iconPath)):
-           iconPath = Context().getAppPath()+"/etc/playonlinux.png"
+           iconPath = PlayOnLinux().getAppPath()+"/etc/playonlinux.png"
 
        try:
           bitmap = wx.Image(iconPath)
@@ -229,7 +229,7 @@ class Shortcut(object):
           return bitmap  
           
        except wx._core.PyAssertionError: 
-          iconPath = Context().getAppPath()+"/etc/playonlinux.png"
+          iconPath = PlayOnLinux().getAppPath()+"/etc/playonlinux.png"
           bitmap = wx.Image(iconPath)
           bitmap.Rescale(iconSize,iconSize,wx.IMAGE_QUALITY_HIGH)
           bitmap = bitmap.ConvertToBitmap()

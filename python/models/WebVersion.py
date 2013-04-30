@@ -6,7 +6,7 @@
 
 from lib.Environement import Environement
 from lib.Downloader import Downloader
-from lib.Context import Context
+from lib.PlayOnLinux import PlayOnLinux
 from lib.Version import Version
 from lib.File import File
 
@@ -16,7 +16,7 @@ class ErrWebsiteUnavailable(Exception):
     
 class WebVersion(Version):
     def __init__(self):
-        self.context = Context()
+        self.context = PlayOnLinux()
         self.version = self.getWebVersion()
         
     def getWebVersion(self):

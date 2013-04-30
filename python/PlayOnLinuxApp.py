@@ -24,15 +24,7 @@ import wx, wx.aui
 import sys, traceback, threading
 
 # PlayOnLinux imports
-from lib.Environement import Environement
-from lib.Context import Context
-from lib.SystemCheck import SystemCheck
-from lib.Script import PrivateScript
-from lib.Executable import Executable
-from lib.ConfigFile import UserConfigFile
-from lib.File import File
-from lib.GuiServer import GuiServer, ErrServerIsNotRunning
-from lib.UI import UI
+from controllers.Controller import *
 
 # Views
 from views.MainWindow import MainWindow
@@ -42,28 +34,19 @@ from views.Message import Message
 
 class PlayOnLinuxApp(wx.App):
     def OnInit(self):
-
-        Environement().createContext()
-        self.initLanguage()
-        self.playonlinuxSettings = UserConfigFile()
-        
-        
-        startupScript = PrivateScript("startup")
-        startupScript.start()
-        startupScript.waitProcessEnd()
-        
-        SystemCheck().doFullCheck()
+        self.initLanguage()    
+        Controller().appStartupBeforeServer()
         
         # Anonymous reports ?
         self.askForReports()
         
         # Open documents opened with POL
         self.openDocuments() 
-        
 
-        self.SetClassName(Context().getAppName())
-        self.SetAppName(Context().getAppName())
-        self.frame = MainWindow(None, -1, Context().getAppName())
+        # Init main frame
+        self.SetClassName(PlayOnLinux().getAppName())
+        self.SetAppName(PlayOnLinux().getAppName())
+        self.frame = MainWindow(None, -1, PlayOnLinux().getAppName())
         self.SetTopWindow(self.frame)
         self.frame.Show(True)
         
@@ -71,8 +54,7 @@ class PlayOnLinuxApp(wx.App):
         self.initPOLServer()
         
         # Startup Script after servr
-        self.startupScript = PrivateScript("startup_after_server")
-        self.startupScript.start()
+        Controller().appStartupAfterServer()
         
         # Catch CTRL+C
         signal.signal(signal.SIGINT, self.CatchCtrlC)
@@ -86,35 +68,32 @@ class PlayOnLinuxApp(wx.App):
             self.MacOpenFile(f)
             
     def initPOLServer(self):
-        self.POLServer = GuiServer()
-        self.POLServer.setMainWindow(self.frame)
-        self.POLServer.start()
-        self.POLServer.waitForServer()
-        return self.POLServer
+        POLServer = Controller().getServer()
+        POLServer.start()
+        POLServer.waitForServer()
+        return POLServer
         
     def askForReports(self):
-        if(not Context().isDebianPackage()):
-            if(self.playonlinuxSettings.getSetting("SEND_REPORT") == ""):
+        if(not Controller().isDebianPackage()):
+            if(Controller().getSetting("SEND_REPORT") == ""):
                 if(Question(_('Do you want to help [APP] to make a compatibility database?\n\nIf you click yes, the following things will be sent to us anonymously the first time you run a Windows program:\n\n- You graphic card model\n- Your OS version\n- If graphic drivers are installed or not.\n\n\nThese information will be very precious for us to help people.'))):
-                    self.playonlinuxSettings.setSetting("SEND_REPORT","TRUE")
+                    Controller().setSetting("SEND_REPORT","TRUE")
                 else:
-                    self.playonlinuxSettings.setSetting("SEND_REPORT","FALSE")
+                    Controller().setSetting("SEND_REPORT","FALSE")
                     
     def BringWindowToFront(self):
         self.GetTopWindow().Raise()
        
     def MacOpenFile(self, filename):
-        openedFile = File(filename)
-        openedFile.openCleverWay()
+        Controller().openFile(filename)
 
     def MacOpenURL(self, url):
-        if(Context().getOS() == "Mac" and "playonlinux://" in url):
+        if(PlayOnLinux().getOS() == "Mac" and "playonlinux://" in url):
             Message(_("You are trying to open a script design for {0}! It might not work as expected").format("PlayOnLinux"))
-        if(Context().getOS() == "Linux" and "playonmac://" in url):
+        if(PlayOnLinux().getOS() == "Linux" and "playonmac://" in url):
             Message(_("You are trying to open a script design for {0}! It might not work as expected").format("PlayOnMac"))
 
-        self.urlHandler = PrivateScript("playonlinux-url_handler",[url])
-        self.urlHandler.run()
+        Controller().openUrl(url)
 
     def MacReopenApp(self):
         self.BringWindowToFront()
@@ -124,12 +103,12 @@ class PlayOnLinuxApp(wx.App):
         self.polDie()
         
     def initLanguage(self):
-        if(Context().isDebianPackage()):
+        if(Controller().isDebianPackage()):
             languages = os.listdir('/usr/share/locale')
             localedir = "/usr/share/locale"
         else:
-            languages = os.listdir(Context().getAppPath()+'/lang/locale')
-            localedir = os.path.join(Context().getAppPath(), "lang/locale")        
+            languages = os.listdir(Controller().getAppPath()+'/lang/locale')
+            localedir = os.path.join(Controller().getAppPath(), "lang/locale")        
 
         domain = "pol"
         mylocale = wx.Locale(wx.LANGUAGE_DEFAULT)
@@ -144,7 +123,7 @@ class PlayOnLinuxApp(wx.App):
     def isExiting(self):
         try:
             return self.exiting
-        except AttributeError: #self.exiting is not existing yet, the application has just been launced
+        except AttributeError: #self.exiting is not existing yet, the application has just been launched
             return False
             
     # Should not be used.
@@ -155,7 +134,7 @@ class PlayOnLinuxApp(wx.App):
         self.exiting = True
         # Close GUI Server
         try:
-            GuiServer().closeServer()
+            Controller().getServer().closeServer()
         except ErrServerIsNotRunning:
             pass
             
@@ -171,7 +150,6 @@ class PlayOnLinuxApp(wx.App):
                 thread.__del__()
             
         return code
-        #sys.exit(code)
         
     def polDie(self):
         self.softExit(0)
@@ -182,4 +160,3 @@ class PlayOnLinuxApp(wx.App):
     
 playOnLinuxApp = PlayOnLinuxApp(redirect=False)
 playOnLinuxApp.MainLoop()
-#Context().setApp(playOnLinuxApp)

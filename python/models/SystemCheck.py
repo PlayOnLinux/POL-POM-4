@@ -4,10 +4,9 @@
 
 import os, wx, subprocess
 
-from lib.Script import PrivateScript
-from lib.Executable import Executable
-from lib.Context import Context
-from lib.System import System
+from models.Script import PrivateScript
+from models.Executable import Executable
+from models.PlayOnLinux import PlayOnLinux
 
 from views.Error import Error
 
@@ -15,8 +14,7 @@ class SystemCheck(object):
     
    
    def __init__(self):
-      self.context = Context()
-      self.system = System()
+      self.context = PlayOnLinux()
       
    def isRunAsRoot(self):
        return (os.popen("id -u").read() == "0\n" or os.popen("id -u").read() == "0")
@@ -88,7 +86,6 @@ class SystemCheck(object):
        # Run as root ?
        if(self.isRunAsRoot()):
            Error(_("[APP] is not supposed to be run as root. Sorry"))
-           self.system.hardExit(1)
 
        # Filesystem and OpenGL check
        if(self.context.getOS() == "Linux"):

@@ -4,25 +4,15 @@
 
 # Python
 
-from lib.ConfigFile import FiletypeConfigFile
-from Script import PrivateScript
-from lib.Tools import uniqid
-from lib.Context import Context
+from Models.Script import PrivateScript
+from Models.Tools import uniqid
+from Models.PlayOnLinux import PlayOnLinux
+from Models.LocalFile import LocalFile
 
-import wx
-
-class File(object):
+class Document(LocalFile):
    def __init__(self, path):
        self.path = path
-       self.context = Context()
- 
-   def getPath(self):
-       return self.path
-       
-   def getFileType(self): 
-       file_extension = string.split(self.path,".")
-       file_extension = file_extension[len(file_extension) - 1]
-       return file_extension.lower()
+       self.context = PlayOnLinux()
        
    def openCleverWay(self):
        extension = self.getFileType()
@@ -51,7 +41,7 @@ class File(object):
 
    @staticmethod
    def generateTmpFile():
-       polTmpDirectory = Context().getUserRoot()+"/tmp/"
+       polTmpDirectory = PlayOnLinux().getUserRoot()+"/tmp/"
        filePath = polTmpDirectory+uniqid()+".tmp"
        return File(filePath)
        

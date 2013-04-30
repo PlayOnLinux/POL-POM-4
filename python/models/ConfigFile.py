@@ -5,9 +5,9 @@
 
 import string
 
-from lib.Context import Context
-
-class ConfigFile(object):
+from models.LocalFile import LocalFile
+    
+class ConfigFile(LocalFile):
    def __init__(self, filePath):
        self.configFile = filePath
 
@@ -100,21 +100,3 @@ class ConfigFile(object):
           configFileContent_write.write(line[i]+"\n")
           i+=1
 
-class GlobalConfigFile(ConfigFile):
-    def __init__(self):
-        self.configFile = Context().getAppPath() + "/etc/global.cfg"
- 
-class CustomConfigFile(ConfigFile):
-    def __init__(self):
-        if(Context().getOS() == "Mac"):
-            self.configFile = Context().getAppPath() + "/etc/playonmac.cfg"
-        if(Context().getOS() == "Linux"):
-            self.configFile = Context().getAppPath() + "/etc/playonlinux.cfg"
-                   
-class UserConfigFile(ConfigFile):
-    def __init__(self):
-        self.configFile = Context().getUserRoot() + "/playonlinux.cfg"
-
-class FiletypeConfigFile(ConfigFile):
-    def __init__(self):
-        self.configFile = Context().getUserRoot() + "/extensions.cfg"

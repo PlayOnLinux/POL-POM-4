@@ -5,11 +5,12 @@
 # Python
 
 from lib.ConfigFile import FiletypeConfigFile
+from lib.PlayOnLinux import PlayOnLinux
 import wx, os
 
 class WineVersion(object):
-    def __init__(self, context, version, arch):
-        self.context = context
+    def __init__(self, version, arch):
+        self.context = PlayOnLinux()
         self.version = version
         self.arch = arch
         

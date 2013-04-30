@@ -4,7 +4,7 @@
 
 import os
 
-from Context import Context
+from PlayOnLinux import PlayOnLinux
 from lib.GuiServer import GuiServer
 
 class SystemManager(object):

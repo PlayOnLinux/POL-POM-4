@@ -4,7 +4,8 @@
 # Copyright (C) 2007-2013 PlayOnLinux Team
 
 from views.Modal import Modal
-from lib.Context import Context
+from controllers.Controller import *
+
 
 import wx
 
@@ -17,9 +18,8 @@ class Question(Modal):
       self.show()
        
    def show(self):
-       content = self.content.replace("[APP]",Context().getAppName())
+       content = self.content.replace("[APP]",Controller().getAppName())
        self.answer = (wx.YES == wx.MessageBox(content, self.title, style=wx.YES_NO | wx.ICON_QUESTION))
    
    def getAnswer(self):
        return self.answer
- 

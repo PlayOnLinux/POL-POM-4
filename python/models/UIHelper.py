@@ -7,12 +7,12 @@
 import string, wx
 
 # playonlinux imports
-from lib.Context import Context
+from lib.PlayOnLinux import PlayOnLinux
 
 class UIHelper(object):
    
    def getFontTitle(self):
-       if(Context().getOS() == "Mac"):
+       if(PlayOnLinux().getOS() == "Mac"):
            textSize = 14;
        else:
            textSize = 10;
@@ -20,7 +20,7 @@ class UIHelper(object):
        return wx.Font(textSize, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD, False, "", wx.FONTENCODING_DEFAULT)
        
    def getFontText(self):
-       if(Context().getOS() == "Mac"):
+       if(PlayOnLinux().getOS() == "Mac"):
            textSize = 12;
        else:
            textSize = 8;
@@ -28,7 +28,7 @@ class UIHelper(object):
        return wx.Font(textSize, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL,False, "", wx.FONTENCODING_DEFAULT)
 
    def addMacOffset(self, size):
-       if(Context().getOS() == "Mac"):
+       if(PlayOnLinux().getOS() == "Mac"):
            return size;
        else:
            return 0;
@@ -38,13 +38,13 @@ class UIHelper(object):
        
        
    def widgetBorders(self):
-       if(Context().getOS() == "Mac"):
+       if(PlayOnLinux().getOS() == "Mac"):
            return wx.SIMPLE_BORDER
        else:
            return wx.RAISED_BORDER
    
    def updateJaugeMarginTop(self):
-       if(Context().getOS() == "Mac"):
+       if(PlayOnLinux().getOS() == "Mac"):
            return 2
        else:
            return 6      

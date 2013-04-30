@@ -19,10 +19,9 @@
 import socket, threading, thread, os, wx, time, random, select
 import string
 
-from lib.Context import Context
-from lib.UIHelper import UIHelper
-from lib.Queue import Queue
-from lib.GuiServerState import GuiServerState
+from models.PlayOnLinux import PlayOnLinux
+from models.Queue import Queue
+from models.GuiServerState import GuiServerState
 
 
 class ErrServerIsNotRunning(Exception):
@@ -30,39 +29,24 @@ class ErrServerIsNotRunning(Exception):
       return repr(_("The server is not running"))
       
 class GuiServer(threading.Thread):
-    instance = None    
-   
-    def __new__(myClass):
-        if(myClass.instance is None):
-            myClass.instance = object.__new__(myClass)
-        return myClass.instance
-        
     def __init__(self): 
-        try: 
-            self.alreadyInit
-            
-        except AttributeError:
-            self.alreadyInit = True 
-            threading.Thread.__init__(self)
-            self.daemon = True
-            self.host = '127.0.0.1'
-            self.runningPort = 0
-            self.tryingPort = 30000
+        threading.Thread.__init__(self)
+        self.daemon = True
+        self.host = '127.0.0.1'
+        self.runningPort = 0
+        self.tryingPort = 30000
+    
+        self._running = True
+        self.cookie = None
         
-            self._running = True
-            self.cookie = None
-            
-            self.queue = Queue()
-            self.state = GuiServerState()
+        self.queue = Queue()
+        self.state = GuiServerState()
             
     def getQueue(self):
         return self.queue
         
     def getState(self):
         return self.state
-        
-    def setMainWindow(self, window):
-        self.mainWindow = window
             
     def getRunningPort(self):
         return self.runningPort
@@ -98,7 +82,7 @@ class GuiServer(threading.Thread):
     def initServer(self):
         if(self.tryingPort  >= 30020):
            print _("Error: Unable to reserve a valid port")
-           wx.MessageBox(_("Error: Unable to reserve a valid port"),Context().getAppName())
+           wx.MessageBox(_("Error: Unable to reserve a valid port"),PlayOnLinux().getAppName())
            os._exit(0)
            
         try:

@@ -4,13 +4,9 @@
 
 # Python
 import subprocess, os, time, threading
-from lib.Context import Context
 
-from lib.ConfigFile import GlobalConfigFile 
-from lib.ConfigFile import CustomConfigFile
-from lib.ConfigFile import UserConfigFile
-
-from lib.Environement import Environement
+from models.PlayOnLinux import PlayOnLinux
+from models.Environement import Environement
 
 class ErrExecutableIsRunning(Exception):
    def __str__(self):
@@ -32,7 +28,7 @@ class Executable(threading.Thread):
       self.waitingStart = True # Avoid synchronisation problems
       self.running = False
       self.keepAlive = False
-      
+
    def setKeepAlive(self, value = True):
        self.keepAlive = value
        
@@ -46,7 +42,7 @@ class Executable(threading.Thread):
        execEnv = self.execEnv
        execEnv.setEnv("WINEDLLOVERRIDES","winemenubuilder.exe=d")
        
-       if (Context().getOS() == "Mac"):
+       if (self.os == "Mac"):
           execEnv.setEnv("PATH" , execEnv.getAppPath()+"/../unix/wine/bin:" + execEnv.getAppPath()+"/../unix/image_magick/bin:" + execEnv.getAppPath()+"/../unix/tools/bin/:" + execEnv.getEnv("PATH") )
           execEnv.setEnv("LD_LIBRARY_PATH" , execEnv.getAppPath()+"/../unix/wine/lib/:"  + execEnv.getAppPath()+"/../unix/image_magick/lib:"+ execEnv.getAppPath()+"/../unix/tools/lib/ld:/usr/X11/lib/:" + execEnv.getEnv("LD_LIBRARY_PATH") )
           execEnv.setEnv("DYLD_LIBRARY_PATH" ,  execEnv.getAppPath()+"/../unix/tools/lib/dyld:" + execEnv.getAppPath()+"/../unix/image_magick/lib:"+ execEnv.getEnv("DYLD_LIBRARY_PATH") )
@@ -70,47 +66,47 @@ class Executable(threading.Thread):
        execEnv = self.execEnv
        
        # Depend on the context
-       execEnv.setEnv("PLAYONLINUX", Context().getAppPath())
+       execEnv.setEnv("PLAYONLINUX", PlayOnLinux().getAppPath())
        
        # Should not be needed anymore, but some scripts still checks PLAYONMAC existence
-       if(Context().getOS() == "Mac"):
-           execEnv.setEnv("PLAYONMAC", Context().getAppPath())
+       if(PlayOnLinux().getOS() == "Mac"):
+           execEnv.setEnv("PLAYONMAC", PlayOnLinux().getAppPath())
            
        # POL_USER_ROOT
-       execEnv.setEnv("REPERTOIRE", Context().getUserRoot()) # ( Backward compatibility )
-       execEnv.setEnv("POL_USER_ROOT", Context().getUserRoot())
+       execEnv.setEnv("REPERTOIRE", PlayOnLinux().getUserRoot()) # ( Backward compatibility )
+       execEnv.setEnv("POL_USER_ROOT", PlayOnLinux().getUserRoot())
        
-       if(Context().isUpToDate()):
+       if(PlayOnLinux().isUpToDate()):
            execEnv.setEnv("POL_UPTODATE", "FALSE")
        else:
            execEnv.setEnv("POL_UPTODATE", "TRUE")
            
        # WGET
-       execEnv.setEnv("WGETRC", Context().getUserRoot()+"/configurations/wgetrc")
-       if(os.path.exists("/proc/net/if_inet6") or Context().getOS == "Mac"):
+       execEnv.setEnv("WGETRC", PlayOnLinux().getUserRoot()+"/configurations/wgetrc")
+       if(os.path.exists("/proc/net/if_inet6") or PlayOnLinux().getOS == "Mac"):
            execEnv.setEnv("POL_WGET","wget --prefer-family=IPv4 -q")
        else:
            execEnv.setEnv("POL_WGET","wget -q")
        
        # Proxy
  
-       if(execEnv.getSetting("PROXY_ENABLED") == "1"):
-          if(execEnv.getSetting("PROXY_URL") != ""):
-               if(execEnv.getSetting("PROXY_LOGIN") == ""):
-                   http_proxy = "http://"+execEnv.getSetting("PROXY_URL")+":"+execEnv.getSetting("PROXY_PORT")
+       if(PlayOnLinux().getSetting("PROXY_ENABLED") == "1"):
+          if(PlayOnLinux().getSetting("PROXY_URL") != ""):
+               if(PlayOnLinux().getSetting("PROXY_LOGIN") == ""):
+                   http_proxy = "http://"+PlayOnLinux().getSetting("PROXY_URL")+":"+PlayOnLinux().getSetting("PROXY_PORT")
                else:
-                   http_proxy = "http://"+execEnv.getSetting("PROXY_LOGIN")+":"+execEnv.getSetting("PROXY_PASSWORD")+"@"+execEnv.getSetting("PROXY_URL")+":"+execEnv.getSetting("PROXY_PORT")
+                   http_proxy = "http://"+PlayOnLinux().getSetting("PROXY_LOGIN")+":"+PlayOnLinux().getSetting("PROXY_PASSWORD")+"@"+PlayOnLinux().getSetting("PROXY_URL")+":"+PlayOnLinux().getSetting("PROXY_PORT")
                execEnv.setEnv("http_proxy", http_proxy)
                
        # Image Magick on OSX     
-       if(Context().getOS() == "Mac"):
-          execEnv.setEnv("MAGICK_HOME",Context().getAppPath()+"/../unix/image_magick/")
+       if(PlayOnLinux().getOS() == "Mac"):
+          execEnv.setEnv("MAGICK_HOME",PlayOnLinux().getAppPath()+"/../unix/image_magick/")
            
        # Reading from config files
        
        # Config files
        for key in ["SITE", "VERSION", "WINE_SITE", "GECKO_SITE", "DEBIAN_PACKAGE", "APPLICATION_TITLE", "DNS"]:
-           execEnv.setEnv(key, execEnv.getSetting(key))
+           execEnv.setEnv(key, PlayOnLinux().getSetting(key))
        
        
        self.setPath()
