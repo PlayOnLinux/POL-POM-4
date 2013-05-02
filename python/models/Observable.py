@@ -28,4 +28,5 @@ class Observable(object):
            observer.notify()
            
     def register(self, observer):
+        observer.setSubject(self)
         self.observers.append(observer)

@@ -14,7 +14,7 @@ class ShortcutList(Observable):
    def __init__(self, shortcutList = []):
        self.shortcutList = shortcutList[:]
        
-   def get(self):
+   def getList(self):
        return self.shortcutList
        
 class ShortcutListFromFolder(ShortcutList):

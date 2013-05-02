@@ -20,6 +20,14 @@ import socket, threading, thread, os, wx, time, random
 import string
 
 class Observer(object): 
-             
+    def __init__(self):
+        self.subject = None
+        
+    def setSubject(self, subject):
+        self.subject = subject  
+    
+    def getSubject(self):
+        return self.subject
+        
     def notify(self):
         return None

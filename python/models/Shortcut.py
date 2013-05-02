@@ -172,9 +172,9 @@ class Shortcut(object):
        else:
            iconFolder = "full_size"
            
-       iconPath = PlayOnLinux().getUserRoot()+"/icones/"+iconFolder+"/"+self.getName()
+       iconPath = self.env.getUserRoot()+"/icones/"+iconFolder+"/"+self.getName()
        if(not os.path.exists(iconPath)):
-           iconPath = PlayOnLinux().getAppPath()+"/etc/playonlinux.png"
+           iconPath = self.env.getAppPath()+"/etc/playonlinux.png"
 
        try:
           bitmap = wx.Image(iconPath)
@@ -183,7 +183,7 @@ class Shortcut(object):
           return bitmap  
           
        except wx._core.PyAssertionError: 
-          iconPath = PlayOnLinux().getAppPath()+"/etc/playonlinux.png"
+          iconPath = self.env.getAppPath()+"/etc/playonlinux.png"
           bitmap = wx.Image(iconPath)
           bitmap.Rescale(iconSize,iconSize,wx.IMAGE_QUALITY_HIGH)
           bitmap = bitmap.ConvertToBitmap()

@@ -43,11 +43,47 @@ class ErrNoProgramSelected(Exception):
 class InstalledApps(wx.TreeCtrl, Observer):
     def __init__(self, window):
         wx.TreeCtrl.__init__(self, window, 105, style = wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT)
+        self.window = window
         self.SetSpacing(0)
         self.SetIndent(5)
+        self.env = Environment()
+        self.iconSize = 32
+        
+    def writeShortcuts(self, searchFilter = ""):
+        self.DeleteAllItems()       
+        self.SetImageList(wx.ImageList(1,1))
+        
+        try:
+            self.imagesAppList.Destroy()
+        except AttributeError: #imagesAppList does not exist yet, no problem
+            pass
+            
+        self.imagesAppList = wx.ImageList(self.iconSize, self.iconSize)
+        self.SetImageList(self.imagesAppList)
+        
+        root = self.AddRoot("")
+        i = 0
+     
+        for shortcut in self.getSubject().getList():
+           if(searchFilter in shortcut.getName().lower()):
+               self.imagesAppList.Add(shortcut.getWxIcon(self.iconSize))
+               self.AppendItem(root, shortcut.getName(), i)
+               i+=1
+               
+        if(self.env.getOS() == "Mac"):
+            self.window.playTool.Enable(False)
+            self.window.stopTool.Enable(False)
+            self.window.removeTool.Enable(False)
+    
+    def setIconSize(self, size):
+        self.iconSize = size
+        self.update()
+        
+    def update(self):
+        self.writeShortcuts()
         
     def notify(self):
-        print "La il faut changer"
+        self.update()
              
 class MainWindow(wx.Frame):
     def __init__(self, id = -1):
@@ -749,33 +785,7 @@ class MainWindow(wx.Frame):
         else:
             webbrowser.open("http://www.playonlinux.com/en/donate.html")
 
-    def writeShortcutsToWidget(self, forceRefresh = False, searchFilter = ""):
-        if(self.shortcutList.updateShortcutsFromFolder() or forceRefresh):
-            self.appList.DeleteAllItems()       
-            self.appList.SetImageList(wx.ImageList(1,1))
-            try:
-                self.imagesAppList.Destroy()
-            except AttributeError: #imagesAppList does not exist, no problem
-                pass
-            self.imagesAppList = wx.ImageList(self.iconSize, self.iconSize)
-            self.appList.SetImageList(self.imagesAppList)
-            
-            root = self.appList.AddRoot("")
-            i = 0
-         
-            for shortcut in self.shortcutList.get():
-               if(searchFilter in shortcut.getName().lower()):
-                   self.imagesAppList.Add(shortcut.getWxIcon(self.iconSize))
-                   self.appList.AppendItem(root, shortcut.getName(), i)
-                   i+=1
-               
-            self.generate_menu(None)
-            
-            if(Context().getOS() == "Mac"):
-                self.playTool.Enable(False)
-                self.stopTool.Enable(False)
-                self.removeTool.Enable(False)
-                
+
     def searchEvent(self, event):
         self.writeShortcutsToWidget(forceRefresh = True, searchFilter = self.searchbox.GetValue().encode("utf-8","replace").lower())
 
