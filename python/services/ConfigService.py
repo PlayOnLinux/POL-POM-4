@@ -3,9 +3,8 @@
 
 # Copyright (C) 2007-2013 PlayOnLinux Team
 
-from models.Environment import Environment
 from services.ConfigFile import ConfigFile
-
+from services.Environment import Environment
       
 class ConfigService(object):
    def __init__(self, os = None):
@@ -33,4 +32,9 @@ class ConfigService(object):
  
    def setSetting(self, item, value):
        self.userConfig.setSetting(item, value)
+    
+   def isDebianPackage(self):
+       return (self.getSetting("DEBIAN_PACKAGE") == "TRUE")
        
+   def getAppName(self):
+       return self.getSetting("APPLICATION_TITLE")

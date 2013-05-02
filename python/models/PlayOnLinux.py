@@ -4,14 +4,13 @@
 
 import os, random, sys, string, gettext, locale
 
-from models.Environment import Environment
 from services.ConfigService import *
+from services.Environment import Environment
 
 # Singleton
 class PlayOnLinux(object):
    def __init__(self): 
       self.environment = Environment()
-      ConfigService.register(self.environment)
       self.configService = ConfigService()
       self.version = self.configService.getSetting("VERSION")        
 
@@ -31,15 +30,8 @@ class PlayOnLinux(object):
        
                   
    # Getters and setters
-        
-   def getEnv(self):
-       return self.environment
-       
    def getAppVersion(self):
-       return self.version
-      
-   def isDebianPackage(self):
-       return (self.configService.getSetting("DEBIAN_PACKAGE") == "TRUE")
+       return self.configService.getSetting("VERSION")
         
    def isUpToDate(self):
        try:

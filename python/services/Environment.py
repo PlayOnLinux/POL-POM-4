@@ -13,7 +13,7 @@ class ErrNoPOLOS(Exception):
       
       
 # This class read information from environement (PlayOnLinux config files, OS, ...)
-class Environement(object):    
+class Environment(object):    
    def __init__(self):
        self.customEnv = os.environ.copy()
        self.pol_os = self.getOS()

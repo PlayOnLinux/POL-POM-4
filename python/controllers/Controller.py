@@ -12,22 +12,19 @@ class Controller(object):
    instance = None           
    def __init__(self):
       self.playonlinux = PlayOnLinux()
-       
-   def getPlayOnLinuxEnv(self):
-       return self.playonlinux.getEnv()
      
    def getPlayOnLinux(self):
        return self.playonlinux
          
    # Class content
    def appStartupBeforeServer(self):
-       startupScript = PrivateScript(self.playonlinux, "startup")
+       startupScript = PrivateScript("startup")
        startupScript.start()
        startupScript.waitProcessEnd()
        SystemCheck().doFullCheck()
        
    def appStartupAfterServer(self):
-       startupScript = PrivateScript(self.playonlinux, "startup_after_server")
+       startupScript = PrivateScript("startup_after_server")
        startupScript.start()
        
    # Server managing

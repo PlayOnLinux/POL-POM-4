@@ -6,16 +6,17 @@ import os, wx, subprocess
 
 from models.Script import PrivateScript
 from models.Executable import Executable
-from models.PlayOnLinux import PlayOnLinux
+
+from services.Environment import Environment
+from services.ConfigService import ConfigService
 
 from views.Error import Error
 
 class SystemCheck(object):
-    
-   
    def __init__(self):
-      self.context = PlayOnLinux()
-      
+       self.execEnv = Environment()
+       self.configService = ConfigService()
+       
    def isRunAsRoot(self):
        return (os.popen("id -u").read() == "0\n" or os.popen("id -u").read() == "0")
       
@@ -56,14 +57,14 @@ class SystemCheck(object):
        check_gl = PrivateScript("check_gl",["x86"])
        returncode = check_gl.run()
         
-       if(self.context.getOS() == "Linux" and returncode != 0):
+       if(self.execEnv.getOS() == "Linux" and returncode != 0):
            Error(_("[APP] is unable to find 32bits OpenGL libraries.\n\nYou might encounter problem with your games"))
            os.environ["OpenGL32"] = "0"
        else:
            os.environ["OpenGL32"] = "1"
 
        # 64 bits OpenGL check
-       if(self.context.is64bit()):
+       if(self.execEnv.is64bit()):
            check_gl_64 = PrivateScript("check_gl",["amd64"])
            returncode = check_gl_64.run()
            
@@ -76,7 +77,7 @@ class SystemCheck(object):
                
    def doFileSystemCheck(self):
        # Filesystem check
-       if(self.context.getOS() == "Linux"):
+       if(self.execEnv.getOS() == "Linux"):
            returncode = PrivateScript("check_fs").run()
            if(returncode != 0):
                Error(_("Your filesystem might prevent [APP] from running correctly.\n\nPlease open [APP] in a terminal to get more details"))
@@ -88,7 +89,7 @@ class SystemCheck(object):
            Error(_("[APP] is not supposed to be run as root. Sorry"))
 
        # Filesystem and OpenGL check
-       if(self.context.getOS() == "Linux"):
+       if(self.execEnv.getOS() == "Linux"):
            self.doOpenGLCheck()
            self.doFileSystemCheck()
        
@@ -100,7 +101,7 @@ class SystemCheck(object):
        self.singleCheck("wget", package="Wget", fatal = True)
        self.singleCheck("gpg", package="GnuPG", fatal = True)
 
-       if(not self.context.isDebianPackage()):
+       if(not self.configService.isDebianPackage()):
            self.singleCheck("xterm")
            
        self.singleCheck("gettext.sh", package="gettext")  # gettext-base on Debian

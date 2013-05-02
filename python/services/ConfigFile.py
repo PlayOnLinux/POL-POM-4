@@ -5,9 +5,8 @@
 
 import string
 
-from models.LocalFile import LocalFile
     
-class ConfigFile(LocalFile):
+class ConfigFile(object):
    def __init__(self, filePath):
        self.configFile = filePath
 

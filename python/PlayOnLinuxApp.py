@@ -35,7 +35,10 @@ from views.Message import Message
 
 class PlayOnLinuxApp(wx.App):
     def OnInit(self):
-        self.controller = Controller()        
+        self.controller = Controller() 
+        self.configService = ConfigService()  
+        self.environment = Environment()
+             
         self.initLanguage()    
         self.controller.appStartupBeforeServer()
         
@@ -46,9 +49,9 @@ class PlayOnLinuxApp(wx.App):
         self.openDocuments() 
 
         # Init main frame
-        self.SetClassName(self.playonlinux.getAppName())
-        self.SetAppName(self.playonlinux.getAppName())
-        self.frame = MainWindow(None, -1, self.playonlinux.getAppName())
+        self.SetClassName(self.configService.getAppName())
+        self.SetAppName(self.configService.getAppName())
+        self.frame = MainWindow(None, -1, self.configService.getAppName())
         self.SetTopWindow(self.frame)
         self.frame.Show(True)
         
@@ -76,12 +79,12 @@ class PlayOnLinuxApp(wx.App):
         return POLServer
         
     def askForReports(self):
-        if(not self.controller.getPlayOnLinux().isDebianPackage()):
-            if(self.controller.getSetting("SEND_REPORT") == ""):
+        if(not self.configService.isDebianPackage()):
+            if(self.configService.getSetting("SEND_REPORT") == ""):
                 if(Question(_('Do you want to help [APP] to make a compatibility database?\n\nIf you click yes, the following things will be sent to us anonymously the first time you run a Windows program:\n\n- You graphic card model\n- Your OS version\n- If graphic drivers are installed or not.\n\n\nThese information will be very precious for us to help people.'))):
-                    self.controller.setSetting("SEND_REPORT","TRUE")
+                    self.configService.setSetting("SEND_REPORT","TRUE")
                 else:
-                    self.controller.setSetting("SEND_REPORT","FALSE")
+                    self.configService.setSetting("SEND_REPORT","FALSE")
                     
     def BringWindowToFront(self):
         self.GetTopWindow().Raise()
@@ -90,9 +93,9 @@ class PlayOnLinuxApp(wx.App):
         self.controller.openFile(filename)
 
     def MacOpenURL(self, url):
-        if(self.controller.getEnv().getOS() == "Mac" and "playonlinux://" in url):
+        if(self.environment.getOS() == "Mac" and "playonlinux://" in url):
             Message(_("You are trying to open a script design for {0}! It might not work as expected").format("PlayOnLinux"))
-        if(self.controller.getEnv().getOS() == "Linux" and "playonmac://" in url):
+        if(self.environment.getOS() == "Linux" and "playonmac://" in url):
             Message(_("You are trying to open a script design for {0}! It might not work as expected").format("PlayOnMac"))
 
         self.controller.openUrl(url)
@@ -105,12 +108,12 @@ class PlayOnLinuxApp(wx.App):
         self.polDie()
         
     def initLanguage(self):
-        if(self.controller.getPlayOnLinux().isDebianPackage()):
+        if(self.configService.isDebianPackage()):
             languages = os.listdir('/usr/share/locale')
             localedir = "/usr/share/locale"
         else:
-            languages = os.listdir(self.controller.getPlayOnLinuxEnv().getAppPath()+'/lang/locale')
-            localedir = os.path.join(self.controller.getPlayOnLinuxEnv().getAppPath(), "lang/locale")        
+            languages = os.listdir(self.environment.getAppPath()+'/lang/locale')
+            localedir = os.path.join(self.environment.getAppPath(), "lang/locale")        
 
         domain = "pol"
         mylocale = wx.Locale(wx.LANGUAGE_DEFAULT)

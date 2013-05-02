@@ -7,8 +7,10 @@ import subprocess, os
 
 # PlayOnLinux
 from models.Executable import Executable
-from models.Environement import Environement
 from models.GuiServer import GuiServer
+
+from services.Environment import Environment
+from services.ConfigService import ConfigService
 
 class ErrBadSignature(Exception):
    def __str__(self):
@@ -40,8 +42,10 @@ class Script(Executable):
            
 
 class PrivateScript(Script):
-   def __init__(self, playonlinux, path, args = []):
-      Script.__init__(self, playonlinux.getEnv().getAppPath()+"/bash/"+path, args)
+   def __init__(self, path, args = []):
+      self.execEnv = Environment()
+      self.configService = ConfigService()
+      Script.__init__(self, self.execEnv.getAppPath()+"/bash/"+path, args)
       self.needSignature = False
 
       

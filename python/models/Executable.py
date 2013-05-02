@@ -5,10 +5,11 @@
 # Python
 import subprocess, os, time, threading
 
-from models.PlayOnLinux import PlayOnLinux
-from models.Environment import Environment
-
+from services.Environment import Environment
 from services.ConfigService import ConfigService
+
+from models.PlayOnLinux import PlayOnLinux
+
 
 class ErrExecutableIsRunning(Exception):
    def __str__(self):
@@ -25,12 +26,13 @@ class Executable(threading.Thread):
       self.path = path[:]
       self.args = args[:]  
       self.execEnv = Environment()
+      self.configService = ConfigService()
       self.setEnv()
       self.retcode = None
       self.waitingStart = True # Avoid synchronisation problems
       self.running = False
       self.keepAlive = False
-      self.configService = ConfigService()
+      
       
    def setKeepAlive(self, value = True):
        self.keepAlive = value
@@ -102,14 +104,14 @@ class Executable(threading.Thread):
                execEnv.setEnv("http_proxy", http_proxy)
                
        # Image Magick on OSX     
-       if(PlayOnLinux().getOS() == "Mac"):
-          execEnv.setEnv("MAGICK_HOME",PlayOnLinux().getAppPath()+"/../unix/image_magick/")
+       if(execEnv.getOS() == "Mac"):
+          execEnv.setEnv("MAGICK_HOME",execEnv.getAppPath()+"/../unix/image_magick/")
            
        # Reading from config files
        
        # Config files
        for key in ["SITE", "VERSION", "WINE_SITE", "GECKO_SITE", "DEBIAN_PACKAGE", "APPLICATION_TITLE", "DNS"]:
-           execEnv.setEnv(key, PlayOnLinux().getSetting(key))
+           execEnv.setEnv(key, self.configService.getSetting(key))
        
        
        self.setPath()
