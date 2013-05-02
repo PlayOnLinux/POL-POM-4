@@ -22,7 +22,7 @@ import os, getopt, sys, urllib, string, time, webbrowser, gettext, locale, sys, 
 import wx, wx.aui
 
 # Views
-from views.SetupWindow import SetupWindow
+# from views.SetupWindow import SetupWindow
 from views.Question import Question
 from views.Message import Message
 

@@ -3,19 +3,22 @@
 
 # Copyright (C) 2007-2013 PlayOnLinux Team
 
+from models.Environment import Environment
 from services.ConfigFile import ConfigFile
 
+      
 class ConfigService(object):
    def __init__(self, os = None):
        self.os = os
-       self.globalConfig = ConfigFile(self.getAppPath() + "/etc/global.cfg")
+       self.env = Environment()
+       self.globalConfig = ConfigFile(self.env.getAppPath() + "/etc/global.cfg")
        if(os == "Mac"):
-           self.customConfig = ConfigFile(self.getAppPath() + "/etc/playonmac.cfg")
+           self.customConfig = ConfigFile(self.env.getAppPath() + "/etc/playonmac.cfg")
        if(os == "Linux"):
-           self.customConfig = ConfigFile(self.getAppPath() + "/etc/playonlinux.cfg")
+           self.customConfig = ConfigFile(self.env.getAppPath() + "/etc/playonlinux.cfg")
           
-       self.userConfig = ConfigFile(self.getUserRoot() + "/playonlinux.cfg")
-       self.fileTypes = ConfigFile(self.getUserRoot() + "/extensions.cfg")
+       self.userConfig = ConfigFile(self.env.getUserRoot() + "/playonlinux.cfg")
+       self.fileTypes = ConfigFile(self.env.getUserRoot() + "/extensions.cfg")
               
    def getSetting(self, item):
        # Read in priority : POL_USER_ROOT/playonlinux.cfg, PLAYONLINUX/etc/playon[linux/mac].cfg, PLAYONLINUX/etc/global.cfg, and return the data
@@ -30,3 +33,4 @@ class ConfigService(object):
  
    def setSetting(self, item, value):
        self.userConfig.setSetting(item, value)
+       

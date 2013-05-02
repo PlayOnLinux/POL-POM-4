@@ -9,13 +9,7 @@ import os, string, wx, gettext
 # Exceptions
 class ErrNoPOLOS(Exception):
    def __str__(self):
-      return repr(_("POL_OS is not set"))
-
-class ErrContextNotInitialized(Exception):
-   def __str__(self):
-      return repr(_("Context need to be created to use this function"))
-      
-      
+      return repr(_("POL_OS is not set"))      
       
       
 # This class read information from environement (PlayOnLinux config files, OS, ...)
@@ -46,7 +40,8 @@ class Environement(object):
       except KeyError:
          return ""
     
-
+   def is64bits(self):
+       return (self.getArch() == "x86_64" and self.getOS() == "Linux")
         
    def getArch(self):
        archi = string.split(self.getEnv("MACHTYPE"),"-")
@@ -59,4 +54,4 @@ class Environement(object):
        if(self.pol_os == "Mac"):
           return self.getEnv("HOME")+"/Library/PlayOnMac/"
        
- 
+   

@@ -7,7 +7,6 @@ import subprocess, os
 
 # PlayOnLinux
 from models.Executable import Executable
-from models.PlayOnLinux import PlayOnLinux
 from models.Environement import Environement
 from models.GuiServer import GuiServer
 
@@ -41,8 +40,8 @@ class Script(Executable):
            
 
 class PrivateScript(Script):
-   def __init__(self, path, args = []):
-      Script.__init__(self, PlayOnLinux().getAppPath()+"/bash/"+path, args)
+   def __init__(self, playonlinux, path, args = []):
+      Script.__init__(self, playonlinux.getEnv().getAppPath()+"/bash/"+path, args)
       self.needSignature = False
 
       

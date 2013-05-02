@@ -25,6 +25,7 @@ import sys, traceback, threading
 
 # PlayOnLinux imports
 from controllers.Controller import *
+from services.ConfigService import *
 
 # Views
 from views.MainWindow import MainWindow
@@ -34,8 +35,9 @@ from views.Message import Message
 
 class PlayOnLinuxApp(wx.App):
     def OnInit(self):
+        self.controller = Controller()        
         self.initLanguage()    
-        Controller().appStartupBeforeServer()
+        self.controller.appStartupBeforeServer()
         
         # Anonymous reports ?
         self.askForReports()
@@ -44,9 +46,9 @@ class PlayOnLinuxApp(wx.App):
         self.openDocuments() 
 
         # Init main frame
-        self.SetClassName(PlayOnLinux().getAppName())
-        self.SetAppName(PlayOnLinux().getAppName())
-        self.frame = MainWindow(None, -1, PlayOnLinux().getAppName())
+        self.SetClassName(self.playonlinux.getAppName())
+        self.SetAppName(self.playonlinux.getAppName())
+        self.frame = MainWindow(None, -1, self.playonlinux.getAppName())
         self.SetTopWindow(self.frame)
         self.frame.Show(True)
         
@@ -54,7 +56,7 @@ class PlayOnLinuxApp(wx.App):
         self.initPOLServer()
         
         # Startup Script after servr
-        Controller().appStartupAfterServer()
+        self.controller.appStartupAfterServer()
         
         # Catch CTRL+C
         signal.signal(signal.SIGINT, self.CatchCtrlC)
@@ -68,32 +70,32 @@ class PlayOnLinuxApp(wx.App):
             self.MacOpenFile(f)
             
     def initPOLServer(self):
-        POLServer = Controller().getServer()
+        POLServer = self.controller.getServer()
         POLServer.start()
         POLServer.waitForServer()
         return POLServer
         
     def askForReports(self):
-        if(not Controller().isDebianPackage()):
-            if(Controller().getSetting("SEND_REPORT") == ""):
+        if(not self.controller.getPlayOnLinux().isDebianPackage()):
+            if(self.controller.getSetting("SEND_REPORT") == ""):
                 if(Question(_('Do you want to help [APP] to make a compatibility database?\n\nIf you click yes, the following things will be sent to us anonymously the first time you run a Windows program:\n\n- You graphic card model\n- Your OS version\n- If graphic drivers are installed or not.\n\n\nThese information will be very precious for us to help people.'))):
-                    Controller().setSetting("SEND_REPORT","TRUE")
+                    self.controller.setSetting("SEND_REPORT","TRUE")
                 else:
-                    Controller().setSetting("SEND_REPORT","FALSE")
+                    self.controller.setSetting("SEND_REPORT","FALSE")
                     
     def BringWindowToFront(self):
         self.GetTopWindow().Raise()
        
     def MacOpenFile(self, filename):
-        Controller().openFile(filename)
+        self.controller.openFile(filename)
 
     def MacOpenURL(self, url):
-        if(PlayOnLinux().getOS() == "Mac" and "playonlinux://" in url):
+        if(self.controller.getEnv().getOS() == "Mac" and "playonlinux://" in url):
             Message(_("You are trying to open a script design for {0}! It might not work as expected").format("PlayOnLinux"))
-        if(PlayOnLinux().getOS() == "Linux" and "playonmac://" in url):
+        if(self.controller.getEnv().getOS() == "Linux" and "playonmac://" in url):
             Message(_("You are trying to open a script design for {0}! It might not work as expected").format("PlayOnMac"))
 
-        Controller().openUrl(url)
+        self.controller.openUrl(url)
 
     def MacReopenApp(self):
         self.BringWindowToFront()
@@ -103,12 +105,12 @@ class PlayOnLinuxApp(wx.App):
         self.polDie()
         
     def initLanguage(self):
-        if(Controller().isDebianPackage()):
+        if(self.controller.getPlayOnLinux().isDebianPackage()):
             languages = os.listdir('/usr/share/locale')
             localedir = "/usr/share/locale"
         else:
-            languages = os.listdir(Controller().getAppPath()+'/lang/locale')
-            localedir = os.path.join(Controller().getAppPath(), "lang/locale")        
+            languages = os.listdir(self.controller.getPlayOnLinuxEnv().getAppPath()+'/lang/locale')
+            localedir = os.path.join(self.controller.getPlayOnLinuxEnv().getAppPath(), "lang/locale")        
 
         domain = "pol"
         mylocale = wx.Locale(wx.LANGUAGE_DEFAULT)
@@ -134,7 +136,7 @@ class PlayOnLinuxApp(wx.App):
         self.exiting = True
         # Close GUI Server
         try:
-            Controller().getServer().closeServer()
+            self.controller.getServer().closeServer()
         except ErrServerIsNotRunning:
             pass
             
