@@ -3,16 +3,34 @@
 
 # Copyright (C) 2007-2013 PlayOnLinux Team
 
+from services.Environment import Environment
+
+# Model
 from models.PlayOnLinux import PlayOnLinux
 from models.Script import PrivateScript
-from models.SystemCheck import SystemCheck
 from models.GuiServer import GuiServer
+from models.ShortcutList import *
+
+# Views
+from views.MainWindow import MainWindow
 
 class Controller(object):
    instance = None           
-   def __init__(self):
+   def __init__(self, app):
+      self.app = app
       self.playonlinux = PlayOnLinux()
-     
+      self.env = Environment()
+      
+      self.mainWindow()
+    
+   def mainWindow(self):
+       self.mainWindow = MainWindow()
+       self.app.SetTopWindow(self.mainWindow)
+       self.mainWindow.Show(True)
+       shortcutList = ShortcutListFromFolder(self.env.getUserRoot()+"/shortcuts/")
+       shortcutList.register(self.mainWindow.getAppList())
+       shortcutList.checkFromChange()
+       
    def getPlayOnLinux(self):
        return self.playonlinux
          

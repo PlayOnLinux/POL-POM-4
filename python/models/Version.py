@@ -4,10 +4,6 @@
 
 # Python
 
-from lib.ConfigFile import FiletypeConfigFile
-
-import wx, os, string
-
 class Version(object):
     def __init__(self, version):
         self.version = version

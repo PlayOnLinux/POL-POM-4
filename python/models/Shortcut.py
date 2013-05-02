@@ -7,64 +7,18 @@
 import string, os, wx
 
 # playonlinux imports
-import ConfigFile
+from models.Script import PrivateGUIScript
+from models.Prefix import Prefix
 
-from lib.PlayOnLinux import PlayOnLinux
-from lib.Script import PrivateGUIScript
-from lib.Prefix import Prefix
-from lib.Environement import Environement
+from services.Environment import Environment
 
-class ShortcutList(object):
-   def __init__(self, shortcutList = []):
-       self.shortcutList = shortcutList[:]
-       
-   def get(self):
-       return self.shortcutList
-       
-class ShortcutListFromFolder(ShortcutList):
-   def __init__(self, folder):
-       self.folder = folder
-
-       shortcutList = self.getShortcutsFromFolder()
-       ShortcutList.__init__(self, shortcutList)
-       self.folderTime = self.getShortcutsFolderTime()
-        
-   def getShortcutsFolderTime(self):
-       return os.path.getmtime(self.folder)
-       
-   def getShortcutsFromFolder(self):
-       shortcutList = os.listdir(self.folder)
-       shortcutList.sort()
-       
-       # FIXME
-       try :
-           shortcutList.remove(".DS_Store")
-       except ValueError:
-           pass
-           
-       # Get a list of object instead of a list of strings
-       for ndx, member in enumerate(shortcutList):
-           shortcutList[ndx] = Shortcut(member)
-       return shortcutList
-        
-   # Update shortcuts from folder, return True if changes have been made
-   def updateShortcutsFromFolder(self):
-        folderTime = self.getShortcutsFolderTime()
-        if(folderTime != self.folderTime):
-            shortcutList = self.getShortcutsFromFolder()
-            self.shortcutList = shortcutList
-            changed = True
-        else:
-            changed = False
-        
-        return changed
         
 class Shortcut(object):
    def __init__(self, shortcutName, args = []):
       self.args = args[:]
       self.shortcutName = shortcutName
-      self.context = PlayOnLinux()
-      self.shortcutPath = self.context.getUserRoot()+"/shortcuts/"+shortcutName
+      self.env = Environment()
+      self.shortcutPath = self.env.getUserRoot()+"/shortcuts/"+shortcutName
       
    def run(self):
        arguments = [self.shortcutName] + self.args
@@ -102,12 +56,12 @@ class Shortcut(object):
        prefix = prefix[1].replace("//","/")
        prefix = string.split(prefix,"/")
 
-       if(self.context.getOS() == "Mac"):
+       if(self.env.getOS() == "Mac"):
           dirStoreName="PlayOnMac"
        else:
           dirStoreName=".PlayOnLinux"
           
-       prefix = Prefix(self.context, prefix[prefix.index(dirStoreName) + 2])
+       prefix = Prefix(prefix[prefix.index(dirStoreName) + 2])
        
 
        return prefix

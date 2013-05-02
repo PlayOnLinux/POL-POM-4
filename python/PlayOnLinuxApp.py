@@ -29,18 +29,18 @@ from services.ConfigService import *
 
 # Views
 from views.MainWindow import MainWindow
-from views.Question import Question
-from views.Message import Message
+#from views.Question import Question
+#from views.Message import Message
 
 
 class PlayOnLinuxApp(wx.App):
     def OnInit(self):
-        self.controller = Controller() 
+        
         self.configService = ConfigService()  
         self.environment = Environment()
              
         self.initLanguage()    
-        self.controller.appStartupBeforeServer()
+        #self.controller.appStartupBeforeServer()
         
         # Anonymous reports ?
         self.askForReports()
@@ -51,15 +51,12 @@ class PlayOnLinuxApp(wx.App):
         # Init main frame
         self.SetClassName(self.configService.getAppName())
         self.SetAppName(self.configService.getAppName())
-        self.frame = MainWindow(None, -1, self.configService.getAppName())
-        self.SetTopWindow(self.frame)
-        self.frame.Show(True)
         
         # Gui Server
-        self.initPOLServer()
+        # self.initPOLServer()
         
         # Startup Script after servr
-        self.controller.appStartupAfterServer()
+        #self.controller.appStartupAfterServer()
         
         # Catch CTRL+C
         signal.signal(signal.SIGINT, self.CatchCtrlC)
@@ -71,6 +68,7 @@ class PlayOnLinuxApp(wx.App):
     def openDocuments(self):
         for f in  sys.argv[1:]:
             self.MacOpenFile(f)
+    
             
     def initPOLServer(self):
         POLServer = self.controller.getServer()
@@ -164,4 +162,5 @@ class PlayOnLinuxApp(wx.App):
     
     
 playOnLinuxApp = PlayOnLinuxApp(redirect=False)
+controller = Controller(playOnLinuxApp) 
 playOnLinuxApp.MainLoop()

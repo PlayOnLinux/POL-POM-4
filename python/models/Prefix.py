@@ -7,12 +7,12 @@
 import os, string, shutil
 
 # playonlinux imports
-import ConfigFile
+from services.ConfigFile import ConfigFile
 
 
 class Prefix():
    def __init__(self, prefixName):
-       self.context = PlayOnLinux()
+       self.env = Environment()
        self.selectedPrefix = prefixName
        
    def getName(self):

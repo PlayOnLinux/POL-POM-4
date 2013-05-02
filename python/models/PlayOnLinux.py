@@ -7,7 +7,8 @@ import os, random, sys, string, gettext, locale
 from services.ConfigService import *
 from services.Environment import Environment
 
-# Singleton
+from models.Version import Version
+
 class PlayOnLinux(object):
    def __init__(self): 
       self.environment = Environment()
@@ -31,7 +32,7 @@ class PlayOnLinux(object):
                   
    # Getters and setters
    def getAppVersion(self):
-       return self.configService.getSetting("VERSION")
+       return Version(self.configService.getSetting("VERSION"))
         
    def isUpToDate(self):
        try:

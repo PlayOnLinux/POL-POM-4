@@ -28,8 +28,15 @@ class ConfigService(object):
        elif(self.globalConfig.getSetting(item) != ""):
            return self.globalConfig.getSetting(item)
        else:
-           return ""    
- 
+           return ""   
+            
+   def getIntSetting(self, item, default):
+       setting = self.getSetting(item)
+       try:
+           return int(setting)
+       except TypeError:
+           return default
+           
    def setSetting(self, item, value):
        self.userConfig.setSetting(item, value)
     
