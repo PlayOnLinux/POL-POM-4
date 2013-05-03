@@ -8,6 +8,7 @@ from services.Environment import Environment
 # Model
 from models.PlayOnLinux import PlayOnLinux
 from models.Script import PrivateScript
+from models.Directory import *
 from models.GuiServer import GuiServer
 from models.ShortcutList import *
 
@@ -27,9 +28,10 @@ class Controller(object):
        self.mainWindow = MainWindow()
        self.app.SetTopWindow(self.mainWindow)
        self.mainWindow.Show(True)
-       shortcutList = ShortcutListFromFolder(self.env.getUserRoot()+"/shortcuts/")
-       shortcutList.register(self.mainWindow.getAppList())
-       shortcutList.checkFromChange()
+       ShortcutFolder = Directory(self.env.getUserRoot()+"/shortcuts/")
+       installedApps = ShortcutListFromFolder()
+       ShortcutFolder.register(installedApps)
+       installedApps.register(self.mainWindow.getAppList())
        
    def getPlayOnLinux(self):
        return self.playonlinux

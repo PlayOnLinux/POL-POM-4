@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding:Utf-8 -*-
 
-# Copyright (C) 2008 Pâris Quentin
+# Copyright (C) 2013 Pâris Quentin
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 2 of the License, or
@@ -23,8 +23,8 @@ class Observer(object):
     def __init__(self):
         self.subject = None
         
-    def setSubject(self, subject):
-        self.subject = subject  
+    def setSubject(self, subjectToSet):
+        self.subject = subjectToSet
     
     def getSubject(self):
         return self.subject

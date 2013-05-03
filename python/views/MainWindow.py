@@ -43,6 +43,7 @@ class ErrNoProgramSelected(Exception):
 class InstalledApps(wx.TreeCtrl, Observer):
     def __init__(self, window):
         wx.TreeCtrl.__init__(self, window, 105, style = wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT)
+        Observer.__init__(self)
         self.window = window
         self.SetSpacing(0)
         self.SetIndent(5)
@@ -77,13 +78,13 @@ class InstalledApps(wx.TreeCtrl, Observer):
     
     def setIconSize(self, size):
         self.iconSize = size
-        self.update()
+        self.refresh()
         
-    def update(self):
+    def refresh(self):
         self.writeShortcuts()
         
     def notify(self):
-        self.update()
+        self.refresh()
              
 class MainWindow(wx.Frame):
     def __init__(self, id = -1):

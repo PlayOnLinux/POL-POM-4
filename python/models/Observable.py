@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding:Utf-8 -*-
 
-# Copyright (C) 2008 Pâris Quentin
+# Copyright (C) 2013 Pâris Quentin
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 2 of the License, or
@@ -17,7 +17,7 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 import socket, threading, thread, os, wx, time, random
-import string
+import string, wx
 
 class Observable(object):        
     def __init__(self): 
@@ -25,8 +25,9 @@ class Observable(object):
       
     def update(self):
        for observer in self.observers:
-           observer.notify()
-           
+           wx.CallAfter(observer.notify)
+                      
     def register(self, observer):
         observer.setSubject(self)
         self.observers.append(observer)
+        
