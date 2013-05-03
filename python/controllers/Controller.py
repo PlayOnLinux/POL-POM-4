@@ -4,6 +4,7 @@
 # Copyright (C) 2007-2013 PlayOnLinux Team
 
 from services.Environment import Environment
+from services.ConfigService import ConfigService
 
 # Model
 from models.PlayOnLinux import PlayOnLinux
@@ -14,6 +15,7 @@ from models.ShortcutList import *
 
 # Views
 from views.MainWindow import MainWindow
+from views.Question import Question
 
 class Controller(object):
    instance = None           
@@ -21,22 +23,32 @@ class Controller(object):
       self.app = app
       self.playonlinux = PlayOnLinux()
       self.env = Environment()
+      self.configService = ConfigService()
       
-      self.mainWindow()
-    
-   def mainWindow(self):
-       self.mainWindow = MainWindow()
-       self.app.SetTopWindow(self.mainWindow)
-       self.mainWindow.Show(True)
-       ShortcutFolder = Directory(self.env.getUserRoot()+"/shortcuts/")
-       installedApps = ShortcutListFromFolder()
-       ShortcutFolder.register(installedApps)
-       installedApps.register(self.mainWindow.getAppList())
+      self.mainWindow = MainWindow()
+      self.app.SetTopWindow(self.mainWindow)
+      self.mainWindow.Show(True)
+      
+      ShortcutFolder = Directory(self.env.getUserRoot()+"/shortcuts/")
+      installedApps = ShortcutListFromFolder()
+      ShortcutFolder.register(installedApps)
+      installedApps.register(self.mainWindow.getAppList())
+      
+
+      self.registerEvents()
+      
+   def registerEvents(self):
+       wx.EVT_CLOSE(self.mainWindow, self.eventClosePol)
+       wx.EVT_MENU(self.mainWindow,  wx.ID_EXIT,  self.eventClosePol)
        
-   def getPlayOnLinux(self):
-       return self.playonlinux
-         
-   # Class content
+       
+   # Events
+   def eventClosePol(self, event):
+       if(self.configService.getSetting("DONT_ASK_BEFORE_CLOSING") == "TRUE" or Question(_('Are you sure you want to close all [APP] Windows?')).getAnswer()):
+           self.mainWindow.saveWindowParametersToConfig()
+           #self.savePanelParametersToConfig()
+           wx.GetApp().polDie()
+           
    def appStartupBeforeServer(self):
        startupScript = PrivateScript("startup")
        startupScript.start()

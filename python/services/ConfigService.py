@@ -7,13 +7,12 @@ from services.ConfigFile import ConfigFile
 from services.Environment import Environment
       
 class ConfigService(object):
-   def __init__(self, os = None):
-       self.os = os
+   def __init__(self):
        self.env = Environment()
        self.globalConfig = ConfigFile(self.env.getAppPath() + "/etc/global.cfg")
-       if(os == "Mac"):
+       if(self.env.getOS() == "Mac"):
            self.customConfig = ConfigFile(self.env.getAppPath() + "/etc/playonmac.cfg")
-       if(os == "Linux"):
+       if(self.env.getOS() == "Linux"):
            self.customConfig = ConfigFile(self.env.getAppPath() + "/etc/playonlinux.cfg")
           
        self.userConfig = ConfigFile(self.env.getUserRoot() + "/playonlinux.cfg")
@@ -23,7 +22,7 @@ class ConfigService(object):
        # Read in priority : POL_USER_ROOT/playonlinux.cfg, PLAYONLINUX/etc/playon[linux/mac].cfg, PLAYONLINUX/etc/global.cfg, and return the data
        if(self.userConfig.getSetting(item) != ""):
            return self.userConfig.getSetting(item)
-       elif(self.os != None and self.customConfig.getSetting(item) != ""):
+       elif(self.customConfig.getSetting(item) != ""):
            return self.customConfig.getSetting(item)
        elif(self.globalConfig.getSetting(item) != ""):
            return self.globalConfig.getSetting(item)

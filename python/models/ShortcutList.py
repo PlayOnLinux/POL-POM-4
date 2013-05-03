@@ -19,18 +19,10 @@ class ShortcutList(Observer, Observable):
    def getList(self):
        return self.shortcutList
        
-class ShortcutListFromFolder(ShortcutList):
-   def __init__(self):
-       ShortcutList.__init__(self)
-       self.shortcutList = None
-       
+class ShortcutListFromFolder(ShortcutList):      
    def notify(self):
        shortcutList = []   
        for ndx, member in enumerate(self.subject):
            shortcutList.append(Shortcut(member))
        self.shortcutList = shortcutList
-       
        self.update()
-              
-   def getShortcutList(self):
-       return self.shortcutList
