@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2013-05-03 19:00:42+02:00\n"
+"POT-Creation-Date: 2013-05-04 19:00:49+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1362,7 +1362,7 @@ msgid "Which version do you want to install?"
 msgstr ""
 
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:86
-#: PlayOnLinux_Scripts/League_Of_Legends_:67
+#: PlayOnLinux_Scripts/League_Of_Legends_:66
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_II__Daggerfall_:63
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_II__Daggerfall_:72
 #, sh-format
@@ -1380,25 +1380,20 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Freedom_Force_vs._the_3rd_Reich_:39
 #: PlayOnLinux_Scripts/GOG.com___Gothic_3_Community_patch_:60
 #: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:62
-#: PlayOnLinux_Scripts/GOG.com___In_Cold_Blood_:39
 #: PlayOnLinux_Scripts/GOG.com___Incoming_and_Incoming_Forces_:40
 #: PlayOnLinux_Scripts/GOG.com___Iron_Storm_:38
 #: PlayOnLinux_Scripts/GOG.com___Normality_:39
-#: PlayOnLinux_Scripts/GOG.com___Realms_of_Arkania_1_and_2_:40
 #: PlayOnLinux_Scripts/GOG.com___Realms_of_Arkania_3_:39
-#: PlayOnLinux_Scripts/GOG.com___Runaway__A_Road_Adventure_:40
 #: PlayOnLinux_Scripts/GOG.com___Sam_and_Max__The_Devils_Playhouse_:42
 #: PlayOnLinux_Scripts/GOG.com___Sanitarium_:58
 #: PlayOnLinux_Scripts/GOG.com___Shadowgrounds_:56
 #: PlayOnLinux_Scripts/GOG.com___Star_Wolves_:39
 #: PlayOnLinux_Scripts/GOG.com___Still_Life_:39
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:64
-#: PlayOnLinux_Scripts/GOG.com___Tex_Murphy__The_Pandora_Directive_:36
 #: PlayOnLinux_Scripts/GOG.com___Tex_Murphy__Under_a_Killing_Moon_:39
 #: PlayOnLinux_Scripts/GOG.com___The_Feeble_Files_:37
 #: PlayOnLinux_Scripts/GOG.com___The_Last_Express_:37
 #: PlayOnLinux_Scripts/GOG.com___The_Nations_Gold_Edition_:39
-#: PlayOnLinux_Scripts/GOG.com___UFO__Afterlight_:39
 #: PlayOnLinux_Scripts/Infinity_Engine_widescreen_mod_:64
 #: PlayOnLinux_Scripts/POL_GoG_install_:9 PlayOnLinux_Scripts/Poker_Stars_:37
 #: PlayOnLinux_Scripts/Ski_Challenge_2012_:49
@@ -1826,13 +1821,13 @@ msgstr ""
 msgid "Cant install using the official downloader, sorry"
 msgstr ""
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:92
+#: PlayOnLinux_Scripts/League_Of_Legends_:91
 #, sh-format
 msgid ""
 "Warning: You must not tick the checkbox \"Run $TITLE\" when setup is done"
 msgstr ""
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:111
+#: PlayOnLinux_Scripts/League_Of_Legends_:110
 #, sh-format
 msgid ""
 "You should now have a League of Legends directory on your desktop containing "
@@ -1971,6 +1966,36 @@ msgstr ""
 msgid "Installation in progress"
 msgstr ""
 
+#: PlayOnLinux_Scripts/POL_Download_retry_:9
+#: PlayOnLinux_Scripts/POL_GoG_download_:88
+#: PlayOnLinux_Scripts/POL_GoG_download_:100
+#, sh-format
+msgid "Checking piece integrity..."
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_Download_retry_:21
+#, sh-format
+msgid "Checking download integrity..."
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_Download_retry_:23
+#: PlayOnLinux_Scripts/POL_GoG_download_:102
+#, sh-format
+msgid "Download failed"
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_Download_retry_:25
+#: PlayOnLinux_Scripts/POL_GoG_download_:104
+#, sh-format
+msgid "Download seems to be corrupted"
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_Download_retry_:35
+#: PlayOnLinux_Scripts/POL_GoG_download_:113
+#, sh-format
+msgid "Retry?"
+msgstr ""
+
 #: PlayOnLinux_Scripts/POL_Function_OverrideDLL_:27
 #, sh-format
 msgid "Please wait"
@@ -2016,27 +2041,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_GoG_download_:66
 #, sh-format
 msgid "Gog.com login failed, try again?"
-msgstr ""
-
-#: PlayOnLinux_Scripts/POL_GoG_download_:88
-#: PlayOnLinux_Scripts/POL_GoG_download_:100
-#, sh-format
-msgid "Checking piece integrity..."
-msgstr ""
-
-#: PlayOnLinux_Scripts/POL_GoG_download_:102
-#, sh-format
-msgid "Download failed"
-msgstr ""
-
-#: PlayOnLinux_Scripts/POL_GoG_download_:104
-#, sh-format
-msgid "Download seems to be corrupted"
-msgstr ""
-
-#: PlayOnLinux_Scripts/POL_GoG_download_:113
-#, sh-format
-msgid "Retry?"
 msgstr ""
 
 #: PlayOnLinux_Scripts/POL_GoG_setup_:18
@@ -2772,6 +2776,18 @@ msgstr ""
 msgid ""
 "During installation, please UNCHECK all drivers for the NI controllers and "
 "audio interfaces. The install will fail if left checked, and are not needed."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Trine_2_:30
+#, sh-format
+msgid "Please select $TITLE install file (32-bit only, please):"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Trine_2_:43
+#, sh-format
+msgid ""
+"Do not run $TITLE until after the install has finished. Do NOT install "
+"DirectX if asked."
 msgstr ""
 
 #: PlayOnLinux_Scripts/UTAU_4.16_:16
