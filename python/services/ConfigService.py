@@ -44,3 +44,6 @@ class ConfigService(object):
        
    def getAppName(self):
        return self.getSetting("APPLICATION_TITLE")
+     
+   def getAppVersion(self):
+       return self.getSetting("VERSION")

@@ -36,9 +36,13 @@ class Controller(object):
       self.registerEvents()
       
    def registerEvents(self):
+       ## Main window events
+       # Closing events
        wx.EVT_CLOSE(self.app.getMainWindow(), self.eventClosePol)
        wx.EVT_MENU(self.app.getMainWindow(),  wx.ID_EXIT,  self.eventClosePol)
        
+       # Menu events
+       wx.EVT_MENU(self.app.getMainWindow(), wx.ID_ABOUT,  self.eventAboutPlayOnLinux)
        
    # Events
    def eventClosePol(self, event):
@@ -61,7 +65,9 @@ class Controller(object):
            
            
            self.app.polDie()
-           
+   def eventAboutPlayOnLinux():
+       self._mainWindow.aboutPlayOnLinux()
+                 
    def appStartupBeforeServer(self):
        startupScript = PrivateScript("startup")
        startupScript.start()

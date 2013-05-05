@@ -18,7 +18,7 @@ class PlayOnLinux(object):
                   
    # Getters and setters
    def getAppVersion(self):
-       return Version(self.configService.getSetting("VERSION"))
+       return Version(configService.getAppVersion())
         
    def isUpToDate(self):
        try:

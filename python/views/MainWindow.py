@@ -23,6 +23,8 @@ import wx, wx.aui
 
 # Views
 from views.UIHelper import UIHelper
+from views.PolAbout import PolAbout
+
 # from views.SetupWindow import SetupWindow
 # from views.Question import Question
 # from views.Message import Message
@@ -64,13 +66,13 @@ class InstalledApps(wx.TreeCtrl, Observer):
         
         root = self.AddRoot("")
         i = 0
-     
         for shortcut in self.getSubject().getList():
            if(searchFilter in shortcut.getName().lower()):
                self.imagesAppList.Add(shortcut.getWxIcon(self.iconSize))
                self.AppendItem(root, shortcut.getName(), i)
                i+=1
-               
+            
+        # FIXME : La ca va pas, il faut creer un observateur sur le bon objet 
         if(self.env.getOS() == "Mac"):
             self.window.playTool.Enable(False)
             self.window.stopTool.Enable(False)
@@ -305,9 +307,7 @@ class MainWindow(wx.Frame):
         # Miscellaneous
         wx.EVT_MENU(self, 216,  self.donate)
         
-    def getAppList(self):
-        return self.appList
-           
+
     def drawToolBar(self):
         self.toolbar = self.CreateToolBar(wx.TB_TEXT)
         self.toolbar.SetToolBitmapSize((32,32))
@@ -343,7 +343,7 @@ class MainWindow(wx.Frame):
         wx.EVT_MENU(self, 123,  self.RKill)
 
         wx.EVT_MENU(self, wx.ID_ADD,  self.InstallMenu)
-        wx.EVT_MENU(self, wx.ID_ABOUT,  self.About)
+        
         wx.EVT_MENU(self,  wx.ID_DELETE,  self.UninstallGame)
 
         
@@ -926,14 +926,7 @@ class MainWindow(wx.Frame):
         self.Run(self, True)
 
 
-    def saveWindowParametersToConfig(self):
-        self.sizeToSave = self.GetSize();
-        self.positionToSave = self.GetPosition();
-        # Save size and position
-        self.configService.setSetting("MAINWINDOW_WIDTH",str(self.sizeToSave[0]))
-        self.configService.setSetting("MAINWINDOW_HEIGHT",str(self.sizeToSave[1] - self.uiHelper.addMacOffset(56)))
-        self.configService.setSetting("MAINWINDOW_X",str(self.positionToSave[0]))
-        self.configService.setSetting("MAINWINDOW_Y",str(self.positionToSave[1]))
+
         
     def savePanelParametersToConfig(self):
         # Very ugly, need to be fixed
@@ -957,29 +950,25 @@ class MainWindow(wx.Frame):
         self.playonlinuxSettings.setSetting("PANEL_SIZE",str(self.mySize))
         self.playonlinuxSettings.setSetting("PANEL_POSITION",str(self.myPosition))
         
-
-    def About(self, event):
-        self.aboutBox = wx.AboutDialogInfo()
-        if(Context().getOS() == "Linux"):
-            self.aboutBox.SetIcon(wx.Icon(Context().getAppPath()+"/resources/icons/playonlinux.png", wx.BITMAP_TYPE_ANY))
-
+    
+    # Getters
+    def getAppList(self):
+        return self.appList
+           
+           
+    def aboutPlayOnLinux(self):
+        aboutWindow = PolAbout()
+        aboutWindow.show()   
         
-        self.aboutBox.SetName(Context().getAppName())
-        self.aboutBox.SetVersion(Context().getAppVersion())
-        self.aboutBox.SetDescription(_("Run your Windows programs on "+Context().getOS()+" !"))
-        self.aboutBox.SetCopyright("© 2007-2013 "+_("PlayOnLinux and PlayOnMac team\nUnder GPL licence version 3"))
-        self.aboutBox.AddDeveloper(_("Developer and Website: ")+"Tinou (Pâris Quentin), MulX (Petit Aymeric)")
-        self.aboutBox.AddDeveloper(_("Scriptors: ")+"GNU_Raziel")
-        self.aboutBox.AddDeveloper(_("Packager: ")+"MulX (Petit Aymeric), Tinou (Pâris Quentin)")
-        self.aboutBox.AddDeveloper(_("Icons:")+"Faenza-Icons http://tiheum.deviantart.com/art/Faenza-Icons-173323228")
-        self.aboutBox.AddDeveloper(_("The following people contributed to this program: ")+"kiplantt, Salvatos, Minchul")
-        self.aboutBox.AddTranslator(_("Translations:"))
-        self.aboutBox.AddTranslator(_("Read TRANSLATORS file"))
-
-        if(Context().getOS() == "Mac"):
-            self.aboutBox.SetWebSite("http://www.playonmac.com")
-        else:
-            self.aboutBox.SetWebSite("http://www.playonlinux.com")
-        wx.AboutBox(self.aboutBox)
-            
-        
+    def saveWindowParametersToConfig(self):
+        self.sizeToSave = self.GetSize();
+        self.positionToSave = self.GetPosition();
+        # Save size and position
+        self.configService.setSetting("MAINWINDOW_WIDTH",str(self.sizeToSave[0]))
+        self.configService.setSetting("MAINWINDOW_HEIGHT",str(self.sizeToSave[1] - self.uiHelper.addMacOffset(56)))
+        self.configService.setSetting("MAINWINDOW_X",str(self.positionToSave[0]))
+        self.configService.setSetting("MAINWINDOW_Y",str(self.positionToSave[1]))
+                
+    def Destroy(self):
+        self.saveWindowParametersToConfig()
+        wx.Frame.Destroy(self)

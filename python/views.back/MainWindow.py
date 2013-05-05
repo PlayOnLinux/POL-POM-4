@@ -25,6 +25,7 @@ import wx, wx.aui
 # from views.SetupWindow import SetupWindow
 from views.Question import Question
 from views.Message import Message
+from views.PolAbout import PolAbout
 
 from controllers.Controller import *
 #, install, options, wine_versions as wver, sp, configure, debug, gui_server
@@ -198,7 +199,7 @@ class MainWindow(wx.Frame):
         self.addMenuItem(213,  _("Plugin manager"), "plugins.png", self.optionmenu)
 
         self.help_menu = wx.Menu()
-        self.addMenuItem(wx.ID_ABOUT,  _('About {0}').format(Context().getAppName()), None, self.help_menu)
+        self.addMenuItem(wx.ID_ABOUT,  _('About {0}').format(self.env.getAppName()), None, self.help_menu)
 
         self.pluginsmenu = wx.Menu()
 
@@ -936,29 +937,7 @@ class MainWindow(wx.Frame):
         
 
     def About(self, event):
-        self.aboutBox = wx.AboutDialogInfo()
-        if(Context().getOS() == "Linux"):
-            self.aboutBox.SetIcon(wx.Icon(Context().getAppPath()+"/resources/icons/playonlinux.png", wx.BITMAP_TYPE_ANY))
-
-        
-        self.aboutBox.SetName(Context().getAppName())
-        self.aboutBox.SetVersion(Context().getAppVersion())
-        self.aboutBox.SetDescription(_("Run your Windows programs on "+Context().getOS()+" !"))
-        self.aboutBox.SetCopyright("© 2007-2013 "+_("PlayOnLinux and PlayOnMac team\nUnder GPL licence version 3"))
-        self.aboutBox.AddDeveloper(_("Developer and Website: ")+"Tinou (Pâris Quentin), MulX (Petit Aymeric)")
-        self.aboutBox.AddDeveloper(_("Scriptors: ")+"GNU_Raziel")
-        self.aboutBox.AddDeveloper(_("Packager: ")+"MulX (Petit Aymeric), Tinou (Pâris Quentin)")
-        self.aboutBox.AddDeveloper(_("Icons:")+"Faenza-Icons http://tiheum.deviantart.com/art/Faenza-Icons-173323228")
-        self.aboutBox.AddDeveloper(_("The following people contributed to this program: ")+"kiplantt, Salvatos, Minchul")
-        self.aboutBox.AddTranslator(_("Translations:"))
-        self.aboutBox.AddTranslator(_("Read TRANSLATORS file"))
-
-        if(Context().getOS() == "Mac"):
-            self.aboutBox.SetWebSite("http://www.playonmac.com")
-        else:
-            self.aboutBox.SetWebSite("http://www.playonlinux.com")
-        wx.AboutBox(self.aboutBox)
-                    
+        wx.AboutBox(PolAbout())            
 
         
     def saveWindowParametersToConfig(self):
@@ -972,5 +951,4 @@ class MainWindow(wx.Frame):
                 
     def Destroy(self):
         wx.Frame.Destroy(self)
-        self.saveWindowParametersToConfig()
-        
+        self.saveWindowParametersToConfig(
