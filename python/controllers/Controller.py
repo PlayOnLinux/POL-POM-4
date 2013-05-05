@@ -9,45 +9,58 @@ from services.ConfigService import ConfigService
 # Model
 from models.PlayOnLinux import PlayOnLinux
 from models.Script import PrivateScript
+from models.GuiServer import *
+from models.Executable import Executable
 from models.Directory import *
-from models.GuiServer import GuiServer
 from models.ShortcutList import *
 
 # Views
-from views.MainWindow import MainWindow
 from views.Question import Question
 
 class Controller(object):
    instance = None           
    def __init__(self, app):
       self.app = app
-      self.playonlinux = PlayOnLinux()
       self.env = Environment()
       self.configService = ConfigService()
       
-      self.mainWindow = MainWindow()
-      self.app.SetTopWindow(self.mainWindow)
-      self.mainWindow.Show(True)
+      self.server = GuiServer()
+      self.playonlinux = PlayOnLinux()
       
-      ShortcutFolder = Directory(self.env.getUserRoot()+"/shortcuts/")
-      installedApps = ShortcutListFromFolder()
-      ShortcutFolder.register(installedApps)
-      installedApps.register(self.mainWindow.getAppList())
-      
+      self._shortcutFolder = Directory(self.env.getUserRoot()+"/shortcuts/")
+      self._installedApps = ShortcutListFromFolder()
+      self._shortcutFolder.register(self._installedApps)
+      self._installedApps.register(self.app.getMainWindow().getAppList())
+    
 
       self.registerEvents()
       
    def registerEvents(self):
-       wx.EVT_CLOSE(self.mainWindow, self.eventClosePol)
-       wx.EVT_MENU(self.mainWindow,  wx.ID_EXIT,  self.eventClosePol)
+       wx.EVT_CLOSE(self.app.getMainWindow(), self.eventClosePol)
+       wx.EVT_MENU(self.app.getMainWindow(),  wx.ID_EXIT,  self.eventClosePol)
        
        
    # Events
    def eventClosePol(self, event):
        if(self.configService.getSetting("DONT_ASK_BEFORE_CLOSING") == "TRUE" or Question(_('Are you sure you want to close all [APP] Windows?')).getAnswer()):
-           self.mainWindow.saveWindowParametersToConfig()
-           #self.savePanelParametersToConfig()
-           wx.GetApp().polDie()
+           try:
+               self.getServer().closeServer()
+           except ErrServerIsNotRunning:
+               pass
+            
+           # Destroy main window
+           self.app.getMainWindow().Destroy()
+           
+           # Destroy models
+           self._shortcutFolder.destroy()
+                      
+           # Close all scripts
+           for thread in threading.enumerate():
+               if(isinstance(thread, Executable)):
+                   thread.__del__()
+           
+           
+           self.app.polDie()
            
    def appStartupBeforeServer(self):
        startupScript = PrivateScript("startup")
@@ -61,14 +74,15 @@ class Controller(object):
        
    # Server managing
    def getServer(self):
-       return self.playonlinux.getServer()
+       return self.server
            
    def getServerQueue(self):
-       return self.playonlinux.getServerQueue()
+       return self.getServer().getQueue()
        
    def getServerState(self):
-       return self.playonlinux.getState()
+       return self.getServer().getState()
        
+   
        
    # 
    def openFile(self, filename):

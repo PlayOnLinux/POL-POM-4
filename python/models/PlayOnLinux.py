@@ -15,20 +15,6 @@ class PlayOnLinux(object):
       self.configService = ConfigService()
       self.version = self.configService.getSetting("VERSION")        
 
-   # Server managing
-   def getServer(self):
-       try:
-           return self.server
-       except AttributeError:
-           self.server = GuiServer()
-           return self.server
-           
-   def getServerQueue(self):
-       return self.getServer.getQueue()
-       
-   def getServerState(self):
-       return self.getServer.getState()
-       
                   
    # Getters and setters
    def getAppVersion(self):

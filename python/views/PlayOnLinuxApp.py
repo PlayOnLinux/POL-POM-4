@@ -29,6 +29,7 @@ from services.ConfigService import *
 
 # Views
 from views.MainWindow import MainWindow
+
 #from views.Question import Question
 #from views.Message import Message
 
@@ -52,6 +53,11 @@ class PlayOnLinuxApp(wx.App):
         self.SetClassName(self.configService.getAppName())
         self.SetAppName(self.configService.getAppName())
         
+        # Main Window
+        self._mainWindow = MainWindow()
+        self.SetTopWindow(self._mainWindow)
+        self._mainWindow.Show(True)
+        
         # Gui Server
         # self.initPOLServer()
         
@@ -62,9 +68,11 @@ class PlayOnLinuxApp(wx.App):
         signal.signal(signal.SIGINT, self.CatchCtrlC)
         
         # Exiting
-        self.exiting = False
         return True
-
+        
+    def getMainWindow(self):
+        return self._mainWindow
+        
     def openDocuments(self):
         for f in  sys.argv[1:]:
             self.MacOpenFile(f)
@@ -121,37 +129,12 @@ class PlayOnLinuxApp(wx.App):
         mytranslation = gettext.translation(domain, localedir, [mylocale.GetCanonicalName()], fallback = True)
         mytranslation.install()
         
-      
-    # Manage PlayOnLinux Exit
-    def isExiting(self):
-        try:
-            return self.exiting
-        except AttributeError: #self.exiting is not existing yet, the application has just been launched
-            return False
-            
+                  
     # Should not be used.
     def hardExit(self, code = 0):
         os._exit(code)
    
-    def softExit(self, code = 0):
-        self.exiting = True
-        # Close GUI Server
-        try:
-            self.controller.getServer().closeServer()
-        except ErrServerIsNotRunning:
-            pass
-            
-        # Destroy main window
-        try:
-            self.frame.Destroy()
-        except AttributeError: # The frame does not exist yet
-            pass
-            
-        # Close all scripts
-        for thread in threading.enumerate():
-            if(isinstance(thread, Executable)):
-                thread.__del__()
-            
+    def softExit(self, code = 0):   
         return code
         
     def polDie(self):
@@ -161,6 +144,3 @@ class PlayOnLinuxApp(wx.App):
         self.softExit(63)
     
     
-playOnLinuxApp = PlayOnLinuxApp(redirect=False)
-controller = Controller(playOnLinuxApp) 
-playOnLinuxApp.MainLoop()

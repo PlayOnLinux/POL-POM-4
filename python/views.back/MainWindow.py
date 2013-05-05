@@ -911,15 +911,7 @@ class MainWindow(wx.Frame):
         self.Run(self, True)
 
 
-    def saveWindowParametersToConfig(self):
-        self.SizeToSave = self.GetSize();
-        self.PositionToSave = self.GetPosition();
-        # Save size and position
-        self.playonlinuxSettings.setSetting("MAINWINDOW_WIDTH",str(self.SizeToSave[0]))
-        self.playonlinuxSettings.setSetting("MAINWINDOW_HEIGHT",str(self.SizeToSave[1] - UIHelper().addMacOffset(56)))
-        self.playonlinuxSettings.setSetting("MAINWINDOW_X",str(self.PositionToSave[0]))
-        self.playonlinuxSettings.setSetting("MAINWINDOW_Y",str(self.PositionToSave[1]))
-        
+
     def savePanelParametersToConfig(self):
         # Very ugly, need to be fixed
         self._mgr.UnInit()
@@ -966,12 +958,19 @@ class MainWindow(wx.Frame):
         else:
             self.aboutBox.SetWebSite("http://www.playonlinux.com")
         wx.AboutBox(self.aboutBox)
+                    
+
         
-        
-    def ClosePol(self, event):
-        if(self.playonlinuxSettings.getSetting("DONT_ASK_BEFORE_CLOSING") == "TRUE" or Question(_('Are you sure you want to close all [APP] Windows?')).getAnswer()):
-            self.saveWindowParametersToConfig()
-            self.savePanelParametersToConfig()
-            wx.GetApp().polDie()
-            
+    def saveWindowParametersToConfig(self):
+        self.SizeToSave = self.GetSize();
+        self.PositionToSave = self.GetPosition();
+        # Save size and position
+        self.playonlinuxSettings.setSetting("MAINWINDOW_WIDTH",str(self.SizeToSave[0]))
+        self.playonlinuxSettings.setSetting("MAINWINDOW_HEIGHT",str(self.SizeToSave[1] - UIHelper().addMacOffset(56)))
+        self.playonlinuxSettings.setSetting("MAINWINDOW_X",str(self.PositionToSave[0]))
+        self.playonlinuxSettings.setSetting("MAINWINDOW_Y",str(self.PositionToSave[1]))
+                
+    def Destroy(self):
+        wx.Frame.Destroy(self)
+        self.saveWindowParametersToConfig()
         

@@ -31,8 +31,8 @@ class Directory(Observable):
         
    # Timer
    def checkForChange(self, tempo = 1.0):
-       timer = Timer(1.0, self.refresh)
-       timer.start()
+       self._timer = Timer(1.0, self.refresh)
+       self._timer.start()
       
    def getFolderTime(self):
        return os.path.getmtime(self.path)
@@ -59,3 +59,9 @@ class Directory(Observable):
             changed = False
         
         return changed  
+
+   def destroy(self):
+       try:
+           self._timer.stop()
+       except AttributeError:
+           pass
