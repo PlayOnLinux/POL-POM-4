@@ -28,7 +28,8 @@ class Directory(Observable):
        self.content = None
        self.folderTime = 0
        self.checkForChange()
-        
+       self.refresh()
+       
    # Timer
    def checkForChange(self, tempo = 1.0):
        self._timer = Timer(1.0, self.refresh)
@@ -38,7 +39,7 @@ class Directory(Observable):
        return os.path.getmtime(self.path)
    
    def __iter__(self):
-     return self.content.__iter__() 
+       return self.content.__iter__() 
        
    # Update shortcuts from folder, return True if changes have been made
    def refresh(self):

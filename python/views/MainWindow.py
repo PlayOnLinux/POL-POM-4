@@ -43,16 +43,16 @@ class ErrNoProgramSelected(Exception):
 
 
 class InstalledApps(wx.TreeCtrl, Observer):
-    def __init__(self, window):
-        wx.TreeCtrl.__init__(self, window, 105, style = wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT)
+    def __init__(self, frame, id):
+        wx.TreeCtrl.__init__(self, frame, id, style = wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT)
         Observer.__init__(self)
-        self.window = window
+        self.frame = frame
         self.SetSpacing(0)
         self.SetIndent(5)
         self.env = Environment()
         self.config = ConfigService()
         self.iconSize = self.config.getIntSetting("ICON_SIZE", default = 32)
-     
+        
     def writeShortcuts(self, searchFilter = ""):
         self.DeleteAllItems()       
         self.SetImageList(wx.ImageList(1,1))
@@ -75,9 +75,9 @@ class InstalledApps(wx.TreeCtrl, Observer):
             
         # FIXME : La ca va pas, il faut creer un observateur sur le bon objet 
         if(self.env.getOS() == "Mac"):
-            self.window.playTool.Enable(False)
-            self.window.stopTool.Enable(False)
-            self.window.removeTool.Enable(False)
+            self.frame.playTool.Enable(False)
+            self.frame.stopTool.Enable(False)
+            self.frame.removeTool.Enable(False)
     
     def setIconSize(self, size = 32):
         self.iconSize = size
@@ -136,7 +136,7 @@ class PanelManager(wx.aui.AuiManager):
                   
 class MenuPanel(wx.Panel):
     def __init__(self, frame, id = -1):
-        wx.Panel.__init__(frame, id)   
+        wx.Panel.__init__(self, frame, id)   
         self.frame = frame
         self.uiHelper = UIHelper()
         self.env = Environment()
@@ -157,7 +157,7 @@ class MenuPanel(wx.Panel):
         bitmap = wx.Image(menu_icone)
         bitmap.Rescale(16, 16, wx.IMAGE_QUALITY_HIGH)
         bitmap = bitmap.ConvertToBitmap()
-        self.menuImage[id] = wx.StaticBitmap(self.menuPanel, id=-1, bitmap, pos=(10,15+pos*20))
+        self.menuImage[name] = wx.StaticBitmap(self.menuPanel, id = -1, bitmap = bitmap, pos = (10,15+pos*20))
 
         if(url == None):
             url = ""
@@ -196,26 +196,26 @@ class MainWindow(wx.Frame):
             self.Center(wx.BOTH)
             
              
-    
-        self.appList = InstalledApps(self)
-        self.menuPanel = MenuPanel(self)
-       
-        
-                  
         # Manage updater
         #self.updater = POLWeb()
         #self.updater.start()
+    
+    
+
+                  
 
 
         
+        self.appList = InstalledApps(self, 105)
+        self.menuPanel = MenuPanel(self)
+   
         
-        # Left panel
+        # Left menu
         self._mgr = PanelManager(self)
         self._mgr.AddPane(self.appList, wx.CENTER)
         self._mgr.AddPane(self.menuPanel, wx.aui.AuiPaneInfo().Name('Actions').Caption('Actions').Left().BestSize((200,400)).Floatable(True).CloseButton(False).TopDockable(False).BottomDockable(False))
         self._mgr.restorePosition()     
-        
-        
+    
         self.menuPanel.Show()
              
 
@@ -234,7 +234,6 @@ class MainWindow(wx.Frame):
         
         
         # Program list event
-        #wx.EVT_CLOSE(self, self.ClosePol)
         #wx.EVT_TREE_ITEM_ACTIVATED(self, 105, self.Run)
         #wx.EVT_TREE_SEL_CHANGED(self, 105, self.Select)
 

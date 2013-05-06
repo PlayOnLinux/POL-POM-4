@@ -25,7 +25,8 @@ class Observer(object):
         
     def setSubject(self, subjectToSet):
         self.subject = subjectToSet
-    
+        self.notify()
+        
     def getSubject(self):
         return self.subject
         
