@@ -21,14 +21,14 @@ import string
 
 class Observer(object): 
     def __init__(self):
-        self.subject = None
+        self.subjects = []
         
-    def setSubject(self, subjectToSet):
-        self.subject = subjectToSet
+    def addSubject(self, subjectToSet):
+        self.subjects.append(subjectToSet)
         self.notify()
         
-    def getSubject(self):
-        return self.subject
+    def getSubject(self, subject_number = 0):
+        return self.subjects[subject_number]
         
     def notify(self):
         return None

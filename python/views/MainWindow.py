@@ -49,7 +49,6 @@ class InstalledApps(wx.TreeCtrl, Observer):
         self.frame = frame
         self.SetSpacing(0)
         self.SetIndent(5)
-        self.env = Environment()
         self.config = ConfigService()
         self.iconSize = self.config.getIntSetting("ICON_SIZE", default = 32)
         self.searchFilter = ""
@@ -77,12 +76,6 @@ class InstalledApps(wx.TreeCtrl, Observer):
                self.AppendItem(root, shortcut.getName(), i)
                i+=1
             
-        # FIXME : La ca va pas, il faut creer un observateur sur le bon objet 
-        if(self.env.getOS() == "Mac"):
-            self.frame.playTool.Enable(False)
-            self.frame.stopTool.Enable(False)
-            self.frame.removeTool.Enable(False)
-    
     def setIconSize(self, size = 32):
         self.iconSize = size
         self.config.setSetting("ICON_SIZE",str(size))
@@ -141,11 +134,13 @@ class PanelManager(wx.aui.AuiManager):
 class MenuPanel(wx.Panel):
     def __init__(self, frame, id = -1):
         wx.Panel.__init__(self, frame, id)   
+        
         self.frame = frame
         self.uiHelper = UIHelper()
         self.env = Environment()
         self.menuElem = {}
         self.menuImage = {}
+        self.Show()
         
     def addTitle(self, name, text, pos):
         self.menuElem[name] = wx.StaticText(self, -1, text, pos=(5,5+pos*20))
@@ -156,7 +151,7 @@ class MenuPanel(wx.Panel):
         if(os.path.exists(image)):
             menu_icone = image
         else:
-            menu_icone = self.env.getAppPath()+"/etc/playonlinux.png"
+            menu_icone = self.env.getAppPath()+"/etc/playonlinux.png" # FIXME
 
         bitmap = wx.Image(menu_icone)
         bitmap.Rescale(16, 16, wx.IMAGE_QUALITY_HIGH)
@@ -171,8 +166,40 @@ class MenuPanel(wx.Panel):
         self.menuElem[name].SetVisitedColour(wx.Colour(0,0,0))
         self.menuElem[name].SetHoverColour(wx.Colour(100,100,100))
 
+
+class Toolbar(wx.ToolBar, Observer):
+    def __init__(self, frame):
+        wx.ToolBar.__init__(self, frame, style = wx.TB_TEXT)
+        Observer.__init__(self)
+        
+        self.uiHelper = UIHelper()
+        
+        self.SetToolBitmapSize((32,32))
+        self.searchbox = wx.SearchCtrl( self, 124, style=wx.RAISED_BORDER )
+        self.playTool = self.AddLabelTool(wx.ID_OPEN, _("Run"), self.uiHelper.getBitmap("toolbar/play.png"))
+        self.stopTool = self.AddLabelTool(123, _("Close"), self.uiHelper.getBitmap("toolbar/stop.png"))
+
+        self.AddSeparator()
+        self.AddLabelTool(wx.ID_ADD, _("Install"), self.uiHelper.getBitmap("toolbar/install.png"))
+        self.removeTool = self.AddLabelTool(wx.ID_DELETE, _("Remove"), self.uiHelper.getBitmap("toolbar/delete.png"))
+        self.AddSeparator()
+        self.AddLabelTool(121, _("Configure"), self.uiHelper.getBitmap("toolbar/configure.png"))
+
+        self.AddStretchableSpace()
+        """
+            self.toolbar.AddControl( self.searchbox ) 
+            self.searchbox.SetDescriptiveText(_("Search"))
+        """
     
-                
+        self.AddControl( self.searchbox , _("Search")) 
+   
+  
+    def notify(self):
+        self.playTool.Enable(False)
+        self.stopTool.Enable(False)
+        self.removeTool.Enable(False)
+        
+            
 class MainWindow(wx.Frame):
     def __init__(self, id = -1):
         self.configService = ConfigService()
@@ -205,42 +232,46 @@ class MainWindow(wx.Frame):
         #self.updater.start()
     
     
-
-                  
-
-
         
-        self.appList = InstalledApps(self, 105)
+        self._appList = InstalledApps(self, 105)
         self.menuPanel = MenuPanel(self)
-   
         
         # Left menu
         self._mgr = PanelManager(self)
-        self._mgr.AddPane(self.appList, wx.CENTER)
+        self._mgr.AddPane(self._appList, wx.CENTER)
         self._mgr.AddPane(self.menuPanel, wx.aui.AuiPaneInfo().Name('Actions').Caption('Actions').Left().BestSize((200,400)).Floatable(True).CloseButton(False).TopDockable(False).BottomDockable(False))
         self._mgr.restorePosition()     
     
-        self.menuPanel.Show()
-             
-
+        
+        self._toolbar = Toolbar(self)
+        self.SetToolBar(self._toolbar)
+        self._toolbar.Realize()
+        
         # Menubar
         self.drawMenuBar()
         
         # Status bar
         self.drawStatusBar()
         
-        # Tool Bar
-        self.drawToolBar()
+
         
+        # UI events
+        wx.EVT_TEXT(self, 124,  self.eventSearch)
+        wx.EVT_MENU(self, wx.ID_ABOUT,  self.eventAbout)
         
-        #self.writeShortcutsToWidget(True)
-        
+    
         
         
         # Program list event
         #wx.EVT_TREE_SEL_CHANGED(self, 105, self.Select)
 
-
+    
+        # wx.EVT_MENU(self, 123,  self.RKill)
+  
+        # wx.EVT_MENU(self, wx.ID_ADD,  self.InstallMenu)
+    
+        #wx.EVT_MENU(self,  wx.ID_DELETE,  self.UninstallGame)
+      
         # PlayOnLinux main timer
         #self.timer = wx.Timer(self, 1)
         #self.Bind(wx.EVT_TIMER, self.TimerAction, self.timer)
@@ -372,8 +403,8 @@ class MainWindow(wx.Frame):
         wx.EVT_MENU(self, 115,  self.scriptKillall)
         wx.EVT_MENU(self, 121,  self.Configure)
         wx.EVT_MENU(self, 122,  self.Package)
-        wx.EVT_TEXT(self, 124,  self.eventSearch)
 
+        
         #Options
         wx.EVT_MENU(self, 210,  self.Options)
         wx.EVT_MENU(self, 211,  self.Options)
@@ -384,44 +415,7 @@ class MainWindow(wx.Frame):
         
         # Miscellaneous    
 
-    def drawToolBar(self):
-        self.toolbar = self.CreateToolBar(wx.TB_TEXT)
-        self.toolbar.SetToolBitmapSize((32,32))
-        self.searchbox = wx.SearchCtrl( self.toolbar, 124, style=wx.RAISED_BORDER )
-        self.playTool = self.toolbar.AddLabelTool(wx.ID_OPEN, _("Run"), self.uiHelper.getBitmap("toolbar/play.png"))
-        self.stopTool = self.toolbar.AddLabelTool(123, _("Close"), self.uiHelper.getBitmap("toolbar/stop.png"))
 
-        self.toolbar.AddSeparator()
-        self.toolbar.AddLabelTool(wx.ID_ADD, _("Install"), self.uiHelper.getBitmap("toolbar/install.png"))
-        self.removeTool = self.toolbar_remove = self.toolbar.AddLabelTool(wx.ID_DELETE, _("Remove"), self.uiHelper.getBitmap("toolbar/delete.png"))
-        self.toolbar.AddSeparator()
-        self.toolbar.AddLabelTool(121, _("Configure"), self.uiHelper.getBitmap("toolbar/configure.png"))
-
-        try: 
-                self.toolbar.AddStretchableSpace()
-                self.SpaceHack = False
-        except:
-                # wxpython 2.8 does not support AddStretchableSpace(). This is a dirty workaround for this.
-                self.dirtyHack = wx.StaticText(self.toolbar)
-                self.SpaceHack = True
-                self.toolbar.AddControl( self.dirtyHack ) 
-                self.UpdateSearchHackSize()
-
-        try:
-                self.toolbar.AddControl( self.searchbox , _("Search")) 
-        except:
-                self.toolbar.AddControl( self.searchbox ) 
-                self.searchbox.SetDescriptiveText(_("Search"))
-
-        self.toolbar.Realize()
-        
-        wx.EVT_MENU(self, 123,  self.RKill)
-
-        wx.EVT_MENU(self, wx.ID_ADD,  self.InstallMenu)
-        
-        wx.EVT_MENU(self,  wx.ID_DELETE,  self.UninstallGame)
-
-        
     def drawStatusBar(self):
         self.statusBar = wx.StatusBar(self, -1 )
         self.statusBar.SetFieldsCount(2)
@@ -528,7 +522,7 @@ class MainWindow(wx.Frame):
            
     def TimerAction(self, event):
         #self.StatusRead()
-        self.writeShortcutsToWidget()
+       return None
         # We read shortcut folder to see if it has to be rescanned
         
         
@@ -800,9 +794,6 @@ class MainWindow(wx.Frame):
     
 
 
-    def eventSearch(self, event):
-        self.appList.setSearchFilter(self.searchbox.GetValue().encode("utf-8","replace").lower())
-        self.appList.refresh()
 
 
     def RConfigure(self, function_to_run, firstargument):
@@ -904,17 +895,24 @@ class MainWindow(wx.Frame):
         
   
 
-
+    # UI events (not managed by the controller, because they do not use models)
+    def eventSearch(self, event):
+        self._appList.setSearchFilter(self.searchbox.GetValue().lower())
+        self._appList.refresh()
+    
+    def eventAbout(self, event):
+       # FIXME
+       aboutWindow = PolAbout()
+       aboutWindow.show()
+            
     # Getters
     def getAppList(self):
-        return self.appList
-           
-           
-    def aboutPlayOnLinux(self):
-        # FIXME
-        aboutWindow = PolAbout()
-        aboutWindow.show()   
+        return self._appList
+            
+    def getToolbar(self):
+        return self._toolbar
         
+    # Closing PlayOnLinux
     def saveWindowParametersToConfig(self):
         self.sizeToSave = self.GetSize();
         self.positionToSave = self.GetPosition();

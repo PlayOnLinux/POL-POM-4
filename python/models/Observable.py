@@ -28,6 +28,6 @@ class Observable(object):
            wx.CallAfter(observer.notify)
                       
     def register(self, observer):
-        observer.setSubject(self)
+        observer.addSubject(self)
         self.observers.append(observer)
         

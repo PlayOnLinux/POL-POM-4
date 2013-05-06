@@ -14,6 +14,7 @@ from models.Shortcut import Shortcut
 class ShortcutList(Observer, Observable):
    def __init__(self, shortcutList = []):
        Observable.__init__(self)
+       Observer.__init__(self)
        self.shortcutList = shortcutList[:]
        
    def getList(self):
@@ -22,7 +23,7 @@ class ShortcutList(Observer, Observable):
 class ShortcutListFromFolder(ShortcutList):      
    def notify(self):
        shortcutList = []   
-       for ndx, member in enumerate(self.subject):
+       for ndx, member in enumerate(self.getSubject()):
            shortcutList.append(Shortcut(member))
        self.shortcutList = shortcutList
        self.update()

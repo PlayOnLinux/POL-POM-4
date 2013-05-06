@@ -31,10 +31,16 @@ class Controller(object):
       self.playonlinux = PlayOnLinux()
       
       self._shortcutFolder = Directory(self.env.getUserRoot()+"/shortcuts/")
+      self._iconsFolder = Directory(self.env.getUserRoot()+"/icones/full_size/")
+      
       self._installedApps = ShortcutListFromFolder()
+      
+      # Installed apps observes two folders
       self._shortcutFolder.register(self._installedApps)
+      self._iconsFolder.register(self._installedApps)
+      
       self._installedApps.register(self.app.getMainWindow().getAppList())
-    
+      self._installedApps.register(self.app.getMainWindow().getToolbar())
 
       self.registerEvents()
       
@@ -51,7 +57,6 @@ class Controller(object):
        wx.EVT_MENU(self.app.getMainWindow(), wx.ID_OPEN,  self.eventRunProgram)
        
        ## Menu events
-       wx.EVT_MENU(self.app.getMainWindow(), wx.ID_ABOUT,  self.eventAboutPlayOnLinux)
        wx.EVT_MENU(self.app.getMainWindow(), 216,  self.eventDonate)
        
    # Events
@@ -67,7 +72,8 @@ class Controller(object):
            
            # Destroy models
            self._shortcutFolder.destroy()
-                      
+           self._iconsFolder.destroy()
+            
            # Close all scripts
            for thread in threading.enumerate():
                if(isinstance(thread, Executable)):
@@ -75,10 +81,7 @@ class Controller(object):
            
            
            self.app.polDie()
-           
-   def eventAboutPlayOnLinux(self, event):
-       self.app.getMainWindow().aboutPlayOnLinux()
-      
+
    def eventDonate(self, event):
         if(self.env.getOS() == "Mac"):
             webbrowser.open("http://www.playonmac.com/en/donate.html")
