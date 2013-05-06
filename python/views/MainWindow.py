@@ -193,13 +193,18 @@ class Toolbar(wx.ToolBar, Observer):
     
         self.AddControl( self.searchbox , _("Search")) 
    
-  
+    def enableIcons(self):
+        self.playTool.Enable(True)
+        self.stopTool.Enable(True)
+        self.removeTool.Enable(True)
+        
+    # Observer event
     def notify(self):
         self.playTool.Enable(False)
         self.stopTool.Enable(False)
         self.removeTool.Enable(False)
         
-            
+           
 class MainWindow(wx.Frame):
     def __init__(self, id = -1):
         self.configService = ConfigService()
@@ -242,7 +247,7 @@ class MainWindow(wx.Frame):
         self._mgr.AddPane(self.menuPanel, wx.aui.AuiPaneInfo().Name('Actions').Caption('Actions').Left().BestSize((200,400)).Floatable(True).CloseButton(False).TopDockable(False).BottomDockable(False))
         self._mgr.restorePosition()     
     
-        
+        # Toolbar
         self._toolbar = Toolbar(self)
         self.SetToolBar(self._toolbar)
         self._toolbar.Realize()
@@ -258,7 +263,7 @@ class MainWindow(wx.Frame):
         # UI events
         wx.EVT_TEXT(self, 124,  self.eventSearch)
         wx.EVT_MENU(self, wx.ID_ABOUT,  self.eventAbout)
-        
+        wx.EVT_TREE_SEL_CHANGED(self, 105, self.eventSelect)
     
         
         
@@ -697,21 +702,7 @@ class MainWindow(wx.Frame):
             self.IconDialog.Destroy()
             #Pop-up menu for game list: ending
 
-    def Select(self, event):
-        game_exec = self.getSelectedShortcut().getName()
-        
-        self.read = open(Context().getUserRoot()+"shortcuts/"+game_exec,"r").readlines()
-        self.i = 0;
-        self.wine_present = False;
-        while(self.i < len(self.read)):
-            if("wine " in self.read[self.i]):
-                self.wine_present = True;
-            self.i += 1
 
-        self.generate_menu(game_exec)
-        self.playTool.Enable(True)
-        self.stopTool.Enable(True)
-        self.removeTool.Enable(True)
 
     def generate_menu(self, shortcut=None):
         for c in self.menuElem:
@@ -904,7 +895,11 @@ class MainWindow(wx.Frame):
        # FIXME
        aboutWindow = PolAbout()
        aboutWindow.show()
-            
+     
+    def eventSelect(self, event):    
+        #self.generate_menu(game_exec)
+        self._toolbar.enableIcons()
+               
     # Getters
     def getAppList(self):
         return self._appList
