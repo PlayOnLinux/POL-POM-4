@@ -27,7 +27,6 @@ class Directory(Observable):
        self.path = path
        self.content = None
        self.folderTime = 0
-       self.checkForChange()
        self.refresh()
        
    # Timer
@@ -36,15 +35,18 @@ class Directory(Observable):
        self._timer.start()
       
    def getFolderTime(self):
-       return os.path.getmtime(self.path)
+       try:
+           return os.path.getmtime(self.path)
+       except OSError: # Folder does not exist
+           return 0
    
    def __iter__(self):
        return self.content.__iter__() 
-       
+
    # Update shortcuts from folder, return True if changes have been made
    def refresh(self):
         folderTime = self.getFolderTime()
-        if(folderTime != self.folderTime or self.content == None):
+        if(folderTime != self.folderTime or self.content == None and self.folderTime != 0):
             self.folderTime = folderTime
             self.content = os.listdir(self.path)
             self.content.sort()
@@ -59,8 +61,11 @@ class Directory(Observable):
         else:
             changed = False
         
-        return changed  
-
+        return changed   
+        
+   def getList(self):
+       return self.content
+       
    def destroy(self):
        try:
            self._timer.stop()

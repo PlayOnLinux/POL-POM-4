@@ -30,13 +30,6 @@ class Controller(object):
        
    def initPlayOnLinux(self):
       self._installedApps = ShortcutListFromFolder()
-      
-      self._shortcutFolder = Directory(self.env.getUserRoot()+"/shortcuts/")
-      self._iconsFolder = Directory(self.env.getUserRoot()+"/icones/full_size/")
-      
-      self._shortcutFolder.register(self._installedApps)
-      self._iconsFolder.register(self._installedApps)
-      
       self._installedApps.register(self.app.getMainWindow().getAppList())
 
        
@@ -49,16 +42,15 @@ class Controller(object):
         
        # Destroy main window
        self.app.getMainWindow().Destroy()
-       
-       # Destroy models
-       self._shortcutFolder.destroy()
-       self._iconsFolder.destroy()
-        
+              
        # Close all scripts
        for thread in threading.enumerate():
            if(isinstance(thread, Executable)):
                thread.__del__()
-       
+               
+       # Destroy all timers
+       for timer in Timer.getinstances():
+           timer.stop()
        
        self.app.polDie()
 
@@ -71,15 +63,21 @@ class Controller(object):
             webbrowser.open("http://www.playonlinux.com/en/donate.html")
     
    def runProgram(self, selectedProgram):
-       selectedProgram = Shortcut(selectedProgram)
-       shortcutName = selectedProgram.getName()
+       _selectedProgram = Shortcut(selectedProgram)
+       _shortcutName = _selectedProgram.getName()
 
-       selectedProgram.setDebug(False)
+       _selectedProgram.setDebug(False)
        
        try:
-           selectedProgram.run()
+           _selectedProgram.run()
        except ErrPrefixDoesNotExist:
-           Error(_("The virtual drive associated with {0} does not exists.").format(shortcutName))
+           Error(_("The virtual drive associated with {0} does not exists.").format(_shortcutName))
+   
+   def selectShortcut(self, panel, selectedProgram):
+       shortcut = Shortcut(selectedProgram)
+       panel.generateContent(selectedProgram, shortcut.hasManual(), shortcut.getLinks(), shortcut.getIcon())
+       
+       #panel.generateContent()
        
    """
        def RunDebug(self, event):

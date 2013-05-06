@@ -7,7 +7,7 @@
 
 from services.Environment import Environment
 
-import wx
+import wx, os
 
 class UIHelper(object):
    def __init__(self):
@@ -52,10 +52,11 @@ class UIHelper(object):
            return 6      
 
    def getBitmap(self, name, size = None):
+       os.chdir(self.env.getAppPath()+"/resources/images/")
        if(size == None):
-           return wx.Bitmap(self.env.getAppPath()+"/resources/images/"+name)
+           return wx.Bitmap(name)
        else:
-           bitmap = wx.Image(self.env.getAppPath()+"/resources/images/"+name)
+           bitmap = wx.Image(name)
            bitmap.Rescale(size, size, wx.IMAGE_QUALITY_HIGH)
            bitmap = bitmap.ConvertToBitmap()
            return bitmap

@@ -20,11 +20,18 @@ import socket, threading, thread, os, wx, time, random
 import string
 
 class Timer(object):
+    instances = []
+    
+    @staticmethod
+    def getinstances():
+        return Timer.instances
+        
     def __init__(self, tempo, target, args= [], kwargs={}):
         self._target = target
         self._args = args
         self._kwargs = kwargs
         self._tempo = tempo
+        Timer.instances.append(self)
 
     def _run(self):
         self._timer = threading.Timer(self._tempo, self._run)

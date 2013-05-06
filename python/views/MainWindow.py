@@ -139,7 +139,7 @@ class MenuPanel(wx.Panel, Observer):
     def __init__(self, frame, controller, id = -1):
         wx.Panel.__init__(self, frame, id)   
         Observer.__init__(self)
-        
+        self.controller = controller
         self.frame = frame
         self.uiHelper = UIHelper()
         self.config = ConfigService()
@@ -147,20 +147,18 @@ class MenuPanel(wx.Panel, Observer):
         self.menuElems = []
         self.Show()
         self.currentPosition = 0
-        
+    
     def addTitle(self, text):
         if(self.currentPosition != 0):
             self.currentPosition += 1
         elem = wx.StaticText(self, -1, text, pos=(5,5+self.currentPosition*20))
         elem.SetForegroundColour((0,0,0))
-        elem.SetFont(self.uiHelper.getFontTitle())
-        
+        elem.SetFont(self.uiHelper.getFontTitle())    
         self.menuElems.append(elem)
-        
         self.currentPosition += 1
 
     def addLink(self, text, id, image, url = None):
-        self.menuElems.append(wx.StaticBitmap(self, id = -1, bitmap = self.uiHelper.getBitmap(image), pos = (10,15+self.currentPosition*20)))
+        self.menuElems.append(wx.StaticBitmap(self, id = -1, bitmap = self.uiHelper.getBitmap(image, 16), pos = (10,15+self.currentPosition*20)))
 
         if(url == None):
             url = ""
@@ -169,30 +167,28 @@ class MenuPanel(wx.Panel, Observer):
         elem.SetNormalColour(wx.Colour(0,0,0))
         elem.SetVisitedColour(wx.Colour(0,0,0))
         elem.SetHoverColour(wx.Colour(100,100,100))
-        
         self.menuElems.append(elem)
-        
         self.currentPosition += 1
         
     def destroyContent(self):
         for c in self.menuElems:
             c.Destroy()
-
+            
         try:
             self.menuBitmap.Destroy()
         except AttributeError:
             pass
-        
+            
         self.menuElems = []
         self.currentPosition = 0
-    
-    def generateContent(self, selectedShortcut = None):
+        
+    def generateContent(self, selectedShortcut = None, hasManual = False, links = {}, icon = None):
         self.destroyContent()
-
         self.addTitle(self.config.getAppName())
         self.addLink(_("Install a program"), 10001, "menu/add.png")
         self.addLink(_("Settings"), 10002, "menu/settings.png")
         self.addLink(_("Messenger"), 10003, "menu/people.png")
+        
         if(self.env.isGIT()):
             self.addLink(_("Update GIT"), 10004, "menu/update_git.png")
 
@@ -204,34 +200,19 @@ class MenuPanel(wx.Panel, Observer):
             self.addLink(_("Configure"), 10009,"menu/run.png")
             self.addLink(_("Create a shortcut"), 10010,"menu/shortcut.png")
             self.addLink(_("Open the directory"), 10011,"menu/folder-wine.png")
-           
-            self.addLink(_("Read the manual"), 10012,"menu/manual.png")
+            if(hasManual):
+                self.addLink(_("Read the manual"), 10012,"menu/manual.png")
             self.addLink(_("Uninstall"), 10013,"menu/window-close.png")
 
-            """
-            self.linksfile = Context().getUserRoot()+"/configurations/links/"+shortcut
-            if(os.path.exists(self.linksfile)):
-                self.linksc = open(self.linksfile,"r").read().split("\n")
-                for line in self.linksc:
-                    if("|" in line):
-                        line = line.split("|")
-                       
-                        if("PROFILEBUTTON/" in line[0]):
-                            line[0] = line[0].replace("PROFILEBUTTON/","")
-
-                        self.addLink("url_"+str(i), line[0], i,Context().getUserRoot()+"/resources/images/menu/star.png",None,line[1])
-
-            icon = Context().getUserRoot()+"/icones/full_size/"+shortcut
-
-            if(os.path.exists(icon)):
-                self.bitmap = wx.Image(icon)
-                if(self.bitmap.GetWidth() >= 48):
-                    self.bitmap.Rescale(48,48,wx.IMAGE_QUALITY_HIGH)
-                    self.bitmap = self.bitmap.ConvertToBitmap()
-                    self.menuBitmap = wx.StaticBitmap(self.menuPanel, id=-1, bitmap=self.bitmap, pos=(left_pos,20+(self.currentPosition+2)*20))
-            """
-    
-     
+            
+            for name, url in links:
+                self.addLink(line[0], -1, "menu/star.png", url)
+                
+            if(icon != None):
+                bitmap = self.uiHelper.getBitmap(icon, 48)
+                self.menuBitmap = wx.StaticBitmap(self, id=-1, bitmap = bitmap, pos=((self.GetSize()[0]-48)/2,20+(self.currentPosition+1)*20))
+         
+            
     def notify(self):
         self.generateContent()
     
@@ -908,7 +889,7 @@ class MainWindow(wx.Frame,):
        aboutWindow.show()
      
     def eventSelect(self, event):    
-        self._menuPanel.generateContent(self._appList.getSelectedShortcut())
+        self.controller.selectShortcut(self._menuPanel, self._appList.getSelectedShortcut())
         self._toolbar.enableIcons()
     
     def eventDonate(self, event):

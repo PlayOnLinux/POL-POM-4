@@ -9,6 +9,7 @@ import string, os, wx
 # playonlinux imports
 from models.Script import PrivateGUIScript
 from models.Prefix import Prefix
+from models.Directory import Directory
 
 from services.Environment import Environment
 
@@ -23,6 +24,7 @@ class Shortcut(object):
       self.shortcutName = shortcutName
       self.env = Environment()
       self.shortcutPath = self.env.getUserRoot()+"/shortcuts/"+shortcutName
+      
       
    def run(self):
        if(self.getPrefix().exists()):
@@ -171,7 +173,14 @@ class Shortcut(object):
       
       if(ver.exists()):
         return(os.popen("env WINEPREFIX='"+self.prefix.getPath()+"/' '"+self.ver.getWineBinary()+"' winepath -w '"+unixPath+"'").read().replace("\n","").replace("\r",""))
-
+   
+   def getIcon(self):
+        icoPath = self.env.getUserRoot()+"/icones/full_size/"+self.getName()
+        if(os.path.exists(icoPath)):
+            return icoPath
+        else:
+            return self.env.getAppPath()+"/etc/playonlinux.png"
+            
    def getWxIcon(self, iconSize = 32):
        if(iconSize == 32):
            iconFolder = "32"
@@ -195,6 +204,20 @@ class Shortcut(object):
           bitmap = bitmap.ConvertToBitmap()
           return bitmap    
    
-               
+   def getLinks(self):
+       links = {}
+       listPath = self.env.getUserRoot()+"/configurations/links/"+self.getName()
+       if(os.path.exists(listPath)):
+           linksFile = open(linksFile,"r").read().split("\n")
+           for line in linksFile:
+               if("|" in line):
+                   line = line.split("|")
+                   links[line[0]] = line[1]
+       return links
+    
+   def hasManual(self):
+       return os.path.exists(self.env.getUserRoot()+"/configurations/manuals/"+self.getName())   
+   
    def uninstall(self):
        print "I will uninstall "+self.getName()
+      

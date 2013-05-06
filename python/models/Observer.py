@@ -26,9 +26,13 @@ class Observer(object):
     def addSubject(self, subjectToSet):
         self.subjects.append(subjectToSet)
         self.notify()
+    
+    def removeSubjects(self):
+        self.subjects = []
         
     def getSubject(self, subject_number = 0):
         return self.subjects[subject_number]
         
+    # Abstract methode
     def notify(self):
         return None
