@@ -64,4 +64,5 @@ class Environment(object):
        if(self.pol_os == "Mac"):
           return self.getEnv("HOME")+"/Library/PlayOnMac/"
        
-   
+   def isGIT(self):
+       return os.path.exists(self.getAppPath()+"/.git/")

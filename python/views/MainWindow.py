@@ -33,6 +33,8 @@ from services.ConfigService import ConfigService
 from services.Environment import Environment
 
 from models.Observer import Observer
+from models.Observable import Observable
+
 #, install, options, wine_versions as wver, sp, configure, debug, gui_server
 #import irc as ircgui
 
@@ -42,10 +44,12 @@ class ErrNoProgramSelected(Exception):
       return repr(_("You must select a program"))
 
 
-class InstalledApps(wx.TreeCtrl, Observer):
+class InstalledApps(wx.TreeCtrl, Observer, Observable):
     def __init__(self, frame, id):
         wx.TreeCtrl.__init__(self, frame, id, style = wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT)
         Observer.__init__(self)
+        Observable.__init__(self)
+        
         self.frame = frame
         self.SetSpacing(0)
         self.SetIndent(5)
@@ -86,6 +90,7 @@ class InstalledApps(wx.TreeCtrl, Observer):
          
     def refresh(self):
         self.writeShortcuts(self.searchFilter)
+        self.update()
         
     def notify(self):
         self.refresh()
@@ -128,44 +133,108 @@ class PanelManager(wx.aui.AuiManager):
     def Destroy(self):
         self.savePosition()
         
-        #wx.aui.AuiManager.Destroy(self)
-        
                   
-class MenuPanel(wx.Panel):
+class MenuPanel(wx.Panel, Observer):
     def __init__(self, frame, id = -1):
         wx.Panel.__init__(self, frame, id)   
+        Observer.__init__(self)
         
         self.frame = frame
         self.uiHelper = UIHelper()
+        self.config = ConfigService()
         self.env = Environment()
-        self.menuElem = {}
-        self.menuImage = {}
+        self.menuElems = []
         self.Show()
+        self.currentPosition = 0
         
-    def addTitle(self, name, text, pos):
-        self.menuElem[name] = wx.StaticText(self, -1, text, pos=(5,5+pos*20))
-        self.menuElem[name].SetForegroundColour((0,0,0))
-        self.menuElem[name].SetFont(self.uiHelper.getFontTitle())
+    def addTitle(self, text):
+        if(self.currentPosition != 0):
+            self.currentPosition += 1
+        elem = wx.StaticText(self, -1, text, pos=(5,5+self.currentPosition*20))
+        elem.SetForegroundColour((0,0,0))
+        elem.SetFont(self.uiHelper.getFontTitle())
+        
+        self.menuElems.append(elem)
+        
+        self.currentPosition += 1
 
-    def addLink(self, name, text, pos, image, url=None):
-        if(os.path.exists(image)):
-            menu_icone = image
-        else:
-            menu_icone = self.env.getAppPath()+"/etc/playonlinux.png" # FIXME
-
-        bitmap = wx.Image(menu_icone)
-        bitmap.Rescale(16, 16, wx.IMAGE_QUALITY_HIGH)
-        bitmap = bitmap.ConvertToBitmap()
-        self.menuImage[name] = wx.StaticBitmap(self.menuPanel, id = -1, bitmap = bitmap, pos = (10,15+pos*20))
+    def addLink(self, text, id, image, url = None):
+        self.menuElems.append(wx.StaticBitmap(self, id = -1, bitmap = self.uiHelper.getBitmap(image), pos = (10,15+self.currentPosition*20)))
 
         if(url == None):
             url = ""
         
-        self.menuElem[name] = wx.HyperlinkCtrl(self.menuPanel, 10000 + pos, text, url, pos=(35,15+pos*20))
-        self.menuElem[name].SetNormalColour(wx.Colour(0,0,0))
-        self.menuElem[name].SetVisitedColour(wx.Colour(0,0,0))
-        self.menuElem[name].SetHoverColour(wx.Colour(100,100,100))
+        elem = wx.HyperlinkCtrl(self, id, text, url, pos=(35,15+self.currentPosition*20))
+        elem.SetNormalColour(wx.Colour(0,0,0))
+        elem.SetVisitedColour(wx.Colour(0,0,0))
+        elem.SetHoverColour(wx.Colour(100,100,100))
+        
+        self.menuElems.append(elem)
+        
+        self.currentPosition += 1
+        
+    def destroyContent(self):
+        for c in self.menuElems:
+            c.Destroy()
 
+        try:
+            self.menuBitmap.Destroy()
+        except AttributeError:
+            pass
+        
+        self.menuElems = []
+        self.currentPosition = 0
+        
+    def notify(self):
+        self.generateContent()
+        
+    def generateContent(self, shortcut = None):
+        self.destroyContent()
+
+        
+
+        self.addTitle(self.config.getAppName())
+        self.addLink(_("Install a program"), 10001, "menu/add.png")
+        self.addLink(_("Settings"), 10002, "menu/settings.png")
+        self.addLink(_("Messenger"), 10003, "menu/people.png")
+        if(self.env.isGIT()):
+            self.addLink(_("Update GIT"), 10004, "menu/update_git.png")
+
+        if(shortcut != None):
+            self.addTitle(shortcut)
+            self.addLink(_("Run"), 10006, "menu/media-playback-start.png")
+            self.addLink(_("Close"), 10007,"menu/media-playback-stop.png")
+            self.addLink(_("Debug"), 10008,"menu/bug.png")
+            self.addLink(_("Configure"), 10009,"menu/run.png")
+            self.addLink(_("Create a shortcut"), 10010,"menu/shortcut.png")
+            self.addLink(_("Open the directory"), 10011,"menu/folder-wine.png")
+            
+            #if(os.path.exists(Context().getUserRoot()+"/configurations/manuals/"+shortcut)):
+            #    self.addLink("pol_prgm_readme", _("Read the manual"), i,"menu/manual.png",self.ReadMe)
+            self.addLink(_("Uninstall"), 10012,"menu/window-close.png")
+
+            """
+            self.linksfile = Context().getUserRoot()+"/configurations/links/"+shortcut
+            if(os.path.exists(self.linksfile)):
+                self.linksc = open(self.linksfile,"r").read().split("\n")
+                for line in self.linksc:
+                    if("|" in line):
+                        line = line.split("|")
+                        
+                        if("PROFILEBUTTON/" in line[0]):
+                            line[0] = line[0].replace("PROFILEBUTTON/","")
+
+                        self.addLink("url_"+str(i), line[0], i,Context().getUserRoot()+"/resources/images/menu/star.png",None,line[1])
+
+            icon = Context().getUserRoot()+"/icones/full_size/"+shortcut
+
+            if(os.path.exists(icon)):
+                self.bitmap = wx.Image(icon)
+                if(self.bitmap.GetWidth() >= 48):
+                    self.bitmap.Rescale(48,48,wx.IMAGE_QUALITY_HIGH)
+                    self.bitmap = self.bitmap.ConvertToBitmap()
+                    self.menuBitmap = wx.StaticBitmap(self.menuPanel, id=-1, bitmap=self.bitmap, pos=(left_pos,20+(self.currentPosition+2)*20))
+            """
 
 class Toolbar(wx.ToolBar, Observer):
     def __init__(self, frame):
@@ -239,18 +308,22 @@ class MainWindow(wx.Frame):
     
         
         self._appList = InstalledApps(self, 105)
-        self.menuPanel = MenuPanel(self)
+        self._menuPanel = MenuPanel(self)
         
         # Left menu
         self._mgr = PanelManager(self)
         self._mgr.AddPane(self._appList, wx.CENTER)
-        self._mgr.AddPane(self.menuPanel, wx.aui.AuiPaneInfo().Name('Actions').Caption('Actions').Left().BestSize((200,400)).Floatable(True).CloseButton(False).TopDockable(False).BottomDockable(False))
+        self._mgr.AddPane(self._menuPanel, wx.aui.AuiPaneInfo().Name('Actions').Caption('Actions').Left().BestSize((200,400)).Floatable(True).CloseButton(False).TopDockable(False).BottomDockable(False))
         self._mgr.restorePosition()     
     
         # Toolbar
         self._toolbar = Toolbar(self)
         self.SetToolBar(self._toolbar)
         self._toolbar.Realize()
+        
+        # The toolbar and the left panel observes the app list change
+        self._appList.register(self._toolbar)
+        self._appList.register(self._menuPanel)
         
         # Menubar
         self.drawMenuBar()
@@ -704,81 +777,7 @@ class MainWindow(wx.Frame):
 
 
 
-    def generate_menu(self, shortcut=None):
-        for c in self.menuElem:
-            self.menuElem[c].Destroy()
-
-        for c in self.menuImage:
-            self.menuImage[c].Destroy()
-        try:
-            self.menuBitmap.Destroy()
-        except:
-            pass
-
-        self.menuElem = {}
-        self.menuImage = {}
-
-        i = 0;
-        self.menuGaucheAddTitle("pol_title", Context().getAppName(), i)
-        i+=1
-        self.addLinkToLeftMenu("pol_prgm_install", _("Install a program"), i,Context().getAppPath()+"/resources/images/menu/add.png",self.InstallMenu)
-        i+=1
-        self.addLinkToLeftMenu("pol_prgm_settings", _("Settings"), i,Context().getAppPath()+"/resources/images/menu/settings.png",self.Options)
-        i+=1
-        self.addLinkToLeftMenu("pol_prgm_messenger", _("Messenger"), i,Context().getAppPath()+"/resources/images/menu/people.png",self.OpenIrc)
-        if(os.path.exists(Context().getAppPath()+"/.git/")):
-            i+=1
-            self.addLinkToLeftMenu("pol_git", _("Update GIT"), i,Context().getAppPath()+"/resources/images/menu/update_git.png",self.UpdateGIT)
-
-        if(shortcut != None):
-            i+=2
-            self.menuGaucheAddTitle("prgm_title", shortcut, i)
-            i+=1
-            self.addLinkToLeftMenu("pol_prgm_run", _("Run"), i,Context().getAppPath()+"/resources/images/menu/media-playback-start.png",self.Run)
-            i+=1
-            self.addLinkToLeftMenu("pol_prgm_kill", _("Close"), i,Context().getAppPath()+"/resources/images/menu/media-playback-stop.png",self.RKill)
-            i+=1
-            self.addLinkToLeftMenu("pol_prgm_rundebug", _("Debug"), i,Context().getAppPath()+"/resources/images/menu/bug.png",self.RunDebug)
-            i+=1
-            self.addLinkToLeftMenu("pol_prgm_configure", _("Configure"), i,Context().getAppPath()+"/resources/images/menu/run.png",self.Configure)
-            i+=1
-            self.addLinkToLeftMenu("pol_prgm_shortcut", _("Create a shortcut"), i,Context().getAppPath()+"/resources/images/menu/shortcut.png",self.Package)
-            i+=1
-            self.addLinkToLeftMenu("pol_prgm_adddir", _("Open the directory"), i,Context().getAppPath()+"/resources/images/menu/folder-wine.png",self.GoToAppDir)
-
-            if(os.path.exists(Context().getUserRoot()+"/configurations/manuals/"+shortcut)):
-                i+=1
-                self.addLinkToLeftMenu("pol_prgm_readme", _("Read the manual"), i,Context().getAppPath()+"/resources/images/menu/manual.png",self.ReadMe)
-
-            i+=1
-            self.addLinkToLeftMenu("pol_prgm_uninstall", _("Uninstall"), i,Context().getAppPath()+"/resources/images/menu/window-close.png",self.UninstallGame)
-
-
-            self.linksfile = Context().getUserRoot()+"/configurations/links/"+shortcut
-            if(os.path.exists(self.linksfile)):
-                self.linksc = open(self.linksfile,"r").read().split("\n")
-                for line in self.linksc:
-                    if("|" in line):
-                        line = line.split("|")
-                        i+=1
-                        if("PROFILEBUTTON/" in line[0]):
-                            line[0] = line[0].replace("PROFILEBUTTON/","")
-
-                        self.addLinkToLeftMenu("url_"+str(i), line[0], i,Context().getUserRoot()+"/resources/images/menu/star.png",None,line[1])
-
-            icon = Context().getUserRoot()+"/icones/full_size/"+shortcut
-
-
-
-            if(os.path.exists(icon)):
-                try:
-                    self.bitmap = wx.Image(icon)
-                    if(self.bitmap.GetWidth() >= 48):
-                        self.bitmap.Rescale(48,48,wx.IMAGE_QUALITY_HIGH)
-                        self.bitmap = self.bitmap.ConvertToBitmap()
-                        self.menuBitmap = wx.StaticBitmap(self.menuPanel, id=-1, bitmap=self.bitmap, pos=(left_pos,20+(i+2)*20))
-                except:
-                    pass
+    
 
 
 
@@ -886,6 +885,11 @@ class MainWindow(wx.Frame):
         
   
 
+
+
+
+
+
     # UI events (not managed by the controller, because they do not use models)
     def eventSearch(self, event):
         self._appList.setSearchFilter(self.searchbox.GetValue().lower())
@@ -898,6 +902,7 @@ class MainWindow(wx.Frame):
      
     def eventSelect(self, event):    
         #self.generate_menu(game_exec)
+        self._menuPanel.generateContent(self._appList.getSelectedShortcut())
         self._toolbar.enableIcons()
                
     # Getters
@@ -906,6 +911,9 @@ class MainWindow(wx.Frame):
             
     def getToolbar(self):
         return self._toolbar
+    
+    def getMenuPanel(self):
+        return self._menuPanel  
         
     # Closing PlayOnLinux
     def saveWindowParametersToConfig(self):

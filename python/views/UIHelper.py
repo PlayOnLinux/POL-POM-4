@@ -51,8 +51,14 @@ class UIHelper(object):
        else:
            return 6      
 
-   def getBitmap(self, name):
-       return wx.Bitmap(self.env.getAppPath()+"/resources/images/"+name)
-     
+   def getBitmap(self, name, size = None):
+       if(size == None):
+           return wx.Bitmap(self.env.getAppPath()+"/resources/images/"+name)
+       else:
+           bitmap = wx.Image(self.env.getAppPath()+"/resources/images/"+name)
+           bitmap.Rescale(size, size, wx.IMAGE_QUALITY_HIGH)
+           bitmap = bitmap.ConvertToBitmap()
+           return bitmap
+           
    def getIcon(self, icone):
        return wx.Icon(self.env.getAppPath()+"/resources/icons/"+icone, wx.BITMAP_TYPE_ANY)

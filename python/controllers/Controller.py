@@ -40,7 +40,6 @@ class Controller(object):
       self._iconsFolder.register(self._installedApps)
       
       self._installedApps.register(self.app.getMainWindow().getAppList())
-      self._installedApps.register(self.app.getMainWindow().getToolbar())
 
       self.registerEvents()
       
