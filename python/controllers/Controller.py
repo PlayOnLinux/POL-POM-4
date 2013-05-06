@@ -86,8 +86,9 @@ class Controller(object):
        return self._installedApps.getStringArray()
 
    def getEnabledPlugins(self):
-       return self._pluginList.getEnabledPlugins().getStringArray()
-              
+       enabledPlugins = self._pluginList.getEnabledPlugins()
+       return enabledPlugins.getNameAndIconArray()
+       
    """
        def RunDebug(self, event):
            

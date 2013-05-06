@@ -387,10 +387,7 @@ class MenuBar(wx.MenuBar, Observer):
         
         i = 0
         for plugin in self.controller.getEnabledPlugins():
-            plugin_icon = self.env.getUserRoot()+"/plugins/"+plugin+"/icon"
-            if(not os.path.exists(plugin_icon)):
-               plugin_icon = self.configService.getAppPath()+"/resources/icons/playonlinux16.png"
-            self.pluginsmenu.addItem(300 + i, plugin, plugin_icon)
+            self.pluginsmenu.addItem(300 + i, plugin[0], plugin[1])
             i += 1 
             #wx.EVT_MENU(self, 300+self.j, self.run_plugin)
 

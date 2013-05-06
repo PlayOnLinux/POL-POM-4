@@ -19,7 +19,8 @@ class PluginList(Observer, Observable):
        Observable.__init__(self)
        Observer.__init__(self)
        self.pluginList = pluginList[:]
-   
+       self.env = Environment()
+       
    def getEnabledPlugins(self):
        result = []
        for plugin in self.pluginList:
@@ -31,6 +32,17 @@ class PluginList(Observer, Observable):
        result = []
        for item in self.pluginList:
            result.append(item.getName())
+       return result
+
+   def getNameAndIconArray(self):
+       result = []
+       for item in self.pluginList:
+           name = item.getName()
+           icon = self.env.getUserRoot()+"/plugins/"+name+"/icon"
+           if(not os.path.exists(icon)):
+              icon = self.configService.getAppPath()+"/resources/icons/playonlinux16.png"
+           result.append((name, icon))
+           
        return result
        
    def getList(self):
