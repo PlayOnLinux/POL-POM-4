@@ -180,29 +180,7 @@ class Shortcut(object):
             return icoPath
         else:
             return self.env.getAppPath()+"/etc/playonlinux.png"
-            
-   def getWxIcon(self, iconSize = 32):
-       if(iconSize == 32):
-           iconFolder = "32"
-       else:
-           iconFolder = "full_size"
-           
-       iconPath = self.env.getUserRoot()+"/icones/"+iconFolder+"/"+self.getName()
-       if(not os.path.exists(iconPath)):
-           iconPath = self.env.getAppPath()+"/etc/playonlinux.png"
-
-       try:
-          bitmap = wx.Image(iconPath)
-          bitmap.Rescale(iconSize,iconSize,wx.IMAGE_QUALITY_HIGH)
-          bitmap = bitmap.ConvertToBitmap()
-          return bitmap  
-          
-       except wx._core.PyAssertionError: 
-          iconPath = self.env.getAppPath()+"/etc/playonlinux.png"
-          bitmap = wx.Image(iconPath)
-          bitmap.Rescale(iconSize,iconSize,wx.IMAGE_QUALITY_HIGH)
-          bitmap = bitmap.ConvertToBitmap()
-          return bitmap    
+        
    
    def getLinks(self):
        links = {}

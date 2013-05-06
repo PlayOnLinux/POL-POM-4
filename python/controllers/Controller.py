@@ -15,6 +15,7 @@ from models.GuiServer import *
 from models.Executable import Executable
 from models.Directory import *
 from models.ShortcutList import *
+from models.PluginList import *
 from models.Shortcut import *
 
 # Views
@@ -29,10 +30,12 @@ class Controller(object):
       self.app = app
        
    def initPlayOnLinux(self):
-      self._installedApps = ShortcutListFromFolder()
+      self._installedApps = ShortcutListFromUserFolder()
       self._installedApps.register(self.app.getMainWindow().getAppList())
 
-       
+      self._pluginList = PluginListFromUserFolder()
+      self._pluginList.register(self.app.getMainWindow().getMenuBar())
+      
    # Events
    def destroy(self):
        #try:
@@ -74,11 +77,17 @@ class Controller(object):
            Error(_("The virtual drive associated with {0} does not exists.").format(_shortcutName))
    
    def selectShortcut(self, panel, selectedProgram):
-       shortcut = Shortcut(selectedProgram)
-       panel.generateContent(selectedProgram, shortcut.hasManual(), shortcut.getLinks(), shortcut.getIcon())
+       _shortcut = Shortcut(selectedProgram)
+       panel.generateContent(selectedProgram, _shortcut.hasManual(), _shortcut.getLinks(), _shortcut.getIcon())
        
        #panel.generateContent()
-       
+
+   def getInstalledApps(self):
+       return self._installedApps.getStringArray()
+
+   def getEnabledPlugins(self):
+       return self._pluginList.getEnabledPlugins().getStringArray()
+              
    """
        def RunDebug(self, event):
            

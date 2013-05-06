@@ -20,11 +20,17 @@ class ShortcutList(Observer, Observable):
        Observable.__init__(self)
        Observer.__init__(self)
        self.shortcutList = shortcutList[:]
+   
+   def getStringArray(self):
+       result = []
+       for item in self.shortcutList:
+           result.append(item.getName())
+       return result
        
    def getList(self):
        return self.shortcutList
        
-class ShortcutListFromFolder(ShortcutList):  
+class ShortcutListFromUserFolder(ShortcutList):  
    def __init__(self):
        ShortcutList.__init__(self)
        self.env = Environment()

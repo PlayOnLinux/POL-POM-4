@@ -45,13 +45,38 @@ class ErrNoProgramSelected(Exception):
       return repr(_("You must select a program"))
 
 
+class ShortcutIcon(wx.Image):
+    def __init__(self, name, iconSize = 32):
+        self.env = Environment()
+        self._iconSize = iconSize
+        
+        if(iconSize == 32):
+            iconFolder = "32"
+        else:
+            iconFolder = "full_size"
+            
+        iconPath = self.env.getUserRoot()+"/icones/"+iconFolder+"/"+name
+        if(not os.path.exists(iconPath)):
+            iconPath = self.env.getAppPath()+"/etc/playonlinux.png"
+         
+        try:
+           wx.Image.__init__(self, iconPath) 
+           self.Rescale(iconSize,iconSize,wx.IMAGE_QUALITY_HIGH)
+        except wx._core.PyAssertionError:
+           wx.Image.__init__(self, self.env.getAppPath()+"/etc/playonlinux.png")
+           self.Rescale(iconSize,iconSize,wx.IMAGE_QUALITY_HIGH)
+           
+    def getBitmap(self):
+        return self.ConvertToBitmap()
+           
 class InstalledApps(wx.TreeCtrl, Observer, Observable):
-    def __init__(self, frame, id):
-        wx.TreeCtrl.__init__(self, frame, id, style = wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT)
+    def __init__(self, frame, controller):
+        wx.TreeCtrl.__init__(self, frame, 105, style = wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT)
         Observer.__init__(self)
         Observable.__init__(self)
         
         self.frame = frame
+        self.controller = controller
         self.SetSpacing(0)
         self.SetIndent(5)
         self.config = ConfigService()
@@ -75,10 +100,10 @@ class InstalledApps(wx.TreeCtrl, Observer, Observable):
         
         root = self.AddRoot("")
         i = 0
-        for shortcut in self.getSubject().getList():
-           if(searchFilter in shortcut.getName().lower()):
-               self.imagesAppList.Add(shortcut.getWxIcon(self.iconSize))
-               self.AppendItem(root, shortcut.getName(), i)
+        for shortcut in self.controller.getInstalledApps():
+           if(searchFilter in shortcut.lower()):
+               self.imagesAppList.Add(ShortcutIcon(shortcut, self.iconSize).getBitmap())
+               self.AppendItem(root, shortcut, i)
                i+=1
             
     def setIconSize(self, size = 32):
@@ -236,7 +261,7 @@ class Toolbar(wx.ToolBar, Observer):
         self.AddLabelTool(121, _("Configure"), self.uiHelper.getBitmap("toolbar/configure.png"))
 
         self.AddStretchableSpace()
-        """
+        """ FIXME linux ?
             self.toolbar.AddControl( self.searchbox ) 
             self.searchbox.SetDescriptiveText(_("Search"))
         """
@@ -254,8 +279,132 @@ class Toolbar(wx.ToolBar, Observer):
         self.stopTool.Enable(False)
         self.removeTool.Enable(False)
         
-           
-class MainWindow(wx.Frame,):
+class Menu(wx.Menu):  
+    def __init__(self):
+        wx.Menu.__init__(self)
+        self.uiHelper = UIHelper()
+        
+    def addItem(self, id, title, icon = None):
+        if(icon != None):
+            item = wx.MenuItem(self, id, title)            
+            item.SetBitmap(self.uiHelper.getBitmap(icon))
+            self.AppendItem(item)
+        else:
+            self.Append(id, title)
+
+class MenuBar(wx.MenuBar, Observer):
+    def __init__(self, controller, frame):
+        Observer.__init__(self)
+        wx.MenuBar.__init__(self)
+        self.controller = controller
+        self.frame = frame
+        self.env = Environment()
+        self.configService = ConfigService()
+        
+        ### File menu
+        filemenu = Menu()
+        
+        # On MacOS X, preference is always on the main menu
+        if(self.env.getOS() == "Mac"):
+            filemenu.Append(wx.ID_PREFERENCES, text = "&Preferences")
+            
+        filemenu.addItem(wx.ID_OPEN, _("Run"))
+        filemenu.addItem(wx.ID_ADD, _("Install"))
+        filemenu.addItem(wx.ID_DELETE, _("Remove"))
+        filemenu.AppendSeparator()
+        filemenu.addItem(216, _("Donate"))
+        filemenu.addItem(wx.ID_EXIT, _("Exit"))
+
+        ### Display menu
+        displaymenu = Menu()
+        icon16 = displaymenu.AppendRadioItem(501, _("Small icons"))
+        icon24 = displaymenu.AppendRadioItem(502, _("Medium icons"))
+        icon32 = displaymenu.AppendRadioItem(503, _("Large icons"))
+        icon48 = displaymenu.AppendRadioItem(504, _("Very large icons"))
+        
+        iconSize = self.frame.getAppList().getIconSize()
+        
+        if(iconSize == 16):
+            icon16.Check(True)
+        if(iconSize == 24):
+            icon24.Check(True)
+        if(iconSize == 32):
+            icon32.Check(True)
+        if(iconSize == 48):
+            icon48.Check(True)
+
+
+        # Expert menu
+        expertmenu = Menu()
+        expertmenu.addItem(107,  _('Manage Wine versions'), "menu/wine.png")
+        
+        if(self.env.getOS == "Mac"):
+            expertmenu.AppendSeparator()
+            expertmenu.addItem(113,  _('Read a PC cdrom'), "menu/cdrom.png")
+
+        expertmenu.AppendSeparator()
+        expertmenu.addItem(108,  _('Run a local script'), "menu/run.png")
+        expertmenu.addItem(115,  _('Close all {0} software').format(self.configService.getAppName()), "menu/wineserver.png")
+        expertmenu.addItem(110, _("{0} debugger").format(self.configService.getAppName()), "menu/bug.png")
+        expertmenu.addItem(109, _('{0} console').format(self.configService.getAppName()), "menu/polshell.png")
+       
+        expertmenu.AppendSeparator()
+        expertmenu.addItem(112, self.configService.getAppName()+" online", "menu/playonlinux_online.png")
+        expertmenu.addItem(111, _("{0} messenger").format(self.configService.getAppName()), "menu/people.png")
+        
+        # Option menu
+        optionmenu = Menu()
+        
+        optionmenu.addItem(221, _("Internet"), "menu/internet.png")
+        optionmenu.addItem(212,  _("File associations"), "menu/extensions.png")
+        optionmenu.addItem(213,  _("Plugin manager"), "menu/plugins.png")
+
+        help_menu = Menu()
+        help_menu.addItem(wx.ID_ABOUT,  _('About {0}').format(self.configService.getAppName()))
+
+
+        """
+        
+        """
+   
+        self.Append(filemenu, _("File"))
+        self.Append(displaymenu, _("Display"))
+        self.Append(expertmenu, _("Tools"))
+        self.Append(optionmenu, _("Settings"))
+            #self.menubar.Append(self.pluginsmenu, _("Plugins"))
+            #self.menubar.Append(self.help_menu, "&Help")
+            
+    def refreshPluginMenu(self):
+        try: 
+            self.pluginsmenu
+        except AttributeError:
+            pass 
+        else:
+            self.Remove(4)
+            self.pluginsmenu.Destroy()
+       
+        self.pluginsmenu = Menu()
+        
+        i = 0
+        for plugin in self.controller.getEnabledPlugins():
+            plugin_icon = self.env.getUserRoot()+"/plugins/"+plugin+"/icon"
+            if(not os.path.exists(plugin_icon)):
+               plugin_icon = self.configService.getAppPath()+"/resources/icons/playonlinux16.png"
+            self.pluginsmenu.addItem(300 + i, plugin, plugin_icon)
+            i += 1 
+            #wx.EVT_MENU(self, 300+self.j, self.run_plugin)
+
+        if(i > 0):
+            self.pluginsmenu.AppendSeparator()
+
+        self.pluginsmenu.addItem(214,  _("Plugin manager"), "menu/plugins.png")
+        self.Append(self.pluginsmenu, _("Plugins"))
+        
+        
+    def notify(self):
+        self.refreshPluginMenu()
+        
+class MainWindow(wx.Frame):
     def __init__(self, controller, id = -1):
         self.configService = ConfigService()
         self.env = Environment()
@@ -289,7 +438,7 @@ class MainWindow(wx.Frame,):
     
     
         
-        self._appList = InstalledApps(self, 105)
+        self._appList = InstalledApps(self, self.controller)
         self._menuPanel = MenuPanel(self, self.controller)
         
         # Left menu
@@ -308,149 +457,27 @@ class MainWindow(wx.Frame,):
         self._appList.register(self._menuPanel)
         
         # Menubar
-        self.drawMenuBar()
+        self._menuBar = MenuBar(self.controller, self)
+        self.SetMenuBar(self._menuBar)
+        
         
         # Status bar
         self.drawStatusBar()
         
 
+
+
+
+
         
         # Events
         wx.EVT_TEXT(self, 124,  self.eventSearch)
-        wx.EVT_MENU(self, wx.ID_ABOUT,  self.eventAbout)
+        
         wx.EVT_TREE_SEL_CHANGED(self, 105, self.eventSelect)
         wx.EVT_CLOSE(self, self.eventClosePol)
-        wx.EVT_MENU(self,  wx.ID_EXIT,  self.eventClosePol)
         
         wx.EVT_TREE_ITEM_ACTIVATED(self, 105, self.eventRunProgram) 
-        wx.EVT_MENU(self, wx.ID_OPEN,  self.eventRunProgram)
-        wx.EVT_MENU(self, 216,  self.eventDonate)
-         
-
         
-        # Program list event
-        #wx.EVT_TREE_SEL_CHANGED(self, 105, self.Select)
-
-    
-        # wx.EVT_MENU(self, 123,  self.RKill)
-  
-        # wx.EVT_MENU(self, wx.ID_ADD,  self.InstallMenu)
-    
-        #wx.EVT_MENU(self,  wx.ID_DELETE,  self.UninstallGame)
-      
-        # PlayOnLinux main timer
-        #self.timer = wx.Timer(self, 1)
-        #self.Bind(wx.EVT_TIMER, self.TimerAction, self.timer)
-        #self.timer.Start(1000)
-  
-        # SetupWindow timer. The server is in another thread and GUI must be run from the main thread
-        #self.SetupWindowTimer = wx.Timer(self, 2)
-        #self.Bind(wx.EVT_TIMER, self.readGuiServerQueue, self.SetupWindowTimer)
-        #self.SetupWindowTimer.Start(100)
-        #self.SetupWindowTimer_delay = 100
-
-        #Pop-up menu for game list: beginning
-        #wx.EVT_TREE_ITEM_MENU(self, 105, self.RMBInGameList)
-
-        #self.Bind(wx.EVT_SIZE, self.eventResizeWindow)
-
-        
-
-    def drawMenuBar(self):
-        self.filemenu = wx.Menu()
-        
-        ### On MacOS X, preference is always on the main menu
-        if(self.env.getOS() == "Mac"):
-            prefItem = self.filemenu.Append(wx.ID_PREFERENCES, text = "&Preferences")
-            self.Bind(wx.EVT_MENU, self.Options, prefItem)
-
-        ### File menu
-        self.filemenu.Append(wx.ID_OPEN, _("Run"))
-        self.filemenu.Append(wx.ID_ADD, _("Install"))
-        self.filemenu.Append(wx.ID_DELETE, _("Remove"))
-        self.filemenu.AppendSeparator()
-        self.filemenu.Append(216, _("Donate"))
-        self.filemenu.Append(wx.ID_EXIT, _("Exit"))
-
-        ### Display menu
-        self.displaymenu = wx.Menu()
-        self.icon16 = self.displaymenu.AppendRadioItem(501, _("Small icons"))
-        self.icon24 = self.displaymenu.AppendRadioItem(502, _("Medium icons"))
-        self.icon32 = self.displaymenu.AppendRadioItem(503, _("Large icons"))
-        self.icon48 = self.displaymenu.AppendRadioItem(504, _("Very large icons"))
-        
-        """
-        if(self.iconSize == 16):
-            self.icon16.Check(True)
-        if(self.iconSize == 24):
-            self.icon24.Check(True)
-        if(self.iconSize == 32):
-            self.icon32.Check(True)
-        if(self.iconSize == 48):
-            self.icon48.Check(True)
-"""
-
-        # Expert menu
-        self.expertmenu = wx.Menu()
-        self.addMenuItem(107,  _('Manage Wine versions'), "wine.png", self.expertmenu)
-
-        if(self.env.getOS == "Mac"):
-            self.expertmenu.AppendSeparator()
-            self.addMenuItem(113,  _('Read a PC cdrom'), "cdrom.png", self.expertmenu)
-            
-
-        self.expertmenu.AppendSeparator()
-        self.addMenuItem(108,  _('Run a local script'), "run.png", self.expertmenu)
-        self.addMenuItem(115,  _('Close all {0} software').format(self.configService.getAppName()), "wineserver.png", self.expertmenu)
-        self.addMenuItem(110, _("{0} debugger").format(self.configService.getAppName()), "bug.png", self.expertmenu)
-        self.addMenuItem(109, _('{0} console').format(self.configService.getAppName()), "polshell.png", self.expertmenu)
-       
-        self.expertmenu.AppendSeparator()
-        self.addMenuItem(112, self.configService.getAppName()+" online", "playonlinux_online.png", self.expertmenu)
-        self.addMenuItem(111, _("{0} messenger").format(self.configService.getAppName()), "people.png", self.expertmenu)
-        
-        # Option menu
-        self.optionmenu = wx.Menu()
-        
-        self.addMenuItem(221, _("Internet"), "internet.png", self.optionmenu)
-        self.addMenuItem(212,  _("File associations"), "extensions.png", self.optionmenu)
-        self.addMenuItem(213,  _("Plugin manager"), "plugins.png", self.optionmenu)
-
-        self.help_menu = wx.Menu()
-        self.addMenuItem(wx.ID_ABOUT,  _('About {0}').format(self.configService.getAppName()), None, self.help_menu)
-
-        self.pluginsmenu = wx.Menu()
-
-        plugin_files = os.listdir(self.env.getAppPath()+"/plugins")
-        plugin_files.sort()
-        self.plugin_list = []
-        
-        for plugin in plugin_files:
-            if(os.path.exists(self.env.getUserRoot()+"/plugins/"+plugin+"/scripts/menu")):
-                if(os.path.exists(self.env.getUserRoot()+"/plugins/"+plugin+"/enabled")):
-
-                    plugin_icon = self.env.getUserRoot()+"/plugins/"+plugin+"/icon"
-                    
-                    if(not os.path.exists(plugin_icon)):
-                        plugin_icon = self.configService.getAppPath()+"/resources/icons/playonlinux16.png"
-
-                    self.addMenuItem(300+self+j, plugin, plugin_icon, self.pluginsmenu)
-                    wx.EVT_MENU(self, 300+self.j, self.run_plugin)
-                    self.plugin_list.append(plugin)
-
-        if(len(self.plugin_list) > 0):
-            self.pluginsmenu.AppendSeparator()
-
-        self.addMenuItem(214,  _("Plugin manager"), "plugins.png", self.pluginsmenu)
-        
-        self.menubar = wx.MenuBar()
-        self.menubar.Append(self.filemenu, _("File"))
-        self.menubar.Append(self.displaymenu, _("Display"))
-        self.menubar.Append(self.expertmenu, _("Tools"))
-        self.menubar.Append(self.optionmenu, _("Settings"))
-        self.menubar.Append(self.pluginsmenu, _("Plugins"))
-        self.menubar.Append(self.help_menu, "&Help")
-        self.SetMenuBar(self.menubar)
         
         # Display
         wx.EVT_MENU(self, 501,  self.changeIconSize)
@@ -480,8 +507,43 @@ class MainWindow(wx.Frame,):
         wx.EVT_MENU(self, 215,  self.Options)
         
         # Miscellaneous    
+        wx.EVT_MENU(self, wx.ID_ABOUT,  self.eventAbout)
+        wx.EVT_MENU(self,  wx.ID_EXIT,  self.eventClosePol)
+        wx.EVT_MENU(self, wx.ID_OPEN,  self.eventRunProgram)
+        wx.EVT_MENU(self, 216,  self.eventDonate)
+    
+        
+         
 
+        #if(self.env.getOS() == "Mac"):
+            #self.Bind(wx.EVT_MENU, self.Options, prefItem)
+        # Program list event
+        #wx.EVT_TREE_SEL_CHANGED(self, 105, self.Select)
 
+    
+        # wx.EVT_MENU(self, 123,  self.RKill)
+  
+        # wx.EVT_MENU(self, wx.ID_ADD,  self.InstallMenu)
+    
+        #wx.EVT_MENU(self,  wx.ID_DELETE,  self.UninstallGame)
+      
+        # PlayOnLinux main timer
+        #self.timer = wx.Timer(self, 1)
+        #self.Bind(wx.EVT_TIMER, self.TimerAction, self.timer)
+        #self.timer.Start(1000)
+  
+        # SetupWindow timer. The server is in another thread and GUI must be run from the main thread
+        #self.SetupWindowTimer = wx.Timer(self, 2)
+        #self.Bind(wx.EVT_TIMER, self.readGuiServerQueue, self.SetupWindowTimer)
+        #self.SetupWindowTimer.Start(100)
+        #self.SetupWindowTimer_delay = 100
+
+        #Pop-up menu for game list: beginning
+        #wx.EVT_TREE_ITEM_MENU(self, 105, self.RMBInGameList)
+
+        #self.Bind(wx.EVT_SIZE, self.eventResizeWindow)
+
+     
     def drawStatusBar(self):
         self.statusBar = wx.StatusBar(self, -1 )
         self.statusBar.SetFieldsCount(2)
@@ -684,14 +746,7 @@ class MainWindow(wx.Frame,):
         wx.EVT_MENU(self, 236, self.ReadMe)
         
 
-    def addMenuItem(self, id, title, icon, menu):
-        if(icon != None):
-            item = wx.MenuItem(menu, id, title)            
-            item.SetBitmap(self.uiHelper.getBitmap("menu/"+icon))
-            menu.AppendItem(item)
-        else:
-            menu.Append(id, title)
-            
+    
         
     def RWineConfigurator(self, event):
         self.RConfigure(_("Configure Wine"), "nothing")
@@ -911,6 +966,9 @@ class MainWindow(wx.Frame,):
     def getToolbar(self):
         return self._toolbar
     
+    def getMenuBar(self):
+        return self._menuBar
+        
     def getMenuPanel(self):
         return self._menuPanel  
         
