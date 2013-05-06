@@ -52,6 +52,10 @@ class InstalledApps(wx.TreeCtrl, Observer):
         self.env = Environment()
         self.config = ConfigService()
         self.iconSize = self.config.getIntSetting("ICON_SIZE", default = 32)
+        self.searchFilter = ""
+
+    def setSearchFilter(self, text):
+        self.searchFilter = text
         
     def writeShortcuts(self, searchFilter = ""):
         self.DeleteAllItems()       
@@ -88,7 +92,7 @@ class InstalledApps(wx.TreeCtrl, Observer):
         return self.iconSize
          
     def refresh(self):
-        self.writeShortcuts()
+        self.writeShortcuts(self.searchFilter)
         
     def notify(self):
         self.refresh()
@@ -234,7 +238,6 @@ class MainWindow(wx.Frame):
         
         
         # Program list event
-        #wx.EVT_TREE_ITEM_ACTIVATED(self, 105, self.Run)
         #wx.EVT_TREE_SEL_CHANGED(self, 105, self.Select)
 
 
@@ -369,7 +372,7 @@ class MainWindow(wx.Frame):
         wx.EVT_MENU(self, 115,  self.scriptKillall)
         wx.EVT_MENU(self, 121,  self.Configure)
         wx.EVT_MENU(self, 122,  self.Package)
-        wx.EVT_TEXT(self, 124,  self.searchEvent)
+        wx.EVT_TEXT(self, 124,  self.eventSearch)
 
         #Options
         wx.EVT_MENU(self, 210,  self.Options)
@@ -379,9 +382,7 @@ class MainWindow(wx.Frame):
         wx.EVT_MENU(self, 214,  self.Options)
         wx.EVT_MENU(self, 215,  self.Options)
         
-        # Miscellaneous
-        wx.EVT_MENU(self, 216,  self.donate)
-        
+        # Miscellaneous    
 
     def drawToolBar(self):
         self.toolbar = self.CreateToolBar(wx.TB_TEXT)
@@ -414,7 +415,6 @@ class MainWindow(wx.Frame):
 
         self.toolbar.Realize()
         
-        wx.EVT_MENU(self, wx.ID_OPEN,  self.Run)
         wx.EVT_MENU(self, 123,  self.RKill)
 
         wx.EVT_MENU(self, wx.ID_ADD,  self.InstallMenu)
@@ -795,15 +795,14 @@ class MainWindow(wx.Frame):
                 except:
                     pass
 
-    def donate(self, event):
-        if(Context().getOS() == "Mac"):
-            webbrowser.open("http://www.playonmac.com/en/donate.html")
-        else:
-            webbrowser.open("http://www.playonlinux.com/en/donate.html")
 
 
-    def searchEvent(self, event):
-        self.writeShortcutsToWidget(forceRefresh = True, searchFilter = self.searchbox.GetValue().encode("utf-8","replace").lower())
+    
+
+
+    def eventSearch(self, event):
+        self.appList.setSearchFilter(self.searchbox.GetValue().encode("utf-8","replace").lower())
+        self.appList.refresh()
 
 
     def RConfigure(self, function_to_run, firstargument):
@@ -903,38 +902,7 @@ class MainWindow(wx.Frame):
 
     
         
-    def Run(self, event, s_debug=False):
-        self.selectedProgram =  self.getSelectedShortcut()
-        selectedProgram = self.selectedProgram
-        game_exec = selectedProgram.getName()
-        game_prefix = selectedProgram.getPrefix()
-
-        if(s_debug == False):
-            selectedProgram.setDebug(False)
-
-        if(game_prefix.exists()):
-            if(game_exec != ""):
-                if(selectedProgram.isDebug()):
-                    try:
-                        self.debugFrame.analyseReal(0, game_prefix.getName())
-                        self.debugFrame.Show()
-                        self.debugFrame.SetFocus()
-                    except:
-                        self.debugFrame = debug.MainWindow(None, -1, _("{0} debugger").format(Context().getAppName()),game_prefix.getName(),0)
-                        self.debugFrame.Center(wx.BOTH)
-                        self.debugFrame.Show()
   
-                selectedProgram.run()
-            else:
-                wx.MessageBox(_("Please select a program."), Context().getAppName())
-        else:
-            wx.MessageBox(_("The virtual drive associated with {0} ({1}) does no longer exists.").format(game_exec, game_prefix.getName()), Context().getAppName())
-
-    def RunDebug(self, event):
-        game_exec = self.getSelectedShortcut()
-        playonlinux.SetDebugState(game_exec, True)
-        self.Run(self, True)
-
 
 
     # Getters

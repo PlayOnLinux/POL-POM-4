@@ -8,9 +8,9 @@ import os, string, shutil
 
 # playonlinux imports
 from services.ConfigFile import ConfigFile
+from services.Environment import Environment
 
-
-class Prefix():
+class Prefix(object):
    def __init__(self, prefixName):
        self.env = Environment()
        self.selectedPrefix = prefixName
@@ -26,7 +26,7 @@ class Prefix():
        return getConfigFile(self.getConfigFilePath())
        
    def getPath(self):
-       return self.context.getUserRoot()+"/wineprefix/"+self.selectedPrefix
+       return self.env.getUserRoot()+"/wineprefix/"+self.selectedPrefix
              
    def exists(self):
        # Return true if the prefix exists
@@ -46,7 +46,7 @@ class Prefix():
            return arch
    
    def getWineVersion():
-       return WineVersion(self.context, self.getWineVersion(), self.getArch())
+       return WineVersion(self.getWineVersionString(), self.getArch())
        
    def getShortcutList(self):
        existing_shortcuts = Shortcut.getList()

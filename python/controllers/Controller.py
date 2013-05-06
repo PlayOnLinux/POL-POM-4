@@ -3,6 +3,8 @@
 
 # Copyright (C) 2007-2013 PlayOnLinux Team
 
+import webbrowser
+
 from services.Environment import Environment
 from services.ConfigService import ConfigService
 
@@ -13,6 +15,7 @@ from models.GuiServer import *
 from models.Executable import Executable
 from models.Directory import *
 from models.ShortcutList import *
+from models.Shortcut import *
 
 # Views
 from views.Question import Question
@@ -36,13 +39,20 @@ class Controller(object):
       self.registerEvents()
       
    def registerEvents(self):
-       ## Main window events
-       # Closing events
+       ### Main window events
+       ## Closing events
        wx.EVT_CLOSE(self.app.getMainWindow(), self.eventClosePol)
        wx.EVT_MENU(self.app.getMainWindow(),  wx.ID_EXIT,  self.eventClosePol)
        
-       # Menu events
+       ## Run a program
+       # Double click on the list
+       wx.EVT_TREE_ITEM_ACTIVATED(self.app.getMainWindow(), 105, self.eventRunProgram) 
+       # Toolbar button
+       wx.EVT_MENU(self.app.getMainWindow(), wx.ID_OPEN,  self.eventRunProgram)
+       
+       ## Menu events
        wx.EVT_MENU(self.app.getMainWindow(), wx.ID_ABOUT,  self.eventAboutPlayOnLinux)
+       wx.EVT_MENU(self.app.getMainWindow(), 216,  self.eventDonate)
        
    # Events
    def eventClosePol(self, event):
@@ -68,7 +78,42 @@ class Controller(object):
            
    def eventAboutPlayOnLinux(self, event):
        self.app.getMainWindow().aboutPlayOnLinux()
-                 
+      
+   def eventDonate(self, event):
+        if(self.env.getOS() == "Mac"):
+            webbrowser.open("http://www.playonmac.com/en/donate.html")
+        else:
+            webbrowser.open("http://www.playonlinux.com/en/donate.html")
+    
+   def eventRunProgram(self, event):
+       selectedProgram = Shortcut(self.app.getMainWindow().getAppList().getSelectedShortcut())
+       shortcutName = selectedProgram.getName()
+
+       selectedProgram.setDebug(False)
+       
+       try:
+           selectedProgram.run()
+       except ErrPrefixDoesNotExist:
+           Error(_("The virtual drive associated with {0} does not exists.").format(shortcutName))
+       
+   """
+       def RunDebug(self, event):
+           
+           if(selectedProgram.isDebug()):
+               try:
+                   self.debugFrame.analyseReal(0, game_prefix.getName())
+                   self.debugFrame.Show()
+                   self.debugFrame.SetFocus()
+               except:
+                   self.debugFrame = debug.MainWindow(None, -1, _("{0} debugger").format(Context().getAppName()),game_prefix.getName(),0)
+                   self.debugFrame.Center(wx.BOTH)
+                   self.debugFrame.Show()
+           
+           game_exec = self.getSelectedShortcut()
+           playonlinux.SetDebugState(game_exec, True)
+           self.Run(self, True)
+   """       
+                          
    def appStartupBeforeServer(self):
        startupScript = PrivateScript("startup")
        startupScript.start()

@@ -12,7 +12,11 @@ from models.Prefix import Prefix
 
 from services.Environment import Environment
 
-        
+class ErrPrefixDoesNotExist(Exception):
+   def __str__(self):
+      return repr(_("The virtual drive associated to this shortcut does not exist"))
+
+
 class Shortcut(object):
    def __init__(self, shortcutName, args = []):
       self.args = args[:]
@@ -21,10 +25,12 @@ class Shortcut(object):
       self.shortcutPath = self.env.getUserRoot()+"/shortcuts/"+shortcutName
       
    def run(self):
-       arguments = [self.shortcutName] + self.args
-       self.shortcutScript = PrivateGUIScript("run_app", arguments)
-       self.shortcutScript.start()
-       
+       if(self.getPrefix().exists()):
+           arguments = [self.shortcutName] + self.args
+           self.shortcutScript = PrivateGUIScript("run_app", arguments)
+           self.shortcutScript.start()
+       else:
+           raise ErrPrefixDoesNotExist
        
    def getName(self):
        return self.shortcutName

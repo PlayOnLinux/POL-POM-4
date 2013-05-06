@@ -11,8 +11,11 @@ class ErrNoPOLOS(Exception):
    def __str__(self):
       return repr(_("POL_OS is not set"))      
       
-      
-# This class read information from environement (PlayOnLinux config files, OS, ...)
+class ErrUnknownOS(Exception):
+   def __str__(self):
+      return repr(_("Unknown OS"))     
+       
+# This class read information from environement
 class Environment(object):    
    def __init__(self):
        self.customEnv = os.environ.copy()
@@ -27,7 +30,14 @@ class Environment(object):
        if(current_os == ""):
            raise ErrNoPOLOS
        return current_os
-           
+       
+   def getOSCodeName(self):
+      if(self.getOS() == "Mac"):
+          return "darwin"
+      if(self.getOS() == "Linux"):
+          return "linux"
+      raise ErrUnknownOS
+         
    def getAppPath(self): 
       return os.path.realpath(os.path.realpath(__file__)+"/../../../") 
    

@@ -4,13 +4,16 @@
 
 # Python
 
+from services.Environment import Environment
+
+
 from lib.ConfigFile import FiletypeConfigFile
 from lib.PlayOnLinux import PlayOnLinux
-import wx, os
+
 
 class WineVersion(object):
     def __init__(self, version, arch):
-        self.context = PlayOnLinux()
+        self.env = Environment()
         self.version = version
         self.arch = arch
         
@@ -18,7 +21,7 @@ class WineVersion(object):
         if(version == ""):
             return ""
         else:
-            return self.context.getUserRoot()+"/wine/"+self.context.getOSCodeName()+"-"+arch+"/"+version+"/"
+            return self.env.getUserRoot()+"/wine/"+self.env.getOSCodeName()+"-"+arch+"/"+version+"/"
          
     def exists(self):
         if(version == ""):
