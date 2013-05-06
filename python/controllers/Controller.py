@@ -65,8 +65,9 @@ class Controller(object):
            
            
            self.app.polDie()
-   def eventAboutPlayOnLinux():
-       self._mainWindow.aboutPlayOnLinux()
+           
+   def eventAboutPlayOnLinux(self, event):
+       self.app.getMainWindow().aboutPlayOnLinux()
                  
    def appStartupBeforeServer(self):
        startupScript = PrivateScript("startup")

@@ -50,8 +50,9 @@ class InstalledApps(wx.TreeCtrl, Observer):
         self.SetSpacing(0)
         self.SetIndent(5)
         self.env = Environment()
-        self.iconSize = 32
-        
+        self.config = ConfigService()
+        self.iconSize = self.config.getIntSetting("ICON_SIZE", default = 32)
+     
     def writeShortcuts(self, searchFilter = ""):
         self.DeleteAllItems()       
         self.SetImageList(wx.ImageList(1,1))
@@ -78,16 +79,96 @@ class InstalledApps(wx.TreeCtrl, Observer):
             self.window.stopTool.Enable(False)
             self.window.removeTool.Enable(False)
     
-    def setIconSize(self, size):
+    def setIconSize(self, size = 32):
         self.iconSize = size
+        self.config.setSetting("ICON_SIZE",str(size))
         self.refresh()
-        
+    
+    def getIconSize(self):
+        return self.iconSize
+         
     def refresh(self):
         self.writeShortcuts()
         
     def notify(self):
         self.refresh()
-             
+   
+    def getSelectedShortcut(self):
+        selectedName = self.GetItemText(self.GetSelection()) # FIXME ? .encode("utf-8","replace")
+        
+        if(selectedName == ""):
+            raise ErrNoProgramSelected
+            
+        return selectedName
+        
+class PanelManager(wx.aui.AuiManager):
+    def __init__(self, frame):
+        wx.aui.AuiManager.__init__(self, frame)
+        self.config = ConfigService()
+        
+    def _getPerspectiveName(self):
+        name = self.SavePerspective().split("=")
+        name = name[1].split(";")
+        name = name[0]
+        return name 
+
+    def getPerspective(self):
+        return self.SavePerspective().replace(self._getPerspectiveName(),"PERSPECTIVE_NAME")
+        
+    def savePosition(self):
+        self.config.setSetting("PANEL_PERSPECTIVE", self.getPerspective())
+        
+    def restorePosition(self):
+        self.Update()
+        setting = self.config.getSetting("PANEL_PERSPECTIVE")
+        if(setting != ""):
+            self.LoadPerspective(setting.replace("PERSPECTIVE_NAME",self._getPerspectiveName()))
+        self.Update()
+         
+    def AddPane(self, data, settings):
+        wx.aui.AuiManager.AddPane(self, data, settings)
+        
+    def Destroy(self):
+        self.savePosition()
+        
+        #wx.aui.AuiManager.Destroy(self)
+        
+                  
+class MenuPanel(wx.Panel):
+    def __init__(self, frame, id = -1):
+        wx.Panel.__init__(frame, id)   
+        self.frame = frame
+        self.uiHelper = UIHelper()
+        self.env = Environment()
+        self.menuElem = {}
+        self.menuImage = {}
+        
+    def addTitle(self, name, text, pos):
+        self.menuElem[name] = wx.StaticText(self, -1, text, pos=(5,5+pos*20))
+        self.menuElem[name].SetForegroundColour((0,0,0))
+        self.menuElem[name].SetFont(self.uiHelper.getFontTitle())
+
+    def addLink(self, name, text, pos, image, url=None):
+        if(os.path.exists(image)):
+            menu_icone = image
+        else:
+            menu_icone = self.env.getAppPath()+"/etc/playonlinux.png"
+
+        bitmap = wx.Image(menu_icone)
+        bitmap.Rescale(16, 16, wx.IMAGE_QUALITY_HIGH)
+        bitmap = bitmap.ConvertToBitmap()
+        self.menuImage[id] = wx.StaticBitmap(self.menuPanel, id=-1, bitmap, pos=(10,15+pos*20))
+
+        if(url == None):
+            url = ""
+        
+        self.menuElem[name] = wx.HyperlinkCtrl(self.menuPanel, 10000 + pos, text, url, pos=(35,15+pos*20))
+        self.menuElem[name].SetNormalColour(wx.Colour(0,0,0))
+        self.menuElem[name].SetVisitedColour(wx.Colour(0,0,0))
+        self.menuElem[name].SetHoverColour(wx.Colour(100,100,100))
+
+    
+                
 class MainWindow(wx.Frame):
     def __init__(self, id = -1):
         self.configService = ConfigService()
@@ -115,32 +196,27 @@ class MainWindow(wx.Frame):
             self.Center(wx.BOTH)
             
              
-        # self.iconSize = self.playonlinuxSettings.getIntSetting("ICON_SIZE", default = 32)
-        # self.shortcutList = ShortcutListFromFolder(Context().getUserRoot()+"/shortcuts/")
-        
+    
         self.appList = InstalledApps(self)
-        #self.appList.SetSpacing(0);
-        #self.appList.SetIndent(5);
-        
+        self.menuPanel = MenuPanel(self)
+       
         
                   
         # Manage updater
         #self.updater = POLWeb()
         #self.updater.start()
 
-        # These lists contain the dock links and images 
-        self.menuElem = {}
-        self.menuImage = {}
+
         
-            
-        # App List
-        # self.drawAppList()
         
         # Left panel
-        #self._mgr = wx.aui.AuiManager(self)
-        #self.leftPanel = wx.Panel(self,-1)
-        #self._mgr.AddPane(self.appList, wx.CENTER)
-        #self.MgrAddPage()
+        self._mgr = PanelManager(self)
+        self._mgr.AddPane(self.appList, wx.CENTER)
+        self._mgr.AddPane(self.menuPanel, wx.aui.AuiPaneInfo().Name('Actions').Caption('Actions').Left().BestSize((200,400)).Floatable(True).CloseButton(False).TopDockable(False).BottomDockable(False))
+        self._mgr.restorePosition()     
+        
+        
+        self.menuPanel.Show()
              
 
         # Menubar
@@ -177,7 +253,7 @@ class MainWindow(wx.Frame):
         #Pop-up menu for game list: beginning
         #wx.EVT_TREE_ITEM_MENU(self, 105, self.RMBInGameList)
 
-        #self.Bind(wx.EVT_SIZE, self.ResizeWindow)
+        #self.Bind(wx.EVT_SIZE, self.eventResizeWindow)
 
         
 
@@ -359,13 +435,9 @@ class MainWindow(wx.Frame):
         self.SetStatusBar(self.statusBar)
         
         
-    def ResizeWindow(self, e):
+    def eventResizeWindow(self, e):
         self.jaugeUpdate.SetPosition((self.GetSize()[0]-100, UIHelper().updateJaugeMarginTop()))
-        if(self.SpaceHack == True):
-            self.dirtyHack.SetLabel("")
-            self.dirtyHack.SetSize((50,1))
-        
-      
+                
       
         
         
@@ -462,23 +534,6 @@ class MainWindow(wx.Frame):
         
         
             
-    def MgrAddPage(self):
-        loadSize = self.playonlinuxSettings.getIntSetting("PANEL_SIZE", default = 150)
-        loadPosition = self.playonlinuxSettings.getSetting("PANEL_POSITION")
-        
-        if(loadSize < 20):
-            loadSize = 20
-        if(loadSize > 1000):
-            loadSize = 1000
-
-        if(loadPosition == "LEFT"):
-            self._mgr.AddPane(self.leftPanel, wx.aui.AuiPaneInfo().Name('Actions').Caption('Actions').Left().BestSize((loadSize,400)).Floatable(True).CloseButton(False).TopDockable(False).BottomDockable(False))
-        else:
-            self._mgr.AddPane(self.leftPanel, wx.aui.AuiPaneInfo().Name('Actions').Caption('Actions').Right().BestSize((loadSize,400)).Floatable(True).CloseButton(False).TopDockable(False).BottomDockable(False))
-        self.leftPanel.Show()
-
-        self._mgr.Update()
-
     def StatusRead(self):
         self.statusBar.SetStatusText(self.updater.sendToStatusBarStr, 0)
         if(self.updater.Gauge == True):
@@ -729,12 +784,7 @@ class MainWindow(wx.Frame):
 
             icon = Context().getUserRoot()+"/icones/full_size/"+shortcut
 
-            self.perspective = self._mgr.SavePerspective().split("|")
-            self.perspective = self.perspective[len(self.perspective) - 2].split("=")
 
-            left_pos = (int(self.perspective[1]) - 50)/2
-            if(left_pos <= 0):
-                left_pos = (200-48)/2
 
             if(os.path.exists(icon)):
                 try:
@@ -742,42 +792,9 @@ class MainWindow(wx.Frame):
                     if(self.bitmap.GetWidth() >= 48):
                         self.bitmap.Rescale(48,48,wx.IMAGE_QUALITY_HIGH)
                         self.bitmap = self.bitmap.ConvertToBitmap()
-                        self.menuBitmap = wx.StaticBitmap(self.leftPanel, id=-1, bitmap=self.bitmap, pos=(left_pos,20+(i+2)*20))
+                        self.menuBitmap = wx.StaticBitmap(self.menuPanel, id=-1, bitmap=self.bitmap, pos=(left_pos,20+(i+2)*20))
                 except:
                     pass
-
-    def menuGaucheAddTitle(self,id,text,pos):
-        self.menuElem[id] = wx.StaticText(self.leftPanel, -1, text,pos=(5,5+pos*20))
-        self.menuElem[id].SetForegroundColour((0,0,0)) # For dark themes
-        self.menuElem[id].SetFont(UIHelper().getFontTitle())
-
-
-    def addLinkToLeftMenu(self,id,text,pos,image,evt,url=None):
-        if(os.path.exists(image)):
-            menu_icone = image
-        else:
-            menu_icone = Context().getAppPath()+"/etc/playonlinux.png"
-
-        try:
-            self.bitmap = wx.Image(menu_icone)
-            self.bitmap.Rescale(16,16,wx.IMAGE_QUALITY_HIGH)
-            self.bitmap = self.bitmap.ConvertToBitmap()
-            self.menuImage[id] = wx.StaticBitmap(self.leftPanel, id=-1, bitmap=self.bitmap, pos=(10,15+pos*20))
-
-        except:
-            pass
-
-        if(url == None):
-            self.menuElem[id] = wx.HyperlinkCtrl(self.leftPanel, 10000+pos, text, "", pos=(35,15+pos*20))
-        else:
-            self.menuElem[id] = wx.HyperlinkCtrl(self.leftPanel, 10000+pos, text, url, pos=(35,15+pos*20))
-
-        self.menuElem[id].SetNormalColour(wx.Colour(0,0,0))
-        self.menuElem[id].SetVisitedColour(wx.Colour(0,0,0))
-        self.menuElem[id].SetHoverColour(wx.Colour(100,100,100))
-
-        if(evt != None):
-            wx.EVT_HYPERLINK(self, 10000+pos, evt)
 
     def donate(self, event):
         if(Context().getOS() == "Mac"):
@@ -885,13 +902,7 @@ class MainWindow(wx.Frame):
             self.wversion.Center(wx.BOTH)
             self.wversion.Show(True)
 
-    def getSelectedShortcut(self):
-        selectedName = self.appList.GetItemText(self.appList.GetSelection()).encode("utf-8","replace")
-        
-        if(selectedName == ""):
-            raise ErrNoProgramSelected
-            
-        return Shortcut(selectedName)
+    
         
     def Run(self, event, s_debug=False):
         self.selectedProgram =  self.getSelectedShortcut()
@@ -927,36 +938,13 @@ class MainWindow(wx.Frame):
 
 
 
-        
-    def savePanelParametersToConfig(self):
-        # Very ugly, need to be fixed
-        self._mgr.UnInit()
-            
-        self.perspective = self._mgr.SavePerspective().split("|")
-        self.perspective = self.perspective[len(self.perspective) - 2].split("=")
-
-        self.DockType = self.perspective[0]
-        self.mySize = 200
-        self.myPosition = "LEFT"
-
-        if(self.DockType == "dock_size(4,0,0)"):
-            self.mySize = int(self.perspective[1]) - 2
-            self.myPosition = "LEFT"
-
-        if(self.DockType == "dock_size(2,0,1)" or self.DockType == "dock_size(2,0,0)" or "dock_size(2," in self.DockType):
-            self.mySize = int(self.perspective[1]) - 2
-            self.myPosition = "RIGHT"
-
-        self.playonlinuxSettings.setSetting("PANEL_SIZE",str(self.mySize))
-        self.playonlinuxSettings.setSetting("PANEL_POSITION",str(self.myPosition))
-        
-    
     # Getters
     def getAppList(self):
         return self.appList
            
            
     def aboutPlayOnLinux(self):
+        # FIXME
         aboutWindow = PolAbout()
         aboutWindow.show()   
         
@@ -971,4 +959,5 @@ class MainWindow(wx.Frame):
                 
     def Destroy(self):
         self.saveWindowParametersToConfig()
+        self._mgr.Destroy()
         wx.Frame.Destroy(self)

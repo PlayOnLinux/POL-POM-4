@@ -29,7 +29,10 @@ class ConfigFile(object):
           return ""
           
       line = string.split(line,"=")
-      return(line[1])
+      line = line[1]
+      line = line.replace("%3D", "=")
+      line = line.replace("%25","%")
+      return(line)
      
 
    def getIntSetting(self, setting, default = 0):
@@ -41,6 +44,8 @@ class ConfigFile(object):
        return valeurInt
        
    def setSetting(self, setting, value):
+      value = value.replace("%","%25")
+      value = value.replace("=","%3D")
       try:
          configFileContent = open(self.configFile,"r").readlines()
          fileExists = True
