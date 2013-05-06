@@ -18,14 +18,19 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 encoding = 'utf-8'
 
-from views.PlayOnLinuxApp import PlayOnLinuxApp
+import os, wx, gettext, locale
 
+from views.PlayOnLinuxApp import PlayOnLinuxApp
 from controllers.Controller import Controller
 
 from services.Environment import Environment
 from services.ConfigService import ConfigService
 
 
-playOnLinuxApp = PlayOnLinuxApp(redirect=False)
-controller = Controller(playOnLinuxApp)      
+
+
+
+controller = Controller()
+playOnLinuxApp = PlayOnLinuxApp(controller)
+controller.initPlayOnLinux()
 playOnLinuxApp.MainLoop()

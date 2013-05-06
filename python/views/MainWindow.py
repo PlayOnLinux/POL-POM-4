@@ -24,6 +24,7 @@ import wx, wx.aui
 # Views
 from views.UIHelper import UIHelper
 from views.PolAbout import PolAbout
+from views.Question import Question
 
 # from views.SetupWindow import SetupWindow
 # from views.Question import Question
@@ -135,7 +136,7 @@ class PanelManager(wx.aui.AuiManager):
         
                   
 class MenuPanel(wx.Panel, Observer):
-    def __init__(self, frame, id = -1):
+    def __init__(self, frame, controller, id = -1):
         wx.Panel.__init__(self, frame, id)   
         Observer.__init__(self)
         
@@ -184,14 +185,9 @@ class MenuPanel(wx.Panel, Observer):
         
         self.menuElems = []
         self.currentPosition = 0
-        
-    def notify(self):
-        self.generateContent()
-        
-    def generateContent(self, shortcut = None):
+    
+    def generateContent(self, selectedShortcut = None):
         self.destroyContent()
-
-        
 
         self.addTitle(self.config.getAppName())
         self.addLink(_("Install a program"), 10001, "menu/add.png")
@@ -200,18 +196,17 @@ class MenuPanel(wx.Panel, Observer):
         if(self.env.isGIT()):
             self.addLink(_("Update GIT"), 10004, "menu/update_git.png")
 
-        if(shortcut != None):
-            self.addTitle(shortcut)
+        if(selectedShortcut != None):       
+            self.addTitle(selectedShortcut)
             self.addLink(_("Run"), 10006, "menu/media-playback-start.png")
             self.addLink(_("Close"), 10007,"menu/media-playback-stop.png")
             self.addLink(_("Debug"), 10008,"menu/bug.png")
             self.addLink(_("Configure"), 10009,"menu/run.png")
             self.addLink(_("Create a shortcut"), 10010,"menu/shortcut.png")
             self.addLink(_("Open the directory"), 10011,"menu/folder-wine.png")
-            
-            #if(os.path.exists(Context().getUserRoot()+"/configurations/manuals/"+shortcut)):
-            #    self.addLink("pol_prgm_readme", _("Read the manual"), i,"menu/manual.png",self.ReadMe)
-            self.addLink(_("Uninstall"), 10012,"menu/window-close.png")
+           
+            self.addLink(_("Read the manual"), 10012,"menu/manual.png")
+            self.addLink(_("Uninstall"), 10013,"menu/window-close.png")
 
             """
             self.linksfile = Context().getUserRoot()+"/configurations/links/"+shortcut
@@ -220,7 +215,7 @@ class MenuPanel(wx.Panel, Observer):
                 for line in self.linksc:
                     if("|" in line):
                         line = line.split("|")
-                        
+                       
                         if("PROFILEBUTTON/" in line[0]):
                             line[0] = line[0].replace("PROFILEBUTTON/","")
 
@@ -235,6 +230,11 @@ class MenuPanel(wx.Panel, Observer):
                     self.bitmap = self.bitmap.ConvertToBitmap()
                     self.menuBitmap = wx.StaticBitmap(self.menuPanel, id=-1, bitmap=self.bitmap, pos=(left_pos,20+(self.currentPosition+2)*20))
             """
+    
+     
+    def notify(self):
+        self.generateContent()
+    
 
 class Toolbar(wx.ToolBar, Observer):
     def __init__(self, frame):
@@ -274,11 +274,12 @@ class Toolbar(wx.ToolBar, Observer):
         self.removeTool.Enable(False)
         
            
-class MainWindow(wx.Frame):
-    def __init__(self, id = -1):
+class MainWindow(wx.Frame,):
+    def __init__(self, controller, id = -1):
         self.configService = ConfigService()
         self.env = Environment()
         self.uiHelper = UIHelper()
+        self.controller = controller
         
         wx.Frame.__init__(self, None, id, self.configService.getAppName(), size = (515,450))
         self.SetIcon(self.uiHelper.getIcon("playonlinux.png"))
@@ -308,7 +309,7 @@ class MainWindow(wx.Frame):
     
         
         self._appList = InstalledApps(self, 105)
-        self._menuPanel = MenuPanel(self)
+        self._menuPanel = MenuPanel(self, self.controller)
         
         # Left menu
         self._mgr = PanelManager(self)
@@ -333,12 +334,18 @@ class MainWindow(wx.Frame):
         
 
         
-        # UI events
+        # Events
         wx.EVT_TEXT(self, 124,  self.eventSearch)
         wx.EVT_MENU(self, wx.ID_ABOUT,  self.eventAbout)
         wx.EVT_TREE_SEL_CHANGED(self, 105, self.eventSelect)
-    
+        wx.EVT_CLOSE(self, self.eventClosePol)
+        wx.EVT_MENU(self,  wx.ID_EXIT,  self.eventClosePol)
         
+        wx.EVT_TREE_ITEM_ACTIVATED(self, 105, self.eventRunProgram) 
+        wx.EVT_MENU(self, wx.ID_OPEN,  self.eventRunProgram)
+        wx.EVT_MENU(self, 216,  self.eventDonate)
+         
+
         
         # Program list event
         #wx.EVT_TREE_SEL_CHANGED(self, 105, self.Select)
@@ -890,7 +897,7 @@ class MainWindow(wx.Frame):
 
 
 
-    # UI events (not managed by the controller, because they do not use models)
+    # UI events 
     def eventSearch(self, event):
         self._appList.setSearchFilter(self.searchbox.GetValue().lower())
         self._appList.refresh()
@@ -901,10 +908,21 @@ class MainWindow(wx.Frame):
        aboutWindow.show()
      
     def eventSelect(self, event):    
-        #self.generate_menu(game_exec)
         self._menuPanel.generateContent(self._appList.getSelectedShortcut())
         self._toolbar.enableIcons()
-               
+    
+    def eventDonate(self, event):
+        self.controller.donate()
+           
+    def eventClosePol(self, event):
+        if(self.configService.getSetting("DONT_ASK_BEFORE_CLOSING") == "TRUE" or Question(_('Are you sure you want to close all [APP] Windows?')).getAnswer()):
+            self.Destroy()
+            self.controller.destroy()  
+            
+    def eventRunProgram(self, event):
+        self.controller.runProgram(self._appList.getSelectedShortcut())
+           
+           
     # Getters
     def getAppList(self):
         return self._appList

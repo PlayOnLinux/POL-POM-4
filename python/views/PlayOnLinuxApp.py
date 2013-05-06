@@ -19,9 +19,7 @@
 encoding = 'utf-8'
 
 # Python imports
-import os, getopt, sys, urllib, signal, string, time, webbrowser, gettext, locale, sys, shutil, subprocess, signal, threading
-import wx, wx.aui
-import sys, traceback, threading
+import wx, sys, signal, gettext
 
 # PlayOnLinux imports
 from controllers.Controller import *
@@ -35,13 +33,21 @@ from views.MainWindow import MainWindow
 
 
 class PlayOnLinuxApp(wx.App):
-    def OnInit(self):
+    def __init__(self, controller):
+        self.controller = controller
+        self.controller.setApp(self)
+        wx.App.__init__(self, redirect=False, filename=None, useBestVisual=False, clearSigInt=True) 
         
+    def OnInit(self):
         self.configService = ConfigService()  
         self.environment = Environment()
-             
-        self.initLanguage()    
-        #self.controller.appStartupBeforeServer()
+        
+        self.initLanguage()
+        
+        # Init main Window
+        self._mainWindow = MainWindow(self.controller)
+        self.SetTopWindow(self._mainWindow)
+        self._mainWindow.Show(True)
         
         # Anonymous reports ?
         self.askForReports()
@@ -54,22 +60,14 @@ class PlayOnLinuxApp(wx.App):
         self.SetAppName(self.configService.getAppName())
         
         # Main Window
-        self._mainWindow = MainWindow()
-        self.SetTopWindow(self._mainWindow)
-        self._mainWindow.Show(True)
-        
-        # Gui Server
-        # self.initPOLServer()
-        
-        # Startup Script after servr
-        #self.controller.appStartupAfterServer()
         
         # Catch CTRL+C
         signal.signal(signal.SIGINT, self.CatchCtrlC)
         
         # Exiting
         return True
-        
+       
+     
     def getMainWindow(self):
         return self._mainWindow
         
@@ -78,11 +76,22 @@ class PlayOnLinuxApp(wx.App):
             self.MacOpenFile(f)
     
             
-    def initPOLServer(self):
-        POLServer = self.controller.getServer()
-        POLServer.start()
-        POLServer.waitForServer()
-        return POLServer
+    def initLanguage(self):
+        if(self.configService.isDebianPackage()):
+            languages = os.listdir('/usr/share/locale')
+            localedir = "/usr/share/locale"
+        else:
+            languages = os.listdir(self.environment.getAppPath()+'/lang/locale')
+            localedir = os.path.join(self.environment.getAppPath(), "lang/locale")        
+
+        domain = "pol"
+        mylocale = wx.Locale(wx.LANGUAGE_DEFAULT)
+        mylocale.AddCatalogLookupPathPrefix(localedir)
+        mylocale.AddCatalog(domain)
+
+        mytranslation = gettext.translation(domain, localedir, [mylocale.GetCanonicalName()], fallback = True)
+        mytranslation.install()
+        
         
     def askForReports(self):
         if(not self.configService.isDebianPackage()):
@@ -112,22 +121,6 @@ class PlayOnLinuxApp(wx.App):
     def CatchCtrlC(self, signal, event): # Catch SIGINT
         print "\nCtrl+C pressed. Killing all processes..."
         self.polDie()
-        
-    def initLanguage(self):
-        if(self.configService.isDebianPackage()):
-            languages = os.listdir('/usr/share/locale')
-            localedir = "/usr/share/locale"
-        else:
-            languages = os.listdir(self.environment.getAppPath()+'/lang/locale')
-            localedir = os.path.join(self.environment.getAppPath(), "lang/locale")        
-
-        domain = "pol"
-        mylocale = wx.Locale(wx.LANGUAGE_DEFAULT)
-        mylocale.AddCatalogLookupPathPrefix(localedir)
-        mylocale.AddCatalog(domain)
-
-        mytranslation = gettext.translation(domain, localedir, [mylocale.GetCanonicalName()], fallback = True)
-        mytranslation.install()
         
                   
     # Should not be used.
