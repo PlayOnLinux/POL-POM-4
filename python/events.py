@@ -16,24 +16,6 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
+import wx, wx.lib.newevent
 
-# This class manages SetupWindows returns
-
-class GuiServerState(object):        
-    def __init__(self): 
-      self.states = {}
-      
-    def __str__(self):
-        return str(self.states)
-        
-    def read(self, pid):
-      try:
-          return self.states[pid]
-      except KeyError:
-          return None
-
-    def set(self, pid, state):
-      self.states[pid] = state
-      
-    def release(self, pid):
-      self.set(pid, "done")
+GuiServerEvent, EVT_GUISERVER = wx.lib.newevent.NewEvent()

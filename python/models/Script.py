@@ -23,7 +23,11 @@ class Script(Executable):
       Executable.__init__(self, "bash", args)
       self.needSignature = True
 
-      
+   def linkToServer(self, guiserver):
+       self.execEnv.setEnv("POL_PORT", guiserver.getRunningPort())
+       self.execEnv.setEnv("POL_COOKIE", guiserver.getCookie())
+       
+       
    def checkSignature(self):    
        # Fixme
        return True
@@ -47,25 +51,6 @@ class PrivateScript(Script):
       self.configService = ConfigService()
       Script.__init__(self, self.execEnv.getAppPath()+"/bash/"+path, args)
       self.needSignature = False
-
-      
-class GUIScript(Script):
-    def setEnv(self):
-        Script.setEnv(self)
-        # Set by the GUI server
-        
-        self.execEnv.setEnv("POL_PORT", GuiServer().getRunningPort())
-        self.execEnv.setEnv("POL_COOKIE", GuiServer().getCookie())
-  
-        
-        
-class PrivateGUIScript(PrivateScript):
-    def setEnv(self):
-        PrivateScript.setEnv(self)
-        
-        # Set by the GUI server
-        self.execEnv.setEnv("POL_PORT", GuiServer().getRunningPort())
-        self.execEnv.setEnv("POL_COOKIE", GuiServer().getCookie())
 
   
 class POLUpdaterScript(PrivateScript):

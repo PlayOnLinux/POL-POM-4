@@ -61,5 +61,9 @@ class UIHelper(object):
            bitmap = bitmap.ConvertToBitmap()
            return bitmap
            
+   def getImage(self, name):
+       os.chdir(self.env.getAppPath()+"/resources/images/")
+       return wx.Image(name)
+       
    def getIcon(self, icone):
        return wx.Icon(self.env.getAppPath()+"/resources/icons/"+icone, wx.BITMAP_TYPE_ANY)

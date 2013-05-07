@@ -8,17 +8,10 @@ from models.Observer import Observer
 
 import wx
 
-class SetupWindowList(Observer):
+class SetupWindowList(object):
    def __init__(self, controller): 
-      Observer.__init__(self)
       self.controller = controller 
 
-   """
-   while(not queue.isEmpty()):
-       self.doGuiTask(queue.getTask())
-       queue.shift()
-   
-   """
    def doGuiTask(self, data):
        command = data[0]
        scriptPid = data[1]
@@ -38,11 +31,10 @@ class SetupWindowList(Observer):
        if(command == 'POL_SetupWindow_Init'):
           if(len(data) == 6):
                isProtected = data[5] == "TRUE"
-               self.windowList[scriptPid] = SetupWindow(title = data[2], scriptPid = scriptPid, topImage = data[3], leftImage = data[4], isProtected = isProtected)
+               self.windowList[scriptPid] = SetupWindow(self, title = data[2], scriptPid = scriptPid, topImage = data[3], leftImage = data[4], isProtected = isProtected)
                Context().incWindowOpened() 
                GuiServer().getState().release(scriptPid)   
        
-   
        if(command == 'POL_SetupWindow_Close'):
            try:
                self.windowList[scriptPid].Destroy()

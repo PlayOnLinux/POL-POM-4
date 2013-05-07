@@ -8,11 +8,12 @@ import wx
 from controllers.Controller import *
 
 class Modal():
-   def __init__(self, title, content): 
-      self.title = title
+   def __init__(self, content):
+      self.configService = ConfigService()
+      self.title = self.configService.getAppName() 
       self.content = content
       self.show()
       
    def show(self):
-       content = self.content.replace("[APP]",Controller().getAppName())
+       content = self.content.replace("[APP]",self.configService.getAppName())
        wx.MessageBox(content, self.title)

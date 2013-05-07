@@ -21,43 +21,41 @@
 import wx, wx.animate, os, getopt, sys, urllib, signal, time, string, urlparse, codecs, time, threading, socket
 from subprocess import Popen,PIPE
 
-from lib.Context import Context
-from lib.UIHelper import UIHelper
-from lib.GuiServer import GuiServer
-from lib.Downloader import Downloader
+from views.UIHelper import UIHelper
 
+from services.Environment import *
+from services.ConfigService import *
 
 class SetupWindow(wx.Frame): #fenêtre principale
-    def __init__(self, title, scriptPid, topImage, leftImage, isProtected):
+    def __init__(self, controller, title, scriptPid, topImage, leftImage, isProtected):
         
+        self.uiHelper = UIHelper()
+        self.env = Environment()
+        self.config = ConfigService()
+        self.controller = controller
         
-        wx.Frame.__init__(self, None, -1, title, style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX, size = (520, 398 + UIHelper().addWindowMacOffset()))
-        self.SetIcon(wx.Icon(Context().getAppPath()+"/resources/icons/playonlinux.png", wx.BITMAP_TYPE_ANY))
+        wx.Frame.__init__(self, None, -1, title, style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX, size = (520, 398 + self.uiHelper.addWindowMacOffset()))
+        self.SetIcon(self.uiHelper.getIcon("playonlinux.png"))
         self.Center(wx.BOTH)
         self.Show(True)
         
         self.bashPid = scriptPid
         self.protectedWindow = isProtected
         
-        
-        
         if(os.path.exists(topImage)):
-            self.topImage = wx.Bitmap(topImage)
+            self.topImage = self.uiHelper.getBitmap(topImage)
         else:
-            self.topImage = wx.Bitmap(Context().getAppPath()+"/resources/images/setups/default/top.png")
+            self.topImage = self.uiHelper.getBitmap("setups/default/top.png")
         
         if(os.path.exists(leftImage)):
-            self.leftImage = wx.Bitmap(topImage)
+            self.leftImage = self.uiHelper.getBitmap(leftImage)
         else:
-            if(Context().getOS() == "Linux"):
-                self.leftImage = wx.Bitmap(Context().getAppPath()+"/resources/images/setups/default/playonlinux.jpg")
+            if(self.env.getOS() == "Linux"):
+                self.leftImage = self.uiHelper.getBitmap("setups/default/playonlinux.jpg")
             else:
-                self.leftImage = wx.Bitmap(Context().getAppPath()+"/resources/images/setups/default/playonmac.jpg")
+                self.leftImage = self.uiHelper.getBitmap("setups/default/playonmac.jpg")
             
                 
-       
-
-        
         self.drawGUI()
 
         wx.EVT_CLOSE(self, self.Cancel)
@@ -80,7 +78,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
 
 
         # Text
-        titreHeader = wx.StaticText(self.header, -1, _('{0} Wizard').format(Context().getAppName()),pos=(5,5), size=(340,356),style=wx.ST_NO_AUTORESIZE)
+        titreHeader = wx.StaticText(self.header, -1, _('{0} Wizard').format(self.config.getAppName()),pos=(5,5), size=(340,356),style=wx.ST_NO_AUTORESIZE)
         titreHeader.SetFont(UIHelper().getFontTitle())
         titreHeader.SetForegroundColour((0,0,0)) # For dark themes
 
@@ -107,7 +105,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
 
         self.NextButton = wx.Button(self.footer, wx.ID_FORWARD, _("Next"), pos=(340,0),size=(85,37))
         self.BackButton = wx.Button(self.footer, wx.ID_FORWARD, _("Back"), pos=(250,0),size=(85,37))
-        self.InfoScript = wx.StaticBitmap(self.footer, -1, wx.Bitmap(Context().getAppPath()+"/resources/images/setups/about.png"), pos=(10,8))
+        self.InfoScript = wx.StaticBitmap(self.footer, -1, wx.Bitmap(self.env.getAppPath()+"/resources/images/setups/about.png"), pos=(10,8))
         self.InfoScript.Hide()
         self.script_ID = 0
         self.InfoScript.Bind(wx.EVT_LEFT_DOWN, self.InfoClick)
@@ -117,7 +115,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
         self.YesButton = wx.Button(self.footer, wx.ID_YES, _("Yes"), pos=(340,0), size=(85,37))
         self.browse = wx.Button(self.panel, 103, _("Browse"), size=(130,40))
         self.browse_text = wx.StaticText(self.panel, -1, "")
-        self.browse_image = wx.StaticBitmap(self.panel, -1, wx.Bitmap(Context().getAppPath()+"/etc/playonlinux.png"))
+        self.browse_image = wx.StaticBitmap(self.panel, -1, wx.Bitmap(self.env.getAppPath()+"/etc/playonlinux.png"))
 
         # D'autres trucs
         self.champ = wx.TextCtrl(self.panel, 400, "",size=(300,22))
@@ -162,7 +160,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
         wx.EVT_HYPERLINK(self, 303, self.POL_register)
 
         # Debug Window
-        self.debugImage = wx.StaticBitmap(self.panel, -1, wx.Bitmap(Context().getAppPath()+"/resources/images/setups/face-sad.png"), (196,130))
+        self.debugImage = wx.StaticBitmap(self.panel, -1, wx.Bitmap(self.env.getAppPath()+"/resources/images/setups/face-sad.png"), (196,130))
         self.debugZone = wx.TextCtrl(self.panel, -1, "",size=wx.Size(440,82), pos=(40,274),style=UIHelper().widgetBorders()|wx.TE_MULTILINE|wx.TE_READONLY)
 
         # Hide all
@@ -179,7 +177,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
         
     def getLoaderFromAngle(self, angle):
         if(angle >= 1 and angle <= 12):
-            image = wx.Image(Context().getAppPath()+"/resources/images/setups/wait/"+str(angle)+".png")
+            image = wx.Image(self.env.getAppPath()+"/resources/images/setups/wait/"+str(angle)+".png")
         return image.ConvertToBitmap()
         
     def hideAll(self):
@@ -283,7 +281,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
 
     def InfoClick(self, e):
         url = "http://www.playonlinux.com/en/app-"+self.script_ID+".html"
-        if(Context().getOS() == "Mac"):
+        if(self.env.getOS() == "Mac"):
             os.system("open "+url+" &")
         else:
             os.system("xdg-open "+url+" &")
@@ -312,13 +310,13 @@ class SetupWindow(wx.Frame): #fenêtre principale
 
     def POL_SetupWindow_Pulse(self, value):
         self.gauge.SetValue(int(value)/2)
-        self.SendBash()
+        self.unlockBash()
 
     def POL_SetupWindow_PulseText(self, value):
         self.texte_bis.SetLabel(value.replace("\\n","\n"))
         self.texte_bis.SetPosition((20,135+self.space*16))
         self.texte_bis.Show()
-        self.SendBash()
+        self.unlockBash()
 
     def POL_SetupWindow_download(self, message, title, url, localfile): 
         self.hideAll()
@@ -342,7 +340,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
         self.DrawCancel()
         self.DrawNext()
         self.NextButton.Enable(False)
-        self.SendBash()
+        self.unlockBash()
 
     def POL_SetupWindow_pulsebar(self, message, title):
         self.hideAll()
@@ -357,7 +355,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
         self.DrawCancel()
         self.DrawNext()
         self.NextButton.Enable(False)
-        self.SendBash()
+        self.unlockBash()
         
     def POL_SetupWindow_wait_b(self, message, title, button_value, command, alert):
         self.POL_SetupWindow_wait(message, title)    
@@ -516,7 +514,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
         self.Menu.SetPosition((20,85+self.space*16))
         self.Menu.Clear()
 
-        self.areaList = os.listdir(Context().getUserRoot()+"/wineprefix/")
+        self.areaList = os.listdir(self.env.getUserRoot()+"/wineprefix/")
         self.areaList.sort()
 
         for file in self.areaList:
@@ -585,13 +583,13 @@ class SetupWindow(wx.Frame): #fenêtre principale
 
 
     def POL_register(self, event):
-        if(Context().getOS() == "Mac"):
+        if(self.env.getOS() == "Mac"):
             os.system("open "+self.register_link)
         else:
             os.system("xdg-open "+self.register_link)
 
     def RunCommand(self, event, command,confirm):
-        if(confirm == "0" or wx.YES == wx.MessageBox(confirm.decode("utf-8","replace"), Context().getAppName(), style=wx.YES_NO | wx.ICON_QUESTION)):
+        if(confirm == "0" or wx.YES == wx.MessageBox(confirm.decode("utf-8","replace"), self.config.getAppName(), style=wx.YES_NO | wx.ICON_QUESTION)):
             os.system(command+"&");
 
     def DrawImage(self):
@@ -614,15 +612,18 @@ class SetupWindow(wx.Frame): #fenêtre principale
     def DrawNext(self):
         self.NextButton.Show()
 
-    def SendBash(self, var=""):
-        GuiServer().getState().set(self.bashPid, var)
-
+    def sendAnswerToBash(self, data):
+        self.controller.sendAnswerToBash(self.bashPid, data)
+        
+    def unlockBash(self):
+        self.controller.closeConnexion(self.bashPid)
+        
     def release(self, event):
-        self.SendBash()
+        self.unlockBash()
         self.NextButton.Enable(False)
 
     def release_but_fail(self, event):
-        self.SendBash("Fail")
+        self.sendAnswerToBash("Fail")
         self.NextButton.Enable(False)
 
     def release_checkboxes(self, event):
@@ -632,57 +633,57 @@ class SetupWindow(wx.Frame): #fenêtre principale
             if(self.item_check[i].IsChecked() == True):
                 send.append(self.areaList[i])
             i += 1
-        self.SendBash(string.join(send,self.separator))
+        self.sendAnswerToBash(string.join(send,self.separator))
         self.NextButton.Enable(False)
 
     def release_yes(self, event):
-        self.SendBash("TRUE")
+        self.sendAnswerToBash("TRUE")
         self.NextButton.Enable(False)
 
     def release_no(self, event):
-        self.SendBash("FALSE")
+        self.sendAnswerToBash("FALSE")
         self.NextButton.Enable(False)
 
     def release_login(self, event):
-        self.SendBash(self.loginbox.GetValue().encode("utf-8","replace")+"~"+self.passbox.GetValue().encode("utf-8","replace"))
+        self.sendAnswerToBash(self.loginbox.GetValue().encode("utf-8","replace")+"~"+self.passbox.GetValue().encode("utf-8","replace"))
         self.NextButton.Enable(False)
 
     def release_champ(self, event):
-        self.SendBash(self.champ.GetValue().encode("utf-8","replace"))
+        self.sendAnswerToBash(self.champ.GetValue().encode("utf-8","replace"))
         self.NextButton.Enable(False)
 
     def release_bigchamp(self, event):
-        self.SendBash(self.bigchamp.GetValue().replace("\n","\\n").encode("utf-8","replace"))
+        self.sendAnswerToBash(self.bigchamp.GetValue().replace("\n","\\n").encode("utf-8","replace"))
         self.NextButton.Enable(False)
 
     def release_menu(self,event):
-        self.SendBash(self.areaList[self.Menu.GetSelection()])
+        self.sendAnswerToBash(self.areaList[self.Menu.GetSelection()])
         self.NextButton.Enable(False)
 
     def release_menu_num(self,event):
-        self.SendBash(str(self.Menu.GetSelection()))
+        self.sendAnswerToBash(str(self.Menu.GetSelection()))
         self.NextButton.Enable(False)
 
     def release_icons(self,event):
         if(self.menu.IsChecked()):
-            self.SendBash("MSG_MENU=True")
+            self.sendAnswerToBash("MSG_MENU=True")
         if(self.desktop.IsChecked()):
-            self.SendBash("MSG_DESKTOP=True")
+            self.sendAnswerToBash("MSG_DESKTOP=True")
         if(self.desktop.IsChecked() and self.menu.IsChecked()):
-            self.SendBash("MSG_DESKTOP=True\nMSG_MENU=True")
+            self.sendAnswerToBash("MSG_DESKTOP=True\nMSG_MENU=True")
         if(self.desktop.IsChecked() == False and self.menu.IsChecked() == False):
-            self.SendBash("Ok")
+            self.sendAnswerToBash("Ok")
         self.NextButton.Enable(False)
 
     def release_menugame(self,event):     
-        self.SendBash(self.MenuGames.GetItemText(self.MenuGames.GetSelection()).encode("utf-8","replace"))
+        self.sendAnswerToBash(self.MenuGames.GetItemText(self.MenuGames.GetSelection()).encode("utf-8","replace"))
         self.NextButton.Enable(False)
 
     def release_menuprefixes(self,event):
         if(self.PCheckBox.IsChecked() == False): # Alors il faut renvoyer le prefix
-            self.SendBash("1~"+self.MenuGames.GetItemText(self.MenuGames.GetSelection()).encode("utf-8","replace"))
+            self.sendAnswerToBash("1~"+self.MenuGames.GetItemText(self.MenuGames.GetSelection()).encode("utf-8","replace"))
         else:
-            self.SendBash("2~"+self.areaList[self.Menu.GetSelection()])
+            self.sendAnswerToBash("2~"+self.areaList[self.Menu.GetSelection()])
 
         self.NextButton.Enable(False)
 
@@ -693,25 +694,25 @@ class SetupWindow(wx.Frame): #fenêtre principale
             os.system("kill -9 -"+self.bashPid+" 2> /dev/null")
             os.system("kill -9 "+self.bashPid+" 2> /dev/null") 
         else:
-            wx.MessageBox(_("You cannot close this window").format(Context().getAppName()),_("Error"))
+            wx.MessageBox(_("You cannot close this window").format(self.config.getAppName()),_("Error"))
 
     def add_games(self):
-        apps = os.listdir(Context().getUserRoot()+"/shortcuts/")
+        apps = os.listdir(self.env.getUserRoot()+"/shortcuts/")
         apps.sort()
         self.images.RemoveAll()
         self.MenuGames.DeleteAllItems()
         self.root = self.MenuGames.AddRoot("")
         i = 0
         for app in apps:
-            appfile = Context().getUserRoot()+"/shortcuts/"+app
+            appfile = self.env.getUserRoot()+"/shortcuts/"+app
             if(not os.path.isdir(appfile)):
                 fichier = open(appfile,"r").read()
 
                 if("POL_Wine " in fichier):
-                    if(os.path.exists(Context().getUserRoot()+"/icones/32/"+app)):
-                        file_icon = Context().getUserRoot()+"/icones/32/"+app
+                    if(os.path.exists(self.env.getUserRoot()+"/icones/32/"+app)):
+                        file_icon = self.env.getUserRoot()+"/icones/32/"+app
                     else:
-                        file_icon = Context().getAppPath()+"/etc/playonlinux32.png"
+                        file_icon = self.env.getAppPath()+"/etc/playonlinux32.png"
 
                     bitmap = wx.Image(file_icon)
                     bitmap.Rescale(22,22,wx.IMAGE_QUALITY_HIGH)
@@ -735,7 +736,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
             if(os.path.exists(current_icon)):
                 file_icon = current_icon
             else:
-                file_icon = Context().getAppPath()+"/ressources/icons/playonlinux32.png"
+                file_icon = self.env.getAppPath()+"/ressources/icons/playonlinux32.png"
 
             bitmap = wx.Image(file_icon)
             bitmap.Rescale(22,22,wx.IMAGE_QUALITY_HIGH)
@@ -764,18 +765,18 @@ class SetupWindow(wx.Frame): #fenêtre principale
             
             if(".exe" in filePathBaseName and os.path.getsize(filePath) <= 30*1024*1024):
                 try:
-                    tmpPath = Context().getUserRoot()+"/tmp/browse"+self.bashPid+".png"
+                    tmpPath = self.env.getUserRoot()+"/tmp/browse"+self.bashPid+".png"
                     try: os.path.remove(tmpPath)
                     except: pass
                     playonlinux.POL_System("POL_ExtractBiggestIcon \""+filePath+"\" "+tmpPath)
                     if(os.path.exists(tmpPath)):
                         browse_image = wx.Image(tmpPath)
                     else:
-                        browse_image = wx.Image(Context().getAppPath()+"/etc/playonlinux.png")
+                        browse_image = wx.Image(self.env.getAppPath()+"/etc/playonlinux.png")
                 except:
-                    browse_image = wx.Image(Context().getAppPath()+"/etc/playonlinux.png")
+                    browse_image = wx.Image(self.env.getAppPath()+"/etc/playonlinux.png")
             else:
-                browse_image = wx.Image(Context().getAppPath()+"/etc/playonlinux.png")
+                browse_image = wx.Image(self.env.getAppPath()+"/etc/playonlinux.png")
             
             if(browse_image.GetWidth() >= 48):
                 browse_image.Rescale(48,48,wx.IMAGE_QUALITY_HIGH)

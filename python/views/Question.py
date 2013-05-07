@@ -9,13 +9,10 @@ from views.Modal import Modal
 import wx
 
 class Question(Modal):
-   def __init__(self, content): 
-      self.configService = ConfigService()
-      self.title = self.configService.getAppName()
+   def __init__(self, content):
+      self.answer = False 
+      Modal.__init__(self, content)     
       
-      self.answer = False
-      self.content = content
-      self.show()
        
    def show(self):
        content = self.content.replace("[APP]",self.title)

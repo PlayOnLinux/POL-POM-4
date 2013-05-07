@@ -16,70 +16,115 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-import socket, threading, thread, os, wx, time, random, select
-import string
+import socket, threading, thread, os, wx, time, random, select, string
 
-from models.PlayOnLinux import PlayOnLinux
-from models.GuiQueue import GuiQueue
-from models.GuiServerState import GuiServerState
-
+import events
 
 class ErrServerIsNotRunning(Exception):
    def __str__(self):
       return repr(_("The server is not running"))
+
+class ErrUnableToStartServer(Exception):
+   def __str__(self):
+      return repr(_("Unable to start Setup Window server."))
+
+class ErrBadCookie(Exception):
+   def __str__(self):
+      return repr(_("The cookie received by the script is wrong."))
+
+
+class GuiServerClientThread(threading.Thread):
+   def __init__(self, connection, addr, cookie, app):
+      threading.Thread.__init__(self)
+      self._cookie = cookie
+      self._connection = connection
+      self._addr = addr
+      self.locked = False
+      self.app = app
+      
+   def run(self):
+      data = "";
+      while True:
+          buff = self._connection.recv(2048);
+          data += buff
+          if "\n" in buff:
+              data = data.replace("\n","")
+              break;
+      data = data.split("\t")
+      
+      self._processReceivedData(data)
+      self._lock()
+      self._connection.shutdown(1)
+      self._connection.close()
+
+   def sendData(self, data):
+       self._connection.send(data)
+
+   def unlock(self):
+       self.locked = False
+   
+   def _lock(self):
+       self.locked = True
+       while(self.locked):
+           time.sleep(0.1)
+           
+   def _checkCookie(self, clientCookie):
+      if(clientCookie != self._cookie):
+         raise ErrBadCookie
+           
+   def _processReceivedData(self, recvData):
+      self._checkCookie(recvData[0])
+      recvData = recvData[1:]
+      pid = recvData[1]
+      
+      # Send the event
+      evt = events.GuiServerEvent(data = recvData, client = self)
+      wx.PostEvent(self.app, evt)
+      
       
 class GuiServer(threading.Thread):
-    def __init__(self): 
+    def __init__(self, app): 
         threading.Thread.__init__(self)
         self.daemon = True
         self.host = '127.0.0.1'
         self.runningPort = 0
         self.tryingPort = 30000
-    
         self._running = True
         self.cookie = None
+        self.app = app
         
-        self.queue = GuiQueue()
-        self.state = GuiServerState()
-            
-    def getQueue(self):
-        return self.queue
-        
-    def getState(self):
-        return self.state
-            
     def getRunningPort(self):
         return self.runningPort
         
     def setRunningPort(self, port):
         self.runningPort = port  
-        
-    def successRunServer(self):
-        self.runningPort = self.tryingPort
 
     def getCookie(self, length=20, chars=string.letters + string.digits):
         if(self.cookie == None):
             self.cookie = ''.join([random.SystemRandom().choice(chars) for i in range(length)])
         return self.cookie
         
-
     def isServerRunning(self):
         return self.runningPort != 0
         
     def waitForServer(self):
-        i = 0
-        
+        i = 0    
         while(not self.isServerRunning()):
             time.sleep(0.01)
             if(i >= 300):
-                # Fixme! 
-                Error('[APP] is not able to start [APP] Setup Window server.')
-                os._exit(0)
-                break
+                raise ErrUnableToStartServer
             i+=1
             
-           
-    def initServer(self):
+  
+    def closeServer(self):
+        try:
+            self.acceptor.close()
+        except AttributeError:
+            raise ErrServerIsNotRunning
+            
+        self._running = False
+                  
+    def _initServer(self):
         if(self.tryingPort  >= 30020):
            print _("Error: Unable to reserve a valid port")
            wx.MessageBox(_("Error: Unable to reserve a valid port"),PlayOnLinux().getAppName())
@@ -89,61 +134,18 @@ class GuiServer(threading.Thread):
            self.acceptor = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
            self.acceptor.bind ( ( str(self.host), int(self.tryingPort) ) )
            self.acceptor.listen(10)
-           self.successRunServer()
+           self.runningPort = self.tryingPort
            
         except socket.error, msg:       
            self.tryingPort += 1;
-           self.initServer()
-        
+           self._initServer()
 
-    def closeServer(self):
-        try:
-            self.acceptor.close()
-        except AttributeError:
-            raise ErrServerIsNotRunning
-            
-        self._running = False
-
-    def processReceivedData(self, recvData):
-       recvData = recvData.split("\t")
-       pid = recvData[2]
-       if(recvData[0] != self.getCookie()):
-           print "Bad cookie!"
-           return ""
-
-       recvData = recvData[1:]
-       self.queue.add(recvData)
-       self.state.set(pid, None)
-       
-       # Wait until GUI has send a new answer
-       while True:
-           dataFromGui = self.state.read(pid)         
-           if(dataFromGui != None):
-               return dataFromGui
-            
-           time.sleep(0.1)   
-
-
-    
-    def handler(self, connection, addr):
-        data = "";
-        while True:
-            buff = connection.recv(2048);
-           
-            data += buff
-            if "\n" in buff:
-                data = data.replace("\n","")
-                break;
-
-        connection.send(self.processReceivedData(data))
-        
-        connection.shutdown(1)
-        connection.close()
-               
     def run(self): 
-        self.initServer()
+        self._initServer()
         while self._running:        
             connection, addr = self.acceptor.accept()
-            thread.start_new_thread(self.handler, (connection, addr))
+            client = GuiServerClientThread(connection, addr, self.getCookie(), self.app)
+            client.start()
+            
 
         

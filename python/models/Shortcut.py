@@ -7,7 +7,7 @@
 import string, os, wx
 
 # playonlinux imports
-from models.Script import PrivateGUIScript
+from models.Script import PrivateScript
 from models.Prefix import Prefix
 from models.Directory import Directory
 
@@ -29,7 +29,7 @@ class Shortcut(object):
    def run(self):
        if(self.getPrefix().exists()):
            arguments = [self.shortcutName] + self.args
-           self.shortcutScript = PrivateGUIScript("run_app", arguments)
+           self.shortcutScript = PrivateScript("run_app", arguments)
            self.shortcutScript.start()
        else:
            raise ErrPrefixDoesNotExist

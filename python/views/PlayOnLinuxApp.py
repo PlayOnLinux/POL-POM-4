@@ -28,6 +28,7 @@ from services.ConfigService import *
 # Views
 from views.MainWindow import MainWindow
 
+import events
 #from views.Question import Question
 #from views.Message import Message
 
@@ -66,7 +67,7 @@ class PlayOnLinuxApp(wx.App):
         
         # Exiting
         return True
-       
+      
      
     def getMainWindow(self):
         return self._mainWindow
