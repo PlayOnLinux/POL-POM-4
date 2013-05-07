@@ -33,8 +33,8 @@ from views.Question import Question
 from services.ConfigService import ConfigService
 from services.Environment import Environment
 
-from models.Observer import Observer
-from models.Observable import Observable
+from patterns.Observer import Observer
+from patterns.Observable import Observable
 
 #, install, options, wine_versions as wver, sp, configure, debug, gui_server
 #import irc as ircgui
@@ -354,25 +354,22 @@ class MenuBar(wx.MenuBar, Observer):
         
         # Option menu
         optionmenu = Menu()
-        
         optionmenu.addItem(221, _("Internet"), "menu/internet.png")
         optionmenu.addItem(212,  _("File associations"), "menu/extensions.png")
         optionmenu.addItem(213,  _("Plugin manager"), "menu/plugins.png")
 
-        help_menu = Menu()
-        help_menu.addItem(wx.ID_ABOUT,  _('About {0}').format(self.configService.getAppName()))
-
-
-        """
         
-        """
-   
         self.Append(filemenu, _("File"))
         self.Append(displaymenu, _("Display"))
         self.Append(expertmenu, _("Tools"))
         self.Append(optionmenu, _("Settings"))
-            #self.menubar.Append(self.pluginsmenu, _("Plugins"))
-            #self.menubar.Append(self.help_menu, "&Help")
+        
+        if(self.env.getOS() != "Mac"):
+            help_menu = Menu()
+            help_menu.addItem(wx.ID_ABOUT,  _('About {0}').format(self.configService.getAppName()))
+            self.Append(help_menu, "&Help")
+        else:
+            filemenu.addItem(wx.ID_ABOUT,  _('About {0}').format(self.configService.getAppName()))
             
     def refreshPluginMenu(self):
         try: 
@@ -380,7 +377,7 @@ class MenuBar(wx.MenuBar, Observer):
         except AttributeError:
             pass 
         else:
-            self.Remove(4)
+            self.Remove(5)
             self.pluginsmenu.Destroy()
        
         self.pluginsmenu = Menu()
@@ -485,7 +482,7 @@ class MainWindow(wx.Frame):
         # Expert
         wx.EVT_MENU(self, 107,  self.WineVersion)
         wx.EVT_MENU(self, 108,  self.scriptRunLocalScript)
-        wx.EVT_MENU(self, 109,  self.PolShell)
+        wx.EVT_MENU(self, 109,  self.eventPlayOnLinuxConsole)
         wx.EVT_MENU(self, 110,  self.BugReport)
         wx.EVT_MENU(self, 111,  self.OpenIrc)
         wx.EVT_MENU(self, 112,  self.POLOnline)
@@ -569,82 +566,6 @@ class MainWindow(wx.Frame):
             self.SetupWindowTimer_delay = time
 
     # Each time the timer is called, we decide if we need to change the time, and we read the queue
-    def readGuiServerQueue(self, event):
-        if(Context().getWindowOpened() == 0):
-            self.changeSetupWindowTimer(100)
-        else:
-            self.changeSetupWindowTimer(10)
-            
-        queue = GuiServer().getQueue()
-    
-        while(not queue.isEmpty()):
-            self.doGuiTask(queue.getTask())
-            queue.shift()
- 
-    # Do a task
-    def doGuiTask(self, data):
-        command = data[0]
-        scriptPid = data[1]
-        
-        if(command == "SimpleMessage"):
-            Message(data[2])
-            GuiServer().getState().release(scriptPid)
-            
-        if(command == "POL_Die"):
-            playOnLinuxApppolDie()
-            GuiServer().getState().release(scriptPid)
-        
-        if(command == "POL_Restart"):
-            playOnLinuxApp.polRestart()
-            GuiServer().getState().release(scriptPid)   
-        
-        if(command == 'POL_SetupWindow_Init'):
-           if(len(data) == 6):
-                isProtected = data[5] == "TRUE"
-                self.windowList[scriptPid] = SetupWindow(title = data[2], scriptPid = scriptPid, topImage = data[3], leftImage = data[4], isProtected = isProtected)
-                Context().incWindowOpened() 
-                GuiServer().getState().release(scriptPid)   
-        
-    
-        if(command == 'POL_SetupWindow_Close'):
-            try:
-                self.windowList[scriptPid].Destroy()
-                GuiServer().getState().release(scriptPid)   
-            except KeyError:
-                print "Please use POL_SetupWindow_Init first"
-           
-        
-        
-        # Other 
-        setupWindowCommands = ["POL_SetupWindow_message", "POL_SetupWindow_SetID", "POL_SetupWindow_UnsetID", 
-        "POL_SetupWindow_shortcut_list", "POL_SetupWindow_prefix_selector", "POL_SetupWindow_pulsebar", "POL_SetupWindow_question", 
-        "POL_SetupWindow_wait", "POL_SetupWindow_wait_bis", "POL_SetupWindow_free_presentation", "POL_SetupWindow_textbox", 
-        "POL_SetupWindow_debug", "POL_SetupWindow_textbox_multiline", "POL_SetupWindow_browse", "POL_SetupWindow_download",
-        "POL_SetupWindow_menu", "POL_SetupWindow_menu_num", "POL_SetupWindow_checkbox_list", "POL_SetupWindow_icon_menu", "POL_SetupWindow_licence", 
-        "POL_SetupWindow_login", "POL_SetupWindow_file", "POL_SetupWindow_pulse", "POL_SetupWindow_set_text"]
-        
-        if(command in setupWindowCommands):
-            
-            arguments = data[2:]
-            
-            try:
-                setupWindowObject = self.windowList[scriptPid]
-            except KeyError:
-                print "Err. Please use POL_SetupWindow_Init first"
-                GuiServer().getState().release(scriptPid)  
-            else: 
-                try:
-                    setupWindowFunction = getattr(setupWindowObject, command)
-                except AttributeError:
-                    Error ('Function not found "%s" (%s)' % (command, arguments) )
-                else:
-                    try:
-                        setupWindowFunction(*arguments)
-                    except TypeError, e:
-                        print 'Error: %s (%s)' % (e, arguments)
-        
-           
-           
     def TimerAction(self, event):
         #self.StatusRead()
        return None
@@ -870,9 +791,7 @@ class MainWindow(wx.Frame):
     def PCCd(self, event):
         os.system("bash \""+Context().getAppPath()+"/bash/read_pc_cd\" &")
 
-    def PolShell(self, event):
-        self.polshell = PrivateGUIScript("POLShell")
-        self.polshell.start()
+
         #print "Test"
         
     def Configure(self, event):
@@ -936,9 +855,8 @@ class MainWindow(wx.Frame):
         self._appList.refresh()
     
     def eventAbout(self, event):
-       # FIXME
-       aboutWindow = PolAbout()
-       aboutWindow.show()
+       self.aboutWindow = PolAbout()
+       self.aboutWindow.show()
      
     def eventSelect(self, event):    
         self.controller.selectShortcut(self._menuPanel, self._appList.getSelectedShortcut())
@@ -955,7 +873,9 @@ class MainWindow(wx.Frame):
     def eventRunProgram(self, event):
         self.controller.runProgram(self._appList.getSelectedShortcut())
            
-           
+    def eventPlayOnLinuxConsole(self, event):
+        self.controller.startPlayOnLinuxConsole()
+             
     # Getters
     def getAppList(self):
         return self._appList

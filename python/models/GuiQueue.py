@@ -16,24 +16,14 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-import socket, threading, thread, os, wx, time, random
-import string
+from patterns.Observable import Observable
+from models.Queue import Queue
 
-class Queue(object):        
+class GuiQueue(Queue, Observable):        
     def __init__(self): 
-      self.queue = []
+      Queue.__init__(self)
+      Observable.__init__(self)
       
-    def __str__(self):
-        return str(self.queue)
-        
     def add(self, array):
-      self.queue.append(array)
-
-    def isEmpty(self):
-      return (self.queue == [])
-      
-    def shift(self):
-      self.queue = self.queue[1:]
-      
-    def getTask(self):
-      return self.queue[0]
+      Queue.add(self, array)
+      self.update()

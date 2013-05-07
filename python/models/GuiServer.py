@@ -20,7 +20,7 @@ import socket, threading, thread, os, wx, time, random, select
 import string
 
 from models.PlayOnLinux import PlayOnLinux
-from models.Queue import Queue
+from models.GuiQueue import GuiQueue
 from models.GuiServerState import GuiServerState
 
 
@@ -39,7 +39,7 @@ class GuiServer(threading.Thread):
         self._running = True
         self.cookie = None
         
-        self.queue = Queue()
+        self.queue = GuiQueue()
         self.state = GuiServerState()
             
     def getQueue(self):
@@ -117,9 +117,7 @@ class GuiServer(threading.Thread):
        
        # Wait until GUI has send a new answer
        while True:
-
-           dataFromGui = self.state.read(pid)
-           
+           dataFromGui = self.state.read(pid)         
            if(dataFromGui != None):
                return dataFromGui
             

@@ -31,8 +31,7 @@ class PolAbout(wx.AboutDialogInfo):
         env = Environment()
         config = ConfigService()
         
-        if(env.getOS() == "Linux"):
-            self.SetIcon(wx.Icon(env.getAppPath()+"/resources/icons/playonlinux.png", wx.BITMAP_TYPE_ANY))
+        self.SetIcon(wx.Icon(env.getAppPath()+"/resources/icons/playonlinux.png", wx.BITMAP_TYPE_ANY))
 
         
         self.SetName(config.getAppName())

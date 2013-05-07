@@ -6,21 +6,20 @@
 # python imports
 import string, os, wx
 
-from models.Observable import *
-from models.Observer import *
-from models.Shortcut import Shortcut
+from patterns.Observable import *
+from patterns.Observer import *
 
+from models.Shortcut import Shortcut
 from models.Directory import Directory
 
 from services.Environment import Environment
 from services.ConfigService import ConfigService
 
-class ShortcutList(Observer, Observable):
+class ShortcutList(Observable):
    def __init__(self, shortcutList = []):
-       Observable.__init__(self)
-       Observer.__init__(self)
        self.shortcutList = shortcutList[:]
-   
+       Observable.__init__(self)
+       
    def getStringArray(self):
        result = []
        for item in self.shortcutList:
@@ -30,9 +29,11 @@ class ShortcutList(Observer, Observable):
    def getList(self):
        return self.shortcutList
        
-class ShortcutListFromUserFolder(ShortcutList):  
+class ShortcutListFromUserFolder(ShortcutList, Observer):  
    def __init__(self):
        ShortcutList.__init__(self)
+       Observer.__init__(self)
+       
        self.env = Environment()
        self._shortcutFolder = Directory(self.env.getUserRoot()+"/shortcuts/")
        self._iconsFolder = Directory(self.env.getUserRoot()+"/icones/full_size/")

@@ -18,7 +18,7 @@
 
 import socket, threading, thread, os, time, random, string
 
-from models.Observable import Observable
+from patterns.Observable import Observable
 from models.Timer import Timer
 
 class Directory(Observable):        

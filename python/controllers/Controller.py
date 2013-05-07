@@ -58,7 +58,7 @@ class Controller(object):
        self.app.polDie()
 
        
-       
+   # Manage events
    def donate(self):
         if(self.env.getOS() == "Mac"):
             webbrowser.open("http://www.playonmac.com/en/donate.html")
@@ -79,9 +79,12 @@ class Controller(object):
    def selectShortcut(self, panel, selectedProgram):
        _shortcut = Shortcut(selectedProgram)
        panel.generateContent(selectedProgram, _shortcut.hasManual(), _shortcut.getLinks(), _shortcut.getIcon())
-       
-       #panel.generateContent()
 
+   def startPlayOnLinuxConsole(self):
+       _polshell = PrivateGUIScript("POLShell")
+       _polshell.start()
+
+   # Get data from models
    def getInstalledApps(self):
        return self._installedApps.getStringArray()
 
