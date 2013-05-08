@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2013-04-29 19:00+0200\n"
-"PO-Revision-Date: 2013-03-04 16:52+0000\n"
+"POT-Creation-Date: 2013-05-06 19:00+0200\n"
+"PO-Revision-Date: 2013-05-06 23:39+0000\n"
 "Last-Translator: Tuomas Lähteenmäki <Unknown>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-04-30 05:13+0000\n"
-"X-Generator: Launchpad (build 16580)\n"
+"X-Launchpad-Export-Date: 2013-05-07 05:14+0000\n"
+"X-Generator: Launchpad (build 16598)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -351,12 +351,14 @@ msgid ""
 "nClose COMPLETELY the Steam interface, \\nso that the installation script "
 "can continue."
 msgstr ""
+"Kun $TITLE ohjelman lataus Steamissä on valmistunut.\\nÄlä klikkaa Pelaa-"
+"painiketta.\\n\\nSulje Steam, jotta asennus scripti voi jatkaa asentamista."
 
 #: PlayOnLinux_Scripts/Ableton_Live_8_:42
 #: PlayOnLinux_Scripts/Ableton_Live_9_:42
 #, sh-format
 msgid "Please select $TITLE Install file:"
-msgstr ""
+msgstr "Ole hyvä ja valitse $TITLE asennus tiedosto:"
 
 #: PlayOnLinux_Scripts/Ableton_Live_8_:50
 #: PlayOnLinux_Scripts/Ableton_Live_9_:50
@@ -370,7 +372,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/FL_Studio_10_:30 PlayOnLinux_Scripts/Traktor_Pro_2_:30
 #, sh-format
 msgid "Please select $TITLE install file:"
-msgstr ""
+msgstr "Ole hyvä ja valitse $TITLE asennus tiedosto:"
 
 #: PlayOnLinux_Scripts/Absynth_5_:49 PlayOnLinux_Scripts/Guitar_Rig_5_:46
 #, sh-format
@@ -415,19 +417,21 @@ msgid ""
 "nClose COMPLETELY the Steam interface, \\nso that the installation script "
 "can continue"
 msgstr ""
+"Kun $TITLE ohjelman lataus Steamissä on valmistunut.\\nÄlä klikkaa Pelaa-"
+"painiketta.\\n\\nSulje Steam, jotta asennus scripti voi jatkaa asentamista."
 
 #: PlayOnLinux_Scripts/Alien_Breed_2___Assault_:83
 #: PlayOnLinux_Scripts/Alien_Breed_3___Descent_:83
 #: PlayOnLinux_Scripts/Alien_Breed___Impact_:83
 #, sh-format
 msgid "If .NET 3.0 installation fail, dont"
-msgstr ""
+msgstr "Jos .NET 3.0 asennus epäonnistuu, elä"
 
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:30
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:40
 #, sh-format
 msgid "You dont have to install DirectX or use GLSetup."
-msgstr ""
+msgstr "Sinun ei tarvitse asentaa DirectX tai käyttää GLSetuppia."
 
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:39
 #: PlayOnLinux_Scripts/Alt.Binz_:40 PlayOnLinux_Scripts/Driftmoon_:43
@@ -442,21 +446,21 @@ msgstr ""
 #: PlayOnLinux_Scripts/iTunes_10_:50
 #, sh-format
 msgid "Please select the setup file to run."
-msgstr ""
+msgstr "Valitse suoritettava asennustiedosto."
 
 #: PlayOnLinux_Scripts/Amazon_Kindle_:22
 #: PlayOnLinux_Scripts/Microsoft_Excel_Viewer_2003_:23
 #: PlayOnLinux_Scripts/Microsoft_Word_Viewer_2003_:24
 #, sh-format
 msgid "Please select the installation file to run."
-msgstr ""
+msgstr "Ole hyvä ja valitse suoritettava asennustiedosto."
 
 #: PlayOnLinux_Scripts/Amazon_Kindle_:29
 #: PlayOnLinux_Scripts/Microsoft_Excel_Viewer_2003_:30
 #: PlayOnLinux_Scripts/Microsoft_Word_Viewer_2003_:31
 #, sh-format
 msgid "Installation in progress."
-msgstr ""
+msgstr "Asennus on käynnissä."
 
 #: PlayOnLinux_Scripts/Ancients_of_Ooga_:51
 #: PlayOnLinux_Scripts/Ancients_of_Ooga_:55 PlayOnLinux_Scripts/Fallout_3_:67
@@ -465,6 +469,8 @@ msgid ""
 "Click on \"Forward\" ONLY when Steam game installation\\nwill be finished or "
 "you will have to redo the installation."
 msgstr ""
+"Klikkaa \"Eteenpäin\" SEN JÄLKEEN kun Steamin peli on asennettu\\nmuuten  "
+"joudut tekemään asennuksen uudelleen."
 
 #: PlayOnLinux_Scripts/Ancients_of_Ooga_:59
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_:88
@@ -582,7 +588,7 @@ msgstr "Ole hyvä, ja aseta pelilevyke levyasemaan"
 #: PlayOnLinux_Scripts/Crysis_2_Patch_1.9_and_HiRes_Texture_Pack_:24
 #, sh-format
 msgid "Welcome in the patch $PVERSION Installer for $TITLE"
-msgstr ""
+msgstr "Tervetuloa $TITLE korjatustiedoston $PVERSION asennusohjelmaan"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:28
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:28
@@ -603,7 +609,7 @@ msgstr "Peliä ei ole asennettu"
 #: PlayOnLinux_Scripts/The_Witcher_2___Enhanced_Edition_Patch_:42
 #, sh-format
 msgid "Steam have is own automatic update system"
-msgstr ""
+msgstr "Steamissä on oma automaattinen päivitysautomatiikka"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:51
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:51
@@ -641,6 +647,8 @@ msgid ""
 "Wait while the patch is downloading...\\nThis operation can take time, "
 "depending of your connexion"
 msgstr ""
+"Odota hetki kun korjaustiedosto on latautunut...\\nTämä toiminto saattaa "
+"kestää jonkin aikaa, riippuen yhteysnopeudestasi."
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_:73
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_:75 PlayOnLinux_Scripts/Blur_:52
@@ -730,7 +738,7 @@ msgstr "Peliä ei ole asennettu."
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:38
 #, sh-format
 msgid "Steam have is own automatic update system."
-msgstr ""
+msgstr "Steamissä on oma automaattinen päivitysautomatiikka"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Patch_1.02_:57
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:62
@@ -751,6 +759,8 @@ msgid ""
 "Wait while the patch is downloading...\\nThis operation can take time, "
 "depending of your connexion."
 msgstr ""
+"Odota hetki kun korjaustiedosto on latautunut...\\nTämä toiminto saattaa "
+"kestää jonkin aikaa, riippuen yhteysnopeudestasi."
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Revelations_:74
 #: PlayOnLinux_Scripts/Baldur_s_Gate_:43 PlayOnLinux_Scripts/Baldur_s_Gate_:80
@@ -763,7 +773,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Witcher_:102
 #, sh-format
 msgid "Please insert the game media into your disk drive"
-msgstr ""
+msgstr "Ole hyvä ja aseta pelin media levyasemaan"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_:51 PlayOnLinux_Scripts/Baldur_s_Gate_:59
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_:51
@@ -776,6 +786,7 @@ msgstr ""
 #, sh-format
 msgid "When the game setup will ask for next Disk\\nclick on \\\"Forward\\\""
 msgstr ""
+"Kun pelin asennusohjelma kysyy seuraavaa levyä\\nklikkaa \\\"Eteenpäin\\\""
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_:54 PlayOnLinux_Scripts/Baldur_s_Gate_:62
 #: PlayOnLinux_Scripts/Baldur_s_Gate_:67 PlayOnLinux_Scripts/Baldur_s_Gate_:72
@@ -788,7 +799,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Witcher_:113
 #, sh-format
 msgid "Please insert the next game media into your disk drive"
-msgstr ""
+msgstr "Ole hyvä ja aseta pelin toinen media levyasemaan"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:48
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:49
@@ -796,7 +807,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:49
 #, sh-format
 msgid "English version"
-msgstr ""
+msgstr "Englanninkielinen versio"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:48
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:48
@@ -804,19 +815,19 @@ msgstr ""
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:51
 #, sh-format
 msgid "Internationnal version"
-msgstr ""
+msgstr "Kansainvälinen versio"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:48
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:52
 #, sh-format
 msgid "Italian version"
-msgstr ""
+msgstr "Italiankielinen versio"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:48
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:55
 #, sh-format
 msgid "Japanese version"
-msgstr ""
+msgstr "Japaninkielinen versio"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:48
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:48
@@ -825,12 +836,12 @@ msgstr ""
 #: PlayOnLinux_Scripts/Borderlands_:59 PlayOnLinux_Scripts/Fallout_3_:57
 #, sh-format
 msgid "Which version do you have?"
-msgstr ""
+msgstr "Mikä versio sinulta löytyy?"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_:68
 #, sh-format
 msgid "This addon automatically install patch 2.5.26461"
-msgstr ""
+msgstr "Tämä lisäosa asentaa automaattisesti korjautiedoston 2.5.26461"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:56
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:63
@@ -841,18 +852,20 @@ msgid ""
 "Wait while the 1st patch is downloading...\\nThis operation can take time, "
 "depending of your connexion."
 msgstr ""
+"Odota hetki kun ensimmäinen korjaustiedosto on latautunut...\\nTämä toiminto "
+"saattaa kestää jonkin aikaa, riippuen yhteysnopeudestasi."
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:43
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:43
 #, sh-format
 msgid "Select first patch to execute"
-msgstr ""
+msgstr "Ole hyvä ja valitse suoritettava korjaustiedosto"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:46
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:46
 #, sh-format
 msgid "Select second patch to execute"
-msgstr ""
+msgstr "Ole hyvä ja valitse seuraava suoritettava korjaustiedosto"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:51
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:52
@@ -860,7 +873,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:52
 #, sh-format
 msgid "US or Canadian version"
-msgstr ""
+msgstr "US tai Kanada versio"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:64
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:69
@@ -870,17 +883,19 @@ msgid ""
 "Wait while the 2nd patch is downloading...\\nThis operation can take time, "
 "depending of your connexion."
 msgstr ""
+"Odota hetki kun toinen korjaustiedosto on latautunut...\\nTämä toiminto "
+"saattaa kestää jonkin aikaa, riippuen yhteysnopeudestasi."
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_:68
 #, sh-format
 msgid "This addon automatically install patch 1.3.5511"
-msgstr ""
+msgstr "Tämä lisäosa asentaa automaatisesti korjautiedoston 1.3.5511"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:51
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:57
 #, sh-format
 msgid "UK version"
-msgstr ""
+msgstr "UK versio"
 
 #: PlayOnLinux_Scripts/Batman_Arkham_Asylum_:109
 #: PlayOnLinux_Scripts/Batman_Arkham_City_:109
@@ -893,6 +908,8 @@ msgid ""
 "You must disable anti-piracy protections of this game\\nif you want to play "
 "it with wine"
 msgstr ""
+"Sinun täytyy poistaa anti-piratismi suoja tästä pelistä\\nJos haluat pelata "
+"sitä winellä"
 
 #: PlayOnLinux_Scripts/Battlefield_1942_:44
 #: PlayOnLinux_Scripts/POL_Function_NoCDWarning_:1
@@ -919,11 +936,13 @@ msgid ""
 "You must disable anti-piracy protections of this game\\nif you want to play "
 "it with wine."
 msgstr ""
+"Sinun täytyy poistaa anti-piratismi suoja tästä pelistä\\nJos haluat pelata "
+"sitä winellä"
 
 #: PlayOnLinux_Scripts/Borderlands_:59 PlayOnLinux_Scripts/Fallout_3_:57
 #, sh-format
 msgid "Game Of The Year version"
-msgstr ""
+msgstr "Vuoden peli"
 
 #: PlayOnLinux_Scripts/Borderlands_:59 PlayOnLinux_Scripts/Borderlands_:60
 #: PlayOnLinux_Scripts/Fallout_3_:57 PlayOnLinux_Scripts/Fallout_3_:58
@@ -932,12 +951,12 @@ msgstr ""
 #: PlayOnLinux_Scripts/Prince_of_Persia___The_Forgotten_Sands_:70
 #, sh-format
 msgid "Normal version"
-msgstr ""
+msgstr "Normaali versio"
 
 #: PlayOnLinux_Scripts/Borderlands_Patch_1.41_:45
 #, sh-format
 msgid "Welcome in the patch $PVERSION Installation script for $TITLE"
-msgstr ""
+msgstr "Tervetuloa $TITLE korjaustiedoston $PVERSION asennusohjelmaan"
 
 #: PlayOnLinux_Scripts/Borderlands_Patch_1.41_:81
 #, sh-format
@@ -945,6 +964,8 @@ msgid ""
 "Wait while the patch is downloading...\\nThis operation can take time, "
 "depending of you connexion."
 msgstr ""
+"Odota hetki kun korjaustiedosto on latautunut...\\nTämä toiminto saattaa "
+"kestää jonkin aikaa, riippuen yhteysnopeudestasi."
 
 #: PlayOnLinux_Scripts/Call_of_Duty__Modern_Warfare_3_:46
 #: PlayOnLinux_Scripts/Half_Life_2_:56
@@ -967,6 +988,7 @@ msgid ""
 "Steam installation has been detected\\nwould you like to install this game "
 "in the same virtual drive?"
 msgstr ""
+"Steam asennus huomattu\\nhaluatko asentaa pelin samaan viruaaliasemaan?"
 
 #: PlayOnLinux_Scripts/Call_of_Duty__Modern_Warfare_3_:46
 #: PlayOnLinux_Scripts/Call_of_Duty__Modern_Warfare_3_:48
@@ -988,6 +1010,8 @@ msgstr "Kyllä"
 msgid ""
 "Warning: GameShadow wont work.\\nPlease de-select during installation."
 msgstr ""
+"Varoitus: GameShadow ei toimi.\\nOle hyvä ja poista rasti ohjelman "
+"asennusohjelmasta."
 
 #: PlayOnLinux_Scripts/CivCity_Rome_:62
 #: PlayOnLinux_Scripts/Dungeon_Siege_III_:59
@@ -998,6 +1022,8 @@ msgid ""
 "Do not forget to close Steam when downloading\\nis finished, so that "
 "$APPLICATION_TITLE can continue\\nto install your game."
 msgstr ""
+"Muista sulkea Steam kun lataus on valmistunut,\\n jotta  $APPLICATION_TITLE "
+"voi jatkaa pelin asennusta."
 
 #: PlayOnLinux_Scripts/CivCity_Rome_Patch_1.1_:23
 #: PlayOnLinux_Scripts/Dragon_Age_2_Patch_1.03_:24
@@ -1021,7 +1047,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:73
 #, sh-format
 msgid "Choose the game language you want"
-msgstr ""
+msgstr "Valitse pelin kieli miksi haluat"
 
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Kane_s_Wrath_:68
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Kane_s_Wrath_:84
@@ -1029,7 +1055,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Tiberium_Wars__Kane_Edition__:84
 #, sh-format
 msgid "Wait while language pack is configured..."
-msgstr ""
+msgstr "Odota hetki kun kielipaketti on konfiguroitu"
 
 #: PlayOnLinux_Scripts/Command_And_Conquer___Red_Alert_1_:23
 #, sh-format
@@ -1044,25 +1070,25 @@ msgstr ""
 #: PlayOnLinux_Scripts/Company_of_Heroes_:65
 #, sh-format
 msgid "Install $TITLE in Steam."
-msgstr ""
+msgstr "Asenna $TITLE Steamissä"
 
 #: PlayOnLinux_Scripts/Company_of_Heroes_:67
 #: PlayOnLinux_Scripts/Freelancer_:54 PlayOnLinux_Scripts/Pro_Pilkki_2_:54
 #, sh-format
 msgid "Error while installing game."
-msgstr ""
+msgstr "Virhe asennuksen aikana."
 
 #: PlayOnLinux_Scripts/Crysis_2_Patch_1.9_and_HiRes_Texture_Pack_:52
 #: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_Patch_1.02_:52
 #, sh-format
 msgid "Select 1st patch to execute"
-msgstr ""
+msgstr "Valitse ensimmäinen suoritettava tiedosto"
 
 #: PlayOnLinux_Scripts/Crysis_2_Patch_1.9_and_HiRes_Texture_Pack_:55
 #: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_Patch_1.02_:55
 #, sh-format
 msgid "Select 2nd patch to execute"
-msgstr ""
+msgstr "Valitse toinen suoritettava tiedosto"
 
 #: PlayOnLinux_Scripts/DC_Universe_Online_:44
 #: PlayOnLinux_Scripts/PlanetSide_2_:40
@@ -1076,7 +1102,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/DC_Universe_Online_:53
 #, sh-format
 msgid "$TITLE has been installed successfully. See you on the Battle Field!"
-msgstr ""
+msgstr "$TITLE on asennettu onnistuneesti. Nähdään taisteluareenalla!"
 
 #: PlayOnLinux_Scripts/DC_Universe_Online_:53
 #: PlayOnLinux_Scripts/Legions__Overdrive_:48
@@ -1090,6 +1116,8 @@ msgstr "Asennus on valmis"
 #, sh-format
 msgid "Welcome in the patch $PVERSION1 and $PVERSION2 installer for $TITLE"
 msgstr ""
+"Tervetuloa $TITLE $PVERSION1 ja $PVERSION2 versioiden korjaustiedostojen "
+"asennusohjelmaan"
 
 #: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_Patch_1.02_:64
 #: PlayOnLinux_Scripts/Dragon_Age_2_Patch_1.03_:59
@@ -1098,6 +1126,8 @@ msgid ""
 "Wait while the 1st patch is downloading...\\nThis operation can take time, "
 "depending of you connexion."
 msgstr ""
+"Odota hetki kun ensimmäinen korjaustiedosto on latautunut...\\nTämä toiminto "
+"saattaa kestää jonkin aikaa, riippuen yhteysnopeudestasi."
 
 #: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_Patch_1.02_:65
 #, sh-format
@@ -1105,12 +1135,15 @@ msgid ""
 "Wait while the 2nd patch is downloading...\\nThis operation can take time, "
 "depending of you connexion."
 msgstr ""
+"Odota hetki kun toinen korjaustiedosto on latautunut...\\nTämä toiminto "
+"saattaa kestää jonkin aikaa, riippuen yhteysnopeudestasi."
 
 #: PlayOnLinux_Scripts/Dead_Space_2_:59
 #: PlayOnLinux_Scripts/Fable___The_Lost_Chapters_:51
 #, sh-format
 msgid "Please insert media 1 into your disk drive\\nif not already done."
 msgstr ""
+"Ole hyvä ja aseta ensimmäinen media levyasemaasi\\nEllet ole jo sitä tehnyt."
 
 #: PlayOnLinux_Scripts/Dead_Space_2_:62 PlayOnLinux_Scripts/Dead_Space_2_:69
 #: PlayOnLinux_Scripts/Fable___The_Lost_Chapters_:54
@@ -1135,7 +1168,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Zoo_Tycoon_2___Ultimate_Collection_:56
 #, sh-format
 msgid "Wait while the installation is prepared..."
-msgstr "Odota asennuksen valmistelua..."
+msgstr "Odota asennuksen esikäsittelyä.."
 
 #: PlayOnLinux_Scripts/Dead_Space_2_:66
 #: PlayOnLinux_Scripts/Dragon_Age___Origins_:58
@@ -1143,21 +1176,23 @@ msgstr "Odota asennuksen valmistelua..."
 #, sh-format
 msgid "Please insert media 2 into your disk drive\\nif not already done."
 msgstr ""
+"Ole hyvä ja aseta toinen media levyasemaasi\\nEllet ole jo sitä tehnyt."
 
 #: PlayOnLinux_Scripts/Desura_:37
 #, sh-format
 msgid "Please wait while $TITLE is downloaded..."
-msgstr ""
+msgstr "Odota hetki kun $TITLE on ladattu..."
 
 #: PlayOnLinux_Scripts/Diablo_III_:21
 #, sh-format
 msgid "Please select the setup file downloaded on $EDITOR website"
 msgstr ""
+"Ole hyvä ja anna asennustiedosto, joka on ladattu $EDITOR kotisivulta"
 
 #: PlayOnLinux_Scripts/Diablo_III_:39
 #, sh-format
 msgid "Waiting for $TITLE to be installed"
-msgstr ""
+msgstr "Odota hetki kun $TITLE on asennettu"
 
 #: PlayOnLinux_Scripts/Diablo_III_:54
 #, sh-format
@@ -1165,6 +1200,8 @@ msgid ""
 "$TITLE has been installed.\\n\\nA special thank to Erich Hoover for his wine "
 "patch (AcceptEx Fix)"
 msgstr ""
+"$TITLE on asennettu onnistuneesti.\\n\\nErityskiitokset Erich Hooverille "
+"tästä Wine korjautiedostosta (AcceptEx Fix)"
 
 #: PlayOnLinux_Scripts/Diablo_III_:54
 #, sh-format
@@ -1172,28 +1209,30 @@ msgid ""
 "If you have Error 3007 on connecting, open a terminal and type:\\necho "
 "0|sudo tee /proc/sys/kernel/yama/ptrace_scope"
 msgstr ""
+"Jos sinulla on Virhe 3007 yhteyksessä, avaa terminaali ja kirjoita:\\necho "
+"0|sudo tee /proc/sys/kernel/yama/ptrace_scope"
 
 #: PlayOnLinux_Scripts/Diablo_II_:25 PlayOnLinux_Scripts/Diablo_II_:50
 #: PlayOnLinux_Scripts/SimCity_2000_:47
 #, sh-format
 msgid "Installing $TITLE"
-msgstr ""
+msgstr "Asennetaan $TITLE"
 
 #: PlayOnLinux_Scripts/Diablo_II___Lord_Of_Destruction_:29
 #, sh-format
 msgid "Please insert $TITLE disc"
-msgstr ""
+msgstr "Ole hyvä ja anna $TITLE levyke"
 
 #: PlayOnLinux_Scripts/Diablo_II___Lord_Of_Destruction_:43
 #: PlayOnLinux_Scripts/Soldat_:28
 #, sh-format
 msgid "$TITLE has been installed successfully"
-msgstr ""
+msgstr "$TITLE on asennettu onnistuneesti"
 
 #: PlayOnLinux_Scripts/Divine_Divinity_:43
 #, sh-format
 msgid " $TITLE has been successfully installed."
-msgstr ""
+msgstr " $TITLE on asennettu onnistuneesti"
 
 #: PlayOnLinux_Scripts/DmC__Devil_May_Cry_:69
 #, sh-format
@@ -1202,11 +1241,13 @@ msgid ""
 "COMPLETELY he Steam interface, \\nso that the installation script can "
 "continue"
 msgstr ""
+"Kun $TITLE on ladattu Steamissä on valmiiksi, älä klikkaa Pelaa.\\n\\nSulje "
+"Steam TÄYSIN,\\njotta asennusskripti voi jatkaa"
 
 #: PlayOnLinux_Scripts/Dragon_Age_2_:45
 #, sh-format
 msgid "If the setup request DirectX installation, answer no."
-msgstr ""
+msgstr "Jos asennusohjelma pyytää asentamaan DirectX, vastaa ei."
 
 #: PlayOnLinux_Scripts/Dragon_Age_2_:106
 #, sh-format
@@ -1216,28 +1257,29 @@ msgstr ""
 #: PlayOnLinux_Scripts/Dragon_Age_2___DLC_:23
 #, sh-format
 msgid "Welcome in the DLCs Installer for $TITLE"
-msgstr ""
+msgstr "Tervetuloa $TITLE DLC:n asennusohjelmaan"
 
 #: PlayOnLinux_Scripts/Dragon_Age_2___DLC_:41
 #: PlayOnLinux_Scripts/Fallout_3___DLC_:39
 #, sh-format
 msgid "Select a DLC to install"
-msgstr ""
+msgstr "Valitse asennettava DLC"
 
 #: PlayOnLinux_Scripts/Dragon_Age_2___DLC_:46
 #, sh-format
 msgid "DLC for $TITLE has been\\ninstalled successfully."
-msgstr ""
+msgstr "DLC on asennettu $TITLE\\nonnistuneesti."
 
 #: PlayOnLinux_Scripts/Dragon_Age___Awakening_:64
 #, sh-format
 msgid "This addon automatically patch the game to version 1.03"
-msgstr ""
+msgstr "Tämä lisäosa asentaa korjaa pelin versioon 1.03"
 
 #: PlayOnLinux_Scripts/Dragon_Age___Origins_:56
 #, sh-format
 msgid "When game setup will ask for next DVD\\nclick on \\\"Forward\\\""
 msgstr ""
+"Kun peli asennusohjelma kysyy seuraavaa DVD:tä\\nNapsauta \\\"Eteenpäin\\\""
 
 #: PlayOnLinux_Scripts/Dungeon_Siege_III_:111
 #, sh-format
@@ -1249,7 +1291,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/EA_s_Origin_:32
 #, sh-format
 msgid "Downloading $TITLE, please wait..."
-msgstr ""
+msgstr "Ladataan $TITLE, odota hetki..."
 
 #: PlayOnLinux_Scripts/EVE_online_:66
 #, sh-format
@@ -1263,12 +1305,12 @@ msgstr ""
 #: PlayOnLinux_Scripts/EVE_online_:74
 #, sh-format
 msgid "You want to open $TITLE download page in your browser?"
-msgstr ""
+msgstr "Haluatko avata $TITLE lataussivun selaimeesi?"
 
 #: PlayOnLinux_Scripts/EVE_online_:88
 #, sh-format
 msgid "Checking latest version..."
-msgstr ""
+msgstr "Tarkistetaan uusinta versiota..."
 
 #: PlayOnLinux_Scripts/EVE_online_:113
 #, sh-format
@@ -1280,7 +1322,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/EVE_online_:116
 #, sh-format
 msgid "Creating symlinks..."
-msgstr ""
+msgstr "Luodaan symboolisia linkkejä..."
 
 #: PlayOnLinux_Scripts/EVE_online_:132
 #, sh-format
@@ -1298,7 +1340,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:46
 #, sh-format
 msgid "Please insert the first game media into your disk drive"
-msgstr ""
+msgstr "Ole hyvä ja aseta pelin ensimmäinen media levyasemaasi"
 
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:39
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:47
@@ -1319,7 +1361,7 @@ msgstr "Pieni hetki..."
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:36
 #, sh-format
 msgid "Please insert the second game media into your disk drive"
-msgstr ""
+msgstr "Ole hyvä ja aseta pelin toinen media levyasemaasi"
 
 #: PlayOnLinux_Scripts/FL_Studio_10_:42
 #, sh-format
@@ -1339,26 +1381,28 @@ msgstr ""
 #, sh-format
 msgid "Please insert media 3 into your disk drive\\nif not already done."
 msgstr ""
+"Ole hyvä ja aseta kolmas media levyasemaasi\\nEllet ole jo sitä tehnyt."
 
 #: PlayOnLinux_Scripts/Fable___The_Lost_Chapters_:75
 #, sh-format
 msgid "Please insert media 4 into your disk drive\\nif not already done."
 msgstr ""
+"Ole hyvä ja aseta neljäs media levyasemaasi\\nEllet ole jo sitä tehnyt."
 
 #: PlayOnLinux_Scripts/Fallout_3___DLC_:22
 #, sh-format
 msgid "Welcome in the DLC Installer for $TITLE"
-msgstr ""
+msgstr "Tervetuloa $TITLE DLC:n asennusohjelmaan"
 
 #: PlayOnLinux_Scripts/Freelancer_:76 PlayOnLinux_Scripts/Red_Faction_:75
 #, sh-format
 msgid "Error while installing patch."
-msgstr ""
+msgstr "Virhe korjaustiedoston asennuksen aikana"
 
 #: PlayOnLinux_Scripts/Freelancer_:85
 #, sh-format
 msgid "$TITLE and $PATCHVERSION patch has been successfully installed."
-msgstr ""
+msgstr "$TITLE ja $PATCHVERSION korjaustiedosto on onnistuneesti asennettu."
 
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:29
 #: PlayOnLinux_Scripts/GOG.com___Gothic_3_Community_patch_:33
@@ -1374,68 +1418,44 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:50
 #, sh-format
 msgid "Lite (702MB), fix major issues (18 cutscenes)"
-msgstr ""
+msgstr "Kevyt (702MB), korjaa tärkeitä tiedostoja (18 välianimaatiota)"
 
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:51
 #, sh-format
 msgid "Full (1.5GB), fix even minor issues (49 cutscenes)"
-msgstr ""
+msgstr "Täysi (1.5GB), korjaa kaikki tiedostot (49 välianimaatiota)"
 
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:52
 #, sh-format
 msgid "Which version do you want to install?"
-msgstr ""
+msgstr "Minkä version haluat asentaa?"
 
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:86
-#: PlayOnLinux_Scripts/League_Of_Legends_:67
+#: PlayOnLinux_Scripts/League_Of_Legends_:66
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_II__Daggerfall_:63
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_II__Daggerfall_:72
 #, sh-format
 msgid "Decompressing archive..."
-msgstr ""
+msgstr "Arkistoa puretaan..."
 
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:100
-#: PlayOnLinux_Scripts/GOG.com___Alien_Breed_and_Tower_Assault_:40
 #: PlayOnLinux_Scripts/GOG.com___Alone_in_the_Dark_2_:41
 #: PlayOnLinux_Scripts/GOG.com___Alone_in_the_Dark_3_:41
 #: PlayOnLinux_Scripts/GOG.com___Dark_Fall__Lights_Out_:41
-#: PlayOnLinux_Scripts/GOG.com___Dark_Fall__The_Journal_:39
 #: PlayOnLinux_Scripts/GOG.com___Darkstone_:44
-#: PlayOnLinux_Scripts/GOG.com___Enclave_:42
 #: PlayOnLinux_Scripts/GOG.com___Flatout_:39
 #: PlayOnLinux_Scripts/GOG.com___Freedom_Force_vs._the_3rd_Reich_:39
-#: PlayOnLinux_Scripts/GOG.com___Gabriel_Knight_3__Blood_of_the_Sacred__of_the_Damned_:39
-#: PlayOnLinux_Scripts/GOG.com___Gobliiins_pack_:42
 #: PlayOnLinux_Scripts/GOG.com___Gothic_3_Community_patch_:60
-#: PlayOnLinux_Scripts/GOG.com___Ground_Control_2_:45
 #: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:62
-#: PlayOnLinux_Scripts/GOG.com___In_Cold_Blood_:39
 #: PlayOnLinux_Scripts/GOG.com___Incoming_and_Incoming_Forces_:40
 #: PlayOnLinux_Scripts/GOG.com___Iron_Storm_:38
-#: PlayOnLinux_Scripts/GOG.com___Kingpin__Life_of_Crime_:39
-#: PlayOnLinux_Scripts/GOG.com___Normality_:39
-#: PlayOnLinux_Scripts/GOG.com___Realms_of_Arkania_1_and_2_:40
 #: PlayOnLinux_Scripts/GOG.com___Realms_of_Arkania_3_:39
-#: PlayOnLinux_Scripts/GOG.com___Realms_of_the_Haunting_:39
-#: PlayOnLinux_Scripts/GOG.com___Runaway__A_Road_Adventure_:40
 #: PlayOnLinux_Scripts/GOG.com___Sam_and_Max__The_Devils_Playhouse_:42
 #: PlayOnLinux_Scripts/GOG.com___Sanitarium_:58
-#: PlayOnLinux_Scripts/GOG.com___Septerra_Core__Legacy_of_the_Creator_:37
 #: PlayOnLinux_Scripts/GOG.com___Shadowgrounds_:56
-#: PlayOnLinux_Scripts/GOG.com___Simon_the_Sorcerer_:39
-#: PlayOnLinux_Scripts/GOG.com___Simon_the_Sorcerer_2_:39
-#: PlayOnLinux_Scripts/GOG.com___Star_Wolves_:39
-#: PlayOnLinux_Scripts/GOG.com___Still_Life_:39
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:64
-#: PlayOnLinux_Scripts/GOG.com___Tex_Murphy__The_Pandora_Directive_:36
-#: PlayOnLinux_Scripts/GOG.com___Tex_Murphy__Under_a_Killing_Moon_:39
 #: PlayOnLinux_Scripts/GOG.com___The_Feeble_Files_:37
 #: PlayOnLinux_Scripts/GOG.com___The_Last_Express_:37
-#: PlayOnLinux_Scripts/GOG.com___The_Longest_Journey_:39
-#: PlayOnLinux_Scripts/GOG.com___The_Nations_Gold_Edition_:39
-#: PlayOnLinux_Scripts/GOG.com___UFO__Afterlight_:39
-#: PlayOnLinux_Scripts/GOG.com___UFO__Aftermath_:39
-#: PlayOnLinux_Scripts/GOG.com___Wallace_and_Gromits_Grand_Adventures_:42
 #: PlayOnLinux_Scripts/Infinity_Engine_widescreen_mod_:64
 #: PlayOnLinux_Scripts/POL_GoG_install_:9 PlayOnLinux_Scripts/Poker_Stars_:37
 #: PlayOnLinux_Scripts/Ski_Challenge_2012_:49
@@ -1443,7 +1463,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Universal_Extractor_:45
 #, sh-format
 msgid "Error while installing archive"
-msgstr "Virhe asentaessa arkistoa"
+msgstr "Virhe arkiston asennuksessa"
 
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:104
 #, sh-format
@@ -1459,17 +1479,17 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Painkiller__Black_Edition_:46
 #, sh-format
 msgid "Editor"
-msgstr ""
+msgstr "Toimittaja"
 
 #: PlayOnLinux_Scripts/GOG.com___Commandos_Ammo_Pack_:27
 #, sh-format
 msgid "This install script requires ffmpeg"
-msgstr ""
+msgstr "Tämä asennus scripti vaatii ffmpegin"
 
 #: PlayOnLinux_Scripts/GOG.com___Commandos_Ammo_Pack_:74
 #, sh-format
 msgid "Converting videos..."
-msgstr ""
+msgstr "Muunnetaan videoita..."
 
 #: PlayOnLinux_Scripts/GOG.com___Deus_Ex_GOTY_Edition_:69
 #, sh-format
@@ -1482,23 +1502,23 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Deus_Ex_GOTY_Edition_:89
 #, sh-format
 msgid "Run $TITLE in safe mode?"
-msgstr ""
+msgstr "Käynnistä $TITLE vikasietotilassa?"
 
 #: PlayOnLinux_Scripts/GOG.com___Far_Cry_:47
 #, sh-format
 msgid "Could not find program directory"
-msgstr ""
+msgstr "Ohjelman hakemistoa ei löydy"
 
 #: PlayOnLinux_Scripts/GOG.com___Far_Cry_:58
 #, sh-format
 msgid "The level editor"
-msgstr ""
+msgstr "Kenttämuokkain"
 
 #: PlayOnLinux_Scripts/GOG.com___Far_Cry_:59
 #: PlayOnLinux_Scripts/GOG.com___Painkiller__Black_Edition_:48
 #, sh-format
 msgid "What extra shortcuts should be created?"
-msgstr ""
+msgstr "Mitkä lisä pikakuvakkeet luodaan?"
 
 #: PlayOnLinux_Scripts/GOG.com___Far_Cry_:76
 #, sh-format
@@ -1517,7 +1537,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Giants__Citizen_Kabuto_:20
 #, sh-format
 msgid "Dedicated Server Editor"
-msgstr ""
+msgstr "Oman palvelimen muokkain"
 
 #: PlayOnLinux_Scripts/GOG.com___Gothic_3_:62
 #, sh-format
@@ -1536,67 +1556,67 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:49
 #, sh-format
 msgid "You can download the archive file from:"
-msgstr ""
+msgstr "Voit ladata pakatun tiedoston täältä:"
 
 #: PlayOnLinux_Scripts/GOG.com___Iron_Storm_:20
 #: PlayOnLinux_Scripts/GOG.com___Painkiller__Black_Edition_:21
 #, sh-format
 msgid "Dedicated Server"
-msgstr ""
+msgstr "Oma palvelin"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:67
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:73
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:77 PlayOnLinux_Scripts/Goblins_3_:21
 #, sh-format
 msgid "English"
-msgstr ""
+msgstr "Englanti"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:73
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:110
 #, sh-format
 msgid "Brasilian (text only)"
-msgstr ""
+msgstr "Brasilia (teksti ainoastaan)"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:73
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:121
 #, sh-format
 msgid "Dutch (text only)"
-msgstr ""
+msgstr "Saksa (teksti ainoastaan)"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:73
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:88 PlayOnLinux_Scripts/Goblins_3_:21
 #, sh-format
 msgid "French"
-msgstr ""
+msgstr "Ranska"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:73
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:99
 #, sh-format
 msgid "German"
-msgstr ""
+msgstr "Saksa"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:73
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:132
 #, sh-format
 msgid "Italian (text only)"
-msgstr ""
+msgstr "Italia (teksti ainoastaan)"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:73
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:143
 #, sh-format
 msgid "Spanish (text only)"
-msgstr ""
+msgstr "Espanja (teksti ainoastaan)"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:157
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:161
 #, sh-format
 msgid "Arrow keys (default)"
-msgstr ""
+msgstr "Nuolinäppäimet (oletus)"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:157
 #, sh-format
 msgid "Standard keyboard layouts"
-msgstr ""
+msgstr "Standartinen näppäimistö kartta"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:157
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:159
@@ -1604,46 +1624,46 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:365
 #, sh-format
 msgid "Unchanged"
-msgstr ""
+msgstr "Muuttumaton"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:157
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:228
 #, sh-format
 msgid "WASD (Qwerty)"
-msgstr ""
+msgstr "WASD (Qwerty)"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:157
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:294
 #, sh-format
 msgid "ZQSD (Azerty)"
-msgstr ""
+msgstr "ZQSD (Azerty)"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:362
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:367
 #, sh-format
 msgid "Factory defaults"
-msgstr ""
+msgstr "Tehdasasetukset"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:362
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:540
 #, sh-format
 msgid "High quality (Entropy settings)"
-msgstr ""
+msgstr "Paras laatu (Entropy asetus)"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:362
 #, sh-format
 msgid "Visual quality"
-msgstr ""
+msgstr "Visuaalinen laatu"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:43
 #, sh-format
 msgid "Do you want to read original thread in GOG.com forums?"
-msgstr ""
+msgstr "Haluatko lukea alkuperäisen aiheen GOG.com foorumista?"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:53
 #, sh-format
 msgid "Error while uncompressing the archive"
-msgstr ""
+msgstr "Virhe arkiston purussa"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:60
 #, sh-format
@@ -1656,7 +1676,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:69
 #, sh-format
 msgid "Run \\$TITLE?"
-msgstr ""
+msgstr "Käynnistä \\$TITLE?"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:80
 #, sh-format
@@ -1668,7 +1688,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Painkiller__Black_Edition_:47
 #, sh-format
 msgid "Dedicated server"
-msgstr ""
+msgstr "Oma palvelin"
 
 #: PlayOnLinux_Scripts/GOG.com___Prince_of_Persia__The_Sands_of_Time_:57
 #, sh-format
@@ -1680,12 +1700,12 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Sanitarium_:68
 #, sh-format
 msgid "(windowed)"
-msgstr ""
+msgstr "(ikkunoitu)"
 
 #: PlayOnLinux_Scripts/GOG.com___Starflight_1_and_2_:20
 #, sh-format
 msgid "Code wheel"
-msgstr ""
+msgstr "Koodipyörä"
 
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_:58
 #, sh-format
@@ -1698,7 +1718,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:60
 #, sh-format
 msgid "Now you must install the modpack in directory:"
-msgstr ""
+msgstr "Seuraavaksi sinun pitää asentaa modpack hakemistoosi:"
 
 #: PlayOnLinux_Scripts/GOG.com___The_Incredible_Machine_Mega_Pack_:60
 #, sh-format
@@ -1708,7 +1728,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Two_Worlds__Epic_Edition_:44
 #, sh-format
 msgid "temp directory missing"
-msgstr ""
+msgstr "temp hakemisto on hukassa"
 
 #: PlayOnLinux_Scripts/GOG.com___Two_Worlds__Epic_Edition_:73
 #, sh-format
@@ -1722,7 +1742,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Two_Worlds__Epic_Edition_:98
 #, sh-format
 msgid "Control Panel"
-msgstr ""
+msgstr "Ohjauspaneeli"
 
 #: PlayOnLinux_Scripts/GOG.com___Ultima_Worlds_of_Adventure_2__Martian_Dreams_:53
 #: PlayOnLinux_Scripts/GOG.com___Worlds_of_Ultima__The_Savage_Empire_:52
@@ -1742,12 +1762,12 @@ msgstr ""
 #: PlayOnLinux_Scripts/Goblins_3_:21
 #, sh-format
 msgid "Please select the game language"
-msgstr ""
+msgstr "Valitse pelin kieli"
 
 #: PlayOnLinux_Scripts/Gothic_3_:82
 #, sh-format
 msgid "Choose the game resolution"
-msgstr ""
+msgstr "Valitse pelin tarkkuus"
 
 #: PlayOnLinux_Scripts/Gothic_3_:96
 #, sh-format
@@ -1760,14 +1780,14 @@ msgstr ""
 #: PlayOnLinux_Scripts/Gothic_3_:110
 #, sh-format
 msgid "$TITLE is installed"
-msgstr ""
+msgstr "$TITLE on asennettu"
 
 #: PlayOnLinux_Scripts/Guild_Wars_:53
 #: PlayOnLinux_Scripts/Halo_Combat_Evolved_:33
 #: PlayOnLinux_Scripts/Heroes_of_Might_and_Magic_V_:42
 #, sh-format
 msgid "Please insert the DVD-ROM"
-msgstr ""
+msgstr "Ole hyvä ja aseta DVD-ROM"
 
 #: PlayOnLinux_Scripts/Guild_Wars_2_:86
 #, sh-format
@@ -1787,12 +1807,12 @@ msgstr ""
 #: PlayOnLinux_Scripts/Halo_Combat_Evolved_:41
 #, sh-format
 msgid "Select the file to install"
-msgstr ""
+msgstr "Ole hyvä ja anna asennustiedosto"
 
 #: PlayOnLinux_Scripts/Halo_Combat_Evolved_:70
 #, sh-format
 msgid "Updating $TITLE"
-msgstr ""
+msgstr "Päivitetaan $TITLE"
 
 #: PlayOnLinux_Scripts/ImgBurn_:38
 #, sh-format
@@ -1807,11 +1827,12 @@ msgid ""
 "NOTICE: POL does not condone piracy. Please use $TITLE in a respectable "
 "manner"
 msgstr ""
+"HUOMAUTUS: POL ei hyväksy piratismia. Käytä $TITLE kunniallisella tavalla"
 
 #: PlayOnLinux_Scripts/Infinity_Engine_widescreen_mod_:52
 #, sh-format
 msgid "Could not find executable $EXE in virtual disk $PREFIX"
-msgstr ""
+msgstr "$EXE nimistä tiedostoa ei löydy $PREFIX virtuaaliasemalta"
 
 #: PlayOnLinux_Scripts/Infinity_Engine_widescreen_mod_:107
 #, sh-format
@@ -1837,17 +1858,18 @@ msgstr ""
 #, sh-format
 msgid "Registering libraries, please wait\\n(It can take a while)"
 msgstr ""
+"Rekisteröidään kirjastoja, odota hetki\\n(Se saattaa kestää jonkin aikaa)"
 
 #: PlayOnLinux_Scripts/Internet_Explorer_7_:57
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:72
 #, sh-format
 msgid "Which language version would you like to install?"
-msgstr ""
+msgstr "Minkä kielisen version haluat asentaa?"
 
 #: PlayOnLinux_Scripts/League_Of_Legends_:40
 #, sh-format
 msgid "glxinfo is not installed. Please install mesa-utils package"
-msgstr ""
+msgstr "glxinfo ei ole asennettu. Ole hyvä ja asenna mesa-utils paketti."
 
 #: PlayOnLinux_Scripts/League_Of_Legends_:43
 #, sh-format
@@ -1861,15 +1883,15 @@ msgstr ""
 #: PlayOnLinux_Scripts/League_Of_Legends_:58
 #, sh-format
 msgid "Cant install using the official downloader, sorry"
-msgstr ""
+msgstr "Asennus ei onnistu virallisella lataajalla, anteeksi"
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:92
+#: PlayOnLinux_Scripts/League_Of_Legends_:91
 #, sh-format
 msgid ""
 "Warning: You must not tick the checkbox \"Run $TITLE\" when setup is done"
 msgstr ""
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:111
+#: PlayOnLinux_Scripts/League_Of_Legends_:110
 #, sh-format
 msgid ""
 "You should now have a League of Legends directory on your desktop containing "
@@ -1879,7 +1901,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/League_of_Legends__ingame_shop_icons_fix_:29
 #, sh-format
 msgid "Please install $TITLE_REQUIRED first"
-msgstr ""
+msgstr "Ole hyvä ja asenna $TITLE_REQUIRED ensimmäisenä"
 
 #: PlayOnLinux_Scripts/League_of_Legends__ingame_shop_icons_fix_:32
 #, sh-format
@@ -1892,23 +1914,23 @@ msgstr ""
 #: PlayOnLinux_Scripts/League_of_Legends__ingame_shop_icons_fix_:55
 #, sh-format
 msgid "Patching will take several minutes, please be patient..."
-msgstr ""
+msgstr "Paikkaaminen kestää useita minuutteja, ole kärsivällinen..."
 
 #: PlayOnLinux_Scripts/Mass_Effect_:48
 #, sh-format
 msgid "Please insert game media 1 into your disk drive"
-msgstr ""
+msgstr "Ole hyvä ja aseta pelin ensimmäinen media levyasemaasi"
 
 #: PlayOnLinux_Scripts/Mass_Effect_:56
 #, sh-format
 msgid "Please insert game media 2 into your disk drive"
-msgstr ""
+msgstr "Ole hyvä ja aseta pelin toinen media levyasemaasi"
 
 #: PlayOnLinux_Scripts/Mass_Effect_2_:51
 #: PlayOnLinux_Scripts/Prince_of_Persia___The_Forgotten_Sands_:69
 #, sh-format
 msgid "Digital Deluxe version"
-msgstr ""
+msgstr "Digital Deluxe versio"
 
 #: PlayOnLinux_Scripts/Mass_Effect_2_:51
 #: PlayOnLinux_Scripts/Prince_of_Persia___The_Forgotten_Sands_:69
@@ -1916,7 +1938,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Witcher_:55
 #, sh-format
 msgid "Which edition do you have?"
-msgstr ""
+msgstr "Mikä painos sinulla on?"
 
 #: PlayOnLinux_Scripts/Microsoft_Excel_Viewer_2003_:12
 #: PlayOnLinux_Scripts/Microsoft_Word_Viewer_2003_:13
@@ -1932,17 +1954,17 @@ msgstr ""
 #: PlayOnLinux_Scripts/Microsoft_Money_2005_:33
 #, sh-format
 msgid "Where is $TITLE install file?"
-msgstr ""
+msgstr "Missä on $TITLE asennustiedosto?"
 
 #: PlayOnLinux_Scripts/Microsoft_Office_2007_:46
 #, sh-format
 msgid "$TITLE has been successfully installed"
-msgstr ""
+msgstr "$TITLE on onnistuneesti asennettu"
 
 #: PlayOnLinux_Scripts/Microsoft_Office_2010_:43
 #, sh-format
 msgid "Please select $TITLE setup file"
-msgstr ""
+msgstr "Ole hyvä ja valitse $TITLE asennustiedosto"
 
 #: PlayOnLinux_Scripts/Microsoft_Office_2010_:79
 #, sh-format
@@ -1954,17 +1976,17 @@ msgstr ""
 #: PlayOnLinux_Scripts/Microsoft_Office_2010_Activation_:27
 #, sh-format
 msgid "Which type of activation?"
-msgstr ""
+msgstr "Minkä tyyppinen aktivointi?"
 
 #: PlayOnLinux_Scripts/Microsoft_Office_2010_Activation_:32
 #, sh-format
 msgid "Insert address of license server!"
-msgstr ""
+msgstr "Lisää lisenssipalvelimen osoite!"
 
 #: PlayOnLinux_Scripts/Microsoft_Office_2010_Activation_:34
 #, sh-format
 msgid "Insert port of license server!"
-msgstr ""
+msgstr "Lisää lisenssipalvelimen portti!"
 
 #: PlayOnLinux_Scripts/Microsoft_Office_2010_Activation_:37
 #, sh-format
@@ -1996,27 +2018,57 @@ msgstr ""
 #: PlayOnLinux_Scripts/Myst_III__Exile_:45
 #, sh-format
 msgid "Coping install files, please wait..."
-msgstr ""
+msgstr "Kopioidaan asennustiedostoja, odota hetki..."
 
 #: PlayOnLinux_Scripts/OnLive_:43
 #, sh-format
 msgid "Wait until it gets downloaded and installed"
-msgstr ""
+msgstr "Odota hetki kun tiedostot on ladattu ja asennettu"
 
 #: PlayOnLinux_Scripts/OnLive_:51
 #, sh-format
 msgid "Installation in progress"
-msgstr ""
+msgstr "Asennus on meneillään"
+
+#: PlayOnLinux_Scripts/POL_Download_retry_:10
+#: PlayOnLinux_Scripts/POL_GoG_download_:88
+#: PlayOnLinux_Scripts/POL_GoG_download_:100
+#, sh-format
+msgid "Checking piece integrity..."
+msgstr "Tarkistetaan palasien eheyttä..."
+
+#: PlayOnLinux_Scripts/POL_Download_retry_:24
+#, sh-format
+msgid "Checking download integrity..."
+msgstr "Tarkistetaan latauksen eheyttä..."
+
+#: PlayOnLinux_Scripts/POL_Download_retry_:27
+#: PlayOnLinux_Scripts/POL_GoG_download_:102
+#, sh-format
+msgid "Download failed"
+msgstr "Lataus epäonnistui"
+
+#: PlayOnLinux_Scripts/POL_Download_retry_:30
+#: PlayOnLinux_Scripts/POL_GoG_download_:104
+#, sh-format
+msgid "Download seems to be corrupted"
+msgstr "Lataus on korruptoitunut"
+
+#: PlayOnLinux_Scripts/POL_Download_retry_:40
+#: PlayOnLinux_Scripts/POL_GoG_download_:113
+#, sh-format
+msgid "Retry?"
+msgstr "Yritetäänkö uudelleen?"
 
 #: PlayOnLinux_Scripts/POL_Function_OverrideDLL_:27
 #, sh-format
 msgid "Please wait"
-msgstr ""
+msgstr "Odota hetki"
 
 #: PlayOnLinux_Scripts/POL_Function_RootCommand_:8
 #, sh-format
 msgid "No root command specified, abording installation."
-msgstr ""
+msgstr "Pääkäyttäjän komentoa ei ole määritelty, keskeytetään asennus"
 
 #: PlayOnLinux_Scripts/POL_Function_RootCommand_:13
 #: PlayOnLinux_Scripts/POL_Function_RootCommand_:17
@@ -2043,48 +2095,27 @@ msgstr "Ole hyvä ja lue tämä"
 #: PlayOnLinux_Scripts/POL_GoG_download_:36
 #, sh-format
 msgid "In what directory do you want to download GOG files?"
-msgstr ""
+msgstr "Mihin hakemistoon haluat ladata GOG tiedostot?"
 
 #: PlayOnLinux_Scripts/POL_GoG_download_:46
 #, sh-format
 msgid "Please enter your gog.com login to download $BASENAME"
-msgstr ""
+msgstr "Ole hyvä ja anna gog.com käyttäjätunnus ladataksesi $BASENAME"
 
 #: PlayOnLinux_Scripts/POL_GoG_download_:66
 #, sh-format
 msgid "Gog.com login failed, try again?"
-msgstr ""
-
-#: PlayOnLinux_Scripts/POL_GoG_download_:88
-#: PlayOnLinux_Scripts/POL_GoG_download_:100
-#, sh-format
-msgid "Checking piece integrity..."
-msgstr ""
-
-#: PlayOnLinux_Scripts/POL_GoG_download_:102
-#, sh-format
-msgid "Download failed"
-msgstr ""
-
-#: PlayOnLinux_Scripts/POL_GoG_download_:104
-#, sh-format
-msgid "Download seems to be corrupted"
-msgstr ""
-
-#: PlayOnLinux_Scripts/POL_GoG_download_:113
-#, sh-format
-msgid "Retry?"
-msgstr ""
+msgstr "Gog.com kirjautuminen epäonnistui, yritetäänkö uudelleen?"
 
 #: PlayOnLinux_Scripts/POL_GoG_setup_:18
 #, sh-format
 msgid "Do you want to download $TITLE from GOG.com?"
-msgstr ""
+msgstr "Haluatko ladata $TITLE GOG.com osoittesta?"
 
 #: PlayOnLinux_Scripts/POL_Install_AdobeAir_:6
 #, sh-format
 msgid "Installing Adobe Air"
-msgstr ""
+msgstr "Asennetaan Adobe Air"
 
 #: PlayOnLinux_Scripts/POL_Install_d3dcompiler_43_:11
 #: PlayOnLinux_Scripts/POL_Install_d3dx9_:11
@@ -2094,27 +2125,27 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_d3dx9_43_:11
 #, sh-format
 msgid "Installing DirectX 9 dlls..."
-msgstr ""
+msgstr "Asennetaan DirectX 9 dll..."
 
 #: PlayOnLinux_Scripts/POL_Install_d3dx10_:11
 #, sh-format
 msgid "Installing DirectX 10 dlls..."
-msgstr ""
+msgstr "Asennetaan DirectX 10 dll..."
 
 #: PlayOnLinux_Scripts/POL_Install_d3dx11_:11
 #, sh-format
 msgid "Installing DirectX 11 dlls..."
-msgstr ""
+msgstr "Asennetaan DirectX 11 dll..."
 
 #: PlayOnLinux_Scripts/POL_Install_desura_:16
 #, sh-format
 msgid "Please wait while Desura is downloaded..."
-msgstr ""
+msgstr "Odota hetki kun Desura on ladattu..."
 
 #: PlayOnLinux_Scripts/POL_Install_directmusic_:11
 #, sh-format
 msgid "Installing DirectMusic"
-msgstr ""
+msgstr "Asennetaan DirectMusic"
 
 #: PlayOnLinux_Scripts/POL_Install_dotnet11_:11
 #: PlayOnLinux_Scripts/POL_Install_dotnet11sp1_:10
@@ -2131,17 +2162,17 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_wmpcodecs_:10
 #, sh-format
 msgid "This package does not work on a 64-bit installation"
-msgstr ""
+msgstr "Tämä paketti ei toimi 64-bittisessä kokoonpanossa"
 
 #: PlayOnLinux_Scripts/POL_Install_dotnet20sp1_:10
 #, sh-format
 msgid "This package does not work with wine 1.3.22 or lower"
-msgstr ""
+msgstr "Tämä paketti ei toimi winen 1.3.22 versiossa tai pienemmässä"
 
 #: PlayOnLinux_Scripts/POL_Install_dotnet20sp2_:10
 #, sh-format
 msgid "This package does not work with wine 1.3.18 or lower"
-msgstr ""
+msgstr "Tämä paketti ei toimi winen  1.3.18 tai pienemmässä"
 
 #: PlayOnLinux_Scripts/POL_Install_dotnet30_:13
 #, sh-format
@@ -2156,11 +2187,14 @@ msgid ""
 "If you see error messages during DotNet 3.0 installation, you can ignore "
 "them without issues"
 msgstr ""
+"Jos näet virheilmoituksen DotNet 3.0 asennuksen aikana. Voit jättää ne "
+"huomioimatta"
 
 #: PlayOnLinux_Scripts/POL_Install_dotnet35_:10
 #, sh-format
 msgid "This package fail to install with wine 1.5.21 or better"
 msgstr ""
+"Tämän paketin asennus epäonnistuu Winen 1.5.21 versiossa tai uudemmassa"
 
 #: PlayOnLinux_Scripts/POL_Install_dotnet35_:28
 #, sh-format
@@ -2168,6 +2202,8 @@ msgid ""
 "If you see error messages during DotNet 3.5 installation, you can ignore "
 "them without issues"
 msgstr ""
+"Jos näet virheilmoituksen DotNet 3.5 asennuksen aikana. Voit jättää ne "
+"huomioimatta"
 
 #: PlayOnLinux_Scripts/POL_Install_dotnet35sp1_:20
 #, sh-format
@@ -2175,6 +2211,8 @@ msgid ""
 "If you see error messages during DotNet 3.5 SP1 installation, you can ignore "
 "them without issues"
 msgstr ""
+"Jos näet virheilmoituksen DotNet 3.5 SP1 asennuksen aikana. Voit jättää ne "
+"huomioimatta"
 
 #: PlayOnLinux_Scripts/POL_Install_dotnet40_:18
 #, sh-format
@@ -2182,32 +2220,34 @@ msgid ""
 "If you see error messages during DotNet 4.0 installation, you can ignore "
 "them without issues"
 msgstr ""
+"Jos näet virheilmoituksen DotNet 4.0 asennuksen aikana. Voit jättää ne "
+"huomioimatta"
 
 #: PlayOnLinux_Scripts/POL_Install_dsound_:11
 #, sh-format
 msgid "Installing Dsound DLL..."
-msgstr ""
+msgstr "Asennetaan Dsound DLL..."
 
 #: PlayOnLinux_Scripts/POL_Install_dxfullsetup_:12
 #, sh-format
 msgid "Installing DirectX runtime"
-msgstr ""
+msgstr "Asennetaan DirectX runtime"
 
 #: PlayOnLinux_Scripts/POL_Install_gecko_:101
 #, sh-format
 msgid "Downloading gecko ..."
-msgstr ""
+msgstr "Ladataan gecko ..."
 
 #: PlayOnLinux_Scripts/POL_Install_gfwl86_:3
 #, sh-format
 msgid "Installing Games For Windows Live"
-msgstr ""
+msgstr "Asennetaan Games For Windows Live"
 
 #: PlayOnLinux_Scripts/POL_Install_gfwl_:28
 #: PlayOnLinux_Scripts/POL_Remove_gfwl_:14
 #, sh-format
 msgid "Downloading Game For Windows Live..."
-msgstr ""
+msgstr "Ladataan Game For Windows Live..."
 
 #: PlayOnLinux_Scripts/POL_Install_gfwl_:33
 #, sh-format
@@ -2218,12 +2258,12 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_linuxtrack_wine_:9
 #, sh-format
 msgid "Installing Linuxtrack-wine DLL..."
-msgstr ""
+msgstr "Asennetaan Linuxtrack-wine DLL..."
 
 #: PlayOnLinux_Scripts/POL_Install_origin_:21
 #, sh-format
 msgid "Downloading Origin, please wait..."
-msgstr ""
+msgstr "Ladataan Origin, odota hetki..."
 
 #: PlayOnLinux_Scripts/POL_Install_origin_:30
 #, sh-format
@@ -2231,28 +2271,30 @@ msgid ""
 "Setup will launch Origin after installation\\n close it COMPLETELY to "
 "continue."
 msgstr ""
+"Asennusohjelma avaa Originin asennuksen jälkeen.\\n Sulje se täysin, että "
+"asennus scriti voi jatkaa."
 
 #: PlayOnLinux_Scripts/POL_Install_steam_:24
 #, sh-format
 msgid "Please wait while Steam is downloaded..."
-msgstr ""
+msgstr "Odota hetki kun Steam on ladattu..."
 
 #: PlayOnLinux_Scripts/POL_Install_ubigamelauncher_:13
 #, sh-format
 msgid ""
 "Please wait while $APPLICATION_TITLE is downloading Ubisoft Game Launcher"
-msgstr ""
+msgstr "Odota hetki kun $APPLICATION_TITLE lataa Ubisoft Game Lancherin"
 
 #: PlayOnLinux_Scripts/POL_Install_vbrun6_:12
 #, sh-format
 msgid "Installing Visual Basic runtime"
-msgstr ""
+msgstr "Asennetaan Visual Basic runtime"
 
 #: PlayOnLinux_Scripts/POL_Install_vcrun2008_:37
 #, sh-format
 msgid ""
 "Warning : vcrun2008 seems to be already installed.\\nForcing reinstallation."
-msgstr ""
+msgstr "Varoitus: vcrun2008 on jo asennettu.\\nPerutaan asennus."
 
 #: PlayOnLinux_Scripts/POL_Install_vcrun2008_:41
 #, sh-format
@@ -2260,12 +2302,14 @@ msgid ""
 "VCRun2008 might fail to install because your PlayOnLinux version is too old. "
 "Please update."
 msgstr ""
+"VCRun2008 asennus voi epäonnistua, koska PlayOnLinux versio on liian vanha. "
+"Päivitä se."
 
 #: PlayOnLinux_Scripts/POL_Install_vcrun2010_:25
 #, sh-format
 msgid ""
 "Warning : vcrun2010 seems to be already installed.\\nForcing reinstallation."
-msgstr ""
+msgstr "Varoitus: vcrun2010 on jo asennettu.\\nPerutaan asennus."
 
 #: PlayOnLinux_Scripts/POL_Install_vcrun2010_:31
 #, sh-format
@@ -2273,16 +2317,18 @@ msgid ""
 "VCRun2010 might fail to install because your PlayOnLinux version is too old. "
 "Please update."
 msgstr ""
+"VCRun2010 asennus voi epäonnistua, koska PlayOnLinux versio on liian vanha. "
+"Päivitä se."
 
 #: PlayOnLinux_Scripts/POL_Install_xact_:14
 #, sh-format
 msgid "Installing Xact dlls..."
-msgstr ""
+msgstr "Asennetaan Xact dll..."
 
 #: PlayOnLinux_Scripts/POL_Install_xinput_:12
 #, sh-format
 msgid "Installing Xinput dlls..."
-msgstr ""
+msgstr "Asennetaan Xinput dll..."
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:1
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:20
@@ -2296,12 +2342,12 @@ msgstr "Microsoft kirjaimet"
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:1
 #, sh-format
 msgid "Microsoft fonts aren't installed; I'll install them for you."
-msgstr ""
+msgstr "Microsoftin kirjaimia ei ole asennettu. Ne asennetaan sinulle."
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:3
 #, sh-format
 msgid " Licence translated into your language "
-msgstr ""
+msgstr " Lisenssi on käännetty kielellesi "
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:4
 #, sh-format
@@ -2327,17 +2373,17 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:9
 #, sh-format
 msgid " Original licence "
-msgstr ""
+msgstr " alkuperäinen lisenssi "
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:20
 #, sh-format
 msgid "Please read and accept the following:"
-msgstr ""
+msgstr "Ole hyvä ja lue seuraava ja hyväksy se:"
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:32
 #, sh-format
 msgid "Downloading fonts"
-msgstr ""
+msgstr "Ladataan kirjaisimet"
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:37
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:38
@@ -2345,12 +2391,12 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:45
 #, sh-format
 msgid "Downloading: "
-msgstr ""
+msgstr "Ladataan: "
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:52
 #, sh-format
 msgid "Installing fonts"
-msgstr ""
+msgstr "Asennetaan kirjaisimet"
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:57
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:58
@@ -2358,27 +2404,27 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:66
 #, sh-format
 msgid "Installing: "
-msgstr ""
+msgstr "Asennetaan: "
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:72
 #, sh-format
 msgid "Cleaning"
-msgstr ""
+msgstr "Siivotaan"
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:82
 #, sh-format
 msgid "Microsoft fonts have been installed successfully."
-msgstr ""
+msgstr "Microsof kirjaisimet on asennettu onnistuneesti."
 
 #: PlayOnLinux_Scripts/POL_Remove_gfwl_:16
 #, sh-format
 msgid "Remove Game For Windows Live..."
-msgstr ""
+msgstr "Poistataan Game For Windows Live..."
 
 #: PlayOnLinux_Scripts/POL_Remove_gfwl_:23
 #, sh-format
 msgid "Game For Windows Live is not installed\\nskipping uninstall routine."
-msgstr ""
+msgstr "Game For Windows Liveä ei ole asennettu\\nohitetaan poistorutiini."
 
 #: PlayOnLinux_Scripts/POL_Sudo_RehideCdrom_:13
 #, sh-format
@@ -2399,7 +2445,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Sudo_UnhideCdrom_:21
 #, sh-format
 msgid "Please read carrefully"
-msgstr ""
+msgstr "Ole hyvä ja lue huolella"
 
 #: PlayOnLinux_Scripts/POL_Sudo_UnhideCdrom_:13
 #, sh-format
@@ -2410,7 +2456,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:8
 #, sh-format
 msgid "Please insert the first disc"
-msgstr ""
+msgstr "Ole hyvä ja aseta ensimmäinen levy"
 
 #: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:14
 #, sh-format
@@ -2448,7 +2494,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Rage_:77
 #, sh-format
 msgid "Wait while installation is prepared..."
-msgstr ""
+msgstr "Odota hetki kun asennusta esikäsitellään."
 
 #: PlayOnLinux_Scripts/Rage_:67
 #, sh-format
@@ -2493,7 +2539,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Runes_Of_Magic_:43
 #, sh-format
 msgid "You can download $TITLE install file here:"
-msgstr ""
+msgstr "Voit ladata $TITLE asennustiedoston tänne:"
 
 #: PlayOnLinux_Scripts/Safari_:50 PlayOnLinux_Scripts/Safari_:61
 #, sh-format
@@ -2505,7 +2551,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/SimCity_2000_:40
 #, sh-format
 msgid "Please select the MS-DOS version of setup file:"
-msgstr ""
+msgstr "Ole hyvä ja valitse MS-DOS versio asennusohjelmasta:"
 
 #: PlayOnLinux_Scripts/Slender_:20
 #, sh-format
@@ -2533,7 +2579,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Sonic_Fan_Remix_:37
 #, sh-format
 msgid "Downloading $TITLE Freeware..."
-msgstr ""
+msgstr "Ladataan $TITLE Freeware..."
 
 #: PlayOnLinux_Scripts/Star_Wars___The_Old_Republic_:101
 #, sh-format
@@ -2560,12 +2606,12 @@ msgstr ""
 #: PlayOnLinux_Scripts/Steam_:46
 #, sh-format
 msgid "Please choose a virtual drive name"
-msgstr ""
+msgstr "Ole hyvä ja valitse virtuaaliaseman nimi"
 
 #: PlayOnLinux_Scripts/Steam_:65
 #, sh-format
 msgid "Downloading $TITLE"
-msgstr ""
+msgstr "Ladataan $TITLE"
 
 #: PlayOnLinux_Scripts/Steam_:84
 #, sh-format
@@ -2573,16 +2619,18 @@ msgid ""
 "If you want to install $TITLE in another virtual drive\\nRun this installer "
 "again"
 msgstr ""
+"Jos haluat asentaa $TITLE toiseen virtuaaliasemaan\\nAja tämä asennusohjelma "
+"uudestaan"
 
 #: PlayOnLinux_Scripts/Surfer_8_:12
 #, sh-format
 msgid "Please select the install file."
-msgstr ""
+msgstr "Valitse asennustiedosto."
 
 #: PlayOnLinux_Scripts/Surfer_8_:14
 #, sh-format
 msgid "PlayOnLinux is installing your application..."
-msgstr ""
+msgstr "PlayOnLinux asentaa sinun ohjelmaasi..."
 
 #: PlayOnLinux_Scripts/Terraria_:56
 #, sh-format
@@ -2591,6 +2639,9 @@ msgid ""
 "game. Steam install xna framework the game. Close the Steam so that the "
 "installer can continue."
 msgstr ""
+"Asenna Terraria Steamissä. Käynnistä Terraria kun Steam asennus on valmis. "
+"Steam asentaa xna framework ohjelman peliin. Sulje Steam,  jotta "
+"asennusohjelma voi jatkaa."
 
 #: PlayOnLinux_Scripts/Terraria_:66
 #, sh-format
@@ -2615,7 +2666,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:159
 #, sh-format
 msgid "\"Knights of the Nine\" installation will begin..."
-msgstr ""
+msgstr "\"Knights of the Nine\" asennus voi alkaa..."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:62
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:87
@@ -2624,7 +2675,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:162
 #, sh-format
 msgid "\"Mehrunes Razor\" installation will begin..."
-msgstr ""
+msgstr "\"Mehrunes Razor\" asennus voi alkaa..."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:65
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:90
@@ -2633,7 +2684,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:165
 #, sh-format
 msgid "\"Orrery\" installation will begin..."
-msgstr ""
+msgstr "\"Orrery\" asennus voi alkaa..."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:68
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:93
@@ -2642,7 +2693,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:168
 #, sh-format
 msgid "\"Spell Tomes\" installation will begin..."
-msgstr ""
+msgstr "\"Spell Tomes\" asennus voi alkaa..."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:71
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:96
@@ -2651,7 +2702,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:171
 #, sh-format
 msgid "\"Thieves Den\" installation will begin..."
-msgstr ""
+msgstr "\"Thieves Den\" asennus voi alkaa..."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:74
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:99
@@ -2660,7 +2711,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:174
 #, sh-format
 msgid "\"Vile Lair\" installation will begin..."
-msgstr ""
+msgstr "\"Vile Lair\" asennus voi alkaa..."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:77
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:102
@@ -2669,7 +2720,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:177
 #, sh-format
 msgid "\"Wizard Tower\" installation will begin..."
-msgstr ""
+msgstr "\"Wizard Tower\" asennus voi alkaa..."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:191
 #, sh-format
@@ -2698,7 +2749,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Shivering_Isle_:81
 #, sh-format
 msgid "This addon automatically patch the game to 1.2.0416."
-msgstr ""
+msgstr "Tämä lisäosa asentaa automaatisesti pelin korjautiedoston 1.2.0416"
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_I__Arena_:90
 #, sh-format
@@ -2718,12 +2769,12 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Sims_3_:40
 #, sh-format
 msgid "The Sims 3"
-msgstr ""
+msgstr "The Sims 3"
 
 #: PlayOnLinux_Scripts/The_Sims_3_:41
 #, sh-format
 msgid "The Sims 3 Launcher"
-msgstr ""
+msgstr "The Sims 3 Käynnistin"
 
 #: PlayOnLinux_Scripts/The_Witcher_:55 PlayOnLinux_Scripts/The_Witcher_:57
 #, sh-format
@@ -2810,6 +2861,18 @@ msgstr ""
 msgid ""
 "During installation, please UNCHECK all drivers for the NI controllers and "
 "audio interfaces. The install will fail if left checked, and are not needed."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Trine_2_:30
+#, sh-format
+msgid "Please select $TITLE install file (32-bit only, please):"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Trine_2_:43
+#, sh-format
+msgid ""
+"Do not run $TITLE until after the install has finished. Do NOT install "
+"DirectX if asked."
 msgstr ""
 
 #: PlayOnLinux_Scripts/UTAU_4.16_:16
@@ -2921,7 +2984,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Zoo_Tycoon_2__Zookeeper_Collection_:31
 #, sh-format
 msgid "Transferring files from Disc 1"
-msgstr ""
+msgstr "Siirretään tiedostoja levyltä 1"
 
 #: PlayOnLinux_Scripts/Zoo_Tycoon_2__Zookeeper_Collection_:36
 #, sh-format
@@ -2931,7 +2994,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Zoo_Tycoon_2__Zookeeper_Collection_:39
 #, sh-format
 msgid "Transferring files from Disc 2"
-msgstr ""
+msgstr "Siirretään tiedostoja levyltä 2"
 
 #: PlayOnLinux_Scripts/Zoo_Tycoon_2__Zookeeper_Collection_:43
 #, sh-format
@@ -2965,7 +3028,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/iTunes_10_:53
 #, sh-format
 msgid "Please select the 32bit version of iTunes"
-msgstr ""
+msgstr "Valitse 32-bittinen versio iTunesista"
 
 #: PlayOnLinux_Scripts/rFactor_12_:30
 #, sh-format
@@ -3246,7 +3309,7 @@ msgstr "$APPLICATION_TITLE -ohjelmiston ensimmäinen käyttökerta"
 #: bash/first_use:240
 #, sh-format
 msgid "$APPLICATION_TITLE is going to finish its preparation"
-msgstr "$APPLICATION_TITLE lopettaa valmistelun"
+msgstr "$APPLICATION_TITLE lopettaa esikäsittelyn"
 
 #: bash/first_use:240 bash/first_use:243
 #, sh-format

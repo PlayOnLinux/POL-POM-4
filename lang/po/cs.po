@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2013-04-29 19:00+0200\n"
-"PO-Revision-Date: 2013-04-29 11:13+0000\n"
-"Last-Translator: Tadeáš Pařík <tadeas.parik@gmail.com>\n"
+"POT-Creation-Date: 2013-05-06 19:00+0200\n"
+"PO-Revision-Date: 2013-05-01 14:19+0000\n"
+"Last-Translator: mattyy1hp <mattyy1hp@gmail.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-04-30 05:13+0000\n"
-"X-Generator: Launchpad (build 16580)\n"
+"X-Launchpad-Export-Date: 2013-05-07 05:14+0000\n"
+"X-Generator: Launchpad (build 16598)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -470,6 +470,8 @@ msgid ""
 "Click on \"Forward\" ONLY when Steam game installation\\nwill be finished or "
 "you will have to redo the installation."
 msgstr ""
+"Klikněte na \"Vpřed\" POUZE když bude instalace\\ndokončena, jinak budete "
+"muset instalaci opakovat."
 
 #: PlayOnLinux_Scripts/Ancients_of_Ooga_:59
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_:88
@@ -916,6 +918,10 @@ msgid ""
 "patch even if you have a legal version.\\n\\nPlease remember that "
 "$APPLICATION_TITLE is strongly against piracy, and will never support it."
 msgstr ""
+"Buďte opatrní! Ke spuštění $TITLE s $APPLICATION_TITLE musíte nainstalovat "
+"No-CD záplatu, a to i v případě, že máte legální verzi hry.\\n\\nVemte "
+"prosím na vědomí, že $APPLICATION_TITLE je velmi proti pirátství  a nebude "
+"ho nikdy podporovat."
 
 #: PlayOnLinux_Scripts/Blur_:102 PlayOnLinux_Scripts/Borderlands_:120
 #: PlayOnLinux_Scripts/Cars_2_:83
@@ -1007,6 +1013,8 @@ msgstr "Ano"
 msgid ""
 "Warning: GameShadow wont work.\\nPlease de-select during installation."
 msgstr ""
+"Varování: HerníStíny nebudou fungovat.\\nOdznačte tuto možnost během "
+"instalace."
 
 #: PlayOnLinux_Scripts/CivCity_Rome_:62
 #: PlayOnLinux_Scripts/Dungeon_Siege_III_:59
@@ -1060,6 +1068,10 @@ msgid ""
 "images may work with certain software, however I know that Mounty does not "
 "work for this."
 msgstr ""
+"POZNÁMKA: Instalátor vyžaduje použití CD, jestliže jste stáhli freeware "
+"verzi od EA, vypalte ji prosím na CD či DVD, např. pomocí Brasera, a vložte "
+"disk do mechaniky. Připojování ISO obrazů může v určitých případech "
+"fungovat, zde to ale není možné."
 
 #: PlayOnLinux_Scripts/Company_of_Heroes_:65
 #, sh-format
@@ -1092,6 +1104,9 @@ msgid ""
 "close the patcher before logging in to complete the installation. After "
 "this, you can run \"$TITLE\" when setup is done"
 msgstr ""
+"Pozor: Po ukončení instalace bude spuštěn instalátor záplat. Před "
+"přihlášením se je nutné ho vypnout, aby mohla být instalace dokončena. "
+"Následně můžete spustit \"$TITLE\""
 
 #: PlayOnLinux_Scripts/DC_Universe_Online_:53
 #, sh-format
@@ -1180,7 +1195,7 @@ msgstr "Vyčkejte na stažení $TITLE..."
 #: PlayOnLinux_Scripts/Diablo_III_:21
 #, sh-format
 msgid "Please select the setup file downloaded on $EDITOR website"
-msgstr ""
+msgstr "Vyberte inicializační soubor stažený z webu $EDITOR"
 
 #: PlayOnLinux_Scripts/Diablo_III_:39
 #, sh-format
@@ -1234,6 +1249,8 @@ msgid ""
 "COMPLETELY he Steam interface, \\nso that the installation script can "
 "continue"
 msgstr ""
+"Jakmile je $TITLE stažený, NEKLIKEJTE na Hrát.\\n\\nUzavřete kompletně herní "
+"prostředí Steamu, \\naby mohl instalační skript pokračovat."
 
 #: PlayOnLinux_Scripts/Dragon_Age_2_:45
 #, sh-format
@@ -1277,6 +1294,8 @@ msgid ""
 "You must not set shadow level to its maximum\\nor you will have to delete "
 "and redo installation of the game."
 msgstr ""
+"Nesmíte nastavit úroveň stínů na maximum,\\njinak budete muset vše vymazat a "
+"instalaci opakovat."
 
 #: PlayOnLinux_Scripts/EA_s_Origin_:32
 #, sh-format
@@ -1329,6 +1348,11 @@ msgid ""
 "login screen and disabling Captain's Quarters under the graphics selection.\\"
 "n(This feature is considered useless by most Eve Players.)"
 msgstr ""
+"Známe problémy:\\n\\n1) První načtení licence EULA může trvat delší dobu (5 "
+"min).\\n\\n2) Funkce Captain's Quarters je nefunkční pro (všechny?) "
+"uživatele.\\nJestliže dojde k pádu aplikace při výběru herní postavy, "
+"stiskněte klávesu escape a zakažte funkci Captain's Quarters v nastavení "
+"grafiky.\\n(Tato funkce je pro většinu hráčů zbytečná.)"
 
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:34
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:51
@@ -1435,7 +1459,7 @@ msgid "Which version do you want to install?"
 msgstr "Kterou verzi chcete instalovat?"
 
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:86
-#: PlayOnLinux_Scripts/League_Of_Legends_:67
+#: PlayOnLinux_Scripts/League_Of_Legends_:66
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_II__Daggerfall_:63
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_II__Daggerfall_:72
 #, sh-format
@@ -1443,47 +1467,23 @@ msgid "Decompressing archive..."
 msgstr "Rozbalování archivu..."
 
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:100
-#: PlayOnLinux_Scripts/GOG.com___Alien_Breed_and_Tower_Assault_:40
 #: PlayOnLinux_Scripts/GOG.com___Alone_in_the_Dark_2_:41
 #: PlayOnLinux_Scripts/GOG.com___Alone_in_the_Dark_3_:41
 #: PlayOnLinux_Scripts/GOG.com___Dark_Fall__Lights_Out_:41
-#: PlayOnLinux_Scripts/GOG.com___Dark_Fall__The_Journal_:39
 #: PlayOnLinux_Scripts/GOG.com___Darkstone_:44
-#: PlayOnLinux_Scripts/GOG.com___Enclave_:42
 #: PlayOnLinux_Scripts/GOG.com___Flatout_:39
 #: PlayOnLinux_Scripts/GOG.com___Freedom_Force_vs._the_3rd_Reich_:39
-#: PlayOnLinux_Scripts/GOG.com___Gabriel_Knight_3__Blood_of_the_Sacred__of_the_Damned_:39
-#: PlayOnLinux_Scripts/GOG.com___Gobliiins_pack_:42
 #: PlayOnLinux_Scripts/GOG.com___Gothic_3_Community_patch_:60
-#: PlayOnLinux_Scripts/GOG.com___Ground_Control_2_:45
 #: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:62
-#: PlayOnLinux_Scripts/GOG.com___In_Cold_Blood_:39
 #: PlayOnLinux_Scripts/GOG.com___Incoming_and_Incoming_Forces_:40
 #: PlayOnLinux_Scripts/GOG.com___Iron_Storm_:38
-#: PlayOnLinux_Scripts/GOG.com___Kingpin__Life_of_Crime_:39
-#: PlayOnLinux_Scripts/GOG.com___Normality_:39
-#: PlayOnLinux_Scripts/GOG.com___Realms_of_Arkania_1_and_2_:40
 #: PlayOnLinux_Scripts/GOG.com___Realms_of_Arkania_3_:39
-#: PlayOnLinux_Scripts/GOG.com___Realms_of_the_Haunting_:39
-#: PlayOnLinux_Scripts/GOG.com___Runaway__A_Road_Adventure_:40
 #: PlayOnLinux_Scripts/GOG.com___Sam_and_Max__The_Devils_Playhouse_:42
 #: PlayOnLinux_Scripts/GOG.com___Sanitarium_:58
-#: PlayOnLinux_Scripts/GOG.com___Septerra_Core__Legacy_of_the_Creator_:37
 #: PlayOnLinux_Scripts/GOG.com___Shadowgrounds_:56
-#: PlayOnLinux_Scripts/GOG.com___Simon_the_Sorcerer_:39
-#: PlayOnLinux_Scripts/GOG.com___Simon_the_Sorcerer_2_:39
-#: PlayOnLinux_Scripts/GOG.com___Star_Wolves_:39
-#: PlayOnLinux_Scripts/GOG.com___Still_Life_:39
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:64
-#: PlayOnLinux_Scripts/GOG.com___Tex_Murphy__The_Pandora_Directive_:36
-#: PlayOnLinux_Scripts/GOG.com___Tex_Murphy__Under_a_Killing_Moon_:39
 #: PlayOnLinux_Scripts/GOG.com___The_Feeble_Files_:37
 #: PlayOnLinux_Scripts/GOG.com___The_Last_Express_:37
-#: PlayOnLinux_Scripts/GOG.com___The_Longest_Journey_:39
-#: PlayOnLinux_Scripts/GOG.com___The_Nations_Gold_Edition_:39
-#: PlayOnLinux_Scripts/GOG.com___UFO__Afterlight_:39
-#: PlayOnLinux_Scripts/GOG.com___UFO__Aftermath_:39
-#: PlayOnLinux_Scripts/GOG.com___Wallace_and_Gromits_Grand_Adventures_:42
 #: PlayOnLinux_Scripts/Infinity_Engine_widescreen_mod_:64
 #: PlayOnLinux_Scripts/POL_GoG_install_:9 PlayOnLinux_Scripts/Poker_Stars_:37
 #: PlayOnLinux_Scripts/Ski_Challenge_2012_:49
@@ -1499,6 +1499,8 @@ msgid ""
 "Advent Revising patch has been installed;\\nDont forget to leave some email "
 "to Setz for his work."
 msgstr ""
+"Záplata Advent Revising byla nainstalována;\\nNezapomeňte zanechat nějaký "
+"email Setzovi za jeho práci."
 
 #: PlayOnLinux_Scripts/GOG.com___Age_of_Wonders_:20
 #: PlayOnLinux_Scripts/GOG.com___Age_of_Wonders_2__The_Wizard_s_Throne_:20
@@ -1526,6 +1528,9 @@ msgid ""
 "that you will get better performance out of the OpenGL renderer;\\nYou can "
 "select it after clicking on \"Show all devices\"."
 msgstr ""
+"Při prvním spuštění bude detekováno dostupné vykreslení.\\nJe celkem "
+"pravděpodobné, že lepších výsledků dosáhnete s OpenGL;\\nTuto volbu můžete "
+"vybrat poklikáním na \"Zobrazit všechna zařízení\"."
 
 #: PlayOnLinux_Scripts/GOG.com___Deus_Ex_GOTY_Edition_:89
 #, sh-format
@@ -1554,6 +1559,8 @@ msgid ""
 "Default video settings are a bit low for modern computers,\\nremember to "
 "click on \"Auto-detect\" in advanced video settings."
 msgstr ""
+"Základní nastavení videa má pro moderní počítače nízké hodnoty,\\"
+"nnezapomeňte kliknout na \"Auto-detekci\" v rozšířených nastaveních videa."
 
 #: PlayOnLinux_Scripts/GOG.com___Flatout_:55
 #, sh-format
@@ -1561,6 +1568,8 @@ msgid ""
 "Think about disabling triple-buffering in settings,\\nas it is not fully "
 "supported by Wine yet."
 msgstr ""
+"Popřemýšlejte o zakázání tzv. triple-bufferingu v nastavení,\\ntato "
+"funkcionalita není ještě ve Wine podporována."
 
 #: PlayOnLinux_Scripts/GOG.com___Giants__Citizen_Kabuto_:20
 #, sh-format
@@ -1573,6 +1582,8 @@ msgid ""
 "It is highly recommended that you install the Community patch now, as it "
 "contains LOTS of bug fixes and enhancements over the original game."
 msgstr ""
+"Doporučujeme nainstalovat tuto komunitní záplatu nyní, obsahuje řešení MNOHA "
+"chyb a také přináší různá vylepšení k originální hře."
 
 #: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:51
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:49
@@ -1700,6 +1711,8 @@ msgid ""
 "wizard for Outcast.\\nAnd dont forget to leave a message to Zenger on GoG "
 "forums!"
 msgstr ""
+"Záplata může být nyní aktivována a nastavena z\\nokna nastavení PlayOnLinux "
+"pro Outcast.\\nNezapomeňte zanechat zprávu Zengerovi na GOG fóru!"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:69
 #, sh-format
@@ -1712,6 +1725,8 @@ msgid ""
 "Check that the resolution has been changed\\n(eventually set to \\\"HI-RES\\"
 "\") in the loader."
 msgstr ""
+"Zkontrolujte, zda-li bylo změněno rozlišení\\n(případně nastavte \\\"HI-RES\\"
+"\") ve spouštěči."
 
 #: PlayOnLinux_Scripts/GOG.com___Painkiller__Black_Edition_:47
 #, sh-format
@@ -1724,6 +1739,8 @@ msgid ""
 "If you can barely distinguish a landscape behind main menu,\\ndisable FOG in "
 "graphic options."
 msgstr ""
+"Pokud jen stěží rozlišíte krajina za hlavním menu,\\nzakažte MLHU v "
+"možnostech grafiky."
 
 #: PlayOnLinux_Scripts/GOG.com___Sanitarium_:68
 #, sh-format
@@ -1733,7 +1750,7 @@ msgstr "(režim v okně)"
 #: PlayOnLinux_Scripts/GOG.com___Starflight_1_and_2_:20
 #, sh-format
 msgid "Code wheel"
-msgstr ""
+msgstr "Code wheel (protipirátská ochrana)"
 
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_:58
 #, sh-format
@@ -1742,6 +1759,9 @@ msgid ""
 "many issues with this game, and optionally add new content\\n(for \"NC\" "
 "modpacks).\\nUse the dedicated PlayOnLinux script in patches section."
 msgstr ""
+"Doporučujeme nainstalovat Circle of Eight Modpack,\\nobsahuje opravy různých "
+"chyb a volitelně i nový obsah\\n(pro \"NC\" modpacks).\\nPoužijte předem "
+"připravený skript v sekci záplaty."
 
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:60
 #, sh-format
@@ -1786,6 +1806,8 @@ msgid ""
 "On first run the game will autodetect available renderers.\\nIt is likely "
 "that you will get better performance out of the OpenGL renderer."
 msgstr ""
+"Při prvním spuštění bude detekováno dostupné vykreslení.\\nJe celkem "
+"pravděpodobné, že lepších výsledků dosáhnete s OpenGL."
 
 #: PlayOnLinux_Scripts/Goblins_3_:21
 #, sh-format
@@ -1881,6 +1903,8 @@ msgid ""
 "All supported Infinity Engine games already patched.\\nTo modify the screen "
 "resolution of a shortcut, use its configurator."
 msgstr ""
+"Všechny podporované Infinity Engine hry jsou již pathchnuté.\\nPro úpravu "
+"rozlišení obrazovky nebo zástupce, použijte jejich konfigurátor."
 
 #: PlayOnLinux_Scripts/Internet_Explorer_6_:76
 #: PlayOnLinux_Scripts/Internet_Explorer_6_Service_Pack_1_:68
@@ -1924,18 +1948,20 @@ msgstr ""
 msgid "Cant install using the official downloader, sorry"
 msgstr "Nelze instalovat za pomocí oficiálního manažeru."
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:92
+#: PlayOnLinux_Scripts/League_Of_Legends_:91
 #, sh-format
 msgid ""
 "Warning: You must not tick the checkbox \"Run $TITLE\" when setup is done"
 msgstr "Varování: Nesmíte zaškrtnout \"Spustit $TITLE\" na konci instalace."
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:111
+#: PlayOnLinux_Scripts/League_Of_Legends_:110
 #, sh-format
 msgid ""
 "You should now have a League of Legends directory on your desktop containing "
 "its installer. You may keep it to speed up reinstallations."
 msgstr ""
+"Na ploše by měl být adresář League of Legends, který bude obsahovat "
+"instalátor. Můžete si ho ponechat pro případné urychlení reinstalace."
 
 #: PlayOnLinux_Scripts/League_of_Legends__ingame_shop_icons_fix_:29
 #, sh-format
@@ -2016,6 +2042,8 @@ msgid ""
 "$TITLE has been installed successfully\\n\\nIf an installation Windows "
 "prevent your programs from running, you must remove and reinstall $TITLE"
 msgstr ""
+"$TITLE byl úspěšně nainstalován\\n\\nJestliže instalační okno brání běhu "
+"programu, musíte $TITLE odebrat a znovu nainstalovat"
 
 #: PlayOnLinux_Scripts/Microsoft_Office_2010_Activation_:27
 #, sh-format
@@ -2039,6 +2067,9 @@ msgid ""
 "the registry?\\n\\nLicense server name: $licenseServerName\\nLicense server "
 "port: $licenseServerPort"
 msgstr ""
+"Jsou údaje pro licenční server správné?\\nMohou být tyto hodnoty zapsány do "
+"registru?\\n\\nJméno licenčního serveru:  $licenseServerName\\nPort "
+"licenčního server: $licenseServerPort"
 
 #: PlayOnLinux_Scripts/Microsoft_Office_2010_Activation_:49
 #, sh-format
@@ -2047,6 +2078,9 @@ msgid ""
 "nOne for initialising and one for registration.\\n\\nJust start, close and "
 "restart $TITLE!"
 msgstr ""
+"$TITLE byl úspěšně nainstalován.\\nMožná budou potřeba dvě spuštění $TITLE:\\"
+"nJeden pro inicializaci a druhý pro registraci.\\n\\nSpusťte aplikaci, "
+"ukončete a znovu spusťte $TITLE!"
 
 #: PlayOnLinux_Scripts/Microsoft_Office_2010_Activation_:54
 #, sh-format
@@ -2076,6 +2110,36 @@ msgstr "Vyčkejte na stažení a dokončení instalace"
 msgid "Installation in progress"
 msgstr "Probíhá instalace"
 
+#: PlayOnLinux_Scripts/POL_Download_retry_:10
+#: PlayOnLinux_Scripts/POL_GoG_download_:88
+#: PlayOnLinux_Scripts/POL_GoG_download_:100
+#, sh-format
+msgid "Checking piece integrity..."
+msgstr "Kontrola integrity..."
+
+#: PlayOnLinux_Scripts/POL_Download_retry_:24
+#, sh-format
+msgid "Checking download integrity..."
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_Download_retry_:27
+#: PlayOnLinux_Scripts/POL_GoG_download_:102
+#, sh-format
+msgid "Download failed"
+msgstr "Stažení bylo neúspěšné"
+
+#: PlayOnLinux_Scripts/POL_Download_retry_:30
+#: PlayOnLinux_Scripts/POL_GoG_download_:104
+#, sh-format
+msgid "Download seems to be corrupted"
+msgstr "Stahovaný soubor bude asi poškozený"
+
+#: PlayOnLinux_Scripts/POL_Download_retry_:40
+#: PlayOnLinux_Scripts/POL_GoG_download_:113
+#, sh-format
+msgid "Retry?"
+msgstr "Opakovat?"
+
 #: PlayOnLinux_Scripts/POL_Function_OverrideDLL_:27
 #, sh-format
 msgid "Please wait"
@@ -2084,7 +2148,7 @@ msgstr "Čekejte prosím"
 #: PlayOnLinux_Scripts/POL_Function_RootCommand_:8
 #, sh-format
 msgid "No root command specified, abording installation."
-msgstr ""
+msgstr "Root příkaz nebyl specifikován, instalace bude přerušena."
 
 #: PlayOnLinux_Scripts/POL_Function_RootCommand_:13
 #: PlayOnLinux_Scripts/POL_Function_RootCommand_:17
@@ -2094,12 +2158,16 @@ msgid ""
 "however, for this script, it s mandatory. So, we give you the command you "
 "must type yourself for this installation to go on :"
 msgstr ""
+"PlayOnLinux/PlayOnMac nikdy nežádá o administrátorské heslo, avšak pro tento "
+"skript je heslo nutné. Spusťte proto sami tento příkaz, aby mohla instalace "
+"pokračovat:"
 
 #: PlayOnLinux_Scripts/POL_Function_SetNativeExtension_:10
 #, sh-format
 msgid ""
 "No filename extension specified, skipping association to native application."
 msgstr ""
+"Nebyla specifikována přípona souboru, přeskakuji asociaci s nativní aplikací."
 
 #: PlayOnLinux_Scripts/POL_GoG_Extract_:29 python/install.py:428
 #: python/install.py:444 python/install.py:446 python/install.py:557
@@ -2122,27 +2190,6 @@ msgstr "Zadejte prosím své přihlašovací údaje k gog.com ke stažení $BASE
 #, sh-format
 msgid "Gog.com login failed, try again?"
 msgstr "Přihlášení k gog.com se nezdařilo, opakovat?"
-
-#: PlayOnLinux_Scripts/POL_GoG_download_:88
-#: PlayOnLinux_Scripts/POL_GoG_download_:100
-#, sh-format
-msgid "Checking piece integrity..."
-msgstr ""
-
-#: PlayOnLinux_Scripts/POL_GoG_download_:102
-#, sh-format
-msgid "Download failed"
-msgstr "Stažení bylo neúspěšné"
-
-#: PlayOnLinux_Scripts/POL_GoG_download_:104
-#, sh-format
-msgid "Download seems to be corrupted"
-msgstr ""
-
-#: PlayOnLinux_Scripts/POL_GoG_download_:113
-#, sh-format
-msgid "Retry?"
-msgstr "Opakovat?"
 
 #: PlayOnLinux_Scripts/POL_GoG_setup_:18
 #, sh-format
@@ -2309,6 +2356,7 @@ msgid ""
 "Setup will launch Origin after installation\\n close it COMPLETELY to "
 "continue."
 msgstr ""
+"Po ukončení instalace bude spuštěn Origin\\n pro pokračování ho ukončete."
 
 #: PlayOnLinux_Scripts/POL_Install_steam_:24
 #, sh-format
@@ -2319,7 +2367,7 @@ msgstr "Vyčkejte prosím na stažení Steamu..."
 #, sh-format
 msgid ""
 "Please wait while $APPLICATION_TITLE is downloading Ubisoft Game Launcher"
-msgstr ""
+msgstr "Vyčkejte prosím, $APPLICATION_TITLE stahuje Ubisoft Game Launcher"
 
 #: PlayOnLinux_Scripts/POL_Install_vbrun6_:12
 #, sh-format
@@ -2393,6 +2441,8 @@ msgid ""
 "These fonts were provided by Microsoft\\n\"in the interest of cross-platform "
 "compatibility\"."
 msgstr ""
+"Tyto fonty byly poskytnuty firmou Microsoft\\n\"v zájmu multiplatformní "
+"kompatibility\"."
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:5
 #, sh-format
@@ -2407,6 +2457,9 @@ msgid ""
 "you may not redistribute them in modified form,\\nincluding changes to the "
 "file name or packaging format."
 msgstr ""
+"Tyto fonty můžete svobodně používat jen pro svou vlastní potřebu,\\nnemůžete "
+"je ovšem distribuovat dál ve změněné formě,\\nto zahrnuje změnu názvu "
+"souboru nebo formátu."
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:9
 #, sh-format
@@ -2478,6 +2531,8 @@ msgid ""
 "We need to have sudo access on your computer. Therefore, your root password "
 "will be asked. Here is the commands PlayOnLinux will run as root:"
 msgstr ""
+"Jsou potřeba přístupová práva správce. Budete požádáni o zadání tzv. root "
+"hesla. Zde jsou příkazy, které budou spuštěny pod účtem správce:"
 
 #: PlayOnLinux_Scripts/POL_Sudo_RehideCdrom_:20
 #: PlayOnLinux_Scripts/POL_Sudo_UnhideCdrom_:21
@@ -2502,6 +2557,8 @@ msgid ""
 "Read this carefully!\\n\\nWhen the $TITLE installer ask you to change your "
 "cdrom, please come back to this $APPLICATION_TITLE window"
 msgstr ""
+"Čtěte pozorně!\\n\\nJakmile $TITLE instalátor požádá o změnu cdrom, vraťte "
+"se do tohoto okna $APPLICATION_TITLE"
 
 #: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:18
 #, sh-format
@@ -2572,6 +2629,9 @@ msgid ""
 "at startup, open a terminal and type:\\necho 0|sudo tee "
 "/proc/sys/kernel/yama/ptrace_scope"
 msgstr ""
+"$TITLE byl úspěšně nainstalován.\\n\\nJestliže hra při startu spadně, "
+"spusťte terminál a napište:\\necho 0|sudo tee "
+"/proc/sys/kernel/yama/ptrace_scope"
 
 #: PlayOnLinux_Scripts/Rome_Total_War__Gold_Edition__:72
 #, sh-format
@@ -2637,6 +2697,9 @@ msgid ""
 "Play.\\n\\nClose COMPLETELY the Origin interface, \\nso that the "
 "installation script can continue."
 msgstr ""
+"Origin bude spuštěn, otevřete svůj účet\\na vyberte instalaci $TITLE.\\n\\"
+"nJakmile bude $TITLE stažen,\\nNEKLIKEJTE na Hrát.\\n\\nÚplně uzavřete "
+"rozhraní Origin, \\naby mohl instalační skript pokračovat."
 
 #: PlayOnLinux_Scripts/Starcraft_:23
 #: PlayOnLinux_Scripts/Starcraft___BroodWar_:18
@@ -2696,6 +2759,8 @@ msgid ""
 "If the game crashes at startup, open a terminal and type:\\necho 0|sudo tee "
 "/proc/sys/kernel/yama/ptrace_scope"
 msgstr ""
+"Jestliže hra při startu spadne, spusťte terminál a napište:\\necho 0|sudo "
+"tee /proc/sys/kernel/yama/ptrace_scope"
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:56
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:81
@@ -2923,6 +2988,20 @@ msgid ""
 "During installation, please UNCHECK all drivers for the NI controllers and "
 "audio interfaces. The install will fail if left checked, and are not needed."
 msgstr ""
+"Během instalace ODZNAČTE všechny ovladače pro NI řadiče a audio rozhraní. "
+"Instalace se nezdaří, jestliže toto neuděláte a ovladače nebudou potřeba."
+
+#: PlayOnLinux_Scripts/Trine_2_:30
+#, sh-format
+msgid "Please select $TITLE install file (32-bit only, please):"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Trine_2_:43
+#, sh-format
+msgid ""
+"Do not run $TITLE until after the install has finished. Do NOT install "
+"DirectX if asked."
+msgstr ""
 
 #: PlayOnLinux_Scripts/UTAU_4.16_:16
 #, sh-format
@@ -3056,6 +3135,8 @@ msgid ""
 "Please select MORE OPTIONS, then uncheck the RUN \"$TITLE\" AFTER "
 "INSTALLATION option. If you do not, the install will fail!"
 msgstr ""
+"Vyberte prosím VÍCE MOŽNOSTÍ a odznačte možnost SPUSTIT \"$TITLE\" PO "
+"INSTALACI. Jestliže to neuděláte, instalace selže!"
 
 #: PlayOnLinux_Scripts/Zoo_Tycoon_2___Ultimate_Collection_:63
 #, sh-format
@@ -3093,6 +3174,9 @@ msgid ""
 "finished. Let DirectX install when asked. Make sure you set a 32-bit "
 "resolution when rFactor Config comes up."
 msgstr ""
+"Vyberte prosím instalační soubor $TITLE. NEspouštějte rFactor po skončení "
+"instalace. Nainstalujte DirectX, budete-li o to požádáni. Ujistěte se, že "
+"jste vybrali 32 bitové rozlišení, jakmile se zobrazí konfigurátor rFactor."
 
 #: bash/bug_report:31
 #, sh-format
