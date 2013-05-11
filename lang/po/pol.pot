@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2013-05-10 19:00:47+02:00\n"
+"POT-Creation-Date: 2013-05-11 19:00:51+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -415,6 +415,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:56
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:53
 #: PlayOnLinux_Scripts/Google_Picasa_3.9_:55
+#: PlayOnLinux_Scripts/IDA_5_Pro_Free_:33
 #: PlayOnLinux_Scripts/League_Of_Legends_:55
 #: PlayOnLinux_Scripts/POL_GoG_setup_:30 PlayOnLinux_Scripts/SFR_LiberTalk_:36
 #: PlayOnLinux_Scripts/The_Sims_3_:50 PlayOnLinux_Scripts/Toontown_Online_:25
@@ -1735,6 +1736,11 @@ msgstr ""
 msgid "Updating $TITLE"
 msgstr ""
 
+#: PlayOnLinux_Scripts/IDA_5_Pro_Free_:41
+#, sh-format
+msgid "Unknown install method."
+msgstr ""
+
 #: PlayOnLinux_Scripts/ImgBurn_:38
 #, sh-format
 msgid ""
@@ -1830,7 +1836,7 @@ msgid ""
 "running this patch."
 msgstr ""
 
-#: PlayOnLinux_Scripts/League_of_Legends__ingame_shop_icons_fix_:55
+#: PlayOnLinux_Scripts/League_of_Legends__ingame_shop_icons_fix_:58
 #, sh-format
 msgid "Patching will take several minutes, please be patient..."
 msgstr ""
@@ -2361,6 +2367,36 @@ msgstr ""
 #, sh-format
 msgid ""
 "To continue, PlayOnLinux needs to remount your CD-ROM with unhide option."
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:14 lib/wine.lib:918
+#, sh-format
+msgid "Abort installation"
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:14
+#, sh-format
+msgid "Enable ptrace() globally"
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:14
+#, sh-format
+msgid "Give the capability to wineserver executable"
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:14
+#, sh-format
+msgid "I fixed it myself, just retest"
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:14
+#, sh-format
+msgid "The program needs access to ptrace() to proceed:"
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:26 lib/wine.lib:947
+#, sh-format
+msgid "User abort"
 msgstr ""
 
 #: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:8
@@ -4309,19 +4345,9 @@ msgstr ""
 msgid "Erase (virtual drive content will be lost)"
 msgstr ""
 
-#: lib/wine.lib:918
-#, sh-format
-msgid "Abort installation"
-msgstr ""
-
 #: lib/wine.lib:931
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
-msgstr ""
-
-#: lib/wine.lib:947
-#, sh-format
-msgid "User abort"
 msgstr ""
 
 #: lib/wine.lib:1111 lib/wine.lib:1141
