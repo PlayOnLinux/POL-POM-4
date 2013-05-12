@@ -8,7 +8,7 @@
   - Adding lzop compression if available (fast compression with medium
     compression rate).
   - Add a "Save" shortcut in PlayOnLinux side panel
-* Fix double utf-8 decoding of shortcuts (#2125, #2189)
+* Fix double utf-8 decoding of shortcuts (#2125, #2289)
 
 # 4.2.1
 
