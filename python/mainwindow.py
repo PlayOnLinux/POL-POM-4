@@ -932,19 +932,19 @@ class MainWindow(wx.Frame):
 
     def Package(self, event):
         game_exec = self.GetSelectedProgram()
-        os.system("bash \""+Variables.playonlinux_env+"/bash/make_shortcut\" \""+game_exec.encode("utf-8","replace")+"\"&")
+        os.system("bash \""+Variables.playonlinux_env+"/bash/make_shortcut\" \""+game_exec+"\"&")
 
     def UninstallGame(self, event):
         game_exec = self.GetSelectedProgram()
         if(game_exec != ""):
-            os.system("bash \""+Variables.playonlinux_env+"/bash/uninstall\" \""+game_exec.encode("utf-8","replace")+"\"&")
+            os.system("bash \""+Variables.playonlinux_env+"/bash/uninstall\" \""+game_exec+"\"&")
         else:
             wx.MessageBox(_("Please select a program."), os.environ["APPLICATION_TITLE"])
 
     def PolVaultSaveGame(self, event):
         game_exec = self.GetSelectedProgram()
         if(game_exec != ""):
-			os.system('bash "' + Variables.playonlinux_rep + 'plugins/PlayOnLinux Vault/scripts/menu" --app "' + game_exec.encode("utf-8","replace") + '" &')
+			os.system('bash "' + Variables.playonlinux_rep + 'plugins/PlayOnLinux Vault/scripts/menu" --app "' + game_exec + '" &')
         else:
             wx.MessageBox(_("Please select a program."), os.environ["APPLICATION_TITLE"])
 
