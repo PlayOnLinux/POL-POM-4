@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2013-05-14 19:00:45+02:00\n"
+"POT-Creation-Date: 2013-05-15 19:00:41+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -212,7 +212,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Myst_III__Exile_:36
 #: PlayOnLinux_Scripts/Myst_IV__Revelation_:33
 #: PlayOnLinux_Scripts/Need_For_Speed_III___Hot_Pursuit_:34
-#: PlayOnLinux_Scripts/Theme_Hospital_:43
+#: PlayOnLinux_Scripts/Rfactor_:36 PlayOnLinux_Scripts/Theme_Hospital_:43
 #: PlayOnLinux_Scripts/Tomb_Raider__The_Last_Revelation_:34
 #: PlayOnLinux_Scripts/Warcraft_III__Reign_of_Chaos_:30
 #: PlayOnLinux_Scripts/Warcraft_III__The_Frozen_Throne_:36
@@ -228,6 +228,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Alien_Breed_2___Assault_:76
 #: PlayOnLinux_Scripts/Alien_Breed_3___Descent_:76
 #: PlayOnLinux_Scripts/Alien_Breed___Impact_:76
+#: PlayOnLinux_Scripts/Amazon_Kindle_:35
 #: PlayOnLinux_Scripts/Assassin_s_Creed_:67
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Revelations_:96
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_:55
@@ -255,7 +256,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Prince_of_Persia___The_Forgotten_Sands_:85
 #: PlayOnLinux_Scripts/Publish_or_Perish_:36 PlayOnLinux_Scripts/Q.U.B.E_:101
 #: PlayOnLinux_Scripts/Rayman_Origins_:72
-#: PlayOnLinux_Scripts/Rayman_Origins_:90
+#: PlayOnLinux_Scripts/Rayman_Origins_:90 PlayOnLinux_Scripts/Rfactor_:48
 #: PlayOnLinux_Scripts/Runes_Of_Magic_:44
 #: PlayOnLinux_Scripts/Secret_of_Monkey_Island_Special_Edition_:79
 #: PlayOnLinux_Scripts/Shank_2_:73 PlayOnLinux_Scripts/Spotify_:65
@@ -420,20 +421,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/iTunes_10_:50
 #, sh-format
 msgid "Please select the setup file to run."
-msgstr ""
-
-#: PlayOnLinux_Scripts/Amazon_Kindle_:22
-#: PlayOnLinux_Scripts/Microsoft_Excel_Viewer_2003_:23
-#: PlayOnLinux_Scripts/Microsoft_Word_Viewer_2003_:24
-#, sh-format
-msgid "Please select the installation file to run."
-msgstr ""
-
-#: PlayOnLinux_Scripts/Amazon_Kindle_:29
-#: PlayOnLinux_Scripts/Microsoft_Excel_Viewer_2003_:30
-#: PlayOnLinux_Scripts/Microsoft_Word_Viewer_2003_:31
-#, sh-format
-msgid "Installation in progress."
 msgstr ""
 
 #: PlayOnLinux_Scripts/Ancients_of_Ooga_:51
@@ -1866,6 +1853,18 @@ msgid ""
 "LibreOffice, OpenOffice or some other editor. "
 msgstr ""
 
+#: PlayOnLinux_Scripts/Microsoft_Excel_Viewer_2003_:23
+#: PlayOnLinux_Scripts/Microsoft_Word_Viewer_2003_:24
+#, sh-format
+msgid "Please select the installation file to run."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Microsoft_Excel_Viewer_2003_:30
+#: PlayOnLinux_Scripts/Microsoft_Word_Viewer_2003_:31
+#, sh-format
+msgid "Installation in progress."
+msgstr ""
+
 #: PlayOnLinux_Scripts/Microsoft_Money_2005_:33
 #, sh-format
 msgid "Where is $TITLE install file?"
@@ -2463,6 +2462,11 @@ msgid ""
 "$TITLE and patch has been successfully installed.\\n\\nIf the game crashes "
 "at startup, open a terminal and type:\\necho 0|sudo tee /proc/sys/kernel/"
 "yama/ptrace_scope"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Rfactor_:59
+#, sh-format
+msgid "The CD protection of this game doesn't work correctly with Wine."
 msgstr ""
 
 #: PlayOnLinux_Scripts/Rome_Total_War__Gold_Edition__:72
