@@ -67,3 +67,10 @@ class UIHelper(object):
        
    def getIcon(self, icone):
        return wx.Icon(self.env.getAppPath()+"/resources/icons/"+icone, wx.BITMAP_TYPE_ANY)
+       
+       
+   def getSetupWindowButtonHeight(self):
+       if(self.env.getOS() == "Mac"):
+           return 29
+       else:
+           return 37

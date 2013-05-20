@@ -68,10 +68,11 @@ class SetupWindow(wx.Frame): #fenêtre principale
 
     def drawGUI(self):
         # GUI elements
-        self.panel = wx.Panel(self, -1, pos=(0,0), size=((520, 398 + UIHelper().addWindowMacOffset())))
-        self.header = wx.Panel(self.panel, -1, style = UIHelper().widgetBorders(), size=(522,65))
+        self.panel = wx.Panel(self, -1, pos=(0,0), size=((520, 398)))
+        self.header = wx.Panel(self.panel, -1, style = self.uiHelper.widgetBorders(), size=(522,65))
         self.header.SetBackgroundColour((255,255,255))
-        self.footer = wx.Panel(self.panel, -1, size=(522,45), pos=(-1,358), style = UIHelper().widgetBorders())
+        
+        self.footer = wx.Panel(self.panel, -1, size=(522,45), pos=(-1,358), style = self.uiHelper.widgetBorders())
 
         # Panels
         self.MainPanel = wx.Panel(self.panel, -1, pos=(150,0), size=(370,356))
@@ -85,7 +86,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
 
         # Text
         titreHeader = wx.StaticText(self.header, -1, _('{0} Wizard').format(self.config.getAppName()),pos=(5,5), size=(340,356),style=wx.ST_NO_AUTORESIZE)
-        titreHeader.SetFont(UIHelper().getFontTitle())
+        titreHeader.SetFont(self.uiHelper.getFontTitle())
         titreHeader.SetForegroundColour((0,0,0)) # For dark themes
 
         self.texte = wx.StaticText(self.panel, -1, "",pos=(20,80),size=(480,275),style=wx.ST_NO_AUTORESIZE)
@@ -97,7 +98,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
         self.texteP.SetForegroundColour((0,0,0)) # For dark themes
 
         self.titreP = wx.StaticText(self.MainPanel, -1,"",pos=(5,5), size=(340,356))
-        self.titreP.SetFont(UIHelper().getFontTitle())
+        self.titreP.SetFont(self.uiHelper.getFontTitle())
         self.titreP.SetForegroundColour((0,0,0)) # For dark themes
 
         self.txtEstimation = DownloadText(self.panel)
@@ -105,20 +106,20 @@ class SetupWindow(wx.Frame): #fenêtre principale
 
 
         # Buttons
-        self.CancelButton = wx.Button(self.footer, wx.ID_CANCEL, _("Cancel"), pos=(430,0),size=(85,37))
+        self.CancelButton = wx.Button(self.footer, wx.ID_CANCEL, _("Cancel"), pos=(425,0),size=(85,self.uiHelper.getSetupWindowButtonHeight()))
         if(self.protectedWindow == True):
             self.CancelButton.Enable(False)
 
-        self.NextButton = wx.Button(self.footer, wx.ID_FORWARD, _("Next"), pos=(340,0),size=(85,37))
-        self.BackButton = wx.Button(self.footer, wx.ID_FORWARD, _("Back"), pos=(250,0),size=(85,37))
+        self.NextButton = wx.Button(self.footer, wx.ID_FORWARD, _("Next"), pos=(335,0),size=(85,self.uiHelper.getSetupWindowButtonHeight()))
+        
         self.InfoScript = wx.StaticBitmap(self.footer, -1, wx.Bitmap(self.env.getAppPath()+"/resources/images/setups/about.png"), pos=(10,8))
         self.InfoScript.Hide()
         self.script_ID = 0
         self.InfoScript.Bind(wx.EVT_LEFT_DOWN, self.InfoClick)
         self.InfoScript.SetCursor(wx.StockCursor(wx.CURSOR_HAND))
 
-        self.NoButton = wx.Button(self.footer, wx.ID_NO, _("No"), pos=(430,0),size=(85,37))
-        self.YesButton = wx.Button(self.footer, wx.ID_YES, _("Yes"), pos=(340,0), size=(85,37))
+        self.NoButton = wx.Button(self.footer, wx.ID_NO, _("No"), pos=(425,0),size=(85,self.uiHelper.getSetupWindowButtonHeight()))
+        self.YesButton = wx.Button(self.footer, wx.ID_YES, _("Yes"), pos=(335,0), size=(85,self.uiHelper.getSetupWindowButtonHeight()))
         self.browse = wx.Button(self.panel, 103, _("Browse"), size=(130,40))
         self.browse_text = wx.StaticText(self.panel, -1, "")
         self.browse_image = wx.StaticBitmap(self.panel, -1, wx.Bitmap(self.env.getAppPath()+"/etc/playonlinux.png"))
@@ -126,11 +127,11 @@ class SetupWindow(wx.Frame): #fenêtre principale
         # D'autres trucs
         self.champ = wx.TextCtrl(self.panel, 400, "",size=(300,22))
 
-        self.bigchamp = wx.TextCtrl(self.panel, -1, "",size=wx.Size(460,240), pos=(30,105),style = UIHelper().widgetBorders()|wx.TE_MULTILINE)
+        self.bigchamp = wx.TextCtrl(self.panel, -1, "",size=wx.Size(460,240), pos=(30,105),style = self.uiHelper.widgetBorders()|wx.TE_MULTILINE)
         self.MCheckBox = wx.CheckBox(self.panel, 302, _("I Agree"), pos=(20,325))
         self.PCheckBox = wx.CheckBox(self.panel, 304, _("Show virtual drives"), pos=(20,325))
-        self.Menu = wx.ListBox(self.panel, 104, pos=(25,105),size=(460,220), style = UIHelper().widgetBorders())
-        self.scrolled_panel = wx.ScrolledWindow(self.panel, -1, pos=(20,100), size=(460,220), style= UIHelper().widgetBorders()|wx.HSCROLL|wx.VSCROLL)
+        self.Menu = wx.ListBox(self.panel, 104, pos=(25,105),size=(460,220), style = self.uiHelper.widgetBorders())
+        self.scrolled_panel = wx.ScrolledWindow(self.panel, -1, pos=(20,100), size=(460,220), style= self.uiHelper.widgetBorders()|wx.HSCROLL|wx.VSCROLL)
         self.scrolled_panel.SetBackgroundColour((255,255,255))
         self.texte_panel = wx.StaticText(self.scrolled_panel, -1, "",pos=(5,5))
 
@@ -144,7 +145,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
         self.current_angle = 1
     
         self.images = wx.ImageList(22, 22)
-        self.MenuGames = wx.TreeCtrl(self.panel, 111, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT|UIHelper().widgetBorders(), pos=(25,105),size=(460,220))
+        self.MenuGames = wx.TreeCtrl(self.panel, 111, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT|self.uiHelper.widgetBorders(), pos=(25,105),size=(460,220))
         self.MenuGames.SetImageList(self.images)
         self.MenuGames.SetSpacing(0)
         
@@ -168,7 +169,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
 
         # Debug Window
         self.debugImage = wx.StaticBitmap(self.panel, -1, wx.Bitmap(self.env.getAppPath()+"/resources/images/setups/face-sad.png"), (196,130))
-        self.debugZone = wx.TextCtrl(self.panel, -1, "",size=wx.Size(440,82), pos=(40,274),style=UIHelper().widgetBorders()|wx.TE_MULTILINE|wx.TE_READONLY)
+        self.debugZone = wx.TextCtrl(self.panel, -1, "",size=wx.Size(440,82), pos=(40,274),style=self.uiHelper.widgetBorders()|wx.TE_MULTILINE|wx.TE_READONLY)
 
         # Hide all
         self.hideAll()
@@ -193,7 +194,6 @@ class SetupWindow(wx.Frame): #fenêtre principale
         self.CancelButton.Hide()
         self.MainPanel.Hide()
         self.NextButton.Hide()
-        self.BackButton.Hide()
         self.NoButton.Hide()
         self.YesButton.Hide()
         self.browse.Hide()

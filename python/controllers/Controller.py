@@ -131,21 +131,28 @@ class Controller(object):
                            # We register the observer
                            distantFile = DistantFile(url)
                            distantFile.register(setupWindowObject.getDownloadGauge())
-                           distantFile.register(setupWindowObject.getDownloadText())
-                           
+                           distantFile.register(setupWindowObject.getDownloadText())      
                            distantFile.download(local)
                        
                    except TypeError, e:
                        print 'Error: %s (%s)' % (e, arguments)
                        
        
-         
-   # Events
-   def destroy(self):
+        
+   def _terminateServer(self):
+       # Close the server and all the clients
+       for pid in self.clientListFromPid:
+           self.clientListFromPid[pid].unlock()
+           
        try:
            self._guiServer.closeServer()
        except ErrServerIsNotRunning:
            pass
+    
+        
+   # Events
+   def destroy(self):
+       self._terminateServer()
        
        # Destroy setupwindow
        for pid in self.windowListFromPid:
