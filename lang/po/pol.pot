@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2013-05-19 19:00:40+02:00\n"
+"POT-Creation-Date: 2013-05-20 19:00:47+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -207,7 +207,7 @@ msgid "Operation done"
 msgstr ""
 #: PlayOnLinux_Scripts/18_Wheels_of_Steel_Haulin_:44
 #: PlayOnLinux_Scripts/Age_Of_Empires_II___The_Age_of_Kings_:55
-#: PlayOnLinux_Scripts/Age_Of_Wonders_:36
+#: PlayOnLinux_Scripts/Age_Of_Wonders_:38
 #: PlayOnLinux_Scripts/Assassin_s_Creed_:55
 #: PlayOnLinux_Scripts/Myst_III__Exile_:36
 #: PlayOnLinux_Scripts/Myst_IV__Revelation_:33
@@ -223,8 +223,9 @@ msgstr ""
 
 #: PlayOnLinux_Scripts/18_Wheels_of_Steel_Haulin_:52
 #: PlayOnLinux_Scripts/A.R.E.S.___Extinction_Agenda_:87
+#: PlayOnLinux_Scripts/Ableton_Live_8_:47
 #: PlayOnLinux_Scripts/Age_Of_Empires_II___The_Age_of_Kings_:63
-#: PlayOnLinux_Scripts/Age_Of_Wonders_:48 PlayOnLinux_Scripts/Alan_Wake_:75
+#: PlayOnLinux_Scripts/Age_Of_Wonders_:50 PlayOnLinux_Scripts/Alan_Wake_:75
 #: PlayOnLinux_Scripts/Alien_Breed_2___Assault_:76
 #: PlayOnLinux_Scripts/Alien_Breed_3___Descent_:76
 #: PlayOnLinux_Scripts/Alien_Breed___Impact_:76
@@ -269,8 +270,11 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Witcher_:132 PlayOnLinux_Scripts/Theme_Hospital_:57
 #: PlayOnLinux_Scripts/Warcraft_III__Reign_of_Chaos_:38
 #: PlayOnLinux_Scripts/Warcraft_III__The_Frozen_Throne_:44
+#: PlayOnLinux_Scripts/World_Of_Warcraft_:103
+#: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:92
+#: PlayOnLinux_Scripts/World_Of_Warcraft___Wrath_of_the_Lich_King_:70
 #: PlayOnLinux_Scripts/Worms_Reloaded_:78
-#: PlayOnLinux_Scripts/Wow_Cartographe_:56
+#: PlayOnLinux_Scripts/Wow_Cartographe_:58
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:73
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:58
 #: PlayOnLinux_Scripts/Zoo_Tycoon_2___Ultimate_Collection_:80
@@ -280,9 +284,7 @@ msgstr ""
 
 #: PlayOnLinux_Scripts/7_Zip_:39
 #: PlayOnLinux_Scripts/Age_Of_Empires_II___The_Age_of_Kings_:65
-#: PlayOnLinux_Scripts/Age_Of_Wonders_:39
-#: PlayOnLinux_Scripts/Age_Of_Wonders_:49
-#: PlayOnLinux_Scripts/Age_Of_Wonders_:59 PlayOnLinux_Scripts/Anno_1602_:42
+#: PlayOnLinux_Scripts/Anno_1602_:42
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:79
 #: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:51
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:62
@@ -295,14 +297,12 @@ msgstr ""
 #: PlayOnLinux_Scripts/Toontown_Online_:26
 #: PlayOnLinux_Scripts/Toontown_Online_:33
 #: PlayOnLinux_Scripts/Vantage_Master_Online_:44
-#: PlayOnLinux_Scripts/Wow_Cartographe_:48
-#: PlayOnLinux_Scripts/Wow_Cartographe_:57
 #, sh-format
 msgid "Please wait while $TITLE is installed."
 msgstr ""
 
-#: PlayOnLinux_Scripts/7_Zip_:47 PlayOnLinux_Scripts/Age_Of_Wonders_:82
-#: PlayOnLinux_Scripts/Alt.Binz_:60 PlayOnLinux_Scripts/Company_of_Heroes_:73
+#: PlayOnLinux_Scripts/7_Zip_:47 PlayOnLinux_Scripts/Alt.Binz_:60
+#: PlayOnLinux_Scripts/Company_of_Heroes_:73
 #: PlayOnLinux_Scripts/EVE_online_:133
 #: PlayOnLinux_Scripts/Geoplan_Geospace_:34
 #: PlayOnLinux_Scripts/Google_SketchUp_:67
@@ -310,7 +310,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:205
 #: PlayOnLinux_Scripts/Pro_Pilkki_2_:64 PlayOnLinux_Scripts/SFR_LiberTalk_:57
 #: PlayOnLinux_Scripts/The_Sims_3_:51 PlayOnLinux_Scripts/Theme_Hospital_:66
-#: PlayOnLinux_Scripts/Tree[d]_:61 PlayOnLinux_Scripts/Wow_Cartographe_:66
+#: PlayOnLinux_Scripts/Tree[d]_:61
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:97
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:67
 #, sh-format
@@ -332,18 +332,17 @@ msgid ""
 "can continue."
 msgstr ""
 
-#: PlayOnLinux_Scripts/Ableton_Live_8_:42
-#: PlayOnLinux_Scripts/Ableton_Live_9_:42
-#, sh-format
-msgid "Please select $TITLE Install file:"
-msgstr ""
-
-#: PlayOnLinux_Scripts/Ableton_Live_8_:50
+#: PlayOnLinux_Scripts/Ableton_Live_8_:55
 #: PlayOnLinux_Scripts/Ableton_Live_9_:50
 #, sh-format
 msgid ""
 "NOTICE: To register, when it opens asking for registration, drag-and-drop "
 "your reg file into $TITLE"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Ableton_Live_9_:42
+#, sh-format
+msgid "Please select $TITLE Install file:"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Absynth_5_:30 PlayOnLinux_Scripts/EVE_online_:79
@@ -355,11 +354,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/Absynth_5_:49 PlayOnLinux_Scripts/Guitar_Rig_5_:46
 #, sh-format
 msgid "NOTICE: For low-latency audio, look into WineASIO."
-msgstr ""
-
-#: PlayOnLinux_Scripts/Age_Of_Wonders_:70
-#, sh-format
-msgid "The introdution movie was renamed because it doesnt"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Alan_Wake_:81
@@ -472,17 +466,12 @@ msgstr ""
 #: PlayOnLinux_Scripts/Unreal_Tounament_3_:72
 #: PlayOnLinux_Scripts/Windows_Media_Player_10_:44
 #: PlayOnLinux_Scripts/Wolfenstein_:56
-#: PlayOnLinux_Scripts/World_Of_Warcraft_:101
-#: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:89
-#: PlayOnLinux_Scripts/World_Of_Warcraft___Wrath_of_the_Lich_King_:67
 #: PlayOnLinux_Scripts/Worms_World_Party_:37
 #, sh-format
 msgid "Please select the setup file to run:"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Ancients_of_Ooga_:61
-#: PlayOnLinux_Scripts/Bioshock_Patch_1.1_:53
-#: PlayOnLinux_Scripts/Bioshock_Patch_1.1_:63
 #: PlayOnLinux_Scripts/Cadstd_Lite_3.7.0_:30
 #: PlayOnLinux_Scripts/Command_And_Conquer_3_Patch_1.09_:65
 #: PlayOnLinux_Scripts/Command_And_Conquer_3_Patch_1.09_:81
@@ -496,14 +485,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/Sonic_Fan_Remix_:41 PlayOnLinux_Scripts/Spelunky_:28
 #: PlayOnLinux_Scripts/Windows_Media_Player_10_:36
 #: PlayOnLinux_Scripts/Windows_Media_Player_10_:45
-#: PlayOnLinux_Scripts/World_Of_Warcraft_:77
-#: PlayOnLinux_Scripts/World_Of_Warcraft_:92
-#: PlayOnLinux_Scripts/World_Of_Warcraft_:102
-#: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:65
-#: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:80
-#: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:90
-#: PlayOnLinux_Scripts/World_Of_Warcraft___Wrath_of_the_Lich_King_:55
-#: PlayOnLinux_Scripts/World_Of_Warcraft___Wrath_of_the_Lich_King_:68
 #, sh-format
 msgid "Installation in progress..."
 msgstr ""
@@ -515,9 +496,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/PlanetSide_2_:49 PlayOnLinux_Scripts/Safari_:77
 #: PlayOnLinux_Scripts/Windows_Media_Player_10_:80
 #: PlayOnLinux_Scripts/World_Of_Tanks_:62
-#: PlayOnLinux_Scripts/World_Of_Warcraft_:142
-#: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:98
-#: PlayOnLinux_Scripts/World_Of_Warcraft___Wrath_of_the_Lich_King_:76
 #, sh-format
 msgid "$TITLE has been installed successfully."
 msgstr ""
@@ -533,14 +511,14 @@ msgstr ""
 msgid "Please insert game media into your disk drive"
 msgstr ""
 
-#: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:23
-#: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:23
+#: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:29
+#: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:29
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Patch_1.02_:24
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:23
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:23
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:23
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:23
-#: PlayOnLinux_Scripts/Bioshock_Patch_1.1_:24
+#: PlayOnLinux_Scripts/Bioshock_Patch_1.1_:29
 #: PlayOnLinux_Scripts/Command_And_Conquer_3_Patch_1.09_:25
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Kane_s_Wrath_Patch_1.02_:25
 #: PlayOnLinux_Scripts/Command_And_Conquer___Red_Alert_3_Patch_1.12_:24
@@ -549,33 +527,34 @@ msgstr ""
 msgid "Welcome in the patch $PVERSION Installer for $TITLE"
 msgstr ""
 
-#: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:28
-#: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:28
-#: PlayOnLinux_Scripts/Bioshock_Patch_1.1_:29
-#: PlayOnLinux_Scripts/Far_Cry_2_Patch_1.03_:28
-#: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_Patch_1.35_:28
-#: PlayOnLinux_Scripts/The_Witcher_2___Enhanced_Edition_Patch_:28
-#: PlayOnLinux_Scripts/Wolfenstein_Patch_1.2_:28
+#: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:34
+#: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:34
+#: PlayOnLinux_Scripts/Bioshock_Patch_1.1_:34
+#: PlayOnLinux_Scripts/Far_Cry_2_Patch_1.03_:34
+#: PlayOnLinux_Scripts/League_of_Legends__ingame_shop_icons_fix_:29
+#: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:29
+#: PlayOnLinux_Scripts/World_Of_Warcraft___Wrath_of_the_Lich_King_:29
+#: PlayOnLinux_Scripts/Wow_Cartographe_:34
 #, sh-format
-msgid "Game is not installed"
+msgid "Please install $TITLE_REQUIRED first"
 msgstr ""
 
-#: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:42
-#: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:42
-#: PlayOnLinux_Scripts/Bioshock_Patch_1.1_:43
-#: PlayOnLinux_Scripts/Far_Cry_2_Patch_1.03_:42
+#: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:48
+#: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:48
+#: PlayOnLinux_Scripts/Bioshock_Patch_1.1_:48
+#: PlayOnLinux_Scripts/Far_Cry_2_Patch_1.03_:48
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_Patch_1.35_:42
 #: PlayOnLinux_Scripts/The_Witcher_2___Enhanced_Edition_Patch_:42
 #, sh-format
 msgid "Steam have is own automatic update system"
 msgstr ""
 
-#: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:51
-#: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:51
+#: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:57
+#: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:57
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Patch_1.02_:50
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:43
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:43
-#: PlayOnLinux_Scripts/Bioshock_Patch_1.1_:52
+#: PlayOnLinux_Scripts/Bioshock_Patch_1.1_:57
 #: PlayOnLinux_Scripts/Borderlands_Patch_1.41_:73
 #: PlayOnLinux_Scripts/CivCity_Rome_Patch_1.1_:51
 #: PlayOnLinux_Scripts/Command_And_Conquer_3_Patch_1.09_:64
@@ -584,7 +563,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Dragon_Age_2_Patch_1.03_:52
 #: PlayOnLinux_Scripts/Dragon_Age_Patch_1.04_:53
 #: PlayOnLinux_Scripts/Fallout_3_Patch_1.07_:51
-#: PlayOnLinux_Scripts/Far_Cry_2_Patch_1.03_:50
+#: PlayOnLinux_Scripts/Far_Cry_2_Patch_1.03_:56
 #: PlayOnLinux_Scripts/Mass_Effect_2_Patch_1.02_:51
 #: PlayOnLinux_Scripts/Red_Faction_:55
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_Patch_1.2.0416_:51
@@ -595,16 +574,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/Wolfenstein_Patch_1.2_:55
 #, sh-format
 msgid "Select patch to execute"
-msgstr ""
-
-#: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:58
-#: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:58
-#: PlayOnLinux_Scripts/Bioshock_Patch_1.1_:61
-#: PlayOnLinux_Scripts/Far_Cry_2_Patch_1.03_:55
-#, sh-format
-msgid ""
-"Wait while the patch is downloading...\\nThis operation can take time, "
-"depending of your connexion"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_:73
@@ -633,9 +602,9 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Shivering_Isle_:52
 #: PlayOnLinux_Scripts/The_Next_BIG_Thing_:47
 #: PlayOnLinux_Scripts/Unreal_Tounament_3_:60
-#: PlayOnLinux_Scripts/World_Of_Warcraft_:85
-#: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:73
-#: PlayOnLinux_Scripts/World_Of_Warcraft___Wrath_of_the_Lich_King_:40
+#: PlayOnLinux_Scripts/World_Of_Warcraft_:87
+#: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:76
+#: PlayOnLinux_Scripts/World_Of_Warcraft___Wrath_of_the_Lich_King_:43
 #, sh-format
 msgid "Please insert game media into your disk drive\\nif not already done."
 msgstr ""
@@ -667,9 +636,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_Patch_1.2.0416_:27
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Shivering_Isle_:27
 #: PlayOnLinux_Scripts/The_Witcher_Patch_1.5_:37
-#: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:26
-#: PlayOnLinux_Scripts/World_Of_Warcraft___Wrath_of_the_Lich_King_:26
-#: PlayOnLinux_Scripts/Wow_Cartographe_:32
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:26
 #, sh-format
 msgid "Game is not installed."
@@ -782,6 +748,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:51
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:51
 #: PlayOnLinux_Scripts/Borderlands_:59 PlayOnLinux_Scripts/Fallout_3_:57
+#: PlayOnLinux_Scripts/World_Of_Warcraft_:42
 #, sh-format
 msgid "Which version do you have?"
 msgstr ""
@@ -964,7 +931,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Dragon_Age_2_Patch_1.03_:24
 #: PlayOnLinux_Scripts/Dragon_Age_Patch_1.04_:24
 #: PlayOnLinux_Scripts/Fallout_3_Patch_1.07_:23
-#: PlayOnLinux_Scripts/Far_Cry_2_Patch_1.03_:23
+#: PlayOnLinux_Scripts/Far_Cry_2_Patch_1.03_:29
 #: PlayOnLinux_Scripts/Mass_Effect_2_Patch_1.02_:23
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_Patch_1.2.0416_:22
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_Patch_1.35_:23
@@ -1077,18 +1044,18 @@ msgstr ""
 #: PlayOnLinux_Scripts/Fable___The_Lost_Chapters_:62
 #: PlayOnLinux_Scripts/Fable___The_Lost_Chapters_:70
 #: PlayOnLinux_Scripts/Fable___The_Lost_Chapters_:78
-#: PlayOnLinux_Scripts/World_Of_Warcraft_:46
-#: PlayOnLinux_Scripts/World_Of_Warcraft_:52
-#: PlayOnLinux_Scripts/World_Of_Warcraft_:58
-#: PlayOnLinux_Scripts/World_Of_Warcraft_:64
-#: PlayOnLinux_Scripts/World_Of_Warcraft_:72
-#: PlayOnLinux_Scripts/World_Of_Warcraft_:88
-#: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:43
-#: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:49
-#: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:55
-#: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:61
-#: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:76
-#: PlayOnLinux_Scripts/World_Of_Warcraft___Wrath_of_the_Lich_King_:51
+#: PlayOnLinux_Scripts/World_Of_Warcraft_:48
+#: PlayOnLinux_Scripts/World_Of_Warcraft_:54
+#: PlayOnLinux_Scripts/World_Of_Warcraft_:60
+#: PlayOnLinux_Scripts/World_Of_Warcraft_:66
+#: PlayOnLinux_Scripts/World_Of_Warcraft_:74
+#: PlayOnLinux_Scripts/World_Of_Warcraft_:90
+#: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:46
+#: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:52
+#: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:58
+#: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:64
+#: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:79
+#: PlayOnLinux_Scripts/World_Of_Warcraft___Wrath_of_the_Lich_King_:54
 #: PlayOnLinux_Scripts/Zoo_Tycoon_2___Ultimate_Collection_:39
 #: PlayOnLinux_Scripts/Zoo_Tycoon_2___Ultimate_Collection_:47
 #: PlayOnLinux_Scripts/Zoo_Tycoon_2___Ultimate_Collection_:55
@@ -1253,7 +1220,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_DisableCrashDialog_:5
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:34
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
-#: PlayOnLinux_Scripts/World_Of_Warcraft_:114 bash/installpolpackages:26
+#: PlayOnLinux_Scripts/World_Of_Warcraft_:116 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
 #: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:1111
 #: lib/wine.lib:1141
@@ -1573,6 +1540,15 @@ msgstr ""
 msgid "Dedicated server"
 msgstr ""
 
+#: PlayOnLinux_Scripts/GOG.com___Pirates_Pack_:83
+#: PlayOnLinux_Scripts/GOG.com___Ultima_Worlds_of_Adventure_2__Martian_Dreams_:53
+#: PlayOnLinux_Scripts/GOG.com___Worlds_of_Ultima__The_Savage_Empire_:52
+#, sh-format
+msgid ""
+"The codes needed to start a new game can be found in the\\ndocumentation;"
+"\\nRight-click the game icon, \"Read the manual\"."
+msgstr ""
+
 #: PlayOnLinux_Scripts/GOG.com___Prince_of_Persia__The_Sands_of_Time_:57
 #, sh-format
 msgid ""
@@ -1653,14 +1629,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Ultima_8_Gold_Edition_:102
 #, sh-format
 msgid "Final notes"
-msgstr ""
-
-#: PlayOnLinux_Scripts/GOG.com___Ultima_Worlds_of_Adventure_2__Martian_Dreams_:53
-#: PlayOnLinux_Scripts/GOG.com___Worlds_of_Ultima__The_Savage_Empire_:52
-#, sh-format
-msgid ""
-"The codes needed to start a new game can be found in the\\ndocumentation;"
-"\\nRight-click the game icon, \"Read the manual\"."
 msgstr ""
 
 #: PlayOnLinux_Scripts/GOG.com___Unreal_Gold_:63
@@ -1805,11 +1773,6 @@ msgstr ""
 msgid ""
 "You should now have a League of Legends directory on your desktop containing "
 "its installer. You may keep it to speed up reinstallations."
-msgstr ""
-
-#: PlayOnLinux_Scripts/League_of_Legends__ingame_shop_icons_fix_:29
-#, sh-format
-msgid "Please install $TITLE_REQUIRED first"
 msgstr ""
 
 #: PlayOnLinux_Scripts/League_of_Legends__ingame_shop_icons_fix_:32
@@ -2712,6 +2675,13 @@ msgstr ""
 msgid "Please insert next media into your disk drive"
 msgstr ""
 
+#: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_Patch_1.35_:28
+#: PlayOnLinux_Scripts/The_Witcher_2___Enhanced_Edition_Patch_:28
+#: PlayOnLinux_Scripts/Wolfenstein_Patch_1.2_:28
+#, sh-format
+msgid "Game is not installed"
+msgstr ""
+
 #: PlayOnLinux_Scripts/The_Witcher_2___Enhanced_Edition_Patch_:23
 #, sh-format
 msgid "Welcome in the $PVERSION installer for $TITLE"
@@ -2835,40 +2805,35 @@ msgid ""
 "installation. After this, you can run \"$TITLE\" when setup is done"
 msgstr ""
 
-#: PlayOnLinux_Scripts/World_Of_Warcraft_:40
-#, sh-format
-msgid "Please choose"
-msgstr ""
-
-#: PlayOnLinux_Scripts/World_Of_Warcraft_:43
-#: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:40
+#: PlayOnLinux_Scripts/World_Of_Warcraft_:45
+#: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:43
 #: PlayOnLinux_Scripts/Zoo_Tycoon_2___Ultimate_Collection_:36
 #: PlayOnLinux_Scripts/Zoo_Tycoon_2___Ultimate_Collection_:69
 #, sh-format
 msgid "Please insert game media 1 into your disk drive\\nif not already done."
 msgstr ""
 
-#: PlayOnLinux_Scripts/World_Of_Warcraft_:49
-#: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:46
+#: PlayOnLinux_Scripts/World_Of_Warcraft_:51
+#: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:49
 #: PlayOnLinux_Scripts/Zoo_Tycoon_2___Ultimate_Collection_:44
 #, sh-format
 msgid "Please insert game media 2 into your disk drive\\nif not already done."
 msgstr ""
 
-#: PlayOnLinux_Scripts/World_Of_Warcraft_:55
-#: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:52
+#: PlayOnLinux_Scripts/World_Of_Warcraft_:57
+#: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:55
 #: PlayOnLinux_Scripts/Zoo_Tycoon_2___Ultimate_Collection_:52
 #, sh-format
 msgid "Please insert game media 3 into your disk drive\\nif not already done."
 msgstr ""
 
-#: PlayOnLinux_Scripts/World_Of_Warcraft_:61
-#: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:58
+#: PlayOnLinux_Scripts/World_Of_Warcraft_:63
+#: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:61
 #, sh-format
 msgid "Please insert game media 4 into your disk drive\\nif not already done."
 msgstr ""
 
-#: PlayOnLinux_Scripts/World_Of_Warcraft_:69
+#: PlayOnLinux_Scripts/World_Of_Warcraft_:71
 #, sh-format
 msgid "Please insert game media 5 into your disk drive\\nif not already done."
 msgstr ""
