@@ -7,7 +7,6 @@ import subprocess, os
 
 # PlayOnLinux
 from models.Executable import Executable
-from models.GuiServer import GuiServer
 
 from services.Environment import Environment
 from services.ConfigService import ConfigService

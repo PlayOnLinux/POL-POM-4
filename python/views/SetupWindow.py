@@ -18,14 +18,20 @@
 
 
 
-import wx, wx.animate, os, getopt, sys, urllib, signal, time, string, urlparse, codecs, time, threading, socket
+import wx, wx.animate, os, getopt, sys, urllib, signal, time, string, codecs, time, threading, socket
 from subprocess import Popen,PIPE
 
 from views.UIHelper import UIHelper
+from views.widgets.DownloadGauge import DownloadGauge
+from views.widgets.DownloadText import DownloadText
 
 from services.Environment import *
 from services.ConfigService import *
 
+from patterns.Observer import Observer
+
+
+    
 class SetupWindow(wx.Frame): #fenêtre principale
     def __init__(self, controller, title, scriptPid, topImage, leftImage, isProtected):
         
@@ -94,7 +100,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
         self.titreP.SetFont(UIHelper().getFontTitle())
         self.titreP.SetForegroundColour((0,0,0)) # For dark themes
 
-        self.txtEstimation = wx.StaticText(self.panel, -1, "",size=(480,30),style=wx.ST_NO_AUTORESIZE)
+        self.txtEstimation = DownloadText(self.panel)
         self.register_link = ""
 
 
@@ -129,6 +135,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
         self.texte_panel = wx.StaticText(self.scrolled_panel, -1, "",pos=(5,5))
 
         self.gauge = wx.Gauge(self.panel, -1, 50, size=(375, 20))
+        self.downloadGauge = DownloadGauge(self.panel)
         self.WaitButton = wx.Button(self.panel, 310, "", size=(250,25))
 
         
@@ -172,7 +179,6 @@ class SetupWindow(wx.Frame): #fenêtre principale
         self.timer = wx.Timer(self, 3)
         self.Bind(wx.EVT_TIMER, self.timerAction, self.timer)
         self.timer.Start(100)
-        self.timerDownload = False
         self.timerAnimate = True
         
     def getLoaderFromAngle(self, angle):
@@ -203,6 +209,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
         self.MenuGames.Hide()
         self.scrolled_panel.Hide()
         self.gauge.Hide()
+        self.downloadGauge.Hide()
         self.txtEstimation.Hide()
         self.texte_panel.Hide()
         self.MCheckBox.Hide()
@@ -224,25 +231,6 @@ class SetupWindow(wx.Frame): #fenêtre principale
 
                 
     def timerAction(self, event):
-        ## If the setup window is downloading a file, we need to update the progress bar
-        if(self.timerDownload == True):
-            if(self.downloader.taille_bloc != 0):
-                self.gauge.SetRange(self.downloader.getMaxNbBlock())
-                self.gauge.SetValue(self.downloader.getNbBlocks())
-
-                tailleFichierN = str(round(self.downloader.getFileSizeInBytes(), 1))
-                octetsLoadedN = str(round(self.downloader.getLoadedSizeInBytes(), 1))
-
-                self.txtEstimation.SetLabel(_("{0} of {1} MB downloaded").format(octetsLoadedN, tailleFichierN))
-
-            if(self.downloader.isFinished()):
-                if(self.downloader.hasFailed()):
-                    self.release_but_fail(self)
-                else:
-                    self.release(self)
-                    
-                self.timerDownload = False
-
         if(self.timerAnimate == True):
             self.current_angle = ((self.current_angle + 1) % 12)
             self.animation.SetBitmap(self.getLoaderFromAngle(self.current_angle + 1))
@@ -322,14 +310,13 @@ class SetupWindow(wx.Frame): #fenêtre principale
         self.hideAll()
         self.DrawDefault(message, title)
         self.space = message.count("\\n")+1
-        self.gauge.Show()
-        self.gauge.SetPosition((70,95+self.space*16))
+        self.downloadGauge.Show()
+        self.downloadGauge.SetPosition((70,95+self.space*16))
         self.txtEstimation.SetPosition((20,135+self.space*16))
         self.txtEstimation.Show()
         self.DrawCancel()
         self.DrawNext()
         self.NextButton.Enable(False)
-        self.downloadFile(url, localfile)
 
     def POL_SetupWindow_wait(self, message, title):
         self.hideAll()
@@ -789,14 +776,6 @@ class SetupWindow(wx.Frame): #fenêtre principale
         self.FileDialog.Destroy()
 
 
-    def downloadFile(self, url, localB):   
-        self.chemin = urlparse.urlsplit(url)[2]
-        self.nomFichier = self.chemin.split('/')[-1]
-        self.local = localB + self.nomFichier
-        self.downloader = Downloader(url, self.local)
-        self.downloader.start()
-        self.timerDownload = True
-
 
     def agree(self, event):
         if(self.MCheckBox.IsChecked()):
@@ -813,3 +792,13 @@ class SetupWindow(wx.Frame): #fenêtre principale
             self.Menu.Hide()
         self.Refresh()
 
+
+
+
+
+    # getters
+    def getDownloadGauge(self):
+        return self.downloadGauge
+        
+    def getDownloadText(self):
+        return self.txtEstimation

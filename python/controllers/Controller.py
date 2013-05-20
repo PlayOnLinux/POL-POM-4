@@ -3,19 +3,19 @@
 
 # Copyright (C) 2007-2013 PlayOnLinux Team
 
-import webbrowser
+import webbrowser, urlparse
 
 from services.Environment import Environment
 from services.ConfigService import ConfigService
 
 # Model
-from models.PlayOnLinux import PlayOnLinux
 from models.Script import PrivateScript
 from models.Executable import Executable
 from models.Directory import *
 from models.ShortcutList import *
 from models.PluginList import *
 from models.Shortcut import *
+from models.DistantFile import DistantFile
 
 # Views
 from views.Question import Question
@@ -83,7 +83,7 @@ class Controller(object):
        if(command == 'POL_SetupWindow_Init'):
           if(len(data) == 6):
                isProtected = (data[5] == "TRUE") 
-               setupWindow = SetupWindow(self, title = data[2], scriptPid = scriptPid, topImage = data[3], leftImage = data[4], isProtected = isProtected)
+               setupWindow =  SetupWindow(self, title = data[2], scriptPid = scriptPid, topImage = data[3], leftImage = data[4], isProtected = isProtected)
                self.windowListFromPid[scriptPid] = setupWindow
                self.closeConnexion(scriptPid)
        
@@ -118,6 +118,23 @@ class Controller(object):
                else:
                    try:
                        setupWindowFunction(*arguments)
+                       
+                       if(command == "POL_SetupWindow_download"):
+                           # Download parameters
+                           url = arguments[2]
+                           localDirectory = arguments[3]
+                           chemin = urlparse.urlsplit(url)[2]
+                           nomFichier = chemin.split('/')[-1]
+                           local = localDirectory + nomFichier
+                           
+                           # Distant file object
+                           # We register the observer
+                           distantFile = DistantFile(url)
+                           distantFile.register(setupWindowObject.getDownloadGauge())
+                           distantFile.register(setupWindowObject.getDownloadText())
+                           
+                           distantFile.download(local)
+                       
                    except TypeError, e:
                        print 'Error: %s (%s)' % (e, arguments)
                        
@@ -129,10 +146,15 @@ class Controller(object):
            self._guiServer.closeServer()
        except ErrServerIsNotRunning:
            pass
-        
+       
+       # Destroy setupwindow
+       for pid in self.windowListFromPid:
+           self.windowListFromPid[pid].Destroy()
+            
        # Destroy main window
        self.app.getMainWindow().Destroy()
-              
+       
+       
        # Close all scripts
        for thread in threading.enumerate():
            if(isinstance(thread, Executable)):

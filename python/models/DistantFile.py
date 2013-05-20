@@ -18,11 +18,13 @@
 
 import threading, time, urllib
 
-class Downloader(threading.Thread):
-    def __init__(self, url, local):
+from patterns.Observable import Observable
+
+class DistantFile(threading.Thread, Observable):
+    def __init__(self, url):
         threading.Thread.__init__(self)
+        Observable.__init__(self)
         self.url = url
-        self.local = local
         self.fileSize = 0
         self.blockSize = 0
         self.nbBlocks = 0
@@ -57,26 +59,44 @@ class Downloader(threading.Thread):
     def waitEnd(self):
         while(not self.finished):
             time.sleep(0.1)
-             
-    # Downloader  
-    def onHook(self, nbBlocks, blockSize, fileSize):
-        self.nbBlocks = nbBlocks
-        self.blockSize = blockSize
-        self.fileSize = fileSize
 
-    def download(self):
-        # FIXME, exception need to be explicite
-        try:
-            urllib.urlretrieve(self.url, self.local, reporthook = self.onHook)
-        except:
-            self.failed = True
-        self.finished = True
- 
+    def download(self, local):
+        self.local = local
+        self.start()
+
     def getContent(self):
         self.waitEnd()
         
         if(not self.failed):
             return open(self.local, "r").read()
+                       
+    # Downloader  
+    def _onHook(self, nbBlocks, blockSize, fileSize):
+        self.nbBlocks = nbBlocks
+        self.blockSize = blockSize
+        self.fileSize = fileSize
+        
+        fileSizeB = float(fileSize / 1048576.0)
+        octetsLoadedB = float((nbBlocks * blockSize) / 1048576.0)
+        octetsLoadedN = round(octetsLoadedB, 1)
+        fileSizeN = round(fileSizeB, 1)
+        
+        downloadData = {"nbBlocks": nbBlocks, "blockSize": blockSize, "fileSize": fileSize, "fileSizeB" : fileSizeB, "octetsLoadedB" : octetsLoadedB, "octetsLoadedN" : octetsLoadedN, "fileSizeN" : fileSizeN}
+        
+
+        
+        self.update(data = downloadData)
+        
+    def _startDownload(self):
+        # FIXME, exception need to be explicite
+        #try:
+        urllib.urlretrieve(self.url, self.local, reporthook = self._onHook)
+        #except:
+        #    self.failed = True
+            
+        self.finished = True
+ 
+
             
     def run(self):
-        self.download()
+        self._startDownload()

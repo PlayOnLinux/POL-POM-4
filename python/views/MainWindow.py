@@ -867,7 +867,6 @@ class MainWindow(wx.Frame):
            
     def eventClosePol(self, event):
         if(self.configService.getSetting("DONT_ASK_BEFORE_CLOSING") == "TRUE" or Question(_('Are you sure you want to close all [APP] Windows?')).getAnswer()):
-            self.Destroy()
             self.controller.destroy()  
             
     def eventRunProgram(self, event):

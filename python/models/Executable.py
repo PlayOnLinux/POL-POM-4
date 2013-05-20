@@ -8,8 +8,6 @@ import subprocess, os, time, threading
 from services.Environment import Environment
 from services.ConfigService import ConfigService
 
-from models.PlayOnLinux import PlayOnLinux
-
 
 class ErrExecutableIsRunning(Exception):
    def __str__(self):
@@ -81,10 +79,11 @@ class Executable(threading.Thread):
        execEnv.setEnv("REPERTOIRE", execEnv.getUserRoot()) # ( Backward compatibility )
        execEnv.setEnv("POL_USER_ROOT", execEnv.getUserRoot())
        
-       if(PlayOnLinux().isUpToDate()):
-           execEnv.setEnv("POL_UPTODATE", "FALSE")
-       else:
-           execEnv.setEnv("POL_UPTODATE", "TRUE")
+       # FIXME!!
+       #if(PlayOnLinux().isUpToDate()):
+       #    execEnv.setEnv("POL_UPTODATE", "FALSE")
+       #else:
+       #    execEnv.setEnv("POL_UPTODATE", "TRUE")
            
        # WGET
        execEnv.setEnv("WGETRC", execEnv.getUserRoot()+"/configurations/wgetrc")
