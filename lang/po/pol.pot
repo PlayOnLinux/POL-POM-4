@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2013-05-20 19:00:47+02:00\n"
+"POT-Creation-Date: 2013-05-21 19:00:31+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -223,7 +223,8 @@ msgstr ""
 
 #: PlayOnLinux_Scripts/18_Wheels_of_Steel_Haulin_:52
 #: PlayOnLinux_Scripts/A.R.E.S.___Extinction_Agenda_:87
-#: PlayOnLinux_Scripts/Ableton_Live_8_:47
+#: PlayOnLinux_Scripts/Ableton_Live_8_:44
+#: PlayOnLinux_Scripts/Ableton_Live_9_:44
 #: PlayOnLinux_Scripts/Age_Of_Empires_II___The_Age_of_Kings_:63
 #: PlayOnLinux_Scripts/Age_Of_Wonders_:50 PlayOnLinux_Scripts/Alan_Wake_:75
 #: PlayOnLinux_Scripts/Alien_Breed_2___Assault_:76
@@ -332,17 +333,12 @@ msgid ""
 "can continue."
 msgstr ""
 
-#: PlayOnLinux_Scripts/Ableton_Live_8_:55
-#: PlayOnLinux_Scripts/Ableton_Live_9_:50
+#: PlayOnLinux_Scripts/Ableton_Live_8_:52
+#: PlayOnLinux_Scripts/Ableton_Live_9_:52
 #, sh-format
 msgid ""
 "NOTICE: To register, when it opens asking for registration, drag-and-drop "
 "your reg file into $TITLE"
-msgstr ""
-
-#: PlayOnLinux_Scripts/Ableton_Live_9_:42
-#, sh-format
-msgid "Please select $TITLE Install file:"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Absynth_5_:30 PlayOnLinux_Scripts/EVE_online_:79
@@ -530,6 +526,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:34
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:34
 #: PlayOnLinux_Scripts/Bioshock_Patch_1.1_:34
+#: PlayOnLinux_Scripts/Borderlands_Patch_1.41_:30
 #: PlayOnLinux_Scripts/Far_Cry_2_Patch_1.03_:34
 #: PlayOnLinux_Scripts/League_of_Legends__ingame_shop_icons_fix_:29
 #: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:29
@@ -555,7 +552,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:43
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:43
 #: PlayOnLinux_Scripts/Bioshock_Patch_1.1_:57
-#: PlayOnLinux_Scripts/Borderlands_Patch_1.41_:73
+#: PlayOnLinux_Scripts/Borderlands_Patch_1.41_:50
 #: PlayOnLinux_Scripts/CivCity_Rome_Patch_1.1_:51
 #: PlayOnLinux_Scripts/Command_And_Conquer_3_Patch_1.09_:64
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Kane_s_Wrath_Patch_1.02_:64
@@ -616,7 +613,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:28
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_:31
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:28
-#: PlayOnLinux_Scripts/Borderlands_Patch_1.41_:50
 #: PlayOnLinux_Scripts/CivCity_Rome_Patch_1.1_:28
 #: PlayOnLinux_Scripts/Command_And_Conquer_3_Patch_1.09_:31
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Kane_s_Wrath_:33
@@ -642,7 +638,7 @@ msgid "Game is not installed."
 msgstr ""
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Patch_1.02_:41
-#: PlayOnLinux_Scripts/Borderlands_Patch_1.41_:64
+#: PlayOnLinux_Scripts/Borderlands_Patch_1.41_:41
 #: PlayOnLinux_Scripts/CivCity_Rome_Patch_1.1_:42
 #: PlayOnLinux_Scripts/Command_And_Conquer_3_Patch_1.09_:45
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Kane_s_Wrath_Patch_1.02_:45
@@ -863,16 +859,19 @@ msgstr ""
 msgid "Normal version"
 msgstr ""
 
-#: PlayOnLinux_Scripts/Borderlands_Patch_1.41_:45
+#: PlayOnLinux_Scripts/Borderlands_Patch_1.41_:27
+#: PlayOnLinux_Scripts/CivCity_Rome_Patch_1.1_:23
+#: PlayOnLinux_Scripts/Dragon_Age_2_Patch_1.03_:24
+#: PlayOnLinux_Scripts/Dragon_Age_Patch_1.04_:24
+#: PlayOnLinux_Scripts/Fallout_3_Patch_1.07_:23
+#: PlayOnLinux_Scripts/Far_Cry_2_Patch_1.03_:29
+#: PlayOnLinux_Scripts/Mass_Effect_2_Patch_1.02_:23
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_Patch_1.2.0416_:22
+#: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_Patch_1.35_:23
+#: PlayOnLinux_Scripts/The_Witcher_Patch_1.5_:25
+#: PlayOnLinux_Scripts/Wolfenstein_Patch_1.2_:23
 #, sh-format
-msgid "Welcome in the patch $PVERSION Installation script for $TITLE"
-msgstr ""
-
-#: PlayOnLinux_Scripts/Borderlands_Patch_1.41_:81
-#, sh-format
-msgid ""
-"Wait while the patch is downloading...\\nThis operation can take time, "
-"depending of you connexion."
+msgid "Welcome in the patch $PVERSION installer for $TITLE"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Call_of_Duty__Modern_Warfare_3_:46
@@ -925,20 +924,6 @@ msgstr ""
 msgid ""
 "Do not forget to close Steam when downloading\\nis finished, so that "
 "$APPLICATION_TITLE can continue\\nto install your game."
-msgstr ""
-
-#: PlayOnLinux_Scripts/CivCity_Rome_Patch_1.1_:23
-#: PlayOnLinux_Scripts/Dragon_Age_2_Patch_1.03_:24
-#: PlayOnLinux_Scripts/Dragon_Age_Patch_1.04_:24
-#: PlayOnLinux_Scripts/Fallout_3_Patch_1.07_:23
-#: PlayOnLinux_Scripts/Far_Cry_2_Patch_1.03_:29
-#: PlayOnLinux_Scripts/Mass_Effect_2_Patch_1.02_:23
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_Patch_1.2.0416_:22
-#: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_Patch_1.35_:23
-#: PlayOnLinux_Scripts/The_Witcher_Patch_1.5_:25
-#: PlayOnLinux_Scripts/Wolfenstein_Patch_1.2_:23
-#, sh-format
-msgid "Welcome in the patch $PVERSION installer for $TITLE"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Command_And_Conquer_3_Patch_1.09_:51
@@ -1993,6 +1978,7 @@ msgstr ""
 
 #: PlayOnLinux_Scripts/POL_Install_d3dcompiler_43_:11
 #: PlayOnLinux_Scripts/POL_Install_d3dx9_:11
+#: PlayOnLinux_Scripts/POL_Install_d3dx9_29_:11
 #: PlayOnLinux_Scripts/POL_Install_d3dx9_35_:11
 #: PlayOnLinux_Scripts/POL_Install_d3dx9_36_:11
 #: PlayOnLinux_Scripts/POL_Install_d3dx9_40_:11
