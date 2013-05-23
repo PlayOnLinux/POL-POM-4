@@ -821,6 +821,27 @@ POL_Shortcut_Document()
 	fi
 	
 }
+POL_Shortcut_Configurator ()
+{
+	# Add a configurator to a shortcut
+	# Usage: POL_Shortcut_Configurator "Shortcut name" <<_EOFCFG_
+	# <Configurator script>
+	# _EOFCFG_
+
+	(cat <<_PRELUDE_
+#!/bin/bash
+[ -z "\$PLAYONLINUX" ] && exit 0
+source "\$PLAYONLINUX/lib/sources"
+export WINEPREFIX="\$POL_USER_ROOT/wineprefix/$PREFIX"
+export WINEDEBUG="-all"
+
+POL_LoadVar_PROGRAMFILES
+
+TITLE="$TITLE"
+_PRELUDE_
+	 cat
+	) > "$POL_USER_ROOT/configurations/configurators/$1"
+}
 
 POL_RequiredVersion ()
 {
