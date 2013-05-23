@@ -273,6 +273,21 @@ POL_ExtractBiggestIcon()
 	)
 	rm -r "$REPERTOIRE/tmp/win32Icon"
 }
+find_binary ()
+{
+	## Find executable directory
+	cd "$WINEPREFIX" || POL_Debug_Fatal "Prefixe $WINEPREFIX does not exists"
+	cd drive_c || POL_Debug_Fatal "drive_c folder does not exists"
+
+	binary_path=""
+	if [ "$(echo "$1" | grep "/")" = "" ]; then # Binaire
+		binary_path="$(find ./ -name windows -prune -o -iname "$1" -a -type f -print | tail -n 1)"
+		[ -z "$binary_path" ] && binary_path="$(find ./windows/ -iname "$1" -a -type f -print | tail -n 1)"
+	else # Chemin
+		[ -e "./$1" ] && binary_path="./$1"
+	fi
+	echo "$binary_path"
+}
 POL_Shortcut()
 {
 	# Make a shortcut
@@ -296,18 +311,7 @@ POL_Shortcut()
 	ICON_WEB_NAME="$3"
 	ICON_OK=0
 
-	## Find executable directory
-	cd "$WINEPREFIX" || POL_Debug_Fatal "Prefixe $WINEPREFIX does not exists"
-	cd drive_c || POL_Debug_Fatal "drive_c folder does not exists"
-
-	binary_path=""
-	if [ "$(echo "$Binaire" | grep "/")" = "" ]; then # Binaire
-		binary_path="$(find ./ -name windows -prune -o -iname "$Binaire" -a -type f -print | tail -n 1)"
-		[ -z "$binary_path" ] && binary_path="$(find ./windows/ -iname "$Binaire" -a -type f -print | tail -n 1)"
-	else # Chemin
-		[ -e "./$Binaire" ] && binary_path="./$Binaire"
-	fi
-	
+        binary_path="$(find_binary "$Binaire")"
 	binary_dir="$(dirname "$binary_path")"
 	Binaire="$(basename "$binary_path")"
 	
@@ -824,7 +828,10 @@ POL_Shortcut_Document()
 POL_Shortcut_Configurator ()
 {
 	# Add a configurator to a shortcut
-	# Usage: POL_Shortcut_Configurator "Shortcut name" <<_EOFCFG_
+	# Usage: 
+        # POL_Shortcut_Configurator "Shortcut name" "Program.exe"
+        # or 
+        # POL_Shortcut_Configurator "Shortcut name" <<_EOFCFG_
 	# <Configurator script>
 	# _EOFCFG_
 
@@ -839,7 +846,17 @@ POL_LoadVar_PROGRAMFILES
 
 TITLE="$TITLE"
 _PRELUDE_
-	 cat
+	 if [ -n "$2" ]; then
+	         binary_path="$(find_binary "$2")"
+		 binary_dir="$(dirname "$binary_path")"
+		 Binaire="$(basename "$binary_path")"
+
+		 [ "$binary_dir" = "" ] && POL_Debug_Fatal "Can't find $Binaire"
+		 echo "cd \"$WINEPREFIX/drive_c/$binary_dir\""
+		 echo "POL_Wine \"$Binaire\" $SpecialArg \"\$@\""
+	 else
+		 cat
+	 fi
 	) > "$POL_USER_ROOT/configurations/configurators/$1"
 }
 
