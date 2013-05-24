@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2013-05-23 19:00:29+02:00\n"
+"POT-Creation-Date: 2013-05-24 19:00:38+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3291,7 +3291,7 @@ msgstr ""
 msgid "What would you like to do before installation?"
 msgstr ""
 
-#: bash/manual_install:231 lib/scripts.lib:420
+#: bash/manual_install:231 lib/scripts.lib:424
 #, sh-format
 msgid "Please make your choice"
 msgstr ""
@@ -3950,85 +3950,85 @@ msgstr ""
 msgid "Installing plugin: "
 msgstr ""
 
-#: lib/scripts.lib:332
+#: lib/scripts.lib:336
 #, sh-format
 msgid ""
 "Binary not found: $BINARY\\nHave you installed the program to the default "
 "location?"
 msgstr ""
 
-#: lib/scripts.lib:482 lib/scripts.lib:548
+#: lib/scripts.lib:486 lib/scripts.lib:552
 #, sh-format
 msgid "No enough space to download:\\n$URL ($neededSpace KB)"
 msgstr ""
 
-#: lib/scripts.lib:484 lib/scripts.lib:757
+#: lib/scripts.lib:488 lib/scripts.lib:761
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr ""
 
-#: lib/scripts.lib:486 lib/scripts.lib:553
+#: lib/scripts.lib:490 lib/scripts.lib:557
 #, sh-format
 msgid "An error happened during download."
 msgstr ""
 
-#: lib/scripts.lib:486 lib/scripts.lib:505 lib/scripts.lib:553
-#: lib/scripts.lib:569
+#: lib/scripts.lib:490 lib/scripts.lib:509 lib/scripts.lib:557
+#: lib/scripts.lib:573
 #, sh-format
 msgid "Do you want to retry?"
 msgstr ""
 
-#: lib/scripts.lib:505 lib/scripts.lib:569
+#: lib/scripts.lib:509 lib/scripts.lib:573
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 
-#: lib/scripts.lib:662
+#: lib/scripts.lib:666
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
 msgstr ""
 
-#: lib/scripts.lib:669
+#: lib/scripts.lib:673
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr ""
 
-#: lib/scripts.lib:673
+#: lib/scripts.lib:677
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr ""
 
-#: lib/scripts.lib:688
+#: lib/scripts.lib:692
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:719
+#: lib/scripts.lib:723
 #, sh-format
 msgid "Copying ${filename}"
 msgstr ""
 
-#: lib/scripts.lib:732
+#: lib/scripts.lib:736
 #, sh-format
 msgid "File size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:833
+#: lib/scripts.lib:871
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\n"
 "$APPLICATION_TITLE $NEEDED is required."
 msgstr ""
 
-#: lib/scripts.lib:848
+#: lib/scripts.lib:886
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
 "$NEEDED is recommended to continue."
 msgstr ""
 
-#: lib/scripts.lib:879
+#: lib/scripts.lib:917
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr ""
