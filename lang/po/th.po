@@ -1,50 +1,50 @@
-# Korean translation for playonlinux
-# Copyright (c) 2010 Rosetta Contributors and Canonical Ltd 2010
+# Thai translation for playonlinux
+# Copyright (c) 2013 Rosetta Contributors and Canonical Ltd 2013
 # This file is distributed under the same license as the playonlinux package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2010.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2013-05-27 19:00+0200\n"
-"PO-Revision-Date: 2012-06-05 16:37+0000\n"
-"Last-Translator: Aymeric PETIT <mulx@aplu.fr>\n"
-"Language-Team: Korean <ko@li.org>\n"
+"PO-Revision-Date: 2013-05-24 13:50+0000\n"
+"Last-Translator: Vatin <vatin.p@gmail.com>\n"
+"Language-Team: Thai <th@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-05-28 05:12+0000\n"
+"X-Launchpad-Export-Date: 2013-05-28 05:13+0000\n"
 "X-Generator: Launchpad (build 16640)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
-msgstr "어느 어플리케이션에 수정 사항을 적용할 것 입니까?"
+msgstr "โปรแกรมใดที่คุณต้องการนำการปรับแต่งมาใช้"
 
 #: Capture plugin:3
 msgid ""
 "This plugin wil allow you to capture you applications under PlayOnLinux"
-msgstr "이 플러그인은 PlayOnLinux 아래의 어플리케이션을 캡쳐할 수 있습니다."
+msgstr "ปลั๊กอินนี้จะทำให้คุณสามารถรันโปรแกรมต่างๆ ได้ภายใน PlayOnLinux"
 
 #: Capture plugin:4
 msgid "Capture menu (OpenGL)"
-msgstr "캡쳐 메뉴(OpenGL)"
+msgstr "จับเมนู (OpenGL)"
 
 #: Capture plugin:5
 msgid "Capture menu (not OpenGL)"
-msgstr "캡쳐 메뉴(not OpenGL)"
+msgstr "จับเมนู (ไม่ใช่ OpenGL)"
 
 #: Capture plugin:6
 msgid "Begin the capture of an application"
-msgstr "어플리케이션의 캡쳐 시작"
+msgstr "เริ่มการจับโปรแกรม"
 
 #: Capture plugin:7
 msgid "Play a captured file"
-msgstr "캠쳐된 파일 실행"
+msgstr "เล่นไฟล์ที่จับ"
 
 #: Capture plugin:8
 msgid "Convert a captured file to video"
-msgstr "캡쳐된 파일을 비디오로 변환"
+msgstr "แปลงไฟล์ที่จับเป็นวิดีโอ"
 
 #: Capture plugin:9
 #, sh-format
@@ -52,163 +52,178 @@ msgid ""
 "Press Next then click on the window\\nyou want to capture.\\nCapture will "
 "start automatically after 5 seconds.\\nOnly video will be captured."
 msgstr ""
-"캡쳐를 원하시면\\n창의 다음버튼을 누르세요.\\n5초 후 자동으로 캡쳐가 실행될 것 입니다.\\n비디오 만이 캡쳐될 수 있습니다."
+"กดปุ่มถัดไป จากนั้นคลิกที่หน้าต่าง\\nที่คุณต้องการจับ\\"
+"nการจับจะเริ่มโดยอัตโนมัติหลังจาก 5 วินาที\\nวิดีโอเท่านั้นที่จะถูกจับ"
 
 #: Capture plugin:10
 msgid "Capture will begin..."
-msgstr "캡쳐 시작..."
+msgstr "การจับจะเริ่มขึ้น..."
 
 #: Capture plugin:11
 msgid "Press <SHIFT>+F8 to start or stop capture"
-msgstr "캡쳐를 시작하거나 멈추기 위해 <SHIFT>+F8 누르기"
+msgstr "กด <SHIFT>+F8 เพื่อเริ่มหรือหยุดการจับ"
 
 #: Capture plugin:12
 msgid "Press <SHIFT>+F8 to stop capture"
-msgstr "캡쳐를 멈추기 위해 <SHIFT>+F8 누르기"
+msgstr "กด <SHIFT>+F8 เพื่อหยุดการจับ"
 
 #: Capture plugin:13
 msgid "Capture in progress..."
-msgstr "캡쳐가 진행중..."
+msgstr "การจับกำลังดำเนินอยู่..."
 
 #: Capture plugin:14
 msgid "Choose an action to perform"
-msgstr "적용할 액션 고르기"
+msgstr "เลือกการกระทำที่จะดำเนินการ"
 
 #: Capture plugin:15
 msgid "Please choose a PID capture file to play"
-msgstr "실행 할 PID 캡쳐 파일 고르기"
+msgstr "โปรดเลือกไฟล์การจับ PID ที่จะเล่น"
 
 #: Capture plugin:16
 msgid "Please choose an OGV capture file to play"
-msgstr "실행할 OGV 파일 고르기"
+msgstr "โปรดเลือกไฟล์การจับ OGV ที่จะเล่น"
 
 #: Capture plugin:17
 msgid "Please choose a capture file to convert"
-msgstr "변환할 캡쳐 파일 고르기"
+msgstr "โปรดเลือกไฟล์ที่จับที่จะแปลง"
 
 #: Capture plugin:18
 msgid "You must choose a capture to read"
-msgstr "읽을 캡쳐를 선택해야 합니다"
+msgstr "คุณต้องเลือกการจับที่จะอ่าน"
 
 #: Capture plugin:19
 msgid "You must choose a capture to convert"
-msgstr "변환할 캡쳐를 선택해야 합니다"
+msgstr "คุณต้องเลือกการจับที่จะแปลง"
 
 #: Capture plugin:20
 msgid "Please wait while the PlayOnLinux logo is created..."
-msgstr "PlayOnLinux 로고 가 생성될 동안 기다려주세요"
+msgstr "โปรดรอขณะที่โลโก้ PlayOnLinux กำลังถูกสร้าง"
 
 #: Capture plugin:21
 msgid "Add the PlayOnLinux logo to your video?"
-msgstr "비디오에 PlayOnLinux 로고를 더할까요?"
+msgstr "เพิ่มโลโก้ PlayOnLinux ให้วิดีโอของคุณ"
 
 #: Capture plugin:22
 msgid ""
 "Warning: For correct video encoding,\\nresolution MUST be a multiple of 16"
 msgstr ""
+"เตือน: เพื่อความถูกต้องในการเข้ารหัสวิดีโอ\\"
+"nความละเอียดต้องเป็นเลขที่คูณด้วย 16 ลงตัว"
 
 #: Capture plugin:23
 msgid ""
 "Ubuntu users must add the MEDIBUNTU repository\\nfor this conversion format "
 "to work properly."
 msgstr ""
+"ผู้ใช้ Ubuntu ต้องเพิ่มคลังซอฟต์แวร์ MEDIBUNTU \\"
+"nเพื่อให้รูปแบบการแปลงนี้ทำงานได้ถูกต้อง"
 
 #: Capture plugin:24
 msgid "Choose the video format for conversion"
-msgstr ""
+msgstr "เลือกรูปแบบวิดีโอสำหรับการแปลง"
 
 #: Capture plugin:25
 msgid ""
 "Define your encoding options for pass 1 \\n (leave defaults if you do not "
 "know what to do)"
 msgstr ""
+"กำหนดตัวเลือกการเข้ารหัสของคุณสำหรับ pass 1 \\n "
+"(ปล่อยไว้เป็นค่าเริ่มต้นถ้าคุณไม่ทราบว่าจะทำอย่างไร)"
 
 #: Capture plugin:26
 msgid ""
 "Define your encoding options for pass 2 \\n (leave defaults if you do not "
 "know what to do)"
 msgstr ""
+"กำหนดตัวเลือกการเข้ารหัสของคุณสำหรับ pass 2 \\n "
+"(ปล่อยไว้เป็นค่าเริ่มต้นถ้าคุณไม่ทราบว่าจะทำอย่างไร)"
 
 #: Capture plugin:27
 msgid ""
 "Define your encoding options \\n (leave defaults if you do not know what to "
 "do)"
 msgstr ""
+"กำหนดตัวเลือกการเข้ารหัส\\n "
+"(ปล่อยไว้เป็นค่าเริ่มต้นถ้าคุณไม่ทราบว่าจะทำอย่างไร)"
 
 #: Capture plugin:28
 msgid "Please wait while your video is being encoded..."
-msgstr ""
+msgstr "โปรดรอขณะที่วิดีโอของคุณกำลังถูกเข้ารหัส..."
 
 #: Capture plugin:29
 msgid "Conversion done"
-msgstr ""
+msgstr "เสร็จสิ้นการแปลง"
 
 #: Advanced Wine Configuration Plugin:4
 msgid "Choose an option to modify"
-msgstr ""
+msgstr "เลือกตัวเลือกที่จะปรับเปลี่ยน"
 
 #: Advanced Wine Configuration Plugin:5
 msgid "All"
-msgstr ""
+msgstr "ทั้งหมด"
 
 #: Advanced Wine Configuration Plugin:6
 msgid "You must choose a game to modify"
-msgstr ""
+msgstr "คุณต้องเลือกเกมที่จะเปลี่ยนแปลง"
 
 #: Advanced Wine Configuration Plugin:7
 msgid ""
 "Welcome in Advanced Wine Configuration, an optimization’s system for Wine "
 "created by GNU_Raziel. If you does not know what to choose, LEAVE DEFAULTS"
 msgstr ""
+"ยินดีต้อนรับสู่ การกำหนดค่า Wine ขั้นสูง "
+"ซึ่งเป็นระบบการปรับปรุงประสิทธิภาพสำหรับ ที่สร้างขึ้นโดย GNU_Raziel "
+"ถ้าคุณไม่ทราบว่าจะเลือกอะไร ให้ปล่อยไว้เป็นค่าเริ่มต้น"
 
 #: Advanced Wine Configuration Plugin:8
 msgid "Choose a game"
-msgstr "게임을 선택해 주세요."
+msgstr "เลือกเกม"
 
 #: Advanced Wine Configuration Plugin:9
 msgid "You did not select a game"
-msgstr "게임을 선택하지 않았습니다."
+msgstr "คุณไม่ได้เลือกเกม"
 
 #: Advanced Wine Configuration Plugin:10
 msgid "Choose DirectDraw Renderer Mode?"
-msgstr ""
+msgstr "เลือกโหมด DirectDraw Renderer?"
 
 #: Advanced Wine Configuration Plugin:11
 msgid "Activate GLSL Support?"
-msgstr ""
+msgstr "เปิดใช้การรองรับ GLSL?"
 
 #: Advanced Wine Configuration Plugin:13
 msgid "Choose Offscreen Rendering Mode?"
-msgstr ""
+msgstr "เลือกโหมด Offscreen Rendering?"
 
 #: Advanced Wine Configuration Plugin:14
 msgid "Choose Render Target Lock Mode?"
-msgstr ""
+msgstr "เลือกโหมด Render Target Lock?"
 
 #: Advanced Wine Configuration Plugin:15
 msgid "Activate Multisampling support?"
-msgstr ""
+msgstr "เปิดใช้การรองรับ Multisampling?"
 
 #: Advanced Wine Configuration Plugin:16
 msgid "Activate the mouse warp override?"
-msgstr ""
+msgstr "เปิดใช้การโอเวอร์ไรด์ Mouse Warp?"
 
 #: Advanced Wine Configuration Plugin:17
 msgid "Optimisation done"
-msgstr ""
+msgstr "การปรับปรุงประสิทธิภาพเสร็จสิ้น"
 
 #: Detour plugin:3
 msgid ""
 "Welcome in Detour, a plugin witch enable you to create post-install shorcuts."
 msgstr ""
+"ขอต้อนรับสู่ Detour เป็นปลั๊กอินที่ทำให้คุณสามารถสร้างทางลัดหลังการติดตั้ง"
 
 #: Detour plugin:5
 msgid "Choose an application"
-msgstr ""
+msgstr "เลือกโปรแกรมประยุกต์"
 
 #: Detour plugin:6
 msgid "Operation done"
-msgstr ""
+msgstr "การดำเนินการเสร็จสิ้น"
 
 #: PlayOnLinux_Scripts/18_Wheels_of_Steel_Haulin_:44
 #: PlayOnLinux_Scripts/Age_Of_Empires_II___The_Age_of_Kings_:55
@@ -224,7 +239,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:80
 #, sh-format
 msgid "Please insert the game media into your disk drive."
-msgstr ""
+msgstr "โปรดใส่สื่อบันทึกเกมในดิสก์ไดร์ฟ"
 
 #: PlayOnLinux_Scripts/18_Wheels_of_Steel_Haulin_:52
 #: PlayOnLinux_Scripts/A.R.E.S.___Extinction_Agenda_:87
@@ -286,7 +301,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Zoo_Tycoon_2___Ultimate_Collection_:80
 #, sh-format
 msgid "Please select the setup file to run"
-msgstr ""
+msgstr "โปรดเลือกไฟล์การติดตั้งที่จะรัน"
 
 #: PlayOnLinux_Scripts/7_Zip_:39
 #: PlayOnLinux_Scripts/Age_Of_Empires_II___The_Age_of_Kings_:65
@@ -306,7 +321,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Vantage_Master_Online_:44
 #, sh-format
 msgid "Please wait while $TITLE is installed."
-msgstr ""
+msgstr "โปรดรอขณะกำลังติดตั้ง $TITLE"
 
 #: PlayOnLinux_Scripts/7_Zip_:47 PlayOnLinux_Scripts/Alt.Binz_:60
 #: PlayOnLinux_Scripts/Company_of_Heroes_:73
@@ -322,7 +337,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:67
 #, sh-format
 msgid "$TITLE has been successfully installed."
-msgstr ""
+msgstr "ติดตั้ง $TITLE สำเร็จ"
 
 #: PlayOnLinux_Scripts/A.R.E.S.___Extinction_Agenda_:80
 #: PlayOnLinux_Scripts/Call_of_Duty__Modern_Warfare_3_:80
@@ -338,6 +353,9 @@ msgid ""
 "nClose COMPLETELY the Steam interface, \\nso that the installation script "
 "can continue."
 msgstr ""
+"เมื่อ $TITLE ที่ดาวน์โหลดโดย Steam เสร็จสิ้นแล้ว\\nอย่าคลิกที่ปุ่ม เล่น "
+"(Play)\\n\\nให้ปิดส่วนติดต่อผู้ใช้ Steam\\"
+"nเพื่อให้สคริปต์การติดตั้งดำเนินการต่อ"
 
 #: PlayOnLinux_Scripts/Ableton_Live_8_:52
 #: PlayOnLinux_Scripts/Ableton_Live_9_:52
@@ -346,17 +364,19 @@ msgid ""
 "NOTICE: To register, when it opens asking for registration, drag-and-drop "
 "your reg file into $TITLE"
 msgstr ""
+"หมายเหตุ: ในการลงทะเบียน เมื่อมีหน้าต่างเปิดเพื่อขอให้ลงทะเบียน "
+"ให้ลากไฟล์ลงทะเบียนมาวางไว้ใน $TITLE"
 
 #: PlayOnLinux_Scripts/Absynth_5_:30 PlayOnLinux_Scripts/EVE_online_:79
 #: PlayOnLinux_Scripts/FL_Studio_10_:30 PlayOnLinux_Scripts/Traktor_Pro_2_:30
 #, sh-format
 msgid "Please select $TITLE install file:"
-msgstr ""
+msgstr "โปรดเลือกไฟล์การติดตั้ง $TITLE"
 
 #: PlayOnLinux_Scripts/Absynth_5_:49 PlayOnLinux_Scripts/Guitar_Rig_5_:46
 #, sh-format
 msgid "NOTICE: For low-latency audio, look into WineASIO."
-msgstr ""
+msgstr "หมายเหตุ: สำหรับเสียงที่มี Latency ต่ำ ให้ดูที่ WineASIO"
 
 #: PlayOnLinux_Scripts/Alan_Wake_:81
 #: PlayOnLinux_Scripts/Alien_Breed_2___Assault_:69
@@ -392,19 +412,22 @@ msgid ""
 "nClose COMPLETELY the Steam interface, \\nso that the installation script "
 "can continue"
 msgstr ""
+"เมื่อ $TITLE ที่ดาวน์โหลดโดย Steam เสร็จสิ้นแล้ว\\nอย่าคลิกที่ปุ่มเล่น "
+"(Play)\\n\\nให้ปิดส่วนติดต่อผู้ใช้ Steam\\"
+"nเพื่อให้สคริปต์การติดตั้งดำเนินการต่อ"
 
 #: PlayOnLinux_Scripts/Alien_Breed_2___Assault_:83
 #: PlayOnLinux_Scripts/Alien_Breed_3___Descent_:83
 #: PlayOnLinux_Scripts/Alien_Breed___Impact_:83
 #, sh-format
 msgid "If .NET 3.0 installation fail, dont"
-msgstr ""
+msgstr "ถ้าการติดตั้ง .NET 3.0 ล้มเหลว อย่า"
 
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:30
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:40
 #, sh-format
 msgid "You dont have to install DirectX or use GLSetup."
-msgstr ""
+msgstr "คุณไม่ต้องติดตั้ง DirectX หรือใช้ GLSetup"
 
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:39
 #: PlayOnLinux_Scripts/Alt.Binz_:40 PlayOnLinux_Scripts/Driftmoon_:43
@@ -418,7 +441,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Toontown_Online_:25 PlayOnLinux_Scripts/iTunes_10_:50
 #, sh-format
 msgid "Please select the setup file to run."
-msgstr ""
+msgstr "โปรดเลือกไฟล์ติดตั้งที่จะรัน"
 
 #: PlayOnLinux_Scripts/Ancients_of_Ooga_:51
 #: PlayOnLinux_Scripts/Ancients_of_Ooga_:55 PlayOnLinux_Scripts/Fallout_3_:67
@@ -427,6 +450,8 @@ msgid ""
 "Click on \"Forward\" ONLY when Steam game installation\\nwill be finished or "
 "you will have to redo the installation."
 msgstr ""
+"คลิก \"Forward\" เมื่อการติดตั้งเกม Steam\\nจะดำเนินการสำเร็จเท่านั้น "
+"ไม่เช่นนั้นแล้วคุณต้องทำการติดตั้งใหม่"
 
 #: PlayOnLinux_Scripts/Ancients_of_Ooga_:59
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_:88
@@ -471,7 +496,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Worms_World_Party_:37
 #, sh-format
 msgid "Please select the setup file to run:"
-msgstr ""
+msgstr "โปรดเลือกไฟล์การติดตั้งที่จะรัน:"
 
 #: PlayOnLinux_Scripts/Ancients_of_Ooga_:61
 #: PlayOnLinux_Scripts/Cadstd_Lite_3.7.0_:30
@@ -489,7 +514,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Windows_Media_Player_10_:45
 #, sh-format
 msgid "Installation in progress..."
-msgstr ""
+msgstr "กำลังดำเนินการติดตั้ง..."
 
 #: PlayOnLinux_Scripts/Anno_1602_:76 PlayOnLinux_Scripts/Cadstd_Lite_3.7.0_:40
 #: PlayOnLinux_Scripts/Diablo_II_:67 PlayOnLinux_Scripts/IZArc_:42
@@ -500,7 +525,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/World_Of_Tanks_:62
 #, sh-format
 msgid "$TITLE has been installed successfully."
-msgstr ""
+msgstr "การติดตั้ง $TITLE สำเร็จแล้ว"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_:69
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_:47
@@ -511,7 +536,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Wolfenstein_:48
 #, sh-format
 msgid "Please insert game media into your disk drive"
-msgstr ""
+msgstr "โปรดใส่สื่อบันทึกเกมลงในดิสก์ไดร์ฟ"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:29
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:29
@@ -527,7 +552,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Crysis_2_Patch_1.9_and_HiRes_Texture_Pack_:24
 #, sh-format
 msgid "Welcome in the patch $PVERSION Installer for $TITLE"
-msgstr ""
+msgstr "ยินดีต้อนรับสูตัวติดตั้งในรุ่นแพทต์ $PVERSION สำหรับ $TITLE"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:34
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:34
@@ -540,7 +565,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Wow_Cartographe_:34
 #, sh-format
 msgid "Please install $TITLE_REQUIRED first"
-msgstr ""
+msgstr "โปรดติดตั้ง $TITLE_REQUIRED อันดับแรก"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:48
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:48
@@ -550,7 +575,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Witcher_2___Enhanced_Edition_Patch_:42
 #, sh-format
 msgid "Steam have is own automatic update system"
-msgstr ""
+msgstr "Steam มีระบบการอัพเดทอัตโนมัติของตัวเอง"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:57
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:57
@@ -577,7 +602,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Wolfenstein_Patch_1.2_:55
 #, sh-format
 msgid "Select patch to execute"
-msgstr ""
+msgstr "เลือกแพทต์ที่จะดำเนินการ"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_:73
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_:75 PlayOnLinux_Scripts/Blur_:52
@@ -610,7 +635,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/World_Of_Warcraft___Wrath_of_the_Lich_King_:43
 #, sh-format
 msgid "Please insert game media into your disk drive\\nif not already done."
-msgstr ""
+msgstr "โปรดใส่สื่อบันทึกเกมลงในดิสก์ไดร์ฟ\\nถ้ายังไม่ได้ทำ"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Patch_1.02_:29
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:28
@@ -641,7 +666,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:26
 #, sh-format
 msgid "Game is not installed."
-msgstr ""
+msgstr "เกมไม่ได้ติดตั้ง"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Patch_1.02_:41
 #: PlayOnLinux_Scripts/Borderlands_Patch_1.41_:41
@@ -662,7 +687,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:37
 #, sh-format
 msgid "Steam have is own automatic update system."
-msgstr ""
+msgstr "Steam มีระบบอัพเดทตัวเองแบบอัตโนมัติ"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Patch_1.02_:57
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:62
@@ -683,6 +708,7 @@ msgid ""
 "Wait while the patch is downloading...\\nThis operation can take time, "
 "depending of your connexion."
 msgstr ""
+"กรุณารอขณะกำลังดาวน์โหลดแพทต์...\\nเวลาที่ใช้ขึ้นอยู่กับการเชื่อมต่อของคุณ"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Revelations_:74
 #: PlayOnLinux_Scripts/Baldur_s_Gate_:43 PlayOnLinux_Scripts/Baldur_s_Gate_:80
@@ -695,7 +721,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Witcher_:102
 #, sh-format
 msgid "Please insert the game media into your disk drive"
-msgstr ""
+msgstr "โปรดใส่สื่อบันทึกเกมลงในดิสก์ไดร์ฟของคุณ"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_:51 PlayOnLinux_Scripts/Baldur_s_Gate_:59
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_:51
@@ -889,7 +915,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Portal_:36 python/guiv3.py:149
 #, sh-format
 msgid "No"
-msgstr "아니오"
+msgstr ""
 
 #: PlayOnLinux_Scripts/Call_of_Duty__Modern_Warfare_3_:46
 #: PlayOnLinux_Scripts/Half_Life_2_:56
@@ -916,7 +942,7 @@ msgstr ""
 #: python/guiv3.py:150
 #, sh-format
 msgid "Yes"
-msgstr "예"
+msgstr ""
 
 #: PlayOnLinux_Scripts/CivCity_Rome_:58
 #, sh-format
@@ -3480,53 +3506,53 @@ msgstr ""
 #: bash/playonlinux_online:69 python/install.py:210
 #, sh-format
 msgid "Accessories"
-msgstr "보조 프로그램"
+msgstr ""
 
 #: bash/playonlinux_online:69 python/install.py:211
 #, sh-format
 msgid "Development"
-msgstr "개발"
+msgstr ""
 
 #: bash/playonlinux_online:69 python/install.py:212
 #, sh-format
 msgid "Education"
-msgstr "교육"
+msgstr ""
 
 #: bash/playonlinux_online:69 python/install.py:213
 #, sh-format
 msgid "Games"
-msgstr "게임"
+msgstr ""
 
 #: bash/playonlinux_online:69 python/install.py:214
 #, sh-format
 msgid "Graphics"
-msgstr "그래픽"
+msgstr ""
 
 #: bash/playonlinux_online:69 python/install.py:215 python/mainwindow.py:262
 #: python/options.py:384
 #, sh-format
 msgid "Internet"
-msgstr "인터넷"
+msgstr ""
 
 #: bash/playonlinux_online:69 python/install.py:216
 #, sh-format
 msgid "Multimedia"
-msgstr "멀티미디어"
+msgstr ""
 
 #: bash/playonlinux_online:69 python/install.py:217
 #, sh-format
 msgid "Office"
-msgstr "오피스"
+msgstr ""
 
 #: bash/playonlinux_online:69 lib/setupwindow.lib:349 python/install.py:218
 #, sh-format
 msgid "Other"
-msgstr "기타"
+msgstr ""
 
 #: bash/playonlinux_online:69 python/install.py:219
 #, sh-format
 msgid "Patches"
-msgstr "패치"
+msgstr ""
 
 #: bash/playonlinux_online:69
 #, sh-format
@@ -3536,7 +3562,7 @@ msgstr ""
 #: bash/playonlinux_online:69 python/install.py:258
 #, sh-format
 msgid "Testing"
-msgstr "시험중"
+msgstr ""
 
 #: bash/playonlinux_online:72
 #, sh-format
@@ -3611,7 +3637,7 @@ msgstr ""
 #: python/mainwindow.py:621
 #, sh-format
 msgid "Registry Editor"
-msgstr "레지스트리 편집기"
+msgstr ""
 
 #: bash/polconfigurator:97
 #, sh-format
@@ -4105,7 +4131,7 @@ msgstr ""
 #: lib/setupwindow.lib:350 python/install.py:284
 #, sh-format
 msgid "Refresh"
-msgstr "새로고침"
+msgstr ""
 
 #: lib/setupwindow.lib:382
 #, sh-format
@@ -4223,7 +4249,7 @@ msgstr ""
 #: lib/setupwindow.lib:711 python/guiv3.py:151
 #, sh-format
 msgid "Browse"
-msgstr "탐색"
+msgstr ""
 
 #: lib/website.lib:29
 #, sh-format
@@ -4332,7 +4358,7 @@ msgstr ""
 
 #: python/configure.py:190 python/configure.py:687
 msgid "General"
-msgstr "일반적인"
+msgstr ""
 
 #: python/configure.py:193
 msgid "Make a new shortcut from this virtual drive"
@@ -4394,7 +4420,7 @@ msgstr ""
 #: python/configure.py:327 python/install.py:283 python/mainwindow.py:197
 #: python/mainwindow.py:350
 msgid "Install"
-msgstr "설치"
+msgstr ""
 
 #: python/configure.py:388
 msgid "Open program's directory"
@@ -4464,12 +4490,12 @@ msgstr ""
 
 #: python/configure.py:670 python/options.py:280
 msgid "New"
-msgstr "새로 만들기"
+msgstr ""
 
 #: python/configure.py:671 python/mainwindow.py:198 python/mainwindow.py:351
 #: python/mainwindow.py:596 python/options.py:207
 msgid "Remove"
-msgstr "삭제"
+msgstr ""
 
 #: python/configure.py:689
 msgid "Install components"
@@ -4538,11 +4564,11 @@ msgstr ""
 
 #: python/guiv3.py:137 python/install.py:282 python/options.py:376
 msgid "Cancel"
-msgstr "취소"
+msgstr ""
 
 #: python/guiv3.py:141
 msgid "Next"
-msgstr "다음"
+msgstr ""
 
 #: python/guiv3.py:142
 msgid "Back"
@@ -4550,7 +4576,7 @@ msgstr ""
 
 #: python/guiv3.py:159
 msgid "I Agree"
-msgstr "동의함"
+msgstr ""
 
 #: python/guiv3.py:160
 msgid "Show virtual drives"
@@ -4574,7 +4600,7 @@ msgstr ""
 
 #: python/guiv3.py:282
 msgid "of"
-msgstr "의"
+msgstr ""
 
 #: python/guiv3.py:743
 msgid "You cannot close this window"
@@ -4582,7 +4608,7 @@ msgstr ""
 
 #: python/install.py:114 python/install.py:116
 msgid "No description"
-msgstr "설명 없음"
+msgstr ""
 
 #: python/install.py:249 python/mainwindow.py:366 python/mainwindow.py:369
 msgid "Search"
@@ -4706,15 +4732,15 @@ msgstr ""
 
 #: python/mainwindow.py:196 python/mainwindow.py:346 python/mainwindow.py:728
 msgid "Run"
-msgstr "실행"
+msgstr ""
 
 #: python/mainwindow.py:200
 msgid "Donate"
-msgstr "기부"
+msgstr ""
 
 #: python/mainwindow.py:201
 msgid "Exit"
-msgstr "종료"
+msgstr ""
 
 #: python/mainwindow.py:205
 msgid "Small icons"
@@ -4766,19 +4792,19 @@ msgstr ""
 
 #: python/mainwindow.py:331
 msgid "File"
-msgstr "파일"
+msgstr ""
 
 #: python/mainwindow.py:333
 msgid "Tools"
-msgstr "도구"
+msgstr ""
 
 #: python/mainwindow.py:334 python/mainwindow.py:717
 msgid "Settings"
-msgstr "설정"
+msgstr ""
 
 #: python/mainwindow.py:335 python/options.py:387
 msgid "Plugins"
-msgstr "플러그인"
+msgstr ""
 
 #: python/mainwindow.py:347 python/mainwindow.py:730
 msgid "Close"
@@ -4786,7 +4812,7 @@ msgstr ""
 
 #: python/mainwindow.py:353 python/mainwindow.py:736 python/options.py:208
 msgid "Configure"
-msgstr "구성"
+msgstr ""
 
 #: python/mainwindow.py:584
 msgid "Open the application's directory"
@@ -4798,15 +4824,15 @@ msgstr ""
 
 #: python/mainwindow.py:592
 msgid "Set the icon"
-msgstr "아이콘 설정"
+msgstr ""
 
 #: python/mainwindow.py:600
 msgid "Close this application"
-msgstr "이 어플리케이션 종료"
+msgstr ""
 
 #: python/mainwindow.py:611
 msgid "KillApp"
-msgstr "킬어플리케이션"
+msgstr ""
 
 #: python/mainwindow.py:618
 msgid "No manual found for {0}"
@@ -4978,31 +5004,31 @@ msgstr ""
 
 #: python/options.py:116
 msgid "Proxy configuration"
-msgstr "프록시 설정"
+msgstr ""
 
 #: python/options.py:129
 msgid "Set a proxy"
-msgstr "프록시 설정"
+msgstr ""
 
 #: python/options.py:132
 msgid "Proxy address"
-msgstr "프록시 주소"
+msgstr ""
 
 #: python/options.py:135
 msgid "Proxy port"
-msgstr "프록시 포트"
+msgstr ""
 
 #: python/options.py:138
 msgid "Proxy login"
-msgstr "프록시 로그인"
+msgstr ""
 
 #: python/options.py:141
 msgid "Proxy password"
-msgstr "프록시 비밀번호"
+msgstr ""
 
 #: python/options.py:188
 msgid "Installed plugins"
-msgstr "플러그인 설치 됨"
+msgstr ""
 
 #: python/options.py:206
 msgid "Add"
@@ -5010,11 +5036,11 @@ msgstr ""
 
 #: python/options.py:209 python/options.py:337
 msgid "Enable"
-msgstr "사용하기"
+msgstr ""
 
 #: python/options.py:210
 msgid "Choose a plugin"
-msgstr "플러그인 선택"
+msgstr ""
 
 #: python/options.py:263
 msgid "What is the extension?"
@@ -5038,7 +5064,7 @@ msgstr ""
 
 #: python/options.py:334
 msgid "Disable"
-msgstr "사용 안 함"
+msgstr ""
 
 #: python/options.py:375
 msgid "Apply"
@@ -5058,7 +5084,7 @@ msgstr ""
 
 #: python/wine_versions.py:202
 msgid "Wine versions"
-msgstr "Wine version들"
+msgstr ""
 
 #: python/wine_versions.py:321
 msgid "Are you sure you want to delete wine {0}?"
