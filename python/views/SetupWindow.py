@@ -31,10 +31,71 @@ from services.ConfigService import *
 from patterns.Observer import Observer
 
 
+class SetupWindowText(wx.StaticText):
+    def __init__(self, panel, text = "", pos = (20,80), size = (480,275)):
+        self.uiHelper = UIHelper()
+        wx.StaticText.__init__(self, panel, -1, text, pos, size, style=wx.ST_NO_AUTORESIZE)
+ 
+class SetupWindowTitle(wx.StaticText):
+    def __init__(self, panel, text = "", pos = (20,80), size = (480,275)):
+        wx.StaticText.__init__(self, panel, -1, text, pos, size, style=wx.ST_NO_AUTORESIZE)
+        self.uiHelper = UIHelper()
+        self.SetFont(self.uiHelper.getFontTitle())
+        self.SetForegroundColour((0,0,0))
+
+class ErrWidgetCollectionAlreadyContainsWidget(Exception):
+    def __str__(self):
+       return repr(_("Widget collection already contains widget."))
+
+class ErrWidgetDoesNotExist(Exception):
+    def __str__(self):
+       return repr(_("This widget does not exist."))
+          
+class WidgetCollection(object):
+    def __init__(self):
+        self.items = {}    
     
+    def append(self, uid, widget):
+        if uid not in self.items:
+            self.item[uid] = widget
+        else:
+            raise ErrWidgetCollectionAlreadyContainsWidget
+            
+    def get(self, uid):
+        try:
+           return self.item[uid]
+        except KeyError:
+            raise ErrWidgetDoesNotExist
+    
+    def hideAll(self):
+        for i in self.items:
+            i.hide()
+
+class Header(wx.Panel):
+    def __init__(self, panel, topImage):
+        self.config = ConfigService()
+        self.uiHelper = UIHelper()
+        
+        wx.Panel.__init__(self, panel, -1, style = self.uiHelper.widgetBorders(), size=(522,65))
+        self.SetBackgroundColour((255,255,255))
+        self.titreHeader = SetupWindowTitle(self,  _('{0} Wizard').format(self.config.getAppName()),pos=(5,5), size=(340,356))
+
+        # Images
+        self.topImageWidget = wx.StaticBitmap(self, -1, self.topImage, (520 - self.topImage.GetWidth() , 0), wx.DefaultSize)        
+
+        self.stepTitle = SetupWindowTitle(self.header, -1, "",pos=(20,30), size=(340,356),style=wx.ST_NO_AUTORESIZE)
+        self.stepTitle.SetForegroundColour((0,0,0)) # For dark themes
+        
+    def setTitle(self, title):
+        self.stepTitle.SetLabel(title)
+        
+    def Destroy(self):
+        self.titreHeader.Destroy()
+        self.topImageWidget.Destroy()
+        wx.Panel.Destroy(self)   
+
 class SetupWindow(wx.Frame): #fenêtre principale
     def __init__(self, controller, title, scriptPid, topImage, leftImage, isProtected):
-        
         self.uiHelper = UIHelper()
         self.env = Environment()
         self.config = ConfigService()
@@ -61,46 +122,83 @@ class SetupWindow(wx.Frame): #fenêtre principale
             else:
                 self.leftImage = self.uiHelper.getBitmap("setups/default/playonmac.jpg")
             
-                
-        self.drawGUI()
+        self.widgets = WidgetCollection() 
+        wx.EVT_CLOSE(self, self.eventCancel)
 
-        wx.EVT_CLOSE(self, self.Cancel)
 
+    def initWidgets(self):
+        # Cancel button
+        self.widgets.append("cancelButton", wx.Button(self.footer, wx.ID_CANCEL, _("Cancel"), pos=(425,0),size=(85,self.uiHelper.getSetupWindowButtonHeight())))
+        if(self.protectedWindow == True):
+            self.self.widgets.get("cancelButton").Enable(False)
+        
+        # Next button
+        self.widgets.append("nextButton", wx.Button(self.footer, wx.ID_FORWARD, _("Next"), pos=(335,0),size=(85,self.uiHelper.getSetupWindowButtonHeight())))
+        
+    # getters
+    def getDownloadGauge(self):
+        return self.downloadGauge
+        
+    def getDownloadText(self):
+        return self.txtEstimation
+      
+    # Events
+    def eventCancel(self, event):
+        if(self.protectedWindow == False):
+            self.Destroy()
+            time.sleep(0.1)
+            self.controller.killScript(self.pid)
+        else:
+            wx.MessageBox(_("You cannot close this window").format(self.config.getAppName()),_("Error"))
+    
+    
+    # UI drawing
+    def drawHeader(self, title):
+
+    def drawDefaultText(self, message, title):
+        self.texte.SetLabel(message.replace("\\n","\n").replace("\\t","\t"))
+        self.texte.Show()
+        self.titre.SetLabel(title)
+        self.titre.Show()
+        
+    def drawCancel(self):
+        
+    def drawNext(self):
+        
+    def POL_SetupWindow_message(self, message, title):
+        self.hideAll()
+        self.DrawDefault(message, title)
+
+        self.drawCancel()
+        self.drawNext()
+        wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release)
+    
+             
+    """
     def drawGUI(self):
         # GUI elements
         self.panel = wx.Panel(self, -1, pos=(0,0), size=((520, 398)))
         self.header = wx.Panel(self.panel, -1, style = self.uiHelper.widgetBorders(), size=(522,65))
         self.header.SetBackgroundColour((255,255,255))
-        
         self.footer = wx.Panel(self.panel, -1, size=(522,45), pos=(-1,358), style = self.uiHelper.widgetBorders())
 
-        # Panels
-        self.MainPanel = wx.Panel(self.panel, -1, pos=(150,0), size=(370,356))
-        self.MainPanel.SetBackgroundColour((255,255,255))
-
-
-        # Images
-        self.topImageWidget = wx.StaticBitmap(self.header, -1, self.topImage, (520 - self.topImage.GetWidth() , 0), wx.DefaultSize)
-        self.leftImageWidget = wx.StaticBitmap(self.panel, -1, self.leftImage, (0,0), wx.DefaultSize)
-
-
         # Text
-        titreHeader = wx.StaticText(self.header, -1, _('{0} Wizard').format(self.config.getAppName()),pos=(5,5), size=(340,356),style=wx.ST_NO_AUTORESIZE)
-        titreHeader.SetFont(self.uiHelper.getFontTitle())
-        titreHeader.SetForegroundColour((0,0,0)) # For dark themes
 
-        self.texte = wx.StaticText(self.panel, -1, "",pos=(20,80),size=(480,275),style=wx.ST_NO_AUTORESIZE)
+
+
+        self.texte = SetupWindowTitle(self.panel)
         self.texte_bis = wx.StaticText(self.panel, -1, "",size=(480,30),style=wx.ST_NO_AUTORESIZE)
-        self.titre = wx.StaticText(self.header, -1, "",pos=(20,30), size=(340,356),style=wx.ST_NO_AUTORESIZE)
-        self.titre.SetForegroundColour((0,0,0)) # For dark themes
+        
 
+
+        
         self.texteP = wx.StaticText(self.MainPanel, -1, "",pos=(5,50))
         self.texteP.SetForegroundColour((0,0,0)) # For dark themes
 
         self.titreP = wx.StaticText(self.MainPanel, -1,"",pos=(5,5), size=(340,356))
         self.titreP.SetFont(self.uiHelper.getFontTitle())
         self.titreP.SetForegroundColour((0,0,0)) # For dark themes
-
+        
         self.txtEstimation = DownloadText(self.panel)
         self.register_link = ""
 
@@ -190,9 +288,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
     def hideAll(self):
         self.footer.Show()
         self.header.Hide()
-        self.leftImageWidget.Hide()
         self.CancelButton.Hide()
-        self.MainPanel.Hide()
         self.NextButton.Hide()
         self.NoButton.Hide()
         self.YesButton.Hide()
@@ -245,6 +341,12 @@ class SetupWindow(wx.Frame): #fenêtre principale
         wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release)
 
     def POL_SetupWindow_free_presentation(self, title, message):
+        # Panels
+        self.MainPanel = wx.Panel(self.panel, -1, pos=(150,0), size=(370,356))
+        self.MainPanel.SetBackgroundColour((255,255,255))
+        self.leftImageWidget = wx.StaticBitmap(self.panel, -1, self.leftImage, (0,0), wx.DefaultSize)
+        
+        
         self.hideAll()
         self.MainPanel.Show()
         self.titreP.SetLabel(title.decode("utf8","replace"))
@@ -586,18 +688,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
         self.header.Show()
 
 
-    def DrawDefault(self, message, title):
-        self.DrawHeader()
-        self.texte.SetLabel(message.replace("\\n","\n").replace("\\t","\t"))
-        self.texte.Show()
-        self.titre.SetLabel(title)
-        self.titre.Show()
 
-    def DrawCancel(self):
-        self.CancelButton.Show()
-
-    def DrawNext(self):
-        self.NextButton.Show()
 
     def sendAnswerToBash(self, data):
         self.controller.sendAnswerToBash(self.bashPid, data)
@@ -674,14 +765,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
 
         self.NextButton.Enable(False)
 
-    def Cancel(self, event):
-        if(self.protectedWindow == False):
-            self.Destroy()
-            time.sleep(0.1)
-            os.system("kill -9 -"+self.bashPid+" 2> /dev/null")
-            os.system("kill -9 "+self.bashPid+" 2> /dev/null") 
-        else:
-            wx.MessageBox(_("You cannot close this window").format(self.config.getAppName()),_("Error"))
+    
 
     def add_games(self):
         apps = os.listdir(self.env.getUserRoot()+"/shortcuts/")
@@ -796,9 +880,5 @@ class SetupWindow(wx.Frame): #fenêtre principale
 
 
 
-    # getters
-    def getDownloadGauge(self):
-        return self.downloadGauge
-        
-    def getDownloadText(self):
-        return self.txtEstimation
+    
+"""

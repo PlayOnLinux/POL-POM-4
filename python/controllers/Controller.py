@@ -52,6 +52,11 @@ class Controller(object):
       
       events.EVT_GUISERVER(self.app, self.eventGuiServer)
 
+   def killScript(self, pid):
+       # FIXME
+       os.system("kill -9 -"+self.bashPid+" 2> /dev/null")
+       os.system("kill -9 "+self.bashPid+" 2> /dev/null")
+       
    # Manage GUI Server
    def sendAnswerToBash(self, pid, data):
        self.clientListFromPid[pid].sendData(data)
@@ -59,8 +64,9 @@ class Controller(object):
        
    def closeConnexion(self, pid):
        self.clientListFromPid[pid].unlock()
-       del self.clientListFromPid[pid]
+       del self.clientListFromPid[pid] 
        
+     
    def eventGuiServer(self, event):
        data = event.data
        command = data[0]
