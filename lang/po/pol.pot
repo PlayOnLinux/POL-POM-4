@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2013-06-08 19:00:38+02:00\n"
+"POT-Creation-Date: 2013-06-09 19:00:44+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -254,6 +254,8 @@ msgstr ""
 #: PlayOnLinux_Scripts/Kingdoms_of_Amalur___Reckoning_:87
 #: PlayOnLinux_Scripts/Magicka_:75 PlayOnLinux_Scripts/Mass_Effect_:75
 #: PlayOnLinux_Scripts/Microsoft_Excel_Viewer_2003_:34
+#: PlayOnLinux_Scripts/Microsoft_Money_2005_:37
+#: PlayOnLinux_Scripts/Microsoft_Office_2010_:46
 #: PlayOnLinux_Scripts/Microsoft_Word_Viewer_2003_:35
 #: PlayOnLinux_Scripts/Monkey_Island_2_Special_Edition_:79
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:163
@@ -270,9 +272,11 @@ msgstr ""
 #: PlayOnLinux_Scripts/Spotify_:65 PlayOnLinux_Scripts/Star_Twine_:80
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight_II___Jedi_Outcast_:31
 #: PlayOnLinux_Scripts/Star_Wars___The_Force_Unleashed___Ultimate_Sith_Edition_:147
+#: PlayOnLinux_Scripts/Starcraft_:34
+#: PlayOnLinux_Scripts/Starcraft___BroodWar_:24
 #: PlayOnLinux_Scripts/Super_Street_Fighter_IV___Arcade_Edition_:88
-#: PlayOnLinux_Scripts/Tera_Online_:71 PlayOnLinux_Scripts/The_Witcher_:132
-#: PlayOnLinux_Scripts/Theme_Hospital_:57
+#: PlayOnLinux_Scripts/Surfer_8_:23 PlayOnLinux_Scripts/Tera_Online_:71
+#: PlayOnLinux_Scripts/The_Witcher_:132 PlayOnLinux_Scripts/Theme_Hospital_:57
 #: PlayOnLinux_Scripts/Warcraft_III__Reign_of_Chaos_:38
 #: PlayOnLinux_Scripts/Warcraft_III__The_Frozen_Throne_:44
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:103
@@ -482,7 +486,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Mount_and_Blade___Warband_:38
 #: PlayOnLinux_Scripts/Mount_and_Blade___Warband_:48
 #: PlayOnLinux_Scripts/Safari_:51 PlayOnLinux_Scripts/Safari_:62
-#: PlayOnLinux_Scripts/Sonic_Fan_Remix_:41 PlayOnLinux_Scripts/Spelunky_:28
+#: PlayOnLinux_Scripts/Spelunky_:28
 #: PlayOnLinux_Scripts/Windows_Media_Player_10_:36
 #: PlayOnLinux_Scripts/Windows_Media_Player_10_:45
 #, sh-format
@@ -1533,11 +1537,7 @@ msgstr ""
 msgid "(windowed)"
 msgstr ""
 
-#: PlayOnLinux_Scripts/GOG.com___Starflight_1_and_2_:20
-#, sh-format
-msgid "Code wheel"
-msgstr ""
-
+#: PlayOnLinux_Scripts/GOG.com___Sensible_World_of_Soccer_96_97_:58
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:45
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:54
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:56
@@ -1546,9 +1546,15 @@ msgstr ""
 msgid "Language"
 msgstr ""
 
+#: PlayOnLinux_Scripts/GOG.com___Sensible_World_of_Soccer_96_97_:58
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:45
 #, sh-format
 msgid "What is your preferred language?"
+msgstr ""
+
+#: PlayOnLinux_Scripts/GOG.com___Starflight_1_and_2_:20
+#, sh-format
+msgid "Code wheel"
 msgstr ""
 
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:54
@@ -1801,17 +1807,7 @@ msgid ""
 "LibreOffice, OpenOffice or some other editor. "
 msgstr ""
 
-#: PlayOnLinux_Scripts/Microsoft_Money_2005_:33
-#, sh-format
-msgid "Where is $TITLE install file?"
-msgstr ""
-
-#: PlayOnLinux_Scripts/Microsoft_Office_2010_:43
-#, sh-format
-msgid "Please select $TITLE setup file"
-msgstr ""
-
-#: PlayOnLinux_Scripts/Microsoft_Office_2010_:79
+#: PlayOnLinux_Scripts/Microsoft_Office_2010_:82
 #, sh-format
 msgid ""
 "$TITLE has been installed successfully\\n\\nIf an installation Windows "
@@ -2461,17 +2457,6 @@ msgstr ""
 msgid "Sorry, but that was not a valid .zip file"
 msgstr ""
 
-#: PlayOnLinux_Scripts/Sonic_Fan_Remix_:37
-#, sh-format
-msgid "Downloading $TITLE Freeware..."
-msgstr ""
-
-#: PlayOnLinux_Scripts/Starcraft_:23
-#: PlayOnLinux_Scripts/Starcraft___BroodWar_:18
-#, sh-format
-msgid "Please select $TITLE file setup"
-msgstr ""
-
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:90
 #, sh-format
 msgid ""
@@ -2479,31 +2464,16 @@ msgid ""
 "\\necho 0|sudo tee /proc/sys/kernel/yama/ptrace_scope"
 msgstr ""
 
-#: PlayOnLinux_Scripts/Steam_:46
+#: PlayOnLinux_Scripts/Steam_:50
 #, sh-format
 msgid "Please choose a virtual drive name"
 msgstr ""
 
-#: PlayOnLinux_Scripts/Steam_:65
-#, sh-format
-msgid "Downloading $TITLE"
-msgstr ""
-
-#: PlayOnLinux_Scripts/Steam_:84
+#: PlayOnLinux_Scripts/Steam_:88
 #, sh-format
 msgid ""
 "If you want to install $TITLE in another virtual drive\\nRun this installer "
 "again"
-msgstr ""
-
-#: PlayOnLinux_Scripts/Surfer_8_:12
-#, sh-format
-msgid "Please select the install file."
-msgstr ""
-
-#: PlayOnLinux_Scripts/Surfer_8_:14
-#, sh-format
-msgid "PlayOnLinux is installing your application..."
 msgstr ""
 
 #: PlayOnLinux_Scripts/Terraria_:56
