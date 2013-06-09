@@ -10,6 +10,7 @@
   - Add a "Save" shortcut in PlayOnLinux side panel
 * Fix double utf-8 decoding of shortcuts (#2125, #2289)
 * Add POL_Shortcut_Configurator
+* Modified POL_System_wget to keep error messages from wget
 
 # 4.2.1
 

@@ -761,16 +761,24 @@ POL_System_wget ()
 	POL_SetupWindow_pulsebar "$(eval_gettext 'Please wait while $APPLICATION_TITLE is downloading:')\n$FICHIER" "$TITLE"
 
 	prev=0
+	ellipsis=''
+	wgetlog="$POL_USER_ROOT/tmp/wget$$.output"
         set -o pipefail
-	# make sure the grep input matches at least once so that grep exitcode does not mask wget's one
-	(echo '0%'; ${POL_WGET/-q} -v -c "$url" "$@" 2>&1) | \
-	grep -o --line-buffered '[0-9]\{1,2\}%' | \
-	while read perc; do
-		if [ -n "$perc" -a "$perc" != "$prev" ]; then
-			POL_SetupWindow_pulse ${perc%%%}
-			prev="$perc"
+	${POL_WGET/-q} -v -c "$url" "$@" 2>&1 | \
+	while read wgetline; do
+		if [[ "$wgetline" =~ .*\ ([0-9]+)%.* ]]; then
+			perc=${BASH_REMATCH[1]}
+			if [ "$perc" != "$prev" ]; then
+				POL_SetupWindow_pulse $perc
+				prev="$perc"
+			fi
+			ellipsis=1
+		else
+			[ "$ellipsis" ] && echo "..."
+			ellipsis=''
+			echo $wgetline
 		fi
-	done
+	done|tee "$wgetlog"
 	local code=$?
 	if [ $code -ne 0 ]; then
 		# man wget
@@ -783,9 +791,10 @@ POL_System_wget ()
 		[ $code -eq 6 ] && msg="Username/Password authentication failure"
 		[ $code -eq 7 ] && msg="Protocol errors"
 		[ $code -eq 8 ] && msg="Server issued an error response"
-		POL_Debug_Fatal "POL_System_wget failed: $msg"
+		POL_Debug_Fatal "POL_System_wget failed: $msg\n$(cat "$wgetlog")"
 	fi
         set +o pipefail
+	rm "$wgetlog"
 
 	POL_SetupWindow_pulse 100
 
