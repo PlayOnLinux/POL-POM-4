@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2013-06-24 19:00+0200\n"
-"PO-Revision-Date: 2013-06-21 13:44+0000\n"
+"POT-Creation-Date: 2013-07-01 19:00+0200\n"
+"PO-Revision-Date: 2013-06-30 07:49+0000\n"
 "Last-Translator: rob <linuxned@gmail.com>\n"
 "Language-Team: nl_NL.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-06-25 05:10+0000\n"
-"X-Generator: Launchpad (build 16677)\n"
+"X-Launchpad-Export-Date: 2013-07-02 05:11+0000\n"
+"X-Generator: Launchpad (build 16692)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -287,13 +287,13 @@ msgstr "Voer spelschijf in in schijfstation."
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:163
 #: PlayOnLinux_Scripts/Need_For_Speed_III___Hot_Pursuit_:53
 #: PlayOnLinux_Scripts/NosTale_:46 PlayOnLinux_Scripts/OCR_CuneiForm_:31
-#: PlayOnLinux_Scripts/OnLive_:52 PlayOnLinux_Scripts/Portal_:88
-#: PlayOnLinux_Scripts/Portal_2_:73 PlayOnLinux_Scripts/Portal_2_:87
+#: PlayOnLinux_Scripts/OnLive_:52 PlayOnLinux_Scripts/Portal_:82
+#: PlayOnLinux_Scripts/Portal_2_:68 PlayOnLinux_Scripts/Portal_2_:82
 #: PlayOnLinux_Scripts/Prince_of_Persia___The_Forgotten_Sands_:85
-#: PlayOnLinux_Scripts/Publish_or_Perish_:36 PlayOnLinux_Scripts/Q.U.B.E_:101
+#: PlayOnLinux_Scripts/Publish_or_Perish_:44 PlayOnLinux_Scripts/Q.U.B.E_:101
 #: PlayOnLinux_Scripts/Rayman_Origins_:72
-#: PlayOnLinux_Scripts/Rayman_Origins_:90 PlayOnLinux_Scripts/Rfactor_:48
-#: PlayOnLinux_Scripts/Runes_Of_Magic_:44
+#: PlayOnLinux_Scripts/Rayman_Origins_:90 PlayOnLinux_Scripts/Reason_5_:29
+#: PlayOnLinux_Scripts/Rfactor_:48 PlayOnLinux_Scripts/Runes_Of_Magic_:44
 #: PlayOnLinux_Scripts/SFR_LiberTalk_:42
 #: PlayOnLinux_Scripts/Secret_of_Monkey_Island_Special_Edition_:79
 #: PlayOnLinux_Scripts/Spotify_:65 PlayOnLinux_Scripts/Star_Twine_:80
@@ -376,7 +376,7 @@ msgstr "Een moment geduld, $TITLE wordt geïnstalleerd."
 #: PlayOnLinux_Scripts/Alien_Breed_2___Assault_:69
 #: PlayOnLinux_Scripts/Alien_Breed_3___Descent_:69
 #: PlayOnLinux_Scripts/Alien_Breed___Impact_:69
-#: PlayOnLinux_Scripts/Alien_Swarm_:36
+#: PlayOnLinux_Scripts/Alien_Swarm_:37
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_:81
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_:88
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Revelations_:89
@@ -390,8 +390,8 @@ msgstr "Een moment geduld, $TITLE wordt geïnstalleerd."
 #: PlayOnLinux_Scripts/Little_Inferno_Steam_:69
 #: PlayOnLinux_Scripts/Magicka_:68
 #: PlayOnLinux_Scripts/Monkey_Island_2_Special_Edition_:72
-#: PlayOnLinux_Scripts/Orcs_Must_Die__2_:36 PlayOnLinux_Scripts/Portal_:95
-#: PlayOnLinux_Scripts/Portal_2_:80 PlayOnLinux_Scripts/Q.U.B.E_:86
+#: PlayOnLinux_Scripts/Orcs_Must_Die__2_:36 PlayOnLinux_Scripts/Portal_:89
+#: PlayOnLinux_Scripts/Portal_2_:75 PlayOnLinux_Scripts/Q.U.B.E_:86
 #: PlayOnLinux_Scripts/Rayman_Origins_:83
 #: PlayOnLinux_Scripts/Secret_of_Monkey_Island_Special_Edition_:72
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:59
@@ -1442,6 +1442,15 @@ msgstr ""
 "computer,\\ndenk er aan om te klikken op \"Auto-detecteren\" in de "
 "geavanceerde video-instellingen."
 
+#: PlayOnLinux_Scripts/GOG.com___Fez_Patch_:30
+#: PlayOnLinux_Scripts/GOG.com___Populous_3__The_Beginning___High_resolution_patch_:35
+#, sh-format
+msgid ""
+"This is an installer for an update;\\nPlease install $TITLE_REQUIRED first"
+msgstr ""
+"Dit is een installatieprogramma voor een update;\\nInstalleer "
+"$TITLE_REQUIRED a.u.b. eerst"
+
 #: PlayOnLinux_Scripts/GOG.com___Flatout_:55
 #, sh-format
 msgid ""
@@ -1616,14 +1625,6 @@ msgstr ""
 "De benodigde codes om een nieuw spel te starten, kunnen gevonden worden\\nin "
 "de documentatie;\\nKlik met rechts op het spelpictogram, selecteer \"Read "
 "the manual\"."
-
-#: PlayOnLinux_Scripts/GOG.com___Populous_3__The_Beginning___High_resolution_patch_:35
-#, sh-format
-msgid ""
-"This is an installer for an update;\\nPlease install $TITLE_REQUIRED first"
-msgstr ""
-"Dit is een installatieprogramma voor een update;\\nInstalleer "
-"$TITLE_REQUIRED a.u.b. eerst"
 
 #: PlayOnLinux_Scripts/GOG.com___Prince_of_Persia__The_Sands_of_Time_:57
 #, sh-format
@@ -2149,17 +2150,17 @@ msgstr "Adobe Air installeren"
 #: PlayOnLinux_Scripts/POL_Install_d3dx9_43_:11
 #, sh-format
 msgid "Installing DirectX 9 dlls..."
-msgstr "DirectX 9 dlls wordt geïnstalleerd…"
+msgstr "DirectX 9 DLLs wordt geïnstalleerd…"
 
 #: PlayOnLinux_Scripts/POL_Install_d3dx10_:11
 #, sh-format
 msgid "Installing DirectX 10 dlls..."
-msgstr "DirectX 10 dlls wordt geïnstalleerd…"
+msgstr "DirectX 10 DLLs wordt geïnstalleerd…"
 
 #: PlayOnLinux_Scripts/POL_Install_d3dx11_:11
 #, sh-format
 msgid "Installing DirectX 11 dlls..."
-msgstr "DirectX 11 dlls wordt geïnstalleerd…"
+msgstr "DirectX 11 DLLs wordt geïnstalleerd…"
 
 #: PlayOnLinux_Scripts/POL_Install_desura_:16
 #, sh-format
@@ -2285,17 +2286,17 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_linuxtrack_wine_:9
 #, sh-format
 msgid "Installing Linuxtrack-wine DLL..."
-msgstr "Linuxtrack-wine dll wordt geïnstalleerd…"
+msgstr "Linuxtrack-Wine DLL wordt geïnstalleerd…"
 
 #: PlayOnLinux_Scripts/POL_Install_mfc42_:12
 #, sh-format
 msgid "Installing mfc42 DLLs..."
-msgstr ""
+msgstr "mfc42 DLLs wordt geïnstalleerd…"
 
 #: PlayOnLinux_Scripts/POL_Install_msasn1_:11
 #, sh-format
 msgid "Installing msasn1 DLL..."
-msgstr ""
+msgstr "msasn1 DLL wordt geïnstalleerd…"
 
 #: PlayOnLinux_Scripts/POL_Install_steam_:24
 #, sh-format
@@ -2360,22 +2361,22 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_wintrust_:11
 #, sh-format
 msgid "Installing wintrust DLL..."
-msgstr ""
+msgstr "wintrust DLL wordt geïnstalleerd…"
 
 #: PlayOnLinux_Scripts/POL_Install_xact_:14
 #, sh-format
 msgid "Installing Xact dlls..."
-msgstr "Xact dlls wordt geïnstalleerd…"
+msgstr "Xact DLLs wordt geïnstalleerd…"
 
 #: PlayOnLinux_Scripts/POL_Install_xinput_:12
 #, sh-format
 msgid "Installing Xinput dlls..."
-msgstr "Xinput dlls wordt geïnstalleerd…"
+msgstr "Xinput DLLs wordt geïnstalleerd…"
 
 #: PlayOnLinux_Scripts/POL_Install_xmllite_:14
 #, sh-format
 msgid "Installing XMLlite..."
-msgstr ""
+msgstr "XMLlite wordt geïnstalleerd…"
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:1
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:20
@@ -2629,6 +2630,24 @@ msgstr ""
 "LET OP: Voor low-latency audio, bekijk a.u.b. WineASIO. Een aftermarket low-"
 "latency audio-interface wordt aanbevolen. Uw MIDI-controlepanelen zouden "
 "moeten werken."
+
+#: PlayOnLinux_Scripts/Reason_5_:46
+#, sh-format
+msgid ""
+"NOTICE: Registration window will be hidden behind Reason logo on first run; "
+"right-click task bar item and click MOVE. If soundbanks fail to copy and "
+"program crashes after entering registration code, then take out disc and "
+"reinsert and try to run again. If that doesnt work, you will have to "
+"manually copy soundbanks to Reasons virtual drive. Digital downloads should "
+"not have this issue."
+msgstr ""
+"LET OP: het registratievenster zal bij de eerste start verborgen zijn achter "
+"het Reason-logo; klik met rechts op het taakbalkitem en klik daarna op MOVE. "
+"Wanneer het kopiëren van de soundbanks mislukt en het programma vastloopt na "
+"het invoeren van de registratiecode, verwijder dan de schijf, voer de schijf "
+"daarna weer in en probeer het dan opnieuw. Als dat niet werkt, dient u de "
+"soundbanks handmatig te kopiëren naar het Reason-virtuele station. Digitale "
+"downloads zouden geen last moeten hebben van dit probleem."
 
 #: PlayOnLinux_Scripts/Red_Faction_:87
 #, sh-format
@@ -2920,7 +2939,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_:84
 #, sh-format
 msgid "Please insert nest media into your disk drive"
-msgstr ""
+msgstr "Voer volgende spelschijf in in schijfstation"
 
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_Patch_1.35_:28
 #: PlayOnLinux_Scripts/The_Witcher_2___Enhanced_Edition_Patch_:28
@@ -2997,7 +3016,7 @@ msgid ""
 "Installing vcrun2008 and wininet and disabling d3d9 and d3d8 dlls to force "
 "the game to use OpenGL"
 msgstr ""
-"vcrun2008 en wininet installeren en d3d9 en d3d8 dlls uitschakelen om spel "
+"vcrun2008 en wininet installeren en d3d9 en d3d8 DLLs uitschakelen om spel "
 "te forceren om OpenGL te gebruiken"
 
 #: PlayOnLinux_Scripts/Traktor_Pro_2_:45
