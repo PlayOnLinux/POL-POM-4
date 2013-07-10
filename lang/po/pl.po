@@ -10,15 +10,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2013-07-01 19:00+0200\n"
-"PO-Revision-Date: 2013-06-19 15:36+0000\n"
-"Last-Translator: Aymeric PETIT <mulx@aplu.fr>\n"
+"POT-Creation-Date: 2013-07-08 19:00+0200\n"
+"PO-Revision-Date: 2013-07-02 12:30+0000\n"
+"Last-Translator: Adam Maćkowiak <Unknown>\n"
 "Language-Team: pl_PL.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-07-02 05:12+0000\n"
-"X-Generator: Launchpad (build 16692)\n"
+"X-Launchpad-Export-Date: 2013-07-09 05:13+0000\n"
+"X-Generator: Launchpad (build 16696)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -266,8 +266,9 @@ msgstr "Włóż płytę z grą do napędu"
 #: PlayOnLinux_Scripts/Batman_Arkham_City_:92 PlayOnLinux_Scripts/Bioshock_:93
 #: PlayOnLinux_Scripts/Brink_:66 PlayOnLinux_Scripts/Brink_:79
 #: PlayOnLinux_Scripts/Civilization_V_:34 PlayOnLinux_Scripts/Diablo_II_:51
-#: PlayOnLinux_Scripts/EVE_online_:81 PlayOnLinux_Scripts/FL_Studio_10_:33
-#: PlayOnLinux_Scripts/Far_Cry_2_:80
+#: PlayOnLinux_Scripts/Dreamweaver_8_:22 PlayOnLinux_Scripts/EVE_online_:81
+#: PlayOnLinux_Scripts/FL_Studio_10_:33 PlayOnLinux_Scripts/Far_Cry_2_:80
+#: PlayOnLinux_Scripts/Flash_8_:22 PlayOnLinux_Scripts/Flash_MX_:22
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:57
 #: PlayOnLinux_Scripts/Google_SketchUp_:51
 #: PlayOnLinux_Scripts/Guild_Wars_2_:70 PlayOnLinux_Scripts/Half_Life_2_:108
@@ -286,9 +287,10 @@ msgstr "Włóż płytę z grą do napędu"
 #: PlayOnLinux_Scripts/Monkey_Island_2_Special_Edition_:79
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:163
 #: PlayOnLinux_Scripts/Need_For_Speed_III___Hot_Pursuit_:53
-#: PlayOnLinux_Scripts/NosTale_:46 PlayOnLinux_Scripts/OCR_CuneiForm_:31
-#: PlayOnLinux_Scripts/OnLive_:52 PlayOnLinux_Scripts/Portal_:82
-#: PlayOnLinux_Scripts/Portal_2_:68 PlayOnLinux_Scripts/Portal_2_:82
+#: PlayOnLinux_Scripts/NosTale_:46 PlayOnLinux_Scripts/Notepad_:29
+#: PlayOnLinux_Scripts/OCR_CuneiForm_:31 PlayOnLinux_Scripts/OnLive_:52
+#: PlayOnLinux_Scripts/Portal_:82 PlayOnLinux_Scripts/Portal_2_:68
+#: PlayOnLinux_Scripts/Portal_2_:82
 #: PlayOnLinux_Scripts/Prince_of_Persia___The_Forgotten_Sands_:85
 #: PlayOnLinux_Scripts/Publish_or_Perish_:44 PlayOnLinux_Scripts/Q.U.B.E_:101
 #: PlayOnLinux_Scripts/Rayman_Origins_:72
@@ -1836,6 +1838,11 @@ msgstr ""
 "Wszystkie obsługiwane gry na silniku Infinity są już spatchowane.\\nAby "
 "zmienić rozdzielczość ekranu, należy użyć konfiguratora."
 
+#: PlayOnLinux_Scripts/Inno_Setup_:30
+#, sh-format
+msgid "Do you want to install the unicode version of Inno Setup?"
+msgstr ""
+
 #: PlayOnLinux_Scripts/Internet_Explorer_6_:76
 #: PlayOnLinux_Scripts/Internet_Explorer_6_Service_Pack_1_:68
 #: PlayOnLinux_Scripts/Internet_Explorer_7_:168
@@ -2274,12 +2281,12 @@ msgstr "Instalowanie bibliotek Linuxtrack-wine..."
 #: PlayOnLinux_Scripts/POL_Install_mfc42_:12
 #, sh-format
 msgid "Installing mfc42 DLLs..."
-msgstr ""
+msgstr "Instalowanie biblioteki dll mfc42..."
 
 #: PlayOnLinux_Scripts/POL_Install_msasn1_:11
 #, sh-format
 msgid "Installing msasn1 DLL..."
-msgstr ""
+msgstr "Instalowanie biblioteki dll msasn1..."
 
 #: PlayOnLinux_Scripts/POL_Install_steam_:24
 #, sh-format
@@ -2302,6 +2309,8 @@ msgstr "Instalowanie środowiska Visual Basic"
 msgid ""
 "Warning : vcrun2005 seems to be already installed.\\nForcing reinstallation."
 msgstr ""
+"Ostrzeżenie: vcrun2005 prawdopodobnie jest już zainstalowany.\\nNastąpi "
+"wymuszenie reinstalacji"
 
 #: PlayOnLinux_Scripts/POL_Install_vcrun2008_:37
 #, sh-format
@@ -2340,7 +2349,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_wintrust_:11
 #, sh-format
 msgid "Installing wintrust DLL..."
-msgstr ""
+msgstr "Instalowanie biblioteki dll wintrust..."
 
 #: PlayOnLinux_Scripts/POL_Install_xact_:14
 #, sh-format
@@ -2355,7 +2364,7 @@ msgstr "Instalowanie bibliotek Xinput..."
 #: PlayOnLinux_Scripts/POL_Install_xmllite_:14
 #, sh-format
 msgid "Installing XMLlite..."
-msgstr ""
+msgstr "Instalowanie XMLlite..."
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:1
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:20
@@ -2617,6 +2626,12 @@ msgid ""
 "manually copy soundbanks to Reasons virtual drive. Digital downloads should "
 "not have this issue."
 msgstr ""
+"UWAGA: Okno rejestracji pokaże się pod logo Reason przy pierwszym "
+"uruchomieniu. Kliknij prawym przyciskiem myszy na pasek zadań i wybierz "
+"PRZENIEŚ. Jeśli pliki dźwiękowe (soundbanks) się nie skopiują a program "
+"zawiesi się po wpisaniu kodu rejestracyjnego, wyjmij płytę, włóż ją ponownie "
+"i spróbuj ponownie. Jeśli to nie zadziała, ręcznie skopiuj soundbanks na "
+"dysk wirtualny Reason. Wersje cyfrowe nie powinny mieć tego problemu."
 
 #: PlayOnLinux_Scripts/Red_Faction_:87
 #, sh-format
@@ -2858,7 +2873,7 @@ msgstr "Witaj w instalatorze patcha $PVERSION dla $TITLE_REQUIRED"
 msgid "This addon automatically patch the game to 1.2.0416."
 msgstr "Ten dodatek automatycznie aktualizuje grę do wersji 1.2.0416."
 
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_I__Arena_:90
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_I__Arena_:91
 #, sh-format
 msgid ""
 "The codes needed to exit the first dungeon can be found in the\\"
@@ -2907,7 +2922,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_:84
 #, sh-format
 msgid "Please insert nest media into your disk drive"
-msgstr ""
+msgstr "Włóż następny nośnik z grą do napędu"
 
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_Patch_1.35_:28
 #: PlayOnLinux_Scripts/The_Witcher_2___Enhanced_Edition_Patch_:28
@@ -4780,7 +4795,7 @@ msgstr "Tryb renderowania pozaekranowego"
 
 #: python/configure.py:557
 msgid "Render target mode lock"
-msgstr "Tryb blokady renderowania celu"
+msgstr "Tryb renderowania Target Lock"
 
 #: python/configure.py:558
 msgid "Multisampling"
