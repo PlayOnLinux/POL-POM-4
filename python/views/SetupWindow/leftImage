@@ -1,0 +1,7 @@
+        if(os.path.exists(leftImage)):
+            self.leftImage = self.uiHelper.getBitmap(leftImage)
+        else:
+            if(self.env.getOS() == "Linux"):
+                self.leftImage = self.uiHelper.getBitmap("setups/default/playonlinux.jpg")
+            else:
+                self.leftImage = self.uiHelper.getBitmap("setups/default/playonmac.jpg")

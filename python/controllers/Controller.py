@@ -20,7 +20,7 @@ from models.DistantFile import DistantFile
 # Views
 from views.Question import Question
 from views.Modal import Modal
-from views.SetupWindow import SetupWindow
+from views.SetupWindow.SetupWindow import SetupWindow
 
 # Other cntrollers
 from controllers.GuiServer import *
