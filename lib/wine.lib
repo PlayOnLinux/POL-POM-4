@@ -708,7 +708,7 @@ POL_Wine_PrefixExists()
 }
 POL_Wine_InstallVersion()
 {
-	# Install a wineverison
+	# Install a wineversion
 	# Usage: POL_Wine_InstallVersion [VERSION]
 	[ ! "$1" = "" ] && export POL_WINEVERSION="$1"
 	[ "$POL_WINEVERSION" = "" ] && POL_Debug_Fatal "No POL_WINEVERSION set"
@@ -754,7 +754,8 @@ POL_Wine_InstallVersion()
 				"$PLAYONLINUX/playonlinux-pkg" -i "$PWD/$WINE_ADDRESS"
 			fi
 			rm "$WINE_ADDRESS"
-			POL_Wine_Install_gecko "$POL_WINEVERSION" "$POL_ARCH"
+			POL_Wine_Install_resources gecko "$POL_WINEVERSION" "$POL_ARCH"
+			POL_Wine_Install_resources mono "$POL_WINEVERSION" "$POL_ARCH"
 		fi
 	fi
 	rm "$WINEDIR/installing"
@@ -777,53 +778,70 @@ POL_Wine_InstallCDROMCustom()
 		ln -s "$2" "$letter"
 	fi
 }
-POL_Wine_Install_gecko()
+POL_Wine_Install_resources()
 {
-	# Install gecko for selected wine version
-	# Usage : POL_Wine_Install_gecko [ Version ] ( Arch )
+	# Install gecko or mono for selected wine version
+	# Usage : POL_Wine_Install_resources (gecko|mono) [ Version ] ( Arch )
 	[ -z "$1" ] && return 1
-        wine_version="$1"
-        unpatched_version=`POL_Wine_GetBaseName "$1"`
-	[ "$2" = "amd64" ] && arch="$2" || arch="x86"
+	[ "$1" = "mono" ] && resource="$1" || resource="gecko"
+        wine_version="$2"
+        unpatched_version=`POL_Wine_GetBaseName "$2"`
+	[ "$3" = "amd64" ] && arch="$3" || arch="x86"
 
-	POL_Debug_Message "Installing gecko for wine $unpatched_version $arch"
-	gecko_dir="$REPERTOIRE/wine/gecko"
-	gecko_file="$REPERTOIRE/configurations/listes/gecko.lst"
-	found="$(grep "^${unpatched_version//./\.};" "$gecko_file")"
+	POL_Debug_Message "Installing $resource for wine $unpatched_version $arch"
+	resource_dir="$REPERTOIRE/wine/$resource"
+	resource_file="$REPERTOIRE/configurations/listes/$resource.lst"
+	found="$(grep "^${unpatched_version//./\.};" "$resource_file")"
+	# Fallback
+	[ -z "$found" ] && found="$(grep "^\*;" "$resource_file")"
 	[ "$POL_OS" = "Linux" ] && wos="linux"
 	[ "$POL_OS" = "Mac" ] && wos="darwin"
 
-	if [ ! -L "$POL_USER_ROOT/wine/$wos-$arch/$wine_version/share/wine/gecko" ]
+	if [ ! -L "$POL_USER_ROOT/wine/$wos-$arch/$wine_version/share/wine/$resource" ]
 	then
-		POL_Debug_Message "Linking gecko"
-		ln -s "$POL_USER_ROOT/wine/gecko/" "$POL_USER_ROOT/wine/$wos-$arch/$wine_version/share/wine/gecko"
+		POL_Debug_Message "Linking $resource"
+		ln -s "$POL_USER_ROOT/wine/$resource/" "$POL_USER_ROOT/wine/$wos-$arch/$wine_version/share/wine/$resource"
 	fi
 	if [ "$found" ]; then
-		gecko1="$(cut -d ';' -f2 <<< $found)"
-		gecko2="$(cut -d ';' -f3 <<< $found)"
-		md5_1="$(cut -d ';' -f4 <<< $found)"
-		md5_2="$(cut -d ';' -f5 <<< $found)"
+		resourcex86="$(cut -d ';' -f2 <<< $found)"
+		resourceamd64="$(cut -d ';' -f3 <<< $found)"
+		md5x86="$(cut -d ';' -f4 <<< $found)"
+		md5amd64="$(cut -d ';' -f5 <<< $found)"
 		
-		cd "$gecko_dir"
-		if [ "$gecko1" ]; then
-			if [ -e "$gecko1" ]; then
-				POL_Debug_Message "$gecko1 already installed. Skipping"
+		cd "$resource_dir"
+		if [ "$resourcex86" ]; then
+			if [ -e "$resourcex86" ]; then
+				POL_Debug_Message "$resourcex86 already installed. Skipping"
 			else
-				POL_Debug_Message "Installing $gecko1"
-				POL_Download "$GECKO_SITE/x86/$gecko1" "$md5_1"
+				POL_Debug_Message "Installing $resourcex86"
+				POL_Download "$(resource_download_url $resource x86 $resourcex86)" "$md5x86"
 			fi
 		fi
 		
 		if [ "$arch" = "amd64" ]; then
-			if [ "$gecko2" ]; then
-				if [ -e "$gecko2" ]; then
-					POL_Debug_Message "$gecko2 already installed. Skipping"
+			if [ "$resourceamd64" ]; then
+				if [ -e "$resourceamd64" ]; then
+					POL_Debug_Message "$resourceamd64 already installed. Skipping"
 				else
-					POL_Debug_Message "Installing $gecko2"
-					POL_Download "$GECKO_SITE/amd64/$gecko2" "$md5_2"
+					POL_Debug_Message "Installing $resourceamd64"
+					POL_Download "$(resource_download_url $resource amd64 $resourceamd64)" "$md5amd64"
 				fi
 			fi
 		fi
+	fi
+}
+resource_download_url()
+{
+	# resource_download_url (gecko|mono) [ Arch ] [ Filename ]
+	if [ "$1" = "gecko" ]; then
+		echo "$GECKO_SITE/$2/$3"
+	fi
+	if [ "$2" = "mono" ]; then
+#		local version="${3%.msi}"
+#		version="${version#wine-mono-}"
+#		echo "http://source.winehq.org/winemono.php?v=${version}"
+		echo "http://downloads.sourceforge.net/wine/$3"
+#		echo "$MONO_SITE/$2/$3"
 	fi
 }
 POL_Wine_AutoSetVersionEnv()

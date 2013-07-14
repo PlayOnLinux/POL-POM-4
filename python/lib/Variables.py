@@ -20,6 +20,7 @@ os.environ["VERSION"] = "4.2.2-dev"
 os.environ["POL_ID"] = str(random.randint(1,100000000))
 os.environ["WINE_SITE"] = "http://www.playonlinux.com/wine/binaries"
 os.environ["GECKO_SITE"] = "http://www.playonlinux.com/wine/gecko"
+os.environ["MONO_SITE"] = "http://www.playonlinux.com/wine/mono"
 homedir = os.environ["HOME"]
 
 # Debian packagers should switch this to TRUE
