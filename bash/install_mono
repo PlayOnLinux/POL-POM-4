@@ -29,11 +29,11 @@ POL_SetupWindow_Init
 
 cd "$POL_USER_ROOT/wine/$wos-x86" || exit 1
 for file in *; do
-	[ -d "$POL_USER_ROOT/wine/$wos-x86/$file" ] && POL_Wine_Install_mono "$file"
+	[ -d "$POL_USER_ROOT/wine/$wos-x86/$file" ] && POL_Wine_Install_resources mono "$file"
 done
 
 cd "$POL_USER_ROOT/wine/$wos-amd64" || exit 1
 for file in *; do
-	[ -d "$POL_USER_ROOT/wine/$wos-amd64/$file" ] && POL_Wine_Install_mono "$file" "amd64"
+	[ -d "$POL_USER_ROOT/wine/$wos-amd64/$file" ] && POL_Wine_Install_resources mono "$file" "amd64"
 done
 POL_SetupWindow_Close

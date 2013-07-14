@@ -836,7 +836,7 @@ resource_download_url()
 	if [ "$1" = "gecko" ]; then
 		echo "$GECKO_SITE/$2/$3"
 	fi
-	if [ "$2" = "mono" ]; then
+	if [ "$1" = "mono" ]; then
 #		local version="${3%.msi}"
 #		version="${version#wine-mono-}"
 #		echo "http://source.winehq.org/winemono.php?v=${version}"
