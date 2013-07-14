@@ -35,7 +35,7 @@ from patterns.Observer import Observer
 
 
 class SetupWindow(wx.Frame): #fenêtre principale
-    def __init__(self, controller, title, scriptPid, topImage, leftImage, isProtected):
+    def __init__(self, controller, title, topImage, leftImage, isProtected):
         self.uiHelper = UIHelper()
         self.env = Environment()
         self.config = ConfigService()
@@ -46,7 +46,6 @@ class SetupWindow(wx.Frame): #fenêtre principale
         self.Center(wx.BOTH)
         self.Show(True)
         
-        self.bashPid = scriptPid
         self.protectedWindow = isProtected
         
         self.topImage = topImage
@@ -54,8 +53,11 @@ class SetupWindow(wx.Frame): #fenêtre principale
         
         wx.EVT_CLOSE(self, self.eventCancel)
 
-        firstStep = POL_SetupWindow_message(self, "Mon texte")
-    
+        self.footer = Footer(self)
+        
+        self.currentStep = None
+
+        
     # getters
     def getDownloadGauge(self):
         return self.downloadGauge
@@ -71,13 +73,26 @@ class SetupWindow(wx.Frame): #fenêtre principale
     
     def getLeftImage(self):
         return self.leftImage
+    
+    def getFooter(self):
+        return self.footer
         
+    def setCurrentStep(self, step):
+        if(self.currentStep != None):
+            self.currentStep.leaveStep()
+        self.currentStep = step
+        self.currentStep.initStep()
+        wx.EVT_BUTTON(self, wx.ID_FORWARD, self.eventNext)
+      
+       
     # Events
+    def eventNext(self, event):
+        self.currentStep.onNext()
+        self.getFooter().getNextButton().Enable(False)
+        
     def eventCancel(self, event):
         if(self.protectedWindow == False):
             self.Destroy()
-            time.sleep(0.1)
-            self.controller.killScript(self.bashPid)
         else:
             wx.MessageBox(_("You cannot close this window").format(self.config.getAppName()),_("Error"))
     
@@ -240,14 +255,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
             self.current_angle = ((self.current_angle + 1) % 12)
             self.animation.SetBitmap(self.getLoaderFromAngle(self.current_angle + 1))
             
-    ### Theses methods command the window. There are called by mainWindow when it reads the queue
-    def POL_SetupWindow_message(self, message, title):
-        self.hideAll()
-        self.DrawDefault(message, title)
 
-        self.DrawCancel()
-        self.DrawNext()
-        wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release)
 
     def POL_SetupWindow_free_presentation(self, title, message):
         # Panels
@@ -286,20 +294,7 @@ class SetupWindow(wx.Frame): #fenêtre principale
             os.system("xdg-open "+url+" &")
 
 
-    def POL_SetupWindow_textbox(self, message, title, value):
-        self.hideAll()
-        self.DrawDefault(message, title)
 
-        self.space = message.count("\\n")+1
-
-        self.champ.SetPosition((20,85+self.space*16))
-        self.champ.SetValue(value)
-        self.champ.Show()
-
-        self.DrawCancel()
-        self.DrawNext()
-        wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_champ)
-        wx.EVT_TEXT_ENTER(self, 400, self.release_champ)
 
     def POL_SetupWindow_debug(self, message, title, value):
         self.POL_SetupWindow_message(message, title)
@@ -599,11 +594,6 @@ class SetupWindow(wx.Frame): #fenêtre principale
 
 
 
-    def sendAnswerToBash(self, data):
-        self.controller.sendAnswerToBash(self.bashPid, data)
-        
-    def unlockBash(self):
-        self.controller.closeConnexion(self.bashPid)
         
     def release(self, event):
         self.unlockBash()

@@ -33,8 +33,8 @@ class WidgetCollection(object):
     
     def hideAll(self):
         for i in self.items:
-            i.hide()
+            i.Hide()
             
     def showAll(self):
         for i in self.items:
-            i.show()
+            i.Show()

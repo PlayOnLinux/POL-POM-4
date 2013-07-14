@@ -20,7 +20,8 @@ from models.DistantFile import DistantFile
 # Views
 from views.Question import Question
 from views.Modal import Modal
-from views.SetupWindow.SetupWindow import SetupWindow
+from views.SetupWindow.BashSetupWindow import BashSetupWindow
+import views.SetupWindow.Step as Step
 
 # Other cntrollers
 from controllers.GuiServer import *
@@ -54,8 +55,8 @@ class Controller(object):
 
    def killScript(self, pid):
        # FIXME
-       os.system("kill -9 -"+self.bashPid+" 2> /dev/null")
-       os.system("kill -9 "+self.bashPid+" 2> /dev/null")
+       os.system("kill -9 -"+pid+" 2> /dev/null")
+       os.system("kill -9 "+pid+" 2> /dev/null")
        
    # Manage GUI Server
    def sendAnswerToBash(self, pid, data):
@@ -89,7 +90,7 @@ class Controller(object):
        if(command == 'POL_SetupWindow_Init'):
           if(len(data) == 6):
                isProtected = (data[5] == "TRUE") 
-               setupWindow =  SetupWindow(self, title = data[2], scriptPid = scriptPid, topImage = data[3], leftImage = data[4], isProtected = isProtected)
+               setupWindow = BashSetupWindow(self, title = data[2], scriptPid = scriptPid, topImage = data[3], leftImage = data[4], isProtected = isProtected)
                self.windowListFromPid[scriptPid] = setupWindow
                self.closeConnexion(scriptPid)
        
@@ -100,7 +101,7 @@ class Controller(object):
            except KeyError:
                print "Please use POL_SetupWindow_Init first"
           
-       
+  
        # Other 
        setupWindowCommands = ["POL_SetupWindow_message", "POL_SetupWindow_SetID", "POL_SetupWindow_UnsetID", 
        "POL_SetupWindow_shortcut_list", "POL_SetupWindow_prefix_selector", "POL_SetupWindow_pulsebar", "POL_SetupWindow_question", 
@@ -113,17 +114,20 @@ class Controller(object):
            arguments = data[2:]       
            try:
                setupWindowObject = self.windowListFromPid[scriptPid]
+               arguments = [setupWindowObject] + arguments
+               
            except KeyError:
                print "Err. Please use POL_SetupWindow_Init first"
                self.closeConnexion(scriptPid)
+               
            else: 
                try:
-                   setupWindowFunction = getattr(setupWindowObject, command)
+                   stepClass = getattr(Step, command)
                except AttributeError:
                    Error ('Function not found "%s" (%s)' % (command, arguments) )
                else:
                    try:
-                       setupWindowFunction(*arguments)
+                       setupWindowObject.setCurrentStep(stepClass(*arguments))
                        
                        if(command == "POL_SetupWindow_download"):
                            # Download parameters

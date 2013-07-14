@@ -30,31 +30,31 @@ from views.UIHelper import UIHelper
 # SetupWindow
 from views.SetupWindow.WidgetCollection import *
 from views.SetupWindow.Header import *
-
-
+from views.SetupWindow.Footer import *
+       
 class Step(object):
-    def __init__(self):
-        self.next = None
+    def __init__(self, parent):
         self.collection = WidgetCollection()
-        self.currentStep = False
         self.uiHelper = UIHelper()
+        self.parent = parent
+        self._returnMessage = None
+        
+        self.panel = wx.Panel(parent, -1, pos=(0,0), size=((520, 343 + self.uiHelper.addWindowMacOffset())))
+        self.registerWidget(self.panel)
         
     def registerWidget(self, item):
         self.collection.append(item)
         
-    def eventNext(self, event):
-        self.leaveStep()
-    
     def initStep(self):
         self.onInit()
-        self.show()
-        self.currentStep = True
-        wx.EVT_BUTTON(self, wx.ID_FORWARD, self.eventNext)
-    
-    def leaveStep(self):
-        self.onNext()
-        self.hide()
-        self.currentStep = False
+        self._show()
+        self.parent.getFooter().getNextButton().Enable(True)
+        
+        
+    def leaveStep(self):   
+        self._hide()
+        self.parent.getFooter().getNextButton().Enable(False)
+
         
     ## Theses two methods are made to be overwritten
     # Abstract method
@@ -66,27 +66,49 @@ class Step(object):
         return
 
         
-    def hide(self):
+    def _hide(self):
         self.collection.hideAll()
         
-    def show(self):
+    def _show(self):
         self.collection.showAll()
 
     # Setters
     def setNext(self, step):
         self.next = step
+    
+    def setReturnMessage(self, message):
+        self._returnMessage = message
+        
+    # Getters
+    def getReturnMessage(self):
+        return self._returnMessage
+        
         
 class POL_SetupWindow_message(Step):
-    def __init__(self, parent, title = "", text = ""):
-        Step.__init__(self)
+    def __init__(self, parent, message = "", title = ""):
+        Step.__init__(self, parent)
         
-        panel = wx.Panel(parent, -1, pos=(0,0), size=((520, 398 + self.uiHelper.addWindowMacOffset())))
         
-        self.texte = wx.StaticText(panel, -1, text, pos=(20,80),size=(480,275),style=wx.ST_NO_AUTORESIZE)
-        self.registerWidget(self.texte)
+        self.texte = wx.StaticText(self.panel, -1, message, pos=(20,80),size=(480,275),style=wx.ST_NO_AUTORESIZE)
         
-        self.header = Header(panel, parent.getTopImage())
+        self.header = Header(self.panel, parent.getTopImage())
         self.header.setTitle(title)
+        
+        self.registerWidget(self.texte)
         self.registerWidget(self.header)
         
+        self._hide()
         
+
+class POL_SetupWindow_textbox(POL_SetupWindow_message):
+    def __init__(self, parent, message = "", title = "", defaultValue = ""):
+        POL_SetupWindow_message.__init__(self, parent, message, title)
+
+        nSpace = message.count("\\n")+1
+        self.textBox = wx.TextCtrl(self.panel, 400, "", size=(300,22), pos=(20,90+nSpace*16))
+        self.textBox.SetValue(defaultValue)
+        
+        self.registerWidget(self.textBox)
+
+    def onNext(self):
+        self.setReturnMessage(self.textBox.GetValue())
