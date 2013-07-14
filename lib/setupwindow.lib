@@ -160,13 +160,13 @@ POL_SetupWindow_pulse ()
 	# Change the pulsebar position (0 - 100)
 	# Usage POL_SetupWindow_pulse [position]
 
-	echo "$POL_COOKIE	POL_SetupWindow_pulse	$$	$1" | ncs "$POL_HOST" "$POL_PORT"
+	echo "$POL_COOKIE	POL_SetupWindow_Update	$$	pulse	$1" | ncs "$POL_HOST" "$POL_PORT"
 }
 POL_SetupWindow_set_text ()
 {
 	# Change the pulsebar's text
 	# Usage POL_SetupWindow_set_text [message]
-	echo "$POL_COOKIE	POL_SetupWindow_set_text	$$	$(POL_Untab "$1")" | ncs "$POL_HOST" "$POL_PORT"
+	echo "$POL_COOKIE	POL_SetupWindow_Update	$$	setText	$(POL_Untab "$1")" | ncs "$POL_HOST" "$POL_PORT"
 }
 POL_SetupWindow_wait ()
 {

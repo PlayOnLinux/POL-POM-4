@@ -53,6 +53,10 @@ class BashSetupWindow(SetupWindow): #fenêtre principale
         else:
             wx.MessageBox(_("You cannot close this window").format(self.config.getAppName()),_("Error"))
     
+    def releaseStep(self):
+        SetupWindow.releaseStep(self)
+        self.unlockBash()
+        
     def unlockBash(self):
         self.controller.closeConnexion(self.bashPid)
     

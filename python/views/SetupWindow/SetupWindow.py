@@ -59,12 +59,6 @@ class SetupWindow(wx.Frame): #fenêtre principale
 
         
     # getters
-    def getDownloadGauge(self):
-        return self.downloadGauge
-        
-    def getDownloadText(self):
-        return self.txtEstimation
-
     def isProtectedWindow(self):
         return self.protectedWindow
          
@@ -76,15 +70,23 @@ class SetupWindow(wx.Frame): #fenêtre principale
     
     def getFooter(self):
         return self.footer
-        
+    
+    def getController(self):
+        return self.controller
+          
     def setCurrentStep(self, step):
         if(self.currentStep != None):
             self.currentStep.leaveStep()
         self.currentStep = step
         self.currentStep.initStep()
         wx.EVT_BUTTON(self, wx.ID_FORWARD, self.eventNext)
-      
-       
+    
+    def getCurrentStep(self):
+        return self.currentStep
+        
+    def releaseStep(self):
+        self.getFooter().getNextButton().Enable(False)
+        
     # Events
     def eventNext(self, event):
         self.currentStep.onNext()
@@ -123,7 +125,6 @@ class SetupWindow(wx.Frame): #fenêtre principale
         self.titreP.SetFont(self.uiHelper.getFontTitle())
         self.titreP.SetForegroundColour((0,0,0)) # For dark themes
         
-        self.txtEstimation = DownloadText(self.panel)
         self.register_link = ""
 
 
@@ -157,8 +158,6 @@ class SetupWindow(wx.Frame): #fenêtre principale
         self.scrolled_panel.SetBackgroundColour((255,255,255))
         self.texte_panel = wx.StaticText(self.scrolled_panel, -1, "",pos=(5,5))
 
-        self.gauge = wx.Gauge(self.panel, -1, 50, size=(375, 20))
-        self.downloadGauge = DownloadGauge(self.panel)
         self.WaitButton = wx.Button(self.panel, 310, "", size=(250,25))
 
         
@@ -228,9 +227,6 @@ class SetupWindow(wx.Frame): #fenêtre principale
         self.Menu.Hide()
         self.MenuGames.Hide()
         self.scrolled_panel.Hide()
-        self.gauge.Hide()
-        self.downloadGauge.Hide()
-        self.txtEstimation.Hide()
         self.texte_panel.Hide()
         self.MCheckBox.Hide()
         self.PCheckBox.Hide()
@@ -311,18 +307,6 @@ class SetupWindow(wx.Frame): #fenêtre principale
         self.texte_bis.SetPosition((20,135+self.space*16))
         self.texte_bis.Show()
         self.unlockBash()
-
-    def POL_SetupWindow_download(self, message, title, url, localfile): 
-        self.hideAll()
-        self.DrawDefault(message, title)
-        self.space = message.count("\\n")+1
-        self.downloadGauge.Show()
-        self.downloadGauge.SetPosition((70,95+self.space*16))
-        self.txtEstimation.SetPosition((20,135+self.space*16))
-        self.txtEstimation.Show()
-        self.DrawCancel()
-        self.DrawNext()
-        self.NextButton.Enable(False)
 
     def POL_SetupWindow_wait(self, message, title):
         self.hideAll()

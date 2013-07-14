@@ -5,6 +5,8 @@
 
 import wx
 
+from services.ConfigService import ConfigService
+
 from controllers.Controller import *
 
 class Modal():
