@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2013-07-08 19:00+0200\n"
+"POT-Creation-Date: 2013-07-15 19:00+0200\n"
 "PO-Revision-Date: 2013-06-19 15:44+0000\n"
 "Last-Translator: Aymeric PETIT <mulx@aplu.fr>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-07-09 05:13+0000\n"
+"X-Launchpad-Export-Date: 2013-07-16 05:40+0000\n"
 "X-Generator: Launchpad (build 16696)\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -292,7 +292,7 @@ msgstr "Por favor insira o CD do jogo na drive"
 #: PlayOnLinux_Scripts/Portal_:82 PlayOnLinux_Scripts/Portal_2_:68
 #: PlayOnLinux_Scripts/Portal_2_:82
 #: PlayOnLinux_Scripts/Prince_of_Persia___The_Forgotten_Sands_:85
-#: PlayOnLinux_Scripts/Publish_or_Perish_:44 PlayOnLinux_Scripts/Q.U.B.E_:101
+#: PlayOnLinux_Scripts/Publish_or_Perish_:46 PlayOnLinux_Scripts/Q.U.B.E_:101
 #: PlayOnLinux_Scripts/Rayman_Origins_:72
 #: PlayOnLinux_Scripts/Rayman_Origins_:90 PlayOnLinux_Scripts/Reason_5_:29
 #: PlayOnLinux_Scripts/Rfactor_:48 PlayOnLinux_Scripts/Runes_Of_Magic_:44
@@ -516,7 +516,6 @@ msgstr "Por favor seleccione o ficheiro de configuração a executar:"
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:29
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:29
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Patch_1.02_:24
-#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:23
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:23
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:23
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:23
@@ -554,7 +553,7 @@ msgstr "O Steam tem o seu sistema de actualizações automáticas."
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:57
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:57
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Patch_1.02_:50
-#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:43
+#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:40
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:43
 #: PlayOnLinux_Scripts/Bioshock_Patch_1.1_:57
 #: PlayOnLinux_Scripts/Borderlands_Patch_1.41_:50
@@ -612,7 +611,6 @@ msgstr ""
 "feito."
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Patch_1.02_:29
-#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:28
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_:31
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:28
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:28
@@ -662,7 +660,6 @@ msgid "Steam have is own automatic update system."
 msgstr "O Steam tem o seu sistema de actualizações automáticas."
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Patch_1.02_:57
-#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:62
 #: PlayOnLinux_Scripts/CivCity_Rome_Patch_1.1_:59
 #: PlayOnLinux_Scripts/Command_And_Conquer_3_Patch_1.09_:83
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Kane_s_Wrath_Patch_1.02_:82
@@ -719,35 +716,45 @@ msgstr ""
 msgid "Please insert the next game media into your disk drive"
 msgstr "Por favor, insira o próximo disco na drive respectiva"
 
-#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:48
-#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:49
+#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:24
+#, sh-format
+msgid "Welcome in the patch $PVERSION Installer for $TITLE_REQUIRED"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:28
+#: PlayOnLinux_Scripts/GOG.com___Fez_Patch_:30
+#: PlayOnLinux_Scripts/GOG.com___Populous_3__The_Beginning___High_resolution_patch_:35
+#, sh-format
+msgid ""
+"This is an installer for an update;\\nPlease install $TITLE_REQUIRED first"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:45
+#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:46
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:48
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:49
 #, sh-format
 msgid "English version"
 msgstr "Versão inglesa"
 
-#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:48
-#: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:48
-#: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:51
-#: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:51
+#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:45
 #, sh-format
-msgid "Internationnal version"
-msgstr "Versão internacional"
+msgid "International version"
+msgstr ""
 
-#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:48
-#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:52
+#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:45
+#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:49
 #, sh-format
 msgid "Italian version"
 msgstr "Versão italiana"
 
-#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:48
-#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:55
+#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:45
+#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:52
 #, sh-format
 msgid "Japanese version"
 msgstr "Versão japonesa"
 
-#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:48
+#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:45
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:48
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:51
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:51
@@ -757,10 +764,24 @@ msgstr "Versão japonesa"
 msgid "Which version do you have?"
 msgstr "Que versão possui?"
 
+#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:59
+#, sh-format
+msgid ""
+"Wait while the patch is downloading...\\nThis operation can take time, "
+"depending of your connection."
+msgstr ""
+
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_:68
 #, sh-format
 msgid "This addon automatically install patch 2.5.26461"
 msgstr "Este complemento irá instalar automaticamente o patch 2.5.26461"
+
+#: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:48
+#: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:51
+#: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:51
+#, sh-format
+msgid "Internationnal version"
+msgstr "Versão internacional"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:56
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:63
@@ -955,7 +976,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Kane_s_Wrath_:62
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Kane_s_Wrath_Patch_1.02_:54
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Tiberium_Wars__Kane_Edition__:71
-#: PlayOnLinux_Scripts/GOG.com___Outcast_:73
+#: PlayOnLinux_Scripts/GOG.com___Outcast_:72
 #, sh-format
 msgid "Choose the game language you want"
 msgstr "Escolha o idioma do jogo"
@@ -1225,8 +1246,8 @@ msgstr "Que abrir a página de transferências de $TITLE no seu navegador?"
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:116 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:1111
-#: lib/wine.lib:1141
+#: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:1129
+#: lib/wine.lib:1159
 #, sh-format
 msgid "Please wait..."
 msgstr "Por favor aguarde..."
@@ -1415,7 +1436,7 @@ msgstr ""
 "através do OpenGL.\\nSe puder seleccione-o depois de carregar em \"Show all "
 "devices\"."
 
-#: PlayOnLinux_Scripts/GOG.com___Deus_Ex_GOTY_Edition_:89
+#: PlayOnLinux_Scripts/GOG.com___Deus_Ex_GOTY_Edition_:86
 #, sh-format
 msgid "Run $TITLE in safe mode?"
 msgstr "Correr $TITLE em modo seguro?"
@@ -1445,13 +1466,6 @@ msgstr ""
 "As configurações de vídeo padrão são muito abaixo dos computadores "
 "modernos.\\nLembre-se de carregar em \"Auto-detect\" na opções avançadas de "
 "vídeo."
-
-#: PlayOnLinux_Scripts/GOG.com___Fez_Patch_:30
-#: PlayOnLinux_Scripts/GOG.com___Populous_3__The_Beginning___High_resolution_patch_:35
-#, sh-format
-msgid ""
-"This is an installer for an update;\\nPlease install $TITLE_REQUIRED first"
-msgstr ""
 
 #: PlayOnLinux_Scripts/GOG.com___Flatout_:55
 #, sh-format
@@ -1486,92 +1500,92 @@ msgid "Dedicated Server"
 msgstr "Servidor Dedicado"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:67
-#: PlayOnLinux_Scripts/GOG.com___Outcast_:73
-#: PlayOnLinux_Scripts/GOG.com___Outcast_:77 PlayOnLinux_Scripts/Goblins_3_:21
+#: PlayOnLinux_Scripts/GOG.com___Outcast_:72
+#: PlayOnLinux_Scripts/GOG.com___Outcast_:76 PlayOnLinux_Scripts/Goblins_3_:21
 #, sh-format
 msgid "English"
 msgstr "Inglês"
 
-#: PlayOnLinux_Scripts/GOG.com___Outcast_:73
-#: PlayOnLinux_Scripts/GOG.com___Outcast_:110
+#: PlayOnLinux_Scripts/GOG.com___Outcast_:72
+#: PlayOnLinux_Scripts/GOG.com___Outcast_:109
 #, sh-format
 msgid "Brasilian (text only)"
 msgstr "Brasileiro (somente texto)"
 
-#: PlayOnLinux_Scripts/GOG.com___Outcast_:73
-#: PlayOnLinux_Scripts/GOG.com___Outcast_:121
+#: PlayOnLinux_Scripts/GOG.com___Outcast_:72
+#: PlayOnLinux_Scripts/GOG.com___Outcast_:120
 #, sh-format
 msgid "Dutch (text only)"
 msgstr "Holandês (somente texto)"
 
-#: PlayOnLinux_Scripts/GOG.com___Outcast_:73
-#: PlayOnLinux_Scripts/GOG.com___Outcast_:88 PlayOnLinux_Scripts/Goblins_3_:21
+#: PlayOnLinux_Scripts/GOG.com___Outcast_:72
+#: PlayOnLinux_Scripts/GOG.com___Outcast_:87 PlayOnLinux_Scripts/Goblins_3_:21
 #, sh-format
 msgid "French"
 msgstr "Francês"
 
-#: PlayOnLinux_Scripts/GOG.com___Outcast_:73
-#: PlayOnLinux_Scripts/GOG.com___Outcast_:99
+#: PlayOnLinux_Scripts/GOG.com___Outcast_:72
+#: PlayOnLinux_Scripts/GOG.com___Outcast_:98
 #, sh-format
 msgid "German"
 msgstr "Alemão"
 
-#: PlayOnLinux_Scripts/GOG.com___Outcast_:73
-#: PlayOnLinux_Scripts/GOG.com___Outcast_:132
+#: PlayOnLinux_Scripts/GOG.com___Outcast_:72
+#: PlayOnLinux_Scripts/GOG.com___Outcast_:131
 #, sh-format
 msgid "Italian (text only)"
 msgstr "Italiano (somente texto)"
 
-#: PlayOnLinux_Scripts/GOG.com___Outcast_:73
-#: PlayOnLinux_Scripts/GOG.com___Outcast_:143
+#: PlayOnLinux_Scripts/GOG.com___Outcast_:72
+#: PlayOnLinux_Scripts/GOG.com___Outcast_:142
 #, sh-format
 msgid "Spanish (text only)"
 msgstr "Espanhol (somente texto)"
 
-#: PlayOnLinux_Scripts/GOG.com___Outcast_:157
-#: PlayOnLinux_Scripts/GOG.com___Outcast_:161
+#: PlayOnLinux_Scripts/GOG.com___Outcast_:156
+#: PlayOnLinux_Scripts/GOG.com___Outcast_:160
 #, sh-format
 msgid "Arrow keys (default)"
 msgstr "Teclas direccionais (padrão)"
 
-#: PlayOnLinux_Scripts/GOG.com___Outcast_:157
+#: PlayOnLinux_Scripts/GOG.com___Outcast_:156
 #, sh-format
 msgid "Standard keyboard layouts"
 msgstr "Configuração padrão do teclado"
 
-#: PlayOnLinux_Scripts/GOG.com___Outcast_:157
-#: PlayOnLinux_Scripts/GOG.com___Outcast_:159
-#: PlayOnLinux_Scripts/GOG.com___Outcast_:362
-#: PlayOnLinux_Scripts/GOG.com___Outcast_:365
+#: PlayOnLinux_Scripts/GOG.com___Outcast_:156
+#: PlayOnLinux_Scripts/GOG.com___Outcast_:158
+#: PlayOnLinux_Scripts/GOG.com___Outcast_:361
+#: PlayOnLinux_Scripts/GOG.com___Outcast_:364
 #, sh-format
 msgid "Unchanged"
 msgstr "Não modificados"
 
-#: PlayOnLinux_Scripts/GOG.com___Outcast_:157
-#: PlayOnLinux_Scripts/GOG.com___Outcast_:228
+#: PlayOnLinux_Scripts/GOG.com___Outcast_:156
+#: PlayOnLinux_Scripts/GOG.com___Outcast_:227
 #, sh-format
 msgid "WASD (Qwerty)"
 msgstr "WASD (Qwerty)"
 
-#: PlayOnLinux_Scripts/GOG.com___Outcast_:157
-#: PlayOnLinux_Scripts/GOG.com___Outcast_:294
+#: PlayOnLinux_Scripts/GOG.com___Outcast_:156
+#: PlayOnLinux_Scripts/GOG.com___Outcast_:293
 #, sh-format
 msgid "ZQSD (Azerty)"
 msgstr "ZQSD (Azerty)"
 
-#: PlayOnLinux_Scripts/GOG.com___Outcast_:362
-#: PlayOnLinux_Scripts/GOG.com___Outcast_:367
+#: PlayOnLinux_Scripts/GOG.com___Outcast_:361
+#: PlayOnLinux_Scripts/GOG.com___Outcast_:366
 #, sh-format
 msgid "Factory defaults"
 msgstr "Configurações padrão"
 
-#: PlayOnLinux_Scripts/GOG.com___Outcast_:362
-#: PlayOnLinux_Scripts/GOG.com___Outcast_:540
+#: PlayOnLinux_Scripts/GOG.com___Outcast_:361
+#: PlayOnLinux_Scripts/GOG.com___Outcast_:539
 #, sh-format
 msgid "High quality (Entropy settings)"
 msgstr "Alta qualidade (Definições de Entropia)"
 
-#: PlayOnLinux_Scripts/GOG.com___Outcast_:362
+#: PlayOnLinux_Scripts/GOG.com___Outcast_:361
 #, sh-format
 msgid "Visual quality"
 msgstr "Qualidade visual"
@@ -2506,32 +2520,32 @@ msgstr ""
 "Para continuar, PlayOnLinux precisa de remontar a drive de CD-ROM com a "
 "opção \"desocultar\"."
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:14 lib/wine.lib:918
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:16 lib/wine.lib:936
 #, sh-format
 msgid "Abort installation"
 msgstr "Abortar a instalação"
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:14
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:16
 #, sh-format
 msgid "Enable ptrace() globally"
 msgstr "Permitir ptrace() globalmente."
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:14
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:16
 #, sh-format
 msgid "Give the capability to wineserver executable"
 msgstr "Dar a capacidade ao executável wineserver."
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:14
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:16
 #, sh-format
 msgid "I fixed it myself, just retest"
 msgstr "Já o reparei. Apenas testar novamente."
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:14
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:16
 #, sh-format
 msgid "The program needs access to ptrace() to proceed:"
 msgstr "Este programa precisa de aceder ao ptrace() para continuar:"
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:26 lib/wine.lib:947
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:28 lib/wine.lib:965
 #, sh-format
 msgid "User abort"
 msgstr "Abortar manualmente"
@@ -3479,6 +3493,11 @@ msgstr "Disfrute de $APPLICATION_TITLE !"
 msgid "$APPLICATION_TITLE Gecko installer"
 msgstr "Instalador de $APPLICATION_TITLE do Gecko"
 
+#: bash/install_mono:25
+#, sh-format
+msgid "$APPLICATION_TITLE Mono installer"
+msgstr ""
+
 #: bash/install_wver:27
 #, sh-format
 msgid "This wizard will help you to install Wine: "
@@ -4097,7 +4116,7 @@ msgstr ""
 "configurações antigas?"
 
 #: bash/uninstall:31 bash/uninstall:65 bash/uninstall:68 bash/uninstall:75
-#: lib/playonlinux.lib:715
+#: lib/playonlinux.lib:716
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
 msgstr "Desinstalador de $APPLICATION_TITLE"
@@ -4117,7 +4136,7 @@ msgstr "Clique em Avançar para continuar."
 msgid "This wizard will help you to uninstall: "
 msgstr "Este assistente irá ajudá-lo a desinstalar: "
 
-#: bash/uninstall:65 lib/playonlinux.lib:715
+#: bash/uninstall:65 lib/playonlinux.lib:716
 #, sh-format
 msgid "Uninstalling..."
 msgstr "A desinstalar..."
@@ -4185,7 +4204,7 @@ msgstr ""
 "processo de instalação.\\nVisite www.$POL_DNS para mais informações."
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:910 lib/wine.lib:991
+#: lib/wine.lib:928 lib/wine.lib:1009
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr "Por favor, aguarde enquanto a unidade virtual está a ser criada..."
@@ -4202,13 +4221,13 @@ msgstr ""
 msgid "Setting Program Files var"
 msgstr "A configurar as variáveis para os ficheiros dos programas"
 
-#: lib/playonlinux.lib:241 lib/playonlinux.lib:247 lib/playonlinux.lib:253
-#: lib/playonlinux.lib:259 lib/playonlinux.lib:265 lib/playonlinux.lib:271
+#: lib/playonlinux.lib:242 lib/playonlinux.lib:248 lib/playonlinux.lib:254
+#: lib/playonlinux.lib:260 lib/playonlinux.lib:266 lib/playonlinux.lib:272
 #, sh-format
 msgid "This function is disabled in the PlayOnlinux environment."
 msgstr "A função está desabilitada no ambiente PlayOnLinux."
 
-#: lib/playonlinux.lib:332
+#: lib/playonlinux.lib:333
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -4219,12 +4238,12 @@ msgstr ""
 "n\\nPlayOnLinux não aprovou esse script e não será responsável pelo seu "
 "uso.\\nPor favor, certifique-se que sabe o que está fazer!"
 
-#: lib/playonlinux.lib:333
+#: lib/playonlinux.lib:334
 #, sh-format
 msgid "Here the source code of the script. Check it carefully"
 msgstr "Aqui está o código fonte do script. Verifique-o cuidadosamente."
 
-#: lib/playonlinux.lib:355
+#: lib/playonlinux.lib:356
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -4235,27 +4254,27 @@ msgstr ""
 "n\\n$APPLICATION_TITLE não aprovou este script e não será responsável por "
 "ele.\\nPor favor, certifique-se que sabe o que está a fazer!"
 
-#: lib/playonlinux.lib:356
+#: lib/playonlinux.lib:357
 #, sh-format
 msgid "External library"
 msgstr "Biblioteca externa"
 
-#: lib/playonlinux.lib:356
+#: lib/playonlinux.lib:357
 #, sh-format
 msgid "Here the source code of the script. Check it carrefully"
 msgstr "Aqui está o código fonte do script. Verifique-o cuidadosamente."
 
-#: lib/playonlinux.lib:589
+#: lib/playonlinux.lib:590
 #, sh-format
 msgid "Making shortcut..."
 msgstr "A criar o atalho..."
 
-#: lib/playonlinux.lib:713
+#: lib/playonlinux.lib:714
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr "Quer excluír a unidade virtual:"
 
-#: lib/playonlinux.lib:824
+#: lib/playonlinux.lib:825
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
@@ -4264,7 +4283,7 @@ msgstr ""
 "O seguinte ficheiro está localizado numa partição FAT32.\\nIsso pode impedir "
 "que o Wine funcione\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:825
+#: lib/playonlinux.lib:826
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
@@ -4273,7 +4292,7 @@ msgstr ""
 "O seguinte ficheiro está localizado numa partição NTFS.\\nIsso pode impedir "
 "que o Wine funcione\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:826
+#: lib/playonlinux.lib:827
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
@@ -4282,7 +4301,7 @@ msgstr ""
 "O seguinte arquivo está localizado numa partição FUSE.\\nIsso pode impedir "
 "que o Wine funcione\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:827
+#: lib/playonlinux.lib:828
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
@@ -4650,27 +4669,27 @@ msgstr "A transferência parece ter falhado."
 msgid "Extracting Wine..."
 msgstr "A extrair o Wine..."
 
-#: lib/wine.lib:916
+#: lib/wine.lib:934
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr "Escrever por cima (por norma funciona, mas não é garantido)"
 
-#: lib/wine.lib:917
+#: lib/wine.lib:935
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
 msgstr "Apagar (os conteúdos da unidade virtual serão perdidos)"
 
-#: lib/wine.lib:931
+#: lib/wine.lib:949
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr "A unidade virtual destino $PREFNAME já existe:"
 
-#: lib/wine.lib:1111 lib/wine.lib:1141
+#: lib/wine.lib:1129 lib/wine.lib:1159
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "Por favor, aguarde enquanto $SOFTNAME é instalado..."
 
-#: lib/wine.lib:1115 lib/wine.lib:1144
+#: lib/wine.lib:1133 lib/wine.lib:1162
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
@@ -4679,19 +4698,19 @@ msgstr ""
 "Tenha cuidado! Isso vai forçar o encerramento do processo de instalação. Se "
 "não estiver terminado, precisará de reinstalar $SOFTNAME."
 
-#: lib/wine.lib:1115 lib/wine.lib:1144
+#: lib/wine.lib:1133 lib/wine.lib:1162
 #, sh-format
 msgid "Install is done"
 msgstr "Instalação terminada"
 
-#: lib/wine.lib:1148 lib/wine.lib:1149
+#: lib/wine.lib:1166 lib/wine.lib:1167
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr ""
 "Carregue em \"Seguinte\" somente quando o processo de instalação estiver "
 "terminada."
 
-#: lib/wine.lib:1157
+#: lib/wine.lib:1175
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr ""
