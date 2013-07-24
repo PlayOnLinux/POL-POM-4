@@ -368,7 +368,7 @@ POL_LoadVar_Device ()
 			local OLD_APP_ANSWER="$APP_ANSWER"
 			# Try to put what's probably the main card first
 			VGA_ID1=`grep -iE 'nvidia|ati|amd' <<<"$VGA_ID1"; grep -iE 'intel' <<<"$VGA_ID1"`
-			POL_SetupWindow_menu "$(eval_gettext 'Select the fake videocard driver to install:')" "$TITLE" "$(echo -n "$VGA_ID1"|tr "\n" "~")" "~"
+			POL_SetupWindow_menu "$(eval_gettext 'Select the main videocard to report:')" "$TITLE" "$(echo -n "$VGA_ID1"|tr "\n" "~")" "~"
 			VGA_ID1="$APP_ANSWER"
 			APP_ANSWER="$OLD_APP_ANSWER"
 		fi
