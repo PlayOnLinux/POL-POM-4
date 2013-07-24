@@ -360,11 +360,22 @@ POL_LoadVar_Device ()
 	POL_SetupWindow_wait "$(eval_gettext 'Please wait while $APPLICATION_TITLE is scanning your hardware')" "$TITLE"
 	POL_Debug_Message "Gettings GPU informations"
 	if [ "$POL_OS" = "Linux" ]; then
+		# Detect known videocards
 		[ -x /usr/sbin/lspci ] && LSPCI=/usr/sbin/lspci || LSPCI=lspci
-		VGA_ID1=`$LSPCI | grep -iE "nvidia|ATI|AMD|intel" | grep VGA | awk '{ print $1 }' | head -n 1`
-		VGA_ID2=`$LSPCI -n | grep $VGA_ID1 | awk '{ print $3 }'`
-		export VendorID=`echo $VGA_ID2 | cut -d: -f1`
-		export DeviceID=`echo $VGA_ID2 | cut -d: -f2`
+		VGA_ID1=`$LSPCI | grep VGA | grep -iE "nvidia|ati|amd|intel"`
+		# More than one card available?
+		if [ $(wc -l <<<"$VGA_ID1") -gt 1 ]; then
+			local OLD_APP_ANSWER="$APP_ANSWER"
+			# Try to put what's probably the main card first
+			VGA_ID1=`grep -iE 'nvidia|ati|amd' <<<"$VGA_ID1"; grep -iE 'intel' <<<"$VGA_ID1"`
+			POL_SetupWindow_menu "$(eval_gettext 'Select the fake videocard driver to install:')" "$TITLE" "$(echo -n "$VGA_ID1"|tr "\n" "~")" "~"
+			VGA_ID1="$APP_ANSWER"
+			APP_ANSWER="$OLD_APP_ANSWER"
+		fi
+		VGA_ID1=`cut -d" " -f1 <<<"$VGA_ID1"`
+		VGA_ID2=`$LSPCI -n | grep "$VGA_ID1" | cut -d" " -f3`
+		export VendorID=`cut -d: -f1 <<<"$VGA_ID2"`
+		export DeviceID=`cut -d: -f2 <<<"$VGA_ID2"`
 	fi
 	if [ "$POL_OS" = "Mac" ]; then
 		system_profiler > "$POL_USER_ROOT/tmp/system_profiler"
