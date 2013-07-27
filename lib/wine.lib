@@ -803,8 +803,6 @@ POL_Wine_Install_resources()
 	resource_dir="$REPERTOIRE/wine/$resource"
 	resource_file="$REPERTOIRE/configurations/listes/$resource.lst"
 	found="$(grep "^${unpatched_version//./\.};" "$resource_file")"
-	# Fallback
-	[ -z "$found" ] && found="$(grep "^\*;" "$resource_file")"
 	[ "$POL_OS" = "Linux" ] && wos="linux"
 	[ "$POL_OS" = "Mac" ] && wos="darwin"
 
@@ -851,8 +849,8 @@ resource_download_url()
 #		local version="${3%.msi}"
 #		version="${version#wine-mono-}"
 #		echo "http://source.winehq.org/winemono.php?v=${version}"
-		echo "http://downloads.sourceforge.net/wine/$3"
-#		echo "$MONO_SITE/$2/$3"
+#		echo "http://downloads.sourceforge.net/wine/$3"
+		echo "$MONO_SITE/$2/$3"
 	fi
 }
 POL_Wine_AutoSetVersionEnv()

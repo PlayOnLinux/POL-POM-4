@@ -13,7 +13,7 @@
 * Modified POL_System_wget to keep error messages from wget
 * Updated PNG icons with broken profiles, thanks to calvertyl
   (http://www.playonlinux.com/en/topic-10442-New_Warning_Message_on_startup.html)
-* Basic wine-mono download support (hardcoded versions list)
+* wine-mono download support
 * Fix POL_SetupWindow_message typo (not enough video memory message) (#2790)
 * POL_LoadVar_Device: let user choose when there's more than one known videocard present
 
