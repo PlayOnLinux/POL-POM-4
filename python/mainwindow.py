@@ -654,6 +654,12 @@ class MainWindow(wx.Frame):
         self.irc.Center(wx.BOTH)
         self.irc.Show(True)
 
+    def UpdateInstructions(self, event):
+        if(os.environ["POL_OS"] == "Mac"):
+            webbrowser.open("http://www.playonmac.com/en/download.html")
+        else:
+            webbrowser.open("http://www.playonlinux.com/en/download.html")
+
     def UpdateGIT(self, event):
         os.system("bash \""+Variables.playonlinux_env+"/bash/update_git\"&")
 
@@ -720,6 +726,9 @@ class MainWindow(wx.Frame):
         if(os.path.exists(os.environ["PLAYONLINUX"]+"/.git/")):
             i+=1
             self.menuGaucheAddLink("pol_git", _("Update GIT"), i,Variables.playonlinux_env+"/resources/images/menu/update_git.png",self.UpdateGIT)
+        elif "POL_UPTODATE" in os.environ and os.environ["POL_UPTODATE"] == "FALSE":
+            i+=1
+            self.menuGaucheAddLink("pol_update", _("Update instructions"), i,Variables.playonlinux_env+"/resources/images/menu/update_git.png",self.UpdateInstructions)
 
         if(shortcut != None):
             i+=2
@@ -944,7 +953,7 @@ class MainWindow(wx.Frame):
     def PolVaultSaveGame(self, event):
         game_exec = self.GetSelectedProgram()
         if(game_exec != ""):
-			os.system('bash "' + Variables.playonlinux_rep + 'plugins/PlayOnLinux Vault/scripts/menu" --app "' + game_exec + '" &')
+            os.system('bash "' + Variables.playonlinux_rep + 'plugins/PlayOnLinux Vault/scripts/menu" --app "' + game_exec + '" &')
         else:
             wx.MessageBox(_("Please select a program."), os.environ["APPLICATION_TITLE"])
 

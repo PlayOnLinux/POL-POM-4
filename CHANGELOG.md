@@ -16,6 +16,8 @@
 * wine-mono download support
 * Fix POL_SetupWindow_message typo (not enough video memory message) (#2790)
 * POL_LoadVar_Device: let user choose when there's more than one known videocard present
+* Add link to download page in side panel when version is not up-to-date (#2677)
+  Not sure it's visible enough, could be improved.
 
 # 4.2.1
 
