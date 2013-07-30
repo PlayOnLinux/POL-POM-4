@@ -365,12 +365,18 @@ POL_LoadVar_Device ()
 		VGA_ID1=`$LSPCI | grep VGA | grep -iE "nvidia|ati|amd|intel"`
 		# More than one card available?
 		if [ $(wc -l <<<"$VGA_ID1") -gt 1 ]; then
-			local OLD_APP_ANSWER="$APP_ANSWER"
 			# Try to put what's probably the main card first
 			VGA_ID1=`grep -iE 'nvidia|ati|amd' <<<"$VGA_ID1"; grep -iE 'intel' <<<"$VGA_ID1"`
-			POL_SetupWindow_menu "$(eval_gettext 'Select the main videocard to report:')" "$TITLE" "$(echo -n "$VGA_ID1"|tr "\n" "~")" "~"
-			VGA_ID1="$APP_ANSWER"
-			APP_ANSWER="$OLD_APP_ANSWER"
+			if [ "$SETUPWINDOW_INIT" = "true" ]; then
+				# Interactive
+				local OLD_APP_ANSWER="$APP_ANSWER"
+				POL_SetupWindow_menu "$(eval_gettext 'Select the main videocard to report:')" "$TITLE" "$(echo -n "$VGA_ID1"|tr "\n" "~")" "~"
+				VGA_ID1="$APP_ANSWER"
+				APP_ANSWER="$OLD_APP_ANSWER"
+			else
+				# Non-interactive: pick first
+				VGA_ID1=`head -n1 <<<"$VGA_ID1"`
+			fi
 		fi
 		VGA_ID1=`cut -d" " -f1 <<<"$VGA_ID1"`
 		VGA_ID2=`$LSPCI -n | grep "$VGA_ID1" | cut -d" " -f3`
