@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2013-07-22 19:00+0200\n"
-"PO-Revision-Date: 2013-06-19 15:44+0000\n"
-"Last-Translator: Aymeric PETIT <mulx@aplu.fr>\n"
+"POT-Creation-Date: 2013-07-29 19:00+0200\n"
+"PO-Revision-Date: 2013-07-28 21:58+0000\n"
+"Last-Translator: Tiago S. <Unknown>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-07-23 04:45+0000\n"
+"X-Launchpad-Export-Date: 2013-07-30 04:36+0000\n"
 "X-Generator: Launchpad (build 16700)\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -251,9 +251,9 @@ msgstr "Por favor insira o CD do jogo na drive"
 #: PlayOnLinux_Scripts/Ableton_Live_9_:44 PlayOnLinux_Scripts/Absynth_5_:34
 #: PlayOnLinux_Scripts/Age_Of_Empires_II___The_Age_of_Kings_:63
 #: PlayOnLinux_Scripts/Age_Of_Wonders_:50 PlayOnLinux_Scripts/Alan_Wake_:75
-#: PlayOnLinux_Scripts/Alien_Breed_2___Assault_:76
-#: PlayOnLinux_Scripts/Alien_Breed_3___Descent_:76
-#: PlayOnLinux_Scripts/Alien_Breed___Impact_:76
+#: PlayOnLinux_Scripts/Alien_Breed_2___Assault_:81
+#: PlayOnLinux_Scripts/Alien_Breed_3___Descent_:80
+#: PlayOnLinux_Scripts/Alien_Breed___Impact_:79
 #: PlayOnLinux_Scripts/Amazon_Kindle_:35
 #: PlayOnLinux_Scripts/Assassin_s_Creed_:67
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Revelations_:96
@@ -265,7 +265,9 @@ msgstr "Por favor insira o CD do jogo na drive"
 #: PlayOnLinux_Scripts/Batman_Arkham_City_:73
 #: PlayOnLinux_Scripts/Batman_Arkham_City_:92 PlayOnLinux_Scripts/Bioshock_:93
 #: PlayOnLinux_Scripts/Brink_:66 PlayOnLinux_Scripts/Brink_:79
-#: PlayOnLinux_Scripts/Civilization_V_:34 PlayOnLinux_Scripts/Diablo_II_:51
+#: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_:65
+#: PlayOnLinux_Scripts/Diablo_II_:51
+#: PlayOnLinux_Scripts/Dragon_Age_2___DLC_:40
 #: PlayOnLinux_Scripts/Dreamweaver_8_:22 PlayOnLinux_Scripts/EVE_online_:81
 #: PlayOnLinux_Scripts/FEZ__Steam__:49 PlayOnLinux_Scripts/FL_Studio_10_:33
 #: PlayOnLinux_Scripts/Far_Cry_2_:80 PlayOnLinux_Scripts/Flash_8_:22
@@ -296,7 +298,8 @@ msgstr "Por favor insira o CD do jogo na drive"
 #: PlayOnLinux_Scripts/Publish_or_Perish_:46 PlayOnLinux_Scripts/Q.U.B.E_:101
 #: PlayOnLinux_Scripts/Rayman_Origins_:72
 #: PlayOnLinux_Scripts/Rayman_Origins_:90 PlayOnLinux_Scripts/Reason_5_:29
-#: PlayOnLinux_Scripts/Rfactor_:48 PlayOnLinux_Scripts/Runes_Of_Magic_:44
+#: PlayOnLinux_Scripts/Red_Faction_:49 PlayOnLinux_Scripts/Rfactor_:48
+#: PlayOnLinux_Scripts/Runes_Of_Magic_:44
 #: PlayOnLinux_Scripts/SFR_LiberTalk_:42
 #: PlayOnLinux_Scripts/Secret_of_Monkey_Island_Special_Edition_:79
 #: PlayOnLinux_Scripts/Spotify_:65 PlayOnLinux_Scripts/Star_Twine_:80
@@ -376,9 +379,9 @@ msgid "Please wait while $TITLE is installed."
 msgstr "Por favor aguarde enquanto $TITLE é instalado"
 
 #: PlayOnLinux_Scripts/Alan_Wake_:81
-#: PlayOnLinux_Scripts/Alien_Breed_2___Assault_:69
-#: PlayOnLinux_Scripts/Alien_Breed_3___Descent_:69
-#: PlayOnLinux_Scripts/Alien_Breed___Impact_:69
+#: PlayOnLinux_Scripts/Alien_Breed_2___Assault_:74
+#: PlayOnLinux_Scripts/Alien_Breed_3___Descent_:73
+#: PlayOnLinux_Scripts/Alien_Breed___Impact_:73
 #: PlayOnLinux_Scripts/Alien_Swarm_:37 PlayOnLinux_Scripts/Anno_2070_Steam_:81
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_:81
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_:88
@@ -414,12 +417,14 @@ msgstr ""
 "Jogar.\\n\\nFeche COMPLETAMENTE a interface do Steam,\\nde modo a que o "
 "script de instalação continue."
 
-#: PlayOnLinux_Scripts/Alien_Breed_2___Assault_:83
-#: PlayOnLinux_Scripts/Alien_Breed_3___Descent_:83
-#: PlayOnLinux_Scripts/Alien_Breed___Impact_:83
+#: PlayOnLinux_Scripts/Alien_Breed_2___Assault_:88
+#: PlayOnLinux_Scripts/Alien_Breed_3___Descent_:87
+#: PlayOnLinux_Scripts/Alien_Breed___Impact_:86
 #, sh-format
-msgid "If .NET 3.0 installation fail, dont"
-msgstr "Se a instalação do .NET 2.0 falhar, não"
+msgid "If .NET 3.0 installation fail, dont worry\\nthe game will still work"
+msgstr ""
+"Se a instalação de .NET 3.0 falhar, não se\\npreocupe que o jogo irá "
+"funcionar."
 
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:30
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:40
@@ -446,11 +451,9 @@ msgstr "Não precisa de instalar Directx ou de usar GLSetup."
 msgid "Please select the setup file to run."
 msgstr "Por favor, escolha o ficheiro de configuração a executar."
 
-#: PlayOnLinux_Scripts/Alt.Binz_:60 PlayOnLinux_Scripts/Company_of_Heroes_:73
-#: PlayOnLinux_Scripts/Geoplan_Geospace_:34
+#: PlayOnLinux_Scripts/Alt.Binz_:60 PlayOnLinux_Scripts/Geoplan_Geospace_:34
 #: PlayOnLinux_Scripts/ISIS_Draw_2.3_:34
-#: PlayOnLinux_Scripts/Mozilla_Firefox_:205
-#: PlayOnLinux_Scripts/Pro_Pilkki_2_:64 PlayOnLinux_Scripts/The_Sims_3_:51
+#: PlayOnLinux_Scripts/Mozilla_Firefox_:205 PlayOnLinux_Scripts/The_Sims_3_:51
 #: PlayOnLinux_Scripts/Theme_Hospital_:66 PlayOnLinux_Scripts/Tree[d]_:61
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:97
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:67
@@ -460,9 +463,8 @@ msgstr "$TITLE foi instalado com sucesso"
 
 #: PlayOnLinux_Scripts/Anno_1602_:76
 #: PlayOnLinux_Scripts/Mount_and_Blade___Warband_:82
-#: PlayOnLinux_Scripts/PlanetSide_2_:49 PlayOnLinux_Scripts/Safari_:77
+#: PlayOnLinux_Scripts/Safari_:77
 #: PlayOnLinux_Scripts/Windows_Media_Player_10_:80
-#: PlayOnLinux_Scripts/World_Of_Tanks_:62
 #, sh-format
 msgid "$TITLE has been installed successfully."
 msgstr "$TITLE foi instalado com sucesso."
@@ -486,9 +488,8 @@ msgstr "Por favor, coloque o disco do jogo na drive respectiva."
 #: PlayOnLinux_Scripts/Borderlands_:78 PlayOnLinux_Scripts/Cars_2_:52
 #: PlayOnLinux_Scripts/Clive_Barker_s_Jericho_:74
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Kane_s_Wrath_:115
-#: PlayOnLinux_Scripts/CreaVures_:53
-#: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_:61
-#: PlayOnLinux_Scripts/Dead_Space_:62 PlayOnLinux_Scripts/Dead_Space_2_:85
+#: PlayOnLinux_Scripts/CreaVures_:53 PlayOnLinux_Scripts/Dead_Space_:62
+#: PlayOnLinux_Scripts/Dead_Space_2_:85
 #: PlayOnLinux_Scripts/Devil_May_Cry_4_:62
 #: PlayOnLinux_Scripts/Dragon_Age_2_:65
 #: PlayOnLinux_Scripts/Dragon_Age___Awakening_:56
@@ -518,9 +519,6 @@ msgstr "Por favor seleccione o ficheiro de configuração a executar:"
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:29
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:29
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Patch_1.02_:24
-#: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:23
-#: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:23
-#: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:23
 #: PlayOnLinux_Scripts/Bioshock_Patch_1.1_:29
 #: PlayOnLinux_Scripts/Command_And_Conquer_3_Patch_1.09_:28
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Kane_s_Wrath_Patch_1.02_:28
@@ -531,10 +529,19 @@ msgstr "Benvindo ao instalador do patch $PVERSION para $TITLE"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:34
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:34
+#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:31
+#: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:31
+#: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:31
+#: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:31
 #: PlayOnLinux_Scripts/Bioshock_Patch_1.1_:34
 #: PlayOnLinux_Scripts/Borderlands_Patch_1.41_:30
 #: PlayOnLinux_Scripts/CivCity_Rome_Patch_1.1_:33
+#: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_Patch_1.02_:33
+#: PlayOnLinux_Scripts/Dragon_Age_2_Patch_1.03_:33
+#: PlayOnLinux_Scripts/Dragon_Age_2___DLC_:30
 #: PlayOnLinux_Scripts/Far_Cry_2_Patch_1.03_:34
+#: PlayOnLinux_Scripts/GOG.com___Fez_Patch_:34
+#: PlayOnLinux_Scripts/GOG.com___Populous_3__The_Beginning___High_resolution_patch_:39
 #: PlayOnLinux_Scripts/League_of_Legends__ingame_shop_icons_fix_:29
 #: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:29
 #: PlayOnLinux_Scripts/World_Of_Warcraft___Wrath_of_the_Lich_King_:29
@@ -556,7 +563,7 @@ msgstr "O Steam tem o seu sistema de actualizações automáticas."
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:57
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:57
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Patch_1.02_:50
-#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:40
+#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:43
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:43
 #: PlayOnLinux_Scripts/Bioshock_Patch_1.1_:57
 #: PlayOnLinux_Scripts/Borderlands_Patch_1.41_:50
@@ -564,12 +571,12 @@ msgstr "O Steam tem o seu sistema de actualizações automáticas."
 #: PlayOnLinux_Scripts/Command_And_Conquer_3_Patch_1.09_:67
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Kane_s_Wrath_Patch_1.02_:67
 #: PlayOnLinux_Scripts/Command_And_Conquer___Red_Alert_3_Patch_1.12_:58
-#: PlayOnLinux_Scripts/Dragon_Age_2_Patch_1.03_:52
+#: PlayOnLinux_Scripts/Dragon_Age_2_Patch_1.03_:54
 #: PlayOnLinux_Scripts/Dragon_Age_Patch_1.04_:53
 #: PlayOnLinux_Scripts/Fallout_3_Patch_1.07_:51
 #: PlayOnLinux_Scripts/Far_Cry_2_Patch_1.03_:56
 #: PlayOnLinux_Scripts/Mass_Effect_2_Patch_1.02_:51
-#: PlayOnLinux_Scripts/Red_Faction_:55
+#: PlayOnLinux_Scripts/Red_Faction_:60
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_Patch_1.2.0416_:52
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_Patch_1.35_:51
 #: PlayOnLinux_Scripts/The_Witcher_2___Enhanced_Edition_Patch_:51
@@ -587,7 +594,7 @@ msgstr "Seleccione o patch a executar"
 #: PlayOnLinux_Scripts/Clive_Barker_s_Jericho_:58
 #: PlayOnLinux_Scripts/Command_And_Conquer___Red_Alert_3_:67
 #: PlayOnLinux_Scripts/Command_And_Conquer___Red_Alert_3___Uprising_:61
-#: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_:49
+#: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_:53
 #: PlayOnLinux_Scripts/Dead_Space_:50 PlayOnLinux_Scripts/Devil_May_Cry_4_:50
 #: PlayOnLinux_Scripts/Dragon_Age_2_:53
 #: PlayOnLinux_Scripts/Dragon_Age___Awakening_:44
@@ -615,18 +622,12 @@ msgstr ""
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Patch_1.02_:29
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_:31
-#: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:28
-#: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:28
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_:31
-#: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:28
 #: PlayOnLinux_Scripts/Command_And_Conquer_3_Patch_1.09_:34
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Kane_s_Wrath_:36
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Kane_s_Wrath_Patch_1.02_:34
 #: PlayOnLinux_Scripts/Command_And_Conquer___Red_Alert_3_Patch_1.12_:35
 #: PlayOnLinux_Scripts/Command_And_Conquer___Red_Alert_3___Uprising_:36
-#: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_Patch_1.02_:30
-#: PlayOnLinux_Scripts/Dragon_Age_2_Patch_1.03_:29
-#: PlayOnLinux_Scripts/Dragon_Age_2___DLC_:28
 #: PlayOnLinux_Scripts/Dragon_Age_Patch_1.04_:29
 #: PlayOnLinux_Scripts/Dragon_Age___Awakening_:28
 #: PlayOnLinux_Scripts/Fallout_3_Patch_1.07_:28
@@ -648,7 +649,7 @@ msgstr "O jogo não está instalado."
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Kane_s_Wrath_Patch_1.02_:48
 #: PlayOnLinux_Scripts/Command_And_Conquer___Red_Alert_3_Patch_1.12_:49
 #: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_Patch_1.02_:44
-#: PlayOnLinux_Scripts/Dragon_Age_2_Patch_1.03_:43
+#: PlayOnLinux_Scripts/Dragon_Age_2_Patch_1.03_:44
 #: PlayOnLinux_Scripts/Dragon_Age_Patch_1.04_:43
 #: PlayOnLinux_Scripts/Fallout_3_Patch_1.07_:42
 #: PlayOnLinux_Scripts/Mass_Effect_2_Patch_1.02_:42
@@ -684,7 +685,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Revelations_:74
 #: PlayOnLinux_Scripts/Baldur_s_Gate_:43 PlayOnLinux_Scripts/Baldur_s_Gate_:80
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_:43 PlayOnLinux_Scripts/Far_Cry_2_:62
-#: PlayOnLinux_Scripts/Freelancer_:51
 #: PlayOnLinux_Scripts/Prince_of_Persia___The_Forgotten_Sands_:60
 #: PlayOnLinux_Scripts/Sacrifice_:45
 #: PlayOnLinux_Scripts/Star_Wars___The_Force_Unleashed___Ultimate_Sith_Edition_:118
@@ -717,45 +717,47 @@ msgstr ""
 msgid "Please insert the next game media into your disk drive"
 msgstr "Por favor, insira o próximo disco na drive respectiva"
 
-#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:24
+#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:27
+#: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:28
+#: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:28
+#: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:28
+#: PlayOnLinux_Scripts/CivCity_Rome_Patch_1.1_:30
+#: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_Patch_1.02_:30
+#: PlayOnLinux_Scripts/Dragon_Age_2_Patch_1.03_:30
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_Patch_1.2.0416_:23
 #, sh-format
-msgid "Welcome in the patch $PVERSION Installer for $TITLE_REQUIRED"
-msgstr ""
+msgid "Welcome in the patch $PVERSION installer for $TITLE_REQUIRED"
+msgstr "Benvindo ao instalador do patch $PVERSION para $TITLE_REQUIRED"
 
-#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:28
-#: PlayOnLinux_Scripts/GOG.com___Fez_Patch_:30
-#: PlayOnLinux_Scripts/GOG.com___Populous_3__The_Beginning___High_resolution_patch_:35
-#, sh-format
-msgid ""
-"This is an installer for an update;\\nPlease install $TITLE_REQUIRED first"
-msgstr ""
-
-#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:45
-#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:46
+#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:48
+#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:49
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:48
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:49
 #, sh-format
 msgid "English version"
 msgstr "Versão inglesa"
 
-#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:45
+#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:48
+#: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:48
+#: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:51
+#: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:51
 #, sh-format
 msgid "International version"
-msgstr ""
+msgstr "Versão Internacional"
 
-#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:45
-#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:49
+#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:48
+#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:52
 #, sh-format
 msgid "Italian version"
 msgstr "Versão italiana"
 
-#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:45
-#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:52
+#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:48
+#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:55
 #, sh-format
 msgid "Japanese version"
 msgstr "Versão japonesa"
 
-#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:45
+#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:48
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:48
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:51
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:51
@@ -765,44 +767,21 @@ msgstr "Versão japonesa"
 msgid "Which version do you have?"
 msgstr "Que versão possui?"
 
-#: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:59
-#, sh-format
-msgid ""
-"Wait while the patch is downloading...\\nThis operation can take time, "
-"depending of your connection."
-msgstr ""
-
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_:68
 #, sh-format
 msgid "This addon automatically install patch 2.5.26461"
 msgstr "Este complemento irá instalar automaticamente o patch 2.5.26461"
 
-#: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:48
-#: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:51
-#: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:51
-#, sh-format
-msgid "Internationnal version"
-msgstr "Versão internacional"
-
-#: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:56
-#: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:63
-#: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:68
-#, sh-format
-msgid ""
-"Wait while the 1st patch is downloading...\\nThis operation can take time, "
-"depending of your connexion."
-msgstr ""
-"Aguarde enquanto o primeiro patch é descarregado...\\nEsta operação pode "
-"levar algum tempo dependendo da sua ligação."
-
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:43
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:43
+#: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_Patch_1.02_:54
 #, sh-format
 msgid "Select first patch to execute"
 msgstr "Escolha o primeiro patch a ser executado."
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:46
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:46
+#: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_Patch_1.02_:57
 #, sh-format
 msgid "Select second patch to execute"
 msgstr "Escolha o segundo patch a ser executado."
@@ -815,23 +794,13 @@ msgstr "Escolha o segundo patch a ser executado."
 msgid "US or Canadian version"
 msgstr "Versão americana ou canadiana"
 
-#: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:64
-#: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:69
-#, sh-format
-msgid ""
-"Wait while the 2nd patch is downloading...\\nThis operation can take time, "
-"depending of your connexion."
-msgstr ""
-"Aguarde enquanto o segundo patch é descarregado...\\nEsta operação pode "
-"levar algum tempo dependendo da sua ligação."
-
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_:68
 #, sh-format
 msgid "This addon automatically install patch 1.3.5511"
 msgstr "Este complemento instala automaticamente o patch 1.3.5511"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:51
-#: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:57
+#: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:59
 #, sh-format
 msgid "UK version"
 msgstr "Versão inglesa"
@@ -896,7 +865,6 @@ msgid "Normal version"
 msgstr "Versão normal"
 
 #: PlayOnLinux_Scripts/Borderlands_Patch_1.41_:27
-#: PlayOnLinux_Scripts/Dragon_Age_2_Patch_1.03_:24
 #: PlayOnLinux_Scripts/Dragon_Age_Patch_1.04_:24
 #: PlayOnLinux_Scripts/Fallout_3_Patch_1.07_:23
 #: PlayOnLinux_Scripts/Far_Cry_2_Patch_1.03_:29
@@ -970,11 +938,69 @@ msgstr ""
 "Não se esqueça de fechar o Steam quando o download\\ntiver terminado, de "
 "modo a que $APPLICATION_TITLE possa continuar \\na instalar o jogo."
 
-#: PlayOnLinux_Scripts/CivCity_Rome_Patch_1.1_:30
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_Patch_1.2.0416_:23
+#: PlayOnLinux_Scripts/Civilization_IV__Complete_Edition_:72
 #, sh-format
-msgid "Welcome in the patch $PVERSION installer for $TITLE_REQUIRED"
+msgid ""
+"Steam is about to perform an update.\\nAfter Steam finishes updating and "
+"shows you to the login interface, login and then let $TITLE install.\\n\\"
+"nWhen the installation is finished, press next (Do not close Steam)"
 msgstr ""
+"O Steam vai fazer uma actualização.\\nDepois de o Steam terminar a "
+"actualização e mostrar-lhe a insterface de acesso, faça o login e deixe "
+"$TITLE instalar.\\n\\nQuando a instalação tiver terminado, prima "
+"\"Seguinte\" (Não feche o Steam)."
+
+#: PlayOnLinux_Scripts/Civilization_IV__Complete_Edition_:75
+#, sh-format
+msgid ""
+"Steam is installing $TITLEW, press next when the installation is finished"
+msgstr ""
+"O Steam está a instalar $TITLEW, prima \"Seguinte\" quando a instalação "
+"tiver terminado."
+
+#: PlayOnLinux_Scripts/Civilization_IV__Complete_Edition_:78
+#, sh-format
+msgid ""
+"Steam is installing $TITLEBTS, press next when the installation is finished"
+msgstr ""
+"O Steam está a instalar $TITLEBTS, prima \"Seguinte\" quando a instalação "
+"tiver terminado."
+
+#: PlayOnLinux_Scripts/Civilization_IV__Complete_Edition_:81
+#, sh-format
+msgid ""
+"Steam is installing $TITLECOL, please quit Steam properly when the "
+"installation is finished (make sure Steam is not still in the traybar) and "
+"then press next so that the installation script can continue."
+msgstr ""
+"O Steam está a instalar $TITLECOL, saia do Steam quando a instalação tiver "
+"terminado (certifique-se que o Steam não está na barra de tarefas) e prima "
+"\"Seguinte\" de modo a que o script de instalação continue."
+
+#: PlayOnLinux_Scripts/Civilization_IV__Complete_Edition_:107
+#, sh-format
+msgid ""
+"Installation finished\\n\\nThe game might crash on the first attempt, but no "
+"worries, just try one more time."
+msgstr ""
+"Instalação terminada\\n\\nO jogo pode bloquear no primeiro arranque. Não se "
+"preocupe e tente novamente."
+
+#: PlayOnLinux_Scripts/Civilization_V_:49
+#, sh-format
+msgid "Please select $TITLE install file:"
+msgstr "Por favor seleccione o ficheiro de instalação $TITLE :"
+
+#: PlayOnLinux_Scripts/Civilization_V_:60
+#, sh-format
+msgid ""
+"Steam is about to perform an update.\\nAfter Steam finishes updating and "
+"shows you to the login interface, login and then let $TITLE install.\\n\\"
+"nWhen the installation is finished, press next"
+msgstr ""
+"O Steam vai fazer uma actualização.\\nDepois de o Steam actualizar vai "
+"mostrar o interface de acesso. Autentique-se e deixe $TITLE instalar.\\n\\"
+"nQuando a instalção tiver terminado prima \"Sequinte\"."
 
 #: PlayOnLinux_Scripts/Command_And_Conquer_3_Patch_1.09_:54
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Kane_s_Wrath_:62
@@ -1024,19 +1050,8 @@ msgstr ""
 "ISO pode funcionar para algum software, mas sabe-se que não funciona nesta "
 "situação."
 
-#: PlayOnLinux_Scripts/Company_of_Heroes_:65
-#, sh-format
-msgid "Install $TITLE in Steam."
-msgstr "Instalar $TITLE no Steam."
-
-#: PlayOnLinux_Scripts/Company_of_Heroes_:67
-#: PlayOnLinux_Scripts/Freelancer_:54 PlayOnLinux_Scripts/Pro_Pilkki_2_:54
-#, sh-format
-msgid "Error while installing game."
-msgstr "Erro ao instalar o jogo."
-
-#: PlayOnLinux_Scripts/DC_Universe_Online_:44
-#: PlayOnLinux_Scripts/PlanetSide_2_:40
+#: PlayOnLinux_Scripts/DC_Universe_Online_:51
+#: PlayOnLinux_Scripts/PlanetSide_2_:47
 #, sh-format
 msgid ""
 "Attention: After installation is complete, the patcher will load. Please "
@@ -1047,52 +1062,6 @@ msgstr ""
 "carregar. Por favor, feche o instalador de patches antes de autenticar para "
 "completar a instalação. Depois disso, pode correr \"$TITLE\" quando a "
 "configuração estiver completa."
-
-#: PlayOnLinux_Scripts/DC_Universe_Online_:53
-#, sh-format
-msgid "$TITLE has been installed successfully. See you on the Battle Field!"
-msgstr "$TITLE foi instalado com sucesso. Ve-mo-nos no campo de batalha!"
-
-#: PlayOnLinux_Scripts/DC_Universe_Online_:53
-#: PlayOnLinux_Scripts/PlanetSide_2_:49 PlayOnLinux_Scripts/Soldat_:28
-#: PlayOnLinux_Scripts/World_Of_Tanks_:62
-#, sh-format
-msgid "Installation finished"
-msgstr "Instalação concluída"
-
-#: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_Patch_1.02_:25
-#, sh-format
-msgid "Welcome in the patch $PVERSION1 and $PVERSION2 installer for $TITLE"
-msgstr "Benvindo ao instalador do patch $PVERSION1 e $PVERSION2 para $TITLE"
-
-#: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_Patch_1.02_:52
-#, sh-format
-msgid "Select 1st patch to execute"
-msgstr "Escolha o 1º patch a ser executado."
-
-#: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_Patch_1.02_:55
-#, sh-format
-msgid "Select 2nd patch to execute"
-msgstr "Escolha o 2º patch a ser executado."
-
-#: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_Patch_1.02_:64
-#: PlayOnLinux_Scripts/Dragon_Age_2_Patch_1.03_:59
-#, sh-format
-msgid ""
-"Wait while the 1st patch is downloading...\\nThis operation can take time, "
-"depending of you connexion."
-msgstr ""
-"A aguardar a transferência do 1º patch...\\nEsta opração pode levar algum "
-"tempo, dependendo da sua conexão."
-
-#: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_Patch_1.02_:65
-#, sh-format
-msgid ""
-"Wait while the 2nd patch is downloading...\\nThis operation can take time, "
-"depending of you connexion."
-msgstr ""
-"A aguardar a transferência do 2º patch...\\nEsta opração pode levar algum "
-"tempo, dependendo da sua conexão."
 
 #: PlayOnLinux_Scripts/Dead_Space_2_:59
 #: PlayOnLinux_Scripts/Fable___The_Lost_Chapters_:69
@@ -1159,17 +1128,6 @@ msgstr ""
 "Se tiver o Erro 3007 ao conectar, abra o terminal e escreva:\\necho 0|sudo "
 "tee /proc/sys/kernel/yama/ptrace_scope"
 
-#: PlayOnLinux_Scripts/Diablo_II___Lord_Of_Destruction_:29
-#, sh-format
-msgid "Please insert $TITLE disc"
-msgstr "Por favor, insira o disco de $TITLE"
-
-#: PlayOnLinux_Scripts/Diablo_II___Lord_Of_Destruction_:43
-#: PlayOnLinux_Scripts/Soldat_:28
-#, sh-format
-msgid "$TITLE has been installed successfully"
-msgstr "$TITLE foi instalado com sucesso."
-
 #: PlayOnLinux_Scripts/DmC__Devil_May_Cry_:69
 #, sh-format
 msgid ""
@@ -1187,21 +1145,10 @@ msgid "If the setup request DirectX installation, answer no."
 msgstr ""
 "Se o assistente de instalação pedir a instalação do DirectX, responda Não."
 
-#: PlayOnLinux_Scripts/Dragon_Age_2___DLC_:23
+#: PlayOnLinux_Scripts/Dragon_Age_2___DLC_:27
 #, sh-format
-msgid "Welcome in the DLCs Installer for $TITLE"
-msgstr "Benvindo ao instalador de DLCs do $TITLE."
-
-#: PlayOnLinux_Scripts/Dragon_Age_2___DLC_:41
-#: PlayOnLinux_Scripts/Fallout_3___DLC_:39
-#, sh-format
-msgid "Select a DLC to install"
-msgstr "Selecione um DLC para instalar"
-
-#: PlayOnLinux_Scripts/Dragon_Age_2___DLC_:46
-#, sh-format
-msgid "DLC for $TITLE has been\\ninstalled successfully."
-msgstr "O DLC para $TITLE foi\\ninstalado com sucesso."
+msgid "Welcome in the DLCs Installer for $TITLE_REQUIRED"
+msgstr "Bemvindo ao instalador para $TITLE_REQUIRED"
 
 #: PlayOnLinux_Scripts/Dragon_Age___Awakening_:64
 #, sh-format
@@ -1232,6 +1179,9 @@ msgid ""
 "/home/ folder if you will use online installer.\\nRecommend using offline "
 "installer."
 msgstr ""
+"Requer cerca de 18Gb de espaço livre.\\n\\nIrá necessitar de mais 5Gb na sua "
+"pasta /home/ se utilizar o instalador online.\\nRecomendamos que use o "
+"instalador offline."
 
 #: PlayOnLinux_Scripts/EVE_online_:76
 #, sh-format
@@ -1250,8 +1200,8 @@ msgstr "Que abrir a página de transferências de $TITLE no seu navegador?"
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:116 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:1129
-#: lib/wine.lib:1159
+#: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:1138
+#: lib/wine.lib:1168
 #, sh-format
 msgid "Please wait..."
 msgstr "Por favor aguarde..."
@@ -1339,15 +1289,10 @@ msgstr ""
 msgid "Welcome in the DLC Installer for $TITLE"
 msgstr "Benvindo ao instalador de DLCs para $TITLE."
 
-#: PlayOnLinux_Scripts/Freelancer_:76 PlayOnLinux_Scripts/Red_Faction_:75
+#: PlayOnLinux_Scripts/Fallout_3___DLC_:39
 #, sh-format
-msgid "Error while installing patch."
-msgstr "Erro ao instalar o patch."
-
-#: PlayOnLinux_Scripts/Freelancer_:85
-#, sh-format
-msgid "$TITLE and $PATCHVERSION patch has been successfully installed."
-msgstr "$TITLE e o patch $PATCHVERSION foram instalados com sucesso."
+msgid "Select a DLC to install"
+msgstr "Selecione um DLC para instalar"
 
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:29
 #: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:40
@@ -1667,13 +1612,13 @@ msgstr "(janela)"
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:60
 #, sh-format
 msgid "Language"
-msgstr ""
+msgstr "Idioma"
 
 #: PlayOnLinux_Scripts/GOG.com___Sensible_World_of_Soccer_96_97_:58
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:46
 #, sh-format
 msgid "What is your preferred language?"
-msgstr ""
+msgstr "Qual o seu idioma preferido?"
 
 #: PlayOnLinux_Scripts/GOG.com___Starflight_1_and_2_:20
 #, sh-format
@@ -1683,13 +1628,13 @@ msgstr "Roda de Códigos"
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:55
 #, sh-format
 msgid "Do you have a language pack to install?"
-msgstr ""
+msgstr "Tem algum pacote de idiomas para instalar?"
 
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:55
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:59
 #, sh-format
 msgid "Later"
-msgstr ""
+msgstr "Mais Tarde"
 
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:60
 #, sh-format
@@ -1697,6 +1642,9 @@ msgid ""
 "To install a language pack later, open the configuration panel for the game "
 "in order to execute the installer into the virtual disk (Misc tab)"
 msgstr ""
+"Para instalar o pacote de idiomas mais tarde, abra o painel de configurações "
+"para o jogo de forma a executar o instalador num disco virtual (separador "
+"Misc)."
 
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_:58
 #, sh-format
@@ -1865,7 +1813,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Inno_Setup_:30
 #, sh-format
 msgid "Do you want to install the unicode version of Inno Setup?"
-msgstr ""
+msgstr "Quer instalar a versão Unicode do configurador Inno?"
 
 #: PlayOnLinux_Scripts/Internet_Explorer_6_:76
 #: PlayOnLinux_Scripts/Internet_Explorer_6_Service_Pack_1_:68
@@ -2224,7 +2172,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_dotnet30_:15
 #, sh-format
 msgid "Open $URL now?"
-msgstr ""
+msgstr "Abrir $URL agora?"
 
 #: PlayOnLinux_Scripts/POL_Install_dotnet30_:49
 #, sh-format
@@ -2302,12 +2250,12 @@ msgstr "A instalar os ficheiros dll de Linuxtrack-wine..."
 #: PlayOnLinux_Scripts/POL_Install_mfc42_:12
 #, sh-format
 msgid "Installing mfc42 DLLs..."
-msgstr ""
+msgstr "A instalar mfc42 DLLs..."
 
 #: PlayOnLinux_Scripts/POL_Install_msasn1_:11
 #, sh-format
 msgid "Installing msasn1 DLL..."
-msgstr ""
+msgstr "A instalar msasn1 DLLs..."
 
 #: PlayOnLinux_Scripts/POL_Install_steam_:24
 #, sh-format
@@ -2332,6 +2280,7 @@ msgstr "A instalar as rotinas Visual Basic"
 msgid ""
 "Warning : vcrun2005 seems to be already installed.\\nForcing reinstallation."
 msgstr ""
+"Aviso: vcrun2005 parece já estar instalado.\\nA forçar a reinstalação."
 
 #: PlayOnLinux_Scripts/POL_Install_vcrun2008_:37
 #, sh-format
@@ -2368,7 +2317,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_wintrust_:11
 #, sh-format
 msgid "Installing wintrust DLL..."
-msgstr ""
+msgstr "A instalar wintrust DLLs..."
 
 #: PlayOnLinux_Scripts/POL_Install_xact_:14
 #, sh-format
@@ -2383,7 +2332,7 @@ msgstr "A instalar os ficheiros dll de Xinput..."
 #: PlayOnLinux_Scripts/POL_Install_xmllite_:14
 #, sh-format
 msgid "Installing XMLlite..."
-msgstr ""
+msgstr "A instalar XMLlite..."
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:1
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:20
@@ -2524,7 +2473,7 @@ msgstr ""
 "Para continuar, PlayOnLinux precisa de remontar a drive de CD-ROM com a "
 "opção \"desocultar\"."
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:16 lib/wine.lib:936
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:16 lib/wine.lib:945
 #, sh-format
 msgid "Abort installation"
 msgstr "Abortar a instalação"
@@ -2549,7 +2498,7 @@ msgstr "Já o reparei. Apenas testar novamente."
 msgid "The program needs access to ptrace() to proceed:"
 msgstr "Este programa precisa de aceder ao ptrace() para continuar:"
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:28 lib/wine.lib:965
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:28 lib/wine.lib:974
 #, sh-format
 msgid "User abort"
 msgstr "Abortar manualmente"
@@ -2647,15 +2596,13 @@ msgid ""
 "not have this issue."
 msgstr ""
 
-#: PlayOnLinux_Scripts/Red_Faction_:87
+#: PlayOnLinux_Scripts/Red_Faction_:87 PlayOnLinux_Scripts/Terraria_:66
 #, sh-format
 msgid ""
-"$TITLE and patch has been successfully installed.\\n\\nIf the game crashes "
-"at startup, open a terminal and type:\\necho 0|sudo tee "
+"If the game crashes at startup, open a terminal and type:\\necho 0|sudo tee "
 "/proc/sys/kernel/yama/ptrace_scope"
 msgstr ""
-"$TITLE e o patch foram instalados com sucesso.\\n\\nSe o jogo bloquear ao "
-"arrancar, abra o terminal e escreva:\\necho 0|sudo tee "
+"Se o jogo bloquear ao iniciar, abra o terminal e escreva:\\necho 0|sudo tee "
 "/proc/sys/kernel/yama/ptrace_scope"
 
 #: PlayOnLinux_Scripts/Rfactor_:59
@@ -2764,15 +2711,6 @@ msgstr ""
 "Instalar o Terraria no Steam. Inicie o Terraria quando o Steam tiver "
 "instalado o jogo. O Steam instala em conjunto as rotinas XNA para o jogo. "
 "Depois disso feche o Steam para o instalador continuar."
-
-#: PlayOnLinux_Scripts/Terraria_:66
-#, sh-format
-msgid ""
-"If the game crashes at startup, open a terminal and type:\\necho 0|sudo tee "
-"/proc/sys/kernel/yama/ptrace_scope"
-msgstr ""
-"Se o jogo bloquear ao iniciar, abra o terminal e escreva:\\necho 0|sudo tee "
-"/proc/sys/kernel/yama/ptrace_scope"
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:56
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:81
@@ -2932,7 +2870,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_:84
 #, sh-format
 msgid "Please insert nest media into your disk drive"
-msgstr ""
+msgstr "Por favor insira o próximo disco na drive respectiva"
 
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_Patch_1.35_:28
 #: PlayOnLinux_Scripts/The_Witcher_2___Enhanced_Edition_Patch_:28
@@ -3077,7 +3015,7 @@ msgid ""
 "Your browser will pop, download patch from it and uncompress it please"
 msgstr "Seu navegador irá abrir, por favor descarregue e descompacte o patch"
 
-#: PlayOnLinux_Scripts/World_Of_Tanks_:52
+#: PlayOnLinux_Scripts/World_Of_Tanks_:59
 #, sh-format
 msgid ""
 "Attention: After installation is complete, the patcher will load. Please "
@@ -3495,7 +3433,7 @@ msgstr "Instalador de $APPLICATION_TITLE do Gecko"
 #: bash/install_mono:25
 #, sh-format
 msgid "$APPLICATION_TITLE Mono installer"
-msgstr ""
+msgstr "Instalador Mono $APPLICATION_TITLE"
 
 #: bash/install_wver:27
 #, sh-format
@@ -4203,7 +4141,7 @@ msgstr ""
 "processo de instalação.\\nVisite www.$POL_DNS para mais informações."
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:928 lib/wine.lib:1009
+#: lib/wine.lib:937 lib/wine.lib:1018
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr "Por favor, aguarde enquanto a unidade virtual está a ser criada..."
@@ -4467,9 +4405,9 @@ msgstr ""
 "script novamente."
 
 #: lib/setupwindow.lib:122 python/guiv3.py:743 python/lib/irc.py:291
-#: python/mainwindow.py:1126 python/mainwindow.py:1156
-#: python/mainwindow.py:1170 python/mainwindow.py:1179
-#: python/mainwindow.py:1191 python/mainwindow.py:1203 python/wrapper.py:121
+#: python/mainwindow.py:1135 python/mainwindow.py:1165
+#: python/mainwindow.py:1179 python/mainwindow.py:1188
+#: python/mainwindow.py:1200 python/mainwindow.py:1212 python/wrapper.py:121
 #, sh-format
 msgid "Error"
 msgstr "Erro!"
@@ -4634,12 +4572,17 @@ msgid "Please wait while $APPLICATION_TITLE is scanning your hardware"
 msgstr ""
 "Por favor, aguarde enquanto $APPLICATION_TITLE analisa o seu equipamento."
 
-#: lib/wine.lib:421
+#: lib/wine.lib:371
+#, sh-format
+msgid "Select the main videocard to report:"
+msgstr "Seleccione a placa de video pricipal a reportar:"
+
+#: lib/wine.lib:432
 #, sh-format
 msgid "Scanning your hardware..."
 msgstr "A analisar o seu equipamento..."
 
-#: lib/wine.lib:510 lib/wine.lib:675
+#: lib/wine.lib:521 lib/wine.lib:686
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
@@ -4648,47 +4591,47 @@ msgstr ""
 "O Wine parece ter deixado de funcionar\\n\\nSe o programa ainda está a ser "
 "executado, ignore esta mensagem."
 
-#: lib/wine.lib:735
+#: lib/wine.lib:746
 #, sh-format
 msgid "Unable to find version: "
 msgstr "Não foi possível determinar a versão: "
 
-#: lib/wine.lib:741 lib/wine.lib:742
+#: lib/wine.lib:752 lib/wine.lib:753
 #, sh-format
 msgid "Downloading Wine: "
 msgstr "A transferir o Wine: "
 
-#: lib/wine.lib:751
+#: lib/wine.lib:762
 #, sh-format
 msgid "The download seems to have failed."
 msgstr "A transferência parece ter falhado."
 
-#: lib/wine.lib:753
+#: lib/wine.lib:764
 #, sh-format
 msgid "Extracting Wine..."
 msgstr "A extrair o Wine..."
 
-#: lib/wine.lib:934
+#: lib/wine.lib:943
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr "Escrever por cima (por norma funciona, mas não é garantido)"
 
-#: lib/wine.lib:935
+#: lib/wine.lib:944
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
 msgstr "Apagar (os conteúdos da unidade virtual serão perdidos)"
 
-#: lib/wine.lib:949
+#: lib/wine.lib:958
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr "A unidade virtual destino $PREFNAME já existe:"
 
-#: lib/wine.lib:1129 lib/wine.lib:1159
+#: lib/wine.lib:1138 lib/wine.lib:1168
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "Por favor, aguarde enquanto $SOFTNAME é instalado..."
 
-#: lib/wine.lib:1133 lib/wine.lib:1162
+#: lib/wine.lib:1142 lib/wine.lib:1171
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
@@ -4697,19 +4640,19 @@ msgstr ""
 "Tenha cuidado! Isso vai forçar o encerramento do processo de instalação. Se "
 "não estiver terminado, precisará de reinstalar $SOFTNAME."
 
-#: lib/wine.lib:1133 lib/wine.lib:1162
+#: lib/wine.lib:1142 lib/wine.lib:1171
 #, sh-format
 msgid "Install is done"
 msgstr "Instalação terminada"
 
-#: lib/wine.lib:1166 lib/wine.lib:1167
+#: lib/wine.lib:1175 lib/wine.lib:1176
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr ""
 "Carregue em \"Seguinte\" somente quando o processo de instalação estiver "
 "terminada."
 
-#: lib/wine.lib:1175
+#: lib/wine.lib:1184
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr ""
@@ -4858,7 +4801,7 @@ msgstr ""
 "Tenha cuidado!\n"
 "Se mudar "
 
-#: python/configure.py:644 python/mainwindow.py:923 python/mainwindow.py:925
+#: python/configure.py:644 python/mainwindow.py:932 python/mainwindow.py:934
 msgid "{0} configuration"
 msgstr "Configuração {0}"
 
@@ -4899,8 +4842,8 @@ msgstr "Tem a certeza que pretende apagar a unidade virtual {0}?"
 msgid "Are you sure you want to delete {0} ?"
 msgstr "Tem a certeza que pretende apagar {0}?"
 
-#: python/debug.py:39 python/mainwindow.py:254 python/mainwindow.py:898
-#: python/mainwindow.py:988
+#: python/debug.py:39 python/mainwindow.py:254 python/mainwindow.py:907
+#: python/mainwindow.py:997
 msgid "{0} debugger"
 msgstr "Depurador {0}"
 
@@ -5086,7 +5029,7 @@ msgstr "Sair"
 msgid "Join a channel"
 msgstr "Entrar num canal"
 
-#: python/irc.py:257 python/mainwindow.py:719
+#: python/irc.py:257 python/mainwindow.py:725
 msgid "Messenger"
 msgstr "Mensageiro"
 
@@ -5129,7 +5072,7 @@ msgstr "A actualizar {0}"
 msgid "An updated version of {0} is available"
 msgstr "Uma versão actualizada de {0} está disponível."
 
-#: python/mainwindow.py:196 python/mainwindow.py:346 python/mainwindow.py:728
+#: python/mainwindow.py:196 python/mainwindow.py:346 python/mainwindow.py:737
 msgid "Run"
 msgstr "Executar"
 
@@ -5197,7 +5140,7 @@ msgstr "Ficheiro"
 msgid "Tools"
 msgstr "Ferramentas"
 
-#: python/mainwindow.py:334 python/mainwindow.py:717
+#: python/mainwindow.py:334 python/mainwindow.py:723
 msgid "Settings"
 msgstr "Definições"
 
@@ -5205,11 +5148,11 @@ msgstr "Definições"
 msgid "Plugins"
 msgstr "Plugins"
 
-#: python/mainwindow.py:347 python/mainwindow.py:730
+#: python/mainwindow.py:347 python/mainwindow.py:739
 msgid "Close"
 msgstr "Fechar"
 
-#: python/mainwindow.py:353 python/mainwindow.py:736 python/options.py:208
+#: python/mainwindow.py:353 python/mainwindow.py:745 python/options.py:208
 msgid "Configure"
 msgstr "Configurar"
 
@@ -5217,7 +5160,7 @@ msgstr "Configurar"
 msgid "Open the application's directory"
 msgstr "Abrir a directoria da aplicação"
 
-#: python/mainwindow.py:588 python/mainwindow.py:744
+#: python/mainwindow.py:588 python/mainwindow.py:753
 msgid "Read the manual"
 msgstr "Ler o manual"
 
@@ -5237,68 +5180,72 @@ msgstr "Matar aplicação"
 msgid "No manual found for {0}"
 msgstr "Nenhum manual encontrado para {0}"
 
-#: python/mainwindow.py:715
+#: python/mainwindow.py:721
 msgid "Install a program"
 msgstr "Instalar um programa"
 
-#: python/mainwindow.py:722
+#: python/mainwindow.py:728
 msgid "Update GIT"
 msgstr "Actualizar o GIT"
 
-#: python/mainwindow.py:732
+#: python/mainwindow.py:731
+msgid "Update instructions"
+msgstr ""
+
+#: python/mainwindow.py:741
 msgid "Debug"
 msgstr "Depurar"
 
-#: python/mainwindow.py:734
+#: python/mainwindow.py:743
 msgid "Report a problem"
 msgstr "Relatar um problema"
 
-#: python/mainwindow.py:738
+#: python/mainwindow.py:747
 msgid "Create a shortcut"
 msgstr "Criar um atalho"
 
-#: python/mainwindow.py:740
+#: python/mainwindow.py:749
 msgid "Open the directory"
 msgstr "Abrir um diretório"
 
-#: python/mainwindow.py:746
+#: python/mainwindow.py:755
 msgid "Save"
 msgstr "Guardar"
 
-#: python/mainwindow.py:749
+#: python/mainwindow.py:758
 msgid "Uninstall"
 msgstr "Desinstalar"
 
-#: python/mainwindow.py:871 python/mainwindow.py:942 python/mainwindow.py:949
-#: python/mainwindow.py:994
+#: python/mainwindow.py:880 python/mainwindow.py:951 python/mainwindow.py:958
+#: python/mainwindow.py:1003
 msgid "Please select a program."
 msgstr "Por favor, escolha um programa."
 
-#: python/mainwindow.py:879 python/mainwindow.py:881 python/mainwindow.py:883
+#: python/mainwindow.py:888 python/mainwindow.py:890 python/mainwindow.py:892
 msgid "{0} settings"
 msgstr "Configurações {0}"
 
-#: python/mainwindow.py:956
+#: python/mainwindow.py:965
 msgid "{0} install menu"
 msgstr "Menu de instalação {0}"
 
-#: python/mainwindow.py:965
+#: python/mainwindow.py:974
 msgid "{0} wine versions manager"
 msgstr "Gestor de versões do Wine {0}"
 
-#: python/mainwindow.py:996
+#: python/mainwindow.py:1005
 msgid "The virtual drive associated with {0} ({1}) does no longer exists."
 msgstr "A unidade virtual associada a {0} ({1}) já não existe."
 
-#: python/mainwindow.py:1040
+#: python/mainwindow.py:1049
 msgid "Are you sure you want to close all {0} Windows?"
 msgstr "Tem a certeza que pretende fechar todas as janelas {0}?"
 
-#: python/mainwindow.py:1079
+#: python/mainwindow.py:1088
 msgid "Run your Windows programs on "
 msgstr "Corra os seus programas do Windows em "
 
-#: python/mainwindow.py:1080
+#: python/mainwindow.py:1089
 msgid ""
 "PlayOnLinux and PlayOnMac team\n"
 "Under GPL licence version 3"
@@ -5306,61 +5253,61 @@ msgstr ""
 "Equipa do PlayOnLinux e PlayOnMac\n"
 "Sob a licença GPL versão 3"
 
-#: python/mainwindow.py:1081
+#: python/mainwindow.py:1090
 msgid "Developer and Website: "
 msgstr "Programador e website: "
 
-#: python/mainwindow.py:1082
+#: python/mainwindow.py:1091
 msgid "Scriptors: "
 msgstr "Scriptors: "
 
-#: python/mainwindow.py:1083
+#: python/mainwindow.py:1092
 msgid "Packager: "
 msgstr "Gestor de pacotes: "
 
-#: python/mainwindow.py:1084
+#: python/mainwindow.py:1093
 msgid "Icons:"
 msgstr "Icones:"
 
-#: python/mainwindow.py:1085
+#: python/mainwindow.py:1094
 msgid "The following people contributed to this program: "
 msgstr "As seguintes pessoas contribuíram para esta aplicação: "
 
-#: python/mainwindow.py:1086
+#: python/mainwindow.py:1095
 msgid "Translations:"
 msgstr "Traduções:"
 
-#: python/mainwindow.py:1087
+#: python/mainwindow.py:1096
 msgid "Read TRANSLATORS file"
 msgstr "Leia o ficheiro dos TRADUTORES"
 
-#: python/mainwindow.py:1126
+#: python/mainwindow.py:1135
 msgid "{0} is not able to start PlayOnLinux Setup Window server."
 msgstr ""
 "{0} não é capaz de iniciar o servidor de janela de configuração do "
 "PlayOnLinux"
 
-#: python/mainwindow.py:1147
+#: python/mainwindow.py:1156
 msgid "{0} cannot find {1}"
 msgstr "{0} não conseguiu encontrar {1}"
 
-#: python/mainwindow.py:1149
+#: python/mainwindow.py:1158
 msgid " (from {2})"
 msgstr " (para {2})"
 
-#: python/mainwindow.py:1152
+#: python/mainwindow.py:1161
 msgid "You need to install it to continue"
 msgstr "Precisa de o instalar para continuar"
 
-#: python/mainwindow.py:1154
+#: python/mainwindow.py:1163
 msgid "You should install it to use {0}"
 msgstr "Deve instalá-lo ustilizando {0}"
 
-#: python/mainwindow.py:1170
+#: python/mainwindow.py:1179
 msgid "{0} is not supposed to be run as root. Sorry"
 msgstr "{0} não deve correr como administrador. Desculpe."
 
-#: python/mainwindow.py:1179
+#: python/mainwindow.py:1188
 msgid ""
 "{0} is unable to find 32bits OpenGL libraries.\n"
 "\n"
@@ -5370,7 +5317,7 @@ msgstr ""
 "\n"
 "Pode vir a ter problemas com os seus jogos."
 
-#: python/mainwindow.py:1191
+#: python/mainwindow.py:1200
 msgid ""
 "{0} is unable to find 64bits OpenGL libraries.\n"
 "\n"
@@ -5380,7 +5327,7 @@ msgstr ""
 "\n"
 "Pode vir a ter problemas com os seus jogos."
 
-#: python/mainwindow.py:1203
+#: python/mainwindow.py:1212
 msgid ""
 "Your filesystem might prevent {0} from running correctly.\n"
 "\n"
@@ -5391,7 +5338,7 @@ msgstr ""
 "\n"
 "Por favor abra {0} no terminal para obter mais informações."
 
-#: python/mainwindow.py:1207
+#: python/mainwindow.py:1216
 msgid ""
 "Do you want to help {0} to make a compatibility database?\n"
 "\n"
@@ -5417,11 +5364,11 @@ msgstr ""
 "\n"
 "These information will be very precious for us to help people."
 
-#: python/mainwindow.py:1262
+#: python/mainwindow.py:1271
 msgid "Are you sure you want to  want to install {0} package?"
 msgstr "Tem a certeza que pretende instalar o pacote {0}?"
 
-#: python/mainwindow.py:1269 python/mainwindow.py:1271
+#: python/mainwindow.py:1278 python/mainwindow.py:1280
 msgid ""
 "You are trying to open a script design for {0}! It might not work as expected"
 msgstr ""
