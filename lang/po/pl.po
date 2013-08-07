@@ -10,15 +10,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2013-07-29 19:00+0200\n"
+"POT-Creation-Date: 2013-08-05 19:00+0200\n"
 "PO-Revision-Date: 2013-07-16 20:40+0000\n"
 "Last-Translator: Michał Nieznański <katsu229@gmail.com>\n"
 "Language-Team: pl_PL.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-07-30 04:36+0000\n"
-"X-Generator: Launchpad (build 16700)\n"
+"X-Launchpad-Export-Date: 2013-08-06 04:44+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -503,6 +503,7 @@ msgstr "Proszę włożyć nośnik z grą do stacji dysków"
 #: PlayOnLinux_Scripts/Rome_Total_War__Gold_Edition__:56
 #: PlayOnLinux_Scripts/Safari_:60
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:59
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind_:49
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:184
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_:80
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Shivering_Isle_:74
@@ -605,6 +606,7 @@ msgstr "Wybierz ścieżkę do wykonania"
 #: PlayOnLinux_Scripts/Rage_:79
 #: PlayOnLinux_Scripts/Rome_Total_War__Gold_Edition__:49
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:46
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind_:36
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:52
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_:66
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Shivering_Isle_:52
@@ -1174,8 +1176,8 @@ msgstr "Czy chcesz otworzyć stronę pobierania $TITLE w przeglądarce?"
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:116 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:1138
-#: lib/wine.lib:1168
+#: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:1144
+#: lib/wine.lib:1174
 #, sh-format
 msgid "Please wait..."
 msgstr "Proszę czekać..."
@@ -2444,7 +2446,7 @@ msgid ""
 "To continue, PlayOnLinux needs to remount your CD-ROM with unhide option."
 msgstr "Aby kontynuować, PlayOnLinux musi zamontować CD-ROM z opcją unhide."
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:16 lib/wine.lib:945
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:16 lib/wine.lib:951
 #, sh-format
 msgid "Abort installation"
 msgstr "Anuluj instalację"
@@ -2469,7 +2471,7 @@ msgstr "Udzieliłem uprawnień ręcznie, uruchom test ponownie"
 msgid "The program needs access to ptrace() to proceed:"
 msgstr "Program wymaga dostępu do ptrace() aby kontynuować:"
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:28 lib/wine.lib:974
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:28 lib/wine.lib:980
 #, sh-format
 msgid "User abort"
 msgstr "Anulowano"
@@ -4109,7 +4111,7 @@ msgstr ""
 "proces instalacji.\\nOdwiedź www.$POL_DNS aby uzyskać więcej informacji"
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:937 lib/wine.lib:1018
+#: lib/wine.lib:943 lib/wine.lib:1024
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr "Proszę czekać, wirtualny dysk twardy jest tworzony..."
@@ -4538,17 +4540,17 @@ msgstr "Nie można połączyć!\\nUpewnij się że twój logi i hasło są popra
 msgid "Please wait while $APPLICATION_TITLE is scanning your hardware"
 msgstr "Proszę czekać, $APPLICATION_TITLE sprawdza twój sprzęt"
 
-#: lib/wine.lib:371
+#: lib/wine.lib:373
 #, sh-format
 msgid "Select the main videocard to report:"
 msgstr ""
 
-#: lib/wine.lib:432
+#: lib/wine.lib:438
 #, sh-format
 msgid "Scanning your hardware..."
 msgstr "Wykrywanie sprzętu..."
 
-#: lib/wine.lib:521 lib/wine.lib:686
+#: lib/wine.lib:527 lib/wine.lib:692
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
@@ -4557,47 +4559,47 @@ msgstr ""
 "Wygląda na to że Wine się zawiesiło\\n\\nJeśli program dalej działa zignoruj "
 "tą wiadomość"
 
-#: lib/wine.lib:746
+#: lib/wine.lib:752
 #, sh-format
 msgid "Unable to find version: "
 msgstr "Nie można odnaleźć wersji: "
 
-#: lib/wine.lib:752 lib/wine.lib:753
+#: lib/wine.lib:758 lib/wine.lib:759
 #, sh-format
 msgid "Downloading Wine: "
 msgstr "Pobieranie Wine: "
 
-#: lib/wine.lib:762
+#: lib/wine.lib:768
 #, sh-format
 msgid "The download seems to have failed."
 msgstr "Wygląda na to że pobieranie się nie powiodło."
 
-#: lib/wine.lib:764
+#: lib/wine.lib:770
 #, sh-format
 msgid "Extracting Wine..."
 msgstr "Rozpakowywanie Wine..."
 
-#: lib/wine.lib:943
+#: lib/wine.lib:949
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr "Nadpisz (zazwyczaj działa, brak gwarancji)"
 
-#: lib/wine.lib:944
+#: lib/wine.lib:950
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
 msgstr "Wyczyść (zawartość wirtualnego dysku twardego zostanie utracona)"
 
-#: lib/wine.lib:958
+#: lib/wine.lib:964
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr "Docelowy wirtualny dysk twardy $PREFNAME już istnieje:"
 
-#: lib/wine.lib:1138 lib/wine.lib:1168
+#: lib/wine.lib:1144 lib/wine.lib:1174
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "Proszę czekać, instalacja $SOFTNAME w toku..."
 
-#: lib/wine.lib:1142 lib/wine.lib:1171
+#: lib/wine.lib:1148 lib/wine.lib:1177
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
@@ -4606,17 +4608,17 @@ msgstr ""
 "Ostrzeżenie! Ta czynność zabije proces instalatora. Jeśli instalacja się nie "
 "zakończyła wymagana będzie reinstalacja $SOFTNAME"
 
-#: lib/wine.lib:1142 lib/wine.lib:1171
+#: lib/wine.lib:1148 lib/wine.lib:1177
 #, sh-format
 msgid "Install is done"
 msgstr "Instalacja zakończona"
 
-#: lib/wine.lib:1175 lib/wine.lib:1176
+#: lib/wine.lib:1181 lib/wine.lib:1182
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr "Kliknij 'Dalej' tylko gdy instalacja się zakończy"
 
-#: lib/wine.lib:1184
+#: lib/wine.lib:1190
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr "Proszę czekać, $APPLICATION_TITLE symuluje ponowne uruchomienie"

@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2013-07-29 19:00+0200\n"
-"PO-Revision-Date: 2013-06-19 15:44+0000\n"
-"Last-Translator: Aymeric PETIT <mulx@aplu.fr>\n"
+"POT-Creation-Date: 2013-08-05 19:00+0200\n"
+"PO-Revision-Date: 2013-08-04 10:12+0000\n"
+"Last-Translator: raymond <Unknown>\n"
 "Language-Team: de_DE.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-07-30 04:35+0000\n"
-"X-Generator: Launchpad (build 16700)\n"
+"X-Launchpad-Export-Date: 2013-08-06 04:44+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -416,6 +416,8 @@ msgstr ""
 #, sh-format
 msgid "If .NET 3.0 installation fail, dont worry\\nthe game will still work"
 msgstr ""
+"Wenn die .NET 3.0-Installation fehl schlägt: keine Sorge\\ndas Spiel wird "
+"noch funktionieren"
 
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:30
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:40
@@ -495,6 +497,7 @@ msgstr "Bitte legen Sie das Spiel-Medium in Ihr Laufwerk ein"
 #: PlayOnLinux_Scripts/Rome_Total_War__Gold_Edition__:56
 #: PlayOnLinux_Scripts/Safari_:60
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:59
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind_:49
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:184
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_:80
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Shivering_Isle_:74
@@ -597,6 +600,7 @@ msgstr "Wählen Sie eine Korrektur, die ausgeführt werden soll"
 #: PlayOnLinux_Scripts/Rage_:79
 #: PlayOnLinux_Scripts/Rome_Total_War__Gold_Edition__:49
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:46
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind_:36
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:52
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_:66
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Shivering_Isle_:52
@@ -669,6 +673,8 @@ msgid ""
 "Wait while the patch is downloading...\\nThis operation can take time, "
 "depending of your connexion."
 msgstr ""
+"Warten Sie, während der Patch heruntergeladen wird...\\nDiese Operation kann "
+"Zeit in Anspruch nehmen, je nach Ihrer Verbindung."
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Revelations_:74
 #: PlayOnLinux_Scripts/Baldur_s_Gate_:43 PlayOnLinux_Scripts/Baldur_s_Gate_:80
@@ -714,7 +720,7 @@ msgstr "Bitte legen Sie das nächste Spiel-Medium in Ihr Laufwerk ein"
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_Patch_1.2.0416_:23
 #, sh-format
 msgid "Welcome in the patch $PVERSION installer for $TITLE_REQUIRED"
-msgstr ""
+msgstr "Willkommen in dem Patch-Installer $PVERSION für $TITLE_REQUIRED"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:48
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:49
@@ -730,7 +736,7 @@ msgstr "Englische Version"
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:51
 #, sh-format
 msgid "International version"
-msgstr ""
+msgstr "Internationale Version"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:48
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:52
@@ -933,12 +939,16 @@ msgstr ""
 msgid ""
 "Steam is installing $TITLEW, press next when the installation is finished"
 msgstr ""
+"Steam installiert $TITLEW, drücke weiter, wenn die Installation "
+"abgeschlossen ist"
 
 #: PlayOnLinux_Scripts/Civilization_IV__Complete_Edition_:78
 #, sh-format
 msgid ""
 "Steam is installing $TITLEBTS, press next when the installation is finished"
 msgstr ""
+"Steam installiert $TITLEBTS, drücke weiter, wenn die Installation "
+"abgeschlossen ist"
 
 #: PlayOnLinux_Scripts/Civilization_IV__Complete_Edition_:81
 #, sh-format
@@ -958,7 +968,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Civilization_V_:49
 #, sh-format
 msgid "Please select $TITLE install file:"
-msgstr ""
+msgstr "Bitte wähle $TITLE Installationsdatei:"
 
 #: PlayOnLinux_Scripts/Civilization_V_:60
 #, sh-format
@@ -1146,8 +1156,8 @@ msgstr "Wollen Sie $TITLE Download-Seite im Browser zu öffnen?"
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:116 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:1138
-#: lib/wine.lib:1168
+#: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:1144
+#: lib/wine.lib:1174
 #, sh-format
 msgid "Please wait..."
 msgstr "Bitte warten..."
@@ -1523,13 +1533,13 @@ msgstr "(Fenster Modus)"
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:60
 #, sh-format
 msgid "Language"
-msgstr ""
+msgstr "Sprache"
 
 #: PlayOnLinux_Scripts/GOG.com___Sensible_World_of_Soccer_96_97_:58
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:46
 #, sh-format
 msgid "What is your preferred language?"
-msgstr ""
+msgstr "Was ist ihre bevorzugte Sprache?"
 
 #: PlayOnLinux_Scripts/GOG.com___Starflight_1_and_2_:20
 #, sh-format
@@ -1539,13 +1549,13 @@ msgstr "Code wheel"
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:55
 #, sh-format
 msgid "Do you have a language pack to install?"
-msgstr ""
+msgstr "Haben Sie ein Sprachpaket zum installieren?"
 
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:55
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:59
 #, sh-format
 msgid "Later"
-msgstr ""
+msgstr "Später"
 
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:60
 #, sh-format
@@ -1598,6 +1608,9 @@ msgid ""
 "    \\n\\nOn the installation window coming next, do NOT click the Options "
 "button, it would mess up the language selection."
 msgstr ""
+"WICHTIG:\n"
+"    \\n\\nIn dem folgendem Installationsfenster, klicken Sie NICHT auf die "
+"Schaltfläche Optionen, es würde die Sprachauswahl verhindern."
 
 #: PlayOnLinux_Scripts/GOG.com___Unreal_Gold_:63
 #, sh-format
@@ -1657,6 +1670,8 @@ msgid ""
 "Please select $TITLE install file. During installation, uncheck all extra "
 "drivers it wants to install:"
 msgstr ""
+"Bitte wähle $TITLE Installationsdatei. Während der Installation deaktiviere "
+"alle zusätzliche Treiber, die es installieren will:"
 
 #: PlayOnLinux_Scripts/Halo_Combat_Evolved_:74
 #, sh-format
@@ -1886,7 +1901,7 @@ msgstr "Download fehlgeschlagen"
 #: PlayOnLinux_Scripts/POL_GoG_download_:104
 #, sh-format
 msgid "Download seems to be corrupted"
-msgstr ""
+msgstr "Download scheint beschädigt zu sein"
 
 #: PlayOnLinux_Scripts/POL_Download_retry_:40
 #: PlayOnLinux_Scripts/POL_GoG_download_:113
@@ -2021,7 +2036,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_dotnet30_:15
 #, sh-format
 msgid "Open $URL now?"
-msgstr ""
+msgstr "Öffne $URL jetzt?"
 
 #: PlayOnLinux_Scripts/POL_Install_dotnet30_:49
 #, sh-format
@@ -2082,6 +2097,8 @@ msgstr "Lade Game For Windows Live herunter..."
 msgid ""
 "Warning : GFWL seems to be already installed.\\nForcing reinstallation."
 msgstr ""
+"Warnung: GFWL scheint bereits installiert zu sein.\\nErzwinge "
+"Neuinstallation."
 
 #: PlayOnLinux_Scripts/POL_Install_linuxtrack_wine_:9
 #, sh-format
@@ -2091,12 +2108,12 @@ msgstr "Installiere Linuxtrack-wine DLL..."
 #: PlayOnLinux_Scripts/POL_Install_mfc42_:12
 #, sh-format
 msgid "Installing mfc42 DLLs..."
-msgstr ""
+msgstr "Installiere mfc42 DLLs..."
 
 #: PlayOnLinux_Scripts/POL_Install_msasn1_:11
 #, sh-format
 msgid "Installing msasn1 DLL..."
-msgstr ""
+msgstr "Installiere msasn1 DLL..."
 
 #: PlayOnLinux_Scripts/POL_Install_steam_:24
 #, sh-format
@@ -2149,7 +2166,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_wintrust_:11
 #, sh-format
 msgid "Installing wintrust DLL..."
-msgstr ""
+msgstr "Installiere wintrust DLL..."
 
 #: PlayOnLinux_Scripts/POL_Install_xact_:14
 #, sh-format
@@ -2164,7 +2181,7 @@ msgstr "Installiere Xinput dlls..."
 #: PlayOnLinux_Scripts/POL_Install_xmllite_:14
 #, sh-format
 msgid "Installing XMLlite..."
-msgstr ""
+msgstr "Installiere XMLlite..."
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:1
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:20
@@ -2179,6 +2196,8 @@ msgstr "Microsoft Schriftdateien"
 #, sh-format
 msgid "Microsoft fonts aren't installed; I'll install them for you."
 msgstr ""
+"Microsoft Schriftarten sind nicht installiert, ich werde sie für Sie "
+"installieren."
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:3
 #, sh-format
@@ -2283,7 +2302,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Sudo_UnhideCdrom_:21
 #, sh-format
 msgid "Please read carrefully"
-msgstr ""
+msgstr "Bitte lesen Sie sorgfältig"
 
 #: PlayOnLinux_Scripts/POL_Sudo_UnhideCdrom_:13
 #, sh-format
@@ -2291,7 +2310,7 @@ msgid ""
 "To continue, PlayOnLinux needs to remount your CD-ROM with unhide option."
 msgstr ""
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:16 lib/wine.lib:945
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:16 lib/wine.lib:951
 #, sh-format
 msgid "Abort installation"
 msgstr "Breche Installation ab"
@@ -2316,7 +2335,7 @@ msgstr ""
 msgid "The program needs access to ptrace() to proceed:"
 msgstr ""
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:28 lib/wine.lib:974
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:28 lib/wine.lib:980
 #, sh-format
 msgid "User abort"
 msgstr "Benutzerabbruch"
@@ -2343,7 +2362,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:21
 #, sh-format
 msgid "Now, insert the cdrom number $CDNumber."
-msgstr ""
+msgstr "Legen Sie nun die CD-ROM-Nummer $CDNumber ein."
 
 #: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:27
 #, sh-format
@@ -2459,7 +2478,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Slender_:30
 #, sh-format
 msgid "Select downloaded ZIP file here"
-msgstr ""
+msgstr "Wähle heruntergeladene ZIP-Datei hier"
 
 #: PlayOnLinux_Scripts/Slender_:31
 #, sh-format
@@ -2469,7 +2488,7 @@ msgstr "Extrahiere Slender..."
 #: PlayOnLinux_Scripts/Slender_:32
 #, sh-format
 msgid "Sorry, but that was not a valid .zip file"
-msgstr ""
+msgstr "Sorry, aber das war keine gültige .zip-Datei"
 
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:90
 #, sh-format
@@ -3916,7 +3935,7 @@ msgstr ""
 "weitere Informationen zu erhalten"
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:937 lib/wine.lib:1018
+#: lib/wine.lib:943 lib/wine.lib:1024
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr "Bitte warten Sie während das virtuelle Laufwerk erstellt wird..."
@@ -4348,17 +4367,17 @@ msgstr ""
 msgid "Please wait while $APPLICATION_TITLE is scanning your hardware"
 msgstr "Bitte warte, während $APPLICATION_TITLE Ihre Hardware scannt"
 
-#: lib/wine.lib:371
+#: lib/wine.lib:373
 #, sh-format
 msgid "Select the main videocard to report:"
 msgstr ""
 
-#: lib/wine.lib:432
+#: lib/wine.lib:438
 #, sh-format
 msgid "Scanning your hardware..."
 msgstr "Scanne Hardware..."
 
-#: lib/wine.lib:521 lib/wine.lib:686
+#: lib/wine.lib:527 lib/wine.lib:692
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
@@ -4367,47 +4386,47 @@ msgstr ""
 "Wine scheint abgestürzt zu sein\\n\\nWenn Ihr Programm weiter läuft, "
 "ignorieren Sie diese Nachricht"
 
-#: lib/wine.lib:746
+#: lib/wine.lib:752
 #, sh-format
 msgid "Unable to find version: "
 msgstr "Kann Version nicht finden: "
 
-#: lib/wine.lib:752 lib/wine.lib:753
+#: lib/wine.lib:758 lib/wine.lib:759
 #, sh-format
 msgid "Downloading Wine: "
 msgstr "Wine wird heruntergeladen: "
 
-#: lib/wine.lib:762
+#: lib/wine.lib:768
 #, sh-format
 msgid "The download seems to have failed."
 msgstr "Der Download ist fehlgeschlagen."
 
-#: lib/wine.lib:764
+#: lib/wine.lib:770
 #, sh-format
 msgid "Extracting Wine..."
 msgstr "Entpacke Wine..."
 
-#: lib/wine.lib:943
+#: lib/wine.lib:949
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr "Überschreibe (in der Regel funktioniert es, ohne Gewähr)"
 
-#: lib/wine.lib:944
+#: lib/wine.lib:950
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
 msgstr "Lösche (Inhalte des virtuellen Laufwerk gehen verloren)"
 
-#: lib/wine.lib:958
+#: lib/wine.lib:964
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr "Das virtuelleZiel-Laufwerk $PREFNAME existiert bereits:"
 
-#: lib/wine.lib:1138 lib/wine.lib:1168
+#: lib/wine.lib:1144 lib/wine.lib:1174
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "Bitte warten Sie bis $SOFTNAME installiert wird..."
 
-#: lib/wine.lib:1142 lib/wine.lib:1171
+#: lib/wine.lib:1148 lib/wine.lib:1177
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
@@ -4416,17 +4435,17 @@ msgstr ""
 "Seien Sie vorsichtig! Dies wird den Install-Prozess töten. Wenn es nicht "
 "fertig ist, müssen Sie $SOFTNAME neu installieren"
 
-#: lib/wine.lib:1142 lib/wine.lib:1171
+#: lib/wine.lib:1148 lib/wine.lib:1177
 #, sh-format
 msgid "Install is done"
 msgstr "Installation fertiggestellt"
 
-#: lib/wine.lib:1175 lib/wine.lib:1176
+#: lib/wine.lib:1181 lib/wine.lib:1182
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr "Drücke nur \"weiter\", wenn die Installation abgeschlossen ist"
 
-#: lib/wine.lib:1184
+#: lib/wine.lib:1190
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr ""

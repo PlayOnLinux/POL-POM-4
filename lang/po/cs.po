@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2013-07-29 19:00+0200\n"
-"PO-Revision-Date: 2013-07-25 23:17+0000\n"
-"Last-Translator: Martin Bořkovec <martinborkovec@seznam.cz>\n"
+"POT-Creation-Date: 2013-08-05 19:00+0200\n"
+"PO-Revision-Date: 2013-08-02 14:33+0000\n"
+"Last-Translator: Tadeáš Pařík <tadeas.parik@gmail.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-07-30 04:35+0000\n"
-"X-Generator: Launchpad (build 16700)\n"
+"X-Launchpad-Export-Date: 2013-08-06 04:43+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -417,6 +417,7 @@ msgstr ""
 #, sh-format
 msgid "If .NET 3.0 installation fail, dont worry\\nthe game will still work"
 msgstr ""
+"Jestliže instalace .NET 3.0 selže, neobávejte se\\nhra bude stále fungovat"
 
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:30
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:40
@@ -496,6 +497,7 @@ msgstr "Vložte prosím herní disk do mechaniky"
 #: PlayOnLinux_Scripts/Rome_Total_War__Gold_Edition__:56
 #: PlayOnLinux_Scripts/Safari_:60
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:59
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind_:49
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:184
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_:80
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Shivering_Isle_:74
@@ -598,6 +600,7 @@ msgstr "Vyberte aktualizaci ke spuštění."
 #: PlayOnLinux_Scripts/Rage_:79
 #: PlayOnLinux_Scripts/Rome_Total_War__Gold_Edition__:49
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:46
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind_:36
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:52
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_:66
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Shivering_Isle_:52
@@ -933,18 +936,25 @@ msgid ""
 "shows you to the login interface, login and then let $TITLE install.\\n\\"
 "nWhen the installation is finished, press next (Do not close Steam)"
 msgstr ""
+"Steam bude aktualizován.\\nJakmile Steam ukončí aktualizaci a zobrazí se "
+"přihlašovací obrazovka, přihlaste se a začněte instalovat $TITLE.\\n\\"
+"nJakmile bude instalace ukončena, stiskněte další (Neukončujte Steam)"
 
 #: PlayOnLinux_Scripts/Civilization_IV__Complete_Edition_:75
 #, sh-format
 msgid ""
 "Steam is installing $TITLEW, press next when the installation is finished"
 msgstr ""
+"Steam instaluje $TITLEW, stiskněte tlačítko další, jakmile bude instalace "
+"ukončena"
 
 #: PlayOnLinux_Scripts/Civilization_IV__Complete_Edition_:78
 #, sh-format
 msgid ""
 "Steam is installing $TITLEBTS, press next when the installation is finished"
 msgstr ""
+"Steam instaluje $TITLEBTS, stiskněte tlačítko další, jakmile bude instalace "
+"ukončena"
 
 #: PlayOnLinux_Scripts/Civilization_IV__Complete_Edition_:81
 #, sh-format
@@ -953,6 +963,9 @@ msgid ""
 "installation is finished (make sure Steam is not still in the traybar) and "
 "then press next so that the installation script can continue."
 msgstr ""
+"Steam právě instaluje $TITLECOL, ukončete prosím aplikaci Steam, jakmile "
+"bude instalace ukončena (ujistěte se, že Steam není v systémové liště) a "
+"stiskněte další, aby mohl instalační skript pokračovat."
 
 #: PlayOnLinux_Scripts/Civilization_IV__Complete_Edition_:107
 #, sh-format
@@ -960,11 +973,13 @@ msgid ""
 "Installation finished\\n\\nThe game might crash on the first attempt, but no "
 "worries, just try one more time."
 msgstr ""
+"Instalace je ukončena\\n\\nHra může při prvním spuštění spadnout, žádné "
+"obavy, zkuste to ještě jednou."
 
 #: PlayOnLinux_Scripts/Civilization_V_:49
 #, sh-format
 msgid "Please select $TITLE install file:"
-msgstr ""
+msgstr "Vyberte instalační soubor $TITLE:"
 
 #: PlayOnLinux_Scripts/Civilization_V_:60
 #, sh-format
@@ -973,6 +988,9 @@ msgid ""
 "shows you to the login interface, login and then let $TITLE install.\\n\\"
 "nWhen the installation is finished, press next"
 msgstr ""
+"Steam bude aktualizován.\\nJakmile Steam ukončí aktualizaci a zobrazí se "
+"přihlašovací obrazovka, přihlaste se a začněte instalovat $TITLE.\\n\\"
+"nJakmile bude instalace ukončena, stiskněte další"
 
 #: PlayOnLinux_Scripts/Command_And_Conquer_3_Patch_1.09_:54
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Kane_s_Wrath_:62
@@ -1116,7 +1134,7 @@ msgstr "Jestliže bude instalace požadovat nainstalování DirectX, vyberte Ne.
 #: PlayOnLinux_Scripts/Dragon_Age_2___DLC_:27
 #, sh-format
 msgid "Welcome in the DLCs Installer for $TITLE_REQUIRED"
-msgstr ""
+msgstr "Vítejte v instalátoru DLC $TITLE_REQUIRED"
 
 #: PlayOnLinux_Scripts/Dragon_Age___Awakening_:64
 #, sh-format
@@ -1164,8 +1182,8 @@ msgstr "Chcete otevřít stránku ke stažení $TITLE ve vašem prohlížeči?"
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:116 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:1138
-#: lib/wine.lib:1168
+#: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:1144
+#: lib/wine.lib:1174
 #, sh-format
 msgid "Please wait..."
 msgstr "Čekejte prosím…"
@@ -2416,7 +2434,7 @@ msgstr ""
 "Aby mohl pokračovat, PlayOnLinux potřebuje znovu připojit vaší CD mechaniku "
 "s použitím volby unhide."
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:16 lib/wine.lib:945
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:16 lib/wine.lib:951
 #, sh-format
 msgid "Abort installation"
 msgstr "Zrušit instalaci"
@@ -2441,7 +2459,7 @@ msgstr "Opravil jsem to sám, pouze znovu otestujte"
 msgid "The program needs access to ptrace() to proceed:"
 msgstr "Pro pokračování potřebuje program přístup k ptrace()"
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:28 lib/wine.lib:974
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:28 lib/wine.lib:980
 #, sh-format
 msgid "User abort"
 msgstr "Uživatelské přerušení"
@@ -4082,7 +4100,7 @@ msgstr ""
 "www.$POL_DNS"
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:937 lib/wine.lib:1018
+#: lib/wine.lib:943 lib/wine.lib:1024
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr "Počkejte na vytvoření virtuálního disku..."
@@ -4510,17 +4528,17 @@ msgstr ""
 msgid "Please wait while $APPLICATION_TITLE is scanning your hardware"
 msgstr "Vyčkejte prosím, dokud $APPLICATION_TITLE neprozkoumá váš hardware"
 
-#: lib/wine.lib:371
+#: lib/wine.lib:373
 #, sh-format
 msgid "Select the main videocard to report:"
-msgstr ""
+msgstr "Vyberte hlavní grafickou kartu pro hlášení:"
 
-#: lib/wine.lib:432
+#: lib/wine.lib:438
 #, sh-format
 msgid "Scanning your hardware..."
 msgstr "Průzkum vašeho hardwaru..."
 
-#: lib/wine.lib:521 lib/wine.lib:686
+#: lib/wine.lib:527 lib/wine.lib:692
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
@@ -4529,47 +4547,47 @@ msgstr ""
 "Zdá se, že wine havarovalo\\n\\nNicméně pokud program stále běží, tak toto "
 "hlášení můžete ignorovat"
 
-#: lib/wine.lib:746
+#: lib/wine.lib:752
 #, sh-format
 msgid "Unable to find version: "
 msgstr "Nelze najít verzi: "
 
-#: lib/wine.lib:752 lib/wine.lib:753
+#: lib/wine.lib:758 lib/wine.lib:759
 #, sh-format
 msgid "Downloading Wine: "
 msgstr "Stahuje se Wine: "
 
-#: lib/wine.lib:762
+#: lib/wine.lib:768
 #, sh-format
 msgid "The download seems to have failed."
 msgstr "Zdá se, že stahování selhalo."
 
-#: lib/wine.lib:764
+#: lib/wine.lib:770
 #, sh-format
 msgid "Extracting Wine..."
 msgstr "Rozbaluje se Wine..."
 
-#: lib/wine.lib:943
+#: lib/wine.lib:949
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr "Přepsat (obvykle funguje, bez záruky)"
 
-#: lib/wine.lib:944
+#: lib/wine.lib:950
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
 msgstr "Vymazat (obsah virtuálního disku bude ztracen)"
 
-#: lib/wine.lib:958
+#: lib/wine.lib:964
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr "Cíl $PREFNAME virtuálního disku již existuje:"
 
-#: lib/wine.lib:1138 lib/wine.lib:1168
+#: lib/wine.lib:1144 lib/wine.lib:1174
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "Vyčkejte, dokud nebude program $SOFTNAME nainstalován..."
 
-#: lib/wine.lib:1142 lib/wine.lib:1171
+#: lib/wine.lib:1148 lib/wine.lib:1177
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
@@ -4578,17 +4596,17 @@ msgstr ""
 "Opatrně! Tohle ukončí instalační proces. Pokud neskončí korektně, tak bude "
 "potřeba $SOFTNAME přeinstalovat"
 
-#: lib/wine.lib:1142 lib/wine.lib:1171
+#: lib/wine.lib:1148 lib/wine.lib:1177
 #, sh-format
 msgid "Install is done"
 msgstr "Instalace je hotova"
 
-#: lib/wine.lib:1175 lib/wine.lib:1176
+#: lib/wine.lib:1181 lib/wine.lib:1182
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr "Stiskněte Další jen pokud byla instalace již dokončena"
 
-#: lib/wine.lib:1184
+#: lib/wine.lib:1190
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr "Vyčkejte prosím, $APPLICATION_TITLE simuluje restart"
@@ -5127,7 +5145,7 @@ msgstr "Obnovení GIT"
 
 #: python/mainwindow.py:731
 msgid "Update instructions"
-msgstr ""
+msgstr "Instrukce pro aktualizaci"
 
 #: python/mainwindow.py:741
 msgid "Debug"

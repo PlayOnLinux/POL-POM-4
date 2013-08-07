@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hu1\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2013-07-29 19:00+0200\n"
+"POT-Creation-Date: 2013-08-05 19:00+0200\n"
 "PO-Revision-Date: 2012-09-25 19:47+0000\n"
 "Last-Translator: Gergely Szarka <szarka.honved@gmail.com>\n"
 "Language-Team: hungarian <mypclinuxos.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-07-30 04:35+0000\n"
-"X-Generator: Launchpad (build 16700)\n"
+"X-Launchpad-Export-Date: 2013-08-06 04:44+0000\n"
+"X-Generator: Launchpad (build 16718)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -483,6 +483,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Rome_Total_War__Gold_Edition__:56
 #: PlayOnLinux_Scripts/Safari_:60
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:59
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind_:49
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:184
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_:80
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Shivering_Isle_:74
@@ -585,6 +586,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Rage_:79
 #: PlayOnLinux_Scripts/Rome_Total_War__Gold_Edition__:49
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:46
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind_:36
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:52
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_:66
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Shivering_Isle_:52
@@ -1114,8 +1116,8 @@ msgstr ""
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:116 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:1138
-#: lib/wine.lib:1168
+#: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:1144
+#: lib/wine.lib:1174
 #, sh-format
 msgid "Please wait..."
 msgstr ""
@@ -2244,7 +2246,7 @@ msgid ""
 "To continue, PlayOnLinux needs to remount your CD-ROM with unhide option."
 msgstr ""
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:16 lib/wine.lib:945
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:16 lib/wine.lib:951
 #, sh-format
 msgid "Abort installation"
 msgstr ""
@@ -2269,7 +2271,7 @@ msgstr ""
 msgid "The program needs access to ptrace() to proceed:"
 msgstr ""
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:28 lib/wine.lib:974
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:28 lib/wine.lib:980
 #, sh-format
 msgid "User abort"
 msgstr ""
@@ -3774,7 +3776,7 @@ msgid ""
 msgstr ""
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:937 lib/wine.lib:1018
+#: lib/wine.lib:943 lib/wine.lib:1024
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr ""
@@ -4167,81 +4169,81 @@ msgstr ""
 msgid "Please wait while $APPLICATION_TITLE is scanning your hardware"
 msgstr ""
 
-#: lib/wine.lib:371
+#: lib/wine.lib:373
 #, sh-format
 msgid "Select the main videocard to report:"
 msgstr ""
 
-#: lib/wine.lib:432
+#: lib/wine.lib:438
 #, sh-format
 msgid "Scanning your hardware..."
 msgstr ""
 
-#: lib/wine.lib:521 lib/wine.lib:686
+#: lib/wine.lib:527 lib/wine.lib:692
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
 "message"
 msgstr ""
 
-#: lib/wine.lib:746
+#: lib/wine.lib:752
 #, sh-format
 msgid "Unable to find version: "
 msgstr ""
 
-#: lib/wine.lib:752 lib/wine.lib:753
+#: lib/wine.lib:758 lib/wine.lib:759
 #, sh-format
 msgid "Downloading Wine: "
 msgstr ""
 
-#: lib/wine.lib:762
+#: lib/wine.lib:768
 #, sh-format
 msgid "The download seems to have failed."
 msgstr ""
 
-#: lib/wine.lib:764
+#: lib/wine.lib:770
 #, sh-format
 msgid "Extracting Wine..."
 msgstr ""
 
-#: lib/wine.lib:943
+#: lib/wine.lib:949
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr ""
 
-#: lib/wine.lib:944
+#: lib/wine.lib:950
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
 msgstr ""
 
-#: lib/wine.lib:958
+#: lib/wine.lib:964
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr ""
 
-#: lib/wine.lib:1138 lib/wine.lib:1168
+#: lib/wine.lib:1144 lib/wine.lib:1174
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr ""
 
-#: lib/wine.lib:1142 lib/wine.lib:1171
+#: lib/wine.lib:1148 lib/wine.lib:1177
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
 "have to reinstall $SOFTNAME"
 msgstr ""
 
-#: lib/wine.lib:1142 lib/wine.lib:1171
+#: lib/wine.lib:1148 lib/wine.lib:1177
 #, sh-format
 msgid "Install is done"
 msgstr ""
 
-#: lib/wine.lib:1175 lib/wine.lib:1176
+#: lib/wine.lib:1181 lib/wine.lib:1182
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr ""
 
-#: lib/wine.lib:1184
+#: lib/wine.lib:1190
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr ""
