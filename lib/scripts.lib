@@ -627,23 +627,33 @@ POL_unbase64()
 
 POL_System_unzip ()
 {
+	POL_Debug_Message "Starting unzip $@"
 	unzip "$@" || POL_Debug_Fatal "POL_System_unzip failed with error $?!"
+	POL_Debug_Message "unzip ok"
 }
 POL_System_7z ()
 {
+	POL_Debug_Message "Starting 7z $@"
 	7z "$@" || POL_Debug_Fatal "POL_System_7z failed with error $?!"
+	POL_Debug_Message "7z ok"
 }
 POL_System_tar ()
 {
+	POL_Debug_Message "Starting tar $@"
 	tar "$@" || POL_Debug_Fatal "POL_System_tar failed with error $?!"
+	POL_Debug_Message "tar ok"
 }
 POL_System_cabextract ()
 {
+	POL_Debug_Message "Starting cabextract $@"
 	cabextract "$@" || POL_Debug_Fatal "POL_System_cabextract failed with error $?!"
+	POL_Debug_Message "cabextract ok"
 }
 POL_System_unrar ()
 {
+	POL_Debug_Message "Starting unrar $@"
 	unrar "$@" || POL_Debug_Fatal "POL_System_unrar failed with error $?!"
+	POL_Debug_Message "unrar ok"
 }
 POL_System_ExtractSingleFile ()
 {
