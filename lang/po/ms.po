@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2013-08-12 19:00+0200\n"
-"PO-Revision-Date: 2013-08-08 18:21+0000\n"
+"POT-Creation-Date: 2013-08-19 19:00+0200\n"
+"PO-Revision-Date: 2013-08-16 01:02+0000\n"
 "Last-Translator: abuyop <Unknown>\n"
 "Language-Team: malay loco team\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-08-13 04:43+0000\n"
+"X-Launchpad-Export-Date: 2013-08-20 04:36+0000\n"
 "X-Generator: Launchpad (build 16723)\n"
 "Language: ms\n"
 
@@ -447,7 +447,7 @@ msgstr "Anda tidak perlu pasang DirectX atau guna GLSetup."
 #: PlayOnLinux_Scripts/League_Of_Legends_:55
 #: PlayOnLinux_Scripts/POL_GoG_setup_:30 PlayOnLinux_Scripts/Rage_:114
 #: PlayOnLinux_Scripts/Sacrifice_:41 PlayOnLinux_Scripts/The_Sims_3_:50
-#: PlayOnLinux_Scripts/Toontown_Online_:25 PlayOnLinux_Scripts/iTunes_10_:50
+#: PlayOnLinux_Scripts/Toontown_Online_:25 PlayOnLinux_Scripts/iTunes_10_:28
 #, sh-format
 msgid "Please select the setup file to run."
 msgstr "Sila pilih fail pemasangan untuk dijalankan."
@@ -1128,6 +1128,9 @@ msgid ""
 "COMPLETELY the Steam interface, \\nso that the installation script can "
 "continue."
 msgstr ""
+"Bila Pemulihan $TITLE oleh Steam telah selesai,\\nJangan klik Main.\\n\\"
+"nTutup SEPENUHNYA antaramuka Steam, \\nsupaya skrip pemasangan dapat "
+"diteruskan."
 
 #: PlayOnLinux_Scripts/DmC__Devil_May_Cry_:69
 #, sh-format
@@ -1418,6 +1421,7 @@ msgstr ""
 msgid ""
 "This is an installer for an update;\\nPlease install $TITLE_REQUIRED first"
 msgstr ""
+"Ini merupakan pemasang untuk kemaskini;\\nSila pasang $TITLE_REQUIRED dahulu"
 
 #: PlayOnLinux_Scripts/GOG.com___Flatout_:55
 #, sh-format
@@ -1486,7 +1490,7 @@ msgstr "Bahasa"
 #: PlayOnLinux_Scripts/GOG.com___Neighbours_From_Hell_Compilation_:26
 #, sh-format
 msgid "Spanish"
-msgstr ""
+msgstr "Sepanyol"
 
 #: PlayOnLinux_Scripts/GOG.com___Neighbours_From_Hell_Compilation_:26
 #: PlayOnLinux_Scripts/GOG.com___Sensible_World_of_Soccer_96_97_:58
@@ -2541,6 +2545,22 @@ msgid "Now you can go back to the $TITLE installation window to continue"
 msgstr ""
 "Kini anda boleh kembali ke tetingkap pemasangan $TITLE untuk teruskan"
 
+#: PlayOnLinux_Scripts/Pro_Evolution_Soccer_2013_:25
+#, sh-format
+msgid "Please select the file named Pro Evolution Soccer 2013.msi"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Pro_Evolution_Soccer_2013_:26
+#: PlayOnLinux_Scripts/Pro_Evolution_Soccer_2013_:32
+#, sh-format
+msgid "Please wait while $TITLE is installed"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Pro_Evolution_Soccer_2013_:37
+#, sh-format
+msgid "$TITLE has been successfully installed"
+msgstr ""
+
 #: PlayOnLinux_Scripts/Q.U.B.E_:94 PlayOnLinux_Scripts/Star_Twine_:72
 #, sh-format
 msgid ""
@@ -3134,7 +3154,7 @@ msgstr ""
 "Wine belum lagi menyokong USB lagi. Anda tidak boleh segerakkan iDevices "
 "anda dengan $APPLICATION_TITLE. Maaf"
 
-#: PlayOnLinux_Scripts/iTunes_10_:53
+#: PlayOnLinux_Scripts/iTunes_10_:31
 #, sh-format
 msgid "Please select the 32bit version of iTunes"
 msgstr "Sila pilih iTunes versi 32bit"
@@ -4302,7 +4322,7 @@ msgstr ""
 msgid "No enough space to download:\\n$URL ($neededSpace KB)"
 msgstr "Ruang tidak mencukupi untuk memuat turun:\\n$URL ($neededSpace KB)"
 
-#: lib/scripts.lib:488 lib/scripts.lib:761
+#: lib/scripts.lib:488 lib/scripts.lib:771
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr "Sila tunggu semasa $APPLICATION_TITLE memuat turun:"
@@ -4324,7 +4344,7 @@ msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 "Ralat ! Fail tidak sepadan\\n\\nSetempat : $LOCAL_MD5\\nPelayan : $SERVER_MD5"
 
-#: lib/scripts.lib:666
+#: lib/scripts.lib:676
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
@@ -4332,32 +4352,32 @@ msgstr ""
 "7z tidak dipasang, sila semak sama ada anda telah memasang 7zip dan cuba "
 "sekali lagi"
 
-#: lib/scripts.lib:673
+#: lib/scripts.lib:683
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr "Gagal mencari ${dest} dari ${archive}"
 
-#: lib/scripts.lib:677
+#: lib/scripts.lib:687
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr "Mengekstrak ${filename} dari ${archivename}"
 
-#: lib/scripts.lib:692
+#: lib/scripts.lib:702
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr "Saiz fail terekstrak tidak sepadan!"
 
-#: lib/scripts.lib:723
+#: lib/scripts.lib:733
 #, sh-format
 msgid "Copying ${filename}"
 msgstr "Menyalin ${filename}"
 
-#: lib/scripts.lib:736
+#: lib/scripts.lib:746
 #, sh-format
 msgid "File size does not match!"
 msgstr "Saiz fail tidak sepadan!"
 
-#: lib/scripts.lib:880
+#: lib/scripts.lib:890
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
@@ -4366,7 +4386,7 @@ msgstr ""
 "Maaf, $APPLICATION_TITLE $VERSION terlalu tua untuk diteruskan.\\"
 "n$APPLICATION_TITLE $NEEDED diperlukan."
 
-#: lib/scripts.lib:895
+#: lib/scripts.lib:905
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
@@ -4375,7 +4395,7 @@ msgstr ""
 "Amaran: Anda kini menjalankan $APPLICATION_TITLE $VERSION.\\"
 "n$APPLICATION_TITLE $NEEDED disarankan untuk diteruskan."
 
-#: lib/scripts.lib:926
+#: lib/scripts.lib:936
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr "Profil $AUTHOR"

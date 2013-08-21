@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2013-08-12 19:00+0200\n"
+"POT-Creation-Date: 2013-08-19 19:00+0200\n"
 "PO-Revision-Date: 2013-07-31 17:46+0000\n"
 "Last-Translator: rob <linuxned@gmail.com>\n"
 "Language-Team: nl_NL.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-08-13 04:42+0000\n"
+"X-Launchpad-Export-Date: 2013-08-20 04:35+0000\n"
 "X-Generator: Launchpad (build 16723)\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -448,7 +448,7 @@ msgstr "U hoeft geen DirectX te installeren of GLSetup te gebruiken."
 #: PlayOnLinux_Scripts/League_Of_Legends_:55
 #: PlayOnLinux_Scripts/POL_GoG_setup_:30 PlayOnLinux_Scripts/Rage_:114
 #: PlayOnLinux_Scripts/Sacrifice_:41 PlayOnLinux_Scripts/The_Sims_3_:50
-#: PlayOnLinux_Scripts/Toontown_Online_:25 PlayOnLinux_Scripts/iTunes_10_:50
+#: PlayOnLinux_Scripts/Toontown_Online_:25 PlayOnLinux_Scripts/iTunes_10_:28
 #, sh-format
 msgid "Please select the setup file to run."
 msgstr "Selecteer het installatiebestand om uit te voeren."
@@ -2575,6 +2575,22 @@ msgid "Now you can go back to the $TITLE installation window to continue"
 msgstr ""
 "U kunt nu teruggaan naar het $TITLE-installatievenster om door te gaan"
 
+#: PlayOnLinux_Scripts/Pro_Evolution_Soccer_2013_:25
+#, sh-format
+msgid "Please select the file named Pro Evolution Soccer 2013.msi"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Pro_Evolution_Soccer_2013_:26
+#: PlayOnLinux_Scripts/Pro_Evolution_Soccer_2013_:32
+#, sh-format
+msgid "Please wait while $TITLE is installed"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Pro_Evolution_Soccer_2013_:37
+#, sh-format
+msgid "$TITLE has been successfully installed"
+msgstr ""
+
 #: PlayOnLinux_Scripts/Q.U.B.E_:94 PlayOnLinux_Scripts/Star_Twine_:72
 #, sh-format
 msgid ""
@@ -3156,7 +3172,7 @@ msgstr ""
 "uw i-Apparaten met $APPLICATION_TITLE te synchroniseren. Onze excuses "
 "hiervoor"
 
-#: PlayOnLinux_Scripts/iTunes_10_:53
+#: PlayOnLinux_Scripts/iTunes_10_:31
 #, sh-format
 msgid "Please select the 32bit version of iTunes"
 msgstr "Selecteer a.u.b. de 32bit-versie van iTunes"
@@ -4332,7 +4348,7 @@ msgstr ""
 msgid "No enough space to download:\\n$URL ($neededSpace KB)"
 msgstr "Niet genoeg ruimte om te downloaden:\\n$URL ($neededSpace KB)"
 
-#: lib/scripts.lib:488 lib/scripts.lib:761
+#: lib/scripts.lib:488 lib/scripts.lib:771
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr ""
@@ -4356,38 +4372,38 @@ msgstr ""
 "Fout ! Bestanden komen niet overeen\\n\\nLokaal : $LOCAL_MD5\\nServer : "
 "$SERVER_MD5"
 
-#: lib/scripts.lib:666
+#: lib/scripts.lib:676
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
 msgstr "7z is niet geïnstalleerd, installeer 7zip en probeer het dan opnieuw"
 
-#: lib/scripts.lib:673
+#: lib/scripts.lib:683
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr "Kon ${dest} niet vinden in ${archive}"
 
-#: lib/scripts.lib:677
+#: lib/scripts.lib:687
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr "${filename} wordt uitgepakt vanuit ${archivename}"
 
-#: lib/scripts.lib:692
+#: lib/scripts.lib:702
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr "Grootte van uitgepakte bestand komt niet overeen!"
 
-#: lib/scripts.lib:723
+#: lib/scripts.lib:733
 #, sh-format
 msgid "Copying ${filename}"
 msgstr "${filename} wordt gekopieerd"
 
-#: lib/scripts.lib:736
+#: lib/scripts.lib:746
 #, sh-format
 msgid "File size does not match!"
 msgstr "Grootte van uitgepakte bestand komt niet overeen!"
 
-#: lib/scripts.lib:880
+#: lib/scripts.lib:890
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
@@ -4396,7 +4412,7 @@ msgstr ""
 "Sorry, $APPLICATION_TITLE $VERSION is te oud om door te kunnen gaan.\\"
 "n$APPLICATION_TITLE $NEEDED wordt vereist."
 
-#: lib/scripts.lib:895
+#: lib/scripts.lib:905
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
@@ -4405,7 +4421,7 @@ msgstr ""
 "Waarschuwing: U draait momenteel $APPLICATION_TITLE $VERSION.\\"
 "n$APPLICATION_TITLE versie $NEEDED wordt aanbevolen om mee door te gaan."
 
-#: lib/scripts.lib:926
+#: lib/scripts.lib:936
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr "$AUTHOR-profiel"
