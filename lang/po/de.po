@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2013-08-19 19:00+0200\n"
-"PO-Revision-Date: 2013-08-18 19:40+0000\n"
-"Last-Translator: raymond <Unknown>\n"
+"POT-Creation-Date: 2013-08-26 19:00+0200\n"
+"PO-Revision-Date: 2013-08-26 07:19+0000\n"
+"Last-Translator: Raffael Menke <menke.raffael@googlemail.com>\n"
 "Language-Team: de_DE.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-08-20 04:36+0000\n"
-"X-Generator: Launchpad (build 16723)\n"
+"X-Launchpad-Export-Date: 2013-08-27 04:34+0000\n"
+"X-Generator: Launchpad (build 16738)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -310,7 +310,7 @@ msgstr "Bitte legen Sie das Spiel-Medium ein."
 #: PlayOnLinux_Scripts/Starcraft___BroodWar_:24
 #: PlayOnLinux_Scripts/Super_Street_Fighter_IV___Arcade_Edition_:88
 #: PlayOnLinux_Scripts/Surfer_8_:23 PlayOnLinux_Scripts/Tera_Online_:71
-#: PlayOnLinux_Scripts/The_Witcher_:132
+#: PlayOnLinux_Scripts/The_Sims_3_:61 PlayOnLinux_Scripts/The_Witcher_:132
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_:100
 #: PlayOnLinux_Scripts/Theme_Hospital_:57
 #: PlayOnLinux_Scripts/Traktor_Pro_2_:33
@@ -329,7 +329,7 @@ msgid "Please select the setup file to run"
 msgstr "Bitte wählen Sie die Installationsdatei zum Ausführen"
 
 #: PlayOnLinux_Scripts/A.R.E.S.___Extinction_Agenda_:80
-#: PlayOnLinux_Scripts/Call_of_Duty__Modern_Warfare_3_:80
+#: PlayOnLinux_Scripts/Call_of_Duty__Modern_Warfare_3_:48
 #: PlayOnLinux_Scripts/Dishonored_:72
 #: PlayOnLinux_Scripts/Kingdoms_of_Amalur___Reckoning_:75
 #: PlayOnLinux_Scripts/Kingdoms_of_Amalur___Reckoning_:80
@@ -342,6 +342,9 @@ msgid ""
 "nClose COMPLETELY the Steam interface, \\nso that the installation script "
 "can continue."
 msgstr ""
+"Wenn $TITLE von Steam heruntergeladen wurde,\\nklicken Sie nicht auf "
+"Spielen.\\n\\nSchließen Sie das Steam-Interface komplett, \\ndamit das "
+"Installations-Script fortfahren kann."
 
 #: PlayOnLinux_Scripts/Ableton_Live_8_:52
 #: PlayOnLinux_Scripts/Ableton_Live_9_:52
@@ -411,6 +414,9 @@ msgid ""
 "nClose COMPLETELY the Steam interface, \\nso that the installation script "
 "can continue"
 msgstr ""
+"Wenn $TITLE von Steam heruntergeladen wurde,\\nklicken Sie nicht auf "
+"Spielen.\\n\\nSchließen Sie das Steam-Interface komplett, \\ndamit das "
+"Installations-Script fortfahren kann."
 
 #: PlayOnLinux_Scripts/Alien_Breed_2___Assault_:88
 #: PlayOnLinux_Scripts/Alien_Breed_3___Descent_:87
@@ -440,15 +446,15 @@ msgstr "Sie müssen nicht DirectX installieren oder GLSetup verwenden."
 #: PlayOnLinux_Scripts/Google_Picasa_3.9_:55
 #: PlayOnLinux_Scripts/League_Of_Legends_:55
 #: PlayOnLinux_Scripts/POL_GoG_setup_:30 PlayOnLinux_Scripts/Rage_:114
-#: PlayOnLinux_Scripts/Sacrifice_:41 PlayOnLinux_Scripts/The_Sims_3_:50
-#: PlayOnLinux_Scripts/Toontown_Online_:25 PlayOnLinux_Scripts/iTunes_10_:28
+#: PlayOnLinux_Scripts/Sacrifice_:41 PlayOnLinux_Scripts/Toontown_Online_:25
+#: PlayOnLinux_Scripts/iTunes_10_:28
 #, sh-format
 msgid "Please select the setup file to run."
 msgstr "Bitte wähle die Setup-Datei zum Ausführen aus."
 
 #: PlayOnLinux_Scripts/Alt.Binz_:60 PlayOnLinux_Scripts/Geoplan_Geospace_:34
 #: PlayOnLinux_Scripts/ISIS_Draw_2.3_:34
-#: PlayOnLinux_Scripts/Mozilla_Firefox_:205 PlayOnLinux_Scripts/The_Sims_3_:51
+#: PlayOnLinux_Scripts/Mozilla_Firefox_:205
 #: PlayOnLinux_Scripts/Theme_Hospital_:66 PlayOnLinux_Scripts/Tree[d]_:61
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:97
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:67
@@ -863,48 +869,6 @@ msgstr "Normale Version"
 msgid "Welcome in the patch $PVERSION installer for $TITLE"
 msgstr ""
 "Willkommen beim Installationsprogramm für den Patch $PVERSION für $TITLE"
-
-#: PlayOnLinux_Scripts/Call_of_Duty__Modern_Warfare_3_:46
-#: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:55
-#: PlayOnLinux_Scripts/Half_Life_2_:56
-#: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:36
-#: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:36
-#: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:50
-#: PlayOnLinux_Scripts/Portal_:36 python/guiv3.py:149
-#, sh-format
-msgid "No"
-msgstr "Nein"
-
-#: PlayOnLinux_Scripts/Call_of_Duty__Modern_Warfare_3_:46
-#: PlayOnLinux_Scripts/Half_Life_2_:56
-#: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:36
-#: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:36
-#: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:50
-#: PlayOnLinux_Scripts/Portal_:36
-#, sh-format
-msgid ""
-"Steam installation has been detected\\nwould you like to install this game "
-"in the same virtual drive?"
-msgstr ""
-"Steam-Installation wurde erkannt\\nMöchten Sie dieses Spiel in dem gleichen "
-"virtuellen Laufwerk installieren?"
-
-#: PlayOnLinux_Scripts/Call_of_Duty__Modern_Warfare_3_:46
-#: PlayOnLinux_Scripts/Call_of_Duty__Modern_Warfare_3_:48
-#: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:55
-#: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:56
-#: PlayOnLinux_Scripts/Half_Life_2_:56 PlayOnLinux_Scripts/Half_Life_2_:58
-#: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:36
-#: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:38
-#: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:36
-#: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:38
-#: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:50
-#: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:52
-#: PlayOnLinux_Scripts/Portal_:36 PlayOnLinux_Scripts/Portal_:38
-#: python/guiv3.py:150
-#, sh-format
-msgid "Yes"
-msgstr "Ja"
 
 #: PlayOnLinux_Scripts/CivCity_Rome_:60
 #, sh-format
@@ -1589,6 +1553,31 @@ msgstr "Haben Sie ein Sprachpaket zum installieren?"
 msgid "Later"
 msgstr "Später"
 
+#: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:55
+#: PlayOnLinux_Scripts/Half_Life_2_:56
+#: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:36
+#: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:36
+#: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:50
+#: PlayOnLinux_Scripts/Portal_:36 python/guiv3.py:149
+#, sh-format
+msgid "No"
+msgstr "Nein"
+
+#: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:55
+#: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:56
+#: PlayOnLinux_Scripts/Half_Life_2_:56 PlayOnLinux_Scripts/Half_Life_2_:58
+#: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:36
+#: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:38
+#: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:36
+#: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:38
+#: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:50
+#: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:52
+#: PlayOnLinux_Scripts/Portal_:36 PlayOnLinux_Scripts/Portal_:38
+#: python/guiv3.py:150
+#, sh-format
+msgid "Yes"
+msgstr "Ja"
+
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:60
 #, sh-format
 msgid ""
@@ -1704,6 +1693,19 @@ msgid ""
 msgstr ""
 "Bitte wähle $TITLE Installationsdatei. Während der Installation deaktiviere "
 "alle zusätzliche Treiber, die es installieren will:"
+
+#: PlayOnLinux_Scripts/Half_Life_2_:56
+#: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:36
+#: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:36
+#: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:50
+#: PlayOnLinux_Scripts/Portal_:36
+#, sh-format
+msgid ""
+"Steam installation has been detected\\nwould you like to install this game "
+"in the same virtual drive?"
+msgstr ""
+"Steam-Installation wurde erkannt\\nMöchten Sie dieses Spiel in dem gleichen "
+"virtuellen Laufwerk installieren?"
 
 #: PlayOnLinux_Scripts/Halo_Combat_Evolved_:74
 #, sh-format
@@ -2421,7 +2423,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Pro_Evolution_Soccer_2013_:37
 #, sh-format
 msgid "$TITLE has been successfully installed"
-msgstr ""
+msgstr "$TITLE wurde erfolgreich installiert"
 
 #: PlayOnLinux_Scripts/Q.U.B.E_:94 PlayOnLinux_Scripts/Star_Twine_:72
 #, sh-format
@@ -2687,16 +2689,6 @@ msgid ""
 "/proc/sys/kernel/yama/ptrace_scope to 0"
 msgstr ""
 
-#: PlayOnLinux_Scripts/The_Sims_3_:40
-#, sh-format
-msgid "The Sims 3"
-msgstr "The Sims 3"
-
-#: PlayOnLinux_Scripts/The_Sims_3_:41
-#, sh-format
-msgid "The Sims 3 Launcher"
-msgstr "The Sims 3 Launcher"
-
 #: PlayOnLinux_Scripts/The_Witcher_:55 PlayOnLinux_Scripts/The_Witcher_:57
 #, sh-format
 msgid "Enhanced Edition"
@@ -2775,7 +2767,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Witcher_Patch_1.5_:108
 #, sh-format
 msgid "Donwload finished.\\nPatches installation will begin"
-msgstr ""
+msgstr "Download abgeschlossen.\\nPatch-Installation beginnt"
 
 #: PlayOnLinux_Scripts/Toontown_Online_:17
 #, sh-format
@@ -2921,7 +2913,7 @@ msgstr "Transferiere Dateien von Disk 1"
 #: PlayOnLinux_Scripts/Zoo_Tycoon_2__Zookeeper_Collection_:36
 #, sh-format
 msgid "Please insert \"$TITLE\" disc 2"
-msgstr ""
+msgstr "Bitte lege \"$TITLE\" Disk 2 ein"
 
 #: PlayOnLinux_Scripts/Zoo_Tycoon_2__Zookeeper_Collection_:39
 #, sh-format
@@ -2939,6 +2931,7 @@ msgstr ""
 #, sh-format
 msgid "Do you want to install $TITLE to sync an USB device?"
 msgstr ""
+"Möchten Sie $TITLE zum synchronisieren eines USB Gerätes installieren?"
 
 #: PlayOnLinux_Scripts/iTunes_10_:22
 #, sh-format
@@ -2946,6 +2939,8 @@ msgid ""
 "Wine does not support USB yet. You will not able to sync your iDevices with "
 "$APPLICATION_TITLE. Sorry"
 msgstr ""
+"Wine unterstützt USB bisher nicht. Es wird Ihnen nicht möglich sein Ihr "
+"iDevice mit $APPLICATION_TITLE zu synchronisieren. Sorry."
 
 #: PlayOnLinux_Scripts/iTunes_10_:31
 #, sh-format
@@ -3272,7 +3267,7 @@ msgstr "$APPLICATION_TITLE Gecko Installer"
 #: bash/install_mono:25
 #, sh-format
 msgid "$APPLICATION_TITLE Mono installer"
-msgstr ""
+msgstr "$APPLICATION_TITLE Mono Installer"
 
 #: bash/install_wver:27
 #, sh-format
@@ -4424,7 +4419,7 @@ msgstr "Bitte warte, während $APPLICATION_TITLE Ihre Hardware scannt"
 #: lib/wine.lib:373
 #, sh-format
 msgid "Select the main videocard to report:"
-msgstr ""
+msgstr "Wähle die Haupt-Videokarte zum berichten:"
 
 #: lib/wine.lib:438
 #, sh-format
@@ -5047,7 +5042,7 @@ msgstr "Update GIT"
 
 #: python/mainwindow.py:731
 msgid "Update instructions"
-msgstr ""
+msgstr "Aktualisiere Instruktionen"
 
 #: python/mainwindow.py:741
 msgid "Debug"
