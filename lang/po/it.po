@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2013-08-26 19:00+0200\n"
-"PO-Revision-Date: 2013-06-19 15:44+0000\n"
-"Last-Translator: Davide Pelella <dave.ltd@live.it>\n"
+"POT-Creation-Date: 2013-09-02 19:00+0200\n"
+"PO-Revision-Date: 2013-09-02 15:33+0000\n"
+"Last-Translator: Naive D. Jack <naivejack@hotmail.it>\n"
 "Language-Team: it_IT.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-08-27 04:34+0000\n"
-"X-Generator: Launchpad (build 16738)\n"
+"X-Launchpad-Export-Date: 2013-09-03 04:41+0000\n"
+"X-Generator: Launchpad (build 16753)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -267,7 +267,7 @@ msgstr "Per favore inserisci il disco del gioco nel lettore"
 #: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_:65
 #: PlayOnLinux_Scripts/Diablo_II_:51
 #: PlayOnLinux_Scripts/Dragon_Age_2___DLC_:40
-#: PlayOnLinux_Scripts/Dreamweaver_8_:22 PlayOnLinux_Scripts/EVE_online_:81
+#: PlayOnLinux_Scripts/Dreamweaver_8_:22 PlayOnLinux_Scripts/EVE_online_:83
 #: PlayOnLinux_Scripts/FEZ__Steam__:49 PlayOnLinux_Scripts/FL_Studio_10_:33
 #: PlayOnLinux_Scripts/Far_Cry_2_:80 PlayOnLinux_Scripts/Flash_8_:22
 #: PlayOnLinux_Scripts/Flash_MX_:22
@@ -351,11 +351,13 @@ msgid ""
 "NOTICE: To register, when it opens asking for registration, drag-and-drop "
 "your reg file into $TITLE"
 msgstr ""
+"N.B. : Per registrarsi, quando si apre chiedendo l'accesso, trascina il tuo "
+"file reg in $TITLE"
 
 #: PlayOnLinux_Scripts/Absynth_5_:53 PlayOnLinux_Scripts/Guitar_Rig_5_:46
 #, sh-format
 msgid "NOTICE: For low-latency audio, look into WineASIO."
-msgstr ""
+msgstr "N.B.: Per audio a bassa latenza, cerca in WineASIO"
 
 #: PlayOnLinux_Scripts/Age_Of_Empires_II___The_Age_of_Kings_:65
 #: PlayOnLinux_Scripts/Anno_1602_:42
@@ -412,6 +414,9 @@ msgid ""
 "nClose COMPLETELY the Steam interface, \\nso that the installation script "
 "can continue"
 msgstr ""
+"Quando il download di $TITLE è finito,\\nNON cliccare Gioca.\\n\\nChiudere "
+"completamente l'interfaccia di Steam, \\ncosicché lo script di installazione "
+"possa continuare."
 
 #: PlayOnLinux_Scripts/Alien_Breed_2___Assault_:88
 #: PlayOnLinux_Scripts/Alien_Breed_3___Descent_:87
@@ -419,12 +424,13 @@ msgstr ""
 #, sh-format
 msgid "If .NET 3.0 installation fail, dont worry\\nthe game will still work"
 msgstr ""
+"Se l'installazione di .NET 3.0 fallisce,\\nil gioco funzionerà ugualmente."
 
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:30
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:40
 #, sh-format
 msgid "You dont have to install DirectX or use GLSetup."
-msgstr ""
+msgstr "Non c'è bisogno di installare DirectX o usare GLSetup."
 
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:39
 #: PlayOnLinux_Scripts/Alt.Binz_:40
@@ -443,7 +449,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/iTunes_10_:28
 #, sh-format
 msgid "Please select the setup file to run."
-msgstr ""
+msgstr "Inserire il file di installazione da avviare."
 
 #: PlayOnLinux_Scripts/Alt.Binz_:60 PlayOnLinux_Scripts/Geoplan_Geospace_:34
 #: PlayOnLinux_Scripts/ISIS_Draw_2.3_:34
@@ -520,7 +526,7 @@ msgstr "Per favore seleziona il file setup da eseguire:"
 #: PlayOnLinux_Scripts/Command_And_Conquer___Red_Alert_3_Patch_1.12_:30
 #, sh-format
 msgid "Welcome in the patch $PVERSION Installer for $TITLE"
-msgstr ""
+msgstr "Benvenuto nell'installatore della patch $PVERSION per $TITLE"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:34
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:34
@@ -542,7 +548,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Wow_Cartographe_:34
 #, sh-format
 msgid "Please install $TITLE_REQUIRED first"
-msgstr ""
+msgstr "Installare prima $TITLE_REQUIRED"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:48
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:48
@@ -552,7 +558,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Witcher_2___Enhanced_Edition_Patch_:42
 #, sh-format
 msgid "Steam have is own automatic update system"
-msgstr ""
+msgstr "Steam ha un sistema di aggiornamento automatico proprio."
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:57
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:57
@@ -672,6 +678,8 @@ msgid ""
 "Wait while the patch is downloading...\\nThis operation can take time, "
 "depending of your connexion."
 msgstr ""
+"Attendere durante lo scaricamento della patch...\\nQuesta operazione può "
+"impiegare del tempo, a seconda della tua connessione."
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Revelations_:74
 #: PlayOnLinux_Scripts/Baldur_s_Gate_:43 PlayOnLinux_Scripts/Baldur_s_Gate_:80
@@ -694,6 +702,7 @@ msgstr ""
 #, sh-format
 msgid "When the game setup will ask for next Disk\\nclick on \\\"Forward\\\""
 msgstr ""
+"Quando l'installazione chiederà il prossimo disco\\ncliccare \\\"Avanti\\\""
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_:54 PlayOnLinux_Scripts/Baldur_s_Gate_:62
 #: PlayOnLinux_Scripts/Baldur_s_Gate_:67 PlayOnLinux_Scripts/Baldur_s_Gate_:72
@@ -715,7 +724,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Dragon_Age_2_Patch_1.03_:30
 #, sh-format
 msgid "Welcome in the patch $PVERSION installer for $TITLE_REQUIRED"
-msgstr ""
+msgstr "Benvenuti nell'installer della patch $PVERSION per $TITLE_REQUIRED"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:48
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:49
@@ -731,7 +740,7 @@ msgstr "Versione inglese"
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:51
 #, sh-format
 msgid "International version"
-msgstr ""
+msgstr "Versione internazionale"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:48
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:52
@@ -753,12 +762,13 @@ msgstr "Versione Giapponese"
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:42
 #, sh-format
 msgid "Which version do you have?"
-msgstr ""
+msgstr "Specificare la versione in possesso."
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_:68
 #, sh-format
 msgid "This addon automatically install patch 2.5.26461"
 msgstr ""
+"Questo componente aggiuntivo installa automaticamente la patch 2.5.26461"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:43
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:43
@@ -780,18 +790,19 @@ msgstr ""
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:52
 #, sh-format
 msgid "US or Canadian version"
-msgstr ""
+msgstr "Versione USA o canadese"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_:68
 #, sh-format
 msgid "This addon automatically install patch 1.3.5511"
 msgstr ""
+"Questo componente aggiuntivo installa automaticamente la patch 1.3.5511"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:51
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:59
 #, sh-format
 msgid "UK version"
-msgstr ""
+msgstr "Versione UK"
 
 #: PlayOnLinux_Scripts/Batman_Arkham_Asylum_:109
 #: PlayOnLinux_Scripts/Batman_Arkham_City_:109
@@ -803,6 +814,8 @@ msgid ""
 "You must disable anti-piracy protections of this game\\nif you want to play "
 "it with wine"
 msgstr ""
+"È necessario disattivare la protezione anti-pirateria di questo gioco\\nse "
+"si desidera giocarci con Wine"
 
 #: PlayOnLinux_Scripts/Battlefield_1942_:44
 #: PlayOnLinux_Scripts/POL_Function_NoCDWarning_:1
@@ -812,6 +825,9 @@ msgid ""
 "patch even if you have a legal version.\\n\\nPlease remember that "
 "$APPLICATION_TITLE is strongly against piracy, and will never support it."
 msgstr ""
+"Attenzione! Per avviare $TITLE con %APPLICATION_TITLE, è necessario "
+"installare una patch no-CD anche se si possiede una versione legale.\\n\\"
+"n$APPLICATION_TITLE è contro la pirateria e non la sostiene in alcun modo."
 
 #: PlayOnLinux_Scripts/Blur_:102 PlayOnLinux_Scripts/Borderlands_:120
 #: PlayOnLinux_Scripts/Cars_2_:83
@@ -827,11 +843,13 @@ msgid ""
 "You must disable anti-piracy protections of this game\\nif you want to play "
 "it with wine."
 msgstr ""
+"È necessario disattivare la protezione anti-pirateria di questo gioco\\nse "
+"si vuole giocare usando Wine."
 
 #: PlayOnLinux_Scripts/Borderlands_:59 PlayOnLinux_Scripts/Fallout_3_:57
 #, sh-format
 msgid "Game Of The Year version"
-msgstr ""
+msgstr "Versione GOTY"
 
 #: PlayOnLinux_Scripts/Borderlands_:59 PlayOnLinux_Scripts/Borderlands_:60
 #: PlayOnLinux_Scripts/Fallout_3_:57 PlayOnLinux_Scripts/Fallout_3_:58
@@ -842,7 +860,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Prince_of_Persia___The_Forgotten_Sands_:70
 #, sh-format
 msgid "Normal version"
-msgstr ""
+msgstr "Versione normale"
 
 #: PlayOnLinux_Scripts/Borderlands_Patch_1.41_:27
 #: PlayOnLinux_Scripts/Dragon_Age_Patch_1.04_:24
@@ -861,6 +879,8 @@ msgstr "Benvenuto nell'installazione della patch $PVERSION per $TITLE"
 msgid ""
 "Warning: GameShadow wont work.\\nPlease de-select during installation."
 msgstr ""
+"Attenzione: GameShadow non funzionerà.\\nDisattivarlo durante "
+"l'installazione."
 
 #: PlayOnLinux_Scripts/CivCity_Rome_:64
 #: PlayOnLinux_Scripts/Dungeon_Siege_III_:59
@@ -1072,7 +1092,7 @@ msgid ""
 "and redo installation of the game."
 msgstr ""
 
-#: PlayOnLinux_Scripts/EVE_online_:70
+#: PlayOnLinux_Scripts/EVE_online_:72
 #, sh-format
 msgid ""
 "Requires about 18Gb free space.\\n\\nAs well, an additional 5Gb in your "
@@ -1080,12 +1100,12 @@ msgid ""
 "installer."
 msgstr ""
 
-#: PlayOnLinux_Scripts/EVE_online_:76
+#: PlayOnLinux_Scripts/EVE_online_:78
 #, sh-format
 msgid "You want to open $TITLE download page in your browser?"
 msgstr ""
 
-#: PlayOnLinux_Scripts/EVE_online_:90 PlayOnLinux_Scripts/EVE_online_:118
+#: PlayOnLinux_Scripts/EVE_online_:92 PlayOnLinux_Scripts/EVE_online_:120
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:39
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:47
 #: PlayOnLinux_Scripts/POL_Function_FontsSmoothRGB_:1
@@ -1103,14 +1123,14 @@ msgstr ""
 msgid "Please wait..."
 msgstr "Per favore aspetta..."
 
-#: PlayOnLinux_Scripts/EVE_online_:115
+#: PlayOnLinux_Scripts/EVE_online_:117
 #, sh-format
 msgid ""
 "You want to create symbolic link for $TITLE settings in your /home/ folder?\\"
 "n(Recommend yes.)"
 msgstr ""
 
-#: PlayOnLinux_Scripts/EVE_online_:134
+#: PlayOnLinux_Scripts/EVE_online_:136
 #, sh-format
 msgid ""
 "Known issues:\\n\\n1) Loading EULA on the first run can take a long (5min) "
