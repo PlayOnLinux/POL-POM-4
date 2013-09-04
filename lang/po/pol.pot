@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2013-09-03 19:01:03+02:00\n"
+"POT-Creation-Date: 2013-09-04 19:01:05+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -206,6 +206,8 @@ msgstr ""
 msgid "Operation done"
 msgstr ""
 #: PlayOnLinux_Scripts/18_Wheels_of_Steel_Haulin_:44
+#: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Age_of_Kings_:41
+#: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Conquerors_:45
 #: PlayOnLinux_Scripts/Age_Of_Empires_II___The_Age_of_Kings_:55
 #: PlayOnLinux_Scripts/Age_Of_Wonders_:38
 #: PlayOnLinux_Scripts/Assassin_s_Creed_:55
@@ -225,8 +227,14 @@ msgstr ""
 #: PlayOnLinux_Scripts/A.R.E.S.___Extinction_Agenda_:87
 #: PlayOnLinux_Scripts/Ableton_Live_8_:44
 #: PlayOnLinux_Scripts/Ableton_Live_9_:44 PlayOnLinux_Scripts/Absynth_5_:34
+#: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Age_of_Kings_:47
+#: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Age_of_Kings_:69
+#: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Conquerors_:51
+#: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Conquerors_:73
 #: PlayOnLinux_Scripts/Age_Of_Empires_II___The_Age_of_Kings_:63
-#: PlayOnLinux_Scripts/Age_Of_Wonders_:50 PlayOnLinux_Scripts/Alan_Wake_:75
+#: PlayOnLinux_Scripts/Age_Of_Wonders_:50
+#: PlayOnLinux_Scripts/Age_of_Vampires___Blood_Reign_in_Transylvania_:46
+#: PlayOnLinux_Scripts/Alan_Wake_:75
 #: PlayOnLinux_Scripts/Alien_Breed_2___Assault_:81
 #: PlayOnLinux_Scripts/Alien_Breed_3___Descent_:80
 #: PlayOnLinux_Scripts/Alien_Breed___Impact_:79
@@ -271,11 +279,11 @@ msgstr ""
 #: PlayOnLinux_Scripts/Portal_:82 PlayOnLinux_Scripts/Portal_2_:68
 #: PlayOnLinux_Scripts/Portal_2_:82
 #: PlayOnLinux_Scripts/Prince_of_Persia___The_Forgotten_Sands_:85
-#: PlayOnLinux_Scripts/Publish_or_Perish_:46 PlayOnLinux_Scripts/Q.U.B.E_:101
+#: PlayOnLinux_Scripts/Publish_or_Perish_:48 PlayOnLinux_Scripts/Q.U.B.E_:101
 #: PlayOnLinux_Scripts/Rayman_Origins_:72
 #: PlayOnLinux_Scripts/Rayman_Origins_:90 PlayOnLinux_Scripts/Reason_5_:29
 #: PlayOnLinux_Scripts/Red_Faction_:49 PlayOnLinux_Scripts/Rfactor_:48
-#: PlayOnLinux_Scripts/Runes_Of_Magic_:44
+#: PlayOnLinux_Scripts/Rome_at_War_:44 PlayOnLinux_Scripts/Runes_Of_Magic_:44
 #: PlayOnLinux_Scripts/SFR_LiberTalk_:42
 #: PlayOnLinux_Scripts/Secret_of_Monkey_Island_Special_Edition_:79
 #: PlayOnLinux_Scripts/Spotify_:65 PlayOnLinux_Scripts/Star_Twine_:80
@@ -284,8 +292,10 @@ msgstr ""
 #: PlayOnLinux_Scripts/Starcraft_:34
 #: PlayOnLinux_Scripts/Starcraft___BroodWar_:24
 #: PlayOnLinux_Scripts/Super_Street_Fighter_IV___Arcade_Edition_:88
-#: PlayOnLinux_Scripts/Surfer_8_:23 PlayOnLinux_Scripts/Tera_Online_:71
-#: PlayOnLinux_Scripts/The_Sims_3_:61 PlayOnLinux_Scripts/The_Witcher_:132
+#: PlayOnLinux_Scripts/Surfer_8_:23
+#: PlayOnLinux_Scripts/Tales_of_Middle_Earth_:51
+#: PlayOnLinux_Scripts/Tera_Online_:71 PlayOnLinux_Scripts/The_Sims_3_:61
+#: PlayOnLinux_Scripts/The_Witcher_:132
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_:100
 #: PlayOnLinux_Scripts/Theme_Hospital_:57
 #: PlayOnLinux_Scripts/Traktor_Pro_2_:33
@@ -331,6 +341,31 @@ msgstr ""
 msgid "NOTICE: For low-latency audio, look into WineASIO."
 msgstr ""
 
+#: PlayOnLinux_Scripts/Age_Of_Empires_II__Forgotten_Empires_:24
+#: PlayOnLinux_Scripts/Age_of_Vampires___Blood_Reign_in_Transylvania_:24
+#: PlayOnLinux_Scripts/Rome_at_War_:24
+#: PlayOnLinux_Scripts/Tales_of_Middle_Earth_:24
+#, sh-format
+msgid "Please install \"Age Of Empires II: The Conquerors\""
+msgstr ""
+
+#: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Age_of_Kings_:19
+#, sh-format
+msgid ""
+"This tutorial will help you to install $TITLE from Ensemble Studios (http://"
+"www.ensemblestudios.com/) on your PC.\n"
+"\\n\\nPlease consider some OpenSource alternative programs that runs "
+"natively on GNU/Linux, as for example 0 A.D. (http://play0ad.com/) before "
+"installing $TITLE through Wine.\n"
+"\\n\\nThis installation program is provided by: Fekir\n"
+"\\n\\n$TITLE will be installed in $POL_USER_ROOT/wineprefix/$PREFIX\n"
+"\\n\\nPlayOnLinux is not responsible for anything that might happen as a "
+"result of using these scripts.\n"
+"\\n\\nClick on next to start."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Age_of_Kings_:49
+#: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Conquerors_:53
 #: PlayOnLinux_Scripts/Age_Of_Empires_II___The_Age_of_Kings_:65
 #: PlayOnLinux_Scripts/Anno_1602_:42
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:79
@@ -348,6 +383,38 @@ msgstr ""
 #: PlayOnLinux_Scripts/Vantage_Master_Online_:44
 #, sh-format
 msgid "Please wait while $TITLE is installed."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Age_of_Kings_:63
+#, sh-format
+msgid "Do you want to install the 2.0a Patch?"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Age_of_Kings_:76
+#, sh-format
+msgid "Please wait while the 2.0a Patch is installed."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Conquerors_:24
+#, sh-format
+msgid "Please install \"Age Of Empires II: The Age of Kings\""
+msgstr ""
+
+#: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Conquerors_:67
+#, sh-format
+msgid "Do you want to install the 1.0c Patch?"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Conquerors_:80
+#, sh-format
+msgid "Please wait while the 1.0c Patch is installed."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Age_of_Vampires___Blood_Reign_in_Transylvania_:55
+#: PlayOnLinux_Scripts/Rome_at_War_:52 PlayOnLinux_Scripts/Rome_at_War_:72
+#: PlayOnLinux_Scripts/Tales_of_Middle_Earth_:60
+#, sh-format
+msgid "Please wait while the $TITLE is installed."
 msgstr ""
 
 #: PlayOnLinux_Scripts/Alan_Wake_:81
@@ -1322,6 +1389,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:55
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:57
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:60
+#: PlayOnLinux_Scripts/GOG.com___Tropico_3_Gold_Edition_:48
 #, sh-format
 msgid "Language"
 msgstr ""
@@ -1334,6 +1402,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Neighbours_From_Hell_Compilation_:26
 #: PlayOnLinux_Scripts/GOG.com___Sensible_World_of_Soccer_96_97_:58
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:46
+#: PlayOnLinux_Scripts/GOG.com___Tropico_3_Gold_Edition_:48
 #, sh-format
 msgid "What is your preferred language?"
 msgstr ""
@@ -2394,6 +2463,12 @@ msgid ""
 "device in wine audio settings\\n3)Have fun!"
 msgstr ""
 
+#: PlayOnLinux_Scripts/Rome_at_War_:40
+#, sh-format
+msgid ""
+"In order to installa $TITLE we need to install first Mod Pack Studio Lite 2.0"
+msgstr ""
+
 #: PlayOnLinux_Scripts/Runes_Of_Magic_:43
 #, sh-format
 msgid "You can download $TITLE install file here:"
@@ -2463,6 +2538,27 @@ msgstr ""
 msgid ""
 "If you want to install $TITLE in another virtual drive\\nRun this installer "
 "again"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Tales_of_Middle_Earth_:30
+#, sh-format
+msgid ""
+"This tutorial will help you to install $TITLE from ToME Team (http://aok."
+"heavengames.com/tales-of-middle-earth) on your PC.\n"
+"\\n\\nPlease notice that Standards Maps do not work correctly, whereas "
+"Custom Maps works without problems.\n"
+"\\n\\nThis installation program is provided by: Fekir\n"
+"\\n\\n$TITLE will be installed in $POL_USER_ROOT/wineprefix/$PREFIX\n"
+"\\n\\nPlayOnLinux is not responsible for anything that might happen as a "
+"result of using these scripts.\n"
+"\\n\\nClick on next to start."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Tales_of_Middle_Earth_:73
+#, sh-format
+msgid ""
+"Please notice that Standards Maps do not work correctly, whereas Custom Maps "
+"works without problems."
 msgstr ""
 
 #: PlayOnLinux_Scripts/Terraria_:56
