@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2013-09-16 19:00+0200\n"
-"PO-Revision-Date: 2013-08-11 16:54+0000\n"
-"Last-Translator: Celio Alves <Unknown>\n"
+"POT-Creation-Date: 2013-09-23 19:00+0200\n"
+"PO-Revision-Date: 2013-09-19 21:15+0000\n"
+"Last-Translator: Rafael Braga <Unknown>\n"
 "Language-Team: Brazilian Portuguese <pt_BR@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-09-17 04:36+0000\n"
-"X-Generator: Launchpad (build 16765)\n"
+"X-Launchpad-Export-Date: 2013-09-24 05:48+0000\n"
+"X-Generator: Launchpad (build 16771)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -248,7 +248,7 @@ msgstr "Por favor, insira a mídia do jogo na sua unidade de disco."
 #: PlayOnLinux_Scripts/18_Wheels_of_Steel_Haulin_:52
 #: PlayOnLinux_Scripts/A.R.E.S.___Extinction_Agenda_:87
 #: PlayOnLinux_Scripts/Ableton_Live_8_:44
-#: PlayOnLinux_Scripts/Ableton_Live_9_:44 PlayOnLinux_Scripts/Absynth_5_:34
+#: PlayOnLinux_Scripts/Ableton_Live_9_:47 PlayOnLinux_Scripts/Absynth_5_:34
 #: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Age_of_Kings_:47
 #: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Age_of_Kings_:69
 #: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Conquerors_:51
@@ -273,7 +273,7 @@ msgstr "Por favor, insira a mídia do jogo na sua unidade de disco."
 #: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_:65
 #: PlayOnLinux_Scripts/Diablo_II_:51
 #: PlayOnLinux_Scripts/Dragon_Age_2___DLC_:40
-#: PlayOnLinux_Scripts/Dreamweaver_8_:22 PlayOnLinux_Scripts/EVE_online_:83
+#: PlayOnLinux_Scripts/Dreamweaver_8_:22 PlayOnLinux_Scripts/EVE_online_:85
 #: PlayOnLinux_Scripts/FEZ__Steam__:49 PlayOnLinux_Scripts/FL_Studio_10_:33
 #: PlayOnLinux_Scripts/Far_Cry_2_:80 PlayOnLinux_Scripts/Flash_8_:22
 #: PlayOnLinux_Scripts/Flash_MX_:22
@@ -296,6 +296,7 @@ msgstr "Por favor, insira a mídia do jogo na sua unidade de disco."
 #: PlayOnLinux_Scripts/Monkey_Island_2_Special_Edition_:79
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:163
 #: PlayOnLinux_Scripts/Need_For_Speed_III___Hot_Pursuit_:53
+#: PlayOnLinux_Scripts/Need_For_Speed_World_:28
 #: PlayOnLinux_Scripts/NosTale_:46 PlayOnLinux_Scripts/Notepad_:29
 #: PlayOnLinux_Scripts/OCR_CuneiForm_:31 PlayOnLinux_Scripts/OnLive_:52
 #: PlayOnLinux_Scripts/Portal_:82 PlayOnLinux_Scripts/Portal_2_:68
@@ -349,19 +350,24 @@ msgid ""
 "nClose COMPLETELY the Steam interface, \\nso that the installation script "
 "can continue."
 msgstr ""
+"Quando o download de $TITLE pela Steam terminar,\\nNÃO clique em Jogar.\\n\\"
+"nFeche COMPLETAMENTE a interface da Steam, \\npara que o script da "
+"instalação possa continuar."
 
 #: PlayOnLinux_Scripts/Ableton_Live_8_:52
-#: PlayOnLinux_Scripts/Ableton_Live_9_:52
+#: PlayOnLinux_Scripts/Ableton_Live_9_:60
 #, sh-format
 msgid ""
 "NOTICE: To register, when it opens asking for registration, drag-and-drop "
 "your reg file into $TITLE"
 msgstr ""
+"AVISO: Para registar, quando o jogo abrir pedindo para registar, arraste e "
+"solte seu arquivo reg em $TITLE"
 
 #: PlayOnLinux_Scripts/Absynth_5_:53 PlayOnLinux_Scripts/Guitar_Rig_5_:46
 #, sh-format
 msgid "NOTICE: For low-latency audio, look into WineASIO."
-msgstr ""
+msgstr "AVISO: Para áudio de baixa latência, verifique o WineASIO."
 
 #: PlayOnLinux_Scripts/Age_Of_Empires_II__Forgotten_Empires_:24
 #: PlayOnLinux_Scripts/Age_of_Vampires___Blood_Reign_in_Transylvania_:24
@@ -369,7 +375,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Tales_of_Middle_Earth_:24
 #, sh-format
 msgid "Please install \"Age Of Empires II: The Conquerors\""
-msgstr ""
+msgstr "Por favor instale \"Age Of Empires II: The Conquerors\""
 
 #: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Age_of_Kings_:19
 #, sh-format
@@ -385,6 +391,21 @@ msgid ""
 "result of using these scripts.\n"
 "\\n\\nClick on next to start."
 msgstr ""
+"Esse tutorial irá te ajudar a instalar $TITLE da Ensemble Studios "
+"(http://www.ensemblestudios.com/) em seu PC.\n"
+"\n"
+"\\n\\nPor favor considere algum programa OpenSource alternativo que roda "
+"normalmente no GNU/Linux, como por exemplo 0 A.D.(http://play0ad.com/) antes "
+"de instalar $TITLE através do Wine.\n"
+"\n"
+"\\n\\nEsse programa de instalação é providenciado por: Fekir\n"
+"\n"
+"\\n\\n$TITLE será instalado em $POL_USER_ROOT/wineprefix/$PREFIX\n"
+"\n"
+"\\n\\nPlayOnLinux não é responsável por qualquer coisa que possa acontecer "
+"como resultado do uso desses scripts.\n"
+"\n"
+"\\n\\nClique em Próximo para iniciar."
 
 #: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Age_of_Kings_:49
 #: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Conquerors_:53
@@ -409,34 +430,34 @@ msgstr "Por favor, aguarde enquanto $TITLE é instalado."
 #: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Age_of_Kings_:63
 #, sh-format
 msgid "Do you want to install the 2.0a Patch?"
-msgstr ""
+msgstr "Você deseja instalar o Patch 2.0a?"
 
 #: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Age_of_Kings_:76
 #, sh-format
 msgid "Please wait while the 2.0a Patch is installed."
-msgstr ""
+msgstr "Por favor aguarde enquanto o Patch 2.0a é instalado."
 
 #: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Conquerors_:24
 #, sh-format
 msgid "Please install \"Age Of Empires II: The Age of Kings\""
-msgstr ""
+msgstr "Por favor instale \"Age Of Empires II: The Age of Kings\""
 
 #: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Conquerors_:67
 #, sh-format
 msgid "Do you want to install the 1.0c Patch?"
-msgstr ""
+msgstr "Você deseja instalar o Patch 1.0c?"
 
 #: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Conquerors_:80
 #, sh-format
 msgid "Please wait while the 1.0c Patch is installed."
-msgstr ""
+msgstr "Por favor aguarde enquanto o Patch 1.0c é instalado."
 
 #: PlayOnLinux_Scripts/Age_of_Vampires___Blood_Reign_in_Transylvania_:55
 #: PlayOnLinux_Scripts/Rome_at_War_:52 PlayOnLinux_Scripts/Rome_at_War_:72
 #: PlayOnLinux_Scripts/Tales_of_Middle_Earth_:60
 #, sh-format
 msgid "Please wait while the $TITLE is installed."
-msgstr ""
+msgstr "Por favor aguarde enquanto o $TITLE é instalado."
 
 #: PlayOnLinux_Scripts/Alan_Wake_:81
 #: PlayOnLinux_Scripts/Alien_Breed_2___Assault_:74
@@ -474,6 +495,9 @@ msgid ""
 "nClose COMPLETELY the Steam interface, \\nso that the installation script "
 "can continue"
 msgstr ""
+"Quando o download de $TITLE pela Steam terminar,\\nNÃO clique em Jogar.\\n\\"
+"nFeche COMPLETAMENTE a interface da Steam, \\npara que o script da "
+"instalação possa continuar."
 
 #: PlayOnLinux_Scripts/Alien_Breed_2___Assault_:88
 #: PlayOnLinux_Scripts/Alien_Breed_3___Descent_:87
@@ -481,6 +505,8 @@ msgstr ""
 #, sh-format
 msgid "If .NET 3.0 installation fail, dont worry\\nthe game will still work"
 msgstr ""
+"Se a instalação do .NET 3.0 falhar, não se preocupe\\no jogo continuará "
+"funcionando"
 
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:30
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:40
@@ -505,7 +531,7 @@ msgstr "Você não precisa instalar Directx ou usar GLSetup."
 #: PlayOnLinux_Scripts/iTunes_10_:28
 #, sh-format
 msgid "Please select the setup file to run."
-msgstr ""
+msgstr "Por favor, selecione o arquivo de instalação para executar."
 
 #: PlayOnLinux_Scripts/Alt.Binz_:60 PlayOnLinux_Scripts/Geoplan_Geospace_:34
 #: PlayOnLinux_Scripts/ISIS_Draw_2.3_:34
@@ -582,7 +608,7 @@ msgstr "Por favor, selecione o arquivo de instalação a ser executado:"
 #: PlayOnLinux_Scripts/Command_And_Conquer___Red_Alert_3_Patch_1.12_:30
 #, sh-format
 msgid "Welcome in the patch $PVERSION Installer for $TITLE"
-msgstr ""
+msgstr "Bem-vindo ao patch $PVERSION Instalador do $TITLE"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:34
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:34
@@ -603,7 +629,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Wow_Cartographe_:34
 #, sh-format
 msgid "Please install $TITLE_REQUIRED first"
-msgstr ""
+msgstr "Por favor, instale $TITLE_REQUIRED primeiro"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:48
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:48
@@ -613,7 +639,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Witcher_2___Enhanced_Edition_Patch_:42
 #, sh-format
 msgid "Steam have is own automatic update system"
-msgstr ""
+msgstr "Steam tem o seu próprio sistema de atualização automático"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:57
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:57
@@ -714,7 +740,7 @@ msgstr "O jogo não está instalado."
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:37
 #, sh-format
 msgid "Steam have is own automatic update system."
-msgstr ""
+msgstr "Steam tem o seu próprio sistema de atualização automático."
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Patch_1.02_:57
 #: PlayOnLinux_Scripts/Command_And_Conquer_3_Patch_1.09_:83
@@ -732,6 +758,8 @@ msgid ""
 "Wait while the patch is downloading...\\nThis operation can take time, "
 "depending of your connexion."
 msgstr ""
+"Aguarde enquanto o patch está sendo baixado...\\nEssa operação pode levar "
+"tempo, dependendo de sua conexão."
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Revelations_:74
 #: PlayOnLinux_Scripts/Baldur_s_Gate_:43 PlayOnLinux_Scripts/Baldur_s_Gate_:80
@@ -743,7 +771,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Witcher_:102
 #, sh-format
 msgid "Please insert the game media into your disk drive"
-msgstr ""
+msgstr "Por favor, insira a mídia do jogo em sua unidade de disco"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_:51 PlayOnLinux_Scripts/Baldur_s_Gate_:59
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_:51
@@ -764,7 +792,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Witcher_:113
 #, sh-format
 msgid "Please insert the next game media into your disk drive"
-msgstr ""
+msgstr "Por favor, insira a próxima mídia de jogo em sua unidade de disco"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:27
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:28
@@ -775,7 +803,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Dragon_Age_2_Patch_1.03_:30
 #, sh-format
 msgid "Welcome in the patch $PVERSION installer for $TITLE_REQUIRED"
-msgstr ""
+msgstr "Bem-vindo ao patch $PVERSION Instalador do $TITLE_REQUIRED"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:48
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:49
@@ -818,21 +846,21 @@ msgstr "Qual versão você tem?"
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_:68
 #, sh-format
 msgid "This addon automatically install patch 2.5.26461"
-msgstr ""
+msgstr "Este complemento instala automaticamente o patch 2.5.26461"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:43
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:43
 #: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_Patch_1.02_:54
 #, sh-format
 msgid "Select first patch to execute"
-msgstr ""
+msgstr "Selecione o primeiro patch para executar"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:46
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:46
 #: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_Patch_1.02_:57
 #, sh-format
 msgid "Select second patch to execute"
-msgstr ""
+msgstr "Selecione o segundo patch para executar"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:51
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:52
@@ -840,18 +868,18 @@ msgstr ""
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:52
 #, sh-format
 msgid "US or Canadian version"
-msgstr ""
+msgstr "Versão americana ou canadense"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_:68
 #, sh-format
 msgid "This addon automatically install patch 1.3.5511"
-msgstr ""
+msgstr "Este complemento instala automaticamente o patch 1.3.5511"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:51
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:59
 #, sh-format
 msgid "UK version"
-msgstr ""
+msgstr "Versão britânica"
 
 #: PlayOnLinux_Scripts/Batman_Arkham_Asylum_:109
 #: PlayOnLinux_Scripts/Batman_Arkham_City_:109
@@ -863,6 +891,8 @@ msgid ""
 "You must disable anti-piracy protections of this game\\nif you want to play "
 "it with wine"
 msgstr ""
+"Você deve desativar proteções anti-pirataria desse jogo\\nse você quiser "
+"jogá-lo com wine"
 
 #: PlayOnLinux_Scripts/Battlefield_1942_:44
 #: PlayOnLinux_Scripts/POL_Function_NoCDWarning_:1
@@ -872,6 +902,9 @@ msgid ""
 "patch even if you have a legal version.\\n\\nPlease remember that "
 "$APPLICATION_TITLE is strongly against piracy, and will never support it."
 msgstr ""
+"Cuidado! Para rodar $TITLE com $APPLICATION_TITLE, você deve instalar um "
+"patch sem CD mesmo que você tenha uma versão legal.\\n\\nPor favor lembre "
+"que $APPLICATION_TITLE é fortemente contra pirataria, e nunca irá apoiá-la."
 
 #: PlayOnLinux_Scripts/Blur_:102 PlayOnLinux_Scripts/Borderlands_:120
 #: PlayOnLinux_Scripts/Cars_2_:83
@@ -887,11 +920,13 @@ msgid ""
 "You must disable anti-piracy protections of this game\\nif you want to play "
 "it with wine."
 msgstr ""
+"Você deve desativar proteções anti-pirataria desse jogo\\nse você quiser "
+"jogá-lo com wine"
 
 #: PlayOnLinux_Scripts/Borderlands_:59 PlayOnLinux_Scripts/Fallout_3_:57
 #, sh-format
 msgid "Game Of The Year version"
-msgstr ""
+msgstr "Versão Jogo do Ano"
 
 #: PlayOnLinux_Scripts/Borderlands_:59 PlayOnLinux_Scripts/Borderlands_:60
 #: PlayOnLinux_Scripts/Fallout_3_:57 PlayOnLinux_Scripts/Fallout_3_:58
@@ -931,6 +966,8 @@ msgid ""
 "Do not forget to close Steam when downloading\\nis finished, so that "
 "$APPLICATION_TITLE can continue\\nto install your game."
 msgstr ""
+"Não esqueça de fechar a Steam quando o download\\nfor completado, para que "
+"$APPLICATION_TITLE possa continuar\\na instalar o jogo."
 
 #: PlayOnLinux_Scripts/Civilization_IV__Complete_Edition_:72
 #, sh-format
@@ -939,18 +976,24 @@ msgid ""
 "shows you to the login interface, login and then let $TITLE install.\\n\\"
 "nWhen the installation is finished, press next (Do not close Steam)"
 msgstr ""
+"Steam está prestes a fazer uma atualização.\\nQuando a Steam terminar de "
+"atualizar e mostrar a tela de login, logue e deixe $TITLE instalar.\\n\\"
+"nQuando a instalação terminar, clique em Próximo (Não feche a Steam)"
 
 #: PlayOnLinux_Scripts/Civilization_IV__Complete_Edition_:75
 #, sh-format
 msgid ""
 "Steam is installing $TITLEW, press next when the installation is finished"
 msgstr ""
+"Steam está instalando $TITLEW, clique em Próximo quando a instalação terminar"
 
 #: PlayOnLinux_Scripts/Civilization_IV__Complete_Edition_:78
 #, sh-format
 msgid ""
 "Steam is installing $TITLEBTS, press next when the installation is finished"
 msgstr ""
+"Steam está instalando $TITLEBTS, clique em Próximo quando a instalaçao "
+"terminar"
 
 #: PlayOnLinux_Scripts/Civilization_IV__Complete_Edition_:81
 #, sh-format
@@ -959,6 +1002,10 @@ msgid ""
 "installation is finished (make sure Steam is not still in the traybar) and "
 "then press next so that the installation script can continue."
 msgstr ""
+"Steam está instalando $TITLECOL, por favor feche a Steam corretamente quando "
+"a instalação terminar (confirme que a Steam não está aberta na bandeja do "
+"sistema) e então clique em Próximo para que o script da instalação possa "
+"continuar."
 
 #: PlayOnLinux_Scripts/Civilization_IV__Complete_Edition_:107
 #, sh-format
@@ -966,11 +1013,13 @@ msgid ""
 "Installation finished\\n\\nThe game might crash on the first attempt, but no "
 "worries, just try one more time."
 msgstr ""
+"Instalação concluída\\n\\nO jogo poderá dar erro na primeira tentativa, mas "
+"não se preocupe, apenas tente mais uma vez."
 
 #: PlayOnLinux_Scripts/Civilization_V_:49
 #, sh-format
 msgid "Please select $TITLE install file:"
-msgstr ""
+msgstr "Por favor, selecione o arquivo de instalação do $TITLE:"
 
 #: PlayOnLinux_Scripts/Civilization_V_:60
 #, sh-format
@@ -979,6 +1028,9 @@ msgid ""
 "shows you to the login interface, login and then let $TITLE install.\\n\\"
 "nWhen the installation is finished, press next"
 msgstr ""
+"Steam está prestes a fazer uma atualização.\\nQuando a Steam terminar de "
+"atualizar e mostrar a tela de login, logue e deixe $TITLE instalar.\\n\\"
+"nQuando a instalação terminar, clique em Próximo"
 
 #: PlayOnLinux_Scripts/Command_And_Conquer_3_Patch_1.09_:54
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Kane_s_Wrath_:62
@@ -1011,7 +1063,7 @@ msgstr "Instalação em andamento..."
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Tiberium_Wars__Kane_Edition__:101
 #, sh-format
 msgid "Wait while language pack is configured..."
-msgstr ""
+msgstr "Aguarde enquanto o pacote de idioma é configurado..."
 
 #: PlayOnLinux_Scripts/Command_And_Conquer___Red_Alert_1_:23
 #, sh-format
@@ -1022,6 +1074,11 @@ msgid ""
 "images may work with certain software, however I know that Mounty does not "
 "work for this."
 msgstr ""
+"ATENÇÃO: Esse instalador necessita que você use um CD. Se você baixou a "
+"imagem ISO grátis liberada pela EA, por favor grave-a em um CD ou DVD usando "
+"algum programa como Brasero, e coloque-o no seu drive de disco. Montar a "
+"imagem ISO pode funcionar com algum programa, porém eu sei que Mounty não "
+"funciona nesse caso."
 
 #: PlayOnLinux_Scripts/DC_Universe_Online_:51
 #: PlayOnLinux_Scripts/PlanetSide_2_:47
@@ -1031,12 +1088,17 @@ msgid ""
 "close the patcher before logging in to complete the installation. After "
 "this, you can run \"$TITLE\" when setup is done"
 msgstr ""
+"Atenção: Quando a instalação terminar, o patcher vai carregar. Por favor "
+"feche o patcher antes de logar para completar a instalação. Após isso, você "
+"pode rodar \"$TITLE\" quando o setup terminar"
 
 #: PlayOnLinux_Scripts/Dead_Space_2_:59
 #: PlayOnLinux_Scripts/Fable___The_Lost_Chapters_:69
 #, sh-format
 msgid "Please insert media 1 into your disk drive\\nif not already done."
 msgstr ""
+"Por favor, insira a mídia 1 no seu drive de disco\\nse não tiver feito isso "
+"ainda."
 
 #: PlayOnLinux_Scripts/Dead_Space_2_:62 PlayOnLinux_Scripts/Dead_Space_2_:69
 #: PlayOnLinux_Scripts/Fable___The_Lost_Chapters_:72
@@ -1069,11 +1131,13 @@ msgstr "Aguarde enquanto a instalação é preparada..."
 #, sh-format
 msgid "Please insert media 2 into your disk drive\\nif not already done."
 msgstr ""
+"Por favor, insira a mídia 2 no seu drive de disco\\nse não tiver feito isso "
+"ainda."
 
 #: PlayOnLinux_Scripts/Diablo_III_:29
 #, sh-format
 msgid "Please select the setup file downloaded on $EDITOR website"
-msgstr ""
+msgstr "Por favor, selecione o arquivo de setup baixado no site $EDITOR"
 
 #: PlayOnLinux_Scripts/Diablo_III_:60
 #, sh-format
@@ -1088,6 +1152,8 @@ msgid ""
 "If you have Error 3007 on connecting, open a terminal and type:\\necho "
 "0|sudo tee /proc/sys/kernel/yama/ptrace_scope"
 msgstr ""
+"Se você receber Erro 3007 ao conectar, abra o terminal e digite:\\necho "
+"0|sudo tee /proc/sys/kernel/yama/ptrace_scope"
 
 #: PlayOnLinux_Scripts/Dishonored_:79
 #, sh-format
@@ -1104,6 +1170,9 @@ msgid ""
 "COMPLETELY he Steam interface, \\nso that the installation script can "
 "continue"
 msgstr ""
+"Quando o download de $TITLE pela Steam terminar,\\nNÃO clique em Jogar.\\n\\"
+"nFeche COMPLETAMENTE a interface da Steam, \\npara que o script da "
+"instalação possa continuar."
 
 #: PlayOnLinux_Scripts/Dragon_Age_2_:45
 #, sh-format
@@ -1119,12 +1188,13 @@ msgstr ""
 #: PlayOnLinux_Scripts/Dragon_Age___Awakening_:64
 #, sh-format
 msgid "This addon automatically patch the game to version 1.03"
-msgstr ""
+msgstr "Esse complemento automaticamente atualiza o jogo para versão 1.03"
 
 #: PlayOnLinux_Scripts/Dragon_Age___Origins_:56
 #, sh-format
 msgid "When game setup will ask for next DVD\\nclick on \\\"Forward\\\""
 msgstr ""
+"Quando o setup do jogo pedir o próximo DVD\\nclique em \\\"Forward\\\""
 
 #: PlayOnLinux_Scripts/Dungeon_Siege_III_:111
 #, sh-format
@@ -1133,20 +1203,19 @@ msgid ""
 "and redo installation of the game."
 msgstr ""
 
-#: PlayOnLinux_Scripts/EVE_online_:72
+#: PlayOnLinux_Scripts/EVE_online_:74
 #, sh-format
 msgid ""
-"Requires about 18Gb free space.\\n\\nAs well, an additional 5Gb in your "
-"/home/ folder if you will use online installer.\\nRecommend using offline "
-"installer."
+"Requires about 18Gb free space.nnAs well, an additional 5Gb in your /home/ "
+"folder if you will use online installer.nRecommend using offline installer."
 msgstr ""
 
-#: PlayOnLinux_Scripts/EVE_online_:78
+#: PlayOnLinux_Scripts/EVE_online_:80
 #, sh-format
 msgid "You want to open $TITLE download page in your browser?"
-msgstr ""
+msgstr "Você quer abrir a página de download do $TITLE em seu navegador?"
 
-#: PlayOnLinux_Scripts/EVE_online_:92 PlayOnLinux_Scripts/EVE_online_:120
+#: PlayOnLinux_Scripts/EVE_online_:94 PlayOnLinux_Scripts/EVE_online_:122
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:39
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:47
 #: PlayOnLinux_Scripts/POL_Function_FontsSmoothRGB_:1
@@ -1164,21 +1233,21 @@ msgstr ""
 msgid "Please wait..."
 msgstr "Por favor, aguarde..."
 
-#: PlayOnLinux_Scripts/EVE_online_:117
+#: PlayOnLinux_Scripts/EVE_online_:119
 #, sh-format
 msgid ""
-"You want to create symbolic link for $TITLE settings in your /home/ folder?\\"
-"n(Recommend yes.)"
+"You want to create symbolic link for $TITLE settings in your /home/ "
+"folder?n(Recommend yes.)"
 msgstr ""
 
-#: PlayOnLinux_Scripts/EVE_online_:136
+#: PlayOnLinux_Scripts/EVE_online_:138
 #, sh-format
 msgid ""
-"Known issues:\\n\\n1) Loading EULA on the first run can take a long (5min) "
-"time.\\n\\n2) The Captain's Quarters feature is broken for most (all?) "
-"users.\\nIf you crash after selecting a character try hitting escape at the "
-"login screen and disabling Captain's Quarters under the graphics selection.\\"
-"n(This feature is considered useless by most Eve Players.)"
+"Known issues:nn1) Loading EULA on the first run can take a long (5min) "
+"time.nn2) The Captain's Quarters feature is broken for most (all?) users.nIf "
+"you crash after selecting a character try hitting escape at the login screen "
+"and disabling Captain's Quarters under the graphics selection.n(This feature "
+"is considered useless by most Eve Players.)"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:34
@@ -1187,13 +1256,13 @@ msgstr ""
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:46
 #, sh-format
 msgid "Please insert the first game media into your disk drive"
-msgstr ""
+msgstr "Por favor, insira a primeira mídia do jogo em sua unidade de disco"
 
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:41
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:36
 #, sh-format
 msgid "Please insert the second game media into your disk drive"
-msgstr ""
+msgstr "Por favor, insira a segunda mídia do jogo em sua unidade de disco"
 
 #: PlayOnLinux_Scripts/FL_Studio_10_:45
 #, sh-format
@@ -1201,6 +1270,8 @@ msgid ""
 "During installation, please UNCHECK the option for ASIO4ALL, and UNCHECK run "
 "FL Studio at end of install."
 msgstr ""
+"Durante a instalação, por favor DESMARQUE a opção para ASIO4ALL e DESMARQUE "
+"executar FL Studio no final da instalação."
 
 #: PlayOnLinux_Scripts/FL_Studio_10_:53 PlayOnLinux_Scripts/Traktor_Pro_2_:53
 #, sh-format
@@ -1213,11 +1284,15 @@ msgstr ""
 #, sh-format
 msgid "Please insert media 3 into your disk drive\\nif not already done."
 msgstr ""
+"Por favor, insira a mídia 3 no seu drive de disco\\nse não tiver feito isso "
+"ainda."
 
 #: PlayOnLinux_Scripts/Fable___The_Lost_Chapters_:93
 #, sh-format
 msgid "Please insert media 4 into your disk drive\\nif not already done."
 msgstr ""
+"Por favor, insira a mídia 4 no seu drive de disco\\nse não tiver feito isso "
+"ainda."
 
 #: PlayOnLinux_Scripts/Fallout_3_:67
 #, sh-format
@@ -1225,6 +1300,8 @@ msgid ""
 "Click on \"Forward\" ONLY when Steam game installation\\nwill be finished or "
 "you will have to redo the installation."
 msgstr ""
+"Clique em \"Forward\" APENAS quando a instalação do jogo da Steam\\nterminar "
+"ou você terá que reinstalar."
 
 #: PlayOnLinux_Scripts/Fallout_3___DLC_:22
 #, sh-format
@@ -1246,6 +1323,8 @@ msgid ""
 "This is an installer for an update or an addon;\\nPlease install "
 "$TITLE_REQUIRED first"
 msgstr ""
+"Esse é o instalador de uma atualização ou um complemento;\\nPor favor, "
+"instale $TITLE_REQUIRED primeiro"
 
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:50
 #, sh-format
@@ -1319,11 +1398,15 @@ msgid ""
 "that you will get better performance out of the OpenGL renderer;\\nYou can "
 "select it after clicking on \"Show all devices\"."
 msgstr ""
+"Na primeira vez que for aberto o jogo irá detectar automaticamente "
+"renderizadores disponíveis.\\nÉ provável que você consiga uma performance "
+"melhor usando o renderizador OpenGL;\\nVocê pode selecioná-lo após clicar em "
+"\"Mostrar todos os dispositivos\"."
 
 #: PlayOnLinux_Scripts/GOG.com___Deus_Ex_GOTY_Edition_:86
 #, sh-format
 msgid "Run $TITLE in safe mode?"
-msgstr ""
+msgstr "Executar $TITLE no modo seguro?"
 
 #: PlayOnLinux_Scripts/GOG.com___Far_Cry_:47
 #, sh-format
@@ -1339,7 +1422,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Painkiller__Black_Edition_:48
 #, sh-format
 msgid "What extra shortcuts should be created?"
-msgstr ""
+msgstr "Quais atalhos extras deverão ser criados?"
 
 #: PlayOnLinux_Scripts/GOG.com___Far_Cry_:76
 #, sh-format
@@ -1348,11 +1431,13 @@ msgid ""
 "click on \"Auto-detect\" in advanced video settings."
 msgstr ""
 
-#: PlayOnLinux_Scripts/GOG.com___Fez_Patch_:30
+#: PlayOnLinux_Scripts/GOG.com___Fez_Patch_:29
 #, sh-format
 msgid ""
 "This is an installer for an update;nPlease install $TITLE_REQUIRED first"
 msgstr ""
+"Esse é o instalador de uma atualização;\\nPor favor, instale $TITLE_REQUIRED "
+"primeiro"
 
 #: PlayOnLinux_Scripts/GOG.com___Flatout_:55
 #, sh-format
@@ -1370,19 +1455,19 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:49
 #, sh-format
 msgid "Go there now?"
-msgstr ""
+msgstr "Ir para lá agora?"
 
 #: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:52
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:49
 #, sh-format
 msgid "You can download the archive file from:"
-msgstr ""
+msgstr "Você pode baixar o arquivo em:"
 
 #: PlayOnLinux_Scripts/GOG.com___Iron_Storm_:20
 #: PlayOnLinux_Scripts/GOG.com___Painkiller__Black_Edition_:21
 #, sh-format
 msgid "Dedicated Server"
-msgstr ""
+msgstr "Servidor Dedicado"
 
 #: PlayOnLinux_Scripts/GOG.com___Neighbours_From_Hell_Compilation_:26
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:67
@@ -1415,12 +1500,12 @@ msgstr "Alemão"
 #: PlayOnLinux_Scripts/GOG.com___Tropico_3_Gold_Edition_:48
 #, sh-format
 msgid "Language"
-msgstr ""
+msgstr "Idioma"
 
 #: PlayOnLinux_Scripts/GOG.com___Neighbours_From_Hell_Compilation_:26
 #, sh-format
 msgid "Spanish"
-msgstr ""
+msgstr "Espanhol"
 
 #: PlayOnLinux_Scripts/GOG.com___Neighbours_From_Hell_Compilation_:26
 #: PlayOnLinux_Scripts/GOG.com___Sensible_World_of_Soccer_96_97_:58
@@ -1428,7 +1513,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Tropico_3_Gold_Edition_:48
 #, sh-format
 msgid "What is your preferred language?"
-msgstr ""
+msgstr "Qual o seu idioma preferido?"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:72
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:109
@@ -1505,7 +1590,7 @@ msgstr "Qualidade visual"
 #: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:43
 #, sh-format
 msgid "Do you want to read original thread in GOG.com forums?"
-msgstr ""
+msgstr "Você deseja ler o tópico original nos forum do GOG.com?"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:53
 #, sh-format
@@ -1523,7 +1608,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:69
 #, sh-format
 msgid "Run \\$TITLE?"
-msgstr ""
+msgstr "Executar \\$TITLE?"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:80
 #, sh-format
@@ -1566,13 +1651,13 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:55
 #, sh-format
 msgid "Do you have a language pack to install?"
-msgstr ""
+msgstr "Você tem um pacote de idiomas para instalar?"
 
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:55
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:59
 #, sh-format
 msgid "Later"
-msgstr ""
+msgstr "Mais tarde"
 
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:55
 #: PlayOnLinux_Scripts/Half_Life_2_:56
@@ -1605,6 +1690,8 @@ msgid ""
 "To install a language pack later, open the configuration panel for the game "
 "in order to execute the installer into the virtual disk (Misc tab)"
 msgstr ""
+"Para instalar o pacote de idiomas mais tarde, abra o painel de configurações "
+"do jogo para executar o instalador no disco virtual (aba Misc)"
 
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_:58
 #, sh-format
@@ -1627,7 +1714,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Two_Worlds__Epic_Edition_:44
 #, sh-format
 msgid "temp directory missing"
-msgstr ""
+msgstr "diretório temp não encontrado"
 
 #: PlayOnLinux_Scripts/GOG.com___Two_Worlds__Epic_Edition_:73
 #, sh-format
@@ -1725,6 +1812,8 @@ msgid ""
 "Please select $TITLE install file. DO NOT CHECK RUN IMGBURN AT END OF "
 "INSTALLATION:"
 msgstr ""
+"Por favor, selecione o arquivo de instalação do $TITLE. NÃO MARQUE A OPÇÃO "
+"RUN IMGBURN NO FINAL DA INSTALAÇÃO:"
 
 #: PlayOnLinux_Scripts/ImgBurn_:46
 #, sh-format
@@ -1772,7 +1861,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:72
 #, sh-format
 msgid "Which language version would you like to install?"
-msgstr ""
+msgstr "Qual versão do idioma você deseja instalar?"
 
 #: PlayOnLinux_Scripts/League_Of_Legends_:42
 #, sh-format
@@ -1895,6 +1984,25 @@ msgstr ""
 msgid "Coping install files, please wait..."
 msgstr "Copiando arquivos de instalação, por favor aguarde..."
 
+#: PlayOnLinux_Scripts/Need_For_Speed_World_:18
+#, sh-format
+msgid ""
+"Register or log in and download the installation file : "
+"https://world.needforspeed.com/"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Need_For_Speed_World_:29
+#, sh-format
+msgid ""
+"Please uncheck \"Launch Need For Speed\" at the end of the installation box"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Need_For_Speed_World_:42
+#, sh-format
+msgid ""
+"If the download update stuck close and run until the download is complete."
+msgstr ""
+
 #: PlayOnLinux_Scripts/Orcs_Must_Die__2_:43
 #, sh-format
 msgid "Demo version"
@@ -1921,7 +2029,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_GoG_download_:102
 #, sh-format
 msgid "Download failed"
-msgstr ""
+msgstr "Falha ao baixar"
 
 #: PlayOnLinux_Scripts/POL_Download_retry_:30
 #: PlayOnLinux_Scripts/POL_GoG_download_:104
@@ -1987,7 +2095,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_GoG_setup_:18
 #, sh-format
 msgid "Do you want to download $TITLE from GOG.com?"
-msgstr ""
+msgstr "Deseja baixar $TITLE do GOG.com?"
 
 #: PlayOnLinux_Scripts/POL_Install_AdobeAir_:6
 #, sh-format
@@ -2045,12 +2153,12 @@ msgstr "Este pacote não funciona em uma instalação de 64 bits"
 #: PlayOnLinux_Scripts/POL_Install_dotnet20sp1_:10
 #, sh-format
 msgid "This package does not work with wine 1.3.22 or lower"
-msgstr ""
+msgstr "Este pacote não funciona com wine 1.3.22 ou inferior"
 
 #: PlayOnLinux_Scripts/POL_Install_dotnet20sp2_:10
 #, sh-format
 msgid "This package does not work with wine 1.3.18 or lower"
-msgstr ""
+msgstr "Este pacote não funciona com wine 1.3.18 ou inferior"
 
 #: PlayOnLinux_Scripts/POL_Install_dotnet30_:13
 #, sh-format
@@ -2070,11 +2178,13 @@ msgid ""
 "If you see error messages during DotNet 3.0 installation, you can ignore "
 "them without issues"
 msgstr ""
+"Se você ver mensagens de erro durante a instalação do DotNet 3.0, poderá "
+"ignorá-las sem problemas"
 
 #: PlayOnLinux_Scripts/POL_Install_dotnet35_:10
 #, sh-format
 msgid "This package fail to install with wine 1.5.21 or better"
-msgstr ""
+msgstr "Este pacote falha ao instalar com wine 1.5.21 ou superior"
 
 #: PlayOnLinux_Scripts/POL_Install_dotnet35_:28
 #, sh-format
@@ -2082,6 +2192,8 @@ msgid ""
 "If you see error messages during DotNet 3.5 installation, you can ignore "
 "them without issues"
 msgstr ""
+"Se você ver mensagens de erro durante a instalação do DotNet 3.5, poderá "
+"ignorá-las sem problemas"
 
 #: PlayOnLinux_Scripts/POL_Install_dotnet35sp1_:20
 #, sh-format
@@ -2089,6 +2201,8 @@ msgid ""
 "If you see error messages during DotNet 3.5 SP1 installation, you can ignore "
 "them without issues"
 msgstr ""
+"Se você ver mensagens de erro durante a instalação do DotNet 3.5 SP1, poderá "
+"ignorá-las sem problemas"
 
 #: PlayOnLinux_Scripts/POL_Install_dotnet40_:18
 #, sh-format
@@ -2096,11 +2210,13 @@ msgid ""
 "If you see error messages during DotNet 4.0 installation, you can ignore "
 "them without issues"
 msgstr ""
+"Se você ver mensagens de erro durante a instalação do DotNet 4.0, poderá "
+"ignorá-las sem problemas"
 
 #: PlayOnLinux_Scripts/POL_Install_dxfullsetup_:12
 #, sh-format
 msgid "Installing DirectX runtime"
-msgstr ""
+msgstr "Instalando DirectX runtime"
 
 #: PlayOnLinux_Scripts/POL_Install_gecko_:101
 #, sh-format
@@ -2142,18 +2258,20 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_steam_:24
 #, sh-format
 msgid "Please wait while Steam is downloaded..."
-msgstr ""
+msgstr "Por favor aguarde enquanto a Steam é baixada."
 
 #: PlayOnLinux_Scripts/POL_Install_ubigamelauncher_:13
 #, sh-format
 msgid ""
 "Please wait while $APPLICATION_TITLE is downloading Ubisoft Game Launcher"
 msgstr ""
+"Por favor, aguarde enquanto $APPLICATION_TITLE está baixando o Ubisoft Game "
+"Launcher"
 
 #: PlayOnLinux_Scripts/POL_Install_vbrun6_:12
 #, sh-format
 msgid "Installing Visual Basic runtime"
-msgstr ""
+msgstr "Instalando Visual Basic runtime"
 
 #: PlayOnLinux_Scripts/POL_Install_vcrun2005_:37
 #, sh-format
@@ -2224,6 +2342,7 @@ msgstr "Fontes da Microsoft"
 #, sh-format
 msgid "Microsoft fonts aren't installed; I'll install them for you."
 msgstr ""
+"Fontes da Microsoft não estão instaladas; irei instalá-las para você."
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:3
 #, sh-format
@@ -2386,7 +2505,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:21
 #, sh-format
 msgid "Now, insert the cdrom number $CDNumber."
-msgstr ""
+msgstr "Agora, insira o cdrom número $CDNumber."
 
 #: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:27
 #, sh-format
@@ -2487,7 +2606,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Runes_Of_Magic_:43
 #, sh-format
 msgid "You can download $TITLE install file here:"
-msgstr ""
+msgstr "Você pode fazer o download do arquivo de instalação do $TITLE aqui:"
 
 #: PlayOnLinux_Scripts/Sacrifice_:33
 #, sh-format
@@ -2524,12 +2643,12 @@ msgstr ""
 #: PlayOnLinux_Scripts/Slender_:30
 #, sh-format
 msgid "Select downloaded ZIP file here"
-msgstr ""
+msgstr "Selecione o arquivo ZIP baixado aqui"
 
 #: PlayOnLinux_Scripts/Slender_:31
 #, sh-format
 msgid "Extracting Slender..."
-msgstr ""
+msgstr "Extraindo Slender..."
 
 #: PlayOnLinux_Scripts/Slender_:32
 #, sh-format
@@ -2745,7 +2864,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Witcher_Patch_1.5_:79
 #, sh-format
 msgid "Select second patch (1.5) to execute"
-msgstr ""
+msgstr "Selecione o segundo patch (1.5) para executar"
 
 #: PlayOnLinux_Scripts/The_Witcher_Patch_1.5_:104
 #, sh-format
@@ -2845,6 +2964,13 @@ msgid ""
 "Your browser will pop, download patch from it and uncompress it please"
 msgstr "Seu navegador irá abrir, por favor baixe e descompacte o patch"
 
+#: PlayOnLinux_Scripts/World_Of_Tanks_:49
+#, sh-format
+msgid ""
+"Which region version of World of Tanks would you like to install? Note: "
+"Korea not supported on this installation."
+msgstr ""
+
 #: PlayOnLinux_Scripts/World_Of_Tanks_:59
 #, sh-format
 msgid ""
@@ -2909,7 +3035,7 @@ msgstr "Transferindo os arquivos do Disco 1"
 #: PlayOnLinux_Scripts/Zoo_Tycoon_2__Zookeeper_Collection_:36
 #, sh-format
 msgid "Please insert \"$TITLE\" disc 2"
-msgstr ""
+msgstr "Por favor, insira o disco 2 de \"$TITLE\""
 
 #: PlayOnLinux_Scripts/Zoo_Tycoon_2__Zookeeper_Collection_:39
 #, sh-format
@@ -4427,12 +4553,12 @@ msgstr "Extraindo o Wine..."
 #: lib/wine.lib:949
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
-msgstr ""
+msgstr "Sobrescrever (geralmente funciona, sem garantia)"
 
 #: lib/wine.lib:950
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
-msgstr ""
+msgstr "Apagar (o conteúdo do drive virtual será perdido)"
 
 #: lib/wine.lib:964
 #, sh-format
@@ -4545,6 +4671,8 @@ msgstr "Desinstalador do Wine"
 msgid ""
 "Be careful! Installing one of these components can break your virtual drive."
 msgstr ""
+"Tenha cuidado! Instalar um destes componentes poderá quebrar o seu drive "
+"virtual."
 
 #: python/configure.py:327 python/install.py:283 python/mainwindow.py:197
 #: python/mainwindow.py:350
@@ -4748,7 +4876,7 @@ msgstr "Procurar"
 
 #: python/install.py:252
 msgid "Include:"
-msgstr ""
+msgstr "Incluir:"
 
 #: python/install.py:263
 msgid "No-cd needed"
@@ -4865,7 +4993,7 @@ msgstr "{0} erro"
 
 #: python/mainwindow.py:73
 msgid "{0} website is unavailable. Please check your connection"
-msgstr ""
+msgstr "{0} o website está indisponível. Por favor, verifique a sua conexão"
 
 #: python/mainwindow.py:75
 msgid "Refreshing {0}"

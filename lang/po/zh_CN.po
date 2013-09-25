@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2013-09-16 19:00+0200\n"
+"POT-Creation-Date: 2013-09-23 19:00+0200\n"
 "PO-Revision-Date: 2013-08-16 03:01+0000\n"
 "Last-Translator: 赵驰 <teddyherry@126.com>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-09-17 04:36+0000\n"
-"X-Generator: Launchpad (build 16765)\n"
+"X-Launchpad-Export-Date: 2013-09-24 05:48+0000\n"
+"X-Generator: Launchpad (build 16771)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -229,7 +229,7 @@ msgstr "请插入载有游戏的介质."
 #: PlayOnLinux_Scripts/18_Wheels_of_Steel_Haulin_:52
 #: PlayOnLinux_Scripts/A.R.E.S.___Extinction_Agenda_:87
 #: PlayOnLinux_Scripts/Ableton_Live_8_:44
-#: PlayOnLinux_Scripts/Ableton_Live_9_:44 PlayOnLinux_Scripts/Absynth_5_:34
+#: PlayOnLinux_Scripts/Ableton_Live_9_:47 PlayOnLinux_Scripts/Absynth_5_:34
 #: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Age_of_Kings_:47
 #: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Age_of_Kings_:69
 #: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Conquerors_:51
@@ -254,7 +254,7 @@ msgstr "请插入载有游戏的介质."
 #: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_:65
 #: PlayOnLinux_Scripts/Diablo_II_:51
 #: PlayOnLinux_Scripts/Dragon_Age_2___DLC_:40
-#: PlayOnLinux_Scripts/Dreamweaver_8_:22 PlayOnLinux_Scripts/EVE_online_:83
+#: PlayOnLinux_Scripts/Dreamweaver_8_:22 PlayOnLinux_Scripts/EVE_online_:85
 #: PlayOnLinux_Scripts/FEZ__Steam__:49 PlayOnLinux_Scripts/FL_Studio_10_:33
 #: PlayOnLinux_Scripts/Far_Cry_2_:80 PlayOnLinux_Scripts/Flash_8_:22
 #: PlayOnLinux_Scripts/Flash_MX_:22
@@ -277,6 +277,7 @@ msgstr "请插入载有游戏的介质."
 #: PlayOnLinux_Scripts/Monkey_Island_2_Special_Edition_:79
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:163
 #: PlayOnLinux_Scripts/Need_For_Speed_III___Hot_Pursuit_:53
+#: PlayOnLinux_Scripts/Need_For_Speed_World_:28
 #: PlayOnLinux_Scripts/NosTale_:46 PlayOnLinux_Scripts/Notepad_:29
 #: PlayOnLinux_Scripts/OCR_CuneiForm_:31 PlayOnLinux_Scripts/OnLive_:52
 #: PlayOnLinux_Scripts/Portal_:82 PlayOnLinux_Scripts/Portal_2_:68
@@ -332,7 +333,7 @@ msgid ""
 msgstr "当从 Steam 下载完 $TITLE ,请不要点击运行.\\n\\n完全关闭 Steam 界面,以便安装脚本继续执行."
 
 #: PlayOnLinux_Scripts/Ableton_Live_8_:52
-#: PlayOnLinux_Scripts/Ableton_Live_9_:52
+#: PlayOnLinux_Scripts/Ableton_Live_9_:60
 #, sh-format
 msgid ""
 "NOTICE: To register, when it opens asking for registration, drag-and-drop "
@@ -1119,20 +1120,19 @@ msgid ""
 "and redo installation of the game."
 msgstr "您不能将阴影等级调至最高,\\n否则您需要重新安装该游戏."
 
-#: PlayOnLinux_Scripts/EVE_online_:72
+#: PlayOnLinux_Scripts/EVE_online_:74
 #, sh-format
 msgid ""
-"Requires about 18Gb free space.\\n\\nAs well, an additional 5Gb in your "
-"/home/ folder if you will use online installer.\\nRecommend using offline "
-"installer."
-msgstr "需要 18Gb 可用空间.\\n\\n若使用在线安装, 则需要另外在主文件夹的 5Gb 可用空间.\\n建议离线安装."
+"Requires about 18Gb free space.nnAs well, an additional 5Gb in your /home/ "
+"folder if you will use online installer.nRecommend using offline installer."
+msgstr ""
 
-#: PlayOnLinux_Scripts/EVE_online_:78
+#: PlayOnLinux_Scripts/EVE_online_:80
 #, sh-format
 msgid "You want to open $TITLE download page in your browser?"
 msgstr "您想用浏览器打开 $TITLE 的下载页吗?"
 
-#: PlayOnLinux_Scripts/EVE_online_:92 PlayOnLinux_Scripts/EVE_online_:120
+#: PlayOnLinux_Scripts/EVE_online_:94 PlayOnLinux_Scripts/EVE_online_:122
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:39
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:47
 #: PlayOnLinux_Scripts/POL_Function_FontsSmoothRGB_:1
@@ -1150,25 +1150,22 @@ msgstr "您想用浏览器打开 $TITLE 的下载页吗?"
 msgid "Please wait..."
 msgstr "请耐心等待 ..."
 
-#: PlayOnLinux_Scripts/EVE_online_:117
+#: PlayOnLinux_Scripts/EVE_online_:119
 #, sh-format
 msgid ""
-"You want to create symbolic link for $TITLE settings in your /home/ folder?\\"
-"n(Recommend yes.)"
-msgstr "您需要设置 $TITLE 对主文件夹的映射链接吗?\\n(建议选是.)"
-
-#: PlayOnLinux_Scripts/EVE_online_:136
-#, sh-format
-msgid ""
-"Known issues:\\n\\n1) Loading EULA on the first run can take a long (5min) "
-"time.\\n\\n2) The Captain's Quarters feature is broken for most (all?) "
-"users.\\nIf you crash after selecting a character try hitting escape at the "
-"login screen and disabling Captain's Quarters under the graphics selection.\\"
-"n(This feature is considered useless by most Eve Players.)"
+"You want to create symbolic link for $TITLE settings in your /home/ "
+"folder?n(Recommend yes.)"
 msgstr ""
-"使用须知:\\n\\n1) EULA 首次加载耗时较长(5min).\\n\\n2) Captain's Quarters "
-"功能对大部分(也许全部)用户不可用.\\n若选择角色后程序崩溃, 在登录屏幕上尝试 Esc 键, 并在图形界面选择禁用 Captain's "
-"Quarters.\\n(大部分 Eve 玩家认为此功能无用.)"
+
+#: PlayOnLinux_Scripts/EVE_online_:138
+#, sh-format
+msgid ""
+"Known issues:nn1) Loading EULA on the first run can take a long (5min) "
+"time.nn2) The Captain's Quarters feature is broken for most (all?) users.nIf "
+"you crash after selecting a character try hitting escape at the login screen "
+"and disabling Captain's Quarters under the graphics selection.n(This feature "
+"is considered useless by most Eve Players.)"
+msgstr ""
 
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:34
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:51
@@ -1337,7 +1334,7 @@ msgid ""
 "click on \"Auto-detect\" in advanced video settings."
 msgstr "默认的视频设置有一点点慢,\\n记得在高级视频设置中点击\"自动检测\" ."
 
-#: PlayOnLinux_Scripts/GOG.com___Fez_Patch_:30
+#: PlayOnLinux_Scripts/GOG.com___Fez_Patch_:29
 #, sh-format
 msgid ""
 "This is an installer for an update;nPlease install $TITLE_REQUIRED first"
@@ -1895,6 +1892,25 @@ msgstr "检视哪些内容您想附加安装:"
 #, sh-format
 msgid "Coping install files, please wait..."
 msgstr "复制安装文件中, 请等待 ..."
+
+#: PlayOnLinux_Scripts/Need_For_Speed_World_:18
+#, sh-format
+msgid ""
+"Register or log in and download the installation file : "
+"https://world.needforspeed.com/"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Need_For_Speed_World_:29
+#, sh-format
+msgid ""
+"Please uncheck \"Launch Need For Speed\" at the end of the installation box"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Need_For_Speed_World_:42
+#, sh-format
+msgid ""
+"If the download update stuck close and run until the download is complete."
+msgstr ""
 
 #: PlayOnLinux_Scripts/Orcs_Must_Die__2_:43
 #, sh-format
@@ -2853,6 +2869,13 @@ msgstr "CD-ROM 版本已过期. 如果你想用 $APPLICATION_TITLE 正确运行 
 msgid ""
 "Your browser will pop, download patch from it and uncompress it please"
 msgstr "您的浏览器会弹出, 下载补丁; 请解压之"
+
+#: PlayOnLinux_Scripts/World_Of_Tanks_:49
+#, sh-format
+msgid ""
+"Which region version of World of Tanks would you like to install? Note: "
+"Korea not supported on this installation."
+msgstr ""
 
 #: PlayOnLinux_Scripts/World_Of_Tanks_:59
 #, sh-format

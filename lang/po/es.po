@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2013-09-16 19:00+0200\n"
-"PO-Revision-Date: 2013-06-28 14:01+0000\n"
-"Last-Translator: Felishia González <ejgonzalezviera@fec.luz.edu.ve>\n"
+"POT-Creation-Date: 2013-09-23 19:00+0200\n"
+"PO-Revision-Date: 2013-09-18 22:48+0000\n"
+"Last-Translator: Diego Garcia <diegogarciamendoza@gmail.com>\n"
 "Language-Team: es_ES.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-09-17 04:36+0000\n"
-"X-Generator: Launchpad (build 16765)\n"
+"X-Launchpad-Export-Date: 2013-09-24 05:48+0000\n"
+"X-Generator: Launchpad (build 16771)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -247,7 +247,7 @@ msgstr "Inserte el disco de juego en la unidad de disco."
 #: PlayOnLinux_Scripts/18_Wheels_of_Steel_Haulin_:52
 #: PlayOnLinux_Scripts/A.R.E.S.___Extinction_Agenda_:87
 #: PlayOnLinux_Scripts/Ableton_Live_8_:44
-#: PlayOnLinux_Scripts/Ableton_Live_9_:44 PlayOnLinux_Scripts/Absynth_5_:34
+#: PlayOnLinux_Scripts/Ableton_Live_9_:47 PlayOnLinux_Scripts/Absynth_5_:34
 #: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Age_of_Kings_:47
 #: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Age_of_Kings_:69
 #: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Conquerors_:51
@@ -272,7 +272,7 @@ msgstr "Inserte el disco de juego en la unidad de disco."
 #: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_:65
 #: PlayOnLinux_Scripts/Diablo_II_:51
 #: PlayOnLinux_Scripts/Dragon_Age_2___DLC_:40
-#: PlayOnLinux_Scripts/Dreamweaver_8_:22 PlayOnLinux_Scripts/EVE_online_:83
+#: PlayOnLinux_Scripts/Dreamweaver_8_:22 PlayOnLinux_Scripts/EVE_online_:85
 #: PlayOnLinux_Scripts/FEZ__Steam__:49 PlayOnLinux_Scripts/FL_Studio_10_:33
 #: PlayOnLinux_Scripts/Far_Cry_2_:80 PlayOnLinux_Scripts/Flash_8_:22
 #: PlayOnLinux_Scripts/Flash_MX_:22
@@ -295,6 +295,7 @@ msgstr "Inserte el disco de juego en la unidad de disco."
 #: PlayOnLinux_Scripts/Monkey_Island_2_Special_Edition_:79
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:163
 #: PlayOnLinux_Scripts/Need_For_Speed_III___Hot_Pursuit_:53
+#: PlayOnLinux_Scripts/Need_For_Speed_World_:28
 #: PlayOnLinux_Scripts/NosTale_:46 PlayOnLinux_Scripts/Notepad_:29
 #: PlayOnLinux_Scripts/OCR_CuneiForm_:31 PlayOnLinux_Scripts/OnLive_:52
 #: PlayOnLinux_Scripts/Portal_:82 PlayOnLinux_Scripts/Portal_2_:68
@@ -353,7 +354,7 @@ msgstr ""
 "así la script (archivo de órdenes) de la instalación puede continuar."
 
 #: PlayOnLinux_Scripts/Ableton_Live_8_:52
-#: PlayOnLinux_Scripts/Ableton_Live_9_:52
+#: PlayOnLinux_Scripts/Ableton_Live_9_:60
 #, sh-format
 msgid ""
 "NOTICE: To register, when it opens asking for registration, drag-and-drop "
@@ -373,7 +374,7 @@ msgstr "AVISO: Para un sonido de baja latencia, revise WineASIO."
 #: PlayOnLinux_Scripts/Tales_of_Middle_Earth_:24
 #, sh-format
 msgid "Please install \"Age Of Empires II: The Conquerors\""
-msgstr ""
+msgstr "Por favor instala \"Age of Empires II: The Conquerors\""
 
 #: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Age_of_Kings_:19
 #, sh-format
@@ -389,6 +390,16 @@ msgid ""
 "result of using these scripts.\n"
 "\\n\\nClick on next to start."
 msgstr ""
+"Este tutorial te ayudará a instalar $TITLE de Ensemble Studios "
+"(http://www.ensemblestudios.com/) en tu PC.\n"
+"\\n\\nPor favor considera algunos programas alternativos de Codigo Abierto "
+"que corran nativamente en GNU/Linux, como por ejemplo 0 A.D. "
+"(http://play0ad.com/) antes de instalar $TITLE mediante Wine.\n"
+"\\n\\nEste programa de instalación fue provisto por: Fekir\n"
+"\\n\\n$TITLE será instalado en $POL_USER_ROOT/wineprefix/$PREFIX\n"
+"\\n\\nPlayOnLinux no se responsabiliza por cualquier cosa que pase como "
+"resultado de usar estos scripts.\n"
+"\\n\\nClick on next to start."
 
 #: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Age_of_Kings_:49
 #: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Conquerors_:53
@@ -413,34 +424,34 @@ msgstr "Por favor espere mientras se instala $TITLE."
 #: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Age_of_Kings_:63
 #, sh-format
 msgid "Do you want to install the 2.0a Patch?"
-msgstr ""
+msgstr "¿Deseas instalar el Parche 2.0a?"
 
 #: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Age_of_Kings_:76
 #, sh-format
 msgid "Please wait while the 2.0a Patch is installed."
-msgstr ""
+msgstr "Por favor espera mientras el parche 2.0a es instalado."
 
 #: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Conquerors_:24
 #, sh-format
 msgid "Please install \"Age Of Empires II: The Age of Kings\""
-msgstr ""
+msgstr "Por favor instala \"Age of Empires II: The Age of Kings\""
 
 #: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Conquerors_:67
 #, sh-format
 msgid "Do you want to install the 1.0c Patch?"
-msgstr ""
+msgstr "¿Deseas instalar el Parche 1.0c?"
 
 #: PlayOnLinux_Scripts/Age_Of_Empires_II__The_Conquerors_:80
 #, sh-format
 msgid "Please wait while the 1.0c Patch is installed."
-msgstr ""
+msgstr "Por favor espera mientras el Parche 1.0c es instalado."
 
 #: PlayOnLinux_Scripts/Age_of_Vampires___Blood_Reign_in_Transylvania_:55
 #: PlayOnLinux_Scripts/Rome_at_War_:52 PlayOnLinux_Scripts/Rome_at_War_:72
 #: PlayOnLinux_Scripts/Tales_of_Middle_Earth_:60
 #, sh-format
 msgid "Please wait while the $TITLE is installed."
-msgstr ""
+msgstr "Por favor espera mientras el $TITLE es instalado."
 
 #: PlayOnLinux_Scripts/Alan_Wake_:81
 #: PlayOnLinux_Scripts/Alien_Breed_2___Assault_:74
@@ -488,6 +499,8 @@ msgstr ""
 #, sh-format
 msgid "If .NET 3.0 installation fail, dont worry\\nthe game will still work"
 msgstr ""
+"Si la instalación del .NET 3.0 fala, no te preocupes\\nel juego aun "
+"funcionará"
 
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:30
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:40
@@ -804,7 +817,7 @@ msgstr "Versión inglesa"
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:51
 #, sh-format
 msgid "International version"
-msgstr ""
+msgstr "Versión internacional"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:48
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:52
@@ -964,18 +977,26 @@ msgid ""
 "shows you to the login interface, login and then let $TITLE install.\\n\\"
 "nWhen the installation is finished, press next (Do not close Steam)"
 msgstr ""
+"Steam esta por llevar a cabo una actualización..\\nDespues de que Steam "
+"termine de actualizar y te muestre la interface de ingreso, ingresa y "
+"entonces deja que  $TITLE se instale.\\n\\nCuando la instalación termine, "
+"presiona siguiente (No cerrar Steam)"
 
 #: PlayOnLinux_Scripts/Civilization_IV__Complete_Edition_:75
 #, sh-format
 msgid ""
 "Steam is installing $TITLEW, press next when the installation is finished"
 msgstr ""
+"Steam esta instalando $TITLEW, presiona siguiente cuando la instalación "
+"termine"
 
 #: PlayOnLinux_Scripts/Civilization_IV__Complete_Edition_:78
 #, sh-format
 msgid ""
 "Steam is installing $TITLEBTS, press next when the installation is finished"
 msgstr ""
+"Steam esta instalando $TITLEBTS, presiona siguiente cuando la instalación "
+"termine"
 
 #: PlayOnLinux_Scripts/Civilization_IV__Complete_Edition_:81
 #, sh-format
@@ -984,6 +1005,10 @@ msgid ""
 "installation is finished (make sure Steam is not still in the traybar) and "
 "then press next so that the installation script can continue."
 msgstr ""
+"Steam esta instalando $TITLECOL, por favor cierra Steam apropiadamente "
+"cuando la instalación termine (asegurate que Steam no se encuentre en la "
+"bandeja de sistema) y entonces presiona siguiente para que el script de "
+"instalación continue."
 
 #: PlayOnLinux_Scripts/Civilization_IV__Complete_Edition_:107
 #, sh-format
@@ -1185,23 +1210,19 @@ msgstr ""
 "No debes colocar el nivel de las sombras en su máximo\\nde hacerlo tendrás "
 "que eliminar y volver a iniciar la instalación del juego."
 
-#: PlayOnLinux_Scripts/EVE_online_:72
+#: PlayOnLinux_Scripts/EVE_online_:74
 #, sh-format
 msgid ""
-"Requires about 18Gb free space.\\n\\nAs well, an additional 5Gb in your "
-"/home/ folder if you will use online installer.\\nRecommend using offline "
-"installer."
+"Requires about 18Gb free space.nnAs well, an additional 5Gb in your /home/ "
+"folder if you will use online installer.nRecommend using offline installer."
 msgstr ""
-"Requiere aproximadamente 18Gb de espacio libre.\\n\\nAsí como también 5Gb "
-"adicionales en su carpeta /home/ si va a utilizar el instalador en línea.\\"
-"nEs recomendado descargar e utilizar el instalador."
 
-#: PlayOnLinux_Scripts/EVE_online_:78
+#: PlayOnLinux_Scripts/EVE_online_:80
 #, sh-format
 msgid "You want to open $TITLE download page in your browser?"
 msgstr "¿Quiere abrir la página de descargas de $TITLE en su buscador?"
 
-#: PlayOnLinux_Scripts/EVE_online_:92 PlayOnLinux_Scripts/EVE_online_:120
+#: PlayOnLinux_Scripts/EVE_online_:94 PlayOnLinux_Scripts/EVE_online_:122
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:39
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:47
 #: PlayOnLinux_Scripts/POL_Function_FontsSmoothRGB_:1
@@ -1219,31 +1240,22 @@ msgstr "¿Quiere abrir la página de descargas de $TITLE en su buscador?"
 msgid "Please wait..."
 msgstr "Por favor, espere..."
 
-#: PlayOnLinux_Scripts/EVE_online_:117
+#: PlayOnLinux_Scripts/EVE_online_:119
 #, sh-format
 msgid ""
-"You want to create symbolic link for $TITLE settings in your /home/ folder?\\"
-"n(Recommend yes.)"
+"You want to create symbolic link for $TITLE settings in your /home/ "
+"folder?n(Recommend yes.)"
 msgstr ""
-"¿Quiere crear el conector simbólico de la configuración de $TITLE en su "
-"carpeta /home/?\\n(Se recomienda que si.)"
 
-#: PlayOnLinux_Scripts/EVE_online_:136
+#: PlayOnLinux_Scripts/EVE_online_:138
 #, sh-format
 msgid ""
-"Known issues:\\n\\n1) Loading EULA on the first run can take a long (5min) "
-"time.\\n\\n2) The Captain's Quarters feature is broken for most (all?) "
-"users.\\nIf you crash after selecting a character try hitting escape at the "
-"login screen and disabling Captain's Quarters under the graphics selection.\\"
-"n(This feature is considered useless by most Eve Players.)"
+"Known issues:nn1) Loading EULA on the first run can take a long (5min) "
+"time.nn2) The Captain's Quarters feature is broken for most (all?) users.nIf "
+"you crash after selecting a character try hitting escape at the login screen "
+"and disabling Captain's Quarters under the graphics selection.n(This feature "
+"is considered useless by most Eve Players.)"
 msgstr ""
-"Problemas conocidos:\\n\\n1) Cargar el EULA la primera vez al iniciar puede "
-"tomar un largo tiempo (5min).\\n\\n2) La característica de los Cuarteles del "
-"Capitán está dañada para la mayoría de los usuarios (¿todos?).\\nSi el juego "
-"colapsa luego de seleccionar un personaje intente presionar \"escape\" en la "
-"pantalla de inicio y deshabilite los Cuarteles del Cápitan bajo la sección "
-"de gráficas.\\n(Esta característica es considerada inútil para la mayoría de "
-"los Jugadores de Eve.)"
 
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:34
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:51
@@ -1439,7 +1451,7 @@ msgstr ""
 "computadoras modernas,\\nrecuerde hacer click en \"Auto-detectar\" en la "
 "configuración avanzada de video."
 
-#: PlayOnLinux_Scripts/GOG.com___Fez_Patch_:30
+#: PlayOnLinux_Scripts/GOG.com___Fez_Patch_:29
 #, sh-format
 msgid ""
 "This is an installer for an update;nPlease install $TITLE_REQUIRED first"
@@ -2061,6 +2073,25 @@ msgstr "Chequee cuales de los componentes desea instalar adicionalmente:"
 #, sh-format
 msgid "Coping install files, please wait..."
 msgstr "Copiando los archivos de instalación, por favor espere..."
+
+#: PlayOnLinux_Scripts/Need_For_Speed_World_:18
+#, sh-format
+msgid ""
+"Register or log in and download the installation file : "
+"https://world.needforspeed.com/"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Need_For_Speed_World_:29
+#, sh-format
+msgid ""
+"Please uncheck \"Launch Need For Speed\" at the end of the installation box"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Need_For_Speed_World_:42
+#, sh-format
+msgid ""
+"If the download update stuck close and run until the download is complete."
+msgstr ""
 
 #: PlayOnLinux_Scripts/Orcs_Must_Die__2_:43
 #, sh-format
@@ -3125,6 +3156,13 @@ msgstr ""
 msgid ""
 "Your browser will pop, download patch from it and uncompress it please"
 msgstr "Al abrirse el navegador, descargue el parche y descomprímalo."
+
+#: PlayOnLinux_Scripts/World_Of_Tanks_:49
+#, sh-format
+msgid ""
+"Which region version of World of Tanks would you like to install? Note: "
+"Korea not supported on this installation."
+msgstr ""
 
 #: PlayOnLinux_Scripts/World_Of_Tanks_:59
 #, sh-format
