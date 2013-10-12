@@ -856,7 +856,8 @@ resource_download_url()
 #		version="${version#wine-mono-}"
 #		echo "http://source.winehq.org/winemono.php?v=${version}"
 #		echo "http://downloads.sourceforge.net/wine/$3"
-		echo "$MONO_SITE/$2/$3"
+#		echo "$MONO_SITE/$2/$3"
+		echo "$MONO_SITE/$3"
 	fi
 }
 POL_Wine_AutoSetVersionEnv()

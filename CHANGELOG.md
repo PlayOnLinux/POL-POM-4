@@ -19,6 +19,7 @@
 * Add link to download page in side panel when version is not up-to-date (#2677)
   Not sure it's visible enough, could be improved.
 * Added logging to archivers wrappers (POL_System_unzip etc.)
+* Update mono download URLs
 
 # 4.2.1
 
