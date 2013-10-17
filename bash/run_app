@@ -68,8 +68,8 @@ send_stat()
 	[ "$AMD64_COMPATIBLE" = "True" ] && amd64_set="1" || amd64_set="0"
 
 	if [ "$ScriptName" ]; then
-		# Device Infos
-		POL_LoadVar_Device
+		# Device Infos - Could also directly use POL_DetectVideoCards for full list
+		POL_LoadVar_Device --non-interactive
 	
 		Info="$(printf "$VendorID~$DeviceID~$currentOS~$ScriptName~$amd64_set~$OpenGL32~$OpenGL64~$Version~$ExitCode~$DISTRO~$vms~$UniqId~$archty~$PACKAGE~$VERSION~$delta" | POL_base64)"
 		POL_Website_GET "http://www.playonlinux.com/api/s.php?data=$(POL_Website_urlencode "$Info")"

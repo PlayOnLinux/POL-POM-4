@@ -355,41 +355,54 @@ Set_WineWindowTitle ()
 POL_LoadVar_Device ()
 {
 	# Get GPU device id and vendor id
+	# Usage: POL_LoadVar_Device [--non-interactive]
 	# Results are stored in VendorID and DeviceID variables
 
-	POL_SetupWindow_wait "$(eval_gettext 'Please wait while $APPLICATION_TITLE is scanning your hardware')" "$TITLE"
-	POL_Debug_Message "Gettings GPU informations"
-	if [ "$POL_OS" = "Linux" ]; then
-		# Detect known videocards
-		[ -x /usr/sbin/lspci ] && LSPCI=/usr/sbin/lspci || LSPCI=lspci
-		VGA_ID1=`$LSPCI | grep VGA | grep -iE "nvidia|ati|amd|intel"`
-		# More than one card available?
-		if [ $(wc -l <<<"$VGA_ID1") -gt 1 ]; then
-			# Try to put what's probably the main card first
-			VGA_ID1=`grep -iE 'nvidia|ati|amd' <<<"$VGA_ID1"; grep -iE 'intel' <<<"$VGA_ID1"`
-			if [ "$SETUPWINDOW_INIT" = "true" ]; then
-				# Interactive
-				local OLD_APP_ANSWER="$APP_ANSWER"
-				POL_SetupWindow_menu "$(eval_gettext 'Select the main videocard to report:')" "$TITLE" "$(echo -n "$VGA_ID1"|tr "\n" "~")" "~"
-				VGA_ID1="$APP_ANSWER"
-				APP_ANSWER="$OLD_APP_ANSWER"
-			else
-				# Non-interactive: pick first
-				VGA_ID1=`head -n1 <<<"$VGA_ID1"`
-			fi
+	local INTERACTIVE=1
+	if [ "$1" = "--non-interactive" ]; then
+		INTERACTIVE=''
+		shift
+	fi
+
+	[ "$INTERACTIVE" ] && POL_SetupWindow_wait "$(eval_gettext 'Please wait while $APPLICATION_TITLE is scanning your hardware')" "$TITLE"
+        VGA_DEVICES="$(POL_DetectVideoCards)"
+	# More than one card available?
+	if grep -q '~' <<<"$VGA_DEVICES"; then
+		if [ "$INTERACTIVE" ]; then
+			local OLD_APP_ANSWER="$APP_ANSWER"
+			POL_SetupWindow_menu "$(eval_gettext 'Select the main videocard to report:')" "$TITLE" "$VGA_DEVICES" "~"
+			VGA_DEVICES="$APP_ANSWER"
+			APP_ANSWER="$OLD_APP_ANSWER"
+		else
+			# Can't ask user, pick first
+			VGA_DEVICES="${VGA_DEVICES%%~*}"
 		fi
-		VGA_ID1=`cut -d" " -f1 <<<"$VGA_ID1"`
-		VGA_ID2=`$LSPCI -n | grep "$VGA_ID1" | cut -d" " -f3`
-		export VendorID=`cut -d: -f1 <<<"$VGA_ID2"`
-		export DeviceID=`cut -d: -f2 <<<"$VGA_ID2"`
 	fi
-	if [ "$POL_OS" = "Mac" ]; then
-		system_profiler > "$POL_USER_ROOT/tmp/system_profiler"
-		export DeviceID="$(cat "$POL_USER_ROOT/tmp/system_profiler" | grep -A 10 "Graphics/Displays:" | grep "Device ID" | awk '{print $3}' | cut -d x -f2)"
-		export VendorID="$(cat "$POL_USER_ROOT/tmp/system_profiler" | grep -A 10 "Graphics/Displays:" | grep "Vendor:" | awk '{print $3}' | tr -d "()" | cut -d x -f2)"
-	fi
+	export VendorID=`cut -d'|' -f2 <<<"$VGA_DEVICES"`
+	export DeviceID=`cut -d'|' -f3 <<<"$VGA_DEVICES"`
 	POL_Debug_Message "VendorID : $VendorID"
 	POL_Debug_Message "DeviceID : $DeviceID"
+}
+
+POL_DetectVideoCards () {
+	# Detect known videocards
+	POL_Debug_Message "Gettings GPU informations"
+	if [ "$POL_OS" = "Linux" ]; then
+		[ -x /usr/sbin/lspci ] && LSPCI=/usr/sbin/lspci || LSPCI=lspci
+                # Device Name|Vendor ID|Device ID\n...
+		VGA_DEVICES=`$LSPCI -nn | perl -ne 'if (/VGA/) { s/.*\]: (.*) \[([0-9a-f]{4}):([0-9a-f]{4})\].*/\1|\2|\3/; print }'`
+	fi
+	if [ "$POL_OS" = "Mac" ]; then
+                # Device Name|Vendor ID|Device ID\n...
+		VGA_DEVICES=`system_profiler SPDisplaysDataType | perl -ne 's/^\s+//; if(/Chipset Model:) { chomp; s/^[^:]*: //; print "$_|" } elsif(/Vendor:/) { chomp; s/.*\(0x(.*)\)/\1/; print "$1|" } elsif (/Device ID:/) { s/^[^:]*: 0x//; print }'`
+	fi
+	# More than one card available?
+	if [ $(wc -l <<<"$VGA_DEVICES") -gt 1 ]; then
+		# Try to put what's probably the main card first
+		VGA_DEVICES=`grep -iE 'nvidia|ati|amd' <<<"$VGA_DEVICES"; grep -iEv 'nvidia|ati|amd' <<<"$VGA_DEVICES"`
+	fi
+        # Device Name|Vendor ID|Device ID~...
+	echo -n "$VGA_DEVICES"|tr "\n" "~"
 }
 
 POL_LoadVar_ScreenResolution ()
@@ -413,7 +426,6 @@ POL_Wine_SetVideoDriver()
 	# Usage POL_Wine_SetVideoDriver
 	POL_Debug_Message "Set wine video driver"
 	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
-
 	POL_LoadVar_Device
 	DRVID="vga.dll"
 	[ "$VendorID" = "10de" ] && DRVID="nv4_disp.dll"
@@ -435,7 +447,6 @@ POL_Wine_DetectCard()
 	# Usage POL_Wine_DetectCard
 	POL_Debug_Message "Detecting video card"
 	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
-	POL_SetupWindow_wait "$(eval_gettext 'Scanning your hardware...')" "$TITLE"
 	POL_LoadVar_Device
 	DRVID="OTHER"
 	[ "$VendorID" = "10de" ] && DRVID="NVIDIA"
