@@ -21,6 +21,7 @@
   Not sure it's visible enough, could be improved.
 * Added logging to archivers wrappers (POL_System_unzip etc.)
 * Update mono download URLs
+* Updated IRC server address, freenode.com domain is gone
 
 # 4.2.1
 

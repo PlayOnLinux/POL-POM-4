@@ -16,7 +16,8 @@ class IRCClient(threading.Thread):
     string_to_write = ""
     def __init__(self):
         threading.Thread.__init__(self)
-        self.serveur = "irc.freenode.com"
+        # https://www.freenode.net/irc_servers.shtml
+        self.serveur = "chat.freenode.net"
         self.port = 6667
         self.Nick = Variables.current_user+"-pol"
         self.chanAutoJoin = "#playonlinux"
