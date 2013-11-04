@@ -511,15 +511,18 @@ class InstallWindow(wx.Frame):
                 free = int(app_array[3])
                 testing = int(app_array[1])
                 nocd = int(app_array[2])
-                show = True
-                if(int(nocd) == 1 and self.nocdChk.IsChecked() == 0):
-                    show = False
-                if(int(free) == 0 and self.freeChk.IsChecked() == 0):
-                    show = False
-                if(int(testing) == 1 and self.testingChk.IsChecked() == 0):
-                    show = False
-            except:
-                show = True
+            except IndexError:
+                free = 0
+                testing = 0
+                nocd = 0
+                
+            show = True
+            if nocd == 1 and self.nocdChk.IsChecked() == 0:
+                show = False
+            if free == 0 and self.freeChk.IsChecked() == 0:
+                show = False
+            if testing == 1 and self.testingChk.IsChecked() == 0:
+                show = False
 
             if(show == True):
                 self.icon_look_for = Variables.playonlinux_rep+"/configurations/icones/"+appname
@@ -531,7 +534,7 @@ class InstallWindow(wx.Frame):
                 else:
                     self.imagesapps.Add(wx.Bitmap(Variables.playonlinux_env+"/etc/playonlinux22.png"))
                 itemId = self.list_apps.AppendItem(self.root_apps, appname, self.i)
-                if int(testing) == 1:
+                if testing == 1:
                     # (255,255,214) is web site color for beta, but it's not very visible next to plain white,
                     # and red is the color of danger
                     self.list_apps.SetItemBackgroundColour(itemId, (255,214,214))

@@ -22,6 +22,7 @@
 * Added logging to archivers wrappers (POL_System_unzip etc.)
 * Update mono download URLs
 * Updated IRC server address, freenode.com domain is gone
+* Harden applications list parsing
 
 # 4.2.1
 
