@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2013-10-28 19:00+0100\n"
-"PO-Revision-Date: 2013-10-25 17:23+0000\n"
-"Last-Translator: Aymeric PETIT <mulx@aplu.fr>\n"
+"POT-Creation-Date: 2013-11-04 19:01+0100\n"
+"PO-Revision-Date: 2013-11-03 21:07+0000\n"
+"Last-Translator: Tiago S. <Unknown>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-10-29 04:37+0000\n"
-"X-Generator: Launchpad (build 16818)\n"
+"X-Launchpad-Export-Date: 2013-11-05 05:18+0000\n"
+"X-Generator: Launchpad (build 16820)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -1917,6 +1917,10 @@ msgid ""
 "nOtherwise, you can enable it by installing libtxc-dxtn0 package, but you "
 "might get slower results"
 msgstr ""
+"AVISO! A compressão S3TC nõ está disponível no seu sistema.\\n\\nSe tiver um "
+"controlador livre, é possível que necessite de um controlador proprietário.\\"
+"n\\nDe outra modo, pode activá-lo instalando o pacote  libtxc-dxtn0, apesar "
+"de poder ter resultados mais lentos."
 
 #: PlayOnLinux_Scripts/League_Of_Legends_:61
 #, sh-format
@@ -2176,6 +2180,12 @@ msgstr "Quer transferir $TITLE de GOG.com?"
 msgid "Installing Adobe Air"
 msgstr "A instalar o Adobe Air..."
 
+#: PlayOnLinux_Scripts/POL_Install_CentralizedUserDirs_:13
+#, sh-format
+msgid "In what directory do you want to redirect user directories?"
+msgstr ""
+"Para que diretório pretende redirecionar os diretórios do utilizador?"
+
 #: PlayOnLinux_Scripts/POL_Install_d3dcompiler_43_:11
 #: PlayOnLinux_Scripts/POL_Install_d3dx9_:11
 #: PlayOnLinux_Scripts/POL_Install_d3dx9_29_:11
@@ -2391,7 +2401,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_wineasio_:38
 #, sh-format
 msgid "Downloading..."
-msgstr ""
+msgstr "A transferir..."
 
 #: PlayOnLinux_Scripts/POL_Install_wintrust_:11
 #, sh-format
@@ -2619,6 +2629,7 @@ msgstr "Agora, pode voltar à janela de instalação de $TITLE para continuar."
 #, sh-format
 msgid "Please do not run $TITLE after installation has finished."
 msgstr ""
+"Por favor, não execute $TITLE imediatamente após a instalação ter terminado."
 
 #: PlayOnLinux_Scripts/Pro_Evolution_Soccer_2013_:25
 #, sh-format
@@ -2760,11 +2771,13 @@ msgid ""
 "When installing, be sure not to let Scrolls launch automatically, so the POL "
 "setup can complete."
 msgstr ""
+"Quando estiver a instalar, certifique-se que Scrolls não é executado "
+"automaticamente de forma a que configuração possa terminar."
 
 #: PlayOnLinux_Scripts/Scrolls_:38
 #, sh-format
 msgid "Please wait while we extract $TITLE game data."
-msgstr ""
+msgstr "Por favor, aguarde enquanto os dados de $TITLE são extraídos."
 
 #: PlayOnLinux_Scripts/SimCity_2000_:43
 #, sh-format
@@ -2807,7 +2820,7 @@ msgstr "Desculpe, mas este não é um fichei zip válido."
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_08___Tenshi_no_Hanabira_Zome_:52
 #, sh-format
 msgid "Please locate installation program (Setup.exe)"
-msgstr ""
+msgstr "Por favor, indique o local do programa de instalação (Setup.exe)"
 
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_01___Sono_Hanabira_ni_Kuchizuke_wo_:51
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_02___Watashi_no_Ouji_sama_:51
@@ -2819,6 +2832,10 @@ msgid ""
 "opens, click on ${INSTALL_JP}. When installation finishes, click on "
 "${END_JP} and then on ${YES_JP}. Click Next when you are done installing."
 msgstr ""
+"Quando o instalador arrancar, carregue em  ${INSTALL_JP}. Quando a janela "
+"abrir, carregue em ${INSTALL_JP}. Quando a instalação terminar, carregue em "
+"${END_JP} seguido de ${YES_JP}. Carregue em 'Seguite' quando tiver terminado "
+"a instalação."
 
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_01___Sono_Hanabira_ni_Kuchizuke_wo_:61
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_03___Anata_to_Koibito_Tsunagi_:66
@@ -2828,6 +2845,10 @@ msgid ""
 "opens, click on ${INSTALL_JP}. When installation finishes, click on "
 "${END_JP} and then on ${YES_JP} (Y). Click Next when you are done installing."
 msgstr ""
+"Quando o instalador arrancar, carregue em  ${INSTALL_JP}. Quando a janela "
+"abrir, carregue em ${INSTALL_JP}. Quando a instalação terminar, carregue em "
+"${END_JP} seguido de ${YES_JP} (Y). Carregue em 'Seguite' quando tiver "
+"terminado a instalação."
 
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_02___Watashi_no_Ouji_sama_:90
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_03___Anata_to_Koibito_Tsunagi_:92
@@ -2838,7 +2859,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_08___Tenshi_no_Hanabira_Zome_:91
 #, sh-format
 msgid "Please locate English translation patch file"
-msgstr ""
+msgstr "Por favor, localize o patch com a tradução em inglês."
 
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_04___Aishisa_no_Photograph_:55
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_04___Aishisa_no_Photograph_:65
@@ -2848,6 +2869,10 @@ msgid ""
 "opens, click on ${INSTALL_JP}. When installation finishes, click on "
 "${END_JP} and then on ${YES_JP} (Y). Click next to begin installation."
 msgstr ""
+"Quando o instalador arrancar, carregue em  ${INSTALL_JP}. Quando a janela "
+"abrir, carregue em ${INSTALL_JP}. Quando a instalação terminar, carregue em "
+"${END_JP} seguido de ${YES_JP} (Y). Carregue em 'Seguite' para começar a "
+"instalação."
 
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_05___Anata_wo_Suki_na_Shiawase_:54
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_05___Anata_wo_Suki_na_Shiawase_:64
@@ -2863,6 +2888,10 @@ msgid ""
 "opens, click on ${INSTALL_JP}. When installation finishes, click on "
 "${END_JP} and then on ${YES_JP} (Y). Click Next to begin installation."
 msgstr ""
+"Quando o instalador arrancar, carregue em  ${INSTALL_JP}. Quando a janela "
+"abrir, carregue em ${INSTALL_JP}. Quando a instalação terminar, carregue em "
+"${END_JP} seguido de ${YES_JP} (Y). Carregue em 'Seguite' quando tiver "
+"terminado a instalação."
 
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:90
 #, sh-format
@@ -2876,7 +2905,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Starlight_Resonance____________________________:46
 #, sh-format
 msgid "Please locate installation program (Launcher.exe)"
-msgstr ""
+msgstr "Por favor, localize o instalador (Launcher.exe)"
 
 #: PlayOnLinux_Scripts/Starlight_Resonance____________________________:49
 #: PlayOnLinux_Scripts/Starlight_Resonance____________________________:57
@@ -2887,6 +2916,11 @@ msgid ""
 "with the letter N until it is installing. Wait until it is done and click "
 "the right button to quit. Click Next when you are done installing."
 msgstr ""
+"Quando o lançador abrir, carregue no botão no topo do instalador. Quando a "
+"janela seguinte abrir carregue em OK. Quando outra janela abrir, carregue no "
+"botão com a letra N até que tenha instalado. Aguarde até que esteja "
+"terminado e carregue no botão direito para sair. Carregue em 'Seguinte' "
+"quando terminar a instalação."
 
 #: PlayOnLinux_Scripts/Steam_:50
 #, sh-format
@@ -3021,7 +3055,7 @@ msgstr ""
 msgid "This addon automatically patch the game to 1.2.0416."
 msgstr "Este complemento instala automaticamente o patch 1.2.0416."
 
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_I__Arena_:91
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_I__Arena_:92
 #, sh-format
 msgid ""
 "The codes needed to exit the first dungeon can be found in the\\"
@@ -3315,6 +3349,8 @@ msgid ""
 "Press next to start the updater. When the updater is finished, close it "
 "down. Do not start osu! yet."
 msgstr ""
+"Carregue em 'Seguinte' para começar a actualização. Quando o actualizador, "
+"feche-o. Não inicie já o osu!"
 
 #: PlayOnLinux_Scripts/rFactor_12_:30
 #, sh-format
