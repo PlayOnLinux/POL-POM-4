@@ -23,6 +23,7 @@
 * Update mono download URLs
 * Updated IRC server address, freenode.com domain is gone
 * Harden applications list parsing
+* force LANG=C when spawning wineconsole (Wine bug #10063)
 
 # 4.2.1
 

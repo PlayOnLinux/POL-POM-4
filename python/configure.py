@@ -19,8 +19,7 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 import os, sys, string, stat, shutil
-import wx, time, shlex
-#from subprocess import Popen,PIPE
+import wx, time, shlex, subprocess
 
 import wine_versions
 import lib.playonlinux as playonlinux
@@ -104,11 +103,12 @@ class Onglets(wx.Notebook):
         self.general_elements["name"].SetValue(new_title)
         self.changing = True
 
-    def winebash(self, command):
+    def winebash(self, command, new_env=None):
+        args = shlex.split(command.encode("utf-8","replace"))
         if(self.s_isPrefix == True):
-            os.system("bash "+Variables.playonlinux_env+"/bash/winebash --prefix \""+self.s_prefix.encode('utf-8','replace')+"\" "+command.encode("utf-8","replace")+" &")
+            subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/winebash", "--prefix", self.s_prefix.encode('utf-8','replace')] + args, env=new_env)
         else:
-            os.system("bash "+Variables.playonlinux_env+"/bash/winebash \""+self.s_title.encode('utf-8','replace')+"\" "+command.encode("utf-8","replace")+" &")
+            subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/winebash", self.s_title.encode('utf-8','replace')] + args, env=new_env)
 
     def evt_winecfg(self, event):
         self.winebash("winecfg")
@@ -121,7 +121,11 @@ class Onglets(wx.Notebook):
         self.winebash("regedit")
 
     def evt_cmd(self, event):
-        self.winebash("wineconsole cmd")
+        # http://bugs.winehq.org/show_bug.cgi?id=10063
+        new_env = os.environ
+        new_env["LANG"] = "C"
+
+        self.winebash("wineconsole cmd", new_env)
 
     def evt_taskmgr(self, event):
         self.winebash("taskmgr")
