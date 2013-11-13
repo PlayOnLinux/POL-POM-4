@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2013-11-04 19:01+0100\n"
+"POT-Creation-Date: 2013-11-11 19:00+0100\n"
 "PO-Revision-Date: 2013-10-25 17:42+0000\n"
 "Last-Translator: 赵驰 <teddyherry@126.com>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-11-05 05:19+0000\n"
+"X-Launchpad-Export-Date: 2013-11-12 05:16+0000\n"
 "X-Generator: Launchpad (build 16820)\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -291,6 +291,7 @@ msgstr "请插入载有游戏的介质."
 #: PlayOnLinux_Scripts/Rayman_Origins_:72
 #: PlayOnLinux_Scripts/Rayman_Origins_:90 PlayOnLinux_Scripts/Reason_5_:29
 #: PlayOnLinux_Scripts/Red_Faction_:49 PlayOnLinux_Scripts/Rfactor_:48
+#: PlayOnLinux_Scripts/Runaway_2___The_Dream_of_the_Turtle_:41
 #: PlayOnLinux_Scripts/Runes_Of_Magic_:44
 #: PlayOnLinux_Scripts/SFR_LiberTalk_:42
 #: PlayOnLinux_Scripts/Secret_of_Monkey_Island_Special_Edition_:79
@@ -1948,8 +1949,8 @@ msgid ""
 msgstr "文件扩展名未指定, 跳过本地应用程序连接."
 
 #: PlayOnLinux_Scripts/POL_GoG_Extract_:29 python/install.py:428
-#: python/install.py:444 python/install.py:446 python/install.py:557
-#: python/install.py:560
+#: python/install.py:444 python/install.py:446 python/install.py:560
+#: python/install.py:563
 #, sh-format
 msgid "Please read this"
 msgstr "请阅读该文件"
@@ -3421,7 +3422,7 @@ msgid "Use another version of Wine"
 msgstr "使用另一版本的 Wine"
 
 #: bash/manual_install:165 bash/manual_install:220 bash/polconfigurator:95
-#: python/configure.py:224 python/mainwindow.py:576 python/mainwindow.py:608
+#: python/configure.py:228 python/mainwindow.py:576 python/mainwindow.py:608
 #, sh-format
 msgid "Configure Wine"
 msgstr "配置 Wine"
@@ -3744,7 +3745,7 @@ msgstr "错误的文件扩展名"
 msgid "is not an icon extension"
 msgstr "不是一个图标扩展名"
 
-#: bash/polconfigurator:96 python/configure.py:232 python/mainwindow.py:580
+#: bash/polconfigurator:96 python/configure.py:236 python/mainwindow.py:580
 #: python/mainwindow.py:621
 #, sh-format
 msgid "Registry Editor"
@@ -4487,168 +4488,168 @@ msgstr ""
 "这个工具为高级用户设计.\n"
 "要用 {0} 干净地卸载程序, 您必须删除相关的虚拟盘"
 
-#: python/configure.py:190 python/configure.py:687
+#: python/configure.py:194 python/configure.py:691
 msgid "General"
 msgstr "概况"
 
-#: python/configure.py:193
+#: python/configure.py:197
 msgid "Make a new shortcut from this virtual drive"
 msgstr "自该虚拟盘创建快捷方式"
 
-#: python/configure.py:194
+#: python/configure.py:198
 msgid "Name"
 msgstr "名称"
 
-#: python/configure.py:195
+#: python/configure.py:199
 msgid "Wine version"
 msgstr "Wine 版本"
 
-#: python/configure.py:196
+#: python/configure.py:200
 msgid "Debug flags"
 msgstr "调试标志"
 
-#: python/configure.py:198
+#: python/configure.py:202
 msgid "Virtual drive"
 msgstr "虚拟盘"
 
-#: python/configure.py:200
+#: python/configure.py:204
 msgid "Arguments"
 msgstr "参数"
 
-#: python/configure.py:204
+#: python/configure.py:208
 msgid "Run configuration wizard"
 msgstr "运行配置向导"
 
-#: python/configure.py:241
+#: python/configure.py:245
 msgid "Windows reboot"
 msgstr "重启 Windows"
 
-#: python/configure.py:249
+#: python/configure.py:253
 msgid "Repair virtual drive"
 msgstr "修复虚拟盘"
 
-#: python/configure.py:258
+#: python/configure.py:262
 msgid "Command prompt"
 msgstr "命令提示符"
 
-#: python/configure.py:265
+#: python/configure.py:269
 msgid "Task manager"
 msgstr "任务管理器"
 
-#: python/configure.py:273
+#: python/configure.py:277
 msgid "Kill processes"
 msgstr "终止进程"
 
-#: python/configure.py:280
+#: python/configure.py:284
 msgid "Wine uninstaller"
 msgstr "卸载 Wine"
 
-#: python/configure.py:305
+#: python/configure.py:309
 msgid ""
 "Be careful! Installing one of these components can break your virtual drive."
 msgstr "小心! 下列内容的安装可能会破坏虚拟盘."
 
-#: python/configure.py:327 python/install.py:283 python/mainwindow.py:197
+#: python/configure.py:331 python/install.py:283 python/mainwindow.py:197
 #: python/mainwindow.py:350
 msgid "Install"
 msgstr "安装"
 
-#: python/configure.py:388
+#: python/configure.py:392
 msgid "Open program's directory"
 msgstr "打开程序目录"
 
-#: python/configure.py:411
+#: python/configure.py:415
 msgid "Open virtual drive's directory"
 msgstr "打开虚拟盘目录"
 
-#: python/configure.py:553
+#: python/configure.py:557
 msgid "GLSL Support"
 msgstr "GLSL 支持"
 
-#: python/configure.py:554
+#: python/configure.py:558
 msgid "Direct Draw Renderer"
 msgstr "Direct Draw 渲染器"
 
-#: python/configure.py:555
+#: python/configure.py:559
 msgid "Video memory size"
 msgstr "显存大小"
 
-#: python/configure.py:556
+#: python/configure.py:560
 msgid "Offscreen rendering mode"
 msgstr "Offscreen 渲染模式"
 
-#: python/configure.py:557
+#: python/configure.py:561
 msgid "Render target mode lock"
 msgstr "渲染目标模式锁定"
 
-#: python/configure.py:558
+#: python/configure.py:562
 msgid "Multisampling"
 msgstr "多重缓冲"
 
-#: python/configure.py:559
+#: python/configure.py:563
 msgid "Strict Draw Ordering"
 msgstr "严格次序回执"
 
-#: python/configure.py:569
+#: python/configure.py:573
 msgid "Mouse warp override"
 msgstr "鼠标经向覆盖"
 
-#: python/configure.py:571
+#: python/configure.py:575
 msgid "Open a shell"
 msgstr "打开一个 Shell"
 
-#: python/configure.py:572
+#: python/configure.py:576
 msgid "Run a .exe file in this virtual drive"
 msgstr "在此虚拟盘中运行可执行文件"
 
-#: python/configure.py:573
+#: python/configure.py:577
 msgid "Command to exec before running the program"
 msgstr "在运行程序之前执行的命令"
 
-#: python/configure.py:584
+#: python/configure.py:588
 msgid ""
 "Be careful!\n"
 "If you change "
 msgstr "小心修改! "
 
-#: python/configure.py:644 python/mainwindow.py:932 python/mainwindow.py:934
+#: python/configure.py:648 python/mainwindow.py:932 python/mainwindow.py:934
 msgid "{0} configuration"
 msgstr "{0} 配置"
 
-#: python/configure.py:652
+#: python/configure.py:656
 msgid "Please select a program or a virtual drive to configure"
 msgstr "选定一个程序或虚拟盘以配置"
 
-#: python/configure.py:670 python/options.py:280
+#: python/configure.py:674 python/options.py:280
 msgid "New"
 msgstr "新建"
 
-#: python/configure.py:671 python/mainwindow.py:198 python/mainwindow.py:351
+#: python/configure.py:675 python/mainwindow.py:198 python/mainwindow.py:351
 #: python/mainwindow.py:596 python/options.py:207
 msgid "Remove"
 msgstr "移除"
 
-#: python/configure.py:689
+#: python/configure.py:693
 msgid "Install components"
 msgstr "安装内容"
 
-#: python/configure.py:690 python/mainwindow.py:332
+#: python/configure.py:694 python/mainwindow.py:332
 msgid "Display"
 msgstr "显示"
 
-#: python/configure.py:691
+#: python/configure.py:695
 msgid "Miscellaneous"
 msgstr "杂项"
 
-#: python/configure.py:719
+#: python/configure.py:723
 msgid "This virtual drive is protected"
 msgstr "该虚拟盘被保护"
 
-#: python/configure.py:721
+#: python/configure.py:725
 msgid "Are you sure you want to delete {0} virtual drive ?"
 msgstr "你确定删除虚拟盘 {0} ?"
 
-#: python/configure.py:728
+#: python/configure.py:732
 msgid "Are you sure you want to delete {0} ?"
 msgstr "你确定删除 {0} ?"
 
@@ -4794,7 +4795,7 @@ msgstr ""
 "该程序包含反复制保护(DRM)与模拟不相容.\n"
 "唯一的解决方法是使用\"免CD\"的补丁, 但因为这些也可用于盗版; 因此, 在这个问题上的我们不会给任何支持."
 
-#: python/install.py:557
+#: python/install.py:560
 msgid ""
 "By enabling this, you will have access to testing installers.\n"
 "\n"
@@ -4804,7 +4805,7 @@ msgstr ""
 "\n"
 "{0} 不能确保你的应用程序没有任何问题"
 
-#: python/install.py:560
+#: python/install.py:563
 msgid ""
 "By enabling this, you will have access to installers for programs that "
 "contain protections against copy (DRM) incompatible with emulation.\n"
