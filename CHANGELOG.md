@@ -24,6 +24,7 @@
 * Updated IRC server address, freenode.com domain is gone
 * Harden applications list parsing
 * force LANG=C when spawning wineconsole (Wine bug #10063)
+* fix typo in bash/manual_install
 
 # 4.2.1
 

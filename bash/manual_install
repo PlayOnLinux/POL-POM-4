@@ -193,8 +193,7 @@ fi
 
 # If system is wine64 capable, let the user choose the type of prefix 
 if [ "$AMD64_COMPATIBLE" = "True" ]; then
-        POL_SetupWindow_menu_num "$(eval_gettext 'What kind of virtual drive do you want to create')" "$TITLE" "3
-2 bits windows installation~64 bits windows installation" "~"
+        POL_SetupWindow_menu_num "$(eval_gettext 'What kind of virtual drive do you want to create')" "$TITLE" "32 bits windows installation~64 bits windows installation" "~"
         arch="$APP_ANSWER"
 else
         arch="0"
