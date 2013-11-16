@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2013-11-04 19:01+0100\n"
+"POT-Creation-Date: 2013-11-11 19:00+0100\n"
 "PO-Revision-Date: 2013-10-25 17:36+0000\n"
 "Last-Translator: peregrine <andrej1741@yandex.ru>\n"
 "Language-Team: gnome-cyr@gnome.org\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-11-05 05:18+0000\n"
+"X-Launchpad-Export-Date: 2013-11-12 05:15+0000\n"
 "X-Generator: Launchpad (build 16820)\n"
 "Language: ru\n"
 
@@ -311,6 +311,7 @@ msgstr "Пожалуйста вставьте носитель с игрой в 
 #: PlayOnLinux_Scripts/Rayman_Origins_:72
 #: PlayOnLinux_Scripts/Rayman_Origins_:90 PlayOnLinux_Scripts/Reason_5_:29
 #: PlayOnLinux_Scripts/Red_Faction_:49 PlayOnLinux_Scripts/Rfactor_:48
+#: PlayOnLinux_Scripts/Runaway_2___The_Dream_of_the_Turtle_:41
 #: PlayOnLinux_Scripts/Runes_Of_Magic_:44
 #: PlayOnLinux_Scripts/SFR_LiberTalk_:42
 #: PlayOnLinux_Scripts/Secret_of_Monkey_Island_Special_Edition_:79
@@ -2102,8 +2103,8 @@ msgstr ""
 "Не указано имя расширения файла, ассоциация с системным приложеним прервана."
 
 #: PlayOnLinux_Scripts/POL_GoG_Extract_:29 python/install.py:428
-#: python/install.py:444 python/install.py:446 python/install.py:557
-#: python/install.py:560
+#: python/install.py:444 python/install.py:446 python/install.py:560
+#: python/install.py:563
 #, sh-format
 msgid "Please read this"
 msgstr "Пожалуйста, прочтите это"
@@ -3689,7 +3690,7 @@ msgid "Use another version of Wine"
 msgstr "Использовать другую версию Wine"
 
 #: bash/manual_install:165 bash/manual_install:220 bash/polconfigurator:95
-#: python/configure.py:224 python/mainwindow.py:576 python/mainwindow.py:608
+#: python/configure.py:228 python/mainwindow.py:576 python/mainwindow.py:608
 #, sh-format
 msgid "Configure Wine"
 msgstr "Настроить Wine"
@@ -4023,7 +4024,7 @@ msgstr "Недопустимое расширение файла"
 msgid "is not an icon extension"
 msgstr "это не расширение файла значка"
 
-#: bash/polconfigurator:96 python/configure.py:232 python/mainwindow.py:580
+#: bash/polconfigurator:96 python/configure.py:236 python/mainwindow.py:580
 #: python/mainwindow.py:621
 #, sh-format
 msgid "Registry Editor"
@@ -4812,127 +4813,127 @@ msgstr ""
 "Чтобы полностью удалить программу с {0}, нужно удалить связанный с ней "
 "виртуальный диск"
 
-#: python/configure.py:190 python/configure.py:687
+#: python/configure.py:194 python/configure.py:691
 msgid "General"
 msgstr "Основные"
 
-#: python/configure.py:193
+#: python/configure.py:197
 msgid "Make a new shortcut from this virtual drive"
 msgstr "Сделать новый ярлык из этого виртуального диска"
 
-#: python/configure.py:194
+#: python/configure.py:198
 msgid "Name"
 msgstr "Имя"
 
-#: python/configure.py:195
+#: python/configure.py:199
 msgid "Wine version"
 msgstr "Версия Wine"
 
-#: python/configure.py:196
+#: python/configure.py:200
 msgid "Debug flags"
 msgstr "Опции отладки"
 
-#: python/configure.py:198
+#: python/configure.py:202
 msgid "Virtual drive"
 msgstr "Виртуальный диск"
 
-#: python/configure.py:200
+#: python/configure.py:204
 msgid "Arguments"
 msgstr "Параметры"
 
-#: python/configure.py:204
+#: python/configure.py:208
 msgid "Run configuration wizard"
 msgstr "Запустить мастер настройки"
 
-#: python/configure.py:241
+#: python/configure.py:245
 msgid "Windows reboot"
 msgstr "Перезагрузка Windows"
 
-#: python/configure.py:249
+#: python/configure.py:253
 msgid "Repair virtual drive"
 msgstr "Восстановить виртуальный диск"
 
-#: python/configure.py:258
+#: python/configure.py:262
 msgid "Command prompt"
 msgstr "Командная строка"
 
-#: python/configure.py:265
+#: python/configure.py:269
 msgid "Task manager"
 msgstr "Диспетчер задач"
 
-#: python/configure.py:273
+#: python/configure.py:277
 msgid "Kill processes"
 msgstr "Завершить процессы"
 
-#: python/configure.py:280
+#: python/configure.py:284
 msgid "Wine uninstaller"
 msgstr "Деинсталлятор Wine"
 
-#: python/configure.py:305
+#: python/configure.py:309
 msgid ""
 "Be careful! Installing one of these components can break your virtual drive."
 msgstr ""
 "Будьте осторожны! Установка одного из этих компонентов может повредить Ваш "
 "виртуальный диск."
 
-#: python/configure.py:327 python/install.py:283 python/mainwindow.py:197
+#: python/configure.py:331 python/install.py:283 python/mainwindow.py:197
 #: python/mainwindow.py:350
 msgid "Install"
 msgstr "Установка"
 
-#: python/configure.py:388
+#: python/configure.py:392
 msgid "Open program's directory"
 msgstr "Открыть каталог программы"
 
-#: python/configure.py:411
+#: python/configure.py:415
 msgid "Open virtual drive's directory"
 msgstr "Открыть каталог виртуального диска"
 
-#: python/configure.py:553
+#: python/configure.py:557
 msgid "GLSL Support"
 msgstr "Поддержка GLSL"
 
-#: python/configure.py:554
+#: python/configure.py:558
 msgid "Direct Draw Renderer"
 msgstr "Рендер Direct Draw"
 
-#: python/configure.py:555
+#: python/configure.py:559
 msgid "Video memory size"
 msgstr "Размер видеопамяти"
 
-#: python/configure.py:556
+#: python/configure.py:560
 msgid "Offscreen rendering mode"
 msgstr "Режим рендеринга Offscreen"
 
-#: python/configure.py:557
+#: python/configure.py:561
 msgid "Render target mode lock"
 msgstr ""
 
-#: python/configure.py:558
+#: python/configure.py:562
 msgid "Multisampling"
 msgstr "Мультисэмплинг"
 
-#: python/configure.py:559
+#: python/configure.py:563
 msgid "Strict Draw Ordering"
 msgstr "Строгий порядок отрисовки"
 
-#: python/configure.py:569
+#: python/configure.py:573
 msgid "Mouse warp override"
 msgstr ""
 
-#: python/configure.py:571
+#: python/configure.py:575
 msgid "Open a shell"
 msgstr "Открыть консоль"
 
-#: python/configure.py:572
+#: python/configure.py:576
 msgid "Run a .exe file in this virtual drive"
 msgstr "Выполнить файл .exe на этом виртуальном диске"
 
-#: python/configure.py:573
+#: python/configure.py:577
 msgid "Command to exec before running the program"
 msgstr "Команда, выполняемая перед запуском программы"
 
-#: python/configure.py:584
+#: python/configure.py:588
 msgid ""
 "Be careful!\n"
 "If you change "
@@ -4940,44 +4941,44 @@ msgstr ""
 "Будьте осторожны!\n"
 "Если вы измените "
 
-#: python/configure.py:644 python/mainwindow.py:932 python/mainwindow.py:934
+#: python/configure.py:648 python/mainwindow.py:932 python/mainwindow.py:934
 msgid "{0} configuration"
 msgstr "Параметры {0}"
 
-#: python/configure.py:652
+#: python/configure.py:656
 msgid "Please select a program or a virtual drive to configure"
 msgstr "Пожалуйста, выберите настраиваемую программу или виртуальный диск"
 
-#: python/configure.py:670 python/options.py:280
+#: python/configure.py:674 python/options.py:280
 msgid "New"
 msgstr "Новый"
 
-#: python/configure.py:671 python/mainwindow.py:198 python/mainwindow.py:351
+#: python/configure.py:675 python/mainwindow.py:198 python/mainwindow.py:351
 #: python/mainwindow.py:596 python/options.py:207
 msgid "Remove"
 msgstr "Удалить"
 
-#: python/configure.py:689
+#: python/configure.py:693
 msgid "Install components"
 msgstr "Установка компонентов"
 
-#: python/configure.py:690 python/mainwindow.py:332
+#: python/configure.py:694 python/mainwindow.py:332
 msgid "Display"
 msgstr "Экран"
 
-#: python/configure.py:691
+#: python/configure.py:695
 msgid "Miscellaneous"
 msgstr "Разное"
 
-#: python/configure.py:719
+#: python/configure.py:723
 msgid "This virtual drive is protected"
 msgstr "Этот виртуальный диск защищен"
 
-#: python/configure.py:721
+#: python/configure.py:725
 msgid "Are you sure you want to delete {0} virtual drive ?"
 msgstr "Вы уверены, что хотите удалить виртуальный диск {0}?"
 
-#: python/configure.py:728
+#: python/configure.py:732
 msgid "Are you sure you want to delete {0} ?"
 msgstr "Вы уверены, что хотите удалить {0}?"
 
@@ -5128,7 +5129,7 @@ msgstr ""
 "cd\", но, так как это может быть использовано в пиратских целях, мы не "
 "оказываем никакой поддержки подобным приёмам."
 
-#: python/install.py:557
+#: python/install.py:560
 msgid ""
 "By enabling this, you will have access to testing installers.\n"
 "\n"
@@ -5139,7 +5140,7 @@ msgstr ""
 "{0} не может гарантировать вам, что ваши приложения будут работать без "
 "проблем."
 
-#: python/install.py:560
+#: python/install.py:563
 msgid ""
 "By enabling this, you will have access to installers for programs that "
 "contain protections against copy (DRM) incompatible with emulation.\n"
