@@ -10,15 +10,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2013-11-11 19:00+0100\n"
-"PO-Revision-Date: 2013-10-25 17:28+0000\n"
-"Last-Translator: Aymeric PETIT <mulx@aplu.fr>\n"
+"POT-Creation-Date: 2013-11-18 19:00+0100\n"
+"PO-Revision-Date: 2013-11-15 19:23+0000\n"
+"Last-Translator: Adam Maćkowiak <Unknown>\n"
 "Language-Team: pl_PL.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-11-12 05:15+0000\n"
-"X-Generator: Launchpad (build 16820)\n"
+"X-Launchpad-Export-Date: 2013-11-19 05:15+0000\n"
+"X-Generator: Launchpad (build 16831)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -1486,7 +1486,6 @@ msgstr "Serwer dedykowany"
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:55
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:57
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:60
-#: PlayOnLinux_Scripts/GOG.com___Tropico_3_Gold_Edition_:48
 #, sh-format
 msgid "Language"
 msgstr "Język"
@@ -1499,7 +1498,6 @@ msgstr "Hiszpański"
 #: PlayOnLinux_Scripts/GOG.com___Neighbours_From_Hell_Compilation_:26
 #: PlayOnLinux_Scripts/GOG.com___Sensible_World_of_Soccer_96_97_:58
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:46
-#: PlayOnLinux_Scripts/GOG.com___Tropico_3_Gold_Edition_:48
 #, sh-format
 msgid "What is your preferred language?"
 msgstr "Wybierz język"
@@ -1898,6 +1896,11 @@ msgid ""
 "nOtherwise, you can enable it by installing libtxc-dxtn0 package, but you "
 "might get slower results"
 msgstr ""
+"Ostrzeżenie! Obsługa kompresji S3TC nie jest dostępna w twoim systemie.\\n\\"
+"nJeśli włączony jest otwarty sterownik, być może konieczne zainstalowanie "
+"sterowników własnościowych do karty graficznej.\\n\\nW przeciwnym razie "
+"można ją włączyć, instalując pakiet libtxc-dxtn0, ale to rozwiązanie oferuje "
+"niższą wydajność"
 
 #: PlayOnLinux_Scripts/League_Of_Legends_:61
 #, sh-format
@@ -2159,7 +2162,7 @@ msgstr "Instalowanie Adobe Air"
 #: PlayOnLinux_Scripts/POL_Install_CentralizedUserDirs_:13
 #, sh-format
 msgid "In what directory do you want to redirect user directories?"
-msgstr ""
+msgstr "W jakim katalogu chcesz przekierować katalogi użytkowników?"
 
 #: PlayOnLinux_Scripts/POL_Install_d3dcompiler_43_:11
 #: PlayOnLinux_Scripts/POL_Install_d3dx9_:11
@@ -2379,7 +2382,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_wineasio_:38
 #, sh-format
 msgid "Downloading..."
-msgstr ""
+msgstr "Pobieranie..."
 
 #: PlayOnLinux_Scripts/POL_Install_wintrust_:11
 #, sh-format
@@ -2605,7 +2608,7 @@ msgstr "Teraz możesz wrócić do instalatora $TITLE, aby kontynuować"
 #: PlayOnLinux_Scripts/Payday_2_:40
 #, sh-format
 msgid "Please do not run $TITLE after installation has finished."
-msgstr ""
+msgstr "Nie uruchamiaj $TITLE kiedy instalacja się zakończy."
 
 #: PlayOnLinux_Scripts/Pro_Evolution_Soccer_2013_:25
 #, sh-format
@@ -2745,12 +2748,12 @@ msgstr ""
 msgid ""
 "When installing, be sure not to let Scrolls launch automatically, so the POL "
 "setup can complete."
-msgstr ""
+msgstr "Nie uruchamiaj Scrolls kiedy instalacja się zakończy."
 
 #: PlayOnLinux_Scripts/Scrolls_:38
 #, sh-format
 msgid "Please wait while we extract $TITLE game data."
-msgstr ""
+msgstr "Proszę czekać, rozpakowywanie danych $TITLE w toku."
 
 #: PlayOnLinux_Scripts/SimCity_2000_:43
 #, sh-format
@@ -2792,7 +2795,7 @@ msgstr "To nie jest poprawny plik .zip"
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_08___Tenshi_no_Hanabira_Zome_:52
 #, sh-format
 msgid "Please locate installation program (Setup.exe)"
-msgstr ""
+msgstr "Podaj lokalizacje programu instalacyjnego (Setup.exe)"
 
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_01___Sono_Hanabira_ni_Kuchizuke_wo_:51
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_02___Watashi_no_Ouji_sama_:51
@@ -2804,6 +2807,9 @@ msgid ""
 "opens, click on ${INSTALL_JP}. When installation finishes, click on "
 "${END_JP} and then on ${YES_JP}. Click Next when you are done installing."
 msgstr ""
+"Kiedy program się uruchomi kliknij na ${INSTALL_JP}. Kiedy otworzy się nowe "
+"okno, kliknij na ${INSTALL_JP}. Kiedy instalacja się zakończy, kliknij na "
+"${END_JP} a potem na ${YES_JP}. Naciśnij dalej kiedy instalacja się zakończy."
 
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_01___Sono_Hanabira_ni_Kuchizuke_wo_:61
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_03___Anata_to_Koibito_Tsunagi_:66
@@ -2813,6 +2819,10 @@ msgid ""
 "opens, click on ${INSTALL_JP}. When installation finishes, click on "
 "${END_JP} and then on ${YES_JP} (Y). Click Next when you are done installing."
 msgstr ""
+"Kiedy program się uruchomi kliknij na ${INSTALL_JP}. Kiedy otworzy się nowe "
+"okno, kliknij na ${INSTALL_JP}. Kiedy instalacja się zakończy, kliknij na "
+"${END_JP} a potem na ${YES_JP} (Y). Naciśnij dalej kiedy instalacja się "
+"zakończy."
 
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_02___Watashi_no_Ouji_sama_:90
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_03___Anata_to_Koibito_Tsunagi_:92
@@ -2823,7 +2833,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_08___Tenshi_no_Hanabira_Zome_:91
 #, sh-format
 msgid "Please locate English translation patch file"
-msgstr ""
+msgstr "Wskaż lokalizację patchu dodającego język angielski do gry"
 
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_04___Aishisa_no_Photograph_:55
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_04___Aishisa_no_Photograph_:65
@@ -2833,6 +2843,9 @@ msgid ""
 "opens, click on ${INSTALL_JP}. When installation finishes, click on "
 "${END_JP} and then on ${YES_JP} (Y). Click next to begin installation."
 msgstr ""
+"Kiedy program się uruchomi kliknij na ${INSTALL_JP}. Kiedy otworzy się nowe "
+"okno, kliknij na ${INSTALL_JP}. Kiedy instalacja się zakończy, kliknij na "
+"${END_JP} a potem na ${YES_JP} (Y). Naciśnij dalej aby rozpocząć instalację."
 
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_05___Anata_wo_Suki_na_Shiawase_:54
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_05___Anata_wo_Suki_na_Shiawase_:64
@@ -2848,6 +2861,9 @@ msgid ""
 "opens, click on ${INSTALL_JP}. When installation finishes, click on "
 "${END_JP} and then on ${YES_JP} (Y). Click Next to begin installation."
 msgstr ""
+"Kiedy program się uruchomi kliknij na ${INSTALL_JP}. Kiedy otworzy się nowe "
+"okno, kliknij na ${INSTALL_JP}. Kiedy instalacja się zakończy, kliknij na "
+"${END_JP} a potem na ${YES_JP} (Y). Naciśnij dalej aby rozpocząć instalację."
 
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:90
 #, sh-format
@@ -2861,7 +2877,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Starlight_Resonance____________________________:46
 #, sh-format
 msgid "Please locate installation program (Launcher.exe)"
-msgstr ""
+msgstr "Podaj lokalizację programu instalacyjnego (Launcher.exe)"
 
 #: PlayOnLinux_Scripts/Starlight_Resonance____________________________:49
 #: PlayOnLinux_Scripts/Starlight_Resonance____________________________:57
@@ -2872,6 +2888,12 @@ msgid ""
 "with the letter N until it is installing. Wait until it is done and click "
 "the right button to quit. Click Next when you are done installing."
 msgstr ""
+"Kiedy launcher się otworzy, naciśnij na przycisk na samej górze aby otworzyć "
+"instalator. Kiedy otworzy się nowe okno, kliknij OK. Kiedy pojawi się "
+"kolejne okno, kliknij na przycisk z literą N dopóki instalacja się nie "
+"rozpocznie. Poczekaj na zakończenie procesu instalacji a potem naciśnij "
+"prawy przycisk aby zamknąć okno. Naciśnij dalej kiedy skończysz instalować "
+"grę."
 
 #: PlayOnLinux_Scripts/Steam_:50
 #, sh-format
@@ -3295,6 +3317,8 @@ msgid ""
 "Press next to start the updater. When the updater is finished, close it "
 "down. Do not start osu! yet."
 msgstr ""
+"Naciśnij dalej aby uruchomić program aktualizujący. Kiedy aktualizacja się "
+"zakończy, zamknij program. Nie uruchamiaj osu!"
 
 #: PlayOnLinux_Scripts/rFactor_12_:30
 #, sh-format
@@ -3359,7 +3383,7 @@ msgid "Don't join any log file"
 msgstr "Nie dołączaj logów"
 
 #: bash/bug_report:53 bash/manual_install:27 bash/manual_install:114
-#: bash/manual_install:120 bash/manual_install:220
+#: bash/manual_install:120 bash/manual_install:219
 #, sh-format
 msgid "Manual installation"
 msgstr "Instalacja ręczna"
@@ -3714,7 +3738,7 @@ msgstr "Wybierz program"
 msgid "Use another version of Wine"
 msgstr "Użyj innej wersji Wine"
 
-#: bash/manual_install:165 bash/manual_install:220 bash/polconfigurator:95
+#: bash/manual_install:165 bash/manual_install:219 bash/polconfigurator:95
 #: python/configure.py:228 python/mainwindow.py:576 python/mainwindow.py:608
 #, sh-format
 msgid "Configure Wine"
@@ -3735,37 +3759,37 @@ msgstr "Jeśli nie wiesz co robić, odznacz wszystko"
 msgid "What would you like to do before installation?"
 msgstr "Co chcesz zrobić przez instalacją?"
 
-#: bash/manual_install:231 lib/scripts.lib:424
+#: bash/manual_install:230 lib/scripts.lib:424
 #, sh-format
 msgid "Please make your choice"
 msgstr "Proszę wybrać"
 
-#: bash/manual_install:259
+#: bash/manual_install:258
 #, sh-format
 msgid "Looking for runnable CD-ROMs"
 msgstr "Szukanie odpowiedniego CD-ROMu"
 
-#: bash/manual_install:282
+#: bash/manual_install:281
 #, sh-format
 msgid "Select another file"
 msgstr "Wybierz inny plik"
 
-#: bash/manual_install:290
+#: bash/manual_install:289
 #, sh-format
 msgid "Please choose a way to install your program"
 msgstr "Wybierz sposób instalacji programu"
 
-#: bash/manual_install:299
+#: bash/manual_install:298
 #, sh-format
 msgid "Please select the install file to run."
 msgstr "Wybierz plik instalatora który chcesz uruchomić"
 
-#: bash/manual_install:329
+#: bash/manual_install:328
 #, sh-format
 msgid "You must choose a file!"
 msgstr "Musisz wybrać plik."
 
-#: bash/manual_install:335
+#: bash/manual_install:334
 #, sh-format
 msgid "$APPLICATION_TITLE is installing your application..."
 msgstr "$APPLICATION_TITLE instaluje twoją aplikację..."

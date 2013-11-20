@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2013-11-11 19:00+0100\n"
-"PO-Revision-Date: 2013-10-25 17:37+0000\n"
-"Last-Translator: Diego Garcia <diegogarciamendoza@gmail.com>\n"
+"POT-Creation-Date: 2013-11-18 19:00+0100\n"
+"PO-Revision-Date: 2013-11-14 11:41+0000\n"
+"Last-Translator: Oscar Espuña <oscar_espuna@hotmail.com>\n"
 "Language-Team: es_ES.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-11-12 05:15+0000\n"
-"X-Generator: Launchpad (build 16820)\n"
+"X-Launchpad-Export-Date: 2013-11-19 05:16+0000\n"
+"X-Generator: Launchpad (build 16831)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -414,6 +414,8 @@ msgstr "¿Deseas instalar el Parche 1.0c?"
 msgid ""
 "In order to installa $TITLE we need to install first Mod Pack Studio Lite 2.0"
 msgstr ""
+"Para instalar $TITLE es necesario instalar, primero, el Mod Pack Studio Lite "
+"2.0"
 
 #: PlayOnLinux_Scripts/Age_of_Empires_II___The_Conquerors___Tales_of_Middle_Earth_:38
 #: PlayOnLinux_Scripts/Age_of_Empires_II___The_Conquerors___Tales_of_Middle_Earth_:76
@@ -422,6 +424,8 @@ msgid ""
 "Please notice that Standards Maps do not work correctly, whereas Custom Maps "
 "works without problems."
 msgstr ""
+"Ten en cuenta que los mapas estándar no funcionan correctamente, mientras "
+"que los mapas personalizados funcionan sin problemas."
 
 #: PlayOnLinux_Scripts/Alan_Wake_:81
 #: PlayOnLinux_Scripts/Alien_Breed_2___Assault_:74
@@ -581,7 +585,7 @@ msgstr "Por favor, seleccione el archivo de instalación para ejecutar:"
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Tiberium_Wars__Kane_Edition__Patch_1.09_:32
 #, sh-format
 msgid "Welcome in the patch $PVERSION Installer for $TITLE_REQUIRED"
-msgstr ""
+msgstr "Está disponible el parche $PVERSION Installer para $TITLE_REQUIRED"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:45
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:46
@@ -971,11 +975,13 @@ msgid ""
 "Installation finished\\n\\nThe game might crash on the first attempt, but no "
 "worries, just try one more time."
 msgstr ""
+"Instalación completada\\n\\nEl juego puede fallar a la primera, pero no te "
+"preocupes e inténtalo una vez más."
 
 #: PlayOnLinux_Scripts/Civilization_V_:49
 #, sh-format
 msgid "Please select $TITLE install file:"
-msgstr ""
+msgstr "Selecciona el fichero de instalación de $TITLE:"
 
 #: PlayOnLinux_Scripts/Civilization_V_:60
 #, sh-format
@@ -984,6 +990,9 @@ msgid ""
 "shows you to the login interface, login and then let $TITLE install.\\n\\"
 "nWhen the installation is finished, press next"
 msgstr ""
+"Steam va a realizar una actualización.\\nCuando acabe de actualizar y te "
+"muestre la pantalla para entrar, identifícate y deja que $TITLE se instale.\\"
+"n\\nCuando acabe de instalarse, selecciona \"siguiente\""
 
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Kane_s_Wrath_:62
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Kane_s_Wrath_Patch_1.02_:54
@@ -1488,7 +1497,6 @@ msgstr "Servidor Dedicado"
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:55
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:57
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:60
-#: PlayOnLinux_Scripts/GOG.com___Tropico_3_Gold_Edition_:48
 #, sh-format
 msgid "Language"
 msgstr "Idioma"
@@ -1501,7 +1509,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Neighbours_From_Hell_Compilation_:26
 #: PlayOnLinux_Scripts/GOG.com___Sensible_World_of_Soccer_96_97_:58
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:46
-#: PlayOnLinux_Scripts/GOG.com___Tropico_3_Gold_Edition_:48
 #, sh-format
 msgid "What is your preferred language?"
 msgstr "¿Cuál es tu idioma preferido?"
@@ -3375,7 +3382,7 @@ msgid "Don't join any log file"
 msgstr "No incluir ningún archivo de registro de errores"
 
 #: bash/bug_report:53 bash/manual_install:27 bash/manual_install:114
-#: bash/manual_install:120 bash/manual_install:220
+#: bash/manual_install:120 bash/manual_install:219
 #, sh-format
 msgid "Manual installation"
 msgstr "Instalación manual"
@@ -3735,7 +3742,7 @@ msgstr "Elija un programa"
 msgid "Use another version of Wine"
 msgstr "Use otra versión de Wine"
 
-#: bash/manual_install:165 bash/manual_install:220 bash/polconfigurator:95
+#: bash/manual_install:165 bash/manual_install:219 bash/polconfigurator:95
 #: python/configure.py:228 python/mainwindow.py:576 python/mainwindow.py:608
 #, sh-format
 msgid "Configure Wine"
@@ -3756,37 +3763,37 @@ msgstr "Si no sabe, deseleccione todas"
 msgid "What would you like to do before installation?"
 msgstr "¿Qué le gustaria hacer antes de la instalación?"
 
-#: bash/manual_install:231 lib/scripts.lib:424
+#: bash/manual_install:230 lib/scripts.lib:424
 #, sh-format
 msgid "Please make your choice"
 msgstr "Haga su elección"
 
-#: bash/manual_install:259
+#: bash/manual_install:258
 #, sh-format
 msgid "Looking for runnable CD-ROMs"
 msgstr "Buscando CD-ROMs ejecutables"
 
-#: bash/manual_install:282
+#: bash/manual_install:281
 #, sh-format
 msgid "Select another file"
 msgstr "Seleccione otro archivo"
 
-#: bash/manual_install:290
+#: bash/manual_install:289
 #, sh-format
 msgid "Please choose a way to install your program"
 msgstr "Elija un método para instalar el programa"
 
-#: bash/manual_install:299
+#: bash/manual_install:298
 #, sh-format
 msgid "Please select the install file to run."
 msgstr "Seleccione el archivo instalador a ejecutar."
 
-#: bash/manual_install:329
+#: bash/manual_install:328
 #, sh-format
 msgid "You must choose a file!"
 msgstr "¡Debe seleccionar un archivo!"
 
-#: bash/manual_install:335
+#: bash/manual_install:334
 #, sh-format
 msgid "$APPLICATION_TITLE is installing your application..."
 msgstr "$APPLICATION_TITLE está instalando la aplicación..."
