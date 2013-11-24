@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX/APLU <pol-gettext@mulx.net>\n"
-"POT-Creation-Date: 2013-11-23 19:01:12+01:00\n"
+"POT-Creation-Date: 2013-11-24 19:01:02+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1148,10 +1148,10 @@ msgstr ""
 #: PlayOnLinux_Scripts/SimCity_2000_:50
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:34
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
-#: PlayOnLinux_Scripts/World_Of_Warcraft_:116 bash/installpolpackages:26
-#: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:1156
-#: lib/wine.lib:1186
+#: PlayOnLinux_Scripts/SubRip_:33 PlayOnLinux_Scripts/World_Of_Warcraft_:116
+#: bash/installpolpackages:26 bash/killall:29 bash/read_pc_cd:39
+#: bash/read_pc_cd:73 bash/read_pc_cd:103 bash/winebash:27
+#: lib/setupwindow.lib:433 lib/wine.lib:1156 lib/wine.lib:1186
 #, sh-format
 msgid "Please wait..."
 msgstr ""
@@ -2623,6 +2623,11 @@ msgid ""
 "again"
 msgstr ""
 
+#: PlayOnLinux_Scripts/SubRip_:43 bash/run_exe:43
+#, sh-format
+msgid "Installation finished."
+msgstr ""
+
 #: PlayOnLinux_Scripts/System_Shock_2__Steam__:36
 #, sh-format
 msgid "Download on Steam Store-Steam Backup Restore"
@@ -3837,11 +3842,6 @@ msgstr ""
 #: bash/run_exe:39
 #, sh-format
 msgid "$APPLICATION_TITLE is installing $PRGM_NAME"
-msgstr ""
-
-#: bash/run_exe:43
-#, sh-format
-msgid "Installation finished."
 msgstr ""
 
 #: bash/run_exe:48
