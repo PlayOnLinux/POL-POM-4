@@ -134,12 +134,19 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
 
         # Buttons
-        self.CancelButton = wx.Button(self.footer, wx.ID_CANCEL, _("Cancel"), pos=(430,0),size=(85,37))
+        
+
+        if(os.environ["POL_OS"] == "Linux"):
+            self.CancelButton = wx.Button(self.footer, wx.ID_CANCEL, _("Cancel"), pos=(430,0),size=(85,37))
+            self.NextButton = wx.Button(self.footer, wx.ID_FORWARD, _("Next"), pos=(340,0),size=(85,37))
+        else:
+            self.CancelButton = wx.Button(self.footer, wx.ID_CANCEL, _("Cancel"), pos=(420,-3),size=(85,37))
+            self.NextButton = wx.Button(self.footer, wx.ID_FORWARD, _("Next"), pos=(330,-3),size=(85,37))
+   
         if(self.ProtectedWindow == True):
             self.CancelButton.Enable(False)
-
-        self.NextButton = wx.Button(self.footer, wx.ID_FORWARD, _("Next"), pos=(340,0),size=(85,37))
-        self.BackButton = wx.Button(self.footer, wx.ID_FORWARD, _("Back"), pos=(250,0),size=(85,37))
+   
+            
         self.InfoScript = wx.StaticBitmap(self.footer, -1, wx.Bitmap(os.environ['PLAYONLINUX']+"/resources/images/setups/about.png"), pos=(10,8))
         self.InfoScript.Hide()
         self.script_ID = 0
@@ -224,7 +231,6 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.CancelButton.Hide()
         self.MainPanel.Hide()
         self.NextButton.Hide()
-        self.BackButton.Hide()
         self.NoButton.Hide()
         self.YesButton.Hide()
         self.browse.Hide()
