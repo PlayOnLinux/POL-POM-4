@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2013-11-18 19:00+0100\n"
-"PO-Revision-Date: 2013-11-03 21:07+0000\n"
+"POT-Creation-Date: 2013-11-25 19:00+0100\n"
+"PO-Revision-Date: 2013-11-26 02:06+0000\n"
 "Last-Translator: Tiago S. <Unknown>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-11-19 05:15+0000\n"
-"X-Generator: Launchpad (build 16831)\n"
+"X-Launchpad-Export-Date: 2013-11-26 05:15+0000\n"
+"X-Generator: Launchpad (build 16840)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -343,10 +343,12 @@ msgstr "Por favor insira o ficheiro de configuração a executar"
 #: PlayOnLinux_Scripts/A.R.E.S.___Extinction_Agenda_:80
 #: PlayOnLinux_Scripts/Call_of_Duty__Modern_Warfare_3_:48
 #: PlayOnLinux_Scripts/Dishonored_:72
+#: PlayOnLinux_Scripts/Hard_Reset__Steam__:45
 #: PlayOnLinux_Scripts/Kingdoms_of_Amalur___Reckoning_:75
 #: PlayOnLinux_Scripts/Kingdoms_of_Amalur___Reckoning_:80
 #: PlayOnLinux_Scripts/Mass_Effect_:68 PlayOnLinux_Scripts/Payday_2_:31
 #: PlayOnLinux_Scripts/Prince_of_Persia___The_Forgotten_Sands_:67
+#: PlayOnLinux_Scripts/System_Shock_2__Steam__:43
 #, sh-format
 msgid ""
 "When $TITLE download by Steam is finished,\\nDo NOT click on Play.\\n\\"
@@ -1171,6 +1173,8 @@ msgstr ""
 "tee /proc/sys/kernel/yama/ptrace_scope"
 
 #: PlayOnLinux_Scripts/Dishonored_:79
+#: PlayOnLinux_Scripts/Hard_Reset__Steam__:52
+#: PlayOnLinux_Scripts/System_Shock_2__Steam__:50
 #, sh-format
 msgid ""
 "When $TITLE Restore by Steam is finished,\\nDo NOT click on Play.\\n\\nClose "
@@ -1249,10 +1253,10 @@ msgstr "Que abrir a página de transferências de $TITLE no seu navegador?"
 #: PlayOnLinux_Scripts/SimCity_2000_:50
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:34
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
-#: PlayOnLinux_Scripts/World_Of_Warcraft_:116 bash/installpolpackages:26
-#: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:1156
-#: lib/wine.lib:1186
+#: PlayOnLinux_Scripts/SubRip_:33 PlayOnLinux_Scripts/World_Of_Warcraft_:116
+#: bash/installpolpackages:26 bash/killall:29 bash/read_pc_cd:39
+#: bash/read_pc_cd:73 bash/read_pc_cd:103 bash/winebash:27
+#: lib/setupwindow.lib:433 lib/wine.lib:1156 lib/wine.lib:1186
 #, sh-format
 msgid "Please wait..."
 msgstr "Por favor aguarde..."
@@ -1370,7 +1374,6 @@ msgstr "A descompactar o ficheiro..."
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:100
 #: PlayOnLinux_Scripts/GOG.com___Alone_in_the_Dark_2_:41
 #: PlayOnLinux_Scripts/GOG.com___Alone_in_the_Dark_3_:41
-#: PlayOnLinux_Scripts/GOG.com___Flatout_:39
 #: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:64
 #: PlayOnLinux_Scripts/GOG.com___Sanitarium_:58
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:64
@@ -1462,7 +1465,7 @@ msgstr ""
 "Este é um instalador para uma actualização;\\nPor favor, instale primeiro "
 "$TITLE_REQUIRED"
 
-#: PlayOnLinux_Scripts/GOG.com___Flatout_:55
+#: PlayOnLinux_Scripts/GOG.com___Flatout_:50
 #, sh-format
 msgid ""
 "Think about disabling triple-buffering in settings,\\nas it is not fully "
@@ -2935,6 +2938,26 @@ msgstr ""
 "Se quiser instalar $TITLE noutra drive virtual\\ncorra este instalador "
 "novamente."
 
+#: PlayOnLinux_Scripts/SubRip_:43 bash/run_exe:43
+#, sh-format
+msgid "Installation finished."
+msgstr "Instalação concluída."
+
+#: PlayOnLinux_Scripts/System_Shock_2__Steam__:36
+#, sh-format
+msgid "Download on Steam Store-Steam Backup Restore"
+msgstr "Descarregar na Loja do Steam  -Restauro do Backup do Steam"
+
+#: PlayOnLinux_Scripts/System_Shock_2__Steam__:36
+#, sh-format
+msgid "You want install with ?"
+msgstr "Quer instalar isto?"
+
+#: PlayOnLinux_Scripts/System_Shock_2__Steam__:38
+#, sh-format
+msgid "Download on Steam Store"
+msgstr "Descarregar no Steam"
+
 #: PlayOnLinux_Scripts/Terraria_:56
 #, sh-format
 msgid ""
@@ -3348,8 +3371,8 @@ msgid ""
 "Press next to start the updater. When the updater is finished, close it "
 "down. Do not start osu! yet."
 msgstr ""
-"Carregue em 'Seguinte' para começar a actualização. Quando o actualizador, "
-"feche-o. Não inicie já o osu!"
+"Carregue em 'Seguinte' para começar a actualização. Quando o actualizar, "
+"feche-o. Não inicie já o osu ainda!"
 
 #: PlayOnLinux_Scripts/rFactor_12_:30
 #, sh-format
@@ -4245,11 +4268,6 @@ msgstr "Qual o nome do seu programa?"
 #, sh-format
 msgid "$APPLICATION_TITLE is installing $PRGM_NAME"
 msgstr "$APPLICATION_TITLE está a instalar $PRGM_NAME"
-
-#: bash/run_exe:43
-#, sh-format
-msgid "Installation finished."
-msgstr "Instalação concluída."
 
 #: bash/run_exe:48
 #, sh-format

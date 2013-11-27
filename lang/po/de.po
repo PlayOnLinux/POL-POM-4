@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2013-11-18 19:00+0100\n"
-"PO-Revision-Date: 2013-10-28 12:00+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
+"POT-Creation-Date: 2013-11-25 19:00+0100\n"
+"PO-Revision-Date: 2013-11-23 23:57+0000\n"
+"Last-Translator: raymond <Unknown>\n"
 "Language-Team: de_DE.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-11-19 05:14+0000\n"
-"X-Generator: Launchpad (build 16831)\n"
+"X-Launchpad-Export-Date: 2013-11-26 05:14+0000\n"
+"X-Generator: Launchpad (build 16840)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -344,10 +344,12 @@ msgstr "Bitte wählen Sie die Installationsdatei zum Ausführen"
 #: PlayOnLinux_Scripts/A.R.E.S.___Extinction_Agenda_:80
 #: PlayOnLinux_Scripts/Call_of_Duty__Modern_Warfare_3_:48
 #: PlayOnLinux_Scripts/Dishonored_:72
+#: PlayOnLinux_Scripts/Hard_Reset__Steam__:45
 #: PlayOnLinux_Scripts/Kingdoms_of_Amalur___Reckoning_:75
 #: PlayOnLinux_Scripts/Kingdoms_of_Amalur___Reckoning_:80
 #: PlayOnLinux_Scripts/Mass_Effect_:68 PlayOnLinux_Scripts/Payday_2_:31
 #: PlayOnLinux_Scripts/Prince_of_Persia___The_Forgotten_Sands_:67
+#: PlayOnLinux_Scripts/System_Shock_2__Steam__:43
 #, sh-format
 msgid ""
 "When $TITLE download by Steam is finished,\\nDo NOT click on Play.\\n\\"
@@ -427,6 +429,8 @@ msgid ""
 "Please notice that Standards Maps do not work correctly, whereas Custom Maps "
 "works without problems."
 msgstr ""
+"Bitte beachten Sie, dass Standards Karten nicht richtig funktionieren, "
+"während Custom Maps ohne Probleme funktionieren."
 
 #: PlayOnLinux_Scripts/Alan_Wake_:81
 #: PlayOnLinux_Scripts/Alien_Breed_2___Assault_:74
@@ -1160,6 +1164,8 @@ msgstr ""
 "geben ein:\\nechos 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope"
 
 #: PlayOnLinux_Scripts/Dishonored_:79
+#: PlayOnLinux_Scripts/Hard_Reset__Steam__:52
+#: PlayOnLinux_Scripts/System_Shock_2__Steam__:50
 #, sh-format
 msgid ""
 "When $TITLE Restore by Steam is finished,\\nDo NOT click on Play.\\n\\nClose "
@@ -1228,10 +1234,10 @@ msgstr "Wollen Sie $TITLE Download-Seite im Browser zu öffnen?"
 #: PlayOnLinux_Scripts/SimCity_2000_:50
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:34
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
-#: PlayOnLinux_Scripts/World_Of_Warcraft_:116 bash/installpolpackages:26
-#: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:1156
-#: lib/wine.lib:1186
+#: PlayOnLinux_Scripts/SubRip_:33 PlayOnLinux_Scripts/World_Of_Warcraft_:116
+#: bash/installpolpackages:26 bash/killall:29 bash/read_pc_cd:39
+#: bash/read_pc_cd:73 bash/read_pc_cd:103 bash/winebash:27
+#: lib/setupwindow.lib:433 lib/wine.lib:1156 lib/wine.lib:1186
 #, sh-format
 msgid "Please wait..."
 msgstr "Bitte warten..."
@@ -1342,7 +1348,6 @@ msgstr "Dekomprimiere Archive..."
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:100
 #: PlayOnLinux_Scripts/GOG.com___Alone_in_the_Dark_2_:41
 #: PlayOnLinux_Scripts/GOG.com___Alone_in_the_Dark_3_:41
-#: PlayOnLinux_Scripts/GOG.com___Flatout_:39
 #: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:64
 #: PlayOnLinux_Scripts/GOG.com___Sanitarium_:58
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:64
@@ -1425,8 +1430,10 @@ msgstr ""
 msgid ""
 "This is an installer for an update;nPlease install $TITLE_REQUIRED first"
 msgstr ""
+"Dies ist ein Installationsprogramm für ein Update;nBitte installieren Sie "
+"zuerst $TITLE_REQUIRED"
 
-#: PlayOnLinux_Scripts/GOG.com___Flatout_:55
+#: PlayOnLinux_Scripts/GOG.com___Flatout_:50
 #, sh-format
 msgid ""
 "Think about disabling triple-buffering in settings,\\nas it is not fully "
@@ -1821,7 +1828,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Inno_Setup_:30
 #, sh-format
 msgid "Do you want to install the unicode version of Inno Setup?"
-msgstr ""
+msgstr "Wollen Sie die Unicode-Version von Inno Setup installieren?"
 
 #: PlayOnLinux_Scripts/Internet_Explorer_6_:76
 #: PlayOnLinux_Scripts/Internet_Explorer_6_Service_Pack_1_:68
@@ -1860,6 +1867,8 @@ msgstr "Kann nicht mit dem offiziellen Downloader installieren, sorry"
 msgid ""
 "Warning: You must not tick the checkbox \"Run $TITLE\" when setup is done"
 msgstr ""
+"Warnung: Sie müssen nicht das Kontrollkästchen \"Führe $TITLE aus\" wählen, "
+"wenn das Setup fertig ist"
 
 #: PlayOnLinux_Scripts/League_Of_Legends_:107
 #, sh-format
@@ -1946,6 +1955,8 @@ msgstr ""
 msgid ""
 "No $TITLE installation found.\\n\\nPlease use the $TITLE installation script!"
 msgstr ""
+"Keine $TITLE Installation gefunden.\\n\\nBitte verwenden Sie das "
+"Installationsskript $TITLE!"
 
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:182
 #, sh-format
@@ -1963,12 +1974,16 @@ msgid ""
 "Register or log in and download the installation file : "
 "https://world.needforspeed.com/"
 msgstr ""
+"Registrieren oder melden Sie sich an und laden Sie die Installationsdatei "
+"https://world.needforspeed.com/ herunter"
 
 #: PlayOnLinux_Scripts/Need_For_Speed_World_:29
 #, sh-format
 msgid ""
 "Please uncheck \"Launch Need For Speed\" at the end of the installation box"
 msgstr ""
+"Bitte deaktivieren Sie \"Führe Need For Speed​ aus​\" am Ende der "
+"Installationsbox"
 
 #: PlayOnLinux_Scripts/Need_For_Speed_World_:42
 #, sh-format
@@ -2239,6 +2254,8 @@ msgstr "Bitte warten Sie bis Steam heruntergeladen wurde..."
 msgid ""
 "Please wait while $APPLICATION_TITLE is downloading Ubisoft Game Launcher"
 msgstr ""
+"Bitte warten Sie, während $APPLICATION_TITLE den Ubisoft Game Launcher "
+"herunterläd"
 
 #: PlayOnLinux_Scripts/POL_Install_vbrun6_:12
 #, sh-format
@@ -2250,12 +2267,16 @@ msgstr "Installiere Visual Basic runtime"
 msgid ""
 "Warning : vcrun2005 seems to be already installed.\\nForcing reinstallation."
 msgstr ""
+"Warnung: vcrun2005 scheint bereits installiert zu sein.\\nErzwinge "
+"Neuinstallation."
 
 #: PlayOnLinux_Scripts/POL_Install_vcrun2008_:37
 #, sh-format
 msgid ""
 "Warning : vcrun2008 seems to be already installed.\\nForcing reinstallation."
 msgstr ""
+"Warnung: vcrun2008 scheint bereits installiert zu sein.\\nErzwinge "
+"Neuinstallation."
 
 #: PlayOnLinux_Scripts/POL_Install_vcrun2008_:41
 #, sh-format
@@ -2271,6 +2292,8 @@ msgstr ""
 msgid ""
 "Warning : vcrun2010 seems to be already installed.\\nForcing reinstallation."
 msgstr ""
+"Warnung: vcrun2010 scheint bereits installiert zu sein.\\nErzwinge "
+"Neuinstallation."
 
 #: PlayOnLinux_Scripts/POL_Install_vcrun2010_:31
 #, sh-format
@@ -2284,7 +2307,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_wineasio_:38
 #, sh-format
 msgid "Downloading..."
-msgstr ""
+msgstr "Herunterladen …"
 
 #: PlayOnLinux_Scripts/POL_Install_wintrust_:11
 #, sh-format
@@ -2581,6 +2604,8 @@ msgid ""
 "$TITLE is installed!\\n\\nNote!\\n1)Reboot wine\\n2)Set correct output "
 "device in wine audio settings\\n3)Have fun!"
 msgstr ""
+"$TITLE ist installiert!\\n\\nHinweis!\\n1)Starte wine neu\\n2)Richtige "
+"Ausgabegerät in der wine Audio-Einstellungen wählen\\n3)Viel Spaß!"
 
 #: PlayOnLinux_Scripts/Runes_Of_Magic_:43
 #, sh-format
@@ -2605,6 +2630,8 @@ msgid ""
 "During the install process, please deselect\\n\"Install Bonjour for "
 "Windows\" and \"Automaticaly update Safari\"."
 msgstr ""
+"Während der Installation, deaktivieren Sie bitte\\n\"Installiere Bonjour für "
+"Windows\" und \"Aktualisiere automatisch Safari\"."
 
 #: PlayOnLinux_Scripts/Scrolls_:27
 #, sh-format
@@ -2656,7 +2683,7 @@ msgstr "Sorry, aber das war keine gültige .zip-Datei"
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_08___Tenshi_no_Hanabira_Zome_:52
 #, sh-format
 msgid "Please locate installation program (Setup.exe)"
-msgstr ""
+msgstr "Bitte suchen Sie das Installationsprogramm (Setup.exe)"
 
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_01___Sono_Hanabira_ni_Kuchizuke_wo_:51
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_02___Watashi_no_Ouji_sama_:51
@@ -2687,7 +2714,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_08___Tenshi_no_Hanabira_Zome_:91
 #, sh-format
 msgid "Please locate English translation patch file"
-msgstr ""
+msgstr "Bitte suchen Sie die Englisch-Übersetzung Patch-Datei"
 
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_04___Aishisa_no_Photograph_:55
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_04___Aishisa_no_Photograph_:65
@@ -2723,7 +2750,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Starlight_Resonance____________________________:46
 #, sh-format
 msgid "Please locate installation program (Launcher.exe)"
-msgstr ""
+msgstr "Bitte suchen Sie das Installationsprogramm (Launcher.exe)"
 
 #: PlayOnLinux_Scripts/Starlight_Resonance____________________________:49
 #: PlayOnLinux_Scripts/Starlight_Resonance____________________________:57
@@ -2746,6 +2773,26 @@ msgid ""
 "If you want to install $TITLE in another virtual drive\\nRun this installer "
 "again"
 msgstr ""
+
+#: PlayOnLinux_Scripts/SubRip_:43 bash/run_exe:43
+#, sh-format
+msgid "Installation finished."
+msgstr "Installation erfolgreich!"
+
+#: PlayOnLinux_Scripts/System_Shock_2__Steam__:36
+#, sh-format
+msgid "Download on Steam Store-Steam Backup Restore"
+msgstr ""
+
+#: PlayOnLinux_Scripts/System_Shock_2__Steam__:36
+#, sh-format
+msgid "You want install with ?"
+msgstr ""
+
+#: PlayOnLinux_Scripts/System_Shock_2__Steam__:38
+#, sh-format
+msgid "Download on Steam Store"
+msgstr "Lade  auf Steam Store"
 
 #: PlayOnLinux_Scripts/Terraria_:56
 #, sh-format
@@ -2870,6 +2917,8 @@ msgid ""
 "The game will fail to launch until you set "
 "/proc/sys/kernel/yama/ptrace_scope to 0"
 msgstr ""
+"Das Spiel wird nicht gestartet, bis Sie /proc/sys/kernel/yama/ptrace_scope "
+"auf 0 gesetzt haben"
 
 #: PlayOnLinux_Scripts/The_Witcher_:55 PlayOnLinux_Scripts/The_Witcher_:57
 #, sh-format
@@ -4038,11 +4087,6 @@ msgstr "Wie ist der Name Ihres Programms?"
 #, sh-format
 msgid "$APPLICATION_TITLE is installing $PRGM_NAME"
 msgstr "$APPLICATION_TITLE installiert $PRGM_NAME"
-
-#: bash/run_exe:43
-#, sh-format
-msgid "Installation finished."
-msgstr "Installation erfolgreich!"
 
 #: bash/run_exe:48
 #, sh-format
