@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2013-11-25 19:00+0100\n"
-"PO-Revision-Date: 2013-10-25 17:34+0000\n"
+"POT-Creation-Date: 2013-12-02 19:00+0100\n"
+"PO-Revision-Date: 2013-11-27 16:44+0000\n"
 "Last-Translator: Yiğit Anıl <yigitan@gmail.com>\n"
 "Language-Team: Turkish <tr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-11-26 05:16+0000\n"
-"X-Generator: Launchpad (build 16840)\n"
+"X-Launchpad-Export-Date: 2013-12-03 05:16+0000\n"
+"X-Generator: Launchpad (build 16856)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -1616,7 +1616,7 @@ msgstr "Daha Sonra"
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:36
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:36
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:50
-#: PlayOnLinux_Scripts/Portal_:36 python/guiv3.py:149
+#: PlayOnLinux_Scripts/Portal_:36 python/guiv3.py:156
 #, sh-format
 msgid "No"
 msgstr "Hayır"
@@ -1631,7 +1631,7 @@ msgstr "Hayır"
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:50
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:52
 #: PlayOnLinux_Scripts/Portal_:36 PlayOnLinux_Scripts/Portal_:38
-#: python/guiv3.py:150
+#: python/guiv3.py:157
 #, sh-format
 msgid "Yes"
 msgstr "Evet"
@@ -2635,6 +2635,8 @@ msgstr "Üzgünüz, ama bu geçerli bir .zip dosyası değil"
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_06___Kuchibiru_to_Kiss_de_Tsubuyaite_:52
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_07___Amakute_Hoshikute_Torokeru_Chuu_:52
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_08___Tenshi_no_Hanabira_Zome_:52
+#: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_09___Amakute_Otona_no_Torokeru_Chuu_:54
+#: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_10___Lily_Platinum_:54
 #, sh-format
 msgid "Please locate installation program (Setup.exe)"
 msgstr ""
@@ -2687,6 +2689,10 @@ msgstr ""
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_07___Amakute_Hoshikute_Torokeru_Chuu_:64
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_08___Tenshi_no_Hanabira_Zome_:54
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_08___Tenshi_no_Hanabira_Zome_:64
+#: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_09___Amakute_Otona_no_Torokeru_Chuu_:56
+#: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_09___Amakute_Otona_no_Torokeru_Chuu_:64
+#: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_10___Lily_Platinum_:56
+#: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_10___Lily_Platinum_:64
 #, sh-format
 msgid ""
 "When the install program starts, click on ${INSTALL_JP}. When a new window "
@@ -4325,7 +4331,7 @@ msgid ""
 "again."
 msgstr ""
 
-#: lib/setupwindow.lib:122 python/guiv3.py:743 python/lib/irc.py:292
+#: lib/setupwindow.lib:122 python/guiv3.py:749 python/lib/irc.py:292
 #: python/mainwindow.py:1135 python/mainwindow.py:1165
 #: python/mainwindow.py:1179 python/mainwindow.py:1188
 #: python/mainwindow.py:1200 python/mainwindow.py:1212 python/wrapper.py:121
@@ -4456,7 +4462,7 @@ msgstr ""
 msgid "I don't want to make another shortcut"
 msgstr "Başka bir kısayol oluşturmak istemiyorum"
 
-#: lib/setupwindow.lib:711 python/guiv3.py:151
+#: lib/setupwindow.lib:711 python/guiv3.py:158
 #, sh-format
 msgid "Browse"
 msgstr "Gözat"
@@ -4774,47 +4780,44 @@ msgstr ""
 msgid "{0} Wizard"
 msgstr "Sihirbaz"
 
-#: python/guiv3.py:137 python/install.py:282 python/options.py:376
+#: python/guiv3.py:140 python/guiv3.py:143 python/install.py:282
+#: python/options.py:376
 msgid "Cancel"
 msgstr "İptal"
 
-#: python/guiv3.py:141
+#: python/guiv3.py:141 python/guiv3.py:144
 msgid "Next"
 msgstr "İleri"
 
-#: python/guiv3.py:142
-msgid "Back"
-msgstr "Geri"
-
-#: python/guiv3.py:159
+#: python/guiv3.py:166
 msgid "I Agree"
 msgstr "Kabul Ediyorum"
 
-#: python/guiv3.py:160
+#: python/guiv3.py:167
 msgid "Show virtual drives"
 msgstr "Sanal sürücüleri göster"
 
-#: python/guiv3.py:181
+#: python/guiv3.py:188
 msgid "Login: "
 msgstr "Giriş: "
 
-#: python/guiv3.py:182
+#: python/guiv3.py:189
 msgid "Password: "
 msgstr "Parola: "
 
-#: python/guiv3.py:185
+#: python/guiv3.py:192
 msgid "Register"
 msgstr "Kaydol"
 
-#: python/guiv3.py:282
+#: python/guiv3.py:288
 msgid "MB downloaded"
 msgstr "MB indirildi"
 
-#: python/guiv3.py:282
+#: python/guiv3.py:288
 msgid "of"
 msgstr "/"
 
-#: python/guiv3.py:743
+#: python/guiv3.py:749
 msgid "You cannot close this window"
 msgstr "Bu pencereyi kapatamazsınız"
 

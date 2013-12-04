@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2013-11-25 19:00+0100\n"
-"PO-Revision-Date: 2013-10-25 20:59+0000\n"
+"POT-Creation-Date: 2013-12-02 19:00+0100\n"
+"PO-Revision-Date: 2013-11-27 16:44+0000\n"
 "Last-Translator: Aymeric PETIT <mulx@aplu.fr>\n"
 "Language-Team: French <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-11-26 05:14+0000\n"
-"X-Generator: Launchpad (build 16840)\n"
+"X-Launchpad-Export-Date: 2013-12-03 05:15+0000\n"
+"X-Generator: Launchpad (build 16856)\n"
 "Language: fr\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -1567,7 +1567,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:36
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:36
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:50
-#: PlayOnLinux_Scripts/Portal_:36 python/guiv3.py:149
+#: PlayOnLinux_Scripts/Portal_:36 python/guiv3.py:156
 #, sh-format
 msgid "No"
 msgstr "Non"
@@ -1582,7 +1582,7 @@ msgstr "Non"
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:50
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:52
 #: PlayOnLinux_Scripts/Portal_:36 PlayOnLinux_Scripts/Portal_:38
-#: python/guiv3.py:150
+#: python/guiv3.py:157
 #, sh-format
 msgid "Yes"
 msgstr "Oui"
@@ -2562,6 +2562,8 @@ msgstr ""
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_06___Kuchibiru_to_Kiss_de_Tsubuyaite_:52
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_07___Amakute_Hoshikute_Torokeru_Chuu_:52
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_08___Tenshi_no_Hanabira_Zome_:52
+#: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_09___Amakute_Otona_no_Torokeru_Chuu_:54
+#: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_10___Lily_Platinum_:54
 #, sh-format
 msgid "Please locate installation program (Setup.exe)"
 msgstr ""
@@ -2614,6 +2616,10 @@ msgstr ""
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_07___Amakute_Hoshikute_Torokeru_Chuu_:64
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_08___Tenshi_no_Hanabira_Zome_:54
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_08___Tenshi_no_Hanabira_Zome_:64
+#: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_09___Amakute_Otona_no_Torokeru_Chuu_:56
+#: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_09___Amakute_Otona_no_Torokeru_Chuu_:64
+#: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_10___Lily_Platinum_:56
+#: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_10___Lily_Platinum_:64
 #, sh-format
 msgid ""
 "When the install program starts, click on ${INSTALL_JP}. When a new window "
@@ -4324,7 +4330,7 @@ msgstr ""
 "Il manque un ou plusieurs programme(s). Merci de les installer et de "
 "relancer le script."
 
-#: lib/setupwindow.lib:122 python/guiv3.py:743 python/lib/irc.py:292
+#: lib/setupwindow.lib:122 python/guiv3.py:749 python/lib/irc.py:292
 #: python/mainwindow.py:1135 python/mainwindow.py:1165
 #: python/mainwindow.py:1179 python/mainwindow.py:1188
 #: python/mainwindow.py:1200 python/mainwindow.py:1212 python/wrapper.py:121
@@ -4463,7 +4469,7 @@ msgstr "Merci de choisir une méthode d'installation"
 msgid "I don't want to make another shortcut"
 msgstr "Je ne veux pas créer d'autre icônes"
 
-#: lib/setupwindow.lib:711 python/guiv3.py:151
+#: lib/setupwindow.lib:711 python/guiv3.py:158
 #, sh-format
 msgid "Browse"
 msgstr "Parcourir"
@@ -4793,47 +4799,44 @@ msgstr ""
 msgid "{0} Wizard"
 msgstr "Assistant de {0}"
 
-#: python/guiv3.py:137 python/install.py:282 python/options.py:376
+#: python/guiv3.py:140 python/guiv3.py:143 python/install.py:282
+#: python/options.py:376
 msgid "Cancel"
 msgstr "Annuler"
 
-#: python/guiv3.py:141
+#: python/guiv3.py:141 python/guiv3.py:144
 msgid "Next"
 msgstr "Suivant"
 
-#: python/guiv3.py:142
-msgid "Back"
-msgstr "Retour"
-
-#: python/guiv3.py:159
+#: python/guiv3.py:166
 msgid "I Agree"
 msgstr "J'accepte"
 
-#: python/guiv3.py:160
+#: python/guiv3.py:167
 msgid "Show virtual drives"
 msgstr "Afficher les disques virtuels"
 
-#: python/guiv3.py:181
+#: python/guiv3.py:188
 msgid "Login: "
 msgstr "Identifiant : "
 
-#: python/guiv3.py:182
+#: python/guiv3.py:189
 msgid "Password: "
 msgstr "Mot de passe : "
 
-#: python/guiv3.py:185
+#: python/guiv3.py:192
 msgid "Register"
 msgstr "S'inscrire"
 
-#: python/guiv3.py:282
+#: python/guiv3.py:288
 msgid "MB downloaded"
 msgstr "Mio téléchargés"
 
-#: python/guiv3.py:282
+#: python/guiv3.py:288
 msgid "of"
 msgstr "sur"
 
-#: python/guiv3.py:743
+#: python/guiv3.py:749
 msgid "You cannot close this window"
 msgstr "Vous ne pouvez pas fermer cette fenêtre"
 

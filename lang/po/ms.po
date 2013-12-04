@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2013-11-25 19:00+0100\n"
-"PO-Revision-Date: 2013-11-05 03:51+0000\n"
-"Last-Translator: abuyop <Unknown>\n"
+"POT-Creation-Date: 2013-12-02 19:00+0100\n"
+"PO-Revision-Date: 2013-11-27 16:43+0000\n"
+"Last-Translator: Aymeric PETIT <mulx@aplu.fr>\n"
 "Language-Team: malay loco team\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-11-26 05:15+0000\n"
-"X-Generator: Launchpad (build 16840)\n"
+"X-Launchpad-Export-Date: 2013-12-03 05:15+0000\n"
+"X-Generator: Launchpad (build 16856)\n"
 "Language: ms\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -1667,7 +1667,7 @@ msgstr "Kemudian"
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:36
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:36
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:50
-#: PlayOnLinux_Scripts/Portal_:36 python/guiv3.py:149
+#: PlayOnLinux_Scripts/Portal_:36 python/guiv3.py:156
 #, sh-format
 msgid "No"
 msgstr "Tidak"
@@ -1682,7 +1682,7 @@ msgstr "Tidak"
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:50
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:52
 #: PlayOnLinux_Scripts/Portal_:36 PlayOnLinux_Scripts/Portal_:38
-#: python/guiv3.py:150
+#: python/guiv3.py:157
 #, sh-format
 msgid "Yes"
 msgstr "Ya"
@@ -2798,6 +2798,8 @@ msgstr "Maaf, ia bukanlah fail .zip yang sah"
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_06___Kuchibiru_to_Kiss_de_Tsubuyaite_:52
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_07___Amakute_Hoshikute_Torokeru_Chuu_:52
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_08___Tenshi_no_Hanabira_Zome_:52
+#: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_09___Amakute_Otona_no_Torokeru_Chuu_:54
+#: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_10___Lily_Platinum_:54
 #, sh-format
 msgid "Please locate installation program (Setup.exe)"
 msgstr "Sila cari program pemasangan (Setup.exe)"
@@ -2862,6 +2864,10 @@ msgstr ""
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_07___Amakute_Hoshikute_Torokeru_Chuu_:64
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_08___Tenshi_no_Hanabira_Zome_:54
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_08___Tenshi_no_Hanabira_Zome_:64
+#: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_09___Amakute_Otona_no_Torokeru_Chuu_:56
+#: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_09___Amakute_Otona_no_Torokeru_Chuu_:64
+#: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_10___Lily_Platinum_:56
+#: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_10___Lily_Platinum_:64
 #, sh-format
 msgid ""
 "When the install program starts, click on ${INSTALL_JP}. When a new window "
@@ -2923,17 +2929,17 @@ msgstr "Pemasangan selesai."
 #: PlayOnLinux_Scripts/System_Shock_2__Steam__:36
 #, sh-format
 msgid "Download on Steam Store-Steam Backup Restore"
-msgstr ""
+msgstr "Muat turun pada Pulih Steam-Pulih Sandar Steam"
 
 #: PlayOnLinux_Scripts/System_Shock_2__Steam__:36
 #, sh-format
 msgid "You want install with ?"
-msgstr ""
+msgstr "Anda mahu pasang ?"
 
 #: PlayOnLinux_Scripts/System_Shock_2__Steam__:38
 #, sh-format
 msgid "Download on Steam Store"
-msgstr ""
+msgstr "Muat turun Kedai Steam"
 
 #: PlayOnLinux_Scripts/Terraria_:56
 #, sh-format
@@ -4639,7 +4645,7 @@ msgstr ""
 "Satu atau lebih program telah hilang. Sila pasang ia dan jalankan skrip "
 "sekali lagi."
 
-#: lib/setupwindow.lib:122 python/guiv3.py:743 python/lib/irc.py:292
+#: lib/setupwindow.lib:122 python/guiv3.py:749 python/lib/irc.py:292
 #: python/mainwindow.py:1135 python/mainwindow.py:1165
 #: python/mainwindow.py:1179 python/mainwindow.py:1188
 #: python/mainwindow.py:1200 python/mainwindow.py:1212 python/wrapper.py:121
@@ -4778,7 +4784,7 @@ msgstr "Sila pilih kaedah pemasangan"
 msgid "I don't want to make another shortcut"
 msgstr "Saya tidak mahu buat pintasan lain"
 
-#: lib/setupwindow.lib:711 python/guiv3.py:151
+#: lib/setupwindow.lib:711 python/guiv3.py:158
 #, sh-format
 msgid "Browse"
 msgstr "Layar"
@@ -5109,47 +5115,44 @@ msgstr "AMARAN. Sila guna POL_SetupWindow_Init dahulu"
 msgid "{0} Wizard"
 msgstr "Bestari {0}"
 
-#: python/guiv3.py:137 python/install.py:282 python/options.py:376
+#: python/guiv3.py:140 python/guiv3.py:143 python/install.py:282
+#: python/options.py:376
 msgid "Cancel"
 msgstr "Batal"
 
-#: python/guiv3.py:141
+#: python/guiv3.py:141 python/guiv3.py:144
 msgid "Next"
 msgstr "Maju"
 
-#: python/guiv3.py:142
-msgid "Back"
-msgstr "Undur"
-
-#: python/guiv3.py:159
+#: python/guiv3.py:166
 msgid "I Agree"
 msgstr "Saya Setuju"
 
-#: python/guiv3.py:160
+#: python/guiv3.py:167
 msgid "Show virtual drives"
 msgstr "Papar pemacu maya"
 
-#: python/guiv3.py:181
+#: python/guiv3.py:188
 msgid "Login: "
 msgstr "Daftar Masuk: "
 
-#: python/guiv3.py:182
+#: python/guiv3.py:189
 msgid "Password: "
 msgstr "Kata Laluan: "
 
-#: python/guiv3.py:185
+#: python/guiv3.py:192
 msgid "Register"
 msgstr "Daftar"
 
-#: python/guiv3.py:282
+#: python/guiv3.py:288
 msgid "MB downloaded"
 msgstr "MB dimuat turun"
 
-#: python/guiv3.py:282
+#: python/guiv3.py:288
 msgid "of"
 msgstr "dari"
 
-#: python/guiv3.py:743
+#: python/guiv3.py:749
 msgid "You cannot close this window"
 msgstr "Anda tidak boleh tutup tetingkap ini"
 
