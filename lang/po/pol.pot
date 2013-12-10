@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX/APLU <pol-gettext@mulx.net>\n"
-"POT-Creation-Date: 2013-12-09 19:00:51+01:00\n"
+"POT-Creation-Date: 2013-12-10 19:00:54+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -239,7 +239,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Alien_Breed_3___Descent_:80
 #: PlayOnLinux_Scripts/Alien_Breed___Impact_:79
 #: PlayOnLinux_Scripts/Alt.Binz_:42 PlayOnLinux_Scripts/Amazon_Kindle_:35
-#: PlayOnLinux_Scripts/Assassin_s_Creed_:67
+#: PlayOnLinux_Scripts/Anno_1602_:53 PlayOnLinux_Scripts/Assassin_s_Creed_:67
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Revelations_:96
 #: PlayOnLinux_Scripts/BLAZE___mechforces_:37
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_:55
@@ -249,6 +249,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Batman_Arkham_City_:73
 #: PlayOnLinux_Scripts/Batman_Arkham_City_:92 PlayOnLinux_Scripts/Bioshock_:93
 #: PlayOnLinux_Scripts/Brink_:66 PlayOnLinux_Scripts/Brink_:79
+#: PlayOnLinux_Scripts/Civilization_V_:53
 #: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_:65
 #: PlayOnLinux_Scripts/Diablo_II_:51
 #: PlayOnLinux_Scripts/Dragon_Age_2___DLC_:40
@@ -289,7 +290,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Red_Faction_:49 PlayOnLinux_Scripts/Rfactor_:48
 #: PlayOnLinux_Scripts/Runaway_2___The_Dream_of_the_Turtle_:41
 #: PlayOnLinux_Scripts/Runes_Of_Magic_:44
-#: PlayOnLinux_Scripts/SFR_LiberTalk_:42
+#: PlayOnLinux_Scripts/SFR_LiberTalk_:42 PlayOnLinux_Scripts/Safari_:63
 #: PlayOnLinux_Scripts/Secret_of_Monkey_Island_Special_Edition_:79
 #: PlayOnLinux_Scripts/Spotify_:65 PlayOnLinux_Scripts/Star_Twine_:80
 #: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight_II___Jedi_Outcast_:31
@@ -304,6 +305,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Traktor_Pro_2_:33 PlayOnLinux_Scripts/Tree[d]_:41
 #: PlayOnLinux_Scripts/Warcraft_III__Reign_of_Chaos_:38
 #: PlayOnLinux_Scripts/Warcraft_III__The_Frozen_Throne_:44
+#: PlayOnLinux_Scripts/Windows_Media_Player_10_:39
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:103
 #: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:92
 #: PlayOnLinux_Scripts/World_Of_Warcraft___Wrath_of_the_Lich_King_:70
@@ -459,26 +461,30 @@ msgstr ""
 msgid "Please select the setup file to run."
 msgstr ""
 
-#: PlayOnLinux_Scripts/Anno_1602_:42
-#: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:79
-#: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:52
-#: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:62
-#: PlayOnLinux_Scripts/Google_Picasa_3.9_:56
-#: PlayOnLinux_Scripts/Infinity_Engine_widescreen_mod_:25
-#: PlayOnLinux_Scripts/Runes_Of_Magic_:49 PlayOnLinux_Scripts/Sacrifice_:42
-#: PlayOnLinux_Scripts/Sacrifice_:48 PlayOnLinux_Scripts/Spotify_:66
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_II__Daggerfall_:68
-#: PlayOnLinux_Scripts/Toontown_Online_:26
-#: PlayOnLinux_Scripts/Toontown_Online_:33
-#: PlayOnLinux_Scripts/Vantage_Master_Online_:44
+#: PlayOnLinux_Scripts/Anno_1602_:41 PlayOnLinux_Scripts/EVE_online_:94
+#: PlayOnLinux_Scripts/EVE_online_:122
+#: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:39
+#: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:47
+#: PlayOnLinux_Scripts/POL_Function_FontsSmoothRGB_:1
+#: PlayOnLinux_Scripts/POL_Function_OverrideDLL_:31
+#: PlayOnLinux_Scripts/POL_GoG_download_:48
+#: PlayOnLinux_Scripts/POL_Install_DisableCrashDialog_:5
+#: PlayOnLinux_Scripts/SimCity_2000_:50
+#: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:34
+#: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
+#: PlayOnLinux_Scripts/SubRip_:33 PlayOnLinux_Scripts/Theme_Hospital_:48
+#: PlayOnLinux_Scripts/World_Of_Warcraft_:116 bash/installpolpackages:26
+#: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
+#: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:1156
+#: lib/wine.lib:1186
 #, sh-format
-msgid "Please wait while $TITLE is installed."
+msgid "Please wait..."
 msgstr ""
 
-#: PlayOnLinux_Scripts/Anno_1602_:76 PlayOnLinux_Scripts/Safari_:77
-#: PlayOnLinux_Scripts/Windows_Media_Player_10_:80
+#: PlayOnLinux_Scripts/Anno_1602_:78 PlayOnLinux_Scripts/SubRip_:43
+#: PlayOnLinux_Scripts/Windows_Media_Player_10_:74 bash/run_exe:43
 #, sh-format
-msgid "$TITLE has been installed successfully."
+msgid "Installation finished."
 msgstr ""
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_:69
@@ -512,7 +518,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/Grand_Theft_Auto___San_Andreas_:60
 #: PlayOnLinux_Scripts/LIMBO_:64 PlayOnLinux_Scripts/Photofiltre_6.5.2_:21
 #: PlayOnLinux_Scripts/Rome_Total_War__Gold_Edition__:56
-#: PlayOnLinux_Scripts/Safari_:60
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:59
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind_:49
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:184
@@ -520,7 +525,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Shivering_Isle_:74
 #: PlayOnLinux_Scripts/The_Next_BIG_Thing_:63
 #: PlayOnLinux_Scripts/Unreal_Tounament_3_:72
-#: PlayOnLinux_Scripts/Windows_Media_Player_10_:44
 #: PlayOnLinux_Scripts/Wolfenstein_:56
 #: PlayOnLinux_Scripts/Worms_World_Party_:37
 #, sh-format
@@ -895,12 +899,7 @@ msgid ""
 "worries, just try one more time."
 msgstr ""
 
-#: PlayOnLinux_Scripts/Civilization_V_:49
-#, sh-format
-msgid "Please select $TITLE install file:"
-msgstr ""
-
-#: PlayOnLinux_Scripts/Civilization_V_:60
+#: PlayOnLinux_Scripts/Civilization_V_:64
 #, sh-format
 msgid ""
 "Steam is about to perform an update.\\nAfter Steam finishes updating and "
@@ -948,10 +947,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Kane_s_Wrath_Patch_1.02_:83
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Tiberium_Wars__Kane_Edition__:125
 #: PlayOnLinux_Scripts/Command_And_Conquer___Red_Alert_3_Patch_1.12_:74
-#: PlayOnLinux_Scripts/Fallout_3_:73 PlayOnLinux_Scripts/Safari_:51
-#: PlayOnLinux_Scripts/Safari_:62 PlayOnLinux_Scripts/Spelunky_:28
-#: PlayOnLinux_Scripts/Windows_Media_Player_10_:36
-#: PlayOnLinux_Scripts/Windows_Media_Player_10_:45
+#: PlayOnLinux_Scripts/Fallout_3_:73 PlayOnLinux_Scripts/Spelunky_:28
 #, sh-format
 msgid "Installation in progress..."
 msgstr ""
@@ -1123,25 +1119,6 @@ msgstr ""
 msgid "You want to open $TITLE download page in your browser?"
 msgstr ""
 
-#: PlayOnLinux_Scripts/EVE_online_:94 PlayOnLinux_Scripts/EVE_online_:122
-#: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:39
-#: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:47
-#: PlayOnLinux_Scripts/POL_Function_FontsSmoothRGB_:1
-#: PlayOnLinux_Scripts/POL_Function_OverrideDLL_:31
-#: PlayOnLinux_Scripts/POL_GoG_download_:48
-#: PlayOnLinux_Scripts/POL_Install_DisableCrashDialog_:5
-#: PlayOnLinux_Scripts/SimCity_2000_:50
-#: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:34
-#: PlayOnLinux_Scripts/Star_Wars___Jedi_Knight__Jedi_Academy_:42
-#: PlayOnLinux_Scripts/SubRip_:33 PlayOnLinux_Scripts/Theme_Hospital_:48
-#: PlayOnLinux_Scripts/World_Of_Warcraft_:116 bash/installpolpackages:26
-#: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:1156
-#: lib/wine.lib:1186
-#, sh-format
-msgid "Please wait..."
-msgstr ""
-
 #: PlayOnLinux_Scripts/EVE_online_:119
 #, sh-format
 msgid ""
@@ -1227,6 +1204,21 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:52
 #, sh-format
 msgid "Which version do you want to install?"
+msgstr ""
+
+#: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:79
+#: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:52
+#: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:62
+#: PlayOnLinux_Scripts/Google_Picasa_3.9_:56
+#: PlayOnLinux_Scripts/Infinity_Engine_widescreen_mod_:25
+#: PlayOnLinux_Scripts/Runes_Of_Magic_:49 PlayOnLinux_Scripts/Sacrifice_:42
+#: PlayOnLinux_Scripts/Sacrifice_:48 PlayOnLinux_Scripts/Spotify_:66
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_II__Daggerfall_:68
+#: PlayOnLinux_Scripts/Toontown_Online_:26
+#: PlayOnLinux_Scripts/Toontown_Online_:33
+#: PlayOnLinux_Scripts/Vantage_Master_Online_:44
+#, sh-format
+msgid "Please wait while $TITLE is installed."
 msgstr ""
 
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:86
@@ -2499,7 +2491,7 @@ msgid ""
 "patch #3. Do not launch the game until the patch is installed."
 msgstr ""
 
-#: PlayOnLinux_Scripts/Safari_:50 PlayOnLinux_Scripts/Safari_:61
+#: PlayOnLinux_Scripts/Safari_:53 PlayOnLinux_Scripts/Safari_:64
 #, sh-format
 msgid ""
 "During the install process, please deselect\\n\"Install Bonjour for Windows"
@@ -2618,11 +2610,6 @@ msgstr ""
 msgid ""
 "If you want to install $TITLE in another virtual drive\\nRun this installer "
 "again"
-msgstr ""
-
-#: PlayOnLinux_Scripts/SubRip_:43 bash/run_exe:43
-#, sh-format
-msgid "Installation finished."
 msgstr ""
 
 #: PlayOnLinux_Scripts/System_Shock_2__Steam__:36
