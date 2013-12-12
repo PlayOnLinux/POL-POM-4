@@ -35,7 +35,7 @@ clean_tmp
 
 (
 # Run XQuartz
-[ "$POL_OS" = "Mac" ] && POL_Internal_RunXQuartz
+# [ "$POL_OS" = "Mac" ] && POL_Internal_RunXQuartz
 
 if [ "$(POL_Config_Read VDRIVES_LINK_MADE)" = "" ]; then
 	POL_Config_Write VDRIVES_LINK_MADE TRUE
