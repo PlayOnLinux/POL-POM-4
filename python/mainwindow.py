@@ -1299,6 +1299,8 @@ def handleSigchld(number, frame):
 setSigchldHandler()
 lng.Lang()
 
+wx.Log_EnableLogging(False)
+
 app = PlayOnLinuxApp(redirect=False)
 app.MainLoop()
 #sys.exit(0)
