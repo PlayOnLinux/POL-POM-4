@@ -176,8 +176,11 @@ class Onglets(wx.Notebook):
 
         if(shortname == "wineversion"):
             self.addBitmap = wx.Image( Variables.playonlinux_env+"/resources/images/icones/list-add.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
-            self.general_elements["wineversion_button"] = wx.BitmapButton(self.panelGeneral,601, pos=(527,19+num*40),size=(21,21),bitmap=self.addBitmap     )
-
+            if(os.environ["POL_OS"] == "Linux"):
+                self.general_elements["wineversion_button"] = wx.BitmapButton(self.panelGeneral,601, pos=(527,19+num*40),size=(21,21),bitmap=self.addBitmap)
+            if(os.environ["POL_OS"] == "Mac"):
+                self.general_elements["wineversion_button"] = wx.BitmapButton(self.panelGeneral,601, pos=(522,15+num*40),size=(21,21),bitmap=self.addBitmap)
+            
 
     def General(self, nom):
         self.panelGeneral = wx.Panel(self, -1)
