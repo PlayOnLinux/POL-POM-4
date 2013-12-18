@@ -25,6 +25,10 @@
 * Harden applications list parsing
 * force LANG=C when spawning wineconsole (Wine bug #10063)
 * fix typo in bash/manual_install
+* Developer feature: allow to override function scripts
+  When global configuration ALLOW_FUNCTION_OVERRIDES is set to TRUE, function
+  scripts in $POL_USER_ROOT/configurations/function_overrides/ override function
+  scripts by the same name. This feature disables bug reporting.
 
 # 4.2.1
 

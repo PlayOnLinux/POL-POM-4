@@ -383,31 +383,44 @@ POL_Shortcut_QuietDebug()
 	echo '[ "$WINEDEBUG" = "-all" ] && exit 0' >> "$REPERTOIRE/shortcuts/$1"
 }
 
-POL_Call() 
+POL_Call()
 {
 	# Call a function in PlayOnLinux website
 	# Usage: POL_Call [function name]
-	
+
 	POL_Debug_Message "Calling $1"
 	if [ ! "$1" = "" ]
-	then	
+	then
 		OLD_PC_DIR="$PWD"
 		cd "$REPERTOIRE/tmp/"
-		$POL_WGET "$SITE/V4_data/repository/get_file.php?version=playonlinux-$VERSION&id=$1" -O- > "$1"
-		polMd5="$(POL_MD5_file "$1")"
-		if [ "$polMd5" = "68b329da9893e34099c7d8ad5cb9c940" ] || [ "$polMd5" = "0f1b63a74ab217a19270be0df9e0590d" ] # Empty file
-		then
-			POL_Debug_Error "Function $1 does not exist!"
-			exitcode="1"
-		else
-			POL_Debug_Message "----- Starting function $1 -----" 
-			POL_Debug_LogToPrefix "----- Starting function $1 -----" 
-			POL_Source "$@"
+		if [ "$(POL_Config_Read "ALLOW_FUNCTION_OVERRIDES")" = "TRUE" -a -e "$POL_USER_ROOT/configurations/function_overrides/$1" ]; then
+			cp "$POL_USER_ROOT/configurations/function_overrides/$1" .
+			if [ -z "$NOBUGREPORT" ]; then
+				NOBUGREPORT="TRUE"
+				POL_SetupWindow_message "$(eval_gettext 'Function override detected, disabling bug reporting')" "$TITLE"
+			fi
+			POL_Debug_Message "----- Starting function $1 (OVERRIDED) -----"
+			POL_Debug_LogToPrefix "----- Starting function $1 (OVERRIDED) -----"
+			source "$@"
 			exitcode="$?"
-			POL_Debug_Message "----- Ending function $1 -----" 
-			POL_Debug_LogToPrefix "----- Ending function $1 -----" 
-			
+			POL_Debug_Message "----- Ending function $1 (OVERRIDED) -----"
+			POL_Debug_LogToPrefix "----- Ending function $1 (OVERRIDED) -----"
+		else
+			$POL_WGET "$SITE/V4_data/repository/get_file.php?version=playonlinux-$VERSION&id=$1" -O- > "$1"
 
+			polMd5="$(POL_MD5_file "$1")"
+			if [ "$polMd5" = "68b329da9893e34099c7d8ad5cb9c940" -o "$polMd5" = "0f1b63a74ab217a19270be0df9e0590d" ] # Empty file
+			then
+				POL_Debug_Error "Function $1 does not exist!"
+				exitcode="1"
+			else
+				POL_Debug_Message "----- Starting function $1 -----"
+				POL_Debug_LogToPrefix "----- Starting function $1 -----"
+				POL_Source "$@"
+				exitcode="$?"
+				POL_Debug_Message "----- Ending function $1 -----"
+				POL_Debug_LogToPrefix "----- Ending function $1 -----"
+			fi
 		fi
 		cd "$OLD_PC_DIR"
 	fi
