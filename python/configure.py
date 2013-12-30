@@ -489,13 +489,10 @@ class Onglets(wx.Notebook):
             if(self.FileDialog.GetPath() != ""):
                 filename = self.FileDialog.GetPath().encode("utf-8","replace")
                 dirname = os.path.dirname(filename)
-                print "dirname: "+dirname
                 if(self.s_isPrefix == True):
-                    os.system("cd \""+dirname+"\"; bash "+Variables.playonlinux_env+"/bash/POL_Command --prefix \""+self.s_prefix.encode('utf-8','replace')+"\" POL_AutoWine \""+filename+"\" &")
-                    #subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/POL_Command", "--prefix", self.s_prefix.encode('utf-8','replace'), "POL_AutoWine", filename], cwd=dirname)
+                    subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/POL_Command", "--prefix", self.s_prefix.encode('utf-8','replace'), "POL_AutoWine", filename], cwd=dirname)
                 else:
-                    os.system("cd \""+dirname+"\"; bash "+Variables.playonlinux_env+"/bash/POL_Command \""+self.s_title.encode('utf-8','replace')+"\" POL_AutoWine \""+filename+"\" &")
-                    #subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/POL_Command", self.s_prefix.encode('utf-8','replace'), "POL_AutoWine", filename], cwd=dirname)
+                    subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/POL_Command", self.s_title.encode('utf-8','replace'), "POL_AutoWine", filename], cwd=dirname)
 
         if(param == 201):
             if(self.s_isPrefix == False):
