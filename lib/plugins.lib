@@ -128,6 +128,7 @@ install_plugins ()
 }
 
 #### This part of the script load plugins libs
+PREVPWD="$PWD"
 mkdir -p "$REPERTOIRE/plugins"
 cd "$REPERTOIRE/plugins"
 for file in *
@@ -143,4 +144,4 @@ do
 	fi
 done
 
-cd "$REPERTOIRE"
+cd "$PREVPWD"

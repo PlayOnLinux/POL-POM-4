@@ -30,6 +30,8 @@
   scripts in $POL_USER_ROOT/configurations/function_overrides/ override function
   scripts by the same name. This feature disables bug reporting.
 * Fix website login when username contains spaces (#3573)
+* "Run an .exe in this virtual disk" sets current directory to program's 
+  directory (#1855)
 
 # 4.2.1
 
