@@ -144,16 +144,15 @@ class Onglets(wx.Notebook):
         self.winebash("wineserver -k")
 
     def evt_config(self, event):
-        os.system("bash \""+Variables.playonlinux_rep+"/configurations/configurators/"+self.s_title+"\" &")
+        subprocess.Popen(["bash", Variables.playonlinux_rep+"/configurations/configurators/"+self.s_title])
 
     def install_package(self, event):
-        selectedPackage = self.packageList.getPackageFromName(self.Menu.GetItemText(self.Menu.GetSelection()));
-                
-        
+        selectedPackage = self.packageList.getPackageFromName(self.Menu.GetItemText(self.Menu.GetSelection()))
+
         if(self.s_isPrefix == False):
-            os.system("bash "+Variables.playonlinux_env+"/bash/installpolpackages \""+self.s_title.encode('utf-8','replace')+"\" "+selectedPackage+" &")
+            subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/installpolpackages", self.s_title.encode('utf-8','replace'), selectedPackage])
         else:
-            os.system("bash "+Variables.playonlinux_env+"/bash/installpolpackages --prefix \""+self.s_prefix.encode('utf-8','replace')+"\" "+selectedPackage+" &")
+            subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/installpolpackages", "--prefix", self.s_prefix.encode('utf-8','replace'), selectedPackage])
 
     def AddGeneralChamp(self, title, shortname, value, num):
         self.general_elements[shortname+"_text"] = wx.StaticText(self.panelGeneral, -1, title,pos=(15,19+num*40))
@@ -342,24 +341,18 @@ class Onglets(wx.Notebook):
 
     def change_Direct3D_settings(self, param):
         if(self.s_isPrefix == False):
-            os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command \""+self.s_title.encode('utf-8','replace')+"\" POL_Wine_Direct3D "+param+" "+self.display_elements[param].GetValue().encode('utf-8','replace')+" &")
+            subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/POL_Command", self.s_title.encode('utf-8','replace'), "POL_Wine_Direct3D", param, self.display_elements[param].GetValue().encode('utf-8','replace')])
         else:
-            os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command --prefix \""+self.s_prefix.encode('utf-8','replace')+"\" POL_Wine_Direct3D "+param+" "+self.display_elements[param].GetValue().encode('utf-8','replace')+" &")
+            subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/POL_Command", "--prefix", self.s_prefix.encode('utf-8','replace'), "POL_Wine_Direct3D", param, self.display_elements[param].GetValue().encode('utf-8','replace')])
 
     def change_DirectInput_settings(self, param):
         if(self.s_isPrefix == False):
-            os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command \""+self.s_title.encode('utf-8','replace')+"\" POL_Wine_DirectInput "+param+" "+self.display_elements[param].GetValue().encode('utf-8','replace')+" &")
+            subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/POL_Command", self.s_title.encode('utf-8','replace'), "POL_Wine_DirectInput", param, self.display_elements[param].GetValue().encode('utf-8','replace')])
         else:
-            os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command --prefix \""+self.s_prefix.encode('utf-8','replace')+"\" POL_Wine_DirectInput "+param+" "+self.display_elements[param].GetValue().encode('utf-8','replace')+" &")
+            subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/POL_Command", "--prefix", self.s_prefix.encode('utf-8','replace'), "POL_Wine_DirectInput", param, self.display_elements[param].GetValue().encode('utf-8','replace')])
 
     def get_current_settings(self, param):
-        #if(self.s_isPrefix == False):
-        #       value = os.popen("bash "+Variables.playonlinux_env+"/bash/POL_Command \""+self.s_title+"\" POL_Wine_GetRegValue "+param,'r').read()
-        #else:
-        #       value = os.popen("bash "+Variables.playonlinux_env+"/bash/POL_Command --prefix \""+self.s_prefix+"\" POL_Wine_GetRegValue "+param,'r').read()
         self.display_elements[param].SetValue(self.settings[param])
-
-        #self.display_elements[param].SetValue(value)
 
     def UpdateVersions(self, arch):
         elements = playonlinux.Get_versions(arch)
@@ -474,9 +467,9 @@ class Onglets(wx.Notebook):
                 playonlinux.open_folder_prefix(self.s_prefix)
         if(param == 403):
             if(self.s_isPrefix == False):
-                os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command \""+self.s_title.encode('utf-8','replace')+"\" POL_OpenShell \""+self.s_title.encode('utf-8','replace')+"\" &")
+                subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/POL_Command", self.s_title.encode('utf-8','replace'), "POL_OpenShell", self.s_title.encode('utf-8','replace')])
             else:
-                os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command --prefix \""+self.s_prefix.encode('utf-8','replace')+"\" POL_OpenShell&")
+                subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/POL_Command", "--prefix", self.s_prefix.encode('utf-8','replace'), "POL_OpenShell"])
 
         if(param == 404):
             self.FileDialog = wx.FileDialog(self)
@@ -496,9 +489,9 @@ class Onglets(wx.Notebook):
 
         if(param == 201):
             if(self.s_isPrefix == False):
-                os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command --init \""+self.s_title.encode('utf-8','replace')+"\" POL_SetupWindow_shortcut_creator &")
+                subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/POL_Command", "--init", self.s_title.encode('utf-8','replace'), "POL_SetupWindow_shortcut_creator"])
             else:
-                os.system("bash "+Variables.playonlinux_env+"/bash/POL_Command --init --prefix \""+self.s_prefix.encode('utf-8','replace')+"\" POL_SetupWindow_shortcut_creator &")
+                subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/POL_Command", "--init", "--prefix", self.s_prefix.encode('utf-8','replace'), "POL_SetupWindow_shortcut_creator"])
 
     def AddDisplayElement(self, title, shortname, elements, wine, num):
         elements.insert(0,"Default")
@@ -720,7 +713,7 @@ class MainWindow(wx.Frame):
     def NewPrefix(self, event):
         #self.name = wx.GetTextFromUser(_("Choose the name of the virtual drive"))
         #if(self.name != ""):
-        os.system("bash "+Variables.playonlinux_env+"/bash/create_prefix &")
+        subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/create_prefix"])
 
     def DeletePrefix(self, event):
         if(self.onglets.s_isPrefix == True):
@@ -731,11 +724,11 @@ class MainWindow(wx.Frame):
                     mylist = os.listdir(Variables.playonlinux_rep+"/shortcuts")
                     for element in mylist:
                         if(playonlinux.getPrefix(element).lower() == self.onglets.s_prefix.lower()):
-                            os.system("bash "+Variables.playonlinux_env+"/bash/uninstall --non-interactive \""+element+"\" &")
+                            subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/uninstall", "--non-interactive", element])
                     self._delete_directory(Variables.playonlinux_rep+"/wineprefix/"+self.onglets.s_prefix)
         else:
             if(wx.YES == wx.MessageBox(_("Are you sure you want to delete {0} ?").format(self.onglets.s_title.encode("utf-8","replace")).decode("utf-8","replace"), os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
-                os.system("bash "+Variables.playonlinux_env+"/bash/uninstall --non-interactive \""+self.onglets.s_title.encode('utf-8', 'replace')+"\" &")
+                subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/uninstall", "--non-interactive", self.onglets.s_title.encode('utf-8', 'replace')])
 
         self.onglets.s_isPrefix = True
         self.change_program("default",True)

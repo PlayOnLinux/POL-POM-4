@@ -624,7 +624,7 @@ class MainWindow(wx.Frame):
         game_exec = self.GetSelectedProgram()
         plugin=self.plugin_list[event.GetId()-300]
         try :
-            os.system("bash \""+Variables.playonlinux_rep+"/plugins/"+plugin+"/scripts/menu\" \""+game_exec+"\"&")
+            subprocess.Popen(["bash", Variables.playonlinux_rep+"/plugins/"+plugin+"/scripts/menu", game_exec])
         except :
             pass
 
@@ -661,7 +661,7 @@ class MainWindow(wx.Frame):
             webbrowser.open("http://www.playonlinux.com/en/download.html")
 
     def UpdateGIT(self, event):
-        os.system("bash \""+Variables.playonlinux_env+"/bash/update_git\"&")
+        subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/update_git"])
 
 
     def GoToAppDir(self, event):
@@ -874,8 +874,8 @@ class MainWindow(wx.Frame):
     def RConfigure(self, function_to_run, firstargument):
         """Starts polconfigurator remotely."""
         game_exec = self.GetSelectedProgram()
-        if(game_exec != ""):
-            os.system("bash \""+Variables.playonlinux_env+"/bash/polconfigurator\" \""+game_exec+"\" \""+function_to_run+"\" \""+firstargument+"\"&")
+        if game_exec != "":
+            subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/polconfigurator", game_exec, function_to_run, firstargument])
         else:
             wx.MessageBox(_("Please select a program."), os.environ["APPLICATION_TITLE"])
 
@@ -894,10 +894,10 @@ class MainWindow(wx.Frame):
             self.optionFrame.Show(True)
 
     def killall(self, event):
-        os.system("bash \""+Variables.playonlinux_env+"/bash/killall\"&")
+        subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/killall"])
 
     def Executer(self, event):
-        os.system("bash \""+Variables.playonlinux_env+"/bash/expert/Executer\"&")
+        subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/expert/Executer"])
 
     def BugReport(self, event):
         try:
@@ -910,14 +910,14 @@ class MainWindow(wx.Frame):
 
 
     def POLOnline(self, event):
-        os.system("bash \""+Variables.playonlinux_env+"/bash/playonlinux_online\" &")
+        subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/playonlinux_online"])
 
     def PCCd(self, event):
-        os.system("bash \""+Variables.playonlinux_env+"/bash/read_pc_cd\" &")
+        subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/read_pc_cd"])
 
     def PolShell(self, event):
         #Variables.run_x_server()
-        os.system("bash \""+Variables.playonlinux_env+"/bash/expert/PolShell\"&")
+        subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/expert/PolShell"])
 
     def Configure(self, event):
         game_exec = self.GetSelectedProgram()
@@ -937,23 +937,23 @@ class MainWindow(wx.Frame):
             self.configureFrame.Center(wx.BOTH)
             self.configureFrame.Show(True)
 
-        #os.system("bash \""+Variables.playonlinux_env+"/bash/polconfigurator\" \""+game_exec+"\"&")
+        #subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/polconfigurator", game_exec])
 
     def Package(self, event):
         game_exec = self.GetSelectedProgram()
-        os.system("bash \""+Variables.playonlinux_env+"/bash/make_shortcut\" \""+game_exec+"\"&")
+        subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/make_shortcut", game_exec])
 
     def UninstallGame(self, event):
         game_exec = self.GetSelectedProgram()
-        if(game_exec != ""):
-            os.system("bash \""+Variables.playonlinux_env+"/bash/uninstall\" \""+game_exec+"\"&")
+        if game_exec != "":
+            subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/uninstall", game_exec])
         else:
             wx.MessageBox(_("Please select a program."), os.environ["APPLICATION_TITLE"])
 
     def PolVaultSaveGame(self, event):
         game_exec = self.GetSelectedProgram()
-        if(game_exec != ""):
-            os.system('bash "' + Variables.playonlinux_rep + 'plugins/PlayOnLinux Vault/scripts/menu" --app "' + game_exec + '" &')
+        if game_exec != "":
+            subprocess.Popen(["bash", Variables.playonlinux_rep+"plugins/PlayOnLinux Vault/scripts/menu", "--app", game_exec])
         else:
             wx.MessageBox(_("Please select a program."), os.environ["APPLICATION_TITLE"])
 
@@ -998,7 +998,7 @@ class MainWindow(wx.Frame):
                         self.debugFrame.Center(wx.BOTH)
                         self.debugFrame.Show()
 
-                os.system("bash "+Variables.playonlinux_env+"/bash/run_app \""+game_exec+"\"&")
+                subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/run_app", game_exec])
             else:
                 wx.MessageBox(_("Please select a program."), os.environ["APPLICATION_TITLE"])
         else:
@@ -1014,7 +1014,9 @@ class MainWindow(wx.Frame):
         game_exec = self.GetSelectedProgram()
         game_log = playonlinux.getLog(game_exec)
         if game_log:
-            os.system('env LOGTITLE="'+game_log+'" bash "'+os.environ["PLAYONLINUX"]+'/bash/bug_report" &')
+            new_env = os.environ
+            new_env["LOGTITLE"] = game_log
+            subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/bug_report"], env = new_env)
 
     def POLDie(self):
         for pid in self.registeredPid:

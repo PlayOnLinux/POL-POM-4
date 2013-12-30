@@ -34,6 +34,8 @@
   directory (#1855)
 * fix "wineserver not found" in interactive use of POL_Wine_Direct3D /
   POL_Wine_X11Drv / POL_Wine_DirectSound / POL_Wine_DirectInput
+* Remove use of os.system() from mainwindow.py and configure.py 
+  (less overhead, less quoting nightmare)
 
 # 4.2.1
 
