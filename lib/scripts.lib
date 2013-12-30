@@ -432,6 +432,7 @@ POL_Call_list ()
 	# Usage: POL_Call_List
 	
 	[ "$WINEPREFIX" == "" ] && POL_Debug_Fatal "POL_Call_list : WINEPREFIX is not set"
+        POL_Wine_AutoSetVersionEnv
 	wineserver -k
 	ITEMS=$($POL_WGET $SITE/V4_data/repository/getf.php -O-)
 	POL_SetupWindow_checkbox_list "$(eval_gettext "Please make your choice")" "$APPLICATION_TITLE" "$ITEMS" "/"

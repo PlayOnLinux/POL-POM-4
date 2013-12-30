@@ -225,6 +225,7 @@ fi
 if [ "$(echo $WHATTORUNBEFORE | grep -o "$LNG_WC_USEWT")" == "$LNG_WC_USEWT" ]
 then
 	[ "$WINEPREFIX" == "" ] && POL_Debug_Fatal "WINEPREFIX is not set"
+        POL_Wine_AutoSetVersionEnv
 	wineserver -k
 	ITEMS=$($POL_WGET $SITE/V4_data/repository/getf.php -O-)
 	POL_SetupWindow_checkbox_list "$(eval_gettext "Please make your choice")" "$APPLICATION_TITLE" "$ITEMS" "/"

@@ -37,6 +37,7 @@ shift
 #[ "$WINEVERSION" = "" ] || POL_WINE$WINEVERSION
 if [ "$1" = "wineserver" ]
 then
+        POL_Wine_AutoSetVersionEnv
 	wineserver -k
 else
 	POL_Wine $@ &

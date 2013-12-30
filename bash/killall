@@ -30,7 +30,8 @@ then
 	for file in *
 	do
 		export WINEPREFIX="$REPERTOIRE/wineprefix/$file"
-		wineserver -k
+                (POL_Wine_AutoSetVersionEnv
+		wineserver -k)
 		POL_Debug_Message "Killed $file"
 	done
 fi

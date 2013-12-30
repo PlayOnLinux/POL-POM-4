@@ -23,6 +23,7 @@ source "$PLAYONLINUX/lib/sources"
 TITLE="$(eval_gettext '$APPLICATION_TITLE Application Configurator')"
 pol_winecfg()
 {
+        POL_Wine_AutoSetVersionEnv
 	wineserver -k
 	POL_Wine winecfg
 }
@@ -34,6 +35,7 @@ pol_kprocess()
 	fi
 		
 	sleep 1
+        POL_Wine_AutoSetVersionEnv
 	wineserver -k
 	sleep 1
 
@@ -44,26 +46,31 @@ pol_kprocess()
 }
 pol_regedit()
 {
+        POL_Wine_AutoSetVersionEnv
 	wineserver -k
 	POL_Wine regedit
 }
 pol_wineboot()
 {
+        POL_Wine_AutoSetVersionEnv
 	wineserver -k
 	POL_Wine wineboot
 }
 pol_awinecfg()
 {
+        POL_Wine_AutoSetVersionEnv
 	wineserver -k
 	bash "$REPERTOIRE/plugins/Advanced Wine Configuration/scripts/menu"
 }
 pol_winetricks()
 {
+        POL_Wine_AutoSetVersionEnv
 	wineserver -k
 	bash "$REPERTOIRE/plugins/WineTricks/scripts/menu" "$FIRSTARGUMENT"
 }
 pol_scfg()
 {
+        POL_Wine_AutoSetVersionEnv
 	wineserver -k
 	bash "$REPERTOIRE/configurations/configurators/$APP"
 }

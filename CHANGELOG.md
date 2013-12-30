@@ -36,6 +36,7 @@
   POL_Wine_X11Drv / POL_Wine_DirectSound / POL_Wine_DirectInput
 * Remove use of os.system() from mainwindow.py and configure.py 
   (less overhead, less quoting nightmare)
+* Add missing POL_Wine_AutoSetVersionEnv before wineserver calls
 
 # 4.2.1
 
