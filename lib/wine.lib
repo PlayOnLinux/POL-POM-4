@@ -91,6 +91,7 @@ POL_Wine_Direct3D ()
 	POL_Debug_Message "Setting wine Direct3D $WINEPREFIX $1 $2"
 	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
+        POL_Wine_AutoSetVersionEnv
 	wineserver -k
 	POL_Wine_UpdateRegistryWinePair 'Direct3D' "$1" "$2"
 	wineserver -k
@@ -106,6 +107,7 @@ POL_Wine_X11Drv ()
 	POL_Debug_Message "Setting wine X11Drv $WINEPREFIX $1 $2"
 	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
+        POL_Wine_AutoSetVersionEnv
 	wineserver -k
 	POL_Wine_UpdateRegistryWinePair 'X11 Driver' "$1" "$2"
 	wineserver -k
@@ -117,6 +119,7 @@ POL_Wine_DirectSound ()
 	POL_Debug_Message "Setting wine DirectSound $WINEPREFIX $1 $2"
 	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
+        POL_Wine_AutoSetVersionEnv
 	wineserver -k
 	POL_Wine_UpdateRegistryWinePair 'DirectSound' "$1" "$2"
 	wineserver -k
@@ -128,6 +131,7 @@ POL_Wine_DirectInput ()
 	POL_Debug_Message "Setting wine DirectInput $WINEPREFIX $1 $2"
 	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
+        POL_Wine_AutoSetVersionEnv
 	wineserver -k
 	POL_Wine_UpdateRegistryWinePair 'DirectInput' "$1" "$2"
 	wineserver -k

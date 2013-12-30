@@ -32,6 +32,8 @@
 * Fix website login when username contains spaces (#3573)
 * "Run an .exe in this virtual disk" sets current directory to program's 
   directory (#1855)
+* fix "wineserver not found" in interactive use of POL_Wine_Direct3D /
+  POL_Wine_X11Drv / POL_Wine_DirectSound / POL_Wine_DirectInput
 
 # 4.2.1
 
