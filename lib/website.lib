@@ -126,7 +126,7 @@ POL_Website_check_login()
 	POL_Debug_Message "Login to $APPLICATION_TITLE website"
 	POL_SetupWindow_wait_next_signal "$(eval_gettext "Connecting...")" "$TITLE"
 
-	result="$($POL_WGET http://repository.playonlinux.com/V4_data/repository/check_login.php?l=$POL_LOGIN\&m=$(POL_MD5 $POL_PASSWORD) -O-)"
+	result="$($POL_WGET http://repository.playonlinux.com/V4_data/repository/check_login.php?l=$(POL_Website_urlencode "$POL_LOGIN")\&m=$(POL_MD5 $POL_PASSWORD) -O-)"
 	if [ "$result" = "0" ]
 	then
 		POL_SetupWindow_message "$(eval_gettext "Failed to connect !\nPlease ensure that your login and your password are valid.")" "$TITLE"
