@@ -301,7 +301,7 @@ class InstallWindow(wx.Frame):
         self.new_panel.Hide()
 
 
-        self.ManualInstall = wx.HyperlinkCtrl(self.panelItems, 111, _("Install a non-listed program"), "", pos=(10,515-71))
+        self.ManualInstall = wx.HyperlinkCtrl(self.panelFenp, 111, _("Install a non-listed program"), "", pos=(10,515))
         self.ManualInstall.SetNormalColour(wx.Colour(0,0,0))
 
         # Panel wait
