@@ -91,7 +91,7 @@ POL_Wine_Direct3D ()
 	POL_Debug_Message "Setting wine Direct3D $WINEPREFIX $1 $2"
 	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
-        POL_Wine_AutoSetVersionEnv
+	POL_Wine_AutoSetVersionEnv
 	wineserver -k
 	POL_Wine_UpdateRegistryWinePair 'Direct3D' "$1" "$2"
 	wineserver -k
@@ -107,7 +107,7 @@ POL_Wine_X11Drv ()
 	POL_Debug_Message "Setting wine X11Drv $WINEPREFIX $1 $2"
 	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
-        POL_Wine_AutoSetVersionEnv
+	POL_Wine_AutoSetVersionEnv
 	wineserver -k
 	POL_Wine_UpdateRegistryWinePair 'X11 Driver' "$1" "$2"
 	wineserver -k
@@ -119,7 +119,7 @@ POL_Wine_DirectSound ()
 	POL_Debug_Message "Setting wine DirectSound $WINEPREFIX $1 $2"
 	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
-        POL_Wine_AutoSetVersionEnv
+	POL_Wine_AutoSetVersionEnv
 	wineserver -k
 	POL_Wine_UpdateRegistryWinePair 'DirectSound' "$1" "$2"
 	wineserver -k
@@ -131,7 +131,7 @@ POL_Wine_DirectInput ()
 	POL_Debug_Message "Setting wine DirectInput $WINEPREFIX $1 $2"
 	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
-        POL_Wine_AutoSetVersionEnv
+	POL_Wine_AutoSetVersionEnv
 	wineserver -k
 	POL_Wine_UpdateRegistryWinePair 'DirectInput' "$1" "$2"
 	wineserver -k
@@ -369,7 +369,7 @@ POL_LoadVar_Device ()
 	fi
 
 	[ "$INTERACTIVE" ] && POL_SetupWindow_wait "$(eval_gettext 'Please wait while $APPLICATION_TITLE is scanning your hardware')" "$TITLE"
-        VGA_DEVICES="$(POL_DetectVideoCards)"
+	VGA_DEVICES="$(POL_DetectVideoCards)"
 	# More than one card available?
 	if grep -q '~' <<<"$VGA_DEVICES"; then
 		if [ "$INTERACTIVE" ]; then
@@ -393,11 +393,11 @@ POL_DetectVideoCards () {
 	POL_Debug_Message "Gettings GPU informations"
 	if [ "$POL_OS" = "Linux" ]; then
 		[ -x /usr/sbin/lspci ] && LSPCI=/usr/sbin/lspci || LSPCI=lspci
-                # Device Name|Vendor ID|Device ID\n...
+		# Device Name|Vendor ID|Device ID\n...
 		VGA_DEVICES=`$LSPCI -nn | perl -ne 'if (/VGA/) { s/.*\]: (.*) \[([0-9a-f]{4}):([0-9a-f]{4})\].*/\1|\2|\3/; print }'`
 	fi
 	if [ "$POL_OS" = "Mac" ]; then
-                # Device Name|Vendor ID|Device ID\n...
+		# Device Name|Vendor ID|Device ID\n...
 		VGA_DEVICES=`system_profiler SPDisplaysDataType | perl -ne 's/^\s+//; if(/Chipset Model:) { chomp; s/^[^:]*: //; print "$_|" } elsif(/Vendor:/) { chomp; s/.*\(0x(.*)\)/\1/; print "$1|" } elsif (/Device ID:/) { s/^[^:]*: 0x//; print }'`
 	fi
 	# More than one card available?
@@ -405,7 +405,7 @@ POL_DetectVideoCards () {
 		# Try to put what's probably the main card first
 		VGA_DEVICES=`grep -iE 'nvidia|ati|amd' <<<"$VGA_DEVICES"; grep -iEv 'nvidia|ati|amd' <<<"$VGA_DEVICES"`
 	fi
-        # Device Name|Vendor ID|Device ID~...
+	# Device Name|Vendor ID|Device ID~...
 	echo -n "$VGA_DEVICES"|tr "\n" "~"
 }
 
@@ -816,8 +816,8 @@ POL_Wine_Install_resources()
 	# Usage : POL_Wine_Install_resources (gecko|mono) [ Version ] ( Arch )
 	[ -z "$1" ] && return 1
 	[ "$1" = "mono" ] && resource="$1" || resource="gecko"
-        wine_version="$2"
-        unpatched_version=`POL_Wine_GetBaseName "$2"`
+	wine_version="$2"
+	unpatched_version=`POL_Wine_GetBaseName "$2"`
 	[ "$3" = "amd64" ] && arch="$3" || arch="x86"
 
 	POL_Debug_Message "Installing $resource for wine $unpatched_version $arch"
