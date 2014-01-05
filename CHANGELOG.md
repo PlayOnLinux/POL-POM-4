@@ -1,3 +1,7 @@
+# 4.2.3
+
+* Fix for Python version "2.7" (#3749)
+
 # 4.2.2
 
 * Changelog move from plaintext to Markdown syntax.

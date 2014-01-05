@@ -9,11 +9,11 @@ search_python () {
 				local Version=$($POL_PYTHON --version 2>&1 |sed -e 's/^Python //')
 				echo -n "$Version - " 1>&2
 				case "$Version" in
-				    2.6.*|2.7.*)
+				    2.6|2.6.*|2.7|2.7.*)
 				        echo "selected" 1>&2
 					return
 					;;
-				    2.5.*)
+				    2.5|2.5.*)
 				        # Compatibility broken a while ago
 					echo "skipped" 1>&2
 					;;
