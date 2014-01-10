@@ -1,6 +1,8 @@
 # 4.2.3
 
 * Fix for Python version "2.7" (#3749)
+* POL_SetupWindow_shortcut_creator: always suggest unused shortcut names;
+  If user chooses an already used name, warn before overwrite (#3770)
 
 # 4.2.2
 

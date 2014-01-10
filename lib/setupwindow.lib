@@ -724,11 +724,26 @@ POL_SetupWindow_shortcut_creator()
 	fi
 	if [ ! "$EXE_FILE" = "" ]
 	then
-                SUGGEST="${EXE_FILE%.*}"
-		POL_SetupWindow_textbox "$(eval_gettext "Please choose a shortcut name for $EXE_FILE")" "$TITLE" "$SUGGEST"
-		TITRE="$APP_ANSWER"
-		POL_Shortcut "$EXE_FILE" "$TITRE"
-		echo "POL_Shortcut \"$EXE_FILE\" \"$TITRE\"" >> "$POL_USER_ROOT/tmp/shortcuts"
+		SUGGEST="${EXE_FILE%.*}"
+		if [ -e "$POL_USER_ROOT/shortcuts/$SUGGEST" ]; then
+			let SUGGEST_VERSION=2
+			while [ -e "$POL_USER_ROOT/shortcuts/$SUGGEST ($SUGGEST_VERSION)" ]; do
+				let SUGGEST_VERSION++
+			done
+			SUGGEST="$SUGGEST ($SUGGEST_VERSION)"
+		fi
+		while true; do
+			POL_SetupWindow_textbox "$(eval_gettext "Please choose a shortcut name for $EXE_FILE")" "$TITLE" "$SUGGEST"
+			SUGGEST="$APP_ANSWER"
+			[ ! -e "$POL_USER_ROOT/shortcuts/$SUGGEST" ] && break
+			POL_SetupWindow_question "$(eval_gettext "A shortcut by that name already exists, overwrite?")" "$TITLE"
+			if [ "$APP_ANSWER" = "TRUE" ]; then
+				rm "$POL_USER_ROOT/shortcuts/$SUGGEST"
+				break
+			fi
+		done
+		POL_Shortcut "$EXE_FILE" "$SUGGEST"
+		echo "POL_Shortcut \"$EXE_FILE\" \"$SUGGEST\"" >> "$POL_USER_ROOT/tmp/shortcuts"
 		POL_SetupWindow_shortcut_creator
 	fi
 }
