@@ -3,6 +3,8 @@
 * Fix for Python version "2.7" (#3749)
 * POL_SetupWindow_shortcut_creator: always suggest unused shortcut names;
   If user chooses an already used name, warn before overwrite (#3770)
+* Fix for "Error 427" http://www.playonlinux.com/en/topic-11490-Error_427.html
+  regression in 4.2.2 (functions override)
 
 # 4.2.2
 

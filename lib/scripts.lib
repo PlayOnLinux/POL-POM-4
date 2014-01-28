@@ -423,8 +423,8 @@ POL_Call()
 			fi
 		fi
 		cd "$OLD_PC_DIR"
+		return "$exitcode"
 	fi
-	return "$exitcode"
 }
 POL_Call_list ()
 {
