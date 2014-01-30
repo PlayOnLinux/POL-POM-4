@@ -5,6 +5,7 @@
   If user chooses an already used name, warn before overwrite (#3770)
 * Fix for "Error 427" http://www.playonlinux.com/en/topic-11490-Error_427.html
   regression in 4.2.2 (functions override)
+* Fix IE3 icon extraction (#3885)
 
 # 4.2.2
 

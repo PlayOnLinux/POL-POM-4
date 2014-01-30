@@ -144,7 +144,7 @@ POL_ExtractIcon()
 	# Usage: POL_ExtractIcon [.exe file] [output image file]
 
 	mkdir -p "$REPERTOIRE/tmp/win32Icon"
-	wrestool -x -t14 "$1" &> "$REPERTOIRE/tmp/win32Icon/icons-brut"
+	wrestool -x -t14 "$1" > "$REPERTOIRE/tmp/win32Icon/icons-brut"
 
         (cd "$REPERTOIRE/tmp/win32Icon"
 
@@ -215,7 +215,7 @@ POL_ExtractBiggestIcon()
 	# Usage: POL_ExtractCustomIcon [.exe file] [output image file] [size]
 
 	mkdir -p "$REPERTOIRE/tmp/win32Icon"
-	wrestool -x -t14 "$1" &> "$REPERTOIRE/tmp/win32Icon/icons-brut"
+	wrestool -x -t14 "$1" > "$REPERTOIRE/tmp/win32Icon/icons-brut"
 
         (cd "$REPERTOIRE/tmp/win32Icon"
 
