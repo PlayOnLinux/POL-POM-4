@@ -9,6 +9,7 @@
 * Debugger: if behind by too many lines, skip displaying some
   (...skipped n lines...) to keep up
 * wineserver not in path problem fixed again (debian bug, but they won't fix it)
+* Fix "Open a shell" to enable the wine version of the prefix
 
 # 4.2.2
 

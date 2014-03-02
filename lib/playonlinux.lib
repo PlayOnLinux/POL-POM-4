@@ -201,29 +201,28 @@ POL_Config_DosPrefixRead ()
 POL_OpenShell()
 {
 	# Open a shell in the current prefix environment
-	# Usage : POL_OpenShell
+	# Usage : POL_OpenShell ["shortcut name"]
 	
-	cp "$PLAYONLINUX/etc/pol_bash" "$POL_USER_ROOT/tmp/env_bash"
+	(cat "$PLAYONLINUX/etc/pol_bash"
 	
-if [ "$1" = "" ]
-then
-		cat << EOF >> "$POL_USER_ROOT/tmp/env_bash"
-export WINEPREFIX="$WINEPREFIX"
-cd "$WINEPREFIX/drive_c"
-echo "You are in $PREFIXNAME virtual drive environment"
-EOF
+	if [ "$1" = "" ]
+	then
+		cat <<- EOF
+		export WINEPREFIX="$WINEPREFIX"
+		EOF
 	
-else
-	cd "$POL_USER_ROOT/shortcuts/"
-	cat "$1" | grep 'export PATH=' >> "$POL_USER_ROOT/tmp/env_bash"
-	cat "$1" | grep 'PATH=' >> "$POL_USER_ROOT/tmp/env_bash"
-	cat "$1" | grep '^export WINEPREFIX' >> "$POL_USER_ROOT/tmp/env_bash"
-	cat << EOF >> "$POL_USER_ROOT/tmp/env_bash"
-export PLAYONLINUX="$PLAYONLINUX"
-cd "$WINEPREFIX/drive_c"
-echo "You are in $1's virtual drive environment"
-EOF
+	else
+		cat <<- EOF
+		export PLAYONLINUX="$PLAYONLINUX"
+		EOF
+		grep '^export WINEPREFIX' "$POL_USER_ROOT/shortcuts/$1"
+		echo "POL_Wine_AutoSetVersionEnv"
 	fi
+	cat <<- EOF
+	cd "$WINEPREFIX/drive_c"
+	echo "You are in $1's virtual drive environment"
+	EOF
+	) >  "$POL_USER_ROOT/tmp/env_bash"
 	echo bash --rcfile "$POL_USER_ROOT/tmp/env_bash" > "$POL_USER_ROOT/tmp/env_bash2"
 	chmod +x "$POL_USER_ROOT/tmp/env_bash2"
 	xterm -e "$POL_USER_ROOT/tmp/env_bash2" -T "$APPLICATION_TITLE"
