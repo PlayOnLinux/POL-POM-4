@@ -8,6 +8,7 @@
 * Fix IE3 icon extraction (#3885)
 * Debugger: if behind by too many lines, skip displaying some
   (...skipped n lines...) to keep up
+* wineserver not in path problem fixed again (debian bug, but they won't fix it)
 
 # 4.2.2
 

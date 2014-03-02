@@ -98,9 +98,9 @@ if (os.environ["POL_OS"] == "Mac"):
     os.environ["DYLD_LIBRARY_PATH"] = os.environ["PLAYONLINUX"]+"/../unix/tools/lib/dyld:" + os.environ["PLAYONLINUX"]+"/../unix/image_magick/lib:"+ os.environ["DYLD_LIBRARY_PATH"]
 else:
     # Debian maintainer decided for some reason not to let wineserver binary into PATH...
-    for winepath in ('/usr/lib/wine', '/usr/lib/wine-unstable', \
-                     '/usr/lib/i386-linux-gnu/wine', '/usr/lib/i386-linux-gnu/wine-unstable', \
-                     '/usr/lib32/wine', '/usr/lib32/wine-unstable'):
+    for winepath in ('/usr/lib/i386-linux-gnu/wine/bin', '/usr/lib/i386-linux-gnu/wine-unstable/bin', \
+                     '/usr/lib32/wine', '/usr/lib32/wine-unstable', \
+                     '/usr/lib/wine', '/usr/lib/wine-unstable'):
         if os.path.exists('%s/wineserver' % (winepath,)):
             os.environ["PATH"] += ':%s' % (winepath,)
             break
