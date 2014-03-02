@@ -6,6 +6,8 @@
 * Fix for "Error 427" http://www.playonlinux.com/en/topic-11490-Error_427.html
   regression in 4.2.2 (functions override)
 * Fix IE3 icon extraction (#3885)
+* Debugger: if behind by too many lines, skip displaying some
+  (...skipped n lines...) to keep up
 
 # 4.2.2
 

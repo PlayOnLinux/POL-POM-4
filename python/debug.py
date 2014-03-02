@@ -64,6 +64,8 @@ class MainWindow(wx.Frame):
 
         self.list_software()
 
+        self.throttling = False
+        self.line_buffer = ""
         self.timer = wx.Timer(self, 1)
         self.Bind(wx.EVT_TIMER, self.AutoReload, self.timer)
         self.AutoReload(self)
@@ -136,16 +138,50 @@ class MainWindow(wx.Frame):
 
     def AutoReload(self, event):
         if(self.logfile != "" and self.logfile != None):
-            self.j = 0
+            # Max number of lines to display per reload
+            # Would be better if adjusted to effective display capability
+            max_lines = 20
+
+            circular_buffer = [u'' for i in range(max_lines)]
+            index = 0
+            # Did we overwrote lines in the circular buffer?
+            wrapped_buffer = False
+            overwritten_lines = 0
+
             while True:
-                self.line = self.logfile.readline()
-                if not self.line:
+                line = self.logfile.readline()
+                if not line:
+                    # Reached the current bottom of log, disable throttling
+                    # Could mean we never disable it if we're overflowed with logs 
+                    # from the very beginning
+                    self.throttling = True
                     break
-                else:
-                    self.AppendStyledText(self.line)
-                if(self.j > 20):
+
+                # Line buffering
+                self.line_buffer += line
+                if line[-1] != '\n':
                     break
-                self.j += 1
+                circular_buffer[index] = self.line_buffer
+                self.line_buffer = ""
+
+                index += 1
+                if wrapped_buffer:
+                    overwritten_lines += 1
+
+                # Buffer wrapping
+                if index >= max_lines:
+                    if not self.throttling:
+                        break
+                    index = 0
+                    wrapped_buffer = True
+
+            if wrapped_buffer:
+                if overwritten_lines > 0:
+                    self.AppendStyledText("...skipped %d line(s)...\n" % overwritten_lines)
+                for k in range(index, max_lines):
+                    self.AppendStyledText(circular_buffer[k])
+            for k in range(0, index):
+                self.AppendStyledText(circular_buffer[k])
 
     def analyseLog(self, event):
         parent =  self.list_game.GetItemText(self.list_game.GetItemParent(self.list_game.GetSelection()))
@@ -158,6 +194,8 @@ class MainWindow(wx.Frame):
 
     def analyseReal(self, parent, selection):
         self.ShowLogFile()
+        self.throttling = False
+        self.line_buffer = ""
         self.log_reader.Clear()
         try:
             if(parent == 0):
