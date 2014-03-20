@@ -716,7 +716,7 @@ POL_Wine_SelectPrefix()
 	# Usage: POL_Wine_SelectPrefix [prefixname]
 	PREFNAME=`printf "$1"| tr -c [[a-zA-Z0-9]\.] '_'`
 	POL_Debug_Message "Selecting prefix: $PREFNAME"
-	export WINEPREFIX="$POL_USER_ROOT/wineprefix/$PREFNAME"
+	export WINEPREFIX="$(readlink -m "$POL_USER_ROOT/wineprefix/$PREFNAME")"
 	export DOSPREFIX="$WINEPREFIX"
 	if [ -e "$WINEPREFIX/playonlinux.cfg" ]; then
 		export POL_WINEVERSION="$(POL_Config_PrefixRead VERSION)"

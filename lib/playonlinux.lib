@@ -625,7 +625,6 @@ generer_icone ()
 	chmod +x "$NOMCOURT.desktop"
 }
 
-
 detect_wineprefix()
 {
 	# Read the wineprefix of a shortcut
@@ -633,10 +632,7 @@ detect_wineprefix()
 	
 	file="$REPERTOIRE/shortcuts/$1"
 	if [ -e "$file" ]; then	
-		fichier=$(cat "$file" | grep '^export WINEPREFIX')
-		fichier=${fichier:18}
-		fichier=${fichier//"\""/""}
-		fichier=${fichier//"//"/"/"}
+		fichier="$(readlink -m "$(cat "$file" | grep "^export WINEPREFIX=" | cut -d "\"" -f2 | tr -d "\"")")"
 	fi
 	echo $fichier
 }
@@ -656,10 +652,8 @@ detect_appdir()
 	# Usage: detect_appdir [Shortcut]
 	
 	file="$REPERTOIRE/shortcuts/$1"
-	if [ -e "$file" ]
-	then	
-	fichier=`cat "$file" | grep "cd \""`
-	fichier=${fichier:4:${#fichier}-5}
+	if [ -e "$file" ]; then	
+		fichier="$(readlink -m "$(cat "$file" | grep "^cd " | tail -n 1 | cut -d "\"" -f2 | tr -d "\"")")"
 	fi
 	echo $fichier
 }
@@ -669,9 +663,10 @@ detect_appexec()
 	# Usage: detect_appexec [Shortcut]
 	
 	file="$REPERTOIRE/shortcuts/$1"
-	if [ -e "$file" ]
-	then	
-	fichier=`cat "$file" | grep "POL_Wine " | cut -d'"' -f2`
+	if [ -e "$file" ]; then	
+		fichier="$(cat "$file" | grep "^POL_Wine " | tail -n 1 | cut -d "\"" -f2 | tr -d "\"")"
+		# Handle older shortcuts that do not have the exe name quoted
+		[ -z "$fichier" -o "$fichier" == "\$@" ] && fichier="$(cat "$file" | grep "^POL_Wine " | tail -n 1 | cut -f2)"
 	fi
 	echo $fichier
 }

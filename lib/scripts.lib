@@ -343,7 +343,7 @@ POL_Shortcut()
 		echo "export WINEDEBUG=\"-all\""
 		[ -n "$LOGTITLE" ] && echo "#POL_Log=$LOGTITLE"
 		[ -n "$SCRIPTID" ] && echo "#ScriptID=$SCRIPTID"
-		echo "cd \"$WINEPREFIX/drive_c/$binary_dir\""
+		echo "cd \"$(readlink -m "$WINEPREFIX/drive_c/$binary_dir")\""
 		echo "POL_Wine \"$Binaire\" $SpecialArg \"\$@\"") > "$REPERTOIRE/shortcuts/$NOMICONE_"
 		chmod +x "$REPERTOIRE/shortcuts/$NOMICONE_"
 
