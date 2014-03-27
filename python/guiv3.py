@@ -276,21 +276,26 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         ## If the setup window is downloading a file, it is a good occasion to update the progresbar
         if(self.Timer_downloading == True):
             if(self.downloader.taille_bloc != 0):
-                self.nb_blocs_max = self.downloader.taille_fichier / self.downloader.taille_bloc
-                self.gauge.SetRange(self.nb_blocs_max)
-                
-                try:
-                    self.gauge.SetValue(self.downloader.nb_blocs)
-                except wx._core.PyAssertionError:
-                    pass
-                    
-                self.tailleFichierB = float(self.downloader.taille_fichier / 1048576.0)
-                self.octetsLoadedB = float((self.downloader.nb_blocs * self.downloader.taille_bloc) / 1048576.0)
-                self.octetsLoadedN = round(self.octetsLoadedB, 1)
-                self.tailleFichierN = round(self.tailleFichierB, 1)
+                downloaded = self.downloader.nb_blocs * self.downloader.taille_bloc
+                octetsLoadedB = downloaded / 1048576.0
+                octetsLoadedN = str(round(octetsLoadedB, 1))
 
-                self.estimation_txt = str(self.octetsLoadedN) + " "+_("of")+" " + str(self.tailleFichierN) + " "+_("MB downloaded")
-                self.txtEstimation.SetLabel(self.estimation_txt)
+                # may be -1 on older FTP servers which do not return a file size in response to a retrieval request
+                if self.downloader.taille_fichier >= 0:
+                    self.gauge.SetRange(self.downloader.taille_fichier)
+                
+                    try:
+                        self.gauge.SetValue(downloaded)
+                    except wx._core.PyAssertionError:
+                        pass
+                    
+                    tailleFichierB = self.downloader.taille_fichier / 1048576.0
+                    tailleFichierN = str(round(tailleFichierB, 1))
+                else:
+                    tailleFichierN = "?"
+
+                estimation_txt = octetsLoadedN + " "+_("of")+" " + tailleFichierN + " "+_("MB downloaded")
+                self.txtEstimation.SetLabel(estimation_txt)
 
             if(self.downloader.finished == True):
                 if(self.downloader.failed == True):
