@@ -11,6 +11,7 @@
 * wineserver not in path problem fixed again (debian bug, but they won't fix it)
 * Fix "Open a shell" to enable the wine version of the prefix
 * New attempt at fixing download gauge overflow (#2123)
+* Do not totally silence gpg import errors
 
 # 4.2.2
 
