@@ -283,11 +283,11 @@ POL_GPG_install_key()
 	#import the public key
 	if [ "$POL_OS" = "Linux" ]
 	then
-		gpg --import "$PLAYONLINUX/etc/playonlinux.gpg" > /dev/null 2> /dev/null
+		gpg -q --import "$PLAYONLINUX/etc/playonlinux.gpg"
 	else
 		# workaround for Lion
 		NEW_DL_PATH="$PLAYONLINUX/../unix/tools/lib/gettext/:$DYLD_LIBRARY_PATH"
-		env DYLD_LIBRARY_PATH="$NEW_DL_PATH" gpg --import "$PLAYONLINUX/etc/playonlinux.gpg" > /dev/null 2> /dev/null
+		env DYLD_LIBRARY_PATH="$NEW_DL_PATH" gpg -q --import "$PLAYONLINUX/etc/playonlinux.gpg"
 	fi
 }
 POL_GPG_auth_script()
