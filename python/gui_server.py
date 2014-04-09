@@ -207,8 +207,8 @@ def readAction(object):
             object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_free_presentation(object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[2])
 
     if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_textbox'):
-        if(len(object.SetupWindowTimer_action) == 5):
-            object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_textbox(object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[4])
+        if(len(object.SetupWindowTimer_action) == 6):
+            object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_textbox(object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[4],object.SetupWindowTimer_action[5])
 
     if(object.SetupWindowTimer_action[0] == 'POL_Debug'):
         if(len(object.SetupWindowTimer_action) == 5):

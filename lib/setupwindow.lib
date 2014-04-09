@@ -187,10 +187,10 @@ POL_SetupWindow_download ()
 POL_SetupWindow_textbox ()
 {
 	# Shows a text box
-	# Usage: POL_SetupWindow_textbox [message] [title] [default value]
+	# Usage: POL_SetupWindow_textbox [message] [title] [default value] [max length]
 	# Result is sent in $APP_ANSWER variable
 
-	APP_ANSWER="$(echo "$POL_COOKIE	POL_SetupWindow_textbox	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3" | ncns "$POL_HOST" "$POL_PORT")"
+	APP_ANSWER="$(echo "$POL_COOKIE	POL_SetupWindow_textbox	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	$(POL_Untab "$4")" | ncns "$POL_HOST" "$POL_PORT")"
         POL_Debug_Message "textbox answer: $APP_ANSWER"
 }
 POL_SetupWindow_browse ()

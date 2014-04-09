@@ -11,6 +11,8 @@
 * wineserver not in path problem fixed again (debian bug, but they won't fix it)
 * Fix "Open a shell" to enable the wine version of the prefix
 * New attempt at fixing download gauge overflow (#2123)
+* Allow POL_SetupWindow_textbox to accept an extra max length parameter 
+* Limit bug reports title to 80 characters
 
 # 4.2.2
 

@@ -348,13 +348,19 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
             os.system("xdg-open "+url+" &")
 
 
-    def POL_SetupWindow_textbox(self, message, title, value):
+    def POL_SetupWindow_textbox(self, message, title, value, maxlength=0):
+        try:
+            maxlength = int(maxlength)
+        except ValueError:
+            maxlength = 0
+
         self.Destroy_all()
         self.DrawDefault(message, title)
 
         self.space = message.count("\\n")+1
 
         self.champ.SetPosition((20,85+self.space*16))
+        self.champ.SetMaxLength(maxlength if maxlength > 0 else 0)
         self.champ.SetValue(value)
         self.champ.Show()
 

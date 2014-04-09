@@ -66,7 +66,7 @@ then
 	[ "$APP_ANSWER" = "$LNG_NO_JOIN" ] || LOGTITLE="$APP_ANSWER"
 fi
 fi
-POL_SetupWindow_textbox "$(eval_gettext "Please give a very short description (title, english only)")" "$POL_DEBUG_TITLE"
+POL_SetupWindow_textbox "$(eval_gettext "Please give a very short description (title, english only)")" "$POL_DEBUG_TITLE" "" 80
 BUGTITLE="$APP_ANSWER"
 TEMPLATE="- What were you doing when the problem occurred?- What did you expect?- What happened instead?- Anything else to report?"
 POL_SetupWindow_textbox_multiline "$(eval_gettext "Please explain your problem clearly (english only):")" "$POL_DEBUG_TITLE" "$TEMPLATE"
