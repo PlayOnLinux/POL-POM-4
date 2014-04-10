@@ -756,7 +756,7 @@ class MainWindow(wx.Frame):
                 for dir in dirs:
                     fullpath = os.path.join(dirname, dir)
                     # To speed up the process, only modify metadata when necessary
-                    attr = os.stat(fullpath)
+                    attr = os.lstat(fullpath)
                     if attr.st_mode & needed_dir_rights != needed_dir_rights:
                         print "%s rights need fixing" % fullpath
                         os.chmod(fullpath, needed_dir_rights)

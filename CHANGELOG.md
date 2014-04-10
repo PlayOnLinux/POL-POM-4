@@ -14,6 +14,7 @@
 * Do not totally silence gpg import errors
 * Allow POL_SetupWindow_textbox to accept an extra max length parameter 
 * Limit bug reports title to 80 characters
+* virtual drive removal: use os.lstat() instead of os.stat() to check for broken rights (reported by Xenos5)
 
 # 4.2.2
 
