@@ -280,6 +280,7 @@ POL_GPG_install_key()
 	POL_Debug_Message "Importing $APPLICATION_TITLE public key"
 	#create the gnupg directory
 	mkdir -p "$GNUPGHOME"
+	chmod 700 "$GNUPGHOME"
 	#import the public key
 	if [ "$POL_OS" = "Linux" ]
 	then
