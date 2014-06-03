@@ -2,20 +2,21 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Akira Nakagawa <matyapiro31@gmail.com>, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2013-12-23 19:00+0100\n"
-"PO-Revision-Date: 2013-10-28 11:31+0000\n"
+"POT-Creation-Date: 2013-12-30 19:00+0100\n"
+"PO-Revision-Date: 2014-05-25 10:30+0000\n"
 "Last-Translator: Akira Nakagawa <matyapiro31@gmail.com>\n"
-"Language-Team: ja_JP.UTF-8 <LL@li.org>\n"
+"Language-Team: Japanese <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-12-24 05:12+0000\n"
-"X-Generator: Launchpad (build 16877)\n"
+"X-Launchpad-Export-Date: 2014-05-26 05:35+0000\n"
+"X-Generator: Launchpad (build 17017)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -24,7 +25,7 @@ msgstr "どのアプリケーションに変更を適用しますか?"
 #: Capture plugin:3
 msgid ""
 "This plugin wil allow you to capture you applications under PlayOnLinux"
-msgstr "PlayOnLinuxで実行しているアプリケーションをキャプチャするプラグインです"
+msgstr "このプラグインでPlayOnLinuxで実行しているアプリケーションをキャプチャできます。"
 
 #: Capture plugin:4
 msgid "Capture menu (OpenGL)"
@@ -63,7 +64,7 @@ msgstr "キャプチャを開始・停止するには<SHIFT>+F8を押してく�
 
 #: Capture plugin:12
 msgid "Press <SHIFT>+F8 to stop capture"
-msgstr ""
+msgstr "<SHIFT>+F8でキャプチャを停止"
 
 #: Capture plugin:13
 msgid "Capture in progress..."
@@ -75,11 +76,11 @@ msgstr "実行する操作を選択"
 
 #: Capture plugin:15
 msgid "Please choose a PID capture file to play"
-msgstr ""
+msgstr "再生するPIDキャプチャファイルを選択"
 
 #: Capture plugin:16
 msgid "Please choose an OGV capture file to play"
-msgstr ""
+msgstr "再生するOGV キャプチャファイルを選択"
 
 #: Capture plugin:17
 msgid "Please choose a capture file to convert"
@@ -110,7 +111,7 @@ msgstr "警告:正しいビデオエンコーディングでは、\\n解像度�
 msgid ""
 "Ubuntu users must add the MEDIBUNTU repository\\nfor this conversion format "
 "to work properly."
-msgstr ""
+msgstr "Ubuntuユーザの場合、この変換形式が正しく機能するにはリポジトリMEDIBUNTUを追加しなければなりません。"
 
 #: Capture plugin:24
 msgid "Choose the video format for conversion"
@@ -120,13 +121,13 @@ msgstr "変換するビデオのフォーマットを選択"
 msgid ""
 "Define your encoding options for pass 1 \\n (leave defaults if you do not "
 "know what to do)"
-msgstr ""
+msgstr "パス1のエンコードを設定\\ｎ (分からなければ既定で放置)"
 
 #: Capture plugin:26
 msgid ""
 "Define your encoding options for pass 2 \\n (leave defaults if you do not "
 "know what to do)"
-msgstr ""
+msgstr "パス2のエンコードを設定\\ｎ (分からなければ既定で放置)"
 
 #: Capture plugin:27
 msgid ""
@@ -136,7 +137,7 @@ msgstr "エンコードのオプションを設定\\n (何も知らない場合�
 
 #: Capture plugin:28
 msgid "Please wait while your video is being encoded..."
-msgstr "ビデオをエンコーディング中です。しばらくお待ちください。"
+msgstr "ビデオをエンコーディング中。しばらくお待ちください。"
 
 #: Capture plugin:29
 msgid "Conversion done"
@@ -148,7 +149,7 @@ msgstr "変更するオプションを選択"
 
 #: Advanced Wine Configuration Plugin:5
 msgid "All"
-msgstr ""
+msgstr "すべて"
 
 #: Advanced Wine Configuration Plugin:6
 msgid "You must choose a game to modify"
@@ -159,6 +160,7 @@ msgid ""
 "Welcome in Advanced Wine Configuration, an optimization’s system for Wine "
 "created by GNU_Raziel. If you does not know what to choose, LEAVE DEFAULTS"
 msgstr ""
+"Wineの高度な設定へようこそ。GNU_Razielで作ったWine用最適化の間です。どれを選んでいいか分からない場合、既定で放置しましょう。"
 
 #: Advanced Wine Configuration Plugin:8
 msgid "Choose a game"
@@ -182,11 +184,11 @@ msgstr "Offscreenを用いた描画モードを使用しますか?"
 
 #: Advanced Wine Configuration Plugin:14
 msgid "Choose Render Target Lock Mode?"
-msgstr ""
+msgstr "描画対象ロックモードを使用しますか?"
 
 #: Advanced Wine Configuration Plugin:15
 msgid "Activate Multisampling support?"
-msgstr ""
+msgstr "マルチサンプリングを有効にしますか?"
 
 #: Advanced Wine Configuration Plugin:16
 msgid "Activate the mouse warp override?"
@@ -194,7 +196,7 @@ msgstr ""
 
 #: Advanced Wine Configuration Plugin:17
 msgid "Optimisation done"
-msgstr ""
+msgstr "最適化完了"
 
 #: Detour plugin:3
 msgid ""
@@ -203,11 +205,11 @@ msgstr ""
 
 #: Detour plugin:5
 msgid "Choose an application"
-msgstr ""
+msgstr "アプリケーションを選択"
 
 #: Detour plugin:6
 msgid "Operation done"
-msgstr ""
+msgstr "操作完了"
 
 #: PlayOnLinux_Scripts/18_Wheels_of_Steel_Haulin_:44
 #: PlayOnLinux_Scripts/Age_Of_Wonders_:38
@@ -224,7 +226,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:82
 #, sh-format
 msgid "Please insert the game media into your disk drive."
-msgstr ""
+msgstr "ディスクドライブにゲームメディアを入れてください。"
 
 #: PlayOnLinux_Scripts/18_Wheels_of_Steel_Haulin_:52
 #: PlayOnLinux_Scripts/A.R.E.S.___Extinction_Agenda_:87
@@ -261,7 +263,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/ElsterFormular_:43 PlayOnLinux_Scripts/FEZ__Steam__:49
 #: PlayOnLinux_Scripts/FL_Studio_10_:33 PlayOnLinux_Scripts/Far_Cry_2_:80
 #: PlayOnLinux_Scripts/Flash_8_:22 PlayOnLinux_Scripts/Flash_MX_:22
-#: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:57
 #: PlayOnLinux_Scripts/Google_SketchUp_:51
 #: PlayOnLinux_Scripts/Guild_Wars_2_:70 PlayOnLinux_Scripts/Half_Life_2_:108
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:88
@@ -323,6 +324,8 @@ msgid "Please select the setup file to run"
 msgstr "実行するセットアップを選択"
 
 #: PlayOnLinux_Scripts/A.R.E.S.___Extinction_Agenda_:80
+#: PlayOnLinux_Scripts/Call_Of_Juarez_Gunslinger_:48
+#: PlayOnLinux_Scripts/Call_Of_Juarez_Gunslinger_:55
 #: PlayOnLinux_Scripts/Call_of_Duty__Modern_Warfare_3_:48
 #: PlayOnLinux_Scripts/Dishonored_:72
 #: PlayOnLinux_Scripts/Hard_Reset__Steam__:45
@@ -337,6 +340,8 @@ msgid ""
 "nClose COMPLETELY the Steam interface, \\nso that the installation script "
 "can continue."
 msgstr ""
+"Steamから${TITLE}のダウンロードが完了後、\\nプレイせずにSteamのインターフェイスを完全に終了して、\\n\\"
+"nインストールスクリプトが続行できるようにしてください。\\n"
 
 #: PlayOnLinux_Scripts/Ableton_Live_8_:52
 #: PlayOnLinux_Scripts/Ableton_Live_9_:64
@@ -344,17 +349,17 @@ msgstr ""
 msgid ""
 "NOTICE: To register, when it opens asking for registration, drag-and-drop "
 "your reg file into $TITLE"
-msgstr ""
+msgstr "注意:求められた登録を実行するには、${TITLE}にレジストリファイルをドラッグ&ドロップします"
 
 #: PlayOnLinux_Scripts/Absynth_5_:53 PlayOnLinux_Scripts/Guitar_Rig_5_:46
 #, sh-format
 msgid "NOTICE: For low-latency audio, look into WineASIO."
-msgstr ""
+msgstr "注意:低レイテンシーのオーディオ用には、WineASIOを推奨。"
 
 #: PlayOnLinux_Scripts/Age_of_Empires_II___The_Age_of_Kings_:66
 #, sh-format
 msgid "Do you want to install the 2.0a Patch?"
-msgstr ""
+msgstr "2.0aパッチをインストールしますか?"
 
 #: PlayOnLinux_Scripts/Age_of_Empires_II___The_Conquerors_:31
 #: PlayOnLinux_Scripts/Age_of_Empires_II___The_Conquerors___Age_of_Vampires___Blood_Reign_in_Transylvania_:30
@@ -381,13 +386,13 @@ msgstr ""
 #: PlayOnLinux_Scripts/Age_of_Empires_II___The_Conquerors_:74
 #, sh-format
 msgid "Do you want to install the 1.0c Patch?"
-msgstr ""
+msgstr "1.0cパッチをインストールしますか?"
 
 #: PlayOnLinux_Scripts/Age_of_Empires_II___The_Conquerors___Rome_at_War_:47
 #, sh-format
 msgid ""
 "In order to installa $TITLE we need to install first Mod Pack Studio Lite 2.0"
-msgstr ""
+msgstr "Mod Pack Studio Lite 2.0を事前にインストールすれば、${TITLE}をインストール出来ます。"
 
 #: PlayOnLinux_Scripts/Age_of_Empires_II___The_Conquerors___Tales_of_Middle_Earth_:38
 #: PlayOnLinux_Scripts/Age_of_Empires_II___The_Conquerors___Tales_of_Middle_Earth_:76
@@ -416,6 +421,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Little_Inferno_Steam_:69
 #: PlayOnLinux_Scripts/Magicka_:68
 #: PlayOnLinux_Scripts/Monkey_Island_2_Special_Edition_:72
+#: PlayOnLinux_Scripts/Orcs_Must_Die__:33
 #: PlayOnLinux_Scripts/Orcs_Must_Die__2_:36 PlayOnLinux_Scripts/Portal_:89
 #: PlayOnLinux_Scripts/Portal_2_:75 PlayOnLinux_Scripts/Q.U.B.E_:86
 #: PlayOnLinux_Scripts/Rayman_Origins_:83
@@ -433,19 +439,21 @@ msgid ""
 "nClose COMPLETELY the Steam interface, \\nso that the installation script "
 "can continue"
 msgstr ""
+"Steamから${TITLE}のダウンロードが完了後、プレイせずにSteamのインターフェイスを完全に終了して、インストールスクリプトが続行できるようにし"
+"てください。"
 
 #: PlayOnLinux_Scripts/Alien_Breed_2___Assault_:88
 #: PlayOnLinux_Scripts/Alien_Breed_3___Descent_:87
 #: PlayOnLinux_Scripts/Alien_Breed___Impact_:86
 #, sh-format
 msgid "If .NET 3.0 installation fail, dont worry\\nthe game will still work"
-msgstr ""
+msgstr ".NET 3.0のインストールが失敗しても、\\nゲームの動作には支障はないはずです。"
 
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:30
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:40
 #, sh-format
 msgid "You dont have to install DirectX or use GLSetup."
-msgstr ""
+msgstr "DirectXのインストールやGLSetupの使用は不要です。"
 
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:39
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Tiberium_Wars__Kane_Edition__:123
@@ -463,7 +471,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/iTunes_10_:28
 #, sh-format
 msgid "Please select the setup file to run."
-msgstr ""
+msgstr "実行するセットアップファイルを選択してください。"
 
 #: PlayOnLinux_Scripts/Anno_1602_:41 PlayOnLinux_Scripts/EVE_online_:94
 #: PlayOnLinux_Scripts/EVE_online_:122
@@ -483,13 +491,13 @@ msgstr ""
 #: lib/wine.lib:1186
 #, sh-format
 msgid "Please wait..."
-msgstr ""
+msgstr "お待ちください。"
 
 #: PlayOnLinux_Scripts/Anno_1602_:78 PlayOnLinux_Scripts/SubRip_:43
 #: PlayOnLinux_Scripts/Windows_Media_Player_10_:74 bash/run_exe:43
 #, sh-format
 msgid "Installation finished."
-msgstr ""
+msgstr "インストール完了。"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_:69
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_:47
@@ -500,7 +508,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Wolfenstein_:48
 #, sh-format
 msgid "Please insert game media into your disk drive"
-msgstr ""
+msgstr "ディスクドライブにゲームメディアを挿入"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_:88
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_:95
@@ -534,7 +542,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Worms_World_Party_:37
 #, sh-format
 msgid "Please select the setup file to run:"
-msgstr ""
+msgstr "実行するセットアップを選択"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:31
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:32
@@ -543,7 +551,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Tiberium_Wars__Kane_Edition__Patch_1.09_:32
 #, sh-format
 msgid "Welcome in the patch $PVERSION Installer for $TITLE_REQUIRED"
-msgstr ""
+msgstr "${TITLE_REQUIRED}のパッチインストーラ${PVERSION}にようこそ"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:45
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:46
@@ -553,7 +561,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Witcher_2___Enhanced_Edition_Patch_:42
 #, sh-format
 msgid "Steam have is own automatic update system"
-msgstr ""
+msgstr "Steamには自動アップデートシステムがあります"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:54
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:55
@@ -580,7 +588,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Wolfenstein_Patch_1.2_:55
 #, sh-format
 msgid "Select patch to execute"
-msgstr ""
+msgstr "適用するパッチを選択"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_:73
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_:75 PlayOnLinux_Scripts/Blur_:52
@@ -612,7 +620,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/World_Of_Warcraft___Wrath_of_the_Lich_King_:43
 #, sh-format
 msgid "Please insert game media into your disk drive\\nif not already done."
-msgstr ""
+msgstr "まだの場合はディスクドライブにゲームメディアを挿入。"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Patch_1.02_:45
 #: PlayOnLinux_Scripts/Borderlands_Patch_1.41_:41
@@ -632,7 +640,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:41
 #, sh-format
 msgid "Steam have is own automatic update system."
-msgstr ""
+msgstr "Steamは自動アップデートシステムを備えています。"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Revelations_:74
 #: PlayOnLinux_Scripts/Baldur_s_Gate_:43 PlayOnLinux_Scripts/Baldur_s_Gate_:80
@@ -644,7 +652,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Witcher_:102
 #, sh-format
 msgid "Please insert the game media into your disk drive"
-msgstr ""
+msgstr "ディスクドライブにゲームメディアを挿入"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_:51 PlayOnLinux_Scripts/Baldur_s_Gate_:59
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_:51
@@ -677,7 +685,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:27
 #, sh-format
 msgid "Welcome in the patch $PVERSION installer for $TITLE_REQUIRED"
-msgstr ""
+msgstr "${TITLE_REQUIRED}のパッチインストーラ${PVERSION}にようこそ"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:31
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:31
@@ -695,7 +703,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Wow_Cartographe_:34
 #, sh-format
 msgid "Please install $TITLE_REQUIRED first"
-msgstr ""
+msgstr "${TITLE_REQUIRED}を先にインストールしてください"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:48
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:49
@@ -703,7 +711,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:49
 #, sh-format
 msgid "English version"
-msgstr ""
+msgstr "英語版"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:48
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:48
@@ -711,19 +719,19 @@ msgstr ""
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:51
 #, sh-format
 msgid "International version"
-msgstr ""
+msgstr "国際版"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:48
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:52
 #, sh-format
 msgid "Italian version"
-msgstr ""
+msgstr "イタリア語版"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:48
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:55
 #, sh-format
 msgid "Japanese version"
-msgstr ""
+msgstr "日本語版"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:48
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:48
@@ -733,7 +741,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:42
 #, sh-format
 msgid "Which version do you have?"
-msgstr ""
+msgstr "どの言語のものを持っていますか?"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_:31
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_:31
@@ -751,26 +759,26 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Witcher_Patch_1.5_:37
 #, sh-format
 msgid "Game is not installed."
-msgstr ""
+msgstr "ゲームはインストールされていません。"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_:68
 #, sh-format
 msgid "This addon automatically install patch 2.5.26461"
-msgstr ""
+msgstr "このアドオンによってパッチ2.5.26461が自動的にインストールされます"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:43
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:43
 #: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_Patch_1.02_:54
 #, sh-format
 msgid "Select first patch to execute"
-msgstr ""
+msgstr "一番目に適用するパッチを選択"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:46
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:46
 #: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_Patch_1.02_:57
 #, sh-format
 msgid "Select second patch to execute"
-msgstr ""
+msgstr "二番目に適用するパッチを選択"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:51
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:52
@@ -778,18 +786,18 @@ msgstr ""
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:52
 #, sh-format
 msgid "US or Canadian version"
-msgstr ""
+msgstr "アメリカ合衆国(US)またはカナダ連邦の版"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_:68
 #, sh-format
 msgid "This addon automatically install patch 1.3.5511"
-msgstr ""
+msgstr "このパッチによって自動的にパッチ1.3.5511がインストールされます。"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:51
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:59
 #, sh-format
 msgid "UK version"
-msgstr ""
+msgstr "イギリス版"
 
 #: PlayOnLinux_Scripts/Batman_Arkham_Asylum_:109
 #: PlayOnLinux_Scripts/Batman_Arkham_City_:109
@@ -834,13 +842,15 @@ msgstr ""
 #: PlayOnLinux_Scripts/Borderlands_:59 PlayOnLinux_Scripts/Borderlands_:60
 #: PlayOnLinux_Scripts/Fallout_3_:57 PlayOnLinux_Scripts/Fallout_3_:58
 #: PlayOnLinux_Scripts/Mass_Effect_2_:51 PlayOnLinux_Scripts/Mass_Effect_2_:52
+#: PlayOnLinux_Scripts/Orcs_Must_Die__:40
+#: PlayOnLinux_Scripts/Orcs_Must_Die__:41
 #: PlayOnLinux_Scripts/Orcs_Must_Die__2_:43
 #: PlayOnLinux_Scripts/Orcs_Must_Die__2_:44
 #: PlayOnLinux_Scripts/Prince_of_Persia___The_Forgotten_Sands_:69
 #: PlayOnLinux_Scripts/Prince_of_Persia___The_Forgotten_Sands_:70
 #, sh-format
 msgid "Normal version"
-msgstr ""
+msgstr "通常バージョン"
 
 #: PlayOnLinux_Scripts/Borderlands_Patch_1.41_:27
 #: PlayOnLinux_Scripts/Dragon_Age_Patch_1.04_:24
@@ -852,13 +862,13 @@ msgstr ""
 #: PlayOnLinux_Scripts/Wolfenstein_Patch_1.2_:23
 #, sh-format
 msgid "Welcome in the patch $PVERSION installer for $TITLE"
-msgstr ""
+msgstr "${TITLE}のパッチインストーラ${PVERSION}にようこそ"
 
 #: PlayOnLinux_Scripts/CivCity_Rome_:60
 #, sh-format
 msgid ""
 "Warning: GameShadow wont work.\\nPlease de-select during installation."
-msgstr ""
+msgstr "警告:GameShadowがうごきません。\\nインストール中に選択を解除してください。"
 
 #: PlayOnLinux_Scripts/CivCity_Rome_:64
 #: PlayOnLinux_Scripts/Dungeon_Siege_III_:59
@@ -868,7 +878,7 @@ msgstr ""
 msgid ""
 "Do not forget to close Steam when downloading\\nis finished, so that "
 "$APPLICATION_TITLE can continue\\nto install your game."
-msgstr ""
+msgstr "ダウンロード完了後、${APPLICATION_TITLE}がインストールを続行するため、\\n必ずSteamを終了してください。\\n"
 
 #: PlayOnLinux_Scripts/Civilization_IV__Complete_Edition_:72
 #, sh-format
@@ -877,18 +887,20 @@ msgid ""
 "shows you to the login interface, login and then let $TITLE install.\\n\\"
 "nWhen the installation is finished, press next (Do not close Steam)"
 msgstr ""
+"Steamがアップデートを実行しようとしています。完了し、ログイン画面が表示されたら、ログインして${TITLE}をインストールしてください。\\n\\"
+"nインストール終了後、次へを押す。(Steamを閉じない)"
 
 #: PlayOnLinux_Scripts/Civilization_IV__Complete_Edition_:75
 #, sh-format
 msgid ""
 "Steam is installing $TITLEW, press next when the installation is finished"
-msgstr ""
+msgstr "Steamが $TITLEW をインストール中、完了後次へをクリック"
 
 #: PlayOnLinux_Scripts/Civilization_IV__Complete_Edition_:78
 #, sh-format
 msgid ""
 "Steam is installing $TITLEBTS, press next when the installation is finished"
-msgstr ""
+msgstr "Steamが $TITLEBTS をインストール中、完了後次へをクリック"
 
 #: PlayOnLinux_Scripts/Civilization_IV__Complete_Edition_:81
 #, sh-format
@@ -919,7 +931,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:71
 #, sh-format
 msgid "Choose the game language you want"
-msgstr ""
+msgstr "ゲームの言語を選択"
 
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Kane_s_Wrath_:77
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Kane_s_Wrath_:93
@@ -927,7 +939,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Tiberium_Wars__Kane_Edition__:101
 #, sh-format
 msgid "Wait while language pack is configured..."
-msgstr ""
+msgstr "言語パックを設定中"
 
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Kane_s_Wrath_Patch_1.02_:28
 #: PlayOnLinux_Scripts/Command_And_Conquer___Red_Alert_3_Patch_1.12_:30
@@ -956,7 +968,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Fallout_3_:73 PlayOnLinux_Scripts/Spelunky_:28
 #, sh-format
 msgid "Installation in progress..."
-msgstr ""
+msgstr "インストールが進行中"
 
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Tiberium_Wars__Kane_Edition__Patch_1.09_:55
 #: PlayOnLinux_Scripts/GOG.com___Neighbours_From_Hell_Compilation_:26
@@ -965,7 +977,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:75 PlayOnLinux_Scripts/Goblins_3_:21
 #, sh-format
 msgid "English"
-msgstr ""
+msgstr "英語"
 
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Tiberium_Wars__Kane_Edition__Patch_1.09_:55
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Tiberium_Wars__Kane_Edition__Patch_1.09_:56
@@ -974,7 +986,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:86 PlayOnLinux_Scripts/Goblins_3_:21
 #, sh-format
 msgid "French"
-msgstr ""
+msgstr "フランス語"
 
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Tiberium_Wars__Kane_Edition__Patch_1.09_:55
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Tiberium_Wars__Kane_Edition__Patch_1.09_:58
@@ -983,14 +995,14 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:97
 #, sh-format
 msgid "German"
-msgstr ""
+msgstr "ドイツ語"
 
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Tiberium_Wars__Kane_Edition__Patch_1.09_:55
 #: PlayOnLinux_Scripts/Internet_Explorer_7_:57
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:76
 #, sh-format
 msgid "Which language version would you like to install?"
-msgstr ""
+msgstr "どの原語版をインストールしますか?"
 
 #: PlayOnLinux_Scripts/Command_And_Conquer___Red_Alert_1_:23
 #, sh-format
@@ -1225,7 +1237,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Vantage_Master_Online_:44
 #, sh-format
 msgid "Please wait while $TITLE is installed."
-msgstr ""
+msgstr "$TITLE のインストールが終了するまでお待ちください。"
 
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:86
 #: PlayOnLinux_Scripts/League_Of_Legends_:69
@@ -1233,7 +1245,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_II__Daggerfall_:72
 #, sh-format
 msgid "Decompressing archive..."
-msgstr ""
+msgstr "アーカイブを解凍しています。"
 
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:100
 #: PlayOnLinux_Scripts/GOG.com___Alone_in_the_Dark_2_:41
@@ -1263,17 +1275,17 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Painkiller__Black_Edition_:46
 #, sh-format
 msgid "Editor"
-msgstr ""
+msgstr "エディタ"
 
 #: PlayOnLinux_Scripts/GOG.com___Commandos_Ammo_Pack_:27
 #, sh-format
 msgid "This install script requires ffmpeg"
-msgstr ""
+msgstr "このインストールスクリプトがffmpegを要求しています"
 
 #: PlayOnLinux_Scripts/GOG.com___Commandos_Ammo_Pack_:74
 #, sh-format
 msgid "Converting videos..."
-msgstr ""
+msgstr "ビデオを変換中。"
 
 #: PlayOnLinux_Scripts/GOG.com___Deus_Ex_GOTY_Edition_:69
 #, sh-format
@@ -1286,7 +1298,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Deus_Ex_GOTY_Edition_:86
 #, sh-format
 msgid "Run $TITLE in safe mode?"
-msgstr ""
+msgstr "$TITLE をセーフモードで実行しますか?"
 
 #: PlayOnLinux_Scripts/GOG.com___Far_Cry_:47
 #, sh-format
@@ -1350,54 +1362,51 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Neighbours_From_Hell_Compilation_:26
 #: PlayOnLinux_Scripts/GOG.com___Sensible_World_of_Soccer_96_97_:58
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:46
-#: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:55
-#: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:57
-#: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:60
 #, sh-format
 msgid "Language"
-msgstr ""
+msgstr "言語"
 
 #: PlayOnLinux_Scripts/GOG.com___Neighbours_From_Hell_Compilation_:26
 #, sh-format
 msgid "Spanish"
-msgstr ""
+msgstr "スペイン語"
 
 #: PlayOnLinux_Scripts/GOG.com___Neighbours_From_Hell_Compilation_:26
 #: PlayOnLinux_Scripts/GOG.com___Sensible_World_of_Soccer_96_97_:58
 #: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:46
 #, sh-format
 msgid "What is your preferred language?"
-msgstr ""
+msgstr "使用する言語を選択"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:71
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:108
 #, sh-format
 msgid "Brasilian (text only)"
-msgstr ""
+msgstr "ブラジルポルトガル語(表示のみ)"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:71
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:119
 #, sh-format
 msgid "Dutch (text only)"
-msgstr ""
+msgstr "オランダ語(表示のみ)"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:71
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:130
 #, sh-format
 msgid "Italian (text only)"
-msgstr ""
+msgstr "イタリア語(表示のみ)"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:71
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:141
 #, sh-format
 msgid "Spanish (text only)"
-msgstr ""
+msgstr "スペイン語(表示のみ)"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:155
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:159
 #, sh-format
 msgid "Arrow keys (default)"
-msgstr ""
+msgstr "矢印キー(既定)"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:155
 #, sh-format
@@ -1462,7 +1471,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:73
 #, sh-format
 msgid "Run \\$TITLE?"
-msgstr ""
+msgstr "\\$TITLE を実行しますか?"
 
 #: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:84
 #, sh-format
@@ -1502,49 +1511,6 @@ msgstr ""
 msgid "Code wheel"
 msgstr ""
 
-#: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:55
-#, sh-format
-msgid "Do you have a language pack to install?"
-msgstr ""
-
-#: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:55
-#: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:59
-#, sh-format
-msgid "Later"
-msgstr ""
-
-#: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:55
-#: PlayOnLinux_Scripts/Half_Life_2_:56
-#: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:36
-#: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:36
-#: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:50
-#: PlayOnLinux_Scripts/Portal_:36 python/guiv3.py:156
-#, sh-format
-msgid "No"
-msgstr "いいえ"
-
-#: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:55
-#: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:56
-#: PlayOnLinux_Scripts/Half_Life_2_:56 PlayOnLinux_Scripts/Half_Life_2_:58
-#: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:36
-#: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:38
-#: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:36
-#: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:38
-#: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:50
-#: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:52
-#: PlayOnLinux_Scripts/Portal_:36 PlayOnLinux_Scripts/Portal_:38
-#: python/guiv3.py:157
-#, sh-format
-msgid "Yes"
-msgstr "はい"
-
-#: PlayOnLinux_Scripts/GOG.com___Stronghold_HD_:60
-#, sh-format
-msgid ""
-"To install a language pack later, open the configuration panel for the game "
-"in order to execute the installer into the virtual disk (Misc tab)"
-msgstr ""
-
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_:58
 #, sh-format
 msgid ""
@@ -1580,7 +1546,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Two_Worlds__Epic_Edition_:104
 #, sh-format
 msgid "Control Panel"
-msgstr ""
+msgstr "コントロールパネル"
 
 #: PlayOnLinux_Scripts/GOG.com___Ultima_8_Gold_Edition_:45
 #, sh-format
@@ -1618,14 +1584,14 @@ msgstr ""
 #: PlayOnLinux_Scripts/Gothic_3_:110
 #, sh-format
 msgid "$TITLE is installed"
-msgstr ""
+msgstr "$TITLE のインストール完了"
 
 #: PlayOnLinux_Scripts/Guild_Wars_:53
 #: PlayOnLinux_Scripts/Halo_Combat_Evolved_:37
 #: PlayOnLinux_Scripts/Heroes_of_Might_and_Magic_V_:42
 #, sh-format
 msgid "Please insert the DVD-ROM"
-msgstr ""
+msgstr "DVD-ROMを挿入してください"
 
 #: PlayOnLinux_Scripts/Guild_Wars_2_:86
 #, sh-format
@@ -1646,6 +1612,15 @@ msgstr ""
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:36
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:36
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:50
+#: PlayOnLinux_Scripts/Portal_:36 python/guiv3.py:156
+#, sh-format
+msgid "No"
+msgstr "いいえ"
+
+#: PlayOnLinux_Scripts/Half_Life_2_:56
+#: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:36
+#: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:36
+#: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:50
 #: PlayOnLinux_Scripts/Portal_:36
 #, sh-format
 msgid ""
@@ -1653,10 +1628,23 @@ msgid ""
 "in the same virtual drive?"
 msgstr ""
 
+#: PlayOnLinux_Scripts/Half_Life_2_:56 PlayOnLinux_Scripts/Half_Life_2_:58
+#: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:36
+#: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:38
+#: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:36
+#: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:38
+#: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:50
+#: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:52
+#: PlayOnLinux_Scripts/Portal_:36 PlayOnLinux_Scripts/Portal_:38
+#: python/guiv3.py:157
+#, sh-format
+msgid "Yes"
+msgstr "はい"
+
 #: PlayOnLinux_Scripts/Halo_Combat_Evolved_:74
 #, sh-format
 msgid "Updating $TITLE"
-msgstr ""
+msgstr "$TITLE をアップデート中"
 
 #: PlayOnLinux_Scripts/Hanahira_______________________:54
 #: PlayOnLinux_Scripts/Sono_Hanabira_ni_Kuchizuke_wo_01___Sono_Hanabira_ni_Kuchizuke_wo_:47
@@ -1886,11 +1874,13 @@ msgid ""
 "If the download update stuck close and run until the download is complete."
 msgstr ""
 
+#: PlayOnLinux_Scripts/Orcs_Must_Die__:40
 #: PlayOnLinux_Scripts/Orcs_Must_Die__2_:43
 #, sh-format
 msgid "Demo version"
-msgstr ""
+msgstr "デモ版"
 
+#: PlayOnLinux_Scripts/Orcs_Must_Die__:40
 #: PlayOnLinux_Scripts/Orcs_Must_Die__2_:43
 #, sh-format
 msgid "Please select version."
@@ -1912,7 +1902,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_GoG_download_:102
 #, sh-format
 msgid "Download failed"
-msgstr ""
+msgstr "ダウンロード失敗"
 
 #: PlayOnLinux_Scripts/POL_Download_retry_:30
 #: PlayOnLinux_Scripts/POL_GoG_download_:104
@@ -1983,7 +1973,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_AdobeAir_:6
 #, sh-format
 msgid "Installing Adobe Air"
-msgstr ""
+msgstr "Adobe Airをインストール中。"
 
 #: PlayOnLinux_Scripts/POL_Install_CentralizedUserDirs_:13
 #, sh-format
@@ -2000,17 +1990,17 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_d3dx9_43_:11
 #, sh-format
 msgid "Installing DirectX 9 dlls..."
-msgstr ""
+msgstr "DirectX9のdllをインストール中。"
 
 #: PlayOnLinux_Scripts/POL_Install_d3dx10_:11
 #, sh-format
 msgid "Installing DirectX 10 dlls..."
-msgstr ""
+msgstr "DirectX10のdllをインストール中。"
 
 #: PlayOnLinux_Scripts/POL_Install_d3dx11_:11
 #, sh-format
 msgid "Installing DirectX 11 dlls..."
-msgstr ""
+msgstr "DirectX11のdllをインストール中。"
 
 #: PlayOnLinux_Scripts/POL_Install_desura_:16
 #, sh-format
@@ -2020,7 +2010,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_directmusic_:11
 #, sh-format
 msgid "Installing DirectMusic"
-msgstr ""
+msgstr "DirectMusicをインストール中"
 
 #: PlayOnLinux_Scripts/POL_Install_dotnet11_:11
 #: PlayOnLinux_Scripts/POL_Install_dotnet11sp1_:10
@@ -2058,7 +2048,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_dotnet30_:15
 #, sh-format
 msgid "Open $URL now?"
-msgstr ""
+msgstr "$URL を開きますか?"
 
 #: PlayOnLinux_Scripts/POL_Install_dotnet30_:49
 #, sh-format
@@ -2096,12 +2086,12 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_dxfullsetup_:12
 #, sh-format
 msgid "Installing DirectX runtime"
-msgstr ""
+msgstr "DirectXランタイムをインストールしています。"
 
 #: PlayOnLinux_Scripts/POL_Install_gecko_:101
 #, sh-format
 msgid "Downloading gecko ..."
-msgstr ""
+msgstr "geckoをダウンロード中。"
 
 #: PlayOnLinux_Scripts/POL_Install_gfwl86_:3
 #, sh-format
@@ -2154,7 +2144,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_vbrun6_:12
 #, sh-format
 msgid "Installing Visual Basic runtime"
-msgstr ""
+msgstr "Visual Basicランタイムをインストール中"
 
 #: PlayOnLinux_Scripts/POL_Install_vcrun2005_:37
 #, sh-format
@@ -2191,7 +2181,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_wineasio_:38
 #, sh-format
 msgid "Downloading..."
-msgstr ""
+msgstr "ダウンロード中。"
 
 #: PlayOnLinux_Scripts/POL_Install_wintrust_:11
 #, sh-format
@@ -2211,7 +2201,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_xmllite_:14
 #, sh-format
 msgid "Installing XMLlite..."
-msgstr ""
+msgstr "XMLliteをインストール中。"
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:1
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:20
@@ -2220,7 +2210,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:82 bash/first_use:32
 #, sh-format
 msgid "Microsoft fonts"
-msgstr ""
+msgstr "マイクロソフトのフォント"
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:1
 #, sh-format
@@ -2266,7 +2256,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:32
 #, sh-format
 msgid "Downloading fonts"
-msgstr ""
+msgstr "フォントをダウンロードしています。"
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:37
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:38
@@ -2274,12 +2264,12 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:45
 #, sh-format
 msgid "Downloading: "
-msgstr ""
+msgstr "ダウンロード中のソフト: "
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:52
 #, sh-format
 msgid "Installing fonts"
-msgstr ""
+msgstr "フォントのインストール中"
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:57
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:58
@@ -2287,12 +2277,12 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:66
 #, sh-format
 msgid "Installing: "
-msgstr ""
+msgstr "インストール中のソフト: "
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:72
 #, sh-format
 msgid "Cleaning"
-msgstr ""
+msgstr "消去中"
 
 #: PlayOnLinux_Scripts/POL_Internal_InstallFonts_:82
 #, sh-format
@@ -2426,7 +2416,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Pro_Evolution_Soccer_2013_:37
 #, sh-format
 msgid "$TITLE has been successfully installed"
-msgstr ""
+msgstr "$TITLE のインストールに成功"
 
 #: PlayOnLinux_Scripts/Q.U.B.E_:94 PlayOnLinux_Scripts/Star_Twine_:72
 #, sh-format
@@ -3005,7 +2995,7 @@ msgstr ""
 msgid "Please select the 32bit version of iTunes"
 msgstr ""
 
-#: PlayOnLinux_Scripts/osu_:45
+#: PlayOnLinux_Scripts/osu_:46
 #, sh-format
 msgid ""
 "Press next to start the updater. When the updater is finished, close it "
@@ -3075,12 +3065,12 @@ msgstr ""
 #: bash/manual_install:120 bash/manual_install:219
 #, sh-format
 msgid "Manual installation"
-msgstr ""
+msgstr "手動インストール"
 
 #: bash/bug_report:54 bash/run_exe:24
 #, sh-format
 msgid "Automatic installation"
-msgstr ""
+msgstr "自動インストール"
 
 #: bash/bug_report:65
 #, sh-format
@@ -3163,12 +3153,12 @@ msgstr ""
 #: bash/expert/Executer:38
 #, sh-format
 msgid "Error!"
-msgstr ""
+msgstr "エラー!"
 
 #: bash/expert/Executer:38
 #, sh-format
 msgid "File not found!"
-msgstr ""
+msgstr "ファイルが見つかりません。"
 
 #: bash/first_use:32
 #, sh-format
@@ -3234,7 +3224,7 @@ msgstr ""
 #: bash/first_use:80
 #, sh-format
 msgid "Downloading XQuartz"
-msgstr ""
+msgstr "XQuartzをダウンロード中"
 
 #: bash/first_use:85
 #, sh-format
@@ -3347,7 +3337,7 @@ msgstr ""
 #: bash/make_shortcut:35
 #, sh-format
 msgid "Creating shortcut..."
-msgstr ""
+msgstr "ショートカットを作成中。"
 
 #: bash/make_shortcut:37
 #, sh-format
@@ -3357,12 +3347,12 @@ msgstr ""
 #: bash/make_shortcut:57
 #, sh-format
 msgid "Copying virtual drive"
-msgstr ""
+msgstr "仮想ドライブをコピー中"
 
 #: bash/manual_install:52
 #, sh-format
 msgid "Autorun"
-msgstr ""
+msgstr "Autorun"
 
 #: bash/manual_install:52
 #, sh-format
@@ -3444,7 +3434,7 @@ msgstr ""
 #: bash/manual_install:281
 #, sh-format
 msgid "Select another file"
-msgstr ""
+msgstr "他のファイルを選択"
 
 #: bash/manual_install:289
 #, sh-format
@@ -3474,18 +3464,18 @@ msgstr ""
 #: bash/playonlinux-pkg:39
 #, sh-format
 msgid "Usage: "
-msgstr ""
+msgstr "使い方: "
 
 #: bash/playonlinux-pkg:40
 #, sh-format
 msgid "\tChoose a file"
-msgstr ""
+msgstr "\tファイルを選択"
 
 #: bash/playonlinux-pkg:40 bash/playonlinux-pkg:41 bash/playonlinux-pkg:42
 #: bash/playonlinux-pkg:43
 #, sh-format
 msgid " or "
-msgstr ""
+msgstr " もしくは "
 
 #: bash/playonlinux-pkg:41
 #, sh-format
@@ -3542,12 +3532,12 @@ msgstr ""
 #: bash/playonlinux-pkg:111 bash/playonlinux_online:38
 #, sh-format
 msgid "Running..."
-msgstr ""
+msgstr "実行中。"
 
 #: bash/playonlinux-pkg:115
 #, sh-format
 msgid "Cleaning..."
-msgstr ""
+msgstr "消去中。"
 
 #: bash/playonlinux_online:32
 #, sh-format
@@ -3617,7 +3607,7 @@ msgstr "開発"
 #: bash/playonlinux_online:69 python/install.py:212
 #, sh-format
 msgid "Education"
-msgstr ""
+msgstr "教育・教養"
 
 #: bash/playonlinux_online:69 python/install.py:213
 #, sh-format
@@ -3653,17 +3643,17 @@ msgstr "その他"
 #: bash/playonlinux_online:69 python/install.py:219
 #, sh-format
 msgid "Patches"
-msgstr ""
+msgstr "パッチ"
 
 #: bash/playonlinux_online:69
 #, sh-format
 msgid "Select a category for your program"
-msgstr ""
+msgstr "プログラムのカテゴリを選択"
 
 #: bash/playonlinux_online:69 python/install.py:258
 #, sh-format
 msgid "Testing"
-msgstr ""
+msgstr "テスト"
 
 #: bash/playonlinux_online:72
 #, sh-format
@@ -3695,7 +3685,7 @@ msgstr ""
 #: bash/playonlinux_online:109
 #, sh-format
 msgid "Logout"
-msgstr ""
+msgstr "ログアウト"
 
 #: bash/playonlinux_online:110
 #, sh-format
@@ -3712,22 +3702,22 @@ msgstr ""
 #: bash/polconfigurator:33
 #, sh-format
 msgid "Killing programs in the virtual drive..."
-msgstr ""
+msgstr "仮想ドライブのプログラムを終了しています。"
 
 #: bash/polconfigurator:79
 #, sh-format
 msgid "Icon selection"
-msgstr ""
+msgstr "アイコンの選択"
 
 #: bash/polconfigurator:79
 #, sh-format
 msgid "Please select an icon file"
-msgstr ""
+msgstr "アイコンファイルを選択"
 
 #: bash/polconfigurator:86
 #, sh-format
 msgid "Bad file extension"
-msgstr ""
+msgstr "不正なファイル拡張子"
 
 #: bash/polconfigurator:86
 #, sh-format
@@ -3748,7 +3738,7 @@ msgstr ""
 #: bash/polconfigurator:98
 #, sh-format
 msgid "Update wineprefix"
-msgstr ""
+msgstr "wineprefixを更新"
 
 #: bash/polconfigurator:99
 #, sh-format
@@ -3773,7 +3763,7 @@ msgstr ""
 #: bash/polconfigurator:104
 #, sh-format
 msgid "Use WineTricks"
-msgstr ""
+msgstr "WineTricksを使用"
 
 #: bash/polconfigurator:123
 #, sh-format
@@ -3796,12 +3786,12 @@ msgstr ""
 #: bash/read_pc_cd:34
 #, sh-format
 msgid "Eject a PC CD-ROM"
-msgstr ""
+msgstr "PC CD-ROMを取り出す"
 
 #: bash/read_pc_cd:34
 #, sh-format
 msgid "Read a PC CD-ROM"
-msgstr ""
+msgstr "PC CD-ROMを読み込む"
 
 #: bash/read_pc_cd:34
 #, sh-format
@@ -3818,17 +3808,17 @@ msgstr ""
 #: bash/read_pc_cd:51
 #, sh-format
 msgid "Please choose a CD-ROM"
-msgstr ""
+msgstr "CD-ROMを選択"
 
 #: bash/read_pc_cd:97
 #, sh-format
 msgid "Please choose a CD-ROM to eject"
-msgstr ""
+msgstr "取り出すCD-ROMを選択"
 
 #: bash/run_app:83
 #, sh-format
 msgid "Please choose a software to run"
-msgstr ""
+msgstr "実行するソフトウェアを選択"
 
 #: bash/run_app:114
 #, sh-format
@@ -3843,7 +3833,7 @@ msgstr ""
 #: bash/run_app:119
 #, sh-format
 msgid "$PACKAGE crashed."
-msgstr ""
+msgstr "$PACKAGE がクラッシュしました。"
 
 #: bash/run_exe:31
 #, sh-format
@@ -3919,7 +3909,7 @@ msgstr ""
 #: bash/uninstall:65 lib/playonlinux.lib:717
 #, sh-format
 msgid "Uninstalling..."
-msgstr ""
+msgstr "アンインストール中。"
 
 #: bash/uninstall:68
 #, sh-format
@@ -3929,7 +3919,7 @@ msgstr ""
 #: bash/uninstall:75
 #, sh-format
 msgid "Cannot find the shortcut"
-msgstr ""
+msgstr "ショートカットが見つかりません"
 
 #: bash/update_git:25
 #, sh-format
@@ -3949,7 +3939,7 @@ msgstr ""
 #: bash/update_git:37
 #, sh-format
 msgid "Already up-to-date."
-msgstr ""
+msgstr "最新の状態。"
 
 #: lib/debug.lib:126
 #, sh-format
@@ -4031,7 +4021,7 @@ msgstr ""
 #: lib/playonlinux.lib:591
 #, sh-format
 msgid "Making shortcut..."
-msgstr ""
+msgstr "ショートカットを作成中。"
 
 #: lib/playonlinux.lib:715
 #, sh-format
@@ -4148,7 +4138,7 @@ msgstr ""
 #: lib/scripts.lib:746
 #, sh-format
 msgid "Copying ${filename}"
-msgstr ""
+msgstr "${filename}をコピー中"
 
 #: lib/scripts.lib:759
 #, sh-format
@@ -4182,12 +4172,12 @@ msgstr ""
 #: lib/setupwindow.lib:96
 #, sh-format
 msgid " will be installed in: "
-msgstr ""
+msgstr " 以下にインストールされています: "
 
 #: lib/setupwindow.lib:96
 #, sh-format
 msgid "Click Next to start"
-msgstr ""
+msgstr "次へを押して開始"
 
 #: lib/setupwindow.lib:96
 #, sh-format
@@ -4222,7 +4212,7 @@ msgstr ""
 #: python/mainwindow.py:1200 python/mainwindow.py:1212 python/wrapper.py:121
 #, sh-format
 msgid "Error"
-msgstr ""
+msgstr "エラー"
 
 #: lib/setupwindow.lib:348
 #, sh-format
@@ -4290,12 +4280,12 @@ msgstr ""
 #: lib/setupwindow.lib:597
 #, sh-format
 msgid "Use Steam Store version"
-msgstr ""
+msgstr "Steamストアのバージョンを使用"
 
 #: lib/setupwindow.lib:598
 #, sh-format
 msgid "Use Steam Store demo version"
-msgstr ""
+msgstr "Steamストアのデモバージョンを使用"
 
 #: lib/setupwindow.lib:599
 #, sh-format
@@ -4325,17 +4315,17 @@ msgstr ""
 #: lib/setupwindow.lib:605
 #, sh-format
 msgid "Use CD-ROM(s)"
-msgstr ""
+msgstr "CD-ROMを使用"
 
 #: lib/setupwindow.lib:606
 #, sh-format
 msgid "Use DVD-ROM(s)"
-msgstr ""
+msgstr "DVD-ROMを使用"
 
 #: lib/setupwindow.lib:607
 #, sh-format
 msgid "Download the program"
-msgstr ""
+msgstr "プログラムをダウンロード"
 
 #: lib/setupwindow.lib:672
 #, sh-format
@@ -4360,7 +4350,7 @@ msgstr ""
 #: lib/website.lib:127
 #, sh-format
 msgid "Connecting..."
-msgstr ""
+msgstr "接続中。"
 
 #: lib/website.lib:132
 #, sh-format
@@ -4389,7 +4379,7 @@ msgstr ""
 #: lib/wine.lib:763
 #, sh-format
 msgid "Unable to find version: "
-msgstr ""
+msgstr "バージョンが見つかりません: "
 
 #: lib/wine.lib:769 lib/wine.lib:770
 #, sh-format
@@ -4404,7 +4394,7 @@ msgstr ""
 #: lib/wine.lib:781
 #, sh-format
 msgid "Extracting Wine..."
-msgstr ""
+msgstr "Wineを出力中"
 
 #: lib/wine.lib:961
 #, sh-format
@@ -4436,7 +4426,7 @@ msgstr ""
 #: lib/wine.lib:1160 lib/wine.lib:1189
 #, sh-format
 msgid "Install is done"
-msgstr ""
+msgstr "インストール完了"
 
 #: lib/wine.lib:1193 lib/wine.lib:1194
 #, sh-format
@@ -4456,6 +4446,10 @@ msgid ""
 "To uninstall cleanly a program with {0}, you must delete the virtual drive "
 "associated"
 msgstr ""
+"警告:\n"
+"\n"
+"このツールは相応の知識のあるユーザ向けです。\n"
+"{0} とプログラムをアンインストールするには、登録した仮想ドライブを削除する必要があります。"
 
 #: python/configure.py:197 python/configure.py:694
 msgid "General"
@@ -4463,27 +4457,27 @@ msgstr "標準"
 
 #: python/configure.py:200
 msgid "Make a new shortcut from this virtual drive"
-msgstr ""
+msgstr "この仮想ドライブからショートカットを新規作成"
 
 #: python/configure.py:201
 msgid "Name"
-msgstr ""
+msgstr "名称"
 
 #: python/configure.py:202
 msgid "Wine version"
-msgstr ""
+msgstr "Wineのバージョン"
 
 #: python/configure.py:203
 msgid "Debug flags"
-msgstr ""
+msgstr "デバッグフラグ"
 
 #: python/configure.py:205
 msgid "Virtual drive"
-msgstr ""
+msgstr "仮想ドライブ"
 
 #: python/configure.py:207
 msgid "Arguments"
-msgstr ""
+msgstr "引数"
 
 #: python/configure.py:211
 msgid "Run configuration wizard"
@@ -4495,28 +4489,28 @@ msgstr ""
 
 #: python/configure.py:256
 msgid "Repair virtual drive"
-msgstr ""
+msgstr "仮想ドライブを修復"
 
 #: python/configure.py:265
 msgid "Command prompt"
-msgstr ""
+msgstr "コマンドプロンプト"
 
 #: python/configure.py:272
 msgid "Task manager"
-msgstr ""
+msgstr "タスクマネージャ"
 
 #: python/configure.py:280
 msgid "Kill processes"
-msgstr ""
+msgstr "プロセスを終了"
 
 #: python/configure.py:287
 msgid "Wine uninstaller"
-msgstr ""
+msgstr "Wine アンインストーラ"
 
 #: python/configure.py:312
 msgid ""
 "Be careful! Installing one of these components can break your virtual drive."
-msgstr ""
+msgstr "注意:これらのコンポ-ネットをインストールすると仮想ドライブが壊れる可能性があります。"
 
 #: python/configure.py:334 python/install.py:285 python/install.py:289
 #: python/mainwindow.py:197 python/mainwindow.py:350
@@ -4525,11 +4519,11 @@ msgstr "インストール"
 
 #: python/configure.py:395
 msgid "Open program's directory"
-msgstr ""
+msgstr "プログラムのディレクトリを開く"
 
 #: python/configure.py:418
 msgid "Open virtual drive's directory"
-msgstr ""
+msgstr "仮想ドライブのディレクトリを開く"
 
 #: python/configure.py:560
 msgid "GLSL Support"
@@ -4565,11 +4559,11 @@ msgstr ""
 
 #: python/configure.py:578
 msgid "Open a shell"
-msgstr ""
+msgstr "シェルを開く"
 
 #: python/configure.py:579
 msgid "Run a .exe file in this virtual drive"
-msgstr ""
+msgstr "この仮想ドライブでWindows実行ファイル(.exe)を実行"
 
 #: python/configure.py:580
 msgid "Command to exec before running the program"
@@ -4604,7 +4598,7 @@ msgstr ""
 
 #: python/configure.py:697 python/mainwindow.py:332
 msgid "Display"
-msgstr ""
+msgstr "表示"
 
 #: python/configure.py:698
 msgid "Miscellaneous"
@@ -4612,7 +4606,7 @@ msgstr ""
 
 #: python/configure.py:726
 msgid "This virtual drive is protected"
-msgstr ""
+msgstr "この仮想ドライブは保護されています"
 
 #: python/configure.py:728
 msgid "Are you sure you want to delete {0} virtual drive ?"
@@ -4625,7 +4619,7 @@ msgstr ""
 #: python/debug.py:39 python/mainwindow.py:254 python/mainwindow.py:907
 #: python/mainwindow.py:997
 msgid "{0} debugger"
-msgstr ""
+msgstr "{0}のデバッガ"
 
 #: python/debug.py:50
 msgid "Please select a debug file"
@@ -4674,7 +4668,7 @@ msgstr "次へ"
 
 #: python/guiv3.py:166
 msgid "I Agree"
-msgstr ""
+msgstr "同意します"
 
 #: python/guiv3.py:167
 msgid "Show virtual drives"
@@ -4682,11 +4676,11 @@ msgstr ""
 
 #: python/guiv3.py:188
 msgid "Login: "
-msgstr ""
+msgstr "ログイン: "
 
 #: python/guiv3.py:189
 msgid "Password: "
-msgstr ""
+msgstr "パスワード: "
 
 #: python/guiv3.py:192
 msgid "Register"
@@ -4706,11 +4700,11 @@ msgstr ""
 
 #: python/install.py:114 python/install.py:116
 msgid "No description"
-msgstr ""
+msgstr "説明なし"
 
 #: python/install.py:249 python/mainwindow.py:366 python/mainwindow.py:369
 msgid "Search"
-msgstr ""
+msgstr "検索"
 
 #: python/install.py:252
 msgid "Include:"
@@ -4722,7 +4716,7 @@ msgstr ""
 
 #: python/install.py:270
 msgid "Commercial"
-msgstr ""
+msgstr "商用"
 
 #: python/install.py:304
 msgid "Install a non-listed program"
@@ -4769,27 +4763,27 @@ msgstr ""
 
 #: python/irc.py:137
 msgid "Send"
-msgstr ""
+msgstr "送信"
 
 #: python/irc.py:138
 msgid "Connect"
-msgstr ""
+msgstr "接続"
 
 #: python/irc.py:139
 msgid "Disconnect"
-msgstr ""
+msgstr "切断"
 
 #: python/irc.py:140
 msgid "Leave"
-msgstr ""
+msgstr "退出"
 
 #: python/irc.py:227
 msgid "Join a channel"
-msgstr ""
+msgstr "チャンネルに参加"
 
 #: python/irc.py:257 python/mainwindow.py:725
 msgid "Messenger"
-msgstr ""
+msgstr "メッセンジャー"
 
 #: python/irc.py:273
 msgid ""
@@ -4822,7 +4816,7 @@ msgstr ""
 
 #: python/mainwindow.py:75
 msgid "Refreshing {0}"
-msgstr ""
+msgstr "{0 }をリフレッシュ中"
 
 #: python/mainwindow.py:90 python/mainwindow.py:92
 msgid "An updated version of {0} is available"
@@ -4834,7 +4828,7 @@ msgstr "実行"
 
 #: python/mainwindow.py:200
 msgid "Donate"
-msgstr ""
+msgstr "寄付"
 
 #: python/mainwindow.py:201
 msgid "Exit"
@@ -4842,23 +4836,23 @@ msgstr "終了"
 
 #: python/mainwindow.py:205
 msgid "Small icons"
-msgstr ""
+msgstr "小アイコン"
 
 #: python/mainwindow.py:206
 msgid "Medium icons"
-msgstr ""
+msgstr "中アイコン"
 
 #: python/mainwindow.py:207
 msgid "Large icons"
-msgstr ""
+msgstr "大アイコン"
 
 #: python/mainwindow.py:208
 msgid "Very large icons"
-msgstr ""
+msgstr "特大アイコン"
 
 #: python/mainwindow.py:220
 msgid "Manage Wine versions"
-msgstr ""
+msgstr "Wineのバージョンを管理"
 
 #: python/mainwindow.py:226
 msgid "Read a PC CD-Rom"
@@ -4866,27 +4860,27 @@ msgstr ""
 
 #: python/mainwindow.py:236
 msgid "Close all {0} software"
-msgstr ""
+msgstr "{0}のソフトウェアをすべて閉じる"
 
 #: python/mainwindow.py:240
 msgid "{0} console"
-msgstr ""
+msgstr "{0}の端末"
 
 #: python/mainwindow.py:250
 msgid "{0} messenger"
-msgstr ""
+msgstr "{0}のメッセンジャー"
 
 #: python/mainwindow.py:266 python/options.py:388
 msgid "File associations"
-msgstr ""
+msgstr "ファイル関連付け"
 
 #: python/mainwindow.py:273
 msgid "About {0}"
-msgstr ""
+msgstr "{0} について"
 
 #: python/mainwindow.py:302 python/mainwindow.py:306
 msgid "Plugin manager"
-msgstr ""
+msgstr "プラグイン管理"
 
 #: python/mainwindow.py:331
 msgid "File"
@@ -4906,7 +4900,7 @@ msgstr "プラグイン"
 
 #: python/mainwindow.py:347 python/mainwindow.py:739
 msgid "Close"
-msgstr ""
+msgstr "閉じる"
 
 #: python/mainwindow.py:353 python/mainwindow.py:745 python/options.py:208
 msgid "Configure"
@@ -4926,7 +4920,7 @@ msgstr ""
 
 #: python/mainwindow.py:600
 msgid "Close this application"
-msgstr ""
+msgstr "アプリケーションを閉じる"
 
 #: python/mainwindow.py:611
 msgid "KillApp"
@@ -4942,7 +4936,7 @@ msgstr ""
 
 #: python/mainwindow.py:728
 msgid "Update GIT"
-msgstr ""
+msgstr "GITをアップデート"
 
 #: python/mainwindow.py:731
 msgid "Update instructions"
@@ -4950,44 +4944,44 @@ msgstr ""
 
 #: python/mainwindow.py:741
 msgid "Debug"
-msgstr ""
+msgstr "デバッグ"
 
 #: python/mainwindow.py:743
 msgid "Report a problem"
-msgstr ""
+msgstr "問題の報告"
 
 #: python/mainwindow.py:747
 msgid "Create a shortcut"
-msgstr ""
+msgstr "ショートカットの作成"
 
 #: python/mainwindow.py:749
 msgid "Open the directory"
-msgstr ""
+msgstr "ディレクトリを開く"
 
 #: python/mainwindow.py:755
 msgid "Save"
-msgstr ""
+msgstr "保存"
 
 #: python/mainwindow.py:758
 msgid "Uninstall"
-msgstr ""
+msgstr "アンインストール"
 
 #: python/mainwindow.py:880 python/mainwindow.py:951 python/mainwindow.py:958
 #: python/mainwindow.py:1003
 msgid "Please select a program."
-msgstr ""
+msgstr "プログラムを選択。"
 
 #: python/mainwindow.py:888 python/mainwindow.py:890 python/mainwindow.py:892
 msgid "{0} settings"
-msgstr ""
+msgstr "{0} の設定"
 
 #: python/mainwindow.py:965
 msgid "{0} install menu"
-msgstr ""
+msgstr "{0}のインストールの間"
 
 #: python/mainwindow.py:974
 msgid "{0} wine versions manager"
-msgstr ""
+msgstr "{0}のwineバージョン管理"
 
 #: python/mainwindow.py:1005
 msgid "The virtual drive associated with {0} ({1}) does no longer exists."
@@ -5021,7 +5015,7 @@ msgstr ""
 
 #: python/mainwindow.py:1093
 msgid "Icons:"
-msgstr ""
+msgstr "アイコン:"
 
 #: python/mainwindow.py:1094
 msgid "The following people contributed to this program: "
@@ -5029,7 +5023,7 @@ msgstr ""
 
 #: python/mainwindow.py:1095
 msgid "Translations:"
-msgstr ""
+msgstr "翻訳:"
 
 #: python/mainwindow.py:1096
 msgid "Read TRANSLATORS file"
@@ -5041,15 +5035,15 @@ msgstr ""
 
 #: python/mainwindow.py:1156
 msgid "{0} cannot find {1}"
-msgstr ""
+msgstr "{0}は{1}を発見できません"
 
 #: python/mainwindow.py:1158
 msgid " (from {2})"
-msgstr ""
+msgstr " ({2}より)"
 
 #: python/mainwindow.py:1161
 msgid "You need to install it to continue"
-msgstr ""
+msgstr "続行するにはインストールが必要"
 
 #: python/mainwindow.py:1163
 msgid "You should install it to use {0}"
@@ -5057,7 +5051,7 @@ msgstr ""
 
 #: python/mainwindow.py:1179
 msgid "{0} is not supposed to be run as root. Sorry"
-msgstr ""
+msgstr "残念ながら、{0}はrootとして実行されていません。"
 
 #: python/mainwindow.py:1188
 msgid ""
@@ -5065,6 +5059,9 @@ msgid ""
 "\n"
 "You might encounter problem with your games"
 msgstr ""
+"{0}は32bitのOpenGLライブラリを発見できませんでした。\n"
+"\n"
+"問題が発生します。"
 
 #: python/mainwindow.py:1200
 msgid ""
@@ -5072,6 +5069,9 @@ msgid ""
 "\n"
 "You might encounter problem with your games"
 msgstr ""
+"{0}は64bitのOpenGLライブラリを発見できませんでした。\n"
+"\n"
+"問題が発生します。"
 
 #: python/mainwindow.py:1212
 msgid ""
@@ -5118,15 +5118,15 @@ msgstr "プロキシサーバーアドレス"
 
 #: python/options.py:135
 msgid "Proxy port"
-msgstr ""
+msgstr "プロキシのポート"
 
 #: python/options.py:138
 msgid "Proxy login"
-msgstr ""
+msgstr "プロキシを使用してログイン"
 
 #: python/options.py:141
 msgid "Proxy password"
-msgstr ""
+msgstr "プロキシのパスワード"
 
 #: python/options.py:188
 msgid "Installed plugins"
@@ -5134,7 +5134,7 @@ msgstr "インストール済 プラグイン"
 
 #: python/options.py:206
 msgid "Add"
-msgstr ""
+msgstr "追加"
 
 #: python/options.py:209 python/options.py:337
 msgid "Enable"
@@ -5146,23 +5146,23 @@ msgstr "プラグインを選択してください。"
 
 #: python/options.py:263
 msgid "What is the extension?"
-msgstr ""
+msgstr "拡張機能とは?"
 
 #: python/options.py:275
 msgid "Assigned program"
-msgstr ""
+msgstr "登録済みのプログラム"
 
 #: python/options.py:277
 msgid "Delete"
-msgstr ""
+msgstr "削除"
 
 #: python/options.py:305
 msgid "Are you sure you want to install: "
-msgstr ""
+msgstr "以下のものをインストールしようとしています: "
 
 #: python/options.py:313
 msgid "Are you sure you want to delete: "
-msgstr ""
+msgstr "以下のものを削除しようとしています: "
 
 #: python/options.py:334
 msgid "Disable"
@@ -5170,27 +5170,27 @@ msgstr "無効"
 
 #: python/options.py:375
 msgid "Apply"
-msgstr ""
+msgstr "適用"
 
 #: python/options.py:412
 msgid "You must restart {0} for the changes to take effect."
-msgstr ""
+msgstr "{0} を再起動するまで、変更は反映されません。"
 
 #: python/wine_versions.py:194
 msgid "Installed Wine versions: "
-msgstr ""
+msgstr "インストールされているWineのバージョン: "
 
 #: python/wine_versions.py:195
 msgid "Available Wine versions: "
-msgstr ""
+msgstr "現存のWineのバージョン: "
 
 #: python/wine_versions.py:202
 msgid "Wine versions"
-msgstr ""
+msgstr "Wine バージョン"
 
 #: python/wine_versions.py:321
 msgid "Are you sure you want to delete wine {0}?"
-msgstr ""
+msgstr "wine {0}を削除しますか?"
 
 #: python/wrapper.py:121
 msgid "{0} is not able to start POL_SetupWindow_server."
