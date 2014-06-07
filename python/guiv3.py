@@ -153,8 +153,13 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.InfoScript.Bind(wx.EVT_LEFT_DOWN, self.InfoClick)
         self.InfoScript.SetCursor(wx.StockCursor(wx.CURSOR_HAND))
 
-        self.NoButton = wx.Button(self.footer, wx.ID_NO, _("No"), pos=(430,0),size=(85,37))
-        self.YesButton = wx.Button(self.footer, wx.ID_YES, _("Yes"), pos=(340,0), size=(85,37))
+        if(os.environ["POL_OS"] == "Linux"):
+            self.NoButton = wx.Button(self.footer, wx.ID_NO, _("No"), pos=(430,0),size=(85,37))
+            self.YesButton = wx.Button(self.footer, wx.ID_YES, _("Yes"), pos=(340,0), size=(85,37))
+        else:
+            self.NoButton = wx.Button(self.footer, wx.ID_NO, _("No"), pos=(420,-3),size=(85,37))
+            self.YesButton = wx.Button(self.footer, wx.ID_YES, _("Yes"), pos=(330,-3), size=(85,37))           
+        
         self.browse = wx.Button(self.panel, 103, _("Browse"), size=(130,40))
         self.browse_text = wx.StaticText(self.panel, -1, "")
         self.browse_image = wx.StaticBitmap(self.panel, -1, wx.Bitmap(os.environ['PLAYONLINUX']+"/etc/playonlinux.png"))
