@@ -12,9 +12,10 @@
 * Fix "Open a shell" to enable the wine version of the prefix
 * New attempt at fixing download gauge overflow (#2123)
 * Do not totally silence gpg import errors
-* Allow POL_SetupWindow_textbox to accept an extra max length parameter 
+* Allow POL_SetupWindow_textbox to accept an extra max length parameter
 * Limit bug reports title to 80 characters
 * virtual drive removal: use os.lstat() instead of os.stat() to check for broken rights (reported by Xenos5)
+* change of Wine version used in a virtual drive: kill running wineserver after asking for permission
 
 # 4.2.2
 

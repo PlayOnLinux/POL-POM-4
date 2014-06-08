@@ -577,11 +577,21 @@ class Onglets(wx.Notebook):
         self.AddPage(self.panelMisc, nom)
 
     def assign(self, event):
+        old_version = playonlinux.GetSettings('VERSION',self.s_prefix)
+        if old_version == '':
+            old_version = 'System'
         version = self.general_elements["wineversion"].GetValue()
-        if(version != 'System'):
-            playonlinux.SetSettings('VERSION',version,self.s_prefix)
-        else:
-            playonlinux.DeleteSettings('VERSION',self.s_prefix)
+        if version != old_version:
+            if (wx.YES == wx.MessageBox(_("Warning:\n\nAny program still running in this virtual drive will be terminated before Wine version is changed.\nAre you sure you want to continue?"), os.environ["APPLICATION_TITLE"], style = wx.YES_NO | wx.ICON_QUESTION)):
+                self.evt_killall(event)
+                if version != 'System':
+                    playonlinux.SetSettings('VERSION',version,self.s_prefix)
+                else:
+                    playonlinux.DeleteSettings('VERSION',self.s_prefix)
+            else:
+                version = old_version
+                self.general_elements["wineversion"].SetValue(old_version)
+
     def assignPrefix(self, event):
         if(wx.YES == wx.MessageBox(_("Be careful!\nIf you change "+self.s_title+"'s virtual drive, you are likekely to break it.\nDo this only if you know what you are doing.\n\nAre you sure you want to continue?"),os.environ["APPLICATION_TITLE"] ,style=wx.YES_NO | wx.ICON_QUESTION)):
             drive = self.general_elements["wineprefix"].GetValue()
