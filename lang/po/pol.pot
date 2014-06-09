@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX/APLU <pol-gettext@mulx.net>\n"
-"POT-Creation-Date: 2014-06-08 19:00:56+02:00\n"
+"POT-Creation-Date: 2014-06-09 19:00:58+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4531,7 +4531,7 @@ msgid ""
 "associated"
 msgstr ""
 
-#: python/configure.py:196 python/configure.py:689
+#: python/configure.py:196 python/configure.py:699
 msgid "General"
 msgstr ""
 
@@ -4649,50 +4649,59 @@ msgstr ""
 msgid "Command to exec before running the program"
 msgstr ""
 
-#: python/configure.py:586
+#: python/configure.py:585
+msgid ""
+"Warning:\n"
+"\n"
+"Any program still running in this virtual drive will be terminated before "
+"Wine version is changed.\n"
+"Are you sure you want to continue?"
+msgstr ""
+
+#: python/configure.py:596
 msgid ""
 "Be careful!\n"
 "If you change "
 msgstr ""
 
-#: python/configure.py:646 python/mainwindow.py:932 python/mainwindow.py:934
+#: python/configure.py:656 python/mainwindow.py:932 python/mainwindow.py:934
 msgid "{0} configuration"
 msgstr ""
 
-#: python/configure.py:654
+#: python/configure.py:664
 msgid "Please select a program or a virtual drive to configure"
 msgstr ""
 
-#: python/configure.py:672 python/options.py:280
+#: python/configure.py:682 python/options.py:280
 msgid "New"
 msgstr ""
 
-#: python/configure.py:673 python/mainwindow.py:198 python/mainwindow.py:351
+#: python/configure.py:683 python/mainwindow.py:198 python/mainwindow.py:351
 #: python/mainwindow.py:596 python/options.py:207
 msgid "Remove"
 msgstr ""
 
-#: python/configure.py:691
+#: python/configure.py:701
 msgid "Install components"
 msgstr ""
 
-#: python/configure.py:692 python/mainwindow.py:332
+#: python/configure.py:702 python/mainwindow.py:332
 msgid "Display"
 msgstr ""
 
-#: python/configure.py:693
+#: python/configure.py:703
 msgid "Miscellaneous"
 msgstr ""
 
-#: python/configure.py:721
+#: python/configure.py:731
 msgid "This virtual drive is protected"
 msgstr ""
 
-#: python/configure.py:723
+#: python/configure.py:733
 msgid "Are you sure you want to delete {0} virtual drive ?"
 msgstr ""
 
-#: python/configure.py:730
+#: python/configure.py:740
 msgid "Are you sure you want to delete {0} ?"
 msgstr ""
 
