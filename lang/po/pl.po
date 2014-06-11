@@ -10,14 +10,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2014-06-03 22:27+0200\n"
+"POT-Creation-Date: 2014-06-09 19:00+0200\n"
 "PO-Revision-Date: 2014-04-23 13:35+0000\n"
 "Last-Translator: Adam Maćkowiak <Unknown>\n"
 "Language-Team: pl_PL.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-06-04 05:36+0000\n"
+"X-Launchpad-Export-Date: 2014-06-10 05:32+0000\n"
 "X-Generator: Launchpad (build 17031)\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -1623,7 +1623,7 @@ msgstr ""
 msgid "Dedicated server"
 msgstr "Serwer dedykowany"
 
-#: PlayOnLinux_Scripts/GOG.com___Pirates_Pack_:83
+#: PlayOnLinux_Scripts/GOG.com___Pirates_Pack_:97
 #: PlayOnLinux_Scripts/GOG.com___Ultima_Worlds_of_Adventure_2__Martian_Dreams_:53
 #: PlayOnLinux_Scripts/GOG.com___Worlds_of_Ultima__The_Savage_Empire_:52
 #, sh-format
@@ -1778,7 +1778,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:36
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:36
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:50
-#: PlayOnLinux_Scripts/Portal_:36 python/guiv3.py:156
+#: PlayOnLinux_Scripts/Portal_:36 python/guiv3.py:157 python/guiv3.py:160
 #, sh-format
 msgid "No"
 msgstr "Nie"
@@ -1804,7 +1804,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:50
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:52
 #: PlayOnLinux_Scripts/Portal_:36 PlayOnLinux_Scripts/Portal_:38
-#: python/guiv3.py:157
+#: python/guiv3.py:158 python/guiv3.py:161
 #, sh-format
 msgid "Yes"
 msgstr "Tak"
@@ -4704,7 +4704,7 @@ msgstr ""
 "Brakuje jednego lub więcej programów. Proszę zainstalować je i uruchomić ten "
 "skrypt ponownie."
 
-#: lib/setupwindow.lib:122 python/guiv3.py:764 python/lib/irc.py:292
+#: lib/setupwindow.lib:122 python/guiv3.py:769 python/lib/irc.py:292
 #: python/mainwindow.py:1137 python/mainwindow.py:1167
 #: python/mainwindow.py:1181 python/mainwindow.py:1190
 #: python/mainwindow.py:1202 python/mainwindow.py:1214 python/wrapper.py:121
@@ -4844,7 +4844,7 @@ msgstr "Wybierz metodę instalacji"
 msgid "I don't want to make another shortcut"
 msgstr "Nie chcę tworzyć kolejnego skrótu"
 
-#: lib/setupwindow.lib:711 python/guiv3.py:158
+#: lib/setupwindow.lib:711 python/guiv3.py:163
 #, sh-format
 msgid "Browse"
 msgstr "Przeglądaj"
@@ -4968,7 +4968,7 @@ msgstr ""
 "Aby odinstalować całkowicie program za pomocą {0}, należy usunąć wirtualny "
 "dysk twardy"
 
-#: python/configure.py:196 python/configure.py:689
+#: python/configure.py:196 python/configure.py:699
 msgid "General"
 msgstr "Ogólne"
 
@@ -5088,7 +5088,16 @@ msgstr "Uruchom plik .exe na tym wirtualnym dysku twardym"
 msgid "Command to exec before running the program"
 msgstr "Komenda do wykonania przed uruchomieniem programu"
 
-#: python/configure.py:586
+#: python/configure.py:585
+msgid ""
+"Warning:\n"
+"\n"
+"Any program still running in this virtual drive will be terminated before "
+"Wine version is changed.\n"
+"Are you sure you want to continue?"
+msgstr ""
+
+#: python/configure.py:596
 msgid ""
 "Be careful!\n"
 "If you change "
@@ -5096,44 +5105,44 @@ msgstr ""
 "Uważaj!\n"
 "Po zmianie "
 
-#: python/configure.py:646 python/mainwindow.py:932 python/mainwindow.py:934
+#: python/configure.py:656 python/mainwindow.py:932 python/mainwindow.py:934
 msgid "{0} configuration"
 msgstr "{0} konfiguracja"
 
-#: python/configure.py:654
+#: python/configure.py:664
 msgid "Please select a program or a virtual drive to configure"
 msgstr "Wybierz program lub wirtualny dysk twardy do skonfigurowania"
 
-#: python/configure.py:672 python/options.py:280
+#: python/configure.py:682 python/options.py:280
 msgid "New"
 msgstr "Nowy"
 
-#: python/configure.py:673 python/mainwindow.py:198 python/mainwindow.py:351
+#: python/configure.py:683 python/mainwindow.py:198 python/mainwindow.py:351
 #: python/mainwindow.py:596 python/options.py:207
 msgid "Remove"
 msgstr "Usuń"
 
-#: python/configure.py:691
+#: python/configure.py:701
 msgid "Install components"
 msgstr "Zainstaluj komponenty"
 
-#: python/configure.py:692 python/mainwindow.py:332
+#: python/configure.py:702 python/mainwindow.py:332
 msgid "Display"
 msgstr "Wyświetlanie"
 
-#: python/configure.py:693
+#: python/configure.py:703
 msgid "Miscellaneous"
 msgstr "Różne"
 
-#: python/configure.py:721
+#: python/configure.py:731
 msgid "This virtual drive is protected"
 msgstr "Ten wirtualny dysk twardy jest chroniony"
 
-#: python/configure.py:723
+#: python/configure.py:733
 msgid "Are you sure you want to delete {0} virtual drive ?"
 msgstr "Czy na pewno chcesz usunąć {0} dysk wirtualny?"
 
-#: python/configure.py:730
+#: python/configure.py:740
 msgid "Are you sure you want to delete {0} ?"
 msgstr "Czy na pewno chcesz usunąć {0} ?"
 
@@ -5187,35 +5196,35 @@ msgstr "Anuluj"
 msgid "Next"
 msgstr "Dalej"
 
-#: python/guiv3.py:166
+#: python/guiv3.py:171
 msgid "I Agree"
 msgstr "Zgadzam się"
 
-#: python/guiv3.py:167
+#: python/guiv3.py:172
 msgid "Show virtual drives"
 msgstr "Pokaż wirtualne dyski"
 
-#: python/guiv3.py:188
+#: python/guiv3.py:193
 msgid "Login: "
 msgstr "Login: "
 
-#: python/guiv3.py:189
+#: python/guiv3.py:194
 msgid "Password: "
 msgstr "Hasło: "
 
-#: python/guiv3.py:192
+#: python/guiv3.py:197
 msgid "Register"
 msgstr "Zarejestruj"
 
-#: python/guiv3.py:297
+#: python/guiv3.py:302
 msgid "MB downloaded"
 msgstr "MB pobrano"
 
-#: python/guiv3.py:297
+#: python/guiv3.py:302
 msgid "of"
 msgstr "z"
 
-#: python/guiv3.py:764
+#: python/guiv3.py:769
 msgid "You cannot close this window"
 msgstr "Zamknięcie tego okna jest niemożliwe"
 
@@ -5762,35 +5771,3 @@ msgstr "Jesteś pewien ze chcesz usunąć Wine {0}?"
 #: python/wrapper.py:121
 msgid "{0} is not able to start POL_SetupWindow_server."
 msgstr "{0} nie jest w stanie uruchomić POL_SetupWindow_server."
-
-#, sh-format
-#~ msgid "This package fail to install with wine 1.5.21 or better"
-#~ msgstr "Instalacja pakietu nie powiedzie się na wine 1.5.21 lub nowszym"
-
-#, sh-format
-#~ msgid ""
-#~ "Attention: After installation is complete, the patcher will load. Please "
-#~ "close the patcher before logging in or finish updating to complete the "
-#~ "installation. After this, you can run \"$TITLE\" when setup is done"
-#~ msgstr ""
-#~ "Uwaga: Po zakończeniu instalacji, uruchomi się patcher. Proszę zamknąć "
-#~ "patcher przed zalogowaniem się lub zakończyć aktualizację, aby zakończyć "
-#~ "instalację. Po zakończeniu instalacji można uruchomić \"$TITLE\"."
-
-#, sh-format
-#~ msgid "Please locate installation program (Launcher.exe)"
-#~ msgstr "Podaj lokalizację programu instalacyjnego (Launcher.exe)"
-
-#, sh-format
-#~ msgid ""
-#~ "When the launcher opens, click on the top button to open the installer. When "
-#~ "a new window opens, click OK. When another window opens, click on the button "
-#~ "with the letter N until it is installing. Wait until it is done and click "
-#~ "the right button to quit. Click Next when you are done installing."
-#~ msgstr ""
-#~ "Kiedy launcher się otworzy, naciśnij na przycisk na samej górze aby otworzyć "
-#~ "instalator. Kiedy otworzy się nowe okno, kliknij OK. Kiedy pojawi się "
-#~ "kolejne okno, kliknij na przycisk z literą N dopóki instalacja się nie "
-#~ "rozpocznie. Poczekaj na zakończenie procesu instalacji a potem naciśnij "
-#~ "prawy przycisk aby zamknąć okno. Naciśnij dalej kiedy skończysz instalować "
-#~ "grę."

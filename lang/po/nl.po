@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2014-06-03 22:27+0200\n"
-"PO-Revision-Date: 2014-01-09 20:22+0000\n"
+"POT-Creation-Date: 2014-06-09 19:00+0200\n"
+"PO-Revision-Date: 2014-06-09 09:24+0000\n"
 "Last-Translator: rob <linuxned@gmail.com>\n"
 "Language-Team: nl_NL.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-06-04 05:34+0000\n"
+"X-Launchpad-Export-Date: 2014-06-10 05:30+0000\n"
 "X-Generator: Launchpad (build 17031)\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -1433,6 +1433,8 @@ msgid ""
 "Tip: The high-resolution mode has been activated, if it is too slow, you can "
 "disable it by pressing Alt+R while in game.)"
 msgstr ""
+"Tip: de hoge resolutiemodus is geactiveerd. Indien deze te traag werkt kunt "
+"u deze uitschakelen via de toetsencombinatie Alt+R wanneer het spel draait.)"
 
 #: PlayOnLinux_Scripts/GOG.com___Dungeon_Keeper_:52
 #, sh-format
@@ -1440,6 +1442,8 @@ msgid ""
 "Tip: You can enable a higher-resolution mode by pressing Alt+R during the "
 "game."
 msgstr ""
+"Tip: u kunt een hogere resolutiemodus inschakelen via de toetsencombinatie "
+"Alt+R wanneer het spel draait."
 
 #: PlayOnLinux_Scripts/GOG.com___Far_Cry_:47
 #, sh-format
@@ -1638,7 +1642,7 @@ msgstr ""
 msgid "Dedicated server"
 msgstr "Specifieke server"
 
-#: PlayOnLinux_Scripts/GOG.com___Pirates_Pack_:83
+#: PlayOnLinux_Scripts/GOG.com___Pirates_Pack_:97
 #: PlayOnLinux_Scripts/GOG.com___Ultima_Worlds_of_Adventure_2__Martian_Dreams_:53
 #: PlayOnLinux_Scripts/GOG.com___Worlds_of_Ultima__The_Savage_Empire_:52
 #, sh-format
@@ -1795,7 +1799,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:36
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:36
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:50
-#: PlayOnLinux_Scripts/Portal_:36 python/guiv3.py:156
+#: PlayOnLinux_Scripts/Portal_:36 python/guiv3.py:157 python/guiv3.py:160
 #, sh-format
 msgid "No"
 msgstr "Nee"
@@ -1821,7 +1825,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:50
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:52
 #: PlayOnLinux_Scripts/Portal_:36 PlayOnLinux_Scripts/Portal_:38
-#: python/guiv3.py:157
+#: python/guiv3.py:158 python/guiv3.py:161
 #, sh-format
 msgid "Yes"
 msgstr "Ja"
@@ -1883,7 +1887,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Hearthstone_:26
 #, sh-format
 msgid "What language do you want to install?"
-msgstr ""
+msgstr "Welke taal wilt u installeren?"
 
 #: PlayOnLinux_Scripts/ImgBurn_:38
 #, sh-format
@@ -2185,7 +2189,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Gamefront_Download_:8
 #, sh-format
 msgid "Contacting download server."
-msgstr ""
+msgstr "Verbinding maken met downloadserver."
 
 #: PlayOnLinux_Scripts/POL_GoG_Extract_:29 python/install.py:438
 #: python/install.py:454 python/install.py:456 python/install.py:570
@@ -2704,7 +2708,7 @@ msgstr "$TITLE is succesvol geïnstalleerd."
 #: PlayOnLinux_Scripts/Poker_Stars_:37
 #, sh-format
 msgid "Error while installing. Downloaded file not found."
-msgstr ""
+msgstr "Fout tijdens installeren. Kon het gedownloade bestand niet vinden."
 
 #: PlayOnLinux_Scripts/Pro_Evolution_Soccer_2013_:25
 #, sh-format
@@ -2959,6 +2963,9 @@ msgid ""
 "An update patch was released on July 17th, 2013 to fix movie issues. This "
 "script will now install it. Click Next to continue."
 msgstr ""
+"Er is een updatepatch uitgegeven op 17 juli 2013 om filmproblemen te "
+"repareren. Het script zal deze nu installeren. Klik op Volgende om door te "
+"gaan."
 
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:90
 #, sh-format
@@ -3137,7 +3144,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_Online_:91
 #, sh-format
 msgid "Please select the installation file to run."
-msgstr ""
+msgstr "Selecteer het installatiebestand om uit te voeren."
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_Online_:186
 #, sh-format
@@ -3313,6 +3320,8 @@ msgstr ""
 msgid ""
 "Setup.exe was not selected, Please select the setup file to run {Setup.exe}"
 msgstr ""
+"Setup.exe werd niet geselecteerd. Selecteer het installatiebestand om uit te "
+"voeren {Setup.exe}"
 
 #: PlayOnLinux_Scripts/Wolfenstein_Patch_1.2_:53
 #, sh-format
@@ -3341,6 +3350,12 @@ msgid ""
 "or finish updating to complete the installation. After this, you can run "
 "\"$TITLE\" when setup is done"
 msgstr ""
+"Let op: Nadat de installatie voltooid is, zal de patch geladen worden. Ga "
+"dan naar de rechterbovenhoek van de patch en klik op de moersleutel. Vink "
+"het keuzevakje voor \"Allow Torrent\" uit; indien dit nog aangevinkt is zal "
+"de patch vastlopen na ongeveer 1 minuut. Voordat u zich aanmeldt om de "
+"installatie te voltooien dient u de pacht of de update te sluiten. Hierna "
+"kunt u \"$TITLE\" draaien wanneer het instellen is voltooid"
 
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:45
 #: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:43
@@ -3395,6 +3410,12 @@ msgid ""
 "or finish updating to complete the installation. After this, you can run "
 "\"$TITLE\" when setup is done"
 msgstr ""
+"Let op: Nadat de installatie voltooid is, zal de patch geladen worden. Ga "
+"dan naar de rechterbovenhoek van de patch en klik op de moersleutel. Vink "
+"het keuzevakje voor \"Allow Torrent\" uit; indien dit nog aangevinkt is zal "
+"de patch vastlopen na ongeveer 1 minuut. Voordat u zich aanmeldt om de "
+"installatie te voltooien dient u de pacht of de update te sluiten. Hierna "
+"kunt u \"$TITLE\" draaien wanneer het instellen is voltooid"
 
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_:67
 #, sh-format
@@ -4759,7 +4780,7 @@ msgstr ""
 "Een of meer programma(s) ontbreken. Installeer deze en voer het script dan "
 "opnieuw uit."
 
-#: lib/setupwindow.lib:122 python/guiv3.py:764 python/lib/irc.py:292
+#: lib/setupwindow.lib:122 python/guiv3.py:769 python/lib/irc.py:292
 #: python/mainwindow.py:1137 python/mainwindow.py:1167
 #: python/mainwindow.py:1181 python/mainwindow.py:1190
 #: python/mainwindow.py:1202 python/mainwindow.py:1214 python/wrapper.py:121
@@ -4899,7 +4920,7 @@ msgstr "Selecteer een installatiemethode"
 msgid "I don't want to make another shortcut"
 msgstr "Ik wil geen andere snelkoppeling maken"
 
-#: lib/setupwindow.lib:711 python/guiv3.py:158
+#: lib/setupwindow.lib:711 python/guiv3.py:163
 #, sh-format
 msgid "Browse"
 msgstr "Bladeren"
@@ -4907,7 +4928,7 @@ msgstr "Bladeren"
 #: lib/setupwindow.lib:739
 #, sh-format
 msgid "A shortcut by that name already exists, overwrite?"
-msgstr ""
+msgstr "Er bestaat al een snelkoppeling met deze naam, overschrijven?"
 
 #: lib/website.lib:29
 #, sh-format
@@ -5025,7 +5046,7 @@ msgstr ""
 "Om een programma met {0} te verwijderen, dient u het geassocieerde virtuele "
 "station te verwijderen"
 
-#: python/configure.py:196 python/configure.py:689
+#: python/configure.py:196 python/configure.py:699
 msgid "General"
 msgstr "Algemeen"
 
@@ -5145,7 +5166,16 @@ msgstr "Voer een .exe-bestand uit op dit virtuele station"
 msgid "Command to exec before running the program"
 msgstr "Opdracht om uit te voeren voordat u het programma draait"
 
-#: python/configure.py:586
+#: python/configure.py:585
+msgid ""
+"Warning:\n"
+"\n"
+"Any program still running in this virtual drive will be terminated before "
+"Wine version is changed.\n"
+"Are you sure you want to continue?"
+msgstr ""
+
+#: python/configure.py:596
 msgid ""
 "Be careful!\n"
 "If you change "
@@ -5153,44 +5183,44 @@ msgstr ""
 "Wees voorzichtig!\n"
 "Met het wijzigen van "
 
-#: python/configure.py:646 python/mainwindow.py:932 python/mainwindow.py:934
+#: python/configure.py:656 python/mainwindow.py:932 python/mainwindow.py:934
 msgid "{0} configuration"
 msgstr "{0}-configuratie"
 
-#: python/configure.py:654
+#: python/configure.py:664
 msgid "Please select a program or a virtual drive to configure"
 msgstr "Selecteer een programma of virtueel station om te configureren"
 
-#: python/configure.py:672 python/options.py:280
+#: python/configure.py:682 python/options.py:280
 msgid "New"
 msgstr "Nieuw"
 
-#: python/configure.py:673 python/mainwindow.py:198 python/mainwindow.py:351
+#: python/configure.py:683 python/mainwindow.py:198 python/mainwindow.py:351
 #: python/mainwindow.py:596 python/options.py:207
 msgid "Remove"
 msgstr "Verwijderen"
 
-#: python/configure.py:691
+#: python/configure.py:701
 msgid "Install components"
 msgstr "Componenten installeren"
 
-#: python/configure.py:692 python/mainwindow.py:332
+#: python/configure.py:702 python/mainwindow.py:332
 msgid "Display"
 msgstr "Beeld"
 
-#: python/configure.py:693
+#: python/configure.py:703
 msgid "Miscellaneous"
 msgstr "Diverse"
 
-#: python/configure.py:721
+#: python/configure.py:731
 msgid "This virtual drive is protected"
 msgstr "Dit virtuele station is beveiligd"
 
-#: python/configure.py:723
+#: python/configure.py:733
 msgid "Are you sure you want to delete {0} virtual drive ?"
 msgstr "Weet u zeker dat u het virtuele station {0} wilt verwijderen ?"
 
-#: python/configure.py:730
+#: python/configure.py:740
 msgid "Are you sure you want to delete {0} ?"
 msgstr "Weet u zeker dat u {0} wilt verwijderen ?"
 
@@ -5244,35 +5274,35 @@ msgstr "Annuleren"
 msgid "Next"
 msgstr "Volgende"
 
-#: python/guiv3.py:166
+#: python/guiv3.py:171
 msgid "I Agree"
 msgstr "Akkoord"
 
-#: python/guiv3.py:167
+#: python/guiv3.py:172
 msgid "Show virtual drives"
 msgstr "Virtuele stations tonen"
 
-#: python/guiv3.py:188
+#: python/guiv3.py:193
 msgid "Login: "
 msgstr "Aanmelden: "
 
-#: python/guiv3.py:189
+#: python/guiv3.py:194
 msgid "Password: "
 msgstr "Wachtwoord: "
 
-#: python/guiv3.py:192
+#: python/guiv3.py:197
 msgid "Register"
 msgstr "Registreren"
 
-#: python/guiv3.py:297
+#: python/guiv3.py:302
 msgid "MB downloaded"
 msgstr "MB gedownload"
 
-#: python/guiv3.py:297
+#: python/guiv3.py:302
 msgid "of"
 msgstr "van"
 
-#: python/guiv3.py:764
+#: python/guiv3.py:769
 msgid "You cannot close this window"
 msgstr "U kunt dit venster niet sluiten"
 
@@ -5820,36 +5850,3 @@ msgstr "Weet u zeker dat u Wine {0} wilt verwijderen?"
 #: python/wrapper.py:121
 msgid "{0} is not able to start POL_SetupWindow_server."
 msgstr "{0} kan POL_SetupWindow_server niet starten."
-
-#, sh-format
-#~ msgid "This package fail to install with wine 1.5.21 or better"
-#~ msgstr ""
-#~ "Dit pakket kan niet geïnstalleerd worden met Wine-versie 1.5.21 of hoger"
-
-#, sh-format
-#~ msgid ""
-#~ "Attention: After installation is complete, the patcher will load. Please "
-#~ "close the patcher before logging in or finish updating to complete the "
-#~ "installation. After this, you can run \"$TITLE\" when setup is done"
-#~ msgstr ""
-#~ "Let op: Nadat de installatie voltooid is, zal de patch geladen worden. Sluit "
-#~ "de patch af voordat u zich aanmeldt om de installatie bij te werken of te "
-#~ "voltooien. Hierna kunt u \"$TITLE\" draaien wanneer het instellen is voltooid"
-
-#, sh-format
-#~ msgid "Please locate installation program (Launcher.exe)"
-#~ msgstr "Ga naar het installatieprogramma (Launcher.exe)"
-
-#, sh-format
-#~ msgid ""
-#~ "When the launcher opens, click on the top button to open the installer. When "
-#~ "a new window opens, click OK. When another window opens, click on the button "
-#~ "with the letter N until it is installing. Wait until it is done and click "
-#~ "the right button to quit. Click Next when you are done installing."
-#~ msgstr ""
-#~ "Wanneer u de starter opent, klikt u op de bovenste knop om het "
-#~ "installatieprogramma te starten. Wanneer er een nieuw venster wordt geopend, "
-#~ "klikt u op OK. Wanneer er nog een venster wordt geopend, klikt u op de knop "
-#~ "met de letter N om de installatie te starten. Wacht totdat de installatie "
-#~ "voltooid is en klik op de rechterknop om te stoppen. Klik op Volgende "
-#~ "wanneer de installatie voltooid is."

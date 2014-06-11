@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2014-06-03 22:27+0200\n"
+"POT-Creation-Date: 2014-06-09 19:00+0200\n"
 "PO-Revision-Date: 2014-04-06 06:02+0000\n"
 "Last-Translator: Bill <cges30901@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-06-04 05:37+0000\n"
+"X-Launchpad-Export-Date: 2014-06-10 05:33+0000\n"
 "X-Generator: Launchpad (build 17031)\n"
 "Language: zh_TW\n"
 
@@ -1523,7 +1523,7 @@ msgstr ""
 msgid "Dedicated server"
 msgstr "專用伺服器"
 
-#: PlayOnLinux_Scripts/GOG.com___Pirates_Pack_:83
+#: PlayOnLinux_Scripts/GOG.com___Pirates_Pack_:97
 #: PlayOnLinux_Scripts/GOG.com___Ultima_Worlds_of_Adventure_2__Martian_Dreams_:53
 #: PlayOnLinux_Scripts/GOG.com___Worlds_of_Ultima__The_Savage_Empire_:52
 #, sh-format
@@ -1652,7 +1652,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:36
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:36
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:50
-#: PlayOnLinux_Scripts/Portal_:36 python/guiv3.py:156
+#: PlayOnLinux_Scripts/Portal_:36 python/guiv3.py:157 python/guiv3.py:160
 #, sh-format
 msgid "No"
 msgstr "否"
@@ -1676,7 +1676,7 @@ msgstr "已經偵測到 Steam 安裝資訊\\n 您想要安裝此遊戲到相同�
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:50
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:52
 #: PlayOnLinux_Scripts/Portal_:36 PlayOnLinux_Scripts/Portal_:38
-#: python/guiv3.py:157
+#: python/guiv3.py:158 python/guiv3.py:161
 #, sh-format
 msgid "Yes"
 msgstr "是"
@@ -4330,7 +4330,7 @@ msgstr ""
 "One or more program(s) are missing. Please install them and run the script "
 "again."
 
-#: lib/setupwindow.lib:122 python/guiv3.py:764 python/lib/irc.py:292
+#: lib/setupwindow.lib:122 python/guiv3.py:769 python/lib/irc.py:292
 #: python/mainwindow.py:1137 python/mainwindow.py:1167
 #: python/mainwindow.py:1181 python/mainwindow.py:1190
 #: python/mainwindow.py:1202 python/mainwindow.py:1214 python/wrapper.py:121
@@ -4461,7 +4461,7 @@ msgstr "請選擇一個安裝方法"
 msgid "I don't want to make another shortcut"
 msgstr "我不要再建立其他捷徑"
 
-#: lib/setupwindow.lib:711 python/guiv3.py:158
+#: lib/setupwindow.lib:711 python/guiv3.py:163
 #, sh-format
 msgid "Browse"
 msgstr "瀏覽"
@@ -4576,7 +4576,7 @@ msgid ""
 "associated"
 msgstr ""
 
-#: python/configure.py:196 python/configure.py:689
+#: python/configure.py:196 python/configure.py:699
 msgid "General"
 msgstr "一般"
 
@@ -4694,7 +4694,16 @@ msgstr "執行在這個虛擬磁碟中的 .exe 檔"
 msgid "Command to exec before running the program"
 msgstr "執行程式前要執行的命令"
 
-#: python/configure.py:586
+#: python/configure.py:585
+msgid ""
+"Warning:\n"
+"\n"
+"Any program still running in this virtual drive will be terminated before "
+"Wine version is changed.\n"
+"Are you sure you want to continue?"
+msgstr ""
+
+#: python/configure.py:596
 msgid ""
 "Be careful!\n"
 "If you change "
@@ -4702,44 +4711,44 @@ msgstr ""
 "小心!\n"
 "如果你更改 "
 
-#: python/configure.py:646 python/mainwindow.py:932 python/mainwindow.py:934
+#: python/configure.py:656 python/mainwindow.py:932 python/mainwindow.py:934
 msgid "{0} configuration"
 msgstr "{0} 設定"
 
-#: python/configure.py:654
+#: python/configure.py:664
 msgid "Please select a program or a virtual drive to configure"
 msgstr "請先選擇要配置的程式或虛擬磁碟"
 
-#: python/configure.py:672 python/options.py:280
+#: python/configure.py:682 python/options.py:280
 msgid "New"
 msgstr "新增"
 
-#: python/configure.py:673 python/mainwindow.py:198 python/mainwindow.py:351
+#: python/configure.py:683 python/mainwindow.py:198 python/mainwindow.py:351
 #: python/mainwindow.py:596 python/options.py:207
 msgid "Remove"
 msgstr "移除"
 
-#: python/configure.py:691
+#: python/configure.py:701
 msgid "Install components"
 msgstr "安裝套件"
 
-#: python/configure.py:692 python/mainwindow.py:332
+#: python/configure.py:702 python/mainwindow.py:332
 msgid "Display"
 msgstr "顯示"
 
-#: python/configure.py:693
+#: python/configure.py:703
 msgid "Miscellaneous"
 msgstr "雜項"
 
-#: python/configure.py:721
+#: python/configure.py:731
 msgid "This virtual drive is protected"
 msgstr "該虛擬辭碟被保護"
 
-#: python/configure.py:723
+#: python/configure.py:733
 msgid "Are you sure you want to delete {0} virtual drive ?"
 msgstr ""
 
-#: python/configure.py:730
+#: python/configure.py:740
 msgid "Are you sure you want to delete {0} ?"
 msgstr "你確定你要刪除 {0} 嗎？"
 
@@ -4793,35 +4802,35 @@ msgstr "取消"
 msgid "Next"
 msgstr "下一步"
 
-#: python/guiv3.py:166
+#: python/guiv3.py:171
 msgid "I Agree"
 msgstr "我同意"
 
-#: python/guiv3.py:167
+#: python/guiv3.py:172
 msgid "Show virtual drives"
 msgstr "顯示虛擬磁碟"
 
-#: python/guiv3.py:188
+#: python/guiv3.py:193
 msgid "Login: "
 msgstr "登入： "
 
-#: python/guiv3.py:189
+#: python/guiv3.py:194
 msgid "Password: "
 msgstr "密碼： "
 
-#: python/guiv3.py:192
+#: python/guiv3.py:197
 msgid "Register"
 msgstr "註冊"
 
-#: python/guiv3.py:297
+#: python/guiv3.py:302
 msgid "MB downloaded"
 msgstr ""
 
-#: python/guiv3.py:297
+#: python/guiv3.py:302
 msgid "of"
 msgstr ""
 
-#: python/guiv3.py:764
+#: python/guiv3.py:769
 msgid "You cannot close this window"
 msgstr "你不能關閉這個視窗"
 

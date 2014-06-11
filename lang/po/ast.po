@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-06-03 22:27+0200\n"
+"POT-Creation-Date: 2014-06-09 19:00+0200\n"
 "PO-Revision-Date: 2013-10-25 17:22+0000\n"
 "Last-Translator: Xuacu Saturio <xuacusk8@gmail.com>\n"
 "Language-Team: Asturian <ast@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-06-04 05:34+0000\n"
+"X-Launchpad-Export-Date: 2014-06-10 05:30+0000\n"
 "X-Generator: Launchpad (build 17031)\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -1513,7 +1513,7 @@ msgstr ""
 msgid "Dedicated server"
 msgstr ""
 
-#: PlayOnLinux_Scripts/GOG.com___Pirates_Pack_:83
+#: PlayOnLinux_Scripts/GOG.com___Pirates_Pack_:97
 #: PlayOnLinux_Scripts/GOG.com___Ultima_Worlds_of_Adventure_2__Martian_Dreams_:53
 #: PlayOnLinux_Scripts/GOG.com___Worlds_of_Ultima__The_Savage_Empire_:52
 #, sh-format
@@ -1640,7 +1640,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:36
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:36
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:50
-#: PlayOnLinux_Scripts/Portal_:36 python/guiv3.py:156
+#: PlayOnLinux_Scripts/Portal_:36 python/guiv3.py:157 python/guiv3.py:160
 #, sh-format
 msgid "No"
 msgstr ""
@@ -1664,7 +1664,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:50
 #: PlayOnLinux_Scripts/Half_Life_2___Lost_Coast_:52
 #: PlayOnLinux_Scripts/Portal_:36 PlayOnLinux_Scripts/Portal_:38
-#: python/guiv3.py:157
+#: python/guiv3.py:158 python/guiv3.py:161
 #, sh-format
 msgid "Yes"
 msgstr ""
@@ -4306,7 +4306,7 @@ msgid ""
 "again."
 msgstr ""
 
-#: lib/setupwindow.lib:122 python/guiv3.py:764 python/lib/irc.py:292
+#: lib/setupwindow.lib:122 python/guiv3.py:769 python/lib/irc.py:292
 #: python/mainwindow.py:1137 python/mainwindow.py:1167
 #: python/mainwindow.py:1181 python/mainwindow.py:1190
 #: python/mainwindow.py:1202 python/mainwindow.py:1214 python/wrapper.py:121
@@ -4437,7 +4437,7 @@ msgstr ""
 msgid "I don't want to make another shortcut"
 msgstr ""
 
-#: lib/setupwindow.lib:711 python/guiv3.py:158
+#: lib/setupwindow.lib:711 python/guiv3.py:163
 #, sh-format
 msgid "Browse"
 msgstr ""
@@ -4552,7 +4552,7 @@ msgid ""
 "associated"
 msgstr ""
 
-#: python/configure.py:196 python/configure.py:689
+#: python/configure.py:196 python/configure.py:699
 msgid "General"
 msgstr ""
 
@@ -4670,50 +4670,59 @@ msgstr ""
 msgid "Command to exec before running the program"
 msgstr ""
 
-#: python/configure.py:586
+#: python/configure.py:585
+msgid ""
+"Warning:\n"
+"\n"
+"Any program still running in this virtual drive will be terminated before "
+"Wine version is changed.\n"
+"Are you sure you want to continue?"
+msgstr ""
+
+#: python/configure.py:596
 msgid ""
 "Be careful!\n"
 "If you change "
 msgstr ""
 
-#: python/configure.py:646 python/mainwindow.py:932 python/mainwindow.py:934
+#: python/configure.py:656 python/mainwindow.py:932 python/mainwindow.py:934
 msgid "{0} configuration"
 msgstr ""
 
-#: python/configure.py:654
+#: python/configure.py:664
 msgid "Please select a program or a virtual drive to configure"
 msgstr ""
 
-#: python/configure.py:672 python/options.py:280
+#: python/configure.py:682 python/options.py:280
 msgid "New"
 msgstr ""
 
-#: python/configure.py:673 python/mainwindow.py:198 python/mainwindow.py:351
+#: python/configure.py:683 python/mainwindow.py:198 python/mainwindow.py:351
 #: python/mainwindow.py:596 python/options.py:207
 msgid "Remove"
 msgstr ""
 
-#: python/configure.py:691
+#: python/configure.py:701
 msgid "Install components"
 msgstr ""
 
-#: python/configure.py:692 python/mainwindow.py:332
+#: python/configure.py:702 python/mainwindow.py:332
 msgid "Display"
 msgstr ""
 
-#: python/configure.py:693
+#: python/configure.py:703
 msgid "Miscellaneous"
 msgstr ""
 
-#: python/configure.py:721
+#: python/configure.py:731
 msgid "This virtual drive is protected"
 msgstr ""
 
-#: python/configure.py:723
+#: python/configure.py:733
 msgid "Are you sure you want to delete {0} virtual drive ?"
 msgstr ""
 
-#: python/configure.py:730
+#: python/configure.py:740
 msgid "Are you sure you want to delete {0} ?"
 msgstr ""
 
@@ -4767,35 +4776,35 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: python/guiv3.py:166
+#: python/guiv3.py:171
 msgid "I Agree"
 msgstr ""
 
-#: python/guiv3.py:167
+#: python/guiv3.py:172
 msgid "Show virtual drives"
 msgstr ""
 
-#: python/guiv3.py:188
+#: python/guiv3.py:193
 msgid "Login: "
 msgstr ""
 
-#: python/guiv3.py:189
+#: python/guiv3.py:194
 msgid "Password: "
 msgstr ""
 
-#: python/guiv3.py:192
+#: python/guiv3.py:197
 msgid "Register"
 msgstr ""
 
-#: python/guiv3.py:297
+#: python/guiv3.py:302
 msgid "MB downloaded"
 msgstr ""
 
-#: python/guiv3.py:297
+#: python/guiv3.py:302
 msgid "of"
 msgstr ""
 
-#: python/guiv3.py:764
+#: python/guiv3.py:769
 msgid "You cannot close this window"
 msgstr ""
 
