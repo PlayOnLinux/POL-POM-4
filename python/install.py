@@ -231,7 +231,7 @@ class InstallWindow(wx.Frame):
             self.image_position = (738-160,346-71)
             self.new_size = (196,218-4)
             self.search_offset = 3
-        if(os.environ["POL_OS"] == "Linux"):
+        else:
             self.image_position = (740-160,348-71)
             self.new_size = (200,222-4)
             self.search_offset = 5
@@ -280,7 +280,7 @@ class InstallWindow(wx.Frame):
         #self.content =  wx.TextCtrl(self.panelItems, 107, pos=(220,301), size=(562,212), style = wx.TE_MULTILINE | wx.TE_RICH2 | wx.CB_READONLY | Variables.widget_borders)
         self.content = PyClickableHtmlWindow(self.panelItems, 107, style=Variables.widget_borders, pos=(580,113-71), size=(200,218))
         
-        if(os.environ["POL_OS"] == "Linux"):
+        if(os.environ["POL_OS"] != "Mac"):
             self.button = wx.Button(self.panelItems, wx.ID_CLOSE, _("Cancel"), pos=(736-160, 510-71), size=(100,35))
             self.install_button = wx.Button(self.panelItems, wx.ID_APPLY, _("Install"), pos=(843-160, 510-71), size=(100,35))
             self.update_button = wx.Button(self.panelItems, wx.ID_REFRESH, _("Refresh"), pos=(630-160, 510-71), size=(100,35))

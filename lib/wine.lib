@@ -391,7 +391,7 @@ POL_LoadVar_Device ()
 POL_DetectVideoCards () {
 	# Detect known videocards
 	POL_Debug_Message "Gettings GPU informations"
-	if [ "$POL_OS" = "Linux" ]; then
+	if [ "$POL_OS" = "Linux" ] || [ "$POL_OS" = "FreeBSD" ]; then
 		[ -x /usr/sbin/lspci ] && LSPCI=/usr/sbin/lspci || LSPCI=lspci
 		# Device Name|Vendor ID|Device ID\n...
 		VGA_DEVICES=`$LSPCI -nn | perl -ne 'if (/VGA/) { s/.*\]: (.*) \[([0-9a-f]{4}):([0-9a-f]{4})\].*/\1|\2|\3/; print }'`
@@ -411,7 +411,7 @@ POL_DetectVideoCards () {
 
 POL_LoadVar_ScreenResolution ()
 {
-	if [ "$POL_OS" = "Linux" ]; then
+	if [ "$POL_OS" = "Linux" ] || [ "$POL_OS" = "FreeBSD" ]; then
 		local RESOLUTION="$(xdpyinfo | grep dimensions | awk '{print $2}')"
 		export ScreenWidth="$(echo $RESOLUTION | cut -dx -f1)"
 		export ScreenHeight="$(echo $RESOLUTION | cut -dx -f2)"
@@ -550,7 +550,7 @@ POL_Wine_Dock ()
 	# Run the good wineversion and store the result to a logfile
 	# Same usage than "wine"
 	
-	if [ "$POL_OS" = "Linux" ]; then
+	if [ "$POL_OS" = "Linux" ] || [ "$POL_OS" = "FreeBSD" ]; then
 		return 1
 	fi
 	
@@ -747,6 +747,7 @@ POL_Wine_InstallVersion()
 	[ "$POL_ARCH" = "" ] && POL_System_SetArch "auto"
 	POL_Debug_Message "Installing wine version path: $POL_WINEVERSION, $POL_ARCH"
 	[ "$POL_OS" = "Mac" ] && ARCH_PREFIX="darwin"
+	[ "$POL_OS" = "FreeBSD" ] && ARCH_PREFIX="freebsd"
 	[ "$POL_OS" = "Linux" ] && ARCH_PREFIX="linux"
 	OLDPATH="$PWD"
 	WINE_SECTION="$ARCH_PREFIX-$POL_ARCH"
@@ -825,6 +826,7 @@ POL_Wine_Install_resources()
 	resource_file="$REPERTOIRE/configurations/listes/$resource.lst"
 	found="$(grep "^${unpatched_version//./\.};" "$resource_file")"
 	[ "$POL_OS" = "Linux" ] && wos="linux"
+	[ "$POL_OS" = "FreeBSD" ] && wos="freebsd"
 	[ "$POL_OS" = "Mac" ] && wos="darwin"
 
 	if [ ! -L "$POL_USER_ROOT/wine/$wos-$arch/$wine_version/share/wine/$resource" ]
@@ -896,6 +898,7 @@ POL_Wine_SetVersionEnv()
 		[ "$POL_ARCH" = "" ] && POL_System_SetArch "auto"
 		#POL_Debug_Message "Setting wine version path: $POL_WINEVERSION, $POL_ARCH"
 		[ "$POL_OS" = "Mac" ] && ARCH_PREFIX="darwin"
+		[ "$POL_OS" = "FreeBSD" ] && ARCH_PREFIX="freebsd"
 		[ "$POL_OS" = "Linux" ] && ARCH_PREFIX="linux"
 		OLDPATH="$PWD"
 		WINEDIR="$REPERTOIRE/wine/$ARCH_PREFIX-$POL_ARCH"

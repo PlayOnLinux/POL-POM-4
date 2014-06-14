@@ -72,7 +72,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.small_x = 520 - self.small_image.GetWidth()
 
         if(Arg2 == "None"):
-            if(os.environ["POL_OS"] == "Linux"):
+            if(os.environ["POL_OS"] != "Mac"):
                 self.big_image = wx.Bitmap(Variables.playonlinux_env+"/resources/images/setups/default/playonlinux.jpg")
             else:
                 self.big_image = wx.Bitmap(Variables.playonlinux_env+"/resources/images/setups/default/playonmac.jpg")
@@ -136,7 +136,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         # Buttons
         
 
-        if(os.environ["POL_OS"] == "Linux"):
+        if(os.environ["POL_OS"] != "Mac"):
             self.CancelButton = wx.Button(self.footer, wx.ID_CANCEL, _("Cancel"), pos=(430,0),size=(85,37))
             self.NextButton = wx.Button(self.footer, wx.ID_FORWARD, _("Next"), pos=(340,0),size=(85,37))
         else:
@@ -153,7 +153,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.InfoScript.Bind(wx.EVT_LEFT_DOWN, self.InfoClick)
         self.InfoScript.SetCursor(wx.StockCursor(wx.CURSOR_HAND))
 
-        if(os.environ["POL_OS"] == "Linux"):
+        if(os.environ["POL_OS"] != "Mac"):
             self.NoButton = wx.Button(self.footer, wx.ID_NO, _("No"), pos=(430,0),size=(85,37))
             self.YesButton = wx.Button(self.footer, wx.ID_YES, _("Yes"), pos=(340,0), size=(85,37))
         else:

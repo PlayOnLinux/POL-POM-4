@@ -356,7 +356,7 @@ POL_Shortcut()
 		# Menus
 		if [ ! "$(POL_Config_Read NO_MENU_ICON)" = "TRUE" ]; then
 			# Do nothing on Mac OS
-			if [ -n "$Categories" -a "$POL_OS" = "Linux" ]; then
+			if [ -n "$Categories" -a "$POL_OS" = "Linux" ] || [ -n "$Categories" -a "$POL_OS" = "BSD" ]; then
 				LOCALAPPS="$HOME/.local/share/applications"
 				generer_icone "$iconPath" "$NOMICONE_" "$LOCALAPPS" "$PLAYONLINUX/playonlinux --run \"$NOMICONE_\"" "$Binaire" "$Categories" "playonlinux-"
 			fi
@@ -606,7 +606,7 @@ POL_MD5 ()
 	# Give the md5 sum of a string
 	# Usage: POL_MD5 <string>
 	
-	if [ "$POL_OS" == "Mac" ]
+	if [ "$POL_OS" == "Mac" ] || [ "$POL_OS" == "FreeBSD" ]
 	then
 		printf "$1" | md5
 	fi
@@ -619,7 +619,7 @@ POL_MD5_file ()
 {
 	# Give the md5 sum of a file
 	# Usage: POL_MD5_file <file>
-	if [ "$POL_OS" == "Mac" ]
+	if [ "$POL_OS" == "Mac" ] || [ "$POL_OS" == "FreeBSD" ]
 	then
 		cat "$1" | md5
 	fi
@@ -631,12 +631,12 @@ POL_MD5_file ()
 POL_base64()
 {
 	[ "$POL_OS" = "Linux" ] && base64
-	[ "$POL_OS" = "Mac" ] && openssl base64
+	[ "$POL_OS" = "Mac" ] || [ "$POL_OS" == "FreeBSD" ] && openssl base64
 }
 POL_unbase64()
 {
 	[ "$POL_OS" = "Linux" ] && base64 -d
-	[ "$POL_OS" = "Mac" ] && openssl base64 -d
+	[ "$POL_OS" = "Mac" ] || [ "$POL_OS" == "FreeBSD" ] && openssl base64 -d
 }
 
 POL_System_unzip ()
@@ -952,7 +952,7 @@ POL_Shortcut_AddProfileLink()
 }
 POL_LoadVar_Distro ()
 {
-	if [ "$POL_OS" = "Linux" ]; then
+	if [ "$POL_OS" = "Linux" ] || [ "$POL_OS" == "FreeBSD" ]; then
 		export DISTRO="$(lsb_release -d | cut -d':' -f2 | tr -d \\t)"
 	else
 		main_kernel="$(uname -r | cut -d '.' -f 1)"
@@ -978,7 +978,7 @@ POL_Shortcut_MakeDesktopShortcut()
 		make_pom_script "$PACKAGE"
 		make_plist "$PACKAGE" "$shortname"
 	fi
-	if [ "$POL_OS" = "Linux" ]; then
+	if [ "$POL_OS" = "Linux" ] || [ "$POL_OS" == "FreeBSD" ]; then
 		if [ -f "$REPERTOIRE/icones/full_size/$PACKAGE" ]; then # L'icone existe...
 			iconPath="$REPERTOIRE/icones/full_size/$PACKAGE"
 		else

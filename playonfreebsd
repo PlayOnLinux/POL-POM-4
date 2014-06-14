@@ -72,7 +72,7 @@ if [ ! "$(uname -s)" = "FreeBSD" ] && [ ! "$(uname -s)" = "NetBSD" ] ; then
 fi
 
 export POL_PYTHON=""
-export POL_OS="BSD"
+export POL_OS="FreeBSD"
 export MACHTYPE
 
 [ "$PLAYONLINUX" = "" ] || die "You are already in a PlayOnBSD environment" 

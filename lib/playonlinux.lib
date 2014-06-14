@@ -46,10 +46,12 @@ construire_repertoire_personnel ()
 	mkdir -p "$POL_USER_ROOT/ressources"
 	mkdir -p "$POL_USER_ROOT/icones/full_size"
 	mkdir -p "$POL_USER_ROOT/icones/32"
-	if [ "$POL_OS" == "Linux" ]
-	then
+	if [ "$POL_OS" == "Linux" ]; then
 		mkdir -p "$POL_USER_ROOT/wine/linux-x86"
 		mkdir -p "$POL_USER_ROOT/wine/linux-amd64"
+	elif [ "$POL_OS" == "FreeBSD" ]; then
+		mkdir -p "$POL_USER_ROOT/wine/freebsd-x86"
+		mkdir -p "$POL_USER_ROOT/wine/freebsd-amd64"		
 	else
 		mkdir -p "$POL_USER_ROOT/wine/darwin-x86"
 		mkdir -p "$POL_USER_ROOT/wine/darwin-amd64"
@@ -75,7 +77,7 @@ clean_tmp ()
 	# Usage: clean_tmp
 	# Be careful, it might be very dangerous !
 	# Cleanup is done in background
-	if [ "$POL_OS" = "Linux" ]; then # Don't clean tmp if POL is already running.
+	if [ "$POL_OS" = "Linux" ] ||  [ "$POL_OS" = "FreeBSD" ]; then # Don't clean tmp if POL is already running.
 		if [ "$(ps ux | grep '[p]ython mainwindow\.py' | wc -l)" -gt 1 ]; then
 			POL_Debug_Message "PlayOnLinux seems to be already running. Don't cleaning tmp"
 			return 0
@@ -282,10 +284,10 @@ POL_GPG_install_key()
 	mkdir -p "$GNUPGHOME"
 	chmod 700 "$GNUPGHOME"
 	#import the public key
-	if [ "$POL_OS" = "Linux" ]
+	if [ "$POL_OS" = "Linux" ] || [ "$POL_OS" = "FreeBSD" ]
 	then
 		gpg -q --import "$PLAYONLINUX/etc/playonlinux.gpg"
-	else
+	elif [ "$POL_OS" = "Mac" ]
 		# workaround for Lion
 		NEW_DL_PATH="$PLAYONLINUX/../unix/tools/lib/gettext/:$DYLD_LIBRARY_PATH"
 		env DYLD_LIBRARY_PATH="$NEW_DL_PATH" gpg -q --import "$PLAYONLINUX/etc/playonlinux.gpg"
@@ -307,7 +309,7 @@ POL_GPG_auth_script()
 	tail -n +${GPG} "$FILENAME" > "$POL_USER_ROOT/tmp/script.asc" 2> /dev/null
 	head -n $(( GPG - 1 )) "$FILENAME"  | grep -v "cat << \"-----END PGP SIGNATURE-----\" > /dev/null" > "$POL_USER_ROOT/tmp/script" 2> /dev/null
 
-	if [ "$POL_OS" = "Linux" ]
+	if [ "$POL_OS" = "Linux" ] || [ "$POL_OS" = "FreeBSD" ]
 	then
 		gpg --verify "$POL_USER_ROOT/tmp/script.asc" > /dev/null 2> /dev/null
 	else
@@ -689,6 +691,7 @@ clean_wineprefix()
 	cd "$REPERTOIRE/shortcuts/"
 	# Ça aussi, j'ai pas utilisé $REPERTOIRE volontairment (question de sécu, si $REPERTOIRE est vide ou mal défini, ça peut faire mal)
 	[ "$POL_OS" = "Linux" ] && TEST=${1//".PlayOnLinux/wineprefix/"/""}
+	[ "$POL_OS" = "BSD" ] && TEST=${1//".PlayOnBSD/wineprefix/"/""}
 	[ "$POL_OS" = "Mac" ] && TEST=${1//"Library/PlayOnMac/wineprefix/"/""}
 	
 	[ "$TEST" = "" ] && exit
@@ -811,6 +814,8 @@ FS_Check ()
 POL_System_CheckFS()
 {
 	[ "$POL_OS" = "Mac" ] && return 0
+	[ "$POL_OS" = "FreeBSD" ] && return 0
+	
 	if [ "$1" = "--just-warning" ]; then
 		DebugType="POL_Debug_Warning"
 		shift
@@ -853,8 +858,8 @@ POL_Sudo()
 {
 	if [ ! "$POL_BAD_SIGNATURE" = "TRUE" ]; then
 		# 1 : Setup file. If it exists, no need to unhide
-		if [ "$POL_OS" = "Mac" ]; then
-			POL_Debug_Fatal "POL_Sudo is not supported on OSX"
+		if [ "$POL_OS" = "Mac" ] || [ "$POL_OS" = "FreeBSD" ]; then
+			POL_Debug_Fatal "POL_Sudo is not supported on OSX and BSD"
 		fi
 		if [ "$POL_OS" = "Linux" ]; then
 			# Now, we detect what sudo to use

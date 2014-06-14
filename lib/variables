@@ -68,6 +68,12 @@ then
 	export MD5_COMMAND="md5"
 fi
 	
+if [ "$POL_OS" == "FreeBSD" ] 
+then 
+	export POL_LANG="$(echo "$LANG" | cut -d\_ -f 1)"
+	export MD5_COMMAND="md5"
+fi
+
 #Codes de sorties 
 EXIT_MISSING=2
 EXIT_ERROR=255

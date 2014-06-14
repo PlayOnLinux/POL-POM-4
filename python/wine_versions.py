@@ -26,9 +26,10 @@ import lib.lng, threading
 
 if(os.environ["POL_OS"] == "Mac"):
     os_pref = "darwin"
-else:
+else if(os.environ["POL_OS"] == "Linux"):
     os_pref = "linux"
-
+else:
+    os_pref = "freebsd"
 lib.lng.Lang()
 
 def SetWineVersion(game, version):

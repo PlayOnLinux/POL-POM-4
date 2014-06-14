@@ -27,7 +27,7 @@ except :
     print "ERROR ! Please define POL_OS environment var first."
     os._exit(1)
 
-if(os.environ["POL_OS"] == "Linux"):
+if(os.environ["POL_OS"] != "Mac"):
     import wxversion
     wxversion.ensureMinimal('2.8')
 
@@ -1077,7 +1077,7 @@ class MainWindow(wx.Frame):
 
     def About(self, event):
         self.aboutBox = wx.AboutDialogInfo()
-        if(os.environ["POL_OS"] == "Linux"):
+        if(os.environ["POL_OS"] != "Mac"):
             self.aboutBox.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
 
 
@@ -1272,11 +1272,13 @@ class PlayOnLinuxApp(wx.App):
             playonlinux.open_document(filename,file_extension.lower())
 
     def MacOpenURL(self, url):
-        if(os.environ["POL_OS"] == "Mac" and "playonlinux://" in url):
-            wx.MessageBox(_("You are trying to open a script design for {0}! It might not work as expected").format("PlayOnLinux"), os.environ["APPLICATION_TITLE"])
-        if(os.environ["POL_OS"] == "Linux" and "playonmac://" in url):
-            wx.MessageBox(_("You are trying to open a script design for {0}! It might not work as expected").format("PlayOnMac"), os.environ["APPLICATION_TITLE"])
-
+        if(os.environ["POL_OS"] == "Mac" and not "playonmac://" in url):
+            wx.MessageBox(_("You are trying to open a script design for {0}! It might not work as expected").format("PlayOnLinux or PlayOnBSD"), os.environ["APPLICATION_TITLE"])
+        if(os.environ["POL_OS"] == "Linux" and not "playonlinux://" in url):
+            wx.MessageBox(_("You are trying to open a script design for {0}! It might not work as expected").format("PlayOnMac or PlayOnBSD"), os.environ["APPLICATION_TITLE"])
+        if(os.environ["POL_OS"] == "FreeBSD" and not "playonbsd://" in url):
+            wx.MessageBox(_("You are trying to open a script design for {0}! It might not work as expected").format("PlayOnMac or PlayOnLinux"), os.environ["APPLICATION_TITLE"])
+            
         os.system("bash \"$PLAYONLINUX/bash/playonlinux-url_handler\" \""+url+"\" &")
 
     def MacReopenApp(self):

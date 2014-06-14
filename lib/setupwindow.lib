@@ -330,7 +330,7 @@ POL_SetupWindow_cdrom ()
 	LIST_DEVICES_=""
 	
 	[ "$POL_OS" = "Mac" ] && DEVICES="/Volumes"
-	if [ "$POL_OS" = "Linux" ]; then
+	if [ "$POL_OS" = "Linux" ] || [ "$POL_OS" = "FreeBSD" ]; then
 		DEVICES="/media"
 		# Ubuntu Quantal workaround
 		[ -d "/media/$USER" ] && DEVICES="/media/$USER"

@@ -221,7 +221,7 @@ POL_Debug_LogToPrefix()
 }
 POL_Glxinfo()
 {
-	if [ "$POL_OS" = "Linux" ]; then
+	if [ "$POL_OS" = "Linux" ] || [ "$POL_OS" = "FreeBSD" ]; then
 		glxinfo "$@"
 	else
 		if [ -e "/opt/X11/bin/glxinfo" ]; then #XQuartz is installed

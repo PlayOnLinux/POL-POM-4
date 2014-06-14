@@ -40,9 +40,11 @@ class Onglets(wx.Notebook):
 
         if(os.environ["POL_OS"] == "Linux"):
             irc_settings['NICKNAME'] = os.environ["USER"]+"-pol"
-        else:
+        else if(os.environ["POL_OS"] == "Mac"):
             irc_settings['NICKNAME'] = os.environ["USER"]+"-pom"
-
+        else:
+            irc_settings['NICKNAME'] = os.environ["USER"]+"-pob"
+            
         irc_settings['AUTOCONNECT'] = "0"
         irc_settings['ALERT'] = "0"
         irc_settings["PLAYSOUND"] = "1"

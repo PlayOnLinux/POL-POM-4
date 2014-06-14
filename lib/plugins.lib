@@ -53,11 +53,12 @@ install_plugins ()
 		Pversion=$(cut -d';' -f6 <<< $ligne)
 		Plinux=$(cut -d';' -f7 <<< $ligne)
 		Pmac=$(cut -d';' -f8 <<< $ligne)
-
+		PfreeBSD=$(cut -d';' -f8 <<< $ligne)
 
 		# On complique un peu le truc (07/07/2011)
 		install="false"
 		[ "$POL_OS" = "Linux" ] && [ "$Plinux" = "1" ] && install="true"
+		[ "$POL_OS" = "FreeBSD" ] && [ "$PfreeBSD" = "1" ] && install="true"
 		[ "$POL_OS" = "Mac" ] && [ "$Pmac" = "1" ] && install="true"
 		
 		if [ "$install" = "true" ]
