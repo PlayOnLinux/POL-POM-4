@@ -287,7 +287,7 @@ POL_GPG_install_key()
 	if [ "$POL_OS" = "Linux" ] || [ "$POL_OS" = "FreeBSD" ]
 	then
 		gpg -q --import "$PLAYONLINUX/etc/playonlinux.gpg"
-	elif [ "$POL_OS" = "Mac" ]
+	elif [ "$POL_OS" = "Mac" ]; then
 		# workaround for Lion
 		NEW_DL_PATH="$PLAYONLINUX/../unix/tools/lib/gettext/:$DYLD_LIBRARY_PATH"
 		env DYLD_LIBRARY_PATH="$NEW_DL_PATH" gpg -q --import "$PLAYONLINUX/etc/playonlinux.gpg"
