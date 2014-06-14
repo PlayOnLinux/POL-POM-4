@@ -54,7 +54,7 @@ if (os.environ["POL_OS"] == "Linux"):
     else:
         os.environ["POL_WGET"] = "wget --prefer-family=IPv4 -q"
 
-if (os.environ["POL_OS"] == "BSD"):
+if (os.environ["POL_OS"] == "FreeBSD"):
     os.environ["REPERTOIRE"] = os.environ["HOME"]+"/.PlayOnBSD/"
     os.environ["APPLICATION_TITLE"] = "PlayOnBSD"
     os.environ["POL_DNS"] = "playonlinux.com"
