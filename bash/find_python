@@ -52,7 +52,7 @@ if [ -z "$POL_PYTHON" ]; then
 	search_python
 
 	if [ "$POL_PYTHON" = "none" ]; then
-		echo "Please install python before trying to run PlayOnLinux" 1>&2
+		echo "Please install python before trying to run this program" 1>&2
 		exit 1
 	fi
 fi

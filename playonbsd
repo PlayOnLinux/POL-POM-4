@@ -1,0 +1,119 @@
+#!/usr/local/bin/bash
+
+# Copyright (C) 2007-2010 PlayOnLinux Team
+# Copyright (C) 2014 Pâris Quentin
+
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.   
+
+                              #######                           
+                           ############                         
+                          ##################                    
+                          ########################              
+             ######       ##########################            
+         #############    ###########################           
+        ###############    ##########################           
+       #################   ##########################           
+      ##################    #########################           
+      ###################    #######################            
+    ######################   #####################              
+   ########################   #################                 
+  #########################    ###########        ######        
+ ###########################   ######        #############      
+ ##############################       ######################    
+  ##########################   #############################    
+   ##################        ##   ##########################    
+     ###########        ########   ########################     
+                   ##############   ######################      
+              ####################   ####################       
+           #######################    ##################        
+          #########################    ################         
+         ###########################    ###############         
+         ###########################     ##############         
+         ###########################      ############          
+          ##########################         #######            
+             ######################                             
+                     #############                              
+                       #########                                
+
+#Variables
+die() ## PHP function copy
+{
+	echo "$@"
+	exit
+}
+
+export WorkingDirectory="$PWD"
+
+# Take absolute path this script resides in
+POLDIR="$(dirname "$0")"
+cd "$POLDIR"
+POLDIR="$PWD"
+
+if [ "$1" = "--version" ]; then
+	cd "$POLDIR"
+	version="$(cat python/lib/Variables.py | grep 'os.environ\["VERSION"\] = ' | cut -d = -f2 | tr -d \" | tr -d " ")"
+	die "PlayOnLinux $version"
+fi
+
+if [ ! "$(uname -s)" = "FreeBSD" ] && [ ! "$(uname -s)" = "NetBSD" ] ; then 
+	die "This script must be run on a BSD system"
+fi
+
+export POL_PYTHON=""
+export POL_OS="BSD"
+export MACHTYPE
+
+[ "$PLAYONLINUX" = "" ] || die "You are already in a PlayOnBSD environment" 
+
+source "$POLDIR/bash/find_python"
+
+if [ "$1" = "--run" ]; then
+	cd "$POLDIR"
+	shift
+	NAME="$1"
+
+	shift
+	
+	FILENAME="$1"
+	
+	if [ "$FILENAME" -a ! "${FILENAME::1}" = "/" ]; then
+		FILENAME="$WorkingDirectory/$FILENAME"
+	fi
+	
+	if [ -e "$FILENAME" ]; then ## Trying to open a file
+		exec bash playonlinux-bash "$POLDIR/bash/document_reader" "$NAME" "$FILENAME"
+	else
+		# SetDebugState(game, False)
+		# export WINEDEBUG= found and is not WINEDEBUG="-all"?
+		if grep '^export WINEDEBUG=' "$HOME/.PlayOnLinux/shortcuts/$NAME"|grep -qv 'WINEDEBUG="-all"'; then
+			cp "$HOME/.PlayOnLinux/shortcuts/$NAME" "$POL_USER_ROOT/tmp/debug_$NAME" && \
+			sed -e 's/^export WINEDEBUG="\(.*\)"/export WINEDEBUG="-all"/' "$POL_USER_ROOT/tmp/debug_$NAME" > "$HOME/.PlayOnLinux/shortcuts/$NAME"
+		fi
+		exec bash playonlinux-bash "$HOME/.PlayOnLinux/shortcuts/$NAME" "$@"
+	fi
+else
+	cd "$POLDIR/python"
+	while [ "$POL_PYTHON" != "none" ]; do
+		"$POL_PYTHON" mainwindow.py "$@"
+		exitcode=$?
+                [ $exitcode -eq 0 -o $exitcode -eq 63 ] && break
+
+		# Do we really want this fallback algorithm?
+        search_python
+	done
+fi
+
+[ $exitcode -eq 63 ] && exec bash "$POLDIR/playonbsd"
+exit $exitcode
