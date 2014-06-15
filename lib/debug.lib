@@ -89,8 +89,8 @@ in the script. Read the content of this file for more information)
 > glxinfo \| grep renderer
   $(POL_Glxinfo | grep renderer 2> /dev/null)
 > OpenGL libs
-  $("$PLAYONLINUX/bash/check_gl" x86 stdout)
-  $("$PLAYONLINUX/bash/check_gl" amd64 stdout)
+  $(bash "$PLAYONLINUX/bash/check_gl" x86 stdout)
+  $(bash "$PLAYONLINUX/bash/check_gl" amd64 stdout)
 > export
   $(export | grep -v -i http_proxy | grep -v POL_PASSWORD)
 
