@@ -530,11 +530,18 @@ POL_Wine ()
 	fi
 
 
-	if [ "$LOGFILE" = "/dev/null" ]; then
-		$BEFORE_WINE $(POL_Config_Read BEFORE_WINE) wine "$@"  2> >(grep -v menubuilder --line-buffered | tee -a "$WINEPREFIX/playonlinux.log" >&2) > >(tee -a "$WINEPREFIX/playonlinux.log")
-		errors=$?
+	if [ "$POL_OS" = "Linux" ] || [ "$POL_OS" = "Mac" ];
+	then
+		if [ "$LOGFILE" = "/dev/null" ]; then
+			$BEFORE_WINE $(POL_Config_Read BEFORE_WINE) wine "$@"  2> >(grep -v menubuilder --line-buffered | tee -a "$WINEPREFIX/playonlinux.log" >&2) > >(tee -a "$WINEPREFIX/playonlinux.log")
+			errors=$?
+		else
+			$BEFORE_WINE $(POL_Config_Read BEFORE_WINE) wine "$@" 2> >(grep -v menubuilder --line-buffered | tee -a "$LOGFILE" "$WINEPREFIX/playonlinux.log" >&2) > >(tee -a "$LOGFILE" "$WINEPREFIX/playonlinux.log")
+			errors=$?
+		fi
 	else
-		$BEFORE_WINE $(POL_Config_Read BEFORE_WINE) wine "$@" 2> >(grep -v menubuilder --line-buffered | tee -a "$LOGFILE" "$WINEPREFIX/playonlinux.log" >&2) > >(tee -a "$LOGFILE" "$WINEPREFIX/playonlinux.log")
+		# FIXME 
+		$BEFORE_WINE $(POL_Config_Read BEFORE_WINE) wine "$@"  2> "$WINEPREFIX/playonlinux.log" > "$WINEPREFIX/playonlinux.log"
 		errors=$?
 	fi
 
