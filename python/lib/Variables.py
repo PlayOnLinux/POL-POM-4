@@ -61,7 +61,7 @@ if (os.environ["POL_OS"] == "FreeBSD"):
     windows_add_size = 0;
     windows_add_playonmac = 0;
     widget_borders = wx.RAISED_BORDER
-    os_name = "bsd"
+    os_name = "freebsd"
     if not os.path.exists("/proc/net/if_inet6"):
         os.environ["POL_WGET"] = "wget -q"
     else:
