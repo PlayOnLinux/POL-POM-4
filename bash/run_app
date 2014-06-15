@@ -49,8 +49,10 @@ send_stat()
 	fi
 	
 	# OS (currentOS ; 0 = linux ; 1 = Mac)
-	[ "$POL_OS" = "Linux" ] && currentOS="0" || currentOS="1" 
-	
+	[ "$POL_OS" = "Linux" ] && currentOS="0" 
+	[ "$POL_OS" = "Mac" ] && currentOS="1" 
+	[ "$POL_OS" = "FreeBSD" ] && currentOS="2"
+	 
 	# User Report = -1
 	
 	# Unique anonymous id (autorisation to edit the review)

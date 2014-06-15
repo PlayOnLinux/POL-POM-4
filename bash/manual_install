@@ -248,7 +248,7 @@ fi
 
 
 [ "$POL_OS" = "Mac" ] && MEDIA_DIR="/Volumes"
-if [ "$POL_OS" = "Linux" ]; then
+if [ "$POL_OS" = "Linux" ] || [ "$POL_OS" = "FreeBSD" ]; then
 	MEDIA_DIR="/media"
 	# Ubuntu Quantal workaround
 	[ -d "/media/$USER" ] && MEDIA_DIR="/media/$USER"

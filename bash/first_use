@@ -207,6 +207,8 @@ EOF
 		cd "$POL_USER_ROOT/WineVersions"
 		[ "$POL_OS" = "Mac" ] && vprefix="darwin-"
 		[ "$POL_OS" = "Linux" ] && vprefix="linux-"
+		[ "$POL_OS" = "FreeBSD" ] && vprefix="freebsd-"
+		
 		new_vroot="$POL_USER_ROOT/wine/${vprefix}x86"
 		mkdir -p "$new_vroot"
 		for version in *

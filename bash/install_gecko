@@ -26,6 +26,7 @@ TITLE="$(eval_gettext '$APPLICATION_TITLE Gecko installer')"
 POL_SetupWindow_Init
 [ "$POL_OS" = "Linux" ] && wos="linux"
 [ "$POL_OS" = "Mac" ] && wos="darwin"
+[ "$POL_OS" = "FreeBSD" ] && wos="freebsd"
 
 cd "$POL_USER_ROOT/wine/$wos-x86" || exit 1
 for file in *; do

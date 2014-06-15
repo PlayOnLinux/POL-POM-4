@@ -107,6 +107,11 @@ maj_check ()
 		then
 			$POL_WGET "$SITE/V4_data/repository/get_list_v4.php" -O- | config_maj
 			$POL_WGET "$SITE/V4_data/repository/get_md5_list.php?playonlinux=1" -O- > md5sums
+		elif [ "$POL_OS" = "FreeBSD" ]
+		then
+			$POL_WGET "$SITE/V4_data/repository/get_list_v4.php" -O- | config_maj
+			$POL_WGET "$SITE/V4_data/repository/get_md5_list.php?playonlinux=1" -O- > md5sums
+		
 		else
 			$POL_WGET "$SITE/V4_data/repository/get_list_v4.php?playonmac=1" -O- | config_maj
 			$POL_WGET "$SITE/V4_data/repository/get_md5_list.php?playonmac=1" -O- > md5sums

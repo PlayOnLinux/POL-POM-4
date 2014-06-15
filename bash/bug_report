@@ -22,6 +22,7 @@
 source "$PLAYONLINUX/lib/sources"
 
 [ "$POL_OS" == "Linux" ] && TRACKER="1"
+[ "$POL_OS" == "FreeBSD" ] && TRACKER="1"
 [ "$POL_OS" == "Mac" ] && TRACKER="4"
 
 # $1 = Nom de l'application

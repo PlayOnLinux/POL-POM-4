@@ -25,7 +25,7 @@ source "$PLAYONLINUX/lib/sources"
 TITLE="$(eval_gettext 'PC CD-ROM reader')"
 
 POL_SetupWindow_Init
-if [ "$POL_OS" = "Linux" ]; then
+if [ ! "$POL_OS" = "Mac" ]; then
 	POL_SetupWindow_message "This tool is made for OSX" "$TITLE"
 	POL_SetupWindow_Close
 	exit 0
