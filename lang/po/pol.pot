@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX/APLU <pol-gettext@mulx.net>\n"
-"POT-Creation-Date: 2014-06-14 19:00:55+02:00\n"
+"POT-Creation-Date: 2014-06-17 19:01:00+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -487,8 +487,8 @@ msgstr ""
 #: PlayOnLinux_Scripts/SubRip_:33 PlayOnLinux_Scripts/Theme_Hospital_:48
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:116 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:1160
-#: lib/wine.lib:1190
+#: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:1170
+#: lib/wine.lib:1200
 #, sh-format
 msgid "Please wait..."
 msgstr ""
@@ -532,7 +532,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Photomatix_Pro_4.2.7_:43
 #: PlayOnLinux_Scripts/Rome_Total_War__Gold_Edition__:56
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:59
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind_:49
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind_:51
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:184
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_:80
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Shivering_Isle_:74
@@ -611,7 +611,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Rage_:79
 #: PlayOnLinux_Scripts/Rome_Total_War__Gold_Edition__:49
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:46
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind_:36
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind_:41
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:52
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_:66
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Shivering_Isle_:52
@@ -2352,7 +2352,7 @@ msgid ""
 "To continue, PlayOnLinux needs to remount your CD-ROM with unhide option."
 msgstr ""
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:16 lib/wine.lib:967
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:16 lib/wine.lib:977
 #, sh-format
 msgid "Abort installation"
 msgstr ""
@@ -2377,7 +2377,7 @@ msgstr ""
 msgid "The program needs access to ptrace() to proceed:"
 msgstr ""
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:28 lib/wine.lib:996
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:28 lib/wine.lib:1006
 #, sh-format
 msgid "User abort"
 msgstr ""
@@ -2696,6 +2696,11 @@ msgid ""
 "Install Terraria in Steam. Run the Terraria when Steam is installed the "
 "game. Steam install xna framework the game. Close the Steam so that the "
 "installer can continue."
+msgstr ""
+
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind_:73
+#, sh-format
+msgid "If youve the extentions, you should install Tribunal first !"
 msgstr ""
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:56
@@ -3106,84 +3111,84 @@ msgid ""
 "resolution when rFactor Config comes up."
 msgstr ""
 
-#: bash/bug_report:31
+#: bash/bug_report:32
 #, sh-format
 msgid "Report a bug"
 msgstr ""
 
-#: bash/bug_report:36
+#: bash/bug_report:37
 #, sh-format
 msgid ""
 "Please give the more details as you can, otherwise, it will be very "
 "difficult to help you"
 msgstr ""
 
-#: bash/bug_report:36
+#: bash/bug_report:37
 #, sh-format
 msgid ""
 "This wizard will help you to report a bug about an officially supported "
 "program."
 msgstr ""
 
-#: bash/bug_report:40
+#: bash/bug_report:41
 #, sh-format
 msgid ""
 "Your $APPLICATION_TITLE version is not up to date.\\nYou must update "
 "$APPLICATION_TITLE before sending a bug report.\\nThank you"
 msgstr ""
 
-#: bash/bug_report:46
+#: bash/bug_report:47
 #, sh-format
 msgid "I have a problem with a software"
 msgstr ""
 
-#: bash/bug_report:46
+#: bash/bug_report:47
 #, sh-format
 msgid "My problem concerns $APPLICATION_TITLE itself"
 msgstr ""
 
-#: bash/bug_report:46
+#: bash/bug_report:47
 #, sh-format
 msgid "What kind of problem do you have?"
 msgstr ""
 
-#: bash/bug_report:50
+#: bash/bug_report:51
 #, sh-format
 msgid "Don't join any log file"
 msgstr ""
 
-#: bash/bug_report:53 bash/manual_install:27 bash/manual_install:114
+#: bash/bug_report:54 bash/manual_install:27 bash/manual_install:114
 #: bash/manual_install:120 bash/manual_install:219
 #, sh-format
 msgid "Manual installation"
 msgstr ""
 
-#: bash/bug_report:54 bash/run_exe:24
+#: bash/bug_report:55 bash/run_exe:24
 #, sh-format
 msgid "Automatic installation"
 msgstr ""
 
-#: bash/bug_report:65
+#: bash/bug_report:66
 #, sh-format
 msgid "Choose the log file corresponding to your software."
 msgstr ""
 
-#: bash/bug_report:69
+#: bash/bug_report:70
 #, sh-format
 msgid "Please give a very short description (title, english only)"
 msgstr ""
 
-#: bash/bug_report:72
+#: bash/bug_report:73
 #, sh-format
 msgid "Please explain your problem clearly (english only):"
 msgstr ""
 
-#: bash/bug_report:76
+#: bash/bug_report:77
 #, sh-format
 msgid "Sorry, we need a detailed description."
 msgstr ""
 
-#: bash/bug_report:107
+#: bash/bug_report:108
 #, sh-format
 msgid ""
 "Thank you !\\n\\nYour report has been sent.\\n\\nWe will do our best to send "
@@ -3349,37 +3354,37 @@ msgstr ""
 msgid "$APPLICATION_TITLE is making a virtual windows hard drive"
 msgstr ""
 
-#: bash/first_use:240 bash/first_use:243 bash/first_use:271
+#: bash/first_use:242 bash/first_use:245 bash/first_use:273
 #, sh-format
 msgid "$APPLICATION_TITLE first use"
 msgstr ""
 
-#: bash/first_use:240
+#: bash/first_use:242
 #, sh-format
 msgid "$APPLICATION_TITLE is going to finish its preparation"
 msgstr ""
 
-#: bash/first_use:240 bash/first_use:243
+#: bash/first_use:242 bash/first_use:245
 #, sh-format
 msgid "Please ensure you are connected to the internet."
 msgstr ""
 
-#: bash/first_use:243
+#: bash/first_use:245
 #, sh-format
 msgid "It appears it is the first time you are using \t$APPLICATION_TITLE."
 msgstr ""
 
-#: bash/first_use:243
+#: bash/first_use:245
 #, sh-format
 msgid "This wizard will help you prepare $APPLICATION_TITLE environment"
 msgstr ""
 
-#: bash/first_use:253
+#: bash/first_use:255
 #, sh-format
 msgid "Error while installing fonts"
 msgstr ""
 
-#: bash/first_use:271
+#: bash/first_use:273
 #, sh-format
 msgid "Enjoy using $APPLICATION_TITLE"
 msgstr ""
@@ -3746,22 +3751,22 @@ msgstr ""
 msgid "Please choose a CD-ROM to eject"
 msgstr ""
 
-#: bash/run_app:83
+#: bash/run_app:85
 #, sh-format
 msgid "Please choose a software to run"
 msgstr ""
 
-#: bash/run_app:114
+#: bash/run_app:116
 #, sh-format
 msgid "$APPLICATION_TITLE debugger is starting..."
 msgstr ""
 
-#: bash/run_app:117
+#: bash/run_app:119
 #, sh-format
 msgid "$PACKAGE crashed.\\nClick on debug link to get more details."
 msgstr ""
 
-#: bash/run_app:119
+#: bash/run_app:121
 #, sh-format
 msgid "$PACKAGE crashed."
 msgstr ""
@@ -3817,7 +3822,7 @@ msgid ""
 msgstr ""
 
 #: bash/uninstall:31 bash/uninstall:65 bash/uninstall:68 bash/uninstall:75
-#: lib/playonlinux.lib:717
+#: lib/playonlinux.lib:720
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
 msgstr ""
@@ -3837,7 +3842,7 @@ msgstr ""
 msgid "This wizard will help you to uninstall: "
 msgstr ""
 
-#: bash/uninstall:65 lib/playonlinux.lib:717
+#: bash/uninstall:65 lib/playonlinux.lib:720
 #, sh-format
 msgid "Uninstalling..."
 msgstr ""
@@ -3897,7 +3902,7 @@ msgid ""
 msgstr ""
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:959 lib/wine.lib:1040
+#: lib/wine.lib:969 lib/wine.lib:1050
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr ""
@@ -3912,13 +3917,13 @@ msgstr ""
 msgid "Setting Program Files var"
 msgstr ""
 
-#: lib/playonlinux.lib:242 lib/playonlinux.lib:248 lib/playonlinux.lib:254
-#: lib/playonlinux.lib:260 lib/playonlinux.lib:266 lib/playonlinux.lib:272
+#: lib/playonlinux.lib:244 lib/playonlinux.lib:250 lib/playonlinux.lib:256
+#: lib/playonlinux.lib:262 lib/playonlinux.lib:268 lib/playonlinux.lib:274
 #, sh-format
 msgid "This function is disabled in the PlayOnlinux environment."
 msgstr ""
 
-#: lib/playonlinux.lib:334
+#: lib/playonlinux.lib:336
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -3926,12 +3931,12 @@ msgid ""
 "responsible from it.\\nPlease ensure you know what you are doing !"
 msgstr ""
 
-#: lib/playonlinux.lib:335
+#: lib/playonlinux.lib:337
 #, sh-format
 msgid "Here the source code of the script. Check it carefully"
 msgstr ""
 
-#: lib/playonlinux.lib:357
+#: lib/playonlinux.lib:359
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -3939,70 +3944,70 @@ msgid ""
 "responsible from it.\\nPlease ensure you know what you are doing!"
 msgstr ""
 
-#: lib/playonlinux.lib:358
+#: lib/playonlinux.lib:360
 #, sh-format
 msgid "External library"
 msgstr ""
 
-#: lib/playonlinux.lib:358
+#: lib/playonlinux.lib:360
 #, sh-format
 msgid "Here the source code of the script. Check it carrefully"
 msgstr ""
 
-#: lib/playonlinux.lib:591
+#: lib/playonlinux.lib:593
 #, sh-format
 msgid "Making shortcut..."
 msgstr ""
 
-#: lib/playonlinux.lib:715
+#: lib/playonlinux.lib:718
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr ""
 
-#: lib/playonlinux.lib:826
+#: lib/playonlinux.lib:831
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:827
+#: lib/playonlinux.lib:832
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:828
+#: lib/playonlinux.lib:833
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:829
+#: lib/playonlinux.lib:834
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
 "prevent wine from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/plugins.lib:65
+#: lib/plugins.lib:66
 #, sh-format
 msgid "Checking plugin: "
 msgstr ""
 
-#: lib/plugins.lib:93
+#: lib/plugins.lib:94
 #, sh-format
 msgid "New: "
 msgstr ""
 
-#: lib/plugins.lib:93
+#: lib/plugins.lib:94
 #, sh-format
 msgid "Updating plugin. Previous: "
 msgstr ""
 
-#: lib/plugins.lib:112
+#: lib/plugins.lib:113
 #, sh-format
 msgid "Installing plugin: "
 msgstr ""
@@ -4310,71 +4315,71 @@ msgstr ""
 msgid "Select the main videocard to report:"
 msgstr ""
 
-#: lib/wine.lib:542 lib/wine.lib:707
+#: lib/wine.lib:549 lib/wine.lib:714
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
 "message"
 msgstr ""
 
-#: lib/wine.lib:767
+#: lib/wine.lib:775
 #, sh-format
 msgid "Unable to find version: "
 msgstr ""
 
-#: lib/wine.lib:773 lib/wine.lib:774
+#: lib/wine.lib:781 lib/wine.lib:782
 #, sh-format
 msgid "Downloading Wine: "
 msgstr ""
 
-#: lib/wine.lib:783
+#: lib/wine.lib:791
 #, sh-format
 msgid "The download seems to have failed."
 msgstr ""
 
-#: lib/wine.lib:785
+#: lib/wine.lib:793
 #, sh-format
 msgid "Extracting Wine..."
 msgstr ""
 
-#: lib/wine.lib:965
+#: lib/wine.lib:975
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr ""
 
-#: lib/wine.lib:966
+#: lib/wine.lib:976
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
 msgstr ""
 
-#: lib/wine.lib:980
+#: lib/wine.lib:990
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr ""
 
-#: lib/wine.lib:1160 lib/wine.lib:1190
+#: lib/wine.lib:1170 lib/wine.lib:1200
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr ""
 
-#: lib/wine.lib:1164 lib/wine.lib:1193
+#: lib/wine.lib:1174 lib/wine.lib:1203
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
 "have to reinstall $SOFTNAME"
 msgstr ""
 
-#: lib/wine.lib:1164 lib/wine.lib:1193
+#: lib/wine.lib:1174 lib/wine.lib:1203
 #, sh-format
 msgid "Install is done"
 msgstr ""
 
-#: lib/wine.lib:1197 lib/wine.lib:1198
+#: lib/wine.lib:1207 lib/wine.lib:1208
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr ""
 
-#: lib/wine.lib:1206
+#: lib/wine.lib:1216
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr ""
@@ -4747,31 +4752,31 @@ msgid ""
 "used for piracy purposes we won't give any support on this matter."
 msgstr ""
 
-#: python/irc.py:137
+#: python/irc.py:139
 msgid "Send"
 msgstr ""
 
-#: python/irc.py:138
+#: python/irc.py:140
 msgid "Connect"
 msgstr ""
 
-#: python/irc.py:139
+#: python/irc.py:141
 msgid "Disconnect"
 msgstr ""
 
-#: python/irc.py:140
+#: python/irc.py:142
 msgid "Leave"
 msgstr ""
 
-#: python/irc.py:227
+#: python/irc.py:229
 msgid "Join a channel"
 msgstr ""
 
-#: python/irc.py:257 python/mainwindow.py:721
+#: python/irc.py:259 python/mainwindow.py:721
 msgid "Messenger"
 msgstr ""
 
-#: python/irc.py:273
+#: python/irc.py:275
 msgid ""
 "If you close this window, you cannot read further replies. Are you sure that "
 "you want to close it?"
@@ -5080,6 +5085,7 @@ msgid "Are you sure you want to  want to install {0} package?"
 msgstr ""
 
 #: python/mainwindow.py:1276 python/mainwindow.py:1278
+#: python/mainwindow.py:1280
 msgid ""
 "You are trying to open a script design for {0}! It might not work as expected"
 msgstr ""
@@ -5156,19 +5162,19 @@ msgstr ""
 msgid "You must restart {0} for the changes to take effect."
 msgstr ""
 
-#: python/wine_versions.py:194
+#: python/wine_versions.py:195
 msgid "Installed Wine versions: "
 msgstr ""
 
-#: python/wine_versions.py:195
+#: python/wine_versions.py:196
 msgid "Available Wine versions: "
 msgstr ""
 
-#: python/wine_versions.py:202
+#: python/wine_versions.py:203
 msgid "Wine versions"
 msgstr ""
 
-#: python/wine_versions.py:321
+#: python/wine_versions.py:322
 msgid "Are you sure you want to delete wine {0}?"
 msgstr ""
 
