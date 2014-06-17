@@ -791,7 +791,7 @@ POL_Wine_InstallVersion()
 				POL_SetupWindow_message "$(eval_gettext 'The download seems to have failed.')" "$TITLE"
 			else
 				POL_SetupWindow_wait "$(eval_gettext 'Extracting Wine...')" "$TITLE"
-				"$PLAYONLINUX/playonlinux-pkg" -i "$PWD/$WINE_ADDRESS"
+				bash "$PLAYONLINUX/playonlinux-pkg" -i "$PWD/$WINE_ADDRESS"
 			fi
 			rm "$WINE_ADDRESS"
 			POL_Wine_Install_resources gecko "$POL_WINEVERSION" "$POL_ARCH"
