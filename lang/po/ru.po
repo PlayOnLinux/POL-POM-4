@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2014-06-09 19:00+0200\n"
+"POT-Creation-Date: 2014-06-16 19:00+0200\n"
 "PO-Revision-Date: 2014-02-02 18:29+0000\n"
 "Last-Translator: Андрей Елманов <3lmanov@gmail.com>\n"
 "Language-Team: gnome-cyr@gnome.org\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-06-10 05:32+0000\n"
-"X-Generator: Launchpad (build 17031)\n"
+"X-Launchpad-Export-Date: 2014-06-17 05:30+0000\n"
+"X-Generator: Launchpad (build 17045)\n"
 "Language: ru\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -327,6 +327,7 @@ msgstr "Пожалуйста вставьте носитель с игрой в 
 #: PlayOnLinux_Scripts/Surfer_8_:23 PlayOnLinux_Scripts/Tera_Online_:56
 #: PlayOnLinux_Scripts/The_Sims_3_:61 PlayOnLinux_Scripts/The_Witcher_:132
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_:100
+#: PlayOnLinux_Scripts/The_mighty_quest_for_epic_loot_:59
 #: PlayOnLinux_Scripts/Theme_Hospital_:59
 #: PlayOnLinux_Scripts/Traktor_Pro_2_:33 PlayOnLinux_Scripts/Tree[d]_:41
 #: PlayOnLinux_Scripts/Warcraft_III__Reign_of_Chaos_:38
@@ -523,8 +524,8 @@ msgstr "Пожалуйста, выберите установочный файл
 #: PlayOnLinux_Scripts/SubRip_:33 PlayOnLinux_Scripts/Theme_Hospital_:48
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:116 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:1160
-#: lib/wine.lib:1190
+#: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:1170
+#: lib/wine.lib:1200
 #, sh-format
 msgid "Please wait..."
 msgstr "Пожалуйста, подождите..."
@@ -568,7 +569,7 @@ msgstr "Вставте пожалуйста диск с игрой в ваш п�
 #: PlayOnLinux_Scripts/Photomatix_Pro_4.2.7_:43
 #: PlayOnLinux_Scripts/Rome_Total_War__Gold_Edition__:56
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:59
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind_:49
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind_:51
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:184
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_:80
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Shivering_Isle_:74
@@ -647,7 +648,7 @@ msgstr "Выберите патч для установки"
 #: PlayOnLinux_Scripts/Rage_:79
 #: PlayOnLinux_Scripts/Rome_Total_War__Gold_Edition__:49
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:46
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind_:36
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind_:41
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:52
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_:66
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Shivering_Isle_:52
@@ -2562,7 +2563,7 @@ msgstr ""
 "Для продолжения PlayOnLinux должен перемонтировать компакт-дисковод с опцией "
 "\"Показать скрытое\" (\"unhide\")"
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:16 lib/wine.lib:967
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:16 lib/wine.lib:977
 #, sh-format
 msgid "Abort installation"
 msgstr "Отмена установки"
@@ -2587,7 +2588,7 @@ msgstr "Я починил это своими силами, просто про�
 msgid "The program needs access to ptrace() to proceed:"
 msgstr "Для продолжения работы программе необходим доступ к ptrace():"
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:28 lib/wine.lib:996
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:28 lib/wine.lib:1006
 #, sh-format
 msgid "User abort"
 msgstr "Операция отменена пользователем"
@@ -2628,6 +2629,11 @@ msgstr "Теперь Вы можете вернуться в окно устан
 #: PlayOnLinux_Scripts/Payday_2_:40
 #, sh-format
 msgid "Please do not run $TITLE after installation has finished."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Photofiltre_Studio_X_:15
+#, sh-format
+msgid "Extracting $TITLE"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Photomatix_Pro_4.2.7_:24
@@ -2928,6 +2934,11 @@ msgid ""
 "installer can continue."
 msgstr ""
 
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind_:73
+#, sh-format
+msgid "If youve the extentions, you should install Tribunal first !"
+msgstr ""
+
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:56
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:81
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:106
@@ -3155,6 +3166,11 @@ msgstr ""
 msgid "Donwload finished.\\nPatches installation will begin"
 msgstr "Загрузка завершена.\\nНачинается установка патчей"
 
+#: PlayOnLinux_Scripts/The_mighty_quest_for_epic_loot_:50
+#, sh-format
+msgid "We will download the installer"
+msgstr ""
+
 #: PlayOnLinux_Scripts/Toontown_Online_:17
 #, sh-format
 msgid ""
@@ -3295,10 +3311,10 @@ msgstr ""
 
 #: PlayOnLinux_Scripts/World_Of_Warplanes_:45
 #, sh-format
-msgid "Which region version of World of Tanks would you like to install?"
+msgid "Which region version of World of Warplanes would you like to install?"
 msgstr ""
 
-#: PlayOnLinux_Scripts/World_Of_Warplanes_:52
+#: PlayOnLinux_Scripts/World_Of_Warplanes_:53
 #, sh-format
 msgid ""
 "Attention:After installation is complete, the patcher will load. After, go "
@@ -3384,12 +3400,12 @@ msgstr ""
 "завершении установки. Установите DirectX когда вас попросят. Убедитесь в "
 "том, что установлено 32 битное разрешение когда появится окно конфигурации."
 
-#: bash/bug_report:31
+#: bash/bug_report:32
 #, sh-format
 msgid "Report a bug"
 msgstr "Сообщить об ошибке"
 
-#: bash/bug_report:36
+#: bash/bug_report:37
 #, sh-format
 msgid ""
 "Please give the more details as you can, otherwise, it will be very "
@@ -3398,7 +3414,7 @@ msgstr ""
 "Пожалуйста, предоставьте как можно больше сведений и деталей, в противном "
 "случае помочь Вам будет очень сложно."
 
-#: bash/bug_report:36
+#: bash/bug_report:37
 #, sh-format
 msgid ""
 "This wizard will help you to report a bug about an officially supported "
@@ -3407,7 +3423,7 @@ msgstr ""
 "Этот мастер поможет Вам сообщить об ошибке в официально поддерживаемой "
 "программе."
 
-#: bash/bug_report:40
+#: bash/bug_report:41
 #, sh-format
 msgid ""
 "Your $APPLICATION_TITLE version is not up to date.\\nYou must update "
@@ -3416,60 +3432,60 @@ msgstr ""
 "Ваша версия $APPLICATION_TITLE устарела.\\nПеред отправкой сообщения об "
 "ошибке  следует обновить $APPLICATION_TITLE.\\nСпасибо"
 
-#: bash/bug_report:46
+#: bash/bug_report:47
 #, sh-format
 msgid "I have a problem with a software"
 msgstr "У меня возникла проблема с программой"
 
-#: bash/bug_report:46
+#: bash/bug_report:47
 #, sh-format
 msgid "My problem concerns $APPLICATION_TITLE itself"
 msgstr "Моя проблема относится к  $APPLICATION_TITLE как к таковому"
 
-#: bash/bug_report:46
+#: bash/bug_report:47
 #, sh-format
 msgid "What kind of problem do you have?"
 msgstr "Какого типа возникшая проблема?"
 
-#: bash/bug_report:50
+#: bash/bug_report:51
 #, sh-format
 msgid "Don't join any log file"
 msgstr "Не прикреплять лог"
 
-#: bash/bug_report:53 bash/manual_install:27 bash/manual_install:114
+#: bash/bug_report:54 bash/manual_install:27 bash/manual_install:114
 #: bash/manual_install:120 bash/manual_install:219
 #, sh-format
 msgid "Manual installation"
 msgstr "Ручная установка"
 
-#: bash/bug_report:54 bash/run_exe:24
+#: bash/bug_report:55 bash/run_exe:24
 #, sh-format
 msgid "Automatic installation"
 msgstr "Автоматическая установка"
 
-#: bash/bug_report:65
+#: bash/bug_report:66
 #, sh-format
 msgid "Choose the log file corresponding to your software."
 msgstr "Выберите лог, относящийся к Вашей программе."
 
-#: bash/bug_report:69
+#: bash/bug_report:70
 #, sh-format
 msgid "Please give a very short description (title, english only)"
 msgstr ""
 "Пожалуйста, дайте очень краткое описание (заголовок, строго на английском)"
 
-#: bash/bug_report:72
+#: bash/bug_report:73
 #, sh-format
 msgid "Please explain your problem clearly (english only):"
 msgstr ""
 "Пожалуйста, опишите Вашу проблему ясно и чётко (строго на английском):"
 
-#: bash/bug_report:76
+#: bash/bug_report:77
 #, sh-format
 msgid "Sorry, we need a detailed description."
 msgstr "Извините, но необходимо подробное описание."
 
-#: bash/bug_report:107
+#: bash/bug_report:108
 #, sh-format
 msgid ""
 "Thank you !\\n\\nYour report has been sent.\\n\\nWe will do our best to send "
@@ -3645,37 +3661,37 @@ msgstr "Конфигурация виртуального диска по умо
 msgid "$APPLICATION_TITLE is making a virtual windows hard drive"
 msgstr "$APPLICATION_TITLE создаёт виртуальный жёсткий диск Windows"
 
-#: bash/first_use:240 bash/first_use:243 bash/first_use:271
+#: bash/first_use:242 bash/first_use:245 bash/first_use:273
 #, sh-format
 msgid "$APPLICATION_TITLE first use"
 msgstr "$APPLICATION_TITLE Первые шаги"
 
-#: bash/first_use:240
+#: bash/first_use:242
 #, sh-format
 msgid "$APPLICATION_TITLE is going to finish its preparation"
 msgstr "$APPLICATION_TITLE заканчивает подготовку"
 
-#: bash/first_use:240 bash/first_use:243
+#: bash/first_use:242 bash/first_use:245
 #, sh-format
 msgid "Please ensure you are connected to the internet."
 msgstr "Пожалуйста, убедитесь, что вы подключены к Интернету."
 
-#: bash/first_use:243
+#: bash/first_use:245
 #, sh-format
 msgid "It appears it is the first time you are using \t$APPLICATION_TITLE."
 msgstr "Похоже, это первое использование \t$APPLICATION_TITLE."
 
-#: bash/first_use:243
+#: bash/first_use:245
 #, sh-format
 msgid "This wizard will help you prepare $APPLICATION_TITLE environment"
 msgstr "Этот мастер поможет Вам подготовить окружение $APPLICATION_TITLE"
 
-#: bash/first_use:253
+#: bash/first_use:255
 #, sh-format
 msgid "Error while installing fonts"
 msgstr "Ошибка при установке шрифтов"
 
-#: bash/first_use:271
+#: bash/first_use:273
 #, sh-format
 msgid "Enjoy using $APPLICATION_TITLE"
 msgstr "Наслаждайтесь $APPLICATION_TITLE"
@@ -3795,7 +3811,7 @@ msgid "Use another version of Wine"
 msgstr "Использовать другую версию Wine"
 
 #: bash/manual_install:165 bash/manual_install:219 bash/polconfigurator:102
-#: python/configure.py:230 python/mainwindow.py:576 python/mainwindow.py:608
+#: python/configure.py:230 python/mainwindow.py:572 python/mainwindow.py:604
 #, sh-format
 msgid "Configure Wine"
 msgstr "Настроить Wine"
@@ -3923,7 +3939,7 @@ msgstr " не существует!"
 msgid "Extracting: "
 msgstr "Извлечение: "
 
-#: bash/playonlinux-pkg:111 bash/playonlinux_online:38
+#: bash/playonlinux-pkg:111
 #, sh-format
 msgid "Running..."
 msgstr "Запуск..."
@@ -3932,177 +3948,6 @@ msgstr "Запуск..."
 #, sh-format
 msgid "Cleaning..."
 msgstr "Очистка..."
-
-#: bash/playonlinux_online:32
-#, sh-format
-msgid ""
-"This is the list of the scripts you sent to us. You can run one of them"
-msgstr ""
-"Это - список скриптов, которые вы нам прислали. Вы можете запустить один из "
-"них"
-
-#: bash/playonlinux_online:42
-#, sh-format
-msgid "You do not seems to have any personal script"
-msgstr "Похоже, у Вас нет персональных скриптов"
-
-#: bash/playonlinux_online:47
-#, sh-format
-msgid ""
-"If you have successfully installed a program with 'Install a non-listed\\"
-"nsoftware' button, it will allow you to add this program in our list"
-msgstr ""
-"Если Вы успешно установили программу с помощью опции \"Установить программу "
-"не из списка\" (\"Install a non-listed\\nsoftware\"), это позволит добавить "
-"программу в список"
-
-#: bash/playonlinux_online:47
-#, sh-format
-msgid "This tools will allow you to help us :"
-msgstr "Эти инструменты позволят Вам помочь нам:"
-
-#: bash/playonlinux_online:47
-#, sh-format
-msgid ""
-"We're going to ask you some questions, please be as much accurate as\\"
-"npossible"
-msgstr ""
-"Сейчас мы зададим Вам несколько вопросов, пожалуйста, отвечайте как можно "
-"точнее и подробнее"
-
-#: bash/playonlinux_online:55
-#, sh-format
-msgid "Choose the file corresponding to your program."
-msgstr "Выберите файл, относящийся к Вашей программе."
-
-#: bash/playonlinux_online:59
-#, sh-format
-msgid "Does your program run?"
-msgstr "Ваша программа запускается?"
-
-#: bash/playonlinux_online:62
-#, sh-format
-msgid "What is the title of your program?"
-msgstr "Как называется программа?"
-
-#: bash/playonlinux_online:64
-#, sh-format
-msgid "What is the editor of your program?"
-msgstr "Кто издатель вашей программы?"
-
-#: bash/playonlinux_online:66
-#, sh-format
-msgid "What is the editor website of your program?"
-msgstr "Кто автор сайта вашей программы?"
-
-#: bash/playonlinux_online:69 python/install.py:210
-#, sh-format
-msgid "Accessories"
-msgstr "Утилиты"
-
-#: bash/playonlinux_online:69 python/install.py:211
-#, sh-format
-msgid "Development"
-msgstr "Разработка"
-
-#: bash/playonlinux_online:69 python/install.py:212
-#, sh-format
-msgid "Education"
-msgstr "Обучение"
-
-#: bash/playonlinux_online:69 python/install.py:213
-#, sh-format
-msgid "Games"
-msgstr "Игры"
-
-#: bash/playonlinux_online:69 python/install.py:214
-#, sh-format
-msgid "Graphics"
-msgstr "Графика"
-
-#: bash/playonlinux_online:69 python/install.py:215 python/mainwindow.py:262
-#: python/options.py:384
-#, sh-format
-msgid "Internet"
-msgstr "Интернет"
-
-#: bash/playonlinux_online:69 python/install.py:216
-#, sh-format
-msgid "Multimedia"
-msgstr "Мультимедия"
-
-#: bash/playonlinux_online:69 python/install.py:217
-#, sh-format
-msgid "Office"
-msgstr "Офис"
-
-#: bash/playonlinux_online:69 lib/setupwindow.lib:349 python/install.py:218
-#, sh-format
-msgid "Other"
-msgstr "Другие"
-
-#: bash/playonlinux_online:69 python/install.py:219
-#, sh-format
-msgid "Patches"
-msgstr "Патчи"
-
-#: bash/playonlinux_online:69
-#, sh-format
-msgid "Select a category for your program"
-msgstr "Выберите категорию для программы"
-
-#: bash/playonlinux_online:69 python/install.py:258
-#, sh-format
-msgid "Testing"
-msgstr "Тестирование"
-
-#: bash/playonlinux_online:72
-#, sh-format
-msgid ""
-"What feature of your program does not work?\\nIf everything works, please "
-"mention it"
-msgstr ""
-"Какие особенности программы не работают?\\nЕсли всё работает, пожалуйста, "
-"напишите об этом"
-
-#: bash/playonlinux_online:74
-#, sh-format
-msgid "Write any change you made to wine configuration here:"
-msgstr "Запишите все изменения, которые Вы внесли в конфигурацию Wine:"
-
-#: bash/playonlinux_online:102
-#, sh-format
-msgid "You must be able to run this program!"
-msgstr "Эта программа должна запускаться!"
-
-#: bash/playonlinux_online:107
-#, sh-format
-msgid "Run one of your personal scripts"
-msgstr "Запустите один из Ваших персональных скриптов"
-
-#: bash/playonlinux_online:108
-#, sh-format
-msgid "Send to us a working script generated by manual installation"
-msgstr "Пришлите нам работающий скрипт, созданный при ручной установке"
-
-#: bash/playonlinux_online:109
-#, sh-format
-msgid "Logout"
-msgstr "Выйти"
-
-#: bash/playonlinux_online:110
-#, sh-format
-msgid "You are connected to $APPLICATION_TITLE online as $POL_LOGIN"
-msgstr "Вы подключены к онлайн-среде $APPLICATION_TITLE как $POL_LOGIN"
-
-#: bash/playonlinux_online:124
-#, sh-format
-msgid ""
-"You have been successfully logged out of $APPLICATION_TITLE Online\\nYou can "
-"safely close this window"
-msgstr ""
-"Вы успешно вышли из онлайн-среды $APPLICATION_TITLE\\nТеперь это окно можно "
-"закрыть"
 
 #: bash/polconfigurator:34
 #, sh-format
@@ -4129,8 +3974,8 @@ msgstr "Недопустимое расширение файла"
 msgid "is not an icon extension"
 msgstr "это не расширение файла значка"
 
-#: bash/polconfigurator:103 python/configure.py:238 python/mainwindow.py:580
-#: python/mainwindow.py:621
+#: bash/polconfigurator:103 python/configure.py:238 python/mainwindow.py:576
+#: python/mainwindow.py:617
 #, sh-format
 msgid "Registry Editor"
 msgstr "Редактор реестра"
@@ -4221,24 +4066,24 @@ msgstr "Пожалуйста, выберите компакт-дисковод"
 msgid "Please choose a CD-ROM to eject"
 msgstr "Выберите компакт-дисковод для извлечения..."
 
-#: bash/run_app:83
+#: bash/run_app:85
 #, sh-format
 msgid "Please choose a software to run"
 msgstr "Пожалуйста, выберите программу для запуска"
 
-#: bash/run_app:114
+#: bash/run_app:116
 #, sh-format
 msgid "$APPLICATION_TITLE debugger is starting..."
 msgstr "$APPLICATION_TITLE отладчик запускается..."
 
-#: bash/run_app:117
+#: bash/run_app:119
 #, sh-format
 msgid "$PACKAGE crashed.\\nClick on debug link to get more details."
 msgstr ""
 "$PACKAGE прекратил свою работу.\\nНажмите \"Отладка\" (\"Debug\"), чтобы "
 "узнать подробности."
 
-#: bash/run_app:119
+#: bash/run_app:121
 #, sh-format
 msgid "$PACKAGE crashed."
 msgstr "$PACKAGE прекратил свою работу."
@@ -4301,7 +4146,7 @@ msgstr ""
 "настройки?"
 
 #: bash/uninstall:31 bash/uninstall:65 bash/uninstall:68 bash/uninstall:75
-#: lib/playonlinux.lib:717
+#: lib/playonlinux.lib:720
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
 msgstr "Деинсталлятор $APPLICATION_TITLE"
@@ -4321,7 +4166,7 @@ msgstr "Для продолжения щелкните Далее."
 msgid "This wizard will help you to uninstall: "
 msgstr "Этот мастер поможет Вам удалить программу: "
 
-#: bash/uninstall:65 lib/playonlinux.lib:717
+#: bash/uninstall:65 lib/playonlinux.lib:720
 #, sh-format
 msgid "Uninstalling..."
 msgstr "Удаление..."
@@ -4391,7 +4236,7 @@ msgstr ""
 "адресу: www.$POL_DNS"
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:959 lib/wine.lib:1040
+#: lib/wine.lib:969 lib/wine.lib:1050
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr "Пожалуйста, подождите, пока создаётся виртуальный диск..."
@@ -4408,13 +4253,13 @@ msgstr ""
 msgid "Setting Program Files var"
 msgstr "Установка переменной Program Files"
 
-#: lib/playonlinux.lib:242 lib/playonlinux.lib:248 lib/playonlinux.lib:254
-#: lib/playonlinux.lib:260 lib/playonlinux.lib:266 lib/playonlinux.lib:272
+#: lib/playonlinux.lib:244 lib/playonlinux.lib:250 lib/playonlinux.lib:256
+#: lib/playonlinux.lib:262 lib/playonlinux.lib:268 lib/playonlinux.lib:274
 #, sh-format
 msgid "This function is disabled in the PlayOnlinux environment."
 msgstr "Эта функция недоступна в окружении PlayOnLinux"
 
-#: lib/playonlinux.lib:334
+#: lib/playonlinux.lib:336
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -4426,12 +4271,12 @@ msgstr ""
 "PlayOnLinux, и PlayOnLinux не отвечает за него.\\nПожалуйста, убедитесь, что "
 "знаете, что делаете!"
 
-#: lib/playonlinux.lib:335
+#: lib/playonlinux.lib:337
 #, sh-format
 msgid "Here the source code of the script. Check it carefully"
 msgstr "Здесь находится исходный код скрипта. Проверьте его внимательно"
 
-#: lib/playonlinux.lib:357
+#: lib/playonlinux.lib:359
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -4443,27 +4288,27 @@ msgstr ""
 "$APPLICATION_TITLE, и $APPLICATION_TITLE не отвечает за него.\\nПожалуйста, "
 "убедитесь, что знаете, что делаете!"
 
-#: lib/playonlinux.lib:358
+#: lib/playonlinux.lib:360
 #, sh-format
 msgid "External library"
 msgstr "Внешняя библиотека"
 
-#: lib/playonlinux.lib:358
+#: lib/playonlinux.lib:360
 #, sh-format
 msgid "Here the source code of the script. Check it carrefully"
 msgstr "Здесь находится исходный код скрипта. Проверьте его внимательно"
 
-#: lib/playonlinux.lib:591
+#: lib/playonlinux.lib:593
 #, sh-format
 msgid "Making shortcut..."
 msgstr "Создание иконки..."
 
-#: lib/playonlinux.lib:715
+#: lib/playonlinux.lib:718
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr "Вы хотите удалить виртуальный диск:"
 
-#: lib/playonlinux.lib:826
+#: lib/playonlinux.lib:831
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
@@ -4472,7 +4317,7 @@ msgstr ""
 "Этот файл расположен на диске с файловой системой FAT32.\\nИз-за этого Wine "
 "может не работать.\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:827
+#: lib/playonlinux.lib:832
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
@@ -4481,7 +4326,7 @@ msgstr ""
 "Этот файл расположен на диске с файловой системой NTFS.\\nИз-за этого Wine "
 "может не работать.\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:828
+#: lib/playonlinux.lib:833
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
@@ -4490,7 +4335,7 @@ msgstr ""
 "Этот файл расположен на файловой системой в пользовательском пространстве "
 "(FUSE).\\nИз-за этого Wine может не работать.\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:829
+#: lib/playonlinux.lib:834
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
@@ -4499,22 +4344,22 @@ msgstr ""
 "Этот файл расположен на диске, примонтированным без прав на исполнение.\\nИз-"
 "за этого Wine может не работать.\\n\\n$FilePath"
 
-#: lib/plugins.lib:65
+#: lib/plugins.lib:66
 #, sh-format
 msgid "Checking plugin: "
 msgstr "Проверка плагина: "
 
-#: lib/plugins.lib:93
+#: lib/plugins.lib:94
 #, sh-format
 msgid "New: "
 msgstr "Новые: "
 
-#: lib/plugins.lib:93
+#: lib/plugins.lib:94
 #, sh-format
 msgid "Updating plugin. Previous: "
 msgstr "Обновление плагина. Предыдущий: "
 
-#: lib/plugins.lib:112
+#: lib/plugins.lib:113
 #, sh-format
 msgid "Installing plugin: "
 msgstr "Установка плагина: "
@@ -4663,9 +4508,9 @@ msgstr ""
 "запустите скрипт ещё раз."
 
 #: lib/setupwindow.lib:122 python/guiv3.py:769 python/lib/irc.py:292
-#: python/mainwindow.py:1137 python/mainwindow.py:1167
-#: python/mainwindow.py:1181 python/mainwindow.py:1190
-#: python/mainwindow.py:1202 python/mainwindow.py:1214 python/wrapper.py:121
+#: python/mainwindow.py:1133 python/mainwindow.py:1163
+#: python/mainwindow.py:1177 python/mainwindow.py:1186
+#: python/mainwindow.py:1198 python/mainwindow.py:1210 python/wrapper.py:121
 #, sh-format
 msgid "Error"
 msgstr "Ошибка"
@@ -4674,6 +4519,11 @@ msgstr "Ошибка"
 #, sh-format
 msgid "Where is mounted your CD-ROM?"
 msgstr "Где примонтирован Ваш компакт-диск?"
+
+#: lib/setupwindow.lib:349 python/install.py:218
+#, sh-format
+msgid "Other"
+msgstr "Другие"
 
 #: lib/setupwindow.lib:350 python/install.py:286 python/install.py:290
 #, sh-format
@@ -4835,7 +4685,7 @@ msgstr ""
 msgid "Select the main videocard to report:"
 msgstr ""
 
-#: lib/wine.lib:542 lib/wine.lib:707
+#: lib/wine.lib:549 lib/wine.lib:714
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
@@ -4844,47 +4694,47 @@ msgstr ""
 "Похоже, Wine прервала работу.\\n\\nЕсли Ваша программа работает, просто не "
 "обращайте внимания на это сообщение."
 
-#: lib/wine.lib:767
+#: lib/wine.lib:775
 #, sh-format
 msgid "Unable to find version: "
 msgstr "Не удалось найти версию: "
 
-#: lib/wine.lib:773 lib/wine.lib:774
+#: lib/wine.lib:781 lib/wine.lib:782
 #, sh-format
 msgid "Downloading Wine: "
 msgstr "Загрузка Wine: "
 
-#: lib/wine.lib:783
+#: lib/wine.lib:791
 #, sh-format
 msgid "The download seems to have failed."
 msgstr "Похоже, загрузка не удалась."
 
-#: lib/wine.lib:785
+#: lib/wine.lib:793
 #, sh-format
 msgid "Extracting Wine..."
 msgstr "Извлечение Wine..."
 
-#: lib/wine.lib:965
+#: lib/wine.lib:975
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr "Перезаписать (обычно работает, но без гарантии)"
 
-#: lib/wine.lib:966
+#: lib/wine.lib:976
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
 msgstr "Стереть (содержимое виртуального диска будет уничтожено)"
 
-#: lib/wine.lib:980
+#: lib/wine.lib:990
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr "Целевой виртуальный диск $PREFNAME уже существует:"
 
-#: lib/wine.lib:1160 lib/wine.lib:1190
+#: lib/wine.lib:1170 lib/wine.lib:1200
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "Пожалуйста, подождите пока $SOFTNAME установится..."
 
-#: lib/wine.lib:1164 lib/wine.lib:1193
+#: lib/wine.lib:1174 lib/wine.lib:1203
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
@@ -4893,17 +4743,17 @@ msgstr ""
 "Внимание! Это прервёт процесс установки. Если он не был завершён, Вам "
 "придётся переустановить $SOFTNAME"
 
-#: lib/wine.lib:1164 lib/wine.lib:1193
+#: lib/wine.lib:1174 lib/wine.lib:1203
 #, sh-format
 msgid "Install is done"
 msgstr "Установка завершена"
 
-#: lib/wine.lib:1197 lib/wine.lib:1198
+#: lib/wine.lib:1207 lib/wine.lib:1208
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr "Нажмите далее только когда процесс установки будет завершен"
 
-#: lib/wine.lib:1206
+#: lib/wine.lib:1216
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr ""
@@ -4987,7 +4837,7 @@ msgstr ""
 "виртуальный диск."
 
 #: python/configure.py:333 python/install.py:285 python/install.py:289
-#: python/mainwindow.py:197 python/mainwindow.py:350
+#: python/mainwindow.py:197 python/mainwindow.py:346
 msgid "Install"
 msgstr "Установка"
 
@@ -5060,7 +4910,7 @@ msgstr ""
 "Будьте осторожны!\n"
 "Если вы измените "
 
-#: python/configure.py:656 python/mainwindow.py:932 python/mainwindow.py:934
+#: python/configure.py:656 python/mainwindow.py:928 python/mainwindow.py:930
 msgid "{0} configuration"
 msgstr "Параметры {0}"
 
@@ -5072,8 +4922,8 @@ msgstr "Пожалуйста, выберите настраиваемую про
 msgid "New"
 msgstr "Новый"
 
-#: python/configure.py:683 python/mainwindow.py:198 python/mainwindow.py:351
-#: python/mainwindow.py:596 python/options.py:207
+#: python/configure.py:683 python/mainwindow.py:198 python/mainwindow.py:347
+#: python/mainwindow.py:592 python/options.py:207
 msgid "Remove"
 msgstr "Удалить"
 
@@ -5081,7 +4931,7 @@ msgstr "Удалить"
 msgid "Install components"
 msgstr "Установка компонентов"
 
-#: python/configure.py:702 python/mainwindow.py:332
+#: python/configure.py:702 python/mainwindow.py:328
 msgid "Display"
 msgstr "Экран"
 
@@ -5101,8 +4951,8 @@ msgstr "Вы уверены, что хотите удалить виртуаль
 msgid "Are you sure you want to delete {0} ?"
 msgstr "Вы уверены, что хотите удалить {0}?"
 
-#: python/debug.py:39 python/mainwindow.py:254 python/mainwindow.py:907
-#: python/mainwindow.py:997
+#: python/debug.py:39 python/mainwindow.py:250 python/mainwindow.py:903
+#: python/mainwindow.py:993
 msgid "{0} debugger"
 msgstr "Отладчик {0}"
 
@@ -5187,13 +5037,53 @@ msgstr "Вы не можете закрыть это окно"
 msgid "No description"
 msgstr "Нет описания"
 
-#: python/install.py:249 python/mainwindow.py:366 python/mainwindow.py:369
+#: python/install.py:210
+msgid "Accessories"
+msgstr "Утилиты"
+
+#: python/install.py:211
+msgid "Development"
+msgstr "Разработка"
+
+#: python/install.py:212
+msgid "Education"
+msgstr "Обучение"
+
+#: python/install.py:213
+msgid "Games"
+msgstr "Игры"
+
+#: python/install.py:214
+msgid "Graphics"
+msgstr "Графика"
+
+#: python/install.py:215 python/mainwindow.py:258 python/options.py:384
+msgid "Internet"
+msgstr "Интернет"
+
+#: python/install.py:216
+msgid "Multimedia"
+msgstr "Мультимедия"
+
+#: python/install.py:217
+msgid "Office"
+msgstr "Офис"
+
+#: python/install.py:219
+msgid "Patches"
+msgstr "Патчи"
+
+#: python/install.py:249 python/mainwindow.py:362 python/mainwindow.py:365
 msgid "Search"
 msgstr "Поиск"
 
 #: python/install.py:252
 msgid "Include:"
 msgstr "Включая:"
+
+#: python/install.py:258
+msgid "Testing"
+msgstr "Тестирование"
 
 #: python/install.py:263
 msgid "No-cd needed"
@@ -5269,31 +5159,31 @@ msgstr ""
 "\"no-cd\", но, так как это может быть использовано в пиратских целях, мы не "
 "оказываем никакой поддержки подобным приёмам."
 
-#: python/irc.py:137
+#: python/irc.py:139
 msgid "Send"
 msgstr "Отправить"
 
-#: python/irc.py:138
+#: python/irc.py:140
 msgid "Connect"
 msgstr "Подключиться"
 
-#: python/irc.py:139
+#: python/irc.py:141
 msgid "Disconnect"
 msgstr "Разъединить"
 
-#: python/irc.py:140
+#: python/irc.py:142
 msgid "Leave"
 msgstr "Завершить работу"
 
-#: python/irc.py:227
+#: python/irc.py:229
 msgid "Join a channel"
 msgstr "Зайти на канал"
 
-#: python/irc.py:257 python/mainwindow.py:725
+#: python/irc.py:259 python/mainwindow.py:721
 msgid "Messenger"
 msgstr "Чат"
 
-#: python/irc.py:273
+#: python/irc.py:275
 msgid ""
 "If you close this window, you cannot read further replies. Are you sure that "
 "you want to close it?"
@@ -5335,7 +5225,7 @@ msgstr "Обновление {0}"
 msgid "An updated version of {0} is available"
 msgstr "Доступна обновленная версия {0}"
 
-#: python/mainwindow.py:196 python/mainwindow.py:346 python/mainwindow.py:737
+#: python/mainwindow.py:196 python/mainwindow.py:342 python/mainwindow.py:733
 msgid "Run"
 msgstr "Запуск"
 
@@ -5379,136 +5269,136 @@ msgstr "Закрыть все программы {0}"
 msgid "{0} console"
 msgstr "Консоль {0}"
 
-#: python/mainwindow.py:250
+#: python/mainwindow.py:246
 msgid "{0} messenger"
 msgstr "Чат {0}"
 
-#: python/mainwindow.py:266 python/options.py:388
+#: python/mainwindow.py:262 python/options.py:388
 msgid "File associations"
 msgstr "Файловые ассоциации"
 
-#: python/mainwindow.py:273
+#: python/mainwindow.py:269
 msgid "About {0}"
 msgstr "О {0}"
 
-#: python/mainwindow.py:302 python/mainwindow.py:306
+#: python/mainwindow.py:298 python/mainwindow.py:302
 msgid "Plugin manager"
 msgstr "Менеджер плагинов"
 
-#: python/mainwindow.py:331
+#: python/mainwindow.py:327
 msgid "File"
 msgstr "Файл"
 
-#: python/mainwindow.py:333
+#: python/mainwindow.py:329
 msgid "Tools"
 msgstr "Утилиты"
 
-#: python/mainwindow.py:334 python/mainwindow.py:723
+#: python/mainwindow.py:330 python/mainwindow.py:719
 msgid "Settings"
 msgstr "Настройки"
 
-#: python/mainwindow.py:335 python/options.py:387
+#: python/mainwindow.py:331 python/options.py:387
 msgid "Plugins"
 msgstr "Плагины"
 
-#: python/mainwindow.py:347 python/mainwindow.py:739
+#: python/mainwindow.py:343 python/mainwindow.py:735
 msgid "Close"
 msgstr "Закрыть"
 
-#: python/mainwindow.py:353 python/mainwindow.py:745 python/options.py:208
+#: python/mainwindow.py:349 python/mainwindow.py:741 python/options.py:208
 msgid "Configure"
 msgstr "Настроить"
 
-#: python/mainwindow.py:584
+#: python/mainwindow.py:580
 msgid "Open the application's directory"
 msgstr "Открыть в каталоге приложения"
 
-#: python/mainwindow.py:588 python/mainwindow.py:753
+#: python/mainwindow.py:584 python/mainwindow.py:749
 msgid "Read the manual"
 msgstr "Прочитать Руководство"
 
-#: python/mainwindow.py:592
+#: python/mainwindow.py:588
 msgid "Set the icon"
 msgstr "Установить значок"
 
-#: python/mainwindow.py:600
+#: python/mainwindow.py:596
 msgid "Close this application"
 msgstr "Закрыть приложение"
 
-#: python/mainwindow.py:611
+#: python/mainwindow.py:607
 msgid "KillApp"
 msgstr "KillApp"
 
-#: python/mainwindow.py:618
+#: python/mainwindow.py:614
 msgid "No manual found for {0}"
 msgstr "Не найдено руководство пользователя для {0}"
 
-#: python/mainwindow.py:721
+#: python/mainwindow.py:717
 msgid "Install a program"
 msgstr "Установить программу"
 
-#: python/mainwindow.py:728
+#: python/mainwindow.py:724
 msgid "Update GIT"
 msgstr "Обновить GIT"
 
-#: python/mainwindow.py:731
+#: python/mainwindow.py:727
 msgid "Update instructions"
 msgstr "Инструкции по обновлению"
 
-#: python/mainwindow.py:741
+#: python/mainwindow.py:737
 msgid "Debug"
 msgstr "Отладка"
 
-#: python/mainwindow.py:743
+#: python/mainwindow.py:739
 msgid "Report a problem"
 msgstr "Сообщить о проблеме"
 
-#: python/mainwindow.py:747
+#: python/mainwindow.py:743
 msgid "Create a shortcut"
 msgstr "Создать ярлык"
 
-#: python/mainwindow.py:749
+#: python/mainwindow.py:745
 msgid "Open the directory"
 msgstr "Открыть папку"
 
-#: python/mainwindow.py:755
+#: python/mainwindow.py:751
 msgid "Save"
 msgstr "Сохранить"
 
-#: python/mainwindow.py:758
+#: python/mainwindow.py:754
 msgid "Uninstall"
 msgstr "Удалить"
 
-#: python/mainwindow.py:880 python/mainwindow.py:951 python/mainwindow.py:958
-#: python/mainwindow.py:1003
+#: python/mainwindow.py:876 python/mainwindow.py:947 python/mainwindow.py:954
+#: python/mainwindow.py:999
 msgid "Please select a program."
 msgstr "Пожалуйста, выберите программу."
 
-#: python/mainwindow.py:888 python/mainwindow.py:890 python/mainwindow.py:892
+#: python/mainwindow.py:884 python/mainwindow.py:886 python/mainwindow.py:888
 msgid "{0} settings"
 msgstr "{0} настройки"
 
-#: python/mainwindow.py:965
+#: python/mainwindow.py:961
 msgid "{0} install menu"
 msgstr "{0} меню установки"
 
-#: python/mainwindow.py:974
+#: python/mainwindow.py:970
 msgid "{0} wine versions manager"
 msgstr "{0} менеджер версий Wine"
 
-#: python/mainwindow.py:1005
+#: python/mainwindow.py:1001
 msgid "The virtual drive associated with {0} ({1}) does no longer exists."
 msgstr "Виртуальный диск, связанный с {0} ({1}), больше не существует."
 
-#: python/mainwindow.py:1051
+#: python/mainwindow.py:1047
 msgid "Are you sure you want to close all {0} Windows?"
 msgstr "Закрыть все окна {0}?"
 
-#: python/mainwindow.py:1090
+#: python/mainwindow.py:1086
 msgid "Run your Windows programs on "
 msgstr "Запустить Windows программы на "
 
-#: python/mainwindow.py:1091
+#: python/mainwindow.py:1087
 msgid ""
 "PlayOnLinux and PlayOnMac team\n"
 "Under GPL licence version 3"
@@ -5516,31 +5406,31 @@ msgstr ""
 "Команда PlayOnLinux и PlayOnMac\n"
 "Под лицензией GPL v3"
 
-#: python/mainwindow.py:1092
+#: python/mainwindow.py:1088
 msgid "Developer and Website: "
 msgstr "Разработчик и вебсайт: "
 
-#: python/mainwindow.py:1093
+#: python/mainwindow.py:1089
 msgid "Scriptors: "
 msgstr "Разработчики сценария: "
 
-#: python/mainwindow.py:1094
+#: python/mainwindow.py:1090
 msgid "Packager: "
 msgstr "Упаковщик: "
 
-#: python/mainwindow.py:1095
+#: python/mainwindow.py:1091
 msgid "Icons:"
 msgstr "Значки:"
 
-#: python/mainwindow.py:1096
+#: python/mainwindow.py:1092
 msgid "The following people contributed to this program: "
 msgstr "В работе над программой принимали участие: "
 
-#: python/mainwindow.py:1097
+#: python/mainwindow.py:1093
 msgid "Translations:"
 msgstr "Перевод:"
 
-#: python/mainwindow.py:1098
+#: python/mainwindow.py:1094
 msgid "Read TRANSLATORS file"
 msgstr ""
 "Aleksey Kabanov, Alex8Belov, Andrei B. Borisov, Andrey Olykainen, Anton "
@@ -5549,31 +5439,31 @@ msgstr ""
 "bazilio, fenixk19, Николай Авдеев (NickKolok, Nikolay Avdeev), Элиза. "
 "Подробнее - в файле TRANSLATORS."
 
-#: python/mainwindow.py:1137
+#: python/mainwindow.py:1133
 msgid "{0} is not able to start PlayOnLinux Setup Window server."
 msgstr "{0} не может запустить сервер установочных окон PlayOnLinux."
 
-#: python/mainwindow.py:1158
+#: python/mainwindow.py:1154
 msgid "{0} cannot find {1}"
 msgstr "{0} не может найти {1}"
 
-#: python/mainwindow.py:1160
+#: python/mainwindow.py:1156
 msgid " (from {2})"
 msgstr " (из {2})"
 
-#: python/mainwindow.py:1163
+#: python/mainwindow.py:1159
 msgid "You need to install it to continue"
 msgstr "Необходимо установить его, чтобы продолжить"
 
-#: python/mainwindow.py:1165
+#: python/mainwindow.py:1161
 msgid "You should install it to use {0}"
 msgstr "Необходимо установить его, чтобы использовать {0}"
 
-#: python/mainwindow.py:1181
+#: python/mainwindow.py:1177
 msgid "{0} is not supposed to be run as root. Sorry"
 msgstr "{0} не предполагается запускать с правами суперпользователя."
 
-#: python/mainwindow.py:1190
+#: python/mainwindow.py:1186
 msgid ""
 "{0} is unable to find 32bits OpenGL libraries.\n"
 "\n"
@@ -5583,7 +5473,7 @@ msgstr ""
 "\n"
 "Вы можете испытывать проблемы с запуском Ваших игр"
 
-#: python/mainwindow.py:1202
+#: python/mainwindow.py:1198
 msgid ""
 "{0} is unable to find 64bits OpenGL libraries.\n"
 "\n"
@@ -5593,7 +5483,7 @@ msgstr ""
 "\n"
 "Вы можете испытывать проблемы с запуском Ваших игр"
 
-#: python/mainwindow.py:1214
+#: python/mainwindow.py:1210
 msgid ""
 "Your filesystem might prevent {0} from running correctly.\n"
 "\n"
@@ -5602,7 +5492,7 @@ msgstr ""
 "Ваша файловая система препятствует корректной работе {0}.\n"
 "Запустите {0} в терминале, чтобы получить подробности."
 
-#: python/mainwindow.py:1218
+#: python/mainwindow.py:1214
 msgid ""
 "Do you want to help {0} to make a compatibility database?\n"
 "\n"
@@ -5628,11 +5518,12 @@ msgstr ""
 "\n"
 "Эта информация сильно пригодится нам для помощи остальным пользователям."
 
-#: python/mainwindow.py:1273
+#: python/mainwindow.py:1269
 msgid "Are you sure you want to  want to install {0} package?"
 msgstr "Вы точно хотите установить пакет {0}?"
 
-#: python/mainwindow.py:1280 python/mainwindow.py:1282
+#: python/mainwindow.py:1276 python/mainwindow.py:1278
+#: python/mainwindow.py:1280
 msgid ""
 "You are trying to open a script design for {0}! It might not work as expected"
 msgstr ""
@@ -5711,19 +5602,19 @@ msgstr "Применить"
 msgid "You must restart {0} for the changes to take effect."
 msgstr "Вам необходимо перезапустить {0}, чтобы изменения вошли в силу."
 
-#: python/wine_versions.py:194
+#: python/wine_versions.py:195
 msgid "Installed Wine versions: "
 msgstr "Установленные версии Wine: "
 
-#: python/wine_versions.py:195
+#: python/wine_versions.py:196
 msgid "Available Wine versions: "
 msgstr "Доступные версии Wine: "
 
-#: python/wine_versions.py:202
+#: python/wine_versions.py:203
 msgid "Wine versions"
 msgstr "Версии Wine"
 
-#: python/wine_versions.py:321
+#: python/wine_versions.py:322
 msgid "Are you sure you want to delete wine {0}?"
 msgstr "Вы действительно хотите удалить wine {0}?"
 

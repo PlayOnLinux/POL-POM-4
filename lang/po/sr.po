@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-06-09 19:00+0200\n"
+"POT-Creation-Date: 2014-06-16 19:00+0200\n"
 "PO-Revision-Date: 2013-12-11 12:43+0000\n"
 "Last-Translator: Саша Петровић <salepetronije@gmail.com>\n"
 "Language-Team: српски <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-06-10 05:32+0000\n"
-"X-Generator: Launchpad (build 17031)\n"
+"X-Launchpad-Export-Date: 2014-06-17 05:30+0000\n"
+"X-Generator: Launchpad (build 17045)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -320,6 +320,7 @@ msgstr "Молим, унесите носач игре у вашу фиоку з
 #: PlayOnLinux_Scripts/Surfer_8_:23 PlayOnLinux_Scripts/Tera_Online_:56
 #: PlayOnLinux_Scripts/The_Sims_3_:61 PlayOnLinux_Scripts/The_Witcher_:132
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_:100
+#: PlayOnLinux_Scripts/The_mighty_quest_for_epic_loot_:59
 #: PlayOnLinux_Scripts/Theme_Hospital_:59
 #: PlayOnLinux_Scripts/Traktor_Pro_2_:33 PlayOnLinux_Scripts/Tree[d]_:41
 #: PlayOnLinux_Scripts/Warcraft_III__Reign_of_Chaos_:38
@@ -503,8 +504,8 @@ msgstr ""
 #: PlayOnLinux_Scripts/SubRip_:33 PlayOnLinux_Scripts/Theme_Hospital_:48
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:116 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:1160
-#: lib/wine.lib:1190
+#: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:1170
+#: lib/wine.lib:1200
 #, sh-format
 msgid "Please wait..."
 msgstr "Молим, сачекајте..."
@@ -548,7 +549,7 @@ msgstr "Молим, убаците носача игре у Ваш уређај 
 #: PlayOnLinux_Scripts/Photomatix_Pro_4.2.7_:43
 #: PlayOnLinux_Scripts/Rome_Total_War__Gold_Edition__:56
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:59
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind_:49
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind_:51
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:184
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_:80
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Shivering_Isle_:74
@@ -627,7 +628,7 @@ msgstr "Изаберите закрпу за извршавање"
 #: PlayOnLinux_Scripts/Rage_:79
 #: PlayOnLinux_Scripts/Rome_Total_War__Gold_Edition__:49
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:46
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind_:36
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind_:41
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:52
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_:66
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Shivering_Isle_:52
@@ -2372,7 +2373,7 @@ msgid ""
 "To continue, PlayOnLinux needs to remount your CD-ROM with unhide option."
 msgstr ""
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:16 lib/wine.lib:967
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:16 lib/wine.lib:977
 #, sh-format
 msgid "Abort installation"
 msgstr "Прекини уградњу"
@@ -2397,7 +2398,7 @@ msgstr ""
 msgid "The program needs access to ptrace() to proceed:"
 msgstr ""
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:28 lib/wine.lib:996
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:28 lib/wine.lib:1006
 #, sh-format
 msgid "User abort"
 msgstr "Прекинуо корисник"
@@ -2434,6 +2435,11 @@ msgstr ""
 #: PlayOnLinux_Scripts/Payday_2_:40
 #, sh-format
 msgid "Please do not run $TITLE after installation has finished."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Photofiltre_Studio_X_:15
+#, sh-format
+msgid "Extracting $TITLE"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Photomatix_Pro_4.2.7_:24
@@ -2713,6 +2719,11 @@ msgid ""
 "installer can continue."
 msgstr ""
 
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind_:73
+#, sh-format
+msgid "If youve the extentions, you should install Tribunal first !"
+msgstr ""
+
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:56
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:81
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Knight_of_the_nine_:106
@@ -2921,6 +2932,11 @@ msgstr ""
 msgid "Donwload finished.\\nPatches installation will begin"
 msgstr ""
 
+#: PlayOnLinux_Scripts/The_mighty_quest_for_epic_loot_:50
+#, sh-format
+msgid "We will download the installer"
+msgstr ""
+
 #: PlayOnLinux_Scripts/Toontown_Online_:17
 #, sh-format
 msgid ""
@@ -3041,10 +3057,10 @@ msgstr ""
 
 #: PlayOnLinux_Scripts/World_Of_Warplanes_:45
 #, sh-format
-msgid "Which region version of World of Tanks would you like to install?"
+msgid "Which region version of World of Warplanes would you like to install?"
 msgstr ""
 
-#: PlayOnLinux_Scripts/World_Of_Warplanes_:52
+#: PlayOnLinux_Scripts/World_Of_Warplanes_:53
 #, sh-format
 msgid ""
 "Attention:After installation is complete, the patcher will load. After, go "
@@ -3122,12 +3138,12 @@ msgid ""
 "resolution when rFactor Config comes up."
 msgstr ""
 
-#: bash/bug_report:31
+#: bash/bug_report:32
 #, sh-format
 msgid "Report a bug"
 msgstr ""
 
-#: bash/bug_report:36
+#: bash/bug_report:37
 #, sh-format
 msgid ""
 "Please give the more details as you can, otherwise, it will be very "
@@ -3135,7 +3151,7 @@ msgid ""
 msgstr ""
 "Молим, дајте што више података, иначе, биће веома тешко да вам помогнемо"
 
-#: bash/bug_report:36
+#: bash/bug_report:37
 #, sh-format
 msgid ""
 "This wizard will help you to report a bug about an officially supported "
@@ -3144,65 +3160,65 @@ msgstr ""
 "Овај чаробњак ће вам помоћи да пријавите грешку са званично подржаним "
 "програмом."
 
-#: bash/bug_report:40
+#: bash/bug_report:41
 #, sh-format
 msgid ""
 "Your $APPLICATION_TITLE version is not up to date.\\nYou must update "
 "$APPLICATION_TITLE before sending a bug report.\\nThank you"
 msgstr ""
 
-#: bash/bug_report:46
+#: bash/bug_report:47
 #, sh-format
 msgid "I have a problem with a software"
 msgstr ""
 
-#: bash/bug_report:46
+#: bash/bug_report:47
 #, sh-format
 msgid "My problem concerns $APPLICATION_TITLE itself"
 msgstr ""
 
-#: bash/bug_report:46
+#: bash/bug_report:47
 #, sh-format
 msgid "What kind of problem do you have?"
 msgstr ""
 
-#: bash/bug_report:50
+#: bash/bug_report:51
 #, sh-format
 msgid "Don't join any log file"
 msgstr ""
 
-#: bash/bug_report:53 bash/manual_install:27 bash/manual_install:114
+#: bash/bug_report:54 bash/manual_install:27 bash/manual_install:114
 #: bash/manual_install:120 bash/manual_install:219
 #, sh-format
 msgid "Manual installation"
 msgstr "Ручна уградња"
 
-#: bash/bug_report:54 bash/run_exe:24
+#: bash/bug_report:55 bash/run_exe:24
 #, sh-format
 msgid "Automatic installation"
 msgstr "Самостална уградња"
 
-#: bash/bug_report:65
+#: bash/bug_report:66
 #, sh-format
 msgid "Choose the log file corresponding to your software."
 msgstr "Одаберите дневник грешака који одговара вашем софтверу."
 
-#: bash/bug_report:69
+#: bash/bug_report:70
 #, sh-format
 msgid "Please give a very short description (title, english only)"
 msgstr "Молим, дајте кратак опис (неслов, само енглески)"
 
-#: bash/bug_report:72
+#: bash/bug_report:73
 #, sh-format
 msgid "Please explain your problem clearly (english only):"
 msgstr "Молим, објасните Ваш проблем јасно, (али на енглеском):"
 
-#: bash/bug_report:76
+#: bash/bug_report:77
 #, sh-format
 msgid "Sorry, we need a detailed description."
 msgstr "Жао ми је, треба нам опширнији опис."
 
-#: bash/bug_report:107
+#: bash/bug_report:108
 #, sh-format
 msgid ""
 "Thank you !\\n\\nYour report has been sent.\\n\\nWe will do our best to send "
@@ -3374,38 +3390,38 @@ msgstr "Поставке подразумеваног нестварног ур�
 msgid "$APPLICATION_TITLE is making a virtual windows hard drive"
 msgstr ""
 
-#: bash/first_use:240 bash/first_use:243 bash/first_use:271
+#: bash/first_use:242 bash/first_use:245 bash/first_use:273
 #, sh-format
 msgid "$APPLICATION_TITLE first use"
 msgstr ""
 
-#: bash/first_use:240
+#: bash/first_use:242
 #, sh-format
 msgid "$APPLICATION_TITLE is going to finish its preparation"
 msgstr ""
 
-#: bash/first_use:240 bash/first_use:243
+#: bash/first_use:242 bash/first_use:245
 #, sh-format
 msgid "Please ensure you are connected to the internet."
 msgstr ""
 
-#: bash/first_use:243
+#: bash/first_use:245
 #, sh-format
 msgid "It appears it is the first time you are using \t$APPLICATION_TITLE."
 msgstr ""
 
-#: bash/first_use:243
+#: bash/first_use:245
 #, sh-format
 msgid "This wizard will help you prepare $APPLICATION_TITLE environment"
 msgstr ""
 "Овај чаробњак ће Вам помоћи да припремите $APPLICATION_TITLE окружење"
 
-#: bash/first_use:253
+#: bash/first_use:255
 #, sh-format
 msgid "Error while installing fonts"
 msgstr "Десила се грешка приликом уградње словних ликова"
 
-#: bash/first_use:271
+#: bash/first_use:273
 #, sh-format
 msgid "Enjoy using $APPLICATION_TITLE"
 msgstr ""
@@ -3520,7 +3536,7 @@ msgid "Use another version of Wine"
 msgstr "Користи друго издање Вина"
 
 #: bash/manual_install:165 bash/manual_install:219 bash/polconfigurator:102
-#: python/configure.py:230 python/mainwindow.py:576 python/mainwindow.py:608
+#: python/configure.py:230 python/mainwindow.py:572 python/mainwindow.py:604
 #, sh-format
 msgid "Configure Wine"
 msgstr "Подесите Вино"
@@ -3648,7 +3664,7 @@ msgstr " не постоји!"
 msgid "Extracting: "
 msgstr "Издвајам: "
 
-#: bash/playonlinux-pkg:111 bash/playonlinux_online:38
+#: bash/playonlinux-pkg:111
 #, sh-format
 msgid "Running..."
 msgstr "Покрећем..."
@@ -3657,170 +3673,6 @@ msgstr "Покрећем..."
 #, sh-format
 msgid "Cleaning..."
 msgstr "Чистим..."
-
-#: bash/playonlinux_online:32
-#, sh-format
-msgid ""
-"This is the list of the scripts you sent to us. You can run one of them"
-msgstr ""
-"Ово је списак скрипти које сте нам послали. Можете извршити неку од њих"
-
-#: bash/playonlinux_online:42
-#, sh-format
-msgid "You do not seems to have any personal script"
-msgstr "Изгледа да немате личних скрипата"
-
-#: bash/playonlinux_online:47
-#, sh-format
-msgid ""
-"If you have successfully installed a program with 'Install a non-listed\\"
-"nsoftware' button, it will allow you to add this program in our list"
-msgstr ""
-"Ако сте успешно уградили програм дугметом „Угради програм који није на \\"
-"nсписку“, то ће Вам омогућити да додате овај програм на Ваш списак"
-
-#: bash/playonlinux_online:47
-#, sh-format
-msgid "This tools will allow you to help us :"
-msgstr "Овај алат ће Вам омогућити да нам помогнете :"
-
-#: bash/playonlinux_online:47
-#, sh-format
-msgid ""
-"We're going to ask you some questions, please be as much accurate as\\"
-"npossible"
-msgstr "Поставићемо Вам неколико питања, молим, будите што \\nпрецизнији"
-
-#: bash/playonlinux_online:55
-#, sh-format
-msgid "Choose the file corresponding to your program."
-msgstr "Одаберите датотеку која одговара Вашем програму."
-
-#: bash/playonlinux_online:59
-#, sh-format
-msgid "Does your program run?"
-msgstr "Да ли се Ваш програм извршава?"
-
-#: bash/playonlinux_online:62
-#, sh-format
-msgid "What is the title of your program?"
-msgstr "Који је назив Вашег програма?"
-
-#: bash/playonlinux_online:64
-#, sh-format
-msgid "What is the editor of your program?"
-msgstr "Шта је уредник Вашег програма?"
-
-#: bash/playonlinux_online:66
-#, sh-format
-msgid "What is the editor website of your program?"
-msgstr "Који је веб призор Вашег програма?"
-
-#: bash/playonlinux_online:69 python/install.py:210
-#, sh-format
-msgid "Accessories"
-msgstr "Прибори"
-
-#: bash/playonlinux_online:69 python/install.py:211
-#, sh-format
-msgid "Development"
-msgstr "Развој"
-
-#: bash/playonlinux_online:69 python/install.py:212
-#, sh-format
-msgid "Education"
-msgstr "Образовање"
-
-#: bash/playonlinux_online:69 python/install.py:213
-#, sh-format
-msgid "Games"
-msgstr "Игре"
-
-#: bash/playonlinux_online:69 python/install.py:214
-#, sh-format
-msgid "Graphics"
-msgstr "Графика"
-
-#: bash/playonlinux_online:69 python/install.py:215 python/mainwindow.py:262
-#: python/options.py:384
-#, sh-format
-msgid "Internet"
-msgstr "Интернет"
-
-#: bash/playonlinux_online:69 python/install.py:216
-#, sh-format
-msgid "Multimedia"
-msgstr "Звук и видео"
-
-#: bash/playonlinux_online:69 python/install.py:217
-#, sh-format
-msgid "Office"
-msgstr "Уредништво"
-
-#: bash/playonlinux_online:69 lib/setupwindow.lib:349 python/install.py:218
-#, sh-format
-msgid "Other"
-msgstr "остало"
-
-#: bash/playonlinux_online:69 python/install.py:219
-#, sh-format
-msgid "Patches"
-msgstr "Закрпе"
-
-#: bash/playonlinux_online:69
-#, sh-format
-msgid "Select a category for your program"
-msgstr "Одаберите врсту за ваш програм"
-
-#: bash/playonlinux_online:69 python/install.py:258
-#, sh-format
-msgid "Testing"
-msgstr "Опитне"
-
-#: bash/playonlinux_online:72
-#, sh-format
-msgid ""
-"What feature of your program does not work?\\nIf everything works, please "
-"mention it"
-msgstr ""
-"Која могућност Вашег програма не ради?\\nАко све ради, молим, напомените"
-
-#: bash/playonlinux_online:74
-#, sh-format
-msgid "Write any change you made to wine configuration here:"
-msgstr "Упишите било које измене у Вину овде:"
-
-#: bash/playonlinux_online:102
-#, sh-format
-msgid "You must be able to run this program!"
-msgstr "Морате бити у могућности да покрећете овај програм"
-
-#: bash/playonlinux_online:107
-#, sh-format
-msgid "Run one of your personal scripts"
-msgstr "Покрените неке Ваше личне скрипте"
-
-#: bash/playonlinux_online:108
-#, sh-format
-msgid "Send to us a working script generated by manual installation"
-msgstr "Пошаљите нам радне скрипте створене ручном уградњом"
-
-#: bash/playonlinux_online:109
-#, sh-format
-msgid "Logout"
-msgstr "Одјава"
-
-#: bash/playonlinux_online:110
-#, sh-format
-msgid "You are connected to $APPLICATION_TITLE online as $POL_LOGIN"
-msgstr ""
-
-#: bash/playonlinux_online:124
-#, sh-format
-msgid ""
-"You have been successfully logged out of $APPLICATION_TITLE Online\\nYou can "
-"safely close this window"
-msgstr ""
 
 #: bash/polconfigurator:34
 #, sh-format
@@ -3847,8 +3699,8 @@ msgstr "Лош наставак датотеке"
 msgid "is not an icon extension"
 msgstr "није наставак иконе"
 
-#: bash/polconfigurator:103 python/configure.py:238 python/mainwindow.py:580
-#: python/mainwindow.py:621
+#: bash/polconfigurator:103 python/configure.py:238 python/mainwindow.py:576
+#: python/mainwindow.py:617
 #, sh-format
 msgid "Registry Editor"
 msgstr "Уређивач завођења"
@@ -3938,23 +3790,23 @@ msgstr ""
 msgid "Please choose a CD-ROM to eject"
 msgstr ""
 
-#: bash/run_app:83
+#: bash/run_app:85
 #, sh-format
 msgid "Please choose a software to run"
 msgstr ""
 
-#: bash/run_app:114
+#: bash/run_app:116
 #, sh-format
 msgid "$APPLICATION_TITLE debugger is starting..."
 msgstr "$APPLICATION_TITLE отклањач буба се покреће..."
 
-#: bash/run_app:117
+#: bash/run_app:119
 #, sh-format
 msgid "$PACKAGE crashed.\\nClick on debug link to get more details."
 msgstr ""
 "$PACKAGE се срушио.\\nКликните на везу отклона буба за више података."
 
-#: bash/run_app:119
+#: bash/run_app:121
 #, sh-format
 msgid "$PACKAGE crashed."
 msgstr "$PACKAGE се срушио."
@@ -4015,7 +3867,7 @@ msgstr ""
 "старе поставке ?"
 
 #: bash/uninstall:31 bash/uninstall:65 bash/uninstall:68 bash/uninstall:75
-#: lib/playonlinux.lib:717
+#: lib/playonlinux.lib:720
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
 msgstr "Уклањач $APPLICATION_TITLE"
@@ -4035,7 +3887,7 @@ msgstr "Кликните Следеће за наставак."
 msgid "This wizard will help you to uninstall: "
 msgstr "Овај чаробњак ће вам помоћи да уклоните: "
 
-#: bash/uninstall:65 lib/playonlinux.lib:717
+#: bash/uninstall:65 lib/playonlinux.lib:720
 #, sh-format
 msgid "Uninstalling..."
 msgstr "Уклањам..."
@@ -4097,7 +3949,7 @@ msgid ""
 msgstr ""
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:959 lib/wine.lib:1040
+#: lib/wine.lib:969 lib/wine.lib:1050
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr ""
@@ -4112,13 +3964,13 @@ msgstr "Молим, сачекајте док $APPLICATION_TITLE опонаша 
 msgid "Setting Program Files var"
 msgstr "Поставке променљивих датотека програма"
 
-#: lib/playonlinux.lib:242 lib/playonlinux.lib:248 lib/playonlinux.lib:254
-#: lib/playonlinux.lib:260 lib/playonlinux.lib:266 lib/playonlinux.lib:272
+#: lib/playonlinux.lib:244 lib/playonlinux.lib:250 lib/playonlinux.lib:256
+#: lib/playonlinux.lib:262 lib/playonlinux.lib:268 lib/playonlinux.lib:274
 #, sh-format
 msgid "This function is disabled in the PlayOnlinux environment."
 msgstr "Ова радња је онемогућена у окружењу Игре на Линуксу"
 
-#: lib/playonlinux.lib:334
+#: lib/playonlinux.lib:336
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -4126,12 +3978,12 @@ msgid ""
 "responsible from it.\\nPlease ensure you know what you are doing !"
 msgstr ""
 
-#: lib/playonlinux.lib:335
+#: lib/playonlinux.lib:337
 #, sh-format
 msgid "Here the source code of the script. Check it carefully"
 msgstr ""
 
-#: lib/playonlinux.lib:357
+#: lib/playonlinux.lib:359
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -4139,27 +3991,27 @@ msgid ""
 "responsible from it.\\nPlease ensure you know what you are doing!"
 msgstr ""
 
-#: lib/playonlinux.lib:358
+#: lib/playonlinux.lib:360
 #, sh-format
 msgid "External library"
 msgstr "Спољна библиотека"
 
-#: lib/playonlinux.lib:358
+#: lib/playonlinux.lib:360
 #, sh-format
 msgid "Here the source code of the script. Check it carrefully"
 msgstr "Ово је изворни код скрипата. Проверите их пажљиво"
 
-#: lib/playonlinux.lib:591
+#: lib/playonlinux.lib:593
 #, sh-format
 msgid "Making shortcut..."
 msgstr "Стварам пречицу..."
 
-#: lib/playonlinux.lib:715
+#: lib/playonlinux.lib:718
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr "Да ли желите избрисати нестварни уређај:"
 
-#: lib/playonlinux.lib:826
+#: lib/playonlinux.lib:831
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
@@ -4168,7 +4020,7 @@ msgstr ""
 "Следећа датотека се налази на Фат32 систему датотека.\\nТо може спречити "
 "вино од рада на \\n\\n$FilePath"
 
-#: lib/playonlinux.lib:827
+#: lib/playonlinux.lib:832
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
@@ -4177,14 +4029,14 @@ msgstr ""
 "Следећа датотека се налази на НТСФ систему датотека.\\nТо може спречити вино "
 "од рада на \\n\\n$FilePath"
 
-#: lib/playonlinux.lib:828
+#: lib/playonlinux.lib:833
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:829
+#: lib/playonlinux.lib:834
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
@@ -4193,22 +4045,22 @@ msgstr ""
 "Следећа датотека се налази на неизвршно прикаченом систему датотека.\\nТо "
 "може спречити Вино од рада на \\n\\n$FilePath"
 
-#: lib/plugins.lib:65
+#: lib/plugins.lib:66
 #, sh-format
 msgid "Checking plugin: "
 msgstr "Проверавам прикључак: "
 
-#: lib/plugins.lib:93
+#: lib/plugins.lib:94
 #, sh-format
 msgid "New: "
 msgstr "Нови: "
 
-#: lib/plugins.lib:93
+#: lib/plugins.lib:94
 #, sh-format
 msgid "Updating plugin. Previous: "
 msgstr "Надограђујем прикључак. Претходни: "
 
-#: lib/plugins.lib:112
+#: lib/plugins.lib:113
 #, sh-format
 msgid "Installing plugin: "
 msgstr "Уграђујем прикључак: "
@@ -4346,9 +4198,9 @@ msgstr ""
 "поново."
 
 #: lib/setupwindow.lib:122 python/guiv3.py:769 python/lib/irc.py:292
-#: python/mainwindow.py:1137 python/mainwindow.py:1167
-#: python/mainwindow.py:1181 python/mainwindow.py:1190
-#: python/mainwindow.py:1202 python/mainwindow.py:1214 python/wrapper.py:121
+#: python/mainwindow.py:1133 python/mainwindow.py:1163
+#: python/mainwindow.py:1177 python/mainwindow.py:1186
+#: python/mainwindow.py:1198 python/mainwindow.py:1210 python/wrapper.py:121
 #, sh-format
 msgid "Error"
 msgstr "Грeшкa"
@@ -4357,6 +4209,11 @@ msgstr "Грeшкa"
 #, sh-format
 msgid "Where is mounted your CD-ROM?"
 msgstr "Где Вам је прикачен CD-ROM?"
+
+#: lib/setupwindow.lib:349 python/install.py:218
+#, sh-format
+msgid "Other"
+msgstr "остало"
 
 #: lib/setupwindow.lib:350 python/install.py:286 python/install.py:290
 #, sh-format
@@ -4514,7 +4371,7 @@ msgstr "Молим, сачекајте док $APPLICATION_TITLE преглед�
 msgid "Select the main videocard to report:"
 msgstr ""
 
-#: lib/wine.lib:542 lib/wine.lib:707
+#: lib/wine.lib:549 lib/wine.lib:714
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
@@ -4523,47 +4380,47 @@ msgstr ""
 "Изгледа да се вино срушило\\n\\nАко с Ваш програм извршава, само занемарите "
 "ову поруку"
 
-#: lib/wine.lib:767
+#: lib/wine.lib:775
 #, sh-format
 msgid "Unable to find version: "
 msgstr "Нисам успео да пронађем издање: "
 
-#: lib/wine.lib:773 lib/wine.lib:774
+#: lib/wine.lib:781 lib/wine.lib:782
 #, sh-format
 msgid "Downloading Wine: "
 msgstr "Преузимам Вино "
 
-#: lib/wine.lib:783
+#: lib/wine.lib:791
 #, sh-format
 msgid "The download seems to have failed."
 msgstr "Изгледа ми да преузимање није успело"
 
-#: lib/wine.lib:785
+#: lib/wine.lib:793
 #, sh-format
 msgid "Extracting Wine..."
 msgstr "Издвајам Вино"
 
-#: lib/wine.lib:965
+#: lib/wine.lib:975
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr "Препиши (обично успева, не јемчим)"
 
-#: lib/wine.lib:966
+#: lib/wine.lib:976
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
 msgstr "Обриши (садржај нестварног уређаја ће бити изгубљен)"
 
-#: lib/wine.lib:980
+#: lib/wine.lib:990
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr "циљни нестварни уређај $PREFNAME већ постоји"
 
-#: lib/wine.lib:1160 lib/wine.lib:1190
+#: lib/wine.lib:1170 lib/wine.lib:1200
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "Молим, сачекајте док се $SOFTNAME угради..."
 
-#: lib/wine.lib:1164 lib/wine.lib:1193
+#: lib/wine.lib:1174 lib/wine.lib:1203
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
@@ -4572,17 +4429,17 @@ msgstr ""
 "Пажљиво! Ово ће убити поступак уградње. Ако није завршен, мораћете поново "
 "уградити $SOFTNAME"
 
-#: lib/wine.lib:1164 lib/wine.lib:1193
+#: lib/wine.lib:1174 lib/wine.lib:1203
 #, sh-format
 msgid "Install is done"
 msgstr "Уградња је завршена"
 
-#: lib/wine.lib:1197 lib/wine.lib:1198
+#: lib/wine.lib:1207 lib/wine.lib:1208
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr "Приитисни следеће так након завршетка поступка уградње"
 
-#: lib/wine.lib:1206
+#: lib/wine.lib:1216
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr "Молим, сачекајте док $APPLICATION_TITLE опонаша поновно покретање"
@@ -4658,7 +4515,7 @@ msgid ""
 msgstr ""
 
 #: python/configure.py:333 python/install.py:285 python/install.py:289
-#: python/mainwindow.py:197 python/mainwindow.py:350
+#: python/mainwindow.py:197 python/mainwindow.py:346
 msgid "Install"
 msgstr "Угради"
 
@@ -4731,7 +4588,7 @@ msgstr ""
 "Пазите!\n"
 "Ако измените "
 
-#: python/configure.py:656 python/mainwindow.py:932 python/mainwindow.py:934
+#: python/configure.py:656 python/mainwindow.py:928 python/mainwindow.py:930
 msgid "{0} configuration"
 msgstr "{0} подешавања"
 
@@ -4743,8 +4600,8 @@ msgstr "Одаберите програм или нестварни уређај
 msgid "New"
 msgstr "Нови"
 
-#: python/configure.py:683 python/mainwindow.py:198 python/mainwindow.py:351
-#: python/mainwindow.py:596 python/options.py:207
+#: python/configure.py:683 python/mainwindow.py:198 python/mainwindow.py:347
+#: python/mainwindow.py:592 python/options.py:207
 msgid "Remove"
 msgstr "Уклони"
 
@@ -4752,7 +4609,7 @@ msgstr "Уклони"
 msgid "Install components"
 msgstr "Уградите саставне делове"
 
-#: python/configure.py:702 python/mainwindow.py:332
+#: python/configure.py:702 python/mainwindow.py:328
 msgid "Display"
 msgstr "Приказ"
 
@@ -4772,8 +4629,8 @@ msgstr "Сигурно желите да обришете нестварни у�
 msgid "Are you sure you want to delete {0} ?"
 msgstr "Да ли сте сигурни да желите избрисати {0} ?"
 
-#: python/debug.py:39 python/mainwindow.py:254 python/mainwindow.py:907
-#: python/mainwindow.py:997
+#: python/debug.py:39 python/mainwindow.py:250 python/mainwindow.py:903
+#: python/mainwindow.py:993
 msgid "{0} debugger"
 msgstr "Исправљач грешака"
 
@@ -4858,13 +4715,53 @@ msgstr "Не можете затворити овај прозор"
 msgid "No description"
 msgstr "Без описа"
 
-#: python/install.py:249 python/mainwindow.py:366 python/mainwindow.py:369
+#: python/install.py:210
+msgid "Accessories"
+msgstr "Прибори"
+
+#: python/install.py:211
+msgid "Development"
+msgstr "Развој"
+
+#: python/install.py:212
+msgid "Education"
+msgstr "Образовање"
+
+#: python/install.py:213
+msgid "Games"
+msgstr "Игре"
+
+#: python/install.py:214
+msgid "Graphics"
+msgstr "Графика"
+
+#: python/install.py:215 python/mainwindow.py:258 python/options.py:384
+msgid "Internet"
+msgstr "Интернет"
+
+#: python/install.py:216
+msgid "Multimedia"
+msgstr "Звук и видео"
+
+#: python/install.py:217
+msgid "Office"
+msgstr "Уредништво"
+
+#: python/install.py:219
+msgid "Patches"
+msgstr "Закрпе"
+
+#: python/install.py:249 python/mainwindow.py:362 python/mainwindow.py:365
 msgid "Search"
 msgstr "Тражи"
 
 #: python/install.py:252
 msgid "Include:"
 msgstr "Укључи:"
+
+#: python/install.py:258
+msgid "Testing"
+msgstr "Опитне"
 
 #: python/install.py:263
 msgid "No-cd needed"
@@ -4924,31 +4821,31 @@ msgid ""
 "used for piracy purposes we won't give any support on this matter."
 msgstr ""
 
-#: python/irc.py:137
+#: python/irc.py:139
 msgid "Send"
 msgstr "Пошаљи"
 
-#: python/irc.py:138
+#: python/irc.py:140
 msgid "Connect"
 msgstr "Повежи се"
 
-#: python/irc.py:139
+#: python/irc.py:141
 msgid "Disconnect"
 msgstr "Одспоји"
 
-#: python/irc.py:140
+#: python/irc.py:142
 msgid "Leave"
 msgstr "Напусти"
 
-#: python/irc.py:227
+#: python/irc.py:229
 msgid "Join a channel"
 msgstr ""
 
-#: python/irc.py:257 python/mainwindow.py:725
+#: python/irc.py:259 python/mainwindow.py:721
 msgid "Messenger"
 msgstr "Поручник"
 
-#: python/irc.py:273
+#: python/irc.py:275
 msgid ""
 "If you close this window, you cannot read further replies. Are you sure that "
 "you want to close it?"
@@ -4985,7 +4882,7 @@ msgstr "Освежавање {0}"
 msgid "An updated version of {0} is available"
 msgstr "Освежено издањ {0} је доступно"
 
-#: python/mainwindow.py:196 python/mainwindow.py:346 python/mainwindow.py:737
+#: python/mainwindow.py:196 python/mainwindow.py:342 python/mainwindow.py:733
 msgid "Run"
 msgstr "Покрени"
 
@@ -5029,216 +4926,216 @@ msgstr "Затвори сав {0} софтвер"
 msgid "{0} console"
 msgstr "{0} конзола"
 
-#: python/mainwindow.py:250
+#: python/mainwindow.py:246
 msgid "{0} messenger"
 msgstr "{0} поручник"
 
-#: python/mainwindow.py:266 python/options.py:388
+#: python/mainwindow.py:262 python/options.py:388
 msgid "File associations"
 msgstr "Придруживање датотека"
 
-#: python/mainwindow.py:273
+#: python/mainwindow.py:269
 msgid "About {0}"
 msgstr "О програму {0}"
 
-#: python/mainwindow.py:302 python/mainwindow.py:306
+#: python/mainwindow.py:298 python/mainwindow.py:302
 msgid "Plugin manager"
 msgstr "Управник прикључака"
 
-#: python/mainwindow.py:331
+#: python/mainwindow.py:327
 msgid "File"
 msgstr "Датотека"
 
-#: python/mainwindow.py:333
+#: python/mainwindow.py:329
 msgid "Tools"
 msgstr "Алатке"
 
-#: python/mainwindow.py:334 python/mainwindow.py:723
+#: python/mainwindow.py:330 python/mainwindow.py:719
 msgid "Settings"
 msgstr "Поставке"
 
-#: python/mainwindow.py:335 python/options.py:387
+#: python/mainwindow.py:331 python/options.py:387
 msgid "Plugins"
 msgstr "Прикључци"
 
-#: python/mainwindow.py:347 python/mainwindow.py:739
+#: python/mainwindow.py:343 python/mainwindow.py:735
 msgid "Close"
 msgstr "Затвори"
 
-#: python/mainwindow.py:353 python/mainwindow.py:745 python/options.py:208
+#: python/mainwindow.py:349 python/mainwindow.py:741 python/options.py:208
 msgid "Configure"
 msgstr "Подесите"
 
-#: python/mainwindow.py:584
+#: python/mainwindow.py:580
 msgid "Open the application's directory"
 msgstr "Отвори фасциклу програма"
 
-#: python/mainwindow.py:588 python/mainwindow.py:753
+#: python/mainwindow.py:584 python/mainwindow.py:749
 msgid "Read the manual"
 msgstr "Читајте приручник"
 
-#: python/mainwindow.py:592
+#: python/mainwindow.py:588
 msgid "Set the icon"
 msgstr "Постави икону"
 
-#: python/mainwindow.py:600
+#: python/mainwindow.py:596
 msgid "Close this application"
 msgstr "Затвори овај програм"
 
-#: python/mainwindow.py:611
+#: python/mainwindow.py:607
 msgid "KillApp"
 msgstr "Убиј програм"
 
-#: python/mainwindow.py:618
+#: python/mainwindow.py:614
 msgid "No manual found for {0}"
 msgstr "Није пронађено упутство за {0}"
 
-#: python/mainwindow.py:721
+#: python/mainwindow.py:717
 msgid "Install a program"
 msgstr "Угради програм"
 
-#: python/mainwindow.py:728
+#: python/mainwindow.py:724
 msgid "Update GIT"
 msgstr "Надогради ГИТ"
 
-#: python/mainwindow.py:731
+#: python/mainwindow.py:727
 msgid "Update instructions"
 msgstr ""
 
-#: python/mainwindow.py:741
+#: python/mainwindow.py:737
 msgid "Debug"
 msgstr "Налажење грешака"
 
-#: python/mainwindow.py:743
+#: python/mainwindow.py:739
 msgid "Report a problem"
 msgstr ""
 
-#: python/mainwindow.py:747
+#: python/mainwindow.py:743
 msgid "Create a shortcut"
 msgstr "Направи пречицу"
 
-#: python/mainwindow.py:749
+#: python/mainwindow.py:745
 msgid "Open the directory"
 msgstr "Отвори фасциклу"
 
-#: python/mainwindow.py:755
+#: python/mainwindow.py:751
 msgid "Save"
 msgstr ""
 
-#: python/mainwindow.py:758
+#: python/mainwindow.py:754
 msgid "Uninstall"
 msgstr "Уклони"
 
-#: python/mainwindow.py:880 python/mainwindow.py:951 python/mainwindow.py:958
-#: python/mainwindow.py:1003
+#: python/mainwindow.py:876 python/mainwindow.py:947 python/mainwindow.py:954
+#: python/mainwindow.py:999
 msgid "Please select a program."
 msgstr "Изаберите програм, молим."
 
-#: python/mainwindow.py:888 python/mainwindow.py:890 python/mainwindow.py:892
+#: python/mainwindow.py:884 python/mainwindow.py:886 python/mainwindow.py:888
 msgid "{0} settings"
 msgstr "Поставке {0}"
 
-#: python/mainwindow.py:965
+#: python/mainwindow.py:961
 msgid "{0} install menu"
 msgstr "{0} изборник уградње"
 
-#: python/mainwindow.py:974
+#: python/mainwindow.py:970
 msgid "{0} wine versions manager"
 msgstr "Управник издања Вина"
 
-#: python/mainwindow.py:1005
+#: python/mainwindow.py:1001
 msgid "The virtual drive associated with {0} ({1}) does no longer exists."
 msgstr "Нестварни уређај придружен {0} ({1}) више не постоји."
 
-#: python/mainwindow.py:1051
+#: python/mainwindow.py:1047
 msgid "Are you sure you want to close all {0} Windows?"
 msgstr ""
 
-#: python/mainwindow.py:1090
+#: python/mainwindow.py:1086
 msgid "Run your Windows programs on "
 msgstr "Покрећите ваше програме Прозора на "
 
-#: python/mainwindow.py:1091
+#: python/mainwindow.py:1087
 msgid ""
 "PlayOnLinux and PlayOnMac team\n"
 "Under GPL licence version 3"
 msgstr ""
 
-#: python/mainwindow.py:1092
+#: python/mainwindow.py:1088
 msgid "Developer and Website: "
 msgstr "Веб страница програмера "
 
-#: python/mainwindow.py:1093
+#: python/mainwindow.py:1089
 msgid "Scriptors: "
 msgstr "Скриптори "
 
-#: python/mainwindow.py:1094
+#: python/mainwindow.py:1090
 msgid "Packager: "
 msgstr "Паковаоц: "
 
-#: python/mainwindow.py:1095
+#: python/mainwindow.py:1091
 msgid "Icons:"
 msgstr "Иконе"
 
-#: python/mainwindow.py:1096
+#: python/mainwindow.py:1092
 msgid "The following people contributed to this program: "
 msgstr "Следећи људи су допринели овом програму: "
 
-#: python/mainwindow.py:1097
+#: python/mainwindow.py:1093
 msgid "Translations:"
 msgstr "Преводи:"
 
-#: python/mainwindow.py:1098
+#: python/mainwindow.py:1094
 msgid "Read TRANSLATORS file"
 msgstr "Читај датотеку ПРЕВОДИОЦА"
 
-#: python/mainwindow.py:1137
+#: python/mainwindow.py:1133
 msgid "{0} is not able to start PlayOnLinux Setup Window server."
 msgstr ""
 "{0} није успео да се покрене на прозору поставки служитеља ИграНаЛинуксу"
 
-#: python/mainwindow.py:1158
+#: python/mainwindow.py:1154
 msgid "{0} cannot find {1}"
 msgstr "{0} не може наћи {1}"
 
-#: python/mainwindow.py:1160
+#: python/mainwindow.py:1156
 msgid " (from {2})"
 msgstr " (из {2})"
 
-#: python/mainwindow.py:1163
+#: python/mainwindow.py:1159
 msgid "You need to install it to continue"
 msgstr "Морате га уградити да би наставили"
 
-#: python/mainwindow.py:1165
+#: python/mainwindow.py:1161
 msgid "You should install it to use {0}"
 msgstr ""
 
-#: python/mainwindow.py:1181
+#: python/mainwindow.py:1177
 msgid "{0} is not supposed to be run as root. Sorry"
 msgstr ""
 
-#: python/mainwindow.py:1190
+#: python/mainwindow.py:1186
 msgid ""
 "{0} is unable to find 32bits OpenGL libraries.\n"
 "\n"
 "You might encounter problem with your games"
 msgstr ""
 
-#: python/mainwindow.py:1202
+#: python/mainwindow.py:1198
 msgid ""
 "{0} is unable to find 64bits OpenGL libraries.\n"
 "\n"
 "You might encounter problem with your games"
 msgstr ""
 
-#: python/mainwindow.py:1214
+#: python/mainwindow.py:1210
 msgid ""
 "Your filesystem might prevent {0} from running correctly.\n"
 "\n"
 "Please open {0} in a terminal to get more details"
 msgstr ""
 
-#: python/mainwindow.py:1218
+#: python/mainwindow.py:1214
 msgid ""
 "Do you want to help {0} to make a compatibility database?\n"
 "\n"
@@ -5264,11 +5161,12 @@ msgstr ""
 "\n"
 "Ови подаци ће нам бити веома драгоцени да помогнемо људима."
 
-#: python/mainwindow.py:1273
+#: python/mainwindow.py:1269
 msgid "Are you sure you want to  want to install {0} package?"
 msgstr ""
 
-#: python/mainwindow.py:1280 python/mainwindow.py:1282
+#: python/mainwindow.py:1276 python/mainwindow.py:1278
+#: python/mainwindow.py:1280
 msgid ""
 "You are trying to open a script design for {0}! It might not work as expected"
 msgstr ""
@@ -5345,19 +5243,19 @@ msgstr "Примени"
 msgid "You must restart {0} for the changes to take effect."
 msgstr "Морате да покренете поново {0} да би се примениле промене."
 
-#: python/wine_versions.py:194
+#: python/wine_versions.py:195
 msgid "Installed Wine versions: "
 msgstr "Уграђена издања Вина "
 
-#: python/wine_versions.py:195
+#: python/wine_versions.py:196
 msgid "Available Wine versions: "
 msgstr "Доступна издања Вина: "
 
-#: python/wine_versions.py:202
+#: python/wine_versions.py:203
 msgid "Wine versions"
 msgstr "Издање вина"
 
-#: python/wine_versions.py:321
+#: python/wine_versions.py:322
 msgid "Are you sure you want to delete wine {0}?"
 msgstr ""
 
