@@ -99,7 +99,7 @@ sleep 5 #Pour être sur que le fichier md5 est bien téléchargé
 md5=$(POL_MD5_file "$line")
 md5file="$REPERTOIRE/configurations/md5"
 md5scripts="$REPERTOIRE/configurations/listes/md5sums"
-md5sreplace=$(cat $md5scripts | grep $md5 | sed s/" $md5"/""/)
+md5sreplace=$(cat $md5scripts | grep $md5 | $SED s/" $md5"/""/)
 
 if [ ! "$(cat $md5scripts | grep $md5)" = "" ] # Le programme est connu, on propose le bon script
 then

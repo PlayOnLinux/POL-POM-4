@@ -1234,7 +1234,9 @@ class PlayOnLinuxApp(wx.App):
         self.singleCheck("wine", package="Wine")
         self.singleCheck("unzip", package="InfoZIP")
         self.singleCheck("7z", package="P7ZIP full")  # p7zip-full on Debian
-
+        if(os.environ["POL_OS"] == "FreeBSD"):
+            self.singleCheck("gsed", package="GNU Sed")
+            
     def BringWindowToFront(self):
         try: # it's possible for this event to come when the frame is closed
             self.GetTopWindow().Raise()

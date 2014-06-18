@@ -60,18 +60,21 @@ if [ "$POL_OS" == "Linux" ]
 then 
 	export POL_LANG="$(echo "$LANG" | cut -d\_ -f 1)"
 	export MD5_COMMAND="md5sum"
+	export SED="sed"
 fi
 
 if [ "$POL_OS" == "Mac" ]
 then
 	export POL_LANG="$(echo "$RLANG" | cut -d _ -f1)"
 	export MD5_COMMAND="md5"
+	export SED="sed"
 fi
 	
 if [ "$POL_OS" == "FreeBSD" ] 
 then 
 	export POL_LANG="$(echo "$LANG" | cut -d\_ -f 1)"
 	export MD5_COMMAND="md5"
+	export SED="gsed"
 fi
 
 #Codes de sorties 

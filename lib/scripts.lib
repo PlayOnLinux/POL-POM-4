@@ -121,7 +121,7 @@ POL_Shortcut_GetPrefix()
 	fichier="$REPERTOIRE/shortcuts/$1"
 	if [ -e "$fichier" ]
 	then
-		fichier="$(cat "$fichier" | grep '^export WINEPREFIX' | tail -n 1 | sed s/'\/\//\/'/)"
+		fichier="$(cat "$fichier" | grep '^export WINEPREFIX' | tail -n 1 | $SED s/'\/\//\/'/)"
 		fichier="${fichier/"$POL_USER_ROOT"/""}"
 		fichier="$(printf "$fichier" | cut -d "/" -f2)"
 	fi
@@ -599,7 +599,7 @@ POL_Download_GetSize()
 {
 	# Get the size of a distant file
 	# Usage: POL_Download_GetSize [URL]
-	wget "$1" --spider --server-response -O - 2>&1 | sed -ne '/Content-Length/{s/.*: //;p}'	| tail -n1
+	wget "$1" --spider --server-response -O - 2>&1 | $SED -ne '/Content-Length/{s/.*: //;p}'	| tail -n1
 }
 POL_MD5 ()
 {

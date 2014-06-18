@@ -335,7 +335,7 @@ cd "$WORKINGSETUP_PATH"
 POL_SetupWindow_wait "$(eval_gettext '$APPLICATION_TITLE is installing your application...')" "$TITLE"
 echo "POL_SetupWindow_wait \"\$(eval_gettext '$APPLICATION_TITLE is installing your application...')\" \"\$TITLE\"" >> "$SCRIPTPATH"
 
-extension=$(echo "$SETUP_PATH" | sed 's/.*\.//g')
+extension=$(echo "$SETUP_PATH" | $SED 's/.*\.//g')
 if [ "$extension" = "msi" ]
 then
 POL_Wine msiexec /i "$SETUP_PATH"

@@ -132,7 +132,7 @@ POL_Shortcut_GetOLDPrefix()
 	#fichier=${fichier//"//"/"/"}
 	if [ -e "$fichier" ]
 	then
-		fichier="$(cat "$fichier" | grep WINEPREFIX | tail -n 1 | sed s/'\/\//\/'/)"
+		fichier="$(cat "$fichier" | grep WINEPREFIX | tail -n 1 | $SED s/'\/\//\/'/)"
 		fichier="${fichier/"$POL_USER_ROOT"/""}"
 		fichier="$(printf "$fichier" | cut -d "/" -f2)"
 	fi
@@ -146,7 +146,7 @@ POL_Shortcut_GetOLDVersion()
 	#fichier=${fichier//"//"/"/"}
 	if [ -e "$fichier" ]
 	then
-		fichier="$(cat "$fichier" | grep PATH | tail -n 1 | sed s/'\/\//\/'/)"
+		fichier="$(cat "$fichier" | grep PATH | tail -n 1 | $SED s/'\/\//\/'/)"
 		fichier="${fichier/"$POL_USER_ROOT"/""}"
 		fichier="$(printf "$fichier" | cut -d "/" -f2)"
 	fi

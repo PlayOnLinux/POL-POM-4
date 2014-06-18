@@ -385,8 +385,8 @@ make_standalone_script()
 {
 	# Make the scripts that run the software in standalone package in $DIRAPP
 	# Usage : make_standalone_script [Shortcut]
-	substitute=$(printf "$2" | sed 's/\//\\\//g' | sed 's/ /\\ /g') # ca aussi j'aime
-	substitute2=$(printf "$2" | sed 's/\/\//\//g' | sed 's/\//\\\//g' | sed 's/ /\\ /g') # ca aussi j'aime
+	substitute=$(printf "$2" | $SED 's/\//\\\//g' | $SED 's/ /\\ /g') # ca aussi j'aime
+	substitute2=$(printf "$2" | $SED 's/\/\//\//g' | $SED 's/\//\\\//g' | $SED 's/ /\\ /g') # ca aussi j'aime
 	
 	cat << EOF3 > "$DIRAPP/Contents/MacOS/playonmac"
 #!/bin/bash
@@ -413,7 +413,7 @@ fi
 export PATH="\$SCRIPTDIR/../Resources/wine/bin:\$PATH"
 export LD_LIBRARY_PATH="\$SCRIPTDIR/../Resources/wine/lib:\$LD_LIBRARY_PATH"
 export WINEPREFIX="\$SCRIPTDIR/../Resources/virtual_drive"
-$(cat "$POL_USER_ROOT/shortcuts/$1" | grep "cd " | sed s/$substitute/'\$SCRIPTDIR\/..\/Resources\/virtual_drive'/)
+$(cat "$POL_USER_ROOT/shortcuts/$1" | grep "cd " | $SED s/$substitute/'\$SCRIPTDIR\/..\/Resources\/virtual_drive'/)
 shift
 #$(cat "$POL_USER_ROOT/shortcuts/$1" | grep "wine " | sed s/$substitute2// | sed s/$substitute//) &
 wine "$(basename "$(cat "$POL_USER_ROOT/shortcuts/$1" | grep "POL_Wine " | cut -d \" -f2)")" \$@ &
