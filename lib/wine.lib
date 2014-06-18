@@ -916,6 +916,7 @@ POL_Wine_SetVersionEnv()
 		then
 			export PATH="$PATH_ORIGIN"
 			export LD_LIBRARY_PATH="$LD_PATH_ORIGIN"
+			[ "$POL_OS" = "FreeBSD" ] && export LD_32_LIBRARY_PATH="$LD_32_PATH_ORIGIN"
 			export POL_WINEVERSION=""
 		else
 			if [ ! -e "$WINEDIR/$POL_WINEVERSION" ]
@@ -925,7 +926,7 @@ POL_Wine_SetVersionEnv()
 			fi
 			export PATH="$WINEDIR/$POL_WINEVERSION/bin/:$PATH"
 			export LD_LIBRARY_PATH="$WINEDIR/$POL_WINEVERSION/lib/:$LD_LIBRARY_PATH"
-		
+			[ "$POL_OS" = "FreeBSD" ] && export LD_32_LIBRARY_PATH="$WINEDIR/$POL_WINEVERSION/lib/:$LD_32_LIBRARY_PATH"
 		fi
 	fi
 	cd "$OLDPATH"

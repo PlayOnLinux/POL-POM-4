@@ -121,6 +121,11 @@ else:
 
 os.environ["PATH_ORIGIN"] = os.environ["PATH"]
 os.environ["LD_PATH_ORIGIN"] = os.environ["LD_LIBRARY_PATH"]
+try:
+    os.environ["LD_32_PATH_ORIGIN"] = os.environ["LD_32_LIBRARY_PATH"]
+except KeyError:
+    os.environ["LD_32_PATH_ORIGIN"] = ""
+    
 os.environ["DYLDPATH_ORIGIN"] = os.environ["DYLD_LIBRARY_PATH"]
 
 playonlinux_env = os.environ["PLAYONLINUX"]
