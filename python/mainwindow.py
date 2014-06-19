@@ -62,7 +62,7 @@ class POLWeb(threading.Thread):
     def LastVersion(self):
         if(os.environ["POL_OS"] == "Mac"):
             fichier_online="version_mac"
-        else if(os.environ["POL_OS"] == "FreeBSD"):
+        elif(os.environ["POL_OS"] == "FreeBSD"):
             fichier_online="version_freebsd"
         else:
             fichier_online="version2"
