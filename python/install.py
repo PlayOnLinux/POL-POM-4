@@ -543,7 +543,7 @@ class InstallWindow(wx.Frame):
                         pass
                 else:
                     self.imagesapps.Add(wx.Bitmap(Variables.playonlinux_env+"/etc/playonlinux22.png"))
-                itemId = self.list_apps.AppendItem(self.root_apps, appname, self.i)
+                itemId = self.list_apps.AppendItem(self.root_apps, appname.encode('utf-8','ignore'), self.i)
                 if testing == 1:
                     # (255,255,214) is web site color for beta, but it's not very visible next to plain white,
                     # and red is the color of danger
