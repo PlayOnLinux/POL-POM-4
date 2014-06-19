@@ -1,4 +1,4 @@
-#!/usr/local/bin/bash
+#!/usr/bin/env bash
 
 # Copyright (C) 2007-2010 PlayOnLinux Team
 # Copyright (C) 2014 Pâris Quentin
@@ -67,8 +67,8 @@ if [ "$1" = "--version" ]; then
 	die "PlayOnLinux $version"
 fi
 
-if [ ! "$(uname -s)" = "FreeBSD" ] && [ ! "$(uname -s)" = "NetBSD" ] ; then 
-	die "This script must be run on a BSD system"
+if [ ! "$(uname -s)" = "FreeBSD" ]; then 
+	die "This script must be run on a FreeBSD system"
 fi
 
 export POL_PYTHON=""

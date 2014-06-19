@@ -535,7 +535,7 @@ class InstallWindow(wx.Frame):
                 show = False
 
             if(show == True):
-                self.icon_look_for = Variables.playonlinux_rep+"/configurations/icones/"+appname.encode('utf-8','replace')
+                self.icon_look_for = Variables.playonlinux_rep+"/configurations/icones/"+appname
                 if(os.path.exists(self.icon_look_for)):
                     try:
                         self.imagesapps.Add(wx.Bitmap(self.icon_look_for))
