@@ -17,7 +17,8 @@
 * virtual drive removal: use os.lstat() instead of os.stat() to check for broken rights (reported by Xenos5)
 * change of Wine version used in a virtual drive: kill running wineserver after asking for permission
 * Experimental: FreeBSD support
-
+* Removing PlayOnLinux_Online
+_
 # 4.2.2
 
 * Changelog move from plaintext to Markdown syntax.

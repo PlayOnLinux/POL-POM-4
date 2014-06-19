@@ -691,7 +691,7 @@ clean_wineprefix()
 	cd "$REPERTOIRE/shortcuts/"
 	# Ça aussi, j'ai pas utilisé $REPERTOIRE volontairment (question de sécu, si $REPERTOIRE est vide ou mal défini, ça peut faire mal)
 	[ "$POL_OS" = "Linux" ] && TEST=${1//".PlayOnLinux/wineprefix/"/""}
-	[ "$POL_OS" = "BSD" ] && TEST=${1//".PlayOnBSD/wineprefix/"/""}
+	[ "$POL_OS" = "FreeBSD" ] && TEST=${1//".PlayOnBSD/wineprefix/"/""}
 	[ "$POL_OS" = "Mac" ] && TEST=${1//"Library/PlayOnMac/wineprefix/"/""}
 	
 	[ "$TEST" = "" ] && exit

@@ -398,7 +398,7 @@ POL_DetectVideoCards () {
 	fi
 	if [ "$POL_OS" = "Mac" ]; then
 		# Device Name|Vendor ID|Device ID\n...
-		VGA_DEVICES=`system_profiler SPDisplaysDataType | perl -ne 's/^\s+//; if(/Chipset Model:) { chomp; s/^[^:]*: //; print "$_|" } elsif(/Vendor:/) { chomp; s/.*\(0x(.*)\)/\1/; print "$1|" } elsif (/Device ID:/) { s/^[^:]*: 0x//; print }'`
+		VGA_DEVICES=`system_profiler SPDisplaysDataType | perl -ne 's/^\s+//; if(/Chipset Model:/) { chomp; s/^[^:]*: //; print "$_|" } elsif(/Vendor:/) { chomp; s/.*\(0x(.*)\)/\1/; print "$1|" } elsif (/Device ID:/) { s/^[^:]*: 0x//; print }'`
 	fi
 	# More than one card available?
 	if [ $(wc -l <<<"$VGA_DEVICES") -gt 1 ]; then
