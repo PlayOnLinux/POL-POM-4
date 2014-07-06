@@ -1274,7 +1274,7 @@ class PlayOnLinuxApp(wx.App):
                 os.system("bash \"$PLAYONLINUX/bash/playonlinux-pkg\" -i \""+filename+"\" &")
         else:
             playonlinux.open_document(filename,file_extension.lower())
-
+ 
     def MacOpenURL(self, url):
         if(os.environ["POL_OS"] == "Mac" and not "playonmac://" in url):
             wx.MessageBox(_("You are trying to open a script design for {0}! It might not work as expected").format("PlayOnLinux or PlayOnBSD"), os.environ["APPLICATION_TITLE"])
