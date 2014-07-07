@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX/APLU <pol-gettext@mulx.net>\n"
-"POT-Creation-Date: 2014-07-06 19:00:57+02:00\n"
+"POT-Creation-Date: 2014-07-07 19:00:54+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -287,6 +287,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Prince_of_Persia___The_Forgotten_Sands_:85
 #: PlayOnLinux_Scripts/Pro_Evolution_Soccer_2014_:27
 #: PlayOnLinux_Scripts/Publish_or_Perish_:51 PlayOnLinux_Scripts/Q.U.B.E_:101
+#: PlayOnLinux_Scripts/Railroad_Tycoon_II_:48
 #: PlayOnLinux_Scripts/Rayman_Origins_:72
 #: PlayOnLinux_Scripts/Rayman_Origins_:90 PlayOnLinux_Scripts/Reason_5_:29
 #: PlayOnLinux_Scripts/Red_Faction_:49 PlayOnLinux_Scripts/Rfactor_:48
@@ -304,6 +305,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Starcraft___BroodWar_:24
 #: PlayOnLinux_Scripts/Super_Street_Fighter_IV___Arcade_Edition_:88
 #: PlayOnLinux_Scripts/Surfer_8_:23 PlayOnLinux_Scripts/Tera_Online_:56
+#: PlayOnLinux_Scripts/The_Settlers_III_Gold_Edition_:61
 #: PlayOnLinux_Scripts/The_Sims_3_:61 PlayOnLinux_Scripts/The_Witcher_:132
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_:100
 #: PlayOnLinux_Scripts/The_mighty_quest_for_epic_loot_:59
@@ -326,6 +328,10 @@ msgid "Please select the setup file to run"
 msgstr ""
 
 #: PlayOnLinux_Scripts/18_Wheels_of_Steel__Across_America_:31
+#: PlayOnLinux_Scripts/Railroad_Tycoon_II_:35
+#: PlayOnLinux_Scripts/Railroad_Tycoon_II_:41
+#: PlayOnLinux_Scripts/The_Settlers_III_Gold_Edition_:48
+#: PlayOnLinux_Scripts/The_Settlers_III_Gold_Edition_:54
 #, sh-format
 msgid "Please insert the game media into your disc drive."
 msgstr ""
@@ -1086,6 +1092,11 @@ msgstr ""
 msgid ""
 "If you have Error 3007 on connecting, open a terminal and type:\\necho 0|"
 "sudo tee /proc/sys/kernel/yama/ptrace_scope"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Diagnostic_Tools_:20
+#, sh-format
+msgid "Scanning your hardware..."
 msgstr ""
 
 #: PlayOnLinux_Scripts/Dishonored_:79
@@ -2493,6 +2504,66 @@ msgstr ""
 msgid "Please insert disk 3 into your disk drive\\nif not already done."
 msgstr ""
 
+#: PlayOnLinux_Scripts/Railroad_Tycoon_II_:24
+#, sh-format
+msgid ""
+"This installer was created for Railroad Tycoon II Platinum Version\\nIt "
+"should work with other editions of this game:\\nRailroad Tycoon II (without "
+"addons)\\nRailroad Tycoon II Gold Edition (with The Second Century addon)\\n"
+"\\nIf you have one of this two versions of this game, please give some "
+"information or bugs at official PlayOnLinux page - http://playonlinux.com/\\n"
+"\\nThank you!"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Railroad_Tycoon_II_:31
+#, sh-format
+msgid "Other destination or other CD/DVD - first release, Gold, Platinum"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Railroad_Tycoon_II_:31
+#, sh-format
+msgid "Railroad Tycoon Anthology disc (Polish Version)"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Railroad_Tycoon_II_:31
+#, sh-format
+msgid "Retail CD (Platinum, Gold [test], first release [test])"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Railroad_Tycoon_II_:31
+#: PlayOnLinux_Scripts/The_Settlers_III_Gold_Edition_:44
+#, sh-format
+msgid "Select a version of installation disc:"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Railroad_Tycoon_II_:55
+#, sh-format
+msgid "First Release (without addons)"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Railroad_Tycoon_II_:55
+#, sh-format
+msgid "Gold Edition"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Railroad_Tycoon_II_:55
+#, sh-format
+msgid "Platinum Edition"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Railroad_Tycoon_II_:55
+#, sh-format
+msgid "What is your version of Railroad Tycoon II?"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Railroad_Tycoon_II_:66
+#: PlayOnLinux_Scripts/The_Settlers_III_Gold_Edition_:85
+#, sh-format
+msgid ""
+"Installation complete!\\nTo run $TITLE please select $TITLE icon from your "
+"desktop.\\n\\nThank you for using this installation script! :)"
+msgstr ""
+
 #: PlayOnLinux_Scripts/Reaper_4_:30
 #, sh-format
 msgid ""
@@ -2845,6 +2916,26 @@ msgid ""
 "ptrace_scope to 0"
 msgstr ""
 
+#: PlayOnLinux_Scripts/The_Settlers_III_Gold_Edition_:44
+#, sh-format
+msgid "Other destination or other CD/DVD"
+msgstr ""
+
+#: PlayOnLinux_Scripts/The_Settlers_III_Gold_Edition_:44
+#, sh-format
+msgid "Retail CD"
+msgstr ""
+
+#: PlayOnLinux_Scripts/The_Settlers_III_Gold_Edition_:44
+#, sh-format
+msgid "Version from CD-Action Polish magazine - 01.2006 - number 121"
+msgstr ""
+
+#: PlayOnLinux_Scripts/The_Settlers_III_Gold_Edition_:82
+#, sh-format
+msgid "video fix"
+msgstr ""
+
 #: PlayOnLinux_Scripts/The_Witcher_:55 PlayOnLinux_Scripts/The_Witcher_:57
 #, sh-format
 msgid "Enhanced Edition"
@@ -2965,6 +3056,18 @@ msgstr ""
 #: PlayOnLinux_Scripts/Vantage_Master_Online_:30
 #, sh-format
 msgid "Do you want to browse $TITLE website?"
+msgstr ""
+
+#: PlayOnLinux_Scripts/WTW_Instant_Messenger_:37
+#, sh-format
+msgid ""
+"After WTW instalation uncheck Run option in last window.\\nDon't run a "
+"messenger, because it will won't work correctly."
+msgstr ""
+
+#: PlayOnLinux_Scripts/WTW_Instant_Messenger_:37
+#, sh-format
+msgid "Warning"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Warcraft_III__Reign_of_Chaos_:35
