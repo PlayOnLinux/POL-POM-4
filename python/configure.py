@@ -818,13 +818,18 @@ class MainWindow(wx.Frame):
         self.onglets.changing_selection = True
         if(isPrefix == True):
             self.onglets.s_isPrefix = True
-            if(self.current_sel == "default"):
+            try:
+                if(self.current_sel == "default"):
+                    self.splitter.Unsplit()
+                    self.splitter.SplitVertically(self.splitter_list,self.panelEmpty)
+                    self.splitter.SetSashPosition(200)
+                else:
+                    self.splitter.Unsplit()
+                    self.splitter.SplitVertically(self.splitter_list,self.onglets)
+                    self.splitter.SetSashPosition(200)
+            except AttributeError:
                 self.splitter.Unsplit()
                 self.splitter.SplitVertically(self.splitter_list,self.panelEmpty)
-                self.splitter.SetSashPosition(200)
-            else:
-                self.splitter.Unsplit()
-                self.splitter.SplitVertically(self.splitter_list,self.onglets)
                 self.splitter.SetSashPosition(200)
         else:
             self.splitter.Unsplit()
