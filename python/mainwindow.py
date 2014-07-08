@@ -183,7 +183,7 @@ class MainWindow(wx.Frame):
             self.windowHeight = int(playonlinux.GetSettings("MAINWINDOW_HEIGHT"))
             self.SetSize((self.windowWidth,self.windowHeight))
         except:
-            self.windowWidth = 450
+            self.windowWidth = 500
             self.windowHeight = 450
 
         # Window position
