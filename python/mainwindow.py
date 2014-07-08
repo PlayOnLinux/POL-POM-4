@@ -287,6 +287,13 @@ class MainWindow(wx.Frame):
         self.optionmenu.Append(214, _("Plugin manager"))
 
 
+        self.supportmenu = wx.Menu()
+        self.supportmenu.Append(400, _("Supported software"))
+        self.supportmenu.Append(401, _("News"))
+        self.supportmenu.Append(402, _("Documentation"))
+        self.supportmenu.Append(403, _("Forums"))
+        self.supportmenu.Append(404, _("Bugs"))
+
 
         self.help_menu = wx.Menu()
         self.help_menu.Append(wx.ID_ABOUT, _('About {0}').format(os.environ["APPLICATION_TITLE"]))
@@ -352,6 +359,7 @@ class MainWindow(wx.Frame):
         self.menubar.Append(self.expertmenu, _("Tools"))
         self.menubar.Append(self.optionmenu, _("Settings"))
         self.menubar.Append(self.pluginsmenu, _("Plugins"))
+        self.menubar.Append(self.supportmenu, _("Support"))
         self.menubar.Append(self.help_menu, "&Help")
 
         #self.menubar.Append(self.help_menu, _("About"))
@@ -403,7 +411,6 @@ class MainWindow(wx.Frame):
         wx.EVT_MENU(self, 502,  self.iconDisplay)
         wx.EVT_MENU(self, 503,  self.iconDisplay)
         wx.EVT_MENU(self, 504,  self.iconDisplay)
-        wx.EVT_MENU(self, 505,  self.displayMen)
 
         # Expert
         wx.EVT_MENU(self, 101,  self.Reload)
@@ -433,7 +440,13 @@ class MainWindow(wx.Frame):
         wx.EVT_TREE_ITEM_ACTIVATED(self, 105, self.Run)
         wx.EVT_TREE_SEL_CHANGED(self, 105, self.Select)
 
-
+        # Support
+        wx.EVT_MENU(self, 400,  self.runSupport)
+        wx.EVT_MENU(self, 401,  self.runSupport)
+        wx.EVT_MENU(self, 402,  self.runSupport)
+        wx.EVT_MENU(self, 403,  self.runSupport)
+        wx.EVT_MENU(self, 404,  self.runSupport)
+        
         # PlayOnLinux main timer
         self.timer = wx.Timer(self, 1)
         self.Bind(wx.EVT_TIMER, self.TimerAction, self.timer)
@@ -489,7 +502,6 @@ class MainWindow(wx.Frame):
             self.SetupWindowTimer_delay = time
 
     def SetupWindowAction(self, event):
-        
         if(self.windowOpened == 0):
             self.SetupWindow_TimerRestart(100)
         else:
@@ -509,11 +521,6 @@ class MainWindow(wx.Frame):
             self.Reload(self)
             self.Timer_LastShortcutList = currentShortcuts
             self.Timer_LastIconList = currentIcons
-
-    def displayMen(self, event):
-        playonlinux.SetSettings("PANEL_POSITION","LEFT")
-        if(self.panDisplay.IsChecked()):
-            self.MgrAddPage()
 
     def StatusRead(self):
         self.sb.SetStatusText(self.updater.sendToStatusBarStr, 0)
@@ -620,6 +627,22 @@ class MainWindow(wx.Frame):
             subprocess.Popen(["bash", Variables.playonlinux_rep+"/plugins/"+plugin+"/scripts/menu", game_exec])
         except :
             pass
+            
+    def runSupport(self, event):
+        urlId = event.GetId()-400
+        urlPrefix = "http://www."+os.environ["POL_DNS"]+"/en"
+        if(urlId == 0):
+            url = urlPrefix+"/supported_apps.html"
+        if(urlId == 1):
+            url = urlPrefix+"/news.html"
+        if(urlId == 2):
+            url = urlPrefix+"/documentation.html"
+        if(urlId == 3):
+            url = urlPrefix+"/forums.html"
+        if(urlId == 4):
+            url = urlPrefix+"/bugs.html"
+        
+        playonlinux.POL_Open(url)
 
     def iconDisplay(self, event):
         iconEvent=event.GetId()
