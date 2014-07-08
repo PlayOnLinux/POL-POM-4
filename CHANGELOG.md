@@ -24,6 +24,7 @@
 * Fix a bug in GetSettings() where the value contain the equal ('=') character 
 * PlayOnMac does no longer need a reboot after installing XQuartz
 * PlayOnMac does no longer popup a warning before xterm is installed
+* Removing IRC 
 
 # 4.2.2
 

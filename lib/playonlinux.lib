@@ -765,8 +765,10 @@ POL_Internal_SetXQuartzDisplay()
 		echo "This function is not for you"
 		return
 	fi
-	CDISPLAY="$(find /tmp/ 2> /dev/null|grep 'org.macosforge.xquartz'|tail -n 1)"
-	[ "$DISPLAY" = "" ] && export DISPLAY="$CDISPLAY"
+	if [ "$DISPLAY" = "" ]; then
+		CDISPLAY="$(find /tmp/ 2> /dev/null|grep 'org.macosforge.xquartz'|tail -n 1)"
+		export DISPLAY="$CDISPLAY"
+	fi
 }
 POL_Internal_KillAll()
 {

@@ -420,7 +420,6 @@ class MainWindow(wx.Frame):
         wx.EVT_MENU(self, 108,  self.Executer)
         wx.EVT_MENU(self, 109,  self.PolShell)
         wx.EVT_MENU(self, 110,  self.BugReport)
-        wx.EVT_MENU(self, 111,  self.OpenIrc)
         wx.EVT_MENU(self, 112,  self.POLOnline)
         wx.EVT_MENU(self, 113,  self.PCCd)
         wx.EVT_MENU(self, 115,  self.killall)
@@ -667,11 +666,6 @@ class MainWindow(wx.Frame):
 
         self.Reload(self)
 
-    def OpenIrc(self, event):
-        self.irc = ircgui.IrcClient(self)
-        self.irc.Center(wx.BOTH)
-        self.irc.Show(True)
-
     def UpdateInstructions(self, event):
         if(os.environ["POL_OS"] == "Mac"):
             webbrowser.open("http://www.playonmac.com/en/download.html")
@@ -739,8 +733,8 @@ class MainWindow(wx.Frame):
         self.menuGaucheAddLink("pol_prgm_install", _("Install a program"), i,Variables.playonlinux_env+"/resources/images/menu/add.png",self.InstallMenu)
         i+=1
         self.menuGaucheAddLink("pol_prgm_settings", _("Settings"), i,Variables.playonlinux_env+"/resources/images/menu/settings.png",self.Options)
-        i+=1
-        self.menuGaucheAddLink("pol_prgm_messenger", _("Messenger"), i,Variables.playonlinux_env+"/resources/images/menu/people.png",self.OpenIrc)
+
+
         if(os.path.exists(os.environ["PLAYONLINUX"]+"/.git/")):
             i+=1
             self.menuGaucheAddLink("pol_git", _("Update GIT"), i,Variables.playonlinux_env+"/resources/images/menu/update_git.png",self.UpdateGIT)
