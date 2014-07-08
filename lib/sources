@@ -35,7 +35,6 @@ then
 	source "$PLAYONLINUX/lib/website.lib"
 	source "$PLAYONLINUX/lib/wine.lib"
 	source "$PLAYONLINUX/lib/dosbox.lib"
-	[ "$DEBIAN_PACKAGE" = "TRUE" ] && source "$PLAYONLINUX/lib/debian.lib"
 fi
 if [ ! "$DONT_MONITOR" ]; then
 	set -o monitor

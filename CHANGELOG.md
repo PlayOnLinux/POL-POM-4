@@ -18,6 +18,7 @@
 * change of Wine version used in a virtual drive: kill running wineserver after asking for permission
 * Experimental: FreeBSD support
 * Removing PlayOnLinux_Online
+* Corefonts are now managed as any other POL_Call package. (Debian.lib is consequently no longer needed)
 _
 # 4.2.2
 

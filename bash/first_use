@@ -24,22 +24,6 @@ source "$PLAYONLINUX/lib/sources"
 export XQUARTZ_VERSION_LEO="2.7.1"
 export XQUARTZ_VERSION="2.7.5"
 
-install_fonts () # Install Microsoft Fonts
-{
-	if [ ! -e "$REPERTOIRE/configurations/msfonts_installed" ]; then
-		WebVersion=$($POL_WGET $SITE/check.txt -O-)
-		if [ "$WebVersion" == "" ]; then
-			POL_SetupWindow_message "$(eval_gettext 'The PlayOnLinux website is unavailable.')$(eval_gettext "\nPlease make sure you are connected to the Internet.")" "$(eval_gettext 'Microsoft fonts')"
-			POL_SetupWindow_Close
-			return 1
-		else
-			POL_Call POL_Internal_InstallFonts || return 1
-		fi	
-	fi
-	return 0
-}
-
-
 POL_Internal_XQuartz_Warning()
 {
 		cat << EOF_X > "$REPERTOIRE/tmp/xquartz"
@@ -248,15 +232,6 @@ fi
 [ "$POL_OS" == "Mac" ] && [ ! -e "/Applications/Utilities/XQuartz.app" ] && install_x11
 [ "$POL_OS" == "Mac" ] && [ "$OSX_VERSION" = "9" ] &&  install_x11
 
-if [ "$DEBIAN_PACKAGE" = "TRUE" ]; then
-	fonts_install
-else
-	if ! install_fonts; then
-		POL_SetupWindow_message "$(eval_gettext 'Error while installing fonts')" "$TITLE"
-		POL_SetupWindow_Close
-		exit 0
-	fi
-fi
 
 if [ "$POL_OS" = "Mac" ]; then
 	if [ "$OSX_VERSION" = "11" -a "$OSX_SUB_VERSION" -gt "4" ] || [ "$OSX_VERSION" = "12" -a "$OSX_SUB_VERSION" -gt "1" ]; then
