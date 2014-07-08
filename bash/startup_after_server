@@ -36,8 +36,8 @@ install_x11()
 	STEP_TITLE="XQuartz"
 	
 	XQuartz_Message="$(eval_gettext "PlayOnMac needs to install XQuartz to work properly.")"
-	XQuartz_Message="$(eval_gettext "PlayOnMac will help you to simplify this step")"
-	POL_SetupWindow_free_presentation "$STEP_TITLE" "$XQuartz_Message\n\n$XQuartz_Message"
+	XQuartz_Message2="$(eval_gettext "PlayOnMac will help you to simplify this step")"
+	POL_SetupWindow_free_presentation "$STEP_TITLE" "$XQuartz_Message\n\n$XQuartz_Message2"
 		
 	POL_SetupWindow_menu_num "$XQuartz_Message" "$STEP_TITLE" "$(eval_gettext "Please download XQuartz for me")~$(eval_gettext "I've downloaded the file by myself") ($FilePrefix-$XQUARTZ_VERSION.dmg)~$(eval_gettext "Don't install XQuartz for the moment")" "~"
 	
