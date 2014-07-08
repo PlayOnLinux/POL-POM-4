@@ -19,6 +19,7 @@
 * Experimental: FreeBSD support
 * Removing PlayOnLinux_Online
 * Corefonts are now managed as any other POL_Call package. (Debian.lib is consequently no longer needed)
+* Removing installation process of missing gecko and mono at startup. It should not happen anymore
 _
 # 4.2.2
 
