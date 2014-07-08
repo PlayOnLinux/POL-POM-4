@@ -28,9 +28,6 @@ source "$PLAYONLINUX/lib/sources"
 # Plugins
 install_plugins
 
-# Debian
-[ "$DEBIAN_PACKAGE" = "TRUE" ] && install_debfonts
-
 if [ ! "$(POL_Config_Read FIRST_USE)" = "TRUE" ]; then
 	bash "$PLAYONLINUX/bash/first_use"
 elif [ "$POL_OS" = "Mac" -a ! -e "/Applications/Utilities/XQuartz.app" -a "$OSX_VERSION" != "11" ]; then
