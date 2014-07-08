@@ -110,6 +110,47 @@ class POLWeb(threading.Thread):
                 self.real_check()
             time.sleep(1)
 
+class PanelManager(wx.aui.AuiManager):
+
+    def __init__(self, frame):
+        wx.aui.AuiManager.__init__(self, frame)
+        self.startPerspective = self.SavePerspective()
+        
+        
+    def _getPerspectiveName(self):
+        name = self.SavePerspective().split("=")
+        name = name[1].split(";")
+        name = name[0]
+        return name 
+
+    def getPerspective(self):
+        return self.SavePerspective().replace(self._getPerspectiveName(),"PERSPECTIVE_NAME")
+        
+    def savePosition(self):
+        playonlinux.SetSettings("PANEL_PERSPECTIVE", self.getPerspective())
+        
+    def restorePosition(self):
+        self.startPerspective = self.SavePerspective()
+       
+        self.Update()
+        try:
+            setting = playonlinux.GetSettings("PANEL_PERSPECTIVE")
+            setting = setting.replace("PERSPECTIVE_NAME",self._getPerspectiveName())
+            if(setting != ""):
+                 self.LoadPerspective(setting)
+        
+        except wx._core.PyAssertionError:
+            self.LoadPerspective(self.startPerspective)
+        
+        
+        self.Update()
+         
+    def AddPane(self, data, settings):
+        wx.aui.AuiManager.AddPane(self, data, settings)
+        
+    def Destroy(self):
+        self.savePosition()
+        
 class MainWindow(wx.Frame):
     def __init__(self,parent,id,title):
 
@@ -179,15 +220,14 @@ class MainWindow(wx.Frame):
         self.list_game.SetSpacing(0);
         self.list_game.SetIndent(5);
         self.list_game.SetImageList(self.images)
-
-        self._mgr = wx.aui.AuiManager(self)
         self.menu_gauche = wx.Panel(self,-1)
 
-
-
+        self._mgr = PanelManager(self)
         self._mgr.AddPane(self.list_game, wx.CENTER)
-
-
+        self._mgr.AddPane(self.menu_gauche, wx.aui.AuiPaneInfo().Name('Actions').Caption('Actions').Left().BestSize((200,400)).Floatable(True).CloseButton(False).TopDockable(False).BottomDockable(False))
+        
+         
+        
         self.filemenu = wx.Menu()
         ### On MacOS X, preference is always on the main menu
         if(os.environ["POL_OS"] == "Mac"):
@@ -219,51 +259,28 @@ class MainWindow(wx.Frame):
 
         self.expertmenu = wx.Menu()
 
-        self.winever_item = wx.MenuItem(self.expertmenu, 107, _("Manage Wine versions"))
-        self.winever_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/wine.png"))
-        self.expertmenu.AppendItem(self.winever_item)
+        self.expertmenu.Append(107, _("Manage Wine versions"))
+
 
         if(os.environ["POL_OS"] == "Mac"):
             self.expertmenu.AppendSeparator()
-            self.pccd_item = wx.MenuItem(self.expertmenu, 113, _("Read a PC CD-Rom"))
-            self.pccd_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/cdrom.png"))
-            self.expertmenu.AppendItem(self.pccd_item)
+            self.expertmenu.Append(113, _("Read a PC CD-Rom"))
 
         self.expertmenu.AppendSeparator()
 
-        self.run_item = wx.MenuItem(self.expertmenu, 108, _("Run a local script"))
-        self.run_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/run.png"))
-        self.expertmenu.AppendItem(self.run_item)
-
-        self.wineserv_item = wx.MenuItem(self.expertmenu, 115, _('Close all {0} software').format(os.environ["APPLICATION_TITLE"]))
-        self.wineserv_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/wineserver.png"))
-        self.expertmenu.AppendItem(self.wineserv_item)
-
-        self.polshell_item = wx.MenuItem(self.expertmenu, 109, _('{0} console').format(os.environ["APPLICATION_TITLE"]))
-        self.polshell_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/polshell.png"))
-        self.expertmenu.AppendItem(self.polshell_item)
-
+        self.expertmenu.Append(108, _("Run a local script"))
+        self.expertmenu.Append(115, _('Close all {0} software').format(os.environ["APPLICATION_TITLE"]))
         self.expertmenu.AppendSeparator()
 
-        self.chat_item = wx.MenuItem(self.expertmenu, 111, _("{0} messenger").format(os.environ["APPLICATION_TITLE"]))
-        self.chat_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/people.png"))
-        self.expertmenu.AppendItem(self.chat_item)
-
-        self.bug_item = wx.MenuItem(self.expertmenu, 110, _("{0} debugger").format(os.environ["APPLICATION_TITLE"]))
-        self.bug_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/bug.png"))
-        self.expertmenu.AppendItem(self.bug_item)
+        self.expertmenu.Append(110, _("{0} debugger").format(os.environ["APPLICATION_TITLE"]))
 
 
         self.optionmenu = wx.Menu()
 
 
-        self.option_item = wx.MenuItem(self.expertmenu, 211, _("Internet"))
-        self.option_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/etc/onglet/internet-web-browser.png"))
-        self.optionmenu.AppendItem(self.option_item)
-
-        self.option_item = wx.MenuItem(self.expertmenu, 212, _("File associations"))
-        self.option_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/extensions.png"))
-        self.optionmenu.AppendItem(self.option_item)
+        self.optionmenu.Append(221, _("Internet"))
+        self.optionmenu.Append(212, _("File associations"))
+        self.optionmenu.Append(214, _("Plugin manager"))
 
 
 
@@ -297,13 +314,13 @@ class MainWindow(wx.Frame):
         if(self.j > 0):
             self.pluginsmenu.AppendSeparator()
 
-        self.option_item_p = wx.MenuItem(self.expertmenu, 214, _("Plugin manager"))
-        self.option_item_p.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/etc/onglet/package-x-generic.png"))
-        self.pluginsmenu.AppendItem(self.option_item_p)
 
-        self.option_item = wx.MenuItem(self.expertmenu, 214, _("Plugin manager"))
-        self.option_item.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/etc/onglet/package-x-generic.png"))
-        self.optionmenu.AppendItem(self.option_item)
+
+
+        self.option_item_p = wx.MenuItem(self.pluginsmenu, 214, _("Plugin manager"))
+        self.option_item_p.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/etc/onglet/package-x-generic.png"))
+        
+        self.pluginsmenu.AppendItem(self.option_item_p)
 
 
         self.last_string = ""
@@ -437,8 +454,7 @@ class MainWindow(wx.Frame):
         wx.EVT_MENU(self, 235, self.RKill)
         wx.EVT_MENU(self, 236, self.ReadMe)
         self.Bind(wx.EVT_SIZE, self.ResizeWindow)
-
-        self.MgrAddPage()
+        self._mgr.restorePosition()   
 
     def ResizeWindow(self, e):
         self.UpdateGaugePos()
@@ -489,31 +505,6 @@ class MainWindow(wx.Frame):
             self.Reload(self)
             self.Timer_LastShortcutList = currentShortcuts
             self.Timer_LastIconList = currentIcons
-            
-    def MgrAddPage(self):
-        try:
-            self.LoadSize = int(playonlinux.GetSettings("PANEL_SIZE"))
-        except:
-            self.LoadSize = 150
-
-        try:
-            self.LoadPosition = playonlinux.GetSettings("PANEL_POSITION")
-        except:
-            self.LoadPosition = "LEFT"
-
-        if(self.LoadSize < 20):
-            self.LoadSize = 20
-        if(self.LoadSize > 1000):
-            self.LoadSize = 1000
-
-
-        if(self.LoadPosition == "LEFT"):
-            self._mgr.AddPane(self.menu_gauche, wx.aui.AuiPaneInfo().Name('Actions').Caption('Actions').Left().BestSize((self.LoadSize,400)).Floatable(True).CloseButton(False).TopDockable(False).BottomDockable(False))
-        else:
-            self._mgr.AddPane(self.menu_gauche, wx.aui.AuiPaneInfo().Name('Actions').Caption('Actions').Right().BestSize((self.LoadSize,400)).Floatable(True).CloseButton(False).TopDockable(False).BottomDockable(False))
-        self.menu_gauche.Show()
-
-        self._mgr.Update()
 
     def displayMen(self, event):
         playonlinux.SetSettings("PANEL_POSITION","LEFT")
@@ -770,12 +761,6 @@ class MainWindow(wx.Frame):
 
             icon = os.environ["POL_USER_ROOT"]+"/icones/full_size/"+shortcut
 
-            self.perspective = self._mgr.SavePerspective().split("|")
-            self.perspective = self.perspective[len(self.perspective) - 2].split("=")
-
-            left_pos = (int(self.perspective[1]) - 50)/2
-            if(left_pos <= 0):
-                left_pos = (200-48)/2
 
             if(os.path.exists(icon)):
                 try:
@@ -1054,25 +1039,8 @@ class MainWindow(wx.Frame):
             playonlinux.SetSettings("MAINWINDOW_HEIGHT",str(self.SizeToSave[1]-Variables.windows_add_playonmac*56))
             playonlinux.SetSettings("MAINWINDOW_X",str(self.PositionToSave[0]))
             playonlinux.SetSettings("MAINWINDOW_Y",str(self.PositionToSave[1]))
-            self._mgr.UnInit()
-            # I know, that's very ugly, but I have no choice for the moment
-            self.perspective = self._mgr.SavePerspective().split("|")
-            self.perspective = self.perspective[len(self.perspective) - 2].split("=")
-
-            self.DockType = self.perspective[0]
-            self.mySize = 200
-            self.myPosition = "LEFT"
-
-            if(self.DockType == "dock_size(4,0,0)"):
-                self.mySize = int(self.perspective[1]) - 2
-                self.myPosition = "LEFT"
-
-            if(self.DockType == "dock_size(2,0,1)" or self.DockType == "dock_size(2,0,0)" or "dock_size(2," in self.DockType):
-                self.mySize = int(self.perspective[1]) - 2
-                self.myPosition = "RIGHT"
-
-            playonlinux.SetSettings("PANEL_SIZE",str(self.mySize))
-            playonlinux.SetSettings("PANEL_POSITION",str(self.myPosition))
+           
+            self._mgr.Destroy()
 
             self.POLDie()
         return None

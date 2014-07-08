@@ -20,6 +20,8 @@
 * Removing PlayOnLinux_Online
 * Corefonts are now managed as any other POL_Call package. (Debian.lib is consequently no longer needed)
 * Removing installation process of missing gecko and mono at startup. It should not happen anymore
+* Cleaner way to save panel position
+* Fix a bug in GetSettings() where the value contain the equal ('=') character 
 _
 # 4.2.2
 

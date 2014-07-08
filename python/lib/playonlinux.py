@@ -74,7 +74,8 @@ def GetSettings(setting, prefix='_POL_'):
         i += 1
     try:
         line = string.split(line,"=")
-        return(line[1])
+        del line[0]
+        return(string.join(line,"="))
     except:
         return("")
 
