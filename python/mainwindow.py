@@ -133,11 +133,15 @@ class PanelManager(wx.aui.AuiManager):
         self.startPerspective = self.SavePerspective()
        
         self.Update()
+        
         try:
             setting = playonlinux.GetSettings("PANEL_PERSPECTIVE")
-            setting = setting.replace("PERSPECTIVE_NAME",self._getPerspectiveName())
-            if(setting != ""):
-                 self.LoadPerspective(setting)
+            if(setting.count("Actions") < 2 or setting.count("dock_size") < 2 or not "PERSPECTIVE_NAME" in setting):
+                self.LoadPerspective(self.startPerspective)
+            else:
+                setting = setting.replace("PERSPECTIVE_NAME",self._getPerspectiveName())
+                if(setting != ""):
+                     self.LoadPerspective(setting)
         
         except wx._core.PyAssertionError:
             self.LoadPerspective(self.startPerspective)
