@@ -41,13 +41,3 @@ elif [ "$POL_OS" = "Mac" ]; then
 		fi
 	fi
 fi 
-
-if [ "$(POL_Config_Read GECKO_INSTALLED)" = "" ]; then
-	POL_Config_Write GECKO_INSTALLED TRUE
-	bash "$PLAYONLINUX/bash/install_gecko"
-fi
-
-if [ "$(POL_Config_Read MONO_INSTALLED)" = "" ]; then
-	POL_Config_Write MONO_INSTALLED TRUE
-	bash "$PLAYONLINUX/bash/install_mono"
-fi
