@@ -758,25 +758,16 @@ function VersionLower ()
 	[ $versionA1 -le $versionB1 ] && [ $versionA2 -le $versionB2 ] && [ $versionA3 -lt $versionB3 ] && return 0
 	return 1
 }
-POL_Internal_RunXQuartz()
+
+POL_Internal_SetXQuartzDisplay()
 {
-	# Run XQuartz on OSX
-	if [ ! "$POL_OS" = "Mac" ]
-	then
+	if [ ! "$POL_OS" = "Mac" ]; then
 		echo "This function is not for you"
 		return
 	fi
-	current_appToRun="$(defaults read org.macosforge.xquartz.X11 app_to_run)" # What is the current default app ?
-	if [ ! "$?" = "0" ]
-	then
-		current_appToRun="/opt/X11/bin/xterm"
-	fi
-	
-	defaults write org.macosforge.xquartz.X11 app_to_run "" # Don't run Xterm (or other if user has changed something)
-	open "/Applications/Utilities/XQuartz.app"
-	defaults write org.macosforge.xquartz.X11 app_to_run "$current_appToRun" # Restaure default behavior
+	CDISPLAY="$(find /tmp/|grep 'org.macosforge.xquartz'|tail -n 1)"
+	[ "$DISPLAY" = "" ] && export DISPLAY="$CDISPLAY"
 }
-
 POL_Internal_KillAll()
 {
 	for WId in $(ps aux | grep $APPLICATION_TITLE | grep bash | awk '{print $2}'); 

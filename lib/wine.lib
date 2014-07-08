@@ -473,6 +473,7 @@ POL_AutoWine ()
 
 POL_Wine ()
 {
+	POL_Internal_SetXQuartzDisplay
 	# Run the good wineversion and store the result to a logfile
 	# Same usage than "wine"
 	mkdir -p "$WINEPREFIX"

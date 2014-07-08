@@ -273,6 +273,8 @@ class MainWindow(wx.Frame):
         self.expertmenu.AppendSeparator()
 
         self.expertmenu.Append(108, _("Run a local script"))
+        self.expertmenu.Append(109, _("{0} console").format(os.environ["APPLICATION_TITLE"]))
+        
         self.expertmenu.Append(115, _('Close all {0} software').format(os.environ["APPLICATION_TITLE"]))
         self.expertmenu.AppendSeparator()
 

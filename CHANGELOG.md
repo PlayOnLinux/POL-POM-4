@@ -22,7 +22,8 @@
 * Removing installation process of missing gecko and mono at startup. It should not happen anymore
 * Cleaner way to save panel position
 * Fix a bug in GetSettings() where the value contain the equal ('=') character 
-_
+* PlayOnMac does no longer need a reboot after installing XQuartz
+
 # 4.2.2
 
 * Changelog move from plaintext to Markdown syntax.

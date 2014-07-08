@@ -20,5 +20,6 @@
 [ "$PLAYONLINUX" = "" ] && exit 0
 source "$PLAYONLINUX/lib/sources"
 
+POL_Internal_SetXQuartzDisplay
 [ "$DEBIAN_PACKAGE" = "FALSE" ] && TITLEADD="-T $APPLICATION_TITLE"
 "$POL_TERM" $TITLEADD -e "$PLAYONLINUX/bash/polshell"
