@@ -1225,7 +1225,7 @@ class PlayOnLinuxApp(wx.App):
         
         self.singleCheckFatal("gpg", package="GnuPG")
 
-        if(os.environ["DEBIAN_PACKAGE"] == "FALSE"):
+        if(os.environ["DEBIAN_PACKAGE"] == "FALSE" and os.environ["POL_OS"] != "Mac"):
             self.singleCheck("xterm")
         self.singleCheck("gettext.sh", package="gettext")  # gettext-base on Debian
         self.singleCheck("icotool", package="icoutils")
