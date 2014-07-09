@@ -25,6 +25,7 @@
 * PlayOnMac does no longer need a reboot after installing XQuartz
 * PlayOnMac does no longer popup a warning before xterm is installed
 * Removing IRC 
+* Icones install can now be bigger than 22x22 
 
 # 4.2.2
 
