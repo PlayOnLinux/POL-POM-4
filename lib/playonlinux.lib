@@ -762,7 +762,6 @@ function VersionLower ()
 POL_Internal_SetXQuartzDisplay()
 {
 	if [ ! "$POL_OS" = "Mac" ]; then
-		echo "This function is not for you"
 		return
 	fi
 	if [ "$DISPLAY" = "" ]; then
