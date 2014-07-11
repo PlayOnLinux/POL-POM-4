@@ -773,8 +773,13 @@ class MainWindow(wx.Frame):
             self.menuGaucheAddLink("pol_prgm_kill", _("Close"), i,Variables.playonlinux_env+"/resources/images/menu/media-playback-stop.png",self.RKill)
             i+=1
             self.menuGaucheAddLink("pol_prgm_rundebug", _("Debug"), i,Variables.playonlinux_env+"/resources/images/menu/bug.png",self.RunDebug)
-            i+=1
-            self.menuGaucheAddLink("pol_prgm_reportproblem", _("Report a problem"), i,Variables.playonlinux_env+"/resources/images/menu/bug.png",self.ReportProblem)
+            
+            game_exec = self.GetSelectedProgram()
+            game_log = playonlinux.getLog(game_exec)
+            if(game_log):
+                i+=1
+                self.menuGaucheAddLink("pol_prgm_reportproblem", _("Send a feedback"), i,Variables.playonlinux_env+"/resources/images/menu/bug.png",self.sendfeedback)
+                
             i+=1
             self.menuGaucheAddLink("pol_prgm_configure", _("Configure"), i,Variables.playonlinux_env+"/resources/images/menu/run.png",self.Configure)
             i+=1
@@ -1036,13 +1041,11 @@ class MainWindow(wx.Frame):
         playonlinux.SetDebugState(game_exec, game_prefix, True)
         self.Run(self, True)
 
-    def ReportProblem(self, event):
+    def sendfeedback(self, event):
         game_exec = self.GetSelectedProgram()
-        game_log = playonlinux.getLog(game_exec)
+        game_log = str(playonlinux.getLog(game_exec))
         if game_log:
-            new_env = os.environ
-            new_env["LOGTITLE"] = game_log
-            subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/bug_report"], env = new_env)
+            playonlinux.POL_Open("http://www."+os.environ["POL_DNS"]+"/repository/feedback.php?script="+urllib.quote_plus(game_log))
 
     def POLDie(self):
         for pid in self.registeredPid:
