@@ -94,21 +94,7 @@ run_autorun()
 
 }
 
-ManualInstall_ScriptInit ()
-{
-	## $SCRIPTPATH
-	cat <<EOF > "$SCRIPTPATH"
-#!/bin/bash
-# Auto-generated script : $SCRIPTPATH
-# Les trucs entre { } doivent être remplacés par POL Online
 
-[ "\$PLAYONLINUX" = "" ] && exit 
-source "\$PLAYONLINUX/lib/sources"
-POL_SetupWindow_Init
-POL_Debug_Init
-POL_SetupWindow_presentation "{SCRIPT_NAME}" "{SCRIPT_EDITEUR}" "{SCRIPT_URL}" "{SCRIPT_USER}" "$PREFIXNAME"
-EOF
-}
 
 POL_SetupWindow_Init
 POL_SetupWindow_free_presentation "$(eval_gettext 'Manual installation')" "$(eval_gettext 'Welcome to $APPLICATION_TITLE manual installation wizard.\n\nThis script will allow you to install any program on $APPLICATION and use it with all the tools\n\nWarning: We are unable to guarantee that your application will work perfectly.')"
@@ -132,31 +118,19 @@ then
 		[[ "$APP_ANSWER" =~ [/\ ] ]] || break
 	done
 	PREFIXNAME="$APP_ANSWER"
-	SCRIPTPATH="$POL_USER_ROOT/scripts/${APP_ANSWER}_${INSTALL_NUMBER}"
-	SCRIPTNAME="${APP_ANSWER}_${INSTALL_NUMBER}"
-	ManualInstall_ScriptInit
-	echo "POL_Wine_SelectPrefix \"$PREFIXNAME\"" >> "$SCRIPTPATH"
+
 	POL_Wine_SelectPrefix "$PREFIXNAME"
 fi
 if [ "$menu" = "$LNG_LI_PATCH" ]
 then
 	POL_SetupWindow_prefix_selector "$(eval_gettext "Please choose a program")"
 	PREFIXNAME="$APP_ANSWER"
-	SCRIPTPATH="$POL_USER_ROOT/scripts/${APP_ANSWER}_${INSTALL_NUMBER}"
-	SCRIPTNAME="${APP_ANSWER}_${INSTALL_NUMBER}"
 	
-	ManualInstall_ScriptInit
-	echo "POL_Wine_SelectPrefix \"$PREFIXNAME\"" >> "$SCRIPTPATH"
-	
-	echo "[ \"\$(POL_Wine_PrefixExists \"$PREFIXNAME\")\" = \"True\" ] || exit 0" >> "$SCRIPTPATH"
-	
-
 	POL_Wine_SelectPrefix "$APP_ANSWER"
 fi
 
 if [ "$WINEPREFIX" = "" ]
 then
-	rm "$SCRIPTPATH"
 	POL_Debug_Fatal "No name chosen"
 fi
 
@@ -188,7 +162,6 @@ then
 	export POL_WINEVERSION="$WINEVERSIONLIVE"
 	fi
 	POL_System_SetArch "x86"
-	echo "export POL_WINEVERSION=\"$WINEVERSIONLIVE\"" >> "$SCRIPTPATH"
 fi
 
 # If system is wine64 capable, let the user choose the type of prefix 
@@ -210,7 +183,6 @@ fi
 if [ "$menu" = "$LNG_LI_NEW" ]
 then
 	POL_Wine_PrefixCreate
-	echo "POL_SetupWindow_prefixcreate" >> "$SCRIPTPATH"
 fi
 
 #Running WineConfiguration
@@ -239,7 +211,6 @@ then
 		POL_Debug_Message "POL_Call_list is calling $i"
 		IFS="$old"
 		POL_Call "$i"
-		echo "POL_Call \"$i\"" >> "$SCRIPTPATH"
 		
 		IFS=/
 	done
@@ -297,35 +268,17 @@ if [ "$CHOICE" = "MANUAL" ] || [ "$i" = "0" ]
 then
 	cd "$HOME"
 	POL_SetupWindow_browse "$(eval_gettext "Please select the install file to run.")"  "$TITLE"
-	echo "POL_SetupWindow_browse \"\$(eval_gettext \"Please select the install file.\")\" \"\$TITLE\"" >> "$SCRIPTPATH"
 	
 	SETUP_PATH="$APP_ANSWER"
-	echo "SETUP_PATH=\"\$APP_ANSWER\"" >> "$SCRIPTPATH"
 	
 else
 	run_autorun "$CHOICE"
-	cat <<ENDCDROM >> "$SCRIPTPATH"
-POL_SetupWindow_InstallMethod LOCAL,CD
-if [ "\$INSTALL_METHOD" = "CD" ]
-then
-	POL_SetupWindow_cdrom
-	POL_SetupWindow_check_cdrom "$SetupIs"
-	SETUP_PATH="\$CDROM/$SetupIs"
-fi
-
-if [ "\$INSTALL_METHOD" = "LOCAL" ]
-then
-	POL_SetupWindow_browse "\$(eval_gettext "Please select the install file.")" "\$TITLE"
-	SETUP_PATH="\$APP_ANSWER"
-fi
-ENDCDROM
-
+	
 	
 fi
 
 if [ "$SETUP_PATH" = "" ]
 then
-	rm "$SCRIPTPATH"
 	POL_SetupWindow_message "$(eval_gettext "You must choose a file!")" "$TITLE"
 	POL_SetupWindow_Close
 	exit 1
@@ -333,26 +286,19 @@ fi
 WORKINGSETUP_PATH="$cdromDirIs/$NameIs"
 cd "$WORKINGSETUP_PATH"
 POL_SetupWindow_wait "$(eval_gettext '$APPLICATION_TITLE is installing your application...')" "$TITLE"
-echo "POL_SetupWindow_wait \"\$(eval_gettext '$APPLICATION_TITLE is installing your application...')\" \"\$TITLE\"" >> "$SCRIPTPATH"
 
 extension=$(echo "$SETUP_PATH" | $SED 's/.*\.//g')
 if [ "$extension" = "msi" ]
 then
 POL_Wine msiexec /i "$SETUP_PATH"
-echo "POL_Wine msiexec /i \"\$SETUP_PATH\"" >> "$SCRIPTPATH"
 
 else
 POL_Wine "$SETUP_PATH"
-echo "POL_Wine \"\$SETUP_PATH\"" >> "$SCRIPTPATH"
 fi 
 
 POL_Wine_WaitExit
-echo "POL_Wine_WaitExit" >> "$SCRIPTPATH"
 rm "$POL_USER_ROOT/tmp/shortcuts" 2> /dev/null
 POL_SetupWindow_shortcut_creator "$WINEVERSIONLIVE"
 
-cat "$POL_USER_ROOT/tmp/shortcuts" >> "$SCRIPTPATH"
 POL_SetupWindow_Close
-echo "POL_SetupWindow_Close"  >> "$SCRIPTPATH"
-echo "exit"  >> "$SCRIPTPATH"
 exit
