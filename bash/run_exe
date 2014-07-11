@@ -26,83 +26,59 @@ TITLE="$TITRE"
 
 NOBUGREPORT="YES"
 
-install_wizard()
-{
-POL_SetupWindow_free_presentation "$TITRE" "$(eval_gettext 'Welcome to $APPLICATION_TITLE assistant.\nIt will help you to install $file on your computer.\n\nBe careful! This program is not officially supported by $APPLICATION_TITLE.\nTherefore, it might not work as expected')"
-POL_SetupWindow_textbox "$(eval_gettext 'What is the name of you program?')" "$TITRE"
-PRGM_NAME="$APP_ANSWER"
-#PRGM_NAME="Notepad++"
-PREFIX_NAME=`echo "$PRGM_NAME"| tr -c [[a-zA-Z0-9]\.] '_'`
-echo "$md5:$PREFIX_NAME" >> $md5file
-select_prefix "$REPERTOIRE/wineprefix/$PREFIX_NAME"
-POL_Wine_PrefixCreate
-POL_SetupWindow_wait "$(eval_gettext '$APPLICATION_TITLE is installing $PRGM_NAME')" "$TITRE"
-POL_Wine "$line"
-POL_Wine_WaitExit
-POL_SetupWindow_shortcut_creator
-POL_SetupWindow_message "$(eval_gettext 'Installation finished.')" "$TITRE"
-}
-
-run_wizard()
-{
-POL_SetupWindow_wait_next_signal "$(eval_gettext '$APPLICATION_TITLE is running your program')" "$TITRE"
-PREFIX_NAME="$(cat $md5file | grep $md5 | cut -d ':' -f2)"
-select_prefix "$REPERTOIRE/wineprefix/$PREFIX_NAME"
-sleep 2
-POL_Wine "$line" &
-sleep 2
-}
-
-
-
 POL_SetupWindow_Init # Quoi qu'il arrive on ouvre la fenêtre
 
+if [ "$POL_OS" = "Mac" ]; then
+	# PlayOnMac pas initialisé ? Alors on attend que ce soit fini
+	if [ ! -e "/Applications/Utilities/XQuartz.app" -a "$OSX_VERSION" != "11" ]; then
+		POL_SetupWindow_wait_next_signal "$(eval_gettext 'Waiting XQuartz to be installed')" "$TITRE"
+		sleep 1
+		#bash "$PLAYONLINUX/bash/first_use" & #### Fixme ! La ya des test à faire !
+	fi
+	while [ ! -e "/Applications/Utilities/XQuartz.app" -a "$OSX_VERSION" != "11" ]; do
+		sleep 1
+	done
+fi 
 
-if [ "$(POL_Config_Read FIRST_USE)" = "" ] # PlayOn* pas initialisé ? Alors on attend que ce soit fini
-then
-	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Waiting for the first-assistant to be finished')" "$TITRE"
-	sleep 1
-	#bash "$PLAYONLINUX/bash/first_use" & #### Fixme ! La ya des test à faire !
-fi
-while [ "$(POL_Config_Read FIRST_USE)" = "" ]
-do
-	sleep 1
-done
+if [ ! "$1" = "" ]; then # Si on a double cliqué sur un .exe, on le prend
+	file=$(basename "$1")
+	line="$1"
+	if [ ! "${line::1}" = "/" ]; then
+		line="$WorkingDirectory/$line"
+	fi
+	Prefix="$(POL_Wine_GetPrefixFromPath "$line")"
 
-if [ ! "$1" = "" ] # Si on a double cliqué sur un .exe, on le prend
-then
-file=$(basename "$1")
-line="$1"
-if [ ! "${line::1}" = "/" ];
-then
-	line="$WorkingDirectory/$line"
-fi
-Prefix="$(POL_Wine_GetPrefixFromPath "$line")"
-
-if [ ! "$Prefix" = "" ]
-then	
-	POL_Debug_Message "Running into a virtual drive : $prefix"
-	POL_SetupWindow_Close # Pas besoin de toi
-	dir="$(dirname "$line")"
-	POL_Wine_SelectPrefix "$Prefix"
-	cd "$dir"
-	POL_Wine "$line"
+	if [ ! "$Prefix" = "" ]; then
+		POL_Debug_Message "Running into a virtual drive : $prefix"
+		POL_SetupWindow_Close # Pas besoin de toi
+		dir="$(dirname "$line")"
+		POL_Wine_SelectPrefix "$Prefix"
+		cd "$dir"
+		POL_Wine "$line"
 	
-	exit 0
-fi
+		exit 0
+	fi
 else
-exit 1
+	exit 1
 fi
 
-POL_SetupWindow_wait_next_signal "$(eval_gettext '$APPLICATION_TITLE is analysing your application')" "$APPLICATION_TITLE" # Calcul de la somme md5 pour savoir quoi faire
+
+#######################################
+# Getting the MD5 sum                 #
+#######################################
+
+
+POL_SetupWindow_wait_next_signal "$(eval_gettext '$APPLICATION_TITLE is analysing your application')" "$APPLICATION_TITLE" 
 sleep 5 #Pour être sur que le fichier md5 est bien téléchargé
 md5=$(POL_MD5_file "$line")
 md5file="$REPERTOIRE/configurations/md5"
 md5scripts="$REPERTOIRE/configurations/listes/md5sums"
 md5sreplace=$(cat $md5scripts | grep $md5 | $SED s/" $md5"/""/)
 
-if [ ! "$(cat $md5scripts | grep $md5)" = "" ] # Le programme est connu, on propose le bon script
-then
+#######################################
+# The program is know, use the script #
+#######################################
+if [ ! "$(cat $md5scripts | grep $md5)" = "" ]; then 
 		POL_SetupWindow_question "$(eval_gettext "We have detected that the program you want to install is :")\n\n$md5sreplace\n\n$(eval_gettext 'Do you want $APPLICATION_TITLE to install it automatically for you?')" "$TITRE"
 		if [ "$APP_ANSWER" = "TRUE" ]
 		then
@@ -114,17 +90,28 @@ then
 		fi
 fi
 
-if [ ! "$(cat $md5file | grep $md5)" = "" ] # Le programme a déjà été lancé
-then
-	POL_SetupWindow_question "$(eval_gettext '$APPLICATION_TITLE has already run this program.\nDo you want to keep the old settings ?')" "$TITRE"
-	if [ "$APP_ANSWER" = "TRUE" ]
-	then
-		run_wizard
-		POL_SetupWindow_Close
-		exit 0
-	fi	
-fi
+#######################################
+# The program is not known.           #
+#######################################
 
-install_wizard # Finalement, on l'installe
+
+POL_SetupWindow_free_presentation "$TITRE" "$(eval_gettext 'Welcome to $APPLICATION_TITLE assistant.\nIt will help you to install $file on your computer.\n\nBe careful! This program is not officially supported by $APPLICATION_TITLE.\nTherefore, it might not work as expected')"
+POL_SetupWindow_textbox "$(eval_gettext 'What is the name of you program?')" "$TITRE"
+PRGM_NAME="$APP_ANSWER"
+
+PREFIX_NAME=`echo "$PRGM_NAME"| tr -c [[a-zA-Z0-9]\.] '_'`
+
+POL_Wine_SelectPrefix "$PREFIX_NAME"
+POL_Wine_PrefixCreate
+POL_Wine_WaitBefore "$PRGM_NAME"
+cp "$line" "$WINEPREFIX/drive_c/"
+cd "$WINEPREFIX/drive_c"
+POL_Wine "$(basename "$line")"
+POL_Wine_WaitExit "$PRGM_NAME"
+POL_SetupWindow_shortcut_creator
+POL_SetupWindow_message "$(eval_gettext 'Installation finished.')" "$TITRE"
+
+
+
 POL_SetupWindow_Close
 exit 0
