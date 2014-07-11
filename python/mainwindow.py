@@ -294,6 +294,10 @@ class MainWindow(wx.Frame):
         self.supportmenu.Append(402, _("Documentation"))
         self.supportmenu.Append(403, _("Forums"))
         self.supportmenu.Append(404, _("Bugs"))
+        self.supportmenu.AppendSeparator()
+        self.supportmenu.Append(405, _("Twitter"))
+        self.supportmenu.Append(406, _("Google+"))
+        self.supportmenu.Append(407, _("Facebook"))
 
 
         self.help_menu = wx.Menu()
@@ -641,6 +645,25 @@ class MainWindow(wx.Frame):
             url = urlPrefix+"/forums.html"
         if(urlId == 4):
             url = urlPrefix+"/bugs.html"
+        
+        if(urlId == 5):
+            if(os.environ["POL_OS"] == "Mac"):
+                url = "https://twitter.com/PlayOnMac"
+            else:
+                url = "https://twitter.com/PlayOnLinux"
+                
+        if(urlId == 6):
+            if(os.environ["POL_OS"] == "Mac"):
+                url = "http://plus.google.com/u/0/105992880311102680198"
+            else:
+                url = "https://plus.google.com/+playonlinux"
+            
+        if(urlId == 7):
+            if(os.environ["POL_OS"] == "Mac"):
+                url = "https://www.facebook.com/playonmac"
+            else:
+                url = "https://www.facebook.com/playonlinux"
+            
         
         playonlinux.POL_Open(url)
 
