@@ -54,6 +54,9 @@ class Download(threading.Thread):
 
 class POL_SetupFrame(wx.Frame): #fenêtre principale
     def __init__(self, titre, POL_SetupWindowID, Arg1, Arg2, Arg3):
+	self.foreground_colour = wx.SystemSettings.GetColour( wx.SYS_COLOUR_BTNTEXT )
+	self.background_colour = wx.SystemSettings.GetColour( wx.SYS_COLOUR_BACKGROUND )
+
         wx.Frame.__init__(self, None, -1, title = titre, style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX, size = (520, 398+Variables.windows_add_size))
         self.bash_pid = POL_SetupWindowID
         self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
@@ -99,12 +102,12 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         # GUI elements
         self.panel = wx.Panel(self, -1, pos=(0,0), size=((520, 398+Variables.windows_add_size)))
         self.header = wx.Panel(self.panel, -1, style=Variables.widget_borders, size=(522,65))
-        self.header.SetBackgroundColour((255,255,255))
+        self.header.SetBackgroundColour(self.background_colour)
         self.footer = wx.Panel(self.panel, -1, size=(522,45), pos=(-1,358), style=Variables.widget_borders)
 
         # Panels
         self.MainPanel = wx.Panel(self.panel, -1, pos=(150,0), size=(370,356))
-        self.MainPanel.SetBackgroundColour((255,255,255))
+        self.MainPanel.SetBackgroundColour(self.background_colour)
 
 
         # Images
@@ -115,19 +118,19 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         # Text
         self.titre_header = wx.StaticText(self.header, -1, _('{0} Wizard').format(os.environ["APPLICATION_TITLE"]),pos=(5,5), size=(340,356),style=wx.ST_NO_AUTORESIZE)
         self.titre_header.SetFont(self.fontTitre)
-        self.titre_header.SetForegroundColour((0,0,0)) # For dark themes
+        self.titre_header.SetForegroundColour(self.foreground_colour) # For dark themes
 
         self.texte = wx.StaticText(self.panel, -1, "",pos=(20,80),size=(480,275),style=wx.ST_NO_AUTORESIZE)
         self.texte_bis = wx.StaticText(self.panel, -1, "",size=(480,30),style=wx.ST_NO_AUTORESIZE)
         self.titre = wx.StaticText(self.header, -1, "",pos=(20,30), size=(340,356),style=wx.ST_NO_AUTORESIZE)
-        self.titre.SetForegroundColour((0,0,0)) # For dark themes
+        self.titre.SetForegroundColour(self.foreground_colour) # For dark themes
 
         self.texteP = wx.StaticText(self.MainPanel, -1, "",pos=(5,50))
-        self.texteP.SetForegroundColour((0,0,0)) # For dark themes
+        self.texteP.SetForegroundColour(self.foreground_colour) # For dark themes
 
         self.titreP = wx.StaticText(self.MainPanel, -1,"",pos=(5,5), size=(340,356))
         self.titreP.SetFont(self.fontTitre)
-        self.titreP.SetForegroundColour((0,0,0)) # For dark themes
+        self.titreP.SetForegroundColour(self.foreground_colour) # For dark themes
 
         self.txtEstimation = wx.StaticText(self.panel, -1, "",size=(480,30),style=wx.ST_NO_AUTORESIZE)
         self.register_link = ""
@@ -195,7 +198,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.loginbox =  wx.TextCtrl(self.panel, -1, "",size=(250,22),pos=(200,115))
         self.passbox =  wx.TextCtrl(self.panel, -1, "",size=(250,22),pos=(200,145), style=wx.TE_PASSWORD)
         self.register = wx.HyperlinkCtrl(self.panel, 303, _("Register"), "", pos=(20,180))
-        self.register.SetNormalColour(wx.Colour(0,0,0))
+        self.register.SetNormalColour(self.foreground_colour)
 
         # Fixed Events
         wx.EVT_BUTTON(self, wx.ID_YES, self.release_yes)
