@@ -175,14 +175,19 @@ class InstallWindow(wx.Frame):
         wx.EVT_BUTTON(self, 2000+iid, self.AddApps)
 
         #self.cats_icons[name].Bind(wx.EVT_LEFT_DOWN, 2000+iid, self.AddApps)
-        self.cats_links[name].SetNormalColour(wx.Colour(0,0,0))
-        self.cats_links[name].SetVisitedColour(wx.Colour(0,0,0))
-        self.cats_links[name].SetHoverColour(wx.Colour(0,0,0))
-        self.cats_links[name].SetBackgroundColour((255,255,255))
+        self.cats_links[name].SetNormalColour(self.foreground_colour)
+        self.cats_links[name].SetVisitedColour(self.foreground_colour)
+        self.cats_links[name].SetHoverColour(self.foreground_colour)
+        self.cats_links[name].SetBackgroundColour(self.background_colour)
 
         self.cats_links[name].SetFont(self.fontText)
 
     def __init__(self,parent,id,title):
+	self.foreground_colour = wx.SystemSettings.GetColour( wx.SYS_COLOUR_BTNTEXT )
+	self.foreground_hover_colour = wx.SystemSettings.GetColour( wx.SYS_COLOUR_HIGHLIGHTTEXT )
+	self.background_colour = wx.SystemSettings.GetColour( wx.SYS_COLOUR_BACKGROUND )
+	self.background_test_colour = wx.Colour(90,90,222)
+
         wx.Frame.__init__(self, parent, -1, title, size = (800, 550+Variables.windows_add_size), style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX)
         self.cats_icons = {}
         self.cats_links = {}
@@ -198,7 +203,7 @@ class InstallWindow(wx.Frame):
 
         # Categories
         self.panelButton = wx.Panel(self.panelFenp, -1, size=(802,69), pos=(-1,-1),style=Variables.widget_borders)
-        self.panelButton.SetBackgroundColour((255,255,255))
+        self.panelButton.SetBackgroundColour(self.background_colour)
 
         if(os.environ["POL_OS"] == "Mac"):
             self.fontText = wx.Font(10, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL,False, "", wx.FONTENCODING_DEFAULT)
@@ -295,14 +300,14 @@ class InstallWindow(wx.Frame):
         self.install_button.Enable(False)
 
         self.new_panel = wx.Panel(self.panelItems, -1, pos=(740-160,113-71), style=Variables.widget_borders, size=self.new_size)
-        self.new_panel.SetBackgroundColour((255,255,255))
+        self.new_panel.SetBackgroundColour(self.background_colour)
         self.animation = wx.animate.GIFAnimationCtrl(self.new_panel, -1, Variables.playonlinux_env+"/resources/images/install/wait_mini.gif", (90,100))
         self.animation.Hide()
         self.new_panel.Hide()
 
 
         self.ManualInstall = wx.HyperlinkCtrl(self.panelFenp, 111, _("Install a non-listed program"), "", pos=(10,515))
-        self.ManualInstall.SetNormalColour(wx.Colour(0,0,0))
+        self.ManualInstall.SetNormalColour(self.foreground_colour)
 
         # Panel wait
         self.animation_wait = wx.animate.GIFAnimationCtrl(self.panelWait, -1, Variables.playonlinux_env+"/resources/images/install/wait.gif", ((800-128)/2,(550-128)/2-71))
@@ -550,7 +555,8 @@ class InstallWindow(wx.Frame):
                 if testing == 1:
                     # (255,255,214) is web site color for beta, but it's not very visible next to plain white,
                     # and red is the color of danger
-                    self.list_apps.SetItemBackgroundColour(itemId, (255,214,214))
+                    ##self.list_apps.SetItemBackgroundColour(itemId, (255,214,214))
+                    self.list_apps.SetItemBackgroundColour(itemId, self.background_test_colour)
                 self.i = self.i+1
 
     def DelApps(self):
