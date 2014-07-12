@@ -39,9 +39,6 @@ import irc as ircgui
 
 import re
 
-const_foreground_colour = wx.Colour(255,255,255)
-const_foreground_hover_colour = wx.Colour(128,128,128)
- 
 # This thread manage updates
 class POLWeb(threading.Thread):
     def __init__(self):
@@ -162,6 +159,8 @@ class PanelManager(wx.aui.AuiManager):
         
 class MainWindow(wx.Frame):
     def __init__(self,parent,id,title):
+	self.foreground_colour = wx.SystemSettings.GetColour( wx.SYS_COLOUR_BTNTEXT )
+	self.foreground_hover_colour = wx.SystemSettings.GetColour( wx.SYS_COLOUR_3DHILIGHT )
 
         wx.Frame.__init__(self, parent, 1000, title, size = (515,450))
         self.SetMinSize((400,400))
@@ -817,7 +816,7 @@ class MainWindow(wx.Frame):
 
     def menuGaucheAddTitle(self,id,text,pos):
         self.menuElem[id] = wx.StaticText(self.menu_gauche, -1, text,pos=(5,5+pos*20))
-        self.menuElem[id].SetForegroundColour(const_foreground_colour) # For dark themes
+        self.menuElem[id].SetForegroundColour(self.foreground_colour) # For dark themes
         self.menuElem[id].SetFont(self.fontTitre)
 
     def menuGaucheAddLink(self,id,text,pos,image,evt,url=None):
@@ -840,9 +839,9 @@ class MainWindow(wx.Frame):
         else:
             self.menuElem[id] = wx.HyperlinkCtrl(self.menu_gauche, 10000+pos, text, url, pos=(35,15+pos*20))
 
-        self.menuElem[id].SetNormalColour(const_foreground_colour)
-        self.menuElem[id].SetVisitedColour(const_foreground_colour)
-        self.menuElem[id].SetHoverColour(const_foreground_hover_colour)
+        self.menuElem[id].SetNormalColour(self.foreground_colour)
+        self.menuElem[id].SetVisitedColour(self.foreground_colour)
+        self.menuElem[id].SetHoverColour(self.foreground_hover_colour)
 
         if(evt != None):
             wx.EVT_HYPERLINK(self, 10000+pos, evt)
