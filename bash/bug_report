@@ -67,46 +67,39 @@ then
 	[ "$APP_ANSWER" = "$LNG_NO_JOIN" ] || LOGTITLE="$APP_ANSWER"
 fi
 fi
-POL_SetupWindow_textbox "$(eval_gettext "Please give a very short description (title, english only)")" "$POL_DEBUG_TITLE" "" 80
-BUGTITLE="$APP_ANSWER"
+
+
 TEMPLATE="- What were you doing when the problem occurred?- What did you expect?- What happened instead?- Anything else to report?"
 POL_SetupWindow_textbox_multiline "$(eval_gettext "Please explain your problem clearly (english only):")" "$POL_DEBUG_TITLE" "$TEMPLATE"
 
-if [ -z "$BUGTITLE" -o -z "$APP_ANSWER" -o "$APP_ANSWER" = "$TEMPLATE" ]
+if [ -z "$APP_ANSWER" -o "$APP_ANSWER" = "$TEMPLATE" ]
 then
 	POL_SetupWindow_message "$(eval_gettext 'Sorry, we need a detailed description.')" "$TITLE"
 	POL_SetupWindow_Close
+	exit 0
 fi
 
 DESCRIPTION="$APP_ANSWER"
 	
 POL_Website_login
 POL_Website_Init
-DESCRIPTION="$DESCRIPTION"
 
-BUGTITLE="$BUGTITLE"
 SCRIPTTITLE="$LOGTITLE"
 
-POL_Website_Request "http://www.playonlinux.com/bugs/getScriptTrackerName.php?id=$SCRIPTTITLE"
 
-TrackerId="$(POL_Website_Result)"
-
-if [ "$TrackerId" = "0" ]; then
-	POL_SetupWindow_message "Error! This script seems to be no longer existing in our database" "$TITLE"
+if [ "$LOGTITLE" = "" ]
+then
+	POL_Website_curl "http://www.playonlinux.com/api/uploadLog.php" -F message="$DESCRIPTION" -F script="$SCRIPTTITLE"
 else
-	
-	#POL_Website_Request "http://bugs.playonlinux.com/en/new-$TRACKER.html" "priority=2&tracker=$TrackerId&title=$BUGTITLE&message=$DESCRIPTION&submit=Send&just_return_id=1"
-	if [ "$LOGTITLE" = "" ]
-	then
-		POL_Website_curl "http://bugs.playonlinux.com/en/new-$TRACKER.html" -F priority=2 -F "tracker=$TrackerId" -F title="$BUGTITLE" -F message="$DESCRIPTION" -F submit=Send -F just_return_id=1
-	else
-		POL_Website_curl "http://bugs.playonlinux.com/en/new-$TRACKER.html" -F priority=2 -F "tracker=$TrackerId" -F title="$BUGTITLE" -F message="$DESCRIPTION" -F submit=Send -F just_return_id=1 -F bugfile="@$POL_USER_ROOT/logs/$LOGTITLE/$LOGTITLE.log"
-	fi
-	BugURL="$(POL_Website_Result)"
-	POL_Website_Close
-	POL_Website_logout
-	POL_SetupWindow_message "$(eval_gettext "Thank you !\n\nYour report has been sent.\n\nWe will do our best to send you an answer by mail very soon")" "$TITLE"
-	POL_Open "$BugURL"
+	POL_Website_curl "http://www.playonlinux.com/api/uploadLog.php" -F message="$DESCRIPTION" -F script="$SCRIPTTITLE" -F bugfile="@$POL_USER_ROOT/logs/$LOGTITLE/$LOGTITLE.log"
 fi
-POL_SetupWindow_Close
 
+BugURL="$(POL_Website_Result)"
+
+POL_Website_Close
+POL_Website_logout
+POL_SetupWindow_message "$(eval_gettext "Thank you !\n\nYour report has been sent.")" "$TITLE"
+
+POL_Open "$BugURL"
+
+POL_SetupWindow_Close
