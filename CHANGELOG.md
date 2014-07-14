@@ -1,3 +1,8 @@
+# 4.2.4
+* New support and feedback system, easier to use
+* Links to social networks
+* 4.2.3 regresion fixed in run_exe module
+
 # 4.2.3
 
 * Fix for Python version "2.7" (#3749)
