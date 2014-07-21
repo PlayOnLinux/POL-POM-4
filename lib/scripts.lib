@@ -972,7 +972,7 @@ POL_Shortcut_MakeDesktopShortcut()
 	PACKAGE="$1"
 	if [ "$POL_OS" = "Mac" ]; then
 		DIRAPP="$HOME/Desktop/$PACKAGE.app"
-		shortname="$(printf "$PACKAGE" | tr -c [[a-zA-Z0-9]\.] '_')"
+		shortname="$(printf "$PACKAGE" | tr -c [[a-zA-Z0-9]] '_')"
 		make_skeleton "$PACKAGE"
 		make_icon "$PACKAGE"
 		make_pom_script "$PACKAGE"
