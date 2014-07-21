@@ -424,8 +424,8 @@ make_pom_script()
 {
 	# Make the scripts that run the software in PlayOnMac .app package in $DIRAPP
 	# Usage : make_pom_script [Shortcut]
-	
-	cat << EOF2 > "$DIRAPP/Contents/MacOS/playonmac"
+	cp "$PLAYONLINUX/../unix/argv_emulator.py" "$DIRAPP/Contents/MacOS/"
+ 	cat << EOF2 > "$DIRAPP/Contents/MacOS/playonmac"
 #!/bin/bash
 apple_message()
 {
@@ -470,8 +470,16 @@ export PATH="\$PLAYONLINUX/../unix/wine/bin:\$PLAYONLINUX/../unix/image_magick/b
 export LD_LIBRARY_PATH="\$PLAYONLINUX/../unix/wine/lib:\$PLAYONLINUX/../unix/tools/lib/ld:/usr/X11/lib:\$LD_LIBRARY_PATH"
 
 cd "\$REPERTOIRE/shortcuts"
-shift
-bash "$1" \$@ &
+
+FILENAME="\$1"
+
+if [ -e "\$FILENAME" ]; then ## Trying to open a file
+	bash "\$PLAYONLINUX/bash/document_reader" "$1" "\$FILENAME" &
+else
+	bash "$1" \$@ &
+fi
+
+
 EOF2
 }
 make_icon()
@@ -523,11 +531,11 @@ make_plist()
 	<key>CFBundleDisplayName</key>
 	<string>$1</string>
 	<key>CFBundleExecutable</key>
-	<string>playonmac</string>
+	<string>argv_emulator.py</string>
 	<key>CFBundleIconFile</key>
 	<string>playonmac.icns</string>
 	<key>CFBundleIdentifier</key>
-	<string>org.playonmac.$2</string>
+	<string>com.playonmac.$2</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -540,6 +548,25 @@ make_plist()
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>*</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>AllTypes</string>
+			<key>CFBundleTypeOSTypes</key>
+			<array>
+				<string>****</string>
+			</array>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>NSDocumentClass</key>
+			<string>FileDataDocument</string>
+		</dict>
+	</array>
 	<key>LSHasLocalizedDisplayName</key>
 	<true/>
 	<key>NSAppleScriptEnabled</key>

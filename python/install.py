@@ -439,9 +439,12 @@ class InstallWindow(wx.Frame):
             self.EasterEgg.Show()
             self.EasterEgg.Center(wx.BOTH)
         else:
-            if(playonlinux.GetSettings("FIRST_INSTALL_DONE") == ""):
+            if(playonlinux.GetSettings("FIRST_INSTALL_DONE_WITH_WINE") == ""):
                 wx.MessageBox(_("When {0} installs a Windows program: \n\n - Leave the default location\n - Do not tick the checkbox 'Run the program' if asked.").format(os.environ["APPLICATION_TITLE"]),_("Please read this"))
-                playonlinux.SetSettings("FIRST_INSTALL_DONE","TRUE")
+                if(os.environ["POL_OS"] == "Linux"):
+                    # Distro packagers: please keep this message on your package. It's a real pain for wine devs
+                    wx.MessageBox(_("{0} is not related to WineHQ.\n\nTo ensure that the results will be comparable from one computer to another and to avoid regressions, we specify a working wine version for each program. This wine version will quickly become out to date, but we won't change the installer until new tests are made and it takes time.\n\nFor those reason, please do NOT send any bug report or ask any support on WineHQ forums if you are using PlayOnLinux.\n\nIf you want to help the project to make some tests in order to avoid using out of date wine versions, do not hesitate to go on our website.\n\nThank you.").format(os.environ["APPLICATION_TITLE"]),_("Please read this"))
+                playonlinux.SetSettings("FIRST_INSTALL_DONE_WITH_WINE","TRUE")
 
             if(os.path.exists(Variables.playonlinux_rep+"/configurations/listes/search")):
                 content = codecs.open(Variables.playonlinux_rep+"/configurations/listes/search", "r", "utf-8").read().split("\n")
