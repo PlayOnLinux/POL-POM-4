@@ -19,7 +19,7 @@ How to enable two levels in the TreeView control
 The two level system is an open one. It's not based on wine-prefixes but on naming. This way you decide how you want to have your list defined. To define your list do the following:
 
 1. Make sure that there is one game in your list which will be the root item. For instance "Steam".
-2. Name all games you want to place under this root item as <Root-Item-Name> - <Name-Of-Your-Game>. For instance "Steam - Crysis"
+2. Name all games you want to place under this root item as [Root-Item-Name] - [Name-Of-Your-Game]. For instance "Steam - Crysis"
 
 The list will automatically rearange.
 
