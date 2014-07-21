@@ -101,8 +101,7 @@ if [ -e "$POL_USER_ROOT/configurations/pre_shortcut/$PACKAGE" ]; then
 	source "$POL_USER_ROOT/configurations/pre_shortcut/$PACKAGE"
 fi
 shift
-# export FORCE_OSX_DOCK="TRUE"
-POL_Wine_EnableOSXNativeDock
+
 export COMMON_NAME="$PACKAGE"
 
 StartTime="$(date +%s)"
