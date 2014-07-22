@@ -175,6 +175,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.PCheckBox = wx.CheckBox(self.panel, 304, _("Show virtual drives"), pos=(20,325))
         self.Menu = wx.ListBox(self.panel, 104, pos=(25,105),size=(460,220), style=Variables.widget_borders)
         self.scrolled_panel = wx.ScrolledWindow(self.panel, -1, pos=(20,100), size=(460,220), style=Variables.widget_borders|wx.HSCROLL|wx.VSCROLL)
+        #self.scrolled_panel.SetBackgroundColour((255,255,255))
         self.scrolled_panel.SetBackgroundColour(self.background_colour)
         self.texte_panel = wx.StaticText(self.scrolled_panel, -1, "",pos=(5,5))
 

@@ -56,6 +56,8 @@ def GetSettings(setting, prefix='_POL_'):
         cfile = Variables.playonlinux_rep+"/playonlinux.cfg"
     elif(prefix == "_EXT_"):
         cfile = Variables.playonlinux_rep+"/extensions.cfg"
+    elif(prefix == "_SHV_"):
+	cfile = Variables.playonlinux_rep+"/shelves.cfg"
     else:
         cfile = Variables.playonlinux_rep+"/wineprefix/"+prefix+"/playonlinux.cfg"
 
@@ -84,6 +86,8 @@ def SetSettings(setting, value, prefix='_POL_'):
         cfile = Variables.playonlinux_rep+"/playonlinux.cfg"
     elif(prefix == "_EXT_"):
         cfile = Variables.playonlinux_rep+"/extensions.cfg"
+    elif(prefix == "_SHV_"):
+	cfile = Variables.playonlinux_rep+"/shelves.cfg"
     else:
         cfile = Variables.playonlinux_rep+"/wineprefix/"+prefix+"/playonlinux.cfg"
 
@@ -92,35 +96,42 @@ def SetSettings(setting, value, prefix='_POL_'):
     except:
         pass
     else:
-        i = 0
-        line = []
-        found = False
-        while(i < len(fichier)):
-            fichier[i] = fichier[i].replace("\n","")
-            if(setting+"=" in fichier[i]):
-                line.append(setting+"="+value)
-                found = True
-            else:
-                line.append(fichier[i])
-            i += 1
-        if(found == False):
-            line.append(setting+"="+value)
+	if(prefix == "_SHV_"):
+	    fichier = open(cfile,"w")
+	    fichier.write(value)
+	    fichier.close()
+	else:
+	    i = 0
+	    line = []
+	    found = False
+	    while(i < len(fichier)):
+		fichier[i] = fichier[i].replace("\n","")
+		if(setting+"=" in fichier[i]):
+		    line.append(setting+"="+value)
+		    found = True
+		else:
+		    line.append(fichier[i])
+		i += 1
+	    if(found == False):
+		line.append(setting+"="+value)
 
-        try:
-            fichier_write = open(cfile,"w")
-        except IOError:
-            pass
-        else:
-            i = 0
-            while(i < len(line)): # On ecrit
-                fichier_write.write(line[i]+"\n")
-                i+=1
+	    try:
+		fichier_write = open(cfile,"w")
+	    except IOError:
+		pass
+	    else:
+		i = 0
+		while(i < len(line)): # On ecrit
+		    fichier_write.write(line[i]+"\n")
+		    i+=1
 
 def DeleteSettings(setting, prefix='_POL_'):
     if(prefix == "_POL_"):
         cfile = Variables.playonlinux_rep+"/playonlinux.cfg"
     elif(prefix == "_EXT_"):
         cfile = Variables.playonlinux_rep+"/extensions.cfg"
+    elif(prefix == "_SHV_"):
+	cfile = Variables.playonlinux_rep+"/shelves.cfg"
     else:
         cfile = Variables.playonlinux_rep+"/wineprefix/"+prefix+"/playonlinux.cfg"
 
@@ -129,17 +140,17 @@ def DeleteSettings(setting, prefix='_POL_'):
     line = []
     found = False
     while(i < len(fichier)):
-        fichier[i] = fichier[i].replace("\n","")
-        if(setting+"=" not in fichier[i]):
-            line.append(fichier[i])
-        i += 1
+	fichier[i] = fichier[i].replace("\n","")
+	if(setting+"=" not in fichier[i]):
+	    line.append(fichier[i])
+	i += 1
 
     fichier_write = open(cfile,"w")
 
     i = 0
     while(i < len(line)): # On ecrit
-        fichier_write.write(line[i]+"\n")
-        i+=1
+	fichier_write.write(line[i]+"\n")
+	i+=1
 
 
 def getLog(game):
