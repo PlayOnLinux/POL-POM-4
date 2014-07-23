@@ -209,6 +209,15 @@ class Onglets(wx.Notebook):
         self.configurator_title.SetFont(self.fontTitle)
         self.configurator_button = wx.Button(self.panelGeneral, 106, _("Run configuration wizard"), pos=(15,324))
 
+	self.lnGeneral = wx.StaticLine(self.panelGeneral, wx.ID_ANY, (200, 10), size=wx.DefaultSize, style=wx.LI_HORIZONTAL)
+        self.lnGeneral.SetSize((self.panelGeneral.GetSize().GetWidth()-20, 1))
+        self.lnGeneral.SetForegroundColour(playonlinux.get_foreground_colour())
+
+	shelves = []
+	shelves.append("")
+	shelves.extend(playonlinux.Get_Shelves())
+
+	self.AddGeneralElement(_("Shelve"), "shelve", shelves, shelves, 7)
 
         wx.EVT_TEXT(self, 202, self.setname)
         wx.EVT_TEXT(self, 206, self.setargs)

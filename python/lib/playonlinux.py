@@ -6,6 +6,18 @@
 import Variables, os, string
 import shlex, pipes, wx
 
+def get_foreground_colour():
+    return wx.SystemSettings.GetColour( wx.SYS_COLOUR_BTNTEXT )
+
+def get_foreground_hover_colour():
+    return wx.SystemSettings.GetColour( wx.SYS_COLOUR_3DHILIGHT )
+
+def get_background_colour():
+    return wx.SystemSettings.GetColour( wx.SYS_COLOUR_BACKGROUND )
+
+def get_background_test_colour():
+    return wx.Colour(90,90,222)
+
 def winpath(script, path):
     #path=os.path.realpath(path)
     if(path[0] != "/"):
@@ -404,6 +416,8 @@ def Get_Drives():
     pref.sort()
     return pref
 
+def Get_Shelves():
+    return open(os.environ["POL_USER_ROOT"]+"/shelves.cfg").readlines()
 
 def SetWinePrefix(game, prefix):
     cfile = Variables.playonlinux_rep+"shortcuts/"+game

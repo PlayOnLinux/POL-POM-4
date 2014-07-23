@@ -113,7 +113,6 @@ class POLWeb(threading.Thread):
             time.sleep(1)
 
 class PanelManager(wx.aui.AuiManager):
-
     def __init__(self, frame):
         wx.aui.AuiManager.__init__(self, frame)
         self.startPerspective = self.SavePerspective()
@@ -159,9 +158,6 @@ class PanelManager(wx.aui.AuiManager):
         
 class MainWindow(wx.Frame):
     def __init__(self,parent,id,title):
-	self.foreground_colour = wx.SystemSettings.GetColour( wx.SYS_COLOUR_BTNTEXT )
-	self.foreground_hover_colour = wx.SystemSettings.GetColour( wx.SYS_COLOUR_3DHILIGHT )
-
         wx.Frame.__init__(self, parent, 1000, title, size = (515,450))
         self.SetMinSize((400,400))
         self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
@@ -293,9 +289,10 @@ class MainWindow(wx.Frame):
         self.optionmenu = wx.Menu()
 
 
-        self.optionmenu.Append(221, _("Internet"))
-        self.optionmenu.Append(212, _("File associations"))
+        self.optionmenu.Append(211, _("Internet"))
         self.optionmenu.Append(214, _("Plugin manager"))
+        self.optionmenu.Append(212, _("File associations"))
+        self.optionmenu.Append(215, _("Shelves"))
 
 
         self.supportmenu = wx.Menu()
@@ -377,16 +374,22 @@ class MainWindow(wx.Frame):
         self.toolbar = self.CreateToolBar(wx.TB_TEXT)
         self.toolbar.SetToolBitmapSize(iconSize)
         self.searchbox = wx.SearchCtrl( self.toolbar, 124, style=wx.RAISED_BORDER )
+        
         self.playTool = self.toolbar.AddLabelTool(wx.ID_OPEN, _("Run"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/play.png"))
+
         self.stopTool = self.toolbar.AddLabelTool(123, _("Close"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/stop.png"))
 
         self.toolbar.AddSeparator()
-        self.toolbar.AddLabelTool(wx.ID_ADD, _("Install"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/install.png"))
-        self.removeTool = self.toolbar_remove = self.toolbar.AddLabelTool(wx.ID_DELETE, _("Remove"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/delete.png"))
-        self.toolbar.AddSeparator()
-        self.toolbar.AddLabelTool(121, _("Configure"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/configure.png"))
 
-        try: 
+        self.installTool = self.toolbar.AddLabelTool(wx.ID_ADD, _("Install"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/install.png"))
+
+        self.removeTool = self.toolbar_remove = self.toolbar.AddLabelTool(wx.ID_DELETE, _("Remove"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/delete.png"))
+
+        self.toolbar.AddSeparator()
+
+        self.configTool = self.toolbar.AddLabelTool(121, _("Configure"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/configure.png"))
+
+        try:
                 self.toolbar.AddStretchableSpace()
                 self.SpaceHack = False
         except:
@@ -439,6 +442,7 @@ class MainWindow(wx.Frame):
         wx.EVT_MENU(self, 213,  self.Options)
         wx.EVT_MENU(self, 214,  self.Options)
         wx.EVT_MENU(self, 215,  self.Options)
+        wx.EVT_MENU(self, 221,  self.Options)
 
         wx.EVT_MENU(self, 216,  self.donate)
 
@@ -477,7 +481,12 @@ class MainWindow(wx.Frame):
         wx.EVT_MENU(self, 235, self.RKill)
         wx.EVT_MENU(self, 236, self.ReadMe)
         self.Bind(wx.EVT_SIZE, self.ResizeWindow)
-        self._mgr.restorePosition()   
+        self._mgr.restorePosition()
+        
+        self.toolbar.EnableTool(self.playTool.GetId(), False)
+	self.toolbar.EnableTool(self.stopTool.GetId(), False)
+	self.toolbar.EnableTool(self.removeTool.GetId(), False)
+	self.toolbar.EnableTool(self.configTool.GetId(), False)
 
 
     def tree_item(self, tree, match, root):
@@ -725,14 +734,25 @@ class MainWindow(wx.Frame):
 	      self.i += 1
 
 	  self.generate_menu(game_exec)
-	  self.playTool.Enable(True)
-	  self.stopTool.Enable(True)
-	  self.removeTool.Enable(True)
+	  #self.playTool.Enable(True)
+	  #self.stopTool.Enable(True)
+	  #self.removeTool.Enable(True)
+
+	  self.toolbar.EnableTool(self.playTool.GetId(), True)
+	  self.toolbar.EnableTool(self.stopTool.GetId(), True)
+	  self.toolbar.EnableTool(self.removeTool.GetId(), True)
+	  self.toolbar.EnableTool(self.configTool.GetId(), True)
 	else:
 	  self.generate_menu("")
-	  self.playTool.Enable(False)
-	  self.stopTool.Enable(False)
-	  self.removeTool.Enable(False)
+
+	  #self.playTool.Enable(False)
+	  #self.stopTool.Enable(False)
+	  #self.removeTool.Enable(False)
+	  
+	  self.toolbar.EnableTool(self.playTool.GetId(), False)
+	  self.toolbar.EnableTool(self.stopTool.GetId(), False)
+	  self.toolbar.EnableTool(self.removeTool.GetId(), False)
+	  self.toolbar.EnableTool(self.configTool.GetId(), False)
 
     def generate_menu(self, shortcut=None):
         for c in self.menuElem:
@@ -816,7 +836,7 @@ class MainWindow(wx.Frame):
 
     def menuGaucheAddTitle(self,id,text,pos):
         self.menuElem[id] = wx.StaticText(self.menu_gauche, -1, text,pos=(5,5+pos*20))
-        self.menuElem[id].SetForegroundColour(self.foreground_colour) # For dark themes
+        self.menuElem[id].SetForegroundColour(playonlinux.get_foreground_colour()) # For dark themes
         self.menuElem[id].SetFont(self.fontTitre)
 
     def menuGaucheAddLink(self,id,text,pos,image,evt,url=None):
@@ -839,9 +859,9 @@ class MainWindow(wx.Frame):
         else:
             self.menuElem[id] = wx.HyperlinkCtrl(self.menu_gauche, 10000+pos, text, url, pos=(35,15+pos*20))
 
-        self.menuElem[id].SetNormalColour(self.foreground_colour)
-        self.menuElem[id].SetVisitedColour(self.foreground_colour)
-        self.menuElem[id].SetHoverColour(self.foreground_hover_colour)
+        self.menuElem[id].SetNormalColour(playonlinux.get_foreground_colour())
+        self.menuElem[id].SetVisitedColour(playonlinux.get_foreground_colour())
+        self.menuElem[id].SetHoverColour(playonlinux.get_foreground_hover_colour())
 
         if(evt != None):
             wx.EVT_HYPERLINK(self, 10000+pos, evt)
@@ -932,6 +952,8 @@ class MainWindow(wx.Frame):
                 self.optionFrame = options.MainWindow(self, -1, _("{0} settings").format(os.environ["APPLICATION_TITLE"]), 0)
             if(onglet == 214):
                 self.optionFrame = options.MainWindow(self, -1, _("{0} settings").format(os.environ["APPLICATION_TITLE"]), 1)
+            if(onglet == 215):
+                self.optionFrame = options.MainWindow(self, -1, _("{0} settings").format(os.environ["APPLICATION_TITLE"]), 3)
             self.optionFrame.Center(wx.BOTH)
             self.optionFrame.Show(True)
 
@@ -956,8 +978,7 @@ class MainWindow(wx.Frame):
     def PCCd(self, event):
         subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/read_pc_cd"])
 
-    def PolShell(self, event):
-        #Variables.run_x_server()
+    def PolShell(self, event): #Variables.run_x_server()
         subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/expert/PolShell"])
 
     def Configure(self, event):
@@ -1027,7 +1048,6 @@ class MainWindow(wx.Frame):
 	  return ""
         
     def Run(self, event, s_debug=False):
-
         game_exec = self.GetSelectedProgram()
         
         if (game_exec != ""):

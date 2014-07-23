@@ -296,7 +296,7 @@ class Onglets(wx.Notebook):
         self.list_shv.DeleteAllItems()
 
         i = 0
-        self.shelves = open(os.environ["POL_USER_ROOT"]+"/shelves.cfg").readlines()
+        self.shelves = playonlinux.Get_Shelves()
         self.shelves.sort()
         for line in self.shelves:
             line = line.replace("\n","")
