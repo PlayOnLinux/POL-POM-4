@@ -268,40 +268,48 @@ class MainWindow(wx.Frame):
 
         self.expertmenu = wx.Menu()
 
-        self.expertmenu.Append(107, _("Manage Wine versions"))
+	self.expertMenuManageWineVersions = wx.MenuItem(self.expertmenu, 107, _("Manage Wine versions"))
+
+	playonlinux.SetMenuBitmap(self.expertMenuManageWineVersions, Variables.playonlinux_env+"/etc/onglet/wine.png")
+
+        self.expertmenu.AppendItem(self.expertMenuManageWineVersions)
 
 
         if(os.environ["POL_OS"] == "Mac"):
             self.expertmenu.AppendSeparator()
-            self.expertmenu.Append(113, _("Read a PC CD-Rom"))
+            
+            self.expertMenuReadAPCCDROM = wx.MenuItem(self.expertmenu, 113, _("Read a PC CD-Rom"))
+            playonlinux.SetMenuBitmap(self.expertMenuReadAPCCDROM, Variables.playonlinux_env+"/resources/images/menu/media-optical.png")
+            
+            self.expertmenu.AppendItem(self.expertMenuReadAPCCDROM)
 
         self.expertmenu.AppendSeparator()
 
-        self.expertmenu.Append(108, _("Run a local script"))
-        self.expertmenu.Append(109, _("{0} console").format(os.environ["APPLICATION_TITLE"]))
-        
-        self.expertmenu.Append(115, _('Close all {0} software').format(os.environ["APPLICATION_TITLE"]))
+	
+
+	self.expertMenuRunALocalScript = playonlinux.AddMenuItem(self.expertmenu, 108, _("Run a local script"), Variables.playonlinux_env+"/resources/images/menu/text-x-script.png")
+	self.expertMenuConsole = playonlinux.AddMenuItem(self.expertmenu, 109, _("{0} console").format(os.environ["APPLICATION_TITLE"]), Variables.playonlinux_env+"/resources/images/menu/polshell.png")
+	self.expertMenuCloseAllSoftware = playonlinux.AddMenuItem(self.expertmenu, 115, _('Close all {0} software').format(os.environ["APPLICATION_TITLE"]), Variables.playonlinux_env+"/resources/images/menu/wineserver.png")
+
         self.expertmenu.AppendSeparator()
 
-        self.expertmenu.Append(110, _("{0} debugger").format(os.environ["APPLICATION_TITLE"]))
-
+	self.expertMenuDebugger = playonlinux.AddMenuItem(self.expertmenu, 110, _("{0} debugger").format(os.environ["APPLICATION_TITLE"]), Variables.playonlinux_env+"/resources/images/menu/software-update-available.png")
 
         self.optionmenu = wx.Menu()
 
-
-        self.optionmenu.Append(211, _("Internet"))
-        self.optionmenu.Append(214, _("Plugin manager"))
-        self.optionmenu.Append(212, _("File associations"))
-        self.optionmenu.Append(215, _("Shelves"))
-
+	self.optionMenuInternet = playonlinux.AddMenuItem(self.optionmenu, 211, _("Internet"), Variables.playonlinux_env+"/etc/onglet/internet-web-browser.png")
+	self.optionMenuPluginManager = playonlinux.AddMenuItem(self.optionmenu, 214, _("Plugin manager"), Variables.playonlinux_env+"/etc/onglet/internet-web-browser.png")
+	self.optionMenuFileAssociations = playonlinux.AddMenuItem(self.optionmenu, 212, _("File associations"), Variables.playonlinux_env+"/resources/images/menu/extensions.png")
+	self.optionMenuShelves = playonlinux.AddMenuItem(self.optionmenu, 215, _("Shelves"), Variables.playonlinux_env+"/etc/onglet/folder-saved-search.png")
 
         self.supportmenu = wx.Menu()
-        self.supportmenu.Append(400, _("Supported software"))
-        self.supportmenu.Append(401, _("News"))
-        self.supportmenu.Append(402, _("Documentation"))
-        self.supportmenu.Append(403, _("Forums"))
-        self.supportmenu.Append(404, _("Bugs"))
 
+	self.supportMenuSupportedSoftware = playonlinux.AddMenuItem(self.supportmenu, 400, _("Supported software"), Variables.playonlinux_env+"/resources/images/menu/emblem-favorite.png")
+	self.supportMenuNews = playonlinux.AddMenuItem(self.supportmenu, 401, _("News"), Variables.playonlinux_env+"/resources/images/menu/internet-news-reader.png")
+	self.supportMenuDocumentation = playonlinux.AddMenuItem(self.supportmenu, 402, _("Documentation"), Variables.playonlinux_env+"/resources/images/menu/x-office-address-book.png")
+	self.supportMenuForums = playonlinux.AddMenuItem(self.supportmenu, 403, _("Forums"), Variables.playonlinux_env+"/etc/onglet/internet-group-chat.png")
+	self.supportMenuBugs = playonlinux.AddMenuItem(self.supportmenu, 404, _("Bugs"), Variables.playonlinux_env+"/resources/images/menu/software-update-available.png")
+         
 
         self.help_menu = wx.Menu()
         self.help_menu.Append(wx.ID_ABOUT, _('About {0}').format(os.environ["APPLICATION_TITLE"]))

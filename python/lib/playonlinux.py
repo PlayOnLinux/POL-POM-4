@@ -477,3 +477,15 @@ def POL_Open(arg):
 
 def POL_Error(message):
     wx.MessageBox(message,_("{0} error").format(os.environ["APPLICATION_TITLE"]))
+
+def SetMenuBitmap(menuitem, path):
+    if(os.path.exists(path)):
+	bitmap = wx.Bitmap(path)
+	menuitem.SetBitmap(bitmap)
+
+def AddMenuItem(parent, menuId, label, pathtobitmap):
+    newMenuItem = wx.MenuItem(parent, menuId, label)
+    if(os.path.exists(pathtobitmap)):
+	SetMenuBitmap(newMenuItem, pathtobitmap)
+    parent.AppendItem(newMenuItem)
+    return newMenuItem

@@ -333,6 +333,9 @@ class Onglets(wx.Notebook):
     def shelveSelected(self, event):
 	self.delete_shv.Enable()
 
+    def shelveDeselected(self, event):
+	self.delete_shv.Disable()
+
     def Shelves(self, nom):
 	self.panelShelves = wx.Panel(self, -1)
 	
@@ -377,6 +380,7 @@ class Onglets(wx.Notebook):
         wx.EVT_BUTTON(self, 1502, self.addShelve)
         wx.EVT_BUTTON(self, 1503, self.deleteShelve)
         wx.EVT_LIST_ITEM_SELECTED(self, 1504, self.shelveSelected)
+        wx.EVT_LIST_ITEM_DESELECTED(self, 1504, self.shelveDeselected)
         wx.EVT_TEXT(self, 1505, self.newShelveEntered)
         wx.EVT_TEXT_ENTER(self, 1505, self.enterKeyPressed)
 
