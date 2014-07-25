@@ -172,14 +172,11 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.PCheckBox = wx.CheckBox(self.panel, 304, _("Show virtual drives"), pos=(20,325))
         self.Menu = wx.ListBox(self.panel, 104, pos=(25,105),size=(460,220), style=Variables.widget_borders)
         self.scrolled_panel = wx.ScrolledWindow(self.panel, -1, pos=(20,100), size=(460,220), style=Variables.widget_borders|wx.HSCROLL|wx.VSCROLL)
-        #self.scrolled_panel.SetBackgroundColour((255,255,255))
         self.scrolled_panel.SetBackgroundColour(playonlinux.get_background_colour())
         self.texte_panel = wx.StaticText(self.scrolled_panel, -1, "",pos=(5,5))
 
         self.gauge = wx.Gauge(self.panel, -1, 50, size=(375, 20))
         self.WaitButton = wx.Button(self.panel, 310, "", size=(250,25))
-
-        
         
         self.animation = wx.StaticBitmap(self.panel, -1, self.GetLoaderFromAngle(1), (228,170))
         self.current_angle = 1
