@@ -98,24 +98,24 @@ POL_Config_Write ()
 	# If the entry already exists, it will replace it
 	# Usage : POL_Config_Write [KEY] [VALUE]
 	POL_Debug_Message "Config write: $1 $2"
-	cat "$POL_USER_ROOT/playonlinux.cfg" 2> /dev/null | grep -v "^$1" > "$POL_USER_ROOT/tmp/newcfg"
-	echo "$1=$2" >> "$POL_USER_ROOT/tmp/newcfg"
-	mv "$POL_USER_ROOT/tmp/newcfg" "$POL_USER_ROOT/playonlinux.cfg"
+	cat "$POL_USER_ROOT/playonlinux.cfg" 2> /dev/null | grep -v "^$1=" > "$POL_USER_ROOT/tmp/newcfg$$"
+	echo "$1=$2" >> "$POL_USER_ROOT/tmp/newcfg$$"
+	mv "$POL_USER_ROOT/tmp/newcfg$$" "$POL_USER_ROOT/playonlinux.cfg"
 }
 POL_Config_Delete ()
 {
 	# Delete an entry in PlayOnLinux's config file
 	# Usage : POL_Config_Delete [KEY]
 	POL_Debug_Message "Config delete: $1"
-	cat "$POL_USER_ROOT/playonlinux.cfg" 2> /dev/null | grep -v "^$1" > "$POL_USER_ROOT/tmp/newcfg"
-	mv "$POL_USER_ROOT/tmp/newcfg" "$POL_USER_ROOT/playonlinux.cfg"
+	cat "$POL_USER_ROOT/playonlinux.cfg" 2> /dev/null | grep -v "^$1=" > "$POL_USER_ROOT/tmp/newcfg$$"
+	mv "$POL_USER_ROOT/tmp/newcfg$$" "$POL_USER_ROOT/playonlinux.cfg"
 }
 POL_Config_Read ()
 {
 	# Read an entry PlayOnLinux's config file
 	# Usage : POL_Config_Read [KEY]
 	#POL_Debug_Message "Config read $1"
-	cat "$POL_USER_ROOT/playonlinux.cfg" 2> /dev/null | grep "^$1" | cut -d\= -f2
+	cat "$POL_USER_ROOT/playonlinux.cfg" 2> /dev/null | grep "^$1=" | cut -d\= -f2-
 }
 
 POL_Extension_Write ()
@@ -124,24 +124,24 @@ POL_Extension_Write ()
 	# If the entry already exists, it will replace it
 	# Usage : POL_Config_Write [KEY] [VALUE]
 	POL_Debug_Message "Extension write: $1 $2" 
-	cat "$POL_USER_ROOT/extensions.cfg" 2> /dev/null | grep -v "^$1" > "$POL_USER_ROOT/tmp/newcfg"
-	echo "$1=$2" >> "$POL_USER_ROOT/tmp/newcfg"
-	mv "$POL_USER_ROOT/tmp/newcfg" "$POL_USER_ROOT/extensions.cfg"
+	cat "$POL_USER_ROOT/extensions.cfg" 2> /dev/null | grep -v "^$1=" > "$POL_USER_ROOT/tmp/newcfg$$"
+	echo "$1=$2" >> "$POL_USER_ROOT/tmp/newcfg$$"
+	mv "$POL_USER_ROOT/tmp/newcfg$$" "$POL_USER_ROOT/extensions.cfg"
 }
 POL_Extension_Delete ()
 {
 	# Delete an entry in PlayOnLinux's extension file
 	# Usage : POL_Config_Delete [KEY]
 	POL_Debug_Message "Extension delete: $1"
-	cat "$POL_USER_ROOT/extensions.cfg" 2> /dev/null | grep -v "^$1" > "$POL_USER_ROOT/tmp/newcfg"
-	mv "$POL_USER_ROOT/tmp/newcfg" "$POL_USER_ROOT/extensions.cfg"
+	cat "$POL_USER_ROOT/extensions.cfg" 2> /dev/null | grep -v "^$1=" > "$POL_USER_ROOT/tmp/newcfg$$"
+	mv "$POL_USER_ROOT/tmp/newcfg$$" "$POL_USER_ROOT/extensions.cfg"
 }
 POL_Extension_Read ()
 {
 	# Read an entry PlayOnLinux's extension file
 	# Usage : POL_Config_Read [KEY]
 	#POL_Debug_Message "Extension read: $1"
-	cat "$POL_USER_ROOT/extensions.cfg" 2> /dev/null | grep "^$1" | cut -d\= -f2
+	cat "$POL_USER_ROOT/extensions.cfg" 2> /dev/null | grep "^$1=" | cut -d\= -f2-
 }
 
 
@@ -150,9 +150,9 @@ POL_Config_PrefixWrite ()
 	# Write something to current wine prefix's config file
 	# Usage : POL_Config_PrefixWrite [KEY] [VALUE]
 	
-	cat "$WINEPREFIX/playonlinux.cfg" 2> /dev/null | grep -v "^$1" > "$POL_USER_ROOT/tmp/newcfg"
-	echo "$1=$2" >> "$POL_USER_ROOT/tmp/newcfg"
-	mv "$POL_USER_ROOT/tmp/newcfg" "$WINEPREFIX/playonlinux.cfg"
+	cat "$WINEPREFIX/playonlinux.cfg" 2> /dev/null | grep -v "^$1=" > "$POL_USER_ROOT/tmp/newcfg$$"
+	echo "$1=$2" >> "$POL_USER_ROOT/tmp/newcfg$$"
+	mv "$POL_USER_ROOT/tmp/newcfg$$" "$WINEPREFIX/playonlinux.cfg"
 	POL_Debug_Message "Prefix config write: $1 $2"
 }
 POL_Config_PrefixDelete ()
@@ -160,15 +160,15 @@ POL_Config_PrefixDelete ()
 	# Delete an entry in current wine prefix's config file
 	# Usage : POL_Config_PrefixDelete [KEY]
 	
-	cat "$WINEPREFIX/playonlinux.cfg" 2> /dev/null | grep -v "^$1" > "$POL_USER_ROOT/tmp/newcfg"
-	mv "$POL_USER_ROOT/tmp/newcfg" "$WINEPREFIX/playonlinux.cfg"
+	cat "$WINEPREFIX/playonlinux.cfg" 2> /dev/null | grep -v "^$1=" > "$POL_USER_ROOT/tmp/newcfg$$"
+	mv "$POL_USER_ROOT/tmp/newcfg$$" "$WINEPREFIX/playonlinux.cfg"
 	POL_Debug_Message "Prefix config delete: $1"
 }
 POL_Config_PrefixRead ()
 {
 	# Read an entry in wine current prefix's config file
 	# Usage : POL_Config_PrefixRead [KEY]
-	cat "$WINEPREFIX/playonlinux.cfg" 2> /dev/null | grep "^$1" | cut -d\= -f2
+	cat "$WINEPREFIX/playonlinux.cfg" 2> /dev/null | grep "^$1=" | cut -d\= -f2-
 }
 
 
@@ -178,9 +178,9 @@ POL_Config_DosPrefixWrite ()
 	# Write something to current wine prefix's config file
 	# Usage : POL_Config_PrefixWrite [KEY] [VALUE]
 	
-	cat "$WINEPREFIX/playonlinux_dos.cfg" 2> /dev/null | grep -v "^$1" > "$POL_USER_ROOT/tmp/newcfg"
-	echo "$1=$2" >> "$POL_USER_ROOT/tmp/newcfg"
-	mv "$POL_USER_ROOT/tmp/newcfg" "$WINEPREFIX/playonlinux_dos.cfg"
+	cat "$WINEPREFIX/playonlinux_dos.cfg" 2> /dev/null | grep -v "^$1=" > "$POL_USER_ROOT/tmp/newcfg$$"
+	echo "$1=$2" >> "$POL_USER_ROOT/tmp/newcfg$$"
+	mv "$POL_USER_ROOT/tmp/newcfg$$" "$WINEPREFIX/playonlinux_dos.cfg"
 	POL_Debug_Message "Dos prefix config write: $1"
 }
 POL_Config_DosPrefixDelete ()
@@ -188,15 +188,15 @@ POL_Config_DosPrefixDelete ()
 	# Delete an entry in current wine prefix's config file
 	# Usage : POL_Config_PrefixDelete [KEY]
 	
-	cat "$WINEPREFIX/playonlinux_dos.cfg" 2> /dev/null | grep -v "^$1" > "$POL_USER_ROOT/tmp/newcfg"
-	mv "$POL_USER_ROOT/tmp/newcfg" "$WINEPREFIX/playonlinux_dos.cfg"
+	cat "$WINEPREFIX/playonlinux_dos.cfg" 2> /dev/null | grep -v "^$1=" > "$POL_USER_ROOT/tmp/newcfg$$"
+	mv "$POL_USER_ROOT/tmp/newcfg$$" "$WINEPREFIX/playonlinux_dos.cfg"
 	POL_Debug_Message "Dos prefix config delete: $1"
 }
 POL_Config_DosPrefixRead ()
 {
 	# Read an entry in wine current prefix's config file
 	# Usage : POL_Config_PrefixRead [KEY]
-	cat "$WINEPREFIX/playonlinux_dos.cfg" 2> /dev/null | grep "^$1" | cut -d\= -f2
+	cat "$WINEPREFIX/playonlinux_dos.cfg" 2> /dev/null | grep "^$1=" | cut -d\= -f2-
 }
 
 POL_OpenShell()

@@ -1,3 +1,6 @@
+# 4.2.5
+* Fix reading/writing values containing '=' symbol in configuration files (#4834)
+
 # 4.2.4
 * New support and feedback system, easier to use
 * Links to social networks
