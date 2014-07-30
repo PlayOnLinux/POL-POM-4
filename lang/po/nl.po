@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2014-07-07 19:00+0200\n"
-"PO-Revision-Date: 2014-06-23 19:13+0000\n"
+"POT-Creation-Date: 2014-07-08 19:00+0200\n"
+"PO-Revision-Date: 2014-07-13 08:56+0000\n"
 "Last-Translator: rob <linuxned@gmail.com>\n"
 "Language-Team: nl_NL.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-07-08 05:40+0000\n"
-"X-Generator: Launchpad (build 17086)\n"
+"X-Launchpad-Export-Date: 2014-07-14 05:48+0000\n"
+"X-Generator: Launchpad (build 17111)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -358,12 +358,13 @@ msgstr "Selecteer het installatiebestand om uit te voeren"
 #: PlayOnLinux_Scripts/The_Settlers_III_Gold_Edition_:54
 #, sh-format
 msgid "Please insert the game media into your disc drive."
-msgstr ""
+msgstr "Voer spelschijf in in schijfstation."
 
 #: PlayOnLinux_Scripts/A.R.E.S.___Extinction_Agenda_:80
 #: PlayOnLinux_Scripts/Call_Of_Juarez_Gunslinger_:48
 #: PlayOnLinux_Scripts/Call_Of_Juarez_Gunslinger_:55
 #: PlayOnLinux_Scripts/Call_of_Duty__Modern_Warfare_3_:48
+#: PlayOnLinux_Scripts/Counter_Strike__Global_Offensive_:55
 #: PlayOnLinux_Scripts/Dishonored_:72
 #: PlayOnLinux_Scripts/Hard_Reset__Steam__:45
 #: PlayOnLinux_Scripts/Kingdoms_of_Amalur___Reckoning_:75
@@ -1188,7 +1189,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Diagnostic_Tools_:20
 #, sh-format
 msgid "Scanning your hardware..."
-msgstr ""
+msgstr "Uw hardware wordt gescand…"
 
 #: PlayOnLinux_Scripts/Dishonored_:79
 #: PlayOnLinux_Scripts/Hard_Reset__Steam__:52
@@ -2601,6 +2602,8 @@ msgid ""
 "OSX users: If the screen flickers once the game is launched, try to press "
 "cmd + tab twice"
 msgstr ""
+"OSX-gebruikers: indien het scherm flikkert nadat het spel is gestart, "
+"probeer dan tweemaal op cmd + tab te drukken"
 
 #: PlayOnLinux_Scripts/POL_Remove_gfwl_:16
 #, sh-format
@@ -2797,47 +2800,54 @@ msgid ""
 "information or bugs at official PlayOnLinux page - http://playonlinux.com/\\"
 "n\\nThank you!"
 msgstr ""
+"Dit installatieprogramma werd gemaakt voor Railroad Tycoon II Platina "
+"editie\\nHet zou ook moeten werken met andere edities van dit spel:\\"
+"nRailroad Tycoon II (zonder add-ons)\\nRailroad Tycoon II Gouden editie (met "
+"de Second Century add-on)\\n\\nIndien u een van deze twee versies van dit "
+"spel heeft, geef dan a.u.b. enige informatie door over eventuele fouten op "
+"de officiële PlayOnLinux-website - http://playonlinux.com/\\n\\nAlvast "
+"bedankt!"
 
 #: PlayOnLinux_Scripts/Railroad_Tycoon_II_:31
 #, sh-format
 msgid "Other destination or other CD/DVD - first release, Gold, Platinum"
-msgstr ""
+msgstr "Ander doel of andere cd/dvd-versie (Eerste editie, Gouden, Platina)"
 
 #: PlayOnLinux_Scripts/Railroad_Tycoon_II_:31
 #, sh-format
 msgid "Railroad Tycoon Anthology disc (Polish Version)"
-msgstr ""
+msgstr "Railroad Tycoon compilatieschijf (Poolse versie)"
 
 #: PlayOnLinux_Scripts/Railroad_Tycoon_II_:31
 #, sh-format
 msgid "Retail CD (Platinum, Gold [test], first release [test])"
-msgstr ""
+msgstr "Winkelversie-cd (Platina, Gouden [test], Eerste editie [test])"
 
 #: PlayOnLinux_Scripts/Railroad_Tycoon_II_:31
 #: PlayOnLinux_Scripts/The_Settlers_III_Gold_Edition_:44
 #, sh-format
 msgid "Select a version of installation disc:"
-msgstr ""
+msgstr "Selecteer een versie van de installatieschijf:"
 
 #: PlayOnLinux_Scripts/Railroad_Tycoon_II_:55
 #, sh-format
 msgid "First Release (without addons)"
-msgstr ""
+msgstr "Eerste editie (zonder add-ons)"
 
 #: PlayOnLinux_Scripts/Railroad_Tycoon_II_:55
 #, sh-format
 msgid "Gold Edition"
-msgstr ""
+msgstr "Gouden editie"
 
 #: PlayOnLinux_Scripts/Railroad_Tycoon_II_:55
 #, sh-format
 msgid "Platinum Edition"
-msgstr ""
+msgstr "Platina editie"
 
 #: PlayOnLinux_Scripts/Railroad_Tycoon_II_:55
 #, sh-format
 msgid "What is your version of Railroad Tycoon II?"
-msgstr ""
+msgstr "Welke versie van Railroad Tycoon II heeft u?"
 
 #: PlayOnLinux_Scripts/Railroad_Tycoon_II_:66
 #: PlayOnLinux_Scripts/The_Settlers_III_Gold_Edition_:85
@@ -2846,6 +2856,9 @@ msgid ""
 "Installation complete!\\nTo run $TITLE please select $TITLE icon from your "
 "desktop.\\n\\nThank you for using this installation script! :)"
 msgstr ""
+"Installatie is voltooid!\\nOm $TITLE te draaien klik a.u.b. op het $TITLE-"
+"pictogram op uw bureaublad.\\n\\nBedankt voor het gebruiken van dit "
+"installatiescript! :)"
 
 #: PlayOnLinux_Scripts/Reaper_4_:30
 #, sh-format
@@ -3269,32 +3282,33 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Settlers_III_Gold_Edition_:44
 #, sh-format
 msgid "Other destination or other CD/DVD"
-msgstr ""
+msgstr "Ander doel of andere cd/dvd-versie"
 
 #: PlayOnLinux_Scripts/The_Settlers_III_Gold_Edition_:44
 #, sh-format
 msgid "Retail CD"
-msgstr ""
+msgstr "Winkelversie-cd"
 
 #: PlayOnLinux_Scripts/The_Settlers_III_Gold_Edition_:44
 #, sh-format
 msgid "Version from CD-Action Polish magazine - 01.2006 - number 121"
 msgstr ""
+"Versie van cd-actie uitgegeven bij Pools magazine - 01.2006 - nummer 121"
 
 #: PlayOnLinux_Scripts/The_Settlers_III_Gold_Edition_:82
 #, sh-format
 msgid "video fix"
-msgstr ""
+msgstr "videoreparatie"
 
 #: PlayOnLinux_Scripts/The_Witcher_:55 PlayOnLinux_Scripts/The_Witcher_:57
 #, sh-format
 msgid "Enhanced Edition"
-msgstr "Enhanced Edition"
+msgstr "Uitgebreide editie"
 
 #: PlayOnLinux_Scripts/The_Witcher_:55
 #, sh-format
 msgid "Standard Edition"
-msgstr "Standard Edition"
+msgstr "Standaard editie"
 
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_:81
 #, sh-format
@@ -3323,7 +3337,8 @@ msgstr "Welkom in het installatieprogramma $PVERSION voor $TITLE"
 #: PlayOnLinux_Scripts/The_Witcher_Patch_1.5_:29
 #, sh-format
 msgid "This game already have Enhanced Edition\\nand only need patch 1.5"
-msgstr "Dit spel is al de Enhanced Edition\\nen heeft alleen patch 1.5 nodig"
+msgstr ""
+"Dit spel is al de Uitgebreide editie\\nen heeft alleen patch 1.5 nodig"
 
 #: PlayOnLinux_Scripts/The_Witcher_Patch_1.5_:76
 #, sh-format
@@ -3435,11 +3450,13 @@ msgid ""
 "After WTW instalation uncheck Run option in last window.\\nDon't run a "
 "messenger, because it will won't work correctly."
 msgstr ""
+"Vink na de installatie van WTW de optie Run uit in het laatste venster.\\"
+"nDraai geen chatprogramma, omdat deze niet correct zal werken."
 
 #: PlayOnLinux_Scripts/WTW_Instant_Messenger_:37
 #, sh-format
 msgid "Warning"
-msgstr ""
+msgstr "Waarschuwing"
 
 #: PlayOnLinux_Scripts/Warcraft_III__Reign_of_Chaos_:35
 #: PlayOnLinux_Scripts/Warcraft_III__The_Frozen_Throne_:41
@@ -3728,8 +3745,8 @@ msgid ""
 "Thank you !\\n\\nYour report has been sent.\\n\\nWe will do our best to send "
 "you an answer by mail very soon"
 msgstr ""
-"Dank u !\\n\\nUw rapport is verstuurd.\\n\\nWe doen ons best om u zo spoedig "
-"mogelijk een antwoord te sturen per mail"
+"Bedankt !\\n\\nUw rapport is verstuurd.\\n\\nWe doen ons best om u zo "
+"spoedig mogelijk een antwoord te sturen per mail"
 
 #: bash/create_prefix:25
 #, sh-format
@@ -5432,7 +5449,7 @@ msgstr "Een kanaal binnengaan"
 
 #: python/irc.py:259 python/mainwindow.py:723
 msgid "Messenger"
-msgstr "Messenger"
+msgstr "Chatprogramma"
 
 #: python/irc.py:275
 msgid ""
@@ -5452,7 +5469,7 @@ msgid ""
 "\n"
 "Please retry later"
 msgstr ""
-"Sorry de berichtendienst {0} is momenteel niet beschikbaar.\n"
+"Sorry het chatprogramma {0} is momenteel niet beschikbaar.\n"
 "\n"
 "Probeer het later opnieuw"
 
@@ -5522,7 +5539,7 @@ msgstr "{0}-console"
 
 #: python/mainwindow.py:248
 msgid "{0} messenger"
-msgstr "{0}-messenger"
+msgstr "{0}-chatprogramma"
 
 #: python/mainwindow.py:264 python/options.py:388
 msgid "File associations"

@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2014-07-07 19:00+0200\n"
-"PO-Revision-Date: 2014-05-18 17:09+0000\n"
+"POT-Creation-Date: 2014-07-08 19:00+0200\n"
+"PO-Revision-Date: 2014-07-15 08:52+0000\n"
 "Last-Translator: dos santos raphael <dossant.raphael@gmail.com>\n"
 "Language-Team: French <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-07-08 05:40+0000\n"
-"X-Generator: Launchpad (build 17086)\n"
+"X-Launchpad-Export-Date: 2014-07-16 05:45+0000\n"
+"X-Generator: Launchpad (build 17112)\n"
 "Language: fr\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -358,12 +358,13 @@ msgstr "Merci de choisir le fichier d'installation à exécuter."
 #: PlayOnLinux_Scripts/The_Settlers_III_Gold_Edition_:54
 #, sh-format
 msgid "Please insert the game media into your disc drive."
-msgstr ""
+msgstr "Veuillez insérer le disque du jeu dans le lecteur de disque."
 
 #: PlayOnLinux_Scripts/A.R.E.S.___Extinction_Agenda_:80
 #: PlayOnLinux_Scripts/Call_Of_Juarez_Gunslinger_:48
 #: PlayOnLinux_Scripts/Call_Of_Juarez_Gunslinger_:55
 #: PlayOnLinux_Scripts/Call_of_Duty__Modern_Warfare_3_:48
+#: PlayOnLinux_Scripts/Counter_Strike__Global_Offensive_:55
 #: PlayOnLinux_Scripts/Dishonored_:72
 #: PlayOnLinux_Scripts/Hard_Reset__Steam__:45
 #: PlayOnLinux_Scripts/Kingdoms_of_Amalur___Reckoning_:75
@@ -420,6 +421,8 @@ msgid ""
 "This is an installer for an update or an addon;\\nPlease install "
 "$TITLE_REQUIRED first"
 msgstr ""
+"Ceci est l'installateur d'une mise à jour ou d'une extension.\\nVeuillez "
+"d'abord installer $TITLE_REQUIRED"
 
 #: PlayOnLinux_Scripts/Age_of_Empires_II___The_Conquerors_:74
 #, sh-format
@@ -477,13 +480,18 @@ msgid ""
 "nClose COMPLETELY the Steam interface, \\nso that the installation script "
 "can continue"
 msgstr ""
+"Quand le téléchargement par Steam de $TITLE est terminé,\\\\n\r\n"
+"Ne cliquez *pas* sur jouer !\\\\n\r\n"
+"\\\\n\r\n"
+"Fermez complètement l'interface Steam,\\\\n\r\n"
+"pour que l'installation puisse continuer."
 
 #: PlayOnLinux_Scripts/Alien_Breed_2___Assault_:88
 #: PlayOnLinux_Scripts/Alien_Breed_3___Descent_:87
 #: PlayOnLinux_Scripts/Alien_Breed___Impact_:86
 #, sh-format
 msgid "If .NET 3.0 installation fail, dont worry\\nthe game will still work"
-msgstr ""
+msgstr "Le jeu fonctionne même en cas d'échec de l'installation de .NET 3.0"
 
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:30
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:40
@@ -593,6 +601,7 @@ msgstr "Veuillez sélectionner le fichier d'installation à exécuter :"
 #, sh-format
 msgid "Welcome in the patch $PVERSION Installer for $TITLE_REQUIRED"
 msgstr ""
+"Bienvenue dans l'installation du correctif $PVERSION pour $TITLE_REQUIRED"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:45
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:46
@@ -731,6 +740,7 @@ msgstr "Veuillez insérer le prochain jeu dans votre lecteur."
 #, sh-format
 msgid "Welcome in the patch $PVERSION installer for $TITLE_REQUIRED"
 msgstr ""
+"Bienvenue dans l'installation du correctif $PVERSION pour $TITLE_REQUIRED"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:31
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:31
@@ -5462,5 +5472,5 @@ msgstr "Etes vous certain de vouloir supprimer wine {0} ?"
 msgid "{0} is not able to start POL_SetupWindow_server."
 msgstr ""
 
-msgid "Send a feedback"
-msgstr "Retour d'expérience"
+#~ msgid "Send a feedback"
+#~ msgstr "Retour d'expérience"
