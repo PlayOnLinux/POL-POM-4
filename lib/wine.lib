@@ -290,7 +290,9 @@ POL_Wine_InstallFonts()
 {
 	# Install microsoft fonts
 	# Usage: POL_Wine_InstallFonts
+	pushd .
 	POL_Call POL_Install_corefonts
+        popd
 }
 
 Set_SoundHardwareAcceleration ()
