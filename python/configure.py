@@ -147,12 +147,14 @@ class Onglets(wx.Notebook):
         subprocess.Popen(["bash", Variables.playonlinux_rep+"/configurations/configurators/"+self.s_title])
 
     def install_package(self, event):
-        selectedPackage = self.packageList.getPackageFromName(self.Menu.GetItemText(self.Menu.GetSelection()))
+        selectedPackageName = self.Menu.GetItemText(self.Menu.GetSelection())
+        if selectedPackageName:
+            selectedPackage = self.packageList.getPackageFromName(selectedPackageName)
 
-        if(self.s_isPrefix == False):
-            subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/installpolpackages", self.s_title.encode('utf-8','replace'), selectedPackage])
-        else:
-            subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/installpolpackages", "--prefix", self.s_prefix.encode('utf-8','replace'), selectedPackage])
+            if self.s_isPrefix == False:
+                subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/installpolpackages", self.s_title.encode('utf-8','replace'), selectedPackage])
+            else:
+                subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/installpolpackages", "--prefix", self.s_prefix.encode('utf-8','replace'), selectedPackage])
 
     def AddGeneralChamp(self, title, shortname, value, num):
         self.general_elements[shortname+"_text"] = wx.StaticText(self.panelGeneral, -1, title,pos=(15,19+num*40))
@@ -331,13 +333,21 @@ class Onglets(wx.Notebook):
                 self.i = self.i+1
                 
         self.PackageButton = wx.Button(self.panelPackages, 98, _("Install"), pos=(20+530-150,345), size=(150,30))
+        self.PackageButton.Disable()
 
-
+        wx.EVT_TREE_SEL_CHANGED(self, 99, self.package_selected)
         wx.EVT_TREE_ITEM_ACTIVATED(self, 99, self.install_package)
         wx.EVT_BUTTON(self, 98, self.install_package)
 
 
         self.AddPage(self.panelPackages, nom)
+
+    def package_selected(self, event):
+        selectedPackageName = self.Menu.GetItemText(self.Menu.GetSelection())
+        if selectedPackageName:
+            self.PackageButton.Enable()
+        else:
+            self.PackageButton.Disable()
 
     def change_Direct3D_settings(self, param):
         if(self.s_isPrefix == False):

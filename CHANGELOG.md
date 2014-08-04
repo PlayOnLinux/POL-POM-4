@@ -1,6 +1,7 @@
 # 4.2.5
 * Fix reading/writing values containing '=' symbol in configuration files (#4834)
 * Make POL_Wine_InstallFonts preserve current directory (regression since 4.2.3)
+* Disable "Install" component button until a component is selected
 
 # 4.2.4
 * New support and feedback system, easier to use
