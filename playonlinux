@@ -100,6 +100,11 @@ if [ "$1" = "--run" ]; then
 			cp "$HOME/.PlayOnLinux/shortcuts/$NAME" "$POL_USER_ROOT/tmp/debug_$NAME" && \
 			sed -e 's/^export WINEDEBUG="\(.*\)"/export WINEDEBUG="-all"/' "$POL_USER_ROOT/tmp/debug_$NAME" > "$HOME/.PlayOnLinux/shortcuts/$NAME"
 		fi
+
+		if [ -e "$HOME/.PlayOnLinux/configurations/pre_shortcut/$NAME" ]; then
+			source "$HOME/.PlayOnLinux/configurations/pre_shortcut/$NAME"
+		fi
+
 		exec ./playonlinux-bash "$HOME/.PlayOnLinux/shortcuts/$NAME" "$@"
 	fi
 else
