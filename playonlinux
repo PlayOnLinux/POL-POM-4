@@ -97,8 +97,8 @@ if [ "$1" = "--run" ]; then
 		# SetDebugState(game, False)
 		# export WINEDEBUG= found and is not WINEDEBUG="-all"?
 		if grep '^export WINEDEBUG=' "$HOME/.PlayOnLinux/shortcuts/$NAME"|grep -qv 'WINEDEBUG="-all"'; then
-			cp "$HOME/.PlayOnLinux/shortcuts/$NAME" "$POL_USER_ROOT/tmp/debug_$NAME" && \
-			sed -e 's/^export WINEDEBUG="\(.*\)"/export WINEDEBUG="-all"/' "$POL_USER_ROOT/tmp/debug_$NAME" > "$HOME/.PlayOnLinux/shortcuts/$NAME"
+			cp "$HOME/.PlayOnLinux/shortcuts/$NAME" "$HOME/.PlayOnLinux/tmp/debug_$NAME" && \
+			sed -e 's/^export WINEDEBUG="\(.*\)"/export WINEDEBUG="-all"/' "$HOME/.PlayOnLinux/tmp/debug_$NAME" > "$HOME/.PlayOnLinux/shortcuts/$NAME"
 		fi
 
 		if [ -e "$HOME/.PlayOnLinux/configurations/pre_shortcut/$NAME" ]; then
