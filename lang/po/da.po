@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-08-04 19:00+0200\n"
+"POT-Creation-Date: 2014-08-11 19:00+0200\n"
 "PO-Revision-Date: 2013-12-11 13:04+0000\n"
 "Last-Translator: Rasmus Christian Christensen <rasmuschr1973@gmail.com>\n"
 "Language-Team: Danish <da@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-05 05:44+0000\n"
-"X-Generator: Launchpad (build 17147)\n"
+"X-Launchpad-Export-Date: 2014-08-12 05:37+0000\n"
+"X-Generator: Launchpad (build 17156)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -2811,6 +2811,14 @@ msgid ""
 "script will now install it. Click Next to continue."
 msgstr ""
 
+#: PlayOnLinux_Scripts/Spintires_:35
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_V___Skyrim_:34
+#, sh-format
+msgid ""
+"The game will fail to launch until you set "
+"/proc/sys/kernel/yama/ptrace_scope to 0"
+msgstr ""
+
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:90
 #, sh-format
 msgid ""
@@ -2987,13 +2995,6 @@ msgstr ""
 msgid ""
 "Follow default setup up to 'Installation Options' screen, then:\\n 1. Select "
 "your region.\\n 2. Leave only checked DirectX box."
-msgstr ""
-
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_V___Skyrim_:34
-#, sh-format
-msgid ""
-"The game will fail to launch until you set "
-"/proc/sys/kernel/yama/ptrace_scope to 0"
 msgstr ""
 
 #: PlayOnLinux_Scripts/The_Settlers_III_Gold_Edition_:52

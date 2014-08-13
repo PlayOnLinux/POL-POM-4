@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-08-04 19:00+0200\n"
-"PO-Revision-Date: 2013-12-11 13:09+0000\n"
-"Last-Translator: Alfred Løvgren <Norsk.norman1@gmail.com>\n"
+"POT-Creation-Date: 2014-08-11 19:00+0200\n"
+"PO-Revision-Date: 2014-08-05 10:47+0000\n"
+"Last-Translator: Einar Svensen <Unknown>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-05 05:46+0000\n"
-"X-Generator: Launchpad (build 17147)\n"
+"X-Launchpad-Export-Date: 2014-08-12 05:39+0000\n"
+"X-Generator: Launchpad (build 17156)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -533,13 +533,13 @@ msgstr ""
 #: lib/wine.lib:1027
 #, sh-format
 msgid "Please wait..."
-msgstr ""
+msgstr "Vennligst vent..."
 
 #: PlayOnLinux_Scripts/Anno_1602_:78 PlayOnLinux_Scripts/SubRip_:43
 #: PlayOnLinux_Scripts/Windows_Media_Player_10_:74 bash/run_exe:112
 #, sh-format
 msgid "Installation finished."
-msgstr ""
+msgstr "Ferdig installert."
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_:69
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_:47
@@ -970,7 +970,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:71
 #, sh-format
 msgid "Choose the game language you want"
-msgstr ""
+msgstr "Velg spill språk du ønsker"
 
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Kane_s_Wrath_:77
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Kane_s_Wrath_:93
@@ -1016,7 +1016,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:75 PlayOnLinux_Scripts/Goblins_3_:21
 #, sh-format
 msgid "English"
-msgstr ""
+msgstr "Engelsk"
 
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Tiberium_Wars__Kane_Edition__Patch_1.09_:55
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Tiberium_Wars__Kane_Edition__Patch_1.09_:56
@@ -1025,7 +1025,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:86 PlayOnLinux_Scripts/Goblins_3_:21
 #, sh-format
 msgid "French"
-msgstr ""
+msgstr "Fransk"
 
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Tiberium_Wars__Kane_Edition__Patch_1.09_:55
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Tiberium_Wars__Kane_Edition__Patch_1.09_:58
@@ -1034,7 +1034,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:97
 #, sh-format
 msgid "German"
-msgstr ""
+msgstr "Tysk"
 
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Tiberium_Wars__Kane_Edition__Patch_1.09_:55
 #: PlayOnLinux_Scripts/Internet_Explorer_7_:57
@@ -2778,6 +2778,14 @@ msgid ""
 "script will now install it. Click Next to continue."
 msgstr ""
 
+#: PlayOnLinux_Scripts/Spintires_:35
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_V___Skyrim_:34
+#, sh-format
+msgid ""
+"The game will fail to launch until you set "
+"/proc/sys/kernel/yama/ptrace_scope to 0"
+msgstr ""
+
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:90
 #, sh-format
 msgid ""
@@ -2954,13 +2962,6 @@ msgstr ""
 msgid ""
 "Follow default setup up to 'Installation Options' screen, then:\\n 1. Select "
 "your region.\\n 2. Leave only checked DirectX box."
-msgstr ""
-
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_V___Skyrim_:34
-#, sh-format
-msgid ""
-"The game will fail to launch until you set "
-"/proc/sys/kernel/yama/ptrace_scope to 0"
 msgstr ""
 
 #: PlayOnLinux_Scripts/The_Settlers_III_Gold_Edition_:52

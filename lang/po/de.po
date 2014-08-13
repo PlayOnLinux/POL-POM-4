@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2014-08-04 19:00+0200\n"
-"PO-Revision-Date: 2014-07-22 12:19+0000\n"
-"Last-Translator: Gosu <spam@ind3x.de>\n"
+"POT-Creation-Date: 2014-08-11 19:00+0200\n"
+"PO-Revision-Date: 2014-08-09 07:24+0000\n"
+"Last-Translator: raymond <Unknown>\n"
 "Language-Team: de_DE.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-05 05:45+0000\n"
-"X-Generator: Launchpad (build 17147)\n"
+"X-Launchpad-Export-Date: 2014-08-12 05:38+0000\n"
+"X-Generator: Launchpad (build 17156)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -1100,6 +1100,11 @@ msgid ""
 "images may work with certain software, however I know that Mounty does not "
 "work for this."
 msgstr ""
+"HINWEIS: Dieses Installationsprogramm erfordert das Benutzen einer CD. Falls "
+"Sie die von EA herausgegebenen ISO-Abbilder heruntergeladen haben brennen "
+"Sie diese bitte auf CD oder DVD (z.B. mit Brasero) und legen Sie sie dann in "
+"ihr Laufwerk. Das Einbinden der Abbilder kann möglicherweise auch "
+"funktionieren, ich kann allerdings sagen dass Mounty hier nicht funktioniert."
 
 #: PlayOnLinux_Scripts/DC_Universe_Online_:51
 #: PlayOnLinux_Scripts/PlanetSide_2_:47
@@ -2058,7 +2063,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Microsoft_Office_2010_:64
 #, sh-format
 msgid "The 64bits version is not compatible! Sorry"
-msgstr ""
+msgstr "Die 64 bit Version ist nicht kompatibel! Sorry"
 
 #: PlayOnLinux_Scripts/Microsoft_Office_2010_:96
 #, sh-format
@@ -2622,6 +2627,8 @@ msgid ""
 "To continue, PlayOnLinux needs to umount your CD-ROM previously mounted with "
 "unhide option."
 msgstr ""
+"Um fortzufahren muss PlayOnLinux ihre zuvor mit der unhide-Option "
+"eingebundene CD-ROM entfernen (unmounten)."
 
 #: PlayOnLinux_Scripts/POL_Sudo_RehideCdrom_:15
 #: PlayOnLinux_Scripts/POL_Sudo_UnhideCdrom_:15
@@ -2729,6 +2736,8 @@ msgstr "Entpacke $TITLE"
 msgid ""
 "Lorsque Wine demande  installer le paquet \"Mono\", cliquer sur \"Annuler\""
 msgstr ""
+"Wenn Sie gefragt werden, ob das Wine-Packet »Mono« installiert werden soll, "
+"klicken Sie auf »Abbrechen«."
 
 #: PlayOnLinux_Scripts/Poker_Stars_:37
 #, sh-format
@@ -2814,7 +2823,7 @@ msgstr "Railroad Tycoon Anthology Datenträger (polnische Version)"
 #: PlayOnLinux_Scripts/Railroad_Tycoon_II_:31
 #, sh-format
 msgid "Retail CD (Platinum, Gold [test], first release [test])"
-msgstr ""
+msgstr "Verkaufs-CD (Platinum, Gold [test], Erstveröffentlichung [test])"
 
 #: PlayOnLinux_Scripts/Railroad_Tycoon_II_:31
 #: PlayOnLinux_Scripts/Resident_Evil_3_:29
@@ -3069,6 +3078,16 @@ msgid ""
 "script will now install it. Click Next to continue."
 msgstr ""
 
+#: PlayOnLinux_Scripts/Spintires_:35
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_V___Skyrim_:34
+#, sh-format
+msgid ""
+"The game will fail to launch until you set "
+"/proc/sys/kernel/yama/ptrace_scope to 0"
+msgstr ""
+"Das Spiel wird nicht gestartet, bis Sie /proc/sys/kernel/yama/ptrace_scope "
+"auf 0 gesetzt haben"
+
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:90
 #, sh-format
 msgid ""
@@ -3267,15 +3286,6 @@ msgstr ""
 "Folgen Sie den Installationsanweisungen bis zum »Installationsoptionen«-"
 "Fenster, dann:\\nWählen SIe Ihre Region aus.\\nAlle Haken außer DirectX "
 "entfernen."
-
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_V___Skyrim_:34
-#, sh-format
-msgid ""
-"The game will fail to launch until you set "
-"/proc/sys/kernel/yama/ptrace_scope to 0"
-msgstr ""
-"Das Spiel wird nicht gestartet, bis Sie /proc/sys/kernel/yama/ptrace_scope "
-"auf 0 gesetzt haben"
 
 #: PlayOnLinux_Scripts/The_Settlers_III_Gold_Edition_:52
 #, sh-format

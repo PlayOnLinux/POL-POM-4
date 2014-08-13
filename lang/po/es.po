@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2014-08-04 19:00+0200\n"
-"PO-Revision-Date: 2014-07-24 09:08+0000\n"
-"Last-Translator: Josh Black <DJYoshaBYD@gmail.com>\n"
+"POT-Creation-Date: 2014-08-11 19:00+0200\n"
+"PO-Revision-Date: 2014-08-05 22:41+0000\n"
+"Last-Translator: kanito8a <Unknown>\n"
 "Language-Team: es_ES.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-05 05:47+0000\n"
-"X-Generator: Launchpad (build 17147)\n"
+"X-Launchpad-Export-Date: 2014-08-12 05:39+0000\n"
+"X-Generator: Launchpad (build 17156)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -1906,7 +1906,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Hearthstone_:29
 #, sh-format
 msgid "What language do you want to install?"
-msgstr ""
+msgstr "¿En qué idioma deseas realizar la instalación?"
 
 #: PlayOnLinux_Scripts/ImgBurn_:38
 #, sh-format
@@ -1979,6 +1979,10 @@ msgid ""
 "nOtherwise, you can enable it by installing libtxc-dxtn0 package, but you "
 "might get slower results"
 msgstr ""
+"¡Aviso! Compresión S3TC no disponible.\\n\\nSi tienes instalado un "
+"controlador libre puede que necesites un controlador propietario.\\n\\nEn "
+"cualquier caso, puedes activar el paquete libtxc-dxtn0, pero es posible que "
+"obtengas resultados más lentos."
 
 #: PlayOnLinux_Scripts/League_Of_Legends_:61
 #, sh-format
@@ -2046,7 +2050,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Microsoft_Office_2010_:64
 #, sh-format
 msgid "The 64bits version is not compatible! Sorry"
-msgstr ""
+msgstr "¡La versión de 64 bits no es compatible!"
 
 #: PlayOnLinux_Scripts/Microsoft_Office_2010_:96
 #, sh-format
@@ -2208,7 +2212,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Gamefront_Download_:8
 #, sh-format
 msgid "Contacting download server."
-msgstr ""
+msgstr "Conectando con el servidor de descarga"
 
 #: PlayOnLinux_Scripts/POL_GoG_Extract_:29 python/install.py:438
 #: python/install.py:441 python/install.py:457 python/install.py:459
@@ -3038,6 +3042,16 @@ msgid ""
 "script will now install it. Click Next to continue."
 msgstr ""
 
+#: PlayOnLinux_Scripts/Spintires_:35
+#: PlayOnLinux_Scripts/The_Elder_Scrolls_V___Skyrim_:34
+#, sh-format
+msgid ""
+"The game will fail to launch until you set "
+"/proc/sys/kernel/yama/ptrace_scope to 0"
+msgstr ""
+"El juego fallará la inicialización hasta que cambie el valor de  "
+"/proc/sys/kernel/yama/ptrace_scope a 0"
+
 #: PlayOnLinux_Scripts/Starcraft_II_Wings_of_Liberty_:90
 #, sh-format
 msgid ""
@@ -3232,15 +3246,6 @@ msgid ""
 "Follow default setup up to 'Installation Options' screen, then:\\n 1. Select "
 "your region.\\n 2. Leave only checked DirectX box."
 msgstr ""
-
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_V___Skyrim_:34
-#, sh-format
-msgid ""
-"The game will fail to launch until you set "
-"/proc/sys/kernel/yama/ptrace_scope to 0"
-msgstr ""
-"El juego fallará la inicialización hasta que cambie el valor de  "
-"/proc/sys/kernel/yama/ptrace_scope a 0"
 
 #: PlayOnLinux_Scripts/The_Settlers_III_Gold_Edition_:52
 #, sh-format
