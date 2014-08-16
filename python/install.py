@@ -573,7 +573,7 @@ class InstallWindow(wx.Frame):
         chk_id = event.GetId()
         if(chk_id == 401):
             if(self.testingChk.IsChecked() == 1):
-                wx.MessageBox(_("By enabling this, you will have access to testing installers.\n\n{0} cannot ensure that your app will work without any problems").format(os.environ["APPLICATION_TITLE"]),_("Please read this"))
+                wx.MessageBox(_("By enabling this option, you can install programs that employ digital rights management (DRM) copy protection that are not supported by {0} and might need to be bypassed.\n\nThis feature should not be construed as implicit or implied condoning of piracy and as such, we will not offer any support for issues resulting from using this option.").format(os.environ["APPLICATION_TITLE"]),_("Attention!"))
         if(chk_id == 402):
             if(self.nocdChk.IsChecked() == 1):
                 wx.MessageBox(_("By enabling this, you will have access to installers for programs that contain protections against copy (DRM) incompatible with emulation.\nThe only workaround is to use \"no-cd\" patches, but since those can also be used for piracy purposes we won't give any support on this matter."), _("Please read this"))
