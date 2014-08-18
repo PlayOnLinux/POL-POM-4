@@ -184,7 +184,8 @@ class InstallWindow(wx.Frame):
         self.cats_links[name].SetUnderlines(False, False, False)
         
         self.cats_links[name].SetFont(self.fontText)
-
+        self.cats_links[name].SetBackgroundColour((255,255,255))
+        
     def __init__(self,parent,id,title):
         wx.Frame.__init__(self, parent, -1, title, size = (800, 550+Variables.windows_add_size), style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX)
         self.cats_icons = {}
