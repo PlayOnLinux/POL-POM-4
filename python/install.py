@@ -25,6 +25,7 @@ import lib.Variables as Variables, sp
 import lib.lng
 import lib.playonlinux as playonlinux
 from wx.lib.ClickableHtmlWindow import PyClickableHtmlWindow
+import wx.lib.hyperlink
 
 class Wminiature(wx.Frame):
     def __init__(self,parent,id,title,img):
@@ -161,32 +162,27 @@ class InstallWindow(wx.Frame):
 
         self.cats_icons[name] = wx.BitmapButton(self.panelButton, 2000+iid, wx.Bitmap(icon), (0,0), style=wx.NO_BORDER)
 
-        self.cats_links[name] = wx.HyperlinkCtrl(self.panelButton, 3000+iid, name, "", pos=(0,52))
+        self.cats_links[name] = wx.lib.hyperlink.HyperLinkCtrl(self.panelButton, 3000+iid, name, pos=(0,52))
         mataille = self.cats_links[name].GetSize()[0]
+        print str(self.cats_links[name].GetSize())+" ---- "+name
         mataille2 = self.cats_icons[name].GetSize()[0]
         image_pos = (espace-mataille2)/2+espace*iid;
 
-        self.cats_links[name].SetPosition((espace*iid+espace/2-mataille/2,47))
+        self.cats_links[name].SetPosition((espace*iid+(espace-mataille/1.3)/2,47))
         self.cats_icons[name].SetPosition((image_pos,offset))
 
         #self.cats_icons[name].SetSize((espace,100))
 
-        wx.EVT_HYPERLINK(self, 3000+iid, self.AddApps)
+        wx.lib.hyperlink.EVT_HYPERLINK_LEFT(self, 3000+iid, self.AddApps)
         wx.EVT_BUTTON(self, 2000+iid, self.AddApps)
 
         #self.cats_icons[name].Bind(wx.EVT_LEFT_DOWN, 2000+iid, self.AddApps)
-        try:
-            self.cat_links[name].SetColours(wx.Colour(0,0,0), wx.Colour(0,0,0), wx.Colour(0,0,0))
-        except AttributeError:
-            self.cats_links[name].SetNormalColour(wx.Colour(0,0,0))
-            self.cats_links[name].SetVisitedColour(wx.Colour(0,0,0))
-            self.cats_links[name].SetHoverColour(wx.Colour(0,0,0))
-            self.cats_links[name].SetBackgroundColour((255,255,255))
-        try:
-            self.cats_links[name].SetUnderlines(False)
-        except AttributeError:
-            pass
-            
+        
+        self.cats_links[name].SetColours(wx.Colour(0,0,0), wx.Colour(0,0,0), wx.Colour(0,0,0))
+        self.cats_links[name].AutoBrowse(False)
+        self.cats_links[name].UpdateLink(True)
+        self.cats_links[name].SetUnderlines(False, False, False)
+        
         self.cats_links[name].SetFont(self.fontText)
 
     def __init__(self,parent,id,title):
