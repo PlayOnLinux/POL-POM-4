@@ -850,7 +850,7 @@ class MainWindow(wx.Frame):
         self.menuElem[id].SetVisitedColour(wx.Colour(0,0,0))
         self.menuElem[id].SetHoverColour(wx.Colour(100,100,100))
         try:
-            self.menuElem[id].SetColours(wx.Colour(0,0,0), wx.Colour(0,0,0), wx.Colour(0,0,0))
+            self.menuElem[id].SetColours(RED, RED, RED)
         except AttributeError:
             pass
             
