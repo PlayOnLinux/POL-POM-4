@@ -305,8 +305,12 @@ class InstallWindow(wx.Frame):
         self.new_panel.Hide()
 
 
-        self.ManualInstall = wx.HyperlinkCtrl(self.panelFenp, 111, _("Install a non-listed program"), "", pos=(10,515))
-        self.ManualInstall.SetNormalColour(wx.Colour(0,0,0))
+        self.ManualInstall = wx.lib.hyperlink.HyperLinkCtrl(self.panelFenp, 111, _("Install a non-listed program"), "", pos=(10,515))
+        self.ManualInstall.SetColours(wx.Colour(0,0,0),wx.Colour(0,0,0),wx.Colour(0,0,0))
+        self.ManualInstall.AutoBrowse(False)
+        self.ManualInstall.UpdateLink(True)
+        
+        #self.ManualInstall.SetNormalColour(wx.Colour(0,0,0))
 
         # Panel wait
         self.animation_wait = wx.animate.GIFAnimationCtrl(self.panelWait, -1, Variables.playonlinux_env+"/resources/images/install/wait.gif", ((800-128)/2,(550-128)/2-71))
@@ -332,7 +336,7 @@ class InstallWindow(wx.Frame):
         wx.EVT_CLOSE(self, self.closeapp)
         wx.EVT_TREE_ITEM_ACTIVATED(self, 106, self.installapp)
         wx.EVT_TEXT(self, 110, self.search)
-        wx.EVT_HYPERLINK(self, 111, self.manual)
+        wx.lib.hyperlink.EVT_HYPERLINK_LEFT(self, 111, self.manual)
 
         wx.EVT_CHECKBOX(self, 401, self.CheckBoxReload)
         wx.EVT_CHECKBOX(self, 402, self.CheckBoxReload)
