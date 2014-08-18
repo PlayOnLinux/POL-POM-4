@@ -45,8 +45,13 @@ if (os.environ["POL_OS"] == "Linux"):
     os.environ["REPERTOIRE"] = os.environ["HOME"]+"/.PlayOnLinux/"
     os.environ["APPLICATION_TITLE"] = "PlayOnLinux"
     os.environ["POL_DNS"] = "playonlinux.com"
-    windows_add_size = 0;
-    windows_add_playonmac = 0;
+    if(versionLower(wx.VERSION_STRING), "3.0.0"):
+        windows_add_size = 0;
+        windows_add_playonmac = 0;
+    else:
+        windows_add_size = 20;
+        windows_add_playonmac = 0;
+        
     widget_borders = wx.RAISED_BORDER
     os_name = "linux"
     if not os.path.exists("/proc/net/if_inet6"):
