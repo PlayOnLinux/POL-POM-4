@@ -175,11 +175,18 @@ class InstallWindow(wx.Frame):
         wx.EVT_BUTTON(self, 2000+iid, self.AddApps)
 
         #self.cats_icons[name].Bind(wx.EVT_LEFT_DOWN, 2000+iid, self.AddApps)
-        self.cats_links[name].SetNormalColour(wx.Colour(0,0,0))
-        self.cats_links[name].SetVisitedColour(wx.Colour(0,0,0))
-        self.cats_links[name].SetHoverColour(wx.Colour(0,0,0))
-        self.cats_links[name].SetBackgroundColour((255,255,255))
-
+        try:
+            self.cat_links[name].SetColours(wx.Colour(0,0,0), wx.Colour(0,0,0), wx.Colour(0,0,0))
+        except AttributeError:
+            self.cats_links[name].SetNormalColour(wx.Colour(0,0,0))
+            self.cats_links[name].SetVisitedColour(wx.Colour(0,0,0))
+            self.cats_links[name].SetHoverColour(wx.Colour(0,0,0))
+            self.cats_links[name].SetBackgroundColour((255,255,255))
+        try:
+            self.cats_links[name].SetUnderlines(False)
+        except AttributeError:
+            pass
+            
         self.cats_links[name].SetFont(self.fontText)
 
     def __init__(self,parent,id,title):
