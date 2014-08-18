@@ -164,7 +164,7 @@ class InstallWindow(wx.Frame):
 
         self.cats_links[name] = wx.lib.hyperlink.HyperLinkCtrl(self.panelButton, 3000+iid, name, pos=(0,52))
         mataille = self.cats_links[name].GetSize()[0]
-        print str(self.cats_links[name].GetSize())+" ---- "+name
+        
         mataille2 = self.cats_icons[name].GetSize()[0]
         image_pos = (espace-mataille2)/2+espace*iid;
 
@@ -305,7 +305,7 @@ class InstallWindow(wx.Frame):
         self.new_panel.Hide()
 
 
-        self.ManualInstall = wx.lib.hyperlink.HyperLinkCtrl(self.panelFenp, 111, _("Install a non-listed program"), "", pos=(10,515))
+        self.ManualInstall = wx.lib.hyperlink.HyperLinkCtrl(self.panelFenp, 111, _("Install a non-listed program"), pos=(10,515))
         self.ManualInstall.SetColours(wx.Colour(0,0,0),wx.Colour(0,0,0),wx.Colour(0,0,0))
         self.ManualInstall.AutoBrowse(False)
         self.ManualInstall.UpdateLink(True)
