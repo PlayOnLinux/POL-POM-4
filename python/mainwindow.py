@@ -32,6 +32,7 @@ if(os.environ["POL_OS"] != "Mac"):
     wxversion.ensureMinimal('2.8')
 
 import wx, wx.aui
+import wx.lib.hyperlink
 import lib.lng as lng
 import lib.playonlinux as playonlinux, lib.Variables as Variables
 import guiv3 as gui, install, options, wine_versions as wver, sp, configure, threading, debug, gui_server
@@ -842,20 +843,19 @@ class MainWindow(wx.Frame):
             pass
 
         if(url == None):
-            self.menuElem[id] = wx.HyperlinkCtrl(self.menu_gauche, 10000+pos, text, "", pos=(35,15+pos*20))
+            self.menuElem[id] = wx.lib.hyperlink.HyperLinkCtrl(self.menu_gauche, 10000+pos, text, pos=(35,15+pos*20))
         else:
             self.menuElem[id] = wx.HyperlinkCtrl(self.menu_gauche, 10000+pos, text, url, pos=(35,15+pos*20))
 
-        self.menuElem[id].SetNormalColour(wx.Colour(0,0,0))
-        self.menuElem[id].SetVisitedColour(wx.Colour(0,0,0))
-        self.menuElem[id].SetHoverColour(wx.Colour(100,100,100))
-        try:
-            self.menuElem[id].SetColours(RED, RED, RED)
-        except AttributeError:
-            pass
+        self.menuElem[id].SetColours(wx.Colour(0,0,0),wx.Colour(0,0,0),wx.Colour(0,0,0))
+        self.menuElem[id].AutoBrowse(False)
+        #self.menuElem[id].SetNormalColour(wx.Colour(0,0,0))
+        #self.menuElem[id].SetVisitedColour(wx.Colour(0,0,0))
+        #self.menuElem[id].SetHoverColour(wx.Colour(100,100,100))
+        
             
         if(evt != None):
-            wx.EVT_HYPERLINK(self, 10000+pos, evt)
+            wx.lib.hyperlink.EVT_HYPERLINK_LEFT(self, 10000+pos, evt)
 
     def donate(self, event):
         if(os.environ["POL_OS"] == "Mac"):
