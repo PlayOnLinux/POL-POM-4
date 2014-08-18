@@ -844,11 +844,12 @@ class MainWindow(wx.Frame):
 
         if(url == None):
             self.menuElem[id] = wx.lib.hyperlink.HyperLinkCtrl(self.menu_gauche, 10000+pos, text, pos=(35,15+pos*20))
+            self.menuElem[id].AutoBrowse(False)
         else:
-            self.menuElem[id] = wx.HyperlinkCtrl(self.menu_gauche, 10000+pos, text, url, pos=(35,15+pos*20))
+            self.menuElem[id] = wx.lib.hyperlink.HyperLinkCtrl(self.menu_gauche, 10000+pos, text, pos=(35,15+pos*20))
+            self.menuElem[id].setURL(url)
 
         self.menuElem[id].SetColours(wx.Colour(0,0,0),wx.Colour(0,0,0),wx.Colour(0,0,0))
-        self.menuElem[id].AutoBrowse(False)
         self.menuElem[id].UpdateLink(True)
         #self.menuElem[id].SetVisited(False)
         #self.menuElem[id].SetNormalColour(wx.Colour(0,0,0))
