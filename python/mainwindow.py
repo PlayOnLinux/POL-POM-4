@@ -849,8 +849,11 @@ class MainWindow(wx.Frame):
         self.menuElem[id].SetNormalColour(wx.Colour(0,0,0))
         self.menuElem[id].SetVisitedColour(wx.Colour(0,0,0))
         self.menuElem[id].SetHoverColour(wx.Colour(100,100,100))
-        self.menuElem[id].SetColour(wx.Colour(0,0,0), wx.Colour(0,0,0), wx.Colour(0,0,0))
-        
+        try:
+            self.menuElem[id].SetColours(wx.Colour(0,0,0), wx.Colour(0,0,0), wx.Colour(0,0,0))
+        except AttributeError:
+            pass
+            
         if(evt != None):
             wx.EVT_HYPERLINK(self, 10000+pos, evt)
 
