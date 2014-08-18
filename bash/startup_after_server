@@ -43,6 +43,7 @@ install_x11()
 	
 	if [ "$APP_ANSWER" = "0" ]
 	then
+		cd "$POL_USER_ROOT/tmp/"
 		POL_SetupWindow_download "$(eval_gettext "Downloading XQuartz")" "$STEP_TITLE" "$XQuartzUrl"
 		got_xquartz="true"
 	fi
