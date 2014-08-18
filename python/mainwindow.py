@@ -849,6 +849,8 @@ class MainWindow(wx.Frame):
 
         self.menuElem[id].SetColours(wx.Colour(0,0,0),wx.Colour(0,0,0),wx.Colour(0,0,0))
         self.menuElem[id].AutoBrowse(False)
+        self.menuElem[id].UpdateLink(True)
+        #self.menuElem[id].SetVisited(False)
         #self.menuElem[id].SetNormalColour(wx.Colour(0,0,0))
         #self.menuElem[id].SetVisitedColour(wx.Colour(0,0,0))
         #self.menuElem[id].SetHoverColour(wx.Colour(100,100,100))
