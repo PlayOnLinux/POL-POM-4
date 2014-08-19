@@ -661,7 +661,7 @@ class Onglets(wx.Notebook):
 
 class MainWindow(wx.Frame):
     def __init__(self,parent,id,title,shortcut, isPrefix = False):
-        wx.Frame.__init__(self, parent, -1, title, size = (800, 460+Variables.windows_add_size), style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX)
+        wx.Frame.__init__(self, parent, -1, title, size = (800, 455+Variables.windows_add_size), style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX)
         self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
         self.SetTitle(_('{0} configuration').format(os.environ["APPLICATION_TITLE"]))
         #self.panelFenp = wx.Panel(self, -1)
@@ -693,8 +693,8 @@ class MainWindow(wx.Frame):
             self.AddPrefix = wx.Button(self.control_game, 1001, _("New"), pos=(0,-8),size=(93,30))
             self.DelPrefix = wx.Button(self.control_game, 1002, _("Remove"), pos=(98,-8), size=(93,30))
         else:
-            self.AddPrefix = wx.Button(self.control_game, 1001, _("New"), pos=(0,0),size=(95,30))
-            self.DelPrefix = wx.Button(self.control_game, 1002, _("Remove"), pos=(100,0), size=(95,30))
+            self.AddPrefix = wx.Button(self.control_game, 1001, _("New"), pos=(0,0),size=(95,25))
+            self.DelPrefix = wx.Button(self.control_game, 1002, _("Remove"), pos=(100,0), size=(95,25))
 
         wx.EVT_BUTTON(self, 1001, self.NewPrefix)
         wx.EVT_BUTTON(self, 1002, self.DeletePrefix)
