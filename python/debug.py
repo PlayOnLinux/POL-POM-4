@@ -123,18 +123,19 @@ class MainWindow(wx.Frame):
 
         self.bold = wx.Font(wx.NORMAL_FONT.GetPointSize(), wx.FONTFAMILY_DEFAULT, wx.NORMAL, wx.BOLD)
 
-        if(line[0:5] == "wine:"):
-            self.log_reader.SetStyle(ins, ins+5, wx.TextAttr("red", wx.NullColour))
-
-        elif(line[0:6] == "fixme:"):
-            self.log_reader.SetStyle(ins, ins+leng, wx.TextAttr(wx.Colour(100,100,100), wx.NullColour))
-
-        elif(self.logtype == 1 and leng > 19 and line[17:20] == " - "):
-            self.log_reader.SetStyle(ins, ins+17, wx.TextAttr("black", wx.NullColour, self.bold))
-        elif(self.logtype == 0 and leng > 21 and line[19:22] == " - "):
-            self.log_reader.SetStyle(ins, ins+19, wx.TextAttr("black", wx.NullColour, self.bold))
-        else:
-            self.log_reader.SetStyle(ins, ins+leng, wx.TextAttr("black", wx.NullColour))
+        try:
+            if(line[0:5] == "wine:"):
+                self.log_reader.SetStyle(ins, ins+5, wx.TextAttr("red", wx.NullColour))
+            elif(line[0:6] == "fixme:"):
+                self.log_reader.SetStyle(ins, ins+leng, wx.TextAttr(wx.Colour(100,100,100), wx.NullColour))
+            elif(self.logtype == 1 and leng > 19 and line[17:20] == " - "):
+                self.log_reader.SetStyle(ins, ins+17, wx.TextAttr("black", wx.NullColour, self.bold))
+            elif(self.logtype == 0 and leng > 21 and line[19:22] == " - "):
+                self.log_reader.SetStyle(ins, ins+19, wx.TextAttr("black", wx.NullColour, self.bold))
+            else:
+                self.log_reader.SetStyle(ins, ins+leng, wx.TextAttr("black", wx.NullColour))
+        except wx._core.PyAssertionError:
+            pass
 
     def AutoReload(self, event):
         if(self.logfile != "" and self.logfile != None):
