@@ -34,7 +34,7 @@ class MainWindow(wx.Frame):
         self.logfile = None
         self.logname = ""
 
-        wx.Frame.__init__(self, parent, -1, title, size = (800, 600+Variables.windows_add_size), style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX)
+        wx.Frame.__init__(self, parent, -1, title, size = (810, 600+Variables.windows_add_size), style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX)
         self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
         self.SetTitle(_('{0} debugger').format(os.environ["APPLICATION_TITLE"]))
         #self.panelFenp = wx.Panel(self, -1)
