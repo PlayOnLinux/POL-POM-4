@@ -250,7 +250,7 @@ class InstallWindow(wx.Frame):
         #self.searchcaption = wx.StaticText(self.panelItems, -1, _("Search"), (position,82-71+self.search_offset), wx.DefaultSize)
         #position += self.searchcaption.GetSize()[0]+5
         self.searchbox = wx.SearchCtrl(self.panelItems, 110, size=(250,22), pos=(position,9))
-        self.searchbox.SetDescriptiveText(_("Search"))
+        #self.searchbox.SetDescriptiveText(_("Search"))
         position += self.searchbox.GetSize()[0]+20
 
         self.filterscaption = wx.StaticText(self.panelItems, -1, _("Include:"), (position,82-71+self.search_offset), wx.DefaultSize)
