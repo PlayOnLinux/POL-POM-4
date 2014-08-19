@@ -2,6 +2,9 @@
 * Fix reading/writing values containing '=' symbol in configuration files (#4834)
 * Make POL_Wine_InstallFonts preserve current directory (regression since 4.2.3)
 * Disable "Install" component button until a component is selected
+* Compatibility with wxpython 3.0
+* Compatibility with Debian 8
+* Compatibility with Mac OS 10.10
 
 # 4.2.4
 * New support and feedback system, easier to use
