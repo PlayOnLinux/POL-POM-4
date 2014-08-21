@@ -316,6 +316,7 @@ POL_Shortcut()
 	Binaire="$(basename "$binary_path")"
 	
 	[ "$binary_dir" = "" ] && POL_Debug_Fatal "Can't find $Binaire"
+	POL_Debug_Message "Looking for <$Binaire>, found <${binary_path}>"
 
 	if [ -n "$ICON_WEB_NAME" ]; then
 		if [ ! "$OFFLINE" = "1" ]; then # On peut le télécharger...
@@ -501,7 +502,7 @@ POL_Download ()
 		fi
 		POL_SetupWindow_download "$(eval_gettext 'Please wait while $APPLICATION_TITLE is downloading:')\n$FICHIER" "$TITLE" "$URL" "$PWD/$FICHIER"
                 if [ "$Result" = "Fail" ]; then
-			POL_SetupWindow_question "$(eval_gettext 'An error happened during download.')\n\n$(eval_gettext 'Do you want to retry?')"
+			POL_SetupWindow_question "$URL\n\n$(eval_gettext 'An error happened during download.')\n\n$(eval_gettext 'Do you want to retry?')"
 			if [ "$APP_ANSWER" = "FALSE" ]; then
 				POL_Debug_Error "POL_Download - error during download! ($i attempt)"
 			else
@@ -520,7 +521,7 @@ POL_Download ()
 				POL_Debug_Message "Download MD5 matches"
 			else
 				local SERVER_MD5="$2"
-				POL_SetupWindow_question "$(eval_gettext 'Error ! Files mismatch\n\nLocal : $LOCAL_MD5\nServer : $SERVER_MD5')\n\n$(eval_gettext 'Do you want to retry?')"
+				POL_SetupWindow_question "$URL\n\n$(eval_gettext 'Error ! Files mismatch\n\nLocal : $LOCAL_MD5\nServer : $SERVER_MD5')\n\n$(eval_gettext 'Do you want to retry?')"
 				if [ "$APP_ANSWER" = "TRUE" ]; then
 					POL_Download "$1" "$2" "$(( i + 1 ))"
 				else
@@ -568,7 +569,7 @@ POL_Download_Resource ()
 			[ -e "$FICHIER" ] && rm "$FICHIER"
 			POL_SetupWindow_download "$(eval_gettext "Please wait while $APPLICATION_TITLE is downloading:") $FICHIER" "$TITLE" "$URL"
 			if [ "$Result" = "Fail" ]; then
-				POL_SetupWindow_question "$(eval_gettext 'An error happened during download.')\n\n$(eval_gettext 'Do you want to retry?')"
+				POL_SetupWindow_question "$URL\n\n$(eval_gettext 'An error happened during download.')\n\n$(eval_gettext 'Do you want to retry?')"
 				if [ "$APP_ANSWER" = "FALSE" ]; then
 					POL_Debug_Error "POL_Download - error during download! ($i attempt)"
 				else
@@ -584,7 +585,7 @@ POL_Download_Resource ()
 					POL_Debug_Message "Download MD5 matches"
 				else
 					local SERVER_MD5="$2"
-					POL_SetupWindow_question "$(eval_gettext 'Error ! Files mismatch\n\nLocal : $LOCAL_MD5\nServer : $SERVER_MD5')\n\n$(eval_gettext 'Do you want to retry?')"
+					POL_SetupWindow_question "$URL\n\n$(eval_gettext 'Error ! Files mismatch\n\nLocal : $LOCAL_MD5\nServer : $SERVER_MD5')\n\n$(eval_gettext 'Do you want to retry?')"
 					if [ "$APP_ANSWER" = "FALSE" ]; then
 						POL_Debug_Error "POL_Download_Resource - MD5 sum mismatch ! ($i attempt)"
 					else

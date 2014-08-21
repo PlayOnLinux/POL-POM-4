@@ -5,6 +5,8 @@
 * Compatibility with wxpython 3.0
 * Compatibility with Debian 8
 * Compatibility with Mac OS 10.10
+* Mention URL in POL_Download and POL_Download_Resource error messages
+  (should help with user support)
 
 # 4.2.4
 * New support and feedback system, easier to use
