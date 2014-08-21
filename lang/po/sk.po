@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2014-08-11 19:00+0200\n"
+"POT-Creation-Date: 2014-08-18 19:00+0200\n"
 "PO-Revision-Date: 2013-12-11 12:41+0000\n"
 "Last-Translator: Michal Lelek <kozodoj@azet.sk>\n"
 "Language-Team: sk_SK.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-08-12 05:39+0000\n"
+"X-Launchpad-Export-Date: 2014-08-19 05:48+0000\n"
 "X-Generator: Launchpad (build 17156)\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -2020,7 +2020,7 @@ msgstr ""
 
 #: PlayOnLinux_Scripts/POL_GoG_Extract_:29 python/install.py:438
 #: python/install.py:441 python/install.py:457 python/install.py:459
-#: python/install.py:576 python/install.py:579
+#: python/install.py:579
 #, sh-format
 msgid "Please read this"
 msgstr "Prosím, prečítajte si toto"
@@ -2060,6 +2060,13 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Install_CentralizedUserDirs_:13
 #, sh-format
 msgid "In what directory do you want to redirect user directories?"
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_Install_crypt32_:14
+#: PlayOnLinux_Scripts/POL_Install_wineasio_:37
+#: PlayOnLinux_Scripts/yWriter_5_:45
+#, sh-format
+msgid "Downloading..."
 msgstr ""
 
 #: PlayOnLinux_Scripts/POL_Install_d3dcompiler_43_:11
@@ -2248,12 +2255,6 @@ msgstr ""
 msgid ""
 "VCRun2010 might fail to install because your PlayOnLinux version is too old. "
 "Please update."
-msgstr ""
-
-#: PlayOnLinux_Scripts/POL_Install_wineasio_:37
-#: PlayOnLinux_Scripts/yWriter_5_:45
-#, sh-format
-msgid "Downloading..."
 msgstr ""
 
 #: PlayOnLinux_Scripts/POL_Install_wintrust_:11
@@ -2798,13 +2799,13 @@ msgstr ""
 msgid "Please choose a virtual drive name"
 msgstr ""
 
-#: PlayOnLinux_Scripts/Steam_:80
+#: PlayOnLinux_Scripts/Steam_:81
 #, sh-format
 msgid ""
 "If you encounter problems with some games, try to disable Steam Overlay"
 msgstr ""
 
-#: PlayOnLinux_Scripts/Steam_:83
+#: PlayOnLinux_Scripts/Steam_:84
 #, sh-format
 msgid ""
 "If you want to install $TITLE in another virtual drive\\nRun this installer "
@@ -3163,14 +3164,14 @@ msgid ""
 "Your browser will pop, download patch from it and uncompress it please"
 msgstr ""
 
-#: PlayOnLinux_Scripts/World_Of_Tanks_:45
+#: PlayOnLinux_Scripts/World_Of_Tanks_:52
 #, sh-format
 msgid ""
 "Which region version of World of Tanks would you like to install? Note: "
 "Korea not supported on this installation."
 msgstr ""
 
-#: PlayOnLinux_Scripts/World_Of_Tanks_:55
+#: PlayOnLinux_Scripts/World_Of_Tanks_:62
 #, sh-format
 msgid ""
 "Attention:After installation is complete, the patcher will load. After, go "
@@ -3425,7 +3426,7 @@ msgid "Choose the name of the virtual drive"
 msgstr "Zvoľte meno virtuálnej jednotky"
 
 #: bash/expert/Executer:22 bash/expert/Executer:27 bash/expert/Executer:29
-#: python/mainwindow.py:274
+#: python/mainwindow.py:274 python/mainwindow.py.orig:274
 #, sh-format
 msgid "Run a local script"
 msgstr "Spustiť miestny skript"
@@ -3556,6 +3557,7 @@ msgstr "Použiť inú verziu Wine"
 
 #: bash/manual_install:139 bash/manual_install:191 bash/polconfigurator:102
 #: python/configure.py:232 python/mainwindow.py:580 python/mainwindow.py:612
+#: python/mainwindow.py.orig:580 python/mainwindow.py.orig:612
 #, sh-format
 msgid "Configure Wine"
 msgstr "Konfigurovať Wine"
@@ -3719,7 +3721,8 @@ msgid "is not an icon extension"
 msgstr "nie je prípona ikôn"
 
 #: bash/polconfigurator:103 python/configure.py:240 python/mainwindow.py:584
-#: python/mainwindow.py:625
+#: python/mainwindow.py:625 python/mainwindow.py.orig:584
+#: python/mainwindow.py.orig:625
 #, sh-format
 msgid "Registry Editor"
 msgstr "Editor registrov"
@@ -4245,7 +4248,10 @@ msgstr ""
 #: lib/setupwindow.lib:122 python/guiv3.py:769 python/mainwindow.py:1149
 #: python/mainwindow.py:1179 python/mainwindow.py:1193
 #: python/mainwindow.py:1202 python/mainwindow.py:1214
-#: python/mainwindow.py:1226 python/wrapper.py:121
+#: python/mainwindow.py:1226 python/mainwindow.py.orig:1149
+#: python/mainwindow.py.orig:1179 python/mainwindow.py.orig:1193
+#: python/mainwindow.py.orig:1202 python/mainwindow.py.orig:1214
+#: python/mainwindow.py.orig:1226 python/wrapper.py:121
 #, sh-format
 msgid "Error"
 msgstr "Chyba"
@@ -4569,6 +4575,7 @@ msgstr ""
 
 #: python/configure.py:335 python/install.py:285 python/install.py:289
 #: python/mainwindow.py:242 python/mainwindow.py:382
+#: python/mainwindow.py.orig:242 python/mainwindow.py.orig:382
 msgid "Install"
 msgstr "Pridať"
 
@@ -4642,6 +4649,7 @@ msgstr ""
 "Ak zmeníte "
 
 #: python/configure.py:666 python/mainwindow.py:963 python/mainwindow.py:965
+#: python/mainwindow.py.orig:963 python/mainwindow.py.orig:965
 msgid "{0} configuration"
 msgstr "{0} konfigurácia"
 
@@ -4654,7 +4662,9 @@ msgid "New"
 msgstr "Nová"
 
 #: python/configure.py:694 python/configure.py:697 python/mainwindow.py:243
-#: python/mainwindow.py:383 python/mainwindow.py:600 python/options.py:207
+#: python/mainwindow.py:383 python/mainwindow.py:600
+#: python/mainwindow.py.orig:243 python/mainwindow.py.orig:383
+#: python/mainwindow.py.orig:600 python/options.py:207
 msgid "Remove"
 msgstr "Odobrať"
 
@@ -4663,6 +4673,7 @@ msgid "Install components"
 msgstr "Inštalovať súčasti"
 
 #: python/configure.py:716 python/mainwindow.py:363
+#: python/mainwindow.py.orig:363
 msgid "Display"
 msgstr "Zobrazenie"
 
@@ -4683,7 +4694,8 @@ msgid "Are you sure you want to delete {0} ?"
 msgstr "Naozaj chcete vymazať {0} ?"
 
 #: python/debug.py:39 python/mainwindow.py:280 python/mainwindow.py:938
-#: python/mainwindow.py:1028
+#: python/mainwindow.py:1028 python/mainwindow.py.orig:280
+#: python/mainwindow.py.orig:938 python/mainwindow.py.orig:1028
 msgid "{0} debugger"
 msgstr "{0} ladenie"
 
@@ -4788,7 +4800,8 @@ msgstr "Hry"
 msgid "Graphics"
 msgstr "Grafika"
 
-#: python/install.py:215 python/mainwindow.py:286 python/options.py:384
+#: python/install.py:215 python/mainwindow.py:286
+#: python/mainwindow.py.orig:286 python/options.py:384
 msgid "Internet"
 msgstr "Internet"
 
@@ -4805,6 +4818,7 @@ msgid "Patches"
 msgstr "Opravy"
 
 #: python/install.py:249 python/mainwindow.py:398 python/mainwindow.py:401
+#: python/mainwindow.py.orig:398 python/mainwindow.py.orig:401
 msgid "Search"
 msgstr "Hľadať"
 
@@ -4879,14 +4893,19 @@ msgid ""
 msgstr ""
 
 #: python/install.py:576
-msgid ""
-"By enabling this, you will have access to testing installers.\n"
-"\n"
-"{0} cannot ensure that your app will work without any problems"
+msgid "Attention!"
 msgstr ""
-"Týmto získate prístup k testovacím inštalátorom.\n"
+
+#: python/install.py:576
+msgid ""
+"By enabling this option, you can install programs that employ digital rights "
+"management (DRM) copy protection that are not supported by {0} and might "
+"need to be bypassed.\n"
 "\n"
-"{0} nezaručí to, že Vaša aplikácia bude fungovať bez akýchkoľvek problémov."
+"This feature should not be construed as implicit or implied condoning of "
+"piracy and as such, we will not offer any support for issues resulting from "
+"using this option."
+msgstr ""
 
 #: python/install.py:579
 msgid ""
@@ -4904,220 +4923,235 @@ msgstr "Nie je nainštalované nič na spúšťanie súborov typu .{0}."
 msgid "{0} error"
 msgstr "{0} chyba"
 
-#: python/mainwindow.py:74
+#: python/mainwindow.py:74 python/mainwindow.py.orig:74
 msgid "{0} website is unavailable. Please check your connection"
 msgstr ""
 
-#: python/mainwindow.py:76
+#: python/mainwindow.py:76 python/mainwindow.py.orig:76
 msgid "Refreshing {0}"
 msgstr "Obnovuje sa {0}"
 
 #: python/mainwindow.py:91 python/mainwindow.py:93
+#: python/mainwindow.py.orig:91 python/mainwindow.py.orig:93
 msgid "An updated version of {0} is available"
 msgstr "Je dostupná nová verzia {0}"
 
 #: python/mainwindow.py:241 python/mainwindow.py:378 python/mainwindow.py:771
+#: python/mainwindow.py.orig:241 python/mainwindow.py.orig:378
+#: python/mainwindow.py.orig:771
 msgid "Run"
 msgstr "Spustiť"
 
-#: python/mainwindow.py:245
+#: python/mainwindow.py:245 python/mainwindow.py.orig:245
 msgid "Donate"
 msgstr "Prispieť"
 
-#: python/mainwindow.py:246
+#: python/mainwindow.py:246 python/mainwindow.py.orig:246
 msgid "Exit"
 msgstr "Koniec"
 
-#: python/mainwindow.py:250
+#: python/mainwindow.py:250 python/mainwindow.py.orig:250
 msgid "Small icons"
 msgstr "Malé ikony"
 
-#: python/mainwindow.py:251
+#: python/mainwindow.py:251 python/mainwindow.py.orig:251
 msgid "Medium icons"
 msgstr "Stredne veľké ikony"
 
-#: python/mainwindow.py:252
+#: python/mainwindow.py:252 python/mainwindow.py.orig:252
 msgid "Large icons"
 msgstr "Veľké ikony"
 
-#: python/mainwindow.py:253
+#: python/mainwindow.py:253 python/mainwindow.py.orig:253
 msgid "Very large icons"
 msgstr "Veľmi veľké ikony"
 
-#: python/mainwindow.py:265
+#: python/mainwindow.py:265 python/mainwindow.py.orig:265
 msgid "Manage Wine versions"
 msgstr "Spravovať Wine verzie"
 
-#: python/mainwindow.py:270
+#: python/mainwindow.py:270 python/mainwindow.py.orig:270
 msgid "Read a PC CD-Rom"
 msgstr "Načítať PC CD-Rom"
 
-#: python/mainwindow.py:275
+#: python/mainwindow.py:275 python/mainwindow.py.orig:275
 msgid "{0} console"
 msgstr "{0} konzola"
 
-#: python/mainwindow.py:277
+#: python/mainwindow.py:277 python/mainwindow.py.orig:277
 msgid "Close all {0} software"
 msgstr "Zavrieť všetok {0} softvér"
 
-#: python/mainwindow.py:287 python/options.py:388
+#: python/mainwindow.py:287 python/mainwindow.py.orig:287
+#: python/options.py:388
 msgid "File associations"
 msgstr "Asociácie súborov"
 
 #: python/mainwindow.py:288 python/mainwindow.py:336
+#: python/mainwindow.py.orig:288 python/mainwindow.py.orig:336
 msgid "Plugin manager"
 msgstr "Správca zásuvných modulov"
 
-#: python/mainwindow.py:292
+#: python/mainwindow.py:292 python/mainwindow.py.orig:292
 msgid "Supported software"
 msgstr ""
 
-#: python/mainwindow.py:293
+#: python/mainwindow.py:293 python/mainwindow.py.orig:293
 msgid "News"
 msgstr ""
 
-#: python/mainwindow.py:294
+#: python/mainwindow.py:294 python/mainwindow.py.orig:294
 msgid "Documentation"
 msgstr ""
 
-#: python/mainwindow.py:295
+#: python/mainwindow.py:295 python/mainwindow.py.orig:295
 msgid "Forums"
 msgstr ""
 
-#: python/mainwindow.py:296
+#: python/mainwindow.py:296 python/mainwindow.py.orig:296
 msgid "Bugs"
 msgstr ""
 
-#: python/mainwindow.py:298
+#: python/mainwindow.py:298 python/mainwindow.py.orig:298
 msgid "Twitter"
 msgstr ""
 
-#: python/mainwindow.py:299
+#: python/mainwindow.py:299 python/mainwindow.py.orig:299
 msgid "Google+"
 msgstr ""
 
-#: python/mainwindow.py:300
+#: python/mainwindow.py:300 python/mainwindow.py.orig:300
 msgid "Facebook"
 msgstr ""
 
-#: python/mainwindow.py:304
+#: python/mainwindow.py:304 python/mainwindow.py.orig:304
 msgid "About {0}"
 msgstr "O programe {0}"
 
-#: python/mainwindow.py:362
+#: python/mainwindow.py:362 python/mainwindow.py.orig:362
 msgid "File"
 msgstr "Súbor"
 
-#: python/mainwindow.py:364
+#: python/mainwindow.py:364 python/mainwindow.py.orig:364
 msgid "Tools"
 msgstr "Nástroje"
 
 #: python/mainwindow.py:365 python/mainwindow.py:757
+#: python/mainwindow.py.orig:365 python/mainwindow.py.orig:757
 msgid "Settings"
 msgstr "Nastavenia"
 
-#: python/mainwindow.py:366 python/options.py:387
+#: python/mainwindow.py:366 python/mainwindow.py.orig:366
+#: python/options.py:387
 msgid "Plugins"
 msgstr "Zásuvné moduly"
 
-#: python/mainwindow.py:367
+#: python/mainwindow.py:367 python/mainwindow.py.orig:367
 msgid "Support"
 msgstr ""
 
 #: python/mainwindow.py:379 python/mainwindow.py:773
+#: python/mainwindow.py.orig:379 python/mainwindow.py.orig:773
 msgid "Close"
 msgstr "Zavrieť"
 
-#: python/mainwindow.py:385 python/mainwindow.py:784 python/options.py:208
+#: python/mainwindow.py:385 python/mainwindow.py:784
+#: python/mainwindow.py.orig:385 python/mainwindow.py.orig:784
+#: python/options.py:208
 msgid "Configure"
 msgstr "Nastaviť"
 
-#: python/mainwindow.py:588
+#: python/mainwindow.py:588 python/mainwindow.py.orig:588
 msgid "Open the application's directory"
 msgstr "Otvoriť adresár aplikácie"
 
 #: python/mainwindow.py:592 python/mainwindow.py:792
+#: python/mainwindow.py.orig:592 python/mainwindow.py.orig:792
 msgid "Read the manual"
 msgstr "Prečítať návod"
 
-#: python/mainwindow.py:596
+#: python/mainwindow.py:596 python/mainwindow.py.orig:596
 msgid "Set the icon"
 msgstr "Nastaviť ikonu"
 
-#: python/mainwindow.py:604
+#: python/mainwindow.py:604 python/mainwindow.py.orig:604
 msgid "Close this application"
 msgstr "Zavrieť túto aplikáciu"
 
-#: python/mainwindow.py:615
+#: python/mainwindow.py:615 python/mainwindow.py.orig:615
 msgid "KillApp"
 msgstr "Ukončiť aplikáciu"
 
-#: python/mainwindow.py:622
+#: python/mainwindow.py:622 python/mainwindow.py.orig:622
 msgid "No manual found for {0}"
 msgstr "Nenašiel sa návod pre {0}"
 
-#: python/mainwindow.py:755
+#: python/mainwindow.py:755 python/mainwindow.py.orig:755
 msgid "Install a program"
 msgstr "Nainštalovať program"
 
-#: python/mainwindow.py:762
+#: python/mainwindow.py:762 python/mainwindow.py.orig:762
 msgid "Update GIT"
 msgstr "Aktualizovať GIT"
 
-#: python/mainwindow.py:765
+#: python/mainwindow.py:765 python/mainwindow.py.orig:765
 msgid "Update instructions"
 msgstr ""
 
-#: python/mainwindow.py:775
+#: python/mainwindow.py:775 python/mainwindow.py.orig:775
 msgid "Debug"
 msgstr "Ladenie"
 
-#: python/mainwindow.py:781
+#: python/mainwindow.py:781 python/mainwindow.py.orig:781
 msgid "Send a feedback"
 msgstr ""
 
-#: python/mainwindow.py:786
+#: python/mainwindow.py:786 python/mainwindow.py.orig:786
 msgid "Create a shortcut"
 msgstr "Vytvoriť odkaz"
 
-#: python/mainwindow.py:788
+#: python/mainwindow.py:788 python/mainwindow.py.orig:788
 msgid "Open the directory"
 msgstr "Otvoriť adresár"
 
-#: python/mainwindow.py:795
+#: python/mainwindow.py:795 python/mainwindow.py.orig:795
 msgid "Uninstall"
 msgstr "Odinštalovať"
 
 #: python/mainwindow.py:911 python/mainwindow.py:982 python/mainwindow.py:989
-#: python/mainwindow.py:1034
+#: python/mainwindow.py:1034 python/mainwindow.py.orig:911
+#: python/mainwindow.py.orig:982 python/mainwindow.py.orig:989
+#: python/mainwindow.py.orig:1034
 msgid "Please select a program."
 msgstr "Prosím, vyberte program"
 
 #: python/mainwindow.py:919 python/mainwindow.py:921 python/mainwindow.py:923
+#: python/mainwindow.py.orig:919 python/mainwindow.py.orig:921
+#: python/mainwindow.py.orig:923
 msgid "{0} settings"
 msgstr "{0} nastavenia"
 
-#: python/mainwindow.py:996
+#: python/mainwindow.py:996 python/mainwindow.py.orig:996
 msgid "{0} install menu"
 msgstr "{0} inštalačná ponuka"
 
-#: python/mainwindow.py:1005
+#: python/mainwindow.py:1005 python/mainwindow.py.orig:1005
 msgid "{0} wine versions manager"
 msgstr "{0} správca wine verzií"
 
-#: python/mainwindow.py:1036
+#: python/mainwindow.py:1036 python/mainwindow.py.orig:1036
 msgid "The virtual drive associated with {0} ({1}) does no longer exists."
 msgstr "Virtuálna jednotka priradená k {0} ({1}) už neexistuje."
 
-#: python/mainwindow.py:1080
+#: python/mainwindow.py:1080 python/mainwindow.py.orig:1080
 msgid "Are you sure you want to close all {0} Windows?"
 msgstr "Naozaj chcete zavrieť všetky {0} okná?"
 
-#: python/mainwindow.py:1102
+#: python/mainwindow.py:1102 python/mainwindow.py.orig:1102
 msgid "Run your Windows programs on "
 msgstr "Spustiť Vaše programy pre Windows na "
 
-#: python/mainwindow.py:1103
+#: python/mainwindow.py:1103 python/mainwindow.py.orig:1103
 msgid ""
 "PlayOnLinux and PlayOnMac team\n"
 "Under GPL licence version 3"
@@ -5125,59 +5159,59 @@ msgstr ""
 "Tím PlayOnLinux a PlayOnMac\n"
 "Pod licenciou GPL verzie 3"
 
-#: python/mainwindow.py:1104
+#: python/mainwindow.py:1104 python/mainwindow.py.orig:1104
 msgid "Developer and Website: "
 msgstr "Vývojár a webstránka: "
 
-#: python/mainwindow.py:1105
+#: python/mainwindow.py:1105 python/mainwindow.py.orig:1105
 msgid "Scriptors: "
 msgstr "Tvorcovia skriptov: "
 
-#: python/mainwindow.py:1106
+#: python/mainwindow.py:1106 python/mainwindow.py.orig:1106
 msgid "Packager: "
 msgstr "Tvorcovia balíčkov: "
 
-#: python/mainwindow.py:1107
+#: python/mainwindow.py:1107 python/mainwindow.py.orig:1107
 msgid "Icons:"
 msgstr "Ikony:"
 
-#: python/mainwindow.py:1108
+#: python/mainwindow.py:1108 python/mainwindow.py.orig:1108
 msgid "The following people contributed to this program: "
 msgstr "Nasledujúci ľudia sa podujali na tomto programe: "
 
-#: python/mainwindow.py:1109
+#: python/mainwindow.py:1109 python/mainwindow.py.orig:1109
 msgid "Translations:"
 msgstr "Preklady:"
 
-#: python/mainwindow.py:1110
+#: python/mainwindow.py:1110 python/mainwindow.py.orig:1110
 msgid "Read TRANSLATORS file"
 msgstr "Viď súbor TRANSLATORS"
 
-#: python/mainwindow.py:1149
+#: python/mainwindow.py:1149 python/mainwindow.py.orig:1149
 msgid "{0} is not able to start PlayOnLinux Setup Window server."
 msgstr "{0} nie je schopný spustiť server okien inštalátora PlayOnLinux."
 
-#: python/mainwindow.py:1170
+#: python/mainwindow.py:1170 python/mainwindow.py.orig:1170
 msgid "{0} cannot find {1}"
 msgstr "{0} nemôže nájsť {1}"
 
-#: python/mainwindow.py:1172
+#: python/mainwindow.py:1172 python/mainwindow.py.orig:1172
 msgid " (from {2})"
 msgstr " (z {2})"
 
-#: python/mainwindow.py:1175
+#: python/mainwindow.py:1175 python/mainwindow.py.orig:1175
 msgid "You need to install it to continue"
 msgstr "Pre pokračovanie ho musíte nainštalovať"
 
-#: python/mainwindow.py:1177
+#: python/mainwindow.py:1177 python/mainwindow.py.orig:1177
 msgid "You should install it to use {0}"
 msgstr "Mali by ste ho nainštalovať pre používanie {0}"
 
-#: python/mainwindow.py:1193
+#: python/mainwindow.py:1193 python/mainwindow.py.orig:1193
 msgid "{0} is not supposed to be run as root. Sorry"
 msgstr "{0} sa nezdá že by bol spustený ako root. Prepáčte"
 
-#: python/mainwindow.py:1202
+#: python/mainwindow.py:1202 python/mainwindow.py.orig:1202
 msgid ""
 "{0} is unable to find 32bits OpenGL libraries.\n"
 "\n"
@@ -5187,7 +5221,7 @@ msgstr ""
 "\n"
 "Môžete naraziť na problémy s Vašimi hrami"
 
-#: python/mainwindow.py:1214
+#: python/mainwindow.py:1214 python/mainwindow.py.orig:1214
 msgid ""
 "{0} is unable to find 64bits OpenGL libraries.\n"
 "\n"
@@ -5197,7 +5231,7 @@ msgstr ""
 "\n"
 "Môžete naraziť na problémy s Vašimi hrami"
 
-#: python/mainwindow.py:1226
+#: python/mainwindow.py:1226 python/mainwindow.py.orig:1226
 msgid ""
 "Your filesystem might prevent {0} from running correctly.\n"
 "\n"
@@ -5207,7 +5241,7 @@ msgstr ""
 "\n"
 "Prosím, otvorte {0} v termináli, pre získanie viacerých podrobností."
 
-#: python/mainwindow.py:1230
+#: python/mainwindow.py:1230 python/mainwindow.py.orig:1230
 msgid ""
 "Do you want to help {0} to make a compatibility database?\n"
 "\n"
@@ -5233,12 +5267,13 @@ msgstr ""
 "\n"
 "Tieto informácie budú veľmi cenné pre nás pri pomoci ľuďom."
 
-#: python/mainwindow.py:1287
+#: python/mainwindow.py:1287 python/mainwindow.py.orig:1287
 msgid "Are you sure you want to  want to install {0} package?"
 msgstr "Naozaj chcete nainštalovať balíček {0}?"
 
 #: python/mainwindow.py:1294 python/mainwindow.py:1296
-#: python/mainwindow.py:1298
+#: python/mainwindow.py:1298 python/mainwindow.py.orig:1294
+#: python/mainwindow.py.orig:1296 python/mainwindow.py.orig:1298
 msgid ""
 "You are trying to open a script design for {0}! It might not work as expected"
 msgstr ""
