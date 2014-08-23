@@ -194,10 +194,14 @@ class Onglets(wx.Notebook):
         self.list_ver_installed[arch].SetSpacing(0);
         wx.StaticText(self.panelFenp[arch], -1, _("Installed Wine versions: "),(395,10))
         wx.StaticText(self.panelFenp[arch], -1, _("Available Wine versions: "),(5,10))
-
-        self.button_rm[arch] = wx.Button(self.panelFenp[arch], 108+add, "<", pos=(333, 175), size=(50,30))
-        self.button_in[arch] = wx.Button(self.panelFenp[arch], 109+add, ">", pos=(333, 125), size=(50,30))
-
+        
+        if(os.environ["POL_OS"] == "Mac"):
+            self.button_rm[arch] = wx.Button(self.panelFenp[arch], 108+add, "<", pos=(333, 175), size=(50,30))
+            self.button_in[arch] = wx.Button(self.panelFenp[arch], 109+add, ">", pos=(333, 125), size=(50,30))
+        else:
+            self.button_rm[arch] = wx.Button(self.panelFenp[arch], 108+add, "<", pos=(340, 175), size=(50,30))
+            self.button_in[arch] = wx.Button(self.panelFenp[arch], 109+add, ">", pos=(340, 125), size=(50,30))
+            
         self.button_rm[arch].Enable(False)
         self.button_in[arch].Enable(False)
         self.AddPage(self.panelFenp[arch], _("Wine versions")+" ("+arch+")", imageId=0)
