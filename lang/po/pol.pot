@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX/APLU <pol-gettext@mulx.net>\n"
-"POT-Creation-Date: 2014-08-25 19:00:55+02:00\n"
+"POT-Creation-Date: 2014-08-26 19:00:53+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -251,7 +251,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/ElsterFormular_:43 PlayOnLinux_Scripts/FEZ__Steam__:49
 #: PlayOnLinux_Scripts/FL_Studio_10_:33 PlayOnLinux_Scripts/Far_Cry_2_:80
 #: PlayOnLinux_Scripts/Flash_8_:22 PlayOnLinux_Scripts/Flash_MX_:22
-#: PlayOnLinux_Scripts/Google_SketchUp_:53
+#: PlayOnLinux_Scripts/Google_SketchUp_:95
 #: PlayOnLinux_Scripts/Guild_Wars_2_:70 PlayOnLinux_Scripts/Half_Life_2_:108
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:88
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:88
@@ -371,6 +371,26 @@ msgstr ""
 #: PlayOnLinux_Scripts/Absynth_5_:53 PlayOnLinux_Scripts/Guitar_Rig_5_:46
 #, sh-format
 msgid "NOTICE: For low-latency audio, look into WineASIO."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Adobe_Photoshop_Lightroom_5_:28
+#, sh-format
+msgid ""
+"IMPORTANT: This program does NOT work well with most Intel graphics. It WILL "
+"crash. Nvidia and AMD proprietary drivers are REQUIRED in most cases."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Adobe_Photoshop_Lightroom_5_:31
+#: PlayOnLinux_Scripts/The_Wolf_Among_Us_:29
+#, sh-format
+msgid "Please select $TITLE install file."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Adobe_Photoshop_Lightroom_5_:43
+#, sh-format
+msgid ""
+"PlayOnLinux will now install a few required programs, including IE6. Just "
+"click NEXT through IE install, as you usually would."
 msgstr ""
 
 #: PlayOnLinux_Scripts/Age_of_Empires_II___The_Age_of_Kings_:66
@@ -1618,6 +1638,24 @@ msgstr ""
 msgid "Please select the game language"
 msgstr ""
 
+#: PlayOnLinux_Scripts/Google_SketchUp_:43 PlayOnLinux_Scripts/Hearthstone_:29
+#, sh-format
+msgid "What language do you want to install?"
+msgstr ""
+
+#: PlayOnLinux_Scripts/Google_SketchUp_:102
+#, sh-format
+msgid ""
+"If you are using localised binary, you must \n"
+"have the correct locale package installed.\\n\\n\n"
+"If the Google SketchUp language differs from your desktop setting you \n"
+"must prefix the launch by forcing your locale.\\n\n"
+"   - Go to : Configure > Google Sketchup (Shortcut) > Miscellaneous \\n\\n\n"
+"   - Write and adapt the following line depending on your locale in the "
+"\"Command to exec before running the program\" field:\\n\\n\n"
+"      export LANG=<set_your_locale_here>\n"
+msgstr ""
+
 #: PlayOnLinux_Scripts/Gothic_3_:82
 #, sh-format
 msgid "Choose the game resolution"
@@ -1738,11 +1776,6 @@ msgid ""
 "When the install program starts, click on ${INSTALL_JP}. When a new window "
 "opens, click on ${INSTALL_JP}. When installation finishes, click on "
 "${END_JP} and then on ${YES_JP} (Y). Click Next to begin installation."
-msgstr ""
-
-#: PlayOnLinux_Scripts/Hearthstone_:29
-#, sh-format
-msgid "What language do you want to install?"
 msgstr ""
 
 #: PlayOnLinux_Scripts/ImgBurn_:38
@@ -3068,11 +3101,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Witcher_Patch_1.5_:108
 #, sh-format
 msgid "Donwload finished.\\nPatches installation will begin"
-msgstr ""
-
-#: PlayOnLinux_Scripts/The_Wolf_Among_Us_:29
-#, sh-format
-msgid "Please select $TITLE install file."
 msgstr ""
 
 #: PlayOnLinux_Scripts/The_mighty_quest_for_epic_loot_:50
