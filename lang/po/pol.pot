@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX/APLU <pol-gettext@mulx.net>\n"
-"POT-Creation-Date: 2014-09-01 19:01:46+02:00\n"
+"POT-Creation-Date: 2014-09-02 19:00:55+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4079,6 +4079,20 @@ msgstr ""
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
 "prevent wine from working\\n\\n$FilePath"
+msgstr ""
+
+#: lib/playonlinux.lib:881
+#, sh-format
+msgid ""
+"Your Linux kernel may not be configured to run Win16 programs under Wine"
+"\\nSee $EXPLANATION_URL"
+msgstr ""
+
+#: lib/playonlinux.lib:884
+#, sh-format
+msgid ""
+"Your kernel may be incompatible with running Win16 programs under Wine\\nSee "
+"$EXPLANATION_URL"
 msgstr ""
 
 #: lib/plugins.lib:66
