@@ -872,6 +872,19 @@ POL_Config_CheckGL()
 	bash "$PLAYONLINUX/bash/check_gl" "x86"
 	bash "$PLAYONLINUX/bash/check_gl" "amd64"	
 }
+POL_Config_Win16()
+{
+	if [ "$POL_OS" = "Linux" ]; then
+		local EXPLANATION_URL="http://www.playonlinux.com/..."
+		if [ -e /proc/sys/abi/ldt16 ]; then
+			if [ "$(cat /proc/sys/abi/ldp16)" = "0" ]; then
+				POL_SetupWindow_message "$(eval_gettext 'Your Linux kernel may not be configured to run Win16 programs under Wine\nSee $EXPLANATION_URL')"
+			fi
+		elsif [[ "$(uname -r)" =~ "3\.13\.*" ]]; then
+			POL_SetupWindow_message "$(eval_gettext 'Your kernel may be incompatible with running Win16 programs under Wine\nSee $EXPLANATION_URL')"
+		fi
+	fi
+}
 POL_Sudo()
 {
 	if [ ! "$POL_BAD_SIGNATURE" = "TRUE" ]; then

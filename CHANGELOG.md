@@ -7,6 +7,8 @@
 * Compatibility with Mac OS 10.10
 * Mention URL in POL_Download and POL_Download_Resource error messages
   (should help with user support)
+* Add POL_Config_Win16 to check if the host can run win16 programs, see
+  http://linux-kernel.2935.n7.nabble.com/tip-x86-urgent-x86-64-modify-ldt-Ban-16-bit-segments-on-64-bit-kernels-td838675i120.html
 
 # 4.2.4
 * New support and feedback system, easier to use
