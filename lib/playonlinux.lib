@@ -880,7 +880,7 @@ POL_Config_Win16()
 			if [ "$(cat /proc/sys/abi/ldp16)" = "0" ]; then
 				POL_SetupWindow_message "$(eval_gettext 'Your Linux kernel may not be configured to run Win16 programs under Wine\nSee $EXPLANATION_URL')"
 			fi
-		elsif [[ "$(uname -r)" =~ "3\.13\.*" ]]; then
+		elif [[ "$(uname -r)" =~ "3\.13\.*" ]]; then
 			POL_SetupWindow_message "$(eval_gettext 'Your kernel may be incompatible with running Win16 programs under Wine\nSee $EXPLANATION_URL')"
 		fi
 	fi
