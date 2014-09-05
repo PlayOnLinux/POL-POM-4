@@ -334,6 +334,8 @@ POL_SetupWindow_cdrom ()
 		DEVICES="/media"
 		# Ubuntu Quantal workaround
 		[ -d "/media/$USER" ] && DEVICES="/media/$USER"
+		# Fedora/Manjaro workaround
+		[ -d "/run/media/$USER" ] && DEVICES="/run/media/$USER"
 	fi
 	
 	cd "$DEVICES"
