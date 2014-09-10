@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: gogo <trebelnik2@gmail.com>\n"
-"POT-Creation-Date: 2014-09-01 19:01+0200\n"
-"PO-Revision-Date: 2014-04-13 08:00+0000\n"
+"POT-Creation-Date: 2014-09-08 19:00+0200\n"
+"PO-Revision-Date: 2014-09-05 10:53+0000\n"
 "Last-Translator: gogo <trebelnik2@gmail.com>\n"
 "Language-Team: Croatian <hr@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-09-02 06:04+0000\n"
-"X-Generator: Launchpad (build 17192)\n"
+"X-Launchpad-Export-Date: 2014-09-09 05:52+0000\n"
+"X-Generator: Launchpad (build 17196)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -234,7 +234,7 @@ msgstr "Radnja završena"
 #: PlayOnLinux_Scripts/The_Settlers_III_Gold_Edition_:62
 #, sh-format
 msgid "Please insert the game media into your disc drive."
-msgstr ""
+msgstr "Umetnite DVD medij igre u pogonski disk"
 
 #: PlayOnLinux_Scripts/18_Wheels_of_Steel__Across_America_:38
 #: PlayOnLinux_Scripts/18_Wheels_of_Steel__Haulin_:52
@@ -391,11 +391,13 @@ msgid ""
 "NOTICE: To register, when it opens asking for registration, drag-and-drop "
 "your reg file into $TITLE"
 msgstr ""
+"NAPOMENA: Da biste se registrirali, prilikom traženja registracije, povucite "
+"i ispustite reg datoteku u $TITLE"
 
 #: PlayOnLinux_Scripts/Absynth_5_:53 PlayOnLinux_Scripts/Guitar_Rig_5_:46
 #, sh-format
 msgid "NOTICE: For low-latency audio, look into WineASIO."
-msgstr ""
+msgstr "NAPOMENA: za nisko latentni zvuk, pogledajte u WineASIO."
 
 #: PlayOnLinux_Scripts/Adobe_Photoshop_Lightroom_5_:28
 #, sh-format
@@ -403,12 +405,15 @@ msgid ""
 "IMPORTANT: This program does NOT work well with most Intel graphics. It WILL "
 "crash. Nvidia and AMD proprietary drivers are REQUIRED in most cases."
 msgstr ""
+"NAPOMENA: Ovaj program NE RADI dobro s većinom Intelovih grafičkih kartica. "
+"SRUŠIT će se. Nvidia i AMD vlasnički pogonski programi su POTREBNI u većini "
+"slučajeva."
 
 #: PlayOnLinux_Scripts/Adobe_Photoshop_Lightroom_5_:31
 #: PlayOnLinux_Scripts/The_Wolf_Among_Us_:29
 #, sh-format
 msgid "Please select $TITLE install file."
-msgstr ""
+msgstr "Odaberite $TITLE instalacijsku datoteku."
 
 #: PlayOnLinux_Scripts/Adobe_Photoshop_Lightroom_5_:43
 #, sh-format
@@ -416,11 +421,13 @@ msgid ""
 "PlayOnLinux will now install a few required programs, including IE6. Just "
 "click NEXT through IE install, as you usually would."
 msgstr ""
+"PlayOnLinux će sada instalirati nekoliko potrebnih programa, uključujući "
+"IE6. Samo kliknite Slijedeće kroz IE instalaciju, kao što inače radite."
 
 #: PlayOnLinux_Scripts/Age_of_Empires_II___The_Age_of_Kings_:66
 #, sh-format
 msgid "Do you want to install the 2.0a Patch?"
-msgstr ""
+msgstr "Želite li instalirati 2.0a zakrpu?"
 
 #: PlayOnLinux_Scripts/Age_of_Empires_II___The_Conquerors_:31
 #: PlayOnLinux_Scripts/Age_of_Empires_II___The_Conquerors___Age_of_Vampires___Blood_Reign_in_Transylvania_:30
@@ -446,17 +453,21 @@ msgid ""
 "This is an installer for an update or an addon;\\nPlease install "
 "$TITLE_REQUIRED first"
 msgstr ""
+"Ovo je instalacijski program za ažuriranje ili dodatak;\\nPrvo instalirajte "
+"$TITLE_REQUIRED"
 
 #: PlayOnLinux_Scripts/Age_of_Empires_II___The_Conquerors_:74
 #, sh-format
 msgid "Do you want to install the 1.0c Patch?"
-msgstr ""
+msgstr "Želite li instalirati 1.0c zakrpu?"
 
 #: PlayOnLinux_Scripts/Age_of_Empires_II___The_Conquerors___Rome_at_War_:47
 #, sh-format
 msgid ""
 "In order to installa $TITLE we need to install first Mod Pack Studio Lite 2.0"
 msgstr ""
+"Da bi bilo moguće instalirati $TITLE prvo se mora instalirati Mod Pack "
+"Studio Lite 2.0"
 
 #: PlayOnLinux_Scripts/Age_of_Empires_II___The_Conquerors___Tales_of_Middle_Earth_:38
 #: PlayOnLinux_Scripts/Age_of_Empires_II___The_Conquerors___Tales_of_Middle_Earth_:76
@@ -465,6 +476,8 @@ msgid ""
 "Please notice that Standards Maps do not work correctly, whereas Custom Maps "
 "works without problems."
 msgstr ""
+"Imajte na umu da Standardne mape ne rade ispravno, dok Prilagođene mape rade "
+"bez problema."
 
 #: PlayOnLinux_Scripts/Alan_Wake_:81
 #: PlayOnLinux_Scripts/Alien_Breed_2___Assault_:74
@@ -505,6 +518,9 @@ msgid ""
 "nClose COMPLETELY the Steam interface, \\nso that the installation script "
 "can continue"
 msgstr ""
+"Kada preuzimanje $TITLE putem Steama završi,\\nNEMOJTE kliknuti na Pokreni.\\"
+"n\\nPOTPUNO zatvorite Steam sučelje, \\nda instalacijska skripta može "
+"nastaviti"
 
 #: PlayOnLinux_Scripts/Alien_Breed_2___Assault_:88
 #: PlayOnLinux_Scripts/Alien_Breed_3___Descent_:87
@@ -512,12 +528,13 @@ msgstr ""
 #, sh-format
 msgid "If .NET 3.0 installation fail, dont worry\\nthe game will still work"
 msgstr ""
+"Ako .NET 3.0 instalacija ne uspije, ne brinite\\nigra će još uvijek raditi"
 
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:30
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:40
 #, sh-format
 msgid "You dont have to install DirectX or use GLSetup."
-msgstr ""
+msgstr "Ne morate instalirati DirectX ili koristiti GLSetup."
 
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:39
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Tiberium_Wars__Kane_Edition__:123
@@ -540,7 +557,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/iTunes_10_:28
 #, sh-format
 msgid "Please select the setup file to run."
-msgstr ""
+msgstr "Odaberite setup datoteku za pokretanje."
 
 #: PlayOnLinux_Scripts/Anno_1602_:41 PlayOnLinux_Scripts/EVE_online_:94
 #: PlayOnLinux_Scripts/EVE_online_:122
@@ -557,7 +574,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/SubRip_:33 PlayOnLinux_Scripts/Theme_Hospital_:48
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:116 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:919 lib/wine.lib:997
+#: bash/winebash:27 lib/setupwindow.lib:435 lib/wine.lib:919 lib/wine.lib:997
 #: lib/wine.lib:1027
 #, sh-format
 msgid "Please wait..."
@@ -621,6 +638,7 @@ msgstr "Odaberite instalacijsku datoteku za pokretanje:"
 #, sh-format
 msgid "Welcome in the patch $PVERSION Installer for $TITLE_REQUIRED"
 msgstr ""
+"Dobrodošli u zakrpu $PVERSION Instalacijski program za $TITLE_REQUIRED"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:45
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:46
@@ -630,7 +648,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Witcher_2___Enhanced_Edition_Patch_:42
 #, sh-format
 msgid "Steam have is own automatic update system"
-msgstr ""
+msgstr "Steam ima svoj vlastiti automatski sustav ažuriranja"
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_2_Patch_1.01_:54
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Brotherhood_Patch_1.03_:55
@@ -715,7 +733,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:41
 #, sh-format
 msgid "Steam have is own automatic update system."
-msgstr ""
+msgstr "Steam ima svoj vlastiti automatski sustav ažuriranja."
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Revelations_:74
 #: PlayOnLinux_Scripts/Baldur_s_Gate_:43 PlayOnLinux_Scripts/Baldur_s_Gate_:80
@@ -727,7 +745,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Witcher_:102
 #, sh-format
 msgid "Please insert the game media into your disk drive"
-msgstr ""
+msgstr "Umetnite svoj DVD medij u disk pogon."
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_:51 PlayOnLinux_Scripts/Baldur_s_Gate_:59
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_:51
@@ -738,6 +756,8 @@ msgstr ""
 #, sh-format
 msgid "When the game setup will ask for next Disk\\nclick on \\\"Forward\\\""
 msgstr ""
+"Kada će vas instalacijski program igre pitati za  slijedeći Disk\\nkliknite "
+"na  \\\"Sljedeće\\\""
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_:54 PlayOnLinux_Scripts/Baldur_s_Gate_:62
 #: PlayOnLinux_Scripts/Baldur_s_Gate_:67 PlayOnLinux_Scripts/Baldur_s_Gate_:72
@@ -748,7 +768,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Witcher_:113
 #, sh-format
 msgid "Please insert the next game media into your disk drive"
-msgstr ""
+msgstr "Umetnite slijedeći DVD medij u vaš diskovni pogon"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:27
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:28
@@ -761,6 +781,7 @@ msgstr ""
 #, sh-format
 msgid "Welcome in the patch $PVERSION installer for $TITLE_REQUIRED"
 msgstr ""
+"Dobrodošli u zakrpu $PVERSION instalacijskog programa za $TITLE_REQUIRED"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:31
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:31
@@ -779,7 +800,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Wow_Cartographe_:34
 #, sh-format
 msgid "Please install $TITLE_REQUIRED first"
-msgstr ""
+msgstr "Prvo instalirajte $TITLE_REQUIRED"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:48
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:49
@@ -787,7 +808,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:49
 #, sh-format
 msgid "English version"
-msgstr ""
+msgstr "Engleska inačica"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:48
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:48
@@ -795,19 +816,19 @@ msgstr ""
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:51
 #, sh-format
 msgid "International version"
-msgstr ""
+msgstr "Međunarodna inačica"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:48
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:52
 #, sh-format
 msgid "Italian version"
-msgstr ""
+msgstr "Talijanska inačica"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:48
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:55
 #, sh-format
 msgid "Japanese version"
-msgstr ""
+msgstr "Japanska inačica"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II_Patch_2.5.23037_:48
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_Patch_2.5.26498_:48
@@ -817,7 +838,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:42
 #, sh-format
 msgid "Which version do you have?"
-msgstr ""
+msgstr "Koju inačicu imate?"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_:31
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_:31
@@ -840,21 +861,21 @@ msgstr "Igra nije instalirana."
 #: PlayOnLinux_Scripts/Baldur_s_Gate_II___Throne_of_Bhaal_:68
 #, sh-format
 msgid "This addon automatically install patch 2.5.26461"
-msgstr ""
+msgstr "Ovaj dodatak automatski instalira zakrpu 2.5.26461"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:43
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:43
 #: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_Patch_1.02_:54
 #, sh-format
 msgid "Select first patch to execute"
-msgstr ""
+msgstr "Odaberi prvu zakrpu za pokretanje"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:46
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:46
 #: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_Patch_1.02_:57
 #, sh-format
 msgid "Select second patch to execute"
-msgstr ""
+msgstr "Odaberi drugu zakrpu za pokretanje"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:51
 #: PlayOnLinux_Scripts/Baldur_s_Gate_Patch_1.1.4315_:52
@@ -862,18 +883,18 @@ msgstr ""
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:52
 #, sh-format
 msgid "US or Canadian version"
-msgstr ""
+msgstr "SAD ili kanadska inačica"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_:68
 #, sh-format
 msgid "This addon automatically install patch 1.3.5511"
-msgstr ""
+msgstr "Ovaj dodatak automatski instalira zakrpu 1.3.5511"
 
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:51
 #: PlayOnLinux_Scripts/Baldur_s_Gate___Tales_of_the_Sword_Coast_Patch_1.3.5512_:59
 #, sh-format
 msgid "UK version"
-msgstr ""
+msgstr "UK inačica"
 
 #: PlayOnLinux_Scripts/Batman_Arkham_Asylum_:109
 #: PlayOnLinux_Scripts/Batman_Arkham_City_:109
@@ -885,6 +906,8 @@ msgid ""
 "You must disable anti-piracy protections of this game\\nif you want to play "
 "it with wine"
 msgstr ""
+"Morate onemogućiti zaštitu protiv piratstva za ovu igru\\nako ju želite "
+"igrati s wineom"
 
 #: PlayOnLinux_Scripts/Battlefield_1942_:44
 #: PlayOnLinux_Scripts/POL_Function_NoCDWarning_:1
@@ -894,6 +917,9 @@ msgid ""
 "patch even if you have a legal version.\\n\\nPlease remember that "
 "$APPLICATION_TITLE is strongly against piracy, and will never support it."
 msgstr ""
+"Budite pažljivi! Za pokretanje $TITLE s $APPLICATION_TITLE, morate "
+"instalirati No-CD zakrpu čak iako imate legalnu inačicu.\\n\\nImajte na umu "
+"da je $APPLICATION_TITLE strogo protiv piratstva i nikad ga neće podržati."
 
 #: PlayOnLinux_Scripts/Blur_:102 PlayOnLinux_Scripts/Borderlands_:120
 #: PlayOnLinux_Scripts/Cars_2_:83
@@ -909,11 +935,13 @@ msgid ""
 "You must disable anti-piracy protections of this game\\nif you want to play "
 "it with wine."
 msgstr ""
+"Morate onemogućiti zaštitu protiv piratstva za ovu igru\\nako ju želite "
+"igrati s wineom."
 
 #: PlayOnLinux_Scripts/Borderlands_:59 PlayOnLinux_Scripts/Fallout_3_:57
 #, sh-format
 msgid "Game Of The Year version"
-msgstr ""
+msgstr "Igra godine inačice"
 
 #: PlayOnLinux_Scripts/Borderlands_:59 PlayOnLinux_Scripts/Borderlands_:60
 #: PlayOnLinux_Scripts/Fallout_3_:57 PlayOnLinux_Scripts/Fallout_3_:58
@@ -926,7 +954,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Prince_of_Persia___The_Forgotten_Sands_:70
 #, sh-format
 msgid "Normal version"
-msgstr ""
+msgstr "Normalna inačica"
 
 #: PlayOnLinux_Scripts/Borderlands_Patch_1.41_:27
 #: PlayOnLinux_Scripts/Dragon_Age_Patch_1.04_:24
@@ -944,7 +972,7 @@ msgstr "Dobrodošli u zakrpu $PVERSION instalacije $TITLE"
 #, sh-format
 msgid ""
 "Warning: GameShadow wont work.\\nPlease de-select during installation."
-msgstr ""
+msgstr "Upozorenje: GameShadow ne radi.\\nOdznačite ga tijekom instalacije."
 
 #: PlayOnLinux_Scripts/CivCity_Rome_:64
 #: PlayOnLinux_Scripts/Dungeon_Siege_III_:59
@@ -955,6 +983,8 @@ msgid ""
 "Do not forget to close Steam when downloading\\nis finished, so that "
 "$APPLICATION_TITLE can continue\\nto install your game."
 msgstr ""
+"Ne zaboravite zatvoriti Steam kada preuzimanje\\nzavrši, da "
+"$APPLICATION_TITLE može nastaviti\\ninstalaciju vaše igre."
 
 #: PlayOnLinux_Scripts/Civilization_IV__Complete_Edition_:72
 #, sh-format
@@ -963,18 +993,21 @@ msgid ""
 "shows you to the login interface, login and then let $TITLE install.\\n\\"
 "nWhen the installation is finished, press next (Do not close Steam)"
 msgstr ""
+"Steam će pokrenuti ažuriranje.\\nNakon što Steam završi ažuriranje i prikaže "
+"sučelje prijave, prijavite se i pričekajte da se $TITLE instalira.\\n\\nKada "
+"instalacija završi, pritisnite next (Ne zatvarajte Steam)"
 
 #: PlayOnLinux_Scripts/Civilization_IV__Complete_Edition_:75
 #, sh-format
 msgid ""
 "Steam is installing $TITLEW, press next when the installation is finished"
-msgstr ""
+msgstr "Steam instalira $TITLEW, pritisnite next kada instalacija završi"
 
 #: PlayOnLinux_Scripts/Civilization_IV__Complete_Edition_:78
 #, sh-format
 msgid ""
 "Steam is installing $TITLEBTS, press next when the installation is finished"
-msgstr ""
+msgstr "Steam instalira $TITLEBTS, pritisnite next kada instalacija završi"
 
 #: PlayOnLinux_Scripts/Civilization_IV__Complete_Edition_:81
 #, sh-format
@@ -1043,7 +1076,7 @@ msgstr "Instalacija u tijeku..."
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:75 PlayOnLinux_Scripts/Goblins_3_:21
 #, sh-format
 msgid "English"
-msgstr ""
+msgstr "Engleski"
 
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Tiberium_Wars__Kane_Edition__Patch_1.09_:55
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Tiberium_Wars__Kane_Edition__Patch_1.09_:56
@@ -1052,7 +1085,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:86 PlayOnLinux_Scripts/Goblins_3_:21
 #, sh-format
 msgid "French"
-msgstr ""
+msgstr "Francuski"
 
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Tiberium_Wars__Kane_Edition__Patch_1.09_:55
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Tiberium_Wars__Kane_Edition__Patch_1.09_:58
@@ -1061,14 +1094,14 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Outcast_:97
 #, sh-format
 msgid "German"
-msgstr ""
+msgstr "Njemački"
 
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Tiberium_Wars__Kane_Edition__Patch_1.09_:55
 #: PlayOnLinux_Scripts/Internet_Explorer_7_:57
 #: PlayOnLinux_Scripts/Mozilla_Firefox_:79
 #, sh-format
 msgid "Which language version would you like to install?"
-msgstr ""
+msgstr "Koju inačicu jezika želite instalirati?"
 
 #: PlayOnLinux_Scripts/Command_And_Conquer___Red_Alert_1_:23
 #, sh-format
@@ -1596,6 +1629,14 @@ msgstr ""
 msgid ""
 "If you can barely distinguish a landscape behind main menu,\\ndisable FOG in "
 "graphic options."
+msgstr ""
+
+#: PlayOnLinux_Scripts/GOG.com___Risen_2__Dark_Waters_:33
+#, sh-format
+msgid ""
+"Do you want to install the Gold Edition Upgrade now? This will only be "
+"possible if you purchased the Gold Edition, you can still install it later "
+"if you want."
 msgstr ""
 
 #: PlayOnLinux_Scripts/GOG.com___Sanitarium_:63
@@ -4147,6 +4188,20 @@ msgid ""
 "prevent wine from working\\n\\n$FilePath"
 msgstr ""
 
+#: lib/playonlinux.lib:881
+#, sh-format
+msgid ""
+"Your Linux kernel may not be configured to run Win16 programs under Wine\\"
+"nSee $EXPLANATION_URL"
+msgstr ""
+
+#: lib/playonlinux.lib:884
+#, sh-format
+msgid ""
+"Your kernel may be incompatible with running Win16 programs under Wine\\nSee "
+"$EXPLANATION_URL"
+msgstr ""
+
 #: lib/plugins.lib:66
 #, sh-format
 msgid "Checking plugin: "
@@ -4317,32 +4372,32 @@ msgstr ""
 msgid "Error"
 msgstr "Greška"
 
-#: lib/setupwindow.lib:348
+#: lib/setupwindow.lib:350
 #, sh-format
 msgid "Where is mounted your CD-ROM?"
 msgstr "Gdje je montiran vaš CD-ROM?"
 
-#: lib/setupwindow.lib:349 python/install.py:222
+#: lib/setupwindow.lib:351 python/install.py:222
 #, sh-format
 msgid "Other"
 msgstr "Ostalo"
 
-#: lib/setupwindow.lib:350 python/install.py:290 python/install.py:294
+#: lib/setupwindow.lib:352 python/install.py:290 python/install.py:294
 #, sh-format
 msgid "Refresh"
 msgstr "Osvježi"
 
-#: lib/setupwindow.lib:382
+#: lib/setupwindow.lib:384
 #, sh-format
 msgid "Reading your device"
 msgstr ""
 
-#: lib/setupwindow.lib:397
+#: lib/setupwindow.lib:399
 #, sh-format
 msgid "Error: Unable to find the CD-ROM!"
 msgstr "Greška: nemoguće je pronaći CD-ROM!"
 
-#: lib/setupwindow.lib:411
+#: lib/setupwindow.lib:413
 #, sh-format
 msgid ""
 "$TITLE needs to read the PC part of a hybrid CD-Rom.\\n\\nBy default, MacOS "
@@ -4351,34 +4406,34 @@ msgid ""
 "attempt to read the PC-Part of your CD?"
 msgstr ""
 
-#: lib/setupwindow.lib:463
+#: lib/setupwindow.lib:465
 #, sh-format
 msgid ""
 "Don't forget to go to PlayOnMac tools menu -> Read a PC CD-Rom before "
 "running your game"
 msgstr ""
 
-#: lib/setupwindow.lib:474
+#: lib/setupwindow.lib:476
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is copying files:"
 msgstr ""
 
-#: lib/setupwindow.lib:559 lib/setupwindow.lib:708
+#: lib/setupwindow.lib:561 lib/setupwindow.lib:710
 #, sh-format
 msgid "Scanning the virtual drive ..."
 msgstr "Pretraživanje virtualnog diska..."
 
-#: lib/setupwindow.lib:573
+#: lib/setupwindow.lib:575
 #, sh-format
 msgid "How much memory does your graphics board have?"
 msgstr "Koliko memorije vaša grafička kartica ima?"
 
-#: lib/setupwindow.lib:582
+#: lib/setupwindow.lib:584
 #, sh-format
 msgid "Video card does not have enough memory"
 msgstr "Video kartica nema dovoljno memorije"
 
-#: lib/setupwindow.lib:583
+#: lib/setupwindow.lib:585
 #, sh-format
 msgid ""
 "Your video card does not have enough memory!\\nIt might prevent the game "
@@ -4387,72 +4442,72 @@ msgstr ""
 "Vaša video kartica nema dovoljno memorije!\\nTo bi moglo spriječiti "
 "pokretanje igre"
 
-#: lib/setupwindow.lib:597
+#: lib/setupwindow.lib:599
 #, sh-format
 msgid "Use Steam Store version"
 msgstr "Koristi Steam Store inačicu"
 
-#: lib/setupwindow.lib:598
+#: lib/setupwindow.lib:600
 #, sh-format
 msgid "Use Steam Store demo version"
 msgstr "Koristi Steam Store probnu inačicu"
 
-#: lib/setupwindow.lib:599
+#: lib/setupwindow.lib:601
 #, sh-format
 msgid "Use Desura Store version"
 msgstr ""
 
-#: lib/setupwindow.lib:600
+#: lib/setupwindow.lib:602
 #, sh-format
 msgid "Use Desura Store demo version"
 msgstr ""
 
-#: lib/setupwindow.lib:601
+#: lib/setupwindow.lib:603
 #, sh-format
 msgid "Use Origin Store version"
 msgstr ""
 
-#: lib/setupwindow.lib:602
+#: lib/setupwindow.lib:604
 #, sh-format
 msgid "Use Origin Store demo version"
 msgstr ""
 
-#: lib/setupwindow.lib:604
+#: lib/setupwindow.lib:606
 #, sh-format
 msgid "Use a setup file in my computer"
 msgstr "Koristi instalacijsku datoteku na mojem računalu"
 
-#: lib/setupwindow.lib:605
+#: lib/setupwindow.lib:607
 #, sh-format
 msgid "Use CD-ROM(s)"
 msgstr "Koristi CD-ROM(ove)"
 
-#: lib/setupwindow.lib:606
+#: lib/setupwindow.lib:608
 #, sh-format
 msgid "Use DVD-ROM(s)"
 msgstr "Koristi DVD-ROM(ove)"
 
-#: lib/setupwindow.lib:607
+#: lib/setupwindow.lib:609
 #, sh-format
 msgid "Download the program"
 msgstr "Preuzmi program"
 
-#: lib/setupwindow.lib:672
+#: lib/setupwindow.lib:674
 #, sh-format
 msgid "Please choose an installation method"
 msgstr "Odaberite način instalacije"
 
-#: lib/setupwindow.lib:710
+#: lib/setupwindow.lib:712
 #, sh-format
 msgid "I don't want to make another shortcut"
 msgstr "Ne želim napraviti još jedan prečac"
 
-#: lib/setupwindow.lib:711 python/guiv3.py:163
+#: lib/setupwindow.lib:713 python/guiv3.py:163
 #, sh-format
 msgid "Browse"
 msgstr "Pregledaj"
 
-#: lib/setupwindow.lib:739
+#: lib/setupwindow.lib:741
 #, sh-format
 msgid "A shortcut by that name already exists, overwrite?"
 msgstr ""

@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2014-09-01 19:01+0200\n"
+"POT-Creation-Date: 2014-09-08 19:00+0200\n"
 "PO-Revision-Date: 2014-05-25 10:30+0000\n"
 "Last-Translator: Akira Nakagawa <matyapiro31@gmail.com>\n"
 "Language-Team: Japanese <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-09-02 06:02+0000\n"
-"X-Generator: Launchpad (build 17192)\n"
+"X-Launchpad-Export-Date: 2014-09-09 05:51+0000\n"
+"X-Generator: Launchpad (build 17196)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -543,7 +543,7 @@ msgstr "実行するセットアップファイルを選択してください。
 #: PlayOnLinux_Scripts/SubRip_:33 PlayOnLinux_Scripts/Theme_Hospital_:48
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:116 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:919 lib/wine.lib:997
+#: bash/winebash:27 lib/setupwindow.lib:435 lib/wine.lib:919 lib/wine.lib:997
 #: lib/wine.lib:1027
 #, sh-format
 msgid "Please wait..."
@@ -1582,6 +1582,14 @@ msgstr ""
 msgid ""
 "If you can barely distinguish a landscape behind main menu,\\ndisable FOG in "
 "graphic options."
+msgstr ""
+
+#: PlayOnLinux_Scripts/GOG.com___Risen_2__Dark_Waters_:33
+#, sh-format
+msgid ""
+"Do you want to install the Gold Edition Upgrade now? This will only be "
+"possible if you purchased the Gold Edition, you can still install it later "
+"if you want."
 msgstr ""
 
 #: PlayOnLinux_Scripts/GOG.com___Sanitarium_:63
@@ -4102,6 +4110,20 @@ msgid ""
 "prevent wine from working\\n\\n$FilePath"
 msgstr ""
 
+#: lib/playonlinux.lib:881
+#, sh-format
+msgid ""
+"Your Linux kernel may not be configured to run Win16 programs under Wine\\"
+"nSee $EXPLANATION_URL"
+msgstr ""
+
+#: lib/playonlinux.lib:884
+#, sh-format
+msgid ""
+"Your kernel may be incompatible with running Win16 programs under Wine\\nSee "
+"$EXPLANATION_URL"
+msgstr ""
+
 #: lib/plugins.lib:66
 #, sh-format
 msgid "Checking plugin: "
@@ -4263,32 +4285,32 @@ msgstr ""
 msgid "Error"
 msgstr "エラー"
 
-#: lib/setupwindow.lib:348
+#: lib/setupwindow.lib:350
 #, sh-format
 msgid "Where is mounted your CD-ROM?"
 msgstr ""
 
-#: lib/setupwindow.lib:349 python/install.py:222
+#: lib/setupwindow.lib:351 python/install.py:222
 #, sh-format
 msgid "Other"
 msgstr "その他"
 
-#: lib/setupwindow.lib:350 python/install.py:290 python/install.py:294
+#: lib/setupwindow.lib:352 python/install.py:290 python/install.py:294
 #, sh-format
 msgid "Refresh"
 msgstr "更新"
 
-#: lib/setupwindow.lib:382
+#: lib/setupwindow.lib:384
 #, sh-format
 msgid "Reading your device"
 msgstr ""
 
-#: lib/setupwindow.lib:397
+#: lib/setupwindow.lib:399
 #, sh-format
 msgid "Error: Unable to find the CD-ROM!"
 msgstr ""
 
-#: lib/setupwindow.lib:411
+#: lib/setupwindow.lib:413
 #, sh-format
 msgid ""
 "$TITLE needs to read the PC part of a hybrid CD-Rom.\\n\\nBy default, MacOS "
@@ -4297,106 +4319,106 @@ msgid ""
 "attempt to read the PC-Part of your CD?"
 msgstr ""
 
-#: lib/setupwindow.lib:463
+#: lib/setupwindow.lib:465
 #, sh-format
 msgid ""
 "Don't forget to go to PlayOnMac tools menu -> Read a PC CD-Rom before "
 "running your game"
 msgstr ""
 
-#: lib/setupwindow.lib:474
+#: lib/setupwindow.lib:476
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is copying files:"
 msgstr ""
 
-#: lib/setupwindow.lib:559 lib/setupwindow.lib:708
+#: lib/setupwindow.lib:561 lib/setupwindow.lib:710
 #, sh-format
 msgid "Scanning the virtual drive ..."
 msgstr ""
 
-#: lib/setupwindow.lib:573
+#: lib/setupwindow.lib:575
 #, sh-format
 msgid "How much memory does your graphics board have?"
 msgstr ""
 
-#: lib/setupwindow.lib:582
+#: lib/setupwindow.lib:584
 #, sh-format
 msgid "Video card does not have enough memory"
 msgstr ""
 
-#: lib/setupwindow.lib:583
+#: lib/setupwindow.lib:585
 #, sh-format
 msgid ""
 "Your video card does not have enough memory!\\nIt might prevent the game "
 "from working"
 msgstr ""
 
-#: lib/setupwindow.lib:597
+#: lib/setupwindow.lib:599
 #, sh-format
 msgid "Use Steam Store version"
 msgstr "Steamストアのバージョンを使用"
 
-#: lib/setupwindow.lib:598
+#: lib/setupwindow.lib:600
 #, sh-format
 msgid "Use Steam Store demo version"
 msgstr "Steamストアのデモバージョンを使用"
 
-#: lib/setupwindow.lib:599
+#: lib/setupwindow.lib:601
 #, sh-format
 msgid "Use Desura Store version"
 msgstr ""
 
-#: lib/setupwindow.lib:600
+#: lib/setupwindow.lib:602
 #, sh-format
 msgid "Use Desura Store demo version"
 msgstr ""
 
-#: lib/setupwindow.lib:601
+#: lib/setupwindow.lib:603
 #, sh-format
 msgid "Use Origin Store version"
 msgstr ""
 
-#: lib/setupwindow.lib:602
+#: lib/setupwindow.lib:604
 #, sh-format
 msgid "Use Origin Store demo version"
 msgstr ""
 
-#: lib/setupwindow.lib:604
+#: lib/setupwindow.lib:606
 #, sh-format
 msgid "Use a setup file in my computer"
 msgstr ""
 
-#: lib/setupwindow.lib:605
+#: lib/setupwindow.lib:607
 #, sh-format
 msgid "Use CD-ROM(s)"
 msgstr "CD-ROMを使用"
 
-#: lib/setupwindow.lib:606
+#: lib/setupwindow.lib:608
 #, sh-format
 msgid "Use DVD-ROM(s)"
 msgstr "DVD-ROMを使用"
 
-#: lib/setupwindow.lib:607
+#: lib/setupwindow.lib:609
 #, sh-format
 msgid "Download the program"
 msgstr "プログラムをダウンロード"
 
-#: lib/setupwindow.lib:672
+#: lib/setupwindow.lib:674
 #, sh-format
 msgid "Please choose an installation method"
 msgstr ""
 
-#: lib/setupwindow.lib:710
+#: lib/setupwindow.lib:712
 #, sh-format
 msgid "I don't want to make another shortcut"
 msgstr ""
 
-#: lib/setupwindow.lib:711 python/guiv3.py:163
+#: lib/setupwindow.lib:713 python/guiv3.py:163
 #, sh-format
 msgid "Browse"
 msgstr "参照"
 
-#: lib/setupwindow.lib:739
+#: lib/setupwindow.lib:741
 #, sh-format
 msgid "A shortcut by that name already exists, overwrite?"
 msgstr ""
