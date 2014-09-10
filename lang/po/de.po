@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2014-09-01 19:01+0200\n"
+"POT-Creation-Date: 2014-09-08 19:00+0200\n"
 "PO-Revision-Date: 2014-08-27 16:11+0000\n"
 "Last-Translator: Jack Random <jack@random.to>\n"
 "Language-Team: de_DE.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-09-02 06:01+0000\n"
-"X-Generator: Launchpad (build 17192)\n"
+"X-Launchpad-Export-Date: 2014-09-09 05:50+0000\n"
+"X-Generator: Launchpad (build 17196)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -574,7 +574,7 @@ msgstr "Bitte wähle die Setup-Datei zum Ausführen aus."
 #: PlayOnLinux_Scripts/SubRip_:33 PlayOnLinux_Scripts/Theme_Hospital_:48
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:116 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:433 lib/wine.lib:919 lib/wine.lib:997
+#: bash/winebash:27 lib/setupwindow.lib:435 lib/wine.lib:919 lib/wine.lib:997
 #: lib/wine.lib:1027
 #, sh-format
 msgid "Please wait..."
@@ -1718,6 +1718,14 @@ msgid ""
 msgstr ""
 "Wenn man kaum eine Landschaft hinter dem Hauptmenü unterscheiden schönen,\\"
 "ndeaktiviere NEBEL in Grafik-Optionen."
+
+#: PlayOnLinux_Scripts/GOG.com___Risen_2__Dark_Waters_:33
+#, sh-format
+msgid ""
+"Do you want to install the Gold Edition Upgrade now? This will only be "
+"possible if you purchased the Gold Edition, you can still install it later "
+"if you want."
+msgstr ""
 
 #: PlayOnLinux_Scripts/GOG.com___Sanitarium_:63
 #, sh-format
@@ -4553,6 +4561,20 @@ msgstr ""
 "Es wird folgende Datei liegt auf einem noexec montierten-Dateisystem.\\nEs "
 "könnte Wine vom Funktionieren\\n\\n$FilePath abhalten"
 
+#: lib/playonlinux.lib:881
+#, sh-format
+msgid ""
+"Your Linux kernel may not be configured to run Win16 programs under Wine\\"
+"nSee $EXPLANATION_URL"
+msgstr ""
+
+#: lib/playonlinux.lib:884
+#, sh-format
+msgid ""
+"Your kernel may be incompatible with running Win16 programs under Wine\\nSee "
+"$EXPLANATION_URL"
+msgstr ""
+
 #: lib/plugins.lib:66
 #, sh-format
 msgid "Checking plugin: "
@@ -4726,32 +4748,32 @@ msgstr ""
 msgid "Error"
 msgstr "Fehler"
 
-#: lib/setupwindow.lib:348
+#: lib/setupwindow.lib:350
 #, sh-format
 msgid "Where is mounted your CD-ROM?"
 msgstr "Wohin ist Ihr CD-ROM gemountet?"
 
-#: lib/setupwindow.lib:349 python/install.py:222
+#: lib/setupwindow.lib:351 python/install.py:222
 #, sh-format
 msgid "Other"
 msgstr "Anderes"
 
-#: lib/setupwindow.lib:350 python/install.py:290 python/install.py:294
+#: lib/setupwindow.lib:352 python/install.py:290 python/install.py:294
 #, sh-format
 msgid "Refresh"
 msgstr "Aktualisieren"
 
-#: lib/setupwindow.lib:382
+#: lib/setupwindow.lib:384
 #, sh-format
 msgid "Reading your device"
 msgstr "Lese Ihr Laufwerk"
 
-#: lib/setupwindow.lib:397
+#: lib/setupwindow.lib:399
 #, sh-format
 msgid "Error: Unable to find the CD-ROM!"
 msgstr "Fehler: Die CD kann nicht gefunden werden!"
 
-#: lib/setupwindow.lib:411
+#: lib/setupwindow.lib:413
 #, sh-format
 msgid ""
 "$TITLE needs to read the PC part of a hybrid CD-Rom.\\n\\nBy default, MacOS "
@@ -4764,7 +4786,7 @@ msgstr ""
 "nicht kompatibel mit neueren Versionen von Mac OS ist.\\n\\ nMöchten Sie, "
 "dass PlayOnMac versucht, den PC-Teil der CD zu lesen?"
 
-#: lib/setupwindow.lib:463
+#: lib/setupwindow.lib:465
 #, sh-format
 msgid ""
 "Don't forget to go to PlayOnMac tools menu -> Read a PC CD-Rom before "
@@ -4773,27 +4795,27 @@ msgstr ""
 "Vergessen Sie nicht, bis PlayOnMac Werkzeuge Menü -> Lesen Sie die PC CD-"
 "ROM, bevor Sie Ihr Spiel ausführen"
 
-#: lib/setupwindow.lib:474
+#: lib/setupwindow.lib:476
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is copying files:"
 msgstr "Bitte warten Sie, während $APPLICATION_TITLE die Dateien kopiert:"
 
-#: lib/setupwindow.lib:559 lib/setupwindow.lib:708
+#: lib/setupwindow.lib:561 lib/setupwindow.lib:710
 #, sh-format
 msgid "Scanning the virtual drive ..."
 msgstr "Durchsuche das virtuelle Laufwerk"
 
-#: lib/setupwindow.lib:573
+#: lib/setupwindow.lib:575
 #, sh-format
 msgid "How much memory does your graphics board have?"
 msgstr "Über wieviel Arbeitsspeicher verfügt Ihre Grafikkarte"
 
-#: lib/setupwindow.lib:582
+#: lib/setupwindow.lib:584
 #, sh-format
 msgid "Video card does not have enough memory"
 msgstr "Ihre Grafikkarte verfügt über nicht ausreichend Arbeitsspeicher"
 
-#: lib/setupwindow.lib:583
+#: lib/setupwindow.lib:585
 #, sh-format
 msgid ""
 "Your video card does not have enough memory!\\nIt might prevent the game "
@@ -4802,72 +4824,72 @@ msgstr ""
 "Ihre Grafikkarte hat nicht genügend Speicher!\\nEs könnte des Spiels beim "
 "Ausführen verhindern"
 
-#: lib/setupwindow.lib:597
+#: lib/setupwindow.lib:599
 #, sh-format
 msgid "Use Steam Store version"
 msgstr "Bitte verwenden Sie die Steam Store Version"
 
-#: lib/setupwindow.lib:598
+#: lib/setupwindow.lib:600
 #, sh-format
 msgid "Use Steam Store demo version"
 msgstr "Benutze Steam Store Demo Version"
 
-#: lib/setupwindow.lib:599
+#: lib/setupwindow.lib:601
 #, sh-format
 msgid "Use Desura Store version"
 msgstr "Benutze Desura Store Version"
 
-#: lib/setupwindow.lib:600
+#: lib/setupwindow.lib:602
 #, sh-format
 msgid "Use Desura Store demo version"
 msgstr "Benutze Desura Store Demo Version"
 
-#: lib/setupwindow.lib:601
+#: lib/setupwindow.lib:603
 #, sh-format
 msgid "Use Origin Store version"
 msgstr "Benutze Origin Store Version"
 
-#: lib/setupwindow.lib:602
+#: lib/setupwindow.lib:604
 #, sh-format
 msgid "Use Origin Store demo version"
 msgstr "Benutze Origin Store Demo Version"
 
-#: lib/setupwindow.lib:604
+#: lib/setupwindow.lib:606
 #, sh-format
 msgid "Use a setup file in my computer"
 msgstr "Benutze die Setup-Datei auf meinem Computer"
 
-#: lib/setupwindow.lib:605
+#: lib/setupwindow.lib:607
 #, sh-format
 msgid "Use CD-ROM(s)"
 msgstr "Benutze CD-ROM(s)"
 
-#: lib/setupwindow.lib:606
+#: lib/setupwindow.lib:608
 #, sh-format
 msgid "Use DVD-ROM(s)"
 msgstr "Benutze DVD-ROM(s)"
 
-#: lib/setupwindow.lib:607
+#: lib/setupwindow.lib:609
 #, sh-format
 msgid "Download the program"
 msgstr "Herunterladen des Programms"
 
-#: lib/setupwindow.lib:672
+#: lib/setupwindow.lib:674
 #, sh-format
 msgid "Please choose an installation method"
 msgstr "Bitte wählen Sie eine Installationsmethode"
 
-#: lib/setupwindow.lib:710
+#: lib/setupwindow.lib:712
 #, sh-format
 msgid "I don't want to make another shortcut"
 msgstr "Ich möchte keinen anderen Shortcut erzeugen"
 
-#: lib/setupwindow.lib:711 python/guiv3.py:163
+#: lib/setupwindow.lib:713 python/guiv3.py:163
 #, sh-format
 msgid "Browse"
 msgstr "Durchsuchen"
 
-#: lib/setupwindow.lib:739
+#: lib/setupwindow.lib:741
 #, sh-format
 msgid "A shortcut by that name already exists, overwrite?"
 msgstr ""
