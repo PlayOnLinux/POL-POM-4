@@ -223,7 +223,7 @@ POL_SetupWindow_menu ()
 POL_SetupWindow_icon_menu ()
 {
 	# Shows a menu with icons
-	# Usage: POL_SetupWindow_icon_menu [message] [title] [list] [separator] [icons list] [icons folder]
+	# Usage: POL_SetupWindow_icon_menu [message] [title] [list] [separator] [icons folder] [icons list]
 	# Result is sent in $APP_ANSWER variable
 
 	APP_ANSWER="$(echo "$POL_COOKIE	POL_SetupWindow_icon_menu	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	$4	$5	$6" | ncns "$POL_HOST" "$POL_PORT")"
@@ -334,6 +334,8 @@ POL_SetupWindow_cdrom ()
 		DEVICES="/media"
 		# Ubuntu Quantal workaround
 		[ -d "/media/$USER" ] && DEVICES="/media/$USER"
+		# Fedora/Manjaro workaround
+		[ -d "/run/media/$USER" ] && DEVICES="/run/media/$USER"
 	fi
 	
 	cd "$DEVICES"

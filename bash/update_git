@@ -27,7 +27,7 @@ POL_SetupWindow_Init
 POL_SetupWindow_wait "$(eval_gettext 'Updating $APPLICATION_TITLE from GIT...')" "$TITLE"
 cd "$PLAYONLINUX"
 git remote update
-if git status |grep -q 'Your branch is behind'; then
+if LC_ALL=C git status |grep -q 'Your branch is behind'; then
     POL_SetupWindow_question "$(eval_gettext 'Do you want to update and restart $APPLICATION_TITLE?')" "$TITLE"
     if [ "$APP_ANSWER" = "TRUE" ]; then
         git pull

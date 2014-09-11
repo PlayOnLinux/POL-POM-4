@@ -179,7 +179,7 @@ POL_Debug_glxinfo()
 }
 POL_Debug_InitPrefix()
 {
-	POL_Glxinfo 2> /dev/null > "$POL_USER_ROOT/tmp/glxinfo"
+	[ "$POL_OS" = "Linux" ] && POL_Glxinfo 2> /dev/null > "$POL_USER_ROOT/tmp/glxinfo"
 	POL_LoadVar_Distro
 	PATCHSTUFF="$(POL_Wine_GetPatchName $POL_WINEVERSION)"
 	[ ! "$PATCHSTUFF" = "" ] && PATCHSTUFF="Warning! $APPLICATION_TITLE is using a modified wine version ($POL_WINEVERSION).
@@ -223,11 +223,5 @@ POL_Glxinfo()
 {
 	if [ "$POL_OS" = "Linux" ] || [ "$POL_OS" = "FreeBSD" ]; then
 		glxinfo "$@"
-	else
-		if [ -e "/opt/X11/bin/glxinfo" ]; then #XQuartz is installed
-			/opt/X11/bin/glxinfo "$@"
-		else
-			glxinfo "$@"
-		fi
 	fi
 }

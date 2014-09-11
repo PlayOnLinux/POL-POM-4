@@ -25,6 +25,7 @@ import lib.Variables as Variables, sp
 import lib.lng
 import lib.playonlinux as playonlinux
 from wx.lib.ClickableHtmlWindow import PyClickableHtmlWindow
+import wx.lib.hyperlink
 
 class Wminiature(wx.Frame):
     def __init__(self,parent,id,title,img):
@@ -161,23 +162,28 @@ class InstallWindow(wx.Frame):
 
         self.cats_icons[name] = wx.BitmapButton(self.panelButton, 2000+iid, wx.Bitmap(icon), (0,0), style=wx.NO_BORDER)
 
-        self.cats_links[name] = wx.HyperlinkCtrl(self.panelButton, 3000+iid, name, "", pos=(0,52))
+        self.cats_links[name] = wx.lib.hyperlink.HyperLinkCtrl(self.panelButton, 3000+iid, name, pos=(0,52))
         mataille = self.cats_links[name].GetSize()[0]
+        
         mataille2 = self.cats_icons[name].GetSize()[0]
         image_pos = (espace-mataille2)/2+espace*iid;
 
-        self.cats_links[name].SetPosition((espace*iid+espace/2-mataille/2,47))
+        self.cats_links[name].SetPosition((espace*iid+(espace-mataille/1.3)/2,47))
         self.cats_icons[name].SetPosition((image_pos,offset))
 
         #self.cats_icons[name].SetSize((espace,100))
 
-        wx.EVT_HYPERLINK(self, 3000+iid, self.AddApps)
+        wx.lib.hyperlink.EVT_HYPERLINK_LEFT(self, 3000+iid, self.AddApps)
         wx.EVT_BUTTON(self, 2000+iid, self.AddApps)
 
         #self.cats_icons[name].Bind(wx.EVT_LEFT_DOWN, 2000+iid, self.AddApps)
-        self.cats_links[name].SetNormalColour(playonlinux.get_foreground_colour())
-        self.cats_links[name].SetVisitedColour(playonlinux.get_foreground_colour())
-        self.cats_links[name].SetHoverColour(playonlinux.get_foreground_colour())
+        
+        self.cats_links[name].SetColours(playonlinux.get_foreground_colour(), playonlinux.get_foreground_colour(), playonlinux.get_foreground_colour())
+        self.cats_links[name].AutoBrowse(False)
+        self.cats_links[name].UpdateLink(True)
+        self.cats_links[name].SetUnderlines(False, False, False)
+        
+        self.cats_links[name].SetFont(self.fontText)
         self.cats_links[name].SetBackgroundColour(playonlinux.get_background_colour())
 
         self.cats_links[name].SetFont(self.fontText)
@@ -246,7 +252,7 @@ class InstallWindow(wx.Frame):
         #self.searchcaption = wx.StaticText(self.panelItems, -1, _("Search"), (position,82-71+self.search_offset), wx.DefaultSize)
         #position += self.searchcaption.GetSize()[0]+5
         self.searchbox = wx.SearchCtrl(self.panelItems, 110, size=(250,22), pos=(position,9))
-        self.searchbox.SetDescriptiveText(_("Search"))
+        #self.searchbox.SetDescriptiveText(_("Search"))
         position += self.searchbox.GetSize()[0]+20
 
         self.filterscaption = wx.StaticText(self.panelItems, -1, _("Include:"), (position,82-71+self.search_offset), wx.DefaultSize)
@@ -301,8 +307,12 @@ class InstallWindow(wx.Frame):
         self.new_panel.Hide()
 
 
-        self.ManualInstall = wx.HyperlinkCtrl(self.panelFenp, 111, _("Install a non-listed program"), "", pos=(10,515))
-        self.ManualInstall.SetNormalColour(playonlinux.get_foreground_colour())
+        self.ManualInstall = wx.lib.hyperlink.HyperLinkCtrl(self.panelFenp, 111, _("Install a non-listed program"), pos=(10,515))
+        self.ManualInstall.SetColours(playonlinux.get_foreground_colour(),playonlinux.get_foreground_colour()),playonlinux.get_foreground_colour())
+        self.ManualInstall.AutoBrowse(False)
+        self.ManualInstall.UpdateLink(True)
+        
+        #self.ManualInstall.SetNormalColour(playonlinux.get_foreground_colour())
 
         # Panel wait
         self.animation_wait = wx.animate.GIFAnimationCtrl(self.panelWait, -1, Variables.playonlinux_env+"/resources/images/install/wait.gif", ((800-128)/2,(550-128)/2-71))
@@ -328,7 +338,7 @@ class InstallWindow(wx.Frame):
         wx.EVT_CLOSE(self, self.closeapp)
         wx.EVT_TREE_ITEM_ACTIVATED(self, 106, self.installapp)
         wx.EVT_TEXT(self, 110, self.search)
-        wx.EVT_HYPERLINK(self, 111, self.manual)
+        wx.lib.hyperlink.EVT_HYPERLINK_LEFT(self, 111, self.manual)
 
         wx.EVT_CHECKBOX(self, 401, self.CheckBoxReload)
         wx.EVT_CHECKBOX(self, 402, self.CheckBoxReload)
@@ -434,9 +444,12 @@ class InstallWindow(wx.Frame):
             self.EasterEgg.Show()
             self.EasterEgg.Center(wx.BOTH)
         else:
-            if(playonlinux.GetSettings("FIRST_INSTALL_DONE") == ""):
+            if(playonlinux.GetSettings("FIRST_INSTALL_DONE_WITH_WINE") == ""):
                 wx.MessageBox(_("When {0} installs a Windows program: \n\n - Leave the default location\n - Do not tick the checkbox 'Run the program' if asked.").format(os.environ["APPLICATION_TITLE"]),_("Please read this"))
-                playonlinux.SetSettings("FIRST_INSTALL_DONE","TRUE")
+                if(os.environ["POL_OS"] == "Linux"):
+                    # Distro packagers: please keep this message on your package. It's a real pain for wine devs
+                    wx.MessageBox(_("{0} is not related to WineHQ.\n\nTo ensure that the results will be comparable from one computer to another and to avoid regressions, we specify a working wine version for each program. This wine version will quickly become out to date, but we won't change the installer until new tests are made and it takes time.\n\nFor those reason, please do NOT send any bug report or ask any support on WineHQ forums if you are using PlayOnLinux.\n\nIf you want to help the project to make some tests in order to avoid using out of date wine versions, do not hesitate to go on our website.\n\nThank you.").format(os.environ["APPLICATION_TITLE"]),_("Please read this"))
+                playonlinux.SetSettings("FIRST_INSTALL_DONE_WITH_WINE","TRUE")
 
             if(os.path.exists(Variables.playonlinux_rep+"/configurations/listes/search")):
                 content = codecs.open(Variables.playonlinux_rep+"/configurations/listes/search", "r", "utf-8").read().split("\n")
@@ -550,8 +563,7 @@ class InstallWindow(wx.Frame):
                 if testing == 1:
                     # (255,255,214) is web site color for beta, but it's not very visible next to plain white,
                     # and red is the color of danger
-                    ##self.list_apps.SetItemBackgroundColour(itemId, (255,214,214))
-                    self.list_apps.SetItemBackgroundColour(itemId, playonlinux.get_background_test_colour())
+                    self.list_apps.SetItemBackgroundColour(itemId, (255,214,214))
                 self.i = self.i+1
 
     def DelApps(self):
@@ -571,7 +583,7 @@ class InstallWindow(wx.Frame):
         chk_id = event.GetId()
         if(chk_id == 401):
             if(self.testingChk.IsChecked() == 1):
-                wx.MessageBox(_("By enabling this, you will have access to testing installers.\n\n{0} cannot ensure that your app will work without any problems").format(os.environ["APPLICATION_TITLE"]),_("Please read this"))
+                wx.MessageBox(_("By enabling this option, you can install programs that employ digital rights management (DRM) copy protection that are not supported by {0} and might need to be bypassed.\n\nThis feature should not be construed as implicit or implied condoning of piracy and as such, we will not offer any support for issues resulting from using this option.").format(os.environ["APPLICATION_TITLE"]),_("Attention!"))
         if(chk_id == 402):
             if(self.nocdChk.IsChecked() == 1):
                 wx.MessageBox(_("By enabling this, you will have access to installers for programs that contain protections against copy (DRM) incompatible with emulation.\nThe only workaround is to use \"no-cd\" patches, but since those can also be used for piracy purposes we won't give any support on this matter."), _("Please read this"))

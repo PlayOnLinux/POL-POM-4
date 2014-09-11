@@ -24,7 +24,7 @@
 
 source "$PLAYONLINUX/lib/sources" 
 
-export XQUARTZ_VERSION="2.7.6"
+export XQUARTZ_VERSION="2.7.7"
 
 
 install_x11()
@@ -43,6 +43,7 @@ install_x11()
 	
 	if [ "$APP_ANSWER" = "0" ]
 	then
+		cd "$POL_USER_ROOT/tmp/"
 		POL_SetupWindow_download "$(eval_gettext "Downloading XQuartz")" "$STEP_TITLE" "$XQuartzUrl"
 		got_xquartz="true"
 	fi

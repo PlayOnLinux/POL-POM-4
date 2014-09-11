@@ -16,7 +16,7 @@ except :
 os.environ["POL_PORT"] = "0"
 os.environ["PLAYONLINUX"] = os.path.realpath(os.path.realpath(__file__)+"/../../../")
 os.environ["SITE"] = "http://repository.playonlinux.com"
-os.environ["VERSION"] = "4.2.4"
+os.environ["VERSION"] = "4.2.5"
 os.environ["POL_ID"] = str(random.randint(1,100000000))
 os.environ["WINE_SITE"] = "http://www.playonlinux.com/wine/binaries"
 os.environ["GECKO_SITE"] = "http://www.playonlinux.com/wine/gecko"
@@ -45,8 +45,13 @@ if (os.environ["POL_OS"] == "Linux"):
     os.environ["REPERTOIRE"] = os.environ["HOME"]+"/.PlayOnLinux/"
     os.environ["APPLICATION_TITLE"] = "PlayOnLinux"
     os.environ["POL_DNS"] = "playonlinux.com"
-    windows_add_size = 0;
-    windows_add_playonmac = 0;
+    if(playonlinux.VersionLower(wx.VERSION_STRING, "3.0.0")):
+        windows_add_size = 0;
+        windows_add_playonmac = 0;
+    else:
+        windows_add_size = 25;
+        windows_add_playonmac = 0;
+        
     widget_borders = wx.RAISED_BORDER
     os_name = "linux"
     if not os.path.exists("/proc/net/if_inet6"):
