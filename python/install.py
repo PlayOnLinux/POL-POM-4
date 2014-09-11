@@ -308,7 +308,7 @@ class InstallWindow(wx.Frame):
 
 
         self.ManualInstall = wx.lib.hyperlink.HyperLinkCtrl(self.panelFenp, 111, _("Install a non-listed program"), pos=(10,515))
-        self.ManualInstall.SetColours(playonlinux.get_foreground_colour(),playonlinux.get_foreground_colour()),playonlinux.get_foreground_colour())
+        self.ManualInstall.SetColours(playonlinux.get_foreground_colour(),playonlinux.get_foreground_colour(),playonlinux.get_foreground_colour())
         self.ManualInstall.AutoBrowse(False)
         self.ManualInstall.UpdateLink(True)
         

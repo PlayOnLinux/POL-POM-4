@@ -25,6 +25,7 @@ The list will automatically rearange.
 
 
 TODO:
+
 1. Some more refining where I run into them.
 
 2. A shelving system is in the making. This is a further development of the TreeView system mentioned above. It allowes the user to define labels (or shelves) in the Options widget and select one of them in a game's Configuration widget. This way the user is free to have entries with hyphens in the gamelist. This is for 80% done.

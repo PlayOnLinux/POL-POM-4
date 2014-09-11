@@ -36,8 +36,6 @@ import wx.lib.hyperlink
 import lib.lng as lng
 import lib.playonlinux as playonlinux, lib.Variables as Variables
 import guiv3 as gui, install, options, wine_versions as wver, sp, configure, threading, debug, gui_server
-#import irc as ircgui
-
 import re
 
 # This thread manage updates
@@ -223,9 +221,14 @@ class MainWindow(wx.Frame):
 
 
         ## List game
-        self.list_game = wx.TreeCtrl(self, 105, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT)
-        self.list_game.SetSpacing(0);
-        self.list_game.SetIndent(5);
+        header_font = wx.Font(32, wx.FONTFAMILY_SWISS, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL)
+
+	self.rootnode = None;
+
+        self.list_game = wx.TreeCtrl(self, 105, style=wx.TR_HAS_BUTTONS|wx.TR_SINGLE|wx.TR_FULL_ROW_HIGHLIGHT)
+        self.list_game.SetFont(header_font)
+        self.list_game.SetSpacing(15);
+        self.list_game.SetIndent(15);
         self.list_game.SetImageList(self.images)
         self.menu_gauche = wx.Panel(self,-1)
 
@@ -255,6 +258,7 @@ class MainWindow(wx.Frame):
         self.icon24 = self.displaymenu.AppendRadioItem(502, _("Medium icons"))
         self.icon32 = self.displaymenu.AppendRadioItem(503, _("Large icons"))
         self.icon48 = self.displaymenu.AppendRadioItem(504, _("Very large icons"))
+
         if(self.iconSize == 16):
             self.icon16.Check(True)
         if(self.iconSize == 24):
@@ -266,12 +270,20 @@ class MainWindow(wx.Frame):
 
         self.expertmenu = wx.Menu()
 
-        self.expertmenu.Append(107, _("Manage Wine versions"))
+	self.expertMenuManageWineVersions = wx.MenuItem(self.expertmenu, 107, _("Manage Wine versions"))
+
+	playonlinux.SetMenuBitmap(self.expertMenuManageWineVersions, Variables.playonlinux_env+"/etc/onglet/wine.png")
+
+        self.expertmenu.AppendItem(self.expertMenuManageWineVersions)
 
 
         if(os.environ["POL_OS"] == "Mac"):
-            self.expertmenu.AppendSeparator()
-            self.expertmenu.Append(113, _("Read a PC CD-Rom"))
+	    self.expertmenu.AppendSeparator()
+            
+            self.expertMenuReadAPCCDROM = wx.MenuItem(self.expertmenu, 113, _("Read a PC CD-Rom"))
+            playonlinux.SetMenuBitmap(self.expertMenuReadAPCCDROM, Variables.playonlinux_env+"/resources/images/menu/media-optical.png")
+            
+            self.expertmenu.AppendItem(self.expertMenuReadAPCCDROM)
 
         self.expertmenu.AppendSeparator()
 
@@ -281,33 +293,33 @@ class MainWindow(wx.Frame):
         self.expertmenu.Append(115, _('Close all {0} software').format(os.environ["APPLICATION_TITLE"]))
         self.expertmenu.AppendSeparator()
 
-        self.expertmenu.Append(110, _("{0} debugger").format(os.environ["APPLICATION_TITLE"]))
+	self.expertMenuRunALocalScript = playonlinux.AddMenuItem(self.expertmenu, 108, _("Run a local script"), Variables.playonlinux_env+"/resources/images/menu/text-x-script.png")
+	self.expertMenuConsole = playonlinux.AddMenuItem(self.expertmenu, 109, _("{0} console").format(os.environ["APPLICATION_TITLE"]), Variables.playonlinux_env+"/resources/images/menu/polshell.png")
+	self.expertMenuCloseAllSoftware = playonlinux.AddMenuItem(self.expertmenu, 115, _('Close all {0} software').format(os.environ["APPLICATION_TITLE"]), Variables.playonlinux_env+"/resources/images/menu/wineserver.png")
 
+        self.expertmenu.AppendSeparator()
+
+	self.expertMenuDebugger = playonlinux.AddMenuItem(self.expertmenu, 110, _("{0} debugger").format(os.environ["APPLICATION_TITLE"]), Variables.playonlinux_env+"/resources/images/menu/software-update-available.png")
 
         self.optionmenu = wx.Menu()
 
-
-        self.optionmenu.Append(221, _("Internet"))
-        self.optionmenu.Append(212, _("File associations"))
-        self.optionmenu.Append(214, _("Plugin manager"))
-
+	self.optionMenuInternet = playonlinux.AddMenuItem(self.optionmenu, 211, _("Internet"), Variables.playonlinux_env+"/etc/onglet/internet-web-browser.png")
+	self.optionMenuPluginManager = playonlinux.AddMenuItem(self.optionmenu, 214, _("Plugin manager"), Variables.playonlinux_env+"/etc/onglet/internet-web-browser.png")
+	self.optionMenuFileAssociations = playonlinux.AddMenuItem(self.optionmenu, 212, _("File associations"), Variables.playonlinux_env+"/resources/images/menu/extensions.png")
+	self.optionMenuShelves = playonlinux.AddMenuItem(self.optionmenu, 215, _("Shelves"), Variables.playonlinux_env+"/etc/onglet/folder-saved-search.png")
 
         self.supportmenu = wx.Menu()
-        self.supportmenu.Append(400, _("Supported software"))
-        self.supportmenu.Append(401, _("News"))
-        self.supportmenu.Append(402, _("Documentation"))
-        self.supportmenu.Append(403, _("Forums"))
-        self.supportmenu.Append(404, _("Bugs"))
-        self.supportmenu.AppendSeparator()
-        self.supportmenu.Append(405, _("Twitter"))
-        self.supportmenu.Append(406, _("Google+"))
-        self.supportmenu.Append(407, _("Facebook"))
-
 	self.supportMenuSupportedSoftware = playonlinux.AddMenuItem(self.supportmenu, 400, _("Supported software"), Variables.playonlinux_env+"/resources/images/menu/emblem-favorite.png")
 	self.supportMenuNews = playonlinux.AddMenuItem(self.supportmenu, 401, _("News"), Variables.playonlinux_env+"/resources/images/menu/internet-news-reader.png")
 	self.supportMenuDocumentation = playonlinux.AddMenuItem(self.supportmenu, 402, _("Documentation"), Variables.playonlinux_env+"/resources/images/menu/x-office-address-book.png")
 	self.supportMenuForums = playonlinux.AddMenuItem(self.supportmenu, 403, _("Forums"), Variables.playonlinux_env+"/etc/onglet/internet-group-chat.png")
 	self.supportMenuBugs = playonlinux.AddMenuItem(self.supportmenu, 404, _("Bugs"), Variables.playonlinux_env+"/resources/images/menu/software-update-available.png")
+
+        self.supportmenu.AppendSeparator()
+        self.supportmenu.Append(405, _("Twitter"))
+        self.supportmenu.Append(406, _("Google+"))
+        self.supportmenu.Append(407, _("Facebook"))
+
          
 
         self.help_menu = wx.Menu()
@@ -316,15 +328,19 @@ class MainWindow(wx.Frame):
 
         files=os.listdir(Variables.playonlinux_rep+"/plugins")
         files.sort()
+
         self.plugin_list = []
+
         self.i = 0
         self.j = 0
+
         while(self.i < len(files)):
             if(os.path.exists(Variables.playonlinux_rep+"/plugins/"+files[self.i]+"/scripts/menu")):
                 if(os.path.exists(Variables.playonlinux_rep+"/plugins/"+files[self.i]+"/enabled")):
                     self.plugin_item = wx.MenuItem(self.expertmenu, 300+self.j, files[self.i])
 
                     self.icon_look_for = Variables.playonlinux_rep+"/plugins/"+files[self.i]+"/icon"
+
                     if(os.path.exists(self.icon_look_for)):
                         self.bitmap = wx.Bitmap(self.icon_look_for)
                     else:
@@ -332,22 +348,21 @@ class MainWindow(wx.Frame):
 
                     self.plugin_item.SetBitmap(self.bitmap)
                     self.pluginsmenu.AppendItem(self.plugin_item)
+
                     wx.EVT_MENU(self, 300+self.j,  self.run_plugin)
+
                     self.plugin_list.append(files[self.i])
                     self.j += 1
+
             self.i += 1
 
         if(self.j > 0):
             self.pluginsmenu.AppendSeparator()
 
-
-
-
         self.option_item_p = wx.MenuItem(self.pluginsmenu, 214, _("Plugin manager"))
         self.option_item_p.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/etc/onglet/package-x-generic.png"))
         
         self.pluginsmenu.AppendItem(self.option_item_p)
-
 
         self.last_string = ""
 
@@ -360,9 +375,11 @@ class MainWindow(wx.Frame):
             hauteur = 2;
         else:
             hauteur = 6;
+
         self.jauge_update = wx.Gauge(self.sb, -1, 100, (self.GetSize()[0]-100, hauteur), size=(100,16))
         self.jauge_update.Pulse()
         self.jauge_update.Hide()
+
         self.SetStatusBar(self.sb)
 
         #self.helpmenu = wx.MenuItem()
@@ -391,13 +408,16 @@ class MainWindow(wx.Frame):
         self.stopTool = self.toolbar.AddLabelTool(123, _("Close"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/stop.png"))
 
         self.toolbar.AddSeparator()
-        self.toolbar.AddLabelTool(wx.ID_ADD, _("Install"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/install.png"))
+
+        self.installTool = self.toolbar.AddLabelTool(wx.ID_ADD, _("Install"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/install.png"))
+
         self.removeTool = self.toolbar_remove = self.toolbar.AddLabelTool(wx.ID_DELETE, _("Remove"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/delete.png"))
 
         self.toolbar.AddSeparator()
-        self.toolbar.AddLabelTool(121, _("Configure"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/configure.png"))
 
-        try: 
+        self.configTool = self.toolbar.AddLabelTool(121, _("Configure"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/configure.png"))
+
+        try:
                 self.toolbar.AddStretchableSpace()
                 self.SpaceHack = False
         except:
@@ -416,6 +436,7 @@ class MainWindow(wx.Frame):
 
         self.toolbar.Realize()
         self.Reload(self)
+
         wx.EVT_MENU(self, wx.ID_OPEN,  self.Run)
         wx.EVT_MENU(self, 123,  self.RKill)
 
@@ -489,7 +510,25 @@ class MainWindow(wx.Frame):
         wx.EVT_MENU(self, 235, self.RKill)
         wx.EVT_MENU(self, 236, self.ReadMe)
         self.Bind(wx.EVT_SIZE, self.ResizeWindow)
-        self._mgr.restorePosition()   
+        self._mgr.restorePosition()
+        
+        self.toolbar.EnableTool(self.playTool.GetId(), False)
+	self.toolbar.EnableTool(self.stopTool.GetId(), False)
+	self.toolbar.EnableTool(self.removeTool.GetId(), False)
+	self.toolbar.EnableTool(self.configTool.GetId(), False)
+
+
+    def tree_item(self, tree, match, root):
+	item, cookie = tree.GetFirstChild(root)
+
+	while item.IsOk():
+	    if tree.GetItemText(item) == match:
+		return item
+	    if tree.ItemHasChildren(item):
+	        if self.tree_item(tree, match, item):
+	            return item
+	    item, cookie = tree.GetNextChild(root, cookie)
+	return None
 
     def ResizeWindow(self, e):
         self.UpdateGaugePos()
@@ -527,8 +566,7 @@ class MainWindow(wx.Frame):
 
         if(self.SetupWindowTimer_action != None):                           
             return gui_server.readAction(self)
-            
-           
+     
     def TimerAction(self, event):
         self.StatusRead()
         
@@ -659,25 +697,21 @@ class MainWindow(wx.Frame):
             url = urlPrefix+"/forums.html"
         if(urlId == 4):
             url = urlPrefix+"/bugs.html"
-        
         if(urlId == 5):
             if(os.environ["POL_OS"] == "Mac"):
                 url = "https://twitter.com/PlayOnMac"
             else:
                 url = "https://twitter.com/PlayOnLinux"
-                
         if(urlId == 6):
             if(os.environ["POL_OS"] == "Mac"):
                 url = "http://plus.google.com/u/0/105992880311102680198"
             else:
                 url = "https://plus.google.com/+playonlinux"
-            
         if(urlId == 7):
             if(os.environ["POL_OS"] == "Mac"):
                 url = "https://www.facebook.com/playonmac"
             else:
                 url = "https://www.facebook.com/playonlinux"
-            
         
         playonlinux.POL_Open(url)
 
@@ -694,11 +728,11 @@ class MainWindow(wx.Frame):
             self.iconSize = 48
 
         playonlinux.SetSettings("ICON_SIZE",str(self.iconSize))
+
         self.list_game.SetImageList(self.imagesEmpty)
         self.images.Destroy()
         self.images = wx.ImageList(self.iconSize, self.iconSize)
         self.list_game.SetImageList(self.images)
-
 
         self.Reload(self)
 
@@ -736,18 +770,28 @@ class MainWindow(wx.Frame):
 
     def Select(self, event):
         game_exec = self.GetSelectedProgram()
-        self.read = open(Variables.playonlinux_rep+"shortcuts/"+game_exec,"r").readlines()
-        self.i = 0;
-        self.wine_present = False;
-        while(self.i < len(self.read)):
-            if("wine " in self.read[self.i]):
-                self.wine_present = True;
-            self.i += 1
+        if (game_exec != ""):
+	  self.read = open(Variables.playonlinux_rep+"shortcuts/"+game_exec,"r").readlines()
+	  self.i = 0;
+	  self.wine_present = False;
+	  while(self.i < len(self.read)):
+	      if("wine " in self.read[self.i]):
+		  self.wine_present = True;
+	      self.i += 1
 
-        self.generate_menu(game_exec)
-        self.playTool.Enable(True)
-        self.stopTool.Enable(True)
-        self.removeTool.Enable(True)
+	  self.generate_menu(game_exec)
+
+	  self.toolbar.EnableTool(self.playTool.GetId(), True)
+	  self.toolbar.EnableTool(self.stopTool.GetId(), True)
+	  self.toolbar.EnableTool(self.removeTool.GetId(), True)
+	  self.toolbar.EnableTool(self.configTool.GetId(), True)
+	else:
+	  self.generate_menu("")
+	  
+	  self.toolbar.EnableTool(self.playTool.GetId(), False)
+	  self.toolbar.EnableTool(self.stopTool.GetId(), False)
+	  self.toolbar.EnableTool(self.removeTool.GetId(), False)
+	  self.toolbar.EnableTool(self.configTool.GetId(), False)
 
     def generate_menu(self, shortcut=None):
         for c in self.menuElem:
@@ -770,12 +814,13 @@ class MainWindow(wx.Frame):
 	i+=1
 	self.menuGaucheAddLink("pol_prgm_settings", _("Settings"), i,Variables.playonlinux_env+"/resources/images/menu/settings.png",self.Options)
 
-        i = 0;
-        self.menuGaucheAddTitle("pol_title", os.environ["APPLICATION_TITLE"], i)
-        i+=1
-        self.menuGaucheAddLink("pol_prgm_install", _("Install a program"), i,Variables.playonlinux_env+"/resources/images/menu/add.png",self.InstallMenu)
-        i+=1
-        self.menuGaucheAddLink("pol_prgm_settings", _("Settings"), i,Variables.playonlinux_env+"/resources/images/menu/settings.png",self.Options)
+	if (shortcut != None and shortcut != ""):
+	  if(os.path.exists(os.environ["PLAYONLINUX"]+"/.git/")):
+	      i+=1
+	      self.menuGaucheAddLink("pol_git", _("Update GIT"), i,Variables.playonlinux_env+"/resources/images/menu/update_git.png",self.UpdateGIT)
+	  elif "POL_UPTODATE" in os.environ and os.environ["POL_UPTODATE"] == "FALSE":
+	      i+=1
+	      self.menuGaucheAddLink("pol_update", _("Update instructions"), i,Variables.playonlinux_env+"/resources/images/menu/update_git.png",self.UpdateInstructions)
 
 	  if(shortcut != None):
 	      i+=2
@@ -787,7 +832,13 @@ class MainWindow(wx.Frame):
 	      i+=1
 	      self.menuGaucheAddLink("pol_prgm_rundebug", _("Debug"), i,Variables.playonlinux_env+"/resources/images/menu/bug.png",self.RunDebug)
 	      i+=1
-	      self.menuGaucheAddLink("pol_prgm_reportproblem", _("Report a problem"), i,Variables.playonlinux_env+"/resources/images/menu/bug.png",self.ReportProblem)
+            
+	      game_exec = self.GetSelectedProgram()
+	      game_log = playonlinux.getLog(game_exec)
+	      if(game_log):
+                i+=1
+                self.menuGaucheAddLink("pol_prgm_reportproblem", _("Send a feedback"), i,Variables.playonlinux_env+"/resources/images/menu/bug.png",self.sendfeedback)
+
 	      i+=1
 	      self.menuGaucheAddLink("pol_prgm_configure", _("Configure"), i,Variables.playonlinux_env+"/resources/images/menu/run.png",self.Configure)
 	      i+=1
@@ -795,73 +846,44 @@ class MainWindow(wx.Frame):
 	      i+=1
 	      self.menuGaucheAddLink("pol_prgm_adddir", _("Open the directory"), i,Variables.playonlinux_env+"/resources/images/menu/folder-wine.png",self.GoToAppDir)
 
-        if(os.path.exists(os.environ["PLAYONLINUX"]+"/.git/")):
-            i+=1
-            self.menuGaucheAddLink("pol_git", _("Update GIT"), i,Variables.playonlinux_env+"/resources/images/menu/update_git.png",self.UpdateGIT)
-        elif "POL_UPTODATE" in os.environ and os.environ["POL_UPTODATE"] == "FALSE":
-            i+=1
-            self.menuGaucheAddLink("pol_update", _("Update instructions"), i,Variables.playonlinux_env+"/resources/images/menu/update_git.png",self.UpdateInstructions)
+	      if(os.path.exists(os.environ["POL_USER_ROOT"]+"/configurations/manuals/"+shortcut)):
+		  i+=1
+		  self.menuGaucheAddLink("pol_prgm_readme", _("Read the manual"), i,Variables.playonlinux_env+"/resources/images/menu/manual.png",self.ReadMe)
 
-        if(shortcut != None):
-            i+=2
-            self.menuGaucheAddTitle("prgm_title", shortcut, i)
-            i+=1
-            self.menuGaucheAddLink("pol_prgm_run", _("Run"), i,Variables.playonlinux_env+"/resources/images/menu/media-playback-start.png",self.Run)
-            i+=1
-            self.menuGaucheAddLink("pol_prgm_kill", _("Close"), i,Variables.playonlinux_env+"/resources/images/menu/media-playback-stop.png",self.RKill)
-            i+=1
-            self.menuGaucheAddLink("pol_prgm_rundebug", _("Debug"), i,Variables.playonlinux_env+"/resources/images/menu/bug.png",self.RunDebug)
-            
-            game_exec = self.GetSelectedProgram()
-            game_log = playonlinux.getLog(game_exec)
-            if(game_log):
-                i+=1
-                self.menuGaucheAddLink("pol_prgm_reportproblem", _("Send a feedback"), i,Variables.playonlinux_env+"/resources/images/menu/bug.png",self.sendfeedback)
-                
-            i+=1
-            self.menuGaucheAddLink("pol_prgm_configure", _("Configure"), i,Variables.playonlinux_env+"/resources/images/menu/run.png",self.Configure)
-            i+=1
-            self.menuGaucheAddLink("pol_prgm_shortcut", _("Create a shortcut"), i,Variables.playonlinux_env+"/resources/images/menu/shortcut.png",self.Package)
-            i+=1
-            self.menuGaucheAddLink("pol_prgm_adddir", _("Open the directory"), i,Variables.playonlinux_env+"/resources/images/menu/folder-wine.png",self.GoToAppDir)
+	      i+=1
+	      self.menuGaucheAddLink("pol_prgm_uninstall", _("Uninstall"), i,Variables.playonlinux_env+"/resources/images/menu/window-close.png",self.UninstallGame)
 
-            if(os.path.exists(os.environ["POL_USER_ROOT"]+"/configurations/manuals/"+shortcut)):
-                i+=1
-                self.menuGaucheAddLink("pol_prgm_readme", _("Read the manual"), i,Variables.playonlinux_env+"/resources/images/menu/manual.png",self.ReadMe)
+	      if(os.path.exists(os.environ["POL_USER_ROOT"]+"/configurations/manuals/"+shortcut)):
+		i+=1
+		self.menuGaucheAddLink("pol_prgm_readme", _("Read the manual"), i,Variables.playonlinux_env+"/resources/images/menu/manual.png",self.ReadMe)
 
-            i+=1
-            self.menuGaucheAddLink("pol_prgm_uninstall", _("Uninstall"), i,Variables.playonlinux_env+"/resources/images/menu/window-close.png",self.UninstallGame)
+	      self.linksfile = os.environ["POL_USER_ROOT"]+"/configurations/links/"+shortcut
+	      if(os.path.exists(self.linksfile)):
+		  self.linksc = open(self.linksfile,"r").read().split("\n")
+		  for line in self.linksc:
+		      if("|" in line):
+			  line = line.split("|")
+			  i+=1
+			  if("PROFILEBUTTON/" in line[0]):
+			      line[0] = line[0].replace("PROFILEBUTTON/","")
 
 			  self.menuGaucheAddLink("url_"+str(i), line[0], i,Variables.playonlinux_env+"/resources/images/menu/star.png",None,line[1])
 
-            self.linksfile = os.environ["POL_USER_ROOT"]+"/configurations/links/"+shortcut
-            if(os.path.exists(self.linksfile)):
-                self.linksc = open(self.linksfile,"r").read().split("\n")
-                for line in self.linksc:
-                    if("|" in line):
-                        line = line.split("|")
-                        i+=1
-                        if("PROFILEBUTTON/" in line[0]):
-                            line[0] = line[0].replace("PROFILEBUTTON/","")
+	      icon = os.environ["POL_USER_ROOT"]+"/icones/full_size/"+shortcut
 
-                        self.menuGaucheAddLink("url_"+str(i), line[0], i,Variables.playonlinux_env+"/resources/images/menu/star.png",None,line[1])
-
-            icon = os.environ["POL_USER_ROOT"]+"/icones/full_size/"+shortcut
-
-
-            if(os.path.exists(icon)):
-                try:
-                    self.bitmap = wx.Image(icon)
-                    if(self.bitmap.GetWidth() >= 48):
-                        self.bitmap.Rescale(48,48,wx.IMAGE_QUALITY_HIGH)
-                        self.bitmap = self.bitmap.ConvertToBitmap()
-                        self.menuBitmap = wx.StaticBitmap(self.menu_gauche, id=-1, bitmap=self.bitmap, pos=(left_pos,20+(i+2)*20))
-                except:
-                    pass
+	      if(os.path.exists(icon)):
+		  try:
+		      self.bitmap = wx.Image(icon)
+		      if(self.bitmap.GetWidth() >= 48):
+			  self.bitmap.Rescale(48,48,wx.IMAGE_QUALITY_HIGH)
+			  self.bitmap = self.bitmap.ConvertToBitmap()
+			  self.menuBitmap = wx.StaticBitmap(self.menu_gauche, id=-1, bitmap=self.bitmap, pos=(left_pos,20+(i+2)*20))
+		  except:
+		      pass
 
     def menuGaucheAddTitle(self,id,text,pos):
         self.menuElem[id] = wx.StaticText(self.menu_gauche, -1, text,pos=(5,5+pos*20))
-        self.menuElem[id].SetForegroundColour((0,0,0)) # For dark themes
+        self.menuElem[id].SetForegroundColour(playonlinux.get_foreground_colour()) # For dark themes
         self.menuElem[id].SetFont(self.fontTitre)
 
 
@@ -885,16 +907,11 @@ class MainWindow(wx.Frame):
             self.menuElem[id].AutoBrowse(False)
         else:
             self.menuElem[id] = wx.lib.hyperlink.HyperLinkCtrl(self.menu_gauche, 10000+pos, text, pos=(35,15+pos*20))
-            self.menuElem[id].setURL(url)
+	    self.menuElem[id].setURL(url)
 
-        self.menuElem[id].SetColours(wx.Colour(0,0,0),wx.Colour(0,0,0),wx.Colour(0,0,0))
         self.menuElem[id].UpdateLink(True)
-        #self.menuElem[id].SetVisited(False)
-        #self.menuElem[id].SetNormalColour(wx.Colour(0,0,0))
-        #self.menuElem[id].SetVisitedColour(wx.Colour(0,0,0))
-        #self.menuElem[id].SetHoverColour(wx.Colour(100,100,100))
+        self.menuElem[id].SetColours(playonlinux.get_foreground_colour(),playonlinux.get_foreground_colour(),playonlinux.get_foreground_hover_colour())
         
-            
         if(evt != None):
             wx.lib.hyperlink.EVT_HYPERLINK_LEFT(self, 10000+pos, evt)
 
@@ -915,7 +932,8 @@ class MainWindow(wx.Frame):
             
         self.list_game.DeleteAllItems()
         self.images.RemoveAll()
-        root = self.list_game.AddRoot("")
+        self.rootnode = self.list_game.AddRoot("Your games")
+        
         self.i = 0
         if(self.iconSize <= 32):
             self.iconFolder = "32";
@@ -937,7 +955,21 @@ class MainWindow(wx.Frame):
                     except:
                         pass
                     
-                    item = self.list_game.AppendItem(root, game, self.i)
+		    prefix = re.search('^[a-z A-Z 0-9]*[ ]{1}[-]{1}[ ]{1}', game)                    
+                    
+		    matchingitem = None                    
+                    
+		    if ((prefix is not None) and (prefix.group() is not None)):                    
+		      prefix = prefix.group()[:-3]                    
+		      matchingitem = self.tree_item(self.list_game, prefix, self.rootnode)                    
+                                        
+                    if (matchingitem != None):                    
+		      itemid = self.list_game.AppendItem(matchingitem, game, self.i)                    
+		    else:                    
+		      itemid = self.list_game.AppendItem(self.rootnode, game, self.i)                    
+                    
+                    self.list_game.SetItemFont(itemid, wx.Font(12, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL,False, "", wx.FONTENCODING_DEFAULT))
+                    
                     self.i += 1
 
 	self.list_game.Expand(self.rootnode);
@@ -996,33 +1028,36 @@ class MainWindow(wx.Frame):
     def PCCd(self, event):
         subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/read_pc_cd"])
 
-    def PolShell(self, event):
-        #Variables.run_x_server()
+    def PolShell(self, event): #Variables.run_x_server()
         subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/expert/PolShell"])
 
     def Configure(self, event):
         game_exec = self.GetSelectedProgram()
-        try:
-            self.configureFrame.Show(True)
-            self.configureFrame.SetFocus()
-            if(game_exec != ""):
-                self.configureFrame.change_program(game_exec,False)
+        
+        if (game_exec != ""):
+	  try:
+	      self.configureFrame.Show(True)
+	      self.configureFrame.SetFocus()
+	      if(game_exec != ""):
+		  self.configureFrame.change_program(game_exec,False)
 
-        except:
-            if(game_exec == ""):
-                self.configureFrame = configure.MainWindow(self, -1, _("{0} configuration").format(os.environ["APPLICATION_TITLE"]),"default",True)
-            else:
-                self.configureFrame = configure.MainWindow(self, -1, _("{0} configuration").format(os.environ["APPLICATION_TITLE"]),game_exec.decode("utf-8","replace"),False)
+	  except:
+	      if(game_exec == ""):
+		  self.configureFrame = configure.MainWindow(self, -1, _("{0} configuration").format(os.environ["APPLICATION_TITLE"]),"default",True)
+	      else:
+		  self.configureFrame = configure.MainWindow(self, -1, _("{0} configuration").format(os.environ["APPLICATION_TITLE"]),game_exec.decode("utf-8","replace"),False)
 
 
-            self.configureFrame.Center(wx.BOTH)
-            self.configureFrame.Show(True)
+	      self.configureFrame.Center(wx.BOTH)
+	      self.configureFrame.Show(True)
 
         #subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/polconfigurator", game_exec])
 
     def Package(self, event):
         game_exec = self.GetSelectedProgram()
-        subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/make_shortcut", game_exec])
+        
+        if (game_exec != ""):
+	  subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/make_shortcut", game_exec])
 
     def UninstallGame(self, event):
         game_exec = self.GetSelectedProgram()
@@ -1057,33 +1092,38 @@ class MainWindow(wx.Frame):
             self.wversion.Show(True)
 
     def GetSelectedProgram(self):
-        return self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8","replace")
+	if (self.list_game.GetSelection() != self.rootnode):
+	  return self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8","replace")
+	else:
+	  return ""
         
     def Run(self, event, s_debug=False):
 
         game_exec = self.GetSelectedProgram()
-        game_prefix = playonlinux.getPrefix(game_exec)
+        
+        if (game_exec != ""):
+	  game_prefix = playonlinux.getPrefix(game_exec)
 
-        if(s_debug == False):
-            playonlinux.SetDebugState(game_exec, game_prefix, False)
+	  if(s_debug == False):
+	      playonlinux.SetDebugState(game_exec, game_prefix, False)
 
-        if(os.path.exists(os.environ["POL_USER_ROOT"]+"/wineprefix/"+game_prefix)):
-            if(game_exec != ""):
-                if(playonlinux.GetDebugState(game_exec)):
-                    try:
-                        self.debugFrame.analyseReal(0, game_prefix)
-                        self.debugFrame.Show()
-                        self.debugFrame.SetFocus()
-                    except:
-                        self.debugFrame = debug.MainWindow(None, -1, _("{0} debugger").format(os.environ["APPLICATION_TITLE"]),game_prefix,0)
-                        self.debugFrame.Center(wx.BOTH)
-                        self.debugFrame.Show()
+	  if(os.path.exists(os.environ["POL_USER_ROOT"]+"/wineprefix/"+game_prefix)):
+	      if(game_exec != ""):
+		  if(playonlinux.GetDebugState(game_exec)):
+		      try:
+			  self.debugFrame.analyseReal(0, game_prefix)
+			  self.debugFrame.Show()
+			  self.debugFrame.SetFocus()
+		      except:
+			  self.debugFrame = debug.MainWindow(None, -1, _("{0} debugger").format(os.environ["APPLICATION_TITLE"]),game_prefix,0)
+			  self.debugFrame.Center(wx.BOTH)
+			  self.debugFrame.Show()
 
-                subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/run_app", game_exec])
-            else:
-                wx.MessageBox(_("Please select a program."), os.environ["APPLICATION_TITLE"])
-        else:
-            wx.MessageBox(_("The virtual drive associated with {0} ({1}) does no longer exists.").format(game_exec, game_prefix), os.environ["APPLICATION_TITLE"])
+		  subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/run_app", game_exec])
+	      else:
+		  wx.MessageBox(_("Please select a program."), os.environ["APPLICATION_TITLE"])
+	  else:
+	      wx.MessageBox(_("The virtual drive associated with {0} ({1}) does no longer exists.").format(game_exec, game_prefix), os.environ["APPLICATION_TITLE"])
 
     def RunDebug(self, event):
         game_exec = self.GetSelectedProgram()
