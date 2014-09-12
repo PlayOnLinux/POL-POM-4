@@ -54,11 +54,17 @@ if (os.environ["POL_OS"] == "Linux"):
         
     widget_borders = wx.RAISED_BORDER
     os_name = "linux"
-    if not os.path.exists("/proc/net/if_inet6"):
-        os.environ["POL_WGET"] = "env LD_LIBRARY_PATH=\""+os.environ["LD_LIBRARY_PATH"]+"\" wget -q"
-    else:
-        os.environ["POL_WGET"] = "env LD_LIBRARY_PATH=\""+os.environ["LD_LIBRARY_PATH"]+"\" wget --prefer-family=IPv4 -q"
-
+    try:
+        if not os.path.exists("/proc/net/if_inet6"):
+            os.environ["POL_WGET"] = "env LD_LIBRARY_PATH=\""+os.environ["LD_LIBRARY_PATH"]+"\" wget -q"
+        else:
+            os.environ["POL_WGET"] = "env LD_LIBRARY_PATH=\""+os.environ["LD_LIBRARY_PATH"]+"\" wget --prefer-family=IPv4 -q"
+    except KeyError:
+        if not os.path.exists("/proc/net/if_inet6"):
+            os.environ["POL_WGET"] = "env LD_LIBRARY_PATH=\"\" wget -q"
+        else:
+            os.environ["POL_WGET"] = "env LD_LIBRARY_PATH=\"\" wget --prefer-family=IPv4 -q"
+            
 if (os.environ["POL_OS"] == "FreeBSD"):
     os.environ["REPERTOIRE"] = os.environ["HOME"]+"/.PlayOnBSD/"
     os.environ["APPLICATION_TITLE"] = "PlayOnBSD"
