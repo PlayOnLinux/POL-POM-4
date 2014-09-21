@@ -1,3 +1,5 @@
+# 4.2.6
+
 # 4.2.5
 * Fix reading/writing values containing '=' symbol in configuration files (#4834)
 * Make POL_Wine_InstallFonts preserve current directory (regression since 4.2.3)
