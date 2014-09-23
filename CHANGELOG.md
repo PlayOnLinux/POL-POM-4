@@ -1,6 +1,7 @@
 # 4.2.6
 
 # 4.2.5
+
 * Fix reading/writing values containing '=' symbol in configuration files (#4834)
 * Make POL_Wine_InstallFonts preserve current directory (regression since 4.2.3)
 * Disable "Install" component button until a component is selected
@@ -13,6 +14,7 @@
   http://linux-kernel.2935.n7.nabble.com/tip-x86-urgent-x86-64-modify-ldt-Ban-16-bit-segments-on-64-bit-kernels-td838675i120.html
 
 # 4.2.4
+
 * New support and feedback system, easier to use
 * Links to social networks
 * 4.2.3 regresion fixed in run_exe module
