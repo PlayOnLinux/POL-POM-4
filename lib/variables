@@ -29,11 +29,19 @@ alias find="find -H"
 [ "$(which sudo)" ] && sudo -k 2> /dev/null
 
 ### Terminal
-if [ "$DEBIAN_PACKAGE" = "TRUE" ]; then
-	export POL_TERM="x-terminal-emulator"
-else
-	export POL_TERM="xterm"
+# User override, must support -T to set title and -e to run a command
+# gnome-terminal doesn't support -T, use gnome-terminal.wrapper instead
+POL_TERM="$(POL_Config_pRead POL_TERM)"
+
+if [ -z "$POL_TERM" ]; then
+	# Debian
+	type -p x-terminal-emulator >&/dev/null && POL_TERM="x-terminal-emulator"
+	# Add support for more distros or desktop specific mechanisms here
 fi
+
+# Fallback
+type -p "$POL_TERM" >&/dev/null || POL_TERM="xterm"
+export POL_TERM
 
 ### Desktop
 [ "$(which xdg-user-dir)" ] && export DESKTOP="$(xdg-user-dir DESKTOP)" || export DESKTOP="$HOME/Desktop"

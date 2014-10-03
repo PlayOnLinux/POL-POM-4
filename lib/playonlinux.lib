@@ -226,7 +226,7 @@ POL_OpenShell()
 	) >  "$POL_USER_ROOT/tmp/env_bash"
 	echo bash --rcfile "$POL_USER_ROOT/tmp/env_bash" > "$POL_USER_ROOT/tmp/env_bash2"
 	chmod +x "$POL_USER_ROOT/tmp/env_bash2"
-	xterm -e "$POL_USER_ROOT/tmp/env_bash2" -T "$APPLICATION_TITLE"
+	$POL_TERM -e "$POL_USER_ROOT/tmp/env_bash2" -T "$APPLICATION_TITLE"
 }
 
 
@@ -904,7 +904,7 @@ POL_Sudo()
 				SUDO_COMMAND="kdesu --"
 				unset kdesu
 			elif which sudo; then
-				SUDO_COMMAND="xterm -e sudo"
+				SUDO_COMMAND="$POL_TERM -e sudo"
 				unset sudo
 			else
 				NOSUDO="TRUE"
