@@ -571,6 +571,34 @@ POL_Wine_PrefixExists()
 	PREFNAME=`printf "$1"| tr -c [[a-zA-Z0-9]\.] '_'`
 	[ -d "$POL_USER_ROOT/wineprefix/$PREFNAME/drive_c" ] && echo "True" || echo "False"
 }
+POL_Wine_VersionSignature()
+{
+	# Return the signature of a Wine package
+	# Usage: POL_Wine_VersionSignature [DIR]
+
+	# On Linux, result should match the one of
+	# cd $DIR; find * -type f|sort|xargs md5sum|md5sum -|cut -c1-32
+
+	local WINEPKGPATH="$1"
+	[ -d "$WINEPKGPATH" ] || return
+	# [ -e "$WINEPKGPATH/bin/wine" ] || return
+
+	local CURRSIGVER="$WINEPKGPATH/.signature.v1" # cache version
+	local WINESIG
+	[ -e "$CURRSIGVER" ] && read WINESIG < "$CURRSIGVER"
+	if [ -z "$WINESIG" ]; then
+		local MANIFESTFILE="$POL_USER_ROOT/tmp/POL_Wine_VersionSignature_manifest$$"
+		(cd "$WINEPKGPATH" && find * -type f |\
+		  sort |\
+		  while read sigfilename; do
+		    echo "$(POL_MD5_file "$sigfilename")  $sigfilename"
+		  done) > "$MANIFESTFILE"
+		WINESIG="$(POL_MD5_file "$MANIFESTFILE")"
+		rm -f "$MANIFESTFILE"
+		echo "$WINESIG" > "$CURRSIGVER"
+	fi
+	echo "$WINESIG"
+}
 POL_Wine_InstallVersion()
 {
 	# Install a wineversion

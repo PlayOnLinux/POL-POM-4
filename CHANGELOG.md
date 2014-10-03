@@ -2,6 +2,8 @@
 * Use $POL_TERM more consistently, allow POL_TERM global configuration
   override. Beware, the terminal must support -T and -e options, so
   gnome-terminal doesn't qualify (gnome-terminal.wrapper does though)
+* Add a POL_Wine_VersionSignature function to compute a hash of a Wine
+  package
 
 # 4.2.5
 
