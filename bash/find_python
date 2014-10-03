@@ -6,7 +6,7 @@ search_python () {
 		if [ "$POL_PYTHON" ]; then
 			echo -n "Looking for $POL_PYTHON... " 1>&2
 			if [ "$(which $POL_PYTHON)" ]; then
-				local Version=$($POL_PYTHON --version 2>&1 |sed -e 's/^Python //')
+				local Version=$($POL_PYTHON --version 2>&1 |tail -n 1|sed -e 's/^Python //')
 				echo -n "$Version - " 1>&2
 				case "$Version" in
 				    2.6|2.6.*|2.7|2.7.*)

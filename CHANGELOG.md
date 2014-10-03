@@ -4,6 +4,7 @@
   gnome-terminal doesn't qualify (gnome-terminal.wrapper does though)
 * Add a POL_Wine_VersionSignature function to compute a hash of a Wine
   package
+* Python version string extraction hardening (#4895)
 
 # 4.2.5
 
