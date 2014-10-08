@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-09-29 19:00+0200\n"
+"POT-Creation-Date: 2014-10-06 19:00+0200\n"
 "PO-Revision-Date: 2014-01-19 05:18+0000\n"
 "Last-Translator: qysnn <qysnn1@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-09-30 06:12+0000\n"
+"X-Launchpad-Export-Date: 2014-10-07 05:42+0000\n"
 "X-Generator: Launchpad (build 17196)\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -418,7 +418,6 @@ msgstr "你想安装2.0a补丁吗？"
 #: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:41
 #: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:33
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:37
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_III___AZERTY_patch_:23
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind___Bloodmoon_:26
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind___Tribunal_:26
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_Patch_1.2.0416_:26
@@ -540,8 +539,8 @@ msgstr "请选择要运行的安装文件。"
 #: PlayOnLinux_Scripts/SubRip_:33 PlayOnLinux_Scripts/Theme_Hospital_:48
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:116 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:435 lib/wine.lib:919 lib/wine.lib:997
-#: lib/wine.lib:1027
+#: bash/winebash:27 lib/setupwindow.lib:435 lib/wine.lib:947 lib/wine.lib:1025
+#: lib/wine.lib:1055
 #, sh-format
 msgid "Please wait..."
 msgstr "请耐心等待 ..."
@@ -705,7 +704,6 @@ msgstr "Steam 有其自己的自动更新系统"
 #: PlayOnLinux_Scripts/Sacrifice_:45
 #: PlayOnLinux_Scripts/Star_Wars__The_Force_Unleashed___Ultimate_Sith_Edition_:118
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_V__Skyrim_:76
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_V___Skyrim_:76
 #: PlayOnLinux_Scripts/The_Witcher_:102
 #, sh-format
 msgid "Please insert the game media into your disk drive"
@@ -1252,7 +1250,9 @@ msgstr "请等候 $TITLE 的安装"
 
 #: PlayOnLinux_Scripts/Evolution_4_:43
 #: PlayOnLinux_Scripts/Photomatix_Pro_4.2.7_:59
-#: PlayOnLinux_Scripts/Rayman_Legends_:110 PlayOnLinux_Scripts/photomatix3_:56
+#: PlayOnLinux_Scripts/Rayman_Legends_:110
+#: PlayOnLinux_Scripts/Star_Wars___Rogue_Squadron_3D_:75
+#: PlayOnLinux_Scripts/photomatix3_:56
 #, sh-format
 msgid "$TITLE has been successfully installed."
 msgstr ""
@@ -2462,7 +2462,7 @@ msgid ""
 "To continue, PlayOnLinux needs to remount your CD-ROM with unhide option."
 msgstr "若要继续, PlayOnLinux 需要取消隐藏的选项, 重新挂载您的 CD-ROM."
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:16 lib/wine.lib:804
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:16 lib/wine.lib:832
 #, sh-format
 msgid "Abort installation"
 msgstr "取消安装"
@@ -2487,7 +2487,7 @@ msgstr "我自己已修复它, 只是重新测试"
 msgid "The program needs access to ptrace() to proceed:"
 msgstr "该程序需要访问的 ptrace() 以进行"
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:28 lib/wine.lib:833
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:28 lib/wine.lib:861
 #, sh-format
 msgid "User abort"
 msgstr "用户中止"
@@ -2845,7 +2845,6 @@ msgstr ""
 
 #: PlayOnLinux_Scripts/Spintires_:35
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_V__Skyrim_:34
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_V___Skyrim_:34
 #, sh-format
 msgid ""
 "The game will fail to launch until you set "
@@ -2908,11 +2907,6 @@ msgid ""
 msgstr ""
 "在 Steam 安装 Terraria. 运行 Terraria 时，Steam 会安装游戏.Steam 安装 xna 框架游戏. 关闭 Steam, "
 "以便安装程序可以继续."
-
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_III___AZERTY_patch_:20
-#, sh-format
-msgid "Welcome in the AZERTY patch Installer for $TITLE_REQUIRED"
-msgstr ""
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind_:73
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind___Bloodmoon_:31
@@ -4070,7 +4064,7 @@ msgstr ""
 "以得到进一步的信息"
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:796 lib/wine.lib:877
+#: lib/wine.lib:824 lib/wine.lib:905
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr "请等待虚拟盘创建 ..."
@@ -4514,64 +4508,64 @@ msgid ""
 "message"
 msgstr "Wine 似乎已经崩溃\\n\\n如果你的程序正在运行, 忽略此消息"
 
-#: lib/wine.lib:601
+#: lib/wine.lib:629
 #, sh-format
 msgid "Unable to find version: "
 msgstr "不能找到下列版本: "
 
-#: lib/wine.lib:607 lib/wine.lib:608
+#: lib/wine.lib:635 lib/wine.lib:636
 #, sh-format
 msgid "Downloading Wine: "
 msgstr "下载 Wine: "
 
-#: lib/wine.lib:617
+#: lib/wine.lib:645
 #, sh-format
 msgid "The download seems to have failed."
 msgstr "下载似乎失败了."
 
-#: lib/wine.lib:619
+#: lib/wine.lib:647
 #, sh-format
 msgid "Extracting Wine..."
 msgstr "解压缩 Wine ..."
 
-#: lib/wine.lib:802
+#: lib/wine.lib:830
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr "覆盖(通常奏效, 但不保证)"
 
-#: lib/wine.lib:803
+#: lib/wine.lib:831
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
 msgstr "擦除(虚拟盘内容会消失)"
 
-#: lib/wine.lib:817
+#: lib/wine.lib:845
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr "目标虚拟盘 $PREFNAME 已存在:"
 
-#: lib/wine.lib:997 lib/wine.lib:1027
+#: lib/wine.lib:1025 lib/wine.lib:1055
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "请等待 $SOFTNAME 安装完成..."
 
-#: lib/wine.lib:1001 lib/wine.lib:1030
+#: lib/wine.lib:1029 lib/wine.lib:1058
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
 "have to reinstall $SOFTNAME"
 msgstr "注意! 这将终止安装进程. 若其未完成, 您需要重新安装 $SOFTNAME"
 
-#: lib/wine.lib:1001 lib/wine.lib:1030
+#: lib/wine.lib:1029 lib/wine.lib:1058
 #, sh-format
 msgid "Install is done"
 msgstr "安装已完成"
 
-#: lib/wine.lib:1034 lib/wine.lib:1035
+#: lib/wine.lib:1062 lib/wine.lib:1063
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr "仅当安装过程完成后按下一步"
 
-#: lib/wine.lib:1043
+#: lib/wine.lib:1071
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr "请等待, $APPLICATION_TITLE 正在模拟重启"

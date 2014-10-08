@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-09-29 19:00+0200\n"
+"POT-Creation-Date: 2014-10-06 19:00+0200\n"
 "PO-Revision-Date: 2013-12-23 08:04+0000\n"
 "Last-Translator: Tadeáš Pařík <tadeas.parik@gmail.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-09-30 06:07+0000\n"
+"X-Launchpad-Export-Date: 2014-10-07 05:38+0000\n"
 "X-Generator: Launchpad (build 17196)\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -438,7 +438,6 @@ msgstr "Nainstalovat patch 2.0 ?"
 #: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:41
 #: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:33
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:37
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_III___AZERTY_patch_:23
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind___Bloodmoon_:26
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind___Tribunal_:26
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_Patch_1.2.0416_:26
@@ -568,8 +567,8 @@ msgstr "Vyberte prosím inicializační soubor ke spuštění"
 #: PlayOnLinux_Scripts/SubRip_:33 PlayOnLinux_Scripts/Theme_Hospital_:48
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:116 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:435 lib/wine.lib:919 lib/wine.lib:997
-#: lib/wine.lib:1027
+#: bash/winebash:27 lib/setupwindow.lib:435 lib/wine.lib:947 lib/wine.lib:1025
+#: lib/wine.lib:1055
 #, sh-format
 msgid "Please wait..."
 msgstr "Čekejte prosím…"
@@ -734,7 +733,6 @@ msgstr "Steam má svůj vlastní aktualizační systém."
 #: PlayOnLinux_Scripts/Sacrifice_:45
 #: PlayOnLinux_Scripts/Star_Wars__The_Force_Unleashed___Ultimate_Sith_Edition_:118
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_V__Skyrim_:76
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_V___Skyrim_:76
 #: PlayOnLinux_Scripts/The_Witcher_:102
 #, sh-format
 msgid "Please insert the game media into your disk drive"
@@ -1331,7 +1329,9 @@ msgstr "Počkejte prosím, než se $TITLE nainstaluje."
 
 #: PlayOnLinux_Scripts/Evolution_4_:43
 #: PlayOnLinux_Scripts/Photomatix_Pro_4.2.7_:59
-#: PlayOnLinux_Scripts/Rayman_Legends_:110 PlayOnLinux_Scripts/photomatix3_:56
+#: PlayOnLinux_Scripts/Rayman_Legends_:110
+#: PlayOnLinux_Scripts/Star_Wars___Rogue_Squadron_3D_:75
+#: PlayOnLinux_Scripts/photomatix3_:56
 #, sh-format
 msgid "$TITLE has been successfully installed."
 msgstr "$TITLE byl úspěšně nainstalován."
@@ -2646,7 +2646,7 @@ msgstr ""
 "Aby mohl pokračovat, PlayOnLinux potřebuje znovu připojit vaší CD mechaniku "
 "s použitím volby unhide."
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:16 lib/wine.lib:804
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:16 lib/wine.lib:832
 #, sh-format
 msgid "Abort installation"
 msgstr "Zrušit instalaci"
@@ -2671,7 +2671,7 @@ msgstr "Opravil jsem to sám, pouze znovu otestujte"
 msgid "The program needs access to ptrace() to proceed:"
 msgstr "Pro pokračování potřebuje program přístup k ptrace()"
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:28 lib/wine.lib:833
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:28 lib/wine.lib:861
 #, sh-format
 msgid "User abort"
 msgstr "Uživatelské přerušení"
@@ -3066,7 +3066,6 @@ msgstr ""
 
 #: PlayOnLinux_Scripts/Spintires_:35
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_V__Skyrim_:34
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_V___Skyrim_:34
 #, sh-format
 msgid ""
 "The game will fail to launch until you set "
@@ -3133,11 +3132,6 @@ msgstr ""
 "Terrarii nainstaluje ve Steamu. Spusťte ji až ji Steam nainstaluje. Pro tuto "
 "hru Steam nainstaluje framework xna. Aby mohl instalátor pokračovat, "
 "ukončete Steam."
-
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_III___AZERTY_patch_:20
-#, sh-format
-msgid "Welcome in the AZERTY patch Installer for $TITLE_REQUIRED"
-msgstr ""
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind_:73
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind___Bloodmoon_:31
@@ -4362,7 +4356,7 @@ msgstr ""
 "www.$POL_DNS"
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:796 lib/wine.lib:877
+#: lib/wine.lib:824 lib/wine.lib:905
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr "Počkejte na vytvoření virtuálního disku..."
@@ -4836,47 +4830,47 @@ msgstr ""
 "Zdá se, že wine havarovalo\\n\\nNicméně pokud program stále běží, tak toto "
 "hlášení můžete ignorovat"
 
-#: lib/wine.lib:601
+#: lib/wine.lib:629
 #, sh-format
 msgid "Unable to find version: "
 msgstr "Nelze najít verzi: "
 
-#: lib/wine.lib:607 lib/wine.lib:608
+#: lib/wine.lib:635 lib/wine.lib:636
 #, sh-format
 msgid "Downloading Wine: "
 msgstr "Stahuje se Wine: "
 
-#: lib/wine.lib:617
+#: lib/wine.lib:645
 #, sh-format
 msgid "The download seems to have failed."
 msgstr "Zdá se, že stahování selhalo."
 
-#: lib/wine.lib:619
+#: lib/wine.lib:647
 #, sh-format
 msgid "Extracting Wine..."
 msgstr "Rozbaluje se Wine..."
 
-#: lib/wine.lib:802
+#: lib/wine.lib:830
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr "Přepsat (obvykle funguje, bez záruky)"
 
-#: lib/wine.lib:803
+#: lib/wine.lib:831
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
 msgstr "Vymazat (obsah virtuálního disku bude ztracen)"
 
-#: lib/wine.lib:817
+#: lib/wine.lib:845
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr "Cíl $PREFNAME virtuálního disku již existuje:"
 
-#: lib/wine.lib:997 lib/wine.lib:1027
+#: lib/wine.lib:1025 lib/wine.lib:1055
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "Vyčkejte, dokud nebude program $SOFTNAME nainstalován..."
 
-#: lib/wine.lib:1001 lib/wine.lib:1030
+#: lib/wine.lib:1029 lib/wine.lib:1058
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
@@ -4885,17 +4879,17 @@ msgstr ""
 "Opatrně! Tohle ukončí instalační proces. Pokud neskončí korektně, tak bude "
 "potřeba $SOFTNAME přeinstalovat"
 
-#: lib/wine.lib:1001 lib/wine.lib:1030
+#: lib/wine.lib:1029 lib/wine.lib:1058
 #, sh-format
 msgid "Install is done"
 msgstr "Instalace je hotova"
 
-#: lib/wine.lib:1034 lib/wine.lib:1035
+#: lib/wine.lib:1062 lib/wine.lib:1063
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr "Stiskněte Další jen pokud byla instalace již dokončena"
 
-#: lib/wine.lib:1043
+#: lib/wine.lib:1071
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr "Vyčkejte prosím, $APPLICATION_TITLE simuluje restart"

@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: Radoslav Ivanov <reckku@gmail.com>\n"
-"POT-Creation-Date: 2014-09-29 19:00+0200\n"
+"POT-Creation-Date: 2014-10-06 19:00+0200\n"
 "PO-Revision-Date: 2014-03-18 20:57+0000\n"
 "Last-Translator: Радослав Иванов <reckku@gmail.com>\n"
 "Language-Team: Svetoslav Stefanov <lfu.project@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-09-30 06:07+0000\n"
+"X-Launchpad-Export-Date: 2014-10-07 05:38+0000\n"
 "X-Generator: Launchpad (build 17196)\n"
 "X-Poedit-Country: BULGARIA\n"
 "X-Poedit-Language: Bulgarian\n"
@@ -445,7 +445,6 @@ msgstr "Желаете ли да инсталирате кръпката 2.0а?"
 #: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:41
 #: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:33
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:37
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_III___AZERTY_patch_:23
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind___Bloodmoon_:26
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind___Tribunal_:26
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_Patch_1.2.0416_:26
@@ -577,8 +576,8 @@ msgstr "Моля, изберете инсталиращият файл, койт
 #: PlayOnLinux_Scripts/SubRip_:33 PlayOnLinux_Scripts/Theme_Hospital_:48
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:116 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:435 lib/wine.lib:919 lib/wine.lib:997
-#: lib/wine.lib:1027
+#: bash/winebash:27 lib/setupwindow.lib:435 lib/wine.lib:947 lib/wine.lib:1025
+#: lib/wine.lib:1055
 #, sh-format
 msgid "Please wait..."
 msgstr "Моля, изчакайте..."
@@ -744,7 +743,6 @@ msgstr "Steam има собствена автоматична система з
 #: PlayOnLinux_Scripts/Sacrifice_:45
 #: PlayOnLinux_Scripts/Star_Wars__The_Force_Unleashed___Ultimate_Sith_Edition_:118
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_V__Skyrim_:76
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_V___Skyrim_:76
 #: PlayOnLinux_Scripts/The_Witcher_:102
 #, sh-format
 msgid "Please insert the game media into your disk drive"
@@ -1340,7 +1338,9 @@ msgstr "Моля, изчакайте, докато се инсталира $TITL
 
 #: PlayOnLinux_Scripts/Evolution_4_:43
 #: PlayOnLinux_Scripts/Photomatix_Pro_4.2.7_:59
-#: PlayOnLinux_Scripts/Rayman_Legends_:110 PlayOnLinux_Scripts/photomatix3_:56
+#: PlayOnLinux_Scripts/Rayman_Legends_:110
+#: PlayOnLinux_Scripts/Star_Wars___Rogue_Squadron_3D_:75
+#: PlayOnLinux_Scripts/photomatix3_:56
 #, sh-format
 msgid "$TITLE has been successfully installed."
 msgstr "$TITLE е успешно инсталирана."
@@ -2677,7 +2677,7 @@ msgstr ""
 "За да продължи, PlayOnLinux се нуждае от повторно монтиране на CD-ROM с "
 "опция разкриване."
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:16 lib/wine.lib:804
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:16 lib/wine.lib:832
 #, sh-format
 msgid "Abort installation"
 msgstr "Прекратяване на инсталацията"
@@ -2702,7 +2702,7 @@ msgstr "Сам го поправих, просто повторете теста
 msgid "The program needs access to ptrace() to proceed:"
 msgstr "За да продължи, програмата се нуждае от достъп до ptrace():"
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:28 lib/wine.lib:833
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:28 lib/wine.lib:861
 #, sh-format
 msgid "User abort"
 msgstr "Прекратено от потребителя"
@@ -3102,7 +3102,6 @@ msgstr ""
 
 #: PlayOnLinux_Scripts/Spintires_:35
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_V__Skyrim_:34
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_V___Skyrim_:34
 #, sh-format
 msgid ""
 "The game will fail to launch until you set "
@@ -3170,11 +3169,6 @@ msgstr ""
 "Инсталирайте Terraria в Steam. Пуснете Terraria, когато Steam инсталира "
 "играта. Steam ще инсталира XNA Framework за играта. Затворете Steam, за да "
 "може инсталаторът да продължи."
-
-#: PlayOnLinux_Scripts/The_Elder_Scrolls_III___AZERTY_patch_:20
-#, sh-format
-msgid "Welcome in the AZERTY patch Installer for $TITLE_REQUIRED"
-msgstr ""
 
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind_:73
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind___Bloodmoon_:31
@@ -4410,7 +4404,7 @@ msgstr ""
 "информация"
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:796 lib/wine.lib:877
+#: lib/wine.lib:824 lib/wine.lib:905
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr "Моля, изчакайте, докато се създаде виртуалният диск..."
@@ -4887,47 +4881,47 @@ msgstr ""
 "Изглежда, че Wine се срина.\\n\\nАко програмата Ви работи, пренебрегнете "
 "това съобщение"
 
-#: lib/wine.lib:601
+#: lib/wine.lib:629
 #, sh-format
 msgid "Unable to find version: "
 msgstr "Не може да се открие версия: "
 
-#: lib/wine.lib:607 lib/wine.lib:608
+#: lib/wine.lib:635 lib/wine.lib:636
 #, sh-format
 msgid "Downloading Wine: "
 msgstr "Изтегляне на Wine: "
 
-#: lib/wine.lib:617
+#: lib/wine.lib:645
 #, sh-format
 msgid "The download seems to have failed."
 msgstr "Изглежда, че изтеглянето се провали."
 
-#: lib/wine.lib:619
+#: lib/wine.lib:647
 #, sh-format
 msgid "Extracting Wine..."
 msgstr "Разархивиране на Wine..."
 
-#: lib/wine.lib:802
+#: lib/wine.lib:830
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr "Презаписване (обикновено работи, но не е гарантирано)"
 
-#: lib/wine.lib:803
+#: lib/wine.lib:831
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
 msgstr "Изтриване (съдържанието на виртуалния диск ще бъде изгубено)"
 
-#: lib/wine.lib:817
+#: lib/wine.lib:845
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr "Целевият виртуален диск $PREFNAME вече съществува:"
 
-#: lib/wine.lib:997 lib/wine.lib:1027
+#: lib/wine.lib:1025 lib/wine.lib:1055
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "Моля, изчакайте докато $SOFTNAME се инсталира..."
 
-#: lib/wine.lib:1001 lib/wine.lib:1030
+#: lib/wine.lib:1029 lib/wine.lib:1058
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
@@ -4936,17 +4930,17 @@ msgstr ""
 "Бъдете внимателни! Това ще убие инсталационния процес. Ако не и приключил, "
 "ще трябва да преинсталирате $SOFTNAME"
 
-#: lib/wine.lib:1001 lib/wine.lib:1030
+#: lib/wine.lib:1029 lib/wine.lib:1058
 #, sh-format
 msgid "Install is done"
 msgstr "Инсталацията е готова"
 
-#: lib/wine.lib:1034 lib/wine.lib:1035
+#: lib/wine.lib:1062 lib/wine.lib:1063
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr "Натиснете Следващ само когато инсталационният процес е приключил"
 
-#: lib/wine.lib:1043
+#: lib/wine.lib:1071
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr "Моля, изчакайте докато $APPLICATION_TITLE симулира рестарт"
