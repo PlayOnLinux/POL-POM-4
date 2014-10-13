@@ -5,6 +5,8 @@
 * Add a POL_Wine_VersionSignature function to compute a hash of a Wine
   package
 * Python version string extraction hardening (#4895)
+* POL_System_PartInfo identifies filesystems thru mount point instead of device
+  (Btrfs subvolumes compatibility)
 
 # 4.2.5
 

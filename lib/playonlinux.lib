@@ -815,9 +815,15 @@ POL_System_FindPart()
 		df -P "$1"  | awk '/^\/dev/ {print $1}' || echo "$1 not found"; 
 	fi
 }
+POL_System_FindMountPoint() 
+{ 
+	if [ -e "$1" ]; then
+		df -P "$1"  | awk 'NR == 2 {print $6}' || echo "$1 not found"; 
+	fi
+}
 POL_System_PartInfo()
 {
-	awk '$1 == "'$(POL_System_FindPart "$1")'"' /etc/mtab
+	awk '$2 == "'$(POL_System_FindMountPoint "$1")'"' /etc/mtab
 }
 
 FS_Check ()
