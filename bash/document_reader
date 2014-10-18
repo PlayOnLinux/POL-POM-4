@@ -23,14 +23,15 @@ source "$PLAYONLINUX/lib/sources"
 
 app="$1"
 doc="$2"
+shift 2
 
 if [ ! -e "$POL_USER_ROOT/shortcuts/$app" ]; then
-	POL_SimpleMessage "$1 is not installed." 
-	echo "$1 is not installed."
+	POL_SimpleMessage "$app is not installed." 
+	echo "$app is not installed."
 	exit
 fi
 
-if [ "$2" ]; then
+if [ "$doc" ]; then
 	POL_Debug_Message "App to run: $app"
 	POL_Debug_Message "File to run: $doc"
 
@@ -41,4 +42,4 @@ if [ "$2" ]; then
 	POL_Wine_SelectPrefix "$pref"	
 	realpath="$(POL_Wine winepath -w "$doc")"
 fi
-bash "$POL_USER_ROOT/shortcuts/$app" "$realpath"
+exec bash "$POL_USER_ROOT/shortcuts/$app" "$realpath" "$@"

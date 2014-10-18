@@ -7,6 +7,7 @@
 * Python version string extraction hardening (#4895)
 * POL_System_PartInfo identifies filesystems thru mount point instead of device
   (Btrfs subvolumes compatibility)
+* Modify bash/document_reader to pass extra arguments unchanged (http://www.playonlinux.com/en/topic-12519-Pass_arguments_to_PDFXChange_Viewer.html)
 
 # 4.2.5
 
