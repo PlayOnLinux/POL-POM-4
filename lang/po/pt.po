@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-10-13 19:00+0200\n"
+"POT-Creation-Date: 2014-10-20 19:00+0200\n"
 "PO-Revision-Date: 2014-10-01 12:29+0000\n"
 "Last-Translator: Aymeric PETIT <lp@mulx.net>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-10-14 05:48+0000\n"
-"X-Generator: Launchpad (build 17196)\n"
+"X-Launchpad-Export-Date: 2014-10-21 05:43+0000\n"
+"X-Generator: Launchpad (build 17203)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -926,6 +926,21 @@ msgstr ""
 "favor, lembre-se que $APPLICATION_TITLE não apoia a pirataria e nuna a "
 "sopurtará."
 
+#: PlayOnLinux_Scripts/Blade_Runner_:21
+#, sh-format
+msgid ""
+"This script has been designed for the original 4-CD release. Please insert "
+"disk one into your disk drive before continuing."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Blade_Runner_:37
+#, sh-format
+msgid ""
+"$TITLE has been successfully installed. Before launching the game each time, "
+"please ensure that disk one is in the drive and that the drive has been "
+"mounted."
+msgstr ""
+
 #: PlayOnLinux_Scripts/Blur_:102 PlayOnLinux_Scripts/Borderlands_:120
 #: PlayOnLinux_Scripts/Cars_2_:83
 #: PlayOnLinux_Scripts/Clive_Barker_s_Jericho_:113
@@ -974,6 +989,7 @@ msgid "Welcome in the patch $PVERSION installer for $TITLE"
 msgstr "Bemvindo ao instalador do patch $PVERSION para $TITLE"
 
 #: PlayOnLinux_Scripts/Burning_Cars_:27
+#: PlayOnLinux_Scripts/Super_Trench_Attack__:27
 #, sh-format
 msgid "Please select your installation file."
 msgstr ""
@@ -2067,14 +2083,14 @@ msgstr ""
 msgid "Cant install using the official downloader, sorry"
 msgstr "Não foi possível instalar o transferidor oficial."
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:96
+#: PlayOnLinux_Scripts/League_Of_Legends_:94
 #, sh-format
 msgid ""
 "Warning: You must not tick the checkbox \"Run $TITLE\" when setup is done"
 msgstr ""
 "Aviso: Não deve marcar a caixa \"Run $TITLE\" quando a instalação terminar."
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:110
+#: PlayOnLinux_Scripts/League_Of_Legends_:108
 #, sh-format
 msgid ""
 "You should now have a League of Legends directory on your desktop containing "
@@ -4523,7 +4539,7 @@ msgstr "A criar o atalho..."
 msgid "Do you want to delete the virtual drive:"
 msgstr "Quer excluír a unidade virtual:"
 
-#: lib/playonlinux.lib:849
+#: lib/playonlinux.lib:855
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
@@ -4532,7 +4548,7 @@ msgstr ""
 "O seguinte ficheiro está localizado numa partição FAT32.\\nIsso pode impedir "
 "que o Wine funcione\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:850
+#: lib/playonlinux.lib:856
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
@@ -4541,7 +4557,7 @@ msgstr ""
 "O seguinte ficheiro está localizado numa partição NTFS.\\nIsso pode impedir "
 "que o Wine funcione\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:851
+#: lib/playonlinux.lib:857
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
@@ -4550,7 +4566,7 @@ msgstr ""
 "O seguinte arquivo está localizado numa partição FUSE.\\nIsso pode impedir "
 "que o Wine funcione\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:852
+#: lib/playonlinux.lib:858
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
@@ -4559,7 +4575,7 @@ msgstr ""
 "O seguinte arquivo está localizado numa partição montada noexec.\\nIsso pode "
 "impedir que o Wine funcione\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:881
+#: lib/playonlinux.lib:887
 #, sh-format
 msgid ""
 "Your Linux kernel may not be configured to run Win16 programs under Wine\\"
@@ -4568,7 +4584,7 @@ msgstr ""
 "Poderá não ser possível configurar o seu kernel do Linux  para correr "
 "programas do Win 16 com o Wine.\\nVeja $EXPLANATION_URL"
 
-#: lib/playonlinux.lib:884
+#: lib/playonlinux.lib:890
 #, sh-format
 msgid ""
 "Your kernel may be incompatible with running Win16 programs under Wine\\nSee "
