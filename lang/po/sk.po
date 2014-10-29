@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2014-10-20 19:00+0200\n"
+"POT-Creation-Date: 2014-10-27 19:00+0100\n"
 "PO-Revision-Date: 2013-12-11 12:41+0000\n"
 "Last-Translator: Michal Lelek <kozodoj@azet.sk>\n"
 "Language-Team: sk_SK.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-10-21 05:44+0000\n"
+"X-Launchpad-Export-Date: 2014-10-28 05:44+0000\n"
 "X-Generator: Launchpad (build 17203)\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -394,17 +394,34 @@ msgstr ""
 msgid "NOTICE: For low-latency audio, look into WineASIO."
 msgstr ""
 
+#: PlayOnLinux_Scripts/Adobe_Photoshop_CS6_:29
+#: PlayOnLinux_Scripts/Adobe_Photoshop_Lightroom_5_:31
+#: PlayOnLinux_Scripts/The_Wolf_Among_Us_:29
+#, sh-format
+msgid "Please select $TITLE install file."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Adobe_Photoshop_CS6_:48
+#, sh-format
+msgid ""
+"NOTICE: Install will fail and program will not launch with Intel graphics. "
+"Use only AMD and Nvida cards. Ignore the error at the end of the install "
+"that says that Photoshop failed to install."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Adobe_Photoshop_CS6_:61
+#, sh-format
+msgid ""
+"NOTICE: Online updates and any 3D services do not work. If you want to "
+"update your install, you will need to download the update manually and "
+"install it in this virtual drive."
+msgstr ""
+
 #: PlayOnLinux_Scripts/Adobe_Photoshop_Lightroom_5_:28
 #, sh-format
 msgid ""
 "IMPORTANT: This program does NOT work well with most Intel graphics. It WILL "
 "crash. Nvidia and AMD proprietary drivers are REQUIRED in most cases."
-msgstr ""
-
-#: PlayOnLinux_Scripts/Adobe_Photoshop_Lightroom_5_:31
-#: PlayOnLinux_Scripts/The_Wolf_Among_Us_:29
-#, sh-format
-msgid "Please select $TITLE install file."
 msgstr ""
 
 #: PlayOnLinux_Scripts/Adobe_Photoshop_Lightroom_5_:43

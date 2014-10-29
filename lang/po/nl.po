@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2014-10-20 19:00+0200\n"
-"PO-Revision-Date: 2014-10-07 13:44+0000\n"
+"POT-Creation-Date: 2014-10-27 19:00+0100\n"
+"PO-Revision-Date: 2014-10-24 19:21+0000\n"
 "Last-Translator: rob <linuxned@gmail.com>\n"
 "Language-Team: nl_NL.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-10-21 05:41+0000\n"
+"X-Launchpad-Export-Date: 2014-10-28 05:42+0000\n"
 "X-Generator: Launchpad (build 17203)\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -404,6 +404,36 @@ msgstr ""
 msgid "NOTICE: For low-latency audio, look into WineASIO."
 msgstr "LET OP: Voor low-latency audio, bekijk a.u.b. WineASIO."
 
+#: PlayOnLinux_Scripts/Adobe_Photoshop_CS6_:29
+#: PlayOnLinux_Scripts/Adobe_Photoshop_Lightroom_5_:31
+#: PlayOnLinux_Scripts/The_Wolf_Among_Us_:29
+#, sh-format
+msgid "Please select $TITLE install file."
+msgstr "Selecteer het $TITLE-installatiebestand."
+
+#: PlayOnLinux_Scripts/Adobe_Photoshop_CS6_:48
+#, sh-format
+msgid ""
+"NOTICE: Install will fail and program will not launch with Intel graphics. "
+"Use only AMD and Nvida cards. Ignore the error at the end of the install "
+"that says that Photoshop failed to install."
+msgstr ""
+"LET OP: de installatie zal mislukken en het programma zal niet starten met "
+"grafische kaarten/chips van Intel. Gebruik alleen AMD- en/of Nvida-kaarten. "
+"Negeer de foutmelding aan het einde van de installatie met de melding dat de "
+"installatie van Photoshop mislukt is."
+
+#: PlayOnLinux_Scripts/Adobe_Photoshop_CS6_:61
+#, sh-format
+msgid ""
+"NOTICE: Online updates and any 3D services do not work. If you want to "
+"update your install, you will need to download the update manually and "
+"install it in this virtual drive."
+msgstr ""
+"LET OP: Online updates en de 3D-functionaliteit zullen niet werken. Indien u "
+"de installatie wilt updaten, zult u de update handmatig moeten downloaden en "
+"daarna installeren in dit virtuele station."
+
 #: PlayOnLinux_Scripts/Adobe_Photoshop_Lightroom_5_:28
 #, sh-format
 msgid ""
@@ -413,12 +443,6 @@ msgstr ""
 "BELANGRIJK: Dit programma werkt NIET goed met de meeste grafische "
 "kaarten/chips van Intel. Het zal vastlopen. Het is in de meeste gevallen "
 "noodzakelijk dat u niet-vrije drivers van Nvidia en AMD installeert."
-
-#: PlayOnLinux_Scripts/Adobe_Photoshop_Lightroom_5_:31
-#: PlayOnLinux_Scripts/The_Wolf_Among_Us_:29
-#, sh-format
-msgid "Please select $TITLE install file."
-msgstr "Selecteer het $TITLE-installatiebestand."
 
 #: PlayOnLinux_Scripts/Adobe_Photoshop_Lightroom_5_:43
 #, sh-format
@@ -717,7 +741,7 @@ msgstr "Selecteer patch om uit te voeren"
 #: PlayOnLinux_Scripts/World_Of_Warcraft___Wrath_of_the_Lich_King_:43
 #, sh-format
 msgid "Please insert game media into your disk drive\\nif not already done."
-msgstr "Voer spelschijf in in schijfstation\\nindien nog niet gedaan."
+msgstr "Voer spelschijf in in schijfstation\\nindien dit nog niet gedaan is."
 
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Patch_1.02_:45
 #: PlayOnLinux_Scripts/Borderlands_Patch_1.41_:41
@@ -932,6 +956,8 @@ msgid ""
 "This script has been designed for the original 4-CD release. Please insert "
 "disk one into your disk drive before continuing."
 msgstr ""
+"Dit script is ontworpen voor de originele uitgave met 4 cd's. Voer schijf 1 "
+"eerst in in het schijfstation voordat u doorgaat."
 
 #: PlayOnLinux_Scripts/Blade_Runner_:37
 #, sh-format
@@ -940,6 +966,9 @@ msgid ""
 "please ensure that disk one is in the drive and that the drive has been "
 "mounted."
 msgstr ""
+"$TITLE is succesvol geïnstalleerd. Voordat u het spel gaat starten, "
+"controleer dan a.u.b. altijd eerst of schijf 1 in het schijfstation is "
+"ingevoerd en of het schijfstation is aangekoppeld."
 
 #: PlayOnLinux_Scripts/Blur_:102 PlayOnLinux_Scripts/Borderlands_:120
 #: PlayOnLinux_Scripts/Cars_2_:83
@@ -1157,8 +1186,9 @@ msgstr ""
 "LET OP: Voor deze installatie heeft u een cd nodig. Indien u de gratis ISO-"
 "imagebestanden uitgegeven door EA heeft gedownload, brand deze dan eerst op "
 "een cd of dvd met Brasero of iets dergelijks, en voer de schijf vervolgens "
-"in in uw cd-station. Mogelijk werkt het aankoppelen van het ISO-imagebestand "
-"met bepaalde software, maar met Mounty werkt het echter niet."
+"in in uw schijfstation. Mogelijk werkt het aankoppelen van het ISO-"
+"imagebestand met bepaalde software, maar het werkt het echter niet met "
+"Mounty."
 
 #: PlayOnLinux_Scripts/DC_Universe_Online_:51
 #: PlayOnLinux_Scripts/PlanetSide_2_:47
@@ -1500,7 +1530,7 @@ msgid ""
 msgstr ""
 "Bij de eerste start zal het spel de beschikbare renderers detecteren.\\nHet "
 "is waarschijnlijk dat u betere prestaties krijgt met OpenGL-renderen;\\nU "
-"kunt het selecteren na het klikken op \"Alle apparaten tonen\"."
+"kunt dit selecteren na het klikken op \"Alle apparaten tonen\"."
 
 #: PlayOnLinux_Scripts/GOG.com___Deus_Ex_GOTY_Edition_:86
 #, sh-format
@@ -1522,7 +1552,7 @@ msgid ""
 "Tip: You can enable a higher-resolution mode by pressing Alt+R during the "
 "game."
 msgstr ""
-"Tip: u kunt een hogere resolutiemodus inschakelen via de toetsencombinatie "
+"Tip: u kunt een hogere resolutiemodus instellen via de toetsencombinatie "
 "Alt+R wanneer het spel draait."
 
 #: PlayOnLinux_Scripts/GOG.com___Far_Cry_:47
@@ -1716,7 +1746,7 @@ msgid ""
 "Check that the resolution has been changed\\n(eventually set to \\\"HI-RES\\"
 "\") in the loader."
 msgstr ""
-"Controleer of de resolutie is gewijzigd\\n(eventueel instellen op \\\"HI-"
+"Controleer of de resolutie is gewijzigd\\n(stel deze eventueel in op \\\"HI-"
 "RES\\\") in de lader."
 
 #: PlayOnLinux_Scripts/GOG.com___Painkiller__Black_Edition_:47
@@ -1877,10 +1907,10 @@ msgid ""
 "besides system cursor in the game's window.\\n\\n2)Fullscreen mode:\\nAll "
 "works besides the sky, it is black.\\n\\n\\n\\nWhat mode do you prefer?"
 msgstr ""
-"Nu kunt u de spelmodus selecteren:\\n1)Modus Venster:\\nAlles werkt correct "
-"behalve de systeemcursor in het spelvenster.\\n\\n2)Modus Schermvullend:\\"
-"nAlles werkt correct behalve de hemel, die is zwart.\\n\\n\\n\\nWelke modus "
-"heeft uw voorkeur?"
+"Nu kunt u de spelmodus selecteren:\\n1)Modus ´In venster´:\\nAlles werkt "
+"correct behalve de systeemcursor in het spelvenster.\\n\\n2)Modus "
+"´Schermvullend´:\\nAlles werkt correct behalve de hemel, die is zwart.\\n\\"
+"n\\n\\nWelke modus heeft uw voorkeur?"
 
 #: PlayOnLinux_Scripts/Gothic_3_:110
 #, sh-format
@@ -2146,7 +2176,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Microsoft_Office_2010_:64
 #, sh-format
 msgid "The 64bits version is not compatible! Sorry"
-msgstr "Sorry, maar de 64-bitsversie is niet compatibel!"
+msgstr "Sorry, maar de 64-bit versie is niet compatibel!"
 
 #: PlayOnLinux_Scripts/Microsoft_Office_2010_:96
 #, sh-format
@@ -2220,8 +2250,8 @@ msgid ""
 "Register or log in and download the installation file : "
 "https://world.needforspeed.com/"
 msgstr ""
-"Registeer uzelf en/of meld u aan, waarna u het installatiebestand kunt "
-"downloaden : https://world.needforspeed.com/"
+"Registeer uzelf en/of meld u aan, en download daarna het installatiebestand "
+"op : https://world.needforspeed.com/"
 
 #: PlayOnLinux_Scripts/Need_For_Speed_World_:29
 #, sh-format
@@ -2404,7 +2434,7 @@ msgstr "DirectMusic installeren"
 #: PlayOnLinux_Scripts/POL_Install_wmpcodecs_:10
 #, sh-format
 msgid "This package does not work on a 64-bit installation"
-msgstr "Dit pakket werkt niet op een 64-bits-installatie"
+msgstr "Dit pakket werkt niet op een 64-bit installatie"
 
 #: PlayOnLinux_Scripts/POL_Install_dotnet20sp1_:10
 #, sh-format
@@ -2975,11 +3005,11 @@ msgid ""
 msgstr ""
 "LET OP: het registratievenster zal bij de eerste start verborgen zijn achter "
 "het Reason-logo; klik met rechts op het taakbalkitem en klik daarna op MOVE. "
-"Wanneer het kopiëren van de soundbanks mislukt en het programma vastloopt na "
-"het invoeren van de registratiecode, verwijder dan de schijf, voer de schijf "
-"daarna weer in en probeer het dan opnieuw. Als dat niet werkt, dient u de "
-"soundbanks handmatig te kopiëren naar het Reason-virtuele station. Digitale "
-"downloads zouden geen last moeten hebben van dit probleem."
+"Wanneer het kopiëren van de geluidsbanken mislukt en het programma vastloopt "
+"na het invoeren van de registratiecode, verwijder dan de schijf, voer de "
+"schijf daarna weer in en probeer het dan opnieuw. Als dat niet werkt, dient "
+"u de geluidsbanken handmatig te kopiëren naar het Reason-virtuele station. "
+"Digitale downloads zouden geen last moeten hebben van dit probleem."
 
 #: PlayOnLinux_Scripts/Red_Faction_:87 PlayOnLinux_Scripts/Terraria_:70
 #, sh-format
@@ -3043,8 +3073,7 @@ msgid ""
 "patch #3. Do not launch the game until the patch is installed."
 msgstr ""
 "Dit zal Sacrifice voor u installeren, hierna zal patch #3 gedownload en "
-"geïnstalleerd worden. Start het spel niet op totdat de patch is "
-"geïnstalleerd."
+"geïnstalleerd worden. Start het spel niet totdat de patch is geïnstalleerd."
 
 #: PlayOnLinux_Scripts/Safari_:53 PlayOnLinux_Scripts/Safari_:64
 #, sh-format
@@ -3538,8 +3567,8 @@ msgid ""
 "Installing vcrun2008 and wininet and disabling d3d9 and d3d8 dlls to force "
 "the game to use OpenGL"
 msgstr ""
-"vcrun2008 en wininet installeren en d3d9 en d3d8 DLLs uitschakelen om spel "
-"te forceren om OpenGL te gebruiken"
+"Door vcrun2008 en wininet te installeren en d3d9 en d3d8 DLLs uit te "
+"schakelen zal de game geforceerd worden om OpenGL te gebruiken"
 
 #: PlayOnLinux_Scripts/Traktor_Pro_2_:45
 #, sh-format
@@ -3549,7 +3578,7 @@ msgid ""
 msgstr ""
 "VINK tijdens de installatie alle extra drivers UIT voor de NI-"
 "controlepanelen en audio-interfaces. De installatie zal mislukken wanneer u "
-"deze aangevinkt laat en ze niet nodig zijn."
+"deze aangevinkt laat en ze niet nodig blijken te zijn."
 
 #: PlayOnLinux_Scripts/UTAU_4.16_:16
 #, sh-format
@@ -3657,7 +3686,8 @@ msgstr ""
 #, sh-format
 msgid ""
 "Please insert game media 1 into your disk drive\\nif not already done."
-msgstr "Voer spelschijf 1 in in schijfstation\\nindien nog niet gedaan."
+msgstr ""
+"Voer spelschijf 1 in in schijfstation\\nindien dit nog niet gedaan is."
 
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:51
 #: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:49
@@ -3665,7 +3695,8 @@ msgstr "Voer spelschijf 1 in in schijfstation\\nindien nog niet gedaan."
 #, sh-format
 msgid ""
 "Please insert game media 2 into your disk drive\\nif not already done."
-msgstr "Voer spelschijf 2 in in schijfstation\\nindien nog niet gedaan."
+msgstr ""
+"Voer spelschijf 2 in in schijfstation\\nindien dit nog niet gedaan is."
 
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:57
 #: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:55
@@ -3673,20 +3704,23 @@ msgstr "Voer spelschijf 2 in in schijfstation\\nindien nog niet gedaan."
 #, sh-format
 msgid ""
 "Please insert game media 3 into your disk drive\\nif not already done."
-msgstr "Voer spelschijf 3 in in schijfstation\\nindien nog niet gedaan."
+msgstr ""
+"Voer spelschijf 3 in in schijfstation\\nindien dit nog niet gedaan is."
 
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:63
 #: PlayOnLinux_Scripts/World_Of_Warcraft___The_Burning_Crusade_:61
 #, sh-format
 msgid ""
 "Please insert game media 4 into your disk drive\\nif not already done."
-msgstr "Voer spelschijf 4 in in schijfstation\\nindien nog niet gedaan."
+msgstr ""
+"Voer spelschijf 4 in in schijfstation\\nindien dit nog niet gedaan is."
 
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:71
 #, sh-format
 msgid ""
 "Please insert game media 5 into your disk drive\\nif not already done."
-msgstr "Voer spelschijf 5 in in schijfstation\\nindien nog niet gedaan."
+msgstr ""
+"Voer spelschijf 5 in in schijfstation\\nindien dit nog niet gedaan is."
 
 #: PlayOnLinux_Scripts/World_Of_Warplanes_:45
 #, sh-format
@@ -3748,7 +3782,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/iTunes_10_:19
 #, sh-format
 msgid "Do you want to install $TITLE to sync a USB device?"
-msgstr ""
+msgstr "Wilt u $TITLE installeren om een USB-stick te synchroniseren?"
 
 #: PlayOnLinux_Scripts/iTunes_10_:22
 #, sh-format
@@ -3763,7 +3797,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/iTunes_10_:31
 #, sh-format
 msgid "Please select the 32-bit version of iTunes"
-msgstr ""
+msgstr "Selecteer a.u.b. de 32-bit versie van iTunes"
 
 #: PlayOnLinux_Scripts/osu_:46
 #, sh-format
@@ -3788,7 +3822,7 @@ msgid ""
 msgstr ""
 "Selecteer het $TITLE-installatiebestand. Draai rFactor NIET voordat de "
 "installatie voltooid is. Laat DirectX installeren indien dit gevraagd wordt. "
-"Zorg ervoor dat u een 32bit-resolutie instelt wanneer rFactor-configuratie "
+"Zorg ervoor dat u een 32-bit resolutie instelt wanneer rFactor-configuratie "
 "zichtbaar wordt."
 
 #: bash/bug_report:32
@@ -4272,7 +4306,7 @@ msgid ""
 msgstr ""
 "Hiermee kan uw Mac het PC-gedeelte van een cd-rom lezen.\\n\\nGebruik dit "
 "alleen wanneer uw cd-rom een hybride cd-rom (geschikt voor Windows en MacOS) "
-"is, en wanneer u het Windows-gedeelte niet kunt zien."
+"is, en u het Windows-gedeelte niet kunt zien."
 
 #: bash/read_pc_cd:34
 #, sh-format
@@ -4741,8 +4775,8 @@ msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
 "$NEEDED is recommended to continue."
 msgstr ""
-"Waarschuwing: U draait momenteel $APPLICATION_TITLE $VERSION.\\"
-"n$APPLICATION_TITLE versie $NEEDED wordt aanbevolen om mee door te gaan."
+"Waarschuwing: U draait momenteel $APPLICATION_TITLE $VERSION.\\nHet wordt "
+"aanbevolen om $APPLICATION_TITLE $NEEDED te gaan gebruiken."
 
 #: lib/scripts.lib:951
 #, sh-format
@@ -5488,10 +5522,10 @@ msgstr ""
 "schakelen programma's installeren die een beveiliging tegen kopiëren hebben "
 "(DRM) door deze beveiliging te omzeilen.\n"
 "\n"
-"Deze optie dient u niet als vanzelfsprekend en onvoorwaardelijk te "
-"beschouwen, want wij keuren piraterij nog steeds af. We zullen daarom ook "
-"geen ondersteuning bieden voor problemen die zijn ontstaan door het gebruik "
-"van deze optie."
+"Deze optie dient niet als vanzelfsprekend en onvoorwaardelijk beschouwd te "
+"worden, want wij keuren piraterij nog steeds af. We zullen daarom ook geen "
+"ondersteuning bieden voor problemen die zijn ontstaan door het gebruik van "
+"deze optie."
 
 #: python/install.py:587
 msgid ""
@@ -5814,7 +5848,7 @@ msgid ""
 "\n"
 "You might encounter problem with your games"
 msgstr ""
-"{0} kan de 32-bits OpenGL-bibliotheken niet vinden.\n"
+"{0} kan de 32-bit OpenGL-bibliotheken niet vinden.\n"
 "\n"
 "Mogelijk ondervindt u problemen met uw spellen"
 
@@ -5824,7 +5858,7 @@ msgid ""
 "\n"
 "You might encounter problem with your games"
 msgstr ""
-"{0} kan de 64-bits OpenGL-bibliotheken niet vinden.\n"
+"{0} kan de 64-bit OpenGL-bibliotheken niet vinden.\n"
 "\n"
 "Mogelijk ondervindt u problemen met uw spellen"
 
