@@ -33,6 +33,7 @@ class MainWindow(wx.Frame):
         self.logtype = 1
         self.logfile = None
         self.logname = ""
+        self.need_redisplay = False
 
         wx.Frame.__init__(self, parent, -1, title, size = (810, 600+Variables.windows_add_size), style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX)
         self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
@@ -75,6 +76,7 @@ class MainWindow(wx.Frame):
         # Debug control
         self.panelText = wx.Panel(self.panelNotEmpty, -1, size=(590,500), pos=(2,2)) # Hack, wxpython bug
         self.log_reader = wx.TextCtrl(self.panelText, 100, "", size=wx.Size(590,500), pos=(2,2), style=Variables.widget_borders|wx.TE_RICH2|wx.TE_READONLY|wx.TE_MULTILINE)
+        self.log_reader.Bind(wx.EVT_SET_FOCUS, self.OnFocus)
         self.openTextEdit = wx.Button(self.panelNotEmpty, 101, _("Locate this logfile"), size=(400,30), pos=(70,512))
         self.reportProblem = wx.Button(self.panelNotEmpty, 102, "", size=(400,30), pos=(70,552))
 
@@ -156,6 +158,8 @@ class MainWindow(wx.Frame):
                     # Could mean we never disable it if we're overflowed with logs 
                     # from the very beginning
                     self.throttling = True
+                    if self.log_reader.IsFrozen():
+                        self.log_reader.Thaw()
                     break
 
                 # Line buffering
@@ -179,10 +183,17 @@ class MainWindow(wx.Frame):
             if wrapped_buffer:
                 if overwritten_lines > 0:
                     self.AppendStyledText("...skipped %d line(s)...\n" % overwritten_lines)
+                    # Fix skipped line as soon as we have some free time
+                    self.need_redisplay = True
                 for k in range(index, max_lines):
                     self.AppendStyledText(circular_buffer[k])
             for k in range(0, index):
                 self.AppendStyledText(circular_buffer[k])
+
+    def OnFocus(self, event):
+        if self.need_redisplay:
+            print 'Need to redisplay log'
+            self.initLogDisplay()
 
     def analyseLog(self, event):
         parent =  self.list_game.GetItemText(self.list_game.GetItemParent(self.list_game.GetSelection()))
@@ -195,17 +206,13 @@ class MainWindow(wx.Frame):
 
     def analyseReal(self, parent, selection):
         self.ShowLogFile()
-        self.throttling = False
-        self.line_buffer = ""
-        self.log_reader.Clear()
         try:
             if(parent == 0):
                 checkfile = Variables.playonlinux_rep+"wineprefix/"+selection+"/playonlinux.log"
                 self.logfile = open(checkfile, 'r')
                 self.logsize = os.path.getsize(checkfile)
                 self.logname = selection
-                if(self.logsize - 10000 > 0):
-                    self.logfile.seek(self.logsize - 10000) # 10 000 latest chars should be sufficient
+                self.initLogDisplay()
                 self.logtype = 0
                 self.reportProblem.Hide()
 
@@ -214,17 +221,28 @@ class MainWindow(wx.Frame):
                 self.logfile = open(checkfile, 'r')
                 self.logsize = os.path.getsize(checkfile)
                 self.logname = selection
-                if(self.logsize - 10000 > 0):
-                    self.logfile.seek(self.logsize - 10000) # 10 000 latest chars should be sufficient
+                self.initLogDisplay()
                 self.logtype = 1
                 if(os.environ["DEBIAN_PACKAGE"] == "FALSE"):
                     self.reportProblem.Show()
                     self.reportProblem.Enable(True)
                     self.reportProblem.SetLabel(_("Report a problem about {0}").format(self.logname))
 
-
         except:
             pass
+
+    def initLogDisplay(self):
+        self.throttling = False
+        self.need_redisplay = False
+        self.line_buffer = ""
+        self.log_reader.Clear()
+        if not self.log_reader.IsFrozen():
+            self.log_reader.Freeze()
+        if self.logsize > 10000:
+            self.logfile.seek(self.logsize - 10000) # 10000 latest chars should be sufficient
+        else:
+            self.logfile.seek(0)
+
 
     def list_software(self):
         self.prefixes = os.listdir(Variables.playonlinux_rep+"wineprefix/")
@@ -299,6 +317,7 @@ class MainWindow(wx.Frame):
         self.list_game.Collapse(self.scripts_entry)
         self.list_game.Collapse(self.prefixes_entry)
         self.list_game.ExpandAll()
+
     def app_Close(self, event):
         self.Destroy()
 
