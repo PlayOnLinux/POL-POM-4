@@ -403,13 +403,11 @@ class MainWindow(wx.Frame):
                 itemId = self.onglets.list_ver_installed[arch].AppendItem(root2,installed_versions[self.i],self.j)
                 if(len(os.listdir(Variables.playonlinux_rep+"/wine/"+wfolder+"/"+installed_versions[self.i])) == 0):
                     self.onglets.imagesapps_i[arch].Add(wx.Bitmap(Variables.playonlinux_env+"/etc/install/wine-warning.png"))
-                    self.onglets.list_ver_installed[arch].SetItemBackgroundColour(itemId, (252,183,86))
+                elif installed_versions[self.i] not in used_version: # Clearly shows the unused wine version
+                    self.onglets.imagesapps_i[arch].Add(wx.Bitmap(Variables.playonlinux_env+"/etc/install/wine-unused.png"))
+                    self.onglets.list_ver_installed[arch].SetItemTextColour(itemId, (139,137,137))
                 else:
-                    if installed_versions[self.i] not in used_version: # Clearly shows the unused wine version
-                        self.onglets.imagesapps_i[arch].Add(wx.Bitmap(Variables.playonlinux_env+"/etc/install/wine-unused.png"))
-                        self.onglets.list_ver_installed[arch].SetItemTextColour(itemId, (139,137,137))
-                    else:
-                        self.onglets.imagesapps_i[arch].Add(wx.Bitmap(Variables.playonlinux_env+"/etc/install/wine.png"))
+                    self.onglets.imagesapps_i[arch].Add(wx.Bitmap(Variables.playonlinux_env+"/etc/install/wine.png"))
                 self.j += 1
             self.i += 1
         try :
