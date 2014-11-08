@@ -321,7 +321,7 @@ class MainWindow(wx.Frame):
             self.onglets.button_in["x86"].Enable(False)
 
     def delete32(self, event):
-        version = self.onglets.list_ver_installed["x86"].GetItemText(self.onglets.list_ver_installed["x86"].GetSelection()).encode("utf-8","replace").replace(" ["+_("Not used")+"]", "")
+        version = self.onglets.list_ver_installed["x86"].GetItemText(self.onglets.list_ver_installed["x86"].GetSelection()).encode("utf-8","replace")
 
         if(wx.YES == wx.MessageBox(_('Are you sure you want to delete wine {0}?').format(version).decode("utf-8","replace"), os.environ["APPLICATION_TITLE"],style=wx.YES_NO | wx.ICON_QUESTION)):
             shutil.rmtree(Variables.playonlinux_rep+"/wine/"+os_pref+"-x86/"+version)
@@ -342,7 +342,7 @@ class MainWindow(wx.Frame):
             self.onglets.button_in["amd64"].Enable(False)
 
     def delete64(self, event):
-        version = self.onglets.list_ver_installed["amd64"].GetItemText(self.onglets.list_ver_installed["amd64"].GetSelection()).encode("utf-8","replace").replace(" ["+_("Not used")+"]", "")
+        version = self.onglets.list_ver_installed["amd64"].GetItemText(self.onglets.list_ver_installed["amd64"].GetSelection()).encode("utf-8","replace")
         if(wx.YES == wx.MessageBox("Are you sure you want to delete wine "+version+"?", style=wx.YES_NO | wx.ICON_QUESTION)):
             shutil.rmtree(Variables.playonlinux_rep+"/wine/"+os_pref+"-amd64/"+version)
 
@@ -400,16 +400,16 @@ class MainWindow(wx.Frame):
         self.j = 0
         while(self.i < len(installed_versions)):
             if(os.path.isdir(Variables.playonlinux_rep+"/wine/"+wfolder+"/"+installed_versions[self.i])):
+                itemId = self.onglets.list_ver_installed[arch].AppendItem(root2,installed_versions[self.i],self.j)
                 if(len(os.listdir(Variables.playonlinux_rep+"/wine/"+wfolder+"/"+installed_versions[self.i])) == 0):
                     self.onglets.imagesapps_i[arch].Add(wx.Bitmap(Variables.playonlinux_env+"/etc/install/wine-warning.png"))
+                    self.onglets.list_ver_installed[arch].SetItemBackgroundColour(itemId, (252,183,86))
                 else:
-                    self.onglets.imagesapps_i[arch].Add(wx.Bitmap(Variables.playonlinux_env+"/etc/install/wine.png"))
-                
-                if installed_versions[self.i] not in used_version: # Clearly shows the unused wine version
-                    itemId = self.onglets.list_ver_installed[arch].AppendItem(root2,installed_versions[self.i]+" ["+_("Not used")+"]",self.j)
-                    self.onglets.list_ver_installed[arch].SetItemBackgroundColour(itemId, (255,165,0))
-                else:
-                    self.onglets.list_ver_installed[arch].AppendItem(root2,installed_versions[self.i],self.j)
+                    if installed_versions[self.i] not in used_version: # Clearly shows the unused wine version
+                        self.onglets.imagesapps_i[arch].Add(wx.Bitmap(Variables.playonlinux_env+"/etc/install/wine-unused.png"))
+                        self.onglets.list_ver_installed[arch].SetItemTextColour(itemId, (139,137,137))
+                    else:
+                        self.onglets.imagesapps_i[arch].Add(wx.Bitmap(Variables.playonlinux_env+"/etc/install/wine.png"))
                 self.j += 1
             self.i += 1
         try :
