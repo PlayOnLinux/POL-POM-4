@@ -361,12 +361,15 @@ class MainWindow(wx.Frame):
         file_to_check = os.listdir(Variables.playonlinux_rep+"/wineprefix/") # List of wineprefix
         file_to_check.remove('default') # Remove 'default' (no wine version use by it)
         for i in range(len(file_to_check)):
-            tmp = open(Variables.playonlinux_rep+"/wineprefix/"+file_to_check[i]+"/playonlinux.cfg","r")
-            if "ARCH="+arch in tmp.readline(): # Check if the wineprefix use a wine arch equal to 'arch'
-                line = tmp.readline().split("\n")[0] # Remove the '\n'
-                if "VERSION=" in line and line.split("=")[1] not in used_versions: # Fix wine system problem (no VERSION= if system is used)
-                    used_versions.append(line.split("=")[1]) # Keep de wine version only
-            tmp.close()
+            try:
+                tmp = open(Variables.playonlinux_rep+"/wineprefix/"+file_to_check[i]+"/playonlinux.cfg","r")
+                if "ARCH="+arch in tmp.readline(): # Check if the wineprefix use a wine arch equal to 'arch'
+                    line = tmp.readline().split("\n")[0] # Remove the '\n'
+                    if "VERSION=" in line and line.split("=")[1] not in used_versions: # Fix wine system problem (no VERSION= if system is used)
+                        used_versions.append(line.split("=")[1]) # Keep de wine version only
+                tmp.close()
+            except:
+                pass
         return(used_versions)
 
     def WriteVersion(self, arch="x86"):
