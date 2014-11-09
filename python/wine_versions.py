@@ -368,7 +368,7 @@ class MainWindow(wx.Frame):
                     if "VERSION=" in line and line.split("=")[1] not in used_versions: # Fix wine system problem (no VERSION= if system is used)
                         used_versions.append(line.split("=")[1]) # Keep de wine version only
                 tmp.close()
-            except:
+            except IOError:
                 pass
         return(used_versions)
 
