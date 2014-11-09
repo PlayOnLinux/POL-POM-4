@@ -356,6 +356,18 @@ class MainWindow(wx.Frame):
         if(arch == "amd64"):
             self.download64.thread_message = "get"
 
+    def checkVersionUse(self, arch): # Check the wine version use by wineprefix
+        used_versions = []
+        file_to_check = os.listdir(Variables.playonlinux_rep+"/wineprefix/") # List of wineprefix
+        file_to_check.remove('default') # Remove 'default' (no wine version use by it)
+        for i in range(len(file_to_check)):
+            tmp = open(Variables.playonlinux_rep+"/wineprefix/"+file_to_check[i]+"/playonlinux.cfg","r")
+            if "ARCH="+arch in tmp.readline(): # Check if the wineprefix use a wine arch equal to 'arch'
+                line = tmp.readline().split("\n")[0] # Remove the '\n'
+                if "VERSION=" in line and line.split("=")[1] not in used_versions: # Fix wine system problem (no VERSION= if system is used)
+                    used_versions.append(line.split("=")[1]) # Keep de wine version only
+            tmp.close()
+        return(used_versions)
 
     def WriteVersion(self, arch="x86"):
         self.onglets.imagesapps[arch].RemoveAll()
@@ -378,6 +390,8 @@ class MainWindow(wx.Frame):
 
         root2 = self.onglets.list_ver_installed[arch].AddRoot("")
         wfolder = os_pref+"-"+arch
+        
+        used_version = self.checkVersionUse(arch) # Get the list of wine version used by wineprefix
 
         installed_versions = os.listdir(Variables.playonlinux_rep+"/wine/"+wfolder)
         installed_versions.sort(key=keynat)
@@ -386,11 +400,14 @@ class MainWindow(wx.Frame):
         self.j = 0
         while(self.i < len(installed_versions)):
             if(os.path.isdir(Variables.playonlinux_rep+"/wine/"+wfolder+"/"+installed_versions[self.i])):
+                itemId = self.onglets.list_ver_installed[arch].AppendItem(root2,installed_versions[self.i],self.j)
                 if(len(os.listdir(Variables.playonlinux_rep+"/wine/"+wfolder+"/"+installed_versions[self.i])) == 0):
                     self.onglets.imagesapps_i[arch].Add(wx.Bitmap(Variables.playonlinux_env+"/etc/install/wine-warning.png"))
+                elif installed_versions[self.i] not in used_version: # Clearly shows the unused wine version
+                    self.onglets.imagesapps_i[arch].Add(wx.Bitmap(Variables.playonlinux_env+"/etc/install/wine-unused.png"))
+                    self.onglets.list_ver_installed[arch].SetItemTextColour(itemId, (191,191,191))
                 else:
                     self.onglets.imagesapps_i[arch].Add(wx.Bitmap(Variables.playonlinux_env+"/etc/install/wine.png"))
-                self.onglets.list_ver_installed[arch].AppendItem(root2,installed_versions[self.i],self.j)
                 self.j += 1
             self.i += 1
         try :
