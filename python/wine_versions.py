@@ -363,9 +363,9 @@ class MainWindow(wx.Frame):
         for i in range(len(file_to_check)):
             tmp = open(Variables.playonlinux_rep+"/wineprefix/"+file_to_check[i]+"/playonlinux.cfg","r")
             if "ARCH="+arch in tmp.readline(): # Check if the wineprefix use a wine arch equal to 'arch'
-                line = tmp.readline()
-                if "VERSION=" in line: # Fix wine system problem (no VERSION= if system is used)
-                    used_versions.append(line.split("=")[1].split("\n")[0]) # Keep de wine version without '\n'
+                line = tmp.readline().split("\n")[0] # Remove the '\n'
+                if "VERSION=" in line and line.split("=")[1] not in used_versions: # Fix wine system problem (no VERSION= if system is used)
+                    used_versions.append(line.split("=")[1]) # Keep de wine version only
             tmp.close()
         return(used_versions)
 
