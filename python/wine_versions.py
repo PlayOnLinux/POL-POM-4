@@ -405,7 +405,7 @@ class MainWindow(wx.Frame):
                     self.onglets.imagesapps_i[arch].Add(wx.Bitmap(Variables.playonlinux_env+"/etc/install/wine-warning.png"))
                 elif installed_versions[self.i] not in used_version: # Clearly shows the unused wine version
                     self.onglets.imagesapps_i[arch].Add(wx.Bitmap(Variables.playonlinux_env+"/etc/install/wine-unused.png"))
-                    self.onglets.list_ver_installed[arch].SetItemTextColour(itemId, (139,137,137))
+                    self.onglets.list_ver_installed[arch].SetItemTextColour(itemId, (191,191,191))
                 else:
                     self.onglets.imagesapps_i[arch].Add(wx.Bitmap(Variables.playonlinux_env+"/etc/install/wine.png"))
                 self.j += 1
