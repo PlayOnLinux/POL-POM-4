@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-11-03 19:00+0100\n"
-"PO-Revision-Date: 2014-10-28 13:20+0000\n"
+"POT-Creation-Date: 2014-11-10 19:00+0100\n"
+"PO-Revision-Date: 2014-11-06 15:38+0000\n"
 "Last-Translator: Pepa Novák <wnc@centrum.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-11-04 05:49+0000\n"
-"X-Generator: Launchpad (build 17211)\n"
+"X-Launchpad-Export-Date: 2014-11-11 05:47+0000\n"
+"X-Generator: Launchpad (build 17241)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -307,7 +307,7 @@ msgstr "Vložte herní médium do diskové jednotky."
 #: PlayOnLinux_Scripts/Rayman_Origins_:90 PlayOnLinux_Scripts/Reason_5_:29
 #: PlayOnLinux_Scripts/Red_Faction_:49 PlayOnLinux_Scripts/Resident_Evil_3_:40
 #: PlayOnLinux_Scripts/Rfactor_:48 PlayOnLinux_Scripts/Riffstation_Trial_:45
-#: PlayOnLinux_Scripts/Rift_:62
+#: PlayOnLinux_Scripts/Rift_:73
 #: PlayOnLinux_Scripts/Runaway_2___The_Dream_of_the_Turtle_:41
 #: PlayOnLinux_Scripts/Runes_Of_Magic_:44
 #: PlayOnLinux_Scripts/SFR_LiberTalk_:42 PlayOnLinux_Scripts/Safari_:63
@@ -320,7 +320,7 @@ msgstr "Vložte herní médium do diskové jednotky."
 #: PlayOnLinux_Scripts/Starcraft_:34
 #: PlayOnLinux_Scripts/Starcraft___BroodWar_:24
 #: PlayOnLinux_Scripts/Super_Street_Fighter_IV___Arcade_Edition_:88
-#: PlayOnLinux_Scripts/Surfer_8_:23 PlayOnLinux_Scripts/Tera_Online_:59
+#: PlayOnLinux_Scripts/Surfer_8_:23 PlayOnLinux_Scripts/Tera_Online_:58
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind_:51
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind___Bloodmoon_:51
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind___Tribunal_:49
@@ -564,6 +564,7 @@ msgstr "Nemusíte instalovat DirectX nebo používat GLSetup."
 #: PlayOnLinux_Scripts/League_Of_Legends_:58
 #: PlayOnLinux_Scripts/POL_GoG_setup_:30 PlayOnLinux_Scripts/Rage_:114
 #: PlayOnLinux_Scripts/Sacrifice_:41
+#: PlayOnLinux_Scripts/The_Legend_of_Korra_:34
 #: PlayOnLinux_Scripts/The_Matrix__Path_of_Neo_:36
 #: PlayOnLinux_Scripts/The_Matrix__Path_of_Neo_Update_2_:23
 #: PlayOnLinux_Scripts/Toontown_Online_:25
@@ -996,7 +997,7 @@ msgstr "Vítej v instalaci aktualizce $PVERSION pro $TITLE"
 #: PlayOnLinux_Scripts/Super_Trench_Attack__:27
 #, sh-format
 msgid "Please select your installation file."
-msgstr ""
+msgstr "Prosím vyberte instalační soubor."
 
 #: PlayOnLinux_Scripts/CivCity_Rome_:60
 #, sh-format
@@ -1240,7 +1241,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Diagnostic_Tools_:20
 #, sh-format
 msgid "Scanning your hardware..."
-msgstr ""
+msgstr "Probíhá zjišťování hardware"
 
 #: PlayOnLinux_Scripts/Dishonored_:79
 #: PlayOnLinux_Scripts/Hard_Reset__Steam__:52
@@ -1519,6 +1520,7 @@ msgid ""
 "Tip: You can enable a higher-resolution mode by pressing Alt+R during the "
 "game."
 msgstr ""
+"Tip: Režim vysokého rozlišení můžete zapnout během hry stiskem Alt+R."
 
 #: PlayOnLinux_Scripts/GOG.com___Far_Cry_:47
 #, sh-format
@@ -1826,7 +1828,7 @@ msgstr "Vyberte prosím jazyk hry"
 #: PlayOnLinux_Scripts/Google_SketchUp_:43 PlayOnLinux_Scripts/Hearthstone_:29
 #, sh-format
 msgid "What language do you want to install?"
-msgstr ""
+msgstr "Který jazyk chcete použít pro instalaci?"
 
 #: PlayOnLinux_Scripts/Google_SketchUp_:102
 #, sh-format
@@ -2111,7 +2113,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Microsoft_Office_2010_:64
 #, sh-format
 msgid "The 64bits version is not compatible! Sorry"
-msgstr ""
+msgstr "Verze 64bit není kompatibilní! Promiňte"
 
 #: PlayOnLinux_Scripts/Microsoft_Office_2010_:96
 #, sh-format
@@ -2269,7 +2271,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Gamefront_Download_:8
 #, sh-format
 msgid "Contacting download server."
-msgstr ""
+msgstr "Navazuji spojení se serverem pro stahování."
 
 #: PlayOnLinux_Scripts/POL_GoG_Extract_:29 python/install.py:446
 #: python/install.py:449 python/install.py:465 python/install.py:467
@@ -2767,7 +2769,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Poker_Stars_:37
 #, sh-format
 msgid "Error while installing. Downloaded file not found."
-msgstr ""
+msgstr "Chyba při instalaci. Stažený soubor nenalezen."
 
 #: PlayOnLinux_Scripts/Pro_Evolution_Soccer_2013_:25
 #, sh-format
@@ -2944,10 +2946,9 @@ msgstr ""
 msgid "The CD protection of this game doesn't work correctly with Wine."
 msgstr "CD ochrana této hry pod Wine nefunguje."
 
-#: PlayOnLinux_Scripts/Rift_:54
-#: PlayOnLinux_Scripts/The_mighty_quest_for_epic_loot_:50
+#: PlayOnLinux_Scripts/Rift_:83
 #, sh-format
-msgid "We will download the installer"
+msgid "The launcher can still self update after installation"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Rome_Total_War__Gold_Edition__:72
@@ -3438,6 +3439,11 @@ msgstr ""
 #, sh-format
 msgid "Donwload finished.\\nPatches installation will begin"
 msgstr "Stahování dokončeno.\\nZapočne instalace záplat."
+
+#: PlayOnLinux_Scripts/The_mighty_quest_for_epic_loot_:50
+#, sh-format
+msgid "We will download the installer"
+msgstr ""
 
 #: PlayOnLinux_Scripts/Toontown_Online_:17
 #, sh-format
