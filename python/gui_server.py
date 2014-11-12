@@ -26,7 +26,7 @@ class gui_server(threading.Thread):
         self._host = '127.0.0.1'
         self._port = 30000
         self._running = True
-        # This dictionnary will contain every created setup window
+        # This dictionary will contain every created setup window
         self.parent = parent
 
     def GenCookie(self, length=20, chars=string.letters + string.digits):

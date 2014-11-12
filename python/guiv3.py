@@ -278,7 +278,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
             return self.Result
             
     def TimerAction(self, event):
-        ## If the setup window is downloading a file, it is a good occasion to update the progresbar
+        ## If the setup window is downloading a file, it is a good occasion to update the progress bar
         if(self.Timer_downloading == True):
             if(self.downloader.taille_bloc != 0):
                 downloaded = self.downloader.nb_blocs * self.downloader.taille_bloc

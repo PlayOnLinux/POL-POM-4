@@ -1084,7 +1084,7 @@ class MainWindow(wx.Frame):
             print "Registered PID: %d (%s)" % (pid, 'Present' if pid_exists else 'Missing')
         self.registeredPid = pids
 
-        if(playonlinux.GetSettings("DONT_ASK_BEFORE_CLOSING") == "TRUE" or self.registeredPid == [] or wx.YES == wx.MessageBox(_('Are you sure you want to close all {0} Windows?').format(os.environ["APPLICATION_TITLE"]).decode("utf-8","replace"),os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
+        if(playonlinux.GetSettings("DONT_ASK_BEFORE_CLOSING") == "TRUE" or self.registeredPid == [] or wx.YES == wx.MessageBox(_('Are you sure you want to close all {0} windows?').format(os.environ["APPLICATION_TITLE"]).decode("utf-8","replace"),os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
             self.SizeToSave = self.GetSize();
             self.PositionToSave = self.GetPosition();
             # Save size and position
