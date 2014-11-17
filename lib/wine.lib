@@ -576,11 +576,12 @@ POL_Wine_CheckPrefixExists()
 	# Checks if a prefix exists
 	# Usage: POL_Wine_CheckPrefixExists [PREFIX] [TITLE_REQUIRED]
 	# Return a message if not and quit
-	PREFNAME=`printf "$1"| tr -c [[a-zA-Z0-9]\.] '_'`
-	$TITLE_REQUIRED="$2"
-	[ -d "$POL_USER_ROOT/wineprefix/$PREFNAME/drive_c" ]; then
-		POL_Debug_Message "The prefix '$PREFNAME' does not exist"
+	PREFIX=$1
+	TITLE_REQUIRED="$2"
+	if [ "$(POL_Wine_PrefixExists "$PREFIX")" = "False" ]; then
+		POL_Debug_Warning "The prefix '$PREFIX' does not exist"
 		POL_SetupWindow_message "$(eval_gettext 'This is an installer for an update or an addon;\nPlease install $TITLE_REQUIRED first')" "$TITLE"
+		POL_SetupWindow_Close
 		exit 1
 	fi
 }
