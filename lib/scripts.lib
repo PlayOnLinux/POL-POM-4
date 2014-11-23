@@ -295,7 +295,7 @@ POL_Shortcut()
 	# If playonlinux website icon is not specified, playonlinux will try to extract it from the program
 	# Possibly to use a path instead of the executable.
 
-	Binaire="$1"
+	BINARY="$1"
 	SpecialArg="$4"
 	Categories="$5"
 	if [ "$2" = "" ]
@@ -311,12 +311,12 @@ POL_Shortcut()
 	ICON_WEB_NAME="$3"
 	ICON_OK=0
 
-        binary_path="$(find_binary "$Binaire")"
-	binary_dir="$(dirname "$binary_path")"
-	Binaire="$(basename "$binary_path")"
-	
-	[ "$binary_dir" = "" ] && POL_Debug_Fatal "Can't find $Binaire"
-	POL_Debug_Message "Looking for <$Binaire>, found <${binary_path}>"
+	local binary_path="$(find_binary "$BINARY")"
+	local binary_dir="$(dirname "$binary_path")"
+	local binary_name="$(basename "$binary_path")"
+
+	[ -z "$binary_dir" ] && POL_Debug_Fatal "Can't find $BINARY"
+	POL_Debug_Message "Looking for <$BINARY>, found <$binary_path>"
 
 	if [ -n "$ICON_WEB_NAME" ]; then
 		if [ ! "$OFFLINE" = "1" ]; then # On peut le télécharger...
@@ -327,13 +327,12 @@ POL_Shortcut()
 			convert -resize 32 "$REPERTOIRE/icones/full_size/$NOMICONE_" "$REPERTOIRE/icones/32/$NOMICONE_" # On fabrique l'icone 32*32
 			ICON_OK=1
 		fi
-	elif [ "$ICON_OK" -ne 1 ]; then # Pas d'incone sur le web => Création à partir de l'exe...	
-		POL_ExtractIcon "$WINEPREFIX/drive_c/$binary_dir/$Binaire" "$REPERTOIRE/icones/32/$NOMICONE_"
-		POL_ExtractBiggestIcon "$WINEPREFIX/drive_c/$binary_dir/$Binaire" "$REPERTOIRE/icones/full_size/$NOMICONE_"
+	elif [ "$ICON_OK" -ne 1 ]; then # No icon from the web, make one off the exe
+		POL_ExtractIcon "$WINEPREFIX/drive_c/$binary_dir/$binary_name" "$REPERTOIRE/icones/32/$NOMICONE_"
+		POL_ExtractBiggestIcon "$WINEPREFIX/drive_c/$binary_dir/$binary_name" "$REPERTOIRE/icones/full_size/$NOMICONE_"
 	fi
 
-	if [ "$Binaire" = "" ]; then
-		BINARY="$1"
+	if [ -z "$binary_name" ]; then
 		POL_Debug_Error "$(eval_gettext 'Binary not found: $BINARY\nHave you installed the program to the default location?')"
 	else
 		## We generate shortcut
@@ -345,7 +344,7 @@ POL_Shortcut()
 		[ -n "$LOGTITLE" ] && echo "#POL_Log=$LOGTITLE"
 		[ -n "$SCRIPTID" ] && echo "#ScriptID=$SCRIPTID"
 		echo "cd \"$WINEPREFIX/drive_c/$binary_dir\""
-		echo "POL_Wine \"$Binaire\" $SpecialArg \"\$@\"") > "$REPERTOIRE/shortcuts/$NOMICONE_"
+		echo "POL_Wine \"$binary_name\" $SpecialArg \"\$@\"") > "$REPERTOIRE/shortcuts/$NOMICONE_"
 		chmod +x "$REPERTOIRE/shortcuts/$NOMICONE_"
 
 		if [ -f "$REPERTOIRE/icones/full_size/$NOMICONE_" ]; then # L'icone existe...
@@ -359,7 +358,7 @@ POL_Shortcut()
 			# Do nothing on Mac OS
 			if [ -n "$Categories" -a "$POL_OS" = "Linux" ] || [ -n "$Categories" -a "$POL_OS" = "BSD" ]; then
 				LOCALAPPS="$HOME/.local/share/applications"
-				generer_icone "$iconPath" "$NOMICONE_" "$LOCALAPPS" "$PLAYONLINUX/playonlinux --run \"$NOMICONE_\"" "$Binaire" "$Categories" "playonlinux-"
+				generer_icone "$iconPath" "$NOMICONE_" "$LOCALAPPS" "$PLAYONLINUX/playonlinux --run \"$NOMICONE_\"" "$binary_name" "$Categories" "playonlinux-"
 			fi
 		fi
 
@@ -369,11 +368,11 @@ POL_Shortcut()
 				POL_SetupWindow_AutoApp "$NOMICONE_"
 			else
 
-	                        generer_icone "$iconPath" "$NOMICONE_" "$DESKTOP" "$PLAYONLINUX/playonlinux --run \"$NOMICONE_\"" "$Binaire" "$Categories"
+				generer_icone "$iconPath" "$NOMICONE_" "$DESKTOP" "$PLAYONLINUX/playonlinux --run \"$NOMICONE_\"" "$binary_name" "$Categories"
 			fi
 		fi
 	fi
-	POL_Debug_Message "Shortcut created: $Binaire $NOMICONE_"
+	POL_Debug_Message "Shortcut created: $binary_name $NOMICONE_"
 }
 
 POL_Shortcut_QuietDebug()

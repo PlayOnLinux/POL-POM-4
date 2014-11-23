@@ -9,6 +9,7 @@
   (Btrfs subvolumes compatibility)
 * Modify bash/document_reader to pass extra arguments unchanged (http://www.playonlinux.com/en/topic-12519-Pass_arguments_to_PDFXChange_Viewer.html)
 * Remove "skipped lines" messages when the debugger gets the focus back
+* POL_Shortcut: do not overwrite $Binaire to improve logging
 
 # 4.2.5
 
