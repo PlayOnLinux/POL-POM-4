@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-11-17 19:00+0100\n"
+"POT-Creation-Date: 2014-11-24 19:01+0100\n"
 "PO-Revision-Date: 2014-01-19 05:18+0000\n"
 "Last-Translator: qysnn <qysnn1@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-11-18 05:38+0000\n"
-"X-Generator: Launchpad (build 17241)\n"
+"X-Launchpad-Export-Date: 2014-11-25 05:37+0000\n"
+"X-Generator: Launchpad (build 17252)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -291,7 +291,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Rayman_Origins_:90 PlayOnLinux_Scripts/Reason_5_:29
 #: PlayOnLinux_Scripts/Red_Faction_:49 PlayOnLinux_Scripts/Resident_Evil_3_:40
 #: PlayOnLinux_Scripts/Rfactor_:48 PlayOnLinux_Scripts/Riffstation_Trial_:45
-#: PlayOnLinux_Scripts/Rift_:73
+#: PlayOnLinux_Scripts/Rift_:71
 #: PlayOnLinux_Scripts/Runaway_2___The_Dream_of_the_Turtle_:41
 #: PlayOnLinux_Scripts/Runes_Of_Magic_:44
 #: PlayOnLinux_Scripts/SFR_LiberTalk_:42 PlayOnLinux_Scripts/Safari_:63
@@ -311,7 +311,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Settlers_III_Gold_Edition_:69
 #: PlayOnLinux_Scripts/The_Sims_3_:61 PlayOnLinux_Scripts/The_Witcher_:132
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_:100
-#: PlayOnLinux_Scripts/The_mighty_quest_for_epic_loot_:59
+#: PlayOnLinux_Scripts/The_mighty_quest_for_epic_loot_:61
 #: PlayOnLinux_Scripts/Theme_Hospital_:59
 #: PlayOnLinux_Scripts/Traktor_Pro_2_:33 PlayOnLinux_Scripts/Tree[d]_:41
 #: PlayOnLinux_Scripts/Warcraft_III__Reign_of_Chaos_:38
@@ -441,7 +441,7 @@ msgstr "你想安装2.0a补丁吗？"
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind___Bloodmoon_:26
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind___Tribunal_:26
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_Patch_1.2.0416_:26
-#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:30
+#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:30 lib/wine.lib:583
 #, sh-format
 msgid ""
 "This is an installer for an update or an addon;\\nPlease install "
@@ -560,8 +560,8 @@ msgstr "请选择要运行的安装文件。"
 #: PlayOnLinux_Scripts/SubRip_:33 PlayOnLinux_Scripts/Theme_Hospital_:48
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:116 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:435 lib/wine.lib:947 lib/wine.lib:1025
-#: lib/wine.lib:1055
+#: bash/winebash:27 lib/setupwindow.lib:435 lib/wine.lib:961 lib/wine.lib:1039
+#: lib/wine.lib:1069
 #, sh-format
 msgid "Please wait..."
 msgstr "请耐心等待 ..."
@@ -2497,7 +2497,7 @@ msgid ""
 "To continue, PlayOnLinux needs to remount your CD-ROM with unhide option."
 msgstr "若要继续, PlayOnLinux 需要取消隐藏的选项, 重新挂载您的 CD-ROM."
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:16 lib/wine.lib:832
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:16 lib/wine.lib:846
 #, sh-format
 msgid "Abort installation"
 msgstr "取消安装"
@@ -2522,7 +2522,7 @@ msgstr "我自己已修复它, 只是重新测试"
 msgid "The program needs access to ptrace() to proceed:"
 msgstr "该程序需要访问的 ptrace() 以进行"
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:28 lib/wine.lib:861
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:28 lib/wine.lib:875
 #, sh-format
 msgid "User abort"
 msgstr "用户中止"
@@ -2740,7 +2740,7 @@ msgstr ""
 msgid "The CD protection of this game doesn't work correctly with Wine."
 msgstr "该游戏的光盘保护不能在 Wine 下正确运行."
 
-#: PlayOnLinux_Scripts/Rift_:83
+#: PlayOnLinux_Scripts/Rift_:84
 #, sh-format
 msgid "The launcher can still self update after installation"
 msgstr ""
@@ -3193,11 +3193,6 @@ msgstr "等待补丁4下载...\\n此操作可能需要一段时间,这取决于�
 #, sh-format
 msgid "Donwload finished.\\nPatches installation will begin"
 msgstr "下载完成.\\n补丁安装即将开始"
-
-#: PlayOnLinux_Scripts/The_mighty_quest_for_epic_loot_:50
-#, sh-format
-msgid "We will download the installer"
-msgstr ""
 
 #: PlayOnLinux_Scripts/Toontown_Online_:17
 #, sh-format
@@ -3676,7 +3671,7 @@ msgstr "如您不甚清楚, 请勿选"
 msgid "What would you like to do before installation?"
 msgstr "安装前你希望做什么?"
 
-#: bash/manual_install:203 lib/scripts.lib:439
+#: bash/manual_install:203 lib/scripts.lib:438
 #, sh-format
 msgid "Please make your choice"
 msgstr "请选择"
@@ -4104,7 +4099,7 @@ msgstr ""
 "以得到进一步的信息"
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:824 lib/wine.lib:905
+#: lib/wine.lib:838 lib/wine.lib:919
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr "请等待虚拟盘创建 ..."
@@ -4231,76 +4226,76 @@ msgstr "更新插件. 当前版本: "
 msgid "Installing plugin: "
 msgstr "安装插件: "
 
-#: lib/scripts.lib:337
+#: lib/scripts.lib:336
 #, sh-format
 msgid ""
 "Binary not found: $BINARY\\nHave you installed the program to the default "
 "location?"
 msgstr "二进制文件未找到: $BINARY\\n是否已安装程序到默认位置?"
 
-#: lib/scripts.lib:401
+#: lib/scripts.lib:400
 #, sh-format
 msgid "Function override detected, disabling bug reporting"
 msgstr ""
 
-#: lib/scripts.lib:501 lib/scripts.lib:567
+#: lib/scripts.lib:500 lib/scripts.lib:566
 #, sh-format
 msgid "No enough space to download:\\n$URL ($neededSpace KB)"
 msgstr "空间不足:\\n$URL ($neededSpace KB)"
 
-#: lib/scripts.lib:503 lib/scripts.lib:786
+#: lib/scripts.lib:502 lib/scripts.lib:785
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr "请等待下载 $APPLICATION_TITLE :"
 
-#: lib/scripts.lib:505 lib/scripts.lib:572
+#: lib/scripts.lib:504 lib/scripts.lib:571
 #, sh-format
 msgid "An error happened during download."
 msgstr "下载时出错了."
 
-#: lib/scripts.lib:505 lib/scripts.lib:524 lib/scripts.lib:572
-#: lib/scripts.lib:588
+#: lib/scripts.lib:504 lib/scripts.lib:523 lib/scripts.lib:571
+#: lib/scripts.lib:587
 #, sh-format
 msgid "Do you want to retry?"
 msgstr "您需要重试吗?"
 
-#: lib/scripts.lib:524 lib/scripts.lib:588
+#: lib/scripts.lib:523 lib/scripts.lib:587
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr "错误! 文件不匹配\\n\\n本地: $LOCAL_MD5\\n服务器: $SERVER_MD5"
 
-#: lib/scripts.lib:691
+#: lib/scripts.lib:690
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
 msgstr "7z没有被安装, 请检查是否已安装7zip, 然后再试一次"
 
-#: lib/scripts.lib:698
+#: lib/scripts.lib:697
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr "从 ${archive} 定位 ${dest} 失败"
 
-#: lib/scripts.lib:702
+#: lib/scripts.lib:701
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr "从 ${archivename} 提取 ${filename}"
 
-#: lib/scripts.lib:717
+#: lib/scripts.lib:716
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr "提取出的文件大小不匹配!"
 
-#: lib/scripts.lib:748
+#: lib/scripts.lib:747
 #, sh-format
 msgid "Copying ${filename}"
 msgstr "复制 ${filename}"
 
-#: lib/scripts.lib:761
+#: lib/scripts.lib:760
 #, sh-format
 msgid "File size does not match!"
 msgstr "文件大小不匹配"
 
-#: lib/scripts.lib:905
+#: lib/scripts.lib:904
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
@@ -4308,7 +4303,7 @@ msgid ""
 msgstr ""
 "对不起, $APPLICATION_TITLE $VERSION 太旧, 不能继续.\\n$APPLICATION_TITLE $NEEDED 是必需的."
 
-#: lib/scripts.lib:920
+#: lib/scripts.lib:919
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
@@ -4316,7 +4311,7 @@ msgid ""
 msgstr ""
 "警告: 您正在运行 $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE $NEEDED  建议继续."
 
-#: lib/scripts.lib:951
+#: lib/scripts.lib:950
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr "$AUTHOR 简介"
@@ -4548,64 +4543,64 @@ msgid ""
 "message"
 msgstr "Wine 似乎已经崩溃\\n\\n如果你的程序正在运行, 忽略此消息"
 
-#: lib/wine.lib:629
+#: lib/wine.lib:643
 #, sh-format
 msgid "Unable to find version: "
 msgstr "不能找到下列版本: "
 
-#: lib/wine.lib:635 lib/wine.lib:636
+#: lib/wine.lib:649 lib/wine.lib:650
 #, sh-format
 msgid "Downloading Wine: "
 msgstr "下载 Wine: "
 
-#: lib/wine.lib:645
+#: lib/wine.lib:659
 #, sh-format
 msgid "The download seems to have failed."
 msgstr "下载似乎失败了."
 
-#: lib/wine.lib:647
+#: lib/wine.lib:661
 #, sh-format
 msgid "Extracting Wine..."
 msgstr "解压缩 Wine ..."
 
-#: lib/wine.lib:830
+#: lib/wine.lib:844
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr "覆盖(通常奏效, 但不保证)"
 
-#: lib/wine.lib:831
+#: lib/wine.lib:845
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
 msgstr "擦除(虚拟盘内容会消失)"
 
-#: lib/wine.lib:845
+#: lib/wine.lib:859
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr "目标虚拟盘 $PREFNAME 已存在:"
 
-#: lib/wine.lib:1025 lib/wine.lib:1055
+#: lib/wine.lib:1039 lib/wine.lib:1069
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "请等待 $SOFTNAME 安装完成..."
 
-#: lib/wine.lib:1029 lib/wine.lib:1058
+#: lib/wine.lib:1043 lib/wine.lib:1072
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
 "have to reinstall $SOFTNAME"
 msgstr "注意! 这将终止安装进程. 若其未完成, 您需要重新安装 $SOFTNAME"
 
-#: lib/wine.lib:1029 lib/wine.lib:1058
+#: lib/wine.lib:1043 lib/wine.lib:1072
 #, sh-format
 msgid "Install is done"
 msgstr "安装已完成"
 
-#: lib/wine.lib:1062 lib/wine.lib:1063
+#: lib/wine.lib:1076 lib/wine.lib:1077
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr "仅当安装过程完成后按下一步"
 
-#: lib/wine.lib:1071
+#: lib/wine.lib:1085
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr "请等待, $APPLICATION_TITLE 正在模拟重启"

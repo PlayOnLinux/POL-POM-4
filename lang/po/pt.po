@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-11-17 19:00+0100\n"
+"POT-Creation-Date: 2014-11-24 19:01+0100\n"
 "PO-Revision-Date: 2014-10-01 12:29+0000\n"
 "Last-Translator: Aymeric PETIT <lp@mulx.net>\n"
 "Language-Team: Portuguese <pt@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-11-18 05:37+0000\n"
-"X-Generator: Launchpad (build 17241)\n"
+"X-Launchpad-Export-Date: 2014-11-25 05:36+0000\n"
+"X-Generator: Launchpad (build 17252)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -311,7 +311,7 @@ msgstr "Insira o disco do jogo na drive respetiva."
 #: PlayOnLinux_Scripts/Rayman_Origins_:90 PlayOnLinux_Scripts/Reason_5_:29
 #: PlayOnLinux_Scripts/Red_Faction_:49 PlayOnLinux_Scripts/Resident_Evil_3_:40
 #: PlayOnLinux_Scripts/Rfactor_:48 PlayOnLinux_Scripts/Riffstation_Trial_:45
-#: PlayOnLinux_Scripts/Rift_:73
+#: PlayOnLinux_Scripts/Rift_:71
 #: PlayOnLinux_Scripts/Runaway_2___The_Dream_of_the_Turtle_:41
 #: PlayOnLinux_Scripts/Runes_Of_Magic_:44
 #: PlayOnLinux_Scripts/SFR_LiberTalk_:42 PlayOnLinux_Scripts/Safari_:63
@@ -331,7 +331,7 @@ msgstr "Insira o disco do jogo na drive respetiva."
 #: PlayOnLinux_Scripts/The_Settlers_III_Gold_Edition_:69
 #: PlayOnLinux_Scripts/The_Sims_3_:61 PlayOnLinux_Scripts/The_Witcher_:132
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_:100
-#: PlayOnLinux_Scripts/The_mighty_quest_for_epic_loot_:59
+#: PlayOnLinux_Scripts/The_mighty_quest_for_epic_loot_:61
 #: PlayOnLinux_Scripts/Theme_Hospital_:59
 #: PlayOnLinux_Scripts/Traktor_Pro_2_:33 PlayOnLinux_Scripts/Tree[d]_:41
 #: PlayOnLinux_Scripts/Warcraft_III__Reign_of_Chaos_:38
@@ -472,7 +472,7 @@ msgstr "Quer instalar o patch 2.0a?"
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind___Bloodmoon_:26
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind___Tribunal_:26
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_Patch_1.2.0416_:26
-#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:30
+#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:30 lib/wine.lib:583
 #, sh-format
 msgid ""
 "This is an installer for an update or an addon;\\nPlease install "
@@ -601,8 +601,8 @@ msgstr "Por favor, escolha o ficheiro de configuração a executar."
 #: PlayOnLinux_Scripts/SubRip_:33 PlayOnLinux_Scripts/Theme_Hospital_:48
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:116 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:435 lib/wine.lib:947 lib/wine.lib:1025
-#: lib/wine.lib:1055
+#: bash/winebash:27 lib/setupwindow.lib:435 lib/wine.lib:961 lib/wine.lib:1039
+#: lib/wine.lib:1069
 #, sh-format
 msgid "Please wait..."
 msgstr "Por favor aguarde..."
@@ -2748,7 +2748,7 @@ msgstr ""
 "Para continuar, PlayOnLinux precisa de remontar a drive de CD-ROM com a "
 "opção \"desocultar\"."
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:16 lib/wine.lib:832
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:16 lib/wine.lib:846
 #, sh-format
 msgid "Abort installation"
 msgstr "Abortar a instalação"
@@ -2773,7 +2773,7 @@ msgstr "Já o reparei. Apenas testar novamente."
 msgid "The program needs access to ptrace() to proceed:"
 msgstr "Este programa precisa de aceder ao ptrace() para continuar:"
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:28 lib/wine.lib:861
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:28 lib/wine.lib:875
 #, sh-format
 msgid "User abort"
 msgstr "Abortar manualmente"
@@ -3016,7 +3016,7 @@ msgstr ""
 msgid "The CD protection of this game doesn't work correctly with Wine."
 msgstr "A protecção de CD deste jogo não funciona correctamente com o Wine."
 
-#: PlayOnLinux_Scripts/Rift_:83
+#: PlayOnLinux_Scripts/Rift_:84
 #, sh-format
 msgid "The launcher can still self update after installation"
 msgstr ""
@@ -3524,11 +3524,6 @@ msgstr ""
 #, sh-format
 msgid "Donwload finished.\\nPatches installation will begin"
 msgstr "Transferência terminada.\\nA instalação dos patches vai começar."
-
-#: PlayOnLinux_Scripts/The_mighty_quest_for_epic_loot_:50
-#, sh-format
-msgid "We will download the installer"
-msgstr "Vamos transferir o instalador."
 
 #: PlayOnLinux_Scripts/Toontown_Online_:17
 #, sh-format
@@ -4052,7 +4047,7 @@ msgstr "Se não sabe, desmarque tudo"
 msgid "What would you like to do before installation?"
 msgstr "O que gostaria de fazer antes da instalação?"
 
-#: bash/manual_install:203 lib/scripts.lib:439
+#: bash/manual_install:203 lib/scripts.lib:438
 #, sh-format
 msgid "Please make your choice"
 msgstr "Por favor, escolha"
@@ -4493,7 +4488,7 @@ msgstr ""
 "processo de instalação.\\nVisite www.$POL_DNS para mais informações."
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:824 lib/wine.lib:905
+#: lib/wine.lib:838 lib/wine.lib:919
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr "Por favor, aguarde enquanto a unidade virtual está a ser criada..."
@@ -4637,7 +4632,7 @@ msgstr "A actualizar a extensão. Anterior: "
 msgid "Installing plugin: "
 msgstr "A instalar a extensão: "
 
-#: lib/scripts.lib:337
+#: lib/scripts.lib:336
 #, sh-format
 msgid ""
 "Binary not found: $BINARY\\nHave you installed the program to the default "
@@ -4646,73 +4641,73 @@ msgstr ""
 "Binário não encontrado: $BINARY\\nTem instalado o programa na localização "
 "pré-definida?"
 
-#: lib/scripts.lib:401
+#: lib/scripts.lib:400
 #, sh-format
 msgid "Function override detected, disabling bug reporting"
 msgstr "Detectado passagem de funções. Desactive o relatório de bugs."
 
-#: lib/scripts.lib:501 lib/scripts.lib:567
+#: lib/scripts.lib:500 lib/scripts.lib:566
 #, sh-format
 msgid "No enough space to download:\\n$URL ($neededSpace KB)"
 msgstr ""
 "Sem espaço suficiente para a transferência :\\n$URL ($neededSpace KB)"
 
-#: lib/scripts.lib:503 lib/scripts.lib:786
+#: lib/scripts.lib:502 lib/scripts.lib:785
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr "Por favor, aguarde enquanto $APPLICATION_TITLE descarrega:"
 
-#: lib/scripts.lib:505 lib/scripts.lib:572
+#: lib/scripts.lib:504 lib/scripts.lib:571
 #, sh-format
 msgid "An error happened during download."
 msgstr "Ocorreu um erro durante a transferência."
 
-#: lib/scripts.lib:505 lib/scripts.lib:524 lib/scripts.lib:572
-#: lib/scripts.lib:588
+#: lib/scripts.lib:504 lib/scripts.lib:523 lib/scripts.lib:571
+#: lib/scripts.lib:587
 #, sh-format
 msgid "Do you want to retry?"
 msgstr "Deseja repetir?"
 
-#: lib/scripts.lib:524 lib/scripts.lib:588
+#: lib/scripts.lib:523 lib/scripts.lib:587
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 "Erro! Incompatibilidade de ficheiros\\n\\nLocal : $LOCAL_MD5\\nServidor : "
 "$SERVER_MD5"
 
-#: lib/scripts.lib:691
+#: lib/scripts.lib:690
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
 msgstr ""
 "7z não está instalado, verifique se tem instalado o 7zip e tente novamente."
 
-#: lib/scripts.lib:698
+#: lib/scripts.lib:697
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr "Falha ao localizar ${dest} de ${archive}"
 
-#: lib/scripts.lib:702
+#: lib/scripts.lib:701
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr "A extrair ${filename} de ${archivename}"
 
-#: lib/scripts.lib:717
+#: lib/scripts.lib:716
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr "Tamanho do arquivo extraído não corresponde!"
 
-#: lib/scripts.lib:748
+#: lib/scripts.lib:747
 #, sh-format
 msgid "Copying ${filename}"
 msgstr "A copiar ${filename}"
 
-#: lib/scripts.lib:761
+#: lib/scripts.lib:760
 #, sh-format
 msgid "File size does not match!"
 msgstr "Tamanho do arquivo não corresponde!"
 
-#: lib/scripts.lib:905
+#: lib/scripts.lib:904
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
@@ -4721,7 +4716,7 @@ msgstr ""
 "Desculpe, $APPLICATION_TITLE $VERSION é demasiado antigo para continuar.\\nÉ "
 "necessário $APPLICATION_TITLE $NEEDED."
 
-#: lib/scripts.lib:920
+#: lib/scripts.lib:919
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
@@ -4730,7 +4725,7 @@ msgstr ""
 "AVISO: A execução de $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
 "$NEEDED é recomendada para continuar."
 
-#: lib/scripts.lib:951
+#: lib/scripts.lib:950
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr "Perfil de $AUTHOR"
@@ -4974,47 +4969,47 @@ msgstr ""
 "O Wine parece ter deixado de funcionar\\n\\nSe o programa ainda está a ser "
 "executado, ignore esta mensagem."
 
-#: lib/wine.lib:629
+#: lib/wine.lib:643
 #, sh-format
 msgid "Unable to find version: "
 msgstr "Não foi possível determinar a versão: "
 
-#: lib/wine.lib:635 lib/wine.lib:636
+#: lib/wine.lib:649 lib/wine.lib:650
 #, sh-format
 msgid "Downloading Wine: "
 msgstr "A transferir o Wine: "
 
-#: lib/wine.lib:645
+#: lib/wine.lib:659
 #, sh-format
 msgid "The download seems to have failed."
 msgstr "A transferência parece ter falhado."
 
-#: lib/wine.lib:647
+#: lib/wine.lib:661
 #, sh-format
 msgid "Extracting Wine..."
 msgstr "A extrair o Wine..."
 
-#: lib/wine.lib:830
+#: lib/wine.lib:844
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr "Escrever por cima (por norma funciona, mas não é garantido)"
 
-#: lib/wine.lib:831
+#: lib/wine.lib:845
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
 msgstr "Apagar (os conteúdos da unidade virtual serão perdidos)"
 
-#: lib/wine.lib:845
+#: lib/wine.lib:859
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr "A unidade virtual destino $PREFNAME já existe:"
 
-#: lib/wine.lib:1025 lib/wine.lib:1055
+#: lib/wine.lib:1039 lib/wine.lib:1069
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "Por favor, aguarde enquanto $SOFTNAME é instalado..."
 
-#: lib/wine.lib:1029 lib/wine.lib:1058
+#: lib/wine.lib:1043 lib/wine.lib:1072
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
@@ -5023,19 +5018,19 @@ msgstr ""
 "Tenha cuidado! Isso vai forçar o encerramento do processo de instalação. Se "
 "não estiver terminado, precisará de reinstalar $SOFTNAME."
 
-#: lib/wine.lib:1029 lib/wine.lib:1058
+#: lib/wine.lib:1043 lib/wine.lib:1072
 #, sh-format
 msgid "Install is done"
 msgstr "Instalação terminada"
 
-#: lib/wine.lib:1062 lib/wine.lib:1063
+#: lib/wine.lib:1076 lib/wine.lib:1077
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr ""
 "Carregue em \"Seguinte\" somente quando o processo de instalação estiver "
 "terminada."
 
-#: lib/wine.lib:1071
+#: lib/wine.lib:1085
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr ""

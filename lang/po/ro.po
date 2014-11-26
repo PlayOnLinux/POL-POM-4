@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-11-17 19:00+0100\n"
+"POT-Creation-Date: 2014-11-24 19:01+0100\n"
 "PO-Revision-Date: 2014-04-20 08:15+0000\n"
 "Last-Translator: Meriuță Cornel <meriutacornel@neacornel.eu>\n"
 "Language-Team: Romanian <ro@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-11-18 05:37+0000\n"
-"X-Generator: Launchpad (build 17241)\n"
+"X-Launchpad-Export-Date: 2014-11-25 05:36+0000\n"
+"X-Generator: Launchpad (build 17252)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -308,7 +308,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Rayman_Origins_:90 PlayOnLinux_Scripts/Reason_5_:29
 #: PlayOnLinux_Scripts/Red_Faction_:49 PlayOnLinux_Scripts/Resident_Evil_3_:40
 #: PlayOnLinux_Scripts/Rfactor_:48 PlayOnLinux_Scripts/Riffstation_Trial_:45
-#: PlayOnLinux_Scripts/Rift_:73
+#: PlayOnLinux_Scripts/Rift_:71
 #: PlayOnLinux_Scripts/Runaway_2___The_Dream_of_the_Turtle_:41
 #: PlayOnLinux_Scripts/Runes_Of_Magic_:44
 #: PlayOnLinux_Scripts/SFR_LiberTalk_:42 PlayOnLinux_Scripts/Safari_:63
@@ -328,7 +328,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Settlers_III_Gold_Edition_:69
 #: PlayOnLinux_Scripts/The_Sims_3_:61 PlayOnLinux_Scripts/The_Witcher_:132
 #: PlayOnLinux_Scripts/The_Witcher_2___Assassins_of_Kings_:100
-#: PlayOnLinux_Scripts/The_mighty_quest_for_epic_loot_:59
+#: PlayOnLinux_Scripts/The_mighty_quest_for_epic_loot_:61
 #: PlayOnLinux_Scripts/Theme_Hospital_:59
 #: PlayOnLinux_Scripts/Traktor_Pro_2_:33 PlayOnLinux_Scripts/Tree[d]_:41
 #: PlayOnLinux_Scripts/Warcraft_III__Reign_of_Chaos_:38
@@ -461,7 +461,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind___Bloodmoon_:26
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind___Tribunal_:26
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_Patch_1.2.0416_:26
-#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:30
+#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:30 lib/wine.lib:583
 #, sh-format
 msgid ""
 "This is an installer for an update or an addon;\\nPlease install "
@@ -580,8 +580,8 @@ msgstr ""
 #: PlayOnLinux_Scripts/SubRip_:33 PlayOnLinux_Scripts/Theme_Hospital_:48
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:116 bash/installpolpackages:26
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
-#: bash/winebash:27 lib/setupwindow.lib:435 lib/wine.lib:947 lib/wine.lib:1025
-#: lib/wine.lib:1055
+#: bash/winebash:27 lib/setupwindow.lib:435 lib/wine.lib:961 lib/wine.lib:1039
+#: lib/wine.lib:1069
 #, sh-format
 msgid "Please wait..."
 msgstr "Așteptați..."
@@ -2499,7 +2499,7 @@ msgid ""
 "To continue, PlayOnLinux needs to remount your CD-ROM with unhide option."
 msgstr ""
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:16 lib/wine.lib:832
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:16 lib/wine.lib:846
 #, sh-format
 msgid "Abort installation"
 msgstr "Abandonează instalarea"
@@ -2524,7 +2524,7 @@ msgstr ""
 msgid "The program needs access to ptrace() to proceed:"
 msgstr ""
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:28 lib/wine.lib:861
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:28 lib/wine.lib:875
 #, sh-format
 msgid "User abort"
 msgstr "Abandonat de utilizator"
@@ -2738,7 +2738,7 @@ msgstr ""
 msgid "The CD protection of this game doesn't work correctly with Wine."
 msgstr ""
 
-#: PlayOnLinux_Scripts/Rift_:83
+#: PlayOnLinux_Scripts/Rift_:84
 #, sh-format
 msgid "The launcher can still self update after installation"
 msgstr ""
@@ -3183,11 +3183,6 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Witcher_Patch_1.5_:108
 #, sh-format
 msgid "Donwload finished.\\nPatches installation will begin"
-msgstr ""
-
-#: PlayOnLinux_Scripts/The_mighty_quest_for_epic_loot_:50
-#, sh-format
-msgid "We will download the installer"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Toontown_Online_:17
@@ -3690,7 +3685,7 @@ msgstr "Dacă nu știți,deselectați tot"
 msgid "What would you like to do before installation?"
 msgstr "Ce v-ar place să faceți înaintea instalării?"
 
-#: bash/manual_install:203 lib/scripts.lib:439
+#: bash/manual_install:203 lib/scripts.lib:438
 #, sh-format
 msgid "Please make your choice"
 msgstr "Faceți alegerea"
@@ -4120,7 +4115,7 @@ msgstr ""
 "viitoare"
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:824 lib/wine.lib:905
+#: lib/wine.lib:838 lib/wine.lib:919
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr "Așteptați până când driverul virtual va fi creat..."
@@ -4255,7 +4250,7 @@ msgstr "Se actualizează modulul.Precedent: "
 msgid "Installing plugin: "
 msgstr "Se instalează modulul: "
 
-#: lib/scripts.lib:337
+#: lib/scripts.lib:336
 #, sh-format
 msgid ""
 "Binary not found: $BINARY\\nHave you installed the program to the default "
@@ -4264,72 +4259,72 @@ msgstr ""
 "Nu s-au găsit fișierele binare: $BINARY\\nAți instalat programul la locația "
 "implicită?"
 
-#: lib/scripts.lib:401
+#: lib/scripts.lib:400
 #, sh-format
 msgid "Function override detected, disabling bug reporting"
 msgstr ""
 
-#: lib/scripts.lib:501 lib/scripts.lib:567
+#: lib/scripts.lib:500 lib/scripts.lib:566
 #, sh-format
 msgid "No enough space to download:\\n$URL ($neededSpace KB)"
 msgstr "Nu este spațiu suficient pentru a descărca:\\n$URL ($neededSpace KB)"
 
-#: lib/scripts.lib:503 lib/scripts.lib:786
+#: lib/scripts.lib:502 lib/scripts.lib:785
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr "Așteptați până când $APPLICATION_TITLE este descărcat:"
 
-#: lib/scripts.lib:505 lib/scripts.lib:572
+#: lib/scripts.lib:504 lib/scripts.lib:571
 #, sh-format
 msgid "An error happened during download."
 msgstr "A intervenit o eroare în timpul descărcării."
 
-#: lib/scripts.lib:505 lib/scripts.lib:524 lib/scripts.lib:572
-#: lib/scripts.lib:588
+#: lib/scripts.lib:504 lib/scripts.lib:523 lib/scripts.lib:571
+#: lib/scripts.lib:587
 #, sh-format
 msgid "Do you want to retry?"
 msgstr "Doriți să reîncercați?"
 
-#: lib/scripts.lib:524 lib/scripts.lib:588
+#: lib/scripts.lib:523 lib/scripts.lib:587
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 "Eroare ! Fișierele nu se potrivesc\\n\\nLocal: $LOCAL_MD5\\nServer : "
 "$SERVER_MD5"
 
-#: lib/scripts.lib:691
+#: lib/scripts.lib:690
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
 msgstr ""
 "7z nu este instalat,verificați dacă aveți 7zip instalat și încercați din nou"
 
-#: lib/scripts.lib:698
+#: lib/scripts.lib:697
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr "Eșuare la localizarea ${dest} din ${archive}"
 
-#: lib/scripts.lib:702
+#: lib/scripts.lib:701
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr "Se extrage ${filename} din ${archivename}"
 
-#: lib/scripts.lib:717
+#: lib/scripts.lib:716
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr "Dimensiunea fișierului extras nu se potrivește!"
 
-#: lib/scripts.lib:748
+#: lib/scripts.lib:747
 #, sh-format
 msgid "Copying ${filename}"
 msgstr "Se copiază ${filename}"
 
-#: lib/scripts.lib:761
+#: lib/scripts.lib:760
 #, sh-format
 msgid "File size does not match!"
 msgstr "Mărimea fișierului nu se potrivește!"
 
-#: lib/scripts.lib:905
+#: lib/scripts.lib:904
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
@@ -4338,7 +4333,7 @@ msgstr ""
 "Regret,$APPLICATION_TITLE $VERSION este foarte vechi să continui.\\"
 "n$APPLICATION_TITLE $NEEDED este necesar."
 
-#: lib/scripts.lib:920
+#: lib/scripts.lib:919
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
@@ -4347,7 +4342,7 @@ msgstr ""
 "Atenție: Rulați $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE $NEEDED "
 "este recomandat să continui."
 
-#: lib/scripts.lib:951
+#: lib/scripts.lib:950
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr "Profil $AUTHOR"
@@ -4584,47 +4579,47 @@ msgid ""
 msgstr ""
 "Wine pare a fi prăbușit\\n\\nDacă programul vă rulează,ignorați acest mesaj"
 
-#: lib/wine.lib:629
+#: lib/wine.lib:643
 #, sh-format
 msgid "Unable to find version: "
 msgstr "Incapabil să aflu versiunea: "
 
-#: lib/wine.lib:635 lib/wine.lib:636
+#: lib/wine.lib:649 lib/wine.lib:650
 #, sh-format
 msgid "Downloading Wine: "
 msgstr "Se descarcă Wine: "
 
-#: lib/wine.lib:645
+#: lib/wine.lib:659
 #, sh-format
 msgid "The download seems to have failed."
 msgstr "Descărcarea se pare că a eșuat."
 
-#: lib/wine.lib:647
+#: lib/wine.lib:661
 #, sh-format
 msgid "Extracting Wine..."
 msgstr "Se extrage Wine..."
 
-#: lib/wine.lib:830
+#: lib/wine.lib:844
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr "Suprascrie (lucrează de obicei, fără garanție)"
 
-#: lib/wine.lib:831
+#: lib/wine.lib:845
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
 msgstr "Șterge (se va pierde conținutul discului virtual)"
 
-#: lib/wine.lib:845
+#: lib/wine.lib:859
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr "Ținta discul virtual $PREFNAME există deja:"
 
-#: lib/wine.lib:1025 lib/wine.lib:1055
+#: lib/wine.lib:1039 lib/wine.lib:1069
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "Așteptați până când $SOFTNAME este instalat..."
 
-#: lib/wine.lib:1029 lib/wine.lib:1058
+#: lib/wine.lib:1043 lib/wine.lib:1072
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
@@ -4633,17 +4628,17 @@ msgstr ""
 "Fiți atent! Acesta va omorâ  procesul instalării.Dacă nu este finalizat, va "
 "trebui să reinstalați $SOFTNAME"
 
-#: lib/wine.lib:1029 lib/wine.lib:1058
+#: lib/wine.lib:1043 lib/wine.lib:1072
 #, sh-format
 msgid "Install is done"
 msgstr "Instalarea este terminată"
 
-#: lib/wine.lib:1062 lib/wine.lib:1063
+#: lib/wine.lib:1076 lib/wine.lib:1077
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr "Apăsați următorul numai după ce s-a terminat procesul instalării"
 
-#: lib/wine.lib:1071
+#: lib/wine.lib:1085
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr "Așteptați până ce $APPLICATION_TITLE simulează o repornire"
