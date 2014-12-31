@@ -572,7 +572,7 @@ class MainWindow(wx.Frame):
                 pass
                 
         if(self.updater.sendAlertStr != self.sendAlertStr):
-            wx.MessageBox(self.updater.sendAlertStr, os.environ["APPLICATION_TITLE"])
+            wx.MessageBox(self.updater.sendAlertStr, os.environ["APPLICATION_TITLE"], wx.OK|wx.CENTER, self)
             self.sendAlertStr = self.updater.sendAlertStr
 
     def RMBInGameList(self, event):
