@@ -97,7 +97,7 @@ run_autorun()
 
 
 POL_SetupWindow_Init
-POL_SetupWindow_free_presentation "$(eval_gettext 'Manual installation')" "$(eval_gettext 'Welcome to $APPLICATION_TITLE manual installation wizard.\n\nThis script will allow you to install any program on $APPLICATION and use it with all the tools\n\nWarning: We are unable to guarantee that your application will work perfectly.')"
+POL_SetupWindow_free_presentation "$(eval_gettext 'Manual installation')" "$(eval_gettext 'Welcome to $APPLICATION_TITLE manual installation wizard.\n\nThis script will allow you to install any program on $APPLICATION_TITLE and use it with all the tools\n\nWarning: We are unable to guarantee that your application will work perfectly.')"
 
 LNG_LI_NEW="$(eval_gettext "Install a program in a new virtual drive")"
 LNG_LI_PATCH="$(eval_gettext "Edit or update an existing application")"
