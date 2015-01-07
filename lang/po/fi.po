@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2014-12-29 19:00+0100\n"
-"PO-Revision-Date: 2013-12-11 12:36+0000\n"
-"Last-Translator: Aymeric PETIT <lp@mulx.net>\n"
+"POT-Creation-Date: 2015-01-05 19:00+0100\n"
+"PO-Revision-Date: 2015-01-04 14:13+0000\n"
+"Last-Translator: Lasse Liehu <Unknown>\n"
 "Language-Team: Finnish <fi@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-12-30 05:41+0000\n"
+"X-Launchpad-Export-Date: 2015-01-06 05:31+0000\n"
 "X-Generator: Launchpad (build 17286)\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -40,7 +40,7 @@ msgstr "Ota sovelluksesta kuvankaappaus"
 
 #: Capture plugin:7
 msgid "Play a captured file"
-msgstr "Soita kaapattu video"
+msgstr "Toista kaapattu video"
 
 #: Capture plugin:8
 msgid "Convert a captured file to video"
@@ -78,15 +78,15 @@ msgstr "Valitse suoritettava toiminto"
 
 #: Capture plugin:15
 msgid "Please choose a PID capture file to play"
-msgstr "Ole hyvä, ja valitse PID tallennustiedosto soitettavaksi"
+msgstr "Valitse toistettava PID-tallennustiedosto"
 
 #: Capture plugin:16
 msgid "Please choose an OGV capture file to play"
-msgstr "Ole hyvä, ja valitse OGV tiedosto soitettavaksi"
+msgstr "Valitse toistettava OGV-tallennustiedosto"
 
 #: Capture plugin:17
 msgid "Please choose a capture file to convert"
-msgstr "Ole hyvä ja valitse mikä kaapattu tiedosto muunnetaan"
+msgstr "Valitse muunnettava kaapattu tiedosto"
 
 #: Capture plugin:18
 msgid "You must choose a capture to read"
@@ -237,8 +237,8 @@ msgid ""
 "Please give the more details as you can, otherwise, it will be very "
 "difficult to help you"
 msgstr ""
-"Ole hyvä ja anna mahdollisimman paljon lisätietoja kuin voit, muuten sinua "
-"voi olla vaikea auttaa"
+"Kirjoita mahdollisimman yksityiskohtaisesti, koska muuten sinua voi olla "
+"vaikea auttaa"
 
 #: bash/bug_report:37
 #, sh-format
@@ -282,7 +282,7 @@ msgstr "Älä lisää mitään lokitiedostoon"
 #: bash/manual_install:106 bash/manual_install:191
 #, sh-format
 msgid "Manual installation"
-msgstr "Manuaalinen asennus"
+msgstr "Käsiasennus"
 
 #: bash/bug_report:55 bash/run_exe:24
 #, sh-format
@@ -302,7 +302,7 @@ msgstr "Kuvaile englanniksi ongelmaa mahdollisimman laajasti."
 #: bash/bug_report:77
 #, sh-format
 msgid "Sorry, we need a detailed description."
-msgstr "Anteeksi, mutta me tarvitsemme yksityiskohtaisen kuvauksen"
+msgstr ""
 
 #: bash/bug_report:101
 #, sh-format
@@ -326,7 +326,7 @@ msgstr ""
 #: bash/create_prefix:30 bash/manual_install:169
 #, sh-format
 msgid "What kind of virtual drive do you want to create"
-msgstr "Minkälaisen virtuaaliaseman haluat luoda"
+msgstr "Millaisen virtuaaliaseman haluat luoda?"
 
 #: bash/create_prefix:54
 #, sh-format
@@ -339,12 +339,12 @@ msgstr ""
 #: bash/create_prefix:54 bash/manual_install:156
 #, sh-format
 msgid "Which version of Wine would you like to use?"
-msgstr "Mitä versiota Winestä haluaisitte käyttää?"
+msgstr "Mitä Wine-versiota haluat käyttää?"
 
 #: bash/create_prefix:62
 #, sh-format
 msgid "Choose the name of the virtual drive"
-msgstr "Ole hyvä ja nimeä virtuaaliasemasi"
+msgstr "Nimeä virtuaaliasema"
 
 #: bash/expert/Executer:22 bash/expert/Executer:27 bash/expert/Executer:29
 #: python/mainwindow.py:275 python/mainwindow.py.orig:274
@@ -444,24 +444,20 @@ msgstr "Asennustiedoston polkua ei löydy autorun.inf tiedostosta"
 #, sh-format
 msgid ""
 "Welcome to $APPLICATION_TITLE manual installation wizard.\\n\\nThis script "
-"will allow you to install any program on $APPLICATION and use it with all "
-"the tools\\n\\nWarning: We are unable to guarantee that your application "
+"will allow you to install any program on $APPLICATION_TITLE and use it with "
+"all the tools\\n\\nWarning: We are unable to guarantee that your application "
 "will work perfectly."
 msgstr ""
-"Tervetuloa $APPLICATION_TITLE käsin ohjattuun asennukseen.\\n\\nTämän "
-"scriptin avulla voit asentaa minkä tahansa ohjelman mitä  $APPLICATION "
-"ohjelma käyttää.\\n\\nVaroitus: Emme voi taata, että sovellus toimii "
-"täydellisesti."
 
 #: bash/manual_install:102
 #, sh-format
 msgid "Install a program in a new virtual drive"
-msgstr "Asenna ohjelma uuteen virtuaaliasemaan"
+msgstr "Asentaa ohjelman uuteen virtuaaliasemaan"
 
 #: bash/manual_install:103
 #, sh-format
 msgid "Edit or update an existing application"
-msgstr "Muokkaa tai päivitä olemassa olevaa ohjelmaa"
+msgstr "Muokata tai päivittää olemassa olevaa ohjelmaa"
 
 #: bash/manual_install:106
 #, sh-format
@@ -474,44 +470,44 @@ msgid ""
 "Please type a name for your application's virtual drive.\\nThis name "
 "shouldn't contain spaces."
 msgstr ""
-"Kirjoita ohjelman nimi virtuaaliasemalle.\\nNimessä ei saa olla välejä."
+"Kirjoita nimi ohjelman virtuaaliasemalle.\\nNimessä ei saa olla välejä."
 
 #: bash/manual_install:126
 #, sh-format
 msgid "Please choose a program"
-msgstr "Ole hyvä ja valitse ohjelma"
+msgstr "Valitse ohjelma"
 
 #: bash/manual_install:138
 #, sh-format
 msgid "Use another version of Wine"
-msgstr "Käytä toista versiota Winestä"
+msgstr "Käyttää toista Wine-versiota"
 
 #: bash/manual_install:139 bash/manual_install:191 bash/polconfigurator:102
 #: python/configure.py:232 python/mainwindow.py:581 python/mainwindow.py:613
 #: python/mainwindow.py.orig:580 python/mainwindow.py.orig:612
 #, sh-format
 msgid "Configure Wine"
-msgstr "Winen asetukset"
+msgstr "Muuttaa Winen asetuksia"
 
 #: bash/manual_install:140
 #, sh-format
 msgid "Install some libraries"
-msgstr "Asenna joitakin kirjastoja"
+msgstr "Asentaa kirjastoja"
 
 #: bash/manual_install:143
 #, sh-format
 msgid "If you don't know, unselect all"
-msgstr "Jos et tiedä mitään, poista kaikkien valinta"
+msgstr "Jos et tiedä, poista kaikkien valinta"
 
 #: bash/manual_install:143
 #, sh-format
 msgid "What would you like to do before installation?"
-msgstr "Mitä haluat tehdä ennen kuin aletaan asentamaan?"
+msgstr "Mitä haluat tehdä ennen asennuksen aloittamista?"
 
 #: bash/manual_install:203 lib/scripts.lib:438
 #, sh-format
 msgid "Please make your choice"
-msgstr "Ole hyvä ja valitse"
+msgstr "Valitse"
 
 #: bash/manual_install:230
 #, sh-format
@@ -531,7 +527,7 @@ msgstr "Valitse tapa asentaaksesi ohjelma"
 #: bash/manual_install:270
 #, sh-format
 msgid "Please select the install file to run."
-msgstr "Ole hyvä ja valitse käynnistettävä asennustiedosto."
+msgstr "Valitse käynnistettävä asennustiedosto."
 
 #: bash/manual_install:282
 #, sh-format
@@ -541,7 +537,7 @@ msgstr "Sinun pitää valita tiedosto!"
 #: bash/manual_install:288
 #, sh-format
 msgid "$APPLICATION_TITLE is installing your application..."
-msgstr "$APPLICATION_TITLE asentaa sinun ohjelmaasi..."
+msgstr "$APPLICATION_TITLE asentaa ohjelmaasi..."
 
 #: bash/playonlinux-pkg:25
 #, sh-format
@@ -639,7 +635,7 @@ msgstr "Kuvakkeen valinta"
 #: bash/polconfigurator:86
 #, sh-format
 msgid "Please select an icon file"
-msgstr "Ole hyvä ja valitse kuvaketiedosto"
+msgstr "Valitse kuvaketiedosto."
 
 #: bash/polconfigurator:93
 #, sh-format
@@ -746,7 +742,7 @@ msgstr "Valitse avattava CD-asema"
 #: bash/run_app:85
 #, sh-format
 msgid "Please choose a software to run"
-msgstr "Ole hyvä ja valitse suoritettava ohjelma"
+msgstr "Valitse suoritettava ohjelma"
 
 #: bash/run_app:115
 #, sh-format
@@ -824,7 +820,7 @@ msgstr "Olen ladannut tiedoston itse"
 #: bash/startup_after_server:42
 #, sh-format
 msgid "Please download XQuartz for me"
-msgstr "Ole hyvä ja lataa XQuartz minulle"
+msgstr "Lataa XQuartz minulle"
 
 #: bash/startup_after_server:47
 #, sh-format
@@ -855,7 +851,7 @@ msgstr ""
 #: lib/playonlinux.lib:746
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
-msgstr "$APPLICATION_TITLE asennuksen poisto"
+msgstr "${APPLICATION_TITLE}in asennuksen poisto"
 
 #: bash/uninstall:39
 #, sh-format
@@ -965,7 +961,7 @@ msgstr ""
 #: lib/playonlinux.lib:336
 #, sh-format
 msgid "Here the source code of the script. Check it carefully"
-msgstr "Tässä on lähdekoodi scriptistä. Tarkista huolellisesti"
+msgstr "Tässä on skriptin lähdekoodi. Tarkista se huolellisesti"
 
 #: lib/playonlinux.lib:358
 #, sh-format
@@ -983,7 +979,7 @@ msgstr "Ulkoinen kirjasto"
 #: lib/playonlinux.lib:359
 #, sh-format
 msgid "Here the source code of the script. Check it carrefully"
-msgstr "Tässä on lähdekoodi scriptistä. Tarkista huolellisesti"
+msgstr "Tässä on skriptin lähdekoodi. Tarkista se huolellisesti"
 
 #: lib/playonlinux.lib:619
 #, sh-format
@@ -1111,8 +1107,7 @@ msgstr ""
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
 msgstr ""
-"7z ei ole asennettu, ole hyvä ja tarkista että 7z on asennettu tai yritä "
-"uudelleen"
+"7z ei ole asennettu; tarkista, että 7z on asennettu ja yritä uudelleen"
 
 #: lib/scripts.lib:697
 #, sh-format
@@ -1191,7 +1186,7 @@ msgstr "Tämä asennusohjelma asentaa ohjelman "
 #: lib/setupwindow.lib:96
 #, sh-format
 msgid "Welcome to $APPLICATION_TITLE Installation Wizard."
-msgstr "Tervetuloa $APPLICATION_TITLE asennusohjelmaan."
+msgstr "Tervetuloa ${APPLICATION_TITLE}in asennusohjelmaan."
 
 #: lib/setupwindow.lib:120
 #, sh-format
@@ -1199,7 +1194,7 @@ msgid ""
 "One or more program(s) are missing. Please install them and run the script "
 "again."
 msgstr ""
-"Yksi tai useampi ohjelma on hukassa. Ole hyvä ja suorita asennus scripti "
+"Yksi tai useampi ohjelma puuttuu. Asenna ne ja suorita asennusskripti "
 "uudestaan."
 
 #: lib/setupwindow.lib:122 python/guiv3.py:769 python/mainwindow.py:1156
@@ -1375,7 +1370,7 @@ msgstr ""
 #: lib/wine.lib:365
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is scanning your hardware"
-msgstr "Odota hetki kun $APPLICATION_TITLE tarkistaa laitteistoa"
+msgstr "Odota hetki, kun $APPLICATION_TITLE tarkistaa laitteistoa"
 
 #: lib/wine.lib:371
 #, sh-format
@@ -1396,8 +1391,8 @@ msgid ""
 "This is an installer for an update or an addon;\\nPlease install "
 "$TITLE_REQUIRED first"
 msgstr ""
-"Tämä on asennusohjelma päivittää tai asentaa lisäosan;\\nOle hyvä ja asenna "
-"$TITLE_REQUIRED ensin"
+"Tämä asennusohjelma päivittää tai asentaa lisäosan.\\nAsenna $TITLE_REQUIRED "
+"ensin"
 
 #: lib/wine.lib:643
 #, sh-format
@@ -1627,7 +1622,7 @@ msgstr ""
 #: python/configure.py:666 python/mainwindow.py:970 python/mainwindow.py:972
 #: python/mainwindow.py.orig:963 python/mainwindow.py.orig:965
 msgid "{0} configuration"
-msgstr "{0} asetukset"
+msgstr "{0}-asetukset"
 
 #: python/configure.py:674
 msgid "Please select a program or a virtual drive to configure"
@@ -1697,7 +1692,7 @@ msgstr "Ilmoita ongelmasta {0}"
 
 #: python/debug.py:263
 msgid "Install scripts"
-msgstr "Asenna scripti"
+msgstr "Asenna skripti"
 
 #: python/gui_server.py:54 python/gui_server.py:55
 msgid "Error: Unable to reserve a valid port"
@@ -1705,11 +1700,11 @@ msgstr "Virhe: Ei voi varata olemassa olevaa porttia"
 
 #: python/gui_server.py:165
 msgid "WARNING. Please use POL_SetupWindow_Init first"
-msgstr "Varoitus. Ole hyvä ja laita ensimmäiseksi POL_SetupWindow_Init"
+msgstr "Varoitus. Käytä POL_SetupWindow_Init ensimmäiseksi"
 
 #: python/guiv3.py:116
 msgid "{0} Wizard"
-msgstr "{0}in Ohjattu toiminto"
+msgstr "{0}in ohjattu toiminto"
 
 #: python/guiv3.py:140 python/guiv3.py:143 python/install.py:288
 #: python/install.py:292 python/options.py:376
@@ -1811,7 +1806,7 @@ msgstr "Koekäytössä"
 
 #: python/install.py:267
 msgid "No-cd needed"
-msgstr "cd:tä ei tarvita"
+msgstr "No-cd tarvitaan"
 
 #: python/install.py:274
 msgid "Commercial"
@@ -1824,7 +1819,7 @@ msgstr "Asenna listaamaton ohjelma"
 #: python/install.py:446 python/install.py:449 python/install.py:465
 #: python/install.py:467 python/install.py:587
 msgid "Please read this"
-msgstr "Ole hyvä ja lue tämä"
+msgstr "Lue tämä"
 
 #: python/install.py:446
 msgid ""
@@ -1833,10 +1828,10 @@ msgid ""
 " - Leave the default location\n"
 " - Do not tick the checkbox 'Run the program' if asked."
 msgstr ""
-"Kun {0} asennetaan Windows ohjelmaa: \n"
+"Kun {0} asentaa Windows-ohjelmaa: \n"
 "\n"
 " - Jätä oletussijainti\n"
-" - Älä rastita valintaruutua \"Suorita ohjelma\"."
+" - Älä rastita valintaruutua ”Suorita ohjelma”."
 
 #: python/install.py:449
 msgid ""
@@ -1865,8 +1860,8 @@ msgid ""
 msgstr ""
 "Tämä ohjelma on parhaillaan testauksessa.\n"
 "\n"
-"Se ei ehkä toimi odotetusti. Anna palautetta, positiivinen tai negatiivinen, "
-"se on erityisen tärkeää, että voimme parantaa asennusohjelmaa."
+"Se ei ehkä toimi odotetusti. Palautteesi, positiivinen tai negatiivinen, on "
+"erityisen tärkeää, jotta voimme parantaa asennusohjelmaa."
 
 #: python/install.py:467
 msgid ""
@@ -1903,11 +1898,10 @@ msgid ""
 "The only workaround is to use \"no-cd\" patches, but since those can also be "
 "used for piracy purposes we won't give any support on this matter."
 msgstr ""
-"Ottamalla tämän käyttöön. Sinulla on pääsy asennettaviin ohjelmiin, jotka "
-"käyttävät kopiosuojausta (DRM), joka on epäyhteesopiva emuloinnin kanssa.  "
-"Ainoa ratkaisu on käyttää \"no-cd\" korjaustiedostoa, mutta koska näitä "
-"voidaan myös käyttää piratismi tarkoituksiin emme voi antaa mitään tukea "
-"tässä asiassa."
+"Ottamalla tämän käyttöön voit asentaa ohjelmia, jotka käyttävät "
+"kopiosuojausta (DRM), joka on epäyhteensopiva emuloinnin kanssa.\n"
+"Ainoa ratkaisu on käyttää ”no-cd”-korjauksia. Koska niitä voi käyttää myös "
+"piratismitarkoituksiin, emme voi antaa mitään tukea tässä asiassa."
 
 #: python/lib/playonlinux.py:27
 msgid "There is nothing installed to run .{0} files."
@@ -1988,39 +1982,39 @@ msgstr "Lisäosien hallinta"
 
 #: python/mainwindow.py:293 python/mainwindow.py.orig:292
 msgid "Supported software"
-msgstr ""
+msgstr "Tuetut ohjelmistot"
 
 #: python/mainwindow.py:294 python/mainwindow.py.orig:293
 msgid "News"
-msgstr ""
+msgstr "Uutiset"
 
 #: python/mainwindow.py:295 python/mainwindow.py.orig:294
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentaatio"
 
 #: python/mainwindow.py:296 python/mainwindow.py.orig:295
 msgid "Forums"
-msgstr ""
+msgstr "Keskustelupalsta"
 
 #: python/mainwindow.py:297 python/mainwindow.py.orig:296
 msgid "Bugs"
-msgstr ""
+msgstr "Ohjelmavirheet"
 
 #: python/mainwindow.py:299 python/mainwindow.py.orig:298
 msgid "Twitter"
-msgstr ""
+msgstr "Twitter"
 
 #: python/mainwindow.py:300 python/mainwindow.py.orig:299
 msgid "Google+"
-msgstr ""
+msgstr "Google+"
 
 #: python/mainwindow.py:301 python/mainwindow.py.orig:300
 msgid "Facebook"
-msgstr ""
+msgstr "Facebook"
 
 #: python/mainwindow.py:305 python/mainwindow.py.orig:304
 msgid "About {0}"
-msgstr "Tietoja {0}"
+msgstr "Tietoja: {0}"
 
 #: python/mainwindow.py:363 python/mainwindow.py.orig:362
 msgid "File"
@@ -2042,7 +2036,7 @@ msgstr "Lisäosat"
 
 #: python/mainwindow.py:368 python/mainwindow.py.orig:367
 msgid "Support"
-msgstr ""
+msgstr "Tuki"
 
 #: python/mainwindow.py:380 python/mainwindow.py:774
 #: python/mainwindow.py.orig:379 python/mainwindow.py.orig:773
@@ -2103,7 +2097,7 @@ msgstr "Virheenjäljitys"
 
 #: python/mainwindow.py:782 python/mainwindow.py.orig:781
 msgid "Send a feedback"
-msgstr ""
+msgstr "Lähetä palautetta"
 
 #: python/mainwindow.py:787 python/mainwindow.py.orig:786
 msgid "Create a shortcut"
@@ -2128,11 +2122,11 @@ msgstr "Valitse ohjelma"
 #: python/mainwindow.py.orig:919 python/mainwindow.py.orig:921
 #: python/mainwindow.py.orig:923
 msgid "{0} settings"
-msgstr "{0} asetukset"
+msgstr "{0}-asetukset"
 
 #: python/mainwindow.py:1003 python/mainwindow.py.orig:996
 msgid "{0} install menu"
-msgstr "{0} asennusvalikko"
+msgstr "{0}-asennusvalikko"
 
 #: python/mainwindow.py:1012 python/mainwindow.py.orig:1005
 msgid "{0} wine versions manager"
@@ -2309,7 +2303,7 @@ msgstr "Valitse lisäosa"
 
 #: python/options.py:263
 msgid "What is the extension?"
-msgstr "Mikä on lisäosa?"
+msgstr "Mikä on assosiaation tiedostopääte?"
 
 #: python/options.py:275
 msgid "Assigned program"
