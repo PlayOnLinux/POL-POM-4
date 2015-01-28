@@ -12,6 +12,7 @@
 * POL_Shortcut: do not overwrite $Binaire to improve logging
 * mainwindow: make alert boxen child of the main window so they cannot get
   lost behind other windows
+* Prevent POL_Download_Resource clobbering $APP_ANSWER
 
 # 4.2.5
 

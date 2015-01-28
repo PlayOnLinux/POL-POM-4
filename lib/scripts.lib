@@ -568,6 +568,7 @@ POL_Download_Resource ()
 			[ -e "$FICHIER" ] && rm "$FICHIER"
 			POL_SetupWindow_download "$(eval_gettext "Please wait while $APPLICATION_TITLE is downloading:") $FICHIER" "$TITLE" "$URL"
 			if [ "$Result" = "Fail" ]; then
+				local APP_ANSWER
 				POL_SetupWindow_question "$URL\n\n$(eval_gettext 'An error happened during download.')\n\n$(eval_gettext 'Do you want to retry?')"
 				if [ "$APP_ANSWER" = "FALSE" ]; then
 					POL_Debug_Error "POL_Download - error during download! ($i attempt)"
@@ -584,6 +585,7 @@ POL_Download_Resource ()
 					POL_Debug_Message "Download MD5 matches"
 				else
 					local SERVER_MD5="$2"
+					local APP_ANSWER
 					POL_SetupWindow_question "$URL\n\n$(eval_gettext 'Error ! Files mismatch\n\nLocal : $LOCAL_MD5\nServer : $SERVER_MD5')\n\n$(eval_gettext 'Do you want to retry?')"
 					if [ "$APP_ANSWER" = "FALSE" ]; then
 						POL_Debug_Error "POL_Download_Resource - MD5 sum mismatch ! ($i attempt)"
