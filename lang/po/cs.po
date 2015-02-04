@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-01-26 19:00+0100\n"
+"POT-Creation-Date: 2015-02-02 19:00+0100\n"
 "PO-Revision-Date: 2014-11-14 11:03+0000\n"
 "Last-Translator: Pepa Novák <wnc@centrum.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-01-27 05:37+0000\n"
-"X-Generator: Launchpad (build 17306)\n"
+"X-Launchpad-Export-Date: 2015-02-03 05:48+0000\n"
+"X-Generator: Launchpad (build 17330)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -1104,30 +1104,30 @@ msgstr "Detekována funkce přepisování, vypínání nahlašování chyb."
 msgid "No enough space to download:\\n$URL ($neededSpace KB)"
 msgstr "Není dostatek místa ke stažení:\\n$URL ($neededSpace KB)"
 
-#: lib/scripts.lib:502 lib/scripts.lib:785
+#: lib/scripts.lib:502 lib/scripts.lib:787
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr "Počkejte prosím, než $APPLICATION_TITLE dokončí stahování:"
 
-#: lib/scripts.lib:504 lib/scripts.lib:571
+#: lib/scripts.lib:504 lib/scripts.lib:572
 #, sh-format
 msgid "An error happened during download."
 msgstr "Při stahování nastala chyba."
 
-#: lib/scripts.lib:504 lib/scripts.lib:523 lib/scripts.lib:571
-#: lib/scripts.lib:587
+#: lib/scripts.lib:504 lib/scripts.lib:523 lib/scripts.lib:572
+#: lib/scripts.lib:589
 #, sh-format
 msgid "Do you want to retry?"
 msgstr "Zkusit znovu?"
 
-#: lib/scripts.lib:523 lib/scripts.lib:587
+#: lib/scripts.lib:523 lib/scripts.lib:589
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 "Chyba ! Soubory nesouhlasí\\n\\nMístní kontrolní MD5 součet: $LOCAL_MD5\\"
 "nKontrolní MD5 součet na serveru: $SERVER_MD5"
 
-#: lib/scripts.lib:690
+#: lib/scripts.lib:692
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
@@ -1135,32 +1135,32 @@ msgstr ""
 "Vypadá to, že 7z není nainstalován. Zkontrolujte prosím, zda je 7zip "
 "nainstalován a zkuste to znovu"
 
-#: lib/scripts.lib:697
+#: lib/scripts.lib:699
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr "Nemohu nalézt ${dest} v ${archive}"
 
-#: lib/scripts.lib:701
+#: lib/scripts.lib:703
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr "Extrahuje se ${filename} z ${archivename}"
 
-#: lib/scripts.lib:716
+#: lib/scripts.lib:718
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr "Velikost extrahovaného souboru nesouhlasí!"
 
-#: lib/scripts.lib:747
+#: lib/scripts.lib:749
 #, sh-format
 msgid "Copying ${filename}"
 msgstr "Kopíruje se ${filename}"
 
-#: lib/scripts.lib:760
+#: lib/scripts.lib:762
 #, sh-format
 msgid "File size does not match!"
 msgstr "Velikost souboru nesouhlasí!"
 
-#: lib/scripts.lib:904
+#: lib/scripts.lib:906
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
@@ -1169,7 +1169,7 @@ msgstr ""
 "$APPLICATION_TITLE $VERSION je příliš stará pro pokračování.\\"
 "n$APPLICATION_TITLE $NEEDED je vyžadována."
 
-#: lib/scripts.lib:919
+#: lib/scripts.lib:921
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
@@ -1178,7 +1178,7 @@ msgstr ""
 "Varování: Máte spuštěnou aplikaci $APPLICATION_TITLE $VERSION.\\nPro "
 "pokračování je však doporučena aplikace $APPLICATION_TITLE $NEEDED."
 
-#: lib/scripts.lib:950
+#: lib/scripts.lib:952
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr "profil $AUTHOR"
