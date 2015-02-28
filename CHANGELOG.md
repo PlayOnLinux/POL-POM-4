@@ -1,3 +1,5 @@
+# 4.2.7
+
 # 4.2.6
 * Use $POL_TERM more consistently, allow POL_TERM global configuration
   override. Beware, the terminal must support -T and -e options, so
