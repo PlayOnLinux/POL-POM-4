@@ -1,3 +1,6 @@
+# 4.2.7
+* Detect and abort scripts when trying to run 64bit programs with 32bit Wine
+
 # 4.2.6
 * Use $POL_TERM more consistently, allow POL_TERM global configuration
   override. Beware, the terminal must support -T and -e options, so

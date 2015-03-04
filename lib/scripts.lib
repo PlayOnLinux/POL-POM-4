@@ -995,6 +995,10 @@ POL_Shortcut_MakeDesktopShortcut()
 POL_System_is32bit()
 {
 	# Check if the file (1) is a 32bit executable
-	
-	file "$1" | grep -q "PE32"
+	file "$1" | grep -q "PE32 executable"
+}
+POL_System_is64bit()
+{
+	# Check if the file (1) is a 64bit executable
+	file "$1" | grep -q "PE32+ executable"
 }

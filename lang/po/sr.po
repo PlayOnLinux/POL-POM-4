@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-02-23 19:00+0100\n"
+"POT-Creation-Date: 2015-03-02 19:00+0100\n"
 "PO-Revision-Date: 2013-12-11 12:43+0000\n"
 "Last-Translator: Саша Петровић <salepetronije@gmail.com>\n"
 "Language-Team: српски <>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-02-24 05:10+0000\n"
-"X-Generator: Launchpad (build 17355)\n"
+"X-Launchpad-Export-Date: 2015-03-03 05:18+0000\n"
+"X-Generator: Launchpad (build 17361)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -386,8 +386,8 @@ msgstr ""
 
 #: bash/installpolpackages:26 bash/killall:29 bash/read_pc_cd:39
 #: bash/read_pc_cd:73 bash/read_pc_cd:103 bash/winebash:27
-#: lib/setupwindow.lib:435 lib/wine.lib:961 lib/wine.lib:1039
-#: lib/wine.lib:1069
+#: lib/setupwindow.lib:435 lib/wine.lib:971 lib/wine.lib:1049
+#: lib/wine.lib:1079
 #, sh-format
 msgid "Please wait..."
 msgstr "Молим, сачекајте..."
@@ -928,7 +928,7 @@ msgid ""
 msgstr ""
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:838 lib/wine.lib:919
+#: lib/wine.lib:848 lib/wine.lib:929
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr ""
@@ -1367,7 +1367,13 @@ msgstr "Молим, сачекајте док $APPLICATION_TITLE преглед�
 msgid "Select the main videocard to report:"
 msgstr ""
 
-#: lib/wine.lib:540
+#: lib/wine.lib:512
+#, sh-format
+msgid ""
+"Starting 64-bit process $EXEFILE is not supported in 32-bit virtual drives"
+msgstr ""
+
+#: lib/wine.lib:550
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
@@ -1376,64 +1382,64 @@ msgstr ""
 "Изгледа да се вино срушило\\n\\nАко с Ваш програм извршава, само занемарите "
 "ову поруку"
 
-#: lib/wine.lib:583
+#: lib/wine.lib:593
 #, sh-format
 msgid ""
 "This is an installer for an update or an addon;\\nPlease install "
 "$TITLE_REQUIRED first"
 msgstr ""
 
-#: lib/wine.lib:643
+#: lib/wine.lib:653
 #, sh-format
 msgid "Unable to find version: "
 msgstr "Нисам успео да пронађем издање: "
 
-#: lib/wine.lib:649 lib/wine.lib:650
+#: lib/wine.lib:659 lib/wine.lib:660
 #, sh-format
 msgid "Downloading Wine: "
 msgstr "Преузимам Вино "
 
-#: lib/wine.lib:659
+#: lib/wine.lib:669
 #, sh-format
 msgid "The download seems to have failed."
 msgstr "Изгледа ми да преузимање није успело"
 
-#: lib/wine.lib:661
+#: lib/wine.lib:671
 #, sh-format
 msgid "Extracting Wine..."
 msgstr "Издвајам Вино"
 
-#: lib/wine.lib:844
+#: lib/wine.lib:854
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr "Препиши (обично успева, не јемчим)"
 
-#: lib/wine.lib:845
+#: lib/wine.lib:855
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
 msgstr "Обриши (садржај нестварног уређаја ће бити изгубљен)"
 
-#: lib/wine.lib:846
+#: lib/wine.lib:856
 #, sh-format
 msgid "Abort installation"
 msgstr "Прекини уградњу"
 
-#: lib/wine.lib:859
+#: lib/wine.lib:869
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr "циљни нестварни уређај $PREFNAME већ постоји"
 
-#: lib/wine.lib:875
+#: lib/wine.lib:885
 #, sh-format
 msgid "User abort"
 msgstr "Прекинуо корисник"
 
-#: lib/wine.lib:1039 lib/wine.lib:1069
+#: lib/wine.lib:1049 lib/wine.lib:1079
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "Молим, сачекајте док се $SOFTNAME угради..."
 
-#: lib/wine.lib:1043 lib/wine.lib:1072
+#: lib/wine.lib:1053 lib/wine.lib:1082
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
@@ -1442,17 +1448,17 @@ msgstr ""
 "Пажљиво! Ово ће убити поступак уградње. Ако није завршен, мораћете поново "
 "уградити $SOFTNAME"
 
-#: lib/wine.lib:1043 lib/wine.lib:1072
+#: lib/wine.lib:1053 lib/wine.lib:1082
 #, sh-format
 msgid "Install is done"
 msgstr "Уградња је завршена"
 
-#: lib/wine.lib:1076 lib/wine.lib:1077
+#: lib/wine.lib:1086 lib/wine.lib:1087
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr "Приитисни следеће так након завршетка поступка уградње"
 
-#: lib/wine.lib:1085
+#: lib/wine.lib:1095
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr "Молим, сачекајте док $APPLICATION_TITLE опонаша поновно покретање"

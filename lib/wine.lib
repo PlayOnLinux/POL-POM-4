@@ -503,7 +503,17 @@ POL_Wine ()
 	POL_Wine_AutoSetVersionEnv
 	POL_Debug_Message "Running wine-$POL_WINEVERSION "$@" (Working directory : $PWD)"
 	POL_Debug_LogToPrefix "Running wine-$POL_WINEVERSION "$@" (Working directory : $PWD)"
-	if [ ! "$WINEMENUBUILDER_ALERT" ]; then
+
+        # Either that or monitor "err:process:create_process starting 64-bit process L"xxx" not supported in 32-bit wineprefix\nwine: Bad EXE format for xxx." in logs
+        if [ "$POL_ARCH" = "x86" -a -e "$1" ]; then
+            local EXEFILE="$1"
+            if POL_System_is64bit "$EXEFILE"; then
+                NOBUGREPORT="TRUE" # user mistake
+                POL_Debug_Fatal "$(eval_gettext 'Starting 64-bit process $EXEFILE is not supported in 32-bit virtual drives')"
+            fi
+        fi
+
+        if [ ! "$WINEMENUBUILDER_ALERT" ]; then
 		POL_Debug_Message "Notice: PlayOnLinux deliberately disables winemenubuilder. See http://www.playonlinux.com/fr/page-26-Winemenubuilder.html"
 		WINEMENUBUILDER_ALERT="Done"
 	fi

@@ -6,15 +6,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2015-02-23 19:00+0100\n"
+"POT-Creation-Date: 2015-03-02 19:00+0100\n"
 "PO-Revision-Date: 2014-10-01 12:31+0000\n"
 "Last-Translator: SenzaiSh0w <ardidu26@gmail.com>\n"
 "Language-Team: French <kde-i18n-doc@kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-02-24 05:10+0000\n"
-"X-Generator: Launchpad (build 17355)\n"
+"X-Launchpad-Export-Date: 2015-03-03 05:17+0000\n"
+"X-Generator: Launchpad (build 17361)\n"
 "Language: fr\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -395,8 +395,8 @@ msgstr "Configurateur d'application pour $APPLICATION_TITLE"
 
 #: bash/installpolpackages:26 bash/killall:29 bash/read_pc_cd:39
 #: bash/read_pc_cd:73 bash/read_pc_cd:103 bash/winebash:27
-#: lib/setupwindow.lib:435 lib/wine.lib:961 lib/wine.lib:1039
-#: lib/wine.lib:1069
+#: lib/setupwindow.lib:435 lib/wine.lib:971 lib/wine.lib:1049
+#: lib/wine.lib:1079
 #, sh-format
 msgid "Please wait..."
 msgstr "Veuillez patienter…"
@@ -944,7 +944,7 @@ msgid ""
 msgstr ""
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:838 lib/wine.lib:919
+#: lib/wine.lib:848 lib/wine.lib:929
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr "Merci de patienter pendant la création du disque dur virtuel"
@@ -1409,7 +1409,13 @@ msgstr ""
 msgid "Select the main videocard to report:"
 msgstr ""
 
-#: lib/wine.lib:540
+#: lib/wine.lib:512
+#, sh-format
+msgid ""
+"Starting 64-bit process $EXEFILE is not supported in 32-bit virtual drives"
+msgstr ""
+
+#: lib/wine.lib:550
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
@@ -1418,7 +1424,7 @@ msgstr ""
 "Wine semble avoir planté\\n\\nSi votre programme est en cours d'exécution, "
 "ignorez simplement ce message"
 
-#: lib/wine.lib:583
+#: lib/wine.lib:593
 #, sh-format
 msgid ""
 "This is an installer for an update or an addon;\\nPlease install "
@@ -1427,57 +1433,57 @@ msgstr ""
 "Ceci est l'installateur d'une mise à jour ou d'une extension.\\nVeuillez "
 "d'abord installer $TITLE_REQUIRED"
 
-#: lib/wine.lib:643
+#: lib/wine.lib:653
 #, sh-format
 msgid "Unable to find version: "
 msgstr "Impossible de trouver la version : "
 
-#: lib/wine.lib:649 lib/wine.lib:650
+#: lib/wine.lib:659 lib/wine.lib:660
 #, sh-format
 msgid "Downloading Wine: "
 msgstr "Téléchargement de wine : "
 
-#: lib/wine.lib:659
+#: lib/wine.lib:669
 #, sh-format
 msgid "The download seems to have failed."
 msgstr "Le téléchargement semble avoir échoué."
 
-#: lib/wine.lib:661
+#: lib/wine.lib:671
 #, sh-format
 msgid "Extracting Wine..."
 msgstr "Extraction de wine..."
 
-#: lib/wine.lib:844
+#: lib/wine.lib:854
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr ""
 
-#: lib/wine.lib:845
+#: lib/wine.lib:855
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
 msgstr ""
 
-#: lib/wine.lib:846
+#: lib/wine.lib:856
 #, sh-format
 msgid "Abort installation"
 msgstr "Abandonner l'installation"
 
-#: lib/wine.lib:859
+#: lib/wine.lib:869
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr ""
 
-#: lib/wine.lib:875
+#: lib/wine.lib:885
 #, sh-format
 msgid "User abort"
 msgstr "Interruption par l'utilisateur"
 
-#: lib/wine.lib:1039 lib/wine.lib:1069
+#: lib/wine.lib:1049 lib/wine.lib:1079
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "Merci de patienter pendant l'installation de $SOFTNAME ..."
 
-#: lib/wine.lib:1043 lib/wine.lib:1072
+#: lib/wine.lib:1053 lib/wine.lib:1082
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
@@ -1486,17 +1492,17 @@ msgstr ""
 "Attention ! Cela fermera le processus d'installation. Si il n'a pas terminé, "
 "vous devrez réinstaller $SOFTNAME"
 
-#: lib/wine.lib:1043 lib/wine.lib:1072
+#: lib/wine.lib:1053 lib/wine.lib:1082
 #, sh-format
 msgid "Install is done"
 msgstr "L'Installation est effectuée"
 
-#: lib/wine.lib:1076 lib/wine.lib:1077
+#: lib/wine.lib:1086 lib/wine.lib:1087
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr "Appuyez sur suivant seulement lorsque l'installation est terminée"
 
-#: lib/wine.lib:1085
+#: lib/wine.lib:1095
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr ""
