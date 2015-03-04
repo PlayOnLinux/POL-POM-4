@@ -1266,12 +1266,7 @@ class PlayOnLinuxApp(wx.App):
         except:
             pass
 
-    def MacOpenFiles(self, filenames):
-        for filename in filenames:
-            self.MacOpenFile(filename)
-            
     def MacOpenFile(self, filename):
-        print filename
         file_extension = string.split(filename,".")
         file_extension = file_extension[len(file_extension) - 1]
         if(file_extension == "desktop"): # Un raccourcis Linux
