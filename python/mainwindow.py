@@ -173,11 +173,10 @@ class MainWindow(wx.Frame):
         # These lists contain the dock links and images 
         self.menuElem = {}
         self.menuImage = {}
-        
+
         # Catch CTRL+C
         signal.signal(signal.SIGINT, self.ForceClose)
-            
-        
+
         # Window size
         try:
             self.windowWidth = int(playonlinux.GetSettings("MAINWINDOW_WIDTH"))
@@ -1059,14 +1058,14 @@ class MainWindow(wx.Frame):
         for pid in self.registeredPid:
             os.system("kill -9 -%d 2> /dev/null" % pid)
             os.system("kill -9 %d 2> /dev/null" % pid) 
-        PlayOnLinuxApp.instance.POLServer.closeServer()
+        app.POLServer.closeServer()
         os._exit(0)
 
     def POLRestart(self):
         for pid in self.registeredPid:
             os.system("kill -9 -%d 2> /dev/null" % pid)
             os.system("kill -9 %d 2> /dev/null" % pid) 
-        PlayOnLinuxApp.instance.POLServer.closeServer()
+        app.POLServer.closeServer()
         os._exit(63) # Restart code
 
     def ForceClose(self, signal, frame): # Catch SIGINT
@@ -1124,27 +1123,12 @@ class MainWindow(wx.Frame):
         wx.AboutBox(self.aboutBox)
 
 class PlayOnLinuxApp(wx.App):
-    instance = None 
-    def __init__(self):
-        self.__class__.instance = self
-        wx.App.__init__(self, redirect=False)
-        
     def OnInit(self):
         lng.iLang()
         close = False
         exe_present = False
 
         os.system("bash "+Variables.playonlinux_env+"/bash/startup")
-        
-        
-
-        self.SetClassName(os.environ["APPLICATION_TITLE"])
-        self.SetAppName(os.environ["APPLICATION_TITLE"])
-
-        
-        self.frame = MainWindow(None, -1, os.environ["APPLICATION_TITLE"])
-        wx.Yield()
-        
         self.systemCheck()
         
         for f in  sys.argv[1:]:
@@ -1155,8 +1139,13 @@ class PlayOnLinuxApp(wx.App):
 
         if(close == True and exe_present == False):
             os._exit(0)
+
+        self.SetClassName(os.environ["APPLICATION_TITLE"])
+        self.SetAppName(os.environ["APPLICATION_TITLE"])
+
+
+        self.frame = MainWindow(None, -1, os.environ["APPLICATION_TITLE"])
         # Gui Server
-        
         self.POLServer = gui_server.gui_server(self.frame)
         self.POLServer.start()
         
@@ -1170,13 +1159,9 @@ class PlayOnLinuxApp(wx.App):
             i+=1 
         os.system("bash \"$PLAYONLINUX/bash/startup_after_server\" &")
    
-        
-        
         self.SetTopWindow(self.frame)
         self.frame.Show(True)
         
-        
-
         return True
 
     def _executableFound(self, executable):
@@ -1344,8 +1329,8 @@ def handleSigchld(number, frame):
 setSigchldHandler()
 lng.Lang()
 
-#wx.Log_EnableLogging(False)
+wx.Log_EnableLogging(False)
 
-POLApp = PlayOnLinuxApp()
-POLApp.MainLoop()
+app = PlayOnLinuxApp(redirect=False)
+app.MainLoop()
 #sys.exit(0)
