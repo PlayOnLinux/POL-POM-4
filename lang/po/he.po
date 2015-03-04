@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2015-02-27 19:00+0100\n"
+"POT-Creation-Date: 2015-03-02 19:00+0100\n"
 "PO-Revision-Date: 2013-12-11 13:11+0000\n"
 "Last-Translator: Aymeric PETIT <lp@mulx.net>\n"
 "Language-Team: he_HE.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-02-28 05:08+0000\n"
+"X-Launchpad-Export-Date: 2015-03-03 05:17+0000\n"
 "X-Generator: Launchpad (build 17361)\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -377,8 +377,8 @@ msgstr ""
 
 #: bash/installpolpackages:26 bash/killall:29 bash/read_pc_cd:39
 #: bash/read_pc_cd:73 bash/read_pc_cd:103 bash/winebash:27
-#: lib/setupwindow.lib:435 lib/wine.lib:961 lib/wine.lib:1039
-#: lib/wine.lib:1069
+#: lib/setupwindow.lib:435 lib/wine.lib:971 lib/wine.lib:1049
+#: lib/wine.lib:1079
 #, sh-format
 msgid "Please wait..."
 msgstr "נא המתן..."
@@ -911,7 +911,7 @@ msgid ""
 msgstr ""
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:838 lib/wine.lib:919
+#: lib/wine.lib:848 lib/wine.lib:929
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr ""
@@ -1341,7 +1341,13 @@ msgstr "נא להמתין בזמן שהחומרה שלך נסרקת על ידי 
 msgid "Select the main videocard to report:"
 msgstr ""
 
-#: lib/wine.lib:540
+#: lib/wine.lib:512
+#, sh-format
+msgid ""
+"Starting 64-bit process $EXEFILE is not supported in 32-bit virtual drives"
+msgstr ""
+
+#: lib/wine.lib:550
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
@@ -1350,7 +1356,7 @@ msgstr ""
 "מסתבר שאירעה קריסה של Wine\\n\\nאם התכנית שלך פועלת, ניתן פשוט להתעלם מהודעה "
 "זו"
 
-#: lib/wine.lib:583
+#: lib/wine.lib:593
 #, sh-format
 msgid ""
 "This is an installer for an update or an addon;\\nPlease install "
@@ -1359,57 +1365,57 @@ msgstr ""
 "זוהי תכנית התקנה עבור עדכון או תוסף;\\n\r\n"
 "נא התקן את $TITLE_REQUIRED תחילה"
 
-#: lib/wine.lib:643
+#: lib/wine.lib:653
 #, sh-format
 msgid "Unable to find version: "
 msgstr "לא ניתן למצוא את הגרסה: "
 
-#: lib/wine.lib:649 lib/wine.lib:650
+#: lib/wine.lib:659 lib/wine.lib:660
 #, sh-format
 msgid "Downloading Wine: "
 msgstr "מתבצעת הורדה של Wine: "
 
-#: lib/wine.lib:659
+#: lib/wine.lib:669
 #, sh-format
 msgid "The download seems to have failed."
 msgstr "מסתבר כי ההורדה נכשלה."
 
-#: lib/wine.lib:661
+#: lib/wine.lib:671
 #, sh-format
 msgid "Extracting Wine..."
 msgstr "מתבצע חילוץ של Wine..."
 
-#: lib/wine.lib:844
+#: lib/wine.lib:854
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr "שכתוב (עוד על פי רוב, לא תמיד)"
 
-#: lib/wine.lib:845
+#: lib/wine.lib:855
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
 msgstr "(מחיקה) תוכן הכונן הווירטואלי יאבד)"
 
-#: lib/wine.lib:846
+#: lib/wine.lib:856
 #, sh-format
 msgid "Abort installation"
 msgstr "ביטול ההתקנה"
 
-#: lib/wine.lib:859
+#: lib/wine.lib:869
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr "כונן היעד הווירטואלי $PREFNAME כבר קיים:"
 
-#: lib/wine.lib:875
+#: lib/wine.lib:885
 #, sh-format
 msgid "User abort"
 msgstr "ביטול המשתמש"
 
-#: lib/wine.lib:1039 lib/wine.lib:1069
+#: lib/wine.lib:1049 lib/wine.lib:1079
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "נא להמתין בזמן ההתקנה של $SOFTNAME..."
 
-#: lib/wine.lib:1043 lib/wine.lib:1072
+#: lib/wine.lib:1053 lib/wine.lib:1082
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
@@ -1418,17 +1424,17 @@ msgstr ""
 "נא להיזהר! פעולה זו תחסל תהליך התקנה. אם ההתקנה לא הסתיימה, יהיה עליך להתקין "
 "מחדש את $SOFTNAME"
 
-#: lib/wine.lib:1043 lib/wine.lib:1072
+#: lib/wine.lib:1053 lib/wine.lib:1082
 #, sh-format
 msgid "Install is done"
 msgstr "ההתקנה הסתיימה"
 
-#: lib/wine.lib:1076 lib/wine.lib:1077
+#: lib/wine.lib:1086 lib/wine.lib:1087
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr "יש ללחוץ על הבא רק כאשר תהליך ההתקנה הסתיים"
 
-#: lib/wine.lib:1085
+#: lib/wine.lib:1095
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr "נא להמתין בזמן שהיישום $APPLICATION_TITLE מבצע הדמייה של הפעלה מחדש"
