@@ -385,15 +385,20 @@ POL_LoadVar_Device ()
 POL_DetectVideoCards () {
 	# Detect known videocards
 	POL_Debug_Message "Gettings GPU informations"
-	if [ "$POL_OS" = "Linux" ] || [ "$POL_OS" = "FreeBSD" ]; then
+        case "$POL_OS" in
+            Linux|FreeBSD)
 		[ -x /usr/sbin/lspci ] && LSPCI=/usr/sbin/lspci || LSPCI=lspci
 		# Device Name|Vendor ID|Device ID\n...
-		VGA_DEVICES=`$LSPCI -nn | perl -ne 'if (/VGA/) { s/.*\]: (.*) \[([0-9a-f]{4}):([0-9a-f]{4})\].*/\1|\2|\3/; print }'`
-	fi
-	if [ "$POL_OS" = "Mac" ]; then
+                # [0300] = VGA compatible controller, [0302] = 3D controller
+		VGA_DEVICES=`$LSPCI -nn | perl -ne 'if (/\[030[02]\]/) { s/.*\]: (.*) \[([0-9a-f]{4}):([0-9a-f]{4})\].*/\1|\2|\3/; print }'`
+                ;;
+            Mac)
 		# Device Name|Vendor ID|Device ID\n...
 		VGA_DEVICES=`system_profiler SPDisplaysDataType | perl -ne 's/^\s+//; if(/Chipset Model:/) { chomp; s/^[^:]*: //; print "$_|" } elsif(/Vendor:/) { chomp; s/.*\(0x(.*)\)/\1/; print "$1|" } elsif (/Device ID:/) { s/^[^:]*: 0x//; print }'`
-	fi
+                ;;
+            *)
+                POL_Debug_Fatal "Unsupposed operating system: $POL_OS"
+        esac
 	# More than one card available?
 	if [ $(wc -l <<<"$VGA_DEVICES") -gt 1 ]; then
 		# Try to put what's probably the main card first
