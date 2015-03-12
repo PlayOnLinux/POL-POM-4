@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX/APLU <pol-gettext@mulx.net>\n"
-"POT-Creation-Date: 2015-03-11 19:00:11+01:00\n"
+"POT-Creation-Date: 2015-03-12 19:00:11+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -360,8 +360,8 @@ msgstr ""
 
 #: bash/installpolpackages:26 bash/killall:29 bash/read_pc_cd:39
 #: bash/read_pc_cd:73 bash/read_pc_cd:103 bash/winebash:27
-#: lib/setupwindow.lib:435 lib/wine.lib:976 lib/wine.lib:1054
-#: lib/wine.lib:1084
+#: lib/setupwindow.lib:435 lib/wine.lib:1001 lib/wine.lib:1079
+#: lib/wine.lib:1109
 #, sh-format
 msgid "Please wait..."
 msgstr ""
@@ -894,7 +894,7 @@ msgid ""
 msgstr ""
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:853 lib/wine.lib:934
+#: lib/wine.lib:878 lib/wine.lib:959
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr ""
@@ -1314,104 +1314,104 @@ msgid ""
 "valid."
 msgstr ""
 
-#: lib/wine.lib:365
+#: lib/wine.lib:390
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is scanning your hardware"
 msgstr ""
 
-#: lib/wine.lib:371
+#: lib/wine.lib:396
 #, sh-format
 msgid "Select the main videocard to report:"
 msgstr ""
 
-#: lib/wine.lib:517
+#: lib/wine.lib:542
 #, sh-format
 msgid ""
 "Starting 64-bit process $EXEFILE is not supported in 32-bit virtual drives"
 msgstr ""
 
-#: lib/wine.lib:555
+#: lib/wine.lib:580
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
 "message"
 msgstr ""
 
-#: lib/wine.lib:598
+#: lib/wine.lib:623
 #, sh-format
 msgid ""
 "This is an installer for an update or an addon;\\nPlease install "
 "$TITLE_REQUIRED first"
 msgstr ""
 
-#: lib/wine.lib:658
+#: lib/wine.lib:683
 #, sh-format
 msgid "Unable to find version: "
 msgstr ""
 
-#: lib/wine.lib:664 lib/wine.lib:665
+#: lib/wine.lib:689 lib/wine.lib:690
 #, sh-format
 msgid "Downloading Wine: "
 msgstr ""
 
-#: lib/wine.lib:674
+#: lib/wine.lib:699
 #, sh-format
 msgid "The download seems to have failed."
 msgstr ""
 
-#: lib/wine.lib:676
+#: lib/wine.lib:701
 #, sh-format
 msgid "Extracting Wine..."
 msgstr ""
 
-#: lib/wine.lib:859
+#: lib/wine.lib:884
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr ""
 
-#: lib/wine.lib:860
+#: lib/wine.lib:885
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
 msgstr ""
 
-#: lib/wine.lib:861
+#: lib/wine.lib:886
 #, sh-format
 msgid "Abort installation"
 msgstr ""
 
-#: lib/wine.lib:874
+#: lib/wine.lib:899
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr ""
 
-#: lib/wine.lib:890
+#: lib/wine.lib:915
 #, sh-format
 msgid "User abort"
 msgstr ""
 
-#: lib/wine.lib:1054 lib/wine.lib:1084
+#: lib/wine.lib:1079 lib/wine.lib:1109
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr ""
 
-#: lib/wine.lib:1058 lib/wine.lib:1087
+#: lib/wine.lib:1083 lib/wine.lib:1112
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
 "have to reinstall $SOFTNAME"
 msgstr ""
 
-#: lib/wine.lib:1058 lib/wine.lib:1087
+#: lib/wine.lib:1083 lib/wine.lib:1112
 #, sh-format
 msgid "Install is done"
 msgstr ""
 
-#: lib/wine.lib:1091 lib/wine.lib:1092
+#: lib/wine.lib:1116 lib/wine.lib:1117
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr ""
 
-#: lib/wine.lib:1100
+#: lib/wine.lib:1125
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr ""
