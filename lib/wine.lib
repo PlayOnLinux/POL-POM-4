@@ -589,6 +589,8 @@ POL_Wine_SelectPrefix()
 	# Usage: POL_Wine_SelectPrefix [prefixname]
 	PREFNAME=`printf "$1"| tr -c [[a-zA-Z0-9]\.] '_'`
 	POL_Debug_Message "Selecting prefix: $PREFNAME"
+        # Empty name is dangerous
+        [ -z "$PREFNAME" ] && POL_Debug_Fatal "Bad or empty virtual drive name selected"
 	export WINEPREFIX="$POL_USER_ROOT/wineprefix/$PREFNAME"
 	export DOSPREFIX="$WINEPREFIX"
 	if [ -e "$WINEPREFIX/playonlinux.cfg" ]; then

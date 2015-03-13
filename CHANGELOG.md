@@ -3,6 +3,7 @@
 * POL_DetectVideoCards: list VGA compatible controllers and 3D controllers (#5012)
 * Add support for several other value types than REG_SZ to registry
   updating statements (#5013)
+* POL_Wine_SelectPrefix: abort if no prefix name is provided
 
 # 4.2.6
 * Use $POL_TERM more consistently, allow POL_TERM global configuration
