@@ -127,9 +127,14 @@ class getVersions(threading.Thread):
                 try :
 
                     url = os.environ["WINE_SITE"]+"/"+wfolder+".lst"
-
+                    
                     #print(url)
-                    req = urllib2.Request(url)
+                    hdr = {'User-Agent': 'PlayOnLinux',
+                           'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+                           'Accept-Encoding': 'none',
+                           'Accept-Language': 'en-US,en;q=0.8',
+                           'Connection': 'keep-alive'}
+                    req = urllib2.Request(url, headers = hdr)
                     handle = urllib2.urlopen(req, timeout = 2)
                     time.sleep(1)
                     available_versions = handle.read()

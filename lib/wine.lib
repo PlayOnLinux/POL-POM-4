@@ -672,7 +672,6 @@ POL_Wine_InstallVersion()
 	touch "$WINEDIR/installing"
 	if [ ! -e "$WINEDIR/$POL_WINEVERSION" ]
 	then
-		
 		WINE_ADDRESS=$($POL_WGET "$WINE_SITE/$WINE_SECTION.lst" -O- | grep ";$POL_WINEVERSION;" | tail -n 1 | cut -d ";" -f1)
 		if [ "$WINE_ADDRESS" = "" ] && [ "$POL_ARCH" = "amd64" ]
 		then
