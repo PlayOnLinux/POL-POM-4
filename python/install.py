@@ -524,7 +524,7 @@ class InstallWindow(wx.Frame):
         self.DelApps()
         self.root_apps = self.list_apps.AddRoot("")
         self.i = 0
-        array.sort()
+        array.sort(key=unicode.upper)
         for app in array:
             app_array = app.split("~")
             appname = app_array[0]
