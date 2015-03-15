@@ -23,7 +23,7 @@ from subprocess import Popen,PIPE
 import lib.Variables as Variables
 import lib.lng, lib.playonlinux as playonlinux
 lib.lng.Lang()
-
+urllib.URLopener.version = Variables.userAgent # Arg ... 
 
 class Download(threading.Thread):
     def __init__(self, url, local):

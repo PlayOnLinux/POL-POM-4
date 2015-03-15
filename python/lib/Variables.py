@@ -18,9 +18,9 @@ os.environ["PLAYONLINUX"] = os.path.realpath(os.path.realpath(__file__)+"/../../
 os.environ["SITE"] = "http://repository.playonlinux.com"
 os.environ["VERSION"] = "4.2.7-dev"
 os.environ["POL_ID"] = str(random.randint(1, 100000000))
-os.environ["WINE_SITE"] = "https://www.playonlinux.com/wine/binaries/"
-os.environ["GECKO_SITE"] = "https://www.playonlinux.com/wine/gecko"
-os.environ["MONO_SITE"] = "https://www.playonlinux.com/wine/mono"
+os.environ["WINE_SITE"] = "http://wine.playonlinux.com/binaries"
+os.environ["GECKO_SITE"] = "http://wine.playonlinux.com/gecko"
+os.environ["MONO_SITE"] = "http://wine.playonlinux.com/mono"
 homedir = os.environ["HOME"]
 
 # Debian packagers should switch this to TRUE
@@ -152,3 +152,6 @@ if playonlinux.GetSettings("PROXY_ENABLED") == "1":
         else:
             http_proxy = "http://"+playonlinux.GetSettings("PROXY_LOGIN")+":"+playonlinux.GetSettings("PROXY_PASSWORD")+"@"+playonlinux.GetSettings("PROXY_URL")+":"+playonlinux.GetSettings("PROXY_PORT")
         os.environ["http_proxy"] = http_proxy
+
+
+userAgent = "PlayOnLinux %s" + os.environ["VERSION"]

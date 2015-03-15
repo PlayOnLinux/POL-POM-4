@@ -130,8 +130,8 @@ class getVersions(threading.Thread):
                     
                     #print(url)
         
-                    req = urllib2.Request(url)
-                    handle = urllib2.urlopen(req, timeout = 2)
+                    req = urllib2.Request(url, None, {'User-Agent': Variables.userAgent})
+                    handle = urllib2.urlopen(req, timeout = 5)
                     time.sleep(1)
                     available_versions = handle.read()
                     available_versions = string.split(available_versions,"\n")
