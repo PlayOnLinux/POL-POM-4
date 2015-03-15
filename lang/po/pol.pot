@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX/APLU <pol-gettext@mulx.net>\n"
-"POT-Creation-Date: 2015-03-14 19:00:10+01:00\n"
+"POT-Creation-Date: 2015-03-15 19:00:25+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -360,8 +360,8 @@ msgstr ""
 
 #: bash/installpolpackages:26 bash/killall:29 bash/read_pc_cd:39
 #: bash/read_pc_cd:73 bash/read_pc_cd:103 bash/winebash:27
-#: lib/setupwindow.lib:435 lib/wine.lib:1003 lib/wine.lib:1081
-#: lib/wine.lib:1111
+#: lib/setupwindow.lib:435 lib/wine.lib:1002 lib/wine.lib:1080
+#: lib/wine.lib:1110
 #, sh-format
 msgid "Please wait..."
 msgstr ""
@@ -894,7 +894,7 @@ msgid ""
 msgstr ""
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:880 lib/wine.lib:961
+#: lib/wine.lib:879 lib/wine.lib:960
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr ""
@@ -1344,74 +1344,74 @@ msgid ""
 "$TITLE_REQUIRED first"
 msgstr ""
 
-#: lib/wine.lib:685
+#: lib/wine.lib:684
 #, sh-format
 msgid "Unable to find version: "
 msgstr ""
 
-#: lib/wine.lib:691 lib/wine.lib:692
+#: lib/wine.lib:690 lib/wine.lib:691
 #, sh-format
 msgid "Downloading Wine: "
 msgstr ""
 
-#: lib/wine.lib:701
+#: lib/wine.lib:700
 #, sh-format
 msgid "The download seems to have failed."
 msgstr ""
 
-#: lib/wine.lib:703
+#: lib/wine.lib:702
 #, sh-format
 msgid "Extracting Wine..."
 msgstr ""
 
-#: lib/wine.lib:886
+#: lib/wine.lib:885
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr ""
 
-#: lib/wine.lib:887
+#: lib/wine.lib:886
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
 msgstr ""
 
-#: lib/wine.lib:888
+#: lib/wine.lib:887
 #, sh-format
 msgid "Abort installation"
 msgstr ""
 
-#: lib/wine.lib:901
+#: lib/wine.lib:900
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr ""
 
-#: lib/wine.lib:917
+#: lib/wine.lib:916
 #, sh-format
 msgid "User abort"
 msgstr ""
 
-#: lib/wine.lib:1081 lib/wine.lib:1111
+#: lib/wine.lib:1080 lib/wine.lib:1110
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr ""
 
-#: lib/wine.lib:1085 lib/wine.lib:1114
+#: lib/wine.lib:1084 lib/wine.lib:1113
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
 "have to reinstall $SOFTNAME"
 msgstr ""
 
-#: lib/wine.lib:1085 lib/wine.lib:1114
+#: lib/wine.lib:1084 lib/wine.lib:1113
 #, sh-format
 msgid "Install is done"
 msgstr ""
 
-#: lib/wine.lib:1118 lib/wine.lib:1119
+#: lib/wine.lib:1117 lib/wine.lib:1118
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr ""
 
-#: lib/wine.lib:1127
+#: lib/wine.lib:1126
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr ""
@@ -2248,19 +2248,19 @@ msgstr ""
 msgid "You must restart {0} for the changes to take effect."
 msgstr ""
 
-#: python/wine_versions.py:195
+#: python/wine_versions.py:196
 msgid "Installed Wine versions: "
 msgstr ""
 
-#: python/wine_versions.py:196
+#: python/wine_versions.py:197
 msgid "Available Wine versions: "
 msgstr ""
 
-#: python/wine_versions.py:207
+#: python/wine_versions.py:208
 msgid "Wine versions"
 msgstr ""
 
-#: python/wine_versions.py:326
+#: python/wine_versions.py:327
 msgid "Are you sure you want to delete wine {0}?"
 msgstr ""
 
