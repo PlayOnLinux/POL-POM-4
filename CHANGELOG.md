@@ -21,6 +21,7 @@
 * mainwindow: make alert boxen child of the main window so they cannot get
   lost behind other windows
 * Prevent POL_Download_Resource clobbering $APP_ANSWER
+* Wine versions management: grey out versions that are not currently in use by any virtual drive and can be safely removed (Tutul)
 
 # 4.2.5
 
