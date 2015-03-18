@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2015-03-09 19:00+0100\n"
+"POT-Creation-Date: 2015-03-16 19:00+0100\n"
 "PO-Revision-Date: 2014-04-06 06:02+0000\n"
 "Last-Translator: Bill <cges30901@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-03-10 05:11+0000\n"
+"X-Launchpad-Export-Date: 2015-03-17 05:12+0000\n"
 "X-Generator: Launchpad (build 17389)\n"
 "Language: zh_TW\n"
 
@@ -367,8 +367,8 @@ msgstr "$APPLICATION_TITLE 應用程式設定"
 
 #: bash/installpolpackages:26 bash/killall:29 bash/read_pc_cd:39
 #: bash/read_pc_cd:73 bash/read_pc_cd:103 bash/winebash:27
-#: lib/setupwindow.lib:435 lib/wine.lib:971 lib/wine.lib:1049
-#: lib/wine.lib:1079
+#: lib/setupwindow.lib:435 lib/wine.lib:1002 lib/wine.lib:1080
+#: lib/wine.lib:1110
 #, sh-format
 msgid "Please wait..."
 msgstr "請稍候…"
@@ -908,7 +908,7 @@ msgstr ""
 "以得到進一步的資訊"
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:848 lib/wine.lib:929
+#: lib/wine.lib:879 lib/wine.lib:960
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr "請等待虛擬硬碟建立 ..."
@@ -1330,104 +1330,104 @@ msgid ""
 "valid."
 msgstr "連接失敗！\\n請確保您的登錄名稱和密碼是有效的."
 
-#: lib/wine.lib:365
+#: lib/wine.lib:390
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is scanning your hardware"
 msgstr "$APPLICATION_TITLE 正在掃描您的硬體，請稍候"
 
-#: lib/wine.lib:371
+#: lib/wine.lib:396
 #, sh-format
 msgid "Select the main videocard to report:"
 msgstr "選擇要報告的主要顯示卡："
 
-#: lib/wine.lib:512
+#: lib/wine.lib:542
 #, sh-format
 msgid ""
 "Starting 64-bit process $EXEFILE is not supported in 32-bit virtual drives"
 msgstr ""
 
-#: lib/wine.lib:550
+#: lib/wine.lib:580
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
 "message"
 msgstr "Wine 似乎已經當機\\n\\n如果你的程式正在運行， 忽略此訊息"
 
-#: lib/wine.lib:593
+#: lib/wine.lib:625
 #, sh-format
 msgid ""
 "This is an installer for an update or an addon;\\nPlease install "
 "$TITLE_REQUIRED first"
 msgstr "此為一個更新或是插件的安裝檔;\\n請先行安裝 $TITLE_REQUIRED"
 
-#: lib/wine.lib:653
+#: lib/wine.lib:684
 #, sh-format
 msgid "Unable to find version: "
 msgstr "不能找到下列版本： "
 
-#: lib/wine.lib:659 lib/wine.lib:660
+#: lib/wine.lib:690 lib/wine.lib:691
 #, sh-format
 msgid "Downloading Wine: "
 msgstr "下載 Wine： "
 
-#: lib/wine.lib:669
+#: lib/wine.lib:700
 #, sh-format
 msgid "The download seems to have failed."
 msgstr "下載似乎失敗了。"
 
-#: lib/wine.lib:671
+#: lib/wine.lib:702
 #, sh-format
 msgid "Extracting Wine..."
 msgstr "解壓縮 Wine 中..."
 
-#: lib/wine.lib:854
+#: lib/wine.lib:885
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr "覆蓋(通常奏效, 但不保證)"
 
-#: lib/wine.lib:855
+#: lib/wine.lib:886
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
 msgstr ""
 
-#: lib/wine.lib:856
+#: lib/wine.lib:887
 #, sh-format
 msgid "Abort installation"
 msgstr "中止安裝"
 
-#: lib/wine.lib:869
+#: lib/wine.lib:900
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr ""
 
-#: lib/wine.lib:885
+#: lib/wine.lib:916
 #, sh-format
 msgid "User abort"
 msgstr "使用者中止"
 
-#: lib/wine.lib:1049 lib/wine.lib:1079
+#: lib/wine.lib:1080 lib/wine.lib:1110
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "正在安裝 $SOFTNAME ，請稍候..."
 
-#: lib/wine.lib:1053 lib/wine.lib:1082
+#: lib/wine.lib:1084 lib/wine.lib:1113
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
 "have to reinstall $SOFTNAME"
 msgstr ""
 
-#: lib/wine.lib:1053 lib/wine.lib:1082
+#: lib/wine.lib:1084 lib/wine.lib:1113
 #, sh-format
 msgid "Install is done"
 msgstr "安裝完成"
 
-#: lib/wine.lib:1086 lib/wine.lib:1087
+#: lib/wine.lib:1117 lib/wine.lib:1118
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr "只有在安裝程式完成時才按\"下一步\""
 
-#: lib/wine.lib:1095
+#: lib/wine.lib:1126
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr "請等待， $APPLICATION_TITLE 正在模擬重新啟動"
@@ -2279,19 +2279,19 @@ msgstr "套用"
 msgid "You must restart {0} for the changes to take effect."
 msgstr "你必須重新啟動 {0} 以使變更生效。"
 
-#: python/wine_versions.py:195
+#: python/wine_versions.py:196
 msgid "Installed Wine versions: "
 msgstr "已安裝的 Wine 版本： "
 
-#: python/wine_versions.py:196
+#: python/wine_versions.py:197
 msgid "Available Wine versions: "
 msgstr "可取得的 Wine 版本： "
 
-#: python/wine_versions.py:207
+#: python/wine_versions.py:208
 msgid "Wine versions"
 msgstr "Wine 版本"
 
-#: python/wine_versions.py:326
+#: python/wine_versions.py:327
 msgid "Are you sure you want to delete wine {0}?"
 msgstr "你確定你要刪除 Wine {0} 嗎？"
 
