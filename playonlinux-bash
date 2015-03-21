@@ -38,7 +38,7 @@ then
 	export MACHTYPE
 	cd "$WorkingDirectory"
        	source "$CURDIR/bash/find_python"
-	"$POL_PYTHON" "$CURDIR/python/wrapper.py" "$SCRIPTNAME" "$@"
+	search_python && "$POL_PYTHON" "$CURDIR/python/wrapper.py" "$SCRIPTNAME" "$@"
 else
 	bash "$SCRIPTNAME" "$@"
 fi

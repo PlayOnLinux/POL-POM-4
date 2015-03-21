@@ -109,7 +109,7 @@ if [ "$1" = "--run" ]; then
 	fi
 else
 	cd "$POLDIR/python"
-	"$POL_PYTHON" mainwindow.py "$@"
+	search_python && "$POL_PYTHON" mainwindow.py "$@"
 	exitcode=$?
 fi
 
