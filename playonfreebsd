@@ -105,14 +105,8 @@ if [ "$1" = "--run" ]; then
 	fi
 else
 	cd "$POLDIR/python"
-	while [ "$POL_PYTHON" != "none" ]; do
-		"$POL_PYTHON" mainwindow.py "$@"
-		exitcode=$?
-		[ $exitcode -eq 0 -o $exitcode -eq 63 ] && break
-
-		# Do we really want this fallback algorithm?
-		search_python
-	done
+	"$POL_PYTHON" mainwindow.py "$@"
+	exitcode=$?
 fi
 
 [ $exitcode -eq 63 ] && exec bash "$POLDIR/playonbsd"
