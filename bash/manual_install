@@ -147,7 +147,7 @@ WHATTORUNBEFORE="$APP_ANSWER"
 if [ "$(echo $WHATTORUNBEFORE | grep -o "$LNG_WC_ASSWV")" == "$LNG_WC_ASSWV" ]
 then
 	WINEVERSIONLIST="System"
-	WINEVERSIONDIRLIST=$(find "$REPERTOIRE/wine/$OS_NAME-$POL_ARCH/"* -maxdepth 0 -type d)
+	WINEVERSIONDIRLIST=$(find "$POL_USER_ROOT/wine/$OS_NAME-$POL_ARCH/"* -maxdepth 0 -type d)
 	for single in $WINEVERSIONDIRLIST ; do
 	  singleparsed=${single##*/}
 	  WINEVERSIONLIST="$WINEVERSIONLIST~$singleparsed"

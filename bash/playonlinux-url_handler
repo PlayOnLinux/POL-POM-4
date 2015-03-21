@@ -31,6 +31,6 @@ STRING="${STRING/playonmac:\/\//http://}"
 url_cut="$(echo $STRING | cut -d "/" -f3)" 
 if [ "$url_cut" == "www.playonlinux.com" ] || [ "$url_cut" == "www.playonmac.com" ]
 then
-$POL_WGET "$STRING" -O- > "$REPERTOIRE/install"
-POL_Bash "$REPERTOIRE/install"
+$POL_WGET "$STRING" -O- > "$POL_USER_ROOT/install"
+POL_Bash "$POL_USER_ROOT/install"
 fi

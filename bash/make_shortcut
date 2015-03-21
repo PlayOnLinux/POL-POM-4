@@ -57,7 +57,7 @@ then
 	POL_SetupWindow_wait_next_signal "$(eval_gettext "Copying virtual drive")" "$TITLE"
 	cp -R -p "$prefix" "$DIRAPP/Contents/Resources/virtual_drive"
 	sleep 2
-	if [ ! -e "$REPERTOIRE/WineVersions/$wversion/" ]
+	if [ ! -e "$POL_USER_ROOT/WineVersions/$wversion/" ]
 	then
 		wversion=""
 	fi
@@ -66,7 +66,7 @@ then
 	then
 		cp -R -p "$PLAYONLINUX/../unix/wine" "$DIRAPP/Contents/Resources/wine"
 	else
-		cp -R -p "$REPERTOIRE/WineVersions/$wversion/" "$DIRAPP/Contents/Resources/wine"
+		cp -R -p "$POL_USER_ROOT/WineVersions/$wversion/" "$DIRAPP/Contents/Resources/wine"
 	fi
 	cp "$PLAYONLINUX"/../unix/tools/lib/* "$DIRAPP/Contents/Resources/wine/lib/"
 	

@@ -22,7 +22,7 @@
 #
 # This lib contains PlayOnLinux's debug API 
  
-POL_LOGS="$REPERTOIRE/logs" # Where the logfile is stored
+POL_LOGS="$POL_USER_ROOT/logs" # Where the logfile is stored
 LOGFILE="/dev/null"  # By default, don't log anything
 POL_Color_RedBold='\x1b[1;31m'
 POL_Color_BlueBold='\x1b[1;34m' 

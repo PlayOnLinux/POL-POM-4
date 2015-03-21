@@ -32,7 +32,7 @@ if [ "$1" = "--prefix" ]
 then
 	shift
 	export PREFIXNAME="$1"
-	export WINEPREFIX="$REPERTOIRE/wineprefix/$1"
+	export WINEPREFIX="$POL_USER_ROOT/wineprefix/$1"
 else
 	export WINEPREFIX="$(detect_wineprefix "$1")"
 fi

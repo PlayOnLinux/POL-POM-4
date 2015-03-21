@@ -60,26 +60,26 @@ pol_awinecfg()
 {
         POL_Wine_AutoSetVersionEnv
 	wineserver -k
-	bash "$REPERTOIRE/plugins/Advanced Wine Configuration/scripts/menu"
+	bash "$POL_USER_ROOT/plugins/Advanced Wine Configuration/scripts/menu"
 }
 pol_winetricks()
 {
         POL_Wine_AutoSetVersionEnv
 	wineserver -k
-	bash "$REPERTOIRE/plugins/WineTricks/scripts/menu" "$FIRSTARGUMENT"
+	bash "$POL_USER_ROOT/plugins/WineTricks/scripts/menu" "$FIRSTARGUMENT"
 }
 pol_scfg()
 {
         POL_Wine_AutoSetVersionEnv
 	wineserver -k
-	bash "$REPERTOIRE/configurations/configurators/$APP"
+	bash "$POL_USER_ROOT/configurations/configurators/$APP"
 }
 pol_changeicon()
 {
 	
 	if [ "$FIRSTARGUMENT" != "" ]; then	
 
-	    (convert "$FIRSTARGUMENT" -geometry 32X32 "$REPERTOIRE/icones/32/$APP" && (touch "$REPERTOIRE/icones/32/tmp" && sleep 1 && rm "$REPERTOIRE/icones/32/tmp")&)&
+	    (convert "$FIRSTARGUMENT" -geometry 32X32 "$POL_USER_ROOT/icones/32/$APP" && (touch "$POL_USER_ROOT/icones/32/tmp" && sleep 1 && rm "$POL_USER_ROOT/icones/32/tmp")&)&
 	    exit
 	else
 	    cd "$HOME/.local/share/icons/"
@@ -88,15 +88,15 @@ pol_changeicon()
 	    extensionwithoutcase=${iconame##*.}
 	    extension=`echo "$extensionwithoutcase" | tr '[:upper:]' '[:lower:]'`
 	    if [ "$iconame" != "" ] && [ "$extension" = ico ] || [ "$extension" = xpm ] || [ "$extension" = png ] || [ "$extension" = jpg ] || [ "$extension" = jpeg ] || [ "$extension" = bmp ]; then
-	    convert "$APP_ANSWER" -geometry 32X32 "$REPERTOIRE/icones/32/$APP"
+	    convert "$APP_ANSWER" -geometry 32X32 "$POL_USER_ROOT/icones/32/$APP"
 	    else
 	    POL_SetupWindow_message_image "$extension $(eval_gettext "is not an icon extension")" "$(eval_gettext "Bad file extension")" "$PLAYONLINUX/themes/tango/warning.png"
 	    return
 	    fi
 	fi
-	touch "$REPERTOIRE/icones/32/tmp"
+	touch "$POL_USER_ROOT/icones/32/tmp"
 	sleep 1
-	rm "$REPERTOIRE/icones/32/tmp"
+	rm "$POL_USER_ROOT/icones/32/tmp"
 }
 
 LNG_CONFIGURE=$(eval_gettext "Configure Wine")
@@ -113,17 +113,17 @@ LNG_WINETRICKS=$(eval_gettext "Use WineTricks")
 main_menu()
 {
 	ITEMS="$LNG_CONFIGURE~$LNG_REGISTRY~$LNG_KPROCESS~$LNG_UPDATEPREFIX~$LNG_WINDOWS_REBOOT~$LNG_CHANGEICON"
-	if [ "-e" "$REPERTOIRE/plugins/Advanced Wine Configuration" ]
+	if [ "-e" "$POL_USER_ROOT/plugins/Advanced Wine Configuration" ]
 	then
 		ITEMS+="~$LNG_APLUGIN"
 	fi
 
-	if [ "-e" "$REPERTOIRE/plugins/WineTricks" ]
+	if [ "-e" "$POL_USER_ROOT/plugins/WineTricks" ]
 	then
 		ITEMS+="~$LNG_WINETRICKS"
 	fi
 
-	if [ "-e" "$REPERTOIRE/configurations/configurators/$APP" ]
+	if [ "-e" "$POL_USER_ROOT/configurations/configurators/$APP" ]
 	then
 		ITEMS+="~$LNG_POLCFG $APP"
 	fi

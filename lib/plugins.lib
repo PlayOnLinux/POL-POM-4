@@ -130,11 +130,11 @@ install_plugins ()
 
 #### This part of the script load plugins libs
 PREVPWD="$PWD"
-mkdir -p "$REPERTOIRE/plugins"
-cd "$REPERTOIRE/plugins"
+mkdir -p "$POL_USER_ROOT/plugins"
+cd "$POL_USER_ROOT/plugins"
 for file in *
 do
-	MY_FILE="$REPERTOIRE/plugins/$file"
+	MY_FILE="$POL_USER_ROOT/plugins/$file"
 	if [ -e "$MY_FILE/enabled" ]
 	then
 		#echo "Loading $file"

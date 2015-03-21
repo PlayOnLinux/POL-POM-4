@@ -35,13 +35,13 @@ then
 	if [ "$type" = "get" ]
 	then
 		id=$(echo "$menu" | cut -d ":" -f2)
-		rm "$REPERTOIRE/install"
-		$POL_WGET "$SITE/V4_data/repository/get_file_n.php?version=PlayOn$POL_OS-$VERSION&id=$id" -O "$REPERTOIRE/install"
-		[ -e "$REPERTOIRE/install" ] && POL_Bash "$REPERTOIRE/install"
+		rm "$POL_USER_ROOT/install"
+		$POL_WGET "$SITE/V4_data/repository/get_file_n.php?version=PlayOn$POL_OS-$VERSION&id=$id" -O "$POL_USER_ROOT/install"
+		[ -e "$POL_USER_ROOT/install" ] && POL_Bash "$POL_USER_ROOT/install"
 		exit
 	fi
-	rm "$REPERTOIRE/install"
-	$POL_WGET "$SITE/V4_data/repository/get_file.php?version=PlayOn$POL_OS-$VERSION&id=$(POL_Website_urlparse "$menu")" -O "$REPERTOIRE/install"
-	[ -e "$REPERTOIRE/install" ] && POL_Bash "$REPERTOIRE/install"
+	rm "$POL_USER_ROOT/install"
+	$POL_WGET "$SITE/V4_data/repository/get_file.php?version=PlayOn$POL_OS-$VERSION&id=$(POL_Website_urlparse "$menu")" -O "$POL_USER_ROOT/install"
+	[ -e "$POL_USER_ROOT/install" ] && POL_Bash "$POL_USER_ROOT/install"
 fi
 

@@ -31,7 +31,7 @@ os.environ["DEBIAN_PACKAGE"] = "FALSE"
 # Variables PlayOnMac
 if os.environ["POL_OS"] == "Mac":
     os.environ["PLAYONMAC"] = os.environ["PLAYONLINUX"]
-    os.environ["REPERTOIRE"] = os.environ["HOME"]+"/Library/PlayOnMac/"
+    os.environ["POL_USER_ROOT"] = os.environ["HOME"]+"/Library/PlayOnMac/"
     os.environ["APPLICATION_TITLE"] = "PlayOnMac"
     os.environ["POL_DNS"] = "playonmac.com"
     windows_add_size = 20;
@@ -42,7 +42,7 @@ if os.environ["POL_OS"] == "Mac":
 
 # Variables PlayOnLinux
 if os.environ["POL_OS"] == "Linux":
-    os.environ["REPERTOIRE"] = os.environ["HOME"]+"/.PlayOnLinux/"
+    os.environ["POL_USER_ROOT"] = os.environ["HOME"]+"/.PlayOnLinux/"
     os.environ["APPLICATION_TITLE"] = "PlayOnLinux"
     os.environ["POL_DNS"] = "playonlinux.com"
     if playonlinux.VersionLower(wx.VERSION_STRING, "3.0.0"):
@@ -66,7 +66,7 @@ if os.environ["POL_OS"] == "Linux":
             os.environ["POL_WGET"] = "env LD_LIBRARY_PATH=\"\" wget --prefer-family=IPv4 -q"
             
 if os.environ["POL_OS"] == "FreeBSD":
-    os.environ["REPERTOIRE"] = os.environ["HOME"]+"/.PlayOnBSD/"
+    os.environ["POL_USER_ROOT"] = os.environ["HOME"]+"/.PlayOnBSD/"
     os.environ["APPLICATION_TITLE"] = "PlayOnBSD"
     os.environ["POL_DNS"] = "playonlinux.com"
     windows_add_size = 0
@@ -90,9 +90,9 @@ else:
     os.environ["AMD64_COMPATIBLE"] = "False"
 
 # Variables mixtes
-os.environ["POL_USER_ROOT"] = os.environ["REPERTOIRE"]
+os.environ["REPERTOIRE"] = os.environ["POL_USER_ROOT"]
 os.environ["TITRE"] = os.environ["APPLICATION_TITLE"]
-os.environ["WINEPREFIX"] = os.environ["REPERTOIRE"]+"/wineprefix/default"
+os.environ["WINEPREFIX"] = os.environ["POL_USER_ROOT"]+"/wineprefix/default"
 os.environ["OS_NAME"] = os_name
 
 # Wine
@@ -138,7 +138,7 @@ except KeyError:
 os.environ["DYLDPATH_ORIGIN"] = os.environ["DYLD_LIBRARY_PATH"]
 
 playonlinux_env = os.environ["PLAYONLINUX"]
-playonlinux_rep = os.environ["REPERTOIRE"]
+playonlinux_rep = os.environ["POL_USER_ROOT"]
 version = os.environ["VERSION"]
 current_user = os.environ["USER"]
 

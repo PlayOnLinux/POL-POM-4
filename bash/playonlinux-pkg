@@ -55,7 +55,7 @@ if [ "$1" = "-e" -o "$1" = "--extract" ]
 then
 	cd "$OLDDIR"
 	PACKAGE="$2"
-	TMP="$REPERTOIRE/tmp/"
+	TMP="$POL_USER_ROOT/tmp/"
 	echo ""
 	echo "Opening $2"
 	if [ ! -e "$PACKAGE" ]
@@ -78,7 +78,7 @@ if [ "$1" = "-i" -o "$1" = "--install" ]
 then
 	cd "$OLDDIR" 
 	PACKAGE="$2"
-	TMP="$REPERTOIRE/tmp/"
+	TMP="$POL_USER_ROOT/tmp/"
 	echo ""
 	echo "Opening $2"
 	if [ ! -e "$PACKAGE" ]

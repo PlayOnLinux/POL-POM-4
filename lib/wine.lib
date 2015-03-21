@@ -668,7 +668,7 @@ POL_Wine_InstallVersion()
 	[ "$POL_OS" = "Linux" ] && ARCH_PREFIX="linux"
 	OLDPATH="$PWD"
 	WINE_SECTION="$ARCH_PREFIX-$POL_ARCH"
-	WINEDIR="$REPERTOIRE/wine/$WINE_SECTION"
+	WINEDIR="$POL_USER_ROOT/wine/$WINE_SECTION"
 	touch "$WINEDIR/installing"
 	if [ ! -e "$WINEDIR/$POL_WINEVERSION" ]
 	then
@@ -686,7 +686,7 @@ POL_Wine_InstallVersion()
 				exit
 			fi
 
-			cd "$REPERTOIRE/tmp"
+			cd "$POL_USER_ROOT/tmp"
 			POL_SetupWindow_download "$(eval_gettext "Downloading Wine: ")$POL_WINEVERSION" "$TITLE" "$WINE_SITE/$WINE_SECTION/$WINE_ADDRESS"
 			POL_SetupWindow_wait_next_signal "$(eval_gettext "Downloading Wine: ")$POL_WINEVERSION" "$TITLE"
 			sleep 1
@@ -738,8 +738,8 @@ POL_Wine_Install_resources()
 	[ "$3" = "amd64" ] && arch="$3" || arch="x86"
 
 	POL_Debug_Message "Installing $resource for wine $unpatched_version $arch"
-	resource_dir="$REPERTOIRE/wine/$resource"
-	resource_file="$REPERTOIRE/configurations/listes/$resource.lst"
+	resource_dir="$POL_USER_ROOT/wine/$resource"
+	resource_file="$POL_USER_ROOT/configurations/listes/$resource.lst"
 	found="$(grep "^${unpatched_version//./\.};" "$resource_file")"
 	[ "$POL_OS" = "Linux" ] && wos="linux"
 	[ "$POL_OS" = "FreeBSD" ] && wos="freebsd"
@@ -817,7 +817,7 @@ POL_Wine_SetVersionEnv()
 		[ "$POL_OS" = "FreeBSD" ] && ARCH_PREFIX="freebsd"
 		[ "$POL_OS" = "Linux" ] && ARCH_PREFIX="linux"
 		OLDPATH="$PWD"
-		WINEDIR="$REPERTOIRE/wine/$ARCH_PREFIX-$POL_ARCH"
+		WINEDIR="$POL_USER_ROOT/wine/$ARCH_PREFIX-$POL_ARCH"
 		mkdir -p "$WINEDIR"
 		cd "$WINEDIR"
 

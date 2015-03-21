@@ -439,9 +439,9 @@ osascript /tmp/message.applescript
 export PLAYONLINUX="$PLAYONLINUX"
 export LANG="$(defaults read -g AppleLocale).UTF-8"
 export POL_LANG="$(defaults read -g AppleLocale | cut -d _ -f1)"
-export REPERTOIRE="$REPERTOIRE"
+export POL_USER_ROOT="$POL_USER_ROOT"
 export PLAYONMAC="\$PLAYONLINUX"
-export POL_USER_ROOT="\$REPERTOIRE"
+export REPERTOIRE="\$POL_USER_ROOT"
 export NOGETTEXT="TRUE"
 export POL_OS="Mac"
 
@@ -469,7 +469,7 @@ fi
 export PATH="\$PLAYONLINUX/../unix/wine/bin:\$PLAYONLINUX/../unix/image_magick/bin:\$PLAYONLINUX/../unix/tools/bin/:\$PATH"
 export LD_LIBRARY_PATH="\$PLAYONLINUX/../unix/wine/lib:\$PLAYONLINUX/../unix/tools/lib/ld:/usr/X11/lib:\$LD_LIBRARY_PATH"
 
-cd "\$REPERTOIRE/shortcuts"
+cd "\$POL_USER_ROOT/shortcuts"
 
 FILENAME="\$1"
 
@@ -488,18 +488,18 @@ make_icon()
 	# Usage : make_icon [icon_name]
 	rm "/tmp/icon.png"
 	cd "/tmp"
-	if [ -e "$REPERTOIRE/icones/full_size/$1" ]
+	if [ -e "$POL_USER_ROOT/icones/full_size/$1" ]
 	then
-		icon_app="$REPERTOIRE/icones/full_size/$1"
+		icon_app="$POL_USER_ROOT/icones/full_size/$1"
 		cp "$icon_app" "/tmp/icon2.png"
 		convert "/tmp/icon2.png" -resize 128x128\! "/tmp/icon.png"
 		png2icns "$DIRAPP/Contents/Resources/playonmac.icns" "/tmp/icon.png" && success=true
 	fi
 	if [ ! "$success" = "true" ]
 	then
-		if [ -e "$REPERTOIRE/icones/32/$1" ]
+		if [ -e "$POL_USER_ROOT/icones/32/$1" ]
 		then
-			icon_app="$REPERTOIRE/icones/32/$1"
+			icon_app="$POL_USER_ROOT/icones/32/$1"
 			cp "$icon_app" "/tmp/icon2.png"
 			convert "/tmp/icon2.png" -resize 32x32\! "/tmp/icon.png"
 			png2icns "$DIRAPP/Contents/Resources/playonmac.icns" "/tmp/icon.png" && success=true
@@ -591,19 +591,19 @@ CleanLnkDesktop()
 	# Clean Desktop from PlayOnLinux's wine shortcut
 	# Usage: CleanLnkDesktop
 	
-	mkdir -p "$REPERTOIRE/backup"
+	mkdir -p "$POL_USER_ROOT/backup"
 	for file in $HOME/Desktop/*.desktop
 	do
 		if [ ! "$(strings "$file" | grep PlayOn$POL_OS)" = "" ]
 		then
-			mv "$file" "$REPERTOIRE/backup"
+			mv "$file" "$POL_USER_ROOT/backup"
 		fi
 	done
 	for file in $HOME/Desktop/*.lnk
 	do
 		if [ ! "$(strings "$file" | grep PlayOn$POL_OS)" = "" ]
 		then
-			mv "$file" "$REPERTOIRE/backup"
+			mv "$file" "$POL_USER_ROOT/backup"
 		fi
 	done
 }
@@ -660,7 +660,7 @@ detect_wineprefix()
 	# Read the wineprefix of a shortcut
 	# Usage: detect_wineprefix [Shortcut]
 	
-	file="$REPERTOIRE/shortcuts/$1"
+	file="$POL_USER_ROOT/shortcuts/$1"
 	if [ -e "$file" ]; then	
 		fichier=$(cat "$file" | grep '^export WINEPREFIX')
 		fichier=${fichier:18}
@@ -684,7 +684,7 @@ detect_appdir()
 	# Read the appdir of a shortcut
 	# Usage: detect_appdir [Shortcut]
 	
-	file="$REPERTOIRE/shortcuts/$1"
+	file="$POL_USER_ROOT/shortcuts/$1"
 	if [ -e "$file" ]
 	then	
 	fichier=`cat "$file" | grep "cd \""`
@@ -697,7 +697,7 @@ detect_appexec()
 	# Read the program of a shortcut
 	# Usage: detect_appexec [Shortcut]
 	
-	file="$REPERTOIRE/shortcuts/$1"
+	file="$POL_USER_ROOT/shortcuts/$1"
 	if [ -e "$file" ]
 	then	
 	fichier=`cat "$file" | grep "POL_Wine " | cut -d'"' -f2`
@@ -711,11 +711,11 @@ clean_wineprefix()
 	# Usage: clean_wineprefix /path/of/the/prefix
 	
 	# Ca c'est fait exprès ! On touche pas
-	[ "$1" = "$REPERTOIRE/.PlayOnLinux/wineprefix/" ] && exit
-	[ "$1" = "$REPERTOIRE/Library/PlayOnMac/" ] && exit
+	[ "$1" = "$POL_USER_ROOT/.PlayOnLinux/wineprefix/" ] && exit
+	[ "$1" = "$POL_USER_ROOT/Library/PlayOnMac/" ] && exit
 
-	cd "$REPERTOIRE/shortcuts/"
-	# Ça aussi, j'ai pas utilisé $REPERTOIRE volontairment (question de sécu, si $REPERTOIRE est vide ou mal défini, ça peut faire mal)
+	cd "$POL_USER_ROOT/shortcuts/"
+	# Ça aussi, j'ai pas utilisé $POL_USER_ROOT volontairment (question de sécu, si $POL_USER_ROOT est vide ou mal défini, ça peut faire mal)
 	[ "$POL_OS" = "Linux" ] && TEST=${1//".PlayOnLinux/wineprefix/"/""}
 	[ "$POL_OS" = "FreeBSD" ] && TEST=${1//".PlayOnBSD/wineprefix/"/""}
 	[ "$POL_OS" = "Mac" ] && TEST=${1//"Library/PlayOnMac/wineprefix/"/""}
@@ -800,12 +800,12 @@ POL_Internal_KillAll()
 	for WId in $(ps aux | grep $APPLICATION_TITLE | grep bash | awk '{print $2}'); 
 	do 
 		kill $WId; 
-		cat << EOF > "$REPERTOIRE/configurations/guis/$WId"
+		cat << EOF > "$POL_USER_ROOT/configurations/guis/$WId"
 MsgIn
 exit
 EOF
 sleep 1
-rm "$REPERTOIRE/configurations/guis/$WId" 2> /dev/null
+rm "$POL_USER_ROOT/configurations/guis/$WId" 2> /dev/null
 	done
 }
 

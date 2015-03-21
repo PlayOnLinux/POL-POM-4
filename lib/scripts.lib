@@ -35,7 +35,7 @@ POL_Shortcut_InsertBeforeWine ()
                 print "$ENV{COMMANDS}\n";
                 $done=1;
             }
-            print;'   "$REPERTOIRE/shortcuts/${Application}"
+            print;'   "$POL_USER_ROOT/shortcuts/${Application}"
 }
 
 POL_Open()
@@ -118,7 +118,7 @@ POL_Shortcut_GetPrefix()
 	# Usage: POL_Shortcut_GetPrefix [Shortcut]
 	
 	[ "$1" = "" ] && POL_Debug_Error "No shortcut specified"
-	fichier="$REPERTOIRE/shortcuts/$1"
+	fichier="$POL_USER_ROOT/shortcuts/$1"
 	if [ -e "$fichier" ]
 	then
 		fichier="$(cat "$fichier" | grep '^export WINEPREFIX' | tail -n 1 | $SED s/'\/\//\/'/)"
@@ -134,8 +134,8 @@ POL_GetLocalIcon()
 	# Get a local icon and add it into playonlinux
 	# Usage: POL_GetLocalIcon [PlayOnLinux's shortcut] [icon name]
 	
-	convert "$HOME/.local/share/icons/$2" -geometry 32X32 "$REPERTOIRE/icones/32/$1"
-	convert "$HOME/.local/share/icons/$2" "$REPERTOIRE/icones/full_size/$1"
+	convert "$HOME/.local/share/icons/$2" -geometry 32X32 "$POL_USER_ROOT/icones/32/$1"
+	convert "$HOME/.local/share/icons/$2" "$POL_USER_ROOT/icones/full_size/$1"
 }
 
 POL_ExtractIcon()
@@ -143,12 +143,12 @@ POL_ExtractIcon()
 	# Extract the icon of a .exe or .ico file
 	# Usage: POL_ExtractIcon [.exe file] [output image file]
 
-	mkdir -p "$REPERTOIRE/tmp/win32Icon"
-	wrestool -x -t14 "$1" > "$REPERTOIRE/tmp/win32Icon/icons-brut"
+	mkdir -p "$POL_USER_ROOT/tmp/win32Icon"
+	wrestool -x -t14 "$1" > "$POL_USER_ROOT/tmp/win32Icon/icons-brut"
 
-        (cd "$REPERTOIRE/tmp/win32Icon"
+        (cd "$POL_USER_ROOT/tmp/win32Icon"
 
-	icotool -x "icons-brut" -o "$REPERTOIRE/tmp/win32Icon/"
+	icotool -x "icons-brut" -o "$POL_USER_ROOT/tmp/win32Icon/"
 
 	# Is there an existing 32x32 icon?
 	find . -name "*32x32x32.png" > icons-list
@@ -214,12 +214,12 @@ POL_ExtractBiggestIcon()
 	# Extract the biggest icon of a .exe or .ico file
 	# Usage: POL_ExtractCustomIcon [.exe file] [output image file] [size]
 
-	mkdir -p "$REPERTOIRE/tmp/win32Icon"
-	wrestool -x -t14 "$1" > "$REPERTOIRE/tmp/win32Icon/icons-brut"
+	mkdir -p "$POL_USER_ROOT/tmp/win32Icon"
+	wrestool -x -t14 "$1" > "$POL_USER_ROOT/tmp/win32Icon/icons-brut"
 
-        (cd "$REPERTOIRE/tmp/win32Icon"
+        (cd "$POL_USER_ROOT/tmp/win32Icon"
 
-	icotool -x "icons-brut" -o "$REPERTOIRE/tmp/win32Icon/"
+	icotool -x "icons-brut" -o "$POL_USER_ROOT/tmp/win32Icon/"
 
 	find . -name "*256x256x32.png" > icons-list
 	find . -name "*256x256x24.png" >> icons-list
@@ -271,7 +271,7 @@ POL_ExtractBiggestIcon()
 		done
 	fi
 	)
-	rm -r "$REPERTOIRE/tmp/win32Icon"
+	rm -r "$POL_USER_ROOT/tmp/win32Icon"
 }
 find_binary ()
 {
@@ -305,8 +305,8 @@ POL_Shortcut()
 		NOMICONE_="$2"
 	fi
 	
-	mkdir -p "$REPERTOIRE/icones/32"
-	mkdir -p "$REPERTOIRE/icones/full_size"
+	mkdir -p "$POL_USER_ROOT/icones/32"
+	mkdir -p "$POL_USER_ROOT/icones/full_size"
 	
 	ICON_WEB_NAME="$3"
 	ICON_OK=0
@@ -320,16 +320,16 @@ POL_Shortcut()
 
 	if [ -n "$ICON_WEB_NAME" ]; then
 		if [ ! "$OFFLINE" = "1" ]; then # On peut le télécharger...
-			$POL_WGET "$SITE/icones/$ICON_WEB_NAME" -O- > "$REPERTOIRE/icones/full_size/$NOMICONE_" || rm "$REPERTOIRE/icones/full_size/$NOMICONE_"  # On prend l'icone full size
+			$POL_WGET "$SITE/icones/$ICON_WEB_NAME" -O- > "$POL_USER_ROOT/icones/full_size/$NOMICONE_" || rm "$POL_USER_ROOT/icones/full_size/$NOMICONE_"  # On prend l'icone full size
 		fi
 		
-		if [ -f "$REPERTOIRE/icones/full_size/$NOMICONE_" ]; then
-			convert -resize 32 "$REPERTOIRE/icones/full_size/$NOMICONE_" "$REPERTOIRE/icones/32/$NOMICONE_" # On fabrique l'icone 32*32
+		if [ -f "$POL_USER_ROOT/icones/full_size/$NOMICONE_" ]; then
+			convert -resize 32 "$POL_USER_ROOT/icones/full_size/$NOMICONE_" "$POL_USER_ROOT/icones/32/$NOMICONE_" # On fabrique l'icone 32*32
 			ICON_OK=1
 		fi
 	elif [ "$ICON_OK" -ne 1 ]; then # No icon from the web, make one off the exe
-		POL_ExtractIcon "$WINEPREFIX/drive_c/$binary_dir/$binary_name" "$REPERTOIRE/icones/32/$NOMICONE_"
-		POL_ExtractBiggestIcon "$WINEPREFIX/drive_c/$binary_dir/$binary_name" "$REPERTOIRE/icones/full_size/$NOMICONE_"
+		POL_ExtractIcon "$WINEPREFIX/drive_c/$binary_dir/$binary_name" "$POL_USER_ROOT/icones/32/$NOMICONE_"
+		POL_ExtractBiggestIcon "$WINEPREFIX/drive_c/$binary_dir/$binary_name" "$POL_USER_ROOT/icones/full_size/$NOMICONE_"
 	fi
 
 	if [ -z "$binary_name" ]; then
@@ -344,11 +344,11 @@ POL_Shortcut()
 		[ -n "$LOGTITLE" ] && echo "#POL_Log=$LOGTITLE"
 		[ -n "$SCRIPTID" ] && echo "#ScriptID=$SCRIPTID"
 		echo "cd \"$WINEPREFIX/drive_c/$binary_dir\""
-		echo "POL_Wine \"$binary_name\" $SpecialArg \"\$@\"") > "$REPERTOIRE/shortcuts/$NOMICONE_"
-		chmod +x "$REPERTOIRE/shortcuts/$NOMICONE_"
+		echo "POL_Wine \"$binary_name\" $SpecialArg \"\$@\"") > "$POL_USER_ROOT/shortcuts/$NOMICONE_"
+		chmod +x "$POL_USER_ROOT/shortcuts/$NOMICONE_"
 
-		if [ -f "$REPERTOIRE/icones/full_size/$NOMICONE_" ]; then # L'icone existe...
-			iconPath="$REPERTOIRE/icones/full_size/$NOMICONE_"
+		if [ -f "$POL_USER_ROOT/icones/full_size/$NOMICONE_" ]; then # L'icone existe...
+			iconPath="$POL_USER_ROOT/icones/full_size/$NOMICONE_"
 		else
 			iconPath="$PLAYONLINUX/etc/playonlinux.png"
 		fi
@@ -380,7 +380,7 @@ POL_Shortcut_QuietDebug()
 	# Disable "crash" message on exitcode != 0 unless in debug mode
 	# Usage: POL_Shortcut_QuietDebug "shortcutname"
 
-	echo '[ "$WINEDEBUG" = "-all" ] && exit 0' >> "$REPERTOIRE/shortcuts/$1"
+	echo '[ "$WINEDEBUG" = "-all" ] && exit 0' >> "$POL_USER_ROOT/shortcuts/$1"
 }
 
 POL_Call()
@@ -392,7 +392,7 @@ POL_Call()
 	if [ ! "$1" = "" ]
 	then
 		OLD_PC_DIR="$PWD"
-		cd "$REPERTOIRE/tmp/"
+		cd "$POL_USER_ROOT/tmp/"
 		if [ "$(POL_Config_Read "ALLOW_FUNCTION_OVERRIDES")" = "TRUE" -a -e "$POL_USER_ROOT/configurations/function_overrides/$1" ]; then
 			cp "$POL_USER_ROOT/configurations/function_overrides/$1" .
 			if [ -z "$NOBUGREPORT" ]; then
@@ -981,8 +981,8 @@ POL_Shortcut_MakeDesktopShortcut()
 		make_plist "$PACKAGE" "$shortname"
 	fi
 	if [ "$POL_OS" = "Linux" ] || [ "$POL_OS" == "FreeBSD" ]; then
-		if [ -f "$REPERTOIRE/icones/full_size/$PACKAGE" ]; then # L'icone existe...
-			iconPath="$REPERTOIRE/icones/full_size/$PACKAGE"
+		if [ -f "$POL_USER_ROOT/icones/full_size/$PACKAGE" ]; then # L'icone existe...
+			iconPath="$POL_USER_ROOT/icones/full_size/$PACKAGE"
 		else
 			iconPath="$PLAYONLINUX/etc/playonlinux.png"
 		fi
