@@ -56,8 +56,5 @@ search_python () {
 }
 
 test_python () {
-    cat <<'_EOF_' > "$POL_USER_ROOT/tmp/testlibs.py"
-import wx
-_EOF_
-    "$POL_PYTHON" "$POL_USER_ROOT/tmp/testlibs.py"
+    "$POL_PYTHON" "$POLDIR/python/runtime_test.py"
 }
