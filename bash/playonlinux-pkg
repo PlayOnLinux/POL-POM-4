@@ -18,7 +18,7 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
 
 # This script install POL packages
-export OLDDIR="$PWD"
+OLDDIR="$PWD"
 [ "$PLAYONLINUX" = "" ] && exit 0
 source "$PLAYONLINUX/lib/sources"
 
@@ -44,7 +44,7 @@ then
 fi
 if [ "$1" = "-b" -o "$1" = "--browse" ]
 then
-	FILE=`select_file "$(eval_gettext 'Choose a package to install')" '' 0 0 1 "$(eval_gettext 'PlayOnLinux package manager')"`
+	FILE=$(select_file "$(eval_gettext 'Choose a package to install')" '' 0 0 1 "$(eval_gettext 'PlayOnLinux package manager')")
 	if [ ! "$FILE" = "" ]
 	then
 		bash "$PLAYONLINUX/playonlinux-pkg" -i "$FILE" -g
@@ -63,7 +63,7 @@ then
 		$error_c "$(eval_gettext 'Unable to find the file: ')$2"
 		exit
 	fi
-	ext=`echo $PACKAGE | awk -F "." '{print $NF}'`
+	ext=$(echo $PACKAGE | awk -F "." '{print $NF}')
 	if [ ! "$ext" = "pol" ]
 	then
 		$error_c "$(eval_gettext "This file: ")$2$(eval_gettext " isn't a valid PlayOnLinux package!")"
@@ -86,7 +86,7 @@ then
 		$error_c "$(eval_gettext "This file: ")$2$(eval_gettext " does not exist!")"
 		exit
 	fi
-	ext=`echo $PACKAGE | awk -F "." '{print $NF}'`
+	ext=$(echo $PACKAGE | awk -F "." '{print $NF}')
 	if [ ! "$ext" = "pol" ]
 	then
 		$error_c "$(eval_gettext "This file: ")$2$(eval_gettext " isn't a valid PlayOnLinux package!")"

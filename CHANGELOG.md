@@ -7,6 +7,7 @@
 * Sort install scripts lists case insensitively (iTunes)
 * Fix "dash-bang" line in shortcuts so they're actually executable
 * Deprecate the usage of $REPERTOIRE in PlayOnLinux own code
+* Translate remaining french comments and identifiers in Bash code
 
 # 4.2.6
 * Use $POL_TERM more consistently, allow POL_TERM global configuration

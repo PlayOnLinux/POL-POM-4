@@ -159,7 +159,7 @@ then
 	then
 		WINEVERSIONLIVE=""
 	else
-	export POL_WINEVERSION="$WINEVERSIONLIVE"
+		export POL_WINEVERSION="$WINEVERSIONLIVE"
 	fi
 	POL_System_SetArch "x86"
 fi
@@ -202,7 +202,7 @@ then
 	ITEMS=$($POL_WGET $SITE/V4_data/repository/getf.php -O-)
 	POL_SetupWindow_checkbox_list "$(eval_gettext "Please make your choice")" "$APPLICATION_TITLE" "$ITEMS" "/"
  
-	old="$IFS"
+	oldifs="$IFS"
 	IFS=/
 	set "$APP_ANSWER"
  
@@ -214,7 +214,7 @@ then
 		
 		IFS=/
 	done
-	IFS="$old"
+	IFS="$oldifs"
 fi
 
 
@@ -223,6 +223,8 @@ if [ "$POL_OS" = "Linux" ] || [ "$POL_OS" = "FreeBSD" ]; then
 	MEDIA_DIR="/media"
 	# Ubuntu Quantal workaround
 	[ -d "/media/$USER" ] && MEDIA_DIR="/media/$USER"
+        # Fedora/Manjaro workaround
+        [ -d "/run/media/$USER" ] && DEVICES="/run/media/$USER"
 fi
 
 A_LIST=""
@@ -255,13 +257,13 @@ LNG_MANUAL_FILE="$(eval_gettext "Select another file")"
 if [ ! "$i" = "0" ]
 then
 
-A_LIST="$A_LIST#MANUAL"
-B_LIST="$B_LIST#$LNG_MANUAL_FILE"
+	A_LIST="$A_LIST#MANUAL"
+	B_LIST="$B_LIST#$LNG_MANUAL_FILE"
 
-POL_SetupWindow_menu_num "$(eval_gettext 'Please choose a way to install your program')" "$TITLE" "$B_LIST" "#"
-N="$APP_ANSWER"
-POL_Debug_Message "Action $N choosen"
-CHOICE="$(cut -d "#" -f$(( N + 1 )) <<< "$A_LIST")"
+	POL_SetupWindow_menu_num "$(eval_gettext 'Please choose a way to install your program')" "$TITLE" "$B_LIST" "#"
+	N="$APP_ANSWER"
+	POL_Debug_Message "Action $N choosen"
+	CHOICE="$(cut -d "#" -f$(( N + 1 )) <<< "$A_LIST")"
 fi
 
 if [ "$CHOICE" = "MANUAL" ] || [ "$i" = "0" ]
@@ -290,10 +292,10 @@ POL_SetupWindow_wait "$(eval_gettext '$APPLICATION_TITLE is installing your appl
 extension=$(echo "$SETUP_PATH" | $SED 's/.*\.//g')
 if [ "$extension" = "msi" ]
 then
-POL_Wine msiexec /i "$SETUP_PATH"
+	POL_Wine msiexec /i "$SETUP_PATH"
 
 else
-POL_Wine "$SETUP_PATH"
+	POL_Wine "$SETUP_PATH"
 fi 
 
 POL_Wine_WaitExit

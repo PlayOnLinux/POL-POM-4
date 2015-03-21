@@ -36,7 +36,6 @@ ncs()
 }
 ncns()
 {
-	
 	if [ "$POL_OS" = "Mac" -o "$(POL_Config_Read FORCE_LEGACY_NETCAT)" = "TRUE" ]; then
 		nc "$@"
 	else
@@ -110,20 +109,6 @@ POL_SetupWindow_message ()
 	
 	echo "$POL_COOKIE	POL_SetupWindow_message	$$	$(POL_Untab "$1")	$(POL_Untab "$2")" | ncs "$POL_HOST" "$POL_PORT"
 }
-POL_SetupWindow_missing ()
-{
-	# Shows a message if once's program is missing
-	# Read depend.lib
-	# Usage POL_SetupWindow_missing
-	
-	if [ "$MANQUE" = "true" ]; then
-		LNG_MISSING_ERROR=$(eval_gettext "One or more program(s) are missing. Please install them and run the script again.")
-
-		POL_SetupWindow_message "$LNG_MISSING_ERROR\n\n$MISSING" "$(eval_gettext Error)"
-		POL_SetupWindow_Close
-		exit $EXIT_MISSING
-	fi
-}
 POL_SetupWindow_licence ()
 {
 	# Shows a licence file, and force the user to accept it to continue
@@ -166,6 +151,7 @@ POL_SetupWindow_set_text ()
 {
 	# Change the pulsebar's text
 	# Usage POL_SetupWindow_set_text [message]
+
 	echo "$POL_COOKIE	POL_SetupWindow_set_text	$$	$(POL_Untab "$1")" | ncs "$POL_HOST" "$POL_PORT"
 }
 POL_SetupWindow_wait ()
@@ -179,7 +165,8 @@ POL_SetupWindow_download ()
 	# Usage: POL_SetupWindow_download [message] [title] [url] [file]
 	# /!\ Scriptors should directly use POL_Download
         # If provided, make sure the filename is absolute to avoid any misinterpretation from server
-        [ -n "$4" ] && FILENAME="$4" || FILENAME="$PWD/"
+
+	[ -n "$4" ] && FILENAME="$4" || FILENAME="$PWD/"
 	Result="$(echo "$POL_COOKIE	POL_SetupWindow_download	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	$(POL_Untab "$FILENAME")" | ncns "$POL_HOST" "$POL_PORT")"
 	# FIXME: Result should send 'fail' if the download has failed. Maybe we could catch it
 }
@@ -198,6 +185,7 @@ POL_SetupWindow_browse ()
 	# Shows a text box with a browse button
 	# Usage: POL_SetupWindow_browse [message] [title] [default value] [Supported file types]
 	# Result is sent in $APP_ANSWER variable
+
 	[ "$4" = "" ] && SUPPORTED="All" || SUPPORTED="$4"
 	APP_ANSWER="$(echo "$POL_COOKIE	POL_SetupWindow_browse	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	$PWD	$SUPPORTED" | ncns "$POL_HOST" "$POL_PORT")"
 	POL_Debug_Message "browser answer: $APP_ANSWER"
@@ -263,7 +251,6 @@ POL_SetupWindow_shortcuts_list ()
 	# Result is sent in $APP_ANSWER variable
 	
 	APP_ANSWER="$(echo "$POL_COOKIE	POL_SetupWindow_shortcut_list	$$	$(POL_Untab "$1")	$(POL_Untab "$2")" | ncns "$POL_HOST" "$POL_PORT")"
-
 }
 POL_SetupWindow_prefix_selector ()
 {
@@ -280,7 +267,6 @@ POL_SetupWindow_prefix_selector ()
 	else
 		export APP_ANSWER="$(POL_Shortcut_GetPrefix "$VALUE")"
 	fi
-	
 }
 POL_SetupWindow_login ()
 {
@@ -304,7 +290,6 @@ POL_SetupWindow_file ()
 	# Usage: POL_SetupWindow_file [message] [title] [file]
 	
 	echo "$POL_COOKIE	POL_SetupWindow_file	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$(POL_Untab "$3")" | ncs "$POL_HOST" "$POL_PORT"
-
 }
 POL_SetupWindow_textbox_multiline ()
 {
@@ -437,7 +422,7 @@ POL_SetupWindow_cdrom_MountPC()
 			mkdir "$mount_point"
 			if mount -t cd9660 "$rdevice" "$mount_point"; then
 				export CDROM="$mount_point"
-				export mount_pc_succed="true"
+				export mount_pc_success="true"
 				if [ "$1" ]; then
 					if [ "$(find "$CDROM" -iwholename "$CDROM/$1")" = "" ]; then
 						POL_Debug_Fatal "Unable to find setup file ($1) on the windows part of the cdrom. Umounting"
@@ -453,7 +438,7 @@ POL_SetupWindow_cdrom_MountPC()
 }
 POL_SetupWindow_cdrom_UmountPC()
 {
-	if [ "$POL_OS" = "Mac" -a "$CDROMc" -a "$mount_pc_succed" ]; then
+	if [ "$POL_OS" = "Mac" -a "$CDROMc" -a "$mount_pc_success" ]; then
 		POL_Debug_Message "Umounting PC part : $CDROM"
 		umount "$CDROM"
 		rmdir "$CDROM"
@@ -468,18 +453,21 @@ POL_SetupWindow_cdrom_MountMessage ()
 POL_SetupWindow_DirectoryProgress ()
 {
 	# Progressbar, by reading a directory size
-	# Usage: POL_SetupWindow_DirectoryProgress [Directory] [Expected Size] [Pid to check]
+	# Usage: POL_SetupWindow_DirectoryProgress [Directory] [Expected Size] [Pid to check] [Current filename]
 	# Good for cdrom copy
-	[ "$3" ] || return 1
-	[ "$4" ] && cMESSAGE="\n$4"
-	FICHIER="$1"
+
+	local DIRECTORY="$1"
+	local EXPECTED_SIZE="$2"
+	local PID="$3"
+	local cMESSAGE="${4:+\n$4}"
+	[ "$PID" ] || return 1
 	POL_SetupWindow_pulsebar "$(eval_gettext 'Please wait while $APPLICATION_TITLE is copying files:')$cMESSAGE" "$TITLE"
 
 	POL_SetupWindow_pulse 0
 	
-	while [ ! "$(ps aux | awk '{print $2}' | grep $3)" = "" ]; do
-		current_size="$(du "$1"| tail -n 1 | awk '{print $1}')"
-		current_perc=$(( 100 * $current_size / $2 ))
+	while [ ! "$(ps aux | awk '{print $2}' | grep $PID)" = "" ]; do
+		current_size="$(du "$DIRECTORY"| tail -n 1 | awk '{print $1}')"
+		current_perc=$(( 100 * $current_size / ${EXPECTED_SIZE} ))
 		POL_SetupWindow_pulse "$current_perc"
 		sleep 1
 	done
@@ -489,11 +477,12 @@ POL_SetupWindow_DirectoryProgress ()
 	return 0
 }
 
-POL_GetSetupImages () # ( optional : --erase ) 
+POL_GetSetupImages ()
 {
 	# This function helps you to manage your setup images
-	# It will download images only once, except if you use --erase
+	# It will download images only once, except if you use --force
 	#
+	# ( optional : --force ) 
 	# 1 - Top image url
 	# 2 - Left image url
 	# 3 - Name (only alpha-numerical please)
@@ -531,7 +520,6 @@ POL_GetSetupImages () # ( optional : --erase )
 		POL_SetupWindow_LeftImage="$PWD/left"
 	fi
 	cd "$OLDPWD"
-
 }
 
 POL_SetupWindow_InitWithImages ()
@@ -545,7 +533,7 @@ process_POL_SetupWindow_show_exe ()
 {
 	### Used by POL_SetupWindow_show_exe
 	read line
-	first=true
+	local first=true
 	while [ ! "$line" = "" ]; do
 		[ "$first" = "true" ] && first=false || printf "~"
 		printf "$(basename "$line")"
@@ -593,6 +581,7 @@ POL_SetupWindow_InstallMethod()
 	# Usage: POL_SetupWindow_InstallMethod [List]
 	# Elements in list are separated by a coma
 	# Accepted methods are STEAM, STEAM_DEMO, LOCAL, CD, DVDROM, DOWNLOAD, ORIGIN, ORIGIN_DEMO, DESURA, DESURA_DEMO
+
 	[ "$1" = "" ] && POL_Debug_Fatal "No method in list"
 	STR=""
 	ICO=""
@@ -754,7 +743,7 @@ process_POL_SetupWindow_shortcut_creator ()
 {
 	### Used by POL_SetupWindow_shortcut_creator
 	read line
-	first=true
+	local first=true
 	while [ ! "$line" = "" ]
 	do
 		if [ "$(echo $existing | grep $(basename "$line"))" = "" ] 

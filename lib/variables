@@ -85,8 +85,7 @@ then
 	export SED="gsed"
 fi
 
-#Codes de sorties 
-EXIT_MISSING=2
+# Exit codes
 EXIT_ERROR=255
 EXIT_SUCCES=0
 
@@ -94,10 +93,10 @@ EXIT_SUCCES=0
 export POL_USER_ARCH="x86"
 export POL_ARCH="$POL_USER_ARCH"
 
-# Divers trucs
+# Miscellaneous stuff
 export IGNORE_ICON_DIR="false"
 export GNUPGHOME="$REPERTOIRE/gpg"
 
-# Drivers problem
+# Drivers issue
 [ "$(POL_Config_pRead FIX_DRI_PATH)" = "TRUE" ] && [ "$POL_OS" = "Linux" ] && export LIBGL_DRIVERS_PATH="/usr/lib/dri/:/usr/lib64/dri/:/usr/lib32/dri/"
 unset WINEARCH

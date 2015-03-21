@@ -42,8 +42,8 @@ else
 	ProgramUninstall="$1"
 fi
 
-NOM_JEU="$POL_USER_ROOT/shortcuts/$ProgramUninstall"
-if [ -e "$NOM_JEU" ]
+APP_NAME="$POL_USER_ROOT/shortcuts/$ProgramUninstall"
+if [ -e "$APP_NAME" ]
 then
 	application_prefixe=$(detect_wineprefix "$ProgramUninstall")
 	delete_var=$ProgramUninstall

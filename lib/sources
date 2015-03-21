@@ -23,7 +23,7 @@ then
 fi
 if [ ! "$INCLUDED" ]
 then
-	INCLUDED="1" # On évite l'inclusion en boucle
+	INCLUDED="1" # Prevent inclusion loops
 	source "$PLAYONLINUX/lib/variables"
 	[ -e "$POL_USER_ROOT/configurations/custom" ] && source "$POL_USER_ROOT/configurations/custom"
 	source "$PLAYONLINUX/lib/debug.lib"

@@ -108,10 +108,10 @@ else
 	while [ "$POL_PYTHON" != "none" ]; do
 		"$POL_PYTHON" mainwindow.py "$@"
 		exitcode=$?
-                [ $exitcode -eq 0 -o $exitcode -eq 63 ] && break
+		[ $exitcode -eq 0 -o $exitcode -eq 63 ] && break
 
 		# Do we really want this fallback algorithm?
-        search_python
+		search_python
 	done
 fi
 

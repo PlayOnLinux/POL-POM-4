@@ -51,7 +51,6 @@ POL_Wine_UpdateRegistryPair ()
 {
 	# Usage: POL_Wine_UpdateRegistryPair key name [--sz|--binary|--dword|--multisz] data
 	# data="default": remove the name
-	# Remark: restarts wineserver
         local key="$1"
         local subkey="$2"
         shift 2
@@ -95,7 +94,6 @@ POL_Wine_UpdateRegistryWinePair ()
 {
 	# Usage: POL_Wine_UpdateRegistryPair subkey name [--sz|--binary|--dword|--multisz] data
 	# data="default": remove the name
-	# Remark: restarts wineserver
 
 	# Put a "\" before $1 if it's not empty
 	POL_Wine_UpdateRegistryPair "HKEY_CURRENT_USER\\Software\\Wine${1:+\\$1}" "$2" "$3" "$4"

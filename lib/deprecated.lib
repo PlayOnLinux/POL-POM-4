@@ -244,7 +244,7 @@ POL_SetupWindow_make_shortcut()
 		else
 			iconPath="$PLAYONLINUX/etc/playonlinux.png"
 		fi
-		generer_icone "$iconPath" "$NOMICONE_" "$DESKTOP" "$PLAYONLINUX/playonlinux --run \"$NOMICONE_\"" "$NOMICONE_"
+		make_desktop_shortcut "$iconPath" "$NOMICONE_" "$DESKTOP" "$PLAYONLINUX/playonlinux --run \"$NOMICONE_\"" "$NOMICONE_"
 	fi
 	fi
 }
@@ -318,7 +318,7 @@ POL_SetupWindow_auto_shortcut()
 		else
 			iconPath="$PLAYONLINUX/etc/playonlinux.png"
 		fi
-		generer_icone "$iconPath" "$NOMICONE_" "$DESKTOP" "$PLAYONLINUX/playonlinux --run \"$NOMICONE_\""
+		make_desktop_shortcut "$iconPath" "$NOMICONE_" "$DESKTOP" "$PLAYONLINUX/playonlinux --run \"$NOMICONE_\""
 	fi
 	fi
 }
@@ -418,6 +418,10 @@ POL_SetupWindow_get_local_icon ()
 	# Get a local icon (.local folder) and assign it to a shortcut
 	POL_Debug_Warning "Deprecated function" 
 	POL_GetLocalIcon "$@"
+}
+
+generer_icone() {
+	make_desktop_shortcut "$@"
 }
 
 POL_SetupWindow_reboot ()
