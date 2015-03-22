@@ -19,6 +19,21 @@
 
 [ "$(uname -s)" = "Darwin" ] && export POL_OS="Mac"
 [ "$(uname -s)" = "Linux" ] && export POL_OS="Linux"
+[ "$(uname -s)" = "FreeBSD" ] && export POL_OS="FreeBSD"
+
+usage() {
+	local self="$(basename "$0")"
+	echo "Usage: $self <URL>"
+       	echo "       $self [-h] [--help]"
+        echo ""
+        echo "Download and execute a PlayOn{Linux,Mac,FreeBSD} script"
+}
+
+if [ "$1" = "" -o "$1" = "-h" -o "$1" = "--help" ]
+then
+	usage
+        exit
+fi
 
 export SILENT="TRUE"
 if [ "$PLAYONLINUX" = "" ]

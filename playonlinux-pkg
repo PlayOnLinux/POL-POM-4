@@ -19,8 +19,10 @@
 
 [ "$(uname -s)" = "Darwin" ] && export POL_OS="Mac"
 [ "$(uname -s)" = "Linux" ] && export POL_OS="Linux"
+[ "$(uname -s)" = "FreeBSD" ] && export POL_OS="FreeBSD"
 
 export SILENT="TRUE"
+
 if [ "$PLAYONLINUX" = "" ]
 then
 	export WorkingDirectory="$PWD"

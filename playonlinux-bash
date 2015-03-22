@@ -19,15 +19,22 @@
 
 [ "$(uname -s)" = "Darwin" ] && export POL_OS="Mac"
 [ "$(uname -s)" = "Linux" ] && export POL_OS="Linux"
+[ "$(uname -s)" = "FreeBSD" ] && export POL_OS="FreeBSD"
 
+usage() {
+	local self="$(basename "$0")"
+	echo "Usage: $self [-h] [--help] <Script filename>"
+        echo ""
+        echo "Execute a PlayOn{Linux,Mac,FreeBSD} script"
+}
 
 export SILENT="TRUE"
 SCRIPTNAME="$1"
 shift
-if [ "$SCRIPTNAME" = "" ]
+if [ "$SCRIPTNAME" = "" -o "$SCRIPTNAME" = "-h" -o "$SCRIPTNAME" = "--help" ]
 then
-	echo "Usage : playonlinux-bash [script]"
-	exit
+	usage
+        exit
 fi
 if [ "$PLAYONLINUX" = "" ]
 then
