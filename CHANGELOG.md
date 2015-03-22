@@ -12,6 +12,7 @@
 * Wine versions manager: attributes tell apart used versions instead of
   unused versions; Add an extra warning when about to remove a version in use
 * Avoid Python detection loops
+* Fix Settings > Internet menu (#4989, thanks to rupert)
 
 # 4.2.6
 * Use $POL_TERM more consistently, allow POL_TERM global configuration

@@ -284,7 +284,7 @@ class MainWindow(wx.Frame):
         self.optionmenu = wx.Menu()
 
 
-        self.optionmenu.Append(221, _("Internet"))
+        self.optionmenu.Append(211, _("Internet"))
         self.optionmenu.Append(212, _("File associations"))
         self.optionmenu.Append(214, _("Plugin manager"))
 
