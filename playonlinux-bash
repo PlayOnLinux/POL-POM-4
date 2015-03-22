@@ -32,13 +32,13 @@ fi
 if [ "$PLAYONLINUX" = "" ]
 then
 	export WorkingDirectory="$PWD"
-	CURDIR=`dirname "$0"`
-	cd "$CURDIR"
-	CURDIR="$(pwd)"
+	POLDIR=`dirname "$0"`
+	cd "$POLDIR"
+	POLDIR="$(pwd)"
 	export MACHTYPE
 	cd "$WorkingDirectory"
-       	source "$CURDIR/bash/find_python"
-	search_python && "$POL_PYTHON" "$CURDIR/python/wrapper.py" "$SCRIPTNAME" "$@"
+       	source "$POLDIR/bash/find_python"
+	search_python && "$POL_PYTHON" "$POLDIR/python/wrapper.py" "$SCRIPTNAME" "$@"
 else
 	bash "$SCRIPTNAME" "$@"
 fi
