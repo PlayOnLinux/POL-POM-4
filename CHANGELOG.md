@@ -5,7 +5,7 @@
   updating statements (#5013)
 * POL_Wine_SelectPrefix: abort if no prefix name is provided
 * Sort install scripts lists case insensitively (iTunes)
-* Fix "dash-bang" line in shortcuts so they're actually executable
+* Fix "hash-bang" line in shortcuts so they're actually executable
 * Deprecate the usage of $REPERTOIRE in PlayOnLinux own code
 * Translate remaining french comments and identifiers in Bash code
 * Improve POL_Wine_PrefixDelete to remove ancillary resources (shortcuts, icons,...)
