@@ -13,6 +13,7 @@
   unused versions; Add an extra warning when about to remove a version in use
 * Avoid Python detection loops
 * Fix Settings > Internet menu (#4989, thanks to rupert)
+* Workaround for Wine bug #37575 (#5023)
 
 # 4.2.6
 * Use $POL_TERM more consistently, allow POL_TERM global configuration
