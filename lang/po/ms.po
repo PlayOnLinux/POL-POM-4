@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-03-16 19:00+0100\n"
+"POT-Creation-Date: 2015-03-23 19:00+0100\n"
 "PO-Revision-Date: 2013-12-21 17:19+0000\n"
 "Last-Translator: abuyop <Unknown>\n"
 "Language-Team: malay loco team\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-03-17 05:11+0000\n"
-"X-Generator: Launchpad (build 17389)\n"
+"X-Launchpad-Export-Date: 2015-03-24 05:09+0000\n"
+"X-Generator: Launchpad (build 17413)\n"
 "Language: ms\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -310,12 +310,12 @@ msgstr "Maaf, kami perlukan keterangan terperinci."
 msgid "Thank you !\\n\\nYour report has been sent."
 msgstr ""
 
-#: bash/create_prefix:25
+#: bash/create_prefix:26
 #, sh-format
 msgid "Virtual drive creator"
 msgstr "Pencipta pemacu maya"
 
-#: bash/create_prefix:28
+#: bash/create_prefix:29
 #, sh-format
 msgid ""
 "Welcome to $APPLICATION_TITLE virtual drive creator.\\n\\nThis tool will "
@@ -324,12 +324,12 @@ msgstr ""
 "Selamat datang ke pencipta pemacu maya $APPLICATION_TITLE.\\n\\nAlat ini "
 "akan membantu anda membuat pemacu maya baru"
 
-#: bash/create_prefix:30 bash/manual_install:169
+#: bash/create_prefix:31 bash/manual_install:169
 #, sh-format
 msgid "What kind of virtual drive do you want to create"
 msgstr "Apakah jenis pemacu maya yang anda hendak ciptakan"
 
-#: bash/create_prefix:54
+#: bash/create_prefix:55
 #, sh-format
 msgid ""
 "(If this list is empty, please install a wine version with wine version "
@@ -337,12 +337,12 @@ msgid ""
 msgstr ""
 "(Jika senarai ini kosong, sila pasang versi wine dengan pengurus versi wine)"
 
-#: bash/create_prefix:54 bash/manual_install:156
+#: bash/create_prefix:55 bash/manual_install:156
 #, sh-format
 msgid "Which version of Wine would you like to use?"
 msgstr "Versi wine yang manakah anda mahu gunakan?"
 
-#: bash/create_prefix:62
+#: bash/create_prefix:63
 #, sh-format
 msgid "Choose the name of the virtual drive"
 msgstr "Pilih nama bagi pemacu maya"
@@ -385,15 +385,15 @@ msgstr "Bestari ini akan membantu anda memasang Wine: "
 msgid "on the $APPLICATION_TITLE environment."
 msgstr "dalam persekitaran $APPLICATION_TITLE."
 
-#: bash/installpolpackages:26 bash/polconfigurator:23 bash/winebash:27
+#: bash/installpolpackages:29 bash/polconfigurator:23 bash/winebash:27
 #, sh-format
 msgid "$APPLICATION_TITLE Application Configurator"
 msgstr "Penkonfigur Aplikasi $APPLICATION_TITLE"
 
-#: bash/installpolpackages:26 bash/killall:29 bash/read_pc_cd:39
+#: bash/installpolpackages:29 bash/killall:29 bash/read_pc_cd:39
 #: bash/read_pc_cd:73 bash/read_pc_cd:103 bash/winebash:27
-#: lib/setupwindow.lib:435 lib/wine.lib:1002 lib/wine.lib:1080
-#: lib/wine.lib:1110
+#: lib/setupwindow.lib:420 lib/wine.lib:1011 lib/wine.lib:1089
+#: lib/wine.lib:1119
 #, sh-format
 msgid "Please wait..."
 msgstr "Sila tunggu..."
@@ -505,120 +505,114 @@ msgstr "Jika anda tidak tahu, nyahpilih semua"
 msgid "What would you like to do before installation?"
 msgstr "Apa yang anda hendak buat sebelum pemasangan?"
 
-#: bash/manual_install:203 lib/scripts.lib:438
+#: bash/manual_install:203 lib/scripts.lib:447
 #, sh-format
 msgid "Please make your choice"
 msgstr "Sila buat pilihan"
 
-#: bash/manual_install:230
+#: bash/manual_install:232
 #, sh-format
 msgid "Looking for runnable CD-ROMs"
 msgstr "Mencari CD-ROM yang boleh berjalan"
 
-#: bash/manual_install:253
+#: bash/manual_install:255
 #, sh-format
 msgid "Select another file"
 msgstr "Pilih fail lain"
 
-#: bash/manual_install:261
+#: bash/manual_install:263
 #, sh-format
 msgid "Please choose a way to install your program"
 msgstr "Sila pilih cara untuk memasang program anda"
 
-#: bash/manual_install:270
+#: bash/manual_install:272
 #, sh-format
 msgid "Please select the install file to run."
 msgstr "Sila pilih fail pemasangan untuk dijalankan."
 
-#: bash/manual_install:282
+#: bash/manual_install:284
 #, sh-format
 msgid "You must choose a file!"
 msgstr "Anda mesti pilih satu fail!"
 
-#: bash/manual_install:288
+#: bash/manual_install:290
 #, sh-format
 msgid "$APPLICATION_TITLE is installing your application..."
 msgstr "$APPLICATION_TITLE sedang memasang aplikasi anda..."
 
-#: bash/playonlinux-pkg:25
-#, sh-format
-msgid "$APPLICATION_TITLE package manager: "
-msgstr "Pengurus pakej $APPLICATION_TITLE: "
-
-#: bash/playonlinux-pkg:39
+#: bash/playonlinux-pkg:27
 #, sh-format
 msgid "Usage: "
 msgstr "Penggunaan: "
 
-#: bash/playonlinux-pkg:40
+#: bash/playonlinux-pkg:29
 #, sh-format
 msgid "\tChoose a file"
 msgstr "\tPilih satu fail"
 
-#: bash/playonlinux-pkg:40 bash/playonlinux-pkg:41 bash/playonlinux-pkg:42
-#: bash/playonlinux-pkg:43
-#, sh-format
-msgid " or "
-msgstr " atau "
-
-#: bash/playonlinux-pkg:41
+#: bash/playonlinux-pkg:31
 #, sh-format
 msgid "\tExtract the package"
 msgstr "\tEkstrak pakej"
 
-#: bash/playonlinux-pkg:42
+#: bash/playonlinux-pkg:33
 #, sh-format
 msgid "\tInstall the package"
 msgstr "\tPasang pakej"
 
-#: bash/playonlinux-pkg:43
+#: bash/playonlinux-pkg:35
 #, sh-format
 msgid "\tShow this message"
 msgstr "\tPapar mesej ini"
 
-#: bash/playonlinux-pkg:47
+#: bash/playonlinux-pkg:38
+#, sh-format
+msgid "$APPLICATION_TITLE package manager: "
+msgstr "Pengurus pakej $APPLICATION_TITLE: "
+
+#: bash/playonlinux-pkg:55
 #, sh-format
 msgid "Choose a package to install"
 msgstr "Pilih satu pakej untuk dipasang"
 
-#: bash/playonlinux-pkg:47
+#: bash/playonlinux-pkg:55
 #, sh-format
 msgid "PlayOnLinux package manager"
 msgstr "Pengurus pakej PlayOnLinux"
 
-#: bash/playonlinux-pkg:63
+#: bash/playonlinux-pkg:69
 #, sh-format
 msgid "Unable to find the file: "
 msgstr "Tidak boleh cari fail: "
 
-#: bash/playonlinux-pkg:69 bash/playonlinux-pkg:92 bash/playonlinux-pkg:103
-#: bash/playonlinux-pkg:108
+#: bash/playonlinux-pkg:75 bash/playonlinux-pkg:96 bash/playonlinux-pkg:107
+#: bash/playonlinux-pkg:112
 #, sh-format
 msgid " isn't a valid PlayOnLinux package!"
 msgstr " bukanlah pakej PlayOnLinux yang sah!"
 
-#: bash/playonlinux-pkg:69 bash/playonlinux-pkg:86 bash/playonlinux-pkg:92
-#: bash/playonlinux-pkg:103 bash/playonlinux-pkg:108
+#: bash/playonlinux-pkg:75 bash/playonlinux-pkg:90 bash/playonlinux-pkg:96
+#: bash/playonlinux-pkg:107 bash/playonlinux-pkg:112
 #, sh-format
 msgid "This file: "
 msgstr "Fail ini: "
 
-#: bash/playonlinux-pkg:86
+#: bash/playonlinux-pkg:90
 #, sh-format
 msgid " does not exist!"
 msgstr " tidak wujud!"
 
-#: bash/playonlinux-pkg:99
+#: bash/playonlinux-pkg:103
 #, sh-format
 msgid "Extracting: "
 msgstr "Mengekstrak: "
 
-#: bash/playonlinux-pkg:111
+#: bash/playonlinux-pkg:115
 #, sh-format
 msgid "Running..."
 msgstr "Menjalankan..."
 
-#: bash/playonlinux-pkg:115
+#: bash/playonlinux-pkg:119
 #, sh-format
 msgid "Cleaning..."
 msgstr "Membersihkan..."
@@ -766,28 +760,28 @@ msgstr ""
 msgid "$PACKAGE crashed."
 msgstr "$PACKAGE mengalami kerosakan."
 
-#: bash/run_exe:34
+#: bash/run_exe:33
 #, sh-format
 msgid "Waiting XQuartz to be installed"
 msgstr ""
 
-#: bash/run_exe:71
+#: bash/run_exe:70
 #, sh-format
 msgid "$APPLICATION_TITLE is analysing your application"
 msgstr "$APPLICATION_TITLE sedang menganalisis aplikasi anda"
 
-#: bash/run_exe:82
+#: bash/run_exe:81
 #, sh-format
 msgid "Do you want $APPLICATION_TITLE to install it automatically for you?"
 msgstr ""
 "Anda hendak $APPLICATION_TITLE memasangnya secara automatik untuk anda?"
 
-#: bash/run_exe:82
+#: bash/run_exe:81
 #, sh-format
 msgid "We have detected that the program you want to install is :"
 msgstr "Kami telah mengesan bahawa program yang anda mahu pasang adalah :"
 
-#: bash/run_exe:98
+#: bash/run_exe:97
 #, sh-format
 msgid ""
 "Welcome to $APPLICATION_TITLE assistant.\\nIt will help you to install $file "
@@ -799,12 +793,12 @@ msgstr ""
 "disokong secara rasmi oleh $APPLICATION_TITLE.\\nMaka, ia berkemungkinan "
 "tidak berfungsi sepertimana yang diharapkan"
 
-#: bash/run_exe:99
+#: bash/run_exe:98
 #, sh-format
 msgid "What is the name of you program?"
 msgstr "Apakah nama program anda?"
 
-#: bash/run_exe:112
+#: bash/run_exe:111
 #, sh-format
 msgid "Installation finished."
 msgstr "Pemasangan selesai."
@@ -860,7 +854,7 @@ msgid "Unable to install XQuartz! You must install it to use wine properly."
 msgstr ""
 
 #: bash/uninstall:31 bash/uninstall:65 bash/uninstall:68 bash/uninstall:75
-#: lib/playonlinux.lib:746
+#: lib/wine.lib:863
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
 msgstr "Penyahpasang $APPLICATION_TITLE"
@@ -880,7 +874,7 @@ msgstr "Klik Berikutnya untuk teruskan."
 msgid "This wizard will help you to uninstall: "
 msgstr "Bestari ini akan membantu anda menyahpasang: "
 
-#: bash/uninstall:65 lib/playonlinux.lib:746
+#: bash/uninstall:65 lib/wine.lib:863
 #, sh-format
 msgid "Uninstalling..."
 msgstr "Menyahpasang..."
@@ -948,28 +942,28 @@ msgstr ""
 "hentikan proses pemasangan.\\nLawati www.$POL_DNS untuk maklumat lanjut"
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:879 lib/wine.lib:960
+#: lib/wine.lib:888 lib/wine.lib:969
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr "Sila tunggu semasa pemacu maya dicipta..."
 
-#: lib/deprecated.lib:427
+#: lib/deprecated.lib:431
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a Windows reboot"
 msgstr "Sila tunggu semasa $APPLICATION_TITLE mensimulasi but semula Windows"
 
-#: lib/deprecated.lib:559
+#: lib/deprecated.lib:563
 #, sh-format
 msgid "Setting Program Files var"
 msgstr "Menetapkan var Program Files"
 
-#: lib/playonlinux.lib:243 lib/playonlinux.lib:249 lib/playonlinux.lib:255
-#: lib/playonlinux.lib:261 lib/playonlinux.lib:267 lib/playonlinux.lib:273
+#: lib/playonlinux.lib:249 lib/playonlinux.lib:255 lib/playonlinux.lib:261
+#: lib/playonlinux.lib:267 lib/playonlinux.lib:273 lib/playonlinux.lib:279
 #, sh-format
 msgid "This function is disabled in the PlayOnlinux environment."
 msgstr "Fungsi ini dilumpuhkan di dalam persekitaran PlayOnLinux."
 
-#: lib/playonlinux.lib:335
+#: lib/playonlinux.lib:342
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -980,12 +974,12 @@ msgstr ""
 "nPlayOnLinux tidak pernah mengesahkan skrip ini dan tidak akan "
 "bertanggungjawab darinya.\\nSila pastikan anda tahu apa yang anda buat !"
 
-#: lib/playonlinux.lib:336
+#: lib/playonlinux.lib:343
 #, sh-format
 msgid "Here the source code of the script. Check it carefully"
 msgstr "Disini merupakan kod sumber skrip. Periksa ia dengan hati-hati"
 
-#: lib/playonlinux.lib:358
+#: lib/playonlinux.lib:365
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -996,27 +990,27 @@ msgstr ""
 "n$APPLICATION_TITLE tidak pernah mengesahkan skrip ini dan tidak akan "
 "bertanggungjawab darinya.\\nSila pastikan anda tahu apa yang anda buat!"
 
-#: lib/playonlinux.lib:359
+#: lib/playonlinux.lib:366
 #, sh-format
 msgid "External library"
 msgstr "Pustaka luaran"
 
-#: lib/playonlinux.lib:359
+#: lib/playonlinux.lib:366
 #, sh-format
 msgid "Here the source code of the script. Check it carrefully"
 msgstr "Disini merupakan kod sumber skrip. Periksa ia dengan hati-hati"
 
-#: lib/playonlinux.lib:619
+#: lib/playonlinux.lib:629
 #, sh-format
 msgid "Making shortcut..."
 msgstr "Membuat pintasan..."
 
-#: lib/playonlinux.lib:744
+#: lib/playonlinux.lib:755
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr "Anda hendak padam pemacu maya:"
 
-#: lib/playonlinux.lib:855
+#: lib/playonlinux.lib:864
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
@@ -1025,7 +1019,7 @@ msgstr ""
 "Fail berikut berada dalam sistem fail FAT32.\\nIa mungkin menghalang wine "
 "berfungsi dalam\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:856
+#: lib/playonlinux.lib:865
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
@@ -1034,7 +1028,7 @@ msgstr ""
 "Fail berikut berada dalam sistem fail NTFS.\\nIa mungkin menghalang wine "
 "berfungsi dalam\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:857
+#: lib/playonlinux.lib:866
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
@@ -1043,7 +1037,7 @@ msgstr ""
 "Fail berikut berada dalam sistem fail fuse.\\nIa mungkin menghalang wine "
 "berfungsi dalam\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:858
+#: lib/playonlinux.lib:867
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
@@ -1052,41 +1046,41 @@ msgstr ""
 "Fail berikut berada dalam sistem fail terlekap noexec.\\nIa mungkin "
 "menghalang wine berfungsi dalam\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:887
+#: lib/playonlinux.lib:896
 #, sh-format
 msgid ""
 "Your Linux kernel may not be configured to run Win16 programs under Wine\\"
 "nSee $EXPLANATION_URL"
 msgstr ""
 
-#: lib/playonlinux.lib:890
+#: lib/playonlinux.lib:899
 #, sh-format
 msgid ""
 "Your kernel may be incompatible with running Win16 programs under Wine\\nSee "
 "$EXPLANATION_URL"
 msgstr ""
 
-#: lib/plugins.lib:66
+#: lib/plugins.lib:63
 #, sh-format
 msgid "Checking plugin: "
 msgstr "Memeriksa pemalam: "
 
-#: lib/plugins.lib:94
+#: lib/plugins.lib:85
 #, sh-format
 msgid "New: "
 msgstr "Baru: "
 
-#: lib/plugins.lib:94
+#: lib/plugins.lib:85
 #, sh-format
 msgid "Updating plugin. Previous: "
 msgstr "Mengemaskini pemalam. Terdahulu: "
 
-#: lib/plugins.lib:113
+#: lib/plugins.lib:99
 #, sh-format
 msgid "Installing plugin: "
 msgstr "Memasang pemalam: "
 
-#: lib/scripts.lib:336
+#: lib/scripts.lib:340
 #, sh-format
 msgid ""
 "Binary not found: $BINARY\\nHave you installed the program to the default "
@@ -1095,39 +1089,39 @@ msgstr ""
 "Binari tidak ditemui:  $BINARY\\nAdakah anda memasang program ke lokasi "
 "lalainya?"
 
-#: lib/scripts.lib:400
+#: lib/scripts.lib:406
 #, sh-format
 msgid "Function override detected, disabling bug reporting"
 msgstr "Pembatalan fungsi dikesan, melumpuhkan pelaporan pepijat"
 
-#: lib/scripts.lib:500 lib/scripts.lib:566
+#: lib/scripts.lib:505 lib/scripts.lib:568
 #, sh-format
 msgid "No enough space to download:\\n$URL ($neededSpace KB)"
 msgstr "Ruang tidak mencukupi untuk memuat turun:\\n$URL ($neededSpace KB)"
 
-#: lib/scripts.lib:502 lib/scripts.lib:787
+#: lib/scripts.lib:507 lib/scripts.lib:790
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr "Sila tunggu semasa $APPLICATION_TITLE memuat turun:"
 
-#: lib/scripts.lib:504 lib/scripts.lib:572
+#: lib/scripts.lib:509 lib/scripts.lib:574
 #, sh-format
 msgid "An error happened during download."
 msgstr "Ralat berlaku semasa muat turn."
 
-#: lib/scripts.lib:504 lib/scripts.lib:523 lib/scripts.lib:572
-#: lib/scripts.lib:589
+#: lib/scripts.lib:509 lib/scripts.lib:527 lib/scripts.lib:574
+#: lib/scripts.lib:590
 #, sh-format
 msgid "Do you want to retry?"
 msgstr "Anda hendak cuba lagi?"
 
-#: lib/scripts.lib:523 lib/scripts.lib:589
+#: lib/scripts.lib:527 lib/scripts.lib:590
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 "Ralat ! Fail tidak sepadan\\n\\nSetempat : $LOCAL_MD5\\nPelayan : $SERVER_MD5"
 
-#: lib/scripts.lib:692
+#: lib/scripts.lib:695
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
@@ -1135,32 +1129,32 @@ msgstr ""
 "7z tidak dipasang, sila semak sama ada anda telah memasang 7zip dan cuba "
 "sekali lagi"
 
-#: lib/scripts.lib:699
+#: lib/scripts.lib:702
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr "Gagal mencari ${dest} dari ${archive}"
 
-#: lib/scripts.lib:703
+#: lib/scripts.lib:706
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr "Mengekstrak ${filename} dari ${archivename}"
 
-#: lib/scripts.lib:718
+#: lib/scripts.lib:721
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr "Saiz fail terekstrak tidak sepadan!"
 
-#: lib/scripts.lib:749
+#: lib/scripts.lib:752
 #, sh-format
 msgid "Copying ${filename}"
 msgstr "Menyalin ${filename}"
 
-#: lib/scripts.lib:762
+#: lib/scripts.lib:765
 #, sh-format
 msgid "File size does not match!"
 msgstr "Saiz fail tidak sepadan!"
 
-#: lib/scripts.lib:906
+#: lib/scripts.lib:916
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
@@ -1169,7 +1163,7 @@ msgstr ""
 "Maaf, $APPLICATION_TITLE $VERSION terlalu tua untuk diteruskan.\\"
 "n$APPLICATION_TITLE $NEEDED diperlukan."
 
-#: lib/scripts.lib:921
+#: lib/scripts.lib:931
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
@@ -1178,92 +1172,72 @@ msgstr ""
 "Amaran: Anda kini menjalankan $APPLICATION_TITLE $VERSION.\\"
 "n$APPLICATION_TITLE $NEEDED disarankan untuk diteruskan."
 
-#: lib/scripts.lib:952
+#: lib/scripts.lib:962
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr "Profil $AUTHOR"
 
-#: lib/setupwindow.lib:96
+#: lib/setupwindow.lib:95
 #, sh-format
 msgid " on your computer."
 msgstr " pada komputer anda."
 
-#: lib/setupwindow.lib:96
+#: lib/setupwindow.lib:95
 #, sh-format
 msgid " will be installed in: "
 msgstr " akan dipasang dalam: "
 
-#: lib/setupwindow.lib:96
+#: lib/setupwindow.lib:95
 #, sh-format
 msgid "Click Next to start"
 msgstr "Klik Berikutnya untuk mula"
 
-#: lib/setupwindow.lib:96
+#: lib/setupwindow.lib:95
 #, sh-format
 msgid "This installation program is provided by: "
 msgstr "Program pemasangan ini disediakan oleh: "
 
-#: lib/setupwindow.lib:96
+#: lib/setupwindow.lib:95
 #, sh-format
 msgid "This program was created by: "
 msgstr "Program ini telah dicipta oleh: "
 
-#: lib/setupwindow.lib:96
+#: lib/setupwindow.lib:95
 #, sh-format
 msgid "This wizard will help you install "
 msgstr "Bestari ini akan membantu anda pasang "
 
-#: lib/setupwindow.lib:96
+#: lib/setupwindow.lib:95
 #, sh-format
 msgid "Welcome to $APPLICATION_TITLE Installation Wizard."
 msgstr "Selamat datang ke Bestari Pemasangan $APPLICATION_TITLE."
 
-#: lib/setupwindow.lib:120
-#, sh-format
-msgid ""
-"One or more program(s) are missing. Please install them and run the script "
-"again."
-msgstr ""
-"Satu atau lebih program telah hilang. Sila pasang ia dan jalankan skrip "
-"sekali lagi."
-
-#: lib/setupwindow.lib:122 python/guiv3.py:769 python/mainwindow.py:1156
-#: python/mainwindow.py:1186 python/mainwindow.py:1200
-#: python/mainwindow.py:1209 python/mainwindow.py:1221
-#: python/mainwindow.py:1233 python/mainwindow.py.orig:1149
-#: python/mainwindow.py.orig:1179 python/mainwindow.py.orig:1193
-#: python/mainwindow.py.orig:1202 python/mainwindow.py.orig:1214
-#: python/mainwindow.py.orig:1226 python/wrapper.py:121
-#, sh-format
-msgid "Error"
-msgstr "Ralat"
-
-#: lib/setupwindow.lib:350
+#: lib/setupwindow.lib:335
 #, sh-format
 msgid "Where is mounted your CD-ROM?"
 msgstr "Dimanakan CD-ROM anda dilekap?"
 
-#: lib/setupwindow.lib:351 python/install.py:222
+#: lib/setupwindow.lib:336 python/install.py:222
 #, sh-format
 msgid "Other"
 msgstr "Lain-lain"
 
-#: lib/setupwindow.lib:352 python/install.py:290 python/install.py:294
+#: lib/setupwindow.lib:337 python/install.py:290 python/install.py:294
 #, sh-format
 msgid "Refresh"
 msgstr "Segar Semula"
 
-#: lib/setupwindow.lib:384
+#: lib/setupwindow.lib:369
 #, sh-format
 msgid "Reading your device"
 msgstr "Membaca peranti anda"
 
-#: lib/setupwindow.lib:399
+#: lib/setupwindow.lib:384
 #, sh-format
 msgid "Error: Unable to find the CD-ROM!"
 msgstr "Ralat: Tidak dapat cari CD-ROM!"
 
-#: lib/setupwindow.lib:413
+#: lib/setupwindow.lib:398
 #, sh-format
 msgid ""
 "$TITLE needs to read the PC part of a hybrid CD-Rom.\\n\\nBy default, MacOS "
@@ -1276,7 +1250,7 @@ msgstr ""
 "yang mana tidak serasi dengan versi terkini Mac OS.\\n\\nAnda mahu PlayOnMac "
 "cuba membaca bahagian PC CD anda?"
 
-#: lib/setupwindow.lib:465
+#: lib/setupwindow.lib:450
 #, sh-format
 msgid ""
 "Don't forget to go to PlayOnMac tools menu -> Read a PC CD-Rom before "
@@ -1285,27 +1259,27 @@ msgstr ""
 "Jangan lupa pergi ke menu alatan PlayOnMac -> Baca CD-Rom PC sebelum "
 "menjalankan permainan anda"
 
-#: lib/setupwindow.lib:476
+#: lib/setupwindow.lib:464
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is copying files:"
 msgstr "Sila tunggu semasa $APPLICATION_TITLE menyalin fail:"
 
-#: lib/setupwindow.lib:561 lib/setupwindow.lib:710
+#: lib/setupwindow.lib:549 lib/setupwindow.lib:699
 #, sh-format
 msgid "Scanning the virtual drive ..."
 msgstr "Mengimbas pemacu maya ..."
 
-#: lib/setupwindow.lib:575
+#: lib/setupwindow.lib:563
 #, sh-format
 msgid "How much memory does your graphics board have?"
 msgstr "Berapa banyak ingatan papan grafik anda miliki?"
 
-#: lib/setupwindow.lib:584
+#: lib/setupwindow.lib:572
 #, sh-format
 msgid "Video card does not have enough memory"
 msgstr "Kad video tidak mempunyai ingatan yang mencukupi"
 
-#: lib/setupwindow.lib:585
+#: lib/setupwindow.lib:573
 #, sh-format
 msgid ""
 "Your video card does not have enough memory!\\nIt might prevent the game "
@@ -1314,72 +1288,72 @@ msgstr ""
 "Kad video anda tidak mempunyai ingatan yang mencukupi!\\nIa menghalang "
 "permainan daripada berfungsi"
 
-#: lib/setupwindow.lib:599
+#: lib/setupwindow.lib:588
 #, sh-format
 msgid "Use Steam Store version"
 msgstr "Guna versi Kedai Steam"
 
-#: lib/setupwindow.lib:600
+#: lib/setupwindow.lib:589
 #, sh-format
 msgid "Use Steam Store demo version"
 msgstr "Guna versi demo Kedai Steam"
 
-#: lib/setupwindow.lib:601
+#: lib/setupwindow.lib:590
 #, sh-format
 msgid "Use Desura Store version"
 msgstr "Guna versi Kedai Desura"
 
-#: lib/setupwindow.lib:602
+#: lib/setupwindow.lib:591
 #, sh-format
 msgid "Use Desura Store demo version"
 msgstr "Guna versi demo Kedai Desura"
 
-#: lib/setupwindow.lib:603
+#: lib/setupwindow.lib:592
 #, sh-format
 msgid "Use Origin Store version"
 msgstr "Guna versi Kedai Origin"
 
-#: lib/setupwindow.lib:604
+#: lib/setupwindow.lib:593
 #, sh-format
 msgid "Use Origin Store demo version"
 msgstr "Guna versi demo Kedai Origin"
 
-#: lib/setupwindow.lib:606
+#: lib/setupwindow.lib:595
 #, sh-format
 msgid "Use a setup file in my computer"
 msgstr "Guna fail persediaan di dalam komputer saya"
 
-#: lib/setupwindow.lib:607
+#: lib/setupwindow.lib:596
 #, sh-format
 msgid "Use CD-ROM(s)"
 msgstr "Guna CD-ROM"
 
-#: lib/setupwindow.lib:608
+#: lib/setupwindow.lib:597
 #, sh-format
 msgid "Use DVD-ROM(s)"
 msgstr "Guna DVD-ROM"
 
-#: lib/setupwindow.lib:609
+#: lib/setupwindow.lib:598
 #, sh-format
 msgid "Download the program"
 msgstr "Mut turun program"
 
-#: lib/setupwindow.lib:674
+#: lib/setupwindow.lib:663
 #, sh-format
 msgid "Please choose an installation method"
 msgstr "Sila pilih kaedah pemasangan"
 
-#: lib/setupwindow.lib:712
+#: lib/setupwindow.lib:701
 #, sh-format
 msgid "I don't want to make another shortcut"
 msgstr "Saya tidak mahu buat pintasan lain"
 
-#: lib/setupwindow.lib:713 python/guiv3.py:163
+#: lib/setupwindow.lib:702 python/guiv3.py:163
 #, sh-format
 msgid "Browse"
 msgstr "Layar"
 
-#: lib/setupwindow.lib:741
+#: lib/setupwindow.lib:730
 #, sh-format
 msgid "A shortcut by that name already exists, overwrite?"
 msgstr ""
@@ -1403,23 +1377,23 @@ msgstr ""
 "Gagal menyambung !\\nSila pastikan daftar masuk dan kata laluan anda adalah "
 "betul."
 
-#: lib/wine.lib:390
+#: lib/wine.lib:388
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is scanning your hardware"
 msgstr "Sila tunggu semasa $APPLICATION_TITLE mengimbas perkakasan anda"
 
-#: lib/wine.lib:396
+#: lib/wine.lib:394
 #, sh-format
 msgid "Select the main videocard to report:"
 msgstr "Pilih kad video utama untuk laporan:"
 
-#: lib/wine.lib:542
+#: lib/wine.lib:540
 #, sh-format
 msgid ""
 "Starting 64-bit process $EXEFILE is not supported in 32-bit virtual drives"
 msgstr ""
 
-#: lib/wine.lib:580
+#: lib/wine.lib:578
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
@@ -1428,7 +1402,7 @@ msgstr ""
 "Wine kelihatan mengalami kerosakan\\n\\nJika program masih berjalan, abaikan "
 "mesej ini"
 
-#: lib/wine.lib:625
+#: lib/wine.lib:623
 #, sh-format
 msgid ""
 "This is an installer for an update or an addon;\\nPlease install "
@@ -1437,57 +1411,57 @@ msgstr ""
 "Ini adalah pemasang untuk kemaskini atau tambahan;\\nSila pasang "
 "$TITLE_REQUIRED dahulu"
 
-#: lib/wine.lib:684
+#: lib/wine.lib:682
 #, sh-format
 msgid "Unable to find version: "
 msgstr "Tidak boleh cari versi: "
 
-#: lib/wine.lib:690 lib/wine.lib:691
+#: lib/wine.lib:688 lib/wine.lib:689
 #, sh-format
 msgid "Downloading Wine: "
 msgstr "Memuat turun Wine: "
 
-#: lib/wine.lib:700
+#: lib/wine.lib:698
 #, sh-format
 msgid "The download seems to have failed."
 msgstr "Muat turun kelihatan telah mengalami kegagalan."
 
-#: lib/wine.lib:702
+#: lib/wine.lib:700
 #, sh-format
 msgid "Extracting Wine..."
 msgstr "Mengekstrak Wine..."
 
-#: lib/wine.lib:885
+#: lib/wine.lib:894
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr "Tulis-ganti (biasanya berfungsi, tetapi tiada jaminan)"
 
-#: lib/wine.lib:886
+#: lib/wine.lib:895
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
 msgstr "Padam (kandungan pemacu maya akan hilang)"
 
-#: lib/wine.lib:887
+#: lib/wine.lib:896
 #, sh-format
 msgid "Abort installation"
 msgstr "Henti paksa pemasangan"
 
-#: lib/wine.lib:900
+#: lib/wine.lib:909
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr "Pemacu maya sasaran $PREFNAME sudah wujud:"
 
-#: lib/wine.lib:916
+#: lib/wine.lib:925
 #, sh-format
 msgid "User abort"
 msgstr "Pengguna henti paksa"
 
-#: lib/wine.lib:1080 lib/wine.lib:1110
+#: lib/wine.lib:1089 lib/wine.lib:1119
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "Sila tunggu semasa $SOFTNAME dipasang..."
 
-#: lib/wine.lib:1084 lib/wine.lib:1113
+#: lib/wine.lib:1093 lib/wine.lib:1122
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
@@ -1496,17 +1470,17 @@ msgstr ""
 "Berhati-hati! Ia akan matikan proses pemasangan. Jika ia masih belum "
 "selesai, anda perlu pasang semula $SOFTNAME"
 
-#: lib/wine.lib:1084 lib/wine.lib:1113
+#: lib/wine.lib:1093 lib/wine.lib:1122
 #, sh-format
 msgid "Install is done"
 msgstr "Pemasangan selesai"
 
-#: lib/wine.lib:1117 lib/wine.lib:1118
+#: lib/wine.lib:1126 lib/wine.lib:1127
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr "Tekan maju hanya bila proses pemasangan telah selesai"
 
-#: lib/wine.lib:1126
+#: lib/wine.lib:1135
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr "Sila tunggu semasa $APPLICATION_TITLE mensimulasi but semula"
@@ -1794,6 +1768,16 @@ msgstr "MB dimuat turun"
 #: python/guiv3.py:302
 msgid "of"
 msgstr "dari"
+
+#: python/guiv3.py:769 python/mainwindow.py:1156 python/mainwindow.py:1186
+#: python/mainwindow.py:1200 python/mainwindow.py:1209
+#: python/mainwindow.py:1221 python/mainwindow.py:1233
+#: python/mainwindow.py.orig:1149 python/mainwindow.py.orig:1179
+#: python/mainwindow.py.orig:1193 python/mainwindow.py.orig:1202
+#: python/mainwindow.py.orig:1214 python/mainwindow.py.orig:1226
+#: python/wrapper.py:121
+msgid "Error"
+msgstr "Ralat"
 
 #: python/guiv3.py:769
 msgid "You cannot close this window"
@@ -2407,9 +2391,13 @@ msgstr "Versi Wine tersedia: "
 msgid "Wine versions"
 msgstr "Versi Wine"
 
-#: python/wine_versions.py:327
+#: python/wine_versions.py:330
 msgid "Are you sure you want to delete wine {0}?"
 msgstr "Anda pasti hendak memadam wine {0}?"
+
+#: python/wine_versions.py:332
+msgid "This version is CURRENTLY IN USE"
+msgstr ""
 
 #: python/wrapper.py:121
 msgid "{0} is not able to start POL_SetupWindow_server."

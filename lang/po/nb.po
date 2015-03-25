@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-03-16 19:00+0100\n"
+"POT-Creation-Date: 2015-03-23 19:00+0100\n"
 "PO-Revision-Date: 2014-08-05 10:47+0000\n"
 "Last-Translator: Einar Svensen <Unknown>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-03-17 05:11+0000\n"
-"X-Generator: Launchpad (build 17389)\n"
+"X-Launchpad-Export-Date: 2015-03-24 05:09+0000\n"
+"X-Generator: Launchpad (build 17413)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -302,36 +302,36 @@ msgstr ""
 msgid "Thank you !\\n\\nYour report has been sent."
 msgstr ""
 
-#: bash/create_prefix:25
+#: bash/create_prefix:26
 #, sh-format
 msgid "Virtual drive creator"
 msgstr ""
 
-#: bash/create_prefix:28
+#: bash/create_prefix:29
 #, sh-format
 msgid ""
 "Welcome to $APPLICATION_TITLE virtual drive creator.\\n\\nThis tool will "
 "help you to make a new virtual drive"
 msgstr ""
 
-#: bash/create_prefix:30 bash/manual_install:169
+#: bash/create_prefix:31 bash/manual_install:169
 #, sh-format
 msgid "What kind of virtual drive do you want to create"
 msgstr ""
 
-#: bash/create_prefix:54
+#: bash/create_prefix:55
 #, sh-format
 msgid ""
 "(If this list is empty, please install a wine version with wine version "
 "manager)"
 msgstr ""
 
-#: bash/create_prefix:54 bash/manual_install:156
+#: bash/create_prefix:55 bash/manual_install:156
 #, sh-format
 msgid "Which version of Wine would you like to use?"
 msgstr ""
 
-#: bash/create_prefix:62
+#: bash/create_prefix:63
 #, sh-format
 msgid "Choose the name of the virtual drive"
 msgstr ""
@@ -373,15 +373,15 @@ msgstr ""
 msgid "on the $APPLICATION_TITLE environment."
 msgstr ""
 
-#: bash/installpolpackages:26 bash/polconfigurator:23 bash/winebash:27
+#: bash/installpolpackages:29 bash/polconfigurator:23 bash/winebash:27
 #, sh-format
 msgid "$APPLICATION_TITLE Application Configurator"
 msgstr ""
 
-#: bash/installpolpackages:26 bash/killall:29 bash/read_pc_cd:39
+#: bash/installpolpackages:29 bash/killall:29 bash/read_pc_cd:39
 #: bash/read_pc_cd:73 bash/read_pc_cd:103 bash/winebash:27
-#: lib/setupwindow.lib:435 lib/wine.lib:1002 lib/wine.lib:1080
-#: lib/wine.lib:1110
+#: lib/setupwindow.lib:420 lib/wine.lib:1011 lib/wine.lib:1089
+#: lib/wine.lib:1119
 #, sh-format
 msgid "Please wait..."
 msgstr "Vennligst vent..."
@@ -490,120 +490,114 @@ msgstr ""
 msgid "What would you like to do before installation?"
 msgstr ""
 
-#: bash/manual_install:203 lib/scripts.lib:438
+#: bash/manual_install:203 lib/scripts.lib:447
 #, sh-format
 msgid "Please make your choice"
 msgstr ""
 
-#: bash/manual_install:230
+#: bash/manual_install:232
 #, sh-format
 msgid "Looking for runnable CD-ROMs"
 msgstr ""
 
-#: bash/manual_install:253
+#: bash/manual_install:255
 #, sh-format
 msgid "Select another file"
 msgstr ""
 
-#: bash/manual_install:261
+#: bash/manual_install:263
 #, sh-format
 msgid "Please choose a way to install your program"
 msgstr ""
 
-#: bash/manual_install:270
+#: bash/manual_install:272
 #, sh-format
 msgid "Please select the install file to run."
 msgstr ""
 
-#: bash/manual_install:282
+#: bash/manual_install:284
 #, sh-format
 msgid "You must choose a file!"
 msgstr ""
 
-#: bash/manual_install:288
+#: bash/manual_install:290
 #, sh-format
 msgid "$APPLICATION_TITLE is installing your application..."
 msgstr ""
 
-#: bash/playonlinux-pkg:25
-#, sh-format
-msgid "$APPLICATION_TITLE package manager: "
-msgstr ""
-
-#: bash/playonlinux-pkg:39
+#: bash/playonlinux-pkg:27
 #, sh-format
 msgid "Usage: "
 msgstr ""
 
-#: bash/playonlinux-pkg:40
+#: bash/playonlinux-pkg:29
 #, sh-format
 msgid "\tChoose a file"
 msgstr ""
 
-#: bash/playonlinux-pkg:40 bash/playonlinux-pkg:41 bash/playonlinux-pkg:42
-#: bash/playonlinux-pkg:43
-#, sh-format
-msgid " or "
-msgstr ""
-
-#: bash/playonlinux-pkg:41
+#: bash/playonlinux-pkg:31
 #, sh-format
 msgid "\tExtract the package"
 msgstr ""
 
-#: bash/playonlinux-pkg:42
+#: bash/playonlinux-pkg:33
 #, sh-format
 msgid "\tInstall the package"
 msgstr ""
 
-#: bash/playonlinux-pkg:43
+#: bash/playonlinux-pkg:35
 #, sh-format
 msgid "\tShow this message"
 msgstr ""
 
-#: bash/playonlinux-pkg:47
+#: bash/playonlinux-pkg:38
+#, sh-format
+msgid "$APPLICATION_TITLE package manager: "
+msgstr ""
+
+#: bash/playonlinux-pkg:55
 #, sh-format
 msgid "Choose a package to install"
 msgstr ""
 
-#: bash/playonlinux-pkg:47
+#: bash/playonlinux-pkg:55
 #, sh-format
 msgid "PlayOnLinux package manager"
 msgstr ""
 
-#: bash/playonlinux-pkg:63
+#: bash/playonlinux-pkg:69
 #, sh-format
 msgid "Unable to find the file: "
 msgstr ""
 
-#: bash/playonlinux-pkg:69 bash/playonlinux-pkg:92 bash/playonlinux-pkg:103
-#: bash/playonlinux-pkg:108
+#: bash/playonlinux-pkg:75 bash/playonlinux-pkg:96 bash/playonlinux-pkg:107
+#: bash/playonlinux-pkg:112
 #, sh-format
 msgid " isn't a valid PlayOnLinux package!"
 msgstr ""
 
-#: bash/playonlinux-pkg:69 bash/playonlinux-pkg:86 bash/playonlinux-pkg:92
-#: bash/playonlinux-pkg:103 bash/playonlinux-pkg:108
+#: bash/playonlinux-pkg:75 bash/playonlinux-pkg:90 bash/playonlinux-pkg:96
+#: bash/playonlinux-pkg:107 bash/playonlinux-pkg:112
 #, sh-format
 msgid "This file: "
 msgstr ""
 
-#: bash/playonlinux-pkg:86
+#: bash/playonlinux-pkg:90
 #, sh-format
 msgid " does not exist!"
 msgstr ""
 
-#: bash/playonlinux-pkg:99
+#: bash/playonlinux-pkg:103
 #, sh-format
 msgid "Extracting: "
 msgstr ""
 
-#: bash/playonlinux-pkg:111
+#: bash/playonlinux-pkg:115
 #, sh-format
 msgid "Running..."
 msgstr ""
 
-#: bash/playonlinux-pkg:115
+#: bash/playonlinux-pkg:119
 #, sh-format
 msgid "Cleaning..."
 msgstr ""
@@ -745,27 +739,27 @@ msgstr ""
 msgid "$PACKAGE crashed."
 msgstr ""
 
-#: bash/run_exe:34
+#: bash/run_exe:33
 #, sh-format
 msgid "Waiting XQuartz to be installed"
 msgstr ""
 
-#: bash/run_exe:71
+#: bash/run_exe:70
 #, sh-format
 msgid "$APPLICATION_TITLE is analysing your application"
 msgstr ""
 
-#: bash/run_exe:82
+#: bash/run_exe:81
 #, sh-format
 msgid "Do you want $APPLICATION_TITLE to install it automatically for you?"
 msgstr ""
 
-#: bash/run_exe:82
+#: bash/run_exe:81
 #, sh-format
 msgid "We have detected that the program you want to install is :"
 msgstr ""
 
-#: bash/run_exe:98
+#: bash/run_exe:97
 #, sh-format
 msgid ""
 "Welcome to $APPLICATION_TITLE assistant.\\nIt will help you to install $file "
@@ -773,12 +767,12 @@ msgid ""
 "by $APPLICATION_TITLE.\\nTherefore, it might not work as expected"
 msgstr ""
 
-#: bash/run_exe:99
+#: bash/run_exe:98
 #, sh-format
 msgid "What is the name of you program?"
 msgstr ""
 
-#: bash/run_exe:112
+#: bash/run_exe:111
 #, sh-format
 msgid "Installation finished."
 msgstr "Ferdig installert."
@@ -834,7 +828,7 @@ msgid "Unable to install XQuartz! You must install it to use wine properly."
 msgstr ""
 
 #: bash/uninstall:31 bash/uninstall:65 bash/uninstall:68 bash/uninstall:75
-#: lib/playonlinux.lib:746
+#: lib/wine.lib:863
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
 msgstr ""
@@ -854,7 +848,7 @@ msgstr ""
 msgid "This wizard will help you to uninstall: "
 msgstr ""
 
-#: bash/uninstall:65 lib/playonlinux.lib:746
+#: bash/uninstall:65 lib/wine.lib:863
 #, sh-format
 msgid "Uninstalling..."
 msgstr ""
@@ -914,28 +908,28 @@ msgid ""
 msgstr ""
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:879 lib/wine.lib:960
+#: lib/wine.lib:888 lib/wine.lib:969
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr ""
 
-#: lib/deprecated.lib:427
+#: lib/deprecated.lib:431
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a Windows reboot"
 msgstr ""
 
-#: lib/deprecated.lib:559
+#: lib/deprecated.lib:563
 #, sh-format
 msgid "Setting Program Files var"
 msgstr ""
 
-#: lib/playonlinux.lib:243 lib/playonlinux.lib:249 lib/playonlinux.lib:255
-#: lib/playonlinux.lib:261 lib/playonlinux.lib:267 lib/playonlinux.lib:273
+#: lib/playonlinux.lib:249 lib/playonlinux.lib:255 lib/playonlinux.lib:261
+#: lib/playonlinux.lib:267 lib/playonlinux.lib:273 lib/playonlinux.lib:279
 #, sh-format
 msgid "This function is disabled in the PlayOnlinux environment."
 msgstr ""
 
-#: lib/playonlinux.lib:335
+#: lib/playonlinux.lib:342
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -943,12 +937,12 @@ msgid ""
 "responsible from it.\\nPlease ensure you know what you are doing !"
 msgstr ""
 
-#: lib/playonlinux.lib:336
+#: lib/playonlinux.lib:343
 #, sh-format
 msgid "Here the source code of the script. Check it carefully"
 msgstr ""
 
-#: lib/playonlinux.lib:358
+#: lib/playonlinux.lib:365
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -956,255 +950,237 @@ msgid ""
 "responsible from it.\\nPlease ensure you know what you are doing!"
 msgstr ""
 
-#: lib/playonlinux.lib:359
+#: lib/playonlinux.lib:366
 #, sh-format
 msgid "External library"
 msgstr ""
 
-#: lib/playonlinux.lib:359
+#: lib/playonlinux.lib:366
 #, sh-format
 msgid "Here the source code of the script. Check it carrefully"
 msgstr ""
 
-#: lib/playonlinux.lib:619
+#: lib/playonlinux.lib:629
 #, sh-format
 msgid "Making shortcut..."
 msgstr ""
 
-#: lib/playonlinux.lib:744
+#: lib/playonlinux.lib:755
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr ""
 
-#: lib/playonlinux.lib:855
+#: lib/playonlinux.lib:864
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:856
+#: lib/playonlinux.lib:865
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:857
+#: lib/playonlinux.lib:866
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:858
+#: lib/playonlinux.lib:867
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
 "prevent wine from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:887
+#: lib/playonlinux.lib:896
 #, sh-format
 msgid ""
 "Your Linux kernel may not be configured to run Win16 programs under Wine\\"
 "nSee $EXPLANATION_URL"
 msgstr ""
 
-#: lib/playonlinux.lib:890
+#: lib/playonlinux.lib:899
 #, sh-format
 msgid ""
 "Your kernel may be incompatible with running Win16 programs under Wine\\nSee "
 "$EXPLANATION_URL"
 msgstr ""
 
-#: lib/plugins.lib:66
+#: lib/plugins.lib:63
 #, sh-format
 msgid "Checking plugin: "
 msgstr ""
 
-#: lib/plugins.lib:94
+#: lib/plugins.lib:85
 #, sh-format
 msgid "New: "
 msgstr ""
 
-#: lib/plugins.lib:94
+#: lib/plugins.lib:85
 #, sh-format
 msgid "Updating plugin. Previous: "
 msgstr ""
 
-#: lib/plugins.lib:113
+#: lib/plugins.lib:99
 #, sh-format
 msgid "Installing plugin: "
 msgstr ""
 
-#: lib/scripts.lib:336
+#: lib/scripts.lib:340
 #, sh-format
 msgid ""
 "Binary not found: $BINARY\\nHave you installed the program to the default "
 "location?"
 msgstr ""
 
-#: lib/scripts.lib:400
+#: lib/scripts.lib:406
 #, sh-format
 msgid "Function override detected, disabling bug reporting"
 msgstr ""
 
-#: lib/scripts.lib:500 lib/scripts.lib:566
+#: lib/scripts.lib:505 lib/scripts.lib:568
 #, sh-format
 msgid "No enough space to download:\\n$URL ($neededSpace KB)"
 msgstr ""
 
-#: lib/scripts.lib:502 lib/scripts.lib:787
+#: lib/scripts.lib:507 lib/scripts.lib:790
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr ""
 
-#: lib/scripts.lib:504 lib/scripts.lib:572
+#: lib/scripts.lib:509 lib/scripts.lib:574
 #, sh-format
 msgid "An error happened during download."
 msgstr ""
 
-#: lib/scripts.lib:504 lib/scripts.lib:523 lib/scripts.lib:572
-#: lib/scripts.lib:589
+#: lib/scripts.lib:509 lib/scripts.lib:527 lib/scripts.lib:574
+#: lib/scripts.lib:590
 #, sh-format
 msgid "Do you want to retry?"
 msgstr ""
 
-#: lib/scripts.lib:523 lib/scripts.lib:589
+#: lib/scripts.lib:527 lib/scripts.lib:590
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 
-#: lib/scripts.lib:692
+#: lib/scripts.lib:695
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
 msgstr ""
 
-#: lib/scripts.lib:699
+#: lib/scripts.lib:702
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr ""
 
-#: lib/scripts.lib:703
+#: lib/scripts.lib:706
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr ""
 
-#: lib/scripts.lib:718
+#: lib/scripts.lib:721
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:749
+#: lib/scripts.lib:752
 #, sh-format
 msgid "Copying ${filename}"
 msgstr ""
 
-#: lib/scripts.lib:762
+#: lib/scripts.lib:765
 #, sh-format
 msgid "File size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:906
+#: lib/scripts.lib:916
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
 "n$APPLICATION_TITLE $NEEDED is required."
 msgstr ""
 
-#: lib/scripts.lib:921
+#: lib/scripts.lib:931
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
 "$NEEDED is recommended to continue."
 msgstr ""
 
-#: lib/scripts.lib:952
+#: lib/scripts.lib:962
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr ""
 
-#: lib/setupwindow.lib:96
+#: lib/setupwindow.lib:95
 #, sh-format
 msgid " on your computer."
 msgstr ""
 
-#: lib/setupwindow.lib:96
+#: lib/setupwindow.lib:95
 #, sh-format
 msgid " will be installed in: "
 msgstr ""
 
-#: lib/setupwindow.lib:96
+#: lib/setupwindow.lib:95
 #, sh-format
 msgid "Click Next to start"
 msgstr ""
 
-#: lib/setupwindow.lib:96
+#: lib/setupwindow.lib:95
 #, sh-format
 msgid "This installation program is provided by: "
 msgstr ""
 
-#: lib/setupwindow.lib:96
+#: lib/setupwindow.lib:95
 #, sh-format
 msgid "This program was created by: "
 msgstr ""
 
-#: lib/setupwindow.lib:96
+#: lib/setupwindow.lib:95
 #, sh-format
 msgid "This wizard will help you install "
 msgstr ""
 
-#: lib/setupwindow.lib:96
+#: lib/setupwindow.lib:95
 #, sh-format
 msgid "Welcome to $APPLICATION_TITLE Installation Wizard."
 msgstr ""
 
-#: lib/setupwindow.lib:120
-#, sh-format
-msgid ""
-"One or more program(s) are missing. Please install them and run the script "
-"again."
-msgstr ""
-
-#: lib/setupwindow.lib:122 python/guiv3.py:769 python/mainwindow.py:1156
-#: python/mainwindow.py:1186 python/mainwindow.py:1200
-#: python/mainwindow.py:1209 python/mainwindow.py:1221
-#: python/mainwindow.py:1233 python/mainwindow.py.orig:1149
-#: python/mainwindow.py.orig:1179 python/mainwindow.py.orig:1193
-#: python/mainwindow.py.orig:1202 python/mainwindow.py.orig:1214
-#: python/mainwindow.py.orig:1226 python/wrapper.py:121
-#, sh-format
-msgid "Error"
-msgstr ""
-
-#: lib/setupwindow.lib:350
+#: lib/setupwindow.lib:335
 #, sh-format
 msgid "Where is mounted your CD-ROM?"
 msgstr ""
 
-#: lib/setupwindow.lib:351 python/install.py:222
+#: lib/setupwindow.lib:336 python/install.py:222
 #, sh-format
 msgid "Other"
 msgstr ""
 
-#: lib/setupwindow.lib:352 python/install.py:290 python/install.py:294
+#: lib/setupwindow.lib:337 python/install.py:290 python/install.py:294
 #, sh-format
 msgid "Refresh"
 msgstr ""
 
-#: lib/setupwindow.lib:384
+#: lib/setupwindow.lib:369
 #, sh-format
 msgid "Reading your device"
 msgstr ""
 
-#: lib/setupwindow.lib:399
+#: lib/setupwindow.lib:384
 #, sh-format
 msgid "Error: Unable to find the CD-ROM!"
 msgstr ""
 
-#: lib/setupwindow.lib:413
+#: lib/setupwindow.lib:398
 #, sh-format
 msgid ""
 "$TITLE needs to read the PC part of a hybrid CD-Rom.\\n\\nBy default, MacOS "
@@ -1213,106 +1189,106 @@ msgid ""
 "attempt to read the PC-Part of your CD?"
 msgstr ""
 
-#: lib/setupwindow.lib:465
+#: lib/setupwindow.lib:450
 #, sh-format
 msgid ""
 "Don't forget to go to PlayOnMac tools menu -> Read a PC CD-Rom before "
 "running your game"
 msgstr ""
 
-#: lib/setupwindow.lib:476
+#: lib/setupwindow.lib:464
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is copying files:"
 msgstr ""
 
-#: lib/setupwindow.lib:561 lib/setupwindow.lib:710
+#: lib/setupwindow.lib:549 lib/setupwindow.lib:699
 #, sh-format
 msgid "Scanning the virtual drive ..."
 msgstr ""
 
-#: lib/setupwindow.lib:575
+#: lib/setupwindow.lib:563
 #, sh-format
 msgid "How much memory does your graphics board have?"
 msgstr ""
 
-#: lib/setupwindow.lib:584
+#: lib/setupwindow.lib:572
 #, sh-format
 msgid "Video card does not have enough memory"
 msgstr ""
 
-#: lib/setupwindow.lib:585
+#: lib/setupwindow.lib:573
 #, sh-format
 msgid ""
 "Your video card does not have enough memory!\\nIt might prevent the game "
 "from working"
 msgstr ""
 
-#: lib/setupwindow.lib:599
+#: lib/setupwindow.lib:588
 #, sh-format
 msgid "Use Steam Store version"
 msgstr ""
 
-#: lib/setupwindow.lib:600
+#: lib/setupwindow.lib:589
 #, sh-format
 msgid "Use Steam Store demo version"
 msgstr ""
 
-#: lib/setupwindow.lib:601
+#: lib/setupwindow.lib:590
 #, sh-format
 msgid "Use Desura Store version"
 msgstr ""
 
-#: lib/setupwindow.lib:602
+#: lib/setupwindow.lib:591
 #, sh-format
 msgid "Use Desura Store demo version"
 msgstr ""
 
-#: lib/setupwindow.lib:603
+#: lib/setupwindow.lib:592
 #, sh-format
 msgid "Use Origin Store version"
 msgstr ""
 
-#: lib/setupwindow.lib:604
+#: lib/setupwindow.lib:593
 #, sh-format
 msgid "Use Origin Store demo version"
 msgstr ""
 
-#: lib/setupwindow.lib:606
+#: lib/setupwindow.lib:595
 #, sh-format
 msgid "Use a setup file in my computer"
 msgstr ""
 
-#: lib/setupwindow.lib:607
+#: lib/setupwindow.lib:596
 #, sh-format
 msgid "Use CD-ROM(s)"
 msgstr ""
 
-#: lib/setupwindow.lib:608
+#: lib/setupwindow.lib:597
 #, sh-format
 msgid "Use DVD-ROM(s)"
 msgstr ""
 
-#: lib/setupwindow.lib:609
+#: lib/setupwindow.lib:598
 #, sh-format
 msgid "Download the program"
 msgstr ""
 
-#: lib/setupwindow.lib:674
+#: lib/setupwindow.lib:663
 #, sh-format
 msgid "Please choose an installation method"
 msgstr ""
 
-#: lib/setupwindow.lib:712
+#: lib/setupwindow.lib:701
 #, sh-format
 msgid "I don't want to make another shortcut"
 msgstr ""
 
-#: lib/setupwindow.lib:713 python/guiv3.py:163
+#: lib/setupwindow.lib:702 python/guiv3.py:163
 #, sh-format
 msgid "Browse"
 msgstr ""
 
-#: lib/setupwindow.lib:741
+#: lib/setupwindow.lib:730
 #, sh-format
 msgid "A shortcut by that name already exists, overwrite?"
 msgstr ""
@@ -1334,104 +1310,104 @@ msgid ""
 "valid."
 msgstr ""
 
-#: lib/wine.lib:390
+#: lib/wine.lib:388
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is scanning your hardware"
 msgstr ""
 
-#: lib/wine.lib:396
+#: lib/wine.lib:394
 #, sh-format
 msgid "Select the main videocard to report:"
 msgstr ""
 
-#: lib/wine.lib:542
+#: lib/wine.lib:540
 #, sh-format
 msgid ""
 "Starting 64-bit process $EXEFILE is not supported in 32-bit virtual drives"
 msgstr ""
 
-#: lib/wine.lib:580
+#: lib/wine.lib:578
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
 "message"
 msgstr ""
 
-#: lib/wine.lib:625
+#: lib/wine.lib:623
 #, sh-format
 msgid ""
 "This is an installer for an update or an addon;\\nPlease install "
 "$TITLE_REQUIRED first"
 msgstr ""
 
-#: lib/wine.lib:684
+#: lib/wine.lib:682
 #, sh-format
 msgid "Unable to find version: "
 msgstr ""
 
-#: lib/wine.lib:690 lib/wine.lib:691
+#: lib/wine.lib:688 lib/wine.lib:689
 #, sh-format
 msgid "Downloading Wine: "
 msgstr ""
 
-#: lib/wine.lib:700
+#: lib/wine.lib:698
 #, sh-format
 msgid "The download seems to have failed."
 msgstr ""
 
-#: lib/wine.lib:702
+#: lib/wine.lib:700
 #, sh-format
 msgid "Extracting Wine..."
 msgstr ""
 
-#: lib/wine.lib:885
+#: lib/wine.lib:894
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr ""
 
-#: lib/wine.lib:886
+#: lib/wine.lib:895
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
 msgstr ""
 
-#: lib/wine.lib:887
+#: lib/wine.lib:896
 #, sh-format
 msgid "Abort installation"
 msgstr ""
 
-#: lib/wine.lib:900
+#: lib/wine.lib:909
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr ""
 
-#: lib/wine.lib:916
+#: lib/wine.lib:925
 #, sh-format
 msgid "User abort"
 msgstr ""
 
-#: lib/wine.lib:1080 lib/wine.lib:1110
+#: lib/wine.lib:1089 lib/wine.lib:1119
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr ""
 
-#: lib/wine.lib:1084 lib/wine.lib:1113
+#: lib/wine.lib:1093 lib/wine.lib:1122
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
 "have to reinstall $SOFTNAME"
 msgstr ""
 
-#: lib/wine.lib:1084 lib/wine.lib:1113
+#: lib/wine.lib:1093 lib/wine.lib:1122
 #, sh-format
 msgid "Install is done"
 msgstr ""
 
-#: lib/wine.lib:1117 lib/wine.lib:1118
+#: lib/wine.lib:1126 lib/wine.lib:1127
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr ""
 
-#: lib/wine.lib:1126
+#: lib/wine.lib:1135
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr ""
@@ -1709,6 +1685,16 @@ msgstr ""
 
 #: python/guiv3.py:302
 msgid "of"
+msgstr ""
+
+#: python/guiv3.py:769 python/mainwindow.py:1156 python/mainwindow.py:1186
+#: python/mainwindow.py:1200 python/mainwindow.py:1209
+#: python/mainwindow.py:1221 python/mainwindow.py:1233
+#: python/mainwindow.py.orig:1149 python/mainwindow.py.orig:1179
+#: python/mainwindow.py.orig:1193 python/mainwindow.py.orig:1202
+#: python/mainwindow.py.orig:1214 python/mainwindow.py.orig:1226
+#: python/wrapper.py:121
+msgid "Error"
 msgstr ""
 
 #: python/guiv3.py:769
@@ -2280,9 +2266,13 @@ msgstr "Tilgjengelige Wine versjoner: "
 msgid "Wine versions"
 msgstr "Wine versjoner"
 
-#: python/wine_versions.py:327
+#: python/wine_versions.py:330
 msgid "Are you sure you want to delete wine {0}?"
 msgstr "Er du sikker på at du vill slette wine {0}?"
+
+#: python/wine_versions.py:332
+msgid "This version is CURRENTLY IN USE"
+msgstr ""
 
 #: python/wrapper.py:121
 msgid "{0} is not able to start POL_SetupWindow_server."

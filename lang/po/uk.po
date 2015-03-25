@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2015-03-16 19:00+0100\n"
+"POT-Creation-Date: 2015-03-23 19:00+0100\n"
 "PO-Revision-Date: 2015-02-23 12:51+0000\n"
 "Last-Translator: Микола Ткач <Stuartlittle1970@gmail.com>\n"
 "Language-Team: ua_UA.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-03-17 05:12+0000\n"
-"X-Generator: Launchpad (build 17389)\n"
+"X-Launchpad-Export-Date: 2015-03-24 05:09+0000\n"
+"X-Generator: Launchpad (build 17413)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -310,12 +310,12 @@ msgstr "Вибачте, але потрібен детальний опис."
 msgid "Thank you !\\n\\nYour report has been sent."
 msgstr "Дякую !\\n\\nВаш звіт надіслано."
 
-#: bash/create_prefix:25
+#: bash/create_prefix:26
 #, sh-format
 msgid "Virtual drive creator"
 msgstr "Утиліта для створення віртуальних дисків"
 
-#: bash/create_prefix:28
+#: bash/create_prefix:29
 #, sh-format
 msgid ""
 "Welcome to $APPLICATION_TITLE virtual drive creator.\\n\\nThis tool will "
@@ -324,12 +324,12 @@ msgstr ""
 "Ласкаво просимо у майстер створення віртуальних дисків $APPLICATION_TITLE.\\"
 "n\\nЦей інструмент допоможе Вам створити новий віртуальний диск"
 
-#: bash/create_prefix:30 bash/manual_install:169
+#: bash/create_prefix:31 bash/manual_install:169
 #, sh-format
 msgid "What kind of virtual drive do you want to create"
 msgstr "Якого типу віртуальний диск Ви бажаєте створити"
 
-#: bash/create_prefix:54
+#: bash/create_prefix:55
 #, sh-format
 msgid ""
 "(If this list is empty, please install a wine version with wine version "
@@ -338,12 +338,12 @@ msgstr ""
 "(Якщо цей перелік порожній, будь ласка, встановіть одну з версій Wine за "
 "допомогою керування версіями Wine)"
 
-#: bash/create_prefix:54 bash/manual_install:156
+#: bash/create_prefix:55 bash/manual_install:156
 #, sh-format
 msgid "Which version of Wine would you like to use?"
 msgstr "Яку версію Wine Ви бажали б використовувати?"
 
-#: bash/create_prefix:62
+#: bash/create_prefix:63
 #, sh-format
 msgid "Choose the name of the virtual drive"
 msgstr "Виберіть ім’я віртуального диска"
@@ -387,15 +387,15 @@ msgstr "Цей майстер допоможе вам встановити Wine:
 msgid "on the $APPLICATION_TITLE environment."
 msgstr "у оточенні $APPLICATION_TITLE"
 
-#: bash/installpolpackages:26 bash/polconfigurator:23 bash/winebash:27
+#: bash/installpolpackages:29 bash/polconfigurator:23 bash/winebash:27
 #, sh-format
 msgid "$APPLICATION_TITLE Application Configurator"
 msgstr "Налаштування додатку $APPLICATION_TITLE"
 
-#: bash/installpolpackages:26 bash/killall:29 bash/read_pc_cd:39
+#: bash/installpolpackages:29 bash/killall:29 bash/read_pc_cd:39
 #: bash/read_pc_cd:73 bash/read_pc_cd:103 bash/winebash:27
-#: lib/setupwindow.lib:435 lib/wine.lib:1002 lib/wine.lib:1080
-#: lib/wine.lib:1110
+#: lib/setupwindow.lib:420 lib/wine.lib:1011 lib/wine.lib:1089
+#: lib/wine.lib:1119
 #, sh-format
 msgid "Please wait..."
 msgstr "Будь ласка, зачекайте..."
@@ -511,120 +511,114 @@ msgstr "Якщо Ви не знаєте, що потрібно вибрати, �
 msgid "What would you like to do before installation?"
 msgstr "Що Ви бажаєте зробити перед встановленням?"
 
-#: bash/manual_install:203 lib/scripts.lib:438
+#: bash/manual_install:203 lib/scripts.lib:447
 #, sh-format
 msgid "Please make your choice"
 msgstr "Будь ласка, зробіть свій вибір"
 
-#: bash/manual_install:230
+#: bash/manual_install:232
 #, sh-format
 msgid "Looking for runnable CD-ROMs"
 msgstr "Пошук компакт-дисків що запускаються"
 
-#: bash/manual_install:253
+#: bash/manual_install:255
 #, sh-format
 msgid "Select another file"
 msgstr "Виберіть інший файл"
 
-#: bash/manual_install:261
+#: bash/manual_install:263
 #, sh-format
 msgid "Please choose a way to install your program"
 msgstr "Будь ласка, виберіть шлях встановлення програми"
 
-#: bash/manual_install:270
+#: bash/manual_install:272
 #, sh-format
 msgid "Please select the install file to run."
 msgstr "Будь ласка, виберіть встановлювач для запуску."
 
-#: bash/manual_install:282
+#: bash/manual_install:284
 #, sh-format
 msgid "You must choose a file!"
 msgstr "Потрібно вибрати файл!"
 
-#: bash/manual_install:288
+#: bash/manual_install:290
 #, sh-format
 msgid "$APPLICATION_TITLE is installing your application..."
 msgstr "$APPLICATION_TITLE встановлює Ваш додаток..."
 
-#: bash/playonlinux-pkg:25
-#, sh-format
-msgid "$APPLICATION_TITLE package manager: "
-msgstr "$APPLICATION_TITLE менеджер пакунків: "
-
-#: bash/playonlinux-pkg:39
+#: bash/playonlinux-pkg:27
 #, sh-format
 msgid "Usage: "
 msgstr "Використання: "
 
-#: bash/playonlinux-pkg:40
+#: bash/playonlinux-pkg:29
 #, sh-format
 msgid "\tChoose a file"
 msgstr "\tВиберіть файл:"
 
-#: bash/playonlinux-pkg:40 bash/playonlinux-pkg:41 bash/playonlinux-pkg:42
-#: bash/playonlinux-pkg:43
-#, sh-format
-msgid " or "
-msgstr " або "
-
-#: bash/playonlinux-pkg:41
+#: bash/playonlinux-pkg:31
 #, sh-format
 msgid "\tExtract the package"
 msgstr "\tРозпакувати пакунок"
 
-#: bash/playonlinux-pkg:42
+#: bash/playonlinux-pkg:33
 #, sh-format
 msgid "\tInstall the package"
 msgstr "\tВстановити пакунок"
 
-#: bash/playonlinux-pkg:43
+#: bash/playonlinux-pkg:35
 #, sh-format
 msgid "\tShow this message"
 msgstr "\tПоказувати це повідомлення"
 
-#: bash/playonlinux-pkg:47
+#: bash/playonlinux-pkg:38
+#, sh-format
+msgid "$APPLICATION_TITLE package manager: "
+msgstr "$APPLICATION_TITLE менеджер пакунків: "
+
+#: bash/playonlinux-pkg:55
 #, sh-format
 msgid "Choose a package to install"
 msgstr "Виберіть пакунок для встановлення"
 
-#: bash/playonlinux-pkg:47
+#: bash/playonlinux-pkg:55
 #, sh-format
 msgid "PlayOnLinux package manager"
 msgstr "Керування пакунками PlayOnLinux"
 
-#: bash/playonlinux-pkg:63
+#: bash/playonlinux-pkg:69
 #, sh-format
 msgid "Unable to find the file: "
 msgstr "Не вдалося знайти файл: "
 
-#: bash/playonlinux-pkg:69 bash/playonlinux-pkg:92 bash/playonlinux-pkg:103
-#: bash/playonlinux-pkg:108
+#: bash/playonlinux-pkg:75 bash/playonlinux-pkg:96 bash/playonlinux-pkg:107
+#: bash/playonlinux-pkg:112
 #, sh-format
 msgid " isn't a valid PlayOnLinux package!"
 msgstr " не є коректним пакунком PlayOnLinux!"
 
-#: bash/playonlinux-pkg:69 bash/playonlinux-pkg:86 bash/playonlinux-pkg:92
-#: bash/playonlinux-pkg:103 bash/playonlinux-pkg:108
+#: bash/playonlinux-pkg:75 bash/playonlinux-pkg:90 bash/playonlinux-pkg:96
+#: bash/playonlinux-pkg:107 bash/playonlinux-pkg:112
 #, sh-format
 msgid "This file: "
 msgstr "Цей файл: "
 
-#: bash/playonlinux-pkg:86
+#: bash/playonlinux-pkg:90
 #, sh-format
 msgid " does not exist!"
 msgstr " не існує!"
 
-#: bash/playonlinux-pkg:99
+#: bash/playonlinux-pkg:103
 #, sh-format
 msgid "Extracting: "
 msgstr "Витягування: "
 
-#: bash/playonlinux-pkg:111
+#: bash/playonlinux-pkg:115
 #, sh-format
 msgid "Running..."
 msgstr "Запуск..."
 
-#: bash/playonlinux-pkg:115
+#: bash/playonlinux-pkg:119
 #, sh-format
 msgid "Cleaning..."
 msgstr "Очищення..."
@@ -770,28 +764,28 @@ msgstr ""
 msgid "$PACKAGE crashed."
 msgstr "$PACKAGE припинив свою роботу."
 
-#: bash/run_exe:34
+#: bash/run_exe:33
 #, sh-format
 msgid "Waiting XQuartz to be installed"
 msgstr ""
 
-#: bash/run_exe:71
+#: bash/run_exe:70
 #, sh-format
 msgid "$APPLICATION_TITLE is analysing your application"
 msgstr "$APPLICATION_TITLE аналізує Ваш додаток"
 
-#: bash/run_exe:82
+#: bash/run_exe:81
 #, sh-format
 msgid "Do you want $APPLICATION_TITLE to install it automatically for you?"
 msgstr ""
 "Ви бажаєте, щоб $APPLICATION_TITLE встановив його для Вас автоматично?"
 
-#: bash/run_exe:82
+#: bash/run_exe:81
 #, sh-format
 msgid "We have detected that the program you want to install is :"
 msgstr "Ми визначили, що програма, яку Ви бажаєте встановити - це:"
 
-#: bash/run_exe:98
+#: bash/run_exe:97
 #, sh-format
 msgid ""
 "Welcome to $APPLICATION_TITLE assistant.\\nIt will help you to install $file "
@@ -802,12 +796,12 @@ msgstr ""
 "$file на Ваш комп’ютер.\\n\\nУвага! Ця програма офіційно не підтримується "
 "$APPLICATION_TITLE.\\nВідповідно, вона може працювати не так, як чекаєте."
 
-#: bash/run_exe:99
+#: bash/run_exe:98
 #, sh-format
 msgid "What is the name of you program?"
 msgstr "Як називається Ваша програма?"
 
-#: bash/run_exe:112
+#: bash/run_exe:111
 #, sh-format
 msgid "Installation finished."
 msgstr "Встановлення закінчено."
@@ -863,7 +857,7 @@ msgid "Unable to install XQuartz! You must install it to use wine properly."
 msgstr ""
 
 #: bash/uninstall:31 bash/uninstall:65 bash/uninstall:68 bash/uninstall:75
-#: lib/playonlinux.lib:746
+#: lib/wine.lib:863
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
 msgstr "Деінсталятор $APPLICATION_TITLE"
@@ -883,7 +877,7 @@ msgstr "Для продовження клацніть Далі."
 msgid "This wizard will help you to uninstall: "
 msgstr "Цей майстер допоможе Вам вилучити програму: "
 
-#: bash/uninstall:65 lib/playonlinux.lib:746
+#: bash/uninstall:65 lib/wine.lib:863
 #, sh-format
 msgid "Uninstalling..."
 msgstr "Вилучення..."
@@ -952,30 +946,30 @@ msgstr ""
 "адресою: www.$POL_DNS"
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:879 lib/wine.lib:960
+#: lib/wine.lib:888 lib/wine.lib:969
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr "Будь ласка, зачекайте, поки створюється віртуальний диск..."
 
-#: lib/deprecated.lib:427
+#: lib/deprecated.lib:431
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a Windows reboot"
 msgstr ""
 "Будь ласка, зачекайте, поки $APPLICATION_TITLE симулює перезавантаження "
 "Windows..."
 
-#: lib/deprecated.lib:559
+#: lib/deprecated.lib:563
 #, sh-format
 msgid "Setting Program Files var"
 msgstr "Встановлення змінної Program Files"
 
-#: lib/playonlinux.lib:243 lib/playonlinux.lib:249 lib/playonlinux.lib:255
-#: lib/playonlinux.lib:261 lib/playonlinux.lib:267 lib/playonlinux.lib:273
+#: lib/playonlinux.lib:249 lib/playonlinux.lib:255 lib/playonlinux.lib:261
+#: lib/playonlinux.lib:267 lib/playonlinux.lib:273 lib/playonlinux.lib:279
 #, sh-format
 msgid "This function is disabled in the PlayOnlinux environment."
 msgstr "Ця функція недоступна в оточенні PlayOnLinux"
 
-#: lib/playonlinux.lib:335
+#: lib/playonlinux.lib:342
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -986,12 +980,12 @@ msgstr ""
 "nЦей скрипт не проходив процедуру схвалення PlayOnLinux, й PlayOnLinux не "
 "відповідає за нього.\\nБудь ласка, переконайтеся, що знаєте, що робите!"
 
-#: lib/playonlinux.lib:336
+#: lib/playonlinux.lib:343
 #, sh-format
 msgid "Here the source code of the script. Check it carefully"
 msgstr "Тут знаходиться джерельний код скрипта. Перевірте його уважно"
 
-#: lib/playonlinux.lib:358
+#: lib/playonlinux.lib:365
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -1003,27 +997,27 @@ msgstr ""
 "$APPLICATION_TITLE не відповідає за нього.\\nБудь ласка, переконайтеся, що "
 "знаєте, що робите!"
 
-#: lib/playonlinux.lib:359
+#: lib/playonlinux.lib:366
 #, sh-format
 msgid "External library"
 msgstr "Зовнішня бібліотека"
 
-#: lib/playonlinux.lib:359
+#: lib/playonlinux.lib:366
 #, sh-format
 msgid "Here the source code of the script. Check it carrefully"
 msgstr "Тут знаходиться джерельний код скрипта. Перевірте його уважно"
 
-#: lib/playonlinux.lib:619
+#: lib/playonlinux.lib:629
 #, sh-format
 msgid "Making shortcut..."
 msgstr "Створення ярлика..."
 
-#: lib/playonlinux.lib:744
+#: lib/playonlinux.lib:755
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr "Ви бажаєте вилучити віртуальний диск:"
 
-#: lib/playonlinux.lib:855
+#: lib/playonlinux.lib:864
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
@@ -1032,7 +1026,7 @@ msgstr ""
 "Цей файл розташований на диску з файловою системою FAT32.\\nЗ-за цього Wine "
 "може не працювати.\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:856
+#: lib/playonlinux.lib:865
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
@@ -1041,7 +1035,7 @@ msgstr ""
 "Цей файл розташований на диску з файловою системою NTFS.\\nЗ-за цього Wine "
 "може не працювати.\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:857
+#: lib/playonlinux.lib:866
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
@@ -1050,7 +1044,7 @@ msgstr ""
 "Цей файл розташований на файловій системі у користувацькому просторі "
 "(FUSE).\\nЗ-за цього Wine може не працювати.\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:858
+#: lib/playonlinux.lib:867
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
@@ -1059,7 +1053,7 @@ msgstr ""
 "Цей файл розташований на диску, примонтованому без прав на виконання.\\nЗ-за "
 "цього Wine може не працювати.\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:887
+#: lib/playonlinux.lib:896
 #, sh-format
 msgid ""
 "Your Linux kernel may not be configured to run Win16 programs under Wine\\"
@@ -1068,7 +1062,7 @@ msgstr ""
 "Ваше ядро ​​Linux не може бути сконфігуровано для запуску програм Win16 під "
 "Wine\\nДивіться $EXPLANATION_URL"
 
-#: lib/playonlinux.lib:890
+#: lib/playonlinux.lib:899
 #, sh-format
 msgid ""
 "Your kernel may be incompatible with running Win16 programs under Wine\\nSee "
@@ -1077,27 +1071,27 @@ msgstr ""
 "Ваше ядро ​​може бути несумісним з запущеними програмами Win16 під Wine\\"
 "nДивіться $EXPLANATION_URL"
 
-#: lib/plugins.lib:66
+#: lib/plugins.lib:63
 #, sh-format
 msgid "Checking plugin: "
 msgstr "Перевірка втулки: "
 
-#: lib/plugins.lib:94
+#: lib/plugins.lib:85
 #, sh-format
 msgid "New: "
 msgstr "Нові: "
 
-#: lib/plugins.lib:94
+#: lib/plugins.lib:85
 #, sh-format
 msgid "Updating plugin. Previous: "
 msgstr "Оновлення втулки. Попередня: "
 
-#: lib/plugins.lib:113
+#: lib/plugins.lib:99
 #, sh-format
 msgid "Installing plugin: "
 msgstr "Інсталяція втулки: "
 
-#: lib/scripts.lib:336
+#: lib/scripts.lib:340
 #, sh-format
 msgid ""
 "Binary not found: $BINARY\\nHave you installed the program to the default "
@@ -1106,41 +1100,41 @@ msgstr ""
 "Виконуваний файл не знайдено: $BINARY\\nПереконайтеся, що обрано типову теку "
 "встановлення програми."
 
-#: lib/scripts.lib:400
+#: lib/scripts.lib:406
 #, sh-format
 msgid "Function override detected, disabling bug reporting"
 msgstr ""
 
-#: lib/scripts.lib:500 lib/scripts.lib:566
+#: lib/scripts.lib:505 lib/scripts.lib:568
 #, sh-format
 msgid "No enough space to download:\\n$URL ($neededSpace KB)"
 msgstr ""
 "Невистачає вільного місця для завантаження :\\n$URL ($neededSpace KБ)"
 
-#: lib/scripts.lib:502 lib/scripts.lib:787
+#: lib/scripts.lib:507 lib/scripts.lib:790
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr "Будь ласка, зачекайте поки стягується $APPLICATION_TITLE:"
 
-#: lib/scripts.lib:504 lib/scripts.lib:572
+#: lib/scripts.lib:509 lib/scripts.lib:574
 #, sh-format
 msgid "An error happened during download."
 msgstr "Під час завантаження сталася помилка."
 
-#: lib/scripts.lib:504 lib/scripts.lib:523 lib/scripts.lib:572
-#: lib/scripts.lib:589
+#: lib/scripts.lib:509 lib/scripts.lib:527 lib/scripts.lib:574
+#: lib/scripts.lib:590
 #, sh-format
 msgid "Do you want to retry?"
 msgstr "Повторити спробу?"
 
-#: lib/scripts.lib:523 lib/scripts.lib:589
+#: lib/scripts.lib:527 lib/scripts.lib:590
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 "Помилка! Файли не збігаються\\n\\nЛокальний: $LOCAL_MD5\\nНа сервері : "
 "$SERVER_MD5"
 
-#: lib/scripts.lib:692
+#: lib/scripts.lib:695
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
@@ -1148,32 +1142,32 @@ msgstr ""
 "7z не встановлений, будь ласка, переконайтеся що 7zip встановлений й "
 "спробуйте знову"
 
-#: lib/scripts.lib:699
+#: lib/scripts.lib:702
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr "Не вдалося розташувати ${dest} з ${archive}"
 
-#: lib/scripts.lib:703
+#: lib/scripts.lib:706
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr "Витягування ${filename} з ${archivename}"
 
-#: lib/scripts.lib:718
+#: lib/scripts.lib:721
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr "Розмір витягнутого файлу не збігається!"
 
-#: lib/scripts.lib:749
+#: lib/scripts.lib:752
 #, sh-format
 msgid "Copying ${filename}"
 msgstr "Копіювання ${filename}"
 
-#: lib/scripts.lib:762
+#: lib/scripts.lib:765
 #, sh-format
 msgid "File size does not match!"
 msgstr "Розмір файлу не збігається!"
 
-#: lib/scripts.lib:906
+#: lib/scripts.lib:916
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
@@ -1182,7 +1176,7 @@ msgstr ""
 "Нажаль, $APPLICATION_TITLE $VERSION надто застарів, й продовжити неможна.\\"
 "nПотрібен $APPLICATION_TITLE $NEEDED."
 
-#: lib/scripts.lib:921
+#: lib/scripts.lib:931
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
@@ -1191,92 +1185,72 @@ msgstr ""
 "Увага: Ви запускаєте $APPLICATION_TITLE $VERSION.\\nДля того, щоб "
 "продовжити, рекомендовано $APPLICATION_TITLE $NEEDED."
 
-#: lib/scripts.lib:952
+#: lib/scripts.lib:962
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr "$AUTHOR профіль"
 
-#: lib/setupwindow.lib:96
+#: lib/setupwindow.lib:95
 #, sh-format
 msgid " on your computer."
 msgstr " на Ваш комп’ютер."
 
-#: lib/setupwindow.lib:96
+#: lib/setupwindow.lib:95
 #, sh-format
 msgid " will be installed in: "
 msgstr " буде встановлено у: "
 
-#: lib/setupwindow.lib:96
+#: lib/setupwindow.lib:95
 #, sh-format
 msgid "Click Next to start"
 msgstr "Щоб почати клацніть Далі"
 
-#: lib/setupwindow.lib:96
+#: lib/setupwindow.lib:95
 #, sh-format
 msgid "This installation program is provided by: "
 msgstr "Встановлювач наданий: "
 
-#: lib/setupwindow.lib:96
+#: lib/setupwindow.lib:95
 #, sh-format
 msgid "This program was created by: "
 msgstr "Програма створена: "
 
-#: lib/setupwindow.lib:96
+#: lib/setupwindow.lib:95
 #, sh-format
 msgid "This wizard will help you install "
 msgstr "Цей майстер допоможе Вам встановити "
 
-#: lib/setupwindow.lib:96
+#: lib/setupwindow.lib:95
 #, sh-format
 msgid "Welcome to $APPLICATION_TITLE Installation Wizard."
 msgstr "Ласкаво просимо у встановлювач $APPLICATION_TITLE."
 
-#: lib/setupwindow.lib:120
-#, sh-format
-msgid ""
-"One or more program(s) are missing. Please install them and run the script "
-"again."
-msgstr ""
-"Одна або декілька програм відсутні. Будь ласка, встановіть їх та запустіть "
-"скрипт ще раз."
-
-#: lib/setupwindow.lib:122 python/guiv3.py:769 python/mainwindow.py:1156
-#: python/mainwindow.py:1186 python/mainwindow.py:1200
-#: python/mainwindow.py:1209 python/mainwindow.py:1221
-#: python/mainwindow.py:1233 python/mainwindow.py.orig:1149
-#: python/mainwindow.py.orig:1179 python/mainwindow.py.orig:1193
-#: python/mainwindow.py.orig:1202 python/mainwindow.py.orig:1214
-#: python/mainwindow.py.orig:1226 python/wrapper.py:121
-#, sh-format
-msgid "Error"
-msgstr "Помилка"
-
-#: lib/setupwindow.lib:350
+#: lib/setupwindow.lib:335
 #, sh-format
 msgid "Where is mounted your CD-ROM?"
 msgstr "Де примонтований Ваш компакт-диск?"
 
-#: lib/setupwindow.lib:351 python/install.py:222
+#: lib/setupwindow.lib:336 python/install.py:222
 #, sh-format
 msgid "Other"
 msgstr "Інше"
 
-#: lib/setupwindow.lib:352 python/install.py:290 python/install.py:294
+#: lib/setupwindow.lib:337 python/install.py:290 python/install.py:294
 #, sh-format
 msgid "Refresh"
 msgstr "Оновити"
 
-#: lib/setupwindow.lib:384
+#: lib/setupwindow.lib:369
 #, sh-format
 msgid "Reading your device"
 msgstr "Читання Вашого пристрою"
 
-#: lib/setupwindow.lib:399
+#: lib/setupwindow.lib:384
 #, sh-format
 msgid "Error: Unable to find the CD-ROM!"
 msgstr "Помилка: не вдалося виявити CD-ROM!"
 
-#: lib/setupwindow.lib:413
+#: lib/setupwindow.lib:398
 #, sh-format
 msgid ""
 "$TITLE needs to read the PC part of a hybrid CD-Rom.\\n\\nBy default, MacOS "
@@ -1285,7 +1259,7 @@ msgid ""
 "attempt to read the PC-Part of your CD?"
 msgstr ""
 
-#: lib/setupwindow.lib:465
+#: lib/setupwindow.lib:450
 #, sh-format
 msgid ""
 "Don't forget to go to PlayOnMac tools menu -> Read a PC CD-Rom before "
@@ -1294,99 +1268,99 @@ msgstr ""
 "Не забудьте перед стартом гри виконати PlayOnMac tools menu -> Read a PC CD-"
 "Rom"
 
-#: lib/setupwindow.lib:476
+#: lib/setupwindow.lib:464
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is copying files:"
 msgstr "Будь ласка, зачекайте поки $APPLICATION_TITLE копіює файли:"
 
-#: lib/setupwindow.lib:561 lib/setupwindow.lib:710
+#: lib/setupwindow.lib:549 lib/setupwindow.lib:699
 #, sh-format
 msgid "Scanning the virtual drive ..."
 msgstr "Сканування віртуального диска..."
 
-#: lib/setupwindow.lib:575
+#: lib/setupwindow.lib:563
 #, sh-format
 msgid "How much memory does your graphics board have?"
 msgstr "Скільки пам’яті у вашій видеокартці?"
 
-#: lib/setupwindow.lib:584
+#: lib/setupwindow.lib:572
 #, sh-format
 msgid "Video card does not have enough memory"
 msgstr "В вас замало відеопам’яті"
 
-#: lib/setupwindow.lib:585
+#: lib/setupwindow.lib:573
 #, sh-format
 msgid ""
 "Your video card does not have enough memory!\\nIt might prevent the game "
 "from working"
 msgstr "В вас замало відеопам’яті!\\nГра може не працювати"
 
-#: lib/setupwindow.lib:599
+#: lib/setupwindow.lib:588
 #, sh-format
 msgid "Use Steam Store version"
 msgstr "Використовувати версію з крамниці Steam"
 
-#: lib/setupwindow.lib:600
+#: lib/setupwindow.lib:589
 #, sh-format
 msgid "Use Steam Store demo version"
 msgstr "Використовувати демо-версію з крамниці Steam"
 
-#: lib/setupwindow.lib:601
+#: lib/setupwindow.lib:590
 #, sh-format
 msgid "Use Desura Store version"
 msgstr "Використовувати версію з крамниці Desura"
 
-#: lib/setupwindow.lib:602
+#: lib/setupwindow.lib:591
 #, sh-format
 msgid "Use Desura Store demo version"
 msgstr "Використовувати демо-версію з крамниці Desura"
 
-#: lib/setupwindow.lib:603
+#: lib/setupwindow.lib:592
 #, sh-format
 msgid "Use Origin Store version"
 msgstr "Використовувати версію з крамниці Origin"
 
-#: lib/setupwindow.lib:604
+#: lib/setupwindow.lib:593
 #, sh-format
 msgid "Use Origin Store demo version"
 msgstr "Використовувати демо-версію з крамниці Origin"
 
-#: lib/setupwindow.lib:606
+#: lib/setupwindow.lib:595
 #, sh-format
 msgid "Use a setup file in my computer"
 msgstr "Використовувати встановлювач з мого комп’ютера"
 
-#: lib/setupwindow.lib:607
+#: lib/setupwindow.lib:596
 #, sh-format
 msgid "Use CD-ROM(s)"
 msgstr "Використовувати CD-ROM(s)"
 
-#: lib/setupwindow.lib:608
+#: lib/setupwindow.lib:597
 #, sh-format
 msgid "Use DVD-ROM(s)"
 msgstr "Використовувати DVD-ROM(s)"
 
-#: lib/setupwindow.lib:609
+#: lib/setupwindow.lib:598
 #, sh-format
 msgid "Download the program"
 msgstr "Завантажити програму"
 
-#: lib/setupwindow.lib:674
+#: lib/setupwindow.lib:663
 #, sh-format
 msgid "Please choose an installation method"
 msgstr "Будь ласка, виберіть метод встановлення"
 
-#: lib/setupwindow.lib:712
+#: lib/setupwindow.lib:701
 #, sh-format
 msgid "I don't want to make another shortcut"
 msgstr "Я не бажаю створювати інший ярлик"
 
-#: lib/setupwindow.lib:713 python/guiv3.py:163
+#: lib/setupwindow.lib:702 python/guiv3.py:163
 #, sh-format
 msgid "Browse"
 msgstr "Перегляд"
 
-#: lib/setupwindow.lib:741
+#: lib/setupwindow.lib:730
 #, sh-format
 msgid "A shortcut by that name already exists, overwrite?"
 msgstr "Ярлик з таким ім’ям вже існує. Перезаписати ?"
@@ -1410,24 +1384,24 @@ msgstr ""
 "Не вдалося під’єднатися!\\n\\nБудь ласкаа, переконайтеся, що ім’я "
 "користувача та пароль правильні."
 
-#: lib/wine.lib:390
+#: lib/wine.lib:388
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is scanning your hardware"
 msgstr ""
 "Будь ласка, зачекайте поки $APPLICATION_TITLE вивчає Ваше обладнання."
 
-#: lib/wine.lib:396
+#: lib/wine.lib:394
 #, sh-format
 msgid "Select the main videocard to report:"
 msgstr "Виберіть основну відеокартку для звіту:"
 
-#: lib/wine.lib:542
+#: lib/wine.lib:540
 #, sh-format
 msgid ""
 "Starting 64-bit process $EXEFILE is not supported in 32-bit virtual drives"
 msgstr ""
 
-#: lib/wine.lib:580
+#: lib/wine.lib:578
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
@@ -1436,7 +1410,7 @@ msgstr ""
 "Схоже, Wine перервала роботу.\\n\\nЯкщо Ваша програма працює, просто не "
 "звертайте уваги на це повідомлення."
 
-#: lib/wine.lib:625
+#: lib/wine.lib:623
 #, sh-format
 msgid ""
 "This is an installer for an update or an addon;\\nPlease install "
@@ -1445,57 +1419,57 @@ msgstr ""
 "Це встановлювач для оновлення або доповнення;\\nБудь ласка, спочатку "
 "встановіть $TITLE_REQUIRED."
 
-#: lib/wine.lib:684
+#: lib/wine.lib:682
 #, sh-format
 msgid "Unable to find version: "
 msgstr "Не вдалося знайти версію: "
 
-#: lib/wine.lib:690 lib/wine.lib:691
+#: lib/wine.lib:688 lib/wine.lib:689
 #, sh-format
 msgid "Downloading Wine: "
 msgstr "Завантаження Wine: "
 
-#: lib/wine.lib:700
+#: lib/wine.lib:698
 #, sh-format
 msgid "The download seems to have failed."
 msgstr "Схоже, завантаження не вдалося."
 
-#: lib/wine.lib:702
+#: lib/wine.lib:700
 #, sh-format
 msgid "Extracting Wine..."
 msgstr "Витягування Wine..."
 
-#: lib/wine.lib:885
+#: lib/wine.lib:894
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr "Перезаписати (зазвичай працює, але не гарантовано)"
 
-#: lib/wine.lib:886
+#: lib/wine.lib:895
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
 msgstr "Стерти (вміст віртуального диска буде знищено)"
 
-#: lib/wine.lib:887
+#: lib/wine.lib:896
 #, sh-format
 msgid "Abort installation"
 msgstr "Скасувати встановлення"
 
-#: lib/wine.lib:900
+#: lib/wine.lib:909
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr "Цільовий віртуальний диск $PREFNAME вже існує:"
 
-#: lib/wine.lib:916
+#: lib/wine.lib:925
 #, sh-format
 msgid "User abort"
 msgstr "Операцію скасовано користувачем"
 
-#: lib/wine.lib:1080 lib/wine.lib:1110
+#: lib/wine.lib:1089 lib/wine.lib:1119
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "Будь ласка, зачекайте поки $SOFTNAME встановиться..."
 
-#: lib/wine.lib:1084 lib/wine.lib:1113
+#: lib/wine.lib:1093 lib/wine.lib:1122
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
@@ -1504,17 +1478,17 @@ msgstr ""
 "Будьте обережні!! Це вб’є процес встановлення. Якщо він не був закінчений, "
 "Вам доведеться перевстановити $SOFTNAME"
 
-#: lib/wine.lib:1084 lib/wine.lib:1113
+#: lib/wine.lib:1093 lib/wine.lib:1122
 #, sh-format
 msgid "Install is done"
 msgstr "Встановлення закінчено"
 
-#: lib/wine.lib:1117 lib/wine.lib:1118
+#: lib/wine.lib:1126 lib/wine.lib:1127
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr "Натисніть далі лише коли процес встановлення буде закінчено"
 
-#: lib/wine.lib:1126
+#: lib/wine.lib:1135
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr ""
@@ -1803,6 +1777,16 @@ msgstr "Мб завантажено"
 #: python/guiv3.py:302
 msgid "of"
 msgstr "з"
+
+#: python/guiv3.py:769 python/mainwindow.py:1156 python/mainwindow.py:1186
+#: python/mainwindow.py:1200 python/mainwindow.py:1209
+#: python/mainwindow.py:1221 python/mainwindow.py:1233
+#: python/mainwindow.py.orig:1149 python/mainwindow.py.orig:1179
+#: python/mainwindow.py.orig:1193 python/mainwindow.py.orig:1202
+#: python/mainwindow.py.orig:1214 python/mainwindow.py.orig:1226
+#: python/wrapper.py:121
+msgid "Error"
+msgstr "Помилка"
 
 #: python/guiv3.py:769
 msgid "You cannot close this window"
@@ -2418,9 +2402,13 @@ msgstr "Доступні версії Wine: "
 msgid "Wine versions"
 msgstr "Версії Wine"
 
-#: python/wine_versions.py:327
+#: python/wine_versions.py:330
 msgid "Are you sure you want to delete wine {0}?"
 msgstr "Ви справді бажаєте вилучити wine {0}?"
+
+#: python/wine_versions.py:332
+msgid "This version is CURRENTLY IN USE"
+msgstr ""
 
 #: python/wrapper.py:121
 msgid "{0} is not able to start POL_SetupWindow_server."
