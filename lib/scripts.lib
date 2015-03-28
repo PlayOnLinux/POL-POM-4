@@ -323,7 +323,7 @@ POL_Shortcut()
 	POL_Debug_Message "Looking for <$BINARY>, found <$binary_path>"
 
 	if [ -n "$ICON_WEB_NAME" ]; then
-		if [ ! "$OFFLINE" = "1" ]; then # On peut le télécharger...
+		if [ ! "$OFFLINE" = "1" ]; then # It can be downloaded...
 			$POL_WGET "$SITE/icones/$ICON_WEB_NAME" -O- > "$POL_USER_ROOT/icones/full_size/$ICON_FILENAME" || rm "$POL_USER_ROOT/icones/full_size/$ICON_FILENAME"  # Take the full sized icon
 		fi
 		
