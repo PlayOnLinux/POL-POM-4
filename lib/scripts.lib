@@ -276,20 +276,18 @@ POL_ExtractBiggestIcon()
 }
 find_binary ()
 {
-	## Find executable directory
+	## Find executable by path suffix
 
-	cd "$WINEPREFIX" || POL_Debug_Fatal "Prefixe $WINEPREFIX does not exists"
-	cd drive_c || POL_Debug_Fatal "drive_c folder does not exists"
+	cd "$WINEPREFIX" || POL_Debug_Fatal "Prefix $WINEPREFIX does not exist"
+	cd drive_c || POL_Debug_Fatal "drive_c folder does not exist"
 
-	binary_path=""
-	if [ "$(echo "$1" | grep "/")" = "" ]; then
-		# Implicit path, search executable outside of windows directory first
-		binary_path="$(find ./ -name windows -prune -o -iname "$1" -a -type f -print | tail -n 1)"
-		[ -z "$binary_path" ] && binary_path="$(find ./windows/ -iname "$1" -a -type f -print | tail -n 1)"
-	else
-		# Explicit path
-		[ -e "./$1" ] && binary_path="./$1"
-	fi
+	suffix="$1"
+	paths="$(find ./ -name windows -prune -o -type f -print | grep "$suffix"\$)"
+	[ -z "$paths" ] && paths="$(find ./windows/ -type f -print | grep "$suffix"\$)"
+
+	[ "$(echo "$paths" | wc -l)" -gt 1 ] && POL_Debug_Warning "find_binary: Multiple binaries found for suffix $1: $paths"
+
+	binary_path="$(echo "$paths" | tail -n 1)"
 	echo "$binary_path"
 }
 POL_Shortcut()
