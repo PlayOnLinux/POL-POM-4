@@ -274,22 +274,35 @@ POL_ExtractBiggestIcon()
 	)
 	rm -r "$POL_USER_ROOT/tmp/win32Icon"
 }
-find_binary ()
+POL_System_find_file ()
 {
-	## Find executable directory
+	# Usage: POL_System_find_file [(subdirectory/...)filename]
+	# Find a file in the current virtual drive that match the provided path suffix, case insensitively
+	# If found, returns its path relative to the drive_c subdirectory
+	local suffix="$1"
 
-	cd "$WINEPREFIX" || POL_Debug_Fatal "Prefixe $WINEPREFIX does not exists"
-	cd drive_c || POL_Debug_Fatal "drive_c folder does not exists"
+	[ "$WINEPREFIX" ] || POL_Debug_Fatal "\$WINEPREFIX not set"
+	pushd "$WINEPREFIX" >/dev/null || POL_Debug_Fatal "Prefix $WINEPREFIX does not exist"
+	cd drive_c || POL_Debug_Fatal "drive_c folder does not exist"
 
-	binary_path=""
-	if [ "$(echo "$1" | grep "/")" = "" ]; then
-		# Implicit path, search executable outside of windows directory first
-		binary_path="$(find ./ -name windows -prune -o -iname "$1" -a -type f -print | tail -n 1)"
-		[ -z "$binary_path" ] && binary_path="$(find ./windows/ -iname "$1" -a -type f -print | tail -n 1)"
+	local binary_path
+	if [ -e "$suffix" ]; then
+		# Explicit path, note that the case has to be correct
+		binary_path="$suffix"
 	else
-		# Explicit path
-		[ -e "./$1" ] && binary_path="./$1"
+		# Implicit path, search file outside of windows directory first
+		local paths="$(find . -path ./windows -prune -o -ipath "*/$suffix" -a -type f -print)"
+		[ -z "$paths" ] && paths="$(find ./windows -ipath "*/$suffix" -a -type f -print)"
+
+		if [ "$(wc -l <<<"$paths")" -gt 1 ]; then
+			POL_Debug_Warning "Multiple binaries found for suffix $suffix: $paths"
+			# Sorting both makes result deterministic, and picks a shallow file
+			binary_path="$(sort <<<"$paths"|tail -n 1)"
+		else
+			binary_path="$paths"
+	        fi
 	fi
+        popd > /dev/null
 	echo "$binary_path"
 }
 POL_Shortcut()
@@ -315,12 +328,12 @@ POL_Shortcut()
 	ICON_WEB_NAME="$3"
 	ICON_OK=0
 
-	local binary_path="$(find_binary "$BINARY")"
+	local binary_path="$(POL_System_find_file "$BINARY")"
 	local binary_dir="$(dirname "$binary_path")"
 	local binary_name="$(basename "$binary_path")"
 
 	[ -z "$binary_dir" ] && POL_Debug_Fatal "Can't find $BINARY"
-	POL_Debug_Message "Looking for <$BINARY>, found <$binary_path>"
+	POL_Debug_Message "Looking for <${BINARY}>, found <${binary_path}>"
 
 	if [ -n "$ICON_WEB_NAME" ]; then
 		if [ ! "$OFFLINE" = "1" ]; then # It can be downloaded...
@@ -859,7 +872,7 @@ POL_Shortcut_Document()
 	local DOC_FILENAME="$2"
 
 	rm -f "$POL_USER_ROOT/configurations/manuals/$SHORTCUT_NAME"
-	local doc_path="$(find_binary "$DOC_FILENAME")"
+	local doc_path="$(POL_System_find_file "$DOC_FILENAME")"
 	if [ "doc_path" ]; then
 		ln -s "$PWD/$doc_path" "$POL_USER_ROOT/configurations/manuals/$SHORTCUT_NAME"
 	else
@@ -891,7 +904,7 @@ POL_LoadVar_PROGRAMFILES
 TITLE="$TITLE"
 _PRELUDE_
 	 if [ -n "$PROGRAM" ]; then
-	         local binary_path="$(find_binary "$PROGRAM")"
+	         local binary_path="$(POL_System_find_file "$PROGRAM")"
 		 local binary_dir="$(dirname "$binary_path")"
 		 local Binaire="$(basename "$binary_path")"
 
