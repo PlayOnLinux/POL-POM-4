@@ -851,19 +851,22 @@ POL_Wine_PrefixDelete()
 {
 	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
  	local wineprefix="$WINEPREFIX"
-        wineprefix=${wineprefix//"//"/"/"}
+	wineprefix=${wineprefix//"//"/"/"}
 	local shortcuts=()
+	local OLDIFS="$IFS"
+	IFS=$'\n'
 	cd "$POL_USER_ROOT/shortcuts/" &&
 	for shortcut in *
 	do
 		[ "$(detect_wineprefix "$shortcut")" = "$wineprefix" ] && shortcuts+="$shortcut"
 	done
+	IFS="$OLDIFS"
 
 	# cf MainWindow.DeletePrefix()
 	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Uninstalling...')" "$(eval_gettext '$APPLICATION_TITLE Uninstaller')"
 	if [ "${#shortcuts[@]}" -gt 0 ]; then
  		POL_Debug_Warning "$wineprefix is still in use by ${#shortcuts[@]} shortcuts, removing them first"
-		for shortcut in ${shortcuts[@]}; do
+		for shortcut in "${shortcuts[@]}"; do
 			POL_Debug_Message "Removing shortcut $shortcut..."
 			bash "$PLAYONLINUX/bash/uninstall" --non-interactive "$shortcut"
 		done

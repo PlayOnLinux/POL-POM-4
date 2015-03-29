@@ -761,13 +761,15 @@ get_existing_POL_SetupWindow_shortcut_creator()
 {
 	### Used by POL_SetupWindow_shortcut_creator
 	cd "$POL_USER_ROOT/shortcuts"
-	for file in *
-	do
+	local OLDIFS="$IFS"
+	IFS=$'\n'
+	for file in *; do
 		if [ -e "$file" ] && [ ! "$(cat "$file" | grep $WINEPREFIX)" = "" ]
 		then
 			cat "$file" | grep "POL_Wine " | awk '{print $2}' | tr -d "\""
 		fi
 	done
+	IFS="$OLDIFS"
 }
 
 POL_SetupWindow_RequiredCard()

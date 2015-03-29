@@ -27,12 +27,12 @@ POL_SetupWindow_question "$(eval_gettext 'Are you sure you want to shutdown all 
 if [ "$APP_ANSWER" = "TRUE" ]
 then
 	POL_SetupWindow_wait_next_signal  "$(eval_gettext 'Please wait...')" "$APPLICATION_TITLE"
-	for file in *
+	for prefix in *
 	do
-		export WINEPREFIX="$POL_USER_ROOT/wineprefix/$file"
+		export WINEPREFIX="$POL_USER_ROOT/wineprefix/$prefix"
                 (POL_Wine_AutoSetVersionEnv
 		wineserver -k)
-		POL_Debug_Message "Killed $file"
+		POL_Debug_Message "Killed $prefix"
 	done
 fi
 POL_SetupWindow_Close

@@ -743,11 +743,14 @@ clean_wineprefix()
 		POL_Debug_Error "The directory is not in $APPLICATION_TITLE"
 	else
 		local used=""
+		local OLDIFS="$IFS"
+                IFS=$'\n'
 		cd "$POL_USER_ROOT/shortcuts/" &&
 		for shortcut in *
 		do
 			[ "$(detect_wineprefix "$shortcut")" = "$wineprefix" ] && used=1
 		done
+                IFS="$OLDIFS"
 		if [ "$used" = 1 ]; then
  			POL_Debug_Warning "$1 is still in use"
 		else
