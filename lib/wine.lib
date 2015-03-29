@@ -1077,7 +1077,7 @@ EOF
 POL_Wine_WaitBefore ()
 {
 	# Lock bash commands until wine is exited
-	# Usage : POL_Wine_WaitExit [Program title] (--allow-kill)
+	# Usage : POL_Wine_WaitBefore [Program title] (--allow-kill)
 	SOFTNAME="$1"
 	if [ "$2" = "--allow-kill" ] 
 	then
