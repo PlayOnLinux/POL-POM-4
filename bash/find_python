@@ -56,5 +56,5 @@ search_python () {
 }
 
 test_python () {
-    "$POL_PYTHON" "$POLDIR/python/runtime_test.py"
+    "$POL_PYTHON" "$POLDIR/python/check_python.py"
 }
