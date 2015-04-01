@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hu1\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2015-03-23 19:00+0100\n"
+"POT-Creation-Date: 2015-03-30 19:00+0200\n"
 "PO-Revision-Date: 2013-12-11 13:02+0000\n"
 "Last-Translator: Gergely Szarka <szarka.honved@gmail.com>\n"
 "Language-Team: hungarian <mypclinuxos.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-03-24 05:09+0000\n"
+"X-Launchpad-Export-Date: 2015-03-31 05:09+0000\n"
 "X-Generator: Launchpad (build 17413)\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -373,8 +373,8 @@ msgstr ""
 
 #: bash/installpolpackages:29 bash/killall:29 bash/read_pc_cd:39
 #: bash/read_pc_cd:73 bash/read_pc_cd:103 bash/winebash:27
-#: lib/setupwindow.lib:420 lib/wine.lib:1011 lib/wine.lib:1089
-#: lib/wine.lib:1119
+#: lib/setupwindow.lib:420 lib/wine.lib:1014 lib/wine.lib:1092
+#: lib/wine.lib:1122
 #, sh-format
 msgid "Please wait..."
 msgstr ""
@@ -483,7 +483,7 @@ msgstr ""
 msgid "What would you like to do before installation?"
 msgstr ""
 
-#: bash/manual_install:203 lib/scripts.lib:447
+#: bash/manual_install:203 lib/scripts.lib:460
 #, sh-format
 msgid "Please make your choice"
 msgstr ""
@@ -821,7 +821,7 @@ msgid "Unable to install XQuartz! You must install it to use wine properly."
 msgstr ""
 
 #: bash/uninstall:31 bash/uninstall:65 bash/uninstall:68 bash/uninstall:75
-#: lib/wine.lib:863
+#: lib/wine.lib:866
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
 msgstr ""
@@ -841,7 +841,7 @@ msgstr ""
 msgid "This wizard will help you to uninstall: "
 msgstr ""
 
-#: bash/uninstall:65 lib/wine.lib:863
+#: bash/uninstall:65 lib/wine.lib:866
 #, sh-format
 msgid "Uninstalling..."
 msgstr ""
@@ -901,7 +901,7 @@ msgid ""
 msgstr ""
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:888 lib/wine.lib:969
+#: lib/wine.lib:891 lib/wine.lib:972
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr ""
@@ -930,7 +930,7 @@ msgid ""
 "responsible from it.\\nPlease ensure you know what you are doing !"
 msgstr ""
 
-#: lib/playonlinux.lib:343
+#: lib/playonlinux.lib:343 lib/playonlinux.lib:366
 #, sh-format
 msgid "Here the source code of the script. Check it carefully"
 msgstr ""
@@ -948,57 +948,52 @@ msgstr ""
 msgid "External library"
 msgstr ""
 
-#: lib/playonlinux.lib:366
-#, sh-format
-msgid "Here the source code of the script. Check it carrefully"
-msgstr ""
-
 #: lib/playonlinux.lib:629
 #, sh-format
 msgid "Making shortcut..."
 msgstr ""
 
-#: lib/playonlinux.lib:755
+#: lib/playonlinux.lib:758
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr ""
 
-#: lib/playonlinux.lib:864
+#: lib/playonlinux.lib:867
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:865
+#: lib/playonlinux.lib:868
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:866
+#: lib/playonlinux.lib:869
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:867
+#: lib/playonlinux.lib:870
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
 "prevent wine from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:896
+#: lib/playonlinux.lib:899
 #, sh-format
 msgid ""
 "Your Linux kernel may not be configured to run Win16 programs under Wine\\"
 "nSee $EXPLANATION_URL"
 msgstr ""
 
-#: lib/playonlinux.lib:899
+#: lib/playonlinux.lib:902
 #, sh-format
 msgid ""
 "Your kernel may be incompatible with running Win16 programs under Wine\\nSee "
@@ -1025,90 +1020,90 @@ msgstr ""
 msgid "Installing plugin: "
 msgstr ""
 
-#: lib/scripts.lib:340
+#: lib/scripts.lib:353
 #, sh-format
 msgid ""
 "Binary not found: $BINARY\\nHave you installed the program to the default "
 "location?"
 msgstr ""
 
-#: lib/scripts.lib:406
+#: lib/scripts.lib:419
 #, sh-format
 msgid "Function override detected, disabling bug reporting"
 msgstr ""
 
-#: lib/scripts.lib:505 lib/scripts.lib:568
+#: lib/scripts.lib:518 lib/scripts.lib:581
 #, sh-format
 msgid "No enough space to download:\\n$URL ($neededSpace KB)"
 msgstr ""
 
-#: lib/scripts.lib:507 lib/scripts.lib:790
+#: lib/scripts.lib:520 lib/scripts.lib:803
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr ""
 
-#: lib/scripts.lib:509 lib/scripts.lib:574
+#: lib/scripts.lib:522 lib/scripts.lib:587
 #, sh-format
 msgid "An error happened during download."
 msgstr ""
 
-#: lib/scripts.lib:509 lib/scripts.lib:527 lib/scripts.lib:574
-#: lib/scripts.lib:590
+#: lib/scripts.lib:522 lib/scripts.lib:540 lib/scripts.lib:587
+#: lib/scripts.lib:603
 #, sh-format
 msgid "Do you want to retry?"
 msgstr ""
 
-#: lib/scripts.lib:527 lib/scripts.lib:590
+#: lib/scripts.lib:540 lib/scripts.lib:603
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 
-#: lib/scripts.lib:695
+#: lib/scripts.lib:708
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
 msgstr ""
 
-#: lib/scripts.lib:702
+#: lib/scripts.lib:715
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr ""
 
-#: lib/scripts.lib:706
+#: lib/scripts.lib:719
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr ""
 
-#: lib/scripts.lib:721
+#: lib/scripts.lib:734
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:752
+#: lib/scripts.lib:765
 #, sh-format
 msgid "Copying ${filename}"
 msgstr ""
 
-#: lib/scripts.lib:765
+#: lib/scripts.lib:778
 #, sh-format
 msgid "File size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:916
+#: lib/scripts.lib:929
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
 "n$APPLICATION_TITLE $NEEDED is required."
 msgstr ""
 
-#: lib/scripts.lib:931
+#: lib/scripts.lib:944
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
 "$NEEDED is recommended to continue."
 msgstr ""
 
-#: lib/scripts.lib:962
+#: lib/scripts.lib:975
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr ""
@@ -1353,54 +1348,54 @@ msgstr ""
 msgid "Extracting Wine..."
 msgstr ""
 
-#: lib/wine.lib:894
+#: lib/wine.lib:897
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr ""
 
-#: lib/wine.lib:895
+#: lib/wine.lib:898
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
 msgstr ""
 
-#: lib/wine.lib:896
+#: lib/wine.lib:899
 #, sh-format
 msgid "Abort installation"
 msgstr ""
 
-#: lib/wine.lib:909
+#: lib/wine.lib:912
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr ""
 
-#: lib/wine.lib:925
+#: lib/wine.lib:928
 #, sh-format
 msgid "User abort"
 msgstr ""
 
-#: lib/wine.lib:1089 lib/wine.lib:1119
+#: lib/wine.lib:1092 lib/wine.lib:1122
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr ""
 
-#: lib/wine.lib:1093 lib/wine.lib:1122
+#: lib/wine.lib:1096 lib/wine.lib:1125
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
 "have to reinstall $SOFTNAME"
 msgstr ""
 
-#: lib/wine.lib:1093 lib/wine.lib:1122
+#: lib/wine.lib:1096 lib/wine.lib:1125
 #, sh-format
 msgid "Install is done"
 msgstr ""
 
-#: lib/wine.lib:1126 lib/wine.lib:1127
+#: lib/wine.lib:1129 lib/wine.lib:1130
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr ""
 
-#: lib/wine.lib:1135
+#: lib/wine.lib:1138
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr ""
