@@ -697,7 +697,7 @@ POL_SetupWindow_shortcut_creator()
 	cp "$PLAYONLINUX/resources/images/icones/browse.png" "$POL_USER_ROOT/tmp/cache/icons/$CODENAME"
 	cp "$PLAYONLINUX/resources/images/icones/finish.png" "$POL_USER_ROOT/tmp/cache/icons/$CODENAME"
 	POL_SetupWindow_wait_next_signal "$(eval_gettext "Scanning the virtual drive ...")" "$TITLE"
-	contents="$(find . -name windows -prune -o -name iexplore.exe -prune -o -iname '*.exe' -a -type f -print | process_POL_SetupWindow_shortcut_creator)"
+	contents="$(find . -name windows -prune -o -name iexplore.exe -prune -o \( -iname '*.exe' -o -iname '*.lnk' \) -a -type f -print | process_POL_SetupWindow_shortcut_creator)"
 	LNG_FINISH="$(eval_gettext "I don't want to make another shortcut")"
 	LNG_BROWSE="$(eval_gettext "Browse")"
 	[ "$contents" = "" ] || CONTENTS2="~$contents"
@@ -748,9 +748,10 @@ process_POL_SetupWindow_shortcut_creator ()
 	do
 		if [ "$(echo $existing | grep $(basename "$line"))" = "" ] 
 		then
-			#echo "On tente d'extraire $WINEPREFIX/drive_c/$line"
-			POL_ExtractIcon "$WINEPREFIX/drive_c/$line" "$POL_USER_ROOT/tmp/cache/icons/$CODENAME/$(basename "$line")" 2> /dev/null > /dev/null
-			# Si il parle il fiche tout en l'air
+			local target="$WINEPREFIX/drive_c/$line"
+			[[ "$line" =~ \.lnk$ ]] && target="$(winepath -u "$(strings "$target"|tail -n 1)")"
+			#echo "$line: Trying to extract icon off $target" >&2
+			POL_ExtractIcon "$target" "$POL_USER_ROOT/tmp/cache/icons/$CODENAME/$(basename "$line")" > /dev/null 2>&1
 			[ "$first" = "true" ] && first=false || printf "~"
 			printf "$(basename "$line")"
 		fi
