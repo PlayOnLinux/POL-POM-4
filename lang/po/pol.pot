@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX/APLU <pol-gettext@mulx.net>\n"
-"POT-Creation-Date: 2015-04-04 19:00:10+02:00\n"
+"POT-Creation-Date: 2015-04-05 19:00:15+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -470,7 +470,7 @@ msgstr ""
 msgid "What would you like to do before installation?"
 msgstr ""
 
-#: bash/manual_install:203 lib/scripts.lib:460
+#: bash/manual_install:203 lib/scripts.lib:468
 #, sh-format
 msgid "Please make your choice"
 msgstr ""
@@ -863,7 +863,7 @@ msgstr ""
 msgid "Already up-to-date."
 msgstr ""
 
-#: lib/debug.lib:126
+#: lib/debug.lib:128
 #, sh-format
 msgid ""
 "$APPLICATION_TITLE has encountered an error. If the program does not work "
@@ -871,7 +871,7 @@ msgid ""
 "further information"
 msgstr ""
 
-#: lib/debug.lib:140
+#: lib/debug.lib:142
 #, sh-format
 msgid ""
 "$APPLICATION_TITLE has encountered an error. If the program you are "
@@ -879,7 +879,7 @@ msgid ""
 "\\nVisit www.$POL_DNS to get further information"
 msgstr ""
 
-#: lib/debug.lib:153
+#: lib/debug.lib:155
 #, sh-format
 msgid ""
 "$APPLICATION_TITLE has encountered a fatal error. $APPLICATION_TITLE will "
@@ -1007,90 +1007,90 @@ msgstr ""
 msgid "Installing plugin: "
 msgstr ""
 
-#: lib/scripts.lib:353
+#: lib/scripts.lib:356
 #, sh-format
 msgid ""
 "Binary not found: $BINARY\\nHave you installed the program to the default "
 "location?"
 msgstr ""
 
-#: lib/scripts.lib:419
+#: lib/scripts.lib:427
 #, sh-format
 msgid "Function override detected, disabling bug reporting"
 msgstr ""
 
-#: lib/scripts.lib:518 lib/scripts.lib:581
+#: lib/scripts.lib:526 lib/scripts.lib:589
 #, sh-format
 msgid "No enough space to download:\\n$URL ($neededSpace KB)"
 msgstr ""
 
-#: lib/scripts.lib:520 lib/scripts.lib:803
+#: lib/scripts.lib:528 lib/scripts.lib:811
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr ""
 
-#: lib/scripts.lib:522 lib/scripts.lib:587
+#: lib/scripts.lib:530 lib/scripts.lib:595
 #, sh-format
 msgid "An error happened during download."
 msgstr ""
 
-#: lib/scripts.lib:522 lib/scripts.lib:540 lib/scripts.lib:587
-#: lib/scripts.lib:603
+#: lib/scripts.lib:530 lib/scripts.lib:548 lib/scripts.lib:595
+#: lib/scripts.lib:611
 #, sh-format
 msgid "Do you want to retry?"
 msgstr ""
 
-#: lib/scripts.lib:540 lib/scripts.lib:603
+#: lib/scripts.lib:548 lib/scripts.lib:611
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 
-#: lib/scripts.lib:708
+#: lib/scripts.lib:716
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
 msgstr ""
 
-#: lib/scripts.lib:715
+#: lib/scripts.lib:723
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr ""
 
-#: lib/scripts.lib:719
+#: lib/scripts.lib:727
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr ""
 
-#: lib/scripts.lib:734
+#: lib/scripts.lib:742
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:765
+#: lib/scripts.lib:773
 #, sh-format
 msgid "Copying ${filename}"
 msgstr ""
 
-#: lib/scripts.lib:778
+#: lib/scripts.lib:786
 #, sh-format
 msgid "File size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:929
+#: lib/scripts.lib:937
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\n"
 "$APPLICATION_TITLE $NEEDED is required."
 msgstr ""
 
-#: lib/scripts.lib:944
+#: lib/scripts.lib:952
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
 "$NEEDED is recommended to continue."
 msgstr ""
 
-#: lib/scripts.lib:975
+#: lib/scripts.lib:983
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr ""
@@ -1258,7 +1258,7 @@ msgstr ""
 msgid "I don't want to make another shortcut"
 msgstr ""
 
-#: lib/setupwindow.lib:702 python/guiv3.py:163
+#: lib/setupwindow.lib:702 python/guiv3.py:170
 #, sh-format
 msgid "Browse"
 msgstr ""
@@ -1613,56 +1613,56 @@ msgstr ""
 msgid "WARNING. Please use POL_SetupWindow_Init first"
 msgstr ""
 
-#: python/guiv3.py:116
+#: python/guiv3.py:117
 msgid "{0} Wizard"
 msgstr ""
 
-#: python/guiv3.py:140 python/guiv3.py:143 python/install.py:288
+#: python/guiv3.py:141 python/guiv3.py:144 python/install.py:288
 #: python/install.py:292 python/options.py:376
 msgid "Cancel"
 msgstr ""
 
-#: python/guiv3.py:141 python/guiv3.py:144
+#: python/guiv3.py:142 python/guiv3.py:145
 msgid "Next"
 msgstr ""
 
-#: python/guiv3.py:157 python/guiv3.py:160
+#: python/guiv3.py:164 python/guiv3.py:167
 msgid "No"
 msgstr ""
 
-#: python/guiv3.py:158 python/guiv3.py:161
+#: python/guiv3.py:165 python/guiv3.py:168
 msgid "Yes"
 msgstr ""
 
-#: python/guiv3.py:171
+#: python/guiv3.py:178
 msgid "I Agree"
 msgstr ""
 
-#: python/guiv3.py:172
+#: python/guiv3.py:179
 msgid "Show virtual drives"
 msgstr ""
 
-#: python/guiv3.py:193
+#: python/guiv3.py:200
 msgid "Login: "
 msgstr ""
 
-#: python/guiv3.py:194
+#: python/guiv3.py:201
 msgid "Password: "
 msgstr ""
 
-#: python/guiv3.py:197
+#: python/guiv3.py:204
 msgid "Register"
 msgstr ""
 
-#: python/guiv3.py:302
+#: python/guiv3.py:309
 msgid "MB downloaded"
 msgstr ""
 
-#: python/guiv3.py:302
+#: python/guiv3.py:309
 msgid "of"
 msgstr ""
 
-#: python/guiv3.py:769 python/mainwindow.py:1156 python/mainwindow.py:1186
+#: python/guiv3.py:783 python/mainwindow.py:1156 python/mainwindow.py:1186
 #: python/mainwindow.py:1200 python/mainwindow.py:1209
 #: python/mainwindow.py:1221 python/mainwindow.py:1233
 #: python/mainwindow.py.orig:1149 python/mainwindow.py.orig:1179
@@ -1672,7 +1672,7 @@ msgstr ""
 msgid "Error"
 msgstr ""
 
-#: python/guiv3.py:769
+#: python/guiv3.py:783
 msgid "You cannot close this window"
 msgstr ""
 
