@@ -363,7 +363,7 @@ POL_Shortcut()
 		echo "export WINEDEBUG=\"-all\""
 		[ -n "$LOGTITLE" ] && echo "#POL_Log=$LOGTITLE"
 		[ -n "$SCRIPTID" ] && echo "#ScriptID=$SCRIPTID"
-		if [[ "$binary_name" =~ \.lnk$ ]]; then
+		if [[ "$binary_name" =~ \.(lnk|bat|cmd)$ ]]; then
 			echo "cd \"$(dirname "$target")\""
 			echo "POL_Wine start.exe /wait /unix \"\$WINEPREFIX/drive_c/$binary_dir/$binary_name\" $SpecialArg \"\$@\""
 		else

@@ -15,7 +15,7 @@
 * Fix Settings > Internet menu (#4989, thanks to rupert)
 * Workaround for Wine bug #37575 (#5023)
 * Improve find_binary function and make it public as POL_System_find_file
-* Add support for .lnk files to POL_Shortcut and POL_SetupWindow_shortcut_creator
+* Add support for .lnk, .bat and .cmd files to POL_Shortcut and POL_SetupWindow_shortcut_creator
 
 # 4.2.6
 * Use $POL_TERM more consistently, allow POL_TERM global configuration

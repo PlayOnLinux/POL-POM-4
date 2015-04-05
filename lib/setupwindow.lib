@@ -697,7 +697,7 @@ POL_SetupWindow_shortcut_creator()
 	cp "$PLAYONLINUX/resources/images/icones/browse.png" "$POL_USER_ROOT/tmp/cache/icons/$CODENAME"
 	cp "$PLAYONLINUX/resources/images/icones/finish.png" "$POL_USER_ROOT/tmp/cache/icons/$CODENAME"
 	POL_SetupWindow_wait_next_signal "$(eval_gettext "Scanning the virtual drive ...")" "$TITLE"
-	contents="$(find . -name windows -prune -o -name iexplore.exe -prune -o \( -iname '*.exe' -o -iname '*.lnk' \) -a -type f -print | process_POL_SetupWindow_shortcut_creator)"
+	contents="$(find . -name windows -prune -o -name iexplore.exe -prune -o \( -iname '*.exe' -o -iname '*.lnk' -o -iname '*.bat' -o -iname '*.cmd' \) -a -type f -print | process_POL_SetupWindow_shortcut_creator)"
 	LNG_FINISH="$(eval_gettext "I don't want to make another shortcut")"
 	LNG_BROWSE="$(eval_gettext "Browse")"
 	[ "$contents" = "" ] || CONTENTS2="~$contents"
