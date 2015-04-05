@@ -176,6 +176,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
         self.bigchamp = wx.TextCtrl(self.panel, -1, "",size=wx.Size(460,240), pos=(30,105),style=Variables.widget_borders|wx.TE_MULTILINE)
         self.MCheckBox = wx.CheckBox(self.panel, 302, _("I Agree"), pos=(20,325))
+        self.NCheckBox = wx.CheckBox(self.panel, 305, _("Don't remind me anymore"), pos=(20,325))
         self.PCheckBox = wx.CheckBox(self.panel, 304, _("Show virtual drives"), pos=(20,325))
         self.Menu = wx.ListBox(self.panel, 104, pos=(25,105),size=(460,220), style=Variables.widget_borders)
         self.scrolled_panel = wx.ScrolledWindow(self.panel, -1, pos=(20,100), size=(460,220), style=Variables.widget_borders|wx.HSCROLL|wx.VSCROLL)
@@ -261,6 +262,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.txtEstimation.Hide()
         self.texte_panel.Hide()
         self.MCheckBox.Hide()
+        self.NCheckBox.Hide()
         self.PCheckBox.Hide()
         self.NextButton.Enable(True)
         self.login.Hide()
@@ -270,6 +272,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.register.Hide()
         self.WaitButton.Hide()
         self.MCheckBox.SetValue(False)
+        self.NCheckBox.SetValue(False)
         self.PCheckBox.SetValue(False)
         self.animation.Hide()
         self.Timer_animate = False
@@ -621,6 +624,17 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.PCheckBox.Show()
 
 
+    def POL_SetupWindow_notice(self, message, title):
+        self.Destroy_all()
+        self.DrawDefault(message, title)
+
+        self.NCheckBox.SetValue(False)
+        self.NCheckBox.Show()
+
+        self.DrawCancel()
+        self.DrawNext()
+        wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_notice)
+
     def POL_SetupWindow_licence(self, message, title, licence_file):
         self.Destroy_all()
         self.DrawDefault(message, title)
@@ -730,6 +744,12 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.SendBash("FALSE")
         self.NextButton.Enable(False)
 
+    def release_notice(self, event):
+        if self.NCheckBox.GetValue():
+            self.release_yes(event)
+        else:
+            self.release_no(event)
+        
     def release_login(self, event):
         self.SendBash(self.loginbox.GetValue().encode("utf-8","replace")+"~"+self.passbox.GetValue().encode("utf-8","replace"))
         self.NextButton.Enable(False)

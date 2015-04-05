@@ -204,7 +204,19 @@ POL_Config_DosPrefixRead ()
 
 	cat "$WINEPREFIX/playonlinux_dos.cfg" 2> /dev/null | grep "^$1=" | cut -d\= -f2-
 }
-
+POL_Notice_IsAck ()
+{
+    # Check if some notice has been acknowledged
+    return grep -q -F "$1" "$POL_USER_ROOT/configurations/ack_notices" >&2
+}
+POL_Notice_Ack ()
+{
+    echo "$1" >> "$POL_USER_ROOT/configurations/ack_notices"
+}
+POL_Notice_ClearAllAck ()
+{
+    rm -f "$POL_USER_ROOT/configurations/ack_notices"
+}
 POL_OpenShell()
 {
 	# Open a shell in the current prefix environment

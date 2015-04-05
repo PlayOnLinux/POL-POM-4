@@ -109,6 +109,17 @@ POL_SetupWindow_message ()
 	
 	echo "$POL_COOKIE	POL_SetupWindow_message	$$	$(POL_Untab "$1")	$(POL_Untab "$2")" | ncs "$POL_HOST" "$POL_PORT"
 }
+POL_SetupWindow_notice ()
+{
+	# Show an important message, but allows the user to acknowledge it once and for all
+	# Usage: POL_SetupWindow_notice [message] [notice id] [title]
+	local noticeid="$2"
+	[ -z "$noticeid" ] && noticeid="$(POL_MD5 "$1")"
+	if ! POL_Notice_IsAck "$noticeid"; then
+		local APP_ANSWER="$(echo "$POL_COOKIE	POL_SetupWindow_notice	$$	$(POL_Untab "$1")	$(POL_Untab "$3")" | ncns "$POL_HOST" "$POL_PORT")"
+		[ "$APP_ANSWER" = "TRUE" ] && POL_Notice_Ack "$noticeid"
+	fi
+}
 POL_SetupWindow_licence ()
 {
 	# Shows a licence file, and force the user to accept it to continue

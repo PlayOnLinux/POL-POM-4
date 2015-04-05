@@ -19,6 +19,8 @@
 * Add support for .lnk, .bat and .cmd files to POL_Shortcut and POL_SetupWindow_shortcut_creator
 * Added an icon to open the debugger from the installation wizard when
   POL_Debug_Init has been called (#4948)
+* Implement POL_SetupWindow_notice to display important messages, but
+  allow the user to acknowledge them once and for all ("Don't remind me") (#2036)
 
 # 4.2.6
 

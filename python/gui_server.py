@@ -253,6 +253,10 @@ def readAction(object):
         if(len(object.SetupWindowTimer_action) == 8):
             object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_icon_menu(object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[4],object.SetupWindowTimer_action[5], object.SetupWindowTimer_action[6], object.SetupWindowTimer_action[7])
     
+    if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_notice'):
+        if(len(object.SetupWindowTimer_action) == 4):
+            object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_notice(object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3])
+    
     if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_licence'):
         if(len(object.SetupWindowTimer_action) == 5):
             object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_licence(object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[4])
