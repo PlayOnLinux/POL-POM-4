@@ -53,8 +53,9 @@ class Download(threading.Thread):
         self.download()
 
 class POL_SetupFrame(wx.Frame): #fenêtre principale
-    def __init__(self, titre, POL_SetupWindowID, Arg1, Arg2, Arg3):
+    def __init__(self, parent, titre, POL_SetupWindowID, Arg1, Arg2, Arg3):
         wx.Frame.__init__(self, None, -1, title = titre, style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX, size = (520, 398+Variables.windows_add_size))
+        self.parent = parent
         self.bash_pid = POL_SetupWindowID
         self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
         self.gauge_i = 0
@@ -152,6 +153,12 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.script_ID = 0
         self.InfoScript.Bind(wx.EVT_LEFT_DOWN, self.InfoClick)
         self.InfoScript.SetCursor(wx.StockCursor(wx.CURSOR_HAND))
+
+        self.DebugScript = wx.StaticBitmap(self.footer, -1, wx.Bitmap(os.environ['PLAYONLINUX']+"/resources/images/setups/bug.png"), pos=(32,8))
+        self.DebugScript.Hide()
+        self.script_LOGTITLE = None
+        self.DebugScript.Bind(wx.EVT_LEFT_DOWN, self.DebugClick)
+        self.DebugScript.SetCursor(wx.StockCursor(wx.CURSOR_HAND))
 
         if(os.environ["POL_OS"] != "Mac"):
             self.NoButton = wx.Button(self.footer, wx.ID_NO, _("No"), pos=(430,0),size=(85,37))
@@ -352,6 +359,13 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         else:
             os.system("xdg-open "+url+" &")
 
+    def POL_SetupWindow_DebugInit(self, logtitle):
+        self.DebugScript.Show()
+        self.script_LOGTITLE = logtitle
+
+    def DebugClick(self, e):
+        self.parent.BugReport(e)
+        self.parent.debugFrame.analyseReal(1, self.script_LOGTITLE)
 
     def POL_SetupWindow_textbox(self, message, title, value, maxlength=0):
         try:

@@ -1,4 +1,5 @@
 # 4.2.7
+
 * Detect and abort scripts when trying to run 64bit programs with 32bit Wine
 * POL_DetectVideoCards: list VGA compatible controllers and 3D controllers (#5012)
 * Add support for several other value types than REG_SZ to registry
@@ -16,8 +17,11 @@
 * Workaround for Wine bug #37575 (#5023)
 * Improve find_binary function and make it public as POL_System_find_file
 * Add support for .lnk, .bat and .cmd files to POL_Shortcut and POL_SetupWindow_shortcut_creator
+* Added an icon to open the debugger from the installation wizard when
+  POL_Debug_Init has been called (#4948)
 
 # 4.2.6
+
 * Use $POL_TERM more consistently, allow POL_TERM global configuration
   override. Beware, the terminal must support -T and -e options, so
   gnome-terminal doesn't qualify (gnome-terminal.wrapper does though)

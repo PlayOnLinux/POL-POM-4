@@ -156,7 +156,7 @@ def readAction(object):
 
     if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_Init'):
         if(len(object.SetupWindowTimer_action) == 5):
-            object.windowList[object.SetupWindowTimer_action[1]] = gui.POL_SetupFrame(os.environ["APPLICATION_TITLE"],object.SetupWindowTimer_action[1],object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[4])
+            object.windowList[object.SetupWindowTimer_action[1]] = gui.POL_SetupFrame(object,os.environ["APPLICATION_TITLE"],object.SetupWindowTimer_action[1],object.SetupWindowTimer_action[2],object.SetupWindowTimer_action[3],object.SetupWindowTimer_action[4])
             object.windowList[object.SetupWindowTimer_action[1]].Center(wx.BOTH)
             object.windowList[object.SetupWindowTimer_action[1]].Show(True)
             object.windowOpened += 1
@@ -177,6 +177,10 @@ def readAction(object):
     if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_UnsetID'):
          if(len(object.SetupWindowTimer_action) == 2):
              object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_UnsetID()
+
+    if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_DebugInit'):
+         if(len(object.SetupWindowTimer_action) == 3):
+             object.windowList[object.SetupWindowTimer_action[1]].POL_SetupWindow_DebugInit(object.SetupWindowTimer_action[2])
 
     if(object.SetupWindowTimer_action[0] == 'POL_SetupWindow_shortcut_list'):
          if(len(object.SetupWindowTimer_action) == 4):
