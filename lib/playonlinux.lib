@@ -207,7 +207,7 @@ POL_Config_DosPrefixRead ()
 POL_Notice_IsAck ()
 {
     # Check if some notice has been acknowledged
-    return grep -q -F "$1" "$POL_USER_ROOT/configurations/ack_notices" >&2
+    grep -q -F "$1" "$POL_USER_ROOT/configurations/ack_notices" >&2
 }
 POL_Notice_Ack ()
 {
