@@ -731,9 +731,14 @@ POL_SetupWindow_shortcut_creator()
 		then
 			local SUGGEST="${EXE_FILE%.*}"
 			if [ -e "$POL_USER_ROOT/shortcuts/$SUGGEST" ]; then
-				local PREFIX="$(POL_Wine_GetPrefixFromPath "$WINEPREFIX")"
-				local ALTSUGGEST="$SUGGEST ($PREFIX)"
-				if [ ! -e "$POL_USER_ROOT/shortcuts/$ALTSUGGEST" ]; then
+				local ALTSUGGEST=""
+				local wineprefix="$WINEPREFIX"
+				wineprefix=${wineprefix//"//"/"/"}
+				if [ "$(detect_wineprefix "$SUGGEST")" != "$wineprefix" ]; then
+					local PREFIX="$(POL_Wine_GetPrefixFromPath "$WINEPREFIX")"
+					ALTSUGGEST="$SUGGEST ($PREFIX)"
+				fi
+				if [ -n "$ALTSUGGEST" ] && [ ! -e "$POL_USER_ROOT/shortcuts/$ALTSUGGEST" ]; then
 					SUGGEST="$ALTSUGGEST"
 				else
 					let SUGGEST_VERSION=2
