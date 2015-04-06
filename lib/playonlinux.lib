@@ -683,7 +683,7 @@ detect_wineprefix()
 	
 	local file="$POL_USER_ROOT/shortcuts/$1"
 	if [ -e "$file" ]; then	
-		local prefix=$(cat "$file" | grep '^export WINEPREFIX')
+		local prefix=$(grep '^export WINEPREFIX' "$file")
 		prefix=${prefix:18}
 		prefix=${prefix//"\""/""}
 		prefix=${prefix//"//"/"/"}
@@ -695,10 +695,8 @@ detect_wineversion()
 	# Read the wineversion of a shortcut
 	# Usage: detect_wineversion [Shortcut]
 	
-	local wineprefixback="$WINEPREFIX"
-	export WINEPREFIX="$(detect_wineprefix "$1")"
+	local WINEPREFIX="$(detect_wineprefix "$1")"
 	POL_Config_PrefixRead "VERSION"
-	export WINEPREFIX="$wineprefixback"
 }
 detect_appdir()
 {
@@ -708,8 +706,8 @@ detect_appdir()
 	local file="$POL_USER_ROOT/shortcuts/$1"
 	if [ -e "$file" ]
 	then
-		local appdir=`cat "$file" | grep "cd \""`
-		appdir=${appdir:4:${#fichier}-5}
+		local appdir="$(grep '^cd \"' "$file")"
+		appdir=${appdir:4:-1}
 		echo $appdir
 	fi
 }
@@ -721,8 +719,8 @@ detect_appexec()
 	local file="$POL_USER_ROOT/shortcuts/$1"
 	if [ -e "$file" ]
 	then
-		local appexec=`cat "$file" | grep "POL_Wine " | cut -d'"' -f2`
-		echo $appexec
+		eval set -- $(grep '^POL_Wine ' "$file"|tail -n 1)
+		echo "$2"
 	fi
 }
 clean_wineprefix()
