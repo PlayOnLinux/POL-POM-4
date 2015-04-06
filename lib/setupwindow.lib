@@ -700,88 +700,110 @@ POL_SetupWindow_shortcut_creator()
 	# Usage: POL_SetupWindow_shortcut_creator
 	# No argument, this function uses WINEPREFIX
 	[ "$WINEPREFIX" = "" ] && POL_Debug_Fatal "POL_SetupWindow_shortcut_creator : wineprefix not set"
-	existing="$(get_existing_POL_SetupWindow_shortcut_creator)"
+	local existing="$(get_existing_POL_SetupWindow_shortcut_creator)"
 	
-	cd "$WINEPREFIX/drive_c"
-	CODENAME="$(POL_MD5 "$WINEPREFIX")"
+	local LNG_FINISH="$(eval_gettext "I don't want to make another shortcut")"
+	local LNG_BROWSE="$(eval_gettext "Browse")"
+	cd "$WINEPREFIX/drive_c" || POL_Debug_Fatal "Prefix : $WINEPREFIX does not exist"
+	local CODENAME="$(POL_MD5 "$WINEPREFIX")"
 	mkdir -p "$POL_USER_ROOT/tmp/cache/icons/$CODENAME"
 	cp "$PLAYONLINUX/resources/images/icones/browse.png" "$POL_USER_ROOT/tmp/cache/icons/$CODENAME"
 	cp "$PLAYONLINUX/resources/images/icones/finish.png" "$POL_USER_ROOT/tmp/cache/icons/$CODENAME"
-	POL_SetupWindow_wait_next_signal "$(eval_gettext "Scanning the virtual drive ...")" "$TITLE"
-	contents="$(find . -name windows -prune -o -name iexplore.exe -prune -o \( -iname '*.exe' -o -iname '*.lnk' -o -iname '*.bat' -o -iname '*.cmd' \) -a -type f -print | process_POL_SetupWindow_shortcut_creator)"
-	LNG_FINISH="$(eval_gettext "I don't want to make another shortcut")"
-	LNG_BROWSE="$(eval_gettext "Browse")"
-	[ "$contents" = "" ] || CONTENTS2="~$contents"
-	POL_SetupWindow_icon_menu "$(eval_gettext "Please choose a file for $APPLICATION_TITLE to make a shortcut")" "$TITLE"  "$LNG_FINISH~$LNG_BROWSE$CONTENTS2" "~" "$POL_USER_ROOT/tmp/cache/icons/$CODENAME" "finish.png~browse.png$CONTENTS2"
-	
-	EXE_FILE=""
-	if [ "$APP_ANSWER" = "$LNG_BROWSE" ]
-	then
-		cd $WINEPREFIX/drive_c || POL_Debug_Fatal "Prefix : $WINEPREFIX does not exist"
-		POL_SetupWindow_browse "$(eval_gettext "Please choose a file for $APPLICATION_TITLE to make a shortcut")" "$TITLE"
-		EXE_FILE="$(basename "$APP_ANSWER")"
-	elif [ ! "$APP_ANSWER" = "$LNG_FINISH" ]
-	then
-		EXE_FILE="$APP_ANSWER"
-	fi
-	if [ ! "$EXE_FILE" = "" ]
-	then
-		SUGGEST="${EXE_FILE%.*}"
-		if [ -e "$POL_USER_ROOT/shortcuts/$SUGGEST" ]; then
-			let SUGGEST_VERSION=2
-			while [ -e "$POL_USER_ROOT/shortcuts/$SUGGEST ($SUGGEST_VERSION)" ]; do
-				let SUGGEST_VERSION++
-			done
-			SUGGEST="$SUGGEST ($SUGGEST_VERSION)"
+	while true; do
+		POL_SetupWindow_wait_next_signal "$(eval_gettext "Scanning the virtual drive ...")" "$TITLE"
+		local contents="$(find . -name windows -prune -o -name iexplore.exe -prune -o \( -iname '*.exe' -o -iname '*.lnk' -o -iname '*.bat' -o -iname '*.cmd' \) -a -type f -print | process_POL_SetupWindow_shortcut_creator)"
+		local CONTENTS2=""
+		[ -z "$contents" ] || CONTENTS2="~$contents"
+		POL_SetupWindow_icon_menu "$(eval_gettext "Please choose a file for $APPLICATION_TITLE to make a shortcut")" "$TITLE"  "$LNG_FINISH~$LNG_BROWSE$CONTENTS2" "~" "$POL_USER_ROOT/tmp/cache/icons/$CODENAME" "finish.png~browse.png$CONTENTS2"
+		[ "$APP_ANSWER" = "$LNG_FINISH" ] && break
+
+		local EXE_FILE
+		if [ "$APP_ANSWER" = "$LNG_BROWSE" ]
+		then
+			cd $WINEPREFIX/drive_c
+			POL_SetupWindow_browse "$(eval_gettext "Please choose a file for $APPLICATION_TITLE to make a shortcut")" "$TITLE"
+			EXE_FILE="$(basename "$APP_ANSWER")"
+		else
+			EXE_FILE="$APP_ANSWER"
 		fi
-		while true; do
-			POL_SetupWindow_textbox "$(eval_gettext "Please choose a shortcut name for $EXE_FILE")" "$TITLE" "$SUGGEST"
-			SUGGEST="$APP_ANSWER"
-			[ ! -e "$POL_USER_ROOT/shortcuts/$SUGGEST" ] && break
-			POL_SetupWindow_question "$(eval_gettext "A shortcut by that name already exists, overwrite?")" "$TITLE"
-			if [ "$APP_ANSWER" = "TRUE" ]; then
-				rm "$POL_USER_ROOT/shortcuts/$SUGGEST"
-				break
+
+		if [ -n "$EXE_FILE" ]
+		then
+			local SUGGEST="${EXE_FILE%.*}"
+			if [ -e "$POL_USER_ROOT/shortcuts/$SUGGEST" ]; then
+				local PREFIX="$(POL_Wine_GetPrefixFromPath "$WINEPREFIX")"
+				local ALTSUGGEST="$SUGGEST ($PREFIX)"
+				if [ ! -e "$POL_USER_ROOT/shortcuts/$ALTSUGGEST" ]; then
+					SUGGEST="$ALTSUGGEST"
+				else
+					let SUGGEST_VERSION=2
+					while [ -e "$POL_USER_ROOT/shortcuts/$SUGGEST ($SUGGEST_VERSION)" ]; do
+						let SUGGEST_VERSION++
+					done
+					SUGGEST="$SUGGEST ($SUGGEST_VERSION)"
+				fi
 			fi
-		done
-		POL_Shortcut "$EXE_FILE" "$SUGGEST"
-		echo "POL_Shortcut \"$EXE_FILE\" \"$SUGGEST\"" >> "$POL_USER_ROOT/tmp/shortcuts"
-		POL_SetupWindow_shortcut_creator
-	fi
+			while true; do
+				POL_SetupWindow_textbox "$(eval_gettext "Please choose a shortcut name for $EXE_FILE")" "$TITLE" "$SUGGEST"
+				SUGGEST="$APP_ANSWER"
+				[ ! -e "$POL_USER_ROOT/shortcuts/$SUGGEST" ] && break
+				POL_SetupWindow_question "$(eval_gettext "A shortcut by that name already exists, overwrite?")" "$TITLE"
+				if [ "$APP_ANSWER" = "TRUE" ]; then
+					rm "$POL_USER_ROOT/shortcuts/$SUGGEST"
+					break
+				fi
+			done
+			POL_Shortcut "$EXE_FILE" "$SUGGEST"
+			echo "POL_Shortcut \"$EXE_FILE\" \"$SUGGEST\"" >> "$POL_USER_ROOT/tmp/shortcuts"
+		fi
+	done
 }
 
 process_POL_SetupWindow_shortcut_creator ()
 {
 	### Used by POL_SetupWindow_shortcut_creator
-	read line
-	local first=true
-	while [ ! "$line" = "" ]
-	do
-		if [ "$(echo $existing | grep $(basename "$line"))" = "" ] 
-		then
-			local target="$WINEPREFIX/drive_c/$line"
-			[[ "$line" =~ \.lnk$ ]] && target="$(winepath -u "$(strings "$target"|tail -n 1)")"
-			#echo "$line: Trying to extract icon off $target" >&2
-			POL_ExtractIcon "$target" "$POL_USER_ROOT/tmp/cache/icons/$CODENAME/$(basename "$line")" > /dev/null 2>&1
-			[ "$first" = "true" ] && first=false || printf "~"
-			printf "$(basename "$line")"
+	local sep=""
+	while read runnable; do
+		local filename="$(basename "$runnable")"
+		if [ -z "$(grep "$filename" <<<"$existing")" ]; then
+			local target="$WINEPREFIX/drive_c/$runnable"
+			[[ "$runnable" =~ \.lnk$ ]] && target="$(winepath -u "$(strings "$target"|tail -n 1)")"
+			#echo "$runnable: Trying to extract icon off $target" >&2
+			POL_ExtractIcon "$target" "$POL_USER_ROOT/tmp/cache/icons/$CODENAME/$filename" > /dev/null 2>&1
+			# Prefix with priority
+			case "$filename" in
+			   *.exe) echo "1$filename" ;;
+			   *.lnk) echo "2$filename" ;;
+			   *) echo "9$filename"
+			esac
+		else
+			POL_Debug_Message "Skipped $filename (shortcut already exists)"
 		fi
-		read line
+	done |\
+	# Sort by priority, remove duplicates
+	sort -u |\
+	while read filename; do
+		# Strip priority
+		printf "$sep${filename:1}"
+		sep="~"
 	done
 }
 get_existing_POL_SetupWindow_shortcut_creator()
 {
 	### Used by POL_SetupWindow_shortcut_creator
-	cd "$POL_USER_ROOT/shortcuts"
+	local wineprefix="$WINEPREFIX"
+	wineprefix=${wineprefix//"//"/"/"}
 	local OLDIFS="$IFS"
-	IFS=$'\n'
-	for file in *; do
-		if [ -e "$file" ] && [ ! "$(cat "$file" | grep $WINEPREFIX)" = "" ]
-		then
-			cat "$file" | grep "POL_Wine " | awk '{print $2}' | tr -d "\""
+	local IFS=$'\n'
+	pushd "$POL_USER_ROOT/shortcuts/" &&
+	for shortcut in *
+	do
+		IFS="$OLDIFS"
+		if [ "$(detect_wineprefix "$shortcut")" = "$wineprefix" ]; then
+			detect_appexec "$shortcut"
 		fi
 	done
-	IFS="$OLDIFS"
+	popd
 }
 
 POL_SetupWindow_RequiredCard()
