@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX/APLU <pol-gettext@mulx.net>\n"
-"POT-Creation-Date: 2015-04-06 19:00:11+02:00\n"
+"POT-Creation-Date: 2015-04-07 19:00:07+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -946,47 +946,47 @@ msgstr ""
 msgid "Making shortcut..."
 msgstr ""
 
-#: lib/playonlinux.lib:770
+#: lib/playonlinux.lib:768
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr ""
 
-#: lib/playonlinux.lib:879
+#: lib/playonlinux.lib:877
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:880
+#: lib/playonlinux.lib:878
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:881
+#: lib/playonlinux.lib:879
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:882
+#: lib/playonlinux.lib:880
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
 "prevent wine from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:911
+#: lib/playonlinux.lib:909
 #, sh-format
 msgid ""
 "Your Linux kernel may not be configured to run Win16 programs under Wine"
 "\\nSee $EXPLANATION_URL"
 msgstr ""
 
-#: lib/playonlinux.lib:914
+#: lib/playonlinux.lib:912
 #, sh-format
 msgid ""
 "Your kernel may be incompatible with running Win16 programs under Wine\\nSee "
@@ -1182,7 +1182,7 @@ msgstr ""
 msgid "Please wait while $APPLICATION_TITLE is copying files:"
 msgstr ""
 
-#: lib/setupwindow.lib:560 lib/setupwindow.lib:710
+#: lib/setupwindow.lib:560 lib/setupwindow.lib:713
 #, sh-format
 msgid "Scanning the virtual drive ..."
 msgstr ""
@@ -1259,17 +1259,17 @@ msgstr ""
 msgid "Please choose an installation method"
 msgstr ""
 
-#: lib/setupwindow.lib:712
+#: lib/setupwindow.lib:705
 #, sh-format
 msgid "I don't want to make another shortcut"
 msgstr ""
 
-#: lib/setupwindow.lib:713 python/guiv3.py:170
+#: lib/setupwindow.lib:706 python/guiv3.py:170
 #, sh-format
 msgid "Browse"
 msgstr ""
 
-#: lib/setupwindow.lib:741
+#: lib/setupwindow.lib:755
 #, sh-format
 msgid "A shortcut by that name already exists, overwrite?"
 msgstr ""
