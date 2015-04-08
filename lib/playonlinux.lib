@@ -242,9 +242,9 @@ POL_OpenShell()
 	echo "You are in $1's virtual drive environment"
 	EOF
 	) >  "$POL_USER_ROOT/tmp/env_bash"
-	echo bash --rcfile "$POL_USER_ROOT/tmp/env_bash" > "$POL_USER_ROOT/tmp/env_bash2"
+        (echo "#!/usr/bin/env bash"; echo "exec bash --rcfile \"$POL_USER_ROOT/tmp/env_bash\" -i") > "$POL_USER_ROOT/tmp/env_bash2"
 	chmod +x "$POL_USER_ROOT/tmp/env_bash2"
-	$POL_TERM -e "$POL_USER_ROOT/tmp/env_bash2" -T "$APPLICATION_TITLE"
+	$POL_TERM -T "$APPLICATION_TITLE" -e "$POL_USER_ROOT/tmp/env_bash2"
 }
 
 

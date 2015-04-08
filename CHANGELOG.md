@@ -21,6 +21,7 @@
   POL_Debug_Init has been called (#4948)
 * Implement POL_SetupWindow_notice to display important messages, but
   allow the user to acknowledge them once and for all ("Don't remind me") (#2036)
+* POL_OpenShell (Configure > Misc > Open a shell) bug fixes
 
 # 4.2.6
 
