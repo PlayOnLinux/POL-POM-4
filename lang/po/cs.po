@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-03-30 19:00+0200\n"
+"POT-Creation-Date: 2015-04-06 19:00+0200\n"
 "PO-Revision-Date: 2014-11-14 11:03+0000\n"
 "Last-Translator: Pepa Novák <wnc@centrum.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-03-31 05:09+0000\n"
+"X-Launchpad-Export-Date: 2015-04-07 05:08+0000\n"
 "X-Generator: Launchpad (build 17413)\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -374,6 +374,12 @@ msgstr "Chyba!"
 msgid "File not found!"
 msgstr "Soubor nebyl nalezen!"
 
+#: bash/install:27 bash/install:29 python/install.py:458 python/install.py:460
+#: python/install.py:580
+#, sh-format
+msgid "Please read this"
+msgstr "Prosím čtěte následující"
+
 #: bash/install_wver:27
 #, sh-format
 msgid "This wizard will help you to install Wine: "
@@ -391,7 +397,7 @@ msgstr "Nastavení aplikace $APPLICATION_TITLE"
 
 #: bash/installpolpackages:29 bash/killall:29 bash/read_pc_cd:39
 #: bash/read_pc_cd:73 bash/read_pc_cd:103 bash/winebash:27
-#: lib/setupwindow.lib:420 lib/wine.lib:1014 lib/wine.lib:1092
+#: lib/setupwindow.lib:431 lib/wine.lib:1014 lib/wine.lib:1092
 #: lib/wine.lib:1122
 #, sh-format
 msgid "Please wait..."
@@ -503,7 +509,7 @@ msgstr "Pokud nevíte, vše odznačte."
 msgid "What would you like to do before installation?"
 msgstr "Co chcete udělat ještě před instalací?"
 
-#: bash/manual_install:203 lib/scripts.lib:460
+#: bash/manual_install:203 lib/scripts.lib:468
 #, sh-format
 msgid "Please make your choice"
 msgstr "Vyberte si prosím"
@@ -908,7 +914,7 @@ msgstr "Chcete $APPLICATION_TITLE aktualizovat a restartovat?"
 msgid "Already up-to-date."
 msgstr "Je již aktuální."
 
-#: lib/debug.lib:126
+#: lib/debug.lib:128
 #, sh-format
 msgid ""
 "$APPLICATION_TITLE has encountered an error. If the program does not work "
@@ -918,7 +924,7 @@ msgstr ""
 "$APPLICATION_TITLE způsobil chybu. Pokud program nefunguje správně, tak toto "
 "může být příčina.\\nNavštivte www.$POL_DNS pro další informace"
 
-#: lib/debug.lib:140
+#: lib/debug.lib:142
 #, sh-format
 msgid ""
 "$APPLICATION_TITLE has encountered an error. If the program you are "
@@ -929,7 +935,7 @@ msgstr ""
 "nepracuje správně, může to být zapříčiněno právě tímto problémem.\\"
 "nNavštivte www.$POL_DNS pro více informací"
 
-#: lib/debug.lib:153
+#: lib/debug.lib:155
 #, sh-format
 msgid ""
 "$APPLICATION_TITLE has encountered a fatal error. $APPLICATION_TITLE will "
@@ -956,13 +962,13 @@ msgstr "Počkejte prosím chvilku, $APPLICATION_TITLE simuluje restart windows"
 msgid "Setting Program Files var"
 msgstr "Nastavení složky Program Files var"
 
-#: lib/playonlinux.lib:249 lib/playonlinux.lib:255 lib/playonlinux.lib:261
-#: lib/playonlinux.lib:267 lib/playonlinux.lib:273 lib/playonlinux.lib:279
+#: lib/playonlinux.lib:261 lib/playonlinux.lib:267 lib/playonlinux.lib:273
+#: lib/playonlinux.lib:279 lib/playonlinux.lib:285 lib/playonlinux.lib:291
 #, sh-format
 msgid "This function is disabled in the PlayOnlinux environment."
 msgstr "Tato funkce je v prostředí PlayOnLinux zakázána"
 
-#: lib/playonlinux.lib:342
+#: lib/playonlinux.lib:354
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -973,12 +979,12 @@ msgstr ""
 "n\\nPlayOnLinux tento skript neschválil a není za něj tudíž zodpovědný.\\"
 "nProsím, ujistěte se, že víte, co děláte!"
 
-#: lib/playonlinux.lib:343 lib/playonlinux.lib:366
+#: lib/playonlinux.lib:355 lib/playonlinux.lib:378
 #, sh-format
 msgid "Here the source code of the script. Check it carefully"
 msgstr "Zde je zdrojový kód skriptu. Velmi pečlivě ho zkontrolujte."
 
-#: lib/playonlinux.lib:365
+#: lib/playonlinux.lib:377
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -989,22 +995,22 @@ msgstr ""
 "n$APPLICATION_TITLE nepovolil spouštění tohoto skriptu a nebude za to na "
 "sebe brát zodpovědnost.\\nUjistěte se, že opravdu dobře víte, co děláte!"
 
-#: lib/playonlinux.lib:366
+#: lib/playonlinux.lib:378
 #, sh-format
 msgid "External library"
 msgstr "Externí knihovna"
 
-#: lib/playonlinux.lib:629
+#: lib/playonlinux.lib:641
 #, sh-format
 msgid "Making shortcut..."
 msgstr "Vytváří se zástupce..."
 
-#: lib/playonlinux.lib:758
+#: lib/playonlinux.lib:770
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr "Chcete smazat virtuální disk:"
 
-#: lib/playonlinux.lib:867
+#: lib/playonlinux.lib:879
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
@@ -1013,7 +1019,7 @@ msgstr ""
 "Následující soubor je umístěn na souborovém systému FAT32.\\nTo může "
 "způsobit nefunkčnost wine\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:868
+#: lib/playonlinux.lib:880
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
@@ -1022,7 +1028,7 @@ msgstr ""
 "Následující soubor je umístěn na souborovém systému NTFS.\\nTo může způsobit "
 "nefunkčnost wine\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:869
+#: lib/playonlinux.lib:881
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
@@ -1031,7 +1037,7 @@ msgstr ""
 "Následující soubor je umístěn na fuse souborovém systému.\\nTo může způsobit "
 "nefunkčnost wine\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:870
+#: lib/playonlinux.lib:882
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
@@ -1040,14 +1046,14 @@ msgstr ""
 "Následující soubor je umístěn na souborovém systému připojeném s parametrem "
 "noexec.\\nTo může způsobit nefunkčnost wine\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:899
+#: lib/playonlinux.lib:911
 #, sh-format
 msgid ""
 "Your Linux kernel may not be configured to run Win16 programs under Wine\\"
 "nSee $EXPLANATION_URL"
 msgstr ""
 
-#: lib/playonlinux.lib:902
+#: lib/playonlinux.lib:914
 #, sh-format
 msgid ""
 "Your kernel may be incompatible with running Win16 programs under Wine\\nSee "
@@ -1074,7 +1080,7 @@ msgstr "Aktualizuje se zásuvný modul. Předchozí: "
 msgid "Installing plugin: "
 msgstr "Instaluje se zásuvný modul: "
 
-#: lib/scripts.lib:353
+#: lib/scripts.lib:356
 #, sh-format
 msgid ""
 "Binary not found: $BINARY\\nHave you installed the program to the default "
@@ -1083,40 +1089,40 @@ msgstr ""
 "Binární soubor nebyl nalezen: $BINARY\\nJe program nainstalován do výchozího "
 "umístění?"
 
-#: lib/scripts.lib:419
+#: lib/scripts.lib:427
 #, sh-format
 msgid "Function override detected, disabling bug reporting"
 msgstr "Detekována funkce přepisování, vypínání nahlašování chyb."
 
-#: lib/scripts.lib:518 lib/scripts.lib:581
+#: lib/scripts.lib:526 lib/scripts.lib:589
 #, sh-format
 msgid "No enough space to download:\\n$URL ($neededSpace KB)"
 msgstr "Není dostatek místa ke stažení:\\n$URL ($neededSpace KB)"
 
-#: lib/scripts.lib:520 lib/scripts.lib:803
+#: lib/scripts.lib:528 lib/scripts.lib:811
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr "Počkejte prosím, než $APPLICATION_TITLE dokončí stahování:"
 
-#: lib/scripts.lib:522 lib/scripts.lib:587
+#: lib/scripts.lib:530 lib/scripts.lib:595
 #, sh-format
 msgid "An error happened during download."
 msgstr "Při stahování nastala chyba."
 
-#: lib/scripts.lib:522 lib/scripts.lib:540 lib/scripts.lib:587
-#: lib/scripts.lib:603
+#: lib/scripts.lib:530 lib/scripts.lib:548 lib/scripts.lib:595
+#: lib/scripts.lib:611
 #, sh-format
 msgid "Do you want to retry?"
 msgstr "Zkusit znovu?"
 
-#: lib/scripts.lib:540 lib/scripts.lib:603
+#: lib/scripts.lib:548 lib/scripts.lib:611
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 "Chyba ! Soubory nesouhlasí\\n\\nMístní kontrolní MD5 součet: $LOCAL_MD5\\"
 "nKontrolní MD5 součet na serveru: $SERVER_MD5"
 
-#: lib/scripts.lib:708
+#: lib/scripts.lib:716
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
@@ -1124,32 +1130,32 @@ msgstr ""
 "Vypadá to, že 7z není nainstalován. Zkontrolujte prosím, zda je 7zip "
 "nainstalován a zkuste to znovu"
 
-#: lib/scripts.lib:715
+#: lib/scripts.lib:723
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr "Nemohu nalézt ${dest} v ${archive}"
 
-#: lib/scripts.lib:719
+#: lib/scripts.lib:727
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr "Extrahuje se ${filename} z ${archivename}"
 
-#: lib/scripts.lib:734
+#: lib/scripts.lib:742
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr "Velikost extrahovaného souboru nesouhlasí!"
 
-#: lib/scripts.lib:765
+#: lib/scripts.lib:773
 #, sh-format
 msgid "Copying ${filename}"
 msgstr "Kopíruje se ${filename}"
 
-#: lib/scripts.lib:778
+#: lib/scripts.lib:786
 #, sh-format
 msgid "File size does not match!"
 msgstr "Velikost souboru nesouhlasí!"
 
-#: lib/scripts.lib:929
+#: lib/scripts.lib:937
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
@@ -1158,7 +1164,7 @@ msgstr ""
 "$APPLICATION_TITLE $VERSION je příliš stará pro pokračování.\\"
 "n$APPLICATION_TITLE $NEEDED je vyžadována."
 
-#: lib/scripts.lib:944
+#: lib/scripts.lib:952
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
@@ -1167,7 +1173,7 @@ msgstr ""
 "Varování: Máte spuštěnou aplikaci $APPLICATION_TITLE $VERSION.\\nPro "
 "pokračování je však doporučena aplikace $APPLICATION_TITLE $NEEDED."
 
-#: lib/scripts.lib:975
+#: lib/scripts.lib:983
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr "profil $AUTHOR"
@@ -1207,32 +1213,32 @@ msgstr "Tento průvodce vám pomůže instalovat "
 msgid "Welcome to $APPLICATION_TITLE Installation Wizard."
 msgstr "Vítejte v instalačním průvodci pro $APPLICATION_TITLE"
 
-#: lib/setupwindow.lib:335
+#: lib/setupwindow.lib:346
 #, sh-format
 msgid "Where is mounted your CD-ROM?"
 msgstr "Kde je připojena vaše CD-ROM?"
 
-#: lib/setupwindow.lib:336 python/install.py:222
+#: lib/setupwindow.lib:347 python/install.py:222
 #, sh-format
 msgid "Other"
 msgstr "Jiné"
 
-#: lib/setupwindow.lib:337 python/install.py:290 python/install.py:294
+#: lib/setupwindow.lib:348 python/install.py:290 python/install.py:294
 #, sh-format
 msgid "Refresh"
 msgstr "Obnovit"
 
-#: lib/setupwindow.lib:369
+#: lib/setupwindow.lib:380
 #, sh-format
 msgid "Reading your device"
 msgstr "Načítání vašeho zařízení"
 
-#: lib/setupwindow.lib:384
+#: lib/setupwindow.lib:395
 #, sh-format
 msgid "Error: Unable to find the CD-ROM!"
 msgstr "Chyba: Nelze najít CD-ROM!"
 
-#: lib/setupwindow.lib:398
+#: lib/setupwindow.lib:409
 #, sh-format
 msgid ""
 "$TITLE needs to read the PC part of a hybrid CD-Rom.\\n\\nBy default, MacOS "
@@ -1245,7 +1251,7 @@ msgstr ""
 "kompatibilní s aktuální verzí Mac OS.\\n\\nChcete, aby se PlayOnMac pokusil "
 "načíst PC část CD-ROM?"
 
-#: lib/setupwindow.lib:450
+#: lib/setupwindow.lib:461
 #, sh-format
 msgid ""
 "Don't forget to go to PlayOnMac tools menu -> Read a PC CD-Rom before "
@@ -1254,27 +1260,27 @@ msgstr ""
 "Nezapomeňte jít do nabídky nástrojů PlayOnMac -> Číst PC CD-ROM před "
 "spuštěním hry"
 
-#: lib/setupwindow.lib:464
+#: lib/setupwindow.lib:475
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is copying files:"
 msgstr "Vyčkejte prosím, dokud $APPLICATION_TITLE nezkopíruje soubory:"
 
-#: lib/setupwindow.lib:549 lib/setupwindow.lib:699
+#: lib/setupwindow.lib:560 lib/setupwindow.lib:710
 #, sh-format
 msgid "Scanning the virtual drive ..."
 msgstr "Skenuji virtuální disk ..."
 
-#: lib/setupwindow.lib:563
+#: lib/setupwindow.lib:574
 #, sh-format
 msgid "How much memory does your graphics board have?"
 msgstr "Kolik paměti má vaše gragická karta?"
 
-#: lib/setupwindow.lib:572
+#: lib/setupwindow.lib:583
 #, sh-format
 msgid "Video card does not have enough memory"
 msgstr "Grafická karta nemá dostatek paměti"
 
-#: lib/setupwindow.lib:573
+#: lib/setupwindow.lib:584
 #, sh-format
 msgid ""
 "Your video card does not have enough memory!\\nIt might prevent the game "
@@ -1282,72 +1288,72 @@ msgid ""
 msgstr ""
 "Vaše grafická karta nemá dostatek paměti!\\nMůže to způsobit nefunkčnost hry"
 
-#: lib/setupwindow.lib:588
+#: lib/setupwindow.lib:599
 #, sh-format
 msgid "Use Steam Store version"
 msgstr "Použijte Steam Store verzi"
 
-#: lib/setupwindow.lib:589
+#: lib/setupwindow.lib:600
 #, sh-format
 msgid "Use Steam Store demo version"
 msgstr "Použijte Steam Store demo verzi"
 
-#: lib/setupwindow.lib:590
+#: lib/setupwindow.lib:601
 #, sh-format
 msgid "Use Desura Store version"
 msgstr "Použít Desura store verzi"
 
-#: lib/setupwindow.lib:591
+#: lib/setupwindow.lib:602
 #, sh-format
 msgid "Use Desura Store demo version"
 msgstr "Použít Desura store demo verzi"
 
-#: lib/setupwindow.lib:592
+#: lib/setupwindow.lib:603
 #, sh-format
 msgid "Use Origin Store version"
 msgstr "Použít Origin store verzi"
 
-#: lib/setupwindow.lib:593
+#: lib/setupwindow.lib:604
 #, sh-format
 msgid "Use Origin Store demo version"
 msgstr "Použít Origin store demo verzi"
 
-#: lib/setupwindow.lib:595
+#: lib/setupwindow.lib:606
 #, sh-format
 msgid "Use a setup file in my computer"
 msgstr "Použít soubor nastavení v počítači"
 
-#: lib/setupwindow.lib:596
+#: lib/setupwindow.lib:607
 #, sh-format
 msgid "Use CD-ROM(s)"
 msgstr "Použijte CD-ROM(y)"
 
-#: lib/setupwindow.lib:597
+#: lib/setupwindow.lib:608
 #, sh-format
 msgid "Use DVD-ROM(s)"
 msgstr "Použijte DVD-ROM(y)"
 
-#: lib/setupwindow.lib:598
+#: lib/setupwindow.lib:609
 #, sh-format
 msgid "Download the program"
 msgstr "Stáhnout program"
 
-#: lib/setupwindow.lib:663
+#: lib/setupwindow.lib:674
 #, sh-format
 msgid "Please choose an installation method"
 msgstr "Vyberte prosím způsob instalace"
 
-#: lib/setupwindow.lib:701
+#: lib/setupwindow.lib:712
 #, sh-format
 msgid "I don't want to make another shortcut"
 msgstr "Nechci vytvářet další zástupce"
 
-#: lib/setupwindow.lib:702 python/guiv3.py:163
+#: lib/setupwindow.lib:713 python/guiv3.py:170
 #, sh-format
 msgid "Browse"
 msgstr "Procházet"
 
-#: lib/setupwindow.lib:730
+#: lib/setupwindow.lib:741
 #, sh-format
 msgid "A shortcut by that name already exists, overwrite?"
 msgstr ""
@@ -1713,56 +1719,60 @@ msgstr "Chyba: nelze rezervovat platný port"
 msgid "WARNING. Please use POL_SetupWindow_Init first"
 msgstr "VAROVÁNÍ. Nejprve prosím použijte POL_SetupWindow_Init"
 
-#: python/guiv3.py:116
+#: python/guiv3.py:117
 msgid "{0} Wizard"
 msgstr "{0} Průvodce"
 
-#: python/guiv3.py:140 python/guiv3.py:143 python/install.py:288
+#: python/guiv3.py:141 python/guiv3.py:144 python/install.py:288
 #: python/install.py:292 python/options.py:376
 msgid "Cancel"
 msgstr "Storno"
 
-#: python/guiv3.py:141 python/guiv3.py:144
+#: python/guiv3.py:142 python/guiv3.py:145
 msgid "Next"
 msgstr "Další"
 
-#: python/guiv3.py:157 python/guiv3.py:160
+#: python/guiv3.py:164 python/guiv3.py:167
 msgid "No"
 msgstr "Ne"
 
-#: python/guiv3.py:158 python/guiv3.py:161
+#: python/guiv3.py:165 python/guiv3.py:168
 msgid "Yes"
 msgstr "Ano"
 
-#: python/guiv3.py:171
+#: python/guiv3.py:178
 msgid "I Agree"
 msgstr "Souhlasím"
 
-#: python/guiv3.py:172
+#: python/guiv3.py:179
+msgid "Don't remind me anymore"
+msgstr ""
+
+#: python/guiv3.py:180
 msgid "Show virtual drives"
 msgstr "Zobrazit virtuální mechaniky"
 
-#: python/guiv3.py:193
+#: python/guiv3.py:201
 msgid "Login: "
 msgstr "Přihlášení: "
 
-#: python/guiv3.py:194
+#: python/guiv3.py:202
 msgid "Password: "
 msgstr "Heslo: "
 
-#: python/guiv3.py:197
+#: python/guiv3.py:205
 msgid "Register"
 msgstr "Registrace"
 
-#: python/guiv3.py:302
+#: python/guiv3.py:312
 msgid "MB downloaded"
 msgstr "MB staženo"
 
-#: python/guiv3.py:302
+#: python/guiv3.py:312
 msgid "of"
 msgstr "z"
 
-#: python/guiv3.py:769 python/mainwindow.py:1156 python/mainwindow.py:1186
+#: python/guiv3.py:803 python/mainwindow.py:1156 python/mainwindow.py:1186
 #: python/mainwindow.py:1200 python/mainwindow.py:1209
 #: python/mainwindow.py:1221 python/mainwindow.py:1233
 #: python/mainwindow.py.orig:1149 python/mainwindow.py.orig:1179
@@ -1772,7 +1782,7 @@ msgstr "z"
 msgid "Error"
 msgstr "Chyba"
 
-#: python/guiv3.py:769
+#: python/guiv3.py:803
 msgid "You cannot close this window"
 msgstr "Toto okno není možné zavřít"
 
@@ -1837,42 +1847,7 @@ msgstr "Komerční"
 msgid "Install a non-listed program"
 msgstr "Nainstalovat program, který není v seznamu"
 
-#: python/install.py:446 python/install.py:449 python/install.py:465
-#: python/install.py:467 python/install.py:587
-msgid "Please read this"
-msgstr "Prosím čtěte následující"
-
-#: python/install.py:446
-msgid ""
-"When {0} installs a Windows program: \n"
-"\n"
-" - Leave the default location\n"
-" - Do not tick the checkbox 'Run the program' if asked."
-msgstr ""
-"Když je {0} instalován program Windows: \n"
-"\n"
-" - Opusťte výchozí umístění\n"
-" - Nezaškrtněte \"Spustit program\", pokud je poptáváno."
-
-#: python/install.py:449
-msgid ""
-"{0} is not related to WineHQ.\n"
-"\n"
-"To ensure that the results will be comparable from one computer to another "
-"and to avoid regressions, we specify a working wine version for each "
-"program. This wine version will quickly become out to date, but we won't "
-"change the installer until new tests are made and it takes time.\n"
-"\n"
-"For those reason, please do NOT send any bug report or ask any support on "
-"WineHQ forums if you are using PlayOnLinux.\n"
-"\n"
-"If you want to help the project to make some tests in order to avoid using "
-"out of date wine versions, do not hesitate to go on our website.\n"
-"\n"
-"Thank you."
-msgstr ""
-
-#: python/install.py:465
+#: python/install.py:458
 msgid ""
 "This program is currently in testing.\n"
 "\n"
@@ -1884,7 +1859,7 @@ msgstr ""
 "Program nemusí fungovat dle očekávání. Vaše zpětná vazba, ať negativní či "
 "pozitivní, je velmi důležitá pro další vylepšování tohoto instalátoru."
 
-#: python/install.py:467
+#: python/install.py:460
 msgid ""
 "This program contains a protection against copy (DRM) incompatible with "
 "emulation.\n"
@@ -1896,11 +1871,11 @@ msgstr ""
 "Jediné řešení je použití \"no-cd\" patche, toto se ovšem používá také v "
 "případě pirátství, tudíž neposkytujeme žádnou podporu."
 
-#: python/install.py:584
+#: python/install.py:577
 msgid "Attention!"
 msgstr ""
 
-#: python/install.py:584
+#: python/install.py:577
 msgid ""
 "By enabling this option, you can install programs that employ digital rights "
 "management (DRM) copy protection that are not supported by {0} and might "
@@ -1911,7 +1886,7 @@ msgid ""
 "using this option."
 msgstr ""
 
-#: python/install.py:587
+#: python/install.py:580
 msgid ""
 "By enabling this, you will have access to installers for programs that "
 "contain protections against copy (DRM) incompatible with emulation.\n"
@@ -2392,3 +2367,14 @@ msgstr ""
 #: python/wrapper.py:121
 msgid "{0} is not able to start POL_SetupWindow_server."
 msgstr "{0} není shopen spustit POL_SetupWindow_server."
+
+#~ msgid ""
+#~ "When {0} installs a Windows program: \n"
+#~ "\n"
+#~ " - Leave the default location\n"
+#~ " - Do not tick the checkbox 'Run the program' if asked."
+#~ msgstr ""
+#~ "Když je {0} instalován program Windows: \n"
+#~ "\n"
+#~ " - Opusťte výchozí umístění\n"
+#~ " - Nezaškrtněte \"Spustit program\", pokud je poptáváno."

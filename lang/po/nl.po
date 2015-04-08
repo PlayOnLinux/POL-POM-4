@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2015-03-30 19:00+0200\n"
+"POT-Creation-Date: 2015-04-06 19:00+0200\n"
 "PO-Revision-Date: 2015-03-25 10:05+0000\n"
 "Last-Translator: rob <linuxned@gmail.com>\n"
 "Language-Team: nl_NL.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-03-31 05:09+0000\n"
+"X-Launchpad-Export-Date: 2015-04-07 05:08+0000\n"
 "X-Generator: Launchpad (build 17413)\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -379,6 +379,12 @@ msgstr "Fout!"
 msgid "File not found!"
 msgstr "Bestand niet gevonden!"
 
+#: bash/install:27 bash/install:29 python/install.py:458 python/install.py:460
+#: python/install.py:580
+#, sh-format
+msgid "Please read this"
+msgstr "Lees dit a.u.b. door"
+
 #: bash/install_wver:27
 #, sh-format
 msgid "This wizard will help you to install Wine: "
@@ -396,7 +402,7 @@ msgstr "$APPLICATION_TITLE-programmaconfigurator"
 
 #: bash/installpolpackages:29 bash/killall:29 bash/read_pc_cd:39
 #: bash/read_pc_cd:73 bash/read_pc_cd:103 bash/winebash:27
-#: lib/setupwindow.lib:420 lib/wine.lib:1014 lib/wine.lib:1092
+#: lib/setupwindow.lib:431 lib/wine.lib:1014 lib/wine.lib:1092
 #: lib/wine.lib:1122
 #, sh-format
 msgid "Please wait..."
@@ -514,7 +520,7 @@ msgstr "Als u het niet weet, deselecteer dan alles"
 msgid "What would you like to do before installation?"
 msgstr "Wat wilt u doen vooraf aan de installatie?"
 
-#: bash/manual_install:203 lib/scripts.lib:460
+#: bash/manual_install:203 lib/scripts.lib:468
 #, sh-format
 msgid "Please make your choice"
 msgstr "Maak een keuze"
@@ -919,7 +925,7 @@ msgstr "Wilt u $APPLICATION_TITLE bijwerken en herstarten?"
 msgid "Already up-to-date."
 msgstr "Is reeds up-to-date."
 
-#: lib/debug.lib:126
+#: lib/debug.lib:128
 #, sh-format
 msgid ""
 "$APPLICATION_TITLE has encountered an error. If the program does not work "
@@ -930,7 +936,7 @@ msgstr ""
 "programma niet goed werkt, dan kan dit de reden van het probleem zijn.\\nGa "
 "naar www.$POL_DNS voor meer informatie"
 
-#: lib/debug.lib:140
+#: lib/debug.lib:142
 #, sh-format
 msgid ""
 "$APPLICATION_TITLE has encountered an error. If the program you are "
@@ -941,7 +947,7 @@ msgstr ""
 "programma dat u installeert niet goed werkt, dan kan dit de reden van het "
 "probleem zijn.\\nGa naar www.$POL_DNS voor meer informatie"
 
-#: lib/debug.lib:153
+#: lib/debug.lib:155
 #, sh-format
 msgid ""
 "$APPLICATION_TITLE has encountered a fatal error. $APPLICATION_TITLE will "
@@ -968,13 +974,13 @@ msgstr "Een moment geduld, $APPLICATION_TITLE simuleert een Windows-herstart"
 msgid "Setting Program Files var"
 msgstr "Var-programmabestanden instellen"
 
-#: lib/playonlinux.lib:249 lib/playonlinux.lib:255 lib/playonlinux.lib:261
-#: lib/playonlinux.lib:267 lib/playonlinux.lib:273 lib/playonlinux.lib:279
+#: lib/playonlinux.lib:261 lib/playonlinux.lib:267 lib/playonlinux.lib:273
+#: lib/playonlinux.lib:279 lib/playonlinux.lib:285 lib/playonlinux.lib:291
 #, sh-format
 msgid "This function is disabled in the PlayOnlinux environment."
 msgstr "Deze functie is uitgeschakeld in de PlayOnlinux-werkomgeving."
 
-#: lib/playonlinux.lib:342
+#: lib/playonlinux.lib:354
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -985,12 +991,12 @@ msgstr ""
 "nPlayOnLinux heeft dit script niet goedgekeurd en is niet aansprakelijk voor "
 "dit script.\\nZorg ervoor dat u weet wat u doet !"
 
-#: lib/playonlinux.lib:343 lib/playonlinux.lib:366
+#: lib/playonlinux.lib:355 lib/playonlinux.lib:378
 #, sh-format
 msgid "Here the source code of the script. Check it carefully"
 msgstr "Hier is de broncode van het script. Controleer het zorgvuldig"
 
-#: lib/playonlinux.lib:365
+#: lib/playonlinux.lib:377
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -1001,22 +1007,22 @@ msgstr ""
 "n$APPLICATION_TITLE heeft dit script niet goedgekeurd en is niet "
 "aansprakelijk voor dit script.\\nZorg ervoor dat u weet wat u doet !"
 
-#: lib/playonlinux.lib:366
+#: lib/playonlinux.lib:378
 #, sh-format
 msgid "External library"
 msgstr "Externe bibliotheek"
 
-#: lib/playonlinux.lib:629
+#: lib/playonlinux.lib:641
 #, sh-format
 msgid "Making shortcut..."
 msgstr "Snelkoppeling wordt aangemaakt…"
 
-#: lib/playonlinux.lib:758
+#: lib/playonlinux.lib:770
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr "Wilt u het virtuele station verwijderen:"
 
-#: lib/playonlinux.lib:867
+#: lib/playonlinux.lib:879
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
@@ -1025,7 +1031,7 @@ msgstr ""
 "Het volgende bestand bevindt zich in een FAT32-bestandssysteem.\\nDit kan er "
 "mogelijk voor zorgen dat wine niet werkt\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:868
+#: lib/playonlinux.lib:880
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
@@ -1034,7 +1040,7 @@ msgstr ""
 "Het volgende bestand bevindt zich in een NTFS-bestandssysteem.\\nDit kan er "
 "mogelijk voor zorgen dat wine niet werkt\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:869
+#: lib/playonlinux.lib:881
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
@@ -1043,7 +1049,7 @@ msgstr ""
 "Het volgende bestand bevindt zich in een FUSE-bestandssysteem.\\nDit kan er "
 "mogelijk voor zorgen dat wine niet werkt\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:870
+#: lib/playonlinux.lib:882
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
@@ -1053,7 +1059,7 @@ msgstr ""
 "bestandssysteem.\\nDit kan er mogelijk voor zorgen dat Wine niet werkt\\n\\"
 "n$FilePath"
 
-#: lib/playonlinux.lib:899
+#: lib/playonlinux.lib:911
 #, sh-format
 msgid ""
 "Your Linux kernel may not be configured to run Win16 programs under Wine\\"
@@ -1062,7 +1068,7 @@ msgstr ""
 "Uw Linux-kernel kan mogelijk niet geconfigureerd worden voor het draaien van "
 "Win16 programma´s onder Wine\\nZie $EXPLANATION_URL"
 
-#: lib/playonlinux.lib:902
+#: lib/playonlinux.lib:914
 #, sh-format
 msgid ""
 "Your kernel may be incompatible with running Win16 programs under Wine\\nSee "
@@ -1091,7 +1097,7 @@ msgstr "Plug-in bijwerken. Vorige: "
 msgid "Installing plugin: "
 msgstr "Installeren plug-in: "
 
-#: lib/scripts.lib:353
+#: lib/scripts.lib:356
 #, sh-format
 msgid ""
 "Binary not found: $BINARY\\nHave you installed the program to the default "
@@ -1100,73 +1106,73 @@ msgstr ""
 "Binair niet gevonden: $BINARY\\nHeeft u het programma geïnstalleerd op de "
 "standaardlocatie?"
 
-#: lib/scripts.lib:419
+#: lib/scripts.lib:427
 #, sh-format
 msgid "Function override detected, disabling bug reporting"
 msgstr ""
 "Er wordt een functie genegeerd, foutrapportage wordt daarom uitgeschakeld"
 
-#: lib/scripts.lib:518 lib/scripts.lib:581
+#: lib/scripts.lib:526 lib/scripts.lib:589
 #, sh-format
 msgid "No enough space to download:\\n$URL ($neededSpace KB)"
 msgstr "Niet genoeg ruimte om te downloaden:\\n$URL ($neededSpace KB)"
 
-#: lib/scripts.lib:520 lib/scripts.lib:803
+#: lib/scripts.lib:528 lib/scripts.lib:811
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr ""
 "Een moment geduld, $APPLICATION_TITLE is bezig met het downloaden van:"
 
-#: lib/scripts.lib:522 lib/scripts.lib:587
+#: lib/scripts.lib:530 lib/scripts.lib:595
 #, sh-format
 msgid "An error happened during download."
 msgstr "Er is een fout opgetreden tijdens het downloaden."
 
-#: lib/scripts.lib:522 lib/scripts.lib:540 lib/scripts.lib:587
-#: lib/scripts.lib:603
+#: lib/scripts.lib:530 lib/scripts.lib:548 lib/scripts.lib:595
+#: lib/scripts.lib:611
 #, sh-format
 msgid "Do you want to retry?"
 msgstr "Wilt u het opnieuw proberen?"
 
-#: lib/scripts.lib:540 lib/scripts.lib:603
+#: lib/scripts.lib:548 lib/scripts.lib:611
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 "Fout ! Bestanden komen niet overeen\\n\\nLokaal : $LOCAL_MD5\\nServer : "
 "$SERVER_MD5"
 
-#: lib/scripts.lib:708
+#: lib/scripts.lib:716
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
 msgstr "7z is niet geïnstalleerd, installeer 7zip en probeer het dan opnieuw"
 
-#: lib/scripts.lib:715
+#: lib/scripts.lib:723
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr "Kon ${dest} niet vinden in ${archive}"
 
-#: lib/scripts.lib:719
+#: lib/scripts.lib:727
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr "${filename} uitpakken vanuit ${archivename}"
 
-#: lib/scripts.lib:734
+#: lib/scripts.lib:742
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr "Grootte van uitgepakte bestand komt niet overeen!"
 
-#: lib/scripts.lib:765
+#: lib/scripts.lib:773
 #, sh-format
 msgid "Copying ${filename}"
 msgstr "${filename} wordt gekopieerd"
 
-#: lib/scripts.lib:778
+#: lib/scripts.lib:786
 #, sh-format
 msgid "File size does not match!"
 msgstr "Grootte van uitgepakte bestand komt niet overeen!"
 
-#: lib/scripts.lib:929
+#: lib/scripts.lib:937
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
@@ -1175,7 +1181,7 @@ msgstr ""
 "Sorry, $APPLICATION_TITLE $VERSION is te oud om door te kunnen gaan.\\"
 "n$APPLICATION_TITLE $NEEDED wordt vereist."
 
-#: lib/scripts.lib:944
+#: lib/scripts.lib:952
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
@@ -1184,7 +1190,7 @@ msgstr ""
 "Waarschuwing: U draait momenteel $APPLICATION_TITLE $VERSION.\\nHet wordt "
 "aanbevolen om $APPLICATION_TITLE $NEEDED te gaan gebruiken."
 
-#: lib/scripts.lib:975
+#: lib/scripts.lib:983
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr "$AUTHOR-profiel"
@@ -1224,32 +1230,32 @@ msgstr "Deze wizard zal u helpen met het installeren van "
 msgid "Welcome to $APPLICATION_TITLE Installation Wizard."
 msgstr "Welkom bij de installatiewizard van $APPLICATION_TITLE."
 
-#: lib/setupwindow.lib:335
+#: lib/setupwindow.lib:346
 #, sh-format
 msgid "Where is mounted your CD-ROM?"
 msgstr "Waar is uw cd-rom aangekoppeld?"
 
-#: lib/setupwindow.lib:336 python/install.py:222
+#: lib/setupwindow.lib:347 python/install.py:222
 #, sh-format
 msgid "Other"
 msgstr "Anders"
 
-#: lib/setupwindow.lib:337 python/install.py:290 python/install.py:294
+#: lib/setupwindow.lib:348 python/install.py:290 python/install.py:294
 #, sh-format
 msgid "Refresh"
 msgstr "Verversen"
 
-#: lib/setupwindow.lib:369
+#: lib/setupwindow.lib:380
 #, sh-format
 msgid "Reading your device"
 msgstr "Uw apparaat lezen"
 
-#: lib/setupwindow.lib:384
+#: lib/setupwindow.lib:395
 #, sh-format
 msgid "Error: Unable to find the CD-ROM!"
 msgstr "Fout: kan de cd-rom niet vinden!"
 
-#: lib/setupwindow.lib:398
+#: lib/setupwindow.lib:409
 #, sh-format
 msgid ""
 "$TITLE needs to read the PC part of a hybrid CD-Rom.\\n\\nBy default, MacOS "
@@ -1262,7 +1268,7 @@ msgstr ""
 "niet geschikt is voor recente versies van Mac OS.\\n\\nWilt u dat PlayOnMac "
 "probeert om het PC-gedeelte van uw cd te lezen?"
 
-#: lib/setupwindow.lib:450
+#: lib/setupwindow.lib:461
 #, sh-format
 msgid ""
 "Don't forget to go to PlayOnMac tools menu -> Read a PC CD-Rom before "
@@ -1271,29 +1277,29 @@ msgstr ""
 "Vergeet niet om naar het PlayOnMac-hulpmiddelenmenu te gaan -> Een PC-cd-rom "
 "lezen voordat u uw spel gaat draaien"
 
-#: lib/setupwindow.lib:464
+#: lib/setupwindow.lib:475
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is copying files:"
 msgstr ""
 "Een moment geduld, $APPLICATION_TITLE is bezig met het kopiëren van "
 "bestanden:"
 
-#: lib/setupwindow.lib:549 lib/setupwindow.lib:699
+#: lib/setupwindow.lib:560 lib/setupwindow.lib:710
 #, sh-format
 msgid "Scanning the virtual drive ..."
 msgstr "Virtuele station wordt doorzocht…"
 
-#: lib/setupwindow.lib:563
+#: lib/setupwindow.lib:574
 #, sh-format
 msgid "How much memory does your graphics board have?"
 msgstr "Hoe groot is uw grafische geheugen?"
 
-#: lib/setupwindow.lib:572
+#: lib/setupwindow.lib:583
 #, sh-format
 msgid "Video card does not have enough memory"
 msgstr "Uw videokaart heeft te weinig geheugen"
 
-#: lib/setupwindow.lib:573
+#: lib/setupwindow.lib:584
 #, sh-format
 msgid ""
 "Your video card does not have enough memory!\\nIt might prevent the game "
@@ -1301,72 +1307,72 @@ msgid ""
 msgstr ""
 "Uw videokaart heeft te weinig geheugen!\\nMogelijk werkt het spel niet"
 
-#: lib/setupwindow.lib:588
+#: lib/setupwindow.lib:599
 #, sh-format
 msgid "Use Steam Store version"
 msgstr "Steam Store-versie gebruiken"
 
-#: lib/setupwindow.lib:589
+#: lib/setupwindow.lib:600
 #, sh-format
 msgid "Use Steam Store demo version"
 msgstr "Steam Store-demoversie gebruiken"
 
-#: lib/setupwindow.lib:590
+#: lib/setupwindow.lib:601
 #, sh-format
 msgid "Use Desura Store version"
 msgstr "Desura Store-versie gebruiken"
 
-#: lib/setupwindow.lib:591
+#: lib/setupwindow.lib:602
 #, sh-format
 msgid "Use Desura Store demo version"
 msgstr "Desura Store-demoversie gebruiken"
 
-#: lib/setupwindow.lib:592
+#: lib/setupwindow.lib:603
 #, sh-format
 msgid "Use Origin Store version"
 msgstr "Origin Store-versie gebruiken"
 
-#: lib/setupwindow.lib:593
+#: lib/setupwindow.lib:604
 #, sh-format
 msgid "Use Origin Store demo version"
 msgstr "Origin Store-demoversie gebruiken"
 
-#: lib/setupwindow.lib:595
+#: lib/setupwindow.lib:606
 #, sh-format
 msgid "Use a setup file in my computer"
 msgstr "Gebruik een installatiebestand op mijn computer"
 
-#: lib/setupwindow.lib:596
+#: lib/setupwindow.lib:607
 #, sh-format
 msgid "Use CD-ROM(s)"
 msgstr "Gebruik cd-rom(s)"
 
-#: lib/setupwindow.lib:597
+#: lib/setupwindow.lib:608
 #, sh-format
 msgid "Use DVD-ROM(s)"
 msgstr "Gebruik dvd-rom(s)"
 
-#: lib/setupwindow.lib:598
+#: lib/setupwindow.lib:609
 #, sh-format
 msgid "Download the program"
 msgstr "Download het programma"
 
-#: lib/setupwindow.lib:663
+#: lib/setupwindow.lib:674
 #, sh-format
 msgid "Please choose an installation method"
 msgstr "Selecteer een installatiemethode"
 
-#: lib/setupwindow.lib:701
+#: lib/setupwindow.lib:712
 #, sh-format
 msgid "I don't want to make another shortcut"
 msgstr "Ik wil geen andere snelkoppeling maken"
 
-#: lib/setupwindow.lib:702 python/guiv3.py:163
+#: lib/setupwindow.lib:713 python/guiv3.py:170
 #, sh-format
 msgid "Browse"
 msgstr "Bladeren"
 
-#: lib/setupwindow.lib:730
+#: lib/setupwindow.lib:741
 #, sh-format
 msgid "A shortcut by that name already exists, overwrite?"
 msgstr "Er bestaat al een snelkoppeling met deze naam, overschrijven?"
@@ -1740,56 +1746,60 @@ msgstr "Fout: kon geen geldige poort reserveren"
 msgid "WARNING. Please use POL_SetupWindow_Init first"
 msgstr "WAARSCHUWING. gebruik a.u.b. eerst POL_SetupWindow_Init"
 
-#: python/guiv3.py:116
+#: python/guiv3.py:117
 msgid "{0} Wizard"
 msgstr "{0}-wizard"
 
-#: python/guiv3.py:140 python/guiv3.py:143 python/install.py:288
+#: python/guiv3.py:141 python/guiv3.py:144 python/install.py:288
 #: python/install.py:292 python/options.py:376
 msgid "Cancel"
 msgstr "Annuleren"
 
-#: python/guiv3.py:141 python/guiv3.py:144
+#: python/guiv3.py:142 python/guiv3.py:145
 msgid "Next"
 msgstr "Volgende"
 
-#: python/guiv3.py:157 python/guiv3.py:160
+#: python/guiv3.py:164 python/guiv3.py:167
 msgid "No"
 msgstr "Nee"
 
-#: python/guiv3.py:158 python/guiv3.py:161
+#: python/guiv3.py:165 python/guiv3.py:168
 msgid "Yes"
 msgstr "Ja"
 
-#: python/guiv3.py:171
+#: python/guiv3.py:178
 msgid "I Agree"
 msgstr "Akkoord"
 
-#: python/guiv3.py:172
+#: python/guiv3.py:179
+msgid "Don't remind me anymore"
+msgstr ""
+
+#: python/guiv3.py:180
 msgid "Show virtual drives"
 msgstr "Virtuele stations tonen"
 
-#: python/guiv3.py:193
+#: python/guiv3.py:201
 msgid "Login: "
 msgstr "Aanmelden: "
 
-#: python/guiv3.py:194
+#: python/guiv3.py:202
 msgid "Password: "
 msgstr "Wachtwoord: "
 
-#: python/guiv3.py:197
+#: python/guiv3.py:205
 msgid "Register"
 msgstr "Registreren"
 
-#: python/guiv3.py:302
+#: python/guiv3.py:312
 msgid "MB downloaded"
 msgstr "MB gedownload"
 
-#: python/guiv3.py:302
+#: python/guiv3.py:312
 msgid "of"
 msgstr "van"
 
-#: python/guiv3.py:769 python/mainwindow.py:1156 python/mainwindow.py:1186
+#: python/guiv3.py:803 python/mainwindow.py:1156 python/mainwindow.py:1186
 #: python/mainwindow.py:1200 python/mainwindow.py:1209
 #: python/mainwindow.py:1221 python/mainwindow.py:1233
 #: python/mainwindow.py.orig:1149 python/mainwindow.py.orig:1179
@@ -1799,7 +1809,7 @@ msgstr "van"
 msgid "Error"
 msgstr "Fout"
 
-#: python/guiv3.py:769
+#: python/guiv3.py:803
 msgid "You cannot close this window"
 msgstr "U kunt dit venster niet sluiten"
 
@@ -1864,58 +1874,7 @@ msgstr "Commercieel"
 msgid "Install a non-listed program"
 msgstr "Een niet in de lijst opgenomen programma installeren"
 
-#: python/install.py:446 python/install.py:449 python/install.py:465
-#: python/install.py:467 python/install.py:587
-msgid "Please read this"
-msgstr "Lees dit a.u.b. door"
-
-#: python/install.py:446
-msgid ""
-"When {0} installs a Windows program: \n"
-"\n"
-" - Leave the default location\n"
-" - Do not tick the checkbox 'Run the program' if asked."
-msgstr ""
-"Wanneer {0} een Windows-programma installeert: \n"
-"\n"
-" - Wijzig de standaardlocatie dan niet\n"
-" - Vink ook niet 'Programma draaien' aan, indien dit gevraagd wordt."
-
-#: python/install.py:449
-msgid ""
-"{0} is not related to WineHQ.\n"
-"\n"
-"To ensure that the results will be comparable from one computer to another "
-"and to avoid regressions, we specify a working wine version for each "
-"program. This wine version will quickly become out to date, but we won't "
-"change the installer until new tests are made and it takes time.\n"
-"\n"
-"For those reason, please do NOT send any bug report or ask any support on "
-"WineHQ forums if you are using PlayOnLinux.\n"
-"\n"
-"If you want to help the project to make some tests in order to avoid using "
-"out of date wine versions, do not hesitate to go on our website.\n"
-"\n"
-"Thank you."
-msgstr ""
-"{0} hoort niet bij WineHQ.\n"
-"\n"
-"Om er zeker van te zijn dat de resultaten van computer naar computer "
-"vergelijkbaar zijn en om achteruitgang te voorkomen, gebruiken we een "
-"specifieke Wine-versie voor elk programma. Deze Wine-versie zal snel "
-"verouderen, maar we zullen het installatieprogramma pas wijzigen na "
-"uitgebreide tests en dat vraagt tijd.\n"
-"\n"
-"Verstuur daarom a.u.b. geen foutrapport of ondersteuningsvragen naar WineHQ-"
-"forums als u PlayOnLinux gebruikt.\n"
-"\n"
-"Wanneer u het project wilt helpen met het maken van enige tests zodat er "
-"geen verouderde Wine-versie meer hoeven te worden gebruikt, ga dan naar onze "
-"website.\n"
-"\n"
-"Bedankt."
-
-#: python/install.py:465
+#: python/install.py:458
 msgid ""
 "This program is currently in testing.\n"
 "\n"
@@ -1927,7 +1886,7 @@ msgstr ""
 "Mogelijk werkt het niet zoals verwacht. Uw commentaar, positief of negatief, "
 "is heel belangrijk om dit installatieprogramma te verbeteren."
 
-#: python/install.py:467
+#: python/install.py:460
 msgid ""
 "This program contains a protection against copy (DRM) incompatible with "
 "emulation.\n"
@@ -1940,11 +1899,11 @@ msgstr ""
 "deze ook voor piraterij-doeleinden gebruikt kan worden, geven wij hier geen "
 "ondersteuning voor."
 
-#: python/install.py:584
+#: python/install.py:577
 msgid "Attention!"
 msgstr "Let op!"
 
-#: python/install.py:584
+#: python/install.py:577
 msgid ""
 "By enabling this option, you can install programs that employ digital rights "
 "management (DRM) copy protection that are not supported by {0} and might "
@@ -1963,7 +1922,7 @@ msgstr ""
 "ondersteuning bieden voor problemen die zijn ontstaan door het gebruik van "
 "deze optie."
 
-#: python/install.py:587
+#: python/install.py:580
 msgid ""
 "By enabling this, you will have access to installers for programs that "
 "contain protections against copy (DRM) incompatible with emulation.\n"
@@ -2447,3 +2406,47 @@ msgstr "Deze versie wordt MOMENTEEL GEBRUIKT"
 #: python/wrapper.py:121
 msgid "{0} is not able to start POL_SetupWindow_server."
 msgstr "{0} kan POL_SetupWindow_server niet starten."
+
+#~ msgid ""
+#~ "When {0} installs a Windows program: \n"
+#~ "\n"
+#~ " - Leave the default location\n"
+#~ " - Do not tick the checkbox 'Run the program' if asked."
+#~ msgstr ""
+#~ "Wanneer {0} een Windows-programma installeert: \n"
+#~ "\n"
+#~ " - Wijzig de standaardlocatie dan niet\n"
+#~ " - Vink ook niet 'Programma draaien' aan, indien dit gevraagd wordt."
+
+#~ msgid ""
+#~ "{0} is not related to WineHQ.\n"
+#~ "\n"
+#~ "To ensure that the results will be comparable from one computer to another "
+#~ "and to avoid regressions, we specify a working wine version for each "
+#~ "program. This wine version will quickly become out to date, but we won't "
+#~ "change the installer until new tests are made and it takes time.\n"
+#~ "\n"
+#~ "For those reason, please do NOT send any bug report or ask any support on "
+#~ "WineHQ forums if you are using PlayOnLinux.\n"
+#~ "\n"
+#~ "If you want to help the project to make some tests in order to avoid using "
+#~ "out of date wine versions, do not hesitate to go on our website.\n"
+#~ "\n"
+#~ "Thank you."
+#~ msgstr ""
+#~ "{0} hoort niet bij WineHQ.\n"
+#~ "\n"
+#~ "Om er zeker van te zijn dat de resultaten van computer naar computer "
+#~ "vergelijkbaar zijn en om achteruitgang te voorkomen, gebruiken we een "
+#~ "specifieke Wine-versie voor elk programma. Deze Wine-versie zal snel "
+#~ "verouderen, maar we zullen het installatieprogramma pas wijzigen na "
+#~ "uitgebreide tests en dat vraagt tijd.\n"
+#~ "\n"
+#~ "Verstuur daarom a.u.b. geen foutrapport of ondersteuningsvragen naar WineHQ-"
+#~ "forums als u PlayOnLinux gebruikt.\n"
+#~ "\n"
+#~ "Wanneer u het project wilt helpen met het maken van enige tests zodat er "
+#~ "geen verouderde Wine-versie meer hoeven te worden gebruikt, ga dan naar onze "
+#~ "website.\n"
+#~ "\n"
+#~ "Bedankt."

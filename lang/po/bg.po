@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: Radoslav Ivanov <reckku@gmail.com>\n"
-"POT-Creation-Date: 2015-03-30 19:00+0200\n"
+"POT-Creation-Date: 2015-04-06 19:00+0200\n"
 "PO-Revision-Date: 2015-03-05 14:22+0000\n"
 "Last-Translator: Радослав Иванов <reckku@gmail.com>\n"
 "Language-Team: Svetoslav Stefanov <lfu.project@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-03-31 05:09+0000\n"
+"X-Launchpad-Export-Date: 2015-04-07 05:08+0000\n"
 "X-Generator: Launchpad (build 17413)\n"
 "X-Poedit-Country: BULGARIA\n"
 "X-Poedit-Language: Bulgarian\n"
@@ -380,6 +380,12 @@ msgstr "Грешка!"
 msgid "File not found!"
 msgstr "Файлът не е намерен!"
 
+#: bash/install:27 bash/install:29 python/install.py:458 python/install.py:460
+#: python/install.py:580
+#, sh-format
+msgid "Please read this"
+msgstr "Моля, прочетете това!"
+
 #: bash/install_wver:27
 #, sh-format
 msgid "This wizard will help you to install Wine: "
@@ -397,7 +403,7 @@ msgstr "Настройка на програмата за $APPLICATION_TITLE"
 
 #: bash/installpolpackages:29 bash/killall:29 bash/read_pc_cd:39
 #: bash/read_pc_cd:73 bash/read_pc_cd:103 bash/winebash:27
-#: lib/setupwindow.lib:420 lib/wine.lib:1014 lib/wine.lib:1092
+#: lib/setupwindow.lib:431 lib/wine.lib:1014 lib/wine.lib:1092
 #: lib/wine.lib:1122
 #, sh-format
 msgid "Please wait..."
@@ -515,7 +521,7 @@ msgstr "Ако не знаете, демаркирайте всички"
 msgid "What would you like to do before installation?"
 msgstr "Какво желаете да направите преди инсталацията?"
 
-#: bash/manual_install:203 lib/scripts.lib:460
+#: bash/manual_install:203 lib/scripts.lib:468
 #, sh-format
 msgid "Please make your choice"
 msgstr "Мола, направете своя избор"
@@ -921,7 +927,7 @@ msgstr "Искате ли да обновите и рестартирате $APP
 msgid "Already up-to-date."
 msgstr "Вече е обновена."
 
-#: lib/debug.lib:126
+#: lib/debug.lib:128
 #, sh-format
 msgid ""
 "$APPLICATION_TITLE has encountered an error. If the program does not work "
@@ -931,7 +937,7 @@ msgstr ""
 "$APPLICATION_TITLE се сблъска с грешка. Причината може да е, че програмата "
 "не работи правилно.\\nПосетете www.$POL_DNS за допълнителна информация"
 
-#: lib/debug.lib:140
+#: lib/debug.lib:142
 #, sh-format
 msgid ""
 "$APPLICATION_TITLE has encountered an error. If the program you are "
@@ -942,7 +948,7 @@ msgstr ""
 "която инсталирате не работи правилно.\\nПосетете www.$POL_DNS за "
 "допълнителна информация"
 
-#: lib/debug.lib:153
+#: lib/debug.lib:155
 #, sh-format
 msgid ""
 "$APPLICATION_TITLE has encountered a fatal error. $APPLICATION_TITLE will "
@@ -970,13 +976,13 @@ msgstr ""
 msgid "Setting Program Files var"
 msgstr "Задаване на Program Files променлива"
 
-#: lib/playonlinux.lib:249 lib/playonlinux.lib:255 lib/playonlinux.lib:261
-#: lib/playonlinux.lib:267 lib/playonlinux.lib:273 lib/playonlinux.lib:279
+#: lib/playonlinux.lib:261 lib/playonlinux.lib:267 lib/playonlinux.lib:273
+#: lib/playonlinux.lib:279 lib/playonlinux.lib:285 lib/playonlinux.lib:291
 #, sh-format
 msgid "This function is disabled in the PlayOnlinux environment."
 msgstr "Тази функция е деактивирана в средата на PlayOnLinux."
 
-#: lib/playonlinux.lib:342
+#: lib/playonlinux.lib:354
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -987,12 +993,12 @@ msgstr ""
 "невалидна.\\n\\nPlayOnLinux не е одобрил този скрипт и не е отговорен за "
 "него.\\nМоля, уверете се, че знаете какво правите!"
 
-#: lib/playonlinux.lib:343 lib/playonlinux.lib:366
+#: lib/playonlinux.lib:355 lib/playonlinux.lib:378
 #, sh-format
 msgid "Here the source code of the script. Check it carefully"
 msgstr "Това е изходният код на скрипта. Проверете го внимателно"
 
-#: lib/playonlinux.lib:365
+#: lib/playonlinux.lib:377
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -1003,22 +1009,22 @@ msgstr ""
 "невалидна.\\n\\n$APPLICATION_TITLE не е одобрил този скрипт и не е отговорен "
 "за него.\\nМоля, уверете се, че знаете какво правите!"
 
-#: lib/playonlinux.lib:366
+#: lib/playonlinux.lib:378
 #, sh-format
 msgid "External library"
 msgstr "Външна библиотека"
 
-#: lib/playonlinux.lib:629
+#: lib/playonlinux.lib:641
 #, sh-format
 msgid "Making shortcut..."
 msgstr "Създаване на пряк път..."
 
-#: lib/playonlinux.lib:758
+#: lib/playonlinux.lib:770
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr "Искате ли да изтриете виртуалният диск:"
 
-#: lib/playonlinux.lib:867
+#: lib/playonlinux.lib:879
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
@@ -1027,7 +1033,7 @@ msgstr ""
 "Следният файл е върху FAT32 файлова система.\\nМоже да попречи на работата "
 "на wine\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:868
+#: lib/playonlinux.lib:880
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
@@ -1036,7 +1042,7 @@ msgstr ""
 "Следният файл е върху NTFS файлова система.\\nМоже да попречи на работата на "
 "wine\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:869
+#: lib/playonlinux.lib:881
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
@@ -1045,7 +1051,7 @@ msgstr ""
 "Следният файл е върху fuse файлова система.\\nМоже да попречи на работата на "
 "wine\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:870
+#: lib/playonlinux.lib:882
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
@@ -1054,7 +1060,7 @@ msgstr ""
 "Следният файл е върху монтирана без изпълнение файлова система.\\nМоже да "
 "попречи на работата на wine\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:899
+#: lib/playonlinux.lib:911
 #, sh-format
 msgid ""
 "Your Linux kernel may not be configured to run Win16 programs under Wine\\"
@@ -1063,7 +1069,7 @@ msgstr ""
 "Вероятно Вашето Linux ядро не е настроено да възпроизвежда програми от типа "
 "Win16\\nПосетете $EXPLANATION_URL"
 
-#: lib/playonlinux.lib:902
+#: lib/playonlinux.lib:914
 #, sh-format
 msgid ""
 "Your kernel may be incompatible with running Win16 programs under Wine\\nSee "
@@ -1092,7 +1098,7 @@ msgstr "Обновяване на приставка. Предишна: "
 msgid "Installing plugin: "
 msgstr "Инсталиране на присавка: "
 
-#: lib/scripts.lib:353
+#: lib/scripts.lib:356
 #, sh-format
 msgid ""
 "Binary not found: $BINARY\\nHave you installed the program to the default "
@@ -1101,41 +1107,41 @@ msgstr ""
 "Не е намерена програма: $BINARY\\nИнсталирахте ли програмата в стандартната "
 "ѝ директория?"
 
-#: lib/scripts.lib:419
+#: lib/scripts.lib:427
 #, sh-format
 msgid "Function override detected, disabling bug reporting"
 msgstr ""
 "Засечена е функция за презапис, деактивиране на докладването за грешки"
 
-#: lib/scripts.lib:518 lib/scripts.lib:581
+#: lib/scripts.lib:526 lib/scripts.lib:589
 #, sh-format
 msgid "No enough space to download:\\n$URL ($neededSpace KB)"
 msgstr "Няма достатъчно място за изтегляне:\\n$URL ($neededSpace кБ)"
 
-#: lib/scripts.lib:520 lib/scripts.lib:803
+#: lib/scripts.lib:528 lib/scripts.lib:811
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr "Моля, изчакайте, докато $APPLICATION_TITLE се изтегли:"
 
-#: lib/scripts.lib:522 lib/scripts.lib:587
+#: lib/scripts.lib:530 lib/scripts.lib:595
 #, sh-format
 msgid "An error happened during download."
 msgstr "Възникна грешка по време на изтеглянето."
 
-#: lib/scripts.lib:522 lib/scripts.lib:540 lib/scripts.lib:587
-#: lib/scripts.lib:603
+#: lib/scripts.lib:530 lib/scripts.lib:548 lib/scripts.lib:595
+#: lib/scripts.lib:611
 #, sh-format
 msgid "Do you want to retry?"
 msgstr "Искате ли да опитате отново?"
 
-#: lib/scripts.lib:540 lib/scripts.lib:603
+#: lib/scripts.lib:548 lib/scripts.lib:611
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 "Грешка! Несъответствие във файловете\\n\\nНаличен: $LOCAL_MD5\\nНа сървър: "
 "$SERVER_MD5"
 
-#: lib/scripts.lib:708
+#: lib/scripts.lib:716
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
@@ -1143,32 +1149,32 @@ msgstr ""
 "Не е инсталирана 7z, моля, проверете дали имате инсталирана 7zip и опитайте "
 "отново"
 
-#: lib/scripts.lib:715
+#: lib/scripts.lib:723
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr "Неуспех при откриването на ${dest} от ${archive}"
 
-#: lib/scripts.lib:719
+#: lib/scripts.lib:727
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr "Разархивиране на ${filename} от ${archivename}"
 
-#: lib/scripts.lib:734
+#: lib/scripts.lib:742
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr "Размера на разархивирания файл не съответства!"
 
-#: lib/scripts.lib:765
+#: lib/scripts.lib:773
 #, sh-format
 msgid "Copying ${filename}"
 msgstr "Копиране на ${filename}"
 
-#: lib/scripts.lib:778
+#: lib/scripts.lib:786
 #, sh-format
 msgid "File size does not match!"
 msgstr "Размера на файла на съответства!"
 
-#: lib/scripts.lib:929
+#: lib/scripts.lib:937
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
@@ -1177,7 +1183,7 @@ msgstr ""
 "Съжалавяаме, $APPLICATION_TITLE $VERSION е твърде стара версия, за да "
 "продължи.\\n Изисква се $APPLICATION_TITLE $NEEDED."
 
-#: lib/scripts.lib:944
+#: lib/scripts.lib:952
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
@@ -1186,7 +1192,7 @@ msgstr ""
 "Внимание: Изпълнена е $APPLICATION_TITLE $VERSION.\\n Препоръчителна е "
 "$APPLICATION_TITLE $NEEDED, за да се продължи."
 
-#: lib/scripts.lib:975
+#: lib/scripts.lib:983
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr "Профил на $AUTHOR"
@@ -1226,32 +1232,32 @@ msgstr "Този съветник ще Ви помогне да инсталир
 msgid "Welcome to $APPLICATION_TITLE Installation Wizard."
 msgstr "Добре дошли в Съветник за инсталации на $APPLICATION_TITLE"
 
-#: lib/setupwindow.lib:335
+#: lib/setupwindow.lib:346
 #, sh-format
 msgid "Where is mounted your CD-ROM?"
 msgstr "Къде е монтиран Вашият CD-ROM?"
 
-#: lib/setupwindow.lib:336 python/install.py:222
+#: lib/setupwindow.lib:347 python/install.py:222
 #, sh-format
 msgid "Other"
 msgstr "Друго"
 
-#: lib/setupwindow.lib:337 python/install.py:290 python/install.py:294
+#: lib/setupwindow.lib:348 python/install.py:290 python/install.py:294
 #, sh-format
 msgid "Refresh"
 msgstr "Опресняване"
 
-#: lib/setupwindow.lib:369
+#: lib/setupwindow.lib:380
 #, sh-format
 msgid "Reading your device"
 msgstr "Четене на Вашето устройство"
 
-#: lib/setupwindow.lib:384
+#: lib/setupwindow.lib:395
 #, sh-format
 msgid "Error: Unable to find the CD-ROM!"
 msgstr "Грешка: Неуспешно откриване на CD-ROM!"
 
-#: lib/setupwindow.lib:398
+#: lib/setupwindow.lib:409
 #, sh-format
 msgid ""
 "$TITLE needs to read the PC part of a hybrid CD-Rom.\\n\\nBy default, MacOS "
@@ -1264,7 +1270,7 @@ msgstr ""
 "да е несъвместимо с последните версии на Mac OS.\\n\\nИскате ли PlayOnMac да "
 "се опита, да прочете PC-частта на Вашето CD?"
 
-#: lib/setupwindow.lib:450
+#: lib/setupwindow.lib:461
 #, sh-format
 msgid ""
 "Don't forget to go to PlayOnMac tools menu -> Read a PC CD-Rom before "
@@ -1273,27 +1279,27 @@ msgstr ""
 "Не забравяйте да отидите в менюто Инструменти на PlayOnMac -> Прочитане на "
 "PC CD-ROM преди да стартирате играта си"
 
-#: lib/setupwindow.lib:464
+#: lib/setupwindow.lib:475
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is copying files:"
 msgstr "Моля, изчакайте докато $APPLICATION_TITLE копира файловете:"
 
-#: lib/setupwindow.lib:549 lib/setupwindow.lib:699
+#: lib/setupwindow.lib:560 lib/setupwindow.lib:710
 #, sh-format
 msgid "Scanning the virtual drive ..."
 msgstr "Сканиране на виртуалния диск..."
 
-#: lib/setupwindow.lib:563
+#: lib/setupwindow.lib:574
 #, sh-format
 msgid "How much memory does your graphics board have?"
 msgstr "Колко памет има Вашата графична платка?"
 
-#: lib/setupwindow.lib:572
+#: lib/setupwindow.lib:583
 #, sh-format
 msgid "Video card does not have enough memory"
 msgstr "Видео картата Ви няма достатъчно памет"
 
-#: lib/setupwindow.lib:573
+#: lib/setupwindow.lib:584
 #, sh-format
 msgid ""
 "Your video card does not have enough memory!\\nIt might prevent the game "
@@ -1302,72 +1308,72 @@ msgstr ""
 "Вашата видео карта няма достатъчно памет!\\nМоже да попречи на играта, да "
 "работи"
 
-#: lib/setupwindow.lib:588
+#: lib/setupwindow.lib:599
 #, sh-format
 msgid "Use Steam Store version"
 msgstr "Използване на версия за Steam магазин"
 
-#: lib/setupwindow.lib:589
+#: lib/setupwindow.lib:600
 #, sh-format
 msgid "Use Steam Store demo version"
 msgstr "Използване на демо версия за Steam магазин"
 
-#: lib/setupwindow.lib:590
+#: lib/setupwindow.lib:601
 #, sh-format
 msgid "Use Desura Store version"
 msgstr "Използване на версия за Desura магазин"
 
-#: lib/setupwindow.lib:591
+#: lib/setupwindow.lib:602
 #, sh-format
 msgid "Use Desura Store demo version"
 msgstr "Използване на демо версия за Desura магазин"
 
-#: lib/setupwindow.lib:592
+#: lib/setupwindow.lib:603
 #, sh-format
 msgid "Use Origin Store version"
 msgstr "Използване на версия за Origin магазин"
 
-#: lib/setupwindow.lib:593
+#: lib/setupwindow.lib:604
 #, sh-format
 msgid "Use Origin Store demo version"
 msgstr "Използване на демо версия за Origin магазин"
 
-#: lib/setupwindow.lib:595
+#: lib/setupwindow.lib:606
 #, sh-format
 msgid "Use a setup file in my computer"
 msgstr "Използване на инсталационен файл в моя компютър"
 
-#: lib/setupwindow.lib:596
+#: lib/setupwindow.lib:607
 #, sh-format
 msgid "Use CD-ROM(s)"
 msgstr "Използване на CD-ROM(и)"
 
-#: lib/setupwindow.lib:597
+#: lib/setupwindow.lib:608
 #, sh-format
 msgid "Use DVD-ROM(s)"
 msgstr "Използване на DVD-ROM(и)"
 
-#: lib/setupwindow.lib:598
+#: lib/setupwindow.lib:609
 #, sh-format
 msgid "Download the program"
 msgstr "Изтегляне на програмата"
 
-#: lib/setupwindow.lib:663
+#: lib/setupwindow.lib:674
 #, sh-format
 msgid "Please choose an installation method"
 msgstr "Моля, изберете начин на инсталиране!"
 
-#: lib/setupwindow.lib:701
+#: lib/setupwindow.lib:712
 #, sh-format
 msgid "I don't want to make another shortcut"
 msgstr "Не искам да правя друг пряк път"
 
-#: lib/setupwindow.lib:702 python/guiv3.py:163
+#: lib/setupwindow.lib:713 python/guiv3.py:170
 #, sh-format
 msgid "Browse"
 msgstr "Разглеждане"
 
-#: lib/setupwindow.lib:730
+#: lib/setupwindow.lib:741
 #, sh-format
 msgid "A shortcut by that name already exists, overwrite?"
 msgstr "Вече съществува пряк път с това име. Да бъде ли презаписан?"
@@ -1741,56 +1747,60 @@ msgstr "Грешка: Не може да се запази съществува�
 msgid "WARNING. Please use POL_SetupWindow_Init first"
 msgstr "ВНИМАНИЕ! Моля, първо използвайте POL_SetupWindow_Init"
 
-#: python/guiv3.py:116
+#: python/guiv3.py:117
 msgid "{0} Wizard"
 msgstr "{0} Помощник"
 
-#: python/guiv3.py:140 python/guiv3.py:143 python/install.py:288
+#: python/guiv3.py:141 python/guiv3.py:144 python/install.py:288
 #: python/install.py:292 python/options.py:376
 msgid "Cancel"
 msgstr "Отказ"
 
-#: python/guiv3.py:141 python/guiv3.py:144
+#: python/guiv3.py:142 python/guiv3.py:145
 msgid "Next"
 msgstr "Напред"
 
-#: python/guiv3.py:157 python/guiv3.py:160
+#: python/guiv3.py:164 python/guiv3.py:167
 msgid "No"
 msgstr "Не"
 
-#: python/guiv3.py:158 python/guiv3.py:161
+#: python/guiv3.py:165 python/guiv3.py:168
 msgid "Yes"
 msgstr "Да"
 
-#: python/guiv3.py:171
+#: python/guiv3.py:178
 msgid "I Agree"
 msgstr "Съгласен съм"
 
-#: python/guiv3.py:172
+#: python/guiv3.py:179
+msgid "Don't remind me anymore"
+msgstr ""
+
+#: python/guiv3.py:180
 msgid "Show virtual drives"
 msgstr "Покажи виртуални дискове"
 
-#: python/guiv3.py:193
+#: python/guiv3.py:201
 msgid "Login: "
 msgstr "Потребител: "
 
-#: python/guiv3.py:194
+#: python/guiv3.py:202
 msgid "Password: "
 msgstr "Парола: "
 
-#: python/guiv3.py:197
+#: python/guiv3.py:205
 msgid "Register"
 msgstr "Регистриране"
 
-#: python/guiv3.py:302
+#: python/guiv3.py:312
 msgid "MB downloaded"
 msgstr "МБ са изтеглени"
 
-#: python/guiv3.py:302
+#: python/guiv3.py:312
 msgid "of"
 msgstr "от"
 
-#: python/guiv3.py:769 python/mainwindow.py:1156 python/mainwindow.py:1186
+#: python/guiv3.py:803 python/mainwindow.py:1156 python/mainwindow.py:1186
 #: python/mainwindow.py:1200 python/mainwindow.py:1209
 #: python/mainwindow.py:1221 python/mainwindow.py:1233
 #: python/mainwindow.py.orig:1149 python/mainwindow.py.orig:1179
@@ -1800,7 +1810,7 @@ msgstr "от"
 msgid "Error"
 msgstr "Грешка"
 
-#: python/guiv3.py:769
+#: python/guiv3.py:803
 msgid "You cannot close this window"
 msgstr "Не можете да затворите този прозорец"
 
@@ -1865,56 +1875,7 @@ msgstr "Продавани"
 msgid "Install a non-listed program"
 msgstr "Инсталиране на програма извън списъка"
 
-#: python/install.py:446 python/install.py:449 python/install.py:465
-#: python/install.py:467 python/install.py:587
-msgid "Please read this"
-msgstr "Моля, прочетете това!"
-
-#: python/install.py:446
-msgid ""
-"When {0} installs a Windows program: \n"
-"\n"
-" - Leave the default location\n"
-" - Do not tick the checkbox 'Run the program' if asked."
-msgstr ""
-"Когато {0} инсталира Windows програма:\n"
-"\n"
-"- Оставете стандартното местоположение\n"
-"- Ако Ви бъде поискано, не отметвайте кутийката „Run the program“"
-
-#: python/install.py:449
-msgid ""
-"{0} is not related to WineHQ.\n"
-"\n"
-"To ensure that the results will be comparable from one computer to another "
-"and to avoid regressions, we specify a working wine version for each "
-"program. This wine version will quickly become out to date, but we won't "
-"change the installer until new tests are made and it takes time.\n"
-"\n"
-"For those reason, please do NOT send any bug report or ask any support on "
-"WineHQ forums if you are using PlayOnLinux.\n"
-"\n"
-"If you want to help the project to make some tests in order to avoid using "
-"out of date wine versions, do not hesitate to go on our website.\n"
-"\n"
-"Thank you."
-msgstr ""
-"{0} не е обвързан с WineHQ.\n"
-"\n"
-"За да сме сигурни, че резултатите ще са съвместими от един компютър на друг "
-"и за да избегнем недостатъци, определяме работеща версия на wine за всяка "
-"програма. Тази версия на wine бързо ще остарее, но няма да сменим "
-"инсталатора, докато не се направят нови тестове, което отнема време.\n"
-"\n"
-"Поради тези причини, моля, не изпращайте доклади за бъгове и не търсете "
-"помощ за поддръжка от форумите на WineHQ, ако използвате PlayOnLinux.\n"
-"\n"
-"Ако искате да помогнете на проекта, правейки тестове, за да избегнете "
-"остарели версии на wine, не се притеснявайте да посетите нашият уебсайт.\n"
-"\n"
-"Благодарим Ви!"
-
-#: python/install.py:465
+#: python/install.py:458
 msgid ""
 "This program is currently in testing.\n"
 "\n"
@@ -1926,7 +1887,7 @@ msgstr ""
 "Може да не работи, както трябва. Вашата оценка, положителна или отрицателна, "
 "е важна за подобряването на този инсталатор."
 
-#: python/install.py:467
+#: python/install.py:460
 msgid ""
 "This program contains a protection against copy (DRM) incompatible with "
 "emulation.\n"
@@ -1937,11 +1898,11 @@ msgstr ""
 "Единственото решение е да използвате кръпка „без диск“, но след като това "
 "може да бъде използвано за пиратски цели, не предлагаме поддръжка."
 
-#: python/install.py:584
+#: python/install.py:577
 msgid "Attention!"
 msgstr "Внимание!"
 
-#: python/install.py:584
+#: python/install.py:577
 msgid ""
 "By enabling this option, you can install programs that employ digital rights "
 "management (DRM) copy protection that are not supported by {0} and might "
@@ -1959,7 +1920,7 @@ msgstr ""
 "окуражаването на пиратството и като такава, не предлагаме никаква поддръжка "
 "за проблеми произлези от използването на тази опция."
 
-#: python/install.py:587
+#: python/install.py:580
 msgid ""
 "By enabling this, you will have access to installers for programs that "
 "contain protections against copy (DRM) incompatible with emulation.\n"
@@ -2433,3 +2394,45 @@ msgstr ""
 #: python/wrapper.py:121
 msgid "{0} is not able to start POL_SetupWindow_server."
 msgstr "{0} не може да стартира POL_SetupWindow_server."
+
+#~ msgid ""
+#~ "When {0} installs a Windows program: \n"
+#~ "\n"
+#~ " - Leave the default location\n"
+#~ " - Do not tick the checkbox 'Run the program' if asked."
+#~ msgstr ""
+#~ "Когато {0} инсталира Windows програма:\n"
+#~ "\n"
+#~ "- Оставете стандартното местоположение\n"
+#~ "- Ако Ви бъде поискано, не отметвайте кутийката „Run the program“"
+
+#~ msgid ""
+#~ "{0} is not related to WineHQ.\n"
+#~ "\n"
+#~ "To ensure that the results will be comparable from one computer to another "
+#~ "and to avoid regressions, we specify a working wine version for each "
+#~ "program. This wine version will quickly become out to date, but we won't "
+#~ "change the installer until new tests are made and it takes time.\n"
+#~ "\n"
+#~ "For those reason, please do NOT send any bug report or ask any support on "
+#~ "WineHQ forums if you are using PlayOnLinux.\n"
+#~ "\n"
+#~ "If you want to help the project to make some tests in order to avoid using "
+#~ "out of date wine versions, do not hesitate to go on our website.\n"
+#~ "\n"
+#~ "Thank you."
+#~ msgstr ""
+#~ "{0} не е обвързан с WineHQ.\n"
+#~ "\n"
+#~ "За да сме сигурни, че резултатите ще са съвместими от един компютър на друг "
+#~ "и за да избегнем недостатъци, определяме работеща версия на wine за всяка "
+#~ "програма. Тази версия на wine бързо ще остарее, но няма да сменим "
+#~ "инсталатора, докато не се направят нови тестове, което отнема време.\n"
+#~ "\n"
+#~ "Поради тези причини, моля, не изпращайте доклади за бъгове и не търсете "
+#~ "помощ за поддръжка от форумите на WineHQ, ако използвате PlayOnLinux.\n"
+#~ "\n"
+#~ "Ако искате да помогнете на проекта, правейки тестове, за да избегнете "
+#~ "остарели версии на wine, не се притеснявайте да посетите нашият уебсайт.\n"
+#~ "\n"
+#~ "Благодарим Ви!"
