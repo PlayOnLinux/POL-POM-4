@@ -26,6 +26,7 @@
 * Add a warning when OpenGL autotests are missing (user support)
 * Make sure "Install non-listed application" link is always visible in
   install window
+* POL_SetupWindow_cdrom: don't suggest "*" when no CDROM has been found
 
 # 4.2.6
 

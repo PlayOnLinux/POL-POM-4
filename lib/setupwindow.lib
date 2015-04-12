@@ -323,29 +323,37 @@ POL_SetupWindow_cdrom ()
 	# Result is sent to CDROM
 	
 	# 1 = Numéro du CD
-	LIST_DEVICES_=""
+	local LIST_DEVICES_=""
+
+	local LNG_WINE_ASKFORCDROM=$(eval_gettext "Where is mounted your CD-ROM?")
+	local LNG_OTHER=$(eval_gettext "Other")
+	local LNG_REFRESH=$(eval_gettext "Refresh")
 	
-	[ "$POL_OS" = "Mac" ] && DEVICES="/Volumes"
-	if [ "$POL_OS" = "Linux" ] || [ "$POL_OS" = "FreeBSD" ]; then
+	local DEVICES
+	case "$POL_OS" in
+	    Mac)
+		DEVICES="/Volumes" ;;
+
+	    Linux|FreeBSD)
 		DEVICES="/media"
 		# Ubuntu Quantal workaround
 		[ -d "/media/$USER" ] && DEVICES="/media/$USER"
 		# Fedora/Manjaro workaround
-		[ -d "/run/media/$USER" ] && DEVICES="/run/media/$USER"
+		[ -d "/run/media/$USER" ] && DEVICES="/run/media/$USER" ;;
+	esac
+	
+	if cd "$DEVICES"; then
+		shopt -s nullglob
+		for device in *
+		do
+			if [ ! "$device" = "$LNG_OTHER" ]
+			then
+					LIST_DEVICES_+="$device~"
+			fi
+		done
+		shopt -u nullglob
 	fi
 	
-	cd "$DEVICES"
-	for device in *
-	do
-		if [ ! "$device" = "$LNG_OTHER" ]
-		then
-				LIST_DEVICES_+="$device~"
-		fi
-	done
-		
-	LNG_WINE_ASKFORCDROM=$(eval_gettext "Where is mounted your CD-ROM?")
-	LNG_OTHER=$(eval_gettext "Other")
-	LNG_REFRESH=$(eval_gettext "Refresh")
 	POL_SetupWindow_menu "$LNG_WINE_ASKFORCDROM" "$TITLE" "$LIST_DEVICES_$LNG_OTHER~$LNG_REFRESH" "~"		
 	CDROM="$APP_ANSWER"
 	
