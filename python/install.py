@@ -264,16 +264,16 @@ class InstallWindow(wx.Frame):
 
         self.nocdChk = wx.CheckBox(self.panelItems, 402, pos=(position,82-71), size=wx.DefaultSize)
         position += 15+self.search_offset
-        self.noDvDCapt = wx.StaticText(self.panelItems, -1, _("No-cd needed"), (position,82-71+self.search_offset), wx.DefaultSize)
+        self.nocdCapt = wx.StaticText(self.panelItems, -1, _("No-cd needed"), (position,82-71+self.search_offset), wx.DefaultSize)
 
-        position += self.noDvDCapt.GetSize()[0]+10
+        position += self.nocdCapt.GetSize()[0]+10
 
-        self.freeChk = wx.CheckBox(self.panelItems, 403, pos=(position,82-71), size=wx.DefaultSize)
-        self.freeChk.SetValue(True)
+        self.commercialChk = wx.CheckBox(self.panelItems, 403, pos=(position,82-71), size=wx.DefaultSize)
+        self.commercialChk.SetValue(True)
         position += 15+self.search_offset
-        self.FreeCapt = wx.StaticText(self.panelItems, -1, _("Commercial"), (position,82-71+self.search_offset), wx.DefaultSize)
+        self.commercialCapt = wx.StaticText(self.panelItems, -1, _("Commercial"), (position,82-71+self.search_offset), wx.DefaultSize)
 
-        position += self.FreeCapt.GetSize()[0]+10
+        position += self.commercialCapt.GetSize()[0]+10
         self.star_x = position
 
         self.lasthtml_content = ""
@@ -305,12 +305,12 @@ class InstallWindow(wx.Frame):
         self.new_panel.Hide()
 
 
-        self.ManualInstall = wx.lib.hyperlink.HyperLinkCtrl(self.panelFenp, 111, _("Install a non-listed program"), pos=(10,515))
-        self.ManualInstall.SetColours(wx.Colour(0,0,0),wx.Colour(0,0,0),wx.Colour(0,0,0))
-        self.ManualInstall.AutoBrowse(False)
-        self.ManualInstall.UpdateLink(True)
+        self.manualInstall = wx.lib.hyperlink.HyperLinkCtrl(self.panelFenp, 111, _("Install a non-listed program"), pos=(10,515))
+        self.manualInstall.SetColours(wx.Colour(0,0,0),wx.Colour(0,0,0),wx.Colour(0,0,0))
+        self.manualInstall.AutoBrowse(False)
+        self.manualInstall.UpdateLink(True)
         
-        #self.ManualInstall.SetNormalColour(wx.Colour(0,0,0))
+        #self.manualInstall.SetNormalColour(wx.Colour(0,0,0))
 
         # Panel wait
         self.animation_wait = wx.animate.GIFAnimationCtrl(self.panelWait, -1, Variables.playonlinux_env+"/resources/images/install/wait.gif", ((800-128)/2,(550-128)/2-71))
@@ -326,7 +326,7 @@ class InstallWindow(wx.Frame):
         # panel manual
 
 
-   # self.AddApps()
+        # self.AddApps()
 
         #wx.EVT_TREE_SEL_CHANGED(self, 105, self.AddApps)
         wx.EVT_TREE_SEL_CHANGED(self, 106, self.AppsDetails)
@@ -533,7 +533,7 @@ class InstallWindow(wx.Frame):
             show = True
             if nocd == 1 and self.nocdChk.IsChecked() == 0:
                 show = False
-            if free == 0 and self.freeChk.IsChecked() == 0:
+            if free == 0 and self.commercialChk.IsChecked() == 0:
                 show = False
             if testing == 1 and self.testingChk.IsChecked() == 0:
                 show = False

@@ -24,6 +24,8 @@
   allow the user to acknowledge them once and for all ("Don't remind me") (#2036)
 * POL_OpenShell (Configure > Misc > Open a shell) bug fixes
 * Add a warning when OpenGL autotests are missing (user support)
+* Make sure "Install non-listed application" link is always visible in
+  install window
 
 # 4.2.6
 
