@@ -51,8 +51,9 @@ Check_OpenGL()
 			exit 2
 		fi
 	else
+		$cmdW "check_dd_$1 missing, test skipped"
 		exit 0
-	fi	
+	fi
 }
 cd /tmp
 
