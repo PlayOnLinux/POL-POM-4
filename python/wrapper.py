@@ -68,6 +68,14 @@ class MainWindow(wx.Frame):
         if(self.myScript.programrunning == False):
             self.POLDie()
 
+    def BugReport(self, event):
+        try:
+            self.debugFrame.Show()
+            self.debugFrame.SetFocus()
+        except:
+            self.debugFrame = debug.MainWindow(None, -1, _("{0} debugger").format(os.environ["APPLICATION_TITLE"]))
+            self.debugFrame.Center(wx.BOTH)
+            self.debugFrame.Show()
 
     def POLDie(self):
         for pid in self.registeredPid:
