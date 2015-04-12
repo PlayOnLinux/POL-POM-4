@@ -13,6 +13,7 @@
 * Wine versions manager: attributes tell apart used versions instead of
   unused versions; Add an extra warning when about to remove a version in use
 * Avoid Python detection loops
+* Display wx version found
 * Fix Settings > Internet menu (#4989, thanks to rupert)
 * Workaround for Wine bug #37575 (#5023)
 * Improve find_binary function and make it public as POL_System_find_file
