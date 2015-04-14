@@ -858,7 +858,7 @@ POL_Wine_PrefixDelete()
 	cd "$POL_USER_ROOT/shortcuts/" &&
 	for shortcut in *
 	do
-		[ "$(detect_wineprefix "$shortcut")" = "$wineprefix" ] && shortcuts+="$shortcut"
+		[ "$(detect_wineprefix "$shortcut")" = "$wineprefix" ] && shortcuts+=("$shortcut")
 	done
 	IFS="$OLDIFS"
 
