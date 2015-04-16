@@ -30,6 +30,7 @@
 * Remove use of remaining os.system() calls (less overhead, less quoting nightmare)
 * Use os.kill() instead of shell command
 * Use of "exec" to avoid some useless extra Bash processes
+* polconfigurator interface cleanup (no risk of translation breakage)
 
 # 4.2.6
 

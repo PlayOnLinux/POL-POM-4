@@ -613,10 +613,10 @@ class MainWindow(wx.Frame):
 
 
     def RWineConfigurator(self, event):
-        self.RConfigure(_("Configure Wine"), "nothing")
+        self.RConfigure("winecfg")
 
     def RKill(self, event):
-        self.RConfigure(_("KillApp"), "nothing")
+        self.RConfigure("kprocess")
 
     def ReadMe(self, event):
         game_exec = self.GetSelectedProgram()
@@ -626,7 +626,7 @@ class MainWindow(wx.Frame):
             wx.MessageBox(_("No manual found for {0}").format(game_exec), os.environ["APPLICATION_TITLE"])
 
     def RRegistryEditor(self, event):
-        self.RConfigure(_("Registry Editor"), "nothing")
+        self.RConfigure("regedit")
 
     def run_plugin(self, event):
         game_exec = self.GetSelectedProgram()
@@ -720,7 +720,7 @@ class MainWindow(wx.Frame):
             self.IconFilename=self.IconDialog.GetFilename()
             self.IconDirname=self.IconDialog.GetDirectory()
             IconFile=os.path.join(self.IconDirname,self.IconFilename)
-            self.RConfigure("IconChange", IconFile)
+            self.RConfigure("changeicon", IconFile)
             self.IconDialog.Destroy()
             #Pop-up menu for game list: ending
 
@@ -912,11 +912,11 @@ class MainWindow(wx.Frame):
             self.removeTool.Enable(False)
 
 
-    def RConfigure(self, function_to_run, firstargument):
+    def RConfigure(self, function_to_run, *args):
         """Starts polconfigurator remotely."""
         game_exec = self.GetSelectedProgram()
         if game_exec != "":
-            subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/polconfigurator", game_exec, function_to_run, firstargument])
+            subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/polconfigurator", game_exec, function_to_run] + list(args))
         else:
             wx.MessageBox(_("Please select a program."), os.environ["APPLICATION_TITLE"])
 
