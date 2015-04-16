@@ -55,7 +55,7 @@ then
 	FILE=$(select_file "$(eval_gettext 'Choose a package to install')" '' 0 0 1 "$(eval_gettext 'PlayOnLinux package manager')")
 	if [ ! "$FILE" = "" ]
 	then
-		bash "$PLAYONLINUX/playonlinux-pkg" -i "$FILE" -g
+		exec bash "$PLAYONLINUX/playonlinux-pkg" -i "$FILE" -g
 	fi
 elif [ "$1" = "-e" -o "$1" = "--extract" ]
 then

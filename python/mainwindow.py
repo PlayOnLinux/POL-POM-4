@@ -19,7 +19,8 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 encoding = 'utf-8'
 
-import os, getopt, sys, urllib, signal, string, time, webbrowser, gettext, locale, sys, shutil, subprocess
+import os, getopt, sys, urllib, signal, string, time, webbrowser, gettext, locale, sys
+import shlex, subprocess, signal
 
 try :
     os.environ["POL_OS"]
@@ -760,7 +761,7 @@ class MainWindow(wx.Frame):
         self.menuGaucheAddLink("pol_prgm_settings", _("Settings"), i,Variables.playonlinux_env+"/resources/images/menu/settings.png",self.Options)
 
 
-        if(os.path.exists(os.environ["PLAYONLINUX"]+"/.git/")):
+        if(os.path.exists(Variables.playonlinux_env+"/.git/")):
             i+=1
             self.menuGaucheAddLink("pol_git", _("Update GIT"), i,Variables.playonlinux_env+"/resources/images/menu/update_git.png",self.UpdateGIT)
         elif "POL_UPTODATE" in os.environ and os.environ["POL_UPTODATE"] == "FALSE":
@@ -1058,15 +1059,27 @@ class MainWindow(wx.Frame):
 
     def POLDie(self):
         for pid in self.registeredPid:
-            os.system("kill -9 -%d 2> /dev/null" % pid)
-            os.system("kill -9 %d 2> /dev/null" % pid) 
+            try:
+                os.kill(-pid, signal.SIGKILL)
+            except OSError:
+                pass
+            try:
+                os.kill(pid, signal.SIGKILL)
+            except OSError:
+                pass
         app.POLServer.closeServer()
         os._exit(0)
 
     def POLRestart(self):
         for pid in self.registeredPid:
-            os.system("kill -9 -%d 2> /dev/null" % pid)
-            os.system("kill -9 %d 2> /dev/null" % pid) 
+            try:
+                os.kill(-pid, signal.SIGKILL)
+            except OSError:
+                pass
+            try:
+                os.kill(pid, signal.SIGKILL)
+            except OSError:
+                pass
         app.POLServer.closeServer()
         os._exit(63) # Restart code
 
@@ -1130,7 +1143,7 @@ class PlayOnLinuxApp(wx.App):
         close = False
         exe_present = False
 
-        os.system("bash "+Variables.playonlinux_env+"/bash/startup")
+        subprocess.call(["bash", Variables.playonlinux_env+"/bash/startup"])
         self.systemCheck()
         
         for f in  sys.argv[1:]:
@@ -1159,7 +1172,7 @@ class PlayOnLinuxApp(wx.App):
                  os._exit(0)
                  break
             i+=1 
-        os.system("bash \"$PLAYONLINUX/bash/startup_after_server\" &")
+        subprocess.Popen(["bash", Variables.playonlinux_env + "/bash/startup_after_server"])
    
         self.SetTopWindow(self.frame)
         self.frame.Show(True)
@@ -1204,7 +1217,7 @@ class PlayOnLinuxApp(wx.App):
 
         #### 32 bits OpenGL check
         try:
-            returncode=subprocess.call([os.environ["PLAYONLINUX"]+"/bash/check_gl","x86"])
+            returncode=subprocess.call([Variables.playonlinux_env+"/bash/check_gl","x86"])
         except:
             returncode=255
         if(os.environ["POL_OS"] == "Linux" and returncode != 0):
@@ -1216,7 +1229,7 @@ class PlayOnLinuxApp(wx.App):
         #### 64 bits OpenGL check
         if(os.environ["AMD64_COMPATIBLE"] == "True"):
             try:
-                returncode=subprocess.call([os.environ["PLAYONLINUX"]+"/bash/check_gl","amd64"])
+                returncode=subprocess.call([Variables.playonlinux_env+"/bash/check_gl","amd64"])
             except:
                 returncode=255
         if(os.environ["AMD64_COMPATIBLE"] == "True" and os.environ["POL_OS"] == "Linux" and returncode != 0):
@@ -1228,7 +1241,7 @@ class PlayOnLinuxApp(wx.App):
         #### Filesystem check
         if(os.environ["POL_OS"] == "Linux"):
             try:
-                returncode=subprocess.call([os.environ["PLAYONLINUX"]+"/bash/check_fs"])
+                returncode=subprocess.call([Variables.playonlinux_env+"/bash/check_fs"])
             except:
                 returncode=255
             if(os.environ["POL_OS"] == "Linux" and returncode != 0):
@@ -1285,16 +1298,16 @@ class PlayOnLinuxApp(wx.App):
             if(":\\\\\\\\" in exec_app):
                 exec_app = exec_app.replace("\\\\","\\")
             try:
-                os.system("cd \""+cd_app+"\" && "+exec_app+" &")
+                subprocess.Popen(shlex.split(exec_app),cwd=cd_app)
             except:
                 pass
 
         elif(file_extension == "exe" or file_extension == "EXE"):
-            os.system("bash \"$PLAYONLINUX/bash/run_exe\" \""+filename+"\" &")
+            subprocess.Popen(["bash", Variables.playonlinux_env + "/bash/run_exe", filename])
 
         elif(file_extension == "pol" or file_extension == "POL"):
             if(wx.YES == wx.MessageBox(_('Are you sure you want to  want to install {0} package?').format(filename).decode("utf-8","replace"), os.environ["APPLICATION_TITLE"],style=wx.YES_NO | wx.ICON_QUESTION)):
-                os.system("bash \"$PLAYONLINUX/bash/playonlinux-pkg\" -i \""+filename+"\" &")
+                subprocess.Popen(["bash", Variables.playonlinux_env + "/bash/playonlinux-pkg", "-i", filename])
         else:
             playonlinux.open_document(filename,file_extension.lower())
  
@@ -1306,7 +1319,7 @@ class PlayOnLinuxApp(wx.App):
         if(os.environ["POL_OS"] == "FreeBSD" and not "playonbsd://" in url):
             wx.MessageBox(_("You are trying to open a script design for {0}! It might not work as expected").format("PlayOnMac or PlayOnLinux"), os.environ["APPLICATION_TITLE"])
             
-        os.system("bash \"$PLAYONLINUX/bash/playonlinux-url_handler\" \""+url+"\" &")
+        subprocess.Popen(["bash", Variables.playonlinux_env + "/bash/playonlinux-url_handler", url])
 
     def MacReopenApp(self):
         #sys.exit()

@@ -31,7 +31,7 @@ then
 	CURDIR="$(pwd)"
 	export MACHTYPE
 	cd "$WorkingDirectory"
-	python "$CURDIR/python/wrapper.py" "$CURDIR/bash/$(basename "$0")" "$@"
+	exec python "$CURDIR/python/wrapper.py" "$CURDIR/bash/$(basename "$0")" "$@"
 else
-	bash "$PLAYONLINUX/bash/$(basename "$0")" "$@"
+	exec bash "$PLAYONLINUX/bash/$(basename "$0")" "$@"
 fi

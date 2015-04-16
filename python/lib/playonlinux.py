@@ -4,7 +4,7 @@
 # Copyright (C) 2007-2010 PlayOnLinux Team
 
 import Variables, os, string
-import shlex, pipes, wx
+import subprocess, shlex, pipes, wx
 
 def winpath(script, path):
     #path=os.path.realpath(path)
@@ -27,9 +27,9 @@ def open_document(path, ext):
         wx.MessageBox(_("There is nothing installed to run .{0} files.").format(ext),os.environ["APPLICATION_TITLE"], wx.OK)
     else:
         try:
-            os.system("bash "+Variables.playonlinux_env+"/bash/run_app \""+script.encode("utf-8","replace")+"\" \""+winpath(script.encode("utf-8","replace"),path.encode("utf-8","replace"))+"\"&")
+            subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/run_app", script.encode("utf-8","replace"), winpath(script.encode("utf-8","replace"), path.encode("utf-8","replace"))])
         except:
-             os.system("bash "+Variables.playonlinux_env+"/bash/run_app \""+script+"\" \""+winpath(script,path)+"\"&")
+            subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/run_app", script, winpath(script, path)])
 
 def GetWineVersion(game):
     cfile = Variables.playonlinux_rep+"shortcuts/"+game
@@ -242,17 +242,17 @@ def open_folder(software):
     AppDir = read[i][3:]
     if AppDir != "":
         if(os.environ["POL_OS"] == "Mac"):
-            os.system("open "+AppDir)
+            subprocess.call(["open", AppDir])
         else:
-            os.system("xdg-open "+AppDir)
+            subprocess.call(["xdg-open", AppDir])
 
 def open_folder_prefix(software):
     AppDir = os.environ["POL_USER_ROOT"]+"/wineprefix/"+software
     if AppDir != "":
         if(os.environ["POL_OS"] == "Mac"):
-            os.system("open "+AppDir)
+            subprocess.call(["open", AppDir])
         else:
-            os.system("xdg-open "+AppDir)
+            subprocess.call(["xdg-open", AppDir])
 
 def VersionLower(version1, version2):
     version1 = string.split(version1, "-")
@@ -446,9 +446,9 @@ def writeArgs(game, args):
 
 def POL_Open(arg):
     if(os.environ["POL_OS"] == "Mac"):
-        os.system("open \""+arg+"\"&")
+        subprocess.Popen(["open", arg])
     else:
-        os.system("xdg-open \""+arg+"\"&")
+        subprocess.Popen(["xdg-open", arg])
 
 def POL_Error(message):
     wx.MessageBox(message,_("{0} error").format(os.environ["APPLICATION_TITLE"]))

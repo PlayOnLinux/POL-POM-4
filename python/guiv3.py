@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- coding:Utf-8 -*-
+# -*- coding:utf-8 -*-
 
 # Copyright (C) 2008 Pâris Quentin
 # This program is free software; you can redistribute it and/or modify
@@ -19,7 +19,7 @@
 
 
 import wx, wx.animate, os, getopt, sys, urllib, signal, time, string, urlparse, codecs, time, threading, socket
-from subprocess import Popen,PIPE
+import subprocess, shlex, signal
 import lib.Variables as Variables
 import lib.lng, lib.playonlinux as playonlinux
 lib.lng.Lang()
@@ -56,7 +56,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
     def __init__(self, parent, titre, POL_SetupWindowID, Arg1, Arg2, Arg3):
         wx.Frame.__init__(self, None, -1, title = titre, style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX, size = (520, 398+Variables.windows_add_size))
         self.parent = parent
-        self.bash_pid = POL_SetupWindowID
+        self.bash_pid = int(POL_SetupWindowID)
         self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
         self.gauge_i = 0
         self.fichier = ""
@@ -215,7 +215,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         wx.EVT_HYPERLINK(self, 303, self.POL_register)
 
         # Debug Window
-        self.debugImage = wx.StaticBitmap(self.panel, -1, wx.Bitmap(os.environ["PLAYONLINUX"]+"/resources/images/setups/face-sad.png"), (196,130))
+        self.debugImage = wx.StaticBitmap(self.panel, -1, wx.Bitmap(Variables.playonlinux_env+"/resources/images/setups/face-sad.png"), (196,130))
         self.debugZone = wx.TextCtrl(self.panel, -1, "",size=wx.Size(440,82), pos=(40,274),style=Variables.widget_borders|wx.TE_MULTILINE|wx.TE_READONLY)
 
         # Hide all
@@ -358,9 +358,9 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
     def InfoClick(self, e):
         url = "http://www.playonlinux.com/en/app-"+self.script_ID+".html"
         if(os.environ["POL_OS"] == "Mac"):
-            os.system("open "+url+" &")
+            subprocess.Popen(["open", url])
         else:
-            os.system("xdg-open "+url+" &")
+            subprocess.Popen(["xdg-open", url])
 
     def POL_SetupWindow_DebugInit(self, logtitle):
         self.DebugScript.Show()
@@ -684,13 +684,13 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
     def POL_register(self, event):
         if(os.environ["POL_OS"] == "Mac"):
-            os.system("open "+self.register_link)
+            subprocess.Popen(["open", self.register_link])
         else:
-            os.system("xdg-open "+self.register_link)
+            subprocess.Popen(["xdg-open", self.register_link])
 
-    def RunCommand(self, event, command,confirm):
+    def RunCommand(self, event, command, confirm):
         if(confirm == "0" or wx.YES == wx.MessageBox(confirm.decode("utf-8","replace"), os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
-            os.system(command+"&");
+            subprocess.Popen(shlex.split(command))
 
     def DrawImage(self):
         self.left_image.Show()
@@ -797,8 +797,14 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         if(self.ProtectedWindow == False):
             self.Destroy()
             time.sleep(0.1)
-            os.system("kill -9 -"+self.bash_pid+" 2> /dev/null")
-            os.system("kill -9 "+self.bash_pid+" 2> /dev/null") 
+            try:
+                os.kill(-self.bash_pid, signal.SIGKILL)
+            except OSError:
+                pass
+            try:
+                os.kill(self.bash_pid, signal.SIGKILL)
+            except OSError:
+                pass
         else:
             wx.MessageBox(_("You cannot close this window").format(os.environ["APPLICATION_TITLE"]),_("Error"))
 

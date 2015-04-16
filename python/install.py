@@ -18,7 +18,7 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 import wx
-import os, sys, codecs, string, socket, urllib, urllib2
+import os, sys, subprocess, codecs, string, socket, urllib, urllib2
 import wx.html, threading, time, wx.animate
 
 import lib.Variables as Variables, sp
@@ -459,7 +459,7 @@ class InstallWindow(wx.Frame):
                         if(split[2] == "1"):
                             wx.MessageBox(_("This program contains a protection against copy (DRM) incompatible with emulation.\nThe only workaround is to use a \"no-cd\" patch, but since those can also be used for piracy purposes we won't give any support on this matter."), _("Please read this"))
 
-            os.system("bash \""+Variables.playonlinux_env+"/bash/install\" \""+InstallApplication.encode("utf-8","replace")+"\"&")
+            subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/install", InstallApplication.encode("utf-8","replace")])
 
         self.Destroy()
         return

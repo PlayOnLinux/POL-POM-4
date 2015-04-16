@@ -18,8 +18,8 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-import os, sys, string, shutil
-import wx, time, shlex
+import os, sys, string, subprocess
+import wx, time
 #from subprocess import Popen,PIPE
 
 import wine_versions
@@ -90,7 +90,9 @@ class MainWindow(wx.Frame):
         #self.log_reader.SetDefaultStyle(wx.TextAttr(font=wx.Font(13,wx.FONTFAMILY_DEFAULT,wx.FONTSTYLE_NORMAL,wx.FONTWEIGHT_NORMAL)))
 
     def bugReport(self, event):
-        os.system('env LOGTITLE="'+self.logname+'" bash "'+os.environ["PLAYONLINUX"]+'/bash/bug_report" &')
+        new_env = os.environ
+        new_env["LOGTITLE"] = self.logname
+        subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/bug_report"], env=new_env)
         self.reportProblem.Enable(False)
 
     def locate(self, event):

@@ -45,7 +45,7 @@ then
 	export MACHTYPE
 	cd "$WorkingDirectory"
        	source "$POLDIR/bash/find_python"
-	search_python && "$POL_PYTHON" "$POLDIR/python/wrapper.py" "$SCRIPTNAME" "$@"
+	search_python && exec "$POL_PYTHON" "$POLDIR/python/wrapper.py" "$SCRIPTNAME" "$@"
 else
-	bash "$SCRIPTNAME" "$@"
+	exec bash "$SCRIPTNAME" "$@"
 fi

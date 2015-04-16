@@ -27,6 +27,9 @@
 * Make sure "Install non-listed application" link is always visible in
   install window
 * POL_SetupWindow_cdrom: don't suggest "*" when no CDROM has been found
+* Remove use of remaining os.system() calls (less overhead, less quoting nightmare)
+* Use os.kill() instead of shell command
+* Use of "exec" to avoid some useless extra Bash processes
 
 # 4.2.6
 

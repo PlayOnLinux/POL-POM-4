@@ -19,6 +19,7 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 import wxversion, os, getopt, sys, urllib, signal, socket, codecs, string, shutil, time, urllib, urllib2
+import subprocess
 import wx, wx.animate
 
 import lib.Variables as Variables
@@ -338,7 +339,7 @@ class MainWindow(wx.Frame):
 
     def install_common(self, event, arch):
         install = self.onglets.list_apps[arch].GetItemText(self.onglets.list_apps[arch].GetSelection()).encode("utf-8","replace")
-        os.system("bash \""+Variables.playonlinux_env+"/bash/install_wver\" "+install+" "+arch+" &")
+        subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/install_wver", install, arch])
 
     def unselect64(self, event):
         if(event.GetId() == 206):
