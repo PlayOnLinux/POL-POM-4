@@ -277,7 +277,7 @@ POL_ExtractBiggestIcon()
 POL_System_find_file ()
 {
 	# Usage: POL_System_find_file [(subdirectory/...)filename]
-	# Find a file in the current virtual drive that match the provided path suffix, case insensitively
+	# Find a file in the current virtual drive that match the provided relative path suffix, case insensitively
 	# If found, returns its path relative to the drive_c subdirectory
 	local suffix="$1"
 
@@ -286,8 +286,8 @@ POL_System_find_file ()
 	cd drive_c || POL_Debug_Fatal "drive_c folder does not exist"
 
 	local binary_path
-	if [ -e "$suffix" ]; then
-		# Explicit path, note that the case has to be correct
+	if [ -e "./$suffix" ]; then
+		# Explicit relative path, note that the case has to be correct
 		binary_path="$suffix"
 	else
 		# Implicit path, search file outside of windows directory first
@@ -880,9 +880,16 @@ POL_Shortcut_Document()
 	local DOC_FILENAME="$2"
 
 	rm -f "$POL_USER_ROOT/configurations/manuals/$SHORTCUT_NAME"
-	local doc_path="$(POL_System_find_file "$DOC_FILENAME")"
+	local doc_path
+	# For historical reasons POL_Shortcut_Document also accepts absolute paths
+	if [[ "$DOC_FILENAME" =~ /* && -e "$DOC_FILENAME" ]]; then
+		doc_path="$DOC_FILENAME"
+	else
+		doc_path="$(POL_System_find_file "$DOC_FILENAME")"
+		[ "$doc_path" ] && doc_path="$WINEPREFIX/drive_c/$doc_path"
+	fi
 	if [ "doc_path" ]; then
-		ln -s "$WINEPREFIX/drive_c/$doc_path" "$POL_USER_ROOT/configurations/manuals/$SHORTCUT_NAME"
+		ln -s "$doc_path" "$POL_USER_ROOT/configurations/manuals/$SHORTCUT_NAME"
 	else
 		POL_Debug_Warning "Document $DOC_FILENAME not found"
 	fi
