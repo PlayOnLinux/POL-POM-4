@@ -239,7 +239,7 @@ def open_folder(software):
     if len(read) == (i):
         return
 
-    AppDir = read[i][3:]
+    AppDir = read[i][4:-2].replace("//","/")
     if AppDir != "":
         if(os.environ["POL_OS"] == "Mac"):
             subprocess.call(["open", AppDir])
