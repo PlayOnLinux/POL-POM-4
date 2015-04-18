@@ -882,7 +882,7 @@ POL_Shortcut_Document()
 	rm -f "$POL_USER_ROOT/configurations/manuals/$SHORTCUT_NAME"
 	local doc_path="$(POL_System_find_file "$DOC_FILENAME")"
 	if [ "doc_path" ]; then
-		ln -s "$PWD/$doc_path" "$POL_USER_ROOT/configurations/manuals/$SHORTCUT_NAME"
+		ln -s "$WINEPREFIX/drive_c/$doc_path" "$POL_USER_ROOT/configurations/manuals/$SHORTCUT_NAME"
 	else
 		POL_Debug_Warning "Document $DOC_FILENAME not found"
 	fi
