@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX/APLU <pol-gettext@mulx.net>\n"
-"POT-Creation-Date: 2015-04-18 19:00:09+02:00\n"
+"POT-Creation-Date: 2015-04-19 19:00:10+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -454,8 +454,8 @@ msgstr ""
 msgid "Use another version of Wine"
 msgstr ""
 
-#: bash/manual_install:139 bash/manual_install:191 bash/polconfigurator:102
-#: python/configure.py:232 python/mainwindow.py:584 python/mainwindow.py:616
+#: bash/manual_install:139 bash/manual_install:191 bash/polconfigurator:105
+#: python/configure.py:232 python/mainwindow.py:584
 #, sh-format
 msgid "Configure Wine"
 msgstr ""
@@ -587,7 +587,7 @@ msgstr ""
 msgid "Cleaning..."
 msgstr ""
 
-#: bash/polconfigurator:34
+#: bash/polconfigurator:35
 #, sh-format
 msgid "Killing programs in the virtual drive..."
 msgstr ""
@@ -612,48 +612,47 @@ msgstr ""
 msgid "is not an icon extension"
 msgstr ""
 
-#: bash/polconfigurator:103 python/configure.py:240 python/mainwindow.py:588
-#: python/mainwindow.py:629
+#: bash/polconfigurator:106 python/configure.py:240 python/mainwindow.py:588
 #, sh-format
 msgid "Registry Editor"
 msgstr ""
 
-#: bash/polconfigurator:104
+#: bash/polconfigurator:107
 #, sh-format
 msgid "Kill all prefix processes"
 msgstr ""
 
-#: bash/polconfigurator:105
+#: bash/polconfigurator:108
 #, sh-format
 msgid "Update wineprefix"
 msgstr ""
 
-#: bash/polconfigurator:106
+#: bash/polconfigurator:109
 #, sh-format
 msgid "Simulate Windows reboot"
 msgstr ""
 
-#: bash/polconfigurator:107
+#: bash/polconfigurator:110
 #, sh-format
 msgid "Use Advanced Wine Configuration plugin"
 msgstr ""
 
-#: bash/polconfigurator:108
+#: bash/polconfigurator:111
 #, sh-format
 msgid "Use PlayOnLinux's configurator for"
 msgstr ""
 
-#: bash/polconfigurator:110
+#: bash/polconfigurator:113
 #, sh-format
 msgid "Change the icon"
 msgstr ""
 
-#: bash/polconfigurator:111
+#: bash/polconfigurator:114
 #, sh-format
 msgid "Use WineTricks"
 msgstr ""
 
-#: bash/polconfigurator:130
+#: bash/polconfigurator:134
 #, sh-format
 msgid "Please choose an action to perform"
 msgstr ""
@@ -1080,21 +1079,21 @@ msgstr ""
 msgid "File size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:937
+#: lib/scripts.lib:944
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\n"
 "$APPLICATION_TITLE $NEEDED is required."
 msgstr ""
 
-#: lib/scripts.lib:952
+#: lib/scripts.lib:959
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
 "$NEEDED is recommended to continue."
 msgstr ""
 
-#: lib/scripts.lib:983
+#: lib/scripts.lib:990
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr ""
@@ -1927,10 +1926,6 @@ msgstr ""
 
 #: python/mainwindow.py:608
 msgid "Close this application"
-msgstr ""
-
-#: python/mainwindow.py:619
-msgid "KillApp"
 msgstr ""
 
 #: python/mainwindow.py:626
