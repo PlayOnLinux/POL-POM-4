@@ -1264,6 +1264,8 @@ class PlayOnLinuxApp(wx.App):
         
         self.singleCheckFatal("gpg", package="GnuPG")
 
+        # FIXME: now that PoL can use a range of terminal emulators, xterm is no longer
+        # a hard dependency
         if(os.environ["DEBIAN_PACKAGE"] == "FALSE" and os.environ["POL_OS"] != "Mac"):
             self.singleCheck("xterm")
         self.singleCheck("gettext.sh", package="gettext")  # gettext-base on Debian
