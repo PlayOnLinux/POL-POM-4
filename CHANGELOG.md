@@ -1,3 +1,6 @@
+# 4.2.8
+
+
 # 4.2.7
 
 * Detect and abort scripts when trying to run 64bit programs with 32bit Wine
