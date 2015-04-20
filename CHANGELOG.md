@@ -1,5 +1,5 @@
 # 4.2.8
-
+* checkVersionUse(): don't assume cfg files have any order
 
 # 4.2.7
 

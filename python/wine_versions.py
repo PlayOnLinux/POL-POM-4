@@ -23,6 +23,7 @@ import subprocess
 import wx, wx.animate
 
 import lib.Variables as Variables
+import lib.playonlinux as playonlinux
 import lib.lng, threading
 
 if(os.environ["POL_OS"] == "Mac"):
@@ -327,7 +328,7 @@ class MainWindow(wx.Frame):
 
     def delete_common(self, event, arch):
         version = self.onglets.list_ver_installed[arch].GetItemText(self.onglets.list_ver_installed[arch].GetSelection()).encode("utf-8","replace")
-        used_version = self.checkVersionUse(arch) # Get the list of wine version used by wineprefix
+        used_version = self.checkVersionUse(arch) # Get the set of wine version used by wineprefix
         message = _('Are you sure you want to delete wine {0}?').format(version)
         if version in used_version:
             message += "\n" + _('This version is CURRENTLY IN USE')
@@ -364,19 +365,13 @@ class MainWindow(wx.Frame):
             self.download64.thread_message = "get"
 
     def checkVersionUse(self, arch): # Check the wine version use by wineprefix
-        used_versions = []
-        file_to_check = os.listdir(Variables.playonlinux_rep+"/wineprefix/") # List of wineprefix
-        file_to_check.remove('default') # Remove 'default' (no wine version use by it)
-        for i in range(len(file_to_check)):
-            try:
-                tmp = open(Variables.playonlinux_rep+"/wineprefix/"+file_to_check[i]+"/playonlinux.cfg","r")
-                if "ARCH="+arch in tmp.readline(): # Check if the wineprefix use a wine arch equal to 'arch'
-                    line = tmp.readline().split("\n")[0] # Remove the '\n'
-                    if "VERSION=" in line and line.split("=")[1] not in used_versions: # Fix wine system problem (no VERSION= if system is used)
-                        used_versions.append(line.split("=")[1]) # Keep de wine version only
-                tmp.close()
-            except IOError:
-                pass
+        used_versions = set([])
+        prefixes = os.listdir(Variables.playonlinux_rep+"/wineprefix/") # List of wineprefix
+        prefixes.remove('default') # Remove 'default' (no wine version use by it)
+        for prefix in prefixes:
+            if playonlinux.GetSettings("ARCH", prefix) == arch:
+                wine_version = playonlinux.GetSettings("VERSION", prefix)
+                used_versions.add(wine_version)
         return(used_versions)
 
     def WriteVersion(self, arch="x86"):
@@ -401,7 +396,7 @@ class MainWindow(wx.Frame):
         root2 = self.onglets.list_ver_installed[arch].AddRoot("")
         wfolder = os_pref+"-"+arch
         
-        used_version = self.checkVersionUse(arch) # Get the list of wine version used by wineprefix
+        used_version = self.checkVersionUse(arch) # Get the set of wine version used by wineprefix
 
         installed_versions = os.listdir(Variables.playonlinux_rep+"/wine/"+wfolder)
         installed_versions.sort(key=keynat)
