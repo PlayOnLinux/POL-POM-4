@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-04-13 19:00+0200\n"
+"POT-Creation-Date: 2015-04-20 19:00+0200\n"
 "PO-Revision-Date: 2014-08-14 21:02+0000\n"
 "Last-Translator: Christiansen <Unknown>\n"
 "Language-Team: Danish <da@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-04-14 05:09+0000\n"
-"X-Generator: Launchpad (build 17423)\n"
+"X-Launchpad-Export-Date: 2015-04-21 05:08+0000\n"
+"X-Generator: Launchpad (build 17430)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -338,7 +338,7 @@ msgid "Choose the name of the virtual drive"
 msgstr "Vælg navn til det virtuelle drev"
 
 #: bash/expert/Executer:22 bash/expert/Executer:27 bash/expert/Executer:29
-#: python/mainwindow.py:275
+#: python/mainwindow.py:276
 #, sh-format
 msgid "Run a local script"
 msgstr "Kør et lokalt script"
@@ -475,8 +475,8 @@ msgstr ""
 msgid "Use another version of Wine"
 msgstr ""
 
-#: bash/manual_install:139 bash/manual_install:191 bash/polconfigurator:102
-#: python/configure.py:232 python/mainwindow.py:583 python/mainwindow.py:615
+#: bash/manual_install:139 bash/manual_install:191 bash/polconfigurator:105
+#: python/configure.py:232 python/mainwindow.py:584
 #, sh-format
 msgid "Configure Wine"
 msgstr "Konfigurer Wine"
@@ -608,7 +608,7 @@ msgstr ""
 msgid "Cleaning..."
 msgstr ""
 
-#: bash/polconfigurator:34
+#: bash/polconfigurator:35
 #, sh-format
 msgid "Killing programs in the virtual drive..."
 msgstr ""
@@ -633,48 +633,47 @@ msgstr ""
 msgid "is not an icon extension"
 msgstr ""
 
-#: bash/polconfigurator:103 python/configure.py:240 python/mainwindow.py:587
-#: python/mainwindow.py:628
+#: bash/polconfigurator:106 python/configure.py:240 python/mainwindow.py:588
 #, sh-format
 msgid "Registry Editor"
 msgstr "Registrartingsdatabase-behandler"
 
-#: bash/polconfigurator:104
+#: bash/polconfigurator:107
 #, sh-format
 msgid "Kill all prefix processes"
 msgstr ""
 
-#: bash/polconfigurator:105
+#: bash/polconfigurator:108
 #, sh-format
 msgid "Update wineprefix"
 msgstr ""
 
-#: bash/polconfigurator:106
+#: bash/polconfigurator:109
 #, sh-format
 msgid "Simulate Windows reboot"
 msgstr ""
 
-#: bash/polconfigurator:107
+#: bash/polconfigurator:110
 #, sh-format
 msgid "Use Advanced Wine Configuration plugin"
 msgstr ""
 
-#: bash/polconfigurator:108
+#: bash/polconfigurator:111
 #, sh-format
 msgid "Use PlayOnLinux's configurator for"
 msgstr ""
 
-#: bash/polconfigurator:110
+#: bash/polconfigurator:113
 #, sh-format
 msgid "Change the icon"
 msgstr ""
 
-#: bash/polconfigurator:111
+#: bash/polconfigurator:114
 #, sh-format
 msgid "Use WineTricks"
 msgstr ""
 
-#: bash/polconfigurator:130
+#: bash/polconfigurator:134
 #, sh-format
 msgid "Please choose an action to perform"
 msgstr ""
@@ -1101,21 +1100,21 @@ msgstr ""
 msgid "File size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:937
+#: lib/scripts.lib:944
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
 "n$APPLICATION_TITLE $NEEDED is required."
 msgstr ""
 
-#: lib/scripts.lib:952
+#: lib/scripts.lib:959
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
 "$NEEDED is recommended to continue."
 msgstr ""
 
-#: lib/scripts.lib:983
+#: lib/scripts.lib:990
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr ""
@@ -1485,7 +1484,7 @@ msgid ""
 msgstr ""
 
 #: python/configure.py:335 python/install.py:289 python/install.py:293
-#: python/mainwindow.py:243 python/mainwindow.py:383
+#: python/mainwindow.py:244 python/mainwindow.py:384
 msgid "Install"
 msgstr "Installer"
 
@@ -1556,7 +1555,7 @@ msgid ""
 "If you change "
 msgstr ""
 
-#: python/configure.py:666 python/mainwindow.py:972 python/mainwindow.py:974
+#: python/configure.py:666 python/mainwindow.py:973 python/mainwindow.py:975
 msgid "{0} configuration"
 msgstr "{0} konfiguration"
 
@@ -1564,12 +1563,12 @@ msgstr "{0} konfiguration"
 msgid "Please select a program or a virtual drive to configure"
 msgstr ""
 
-#: python/configure.py:693 python/configure.py:696 python/options.py:280
+#: python/configure.py:693 python/configure.py:696 python/options.py:279
 msgid "New"
 msgstr "Ny"
 
-#: python/configure.py:694 python/configure.py:697 python/mainwindow.py:244
-#: python/mainwindow.py:384 python/mainwindow.py:603 python/options.py:207
+#: python/configure.py:694 python/configure.py:697 python/mainwindow.py:245
+#: python/mainwindow.py:385 python/mainwindow.py:604 python/options.py:206
 msgid "Remove"
 msgstr "Fjern"
 
@@ -1577,7 +1576,7 @@ msgstr "Fjern"
 msgid "Install components"
 msgstr ""
 
-#: python/configure.py:716 python/mainwindow.py:364
+#: python/configure.py:716 python/mainwindow.py:365
 msgid "Display"
 msgstr "Udseende"
 
@@ -1597,8 +1596,8 @@ msgstr ""
 msgid "Are you sure you want to delete {0} ?"
 msgstr ""
 
-#: python/debug.py:40 python/mainwindow.py:281 python/mainwindow.py:947
-#: python/mainwindow.py:1037 python/wrapper.py:76
+#: python/debug.py:40 python/mainwindow.py:282 python/mainwindow.py:948
+#: python/mainwindow.py:1038 python/wrapper.py:76
 msgid "{0} debugger"
 msgstr ""
 
@@ -1610,19 +1609,19 @@ msgstr ""
 msgid "Locate this logfile"
 msgstr ""
 
-#: python/debug.py:103
+#: python/debug.py:105
 msgid "The file is named : {0}"
 msgstr ""
 
-#: python/debug.py:201 python/debug.py:264
+#: python/debug.py:203 python/debug.py:266
 msgid "Virtual drives"
 msgstr ""
 
-#: python/debug.py:229
+#: python/debug.py:231
 msgid "Report a problem about {0}"
 msgstr ""
 
-#: python/debug.py:263
+#: python/debug.py:265
 msgid "Install scripts"
 msgstr "Installationsscripts"
 
@@ -1639,7 +1638,7 @@ msgid "{0} Wizard"
 msgstr "{0} Guide"
 
 #: python/guiv3.py:141 python/guiv3.py:144 python/install.py:288
-#: python/install.py:292 python/options.py:376
+#: python/install.py:292 python/options.py:375
 msgid "Cancel"
 msgstr "Annuller"
 
@@ -1687,13 +1686,13 @@ msgstr "MB downloadet"
 msgid "of"
 msgstr "af"
 
-#: python/guiv3.py:803 python/mainwindow.py:1158 python/mainwindow.py:1188
-#: python/mainwindow.py:1202 python/mainwindow.py:1211
-#: python/mainwindow.py:1223 python/mainwindow.py:1235 python/wrapper.py:129
+#: python/guiv3.py:809 python/mainwindow.py:1171 python/mainwindow.py:1201
+#: python/mainwindow.py:1215 python/mainwindow.py:1224
+#: python/mainwindow.py:1236 python/mainwindow.py:1248 python/wrapper.py:135
 msgid "Error"
 msgstr ""
 
-#: python/guiv3.py:803
+#: python/guiv3.py:809
 msgid "You cannot close this window"
 msgstr ""
 
@@ -1721,7 +1720,7 @@ msgstr "Spil"
 msgid "Graphics"
 msgstr "Grafik"
 
-#: python/install.py:219 python/mainwindow.py:287 python/options.py:384
+#: python/install.py:219 python/mainwindow.py:288 python/options.py:383
 msgid "Internet"
 msgstr "Internet"
 
@@ -1804,303 +1803,299 @@ msgstr ""
 msgid "{0} error"
 msgstr ""
 
-#: python/mainwindow.py:75
+#: python/mainwindow.py:76
 msgid "{0} website is unavailable. Please check your connection"
 msgstr ""
 
-#: python/mainwindow.py:77
+#: python/mainwindow.py:78
 msgid "Refreshing {0}"
 msgstr "Genindlæs"
 
-#: python/mainwindow.py:92 python/mainwindow.py:94
+#: python/mainwindow.py:93 python/mainwindow.py:95
 msgid "An updated version of {0} is available"
 msgstr "En opdateret version af {0} er tilgængelig"
 
-#: python/mainwindow.py:242 python/mainwindow.py:379 python/mainwindow.py:774
+#: python/mainwindow.py:243 python/mainwindow.py:380 python/mainwindow.py:775
 msgid "Run"
 msgstr "Kør"
 
-#: python/mainwindow.py:246
+#: python/mainwindow.py:247
 msgid "Donate"
 msgstr "Donér"
 
-#: python/mainwindow.py:247
+#: python/mainwindow.py:248
 msgid "Exit"
 msgstr "Afslut"
 
-#: python/mainwindow.py:251
+#: python/mainwindow.py:252
 msgid "Small icons"
 msgstr "Små ikoner"
 
-#: python/mainwindow.py:252
+#: python/mainwindow.py:253
 msgid "Medium icons"
 msgstr "Mellemstore ikoner"
 
-#: python/mainwindow.py:253
+#: python/mainwindow.py:254
 msgid "Large icons"
 msgstr "Store ikoner"
 
-#: python/mainwindow.py:254
+#: python/mainwindow.py:255
 msgid "Very large icons"
 msgstr "Meget store ikoner"
 
-#: python/mainwindow.py:266
+#: python/mainwindow.py:267
 msgid "Manage Wine versions"
 msgstr "Håndter Wine versioner"
 
-#: python/mainwindow.py:271
+#: python/mainwindow.py:272
 msgid "Read a PC CD-Rom"
 msgstr ""
 
-#: python/mainwindow.py:276
+#: python/mainwindow.py:277
 msgid "{0} console"
 msgstr "{0} konsol"
 
-#: python/mainwindow.py:278
+#: python/mainwindow.py:279
 msgid "Close all {0} software"
 msgstr "Luk alt {0} software"
 
-#: python/mainwindow.py:288 python/options.py:388
+#: python/mainwindow.py:289 python/options.py:387
 msgid "File associations"
 msgstr ""
 
-#: python/mainwindow.py:289 python/mainwindow.py:337
+#: python/mainwindow.py:290 python/mainwindow.py:338
 msgid "Plugin manager"
 msgstr "Håndtering til udvidelsesmoduler"
 
-#: python/mainwindow.py:293
+#: python/mainwindow.py:294
 msgid "Supported software"
 msgstr ""
 
-#: python/mainwindow.py:294
+#: python/mainwindow.py:295
 msgid "News"
 msgstr ""
 
-#: python/mainwindow.py:295
+#: python/mainwindow.py:296
 msgid "Documentation"
 msgstr ""
 
-#: python/mainwindow.py:296
+#: python/mainwindow.py:297
 msgid "Forums"
 msgstr ""
 
-#: python/mainwindow.py:297
+#: python/mainwindow.py:298
 msgid "Bugs"
 msgstr ""
 
-#: python/mainwindow.py:299
+#: python/mainwindow.py:300
 msgid "Twitter"
 msgstr ""
 
-#: python/mainwindow.py:300
+#: python/mainwindow.py:301
 msgid "Google+"
 msgstr ""
 
-#: python/mainwindow.py:301
+#: python/mainwindow.py:302
 msgid "Facebook"
 msgstr ""
 
-#: python/mainwindow.py:305
+#: python/mainwindow.py:306
 msgid "About {0}"
 msgstr "Om {0}"
 
-#: python/mainwindow.py:363
+#: python/mainwindow.py:364
 msgid "File"
 msgstr "Fil"
 
-#: python/mainwindow.py:365
+#: python/mainwindow.py:366
 msgid "Tools"
 msgstr "Funktioner"
 
-#: python/mainwindow.py:366 python/mainwindow.py:760
+#: python/mainwindow.py:367 python/mainwindow.py:761
 msgid "Settings"
 msgstr "Indstillinger"
 
-#: python/mainwindow.py:367 python/options.py:387
+#: python/mainwindow.py:368 python/options.py:386
 msgid "Plugins"
 msgstr "Udvidelsesmoduler"
 
-#: python/mainwindow.py:368
+#: python/mainwindow.py:369
 msgid "Support"
 msgstr ""
 
-#: python/mainwindow.py:380 python/mainwindow.py:776
+#: python/mainwindow.py:381 python/mainwindow.py:777
 msgid "Close"
 msgstr "Luk"
 
-#: python/mainwindow.py:386 python/mainwindow.py:787 python/options.py:208
+#: python/mainwindow.py:387 python/mainwindow.py:788 python/options.py:207
 msgid "Configure"
 msgstr "Konfigurer"
 
-#: python/mainwindow.py:399 python/mainwindow.py:402
+#: python/mainwindow.py:400 python/mainwindow.py:403
 msgid "Search"
 msgstr "Søg"
 
-#: python/mainwindow.py:591
+#: python/mainwindow.py:592
 msgid "Open the application's directory"
 msgstr "Åbn programbiblioteket"
 
-#: python/mainwindow.py:595 python/mainwindow.py:795
+#: python/mainwindow.py:596 python/mainwindow.py:796
 msgid "Read the manual"
 msgstr "Læs manualen"
 
-#: python/mainwindow.py:599
+#: python/mainwindow.py:600
 msgid "Set the icon"
 msgstr "Angiv ikonet"
 
-#: python/mainwindow.py:607
+#: python/mainwindow.py:608
 msgid "Close this application"
 msgstr "Lukke dette program"
 
-#: python/mainwindow.py:618
-msgid "KillApp"
-msgstr "KillApp"
-
-#: python/mainwindow.py:625
+#: python/mainwindow.py:626
 msgid "No manual found for {0}"
 msgstr "Ingen manual fundet til {0}"
 
-#: python/mainwindow.py:758
+#: python/mainwindow.py:759
 msgid "Install a program"
 msgstr "Installer et program"
 
-#: python/mainwindow.py:765
+#: python/mainwindow.py:766
 msgid "Update GIT"
 msgstr "Opdater GIT"
 
-#: python/mainwindow.py:768
+#: python/mainwindow.py:769
 msgid "Update instructions"
 msgstr ""
 
-#: python/mainwindow.py:778
+#: python/mainwindow.py:779
 msgid "Debug"
 msgstr ""
 
-#: python/mainwindow.py:784
+#: python/mainwindow.py:785
 msgid "Send a feedback"
 msgstr ""
 
-#: python/mainwindow.py:789
+#: python/mainwindow.py:790
 msgid "Create a shortcut"
 msgstr "Opret en genvej"
 
-#: python/mainwindow.py:791
+#: python/mainwindow.py:792
 msgid "Open the directory"
 msgstr "Åbn programbiblioteket"
 
-#: python/mainwindow.py:798
+#: python/mainwindow.py:799
 msgid "Uninstall"
 msgstr "Afinstaller"
 
-#: python/mainwindow.py:920 python/mainwindow.py:991 python/mainwindow.py:998
-#: python/mainwindow.py:1043
+#: python/mainwindow.py:921 python/mainwindow.py:992 python/mainwindow.py:999
+#: python/mainwindow.py:1044
 msgid "Please select a program."
 msgstr ""
 
-#: python/mainwindow.py:928 python/mainwindow.py:930 python/mainwindow.py:932
+#: python/mainwindow.py:929 python/mainwindow.py:931 python/mainwindow.py:933
 msgid "{0} settings"
 msgstr "{0} indstillinger"
 
-#: python/mainwindow.py:1005
+#: python/mainwindow.py:1006
 msgid "{0} install menu"
 msgstr "{0} Installations menu"
 
-#: python/mainwindow.py:1014
+#: python/mainwindow.py:1015
 msgid "{0} wine versions manager"
 msgstr "{0} Wine versionshåndtering"
 
-#: python/mainwindow.py:1045
+#: python/mainwindow.py:1046
 msgid "The virtual drive associated with {0} ({1}) does no longer exists."
 msgstr ""
 
-#: python/mainwindow.py:1089
+#: python/mainwindow.py:1102
 msgid "Are you sure you want to close all {0} windows?"
 msgstr ""
 
-#: python/mainwindow.py:1111
+#: python/mainwindow.py:1124
 msgid "Run your Windows programs on "
 msgstr "Kør dine windows programmer på "
 
-#: python/mainwindow.py:1112
+#: python/mainwindow.py:1125
 msgid ""
 "PlayOnLinux and PlayOnMac team\n"
 "Under GPL licence version 3"
 msgstr ""
 
-#: python/mainwindow.py:1113
+#: python/mainwindow.py:1126
 msgid "Developer and Website: "
 msgstr "Udvikler og webside: "
 
-#: python/mainwindow.py:1114
+#: python/mainwindow.py:1127
 msgid "Scriptors: "
 msgstr "Script-forfattere: "
 
-#: python/mainwindow.py:1115
+#: python/mainwindow.py:1128
 msgid "Packager: "
 msgstr "Pakkeansvarlig: "
 
-#: python/mainwindow.py:1116
+#: python/mainwindow.py:1129
 msgid "Icons:"
 msgstr "Ikoner:"
 
-#: python/mainwindow.py:1117
+#: python/mainwindow.py:1130
 msgid "The following people contributed to this program: "
 msgstr "Følgende personer har bidraget til dette program: "
 
-#: python/mainwindow.py:1118
+#: python/mainwindow.py:1131
 msgid "Translations:"
 msgstr "Oversættelser:"
 
-#: python/mainwindow.py:1119
+#: python/mainwindow.py:1132
 msgid "Read TRANSLATORS file"
 msgstr "Læs filen TRANSLATORS"
 
-#: python/mainwindow.py:1158
+#: python/mainwindow.py:1171
 msgid "{0} is not able to start PlayOnLinux Setup Window server."
 msgstr ""
 
-#: python/mainwindow.py:1179
+#: python/mainwindow.py:1192
 msgid "{0} cannot find {1}"
 msgstr ""
 
-#: python/mainwindow.py:1181
+#: python/mainwindow.py:1194
 msgid " (from {2})"
 msgstr ""
 
-#: python/mainwindow.py:1184
+#: python/mainwindow.py:1197
 msgid "You need to install it to continue"
 msgstr ""
 
-#: python/mainwindow.py:1186
+#: python/mainwindow.py:1199
 msgid "You should install it to use {0}"
 msgstr ""
 
-#: python/mainwindow.py:1202
+#: python/mainwindow.py:1215
 msgid "{0} is not supposed to be run as root. Sorry"
 msgstr "{0} er ikke tiltænkt at skulle køres som root. Desværre"
 
-#: python/mainwindow.py:1211
+#: python/mainwindow.py:1224
 msgid ""
 "{0} is unable to find 32bits OpenGL libraries.\n"
 "\n"
 "You might encounter problem with your games"
 msgstr ""
 
-#: python/mainwindow.py:1223
+#: python/mainwindow.py:1236
 msgid ""
 "{0} is unable to find 64bits OpenGL libraries.\n"
 "\n"
 "You might encounter problem with your games"
 msgstr ""
 
-#: python/mainwindow.py:1235
+#: python/mainwindow.py:1248
 msgid ""
 "Your filesystem might prevent {0} from running correctly.\n"
 "\n"
 "Please open {0} in a terminal to get more details"
 msgstr ""
 
-#: python/mainwindow.py:1239
+#: python/mainwindow.py:1252
 msgid ""
 "Do you want to help {0} to make a compatibility database?\n"
 "\n"
@@ -2115,110 +2110,110 @@ msgid ""
 "These information will be very precious for us to help people."
 msgstr ""
 
-#: python/mainwindow.py:1296
+#: python/mainwindow.py:1311
 msgid "Are you sure you want to  want to install {0} package?"
 msgstr "Er du sikker på at du vil installere {0} pakken?"
 
-#: python/mainwindow.py:1303 python/mainwindow.py:1305
-#: python/mainwindow.py:1307
+#: python/mainwindow.py:1318 python/mainwindow.py:1320
+#: python/mainwindow.py:1322
 msgid ""
 "You are trying to open a script design for {0}! It might not work as expected"
 msgstr ""
 "Du prøver at åbne et script designet til {0}! Det vil måske ikke virke som "
 "forventet"
 
-#: python/options.py:116
+#: python/options.py:115
 msgid "Proxy configuration"
 msgstr "Proxy-opsætning"
 
-#: python/options.py:129
+#: python/options.py:128
 msgid "Set a proxy"
 msgstr "Angiv en proxy"
 
-#: python/options.py:132
+#: python/options.py:131
 msgid "Proxy address"
 msgstr "Proxy adresse"
 
-#: python/options.py:135
+#: python/options.py:134
 msgid "Proxy port"
 msgstr "Proxy-port"
 
-#: python/options.py:138
+#: python/options.py:137
 msgid "Proxy login"
 msgstr "Proxy-login"
 
-#: python/options.py:141
+#: python/options.py:140
 msgid "Proxy password"
 msgstr "Proxy-adgangskode"
 
-#: python/options.py:188
+#: python/options.py:187
 msgid "Installed plugins"
 msgstr "Installerede udvidelsesmoduler"
 
-#: python/options.py:206
+#: python/options.py:205
 msgid "Add"
 msgstr ""
 
-#: python/options.py:209 python/options.py:337
+#: python/options.py:208 python/options.py:336
 msgid "Enable"
 msgstr "Aktiver"
 
-#: python/options.py:210
+#: python/options.py:209
 msgid "Choose a plugin"
 msgstr "Vælg et udvidelsesmodul"
 
-#: python/options.py:263
+#: python/options.py:262
 msgid "What is the extension?"
 msgstr ""
 
-#: python/options.py:275
+#: python/options.py:274
 msgid "Assigned program"
 msgstr ""
 
-#: python/options.py:277
+#: python/options.py:276
 msgid "Delete"
 msgstr ""
 
-#: python/options.py:305
+#: python/options.py:304
 msgid "Are you sure you want to install: "
 msgstr "Er du sikker pa at du ønsker at installere: "
 
-#: python/options.py:313
+#: python/options.py:312
 msgid "Are you sure you want to delete: "
 msgstr "Er du sikker på at du ønsker at afinstallere: "
 
-#: python/options.py:334
+#: python/options.py:333
 msgid "Disable"
 msgstr "Deaktiver"
 
-#: python/options.py:375
+#: python/options.py:374
 msgid "Apply"
 msgstr "Tilføj"
 
-#: python/options.py:412
+#: python/options.py:411
 msgid "You must restart {0} for the changes to take effect."
 msgstr ""
 
-#: python/wine_versions.py:196
+#: python/wine_versions.py:197
 msgid "Installed Wine versions: "
 msgstr "Installerede Wine versioner : "
 
-#: python/wine_versions.py:197
+#: python/wine_versions.py:198
 msgid "Available Wine versions: "
 msgstr "Tilgængelige Wine versioner: "
 
-#: python/wine_versions.py:208
+#: python/wine_versions.py:209
 msgid "Wine versions"
 msgstr "Wine versioner"
 
-#: python/wine_versions.py:330
+#: python/wine_versions.py:331
 msgid "Are you sure you want to delete wine {0}?"
 msgstr ""
 
-#: python/wine_versions.py:332
+#: python/wine_versions.py:333
 msgid "This version is CURRENTLY IN USE"
 msgstr ""
 
-#: python/wrapper.py:129
+#: python/wrapper.py:135
 msgid "{0} is not able to start POL_SetupWindow_server."
 msgstr ""

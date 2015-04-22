@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-04-13 19:00+0200\n"
+"POT-Creation-Date: 2015-04-20 19:00+0200\n"
 "PO-Revision-Date: 2014-01-19 05:18+0000\n"
 "Last-Translator: qysnn <qysnn1@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-04-14 05:09+0000\n"
-"X-Generator: Launchpad (build 17423)\n"
+"X-Launchpad-Export-Date: 2015-04-21 05:09+0000\n"
+"X-Generator: Launchpad (build 17430)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -322,7 +322,7 @@ msgid "Choose the name of the virtual drive"
 msgstr "选择虚拟盘的名字"
 
 #: bash/expert/Executer:22 bash/expert/Executer:27 bash/expert/Executer:29
-#: python/mainwindow.py:275
+#: python/mainwindow.py:276
 #, sh-format
 msgid "Run a local script"
 msgstr "运行本地脚本"
@@ -459,8 +459,8 @@ msgstr "请选择一个程序"
 msgid "Use another version of Wine"
 msgstr "使用另一版本的 Wine"
 
-#: bash/manual_install:139 bash/manual_install:191 bash/polconfigurator:102
-#: python/configure.py:232 python/mainwindow.py:583 python/mainwindow.py:615
+#: bash/manual_install:139 bash/manual_install:191 bash/polconfigurator:105
+#: python/configure.py:232 python/mainwindow.py:584
 #, sh-format
 msgid "Configure Wine"
 msgstr "配置 Wine"
@@ -592,7 +592,7 @@ msgstr "运行 ..."
 msgid "Cleaning..."
 msgstr "清理 ..."
 
-#: bash/polconfigurator:34
+#: bash/polconfigurator:35
 #, sh-format
 msgid "Killing programs in the virtual drive..."
 msgstr "关闭此虚拟盘中的进程 ..."
@@ -617,48 +617,47 @@ msgstr "错误的文件扩展名"
 msgid "is not an icon extension"
 msgstr "不是一个图标扩展名"
 
-#: bash/polconfigurator:103 python/configure.py:240 python/mainwindow.py:587
-#: python/mainwindow.py:628
+#: bash/polconfigurator:106 python/configure.py:240 python/mainwindow.py:588
 #, sh-format
 msgid "Registry Editor"
 msgstr "注册表编辑器"
 
-#: bash/polconfigurator:104
+#: bash/polconfigurator:107
 #, sh-format
 msgid "Kill all prefix processes"
 msgstr "杀死所有该配置下的进程"
 
-#: bash/polconfigurator:105
+#: bash/polconfigurator:108
 #, sh-format
 msgid "Update wineprefix"
 msgstr "更新 wine 配置"
 
-#: bash/polconfigurator:106
+#: bash/polconfigurator:109
 #, sh-format
 msgid "Simulate Windows reboot"
 msgstr "模拟重启 Windows"
 
-#: bash/polconfigurator:107
+#: bash/polconfigurator:110
 #, sh-format
 msgid "Use Advanced Wine Configuration plugin"
 msgstr "使用高级 Wine 配置插件"
 
-#: bash/polconfigurator:108
+#: bash/polconfigurator:111
 #, sh-format
 msgid "Use PlayOnLinux's configurator for"
 msgstr "使用 PlayOnLinux 的配置器配置"
 
-#: bash/polconfigurator:110
+#: bash/polconfigurator:113
 #, sh-format
 msgid "Change the icon"
 msgstr "变更图标"
 
-#: bash/polconfigurator:111
+#: bash/polconfigurator:114
 #, sh-format
 msgid "Use WineTricks"
 msgstr "使用 WineTricks"
 
-#: bash/polconfigurator:130
+#: bash/polconfigurator:134
 #, sh-format
 msgid "Please choose an action to perform"
 msgstr "选择要执行的动作"
@@ -1097,7 +1096,7 @@ msgstr "复制 ${filename}"
 msgid "File size does not match!"
 msgstr "文件大小不匹配"
 
-#: lib/scripts.lib:937
+#: lib/scripts.lib:944
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
@@ -1105,7 +1104,7 @@ msgid ""
 msgstr ""
 "对不起, $APPLICATION_TITLE $VERSION 太旧, 不能继续.\\n$APPLICATION_TITLE $NEEDED 是必需的."
 
-#: lib/scripts.lib:952
+#: lib/scripts.lib:959
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
@@ -1113,7 +1112,7 @@ msgid ""
 msgstr ""
 "警告: 您正在运行 $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE $NEEDED  建议继续."
 
-#: lib/scripts.lib:983
+#: lib/scripts.lib:990
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr "$AUTHOR 简介"
@@ -1487,7 +1486,7 @@ msgid ""
 msgstr "小心! 下列内容的安装可能会破坏虚拟盘."
 
 #: python/configure.py:335 python/install.py:289 python/install.py:293
-#: python/mainwindow.py:243 python/mainwindow.py:383
+#: python/mainwindow.py:244 python/mainwindow.py:384
 msgid "Install"
 msgstr "安装"
 
@@ -1558,7 +1557,7 @@ msgid ""
 "If you change "
 msgstr "小心修改! "
 
-#: python/configure.py:666 python/mainwindow.py:972 python/mainwindow.py:974
+#: python/configure.py:666 python/mainwindow.py:973 python/mainwindow.py:975
 msgid "{0} configuration"
 msgstr "{0} 配置"
 
@@ -1566,12 +1565,12 @@ msgstr "{0} 配置"
 msgid "Please select a program or a virtual drive to configure"
 msgstr "选定一个程序或虚拟盘以配置"
 
-#: python/configure.py:693 python/configure.py:696 python/options.py:280
+#: python/configure.py:693 python/configure.py:696 python/options.py:279
 msgid "New"
 msgstr "新建"
 
-#: python/configure.py:694 python/configure.py:697 python/mainwindow.py:244
-#: python/mainwindow.py:384 python/mainwindow.py:603 python/options.py:207
+#: python/configure.py:694 python/configure.py:697 python/mainwindow.py:245
+#: python/mainwindow.py:385 python/mainwindow.py:604 python/options.py:206
 msgid "Remove"
 msgstr "移除"
 
@@ -1579,7 +1578,7 @@ msgstr "移除"
 msgid "Install components"
 msgstr "安装内容"
 
-#: python/configure.py:716 python/mainwindow.py:364
+#: python/configure.py:716 python/mainwindow.py:365
 msgid "Display"
 msgstr "显示"
 
@@ -1599,8 +1598,8 @@ msgstr "你确定删除虚拟盘 {0} ?"
 msgid "Are you sure you want to delete {0} ?"
 msgstr "你确定删除 {0} ?"
 
-#: python/debug.py:40 python/mainwindow.py:281 python/mainwindow.py:947
-#: python/mainwindow.py:1037 python/wrapper.py:76
+#: python/debug.py:40 python/mainwindow.py:282 python/mainwindow.py:948
+#: python/mainwindow.py:1038 python/wrapper.py:76
 msgid "{0} debugger"
 msgstr "{0} 调试"
 
@@ -1612,19 +1611,19 @@ msgstr "请选择一个调试文件"
 msgid "Locate this logfile"
 msgstr "定位日志文件"
 
-#: python/debug.py:103
+#: python/debug.py:105
 msgid "The file is named : {0}"
 msgstr "文件命名为: {0}"
 
-#: python/debug.py:201 python/debug.py:264
+#: python/debug.py:203 python/debug.py:266
 msgid "Virtual drives"
 msgstr "虚拟盘"
 
-#: python/debug.py:229
+#: python/debug.py:231
 msgid "Report a problem about {0}"
 msgstr "报告关于 {0} 的问题"
 
-#: python/debug.py:263
+#: python/debug.py:265
 msgid "Install scripts"
 msgstr "安装脚本"
 
@@ -1641,7 +1640,7 @@ msgid "{0} Wizard"
 msgstr "{0} 向导"
 
 #: python/guiv3.py:141 python/guiv3.py:144 python/install.py:288
-#: python/install.py:292 python/options.py:376
+#: python/install.py:292 python/options.py:375
 msgid "Cancel"
 msgstr "取消"
 
@@ -1689,13 +1688,13 @@ msgstr "MB 已下载"
 msgid "of"
 msgstr "于"
 
-#: python/guiv3.py:803 python/mainwindow.py:1158 python/mainwindow.py:1188
-#: python/mainwindow.py:1202 python/mainwindow.py:1211
-#: python/mainwindow.py:1223 python/mainwindow.py:1235 python/wrapper.py:129
+#: python/guiv3.py:809 python/mainwindow.py:1171 python/mainwindow.py:1201
+#: python/mainwindow.py:1215 python/mainwindow.py:1224
+#: python/mainwindow.py:1236 python/mainwindow.py:1248 python/wrapper.py:135
 msgid "Error"
 msgstr "错误"
 
-#: python/guiv3.py:803
+#: python/guiv3.py:809
 msgid "You cannot close this window"
 msgstr "你不能关闭此窗体"
 
@@ -1723,7 +1722,7 @@ msgstr "游戏"
 msgid "Graphics"
 msgstr "图形"
 
-#: python/install.py:219 python/mainwindow.py:287 python/options.py:384
+#: python/install.py:219 python/mainwindow.py:288 python/options.py:383
 msgid "Internet"
 msgstr "网络"
 
@@ -1813,224 +1812,220 @@ msgstr "没有程序可以运行 .{0} 文件."
 msgid "{0} error"
 msgstr "{0} 错误"
 
-#: python/mainwindow.py:75
+#: python/mainwindow.py:76
 msgid "{0} website is unavailable. Please check your connection"
 msgstr "{0} 网站不可用. 请检查网络连接"
 
-#: python/mainwindow.py:77
+#: python/mainwindow.py:78
 msgid "Refreshing {0}"
 msgstr "更新 {0}"
 
-#: python/mainwindow.py:92 python/mainwindow.py:94
+#: python/mainwindow.py:93 python/mainwindow.py:95
 msgid "An updated version of {0} is available"
 msgstr "版本 {0} 更新可用"
 
-#: python/mainwindow.py:242 python/mainwindow.py:379 python/mainwindow.py:774
+#: python/mainwindow.py:243 python/mainwindow.py:380 python/mainwindow.py:775
 msgid "Run"
 msgstr "运行"
 
-#: python/mainwindow.py:246
+#: python/mainwindow.py:247
 msgid "Donate"
 msgstr "捐助"
 
-#: python/mainwindow.py:247
+#: python/mainwindow.py:248
 msgid "Exit"
 msgstr "退出"
 
-#: python/mainwindow.py:251
+#: python/mainwindow.py:252
 msgid "Small icons"
 msgstr "小图标"
 
-#: python/mainwindow.py:252
+#: python/mainwindow.py:253
 msgid "Medium icons"
 msgstr "中等图标"
 
-#: python/mainwindow.py:253
+#: python/mainwindow.py:254
 msgid "Large icons"
 msgstr "大图标"
 
-#: python/mainwindow.py:254
+#: python/mainwindow.py:255
 msgid "Very large icons"
 msgstr "特大图标"
 
-#: python/mainwindow.py:266
+#: python/mainwindow.py:267
 msgid "Manage Wine versions"
 msgstr "管理 Wine 版本"
 
-#: python/mainwindow.py:271
+#: python/mainwindow.py:272
 msgid "Read a PC CD-Rom"
 msgstr "读取光盘"
 
-#: python/mainwindow.py:276
+#: python/mainwindow.py:277
 msgid "{0} console"
 msgstr "{0} 控制台"
 
-#: python/mainwindow.py:278
+#: python/mainwindow.py:279
 msgid "Close all {0} software"
 msgstr "关闭全部 {0} 软件"
 
-#: python/mainwindow.py:288 python/options.py:388
+#: python/mainwindow.py:289 python/options.py:387
 msgid "File associations"
 msgstr "文件关联"
 
-#: python/mainwindow.py:289 python/mainwindow.py:337
+#: python/mainwindow.py:290 python/mainwindow.py:338
 msgid "Plugin manager"
 msgstr "插件管理器"
 
-#: python/mainwindow.py:293
+#: python/mainwindow.py:294
 msgid "Supported software"
 msgstr ""
 
-#: python/mainwindow.py:294
+#: python/mainwindow.py:295
 msgid "News"
 msgstr ""
 
-#: python/mainwindow.py:295
+#: python/mainwindow.py:296
 msgid "Documentation"
 msgstr ""
 
-#: python/mainwindow.py:296
+#: python/mainwindow.py:297
 msgid "Forums"
 msgstr ""
 
-#: python/mainwindow.py:297
+#: python/mainwindow.py:298
 msgid "Bugs"
 msgstr ""
 
-#: python/mainwindow.py:299
+#: python/mainwindow.py:300
 msgid "Twitter"
 msgstr ""
 
-#: python/mainwindow.py:300
+#: python/mainwindow.py:301
 msgid "Google+"
 msgstr ""
 
-#: python/mainwindow.py:301
+#: python/mainwindow.py:302
 msgid "Facebook"
 msgstr ""
 
-#: python/mainwindow.py:305
+#: python/mainwindow.py:306
 msgid "About {0}"
 msgstr "关于 {0}"
 
-#: python/mainwindow.py:363
+#: python/mainwindow.py:364
 msgid "File"
 msgstr "文件"
 
-#: python/mainwindow.py:365
+#: python/mainwindow.py:366
 msgid "Tools"
 msgstr "工具"
 
-#: python/mainwindow.py:366 python/mainwindow.py:760
+#: python/mainwindow.py:367 python/mainwindow.py:761
 msgid "Settings"
 msgstr "设置"
 
-#: python/mainwindow.py:367 python/options.py:387
+#: python/mainwindow.py:368 python/options.py:386
 msgid "Plugins"
 msgstr "插件"
 
-#: python/mainwindow.py:368
+#: python/mainwindow.py:369
 msgid "Support"
 msgstr ""
 
-#: python/mainwindow.py:380 python/mainwindow.py:776
+#: python/mainwindow.py:381 python/mainwindow.py:777
 msgid "Close"
 msgstr "关闭"
 
-#: python/mainwindow.py:386 python/mainwindow.py:787 python/options.py:208
+#: python/mainwindow.py:387 python/mainwindow.py:788 python/options.py:207
 msgid "Configure"
 msgstr "配置"
 
-#: python/mainwindow.py:399 python/mainwindow.py:402
+#: python/mainwindow.py:400 python/mainwindow.py:403
 msgid "Search"
 msgstr "搜寻"
 
-#: python/mainwindow.py:591
+#: python/mainwindow.py:592
 msgid "Open the application's directory"
 msgstr "打开应用程序目录"
 
-#: python/mainwindow.py:595 python/mainwindow.py:795
+#: python/mainwindow.py:596 python/mainwindow.py:796
 msgid "Read the manual"
 msgstr "阅读说明"
 
-#: python/mainwindow.py:599
+#: python/mainwindow.py:600
 msgid "Set the icon"
 msgstr "设置图标"
 
-#: python/mainwindow.py:607
+#: python/mainwindow.py:608
 msgid "Close this application"
 msgstr "关闭应用"
 
-#: python/mainwindow.py:618
-msgid "KillApp"
-msgstr "关闭应用"
-
-#: python/mainwindow.py:625
+#: python/mainwindow.py:626
 msgid "No manual found for {0}"
 msgstr "未找到 {0} 的说明文件"
 
-#: python/mainwindow.py:758
+#: python/mainwindow.py:759
 msgid "Install a program"
 msgstr "安装一个程序"
 
-#: python/mainwindow.py:765
+#: python/mainwindow.py:766
 msgid "Update GIT"
 msgstr "更新 GIT"
 
-#: python/mainwindow.py:768
+#: python/mainwindow.py:769
 msgid "Update instructions"
 msgstr "更新说明"
 
-#: python/mainwindow.py:778
+#: python/mainwindow.py:779
 msgid "Debug"
 msgstr "排除故障"
 
-#: python/mainwindow.py:784
+#: python/mainwindow.py:785
 msgid "Send a feedback"
 msgstr ""
 
-#: python/mainwindow.py:789
+#: python/mainwindow.py:790
 msgid "Create a shortcut"
 msgstr "创建一个快捷方式"
 
-#: python/mainwindow.py:791
+#: python/mainwindow.py:792
 msgid "Open the directory"
 msgstr "打开目录"
 
-#: python/mainwindow.py:798
+#: python/mainwindow.py:799
 msgid "Uninstall"
 msgstr "卸载"
 
-#: python/mainwindow.py:920 python/mainwindow.py:991 python/mainwindow.py:998
-#: python/mainwindow.py:1043
+#: python/mainwindow.py:921 python/mainwindow.py:992 python/mainwindow.py:999
+#: python/mainwindow.py:1044
 msgid "Please select a program."
 msgstr "请选择一个程序"
 
-#: python/mainwindow.py:928 python/mainwindow.py:930 python/mainwindow.py:932
+#: python/mainwindow.py:929 python/mainwindow.py:931 python/mainwindow.py:933
 msgid "{0} settings"
 msgstr "{0} 设置"
 
-#: python/mainwindow.py:1005
+#: python/mainwindow.py:1006
 msgid "{0} install menu"
 msgstr "{0} 安装菜单"
 
-#: python/mainwindow.py:1014
+#: python/mainwindow.py:1015
 msgid "{0} wine versions manager"
 msgstr "{0} wine 版本管理器"
 
-#: python/mainwindow.py:1045
+#: python/mainwindow.py:1046
 msgid "The virtual drive associated with {0} ({1}) does no longer exists."
 msgstr "与 {0} ({1}) 关联的虚拟盘不存在."
 
-#: python/mainwindow.py:1089
+#: python/mainwindow.py:1102
 msgid "Are you sure you want to close all {0} windows?"
 msgstr ""
 
-#: python/mainwindow.py:1111
+#: python/mainwindow.py:1124
 msgid "Run your Windows programs on "
 msgstr "运行 Windows 程序于 "
 
-#: python/mainwindow.py:1112
+#: python/mainwindow.py:1125
 msgid ""
 "PlayOnLinux and PlayOnMac team\n"
 "Under GPL licence version 3"
@@ -2038,59 +2033,59 @@ msgstr ""
 "PlayOnLinux 与 PlayOnMac 小组\n"
 "遵循 GPL 分发协议版本 3"
 
-#: python/mainwindow.py:1113
+#: python/mainwindow.py:1126
 msgid "Developer and Website: "
 msgstr "开发者与网址: "
 
-#: python/mainwindow.py:1114
+#: python/mainwindow.py:1127
 msgid "Scriptors: "
 msgstr "脚本作者: "
 
-#: python/mainwindow.py:1115
+#: python/mainwindow.py:1128
 msgid "Packager: "
 msgstr "包装者: "
 
-#: python/mainwindow.py:1116
+#: python/mainwindow.py:1129
 msgid "Icons:"
 msgstr "图标:"
 
-#: python/mainwindow.py:1117
+#: python/mainwindow.py:1130
 msgid "The following people contributed to this program: "
 msgstr "感谢以下人员对本程序做出的贡献: "
 
-#: python/mainwindow.py:1118
+#: python/mainwindow.py:1131
 msgid "Translations:"
 msgstr "翻译:"
 
-#: python/mainwindow.py:1119
+#: python/mainwindow.py:1132
 msgid "Read TRANSLATORS file"
 msgstr "阅读翻译文件"
 
-#: python/mainwindow.py:1158
+#: python/mainwindow.py:1171
 msgid "{0} is not able to start PlayOnLinux Setup Window server."
 msgstr "{0} 不能启动 PlayOnLinux Setup Window 服务器."
 
-#: python/mainwindow.py:1179
+#: python/mainwindow.py:1192
 msgid "{0} cannot find {1}"
 msgstr "{0} 找不到 {1}"
 
-#: python/mainwindow.py:1181
+#: python/mainwindow.py:1194
 msgid " (from {2})"
 msgstr " (来着 {2})"
 
-#: python/mainwindow.py:1184
+#: python/mainwindow.py:1197
 msgid "You need to install it to continue"
 msgstr "你需要安装...以继续"
 
-#: python/mainwindow.py:1186
+#: python/mainwindow.py:1199
 msgid "You should install it to use {0}"
 msgstr "你需要安装 ... 以使用 {0}"
 
-#: python/mainwindow.py:1202
+#: python/mainwindow.py:1215
 msgid "{0} is not supposed to be run as root. Sorry"
 msgstr "对不起, {0} 不能以管理员身份运行."
 
-#: python/mainwindow.py:1211
+#: python/mainwindow.py:1224
 msgid ""
 "{0} is unable to find 32bits OpenGL libraries.\n"
 "\n"
@@ -2100,7 +2095,7 @@ msgstr ""
 "\n"
 "运行游戏可能出现问题"
 
-#: python/mainwindow.py:1223
+#: python/mainwindow.py:1236
 msgid ""
 "{0} is unable to find 64bits OpenGL libraries.\n"
 "\n"
@@ -2110,7 +2105,7 @@ msgstr ""
 "\n"
 "运行游戏可能出现问题"
 
-#: python/mainwindow.py:1235
+#: python/mainwindow.py:1248
 msgid ""
 "Your filesystem might prevent {0} from running correctly.\n"
 "\n"
@@ -2120,7 +2115,7 @@ msgstr ""
 "\n"
 "请在终端中打开 {0} 以获得更多细节"
 
-#: python/mainwindow.py:1239
+#: python/mainwindow.py:1252
 msgid ""
 "Do you want to help {0} to make a compatibility database?\n"
 "\n"
@@ -2145,108 +2140,108 @@ msgstr ""
 "\n"
 "这些信息有助于我们帮助大家."
 
-#: python/mainwindow.py:1296
+#: python/mainwindow.py:1311
 msgid "Are you sure you want to  want to install {0} package?"
 msgstr "你确定安装 {0} 包?"
 
-#: python/mainwindow.py:1303 python/mainwindow.py:1305
-#: python/mainwindow.py:1307
+#: python/mainwindow.py:1318 python/mainwindow.py:1320
+#: python/mainwindow.py:1322
 msgid ""
 "You are trying to open a script design for {0}! It might not work as expected"
 msgstr "你正试图运行一个为 {0} 设计的脚本! 可能它无法正常运行"
 
-#: python/options.py:116
+#: python/options.py:115
 msgid "Proxy configuration"
 msgstr "代理配置"
 
-#: python/options.py:129
+#: python/options.py:128
 msgid "Set a proxy"
 msgstr "设置一个代理"
 
-#: python/options.py:132
+#: python/options.py:131
 msgid "Proxy address"
 msgstr "代理地址"
 
-#: python/options.py:135
+#: python/options.py:134
 msgid "Proxy port"
 msgstr "代理端口"
 
-#: python/options.py:138
+#: python/options.py:137
 msgid "Proxy login"
 msgstr "代理用户名"
 
-#: python/options.py:141
+#: python/options.py:140
 msgid "Proxy password"
 msgstr "代理密码"
 
-#: python/options.py:188
+#: python/options.py:187
 msgid "Installed plugins"
 msgstr "安装插件"
 
-#: python/options.py:206
+#: python/options.py:205
 msgid "Add"
 msgstr "增加"
 
-#: python/options.py:209 python/options.py:337
+#: python/options.py:208 python/options.py:336
 msgid "Enable"
 msgstr "启用"
 
-#: python/options.py:210
+#: python/options.py:209
 msgid "Choose a plugin"
 msgstr "选择一个插件"
 
-#: python/options.py:263
+#: python/options.py:262
 msgid "What is the extension?"
 msgstr "扩展名是什么?"
 
-#: python/options.py:275
+#: python/options.py:274
 msgid "Assigned program"
 msgstr "已分配的程序"
 
-#: python/options.py:277
+#: python/options.py:276
 msgid "Delete"
 msgstr "删除"
 
-#: python/options.py:305
+#: python/options.py:304
 msgid "Are you sure you want to install: "
 msgstr "你确定要安装: "
 
-#: python/options.py:313
+#: python/options.py:312
 msgid "Are you sure you want to delete: "
 msgstr "你确定要删除: "
 
-#: python/options.py:334
+#: python/options.py:333
 msgid "Disable"
 msgstr "禁用"
 
-#: python/options.py:375
+#: python/options.py:374
 msgid "Apply"
 msgstr "应用"
 
-#: python/options.py:412
+#: python/options.py:411
 msgid "You must restart {0} for the changes to take effect."
 msgstr "你必须重启 {0} 以使变更生效."
 
-#: python/wine_versions.py:196
+#: python/wine_versions.py:197
 msgid "Installed Wine versions: "
 msgstr "已安装的 Wine 版本: "
 
-#: python/wine_versions.py:197
+#: python/wine_versions.py:198
 msgid "Available Wine versions: "
 msgstr "可用的 Wine 版本: "
 
-#: python/wine_versions.py:208
+#: python/wine_versions.py:209
 msgid "Wine versions"
 msgstr "Wine 版本"
 
-#: python/wine_versions.py:330
+#: python/wine_versions.py:331
 msgid "Are you sure you want to delete wine {0}?"
 msgstr "你确定要删除 {0}?"
 
-#: python/wine_versions.py:332
+#: python/wine_versions.py:333
 msgid "This version is CURRENTLY IN USE"
 msgstr ""
 
-#: python/wrapper.py:129
+#: python/wrapper.py:135
 msgid "{0} is not able to start POL_SetupWindow_server."
 msgstr "{0} 不能启用 POL_SetupWindow_server."

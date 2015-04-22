@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2015-04-13 19:00+0200\n"
+"POT-Creation-Date: 2015-04-20 19:00+0200\n"
 "PO-Revision-Date: 2015-02-23 12:51+0000\n"
 "Last-Translator: Микола Ткач <Stuartlittle1970@gmail.com>\n"
 "Language-Team: ua_UA.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-04-14 05:09+0000\n"
-"X-Generator: Launchpad (build 17423)\n"
+"X-Launchpad-Export-Date: 2015-04-21 05:09+0000\n"
+"X-Generator: Launchpad (build 17430)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -349,7 +349,7 @@ msgid "Choose the name of the virtual drive"
 msgstr "Виберіть ім’я віртуального диска"
 
 #: bash/expert/Executer:22 bash/expert/Executer:27 bash/expert/Executer:29
-#: python/mainwindow.py:275
+#: python/mainwindow.py:276
 #, sh-format
 msgid "Run a local script"
 msgstr "Виконати локальний сценарій"
@@ -495,8 +495,8 @@ msgstr "Будь ласка, виберіть програму"
 msgid "Use another version of Wine"
 msgstr "Використовувати іншу версію Wine"
 
-#: bash/manual_install:139 bash/manual_install:191 bash/polconfigurator:102
-#: python/configure.py:232 python/mainwindow.py:583 python/mainwindow.py:615
+#: bash/manual_install:139 bash/manual_install:191 bash/polconfigurator:105
+#: python/configure.py:232 python/mainwindow.py:584
 #, sh-format
 msgid "Configure Wine"
 msgstr "Налаштування Wine"
@@ -628,7 +628,7 @@ msgstr "Запуск..."
 msgid "Cleaning..."
 msgstr "Очищення..."
 
-#: bash/polconfigurator:34
+#: bash/polconfigurator:35
 #, sh-format
 msgid "Killing programs in the virtual drive..."
 msgstr "Зупиняються процеси на віртуальному диску..."
@@ -653,50 +653,49 @@ msgstr "Неприпустиме розширення файлу"
 msgid "is not an icon extension"
 msgstr "це не розширення файлу піктограми"
 
-#: bash/polconfigurator:103 python/configure.py:240 python/mainwindow.py:587
-#: python/mainwindow.py:628
+#: bash/polconfigurator:106 python/configure.py:240 python/mainwindow.py:588
 #, sh-format
 msgid "Registry Editor"
 msgstr "Редактор реєстру"
 
-#: bash/polconfigurator:104
+#: bash/polconfigurator:107
 #, sh-format
 msgid "Kill all prefix processes"
 msgstr "Вбити префікс усіх процесів"
 
-#: bash/polconfigurator:105
+#: bash/polconfigurator:108
 #, sh-format
 msgid "Update wineprefix"
 msgstr "Оновити wineprefix"
 
-#: bash/polconfigurator:106
+#: bash/polconfigurator:109
 #, sh-format
 msgid "Simulate Windows reboot"
 msgstr "Симулювати перезавантаження Windows"
 
-#: bash/polconfigurator:107
+#: bash/polconfigurator:110
 #, sh-format
 msgid "Use Advanced Wine Configuration plugin"
 msgstr ""
 "Використовуйте додаткову втулку конфігурації Wine (Advanced Wine "
 "Configuration)"
 
-#: bash/polconfigurator:108
+#: bash/polconfigurator:111
 #, sh-format
 msgid "Use PlayOnLinux's configurator for"
 msgstr "Використовувати майстер налаштування PlayOnLinux для"
 
-#: bash/polconfigurator:110
+#: bash/polconfigurator:113
 #, sh-format
 msgid "Change the icon"
 msgstr "Змінити піктограму"
 
-#: bash/polconfigurator:111
+#: bash/polconfigurator:114
 #, sh-format
 msgid "Use WineTricks"
 msgstr "Використовувати WineTricks"
 
-#: bash/polconfigurator:130
+#: bash/polconfigurator:134
 #, sh-format
 msgid "Please choose an action to perform"
 msgstr "Будь ласка, виберіть виконувану дію"
@@ -1166,7 +1165,7 @@ msgstr "Копіювання ${filename}"
 msgid "File size does not match!"
 msgstr "Розмір файлу не збігається!"
 
-#: lib/scripts.lib:937
+#: lib/scripts.lib:944
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
@@ -1175,7 +1174,7 @@ msgstr ""
 "Нажаль, $APPLICATION_TITLE $VERSION надто застарів, й продовжити неможна.\\"
 "nПотрібен $APPLICATION_TITLE $NEEDED."
 
-#: lib/scripts.lib:952
+#: lib/scripts.lib:959
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
@@ -1184,7 +1183,7 @@ msgstr ""
 "Увага: Ви запускаєте $APPLICATION_TITLE $VERSION.\\nДля того, щоб "
 "продовжити, рекомендовано $APPLICATION_TITLE $NEEDED."
 
-#: lib/scripts.lib:983
+#: lib/scripts.lib:990
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr "$AUTHOR профіль"
@@ -1571,7 +1570,7 @@ msgstr ""
 "віртуальний диск."
 
 #: python/configure.py:335 python/install.py:289 python/install.py:293
-#: python/mainwindow.py:243 python/mainwindow.py:383
+#: python/mainwindow.py:244 python/mainwindow.py:384
 msgid "Install"
 msgstr "Встановлення"
 
@@ -1644,7 +1643,7 @@ msgstr ""
 "Будьте обережні!\n"
 "Якщо ви зміните "
 
-#: python/configure.py:666 python/mainwindow.py:972 python/mainwindow.py:974
+#: python/configure.py:666 python/mainwindow.py:973 python/mainwindow.py:975
 msgid "{0} configuration"
 msgstr "Налаштування {0}"
 
@@ -1652,12 +1651,12 @@ msgstr "Налаштування {0}"
 msgid "Please select a program or a virtual drive to configure"
 msgstr "Будь ласка, виберіть програму або віртуальний диск для налаштування"
 
-#: python/configure.py:693 python/configure.py:696 python/options.py:280
+#: python/configure.py:693 python/configure.py:696 python/options.py:279
 msgid "New"
 msgstr "Новий"
 
-#: python/configure.py:694 python/configure.py:697 python/mainwindow.py:244
-#: python/mainwindow.py:384 python/mainwindow.py:603 python/options.py:207
+#: python/configure.py:694 python/configure.py:697 python/mainwindow.py:245
+#: python/mainwindow.py:385 python/mainwindow.py:604 python/options.py:206
 msgid "Remove"
 msgstr "Вилучення"
 
@@ -1665,7 +1664,7 @@ msgstr "Вилучення"
 msgid "Install components"
 msgstr "Встановлення компонентів"
 
-#: python/configure.py:716 python/mainwindow.py:364
+#: python/configure.py:716 python/mainwindow.py:365
 msgid "Display"
 msgstr "Екран"
 
@@ -1685,8 +1684,8 @@ msgstr "Ви впевнені, що бажаєте вилучити віртуа
 msgid "Are you sure you want to delete {0} ?"
 msgstr "Ви впевнені, що бажаєте вилучити {0}?"
 
-#: python/debug.py:40 python/mainwindow.py:281 python/mainwindow.py:947
-#: python/mainwindow.py:1037 python/wrapper.py:76
+#: python/debug.py:40 python/mainwindow.py:282 python/mainwindow.py:948
+#: python/mainwindow.py:1038 python/wrapper.py:76
 msgid "{0} debugger"
 msgstr "Налагоджувач {0}"
 
@@ -1698,19 +1697,19 @@ msgstr "Будь ласка, виберіть файл налагодження"
 msgid "Locate this logfile"
 msgstr "Вкажіть розташування лог-файлу"
 
-#: python/debug.py:103
+#: python/debug.py:105
 msgid "The file is named : {0}"
 msgstr "Цей файл називається : {0}"
 
-#: python/debug.py:201 python/debug.py:264
+#: python/debug.py:203 python/debug.py:266
 msgid "Virtual drives"
 msgstr "Віртуальні диски"
 
-#: python/debug.py:229
+#: python/debug.py:231
 msgid "Report a problem about {0}"
 msgstr "Повідомити про проблему, пов’язану з {0}"
 
-#: python/debug.py:263
+#: python/debug.py:265
 msgid "Install scripts"
 msgstr "Встановити скрипти"
 
@@ -1727,7 +1726,7 @@ msgid "{0} Wizard"
 msgstr "{0} Майстер"
 
 #: python/guiv3.py:141 python/guiv3.py:144 python/install.py:288
-#: python/install.py:292 python/options.py:376
+#: python/install.py:292 python/options.py:375
 msgid "Cancel"
 msgstr "Скасувати"
 
@@ -1775,13 +1774,13 @@ msgstr "Мб завантажено"
 msgid "of"
 msgstr "з"
 
-#: python/guiv3.py:803 python/mainwindow.py:1158 python/mainwindow.py:1188
-#: python/mainwindow.py:1202 python/mainwindow.py:1211
-#: python/mainwindow.py:1223 python/mainwindow.py:1235 python/wrapper.py:129
+#: python/guiv3.py:809 python/mainwindow.py:1171 python/mainwindow.py:1201
+#: python/mainwindow.py:1215 python/mainwindow.py:1224
+#: python/mainwindow.py:1236 python/mainwindow.py:1248 python/wrapper.py:135
 msgid "Error"
 msgstr "Помилка"
 
-#: python/guiv3.py:803
+#: python/guiv3.py:809
 msgid "You cannot close this window"
 msgstr "Ви не зможете закрити це вікно"
 
@@ -1809,7 +1808,7 @@ msgstr "Ігри"
 msgid "Graphics"
 msgstr "Графіка"
 
-#: python/install.py:219 python/mainwindow.py:287 python/options.py:384
+#: python/install.py:219 python/mainwindow.py:288 python/options.py:383
 msgid "Internet"
 msgstr "Інтернет"
 
@@ -1907,224 +1906,220 @@ msgstr "Відсутня програма для запуску .{0} файлі�
 msgid "{0} error"
 msgstr "{0} помилка"
 
-#: python/mainwindow.py:75
+#: python/mainwindow.py:76
 msgid "{0} website is unavailable. Please check your connection"
 msgstr "Веб-сайт {0} недоступний. будь ласка, перевірте інтернет-з’єднання."
 
-#: python/mainwindow.py:77
+#: python/mainwindow.py:78
 msgid "Refreshing {0}"
 msgstr "Оновлення {0}"
 
-#: python/mainwindow.py:92 python/mainwindow.py:94
+#: python/mainwindow.py:93 python/mainwindow.py:95
 msgid "An updated version of {0} is available"
 msgstr "Доступна оновлена версія {0}"
 
-#: python/mainwindow.py:242 python/mainwindow.py:379 python/mainwindow.py:774
+#: python/mainwindow.py:243 python/mainwindow.py:380 python/mainwindow.py:775
 msgid "Run"
 msgstr "Запуск"
 
-#: python/mainwindow.py:246
+#: python/mainwindow.py:247
 msgid "Donate"
 msgstr "Пожертвувати"
 
-#: python/mainwindow.py:247
+#: python/mainwindow.py:248
 msgid "Exit"
 msgstr "Вийти"
 
-#: python/mainwindow.py:251
+#: python/mainwindow.py:252
 msgid "Small icons"
 msgstr "Маленькі піктограми"
 
-#: python/mainwindow.py:252
+#: python/mainwindow.py:253
 msgid "Medium icons"
 msgstr "Середні піктограми"
 
-#: python/mainwindow.py:253
+#: python/mainwindow.py:254
 msgid "Large icons"
 msgstr "Великі піктограми"
 
-#: python/mainwindow.py:254
+#: python/mainwindow.py:255
 msgid "Very large icons"
 msgstr "Дуже великі піктограми"
 
-#: python/mainwindow.py:266
+#: python/mainwindow.py:267
 msgid "Manage Wine versions"
 msgstr "Керування версіями Wine"
 
-#: python/mainwindow.py:271
+#: python/mainwindow.py:272
 msgid "Read a PC CD-Rom"
 msgstr ""
 
-#: python/mainwindow.py:276
+#: python/mainwindow.py:277
 msgid "{0} console"
 msgstr "Консоль {0}"
 
-#: python/mainwindow.py:278
+#: python/mainwindow.py:279
 msgid "Close all {0} software"
 msgstr "Закрити усі програми {0}"
 
-#: python/mainwindow.py:288 python/options.py:388
+#: python/mainwindow.py:289 python/options.py:387
 msgid "File associations"
 msgstr "Файлові асоціації"
 
-#: python/mainwindow.py:289 python/mainwindow.py:337
+#: python/mainwindow.py:290 python/mainwindow.py:338
 msgid "Plugin manager"
 msgstr "Менеджер втулок"
 
-#: python/mainwindow.py:293
+#: python/mainwindow.py:294
 msgid "Supported software"
 msgstr "Підтримуване програмне забезпечення"
 
-#: python/mainwindow.py:294
+#: python/mainwindow.py:295
 msgid "News"
 msgstr "Новини"
 
-#: python/mainwindow.py:295
+#: python/mainwindow.py:296
 msgid "Documentation"
 msgstr "Документація"
 
-#: python/mainwindow.py:296
+#: python/mainwindow.py:297
 msgid "Forums"
 msgstr "Форуми"
 
-#: python/mainwindow.py:297
+#: python/mainwindow.py:298
 msgid "Bugs"
 msgstr "Помилки"
 
-#: python/mainwindow.py:299
+#: python/mainwindow.py:300
 msgid "Twitter"
 msgstr "Twitter"
 
-#: python/mainwindow.py:300
+#: python/mainwindow.py:301
 msgid "Google+"
 msgstr "Google+"
 
-#: python/mainwindow.py:301
+#: python/mainwindow.py:302
 msgid "Facebook"
 msgstr "Facebook"
 
-#: python/mainwindow.py:305
+#: python/mainwindow.py:306
 msgid "About {0}"
 msgstr "Про {0}"
 
-#: python/mainwindow.py:363
+#: python/mainwindow.py:364
 msgid "File"
 msgstr "Файл"
 
-#: python/mainwindow.py:365
+#: python/mainwindow.py:366
 msgid "Tools"
 msgstr "Утиліти"
 
-#: python/mainwindow.py:366 python/mainwindow.py:760
+#: python/mainwindow.py:367 python/mainwindow.py:761
 msgid "Settings"
 msgstr "Налаштування"
 
-#: python/mainwindow.py:367 python/options.py:387
+#: python/mainwindow.py:368 python/options.py:386
 msgid "Plugins"
 msgstr "Втулки"
 
-#: python/mainwindow.py:368
+#: python/mainwindow.py:369
 msgid "Support"
 msgstr "Підтримка"
 
-#: python/mainwindow.py:380 python/mainwindow.py:776
+#: python/mainwindow.py:381 python/mainwindow.py:777
 msgid "Close"
 msgstr "Закрити"
 
-#: python/mainwindow.py:386 python/mainwindow.py:787 python/options.py:208
+#: python/mainwindow.py:387 python/mainwindow.py:788 python/options.py:207
 msgid "Configure"
 msgstr "Налаштувати"
 
-#: python/mainwindow.py:399 python/mainwindow.py:402
+#: python/mainwindow.py:400 python/mainwindow.py:403
 msgid "Search"
 msgstr "Пошук"
 
-#: python/mainwindow.py:591
+#: python/mainwindow.py:592
 msgid "Open the application's directory"
 msgstr "Відкрити у директорії додатку"
 
-#: python/mainwindow.py:595 python/mainwindow.py:795
+#: python/mainwindow.py:596 python/mainwindow.py:796
 msgid "Read the manual"
 msgstr "Прочитати керівництво"
 
-#: python/mainwindow.py:599
+#: python/mainwindow.py:600
 msgid "Set the icon"
 msgstr "Встановити піктограму"
 
-#: python/mainwindow.py:607
+#: python/mainwindow.py:608
 msgid "Close this application"
 msgstr "Завершити цей застосунок"
 
-#: python/mainwindow.py:618
-msgid "KillApp"
-msgstr "KillApp"
-
-#: python/mainwindow.py:625
+#: python/mainwindow.py:626
 msgid "No manual found for {0}"
 msgstr "Не знайдено керівництво користувача для {0}"
 
-#: python/mainwindow.py:758
+#: python/mainwindow.py:759
 msgid "Install a program"
 msgstr "Встановити програму"
 
-#: python/mainwindow.py:765
+#: python/mainwindow.py:766
 msgid "Update GIT"
 msgstr "Оновити GIT"
 
-#: python/mainwindow.py:768
+#: python/mainwindow.py:769
 msgid "Update instructions"
 msgstr "Інструкції з оновлення"
 
-#: python/mainwindow.py:778
+#: python/mainwindow.py:779
 msgid "Debug"
 msgstr "Налагодження"
 
-#: python/mainwindow.py:784
+#: python/mainwindow.py:785
 msgid "Send a feedback"
 msgstr "Надіслати відгук"
 
-#: python/mainwindow.py:789
+#: python/mainwindow.py:790
 msgid "Create a shortcut"
 msgstr "Створити ярлик"
 
-#: python/mainwindow.py:791
+#: python/mainwindow.py:792
 msgid "Open the directory"
 msgstr "Відкрити директорію"
 
-#: python/mainwindow.py:798
+#: python/mainwindow.py:799
 msgid "Uninstall"
 msgstr "Вилучити"
 
-#: python/mainwindow.py:920 python/mainwindow.py:991 python/mainwindow.py:998
-#: python/mainwindow.py:1043
+#: python/mainwindow.py:921 python/mainwindow.py:992 python/mainwindow.py:999
+#: python/mainwindow.py:1044
 msgid "Please select a program."
 msgstr "Будь ласка виберіть програму"
 
-#: python/mainwindow.py:928 python/mainwindow.py:930 python/mainwindow.py:932
+#: python/mainwindow.py:929 python/mainwindow.py:931 python/mainwindow.py:933
 msgid "{0} settings"
 msgstr "{0} параметри"
 
-#: python/mainwindow.py:1005
+#: python/mainwindow.py:1006
 msgid "{0} install menu"
 msgstr "{0} меню встановл."
 
-#: python/mainwindow.py:1014
+#: python/mainwindow.py:1015
 msgid "{0} wine versions manager"
 msgstr "{0} менеджер версій Wine"
 
-#: python/mainwindow.py:1045
+#: python/mainwindow.py:1046
 msgid "The virtual drive associated with {0} ({1}) does no longer exists."
 msgstr "Віртуальный диск, пов’язаний з {0} ({1}), більше не існує."
 
-#: python/mainwindow.py:1089
+#: python/mainwindow.py:1102
 msgid "Are you sure you want to close all {0} windows?"
 msgstr "Ви впевнені, що бажаєте закрити усі вікна {0}?"
 
-#: python/mainwindow.py:1111
+#: python/mainwindow.py:1124
 msgid "Run your Windows programs on "
 msgstr "Запустити Windows програми на "
 
-#: python/mainwindow.py:1112
+#: python/mainwindow.py:1125
 msgid ""
 "PlayOnLinux and PlayOnMac team\n"
 "Under GPL licence version 3"
@@ -2132,62 +2127,62 @@ msgstr ""
 "Команда PlayOnLinux й PlayOnMac\n"
 "Під ліцензією GPL версія 3"
 
-#: python/mainwindow.py:1113
+#: python/mainwindow.py:1126
 msgid "Developer and Website: "
 msgstr "Розробник та вебсайт: "
 
-#: python/mainwindow.py:1114
+#: python/mainwindow.py:1127
 msgid "Scriptors: "
 msgstr "Розробники сценарію: "
 
-#: python/mainwindow.py:1115
+#: python/mainwindow.py:1128
 msgid "Packager: "
 msgstr "Пакувальник: "
 
-#: python/mainwindow.py:1116
+#: python/mainwindow.py:1129
 msgid "Icons:"
 msgstr "Піктограми:"
 
-#: python/mainwindow.py:1117
+#: python/mainwindow.py:1130
 msgid "The following people contributed to this program: "
 msgstr "У роботі над програмою приймали участь: "
 
-#: python/mainwindow.py:1118
+#: python/mainwindow.py:1131
 msgid "Translations:"
 msgstr "Переклад:"
 
-#: python/mainwindow.py:1119
+#: python/mainwindow.py:1132
 msgid "Read TRANSLATORS file"
 msgstr ""
 "Alex Toorchyn, Aymeric PETIT, Igor Seryogin, Max_ym, Quentin PÂRIS, Микола "
 "Ткач (Stuartlittle1970@gmail.com), UaHummer, Vlad Golubev. Детально - у "
 "файлі TRANSLATORS"
 
-#: python/mainwindow.py:1158
+#: python/mainwindow.py:1171
 msgid "{0} is not able to start PlayOnLinux Setup Window server."
 msgstr "{0} не може запустити сервер встановлювальних вікон PlayOnLinux."
 
-#: python/mainwindow.py:1179
+#: python/mainwindow.py:1192
 msgid "{0} cannot find {1}"
 msgstr "{0} не може знайти {1}"
 
-#: python/mainwindow.py:1181
+#: python/mainwindow.py:1194
 msgid " (from {2})"
 msgstr " (з {2})"
 
-#: python/mainwindow.py:1184
+#: python/mainwindow.py:1197
 msgid "You need to install it to continue"
 msgstr "Потрібно встановити його, щоб продовжити"
 
-#: python/mainwindow.py:1186
+#: python/mainwindow.py:1199
 msgid "You should install it to use {0}"
 msgstr "Потрібно встановити його, щоб використовувати {0}"
 
-#: python/mainwindow.py:1202
+#: python/mainwindow.py:1215
 msgid "{0} is not supposed to be run as root. Sorry"
 msgstr "{0} НЕ передбачається запускати з правами адміністратора. Вибачте"
 
-#: python/mainwindow.py:1211
+#: python/mainwindow.py:1224
 msgid ""
 "{0} is unable to find 32bits OpenGL libraries.\n"
 "\n"
@@ -2197,7 +2192,7 @@ msgstr ""
 "\n"
 "Ви можете відчувати проблеми з запуском Ваших ігор"
 
-#: python/mainwindow.py:1223
+#: python/mainwindow.py:1236
 msgid ""
 "{0} is unable to find 64bits OpenGL libraries.\n"
 "\n"
@@ -2207,7 +2202,7 @@ msgstr ""
 "\n"
 "Ви можете відчувати проблеми з запуском Ваших ігор"
 
-#: python/mainwindow.py:1235
+#: python/mainwindow.py:1248
 msgid ""
 "Your filesystem might prevent {0} from running correctly.\n"
 "\n"
@@ -2216,7 +2211,7 @@ msgstr ""
 "Ваша файлова система перешкоджає коректній роботі {0}.\n"
 "Запустіть {0} у терміналі, щоб отримати подробиці."
 
-#: python/mainwindow.py:1239
+#: python/mainwindow.py:1252
 msgid ""
 "Do you want to help {0} to make a compatibility database?\n"
 "\n"
@@ -2242,110 +2237,110 @@ msgstr ""
 "\n"
 "Ця інформація є надзвичайно цінною для нас щоб ми могли допомагати людям."
 
-#: python/mainwindow.py:1296
+#: python/mainwindow.py:1311
 msgid "Are you sure you want to  want to install {0} package?"
 msgstr "Ви справді бажаєте встановити пакунок {0}?"
 
-#: python/mainwindow.py:1303 python/mainwindow.py:1305
-#: python/mainwindow.py:1307
+#: python/mainwindow.py:1318 python/mainwindow.py:1320
+#: python/mainwindow.py:1322
 msgid ""
 "You are trying to open a script design for {0}! It might not work as expected"
 msgstr ""
 "Ви намагаєтеся відкрити скриптову конструкцію для {0}! Вона може працювати "
 "не так, як передбачається..."
 
-#: python/options.py:116
+#: python/options.py:115
 msgid "Proxy configuration"
 msgstr "Конфігурація проксі"
 
-#: python/options.py:129
+#: python/options.py:128
 msgid "Set a proxy"
 msgstr "Використовувати проксі"
 
-#: python/options.py:132
+#: python/options.py:131
 msgid "Proxy address"
 msgstr "Адреса проксі"
 
-#: python/options.py:135
+#: python/options.py:134
 msgid "Proxy port"
 msgstr "Проксі порт"
 
-#: python/options.py:138
+#: python/options.py:137
 msgid "Proxy login"
 msgstr "Логін проксі"
 
-#: python/options.py:141
+#: python/options.py:140
 msgid "Proxy password"
 msgstr "Пароль до проксі"
 
-#: python/options.py:188
+#: python/options.py:187
 msgid "Installed plugins"
 msgstr "Встановлені втулки"
 
-#: python/options.py:206
+#: python/options.py:205
 msgid "Add"
 msgstr "Додати"
 
-#: python/options.py:209 python/options.py:337
+#: python/options.py:208 python/options.py:336
 msgid "Enable"
 msgstr "Увімкнути"
 
-#: python/options.py:210
+#: python/options.py:209
 msgid "Choose a plugin"
 msgstr "Вибрати втулку"
 
-#: python/options.py:263
+#: python/options.py:262
 msgid "What is the extension?"
 msgstr "Яке розширення?"
 
-#: python/options.py:275
+#: python/options.py:274
 msgid "Assigned program"
 msgstr "Призначена програма"
 
-#: python/options.py:277
+#: python/options.py:276
 msgid "Delete"
 msgstr "Вилучити"
 
-#: python/options.py:305
+#: python/options.py:304
 msgid "Are you sure you want to install: "
 msgstr "Ви впевнені, що бажаєте встановити: "
 
-#: python/options.py:313
+#: python/options.py:312
 msgid "Are you sure you want to delete: "
 msgstr "Ви впевнені, що бажаєте вилучити: "
 
-#: python/options.py:334
+#: python/options.py:333
 msgid "Disable"
 msgstr "Вимкнути"
 
-#: python/options.py:375
+#: python/options.py:374
 msgid "Apply"
 msgstr "Застосувати"
 
-#: python/options.py:412
+#: python/options.py:411
 msgid "You must restart {0} for the changes to take effect."
 msgstr "Вам потрібно перезапустити {0}, щоб зміни було застосовано."
 
-#: python/wine_versions.py:196
+#: python/wine_versions.py:197
 msgid "Installed Wine versions: "
 msgstr "Встановлені версії Wine: "
 
-#: python/wine_versions.py:197
+#: python/wine_versions.py:198
 msgid "Available Wine versions: "
 msgstr "Доступні версії Wine: "
 
-#: python/wine_versions.py:208
+#: python/wine_versions.py:209
 msgid "Wine versions"
 msgstr "Версії Wine"
 
-#: python/wine_versions.py:330
+#: python/wine_versions.py:331
 msgid "Are you sure you want to delete wine {0}?"
 msgstr "Ви справді бажаєте вилучити wine {0}?"
 
-#: python/wine_versions.py:332
+#: python/wine_versions.py:333
 msgid "This version is CURRENTLY IN USE"
 msgstr ""
 
-#: python/wrapper.py:129
+#: python/wrapper.py:135
 msgid "{0} is not able to start POL_SetupWindow_server."
 msgstr "{0} не може запустити POL_SetupWindow_server."
