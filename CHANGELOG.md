@@ -1,5 +1,6 @@
 # 4.2.8
 * checkVersionUse(): don't assume cfg files have any order
+* manual installation: component installation bugfix ($IFS not restored correctly)
 
 # 4.2.7
 
