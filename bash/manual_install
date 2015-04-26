@@ -208,11 +208,9 @@ then
  
 	for i in $*
 	do
+		IFS="$oldifs"
 		POL_Debug_Message "POL_Call_list is calling $i"
-		IFS="$old"
 		POL_Call "$i"
-		
-		IFS=/
 	done
 	IFS="$oldifs"
 fi
