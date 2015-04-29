@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: Radoslav Ivanov <reckku@gmail.com>\n"
-"POT-Creation-Date: 2015-04-20 19:00+0200\n"
+"POT-Creation-Date: 2015-04-27 19:00+0200\n"
 "PO-Revision-Date: 2015-04-18 13:30+0000\n"
 "Last-Translator: Радослав Иванов <reckku@gmail.com>\n"
 "Language-Team: Svetoslav Stefanov <lfu.project@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-04-21 05:08+0000\n"
-"X-Generator: Launchpad (build 17430)\n"
+"X-Launchpad-Export-Date: 2015-04-28 05:07+0000\n"
+"X-Generator: Launchpad (build 17453)\n"
 "X-Poedit-Country: BULGARIA\n"
 "X-Poedit-Language: Bulgarian\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -525,32 +525,32 @@ msgstr "Какво желаете да направите преди инста�
 msgid "Please make your choice"
 msgstr "Мола, направете своя избор"
 
-#: bash/manual_install:232
+#: bash/manual_install:230
 #, sh-format
 msgid "Looking for runnable CD-ROMs"
 msgstr "Търсене за изпълними CD-ROM-и"
 
-#: bash/manual_install:255
+#: bash/manual_install:253
 #, sh-format
 msgid "Select another file"
 msgstr "Избор на друг файл"
 
-#: bash/manual_install:263
+#: bash/manual_install:261
 #, sh-format
 msgid "Please choose a way to install your program"
 msgstr "Моля, изберете начина за инсталиране на Вашата програма"
 
-#: bash/manual_install:272
+#: bash/manual_install:270
 #, sh-format
 msgid "Please select the install file to run."
 msgstr "Моля, изберете инсталиращ файл, който да се изпълни."
 
-#: bash/manual_install:284
+#: bash/manual_install:282
 #, sh-format
 msgid "You must choose a file!"
 msgstr "Трябва да изберете файл!"
 
-#: bash/manual_install:290
+#: bash/manual_install:288
 #, sh-format
 msgid "$APPLICATION_TITLE is installing your application..."
 msgstr "$APPLICATION_TITLE инсталира вашата програма..."
@@ -957,7 +957,7 @@ msgstr ""
 "информация"
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:891 lib/wine.lib:972
+#: lib/wine.lib:933 lib/wine.lib:972
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr "Моля, изчакайте, докато се създаде виртуалният диск..."
@@ -1450,27 +1450,27 @@ msgstr "Изглежда, че изтеглянето се провали."
 msgid "Extracting Wine..."
 msgstr "Разархивиране на Wine..."
 
-#: lib/wine.lib:897
+#: lib/wine.lib:896
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr "Презаписване (обикновено работи, но не е гарантирано)"
 
-#: lib/wine.lib:898
+#: lib/wine.lib:897
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
 msgstr "Изтриване (съдържанието на виртуалния диск ще бъде изгубено)"
 
-#: lib/wine.lib:899
+#: lib/wine.lib:898
 #, sh-format
 msgid "Abort installation"
 msgstr "Прекратяване на инсталацията"
 
-#: lib/wine.lib:912
+#: lib/wine.lib:911
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr "Целевият виртуален диск $PREFNAME вече съществува:"
 
-#: lib/wine.lib:928
+#: lib/wine.lib:927
 #, sh-format
 msgid "User abort"
 msgstr "Прекратено от потребителя"
@@ -2332,23 +2332,23 @@ msgstr "Потвърди"
 msgid "You must restart {0} for the changes to take effect."
 msgstr "Трябва да рестартирате {0}, за да влязат промените в действие."
 
-#: python/wine_versions.py:197
+#: python/wine_versions.py:198
 msgid "Installed Wine versions: "
 msgstr "Инсталирани версии на Wine: "
 
-#: python/wine_versions.py:198
+#: python/wine_versions.py:199
 msgid "Available Wine versions: "
 msgstr "Налични версии на Wine: "
 
-#: python/wine_versions.py:209
+#: python/wine_versions.py:210
 msgid "Wine versions"
 msgstr "Версии на Wine"
 
-#: python/wine_versions.py:331
+#: python/wine_versions.py:332
 msgid "Are you sure you want to delete wine {0}?"
 msgstr "Сигурни ли сте, че искате да изтриете wine {0}?"
 
-#: python/wine_versions.py:333
+#: python/wine_versions.py:334
 msgid "This version is CURRENTLY IN USE"
 msgstr "Тази версия вече се използва"
 
