@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX/APLU <pol-gettext@mulx.net>\n"
-"POT-Creation-Date: 2015-05-01 19:00:11+02:00\n"
+"POT-Creation-Date: 2015-05-02 19:00:12+02:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -906,13 +906,13 @@ msgstr ""
 msgid "Setting Program Files var"
 msgstr ""
 
-#: lib/playonlinux.lib:261 lib/playonlinux.lib:267 lib/playonlinux.lib:273
-#: lib/playonlinux.lib:279 lib/playonlinux.lib:285 lib/playonlinux.lib:291
+#: lib/playonlinux.lib:255 lib/playonlinux.lib:261 lib/playonlinux.lib:267
+#: lib/playonlinux.lib:273 lib/playonlinux.lib:279 lib/playonlinux.lib:285
 #, sh-format
 msgid "This function is disabled in the PlayOnlinux environment."
 msgstr ""
 
-#: lib/playonlinux.lib:354
+#: lib/playonlinux.lib:348
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -920,12 +920,12 @@ msgid ""
 "responsible from it.\\nPlease ensure you know what you are doing !"
 msgstr ""
 
-#: lib/playonlinux.lib:355 lib/playonlinux.lib:378
+#: lib/playonlinux.lib:349 lib/playonlinux.lib:372
 #, sh-format
 msgid "Here the source code of the script. Check it carefully"
 msgstr ""
 
-#: lib/playonlinux.lib:377
+#: lib/playonlinux.lib:371
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -933,57 +933,57 @@ msgid ""
 "responsible from it.\\nPlease ensure you know what you are doing!"
 msgstr ""
 
-#: lib/playonlinux.lib:378
+#: lib/playonlinux.lib:372
 #, sh-format
 msgid "External library"
 msgstr ""
 
-#: lib/playonlinux.lib:641
+#: lib/playonlinux.lib:635
 #, sh-format
 msgid "Making shortcut..."
 msgstr ""
 
-#: lib/playonlinux.lib:768
+#: lib/playonlinux.lib:762
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr ""
 
-#: lib/playonlinux.lib:877
+#: lib/playonlinux.lib:871
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:878
+#: lib/playonlinux.lib:872
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:879
+#: lib/playonlinux.lib:873
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:880
+#: lib/playonlinux.lib:874
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
 "prevent wine from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:909
+#: lib/playonlinux.lib:903
 #, sh-format
 msgid ""
 "Your Linux kernel may not be configured to run Win16 programs under Wine"
 "\\nSee $EXPLANATION_URL"
 msgstr ""
 
-#: lib/playonlinux.lib:912
+#: lib/playonlinux.lib:906
 #, sh-format
 msgid ""
 "Your kernel may be incompatible with running Win16 programs under Wine\\nSee "
