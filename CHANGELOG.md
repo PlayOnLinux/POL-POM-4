@@ -1,4 +1,7 @@
 # 4.2.8
+
+* Feature freeze has been declared for POL 4.x, so this changelog should
+  contain only bug fixes
 * checkVersionUse(): don't assume cfg files have any order
 * manual installation: component installation bugfix ($IFS not restored correctly)
 * POL_OpenShell: call POL_Wine_AutoSetVersionEnv in all cases, to set $PATH (#5062)
