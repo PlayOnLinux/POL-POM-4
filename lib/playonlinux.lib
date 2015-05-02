@@ -226,18 +226,12 @@ POL_OpenShell()
 	
 	if [ "$1" = "" ]
 	then
-		cat <<- EOF
-		export WINEPREFIX="$WINEPREFIX"
-		EOF
-	
+		echo "export WINEPREFIX=\"$WINEPREFIX\""
 	else
-		cat <<- EOF
-		export PLAYONLINUX="$PLAYONLINUX"
-		EOF
 		grep '^export WINEPREFIX' "$POL_USER_ROOT/shortcuts/$1"
-		echo "POL_Wine_AutoSetVersionEnv"
 	fi
 	cat <<- EOF
+	POL_Wine_AutoSetVersionEnv
 	cd "$WINEPREFIX/drive_c"
 	echo "You are in $1's virtual drive environment"
 	EOF
