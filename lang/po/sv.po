@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2015-04-27 19:00+0200\n"
+"POT-Creation-Date: 2015-05-04 19:00+0200\n"
 "PO-Revision-Date: 2015-02-28 14:57+0000\n"
 "Last-Translator: MichelGustafssonHeld <okabekudo@yahoo.com>\n"
 "Language-Team: sv_SE.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-04-28 05:08+0000\n"
-"X-Generator: Launchpad (build 17453)\n"
+"X-Launchpad-Export-Date: 2015-05-05 05:09+0000\n"
+"X-Generator: Launchpad (build 17474)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -962,13 +962,13 @@ msgstr ""
 msgid "Setting Program Files var"
 msgstr "Sätta Program Filer var"
 
-#: lib/playonlinux.lib:261 lib/playonlinux.lib:267 lib/playonlinux.lib:273
-#: lib/playonlinux.lib:279 lib/playonlinux.lib:285 lib/playonlinux.lib:291
+#: lib/playonlinux.lib:255 lib/playonlinux.lib:261 lib/playonlinux.lib:267
+#: lib/playonlinux.lib:273 lib/playonlinux.lib:279 lib/playonlinux.lib:285
 #, sh-format
 msgid "This function is disabled in the PlayOnlinux environment."
 msgstr "Denna funktion är otillgänglig i PlayOnLinux miljön"
 
-#: lib/playonlinux.lib:354
+#: lib/playonlinux.lib:348
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -979,12 +979,12 @@ msgstr ""
 "n\\nPlayOnLinux har inte godkännt detta skript och kommer inte ta ansvar för "
 "det.\\nSnälla försäkra dig om att du vet vad du håller på med!"
 
-#: lib/playonlinux.lib:355 lib/playonlinux.lib:378
+#: lib/playonlinux.lib:349 lib/playonlinux.lib:372
 #, sh-format
 msgid "Here the source code of the script. Check it carefully"
 msgstr "Här är källkoden till skriptet. Kolla igenom den noga."
 
-#: lib/playonlinux.lib:377
+#: lib/playonlinux.lib:371
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -995,22 +995,22 @@ msgstr ""
 "n\\n$APPLICATION_TITLE har inte godkännt detta skript och kommer inte ta "
 "ansvar för det.\\nSnälla försäkra dig om att du vet vad du håller på med!"
 
-#: lib/playonlinux.lib:378
+#: lib/playonlinux.lib:372
 #, sh-format
 msgid "External library"
 msgstr "Extern bibliotek"
 
-#: lib/playonlinux.lib:641
+#: lib/playonlinux.lib:635
 #, sh-format
 msgid "Making shortcut..."
 msgstr "Skapar genväg..."
 
-#: lib/playonlinux.lib:768
+#: lib/playonlinux.lib:762
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr "Vill du ta bort den virtuella disken:"
 
-#: lib/playonlinux.lib:877
+#: lib/playonlinux.lib:871
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
@@ -1019,7 +1019,7 @@ msgstr ""
 "Följande fil ligger på ett FAT32 filsystem.\\nDet kan hindra Wine från att "
 "fungera\\n\\$FilePath"
 
-#: lib/playonlinux.lib:878
+#: lib/playonlinux.lib:872
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
@@ -1028,7 +1028,7 @@ msgstr ""
 "Följande fil ligger på ett NTFS filsystem.\\nDet kan hindra Wine från att "
 "fungera\\n\\$FilePath"
 
-#: lib/playonlinux.lib:879
+#: lib/playonlinux.lib:873
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
@@ -1037,7 +1037,7 @@ msgstr ""
 "Följande fil ligger på ett fuse filsystem.\\nDet kan hindra Wine från att "
 "fungera\\n\\$FilePath"
 
-#: lib/playonlinux.lib:880
+#: lib/playonlinux.lib:874
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
@@ -1046,7 +1046,7 @@ msgstr ""
 "Följande fil ligger på ett noexec monterad filsystem.\\nDet kan hindra Wine "
 "från att fungera\\n\\$FilePath"
 
-#: lib/playonlinux.lib:909
+#: lib/playonlinux.lib:903
 #, sh-format
 msgid ""
 "Your Linux kernel may not be configured to run Win16 programs under Wine\\"
@@ -1055,7 +1055,7 @@ msgstr ""
 "Din Linux kernel kanske inte är konfigurerad för att kunna köra Win16 "
 "program i Wine\\nSe $EXPLANATION_URL"
 
-#: lib/playonlinux.lib:912
+#: lib/playonlinux.lib:906
 #, sh-format
 msgid ""
 "Your kernel may be incompatible with running Win16 programs under Wine\\nSee "

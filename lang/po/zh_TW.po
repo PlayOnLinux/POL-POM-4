@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2015-04-27 19:00+0200\n"
-"PO-Revision-Date: 2014-04-06 06:02+0000\n"
+"POT-Creation-Date: 2015-05-04 19:00+0200\n"
+"PO-Revision-Date: 2015-05-03 06:00+0000\n"
 "Last-Translator: Bill <cges30901@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-04-28 05:08+0000\n"
-"X-Generator: Launchpad (build 17453)\n"
+"X-Launchpad-Export-Date: 2015-05-05 05:09+0000\n"
+"X-Generator: Launchpad (build 17474)\n"
 "Language: zh_TW\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -873,7 +873,7 @@ msgstr "你是否要更新並重新啟動 $APPLICATION_TITLE?"
 #: bash/update_git:37
 #, sh-format
 msgid "Already up-to-date."
-msgstr ""
+msgstr "已經是最新版。"
 
 #: lib/debug.lib:128
 #, sh-format
@@ -920,13 +920,13 @@ msgstr "$APPLICATION_TITLE 正在模擬 Windows 重開機，請稍候"
 msgid "Setting Program Files var"
 msgstr ""
 
-#: lib/playonlinux.lib:261 lib/playonlinux.lib:267 lib/playonlinux.lib:273
-#: lib/playonlinux.lib:279 lib/playonlinux.lib:285 lib/playonlinux.lib:291
+#: lib/playonlinux.lib:255 lib/playonlinux.lib:261 lib/playonlinux.lib:267
+#: lib/playonlinux.lib:273 lib/playonlinux.lib:279 lib/playonlinux.lib:285
 #, sh-format
 msgid "This function is disabled in the PlayOnlinux environment."
 msgstr ""
 
-#: lib/playonlinux.lib:354
+#: lib/playonlinux.lib:348
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -934,12 +934,12 @@ msgid ""
 "responsible from it.\\nPlease ensure you know what you are doing !"
 msgstr ""
 
-#: lib/playonlinux.lib:355 lib/playonlinux.lib:378
+#: lib/playonlinux.lib:349 lib/playonlinux.lib:372
 #, sh-format
 msgid "Here the source code of the script. Check it carefully"
 msgstr "這是腳本的原始碼。請仔細檢查"
 
-#: lib/playonlinux.lib:377
+#: lib/playonlinux.lib:371
 #, sh-format
 msgid ""
 "Warning !!\\n\\nThe signature of the script you are trying to run is NOT "
@@ -947,57 +947,57 @@ msgid ""
 "responsible from it.\\nPlease ensure you know what you are doing!"
 msgstr ""
 
-#: lib/playonlinux.lib:378
+#: lib/playonlinux.lib:372
 #, sh-format
 msgid "External library"
 msgstr "外部庫"
 
-#: lib/playonlinux.lib:641
+#: lib/playonlinux.lib:635
 #, sh-format
 msgid "Making shortcut..."
 msgstr "正在製作捷徑..."
 
-#: lib/playonlinux.lib:768
+#: lib/playonlinux.lib:762
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr "你要刪除這個虛擬磁碟嗎："
 
-#: lib/playonlinux.lib:877
+#: lib/playonlinux.lib:871
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
-msgstr ""
+msgstr "下列檔案位於 FAT32 檔案系統。\\n這可能會使 wine 無法運作\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:878
+#: lib/playonlinux.lib:872
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
-msgstr ""
+msgstr "下列檔案位於 NTFS 檔案系統。\\n這可能會使 wine 無法運作\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:879
+#: lib/playonlinux.lib:873
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
-msgstr ""
+msgstr "下列檔案位於 fuse 檔案系統。\\n這可能會使 wine 無法運作\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:880
+#: lib/playonlinux.lib:874
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
 "prevent wine from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:909
+#: lib/playonlinux.lib:903
 #, sh-format
 msgid ""
 "Your Linux kernel may not be configured to run Win16 programs under Wine\\"
 "nSee $EXPLANATION_URL"
 msgstr ""
 
-#: lib/playonlinux.lib:912
+#: lib/playonlinux.lib:906
 #, sh-format
 msgid ""
 "Your kernel may be incompatible with running Win16 programs under Wine\\nSee "
@@ -1099,6 +1099,7 @@ msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
 "n$APPLICATION_TITLE $NEEDED is required."
 msgstr ""
+"抱歉， $APPLICATION_TITLE $VERSION 太舊而無法繼續。\\n需要 $APPLICATION_TITLE $NEEDED 。"
 
 #: lib/scripts.lib:959
 #, sh-format
@@ -1165,7 +1166,7 @@ msgstr "重新整理"
 #: lib/setupwindow.lib:388
 #, sh-format
 msgid "Reading your device"
-msgstr ""
+msgstr "正在讀取你的裝置"
 
 #: lib/setupwindow.lib:403
 #, sh-format
@@ -1283,7 +1284,7 @@ msgstr "瀏覽"
 #: lib/setupwindow.lib:763
 #, sh-format
 msgid "A shortcut by that name already exists, overwrite?"
-msgstr ""
+msgstr "該名稱的捷徑已經存在，要覆蓋嗎？"
 
 #: lib/website.lib:29
 #, sh-format
@@ -1360,7 +1361,7 @@ msgstr "覆蓋(通常奏效, 但不保證)"
 #: lib/wine.lib:897
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
-msgstr ""
+msgstr "刪除(虛擬硬碟的內容將會遺失)"
 
 #: lib/wine.lib:898
 #, sh-format
@@ -1653,7 +1654,7 @@ msgstr "我同意"
 
 #: python/guiv3.py:179
 msgid "Don't remind me anymore"
-msgstr ""
+msgstr "不要再次提醒我"
 
 #: python/guiv3.py:180
 msgid "Show virtual drives"
@@ -1767,7 +1768,7 @@ msgstr ""
 
 #: python/install.py:577
 msgid "Attention!"
-msgstr ""
+msgstr "注意！"
 
 #: python/install.py:577
 msgid ""
@@ -1862,7 +1863,7 @@ msgstr "外掛管理員"
 
 #: python/mainwindow.py:294
 msgid "Supported software"
-msgstr ""
+msgstr "支援的軟體"
 
 #: python/mainwindow.py:295
 msgid "News"
@@ -1870,11 +1871,11 @@ msgstr ""
 
 #: python/mainwindow.py:296
 msgid "Documentation"
-msgstr ""
+msgstr "文件"
 
 #: python/mainwindow.py:297
 msgid "Forums"
-msgstr ""
+msgstr "討論區"
 
 #: python/mainwindow.py:298
 msgid "Bugs"
@@ -1882,15 +1883,15 @@ msgstr ""
 
 #: python/mainwindow.py:300
 msgid "Twitter"
-msgstr ""
+msgstr "Twitter"
 
 #: python/mainwindow.py:301
 msgid "Google+"
-msgstr ""
+msgstr "Google+"
 
 #: python/mainwindow.py:302
 msgid "Facebook"
-msgstr ""
+msgstr "Facebook"
 
 #: python/mainwindow.py:306
 msgid "About {0}"
@@ -1914,7 +1915,7 @@ msgstr "外掛"
 
 #: python/mainwindow.py:369
 msgid "Support"
-msgstr ""
+msgstr "支援"
 
 #: python/mainwindow.py:381 python/mainwindow.py:777
 msgid "Close"
