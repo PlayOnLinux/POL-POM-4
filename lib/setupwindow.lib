@@ -708,17 +708,17 @@ POL_SetupWindow_shortcut_creator()
 	# Usage: POL_SetupWindow_shortcut_creator
 	# No argument, this function uses WINEPREFIX
 	[ "$WINEPREFIX" = "" ] && POL_Debug_Fatal "POL_SetupWindow_shortcut_creator : wineprefix not set"
-	local existing="$(get_existing_POL_SetupWindow_shortcut_creator)"
 	
 	local LNG_FINISH="$(eval_gettext "I don't want to make another shortcut")"
 	local LNG_BROWSE="$(eval_gettext "Browse")"
-	cd "$WINEPREFIX/drive_c" || POL_Debug_Fatal "Prefix : $WINEPREFIX does not exist"
 	local CODENAME="$(POL_MD5 "$WINEPREFIX")"
 	mkdir -p "$POL_USER_ROOT/tmp/cache/icons/$CODENAME"
 	cp "$PLAYONLINUX/resources/images/icones/browse.png" "$POL_USER_ROOT/tmp/cache/icons/$CODENAME"
 	cp "$PLAYONLINUX/resources/images/icones/finish.png" "$POL_USER_ROOT/tmp/cache/icons/$CODENAME"
 	while true; do
 		POL_SetupWindow_wait_next_signal "$(eval_gettext "Scanning the virtual drive ...")" "$TITLE"
+		local existing="$(get_existing_POL_SetupWindow_shortcut_creator)"
+		cd "$WINEPREFIX/drive_c" || POL_Debug_Fatal "Prefix : $WINEPREFIX does not exist"
 		local contents="$(find . -name windows -prune -o -name iexplore.exe -prune -o \( -iname '*.exe' -o -iname '*.lnk' -o -iname '*.bat' -o -iname '*.cmd' \) -a -type f -print | process_POL_SetupWindow_shortcut_creator)"
 		local CONTENTS2=""
 		[ -z "$contents" ] || CONTENTS2="~$contents"

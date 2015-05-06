@@ -5,6 +5,7 @@
 * checkVersionUse(): don't assume cfg files have any order
 * manual installation: component installation bugfix ($IFS not restored correctly)
 * POL_OpenShell: call POL_Wine_AutoSetVersionEnv in all cases, to set $PATH (#5062)
+* Fix consecutive shortcut creations
 
 # 4.2.7
 
