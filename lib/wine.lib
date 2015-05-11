@@ -461,8 +461,8 @@ POL_Wine_SetVideoDriver()
 
 	POL_Wine_UpdateRegistry VGA_ID_fix <<- _EOFINI_
 	[HKEY_CURRENT_USER\\Software\\Wine\\Direct3D]
-	"VideoPCIVendorID"="dword:0000$VendorID"
-	"VideoPCIDeviceID"="dword:0000$DeviceID"
+	"VideoPCIVendorID"=dword:0000$VendorID
+	"VideoPCIDeviceID"=dword:0000$DeviceID
 	"VideoDriver"="$DRVID"
 	_EOFINI_
 }

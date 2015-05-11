@@ -6,6 +6,7 @@
 * manual installation: component installation bugfix ($IFS not restored correctly)
 * POL_OpenShell: call POL_Wine_AutoSetVersionEnv in all cases, to set $PATH (#5062)
 * Fix consecutive shortcut creations
+* POL_Wine_SetVideoDriver bugfix, device IDs were not inserted as DWORDs
 
 # 4.2.7
 
