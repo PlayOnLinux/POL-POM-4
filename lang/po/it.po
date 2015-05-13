@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2015-05-04 19:00+0200\n"
-"PO-Revision-Date: 2013-12-11 12:44+0000\n"
-"Last-Translator: Naive D. Jack <naivejack@hotmail.it>\n"
+"POT-Creation-Date: 2015-05-11 19:00+0200\n"
+"PO-Revision-Date: 2015-05-10 23:11+0000\n"
+"Last-Translator: Emanuele Salvi <e.salvi1992@gmail.com>\n"
 "Language-Team: it_IT.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-05-05 05:08+0000\n"
-"X-Generator: Launchpad (build 17474)\n"
+"X-Launchpad-Export-Date: 2015-05-12 05:06+0000\n"
+"X-Generator: Launchpad (build 17487)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -309,7 +309,7 @@ msgstr "Ci dispiace, ci serve una descrizione dettagliata."
 #: bash/bug_report:101
 #, sh-format
 msgid "Thank you !\\n\\nYour report has been sent."
-msgstr ""
+msgstr "Grazie! !\\n\\n La tua segnalazione è stata inviata."
 
 #: bash/create_prefix:26
 #, sh-format
@@ -458,6 +458,10 @@ msgid ""
 "all the tools\\n\\nWarning: We are unable to guarantee that your application "
 "will work perfectly."
 msgstr ""
+"Benvenuto nel manuale di installazione di $APPLICATION_TITLE.\\n\\nQuesto "
+"script ti consentirà di installare ogni programma su $APPLICATION_TITLE e "
+"usarlo con tutti i tools \\n\\nAttenzione: non possiamo garantire il "
+"perfetto funzionamento di ogni applicazione."
 
 #: bash/manual_install:102
 #, sh-format
@@ -771,7 +775,7 @@ msgstr "$PACKAGE si è bloccato."
 #: bash/run_exe:33
 #, sh-format
 msgid "Waiting XQuartz to be installed"
-msgstr ""
+msgstr "Aspetta che XQuartz venga installato"
 
 #: bash/run_exe:70
 #, sh-format
@@ -814,11 +818,12 @@ msgstr "Installazione finita."
 #, sh-format
 msgid "PlayOnMac needs to install XQuartz to work properly."
 msgstr ""
+"PlayOnMac ha bisogno di installare XQuartz per funzionare correttamente"
 
 #: bash/startup_after_server:39
 #, sh-format
 msgid "PlayOnMac will help you to simplify this step"
-msgstr ""
+msgstr "PlayOnMac ti aiuterà semplificando questo passaggio"
 
 #: bash/startup_after_server:42
 #, sh-format
@@ -859,6 +864,8 @@ msgstr "Xquartz è stato installato"
 #, sh-format
 msgid "Unable to install XQuartz! You must install it to use wine properly."
 msgstr ""
+"Non riesco ad installare Xquartz! Devi installarlo per usare Wine "
+"correttamente."
 
 #: bash/uninstall:31 bash/uninstall:65 bash/uninstall:68 bash/uninstall:75
 #: lib/wine.lib:866
@@ -934,6 +941,9 @@ msgid ""
 "installing does not work correctly, it might be the cause of the problem.\\"
 "nVisit www.$POL_DNS to get further information"
 msgstr ""
+"$APPLICATION_TITLE ha riscontrato un errore. Se il programma che stai "
+"installando non funziona correttamente, potrebbe essere a causa "
+"dell'errore.\\nVisita www.$POL_DNS per altre informazioni"
 
 #: lib/debug.lib:155
 #, sh-format
@@ -1055,6 +1065,8 @@ msgid ""
 "Your Linux kernel may not be configured to run Win16 programs under Wine\\"
 "nSee $EXPLANATION_URL"
 msgstr ""
+"Il tuo kernel Linux potrebbe non essere configurato per funzionare con "
+"programmi Win 16 sotto Wine\\n Info $EXPLANATION_URL"
 
 #: lib/playonlinux.lib:906
 #, sh-format
@@ -1062,6 +1074,8 @@ msgid ""
 "Your kernel may be incompatible with running Win16 programs under Wine\\nSee "
 "$EXPLANATION_URL"
 msgstr ""
+"Il tuo kernel Linux potrebbe non essere compatibile per funzionare con "
+"programmi Win 16 sotto Wine\\n Info $EXPLANATION_URL"
 
 #: lib/plugins.lib:63
 #, sh-format
@@ -1265,7 +1279,7 @@ msgstr ""
 msgid "Please wait while $APPLICATION_TITLE is copying files:"
 msgstr "Per favore aspetta che $APPLICATION_TITLE copi i tuoi file:"
 
-#: lib/setupwindow.lib:568 lib/setupwindow.lib:721
+#: lib/setupwindow.lib:568 lib/setupwindow.lib:719
 #, sh-format
 msgid "Scanning the virtual drive ..."
 msgstr "Scansione unità virtuali..."
@@ -1344,12 +1358,12 @@ msgstr "Scaricando il programma"
 msgid "Please choose an installation method"
 msgstr "Per favore scegli un metodo di installazione"
 
-#: lib/setupwindow.lib:713
+#: lib/setupwindow.lib:712
 #, sh-format
 msgid "I don't want to make another shortcut"
 msgstr "Non voglio creare un'altro collegamento"
 
-#: lib/setupwindow.lib:714 python/guiv3.py:170
+#: lib/setupwindow.lib:713 python/guiv3.py:170
 #, sh-format
 msgid "Browse"
 msgstr "Esplora"
