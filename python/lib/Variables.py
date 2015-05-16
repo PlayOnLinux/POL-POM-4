@@ -6,9 +6,9 @@ import os, random, sys, string
 import wx, lib.playonlinux as playonlinux
 
 # Un ptit check
-try :
+try:
     os.environ["POL_OS"]
-except :
+except:
     print "ERROR ! Please define POL_OS environment var first."
     os._exit(1)
 
@@ -16,11 +16,11 @@ except :
 os.environ["POL_PORT"] = "0"
 os.environ["PLAYONLINUX"] = os.path.realpath(os.path.realpath(__file__)+"/../../../")
 os.environ["SITE"] = "http://repository.playonlinux.com"
-os.environ["VERSION"] = "4.2.5"
-os.environ["POL_ID"] = str(random.randint(1,100000000))
-os.environ["WINE_SITE"] = "http://www.playonlinux.com/wine/binaries"
-os.environ["GECKO_SITE"] = "http://www.playonlinux.com/wine/gecko"
-os.environ["MONO_SITE"] = "http://www.playonlinux.com/wine/mono"
+os.environ["VERSION"] = "4.2.9-dev"
+os.environ["POL_ID"] = str(random.randint(1, 100000000))
+os.environ["WINE_SITE"] = "http://wine.playonlinux.com/binaries"
+os.environ["GECKO_SITE"] = "http://wine.playonlinux.com/gecko"
+os.environ["MONO_SITE"] = "http://wine.playonlinux.com/mono"
 homedir = os.environ["HOME"]
 
 # Debian packagers should switch this to TRUE
@@ -29,9 +29,9 @@ homedir = os.environ["HOME"]
 os.environ["DEBIAN_PACKAGE"] = "FALSE"
 
 # Variables PlayOnMac
-if (os.environ["POL_OS"] == "Mac"):
+if os.environ["POL_OS"] == "Mac":
     os.environ["PLAYONMAC"] = os.environ["PLAYONLINUX"]
-    os.environ["REPERTOIRE"] = os.environ["HOME"]+"/Library/PlayOnMac/"
+    os.environ["POL_USER_ROOT"] = os.environ["HOME"]+"/Library/PlayOnMac/"
     os.environ["APPLICATION_TITLE"] = "PlayOnMac"
     os.environ["POL_DNS"] = "playonmac.com"
     windows_add_size = 20;
@@ -41,30 +41,36 @@ if (os.environ["POL_OS"] == "Mac"):
     os.environ["POL_WGET"] = "wget --prefer-family=IPv4 -q"
 
 # Variables PlayOnLinux
-if (os.environ["POL_OS"] == "Linux"):
-    os.environ["REPERTOIRE"] = os.environ["HOME"]+"/.PlayOnLinux/"
+if os.environ["POL_OS"] == "Linux":
+    os.environ["POL_USER_ROOT"] = os.environ["HOME"]+"/.PlayOnLinux/"
     os.environ["APPLICATION_TITLE"] = "PlayOnLinux"
     os.environ["POL_DNS"] = "playonlinux.com"
-    if(playonlinux.VersionLower(wx.VERSION_STRING, "3.0.0")):
-        windows_add_size = 0;
-        windows_add_playonmac = 0;
+    if playonlinux.VersionLower(wx.VERSION_STRING, "3.0.0"):
+        windows_add_size = 0
+        windows_add_playonmac = 0
     else:
-        windows_add_size = 25;
-        windows_add_playonmac = 0;
+        windows_add_size = 25
+        windows_add_playonmac = 0
         
     widget_borders = wx.RAISED_BORDER
     os_name = "linux"
-    if not os.path.exists("/proc/net/if_inet6"):
-        os.environ["POL_WGET"] = "wget -q"
-    else:
-        os.environ["POL_WGET"] = "wget --prefer-family=IPv4 -q"
-
-if (os.environ["POL_OS"] == "FreeBSD"):
-    os.environ["REPERTOIRE"] = os.environ["HOME"]+"/.PlayOnBSD/"
+    try:
+        if not os.path.exists("/proc/net/if_inet6"):
+            os.environ["POL_WGET"] = "env LD_LIBRARY_PATH=\""+os.environ["LD_LIBRARY_PATH"]+"\" wget -q"
+        else:
+            os.environ["POL_WGET"] = "env LD_LIBRARY_PATH=\""+os.environ["LD_LIBRARY_PATH"]+"\" wget --prefer-family=IPv4 -q"
+    except KeyError:
+        if not os.path.exists("/proc/net/if_inet6"):
+            os.environ["POL_WGET"] = "env LD_LIBRARY_PATH=\"\" wget -q"
+        else:
+            os.environ["POL_WGET"] = "env LD_LIBRARY_PATH=\"\" wget --prefer-family=IPv4 -q"
+            
+if os.environ["POL_OS"] == "FreeBSD":
+    os.environ["POL_USER_ROOT"] = os.environ["HOME"]+"/.PlayOnBSD/"
     os.environ["APPLICATION_TITLE"] = "PlayOnBSD"
     os.environ["POL_DNS"] = "playonlinux.com"
-    windows_add_size = 0;
-    windows_add_playonmac = 0;
+    windows_add_size = 0
+    windows_add_playonmac = 0
     widget_borders = wx.RAISED_BORDER
     os_name = "freebsd"
     if not os.path.exists("/proc/net/if_inet6"):
@@ -75,39 +81,37 @@ if (os.environ["POL_OS"] == "FreeBSD"):
         
 os.environ["POL_CURL"] = "curl"
 
-archi = string.split(os.environ["MACHTYPE"],"-")
+archi = string.split(os.environ["MACHTYPE"], "-")
 archi = archi[0]
 
-if(archi == "x86_64" and os.environ["POL_OS"] == "Linux"):
+if archi == "x86_64" and os.environ["POL_OS"] == "Linux":
     os.environ["AMD64_COMPATIBLE"] = "True"
 else:
     os.environ["AMD64_COMPATIBLE"] = "False"
 
 # Variables mixtes
-os.environ["POL_USER_ROOT"] = os.environ["REPERTOIRE"]
+os.environ["REPERTOIRE"] = os.environ["POL_USER_ROOT"]
 os.environ["TITRE"] = os.environ["APPLICATION_TITLE"]
-os.environ["WINEPREFIX"] = os.environ["REPERTOIRE"]+"/wineprefix/default"
+os.environ["WINEPREFIX"] = os.environ["POL_USER_ROOT"]+"/wineprefix/default"
 os.environ["OS_NAME"] = os_name
 
 # Wine
 os.environ["WINEDLLOVERRIDES"] = "winemenubuilder.exe=d"
 
 # Si DYLD_LIBRARY_PATH n'existe pas, on la defini pour etre sur
-try :
+try:
     os.environ["DYLD_LIBRARY_PATH"]
 except:
     os.environ["DYLD_LIBRARY_PATH"] = ""
 
 # Pareil pour LD
-try :
+try:
     os.environ["LD_LIBRARY_PATH"]
 except:
     os.environ["LD_LIBRARY_PATH"] = ""
 
 
-
-
-if (os.environ["POL_OS"] == "Mac"):
+if os.environ["POL_OS"] == "Mac":
     os.environ["MAGICK_HOME"] = os.environ["PLAYONLINUX"]+"/../unix/image_magick/"
 
     os.environ["PATH"] = os.environ["PLAYONLINUX"]+"/../unix/wine/bin:" + os.environ["PLAYONLINUX"]+"/../unix/image_magick/bin:" + os.environ["PLAYONLINUX"]+"/../unix/tools/bin/:" + os.environ["PATH"]
@@ -117,8 +121,8 @@ if (os.environ["POL_OS"] == "Mac"):
     os.environ["DYLD_LIBRARY_PATH"] = os.environ["PLAYONLINUX"]+"/../unix/tools/lib/dyld:" + os.environ["PLAYONLINUX"]+"/../unix/image_magick/lib:"+ os.environ["DYLD_LIBRARY_PATH"]
 else:
     # Debian maintainer decided for some reason not to let wineserver binary into PATH...
-    for winepath in ('/usr/lib/i386-linux-gnu/wine/bin', '/usr/lib/i386-linux-gnu/wine-unstable/bin', \
-                     '/usr/lib32/wine', '/usr/lib32/wine-unstable', \
+    for winepath in ('/usr/lib/i386-linux-gnu/wine/bin', '/usr/lib/i386-linux-gnu/wine-unstable/bin',
+                     '/usr/lib32/wine', '/usr/lib32/wine-unstable',
                      '/usr/lib/wine', '/usr/lib/wine-unstable'):
         if os.path.exists('%s/wineserver' % (winepath,)):
             os.environ["PATH"] += ':%s' % (winepath,)
@@ -134,17 +138,20 @@ except KeyError:
 os.environ["DYLDPATH_ORIGIN"] = os.environ["DYLD_LIBRARY_PATH"]
 
 playonlinux_env = os.environ["PLAYONLINUX"]
-playonlinux_rep = os.environ["REPERTOIRE"]
+playonlinux_rep = os.environ["POL_USER_ROOT"]
 version = os.environ["VERSION"]
 current_user = os.environ["USER"]
 
 os.environ["WGETRC"] = os.environ["POL_USER_ROOT"]+"/configurations/wgetrc"
 
 ## Proxy settings
-if(playonlinux.GetSettings("PROXY_ENABLED") == "1"):
-    if(playonlinux.GetSettings("PROXY_URL") != ""):
-        if(playonlinux.GetSettings("PROXY_LOGIN") == ""):
+if playonlinux.GetSettings("PROXY_ENABLED") == "1":
+    if playonlinux.GetSettings("PROXY_URL") != "":
+        if playonlinux.GetSettings("PROXY_LOGIN") == "":
             http_proxy = "http://"+playonlinux.GetSettings("PROXY_URL")+":"+playonlinux.GetSettings("PROXY_PORT")
         else:
             http_proxy = "http://"+playonlinux.GetSettings("PROXY_LOGIN")+":"+playonlinux.GetSettings("PROXY_PASSWORD")+"@"+playonlinux.GetSettings("PROXY_URL")+":"+playonlinux.GetSettings("PROXY_PORT")
         os.environ["http_proxy"] = http_proxy
+
+
+userAgent = "PlayOnLinux %s" + os.environ["VERSION"]

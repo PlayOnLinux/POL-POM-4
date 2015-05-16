@@ -24,7 +24,7 @@ def LoadRegValues(prefix, values):
         found = False
         for element in values:
             if(element in line):
-                line = line.replace("\"","")
+                line = line.replace("\"","").rstrip("\\0") # workaround for Wine bug #37575
                 line = string.split(line, "=")
                 line = line[1]
                 result[element] = line

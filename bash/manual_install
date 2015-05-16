@@ -97,7 +97,7 @@ run_autorun()
 
 
 POL_SetupWindow_Init
-POL_SetupWindow_free_presentation "$(eval_gettext 'Manual installation')" "$(eval_gettext 'Welcome to $APPLICATION_TITLE manual installation wizard.\n\nThis script will allow you to install any program on $APPLICATION and use it with all the tools\n\nWarning: We are unable to guarantee that your application will work perfectly.')"
+POL_SetupWindow_free_presentation "$(eval_gettext 'Manual installation')" "$(eval_gettext 'Welcome to $APPLICATION_TITLE manual installation wizard.\n\nThis script will allow you to install any program on $APPLICATION_TITLE and use it with all the tools\n\nWarning: We are unable to guarantee that your application will work perfectly.')"
 
 LNG_LI_NEW="$(eval_gettext "Install a program in a new virtual drive")"
 LNG_LI_PATCH="$(eval_gettext "Edit or update an existing application")"
@@ -147,7 +147,7 @@ WHATTORUNBEFORE="$APP_ANSWER"
 if [ "$(echo $WHATTORUNBEFORE | grep -o "$LNG_WC_ASSWV")" == "$LNG_WC_ASSWV" ]
 then
 	WINEVERSIONLIST="System"
-	WINEVERSIONDIRLIST=$(find "$REPERTOIRE/wine/$OS_NAME-$POL_ARCH/"* -maxdepth 0 -type d)
+	WINEVERSIONDIRLIST=$(find "$POL_USER_ROOT/wine/$OS_NAME-$POL_ARCH/"* -maxdepth 0 -type d)
 	for single in $WINEVERSIONDIRLIST ; do
 	  singleparsed=${single##*/}
 	  WINEVERSIONLIST="$WINEVERSIONLIST~$singleparsed"
@@ -159,7 +159,7 @@ then
 	then
 		WINEVERSIONLIVE=""
 	else
-	export POL_WINEVERSION="$WINEVERSIONLIVE"
+		export POL_WINEVERSION="$WINEVERSIONLIVE"
 	fi
 	POL_System_SetArch "x86"
 fi
@@ -202,19 +202,17 @@ then
 	ITEMS=$($POL_WGET $SITE/V4_data/repository/getf.php -O-)
 	POL_SetupWindow_checkbox_list "$(eval_gettext "Please make your choice")" "$APPLICATION_TITLE" "$ITEMS" "/"
  
-	old="$IFS"
+	oldifs="$IFS"
 	IFS=/
 	set "$APP_ANSWER"
  
 	for i in $*
 	do
+		IFS="$oldifs"
 		POL_Debug_Message "POL_Call_list is calling $i"
-		IFS="$old"
 		POL_Call "$i"
-		
-		IFS=/
 	done
-	IFS="$old"
+	IFS="$oldifs"
 fi
 
 
@@ -223,6 +221,8 @@ if [ "$POL_OS" = "Linux" ] || [ "$POL_OS" = "FreeBSD" ]; then
 	MEDIA_DIR="/media"
 	# Ubuntu Quantal workaround
 	[ -d "/media/$USER" ] && MEDIA_DIR="/media/$USER"
+        # Fedora/Manjaro workaround
+        [ -d "/run/media/$USER" ] && DEVICES="/run/media/$USER"
 fi
 
 A_LIST=""
@@ -255,13 +255,13 @@ LNG_MANUAL_FILE="$(eval_gettext "Select another file")"
 if [ ! "$i" = "0" ]
 then
 
-A_LIST="$A_LIST#MANUAL"
-B_LIST="$B_LIST#$LNG_MANUAL_FILE"
+	A_LIST="$A_LIST#MANUAL"
+	B_LIST="$B_LIST#$LNG_MANUAL_FILE"
 
-POL_SetupWindow_menu_num "$(eval_gettext 'Please choose a way to install your program')" "$TITLE" "$B_LIST" "#"
-N="$APP_ANSWER"
-POL_Debug_Message "Action $N choosen"
-CHOICE="$(cut -d "#" -f$(( N + 1 )) <<< "$A_LIST")"
+	POL_SetupWindow_menu_num "$(eval_gettext 'Please choose a way to install your program')" "$TITLE" "$B_LIST" "#"
+	N="$APP_ANSWER"
+	POL_Debug_Message "Action $N choosen"
+	CHOICE="$(cut -d "#" -f$(( N + 1 )) <<< "$A_LIST")"
 fi
 
 if [ "$CHOICE" = "MANUAL" ] || [ "$i" = "0" ]
@@ -290,10 +290,10 @@ POL_SetupWindow_wait "$(eval_gettext '$APPLICATION_TITLE is installing your appl
 extension=$(echo "$SETUP_PATH" | $SED 's/.*\.//g')
 if [ "$extension" = "msi" ]
 then
-POL_Wine msiexec /i "$SETUP_PATH"
+	POL_Wine msiexec /i "$SETUP_PATH"
 
 else
-POL_Wine "$SETUP_PATH"
+	POL_Wine "$SETUP_PATH"
 fi 
 
 POL_Wine_WaitExit

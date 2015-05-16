@@ -50,8 +50,16 @@
 #Variables
 die() ## PHP function copy
 {
-	echo "$@"
-	exit
+	echo "$@" 1>&2
+	exit 1
+}
+
+usage() {
+    local self="$(basename $0)"
+    echo "Usage: $self"
+    echo "       $self [-h] [--help]"
+    echo "       $self --run <Shortcut name> [<Filename>]"
+    echo "       $self --version"
 }
 
 export WorkingDirectory="$PWD"
@@ -61,10 +69,14 @@ POLDIR="$(dirname "$0")"
 cd "$POLDIR"
 POLDIR="$PWD"
 
-if [ "$1" = "--version" ]; then
+if [ "$1" = "-h" -o "$1" = "--help" ]; then
+	usage
+	exit
+elif [ "$1" = "--version" ]; then
 	cd "$POLDIR"
 	version="$(cat python/lib/Variables.py | grep 'os.environ\["VERSION"\] = ' | cut -d = -f2 | tr -d \" | tr -d " ")"
-	die "PlayOnLinux $version"
+	echo "PlayOnLinux $version"
+	exit 0
 fi
 
 [ "$(uname -s)" = "Linux" ] || die "This script must be run on a linux system"
@@ -109,14 +121,8 @@ if [ "$1" = "--run" ]; then
 	fi
 else
 	cd "$POLDIR/python"
-        while [ "$POL_PYTHON" != "none" ]; do
-		"$POL_PYTHON" mainwindow.py "$@"
-		exitcode=$?
-                [ $exitcode -eq 0 -o $exitcode -eq 63 ] && break
-
-		# Do we really want this fallback algorithm?
-                search_python
-	done
+	search_python && "$POL_PYTHON" mainwindow.py "$@"
+	exitcode=$?
 fi
 
 [ $exitcode -eq 63 ] && exec "$POLDIR/playonlinux"

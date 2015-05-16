@@ -42,21 +42,21 @@ else
 	ProgramUninstall="$1"
 fi
 
-NOM_JEU="$REPERTOIRE/shortcuts/$ProgramUninstall"
-if [ -e "$NOM_JEU" ]
+APP_NAME="$POL_USER_ROOT/shortcuts/$ProgramUninstall"
+if [ -e "$APP_NAME" ]
 then
 	application_prefixe=$(detect_wineprefix "$ProgramUninstall")
 	delete_var=$ProgramUninstall
 	[ -n "$INTERACTIVE" ] && POL_SetupWindow_free_presentation "$TITLE" "$(eval_gettext "This wizard will help you to uninstall: ")$delete_var\n$(eval_gettext "Click Next to continue.")"
 
 	# Icones
-	rm -f "$REPERTOIRE/icones/32/$ProgramUninstall"
-	rm -f "$REPERTOIRE/icones/full_size/$ProgramUninstall"
+	rm -f "$POL_USER_ROOT/icones/32/$ProgramUninstall"
+	rm -f "$POL_USER_ROOT/icones/full_size/$ProgramUninstall"
 	rm -f "$POL_USER_ROOT/configurations/reports/$ProgramUninstall" 2> /dev/null
 	rm -f "$POL_USER_ROOT/configurations/links/$ProgramUninstall" 2> /dev/null
 
 	# Shortcut
-	rm -f "$REPERTOIRE/shortcuts/$ProgramUninstall"
+	rm -f "$POL_USER_ROOT/shortcuts/$ProgramUninstall"
 	rm -f "$HOME/.local/share/applications/playonlinux-$ProgramUninstall.desktop"
 	rm -f "$DESKTOP/$ProgramUninstall.desktop"
 

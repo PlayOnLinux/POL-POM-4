@@ -19,9 +19,11 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 import wxversion, os, getopt, sys, urllib, signal, socket, codecs, string, shutil, time, urllib, urllib2
+import subprocess
 import wx, wx.animate
 
 import lib.Variables as Variables
+import lib.playonlinux as playonlinux
 import lib.lng, threading
 
 if(os.environ["POL_OS"] == "Mac"):
@@ -127,10 +129,11 @@ class getVersions(threading.Thread):
                 try :
 
                     url = os.environ["WINE_SITE"]+"/"+wfolder+".lst"
-
+                    
                     #print(url)
-                    req = urllib2.Request(url)
-                    handle = urllib2.urlopen(req, timeout = 2)
+        
+                    req = urllib2.Request(url, None, {'User-Agent': Variables.userAgent})
+                    handle = urllib2.urlopen(req, timeout = 5)
                     time.sleep(1)
                     available_versions = handle.read()
                     available_versions = string.split(available_versions,"\n")
@@ -321,15 +324,23 @@ class MainWindow(wx.Frame):
             self.onglets.button_in["x86"].Enable(False)
 
     def delete32(self, event):
-        version = self.onglets.list_ver_installed["x86"].GetItemText(self.onglets.list_ver_installed["x86"].GetSelection()).encode("utf-8","replace")
+        self.delete_common(event, "x86")
 
-        if(wx.YES == wx.MessageBox(_('Are you sure you want to delete wine {0}?').format(version).decode("utf-8","replace"), os.environ["APPLICATION_TITLE"],style=wx.YES_NO | wx.ICON_QUESTION)):
-            shutil.rmtree(Variables.playonlinux_rep+"/wine/"+os_pref+"-x86/"+version)
-
+    def delete_common(self, event, arch):
+        version = self.onglets.list_ver_installed[arch].GetItemText(self.onglets.list_ver_installed[arch].GetSelection()).encode("utf-8","replace")
+        used_version = self.checkVersionUse(arch) # Get the set of wine version used by wineprefix
+        message = _('Are you sure you want to delete wine {0}?').format(version)
+        if version in used_version:
+            message += "\n" + _('This version is CURRENTLY IN USE')
+        if(wx.YES == wx.MessageBox(message.decode("utf-8","replace"), os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
+            shutil.rmtree(Variables.playonlinux_rep+"/wine/"+os_pref+"-"+arch+"/"+version)
+            
     def install32(self, event):
-        install = self.onglets.list_apps["x86"].GetItemText(self.onglets.list_apps["x86"].GetSelection()).encode("utf-8","replace")
-        os.system("bash \""+Variables.playonlinux_env+"/bash/install_wver\" "+install+" x86 &")
+        self.install_common(event, "x86")
 
+    def install_common(self, event, arch):
+        install = self.onglets.list_apps[arch].GetItemText(self.onglets.list_apps[arch].GetSelection()).encode("utf-8","replace")
+        subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/install_wver", install, arch])
 
     def unselect64(self, event):
         if(event.GetId() == 206):
@@ -342,13 +353,10 @@ class MainWindow(wx.Frame):
             self.onglets.button_in["amd64"].Enable(False)
 
     def delete64(self, event):
-        version = self.onglets.list_ver_installed["amd64"].GetItemText(self.onglets.list_ver_installed["amd64"].GetSelection()).encode("utf-8","replace")
-        if(wx.YES == wx.MessageBox("Are you sure you want to delete wine "+version+"?", style=wx.YES_NO | wx.ICON_QUESTION)):
-            shutil.rmtree(Variables.playonlinux_rep+"/wine/"+os_pref+"-amd64/"+version)
+        self.delete_common(event, "amd64")
 
     def install64(self, event):
-        install = self.onglets.list_apps["amd64"].GetItemText(self.onglets.list_apps["amd64"].GetSelection()).encode("utf-8","replace")
-        os.system("bash \""+Variables.playonlinux_env+"/bash/install_wver\" "+install+" amd64 &")
+        self.install_common(event, "amd64")
 
     def getVersions(self, arch="x86"):
         if(arch == "x86"):
@@ -356,6 +364,15 @@ class MainWindow(wx.Frame):
         if(arch == "amd64"):
             self.download64.thread_message = "get"
 
+    def checkVersionUse(self, arch): # Check the wine version use by wineprefix
+        used_versions = set([])
+        prefixes = os.listdir(Variables.playonlinux_rep+"/wineprefix/") # List of wineprefix
+        prefixes.remove('default') # Remove 'default' (no wine version use by it)
+        for prefix in prefixes:
+            if playonlinux.GetSettings("ARCH", prefix) == arch:
+                wine_version = playonlinux.GetSettings("VERSION", prefix)
+                used_versions.add(wine_version)
+        return(used_versions)
 
     def WriteVersion(self, arch="x86"):
         self.onglets.imagesapps[arch].RemoveAll()
@@ -378,19 +395,26 @@ class MainWindow(wx.Frame):
 
         root2 = self.onglets.list_ver_installed[arch].AddRoot("")
         wfolder = os_pref+"-"+arch
+        
+        used_version = self.checkVersionUse(arch) # Get the set of wine version used by wineprefix
 
         installed_versions = os.listdir(Variables.playonlinux_rep+"/wine/"+wfolder)
         installed_versions.sort(key=keynat)
         installed_versions.reverse()
         self.i = 0
         self.j = 0
+        boldFont = self.GetFont()
+        boldFont.SetWeight(wx.BOLD)
         while(self.i < len(installed_versions)):
             if(os.path.isdir(Variables.playonlinux_rep+"/wine/"+wfolder+"/"+installed_versions[self.i])):
+                itemId = self.onglets.list_ver_installed[arch].AppendItem(root2,installed_versions[self.i],self.j)
                 if(len(os.listdir(Variables.playonlinux_rep+"/wine/"+wfolder+"/"+installed_versions[self.i])) == 0):
                     self.onglets.imagesapps_i[arch].Add(wx.Bitmap(Variables.playonlinux_env+"/etc/install/wine-warning.png"))
-                else:
+                elif installed_versions[self.i] not in used_version:
                     self.onglets.imagesapps_i[arch].Add(wx.Bitmap(Variables.playonlinux_env+"/etc/install/wine.png"))
-                self.onglets.list_ver_installed[arch].AppendItem(root2,installed_versions[self.i],self.j)
+                else: # Clearly show the wine version in use
+                    self.onglets.imagesapps_i[arch].Add(wx.Bitmap(Variables.playonlinux_env+"/etc/install/wine-in-use.png"))
+                    self.onglets.list_ver_installed[arch].SetItemFont(itemId, boldFont)
                 self.j += 1
             self.i += 1
         try :

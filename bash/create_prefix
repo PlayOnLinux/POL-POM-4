@@ -18,6 +18,7 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
 
 # PlayOnLinux / PlayOnMac 4 manual installation
+
 [ "$PLAYONLINUX" = "" ] && exit 
 source "$PLAYONLINUX/lib/sources"
 
@@ -41,7 +42,7 @@ else
 	WINEVERSIONLIST="System"
 fi
 	
-WINEVERSIONDIRLIST=$(find "$REPERTOIRE/wine/$OS_NAME-$POL_ARCH/"* -maxdepth 0 -type d)
+WINEVERSIONDIRLIST=$(find "$POL_USER_ROOT/wine/$OS_NAME-$POL_ARCH/"* -maxdepth 0 -type d)
 for single in $WINEVERSIONDIRLIST ; do
   singleparsed=${single##*/}
   if [ "$WINEVERSIONLIST" = "" ]; then

@@ -20,17 +20,30 @@
 #Variables
 die() ## PHP function copy
 {
-	echo "$@"
-	exit
+	echo "$@" 1>&2
+	exit 1
 }
-[ "$(uname -s)" = "Darwin" ] || die "This script must be run on a Darwin system"
 
-if [ "$1" == "--version" ]
+usage() {
+    local self="$(basename $0)"
+    echo "Usage: $self"
+    echo "       $self [-h] [--help]"
+#    echo "       $self --run <Shortcut name> [<Filename>]"
+    echo "       $self --version"
+}
+
+if [ "$1" = "-h" -o "$1" = "--help" ]; then
+	usage
+	exit 0
+elif [ "$1" = "--version" ]
 then
 	cd "$(dirname "$0")"
 	version="$(cat python/lib/Variables.py | grep 'os.environ\["VERSION"\] = ' | cut -d = -f2 | tr -d \" | tr -d " ")"
-	die "PlayOnMac $version"
+	echo "PlayOnMac $version"
+	exit 0
 fi
+
+[ "$(uname -s)" = "Darwin" ] || die "This script must be run on a Darwin system"
 
 export PYTHON="python"
 export POL_OS="Mac"

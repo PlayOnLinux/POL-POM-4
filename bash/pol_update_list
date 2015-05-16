@@ -18,20 +18,20 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
 
 
-# This script calls maj_check to update POL
+# This script calls update_check to update POL
 export DONT_MONITOR="TRUE"
 [ "$PLAYONLINUX" = "" ] && exit 0
 source "$PLAYONLINUX/lib/sources"
 
-config_maj() # Celle ci est exécuté à chaque ligne (wget | config_maj), elle traite tout
+config_update() # Parse get_list_v4.php output line by line on stdin
 {
 	read totlines
 
 	# Display 10% for fetching lists, plus 90% for fetching icons
         echo 0
         echo -n "" > "$POL_USER_ROOT/tmp/icons_fetch_list"
-	numfetch=0
-	lines=0
+	local numfetch=0
+	local lines=0
 	while read line; do
 		[ "$line" = "" ] && break
 		IFS="/" read file content download_icon testing nocd free <<< "$line"
@@ -48,7 +48,7 @@ config_maj() # Celle ci est exécuté à chaque ligne (wget | config_maj), elle 
 
 	if [ $numfetch -gt 0 ]; then
 		echo 10
-		i=0
+		local i=0
 	        cd "$POL_USER_ROOT/configurations/icones"
 		${POL_WGET/-q} -nv -nd -i "$POL_USER_ROOT/tmp/icons_fetch_list" 2>&1 |\
 		$SED -ue '/URL:/!d; s/^.*-> "\(.*\)".*$/\1/'|\
@@ -62,7 +62,7 @@ config_maj() # Celle ci est exécuté à chaque ligne (wget | config_maj), elle 
 	fi
 	rm "$POL_USER_ROOT/tmp/icons_fetch_list" 2>/dev/null
 }
-get_packages_icons()
+get_packages_icons() # Parse get_packages.php output line by line on stdin
 {
 	while read line; do
 		content="$(echo "$line" | cut -d ":" -f 1)"
@@ -78,42 +78,41 @@ get_packages_icons()
 	done
 	rm "$POL_USER_ROOT/tmp/icons_fetch_list2" 2>/dev/null
 }
-maj_check ()
+update_check ()
 {
-	#clean_tmp
 	WEB_TIMESTAMP="$($POL_WGET "$SITE/update_mark.txt" -O- 2> /dev/null)"
 	LAST_TIMESTAMP="$(POL_Config_Read LAST_TIMESTAMP)"
 
-	if $POL_WGET "$SITE/V4_data/repository/get_packages.php" -O- > "$REPERTOIRE/configurations/POL_Functions"; then
-		 mv "$REPERTOIRE/configurations/POL_Functions" "$REPERTOIRE/configurations/listes/POL_Functions"
-		 cat "$REPERTOIRE/configurations/listes/POL_Functions" | grep ':1$' | get_packages_icons
+	if $POL_WGET "$SITE/V4_data/repository/get_packages.php" -O- > "$POL_USER_ROOT/configurations/POL_Functions"; then
+		 mv "$POL_USER_ROOT/configurations/POL_Functions" "$POL_USER_ROOT/configurations/listes/POL_Functions"
+		 cat "$POL_USER_ROOT/configurations/listes/POL_Functions" | grep ':1$' | get_packages_icons
 	fi
 	# Gecko
-	$POL_WGET "$GECKO_SITE/gecko.lst" -O- > "$REPERTOIRE/tmp/gecko.lst" && mv "$REPERTOIRE/tmp/gecko.lst" "$REPERTOIRE/configurations/listes/gecko.lst"
+	$POL_WGET "$GECKO_SITE/gecko.lst" -O- > "$POL_USER_ROOT/tmp/gecko.lst" && mv "$POL_USER_ROOT/tmp/gecko.lst" "$POL_USER_ROOT/configurations/listes/gecko.lst"
 	# Mono
-	$POL_WGET "$MONO_SITE/mono.lst" -O- > "$REPERTOIRE/tmp/mono.lst" && mv "$REPERTOIRE/tmp/mono.lst" "$REPERTOIRE/configurations/listes/mono.lst"
-	if [ ! "$WEB_TIMESTAMP" = "" ] && [ ! "$WEB_TIMESTAMP" = "$LAST_TIMESTAMP" ] # On évite les mises à jours inutiles
+	$POL_WGET "$MONO_SITE/mono.lst" -O- > "$POL_USER_ROOT/tmp/mono.lst" && mv "$POL_USER_ROOT/tmp/mono.lst" "$POL_USER_ROOT/configurations/listes/mono.lst"
+	if [ ! "$WEB_TIMESTAMP" = "" ] && [ ! "$WEB_TIMESTAMP" = "$LAST_TIMESTAMP" ] # Skip useless updates
 	then
 		POL_Debug_Message "Web version : $WEB_TIMESTAMP"
 		POL_Debug_Message "Current local version : $LAST_TIMESTAMP"
 		POL_Debug_Message "Updating list"
-		mkdir -p "$REPERTOIRE/configurations/listes/"
-		cd "$REPERTOIRE/configurations/listes"
+		mkdir -p "$POL_USER_ROOT/configurations/listes/"
+		cd "$POL_USER_ROOT/configurations/listes"
 		rm 0 1 2 3 4 5 6 7 8 9 search 2> /dev/null
 		touch 0 1 2 3 4 5 6 7 8 9 search
 		
 		echo 0
 		if [ "$POL_OS" = "Linux" ]
 		then
-			$POL_WGET "$SITE/V4_data/repository/get_list_v4.php" -O- | config_maj
+			$POL_WGET "$SITE/V4_data/repository/get_list_v4.php" -O- | config_update
 			$POL_WGET "$SITE/V4_data/repository/get_md5_list.php?playonlinux=1" -O- > md5sums
 		elif [ "$POL_OS" = "FreeBSD" ]
 		then
-			$POL_WGET "$SITE/V4_data/repository/get_list_v4.php" -O- | config_maj
+			$POL_WGET "$SITE/V4_data/repository/get_list_v4.php" -O- | config_update
 			$POL_WGET "$SITE/V4_data/repository/get_md5_list.php?playonlinux=1" -O- > md5sums
 		
 		else
-			$POL_WGET "$SITE/V4_data/repository/get_list_v4.php?playonmac=1" -O- | config_maj
+			$POL_WGET "$SITE/V4_data/repository/get_list_v4.php?playonmac=1" -O- | config_update
 			$POL_WGET "$SITE/V4_data/repository/get_md5_list.php?playonmac=1" -O- > md5sums
 		fi
 		POL_Config_Write LAST_TIMESTAMP "$WEB_TIMESTAMP"
@@ -122,4 +121,4 @@ maj_check ()
 	fi
 }
 
-maj_check
+update_check

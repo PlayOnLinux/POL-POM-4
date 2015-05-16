@@ -27,24 +27,22 @@ install_plugins ()
 	# Install defaults plugin into home directory
 	# Usage: install_plugins
 	
-	#declaration de variables locale
-	#le P c'est pour euh POL/Package/?
+	# Package local variables
 	local Puid Pfichier PinstDir PplugStatus PverStr Pversion plugStatus
-	#la le U par contre c'est pour user
+	# User local variables
 	local Uuid Ufichier UinstDir UplugStatus UverStr Uversion Uligne
-	# _2 parce que avant c'était pas pareil 
+	# _2 because format is not backward compatible
 	readonly ULST="$POL_USER_ROOT/configurations/plugins_2"
 	touch $ULST
 
-	#lecture du fichier ligne/ligne
+	cat < "$PLAYONLINUX/plugins/plugins.lst" |\
 	while read ligne
 	do
-		#sauter les lignes qui commence par #
+		# skip empty and comment lines
 		grep -q '^#' <<< $ligne && continue
-		#et les lignes vides ... parce que ça fait plus propre
 		grep -q '^$' <<< $ligne && continue
 
-		#paf pif split!
+		# Split fields
 		Puid=$(cut -d';' -f1 <<< $ligne)
 		Pfichier=$(cut -d';' -f2 <<< $ligne)
 		PinstDir=$(cut -d';' -f3 <<< $ligne)
@@ -55,92 +53,76 @@ install_plugins ()
 		Pmac=$(cut -d';' -f8 <<< $ligne)
 		PfreeBSD=$(cut -d';' -f8 <<< $ligne)
 
-		# On complique un peu le truc (07/07/2011)
+		# Install only OS compatible plugins (07/07/2011)
 		install="false"
-		[ "$POL_OS" = "Linux" ] && [ "$Plinux" = "1" ] && install="true"
-		[ "$POL_OS" = "FreeBSD" ] && [ "$PfreeBSD" = "1" ] && install="true"
-		[ "$POL_OS" = "Mac" ] && [ "$Pmac" = "1" ] && install="true"
-		
-		if [ "$install" = "true" ]
-		then
+		[ "$POL_OS" = "Linux" -a "$Plinux" = "1" ] && install="true"
+		[ "$POL_OS" = "FreeBSD" -a "$PfreeBSD" = "1" ] && install="true"
+		[ "$POL_OS" = "Mac" -a "$Pmac" = "1" ] && install="true"
+		[ "$install" = "true" ] || continue
+
 		[ "$SILENT" = "TRUE" ] || POL_Debug_Message "$(eval_gettext "Checking plugin: ")$PinstDir..."
 		
+		# Look for existing local installation, the ";" matters
 		Uligne=$(grep "^$Puid;" $ULST)
-		#tres important le ; !
-		
-		plugStatus="$PplugStatus" #ouai ouai c'est débile d'utiliser 2 variables pour la même chose :D
 
-		#chk si la ligne existe déjà
 		if [ -n "$Uligne" ] ; then
-			#oui
+			# Plugin is already installed
 
-			#la même mais avec un U =) 
-			#y a des trucs dont on se fiche mais bon c/c is great
+			# Split fields again
 			Uuid=$(cut -d';' -f1 <<< $Uligne)
 			Ufichier=$(cut -d';' -f2 <<< $Uligne)
 			UinstDir=$(cut -d';' -f3 <<< $Uligne)
 			UplugStatus=$(cut -d';' -f4 <<< $Uligne)
 			UverStr=$(cut -d';' -f5 <<< $Uligne)
 			Uversion=$(cut -d';' -f6 <<< $Uligne)
-			#using let to replace automaticly invalid number by 0 
+			#using let to automaticly replace invalid numbers with 0 
 			let "Uversion = Uversion"
 			let "Pversion = Pversion"
 
-			#chk version
-			#si la version du P est la même ou plus old que l'U on passe au plugin suivant
+			# Check if plugin needs upgrading
 			[ $Pversion -gt $Uversion ] || continue
 
-			#bon ben la c'est sur le gus a vieux truc
-				[ "$SILENT" = "TRUE" ] || POL_Debug_Message "   -->$(eval_gettext 'Updating plugin. Previous: ')'$UverStr'/$Uversion. $(eval_gettext 'New: ')'$PverStr'/$Pversion."
-			
-			#est ce que le plugin était déjà actif?
-			#UplugStatus="disable"
-			[ -f "$POL_USER_ROOT/plugins/$UinstDir/enabled" ] && plugStatus="enable"
-			#la c'est barbare ... si déjà actif on force l'update actif ...
-			#sinon dépend du plugins.lst
+			[ "$SILENT" = "TRUE" ] || POL_Debug_Message "   -->$(eval_gettext 'Updating plugin. Previous: ')'$UverStr'/$Uversion. $(eval_gettext 'New: ')'$PverStr'/$Pversion."
 
+			# Already enabled plugins stay enabled (otherwise go with plugins.lst default status)
+			[ -f "$POL_USER_ROOT/plugins/$UinstDir/enabled" ] && PplugStatus="enable"
 
-			#on vire l'ancienne installation (utile si le plugin change de place)
-			#les perdants sont les plugins qui gardent des fichiers de config dans leur dossier ... tant pis pour eux
+			# Uninstall previous version, plugins shouldn't store state in their installation directory!
 			rm -rf "$POL_USER_ROOT/plugins/$UinstDir/"
-
-			#on vire la ligne dans le fichier utilisateur 
 			grep -v "^$Puid;" "$ULST" > "$POL_USER_ROOT/tmp/ulst.tmp"
 			mv -f "$POL_USER_ROOT/tmp/ulst.tmp" "$ULST"
-			#voilà ménage fait plus qu'à installer
+
+			# Ready for reinstallation
 		fi
 
+		# Installation
 		[ "$SILENT" = "TRUE" ] || POL_Debug_Message "   -->$(eval_gettext "Installing plugin: ")'$PinstDir'."
-		#là on installe
 		"$PLAYONLINUX/playonlinux-pkg" -i "$PLAYONLINUX/plugins/$Pfichier" > /dev/null
 
-		## =~ ok pour enable et enabled
-		#active or nto
-		if [[ "$plugStatus" =~ "enable" ]]
+		## =~ to match either enable or enabled
+		if [[ "$PplugStatus" =~ "enable" ]]
 		then
 			touch "$POL_USER_ROOT/plugins/$PinstDir/enabled"
 		fi
 
-		#et on enregistre qu'on vient de faire
-		echo "$Puid;$Pfichier;$PinstDir;$plugStatus;$PverStr;$Pversion" >> $ULST
-	fi
-	#est voilà on continue .... et moi j'ai fait cramer mes patates
-	done < "$PLAYONLINUX/plugins/plugins.lst"
+		# Update installed packages list
+		echo "$Puid;$Pfichier;$PinstDir;$PplugStatus;$PverStr;$Pversion" >> $ULST
+	done
 }
 
-#### This part of the script load plugins libs
+#### Load plugins libs
 PREVPWD="$PWD"
-mkdir -p "$REPERTOIRE/plugins"
-cd "$REPERTOIRE/plugins"
-for file in *
+mkdir -p "$POL_USER_ROOT/plugins" &&
+cd "$POL_USER_ROOT/plugins" &&
+for plugin in *
 do
-	MY_FILE="$REPERTOIRE/plugins/$file"
-	if [ -e "$MY_FILE/enabled" ]
+	plugin_dir="$POL_USER_ROOT/plugins/$plugin"
+	if [ -e "$plugin_dir/enabled" ]
 	then
-		#echo "Loading $file"
-		if [ -e "$MY_FILE/scripts/lib" ]
+		#echo "Loading $plugin"
+		if [ -e "$plugin_dir/scripts/lib" ]
 		then
-			source "$MY_FILE/scripts/lib"
+			source "$plugin_dir/scripts/lib"
 		fi
 	fi
 done

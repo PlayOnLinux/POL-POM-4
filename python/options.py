@@ -19,12 +19,11 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 from asyncore import dispatcher
-import wxversion, os, getopt, sys, urllib, signal, socket, string
+import wxversion, os, subprocess, getopt, sys, urllib, signal, socket, string
 import wx, time, re
 import webbrowser, shutil
 import threading, time, codecs
 from select import select
-#from subprocess import Popen,PIPE
 
 import lib.Variables as Variables
 import lib.lng as lng
@@ -102,10 +101,10 @@ class Onglets(wx.Notebook):
         if(self.Navigator.GetValue() == "Default"):
             webbrowser.open("http://www.playonlinux.com")
         else:
-            os.system(self.Navigator.GetValue()+" http://www.playonlinux.com &")
+            subprocess.Popen([self.Navigator.GetValue(), "http://www.playonlinux.com/"])
 
     def term_test(self, event):
-        os.system("bash "+Variables.playonlinux_env+"/bash/terminals/"+self.Term.GetValue()+" sleep 2 &")
+        subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/terminals/"+self.Term.GetValue(), "sleep", "2"])
 
     def Internet(self, nom):
         self.panelInternet = wx.Panel(self, -1)
@@ -387,7 +386,7 @@ class Onglets(wx.Notebook):
     def setup_plug(self, event):
         self.current_plugin = self.pluginlist.GetItemText(self.pluginlist.GetSelection())
         self.plugin_path = Variables.playonlinux_rep+"/plugins/"+self.current_plugin
-        os.system("bash \""+self.plugin_path+"/scripts/options\" &")
+        subprocess.Popen(["bash", self.plugin_path+"/scripts/options"])
 
     def add_plug(self, event):
         self.FileDialog = wx.FileDialog(self)
@@ -396,7 +395,7 @@ class Onglets(wx.Notebook):
         result = self.FileDialog.ShowModal()
         if(result == wx.ID_OK and self.FileDialog.GetPath() != ""):
             if(wx.YES == wx.MessageBox(_("Are you sure you want to install: ").decode("utf-8","replace")+self.FileDialog.GetPath()+"?",os.environ["APPLICATION_TITLE"] ,style=wx.YES_NO | wx.ICON_QUESTION)):
-                os.system("bash \""+Variables.playonlinux_env+"/playonlinux-pkg\" -i \""+self.FileDialog.GetPath().encode("utf-8","replace")+"\"")
+                subprocess.call(["bash", Variables.playonlinux_env+"/playonlinux-pkg", "-i", self.FileDialog.GetPath().encode("utf-8","replace")])
                 self.LoadPlugins()
         self.FileDialog.Destroy()
 
@@ -453,7 +452,7 @@ class Onglets(wx.Notebook):
         self.txtGLX.SetValue(self.result)
 
     def system_info(self, event):
-        self.txtGLX.SetValue(os.popen("bash \""+Variables.playonlinux_env+"/bash/system_info\" &", "r").read())
+        self.txtGLX.SetValue(subprocess.check_output(["bash", Variables.playonlinux_env+"/bash/system_info"]))
 
     def SupprimePage(self, index):
         self.DeletePage(index)

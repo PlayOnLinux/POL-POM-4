@@ -18,7 +18,7 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 import wx
-import os, sys, codecs, string, socket, urllib, urllib2
+import os, sys, subprocess, codecs, string, socket, urllib, urllib2
 import wx.html, threading, time, wx.animate
 
 import lib.Variables as Variables, sp
@@ -178,16 +178,14 @@ class InstallWindow(wx.Frame):
 
         #self.cats_icons[name].Bind(wx.EVT_LEFT_DOWN, 2000+iid, self.AddApps)
         
-        self.cats_links[name].SetColours(playonlinux.get_foreground_colour(), playonlinux.get_foreground_colour(), playonlinux.get_foreground_colour())
+        self.cats_links[name].SetColours(playonlinux.get_foreground_colour(),playonlinux.get_foreground_colour(),playonlinux.get_foreground_hover_colour())
         self.cats_links[name].AutoBrowse(False)
         self.cats_links[name].UpdateLink(True)
         self.cats_links[name].SetUnderlines(False, False, False)
         
         self.cats_links[name].SetFont(self.fontText)
         self.cats_links[name].SetBackgroundColour(playonlinux.get_background_colour())
-
-        self.cats_links[name].SetFont(self.fontText)
-
+        
     def __init__(self,parent,id,title):
         wx.Frame.__init__(self, parent, -1, title, size = (800, 550+Variables.windows_add_size), style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX)
         self.cats_icons = {}
@@ -266,16 +264,16 @@ class InstallWindow(wx.Frame):
 
         self.nocdChk = wx.CheckBox(self.panelItems, 402, pos=(position,82-71), size=wx.DefaultSize)
         position += 15+self.search_offset
-        self.noDvDCapt = wx.StaticText(self.panelItems, -1, _("No-cd needed"), (position,82-71+self.search_offset), wx.DefaultSize)
+        self.nocdCapt = wx.StaticText(self.panelItems, -1, _("No-cd needed"), (position,82-71+self.search_offset), wx.DefaultSize)
 
-        position += self.noDvDCapt.GetSize()[0]+10
+        position += self.nocdCapt.GetSize()[0]+10
 
-        self.freeChk = wx.CheckBox(self.panelItems, 403, pos=(position,82-71), size=wx.DefaultSize)
-        self.freeChk.SetValue(True)
+        self.commercialChk = wx.CheckBox(self.panelItems, 403, pos=(position,82-71), size=wx.DefaultSize)
+        self.commercialChk.SetValue(True)
         position += 15+self.search_offset
-        self.FreeCapt = wx.StaticText(self.panelItems, -1, _("Commercial"), (position,82-71+self.search_offset), wx.DefaultSize)
+        self.commercialCapt = wx.StaticText(self.panelItems, -1, _("Commercial"), (position,82-71+self.search_offset), wx.DefaultSize)
 
-        position += self.FreeCapt.GetSize()[0]+10
+        position += self.commercialCapt.GetSize()[0]+10
         self.star_x = position
 
         self.lasthtml_content = ""
@@ -307,12 +305,12 @@ class InstallWindow(wx.Frame):
         self.new_panel.Hide()
 
 
-        self.ManualInstall = wx.lib.hyperlink.HyperLinkCtrl(self.panelFenp, 111, _("Install a non-listed program"), pos=(10,515))
-        self.ManualInstall.SetColours(playonlinux.get_foreground_colour(),playonlinux.get_foreground_colour(),playonlinux.get_foreground_colour())
-        self.ManualInstall.AutoBrowse(False)
-        self.ManualInstall.UpdateLink(True)
+        self.manualInstall = wx.lib.hyperlink.HyperLinkCtrl(self.panelFenp, 111, _("Install a non-listed program"), pos=(10,515))
+        self.manualInstall.SetColours(playonlinux.get_foreground_colour(),playonlinux.get_foreground_colour(),playonlinux.get_foreground_hover_colour())
+        self.manualInstall.AutoBrowse(False)
+        self.manualInstall.UpdateLink(True)
         
-        #self.ManualInstall.SetNormalColour(playonlinux.get_foreground_colour())
+        #self.manualInstall.SetNormalColour(wx.Colour(0,0,0))
 
         # Panel wait
         self.animation_wait = wx.animate.GIFAnimationCtrl(self.panelWait, -1, Variables.playonlinux_env+"/resources/images/install/wait.gif", ((800-128)/2,(550-128)/2-71))
@@ -328,7 +326,7 @@ class InstallWindow(wx.Frame):
         # panel manual
 
 
-   # self.AddApps()
+        # self.AddApps()
 
         #wx.EVT_TREE_SEL_CHANGED(self, 105, self.AddApps)
         wx.EVT_TREE_SEL_CHANGED(self, 106, self.AppsDetails)
@@ -444,13 +442,6 @@ class InstallWindow(wx.Frame):
             self.EasterEgg.Show()
             self.EasterEgg.Center(wx.BOTH)
         else:
-            if(playonlinux.GetSettings("FIRST_INSTALL_DONE_WITH_WINE") == ""):
-                wx.MessageBox(_("When {0} installs a Windows program: \n\n - Leave the default location\n - Do not tick the checkbox 'Run the program' if asked.").format(os.environ["APPLICATION_TITLE"]),_("Please read this"))
-                if(os.environ["POL_OS"] == "Linux"):
-                    # Distro packagers: please keep this message on your package. It's a real pain for wine devs
-                    wx.MessageBox(_("{0} is not related to WineHQ.\n\nTo ensure that the results will be comparable from one computer to another and to avoid regressions, we specify a working wine version for each program. This wine version will quickly become out to date, but we won't change the installer until new tests are made and it takes time.\n\nFor those reason, please do NOT send any bug report or ask any support on WineHQ forums if you are using PlayOnLinux.\n\nIf you want to help the project to make some tests in order to avoid using out of date wine versions, do not hesitate to go on our website.\n\nThank you.").format(os.environ["APPLICATION_TITLE"]),_("Please read this"))
-                playonlinux.SetSettings("FIRST_INSTALL_DONE_WITH_WINE","TRUE")
-
             if(os.path.exists(Variables.playonlinux_rep+"/configurations/listes/search")):
                 content = codecs.open(Variables.playonlinux_rep+"/configurations/listes/search", "r", "utf-8").read().split("\n")
                 found = False
@@ -468,7 +459,7 @@ class InstallWindow(wx.Frame):
                         if(split[2] == "1"):
                             wx.MessageBox(_("This program contains a protection against copy (DRM) incompatible with emulation.\nThe only workaround is to use a \"no-cd\" patch, but since those can also be used for piracy purposes we won't give any support on this matter."), _("Please read this"))
 
-            os.system("bash \""+Variables.playonlinux_env+"/bash/install\" \""+InstallApplication.encode("utf-8","replace")+"\"&")
+            subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/install", InstallApplication.encode("utf-8","replace")])
 
         self.Destroy()
         return
@@ -526,7 +517,7 @@ class InstallWindow(wx.Frame):
         self.DelApps()
         self.root_apps = self.list_apps.AddRoot("")
         self.i = 0
-        array.sort()
+        array.sort(key=unicode.upper)
         for app in array:
             app_array = app.split("~")
             appname = app_array[0]
@@ -542,7 +533,7 @@ class InstallWindow(wx.Frame):
             show = True
             if nocd == 1 and self.nocdChk.IsChecked() == 0:
                 show = False
-            if free == 0 and self.freeChk.IsChecked() == 0:
+            if free == 0 and self.commercialChk.IsChecked() == 0:
                 show = False
             if testing == 1 and self.testingChk.IsChecked() == 0:
                 show = False

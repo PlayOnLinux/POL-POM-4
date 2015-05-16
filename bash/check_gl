@@ -17,17 +17,16 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
 
-# This is the startup script
-
-[ "$PLAYONLINUX" = "" ] && exit 0
-source "$PLAYONLINUX/lib/sources" 
-
-[ "$POL_OS" = "Linux" ] || exit 0
 # This script tests OpenGL libs
 # Usage :
 
 # check_gl [arch]
 # Arch = (x86 | amd64)
+
+[ "$PLAYONLINUX" = "" ] && exit 0
+source "$PLAYONLINUX/lib/sources" 
+
+[ "$POL_OS" = "Linux" ] || exit 0
 
 [ "$2" = "stdout" ] && cmd="$echo" || cmd="POL_Debug_Message"
 [ "$2" = "stdout" ] && cmdW="$echo" || cmdW="POL_Debug_Warning"
@@ -52,8 +51,9 @@ Check_OpenGL()
 			exit 2
 		fi
 	else
+		$cmdW "check_dd_$1 missing, test skipped"
 		exit 0
-	fi	
+	fi
 }
 cd /tmp
 

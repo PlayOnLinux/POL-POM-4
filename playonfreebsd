@@ -50,8 +50,16 @@
 #Variables
 die() ## PHP function copy
 {
-	echo "$@"
-	exit
+	echo "$@" 2>&1
+	exit 1
+}
+
+usage() {
+    local self="$(basename $0)"
+    echo "Usage: $self"
+    echo "       $self [-h] [--help]"
+    echo "       $self --run <Shortcut name> [<Filename>]"
+    echo "       $self --version"
 }
 
 export WorkingDirectory="$PWD"
@@ -61,15 +69,17 @@ POLDIR="$(dirname "$0")"
 cd "$POLDIR"
 POLDIR="$PWD"
 
-if [ "$1" = "--version" ]; then
+if [ "$1" = "-h" -o "$1" = "--help" ]; then
+	usage
+	exit 0
+elif [ "$1" = "--version" ]; then
 	cd "$POLDIR"
 	version="$(cat python/lib/Variables.py | grep 'os.environ\["VERSION"\] = ' | cut -d = -f2 | tr -d \" | tr -d " ")"
-	die "PlayOnLinux $version"
+	echo "PlayOnFreeBSD $version"
+	exit 0
 fi
 
-if [ ! "$(uname -s)" = "FreeBSD" ]; then 
-	die "This script must be run on a FreeBSD system"
-fi
+[ "$(uname -s)" = "FreeBSD" ] || die "This script must be run on a FreeBSD system"
 
 export POL_PYTHON=""
 export POL_OS="FreeBSD"
@@ -105,14 +115,8 @@ if [ "$1" = "--run" ]; then
 	fi
 else
 	cd "$POLDIR/python"
-	while [ "$POL_PYTHON" != "none" ]; do
-		"$POL_PYTHON" mainwindow.py "$@"
-		exitcode=$?
-                [ $exitcode -eq 0 -o $exitcode -eq 63 ] && break
-
-		# Do we really want this fallback algorithm?
-        search_python
-	done
+	search_python && "$POL_PYTHON" mainwindow.py "$@"
+	exitcode=$?
 fi
 
 [ $exitcode -eq 63 ] && exec bash "$POLDIR/playonbsd"

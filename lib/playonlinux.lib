@@ -27,10 +27,10 @@
 ##### PlayOnLinux functions #####
 #################################
 
-construire_repertoire_personnel ()
+build_user_state_directory ()
 {
 	# Build PlayOnLinux's home directories
-	# Usage : construire_repertoire_personnel
+	# Usage : build_user_state_directory
 	# Warning ! This function is essential. setupwindow.lib will not work if theses directories are not built
 	
 	mkdir -p "$POL_USER_ROOT/wineprefix/default/"
@@ -76,6 +76,7 @@ clean_tmp ()
 	# Usage: clean_tmp
 	# Be careful, it might be very dangerous !
 	# Cleanup is done in background
+
 	if [ "$POL_OS" = "Linux" ] ||  [ "$POL_OS" = "FreeBSD" ]; then # Don't clean tmp if POL is already running.
 		if [ "$(ps ux | grep '[p]ython mainwindow\.py' | wc -l)" -gt 1 ]; then
 			POL_Debug_Message "PlayOnLinux seems to be already running. Don't cleaning tmp"
@@ -97,6 +98,7 @@ POL_Config_Write ()
 	# Add an entry to PlayOnLinux's config file
 	# If the entry already exists, it will replace it
 	# Usage : POL_Config_Write [KEY] [VALUE]
+
 	POL_Debug_Message "Config write: $1 $2"
 	cat "$POL_USER_ROOT/playonlinux.cfg" 2> /dev/null | grep -v "^$1=" > "$POL_USER_ROOT/tmp/newcfg$$"
 	echo "$1=$2" >> "$POL_USER_ROOT/tmp/newcfg$$"
@@ -106,6 +108,7 @@ POL_Config_Delete ()
 {
 	# Delete an entry in PlayOnLinux's config file
 	# Usage : POL_Config_Delete [KEY]
+
 	POL_Debug_Message "Config delete: $1"
 	cat "$POL_USER_ROOT/playonlinux.cfg" 2> /dev/null | grep -v "^$1=" > "$POL_USER_ROOT/tmp/newcfg$$"
 	mv "$POL_USER_ROOT/tmp/newcfg$$" "$POL_USER_ROOT/playonlinux.cfg"
@@ -114,6 +117,7 @@ POL_Config_Read ()
 {
 	# Read an entry PlayOnLinux's config file
 	# Usage : POL_Config_Read [KEY]
+
 	#POL_Debug_Message "Config read $1"
 	cat "$POL_USER_ROOT/playonlinux.cfg" 2> /dev/null | grep "^$1=" | cut -d\= -f2-
 }
@@ -122,7 +126,8 @@ POL_Extension_Write ()
 {
 	# Add an entry to PlayOnLinux's extension file
 	# If the entry already exists, it will replace it
-	# Usage : POL_Config_Write [KEY] [VALUE]
+	# Usage : POL_Extension_Write [KEY] [VALUE]
+
 	POL_Debug_Message "Extension write: $1 $2" 
 	cat "$POL_USER_ROOT/extensions.cfg" 2> /dev/null | grep -v "^$1=" > "$POL_USER_ROOT/tmp/newcfg$$"
 	echo "$1=$2" >> "$POL_USER_ROOT/tmp/newcfg$$"
@@ -131,7 +136,8 @@ POL_Extension_Write ()
 POL_Extension_Delete ()
 {
 	# Delete an entry in PlayOnLinux's extension file
-	# Usage : POL_Config_Delete [KEY]
+	# Usage : POL_Extension_Delete [KEY]
+
 	POL_Debug_Message "Extension delete: $1"
 	cat "$POL_USER_ROOT/extensions.cfg" 2> /dev/null | grep -v "^$1=" > "$POL_USER_ROOT/tmp/newcfg$$"
 	mv "$POL_USER_ROOT/tmp/newcfg$$" "$POL_USER_ROOT/extensions.cfg"
@@ -139,7 +145,8 @@ POL_Extension_Delete ()
 POL_Extension_Read ()
 {
 	# Read an entry PlayOnLinux's extension file
-	# Usage : POL_Config_Read [KEY]
+	# Usage : POL_Extension_Read [KEY]
+
 	#POL_Debug_Message "Extension read: $1"
 	cat "$POL_USER_ROOT/extensions.cfg" 2> /dev/null | grep "^$1=" | cut -d\= -f2-
 }
@@ -168,15 +175,13 @@ POL_Config_PrefixRead ()
 {
 	# Read an entry in wine current prefix's config file
 	# Usage : POL_Config_PrefixRead [KEY]
+
 	cat "$WINEPREFIX/playonlinux.cfg" 2> /dev/null | grep "^$1=" | cut -d\= -f2-
 }
-
-
-
 POL_Config_DosPrefixWrite ()
 {
 	# Write something to current wine prefix's config file
-	# Usage : POL_Config_PrefixWrite [KEY] [VALUE]
+	# Usage : POL_Config_DosPrefixWrite [KEY] [VALUE]
 	
 	cat "$WINEPREFIX/playonlinux_dos.cfg" 2> /dev/null | grep -v "^$1=" > "$POL_USER_ROOT/tmp/newcfg$$"
 	echo "$1=$2" >> "$POL_USER_ROOT/tmp/newcfg$$"
@@ -186,7 +191,7 @@ POL_Config_DosPrefixWrite ()
 POL_Config_DosPrefixDelete ()
 {
 	# Delete an entry in current wine prefix's config file
-	# Usage : POL_Config_PrefixDelete [KEY]
+	# Usage : POL_Config_DosPrefixDelete [KEY]
 	
 	cat "$WINEPREFIX/playonlinux_dos.cfg" 2> /dev/null | grep -v "^$1=" > "$POL_USER_ROOT/tmp/newcfg$$"
 	mv "$POL_USER_ROOT/tmp/newcfg$$" "$WINEPREFIX/playonlinux_dos.cfg"
@@ -195,10 +200,23 @@ POL_Config_DosPrefixDelete ()
 POL_Config_DosPrefixRead ()
 {
 	# Read an entry in wine current prefix's config file
-	# Usage : POL_Config_PrefixRead [KEY]
+	# Usage : POL_Config_DosPrefixRead [KEY]
+
 	cat "$WINEPREFIX/playonlinux_dos.cfg" 2> /dev/null | grep "^$1=" | cut -d\= -f2-
 }
-
+POL_Notice_IsAck ()
+{
+    # Check if some notice has been acknowledged
+    grep -q -F "$1" "$POL_USER_ROOT/configurations/ack_notices" >&2
+}
+POL_Notice_Ack ()
+{
+    echo "$1" >> "$POL_USER_ROOT/configurations/ack_notices"
+}
+POL_Notice_ClearAllAck ()
+{
+    rm -f "$POL_USER_ROOT/configurations/ack_notices"
+}
 POL_OpenShell()
 {
 	# Open a shell in the current prefix environment
@@ -208,25 +226,19 @@ POL_OpenShell()
 	
 	if [ "$1" = "" ]
 	then
-		cat <<- EOF
-		export WINEPREFIX="$WINEPREFIX"
-		EOF
-	
+		echo "export WINEPREFIX=\"$WINEPREFIX\""
 	else
-		cat <<- EOF
-		export PLAYONLINUX="$PLAYONLINUX"
-		EOF
 		grep '^export WINEPREFIX' "$POL_USER_ROOT/shortcuts/$1"
-		echo "POL_Wine_AutoSetVersionEnv"
 	fi
 	cat <<- EOF
+	POL_Wine_AutoSetVersionEnv
 	cd "$WINEPREFIX/drive_c"
 	echo "You are in $1's virtual drive environment"
 	EOF
 	) >  "$POL_USER_ROOT/tmp/env_bash"
-	echo bash --rcfile "$POL_USER_ROOT/tmp/env_bash" > "$POL_USER_ROOT/tmp/env_bash2"
+        (echo "#!/usr/bin/env bash"; echo "exec bash --rcfile \"$POL_USER_ROOT/tmp/env_bash\" -i") > "$POL_USER_ROOT/tmp/env_bash2"
 	chmod +x "$POL_USER_ROOT/tmp/env_bash2"
-	xterm -e "$POL_USER_ROOT/tmp/env_bash2" -T "$APPLICATION_TITLE"
+	$POL_TERM -T "$APPLICATION_TITLE" -e "$POL_USER_ROOT/tmp/env_bash2"
 }
 
 
@@ -270,7 +282,7 @@ kdesu ()
 kdesudo ()
 {
 	POL_Debug_Fatal "The script tried to use sudo"
-    echo "$(eval_gettext "This function is disabled in the PlayOnlinux environment.")"
+	echo "$(eval_gettext "This function is disabled in the PlayOnlinux environment.")"
 	return 1
 }
 
@@ -278,6 +290,7 @@ POL_GPG_install_key()
 {
 	# This function installs PlayOnLinux GPG public key
 	# Usage : POL_GPG_install_key
+
 	POL_Debug_Message "Importing $APPLICATION_TITLE public key"
 	#create the gnupg directory
 	mkdir -p "$GNUPGHOME"
@@ -323,7 +336,7 @@ POL_Bash ()
 	# Equivalent of "bash" command, except that it checks the signature of the script
 	# Usage : POL_Bash [script]
 	
-	OLD_DIR="$PWD"
+	local OLD_DIR="$PWD"
 	if [ "$(POL_GPG_auth_script "$1")" = "TRUE" ]
 	then
 		cd "$OLD_DIR"
@@ -346,7 +359,7 @@ POL_Source ()
 	# Equivalent of "source" command, except that it checks the signature of the script
 	# Usage : POL_Source [script]
 	
-	OLD_DIR="$PWD"
+	local OLD_DIR="$PWD"
 	if [ "$(POL_GPG_auth_script "$1")" = "TRUE" ]
 	then
 		cd "$OLD_DIR"
@@ -356,7 +369,7 @@ POL_Source ()
 	else
 		cd "$OLD_DIR"
 		POL_SetupWindow_message "$(eval_gettext 'Warning !!\n\nThe signature of the script you are trying to run is NOT valid\n\n$APPLICATION_TITLE has not approved this script and will not be responsible from it.\nPlease ensure you know what you are doing!')" "$TITLE"
-		POL_SetupWindow_licence "$(eval_gettext 'Here the source code of the script. Check it carrefully')" "$(eval_gettext 'External library')" "$PWD/$1"
+		POL_SetupWindow_licence "$(eval_gettext 'Here the source code of the script. Check it carefully')" "$(eval_gettext 'External library')" "$PWD/$1"
 		export POL_BAD_SIGNATURE="TRUE"
 		source "$@"
 		exitcode="$?"
@@ -384,8 +397,9 @@ make_standalone_script()
 {
 	# Make the scripts that run the software in standalone package in $DIRAPP
 	# Usage : make_standalone_script [Shortcut]
-	substitute=$(printf "$2" | $SED 's/\//\\\//g' | $SED 's/ /\\ /g') # ca aussi j'aime
-	substitute2=$(printf "$2" | $SED 's/\/\//\//g' | $SED 's/\//\\\//g' | $SED 's/ /\\ /g') # ca aussi j'aime
+
+	substitute=$(printf "$2" | $SED 's/\//\\\//g' | $SED 's/ /\\ /g') # I like that too
+	substitute2=$(printf "$2" | $SED 's/\/\//\//g' | $SED 's/\//\\\//g' | $SED 's/ /\\ /g') # I like that too
 	
 	cat << EOF3 > "$DIRAPP/Contents/MacOS/playonmac"
 #!/bin/bash
@@ -424,6 +438,7 @@ make_pom_script()
 {
 	# Make the scripts that run the software in PlayOnMac .app package in $DIRAPP
 	# Usage : make_pom_script [Shortcut]
+
 	cp "$PLAYONLINUX/../unix/argv_emulator.py" "$DIRAPP/Contents/MacOS/"
  	cat << EOF2 > "$DIRAPP/Contents/MacOS/playonmac"
 #!/bin/bash
@@ -439,9 +454,9 @@ osascript /tmp/message.applescript
 export PLAYONLINUX="$PLAYONLINUX"
 export LANG="$(defaults read -g AppleLocale).UTF-8"
 export POL_LANG="$(defaults read -g AppleLocale | cut -d _ -f1)"
-export REPERTOIRE="$REPERTOIRE"
+export POL_USER_ROOT="$POL_USER_ROOT"
 export PLAYONMAC="\$PLAYONLINUX"
-export POL_USER_ROOT="\$REPERTOIRE"
+export REPERTOIRE="\$POL_USER_ROOT"
 export NOGETTEXT="TRUE"
 export POL_OS="Mac"
 
@@ -469,7 +484,7 @@ fi
 export PATH="\$PLAYONLINUX/../unix/wine/bin:\$PLAYONLINUX/../unix/image_magick/bin:\$PLAYONLINUX/../unix/tools/bin/:\$PATH"
 export LD_LIBRARY_PATH="\$PLAYONLINUX/../unix/wine/lib:\$PLAYONLINUX/../unix/tools/lib/ld:/usr/X11/lib:\$LD_LIBRARY_PATH"
 
-cd "\$REPERTOIRE/shortcuts"
+cd "\$POL_USER_ROOT/shortcuts"
 
 FILENAME="\$1"
 
@@ -486,20 +501,21 @@ make_icon()
 {
 	# Generate the icon for the package in $DIRAPP
 	# Usage : make_icon [icon_name]
+
 	rm "/tmp/icon.png"
 	cd "/tmp"
-	if [ -e "$REPERTOIRE/icones/full_size/$1" ]
+	if [ -e "$POL_USER_ROOT/icones/full_size/$1" ]
 	then
-		icon_app="$REPERTOIRE/icones/full_size/$1"
+		icon_app="$POL_USER_ROOT/icones/full_size/$1"
 		cp "$icon_app" "/tmp/icon2.png"
 		convert "/tmp/icon2.png" -resize 128x128\! "/tmp/icon.png"
 		png2icns "$DIRAPP/Contents/Resources/playonmac.icns" "/tmp/icon.png" && success=true
 	fi
 	if [ ! "$success" = "true" ]
 	then
-		if [ -e "$REPERTOIRE/icones/32/$1" ]
+		if [ -e "$POL_USER_ROOT/icones/32/$1" ]
 		then
-			icon_app="$REPERTOIRE/icones/32/$1"
+			icon_app="$POL_USER_ROOT/icones/32/$1"
 			cp "$icon_app" "/tmp/icon2.png"
 			convert "/tmp/icon2.png" -resize 32x32\! "/tmp/icon.png"
 			png2icns "$DIRAPP/Contents/Resources/playonmac.icns" "/tmp/icon.png" && success=true
@@ -588,22 +604,22 @@ EOF
 
 CleanLnkDesktop()
 {
-	# Clean Desktop from PlayOnLinux's wine shortcut
+	# Clean Desktop from PlayOnLinux's wine shortcuts
 	# Usage: CleanLnkDesktop
 	
-	mkdir -p "$REPERTOIRE/backup"
+	mkdir -p "$POL_USER_ROOT/backup"
 	for file in $HOME/Desktop/*.desktop
 	do
 		if [ ! "$(strings "$file" | grep PlayOn$POL_OS)" = "" ]
 		then
-			mv "$file" "$REPERTOIRE/backup"
+			mv "$file" "$POL_USER_ROOT/backup"
 		fi
 	done
 	for file in $HOME/Desktop/*.lnk
 	do
 		if [ ! "$(strings "$file" | grep PlayOn$POL_OS)" = "" ]
 		then
-			mv "$file" "$REPERTOIRE/backup"
+			mv "$file" "$POL_USER_ROOT/backup"
 		fi
 	done
 }
@@ -624,127 +640,127 @@ POL_SetupWindow_AutoApp()
 	CleanLnkDesktop
 }
 
-generer_icone ()
+make_desktop_shortcut ()
 {
 	# Generate a shortcut
 	# "Equivalent" of POL_SetupWindow_AutoApp for linux
-	# Usage: generer_icone [icon image file] [name of the software] [directory] [software to run] [wm class] [categories] [shorcut filename prefix]
+	# Usage: make_desktop_shortcut [icon image file] [name of the software] [directory] [software to run] [wm class] [categories] [shorcut filename prefix]
 
-	ICONE="$1"
-	NOMICONE="$2"
-	PLACE="$3"
-	EXECUTER="$4"
-	WMCLASS="$5"
-	CATEGORIES="$6"
-        ICOPREFIX="$7"
-	NOMCOURT="${ICOPREFIX}${NOMICONE}"
+	local ICON="$1"
+	local ICON_NAME="$2"
+	local DIRECTORY="$3"
+	local EXECUTABLE="$4"
+	local WMCLASS="$5"
+	local CATEGORIES="$6"
+        local ICOPREFIX="$7"
 
-	mkdir -p "$PLACE"
-	cd "$PLACE"
+	local SHORT_NAME="${ICOPREFIX}${ICON_NAME}"
+
+	mkdir -p "$DIRECTORY"
+	cd "$DIRECTORY"
 	(echo "[Desktop Entry]"
 	echo "Encoding=UTF-8"
-	echo "Name=$NOMICONE"
+	echo "Name=$ICON_NAME"
 	echo "Comment=PlayOnLinux"
 	echo "Type=Application"
-	echo "Exec=$EXECUTER %F"
-	echo "Icon=$ICONE"
-	echo "Name[fr_FR]=$NOMICONE"
+	echo "Exec=$EXECUTABLE %F"
+	echo "Icon=$ICON"
+	echo "Name[fr_FR]=$ICON_NAME"
 	echo "StartupWMClass=$WMCLASS"
-	echo "Categories=$CATEGORIES") > "$NOMCOURT.desktop"
-	chmod +x "$NOMCOURT.desktop"
+	echo "Categories=$CATEGORIES") > "${SHORT_NAME}.desktop"
+	chmod +x "${SHORT_NAME}.desktop"
 }
-
-
 detect_wineprefix()
 {
 	# Read the wineprefix of a shortcut
 	# Usage: detect_wineprefix [Shortcut]
 	
-	file="$REPERTOIRE/shortcuts/$1"
+	local file="$POL_USER_ROOT/shortcuts/$1"
 	if [ -e "$file" ]; then	
-		fichier=$(cat "$file" | grep '^export WINEPREFIX')
-		fichier=${fichier:18}
-		fichier=${fichier//"\""/""}
-		fichier=${fichier//"//"/"/"}
+		local prefix=$(grep '^export WINEPREFIX' "$file")
+		prefix=${prefix:18}
+		prefix=${prefix//"\""/""}
+		prefix=${prefix//"//"/"/"}
+		echo $prefix
 	fi
-	echo $fichier
 }
 detect_wineversion()
 {
 	# Read the wineversion of a shortcut
 	# Usage: detect_wineversion [Shortcut]
 	
-	wineprefixback="$WINEPREFIX"
-	export WINEPREFIX="$(detect_wineprefix "$1")"
+	local WINEPREFIX="$(detect_wineprefix "$1")"
 	POL_Config_PrefixRead "VERSION"
-	export WINEPREFIX="$wineprefixback"
 }
 detect_appdir()
 {
 	# Read the appdir of a shortcut
 	# Usage: detect_appdir [Shortcut]
 	
-	file="$REPERTOIRE/shortcuts/$1"
+	local file="$POL_USER_ROOT/shortcuts/$1"
 	if [ -e "$file" ]
-	then	
-	fichier=`cat "$file" | grep "cd \""`
-	fichier=${fichier:4:${#fichier}-5}
+	then
+		local appdir="$(grep '^cd \"' "$file")"
+		appdir=${appdir:4:-1}
+		echo $appdir
 	fi
-	echo $fichier
 }
 detect_appexec()
 {
 	# Read the program of a shortcut
 	# Usage: detect_appexec [Shortcut]
 	
-	file="$REPERTOIRE/shortcuts/$1"
+	local file="$POL_USER_ROOT/shortcuts/$1"
 	if [ -e "$file" ]
-	then	
-	fichier=`cat "$file" | grep "POL_Wine " | cut -d'"' -f2`
+	then
+		eval set -- $(grep '^POL_Wine ' "$file"|tail -n 1)
+		echo "$2"
 	fi
-	echo $fichier
 }
 clean_wineprefix()
 { 
 	# Detect if a prefix is still use or not.
 	# It not, ask the user if he/she wants to delete it
-	# Usage: clean_wineprefix /path/of/the/prefix
-	
-	# Ca c'est fait exprès ! On touche pas
-	[ "$1" = "$REPERTOIRE/.PlayOnLinux/wineprefix/" ] && exit
-	[ "$1" = "$REPERTOIRE/Library/PlayOnMac/" ] && exit
+	# Usage: clean_wineprefix (--non-interactive) /path/of/the/prefix
 
-	cd "$REPERTOIRE/shortcuts/"
-	# Ça aussi, j'ai pas utilisé $REPERTOIRE volontairment (question de sécu, si $REPERTOIRE est vide ou mal défini, ça peut faire mal)
-	[ "$POL_OS" = "Linux" ] && TEST=${1//".PlayOnLinux/wineprefix/"/""}
-	[ "$POL_OS" = "FreeBSD" ] && TEST=${1//".PlayOnBSD/wineprefix/"/""}
-	[ "$POL_OS" = "Mac" ] && TEST=${1//"Library/PlayOnMac/wineprefix/"/""}
+	local INTERACTIVE=1
+	if [ "$1" = "--non-interactive" ]; then
+		unset INTERACTIVE
+		shift
+	fi
+ 	local wineprefix="$1"
+        wineprefix=${wineprefix//"//"/"/"}
+
+	# Done on purpose, do not change!
+	[ "$wineprefix" = "$POL_USER_ROOT/.PlayOnLinux/wineprefix/" ] && exit
+	[ "$wineprefix" = "$POL_USER_ROOT/Library/PlayOnMac/" ] && exit
+
+	# Done without using $POL_USER_ROOT on purpose too; If it's not set or set to a wrong value it could do a lot of damage
+	local TEST
+	[ "$POL_OS" = "Linux" ] && TEST=${wineprefix//".PlayOnLinux/wineprefix/"/""}
+	[ "$POL_OS" = "FreeBSD" ] && TEST=${wineprefix//".PlayOnBSD/wineprefix/"/""}
+	[ "$POL_OS" = "Mac" ] && TEST=${wineprefix//"Library/PlayOnMac/wineprefix/"/""}
 	
 	[ "$TEST" = "" ] && exit
-	if [ "$TEST" = "$1" ]
+	if [ "$TEST" = "$wineprefix" ]
 	then
 		POL_Debug_Error "The directory is not in $APPLICATION_TITLE"
 	else
-		used=0
-		for file in *
+		local used=""
+		local OLDIFS="$IFS"
+                IFS=$'\n'
+		cd "$POL_USER_ROOT/shortcuts/" &&
+		for shortcut in *
 		do
-			fichier="${file}"
-			prefix=$(detect_wineprefix "$fichier")
-			if [ "$prefix" = "$1" ]
-				then
-				used=1
-			fi
+			[ "$(detect_wineprefix "$shortcut")" = "$wineprefix" ] && used=1
 		done
-		if [ "$used" = 1 ] 
-			then
-			echo "$1 est encore utilisé."
+                IFS="$OLDIFS"
+		if [ "$used" = 1 ]; then
+ 			POL_Debug_Warning "$1 is still in use"
 		else
-			prefix="$1"
-			prefix=$(basename "$1")
-			POL_SetupWindow_question "$(eval_gettext "Do you want to delete the virtual drive:")\n\n$prefix" "$TITLE"
-			reponse=$APP_ANSWER
-			POL_SetupWindow_wait_next_signal "$(eval_gettext 'Uninstalling...')" "$(eval_gettext '$APPLICATION_TITLE Uninstaller')" 
-			if [ "$reponse" = "TRUE" ]
+			local prefix=$(basename "$wineprefix")
+			[ "$INTERACTIVE" ] && POL_SetupWindow_question "$(eval_gettext "Do you want to delete the virtual drive:")\n\n$prefix" "$TITLE"
+			if [ "$APP_ANSWER" = "TRUE" -o -z "$INTERACTIVE" ]
 			then
 				rm -rf "$1"
 			fi
@@ -791,7 +807,7 @@ POL_Internal_SetXQuartzDisplay()
 		return
 	fi
 	if [ "$DISPLAY" = "" ]; then
-		CDISPLAY="$(find /tmp/ 2> /dev/null|grep 'org.macosforge.xquartz'|tail -n 1)"
+		local CDISPLAY="$(find /tmp/ 2> /dev/null|grep 'org.macosforge.xquartz'|tail -n 1)"
 		export DISPLAY="$CDISPLAY"
 	fi
 }
@@ -799,13 +815,13 @@ POL_Internal_KillAll()
 {
 	for WId in $(ps aux | grep $APPLICATION_TITLE | grep bash | awk '{print $2}'); 
 	do 
-		kill $WId; 
-		cat << EOF > "$REPERTOIRE/configurations/guis/$WId"
+		kill $WId
+		cat << EOF > "$POL_USER_ROOT/configurations/guis/$WId"
 MsgIn
 exit
 EOF
 sleep 1
-rm "$REPERTOIRE/configurations/guis/$WId" 2> /dev/null
+rm "$POL_USER_ROOT/configurations/guis/$WId" 2> /dev/null
 	done
 }
 
@@ -815,9 +831,15 @@ POL_System_FindPart()
 		df -P "$1"  | awk '/^\/dev/ {print $1}' || echo "$1 not found"; 
 	fi
 }
+POL_System_FindMountPoint() 
+{ 
+	if [ -e "$1" ]; then
+		df -P "$1"  | awk 'NR == 2 {print $6}' || echo "$1 not found"; 
+	fi
+}
 POL_System_PartInfo()
 {
-	awk '$1 == "'$(POL_System_FindPart "$1")'"' /etc/mtab
+	awk '$2 == "'$(POL_System_FindMountPoint "$1")'"' /etc/mtab
 }
 
 FS_Check ()
@@ -904,7 +926,7 @@ POL_Sudo()
 				SUDO_COMMAND="kdesu --"
 				unset kdesu
 			elif which sudo; then
-				SUDO_COMMAND="xterm -e sudo"
+				SUDO_COMMAND="$POL_TERM -e sudo"
 				unset sudo
 			else
 				NOSUDO="TRUE"

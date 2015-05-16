@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# -*- coding:Utf-8 -*-
+# -*- coding:utf-8 -*-
 
 # Copyright (C) 2008 Pâris Quentin
 # This program is free software; you can redistribute it and/or modify
@@ -19,11 +19,11 @@
 
 
 import wx, wx.animate, os, getopt, sys, urllib, signal, time, string, urlparse, codecs, time, threading, socket
-from subprocess import Popen,PIPE
+import subprocess, shlex, signal
 import lib.Variables as Variables
 import lib.lng, lib.playonlinux as playonlinux
 lib.lng.Lang()
-
+urllib.URLopener.version = Variables.userAgent # Arg ... 
 
 class Download(threading.Thread):
     def __init__(self, url, local):
@@ -53,9 +53,10 @@ class Download(threading.Thread):
         self.download()
 
 class POL_SetupFrame(wx.Frame): #fenêtre principale
-    def __init__(self, titre, POL_SetupWindowID, Arg1, Arg2, Arg3):
+    def __init__(self, parent, titre, POL_SetupWindowID, Arg1, Arg2, Arg3):
         wx.Frame.__init__(self, None, -1, title = titre, style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX, size = (520, 398+Variables.windows_add_size))
-        self.bash_pid = POL_SetupWindowID
+        self.parent = parent
+        self.bash_pid = int(POL_SetupWindowID)
         self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
         self.gauge_i = 0
         self.fichier = ""
@@ -153,6 +154,12 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.InfoScript.Bind(wx.EVT_LEFT_DOWN, self.InfoClick)
         self.InfoScript.SetCursor(wx.StockCursor(wx.CURSOR_HAND))
 
+        self.DebugScript = wx.StaticBitmap(self.footer, -1, wx.Bitmap(os.environ['PLAYONLINUX']+"/resources/images/setups/bug.png"), pos=(32,8))
+        self.DebugScript.Hide()
+        self.script_LOGTITLE = None
+        self.DebugScript.Bind(wx.EVT_LEFT_DOWN, self.DebugClick)
+        self.DebugScript.SetCursor(wx.StockCursor(wx.CURSOR_HAND))
+
         if(os.environ["POL_OS"] != "Mac"):
             self.NoButton = wx.Button(self.footer, wx.ID_NO, _("No"), pos=(430,0),size=(85,37))
             self.YesButton = wx.Button(self.footer, wx.ID_YES, _("Yes"), pos=(340,0), size=(85,37))
@@ -169,6 +176,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
         self.bigchamp = wx.TextCtrl(self.panel, -1, "",size=wx.Size(460,240), pos=(30,105),style=Variables.widget_borders|wx.TE_MULTILINE)
         self.MCheckBox = wx.CheckBox(self.panel, 302, _("I Agree"), pos=(20,325))
+        self.NCheckBox = wx.CheckBox(self.panel, 305, _("Don't remind me anymore"), pos=(20,325))
         self.PCheckBox = wx.CheckBox(self.panel, 304, _("Show virtual drives"), pos=(20,325))
         self.Menu = wx.ListBox(self.panel, 104, pos=(25,105),size=(460,220), style=Variables.widget_borders)
         self.scrolled_panel = wx.ScrolledWindow(self.panel, -1, pos=(20,100), size=(460,220), style=Variables.widget_borders|wx.HSCROLL|wx.VSCROLL)
@@ -205,7 +213,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         wx.EVT_HYPERLINK(self, 303, self.POL_register)
 
         # Debug Window
-        self.debugImage = wx.StaticBitmap(self.panel, -1, wx.Bitmap(os.environ["PLAYONLINUX"]+"/resources/images/setups/face-sad.png"), (196,130))
+        self.debugImage = wx.StaticBitmap(self.panel, -1, wx.Bitmap(Variables.playonlinux_env+"/resources/images/setups/face-sad.png"), (196,130))
         self.debugZone = wx.TextCtrl(self.panel, -1, "",size=wx.Size(440,82), pos=(40,274),style=Variables.widget_borders|wx.TE_MULTILINE|wx.TE_READONLY)
 
         # Hide all
@@ -252,6 +260,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.txtEstimation.Hide()
         self.texte_panel.Hide()
         self.MCheckBox.Hide()
+        self.NCheckBox.Hide()
         self.PCheckBox.Hide()
         self.NextButton.Enable(True)
         self.login.Hide()
@@ -261,6 +270,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.register.Hide()
         self.WaitButton.Hide()
         self.MCheckBox.SetValue(False)
+        self.NCheckBox.SetValue(False)
         self.PCheckBox.SetValue(False)
         self.animation.Hide()
         self.Timer_animate = False
@@ -276,7 +286,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
             return self.Result
             
     def TimerAction(self, event):
-        ## If the setup window is downloading a file, it is a good occasion to update the progresbar
+        ## If the setup window is downloading a file, it is a good occasion to update the progress bar
         if(self.Timer_downloading == True):
             if(self.downloader.taille_bloc != 0):
                 downloaded = self.downloader.nb_blocs * self.downloader.taille_bloc
@@ -346,10 +356,17 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
     def InfoClick(self, e):
         url = "http://www.playonlinux.com/en/app-"+self.script_ID+".html"
         if(os.environ["POL_OS"] == "Mac"):
-            os.system("open "+url+" &")
+            subprocess.Popen(["open", url])
         else:
-            os.system("xdg-open "+url+" &")
+            subprocess.Popen(["xdg-open", url])
 
+    def POL_SetupWindow_DebugInit(self, logtitle):
+        self.DebugScript.Show()
+        self.script_LOGTITLE = logtitle
+
+    def DebugClick(self, e):
+        self.parent.BugReport(e)
+        self.parent.debugFrame.analyseReal(1, self.script_LOGTITLE)
 
     def POL_SetupWindow_textbox(self, message, title, value, maxlength=0):
         try:
@@ -605,6 +622,17 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.PCheckBox.Show()
 
 
+    def POL_SetupWindow_notice(self, message, title):
+        self.Destroy_all()
+        self.DrawDefault(message, title)
+
+        self.NCheckBox.SetValue(False)
+        self.NCheckBox.Show()
+
+        self.DrawCancel()
+        self.DrawNext()
+        wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_notice)
+
     def POL_SetupWindow_licence(self, message, title, licence_file):
         self.Destroy_all()
         self.DrawDefault(message, title)
@@ -654,13 +682,13 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
     def POL_register(self, event):
         if(os.environ["POL_OS"] == "Mac"):
-            os.system("open "+self.register_link)
+            subprocess.Popen(["open", self.register_link])
         else:
-            os.system("xdg-open "+self.register_link)
+            subprocess.Popen(["xdg-open", self.register_link])
 
-    def RunCommand(self, event, command,confirm):
+    def RunCommand(self, event, command, confirm):
         if(confirm == "0" or wx.YES == wx.MessageBox(confirm.decode("utf-8","replace"), os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
-            os.system(command+"&");
+            subprocess.Popen(shlex.split(command))
 
     def DrawImage(self):
         self.left_image.Show()
@@ -714,6 +742,12 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.SendBash("FALSE")
         self.NextButton.Enable(False)
 
+    def release_notice(self, event):
+        if self.NCheckBox.GetValue():
+            self.release_yes(event)
+        else:
+            self.release_no(event)
+        
     def release_login(self, event):
         self.SendBash(self.loginbox.GetValue().encode("utf-8","replace")+"~"+self.passbox.GetValue().encode("utf-8","replace"))
         self.NextButton.Enable(False)
@@ -761,8 +795,14 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         if(self.ProtectedWindow == False):
             self.Destroy()
             time.sleep(0.1)
-            os.system("kill -9 -"+self.bash_pid+" 2> /dev/null")
-            os.system("kill -9 "+self.bash_pid+" 2> /dev/null") 
+            try:
+                os.kill(-self.bash_pid, signal.SIGKILL)
+            except OSError:
+                pass
+            try:
+                os.kill(self.bash_pid, signal.SIGKILL)
+            except OSError:
+                pass
         else:
             wx.MessageBox(_("You cannot close this window").format(os.environ["APPLICATION_TITLE"]),_("Error"))
 

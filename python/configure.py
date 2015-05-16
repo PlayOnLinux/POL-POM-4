@@ -612,7 +612,7 @@ class Onglets(wx.Notebook):
                 self.general_elements["wineversion"].SetValue(old_version)
 
     def assignPrefix(self, event):
-        if(wx.YES == wx.MessageBox(_("Be careful!\nIf you change "+self.s_title+"'s virtual drive, you are likekely to break it.\nDo this only if you know what you are doing.\n\nAre you sure you want to continue?"),os.environ["APPLICATION_TITLE"] ,style=wx.YES_NO | wx.ICON_QUESTION)):
+        if(wx.YES == wx.MessageBox(_("Be careful!\nIf you change "+self.s_title+"'s virtual drive, you are likely to break it.\nDo this only if you know what you are doing.\n\nAre you sure you want to continue?"),os.environ["APPLICATION_TITLE"] ,style=wx.YES_NO | wx.ICON_QUESTION)):
             drive = self.general_elements["wineprefix"].GetValue()
             playonlinux.SetWinePrefix(self.s_title, drive)
         else:

@@ -20,7 +20,7 @@
 # PlayOnLinux wrapper
 encoding = 'utf-8'
 
-import os, getopt, sys, urllib, signal, string, time, webbrowser, gettext, locale, sys, shutil, subprocess, signal
+import os, getopt, sys, urllib, signal, string, time, webbrowser, gettext, locale, sys, subprocess, signal
 
 try :
     os.environ["POL_OS"]
@@ -68,11 +68,25 @@ class MainWindow(wx.Frame):
         if(self.myScript.programrunning == False):
             self.POLDie()
 
+    def BugReport(self, event):
+        try:
+            self.debugFrame.Show()
+            self.debugFrame.SetFocus()
+        except:
+            self.debugFrame = debug.MainWindow(None, -1, _("{0} debugger").format(os.environ["APPLICATION_TITLE"]))
+            self.debugFrame.Center(wx.BOTH)
+            self.debugFrame.Show()
 
     def POLDie(self):
         for pid in self.registeredPid:
-            os.system("kill -9 -%d 2> /dev/null" % pid)
-            os.system("kill -9 %d 2> /dev/null" % pid) 
+            try:
+                os.kill(-pid, signal.SIGKILL)
+            except OSError:
+                pass
+            try:
+                os.kill(pid, signal.SIGKILL)
+            except OSError:
+                pass
         app.POLServer.closeServer()
         os._exit(0)
 
@@ -107,7 +121,7 @@ class PlayOnLinuxApp(wx.App):
     def OnInit(self):
         lng.iLang()
 
-        os.system("bash "+Variables.playonlinux_env+"/bash/startup")
+        subprocess.call(["bash", Variables.playonlinux_env+"/bash/startup"])
 
         self.frame = MainWindow(None, -1, os.environ["APPLICATION_TITLE"])
         # Gui Server

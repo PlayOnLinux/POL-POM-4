@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Copyright (C) 2007-2012 PlayOnLinux Team
+# Copyright (C) 2007-2015 PlayOnLinux Team
 # Copyright (C) 2007 Pâris Quentin
 
 # This program is free software; you can redistribute it and/or modify
@@ -49,31 +49,54 @@ POL_Wine_UpdateRegistry ()
 
 POL_Wine_UpdateRegistryPair ()
 {
-	# Usage: POL_Wine_UpdateRegistryPair key name data
+	# Usage: POL_Wine_UpdateRegistryPair key name [--sz|--binary|--dword|--multisz] data
 	# data="default": remove the name
-	# Remark: restarts wineserver
+        local key="$1"
+        local subkey="$2"
+        shift 2
+        local value
+        case "$1" in
+          --sz|--SZ)
+            shift
+            # backslash \s and "s?
+            value="\"$1\""
+            ;;
+          --binary|--BINARY)
+            shift
+            value="hex:$1"
+            ;;
+          --dword|--DWORD)
+            shift
+            value="dword:$1"
+            ;;
+          --multisz|--MULTISZ)
+            shift
+            value="hex(7):$1"
+            ;;
+          --*)
+            POL_Debug_Fatal "Unrecognized value type: $1, supported are --sz --binary --dword --multisz"
+            ;;
+          default)
+            value="-"
+            ;;
+          *)
+            # backslash \s and "s?
+            value="\"$1\""
+        esac
 
-	if [ "$3" = "default" ]; then
 		POL_Wine_UpdateRegistry regkey <<- _EOFINI_
-		[$1]
-		"$2"=-
+		[$key]
+		"$subkey"=$value
 		_EOFINI_
-	else
-		POL_Wine_UpdateRegistry regkey <<- _EOFINI_
-		[$1]
-		"$2"="$3"
-		_EOFINI_
-	fi
 }
 
 POL_Wine_UpdateRegistryWinePair ()
 {
-	# Usage: POL_Wine_UpdateRegistryPair subkey name data
+	# Usage: POL_Wine_UpdateRegistryPair subkey name [--sz|--binary|--dword|--multisz] data
 	# data="default": remove the name
-	# Remark: restarts wineserver
 
 	# Put a "\" before $1 if it's not empty
-	POL_Wine_UpdateRegistryPair "HKEY_CURRENT_USER\\Software\\Wine${1:+\\$1}" "$2" "$3"
+	POL_Wine_UpdateRegistryPair "HKEY_CURRENT_USER\\Software\\Wine${1:+\\$1}" "$2" "$3" "$4"
 }
 
 # For all functions below, that can be called from the control panel:
@@ -84,56 +107,56 @@ POL_Wine_UpdateRegistryWinePair ()
 POL_Wine_Direct3D ()
 {
 	# Change a Direct3D value in registry
-	# Usage POL_Wine_Direct3D Key Value
+	# Usage POL_Wine_Direct3D Key  [--sz|--binary|--dword|--multisz] Value
 
 	# Example :: POL_Wine_Direct3D UseGLSL [default / enabled / disabled]
 	# default: remove the key
-	POL_Debug_Message "Setting wine Direct3D $WINEPREFIX $1 $2"
+	POL_Debug_Message "Setting wine Direct3D $WINEPREFIX $1 $2 $3"
 	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
 	POL_Wine_AutoSetVersionEnv
 	wineserver -k
-	POL_Wine_UpdateRegistryWinePair 'Direct3D' "$1" "$2"
+	POL_Wine_UpdateRegistryWinePair 'Direct3D' "$1" "$2" "$3"
 	wineserver -k
 }
 
 POL_Wine_X11Drv ()
 {
 	# Change a X11Drv value in registry
-	# Usage POL_Wine_X11Drv Key Value
+	# Usage POL_Wine_X11Drv Key [--sz|--binary|--dword|--multisz] Value
 
 	# Example :: POL_Wine_X11Drv UseGLSL [default / enabled / disabled]
 	# default: remove the key
-	POL_Debug_Message "Setting wine X11Drv $WINEPREFIX $1 $2"
+	POL_Debug_Message "Setting wine X11Drv $WINEPREFIX $1 $2 $3"
 	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
 	POL_Wine_AutoSetVersionEnv
 	wineserver -k
-	POL_Wine_UpdateRegistryWinePair 'X11 Driver' "$1" "$2"
+	POL_Wine_UpdateRegistryWinePair 'X11 Driver' "$1" "$2" "$3"
 	wineserver -k
 }
 
 POL_Wine_DirectSound ()
 {
 	# Same that POL_Wine_Direct3D, but for DirectSound
-	POL_Debug_Message "Setting wine DirectSound $WINEPREFIX $1 $2"
+	POL_Debug_Message "Setting wine DirectSound $WINEPREFIX $1 $2 $3"
 	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
 	POL_Wine_AutoSetVersionEnv
 	wineserver -k
-	POL_Wine_UpdateRegistryWinePair 'DirectSound' "$1" "$2"
+	POL_Wine_UpdateRegistryWinePair 'DirectSound' "$1" "$2" "$3"
 	wineserver -k
 }
 
 POL_Wine_DirectInput ()
 {
 	# Same that POL_Wine_Direct3D, but for DirectInput
-	POL_Debug_Message "Setting wine DirectInput $WINEPREFIX $1 $2"
+	POL_Debug_Message "Setting wine DirectInput $WINEPREFIX $1 $2 $3"
 	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
 	POL_Wine_AutoSetVersionEnv
 	wineserver -k
-	POL_Wine_UpdateRegistryWinePair 'DirectInput' "$1" "$2"
+	POL_Wine_UpdateRegistryWinePair 'DirectInput' "$1" "$2" "$3"
 	wineserver -k
 }
 
@@ -385,15 +408,20 @@ POL_LoadVar_Device ()
 POL_DetectVideoCards () {
 	# Detect known videocards
 	POL_Debug_Message "Gettings GPU informations"
-	if [ "$POL_OS" = "Linux" ] || [ "$POL_OS" = "FreeBSD" ]; then
+        case "$POL_OS" in
+            Linux|FreeBSD)
 		[ -x /usr/sbin/lspci ] && LSPCI=/usr/sbin/lspci || LSPCI=lspci
 		# Device Name|Vendor ID|Device ID\n...
-		VGA_DEVICES=`$LSPCI -nn | perl -ne 'if (/VGA/) { s/.*\]: (.*) \[([0-9a-f]{4}):([0-9a-f]{4})\].*/\1|\2|\3/; print }'`
-	fi
-	if [ "$POL_OS" = "Mac" ]; then
+                # [0300] = VGA compatible controller, [0302] = 3D controller
+		VGA_DEVICES=`$LSPCI -nn | perl -ne 'if (/\[030[02]\]/) { s/.*\]: (.*) \[([0-9a-f]{4}):([0-9a-f]{4})\].*/\1|\2|\3/; print }'`
+                ;;
+            Mac)
 		# Device Name|Vendor ID|Device ID\n...
 		VGA_DEVICES=`system_profiler SPDisplaysDataType | perl -ne 's/^\s+//; if(/Chipset Model:/) { chomp; s/^[^:]*: //; print "$_|" } elsif(/Vendor:/) { chomp; s/.*\(0x(.*)\)/\1/; print "$1|" } elsif (/Device ID:/) { s/^[^:]*: 0x//; print }'`
-	fi
+                ;;
+            *)
+                POL_Debug_Fatal "Unsupposed operating system: $POL_OS"
+        esac
 	# More than one card available?
 	if [ $(wc -l <<<"$VGA_DEVICES") -gt 1 ]; then
 		# Try to put what's probably the main card first
@@ -433,8 +461,8 @@ POL_Wine_SetVideoDriver()
 
 	POL_Wine_UpdateRegistry VGA_ID_fix <<- _EOFINI_
 	[HKEY_CURRENT_USER\\Software\\Wine\\Direct3D]
-	"VideoPCIVendorID"="dword:0000$VendorID"
-	"VideoPCIDeviceID"="dword:0000$DeviceID"
+	"VideoPCIVendorID"=dword:0000$VendorID
+	"VideoPCIDeviceID"=dword:0000$DeviceID
 	"VideoDriver"="$DRVID"
 	_EOFINI_
 }
@@ -503,7 +531,17 @@ POL_Wine ()
 	POL_Wine_AutoSetVersionEnv
 	POL_Debug_Message "Running wine-$POL_WINEVERSION "$@" (Working directory : $PWD)"
 	POL_Debug_LogToPrefix "Running wine-$POL_WINEVERSION "$@" (Working directory : $PWD)"
-	if [ ! "$WINEMENUBUILDER_ALERT" ]; then
+
+        # Either that or monitor "err:process:create_process starting 64-bit process L"xxx" not supported in 32-bit wineprefix\nwine: Bad EXE format for xxx." in logs
+        if [ "$POL_ARCH" = "x86" -a -e "$1" ]; then
+            local EXEFILE="$1"
+            if POL_System_is64bit "$EXEFILE"; then
+                NOBUGREPORT="TRUE" # user mistake
+                POL_Debug_Fatal "$(eval_gettext 'Starting 64-bit process $EXEFILE is not supported in 32-bit virtual drives')"
+            fi
+        fi
+
+        if [ ! "$WINEMENUBUILDER_ALERT" ]; then
 		POL_Debug_Message "Notice: PlayOnLinux deliberately disables winemenubuilder. See http://www.playonlinux.com/fr/page-26-Winemenubuilder.html"
 		WINEMENUBUILDER_ALERT="Done"
 	fi
@@ -549,6 +587,8 @@ POL_Wine_SelectPrefix()
 	# Usage: POL_Wine_SelectPrefix [prefixname]
 	PREFNAME=`printf "$1"| tr -c [[a-zA-Z0-9]\.] '_'`
 	POL_Debug_Message "Selecting prefix: $PREFNAME"
+        # Empty name is dangerous
+        [ -z "$PREFNAME" ] && POL_Debug_Fatal "Bad or empty virtual drive name selected"
 	export WINEPREFIX="$POL_USER_ROOT/wineprefix/$PREFNAME"
 	export DOSPREFIX="$WINEPREFIX"
 	if [ -e "$WINEPREFIX/playonlinux.cfg" ]; then
@@ -571,6 +611,48 @@ POL_Wine_PrefixExists()
 	PREFNAME=`printf "$1"| tr -c [[a-zA-Z0-9]\.] '_'`
 	[ -d "$POL_USER_ROOT/wineprefix/$PREFNAME/drive_c" ] && echo "True" || echo "False"
 }
+POL_Wine_CheckPrefixExists()
+{
+	# Checks if a prefix exists
+	# Usage: POL_Wine_CheckPrefixExists [PREFIX] [TITLE_REQUIRED]
+	# Return a message if not and quit
+	PREFIX=$1
+	TITLE_REQUIRED="$2"
+	if [ "$(POL_Wine_PrefixExists "$PREFIX")" = "False" ]; then
+		POL_Debug_Warning "The prefix '$PREFIX' does not exist"
+		POL_SetupWindow_message "$(eval_gettext 'This is an installer for an update or an addon;\nPlease install $TITLE_REQUIRED first')" "$TITLE"
+		POL_SetupWindow_Close
+		exit 1
+	fi
+}
+POL_Wine_VersionSignature()
+{
+	# Return the signature of a Wine package
+	# Usage: POL_Wine_VersionSignature [DIR]
+
+	# On Linux, result should match the one of
+	# cd $DIR; find * -type f|sort|xargs md5sum|md5sum -|cut -c1-32
+
+	local WINEPKGPATH="$1"
+	[ -d "$WINEPKGPATH" ] || return
+	# [ -e "$WINEPKGPATH/bin/wine" ] || return
+
+	local CURRSIGVER="$WINEPKGPATH/.signature.v1" # cache version
+	local WINESIG
+	[ -e "$CURRSIGVER" ] && read WINESIG < "$CURRSIGVER"
+	if [ -z "$WINESIG" ]; then
+		local MANIFESTFILE="$POL_USER_ROOT/tmp/POL_Wine_VersionSignature_manifest$$"
+		(cd "$WINEPKGPATH" && find * -type f |\
+		  sort |\
+		  while read sigfilename; do
+		    echo "$(POL_MD5_file "$sigfilename")  $sigfilename"
+		  done) > "$MANIFESTFILE"
+		WINESIG="$(POL_MD5_file "$MANIFESTFILE")"
+		rm -f "$MANIFESTFILE"
+		echo "$WINESIG" > "$CURRSIGVER"
+	fi
+	echo "$WINESIG"
+}
 POL_Wine_InstallVersion()
 {
 	# Install a wineversion
@@ -584,11 +666,10 @@ POL_Wine_InstallVersion()
 	[ "$POL_OS" = "Linux" ] && ARCH_PREFIX="linux"
 	OLDPATH="$PWD"
 	WINE_SECTION="$ARCH_PREFIX-$POL_ARCH"
-	WINEDIR="$REPERTOIRE/wine/$WINE_SECTION"
+	WINEDIR="$POL_USER_ROOT/wine/$WINE_SECTION"
 	touch "$WINEDIR/installing"
 	if [ ! -e "$WINEDIR/$POL_WINEVERSION" ]
 	then
-		
 		WINE_ADDRESS=$($POL_WGET "$WINE_SITE/$WINE_SECTION.lst" -O- | grep ";$POL_WINEVERSION;" | tail -n 1 | cut -d ";" -f1)
 		if [ "$WINE_ADDRESS" = "" ] && [ "$POL_ARCH" = "amd64" ]
 		then
@@ -603,7 +684,7 @@ POL_Wine_InstallVersion()
 				exit
 			fi
 
-			cd "$REPERTOIRE/tmp"
+			cd "$POL_USER_ROOT/tmp"
 			POL_SetupWindow_download "$(eval_gettext "Downloading Wine: ")$POL_WINEVERSION" "$TITLE" "$WINE_SITE/$WINE_SECTION/$WINE_ADDRESS"
 			POL_SetupWindow_wait_next_signal "$(eval_gettext "Downloading Wine: ")$POL_WINEVERSION" "$TITLE"
 			sleep 1
@@ -655,8 +736,8 @@ POL_Wine_Install_resources()
 	[ "$3" = "amd64" ] && arch="$3" || arch="x86"
 
 	POL_Debug_Message "Installing $resource for wine $unpatched_version $arch"
-	resource_dir="$REPERTOIRE/wine/$resource"
-	resource_file="$REPERTOIRE/configurations/listes/$resource.lst"
+	resource_dir="$POL_USER_ROOT/wine/$resource"
+	resource_file="$POL_USER_ROOT/configurations/listes/$resource.lst"
 	found="$(grep "^${unpatched_version//./\.};" "$resource_file")"
 	[ "$POL_OS" = "Linux" ] && wos="linux"
 	[ "$POL_OS" = "FreeBSD" ] && wos="freebsd"
@@ -734,7 +815,7 @@ POL_Wine_SetVersionEnv()
 		[ "$POL_OS" = "FreeBSD" ] && ARCH_PREFIX="freebsd"
 		[ "$POL_OS" = "Linux" ] && ARCH_PREFIX="linux"
 		OLDPATH="$PWD"
-		WINEDIR="$REPERTOIRE/wine/$ARCH_PREFIX-$POL_ARCH"
+		WINEDIR="$POL_USER_ROOT/wine/$ARCH_PREFIX-$POL_ARCH"
 		mkdir -p "$WINEDIR"
 		cd "$WINEDIR"
 
@@ -751,7 +832,7 @@ POL_Wine_SetVersionEnv()
 		 		POL_Wine_InstallVersion "$POL_WINEVERSION"
 			fi
 			export PATH="$WINEDIR/$POL_WINEVERSION/bin/:$PATH"
-			export LD_LIBRARY_PATH="$WINEDIR/$POL_WINEVERSION/lib/:$LD_LIBRARY_PATH"
+			export LD_LIBRARY_PATH="$WINEDIR/$POL_WINEVERSION/lib/:$WINEDIR/$POL_WINEVERSION/lib64/:$LD_LIBRARY_PATH"
 			[ "$POL_OS" = "FreeBSD" ] && export LD_32_LIBRARY_PATH="$WINEDIR/$POL_WINEVERSION/lib/:$LD_32_LIBRARY_PATH"
 		fi
 	fi
@@ -768,16 +849,30 @@ POL_Wine_SetVersionPrefix()
 }
 POL_Wine_PrefixDelete()
 {
-	# cf MainWindow.DeletePrefix()
+	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
+ 	local wineprefix="$WINEPREFIX"
+	wineprefix=${wineprefix//"//"/"/"}
+	local shortcuts=()
+	local OLDIFS="$IFS"
+	IFS=$'\n'
+	cd "$POL_USER_ROOT/shortcuts/" &&
+	for shortcut in *
+	do
+		[ "$(detect_wineprefix "$shortcut")" = "$wineprefix" ] && shortcuts+=("$shortcut")
+	done
+	IFS="$OLDIFS"
 
-	#for file in "$POL_USER_ROOT/shortcuts/"*
-	#do
-	#	if [ -e "$file" ] && [ ! "$(cat "$file" | grep $WINEPREFIX)" = "" ]
-	#	then
-	#		rm "$file"
-	#	fi
-	#done
-	rm -rf "$WINEPREFIX"
+	# cf MainWindow.DeletePrefix()
+	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Uninstalling...')" "$(eval_gettext '$APPLICATION_TITLE Uninstaller')"
+	if [ "${#shortcuts[@]}" -gt 0 ]; then
+ 		POL_Debug_Warning "$wineprefix is still in use by ${#shortcuts[@]} shortcuts, removing them first"
+		for shortcut in "${shortcuts[@]}"; do
+			POL_Debug_Message "Removing shortcut $shortcut..."
+			bash "$PLAYONLINUX/bash/uninstall" --non-interactive "$shortcut"
+		done
+	fi
+
+        clean_wineprefix --non-interactive "$WINEPREFIX"
 }
 POL_Wine_PrefixCreate()
 {
@@ -793,7 +888,6 @@ POL_Wine_PrefixCreate()
 	fi
 	
 	POL_Debug_Message "Creating prefix ($POL_WINEVERSION)..."
-	POL_SetupWindow_wait "$(eval_gettext 'Please wait while the virtual drive is being created...')" "$TITLE"
 	[ "$POL_ARCH" = "" ] && POL_System_SetArch "auto"
 	[ "$WINEPREFIX" = "" ] && POL_Debug_Fatal "WINEPREFIX is not set!"
 
@@ -836,6 +930,7 @@ POL_Wine_PrefixCreate()
 		APP_ANSWER="$OLD_APP_ANWSER"
 	fi
 
+	POL_SetupWindow_wait "$(eval_gettext 'Please wait while the virtual drive is being created...')" "$TITLE"
 	if [ -e "$WINEPREFIX" ]; then
 		touch "$WINEPREFIX/playonlinux.cfg"
 		if [ ! "$POL_WINEVERSION" = "" ]; then
@@ -985,7 +1080,7 @@ EOF
 POL_Wine_WaitBefore ()
 {
 	# Lock bash commands until wine is exited
-	# Usage : POL_Wine_WaitExit [Program title] (--allow-kill)
+	# Usage : POL_Wine_WaitBefore [Program title] (--allow-kill)
 	SOFTNAME="$1"
 	if [ "$2" = "--allow-kill" ] 
 	then

@@ -1,4 +1,69 @@
+# 4.2.9
+
+# 4.2.8
+
+* Feature freeze has been declared for POL 4.x, so this changelog should
+  contain only bug fixes
+* checkVersionUse(): don't assume cfg files have any order
+* manual installation: component installation bugfix ($IFS not restored correctly)
+* POL_OpenShell: call POL_Wine_AutoSetVersionEnv in all cases, to set $PATH (#5062)
+* Fix consecutive shortcut creations
+* POL_Wine_SetVideoDriver bugfix, device IDs were not inserted as DWORDs
+
+# 4.2.7
+
+* Detect and abort scripts when trying to run 64bit programs with 32bit Wine
+* POL_DetectVideoCards: list VGA compatible controllers and 3D controllers (#5012)
+* Add support for several other value types than REG_SZ to registry
+  updating statements (#5013)
+* POL_Wine_SelectPrefix: abort if no prefix name is provided
+* Sort install scripts lists case insensitively (iTunes)
+* Fix "hash-bang" line in shortcuts so they're actually executable
+* Deprecate the usage of $REPERTOIRE in PlayOnLinux own code
+* Translate remaining french comments and identifiers in Bash code
+* Improve POL_Wine_PrefixDelete to remove ancillary resources (shortcuts, icons,...)
+* Wine versions manager: attributes tell apart used versions instead of
+  unused versions; Add an extra warning when about to remove a version in use
+* Avoid Python detection loops
+* Display wx version found
+* Fix Settings > Internet menu (#4989, thanks to rupert)
+* Workaround for Wine bug #37575 (#5023)
+* Improve find_binary function and make it public as POL_System_find_file
+* Add support for .lnk, .bat and .cmd files to POL_Shortcut and POL_SetupWindow_shortcut_creator
+* Added an icon to open the debugger from the installation wizard when
+  POL_Debug_Init has been called (#4948)
+* Implement POL_SetupWindow_notice to display important messages, but
+  allow the user to acknowledge them once and for all ("Don't remind me") (#2036)
+* POL_OpenShell (Configure > Misc > Open a shell) bug fixes
+* Add a warning when OpenGL autotests are missing (user support)
+* Make sure "Install non-listed application" link is always visible in
+  install window
+* POL_SetupWindow_cdrom: don't suggest "*" when no CDROM has been found
+* Remove use of remaining os.system() calls (less overhead, less quoting nightmare)
+* Use os.kill() instead of shell command
+* Use of "exec" to avoid some useless extra Bash processes
+* polconfigurator interface cleanup (no risk of translation breakage)
+
+# 4.2.6
+
+* Use $POL_TERM more consistently, allow POL_TERM global configuration
+  override. Beware, the terminal must support -T and -e options, so
+  gnome-terminal doesn't qualify (gnome-terminal.wrapper does though)
+* Add a POL_Wine_VersionSignature function to compute a hash of a Wine
+  package
+* Python version string extraction hardening (#4895)
+* POL_System_PartInfo identifies filesystems thru mount point instead of device
+  (Btrfs subvolumes compatibility)
+* Modify bash/document_reader to pass extra arguments unchanged (http://www.playonlinux.com/en/topic-12519-Pass_arguments_to_PDFXChange_Viewer.html)
+* Remove "skipped lines" messages when the debugger gets the focus back
+* POL_Shortcut: do not overwrite $Binaire to improve logging
+* mainwindow: make alert boxen child of the main window so they cannot get
+  lost behind other windows
+* Prevent POL_Download_Resource clobbering $APP_ANSWER
+* Wine versions management: grey out versions that are not currently in use by any virtual drive and can be safely removed (Tutul)
+
 # 4.2.5
+
 * Fix reading/writing values containing '=' symbol in configuration files (#4834)
 * Make POL_Wine_InstallFonts preserve current directory (regression since 4.2.3)
 * Disable "Install" component button until a component is selected
@@ -11,6 +76,7 @@
   http://linux-kernel.2935.n7.nabble.com/tip-x86-urgent-x86-64-modify-ldt-Ban-16-bit-segments-on-64-bit-kernels-td838675i120.html
 
 # 4.2.4
+
 * New support and feedback system, easier to use
 * Links to social networks
 * 4.2.3 regresion fixed in run_exe module

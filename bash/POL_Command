@@ -17,10 +17,11 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
 
-# Permet d'ouvrir une fonction POL depuis un script Python
+# Allow to call a POL Bash statement from Python
 
-# Usage POL_Command [Raccourcis] [Commande]
+# Usage POL_Command (--init) (--prefix [PrefixName]|[Shortcut Name]) [Command]
 # Example POL_Command "Internet Explorer 6" Set_OS winxp
+
 [ "$PLAYONLINUX" = "" ] && exit 0
 source "$PLAYONLINUX/lib/sources"
 
@@ -32,7 +33,7 @@ if [ "$1" = "--prefix" ]
 then
 	shift
 	export PREFIXNAME="$1"
-	export WINEPREFIX="$REPERTOIRE/wineprefix/$1"
+	export WINEPREFIX="$POL_USER_ROOT/wineprefix/$1"
 else
 	export WINEPREFIX="$(detect_wineprefix "$1")"
 fi
@@ -41,8 +42,5 @@ shift
 #[ "$WINEVERSION" = "" ] || Use_WineVersion $WINEVERSION
 "$@"
 
-if [ "$INIT" = "TRUE" ]
-then
-POL_SetupWindow_Close
-fi
+[ "$INIT" = "TRUE" ] && POL_SetupWindow_Close
 exit

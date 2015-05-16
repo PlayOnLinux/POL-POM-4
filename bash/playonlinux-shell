@@ -18,6 +18,5 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
 
 [ "$PLAYONLINUX" = "" ] && exit 0
-source "$PLAYONLINUX/lib/sources"
 
-bash --rcfile "$PLAYONLINUX/etc/pol_bash"
+exec bash --rcfile "$PLAYONLINUX/etc/pol_bash"

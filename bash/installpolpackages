@@ -17,7 +17,10 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
 
-# Permet d'installer des paquets POL_Call dans un prefix
+# Run a "function" script into a prefix
+
+# Usage installpolpackages (--prefix [PrefixName]|[Shortcut Name]) [Function name]
+
 [ "$PLAYONLINUX" = "" ] && exit 0
 source "$PLAYONLINUX/lib/sources"
 
@@ -27,7 +30,7 @@ POL_SetupWindow_wait_next_signal "$(eval_gettext "Please wait...")" "$(eval_gett
 if [ "$1" = "--prefix" ]
 then
 	shift
-	export WINEPREFIX="$REPERTOIRE/wineprefix/$1"
+	export WINEPREFIX="$POL_USER_ROOT/wineprefix/$1"
 else
 	export WINEPREFIX="$(detect_wineprefix "$1")"
 fi
