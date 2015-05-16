@@ -92,7 +92,6 @@ class Onglets(wx.Notebook):
         self.images_onglets.Add(wx.Bitmap(Variables.playonlinux_env+"/etc/onglet/application-x-executable.png"));
         self.images_onglets.Add(wx.Bitmap(Variables.playonlinux_env+"/etc/onglet/package-x-generic.png"));
         self.images_onglets.Add(wx.Bitmap(Variables.playonlinux_env+"/resources/images/menu/extensions.png"));
-        self.images_onglets.Add(wx.Bitmap(Variables.playonlinux_env+"/etc/onglet/folder-saved-search.png"));
 
         self.SetImageList(self.images_onglets)
 
@@ -291,98 +290,6 @@ class Onglets(wx.Notebook):
         wx.EVT_BUTTON(self, 502, self.delExt)
         wx.EVT_BUTTON(self, 503, self.newExt)
 
-    def generateShvs(self):
-        self.list_shv.DeleteAllItems()
-
-        i = 0
-        self.shelves = playonlinux.Get_Shelves()
-        self.shelves.sort()
-        for line in self.shelves:
-            line = line.replace("\n","")
-            self.list_shv.InsertStringItem(i, line)
-            i += 1
-
-    def doAddShelve(self):
-	## add item to the listbox. The apply action handles the saving.
-	shv_value = self.txt_shv.GetLineText(0)
-      
-	if (shv_value != ""):
-	    self.list_shv.InsertStringItem(self.list_shv.GetItemCount (), shv_value)
-	
-	self.txt_shv.Clear()
-
-    def addShelve(self, event):
-	self.doAddShelve()
-
-    def deleteShelve(self, event):
-	i = 0
-
-    def doNewShelveEntered(self):
-	if (self.txt_shv.GetLineText(0) != ""):
-	    self.add_shv.Enable()
-	else:
-	    self.add_shv.Disable()
-	
-    def newShelveEntered(self, event):
-	self.doNewShelveEntered()
-	    
-    def enterKeyPressed(self, event):
-	self.doAddShelve()
-
-    def shelveSelected(self, event):
-	self.delete_shv.Enable()
-
-    def shelveDeselected(self, event):
-	self.delete_shv.Disable()
-
-    def Shelves(self, nom):
-	self.panelShelves = wx.Panel(self, -1)
-	
-	self.sizerShelves = wx.BoxSizer(wx.VERTICAL)
-	
-	self.panelShelvesButtons = wx.Panel(self.panelShelves, -1);
-	
-	##self.app_addshelve_text = wx.StaticText(self.panelShelves, pos=(1,388), label=_("Add new shelve"))
-	
-	self.list_shv = wx.ListCtrl(self.panelShelves, 1504, size=(504,350), pos=(1,1), style=wx.LC_REPORT)
-	self.list_shv.InsertColumn(0, 'Shelve', width=320)
-
-	self.txt_shv = wx.TextCtrl(self.panelShelves, 1505, "", pos=(1,2), size=(400,25), style=wx.TE_PROCESS_ENTER)
-
-	self.sizerShelves.Add(self.list_shv, 0, wx.TOP|wx.ALL, 2)
-        self.sizerShelves.Add(self.txt_shv, 0, wx.TOP|wx.ALL, 2)
-
-        self.sizerShelves.Add(self.panelShelvesButtons, 1, wx.BOTTOM|wx.ALL, 2)
-
-        self.panelShelves.SetSizer(self.sizerShelves)
-        self.panelShelves.SetAutoLayout(True)
-        
-        self.sizerShelvesButtons = wx.BoxSizer(wx.VERTICAL)
-        
-        self.panelShelvesButtons.SetSizer(self.sizerShelvesButtons)
-        self.panelShelvesButtons.SetAutoLayout(True)
-        
-	self.add_shv = wx.Button(self.panelShelvesButtons, 1502, pos=(372,385+2*Variables.windows_add_playonmac), size=(100,25), label=_("Add shelve"))
-	self.delete_shv = wx.Button(self.panelShelvesButtons, 1503, pos=(372,385+2*Variables.windows_add_playonmac), size=(125,25), label=_("Remove shelve"))
-	
-	self.add_shv.Disable()
-	self.delete_shv.Disable()
-
-        self.sizerShelvesButtons.Add(self.add_shv, 0, wx.TOP|wx.ALL, 2)
-        self.sizerShelvesButtons.Add(self.delete_shv, 0, wx.TOP|wx.ALL, 2)
-
-
-	self.generateShvs();
-            
-        self.AddPage(self.panelShelves, nom, imageId=7)
-
-        wx.EVT_BUTTON(self, 1502, self.addShelve)
-        wx.EVT_BUTTON(self, 1503, self.deleteShelve)
-        wx.EVT_LIST_ITEM_SELECTED(self, 1504, self.shelveSelected)
-        wx.EVT_LIST_ITEM_DESELECTED(self, 1504, self.shelveDeselected)
-        wx.EVT_TEXT(self, 1505, self.newShelveEntered)
-        wx.EVT_TEXT_ENTER(self, 1505, self.enterKeyPressed)
-
     def setup_plug(self, event):
         self.current_plugin = self.pluginlist.GetItemText(self.pluginlist.GetSelection())
         self.plugin_path = Variables.playonlinux_rep+"/plugins/"+self.current_plugin
@@ -478,7 +385,6 @@ class MainWindow(wx.Frame):
         #self.onglets.System(_("System"))
         self.onglets.Plugins(_("Plugins"))
         self.onglets.Extensions(_("File associations"))
-        self.onglets.Shelves(_("Shelves"))
 
         try:
             self.onglets.SetSelection(onglet)
@@ -501,19 +407,6 @@ class MainWindow(wx.Frame):
             playonlinux.SetSettings("PROXY_LOGIN",self.onglets.ProxyLogin.GetValue())
             playonlinux.SetSettings("PROXY_PASSWORD",self.onglets.ProxyPass.GetValue())
 
-	    wx.MessageBox(_("You must restart {0} for the changes to take effect.").format(os.environ["APPLICATION_TITLE"]), os.environ["APPLICATION_TITLE"], wx.OK)
-	    
-	## Let's use the apply button for all settings...
-	allvalues = ""
-	count = self.onglets.list_shv.GetItemCount()
-	for row in range(count):
-	    item = self.onglets.list_shv.GetItem(itemId=row, col=0)
-	    if (allvalues == ""):
-		allvalues = item.GetText()
-	    else:
-		allvalues = allvalues + "\n" + item.GetText()
-	      
-	playonlinux.SetSettings("", allvalues,"_SHV_")
 
-	    
+        wx.MessageBox(_("You must restart {0} for the changes to take effect.").format(os.environ["APPLICATION_TITLE"]), os.environ["APPLICATION_TITLE"], wx.OK)
         self.Destroy()
