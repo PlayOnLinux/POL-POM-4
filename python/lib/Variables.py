@@ -154,4 +154,4 @@ if playonlinux.GetSettings("PROXY_ENABLED") == "1":
         os.environ["http_proxy"] = http_proxy
 
 
-userAgent = "PlayOnLinux %s" + os.environ["VERSION"]
+userAgent = "PlayOnLinux/" + os.environ["VERSION"]
