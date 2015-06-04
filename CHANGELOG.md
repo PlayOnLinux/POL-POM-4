@@ -1,6 +1,7 @@
 # 4.2.9
 
 * Fixed a bug in the user agent used in urllib that would make it look like an attack to paranoid eyes (and filters) (#5072)
+* Try to improve general installation instructions
 
 # 4.2.8
 
