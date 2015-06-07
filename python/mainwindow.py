@@ -1122,7 +1122,7 @@ class MainWindow(wx.Frame):
         self.aboutBox.SetName(os.environ["APPLICATION_TITLE"])
         self.aboutBox.SetVersion(Variables.version)
         self.aboutBox.SetDescription(_("Run your Windows programs on "+os.environ["POL_OS"]+" !"))
-        self.aboutBox.SetCopyright("© 2007-2013 "+_("PlayOnLinux and PlayOnMac team\nUnder GPL licence version 3"))
+        self.aboutBox.SetCopyright("© 2007-2015 "+_("PlayOnLinux and PlayOnMac team\nUnder GPL licence version 3"))
         self.aboutBox.AddDeveloper(_("Developer and Website: ")+"Tinou (Pâris Quentin), MulX (Petit Aymeric)")
         self.aboutBox.AddDeveloper(_("Scriptors: ")+"GNU_Raziel")
         self.aboutBox.AddDeveloper(_("Packager: ")+"MulX (Petit Aymeric), Tinou (Pâris Quentin)")
