@@ -3,6 +3,7 @@
 * Fixed a bug in the user agent used in urllib that would make it look like an attack to paranoid eyes (and filters) (#5072)
 * Try to improve general installation instructions
 * Update About's copyright years span (let's make it look like we're still working on the project ;) ) Many more could be updated though
+* POL_Download_Resource: don't test hash of missing file (one less spurious warning message)
 
 # 4.2.8
 

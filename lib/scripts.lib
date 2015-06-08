@@ -575,7 +575,7 @@ POL_Download_Resource ()
 	else
 		local WTCACHE=""
 		[ -d "$HOME/.cache/winetricks" ] && WTCACHE="$(find $HOME/.cache/winetricks -type f -a -iname "$FILE" | tail -n 1)"
-		if [ -n "$WTCACHE" -a "$(POL_MD5_file "$WTCACHE")" = "$SERVER_MD5" ]
+		if [ -n "$WTCACHE" ] && [ "$(POL_MD5_file "$WTCACHE")" = "$SERVER_MD5" ]
 		then
 			ln "$WTCACHE" "$FILE" || cp "$WTCACHE" "$FILE"
 			POL_Debug_Message "Resource found in winetricks cache"
