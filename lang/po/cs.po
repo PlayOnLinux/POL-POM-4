@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-06-01 19:00+0200\n"
-"PO-Revision-Date: 2014-11-14 11:03+0000\n"
-"Last-Translator: Pepa Novák <wnc@centrum.cz>\n"
+"POT-Creation-Date: 2015-06-08 19:00+0200\n"
+"PO-Revision-Date: 2015-06-02 18:37+0000\n"
+"Last-Translator: Jan Němec <nemec.jan123@gmail.com>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-06-02 05:08+0000\n"
-"X-Generator: Launchpad (build 17532)\n"
+"X-Launchpad-Export-Date: 2015-06-09 05:10+0000\n"
+"X-Generator: Launchpad (build 17549)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -305,7 +305,7 @@ msgstr "Promiňte, potřebujeme detailní popis."
 #: bash/bug_report:101
 #, sh-format
 msgid "Thank you !\\n\\nYour report has been sent."
-msgstr ""
+msgstr "Děkujeme !\\n\\nVáše oznámení bylo odesláno."
 
 #: bash/create_prefix:26
 #, sh-format
@@ -452,6 +452,10 @@ msgid ""
 "all the tools\\n\\nWarning: We are unable to guarantee that your application "
 "will work perfectly."
 msgstr ""
+"Vítejte v $APPLICATION_TITLE manuálním instalačním programu.\\n\\nTento "
+"skript vám dovolí nainstalovat jakýkoliv program na $APPLICATION_TITLE a "
+"používat jej se všemi nástroji\\n\\nVarování: Nejsme schopni garantovat, že "
+"vaše aplikace bude fungovat perfektně."
 
 #: bash/manual_install:102
 #, sh-format
@@ -765,7 +769,7 @@ msgstr "$PACKAGE havaroval."
 #: bash/run_exe:33
 #, sh-format
 msgid "Waiting XQuartz to be installed"
-msgstr ""
+msgstr "Čekáni až se nainstaluje XQuartz"
 
 #: bash/run_exe:70
 #, sh-format
@@ -808,12 +812,12 @@ msgstr "Instalace byla dokončena."
 #: bash/startup_after_server:38
 #, sh-format
 msgid "PlayOnMac needs to install XQuartz to work properly."
-msgstr ""
+msgstr "PlayOnMac potřebuje nainstalovat XQuartz, aby mohl pracovat správně."
 
 #: bash/startup_after_server:39
 #, sh-format
 msgid "PlayOnMac will help you to simplify this step"
-msgstr ""
+msgstr "PlayOnMac vám pomůže zjednodušit tento krok"
 
 #: bash/startup_after_server:42
 #, sh-format
@@ -854,6 +858,8 @@ msgstr "XQuartz byl nainstalován."
 #, sh-format
 msgid "Unable to install XQuartz! You must install it to use wine properly."
 msgstr ""
+"Nebylo možné nainstalovat XQuartz! Musíte jej nainstalovat, aby bylo možné "
+"používat Wine správně."
 
 #: bash/uninstall:31 bash/uninstall:65 bash/uninstall:68 bash/uninstall:75
 #: lib/wine.lib:866
@@ -1049,6 +1055,8 @@ msgid ""
 "Your Linux kernel may not be configured to run Win16 programs under Wine\\"
 "nSee $EXPLANATION_URL"
 msgstr ""
+"Vaše Linuxové jádro nemusí být nakonfigurováno, aby mohlo spouštět Win16 "
+"programy pod Wine\\nSee $EXPLANATION_URL"
 
 #: lib/playonlinux.lib:906
 #, sh-format
@@ -1056,6 +1064,8 @@ msgid ""
 "Your kernel may be incompatible with running Win16 programs under Wine\\nSee "
 "$EXPLANATION_URL"
 msgstr ""
+"Vaše jádro může být nekompatibilní se spostěním Win16 programů pod Wine\\"
+"nSee $EXPLANATION_URL"
 
 #: lib/plugins.lib:63
 #, sh-format
@@ -1353,7 +1363,7 @@ msgstr "Procházet"
 #: lib/setupwindow.lib:763
 #, sh-format
 msgid "A shortcut by that name already exists, overwrite?"
-msgstr ""
+msgstr "Zástupce se stejným jménem již existuje, přepsat?"
 
 #: lib/website.lib:29
 #, sh-format
@@ -1389,6 +1399,8 @@ msgstr "Vyberte hlavní grafickou kartu pro hlášení:"
 msgid ""
 "Starting 64-bit process $EXEFILE is not supported in 32-bit virtual drives"
 msgstr ""
+"Startování 64-bitového procesu $EXEFILE není podporováno v 32-bitových "
+"virtuálních discích."
 
 #: lib/wine.lib:578
 #, sh-format
@@ -1623,6 +1635,11 @@ msgid ""
 "Wine version is changed.\n"
 "Are you sure you want to continue?"
 msgstr ""
+"Varování:\n"
+"\n"
+"Jakýkoliv program nadále běžící na tomto virtuálním disku bude ukončen ještě "
+"než bude změněna verze Wine.\n"
+"Jste si jistý, že chcete pokračovat?"
 
 #: python/configure.py:606
 msgid ""
@@ -1737,7 +1754,7 @@ msgstr "Souhlasím"
 
 #: python/guiv3.py:179
 msgid "Don't remind me anymore"
-msgstr ""
+msgstr "Už mi to nepřipomínej"
 
 #: python/guiv3.py:180
 msgid "Show virtual drives"
@@ -1859,7 +1876,7 @@ msgstr ""
 
 #: python/install.py:577
 msgid "Attention!"
-msgstr ""
+msgstr "Pozor!"
 
 #: python/install.py:577
 msgid ""
@@ -1871,6 +1888,13 @@ msgid ""
 "piracy and as such, we will not offer any support for issues resulting from "
 "using this option."
 msgstr ""
+"Povolením této možnosti můžete instalovat programy, které zahrnují DRM "
+"ochranu proti kopírování, která není podporována v (0) a mohlo by být nutné "
+"ji přeskočit.\n"
+"\n"
+"Tato vlastnost by neměla být užita pro účely pirátství jako takového nebo "
+"brána jako jeho podpora a proto nenabízíme my žádnou podporu pro vás, v "
+"případě, že nahlásíte jakékoliv problémy s užitím této vlastnosti."
 
 #: python/install.py:580
 msgid ""
@@ -1958,35 +1982,35 @@ msgstr "Správce zásuvných modulů"
 
 #: python/mainwindow.py:294
 msgid "Supported software"
-msgstr ""
+msgstr "Podporovaný software"
 
 #: python/mainwindow.py:295
 msgid "News"
-msgstr ""
+msgstr "Novinky"
 
 #: python/mainwindow.py:296
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentace"
 
 #: python/mainwindow.py:297
 msgid "Forums"
-msgstr ""
+msgstr "Diskuzní fóra"
 
 #: python/mainwindow.py:298
 msgid "Bugs"
-msgstr ""
+msgstr "Chyby"
 
 #: python/mainwindow.py:300
 msgid "Twitter"
-msgstr ""
+msgstr "Twitter"
 
 #: python/mainwindow.py:301
 msgid "Google+"
-msgstr ""
+msgstr "Google+"
 
 #: python/mainwindow.py:302
 msgid "Facebook"
-msgstr ""
+msgstr "Facebook"
 
 #: python/mainwindow.py:306
 msgid "About {0}"
@@ -2010,7 +2034,7 @@ msgstr "Zásuvné moduly"
 
 #: python/mainwindow.py:369
 msgid "Support"
-msgstr ""
+msgstr "Podpora"
 
 #: python/mainwindow.py:381 python/mainwindow.py:777
 msgid "Close"
@@ -2062,7 +2086,7 @@ msgstr "Ladění"
 
 #: python/mainwindow.py:785
 msgid "Send a feedback"
-msgstr ""
+msgstr "Poslat zpětnou vazbu"
 
 #: python/mainwindow.py:790
 msgid "Create a shortcut"
@@ -2099,7 +2123,7 @@ msgstr "Virtuální jednotka přiřazena k {0} ({1}) již neexistuje."
 
 #: python/mainwindow.py:1102
 msgid "Are you sure you want to close all {0} windows?"
-msgstr ""
+msgstr "Jste si jistý, že chce zavřít všech (0) oken?"
 
 #: python/mainwindow.py:1124
 msgid "Run your Windows programs on "
@@ -2323,7 +2347,7 @@ msgstr "Jste si jisti, že chcete odstranit wine {0}?"
 
 #: python/wine_versions.py:334
 msgid "This version is CURRENTLY IN USE"
-msgstr ""
+msgstr "Tato verze je NYNÍ V POUŽÍVÁNÍ"
 
 #: python/wrapper.py:135
 msgid "{0} is not able to start POL_SetupWindow_server."
