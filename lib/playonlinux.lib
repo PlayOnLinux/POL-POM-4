@@ -762,6 +762,7 @@ clean_wineprefix()
 			[ "$INTERACTIVE" ] && POL_SetupWindow_question "$(eval_gettext "Do you want to delete the virtual drive:")\n\n$prefix" "$TITLE"
 			if [ "$APP_ANSWER" = "TRUE" -o -z "$INTERACTIVE" ]
 			then
+				[ "$INTERACTIVE" ] && POL_SetupWindow_wait "$(eval_gettext "Removing virtual drive $prefix...")"
 				rm -rf "$1"
 			fi
 		fi
