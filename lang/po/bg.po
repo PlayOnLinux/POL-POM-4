@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: Radoslav Ivanov <reckku@gmail.com>\n"
-"POT-Creation-Date: 2015-06-22 19:00+0200\n"
+"POT-Creation-Date: 2015-06-29 19:00+0200\n"
 "PO-Revision-Date: 2015-05-05 19:54+0000\n"
 "Last-Translator: Радослав Иванов <reckku@gmail.com>\n"
 "Language-Team: Svetoslav Stefanov <lfu.project@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-06-23 05:10+0000\n"
-"X-Generator: Launchpad (build 17572)\n"
+"X-Launchpad-Export-Date: 2015-06-30 05:10+0000\n"
+"X-Generator: Launchpad (build 17578)\n"
 "X-Poedit-Country: BULGARIA\n"
 "X-Poedit-Language: Bulgarian\n"
 "X-Poedit-SourceCharset: utf-8\n"
@@ -1021,7 +1021,7 @@ msgstr "Създаване на пряк път..."
 msgid "Do you want to delete the virtual drive:"
 msgstr "Искате ли да изтриете виртуалният диск:"
 
-#: lib/playonlinux.lib:871
+#: lib/playonlinux.lib:872
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
@@ -1030,7 +1030,7 @@ msgstr ""
 "Следният файл е върху FAT32 файлова система.\\nМоже да попречи на работата "
 "на wine\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:872
+#: lib/playonlinux.lib:873
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
@@ -1039,7 +1039,7 @@ msgstr ""
 "Следният файл е върху NTFS файлова система.\\nМоже да попречи на работата на "
 "wine\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:873
+#: lib/playonlinux.lib:874
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
@@ -1048,7 +1048,7 @@ msgstr ""
 "Следният файл е върху fuse файлова система.\\nМоже да попречи на работата на "
 "wine\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:874
+#: lib/playonlinux.lib:875
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
@@ -1057,7 +1057,7 @@ msgstr ""
 "Следният файл е върху монтирана без изпълнение файлова система.\\nМоже да "
 "попречи на работата на wine\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:903
+#: lib/playonlinux.lib:904
 #, sh-format
 msgid ""
 "Your Linux kernel may not be configured to run Win16 programs under Wine\\"
@@ -1066,7 +1066,7 @@ msgstr ""
 "Вероятно Вашето Linux ядро не е настроено да възпроизвежда програми от типа "
 "Win16\\nПосетете $EXPLANATION_URL"
 
-#: lib/playonlinux.lib:906
+#: lib/playonlinux.lib:907
 #, sh-format
 msgid ""
 "Your kernel may be incompatible with running Win16 programs under Wine\\nSee "
