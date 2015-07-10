@@ -6,6 +6,7 @@
 * POL_Download_Resource: don't test hash of missing file (one less spurious warning message)
 * Adding some visual clue while virtual drives are being removed
 * POL_System_find_file: really pick the shallowest file
+* fix "debbuger" typo
 
 # 4.2.8
 
@@ -319,7 +320,7 @@ Fixes to critial problem
 * Optirun support
 * Debug scripts are sent on the good bug tracker
 * More clever debugging
-* A (very nice) debbuger
+* A (very nice) debugger
 * POL_SW_Check_cdrom supports multiple setup files
 * Extension manager window
 * WGETRC problem fixed
