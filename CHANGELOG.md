@@ -5,6 +5,7 @@
 * Update About's copyright years span (let's make it look like we're still working on the project ;) ) Many more could be updated though
 * POL_Download_Resource: don't test hash of missing file (one less spurious warning message)
 * Adding some visual clue while virtual drives are being removed
+* POL_System_find_file: really pick the shallowest file
 
 # 4.2.8
 
