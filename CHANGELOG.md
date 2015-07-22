@@ -6,6 +6,9 @@
 * POL_Download_Resource: don't test hash of missing file (one less spurious warning message)
 * Adding some visual clue while virtual drives are being removed
 * Fix "debbuger" typo
+* POL_System_find_file: really pick the shallowest file
+* fix "debbuger" typo
+* POL_SetupWindow_VMS: mention that the expected answer units are megabytes
 
 # 4.2.8
 

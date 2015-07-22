@@ -297,7 +297,7 @@ POL_System_find_file ()
 		if [ "$(wc -l <<<"$paths")" -gt 1 ]; then
 			POL_Debug_Warning "Multiple binaries found for suffix $suffix: $paths"
 			# Sorting both makes result deterministic, and picks a shallow file
-			binary_path="$(sort <<<"$paths"|tail -n 1)"
+			binary_path="$(sort <<<"$paths"|head -n 1)"
 		else
 			binary_path="$paths"
 	        fi
