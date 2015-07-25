@@ -9,6 +9,8 @@
 * fix "debbuger" typo
 * POL_SetupWindow_VMS: mention that the expected answer units are megabytes
 * Try to make instructions to rerun a program in debug mode more obvious (#5104)
+* Some GetRegValue fixing/hardening
+* Remove spurious .lnk files from user desktop for all architectures during POL_Shortcut calls (#4200)
 
 # 4.2.8
 

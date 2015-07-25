@@ -31,7 +31,8 @@ POL_Wine_GetRegValue()
 
 	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 	local value
-	[ -e "$WINEPREFIX/user.reg" ] && value="$(grep "$1" "$WINEPREFIX/user.reg" | head -n 1 | tr -d '"' | cut -d= -f2)"
+	# tr -d '\0' is a workaround for Wine bug #37575
+	[ -e "$WINEPREFIX/user.reg" ] && value="$(grep "^\"$1\"=" "$WINEPREFIX/user.reg" | head -n 1 | tr -d '"' | cut -d= -f2- | tr -d '\0')"
 	POL_Debug_Message "Getting registry value $1. Return: $value"
 	echo -n "${value:-default}"
 }

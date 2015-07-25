@@ -389,11 +389,11 @@ POL_Shortcut()
 		fi
 
 		# Desktop
-		if [ ! "$(POL_Config_Read NO_DESKTOP_ICON)" = "TRUE" ]; then
+		CleanLnkDesktop
+		if [ "$(POL_Config_Read NO_DESKTOP_ICON)" != "TRUE" ]; then
 			if [ "$POL_OS" = "Mac" ]; then
 				POL_SetupWindow_AutoApp "$ICON_FILENAME"
 			else
-
 				make_desktop_shortcut "$iconPath" "$ICON_FILENAME" "$DESKTOP" "$PLAYONLINUX/playonlinux --run \"$ICON_FILENAME\"" "$binary_name" "$Categories"
 			fi
 		fi
