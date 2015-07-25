@@ -8,6 +8,7 @@
 * POL_System_find_file: really pick the shallowest file
 * fix "debbuger" typo
 * POL_SetupWindow_VMS: mention that the expected answer units are megabytes
+* Try to make instructions to rerun a program in debug mode more obvious (#5104)
 
 # 4.2.8
 

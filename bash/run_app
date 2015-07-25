@@ -115,7 +115,7 @@ if [ ! "$ExitCode" = "0" ]; then
 	POL_SetupWindow_wait "$(eval_gettext '$APPLICATION_TITLE debugger is starting...')" "$TITLE"
 	if [ ! "$(cat "$PACKAGE" | grep 'export WINEDEBUG="-all"')" = "" ]
 	then
-		POL_Debug_ErrorSilent "$(eval_gettext '$PACKAGE crashed.\nClick on debug link to get more details.')"
+		POL_Debug_ErrorSilent "$(eval_gettext '$PACKAGE crashed.\nSelect its shortcut and click on "Debug" in the side panel to get more details.')"
 	else
 		POL_Debug_ErrorSilent "$(eval_gettext '$PACKAGE crashed.')"
 	fi
