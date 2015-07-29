@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: MulX <os2mule@gmail.com>\n"
-"POT-Creation-Date: 2015-07-20 19:00+0200\n"
+"POT-Creation-Date: 2015-07-27 19:00+0200\n"
 "PO-Revision-Date: 2015-05-03 06:00+0000\n"
 "Last-Translator: Bill <cges30901@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <zh_TW@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-07-21 05:11+0000\n"
+"X-Launchpad-Export-Date: 2015-07-28 05:13+0000\n"
 "X-Generator: Launchpad (build 17628)\n"
 "Language: zh_TW\n"
 
@@ -373,8 +373,8 @@ msgstr "$APPLICATION_TITLE 應用程式設定"
 
 #: bash/installpolpackages:29 bash/killall:29 bash/read_pc_cd:39
 #: bash/read_pc_cd:73 bash/read_pc_cd:103 bash/winebash:27
-#: lib/setupwindow.lib:439 lib/wine.lib:1014 lib/wine.lib:1092
-#: lib/wine.lib:1122
+#: lib/setupwindow.lib:439 lib/wine.lib:1015 lib/wine.lib:1093
+#: lib/wine.lib:1123
 #, sh-format
 msgid "Please wait..."
 msgstr "請稍候…"
@@ -721,7 +721,9 @@ msgstr "$APPLICATION_TITLE 除錯器正在啟動..."
 
 #: bash/run_app:118
 #, sh-format
-msgid "$PACKAGE crashed.\\nClick on debug link to get more details."
+msgid ""
+"$PACKAGE crashed.\\nSelect its shortcut and click on \"Debug\" in the side "
+"panel to get more details."
 msgstr ""
 
 #: bash/run_app:120
@@ -820,7 +822,7 @@ msgid "Unable to install XQuartz! You must install it to use wine properly."
 msgstr ""
 
 #: bash/uninstall:31 bash/uninstall:65 bash/uninstall:68 bash/uninstall:75
-#: lib/wine.lib:866
+#: lib/wine.lib:867
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
 msgstr "$APPLICATION_TITLE 移除程式"
@@ -840,7 +842,7 @@ msgstr "點擊下一步以繼續"
 msgid "This wizard will help you to uninstall: "
 msgstr "這個精靈將會幫助你移除： "
 
-#: bash/uninstall:65 lib/wine.lib:866
+#: bash/uninstall:65 lib/wine.lib:867
 #, sh-format
 msgid "Uninstalling..."
 msgstr "正在移除..."
@@ -905,7 +907,7 @@ msgstr ""
 "以得到進一步的資訊"
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:933 lib/wine.lib:972
+#: lib/wine.lib:934 lib/wine.lib:973
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr "請等待虛擬硬碟建立 ..."
@@ -952,52 +954,52 @@ msgstr ""
 msgid "External library"
 msgstr "外部庫"
 
-#: lib/playonlinux.lib:635
+#: lib/playonlinux.lib:645
 #, sh-format
 msgid "Making shortcut..."
 msgstr "正在製作捷徑..."
 
-#: lib/playonlinux.lib:762
+#: lib/playonlinux.lib:771
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr "你要刪除這個虛擬磁碟嗎："
 
-#: lib/playonlinux.lib:872
+#: lib/playonlinux.lib:881
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr "下列檔案位於 FAT32 檔案系統。\\n這可能會使 wine 無法運作\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:873
+#: lib/playonlinux.lib:882
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr "下列檔案位於 NTFS 檔案系統。\\n這可能會使 wine 無法運作\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:874
+#: lib/playonlinux.lib:883
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr "下列檔案位於 fuse 檔案系統。\\n這可能會使 wine 無法運作\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:875
+#: lib/playonlinux.lib:884
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
 "prevent wine from working\\n\\n$FilePath"
 msgstr ""
 
-#: lib/playonlinux.lib:904
+#: lib/playonlinux.lib:913
 #, sh-format
 msgid ""
 "Your Linux kernel may not be configured to run Win16 programs under Wine\\"
 "nSee $EXPLANATION_URL"
 msgstr ""
 
-#: lib/playonlinux.lib:907
+#: lib/playonlinux.lib:916
 #, sh-format
 msgid ""
 "Your kernel may be incompatible with running Win16 programs under Wine\\nSee "
@@ -1303,104 +1305,104 @@ msgid ""
 "valid."
 msgstr "連接失敗！\\n請確保您的登錄名稱和密碼是有效的."
 
-#: lib/wine.lib:388
+#: lib/wine.lib:389
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is scanning your hardware"
 msgstr "$APPLICATION_TITLE 正在掃描您的硬體，請稍候"
 
-#: lib/wine.lib:394
+#: lib/wine.lib:395
 #, sh-format
 msgid "Select the main videocard to report:"
 msgstr "選擇要報告的主要顯示卡："
 
-#: lib/wine.lib:540
+#: lib/wine.lib:541
 #, sh-format
 msgid ""
 "Starting 64-bit process $EXEFILE is not supported in 32-bit virtual drives"
 msgstr ""
 
-#: lib/wine.lib:578
+#: lib/wine.lib:579
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
 "message"
 msgstr "Wine 似乎已經當機\\n\\n如果你的程式正在運行， 忽略此訊息"
 
-#: lib/wine.lib:623
+#: lib/wine.lib:624
 #, sh-format
 msgid ""
 "This is an installer for an update or an addon;\\nPlease install "
 "$TITLE_REQUIRED first"
 msgstr "此為一個更新或是插件的安裝檔;\\n請先行安裝 $TITLE_REQUIRED"
 
-#: lib/wine.lib:682
+#: lib/wine.lib:683
 #, sh-format
 msgid "Unable to find version: "
 msgstr "不能找到下列版本： "
 
-#: lib/wine.lib:688 lib/wine.lib:689
+#: lib/wine.lib:689 lib/wine.lib:690
 #, sh-format
 msgid "Downloading Wine: "
 msgstr "下載 Wine： "
 
-#: lib/wine.lib:698
+#: lib/wine.lib:699
 #, sh-format
 msgid "The download seems to have failed."
 msgstr "下載似乎失敗了。"
 
-#: lib/wine.lib:700
+#: lib/wine.lib:701
 #, sh-format
 msgid "Extracting Wine..."
 msgstr "解壓縮 Wine 中..."
 
-#: lib/wine.lib:896
+#: lib/wine.lib:897
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr "覆蓋(通常奏效, 但不保證)"
 
-#: lib/wine.lib:897
+#: lib/wine.lib:898
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
 msgstr "刪除(虛擬硬碟的內容將會遺失)"
 
-#: lib/wine.lib:898
+#: lib/wine.lib:899
 #, sh-format
 msgid "Abort installation"
 msgstr "中止安裝"
 
-#: lib/wine.lib:911
+#: lib/wine.lib:912
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr ""
 
-#: lib/wine.lib:927
+#: lib/wine.lib:928
 #, sh-format
 msgid "User abort"
 msgstr "使用者中止"
 
-#: lib/wine.lib:1092 lib/wine.lib:1122
+#: lib/wine.lib:1093 lib/wine.lib:1123
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "正在安裝 $SOFTNAME ，請稍候..."
 
-#: lib/wine.lib:1096 lib/wine.lib:1125
+#: lib/wine.lib:1097 lib/wine.lib:1126
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
 "have to reinstall $SOFTNAME"
 msgstr ""
 
-#: lib/wine.lib:1096 lib/wine.lib:1125
+#: lib/wine.lib:1097 lib/wine.lib:1126
 #, sh-format
 msgid "Install is done"
 msgstr "安裝完成"
 
-#: lib/wine.lib:1129 lib/wine.lib:1130
+#: lib/wine.lib:1130 lib/wine.lib:1131
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr "只有在安裝程式完成時才按\"下一步\""
 
-#: lib/wine.lib:1138
+#: lib/wine.lib:1139
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr "請等待， $APPLICATION_TITLE 正在模擬重新啟動"

@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2015-07-20 19:00+0200\n"
-"PO-Revision-Date: 2015-05-20 09:32+0000\n"
-"Last-Translator: Mister Q <misterq@misterqmusic.com>\n"
+"POT-Creation-Date: 2015-07-27 19:00+0200\n"
+"PO-Revision-Date: 2015-07-27 23:00+0000\n"
+"Last-Translator: Jonatan Zeidler <Unknown>\n"
 "Language-Team: de_DE.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-07-21 05:10+0000\n"
+"X-Launchpad-Export-Date: 2015-07-28 05:12+0000\n"
 "X-Generator: Launchpad (build 17628)\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -404,8 +404,8 @@ msgstr "$APPLICATION_TITLE Anwendungskonfigurator"
 
 #: bash/installpolpackages:29 bash/killall:29 bash/read_pc_cd:39
 #: bash/read_pc_cd:73 bash/read_pc_cd:103 bash/winebash:27
-#: lib/setupwindow.lib:439 lib/wine.lib:1014 lib/wine.lib:1092
-#: lib/wine.lib:1122
+#: lib/setupwindow.lib:439 lib/wine.lib:1015 lib/wine.lib:1093
+#: lib/wine.lib:1123
 #, sh-format
 msgid "Please wait..."
 msgstr "Bitte warten …"
@@ -421,7 +421,7 @@ msgstr ""
 #: bash/make_shortcut:25
 #, sh-format
 msgid "$APPLICATION_TITLE shortcut creator"
-msgstr "$APPLICATION_TITLE Shortcut Ersteller"
+msgstr "Starterersteller für $APPLICATION_TITLE"
 
 #: bash/make_shortcut:30
 #, sh-format
@@ -431,12 +431,12 @@ msgstr "Bitte wählen Sie eine Software zum Paketieren aus"
 #: bash/make_shortcut:35
 #, sh-format
 msgid "Creating shortcut..."
-msgstr "Erstelle Shortcut..."
+msgstr "Erstelle Starter…"
 
 #: bash/make_shortcut:37
 #, sh-format
 msgid "The shortcut has been placed on your desktop"
-msgstr "Der Shortcut hat auf dem Desktop platziert"
+msgstr "Der Starter wurde auf dem Desktop platziert"
 
 #: bash/make_shortcut:57
 #, sh-format
@@ -461,6 +461,10 @@ msgid ""
 "all the tools\\n\\nWarning: We are unable to guarantee that your application "
 "will work perfectly."
 msgstr ""
+"Willkommen bei dem $APPLICATION_TITLE Installations-Assistenten.\\n\\nDieses "
+"Skript erlaubt die Installation aller Programm für  $APPLICATION_TITLE und "
+"die Nutzung mit all den Werkzeugen\\n\\nWarnung: Wir können nicht "
+"garantieren, dass die Anwendung perfekt funktionieren wird."
 
 #: bash/manual_install:102
 #, sh-format
@@ -758,12 +762,16 @@ msgstr "Bitte wähle eine Software zum Ausführen"
 #: bash/run_app:115
 #, sh-format
 msgid "$APPLICATION_TITLE debugger is starting..."
-msgstr "$APPLICATION_TITLE debugger startet..."
+msgstr "$APPLICATION_TITLE Fehlerdiagnose startet…"
 
 #: bash/run_app:118
 #, sh-format
-msgid "$PACKAGE crashed.\\nClick on debug link to get more details."
-msgstr "$PACKAGE ist abgestürzt.\\nAuf Debug klicken für Details."
+msgid ""
+"$PACKAGE crashed.\\nSelect its shortcut and click on \"Debug\" in the side "
+"panel to get more details."
+msgstr ""
+"$PACKAGE ist abgestürzt.\\nWählen Sie den Starter und klicken Sie auf "
+"Fehlerdiagnos für mehr Details."
 
 #: bash/run_app:120
 #, sh-format
@@ -773,7 +781,7 @@ msgstr "$PACKAGE abgestürzt."
 #: bash/run_exe:33
 #, sh-format
 msgid "Waiting XQuartz to be installed"
-msgstr ""
+msgstr "Warten während XQuartz installiert wird"
 
 #: bash/run_exe:70
 #, sh-format
@@ -818,12 +826,12 @@ msgstr "Installation erfolgreich!"
 #: bash/startup_after_server:38
 #, sh-format
 msgid "PlayOnMac needs to install XQuartz to work properly."
-msgstr ""
+msgstr "PlayOnMac benötigt XQuartz, um korrekt zu funktionieren."
 
 #: bash/startup_after_server:39
 #, sh-format
 msgid "PlayOnMac will help you to simplify this step"
-msgstr ""
+msgstr "PlayOnMac wird Ihnen helfen, diesen Schritt zu vereinfachen"
 
 #: bash/startup_after_server:42
 #, sh-format
@@ -864,9 +872,11 @@ msgstr "XQuartz wurde installiert."
 #, sh-format
 msgid "Unable to install XQuartz! You must install it to use wine properly."
 msgstr ""
+"XQuartz konnte nicht installiert werden! Sie müssen es selbst installieren, "
+"damit wine korrekt funktioniert."
 
 #: bash/uninstall:31 bash/uninstall:65 bash/uninstall:68 bash/uninstall:75
-#: lib/wine.lib:866
+#: lib/wine.lib:867
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
 msgstr "$APPLICATION_TITLE Uninstaller"
@@ -886,7 +896,7 @@ msgstr "Klicken Sie auf Weiter um fortzufahren"
 msgid "This wizard will help you to uninstall: "
 msgstr "Dieser Assistent wird Ihnen beim Deinstallieren helfen: "
 
-#: bash/uninstall:65 lib/wine.lib:866
+#: bash/uninstall:65 lib/wine.lib:867
 #, sh-format
 msgid "Uninstalling..."
 msgstr "Deinstalliere..."
@@ -899,7 +909,7 @@ msgstr " wurde erfolgreich Deinstalliert."
 #: bash/uninstall:75
 #, sh-format
 msgid "Cannot find the shortcut"
-msgstr "Kann den Shortcut nicht finden"
+msgstr "Der Starter konnte nicht gefunden werden"
 
 #: bash/update_git:25
 #, sh-format
@@ -955,7 +965,7 @@ msgstr ""
 "weitere Informationen zu erhalten"
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:933 lib/wine.lib:972
+#: lib/wine.lib:934 lib/wine.lib:973
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr "Bitte warten Sie während das virtuelle Laufwerk erstellt wird..."
@@ -1011,17 +1021,17 @@ msgstr ""
 msgid "External library"
 msgstr "Externe Bibliothek"
 
-#: lib/playonlinux.lib:635
+#: lib/playonlinux.lib:645
 #, sh-format
 msgid "Making shortcut..."
-msgstr "Erstelle Shortcut..."
+msgstr "Erstelle Starter…"
 
-#: lib/playonlinux.lib:762
+#: lib/playonlinux.lib:771
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr "Möchten Sie das folgende virtuelle Laufwerk entfernen:"
 
-#: lib/playonlinux.lib:872
+#: lib/playonlinux.lib:881
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
@@ -1030,7 +1040,7 @@ msgstr ""
 "Es wird folgende Datei liegt auf einem FAT32-Dateisystem.\\nEs könnte Wine "
 "vom Funktionieren\\n\\n$FilePath abhalten"
 
-#: lib/playonlinux.lib:873
+#: lib/playonlinux.lib:882
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
@@ -1039,7 +1049,7 @@ msgstr ""
 "Es wird folgende Datei liegt auf einem NTFS-Dateisystem.\\nEs könnte Wine "
 "vom Funktionieren\\n\\n$FilePath abhalten"
 
-#: lib/playonlinux.lib:874
+#: lib/playonlinux.lib:883
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
@@ -1048,7 +1058,7 @@ msgstr ""
 "Es wird folgende Datei liegt auf einem FUSE-Dateisystem.\\nEs könnte Wine "
 "vom Funktionieren\\n\\n$FilePath abhalten"
 
-#: lib/playonlinux.lib:875
+#: lib/playonlinux.lib:884
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
@@ -1057,19 +1067,24 @@ msgstr ""
 "Es wird folgende Datei liegt auf einem noexec montierten-Dateisystem.\\nEs "
 "könnte Wine vom Funktionieren\\n\\n$FilePath abhalten"
 
-#: lib/playonlinux.lib:904
+#: lib/playonlinux.lib:913
 #, sh-format
 msgid ""
 "Your Linux kernel may not be configured to run Win16 programs under Wine\\"
 "nSee $EXPLANATION_URL"
 msgstr ""
+"Möglicherweise ist Ihr Linuxkernel nicht so konfiguriert, dass Win16-"
+"Programme unter Wine ausgeführt werden können.\\nMehr Infos unter "
+"$EXPLANATION_URL"
 
-#: lib/playonlinux.lib:907
+#: lib/playonlinux.lib:916
 #, sh-format
 msgid ""
 "Your kernel may be incompatible with running Win16 programs under Wine\\nSee "
 "$EXPLANATION_URL"
 msgstr ""
+"Möglicherweise ist Ihr Kernel inkompatibel mit Win16-Programmen unter Wine.\\"
+"nMehr Infos unter $EXPLANATION_URL"
 
 #: lib/plugins.lib:63
 #, sh-format
@@ -1284,7 +1299,7 @@ msgstr "Durchsuche das virtuelle Laufwerk"
 #: lib/setupwindow.lib:582
 #, sh-format
 msgid "How much memory (in MB) does your graphics board have?"
-msgstr ""
+msgstr "Wie viel Speicher (MB) hat Ihre Grafikkarte?"
 
 #: lib/setupwindow.lib:591
 #, sh-format
@@ -1358,7 +1373,7 @@ msgstr "Bitte wählen Sie eine Installationsmethode"
 #: lib/setupwindow.lib:712
 #, sh-format
 msgid "I don't want to make another shortcut"
-msgstr "Ich möchte keinen anderen Shortcut erzeugen"
+msgstr "Ich möchte keinen anderen Starter erzeugen"
 
 #: lib/setupwindow.lib:713 python/guiv3.py:170
 #, sh-format
@@ -1368,7 +1383,7 @@ msgstr "Durchsuchen"
 #: lib/setupwindow.lib:763
 #, sh-format
 msgid "A shortcut by that name already exists, overwrite?"
-msgstr "Eine Verknüpfung mit diesem Namen existiert bereits, überschreiben?"
+msgstr "Ein Starter mit diesem Namen existiert bereits, überschreiben?"
 
 #: lib/website.lib:29
 #, sh-format
@@ -1389,23 +1404,25 @@ msgstr ""
 "Verbindung fehlgeschlagen!\\n Bitte überprüfen Sie ihre Login-ID und Ihr "
 "Passwort."
 
-#: lib/wine.lib:388
+#: lib/wine.lib:389
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is scanning your hardware"
 msgstr "Bitte warte, während $APPLICATION_TITLE Ihre Hardware scannt"
 
-#: lib/wine.lib:394
+#: lib/wine.lib:395
 #, sh-format
 msgid "Select the main videocard to report:"
 msgstr "Wähle die Haupt-Videokarte zum berichten:"
 
-#: lib/wine.lib:540
+#: lib/wine.lib:541
 #, sh-format
 msgid ""
 "Starting 64-bit process $EXEFILE is not supported in 32-bit virtual drives"
 msgstr ""
+"Das Starten des 64-bit-Prozesses $EXEFILE in 32-bit virtuellen Laufwerken "
+"wird nicht unterstützt."
 
-#: lib/wine.lib:578
+#: lib/wine.lib:579
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
@@ -1414,7 +1431,7 @@ msgstr ""
 "Wine scheint abgestürzt zu sein\\n\\nWenn Ihr Programm weiter läuft, "
 "ignorieren Sie diese Nachricht"
 
-#: lib/wine.lib:623
+#: lib/wine.lib:624
 #, sh-format
 msgid ""
 "This is an installer for an update or an addon;\\nPlease install "
@@ -1423,57 +1440,57 @@ msgstr ""
 "Dies ist ein Installationsprogramm für eine Aktualisierung oder eine "
 "Erweiterung;\\nBitte installieren Sie zuerst $TITLE_REQUIRED."
 
-#: lib/wine.lib:682
+#: lib/wine.lib:683
 #, sh-format
 msgid "Unable to find version: "
 msgstr "Kann Version nicht finden: "
 
-#: lib/wine.lib:688 lib/wine.lib:689
+#: lib/wine.lib:689 lib/wine.lib:690
 #, sh-format
 msgid "Downloading Wine: "
 msgstr "Wine wird heruntergeladen: "
 
-#: lib/wine.lib:698
+#: lib/wine.lib:699
 #, sh-format
 msgid "The download seems to have failed."
 msgstr "Der Download ist fehlgeschlagen."
 
-#: lib/wine.lib:700
+#: lib/wine.lib:701
 #, sh-format
 msgid "Extracting Wine..."
 msgstr "Entpacke Wine..."
 
-#: lib/wine.lib:896
+#: lib/wine.lib:897
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr "Überschreibe (in der Regel funktioniert es, ohne Gewähr)"
 
-#: lib/wine.lib:897
+#: lib/wine.lib:898
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
 msgstr "Lösche (Inhalte des virtuellen Laufwerk gehen verloren)"
 
-#: lib/wine.lib:898
+#: lib/wine.lib:899
 #, sh-format
 msgid "Abort installation"
 msgstr "Breche Installation ab"
 
-#: lib/wine.lib:911
+#: lib/wine.lib:912
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr "Das virtuelleZiel-Laufwerk $PREFNAME existiert bereits:"
 
-#: lib/wine.lib:927
+#: lib/wine.lib:928
 #, sh-format
 msgid "User abort"
 msgstr "Benutzerabbruch"
 
-#: lib/wine.lib:1092 lib/wine.lib:1122
+#: lib/wine.lib:1093 lib/wine.lib:1123
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "Bitte warten Sie bis $SOFTNAME installiert wird..."
 
-#: lib/wine.lib:1096 lib/wine.lib:1125
+#: lib/wine.lib:1097 lib/wine.lib:1126
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
@@ -1482,17 +1499,17 @@ msgstr ""
 "Seien Sie vorsichtig! Dies wird den Install-Prozess töten. Wenn es nicht "
 "fertig ist, müssen Sie $SOFTNAME neu installieren"
 
-#: lib/wine.lib:1096 lib/wine.lib:1125
+#: lib/wine.lib:1097 lib/wine.lib:1126
 #, sh-format
 msgid "Install is done"
 msgstr "Installation fertiggestellt"
 
-#: lib/wine.lib:1129 lib/wine.lib:1130
+#: lib/wine.lib:1130 lib/wine.lib:1131
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr "Drücke nur \"weiter\", wenn die Installation abgeschlossen ist"
 
-#: lib/wine.lib:1138
+#: lib/wine.lib:1139
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr ""
@@ -1518,7 +1535,7 @@ msgstr "Allgemein"
 
 #: python/configure.py:201
 msgid "Make a new shortcut from this virtual drive"
-msgstr "Lege eine neue Verknüpfung dieses virtuellen Laufwerks an"
+msgstr "Einen neuen Starter für dieses virtuelle Laufwerks erstellen"
 
 #: python/configure.py:202
 msgid "Name"
@@ -1530,7 +1547,7 @@ msgstr "Wine-Version"
 
 #: python/configure.py:204
 msgid "Debug flags"
-msgstr "Debug flags"
+msgstr "Fehlerdiagnosesymbole"
 
 #: python/configure.py:206
 msgid "Virtual drive"
@@ -1640,6 +1657,11 @@ msgid ""
 "Wine version is changed.\n"
 "Are you sure you want to continue?"
 msgstr ""
+"Warnung:\n"
+"\n"
+"Alle laufenden Programme in diesem virtuellen Laufwerk werden beendet, wenn "
+"die Wine-Version geändert wird.\n"
+"Sind Sie sicher, dass Sie fortfahren möchten?"
 
 #: python/configure.py:606
 msgid ""
@@ -1695,11 +1717,11 @@ msgstr "Sind Sie sich sicher, dass Sie {0} löschen wollen?"
 #: python/debug.py:40 python/mainwindow.py:282 python/mainwindow.py:948
 #: python/mainwindow.py:1038 python/wrapper.py:76
 msgid "{0} debugger"
-msgstr "{0} debugger"
+msgstr "{0} Fehlerdiagnose"
 
 #: python/debug.py:51
 msgid "Please select a debug file"
-msgstr "Bitte wähle eine debug Datei"
+msgstr "Bitte wählen Sie eine Fehlerdiagnose-Datei"
 
 #: python/debug.py:80
 msgid "Locate this logfile"
@@ -1891,6 +1913,13 @@ msgid ""
 "piracy and as such, we will not offer any support for issues resulting from "
 "using this option."
 msgstr ""
+"Mit dieser Option können Programme installiert werden, die den Kopierschutz "
+"einer digitalen Rechteverwaltung (DRM) einsetzen, der nicht durch {0} "
+"unterstützt wird und möglicherweise umgangen werden muss.\n"
+"\n"
+"Diese Funktion sollte nicht als implizierte Billigung von Rechtsverstößen "
+"verstanden werden. Wir werden keinerlei Unterstützung für Probleme anbieten, "
+"die aus dieser Option resultieren."
 
 #: python/install.py:580
 msgid ""
@@ -2081,15 +2110,15 @@ msgstr "Aktualisiere Instruktionen"
 
 #: python/mainwindow.py:779
 msgid "Debug"
-msgstr "Debug"
+msgstr "Fehlerdiagnose"
 
 #: python/mainwindow.py:785
 msgid "Send a feedback"
-msgstr ""
+msgstr "Rückmeldung geben"
 
 #: python/mainwindow.py:790
 msgid "Create a shortcut"
-msgstr "Erstelle ein Shortcut"
+msgstr "Starter erstellen"
 
 #: python/mainwindow.py:792
 msgid "Open the directory"
@@ -2342,7 +2371,7 @@ msgstr "Sind Sie sich sicher, dass Sie Wine {0} löschen wollen?"
 
 #: python/wine_versions.py:334
 msgid "This version is CURRENTLY IN USE"
-msgstr ""
+msgstr "Diese Version wird gerade verwendet"
 
 #: python/wrapper.py:135
 msgid "{0} is not able to start POL_SetupWindow_server."

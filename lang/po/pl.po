@@ -10,14 +10,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2015-07-20 19:00+0200\n"
+"POT-Creation-Date: 2015-07-27 19:00+0200\n"
 "PO-Revision-Date: 2014-04-23 13:35+0000\n"
 "Last-Translator: Adam Maćkowiak <Unknown>\n"
 "Language-Team: pl_PL.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-07-21 05:11+0000\n"
+"X-Launchpad-Export-Date: 2015-07-28 05:13+0000\n"
 "X-Generator: Launchpad (build 17628)\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -400,8 +400,8 @@ msgstr "Konfigurator aplikacji $APPLICATION_TITLE"
 
 #: bash/installpolpackages:29 bash/killall:29 bash/read_pc_cd:39
 #: bash/read_pc_cd:73 bash/read_pc_cd:103 bash/winebash:27
-#: lib/setupwindow.lib:439 lib/wine.lib:1014 lib/wine.lib:1092
-#: lib/wine.lib:1122
+#: lib/setupwindow.lib:439 lib/wine.lib:1015 lib/wine.lib:1093
+#: lib/wine.lib:1123
 #, sh-format
 msgid "Please wait..."
 msgstr "Proszę czekać..."
@@ -757,9 +757,10 @@ msgstr "Uruchamianie debuggera $APPLICATION_TITLE..."
 
 #: bash/run_app:118
 #, sh-format
-msgid "$PACKAGE crashed.\\nClick on debug link to get more details."
+msgid ""
+"$PACKAGE crashed.\\nSelect its shortcut and click on \"Debug\" in the side "
+"panel to get more details."
 msgstr ""
-"$PACKAGE zawiesił się.\\nKliknij na debuguj aby uzyskać więcej informacji."
 
 #: bash/run_app:120
 #, sh-format
@@ -861,7 +862,7 @@ msgid "Unable to install XQuartz! You must install it to use wine properly."
 msgstr ""
 
 #: bash/uninstall:31 bash/uninstall:65 bash/uninstall:68 bash/uninstall:75
-#: lib/wine.lib:866
+#: lib/wine.lib:867
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
 msgstr "Deinstalator $APPLICATION_TITLE"
@@ -881,7 +882,7 @@ msgstr "Kliknij na 'Dalej' aby kontynuować."
 msgid "This wizard will help you to uninstall: "
 msgstr "Ten kreator usunie: "
 
-#: bash/uninstall:65 lib/wine.lib:866
+#: bash/uninstall:65 lib/wine.lib:867
 #, sh-format
 msgid "Uninstalling..."
 msgstr "Usuwanie..."
@@ -949,7 +950,7 @@ msgstr ""
 "proces instalacji.\\nOdwiedź www.$POL_DNS aby uzyskać więcej informacji"
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:933 lib/wine.lib:972
+#: lib/wine.lib:934 lib/wine.lib:973
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr "Proszę czekać, wirtualny dysk twardy jest tworzony..."
@@ -1003,17 +1004,17 @@ msgstr ""
 msgid "External library"
 msgstr "Zewnętrzna biblioteka"
 
-#: lib/playonlinux.lib:635
+#: lib/playonlinux.lib:645
 #, sh-format
 msgid "Making shortcut..."
 msgstr "Tworzenie skrótu..."
 
-#: lib/playonlinux.lib:762
+#: lib/playonlinux.lib:771
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr "Czy chcesz usunąć wirtualny dysk twardy:"
 
-#: lib/playonlinux.lib:872
+#: lib/playonlinux.lib:881
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
@@ -1022,7 +1023,7 @@ msgstr ""
 "Poniższy plik znajduje się na partycji FAT32.\\nTo może być przyczyną "
 "nieprawidłowego działania wine.\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:873
+#: lib/playonlinux.lib:882
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
@@ -1031,7 +1032,7 @@ msgstr ""
 "Poniższy plik znajduje się na partycji NTFS.\\nTo może być przyczyną "
 "nieprawidłowego działania wine.\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:874
+#: lib/playonlinux.lib:883
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
@@ -1040,7 +1041,7 @@ msgstr ""
 "Poniższy plik znajduje się na partycji fuse.\\nTo może być przyczyną "
 "nieprawidłowego działania wine.\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:875
+#: lib/playonlinux.lib:884
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
@@ -1049,14 +1050,14 @@ msgstr ""
 "Poniższy plik znajduje się na partycji zamontowanej z flagą noexec.\\nTo "
 "może być przyczyną nieprawidłowego działania wine.\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:904
+#: lib/playonlinux.lib:913
 #, sh-format
 msgid ""
 "Your Linux kernel may not be configured to run Win16 programs under Wine\\"
 "nSee $EXPLANATION_URL"
 msgstr ""
 
-#: lib/playonlinux.lib:907
+#: lib/playonlinux.lib:916
 #, sh-format
 msgid ""
 "Your kernel may be incompatible with running Win16 programs under Wine\\nSee "
@@ -1380,23 +1381,23 @@ msgid ""
 "valid."
 msgstr "Nie można połączyć!\\nUpewnij się że twój logi i hasło są poprawne."
 
-#: lib/wine.lib:388
+#: lib/wine.lib:389
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is scanning your hardware"
 msgstr "Proszę czekać, $APPLICATION_TITLE sprawdza twój sprzęt"
 
-#: lib/wine.lib:394
+#: lib/wine.lib:395
 #, sh-format
 msgid "Select the main videocard to report:"
 msgstr "Wybierz główną kartę graficzną którą wine ma zgłaszać grom"
 
-#: lib/wine.lib:540
+#: lib/wine.lib:541
 #, sh-format
 msgid ""
 "Starting 64-bit process $EXEFILE is not supported in 32-bit virtual drives"
 msgstr ""
 
-#: lib/wine.lib:578
+#: lib/wine.lib:579
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
@@ -1405,7 +1406,7 @@ msgstr ""
 "Wygląda na to że Wine się zawiesiło\\n\\nJeśli program dalej działa zignoruj "
 "tą wiadomość"
 
-#: lib/wine.lib:623
+#: lib/wine.lib:624
 #, sh-format
 msgid ""
 "This is an installer for an update or an addon;\\nPlease install "
@@ -1414,57 +1415,57 @@ msgstr ""
 "To jest instalator aktualizacji lub dodatku.\\nProszę zainstalować najpierw "
 "$TITLE_REQUIRED"
 
-#: lib/wine.lib:682
+#: lib/wine.lib:683
 #, sh-format
 msgid "Unable to find version: "
 msgstr "Nie można odnaleźć wersji: "
 
-#: lib/wine.lib:688 lib/wine.lib:689
+#: lib/wine.lib:689 lib/wine.lib:690
 #, sh-format
 msgid "Downloading Wine: "
 msgstr "Pobieranie Wine: "
 
-#: lib/wine.lib:698
+#: lib/wine.lib:699
 #, sh-format
 msgid "The download seems to have failed."
 msgstr "Wygląda na to że pobieranie się nie powiodło."
 
-#: lib/wine.lib:700
+#: lib/wine.lib:701
 #, sh-format
 msgid "Extracting Wine..."
 msgstr "Rozpakowywanie Wine..."
 
-#: lib/wine.lib:896
+#: lib/wine.lib:897
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr "Nadpisz (zazwyczaj działa, brak gwarancji)"
 
-#: lib/wine.lib:897
+#: lib/wine.lib:898
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
 msgstr "Wyczyść (zawartość wirtualnego dysku twardego zostanie utracona)"
 
-#: lib/wine.lib:898
+#: lib/wine.lib:899
 #, sh-format
 msgid "Abort installation"
 msgstr "Anuluj instalację"
 
-#: lib/wine.lib:911
+#: lib/wine.lib:912
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr "Docelowy wirtualny dysk twardy $PREFNAME już istnieje:"
 
-#: lib/wine.lib:927
+#: lib/wine.lib:928
 #, sh-format
 msgid "User abort"
 msgstr "Anulowano"
 
-#: lib/wine.lib:1092 lib/wine.lib:1122
+#: lib/wine.lib:1093 lib/wine.lib:1123
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "Proszę czekać, instalacja $SOFTNAME w toku..."
 
-#: lib/wine.lib:1096 lib/wine.lib:1125
+#: lib/wine.lib:1097 lib/wine.lib:1126
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
@@ -1473,17 +1474,17 @@ msgstr ""
 "Ostrzeżenie! Ta czynność zabije proces instalatora. Jeśli instalacja się nie "
 "zakończyła wymagana będzie reinstalacja $SOFTNAME"
 
-#: lib/wine.lib:1096 lib/wine.lib:1125
+#: lib/wine.lib:1097 lib/wine.lib:1126
 #, sh-format
 msgid "Install is done"
 msgstr "Instalacja zakończona"
 
-#: lib/wine.lib:1129 lib/wine.lib:1130
+#: lib/wine.lib:1130 lib/wine.lib:1131
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr "Kliknij 'Dalej' tylko gdy instalacja się zakończy"
 
-#: lib/wine.lib:1138
+#: lib/wine.lib:1139
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr "Proszę czekać, $APPLICATION_TITLE symuluje ponowne uruchomienie"
