@@ -11,6 +11,7 @@
 * Try to make instructions to rerun a program in debug mode more obvious (#5104)
 * Some GetRegValue fixing/hardening
 * Remove spurious .lnk files from user desktop for all architectures during POL_Shortcut calls (#4200)
+* Add waiting messages to POL_System_unzip & friends
 
 # 4.2.8
 

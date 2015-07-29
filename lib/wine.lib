@@ -1031,7 +1031,7 @@ EOF
 		echo "\"*$DLL\"=-"
 	done) > "$POL_USER_ROOT/tmp/del-override-dll.reg"
 	POL_Debug_Message "Deleting overrides DLLs"
-	POL_SetupWindow_wait_next_signal "Please wait" "$TITLE"
+	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Please wait...')" "$TITLE"
 	POL_Wine regedit "$POL_USER_ROOT/tmp/del-override-dll.reg"
 	rm "$POL_USER_ROOT/tmp/del-override-dll.reg"
 }
