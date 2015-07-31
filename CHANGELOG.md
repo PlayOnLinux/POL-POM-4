@@ -12,6 +12,7 @@
 * Some GetRegValue fixing/hardening
 * Remove spurious .lnk files from user desktop for all architectures during POL_Shortcut calls (#4200)
 * Add waiting messages to POL_System_unzip & friends
+* Deprecate Set_WineWindowTitle that no longer works with Wine 1.5.16+, and breaks Set_Desktop (#5118)
 
 # 4.2.8
 

@@ -371,7 +371,7 @@ Set_WineWindowTitle ()
 	POL_Debug_Message "Setting window title"
 	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
-	POL_Wine_UpdateRegistryWinePair 'Explorer' 'Desktop' "$1"
+	POL_Debug_Warning "Set_WineWindowTitle has been deprecated (#5118)"
 }
 
 POL_LoadVar_Device ()
