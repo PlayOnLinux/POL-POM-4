@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2015-07-27 19:00+0200\n"
+"POT-Creation-Date: 2015-08-03 19:00+0200\n"
 "PO-Revision-Date: 2015-07-27 23:00+0000\n"
 "Last-Translator: Jonatan Zeidler <Unknown>\n"
 "Language-Team: de_DE.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-07-28 05:12+0000\n"
-"X-Generator: Launchpad (build 17628)\n"
+"X-Launchpad-Export-Date: 2015-08-04 05:14+0000\n"
+"X-Generator: Launchpad (build 17656)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -403,9 +403,10 @@ msgid "$APPLICATION_TITLE Application Configurator"
 msgstr "$APPLICATION_TITLE Anwendungskonfigurator"
 
 #: bash/installpolpackages:29 bash/killall:29 bash/read_pc_cd:39
-#: bash/read_pc_cd:73 bash/read_pc_cd:103 bash/winebash:27
-#: lib/setupwindow.lib:439 lib/wine.lib:1015 lib/wine.lib:1093
-#: lib/wine.lib:1123
+#: bash/read_pc_cd:73 bash/read_pc_cd:103 bash/winebash:27 lib/scripts.lib:674
+#: lib/scripts.lib:682 lib/scripts.lib:690 lib/scripts.lib:698
+#: lib/scripts.lib:706 lib/setupwindow.lib:439 lib/wine.lib:1015
+#: lib/wine.lib:1034 lib/wine.lib:1093 lib/wine.lib:1123
 #, sh-format
 msgid "Please wait..."
 msgstr "Bitte warten …"
@@ -1125,7 +1126,7 @@ msgstr "Override-Funktion erkannt wird, deaktiviere Bug-Reporting"
 msgid "No enough space to download:\\n$URL ($neededSpace KB)"
 msgstr "Kein Platz zum Download:\\n$URL ($neededSpace KB)"
 
-#: lib/scripts.lib:528 lib/scripts.lib:811
+#: lib/scripts.lib:528 lib/scripts.lib:821
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr "Bitte warten Sie bis $APPLICATION_TITLE heruntergeladen wird:"
@@ -1148,7 +1149,13 @@ msgstr ""
 "Fehler ! Dateien stimmen nicht überein\\n\\nLokal : $LOCAL_MD5\\nServer : "
 "$SERVER_MD5"
 
-#: lib/scripts.lib:716
+#: lib/scripts.lib:671 lib/scripts.lib:679 lib/scripts.lib:687
+#: lib/scripts.lib:695 lib/scripts.lib:703
+#, sh-format
+msgid "Please wait while $APPLICATION_TITLE is handling archive..."
+msgstr ""
+
+#: lib/scripts.lib:726
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
@@ -1156,32 +1163,32 @@ msgstr ""
 "7z ist nicht installiert, bitte prüfe ob 7zip installiert ist und versuche "
 "es erneut"
 
-#: lib/scripts.lib:723
+#: lib/scripts.lib:733
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr "Fehlgeschlagen ${dest} von ${archive} zu lokalisieren"
 
-#: lib/scripts.lib:727
+#: lib/scripts.lib:737
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr "Extrahiere ${filename} von ${archivename}"
 
-#: lib/scripts.lib:742
+#: lib/scripts.lib:752
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr "Extrahierte Dateigröße stimmt nicht überein!"
 
-#: lib/scripts.lib:773
+#: lib/scripts.lib:783
 #, sh-format
 msgid "Copying ${filename}"
 msgstr "Kopiere ${filename}"
 
-#: lib/scripts.lib:786
+#: lib/scripts.lib:796
 #, sh-format
 msgid "File size does not match!"
 msgstr "Dateigröße stimmt nicht überein!"
 
-#: lib/scripts.lib:944
+#: lib/scripts.lib:954
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
@@ -1190,7 +1197,7 @@ msgstr ""
 "Leider ist $APPLICATION_TITLE $VERSION zu alt, um fortzufahren.\\"
 "nAPPLICATION_TITLE $NEEDED ist erforderlich."
 
-#: lib/scripts.lib:959
+#: lib/scripts.lib:969
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
@@ -1199,7 +1206,7 @@ msgstr ""
 "Achtung: Sie führen $APPLICATION_TITLE $VERSION aus.\\n$APPLICATION_TITLE "
 "$NEEDED wird empfohlen, um fortzufahren."
 
-#: lib/scripts.lib:990
+#: lib/scripts.lib:1000
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr "$AUTHOR profile"
