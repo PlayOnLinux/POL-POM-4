@@ -417,6 +417,7 @@ POL_Call()
 	POL_Debug_Message "Calling $1"
 	if [ ! "$1" = "" ]
 	then
+	        # Caution, some scripts (POL_SP2_Extract at least) depend on this variable (!!)
 		OLD_PC_DIR="$PWD"
 		cd "$POL_USER_ROOT/tmp/"
 		# Local overriding mechanism
