@@ -607,37 +607,46 @@ CleanLnkDesktop()
 	# Clean Desktop from PlayOnLinux's wine shortcuts
 	# Usage: CleanLnkDesktop
 	
+	local WIN_DESKTOP="$(POL_Wine_GetRegValue 'Desktop')"
+	# Fallback to a sane default?
+	[[ "$WIN_DESKTOP" =~ C:\\.* ]] || WIN_DESKTOP="C:\\user\\$LOGIN\\Desktop"
+	local UNIX_DESKTOP="$(POL_Wine winepath -u "$WIN_DESKTOP")"
+	# Only cleanup "external" desktops
+        [ -L "$UNIX_DESKTOP" ] || return
+
+	POL_Debug_Message "Clean user's Windows desktop: $WIN_DESKTOP => $UNIX_DESKTOP"
 	mkdir -p "$POL_USER_ROOT/backup"
-	for file in $HOME/Desktop/*.desktop
-	do
-		if [ ! "$(strings "$file" | grep PlayOn$POL_OS)" = "" ]
-		then
+	local file
+	for file in "$UNIX_DESKTOP"/*.lnk; do
+		if [ -e "$file" ] && strings "$file" | grep -q "PlayOn${POL_OS}"; then
+			POL_Debug_Message "Removing '$file' from desktop"
 			mv "$file" "$POL_USER_ROOT/backup"
 		fi
 	done
-	for file in $HOME/Desktop/*.lnk
-	do
-		if [ ! "$(strings "$file" | grep PlayOn$POL_OS)" = "" ]
-		then
-			mv "$file" "$POL_USER_ROOT/backup"
-		fi
-	done
+	# On Mac also remove .desktop files, as it uses .app files
+	if [ "$POL_OS" = "Mac" ]; then
+		for file in "$UNIX_DESKTOP"/*.desktop; do
+			if [ -e "$file" ] && strings "$file" | grep -q "PlayOn${POL_OS}"; then
+				POL_Debug_Message "Removing '$file' from desktop"
+				mv "$file" "$POL_USER_ROOT/backup"
+			fi
+		done
+	fi
 }
 POL_SetupWindow_AutoApp()
 {
 	# Automatically generate a .app for Mac OS X
 	# Usage: POL_SetupWindow_AutoApp [Shortcut]
 	
-	POL_Debug_Message "Making .app $PACKAGE ($shortname)" 
 	shortname=`echo "$1" | tr -c [[a-zA-Z0-9]\.] '_'`
 	PACKAGE="$1"
+	POL_Debug_Message "Making .app $PACKAGE ($shortname)"
 	DIRAPP="$HOME/Desktop/$PACKAGE.app"
 	POL_SetupWindow_wait_next_signal "$(eval_gettext "Making shortcut...")" "$TITLE"
 	make_skeleton "$PACKAGE"
 	make_icon "$PACKAGE"
 	make_pom_script "$PACKAGE"
 	make_plist "$PACKAGE" "$shortname"
-	CleanLnkDesktop
 }
 
 make_desktop_shortcut ()

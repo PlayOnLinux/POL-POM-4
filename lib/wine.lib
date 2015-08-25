@@ -31,7 +31,8 @@ POL_Wine_GetRegValue()
 
 	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 	local value
-	[ -e "$WINEPREFIX/user.reg" ] && value="$(grep "$1" "$WINEPREFIX/user.reg" | head -n 1 | tr -d '"' | cut -d= -f2)"
+	# tr -d '\0' is a workaround for Wine bug #37575
+	[ -e "$WINEPREFIX/user.reg" ] && value="$(grep "^\"$1\"=" "$WINEPREFIX/user.reg" | head -n 1 | tr -d '"' | cut -d= -f2- | tr -d '\0')"
 	POL_Debug_Message "Getting registry value $1. Return: $value"
 	echo -n "${value:-default}"
 }
@@ -370,7 +371,7 @@ Set_WineWindowTitle ()
 	POL_Debug_Message "Setting window title"
 	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
-	POL_Wine_UpdateRegistryWinePair 'Explorer' 'Desktop' "$1"
+	POL_Debug_Warning "Set_WineWindowTitle has been deprecated (#5118)"
 }
 
 POL_LoadVar_Device ()
@@ -1030,7 +1031,7 @@ EOF
 		echo "\"*$DLL\"=-"
 	done) > "$POL_USER_ROOT/tmp/del-override-dll.reg"
 	POL_Debug_Message "Deleting overrides DLLs"
-	POL_SetupWindow_wait_next_signal "Please wait" "$TITLE"
+	POL_SetupWindow_wait_next_signal "$(eval_gettext 'Please wait...')" "$TITLE"
 	POL_Wine regedit "$POL_USER_ROOT/tmp/del-override-dll.reg"
 	rm "$POL_USER_ROOT/tmp/del-override-dll.reg"
 }

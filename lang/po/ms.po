@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2015-07-13 19:00+0200\n"
+"POT-Creation-Date: 2015-08-17 19:00+0200\n"
 "PO-Revision-Date: 2013-12-21 17:19+0000\n"
 "Last-Translator: abuyop <Unknown>\n"
 "Language-Team: malay loco team\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-07-14 05:13+0000\n"
-"X-Generator: Launchpad (build 17628)\n"
+"X-Launchpad-Export-Date: 2015-08-18 05:14+0000\n"
+"X-Generator: Launchpad (build 17690)\n"
 "Language: ms\n"
 
 #: Capture plugin:2, Detour plugin:4
@@ -397,9 +397,10 @@ msgid "$APPLICATION_TITLE Application Configurator"
 msgstr "Penkonfigur Aplikasi $APPLICATION_TITLE"
 
 #: bash/installpolpackages:29 bash/killall:29 bash/read_pc_cd:39
-#: bash/read_pc_cd:73 bash/read_pc_cd:103 bash/winebash:27
-#: lib/setupwindow.lib:439 lib/wine.lib:1014 lib/wine.lib:1092
-#: lib/wine.lib:1122
+#: bash/read_pc_cd:73 bash/read_pc_cd:103 bash/winebash:27 lib/scripts.lib:674
+#: lib/scripts.lib:682 lib/scripts.lib:690 lib/scripts.lib:698
+#: lib/scripts.lib:706 lib/setupwindow.lib:439 lib/wine.lib:1015
+#: lib/wine.lib:1034 lib/wine.lib:1093 lib/wine.lib:1123
 #, sh-format
 msgid "Please wait..."
 msgstr "Sila tunggu..."
@@ -754,9 +755,10 @@ msgstr "Penyahpepijat $APPLICATION_TITLE sedang dimulakan..."
 
 #: bash/run_app:118
 #, sh-format
-msgid "$PACKAGE crashed.\\nClick on debug link to get more details."
+msgid ""
+"$PACKAGE crashed.\\nSelect its shortcut and click on \"Debug\" in the side "
+"panel to get more details."
 msgstr ""
-"$PACKAGE mengalami kerosakan.\\nKlik pada pautan nyahpepijat untuk perincian."
 
 #: bash/run_app:120
 #, sh-format
@@ -857,7 +859,7 @@ msgid "Unable to install XQuartz! You must install it to use wine properly."
 msgstr ""
 
 #: bash/uninstall:31 bash/uninstall:65 bash/uninstall:68 bash/uninstall:75
-#: lib/wine.lib:866
+#: lib/wine.lib:867
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
 msgstr "Penyahpasang $APPLICATION_TITLE"
@@ -877,7 +879,7 @@ msgstr "Klik Berikutnya untuk teruskan."
 msgid "This wizard will help you to uninstall: "
 msgstr "Bestari ini akan membantu anda menyahpasang: "
 
-#: bash/uninstall:65 lib/wine.lib:866
+#: bash/uninstall:65 lib/wine.lib:867
 #, sh-format
 msgid "Uninstalling..."
 msgstr "Menyahpasang..."
@@ -945,7 +947,7 @@ msgstr ""
 "hentikan proses pemasangan.\\nLawati www.$POL_DNS untuk maklumat lanjut"
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:933 lib/wine.lib:972
+#: lib/wine.lib:934 lib/wine.lib:973
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr "Sila tunggu semasa pemacu maya dicipta..."
@@ -998,17 +1000,17 @@ msgstr ""
 msgid "External library"
 msgstr "Pustaka luaran"
 
-#: lib/playonlinux.lib:635
+#: lib/playonlinux.lib:645
 #, sh-format
 msgid "Making shortcut..."
 msgstr "Membuat pintasan..."
 
-#: lib/playonlinux.lib:762
+#: lib/playonlinux.lib:771
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr "Anda hendak padam pemacu maya:"
 
-#: lib/playonlinux.lib:872
+#: lib/playonlinux.lib:881
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
@@ -1017,7 +1019,7 @@ msgstr ""
 "Fail berikut berada dalam sistem fail FAT32.\\nIa mungkin menghalang wine "
 "berfungsi dalam\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:873
+#: lib/playonlinux.lib:882
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
@@ -1026,7 +1028,7 @@ msgstr ""
 "Fail berikut berada dalam sistem fail NTFS.\\nIa mungkin menghalang wine "
 "berfungsi dalam\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:874
+#: lib/playonlinux.lib:883
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
@@ -1035,7 +1037,7 @@ msgstr ""
 "Fail berikut berada dalam sistem fail fuse.\\nIa mungkin menghalang wine "
 "berfungsi dalam\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:875
+#: lib/playonlinux.lib:884
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
@@ -1044,14 +1046,14 @@ msgstr ""
 "Fail berikut berada dalam sistem fail terlekap noexec.\\nIa mungkin "
 "menghalang wine berfungsi dalam\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:904
+#: lib/playonlinux.lib:913
 #, sh-format
 msgid ""
 "Your Linux kernel may not be configured to run Win16 programs under Wine\\"
 "nSee $EXPLANATION_URL"
 msgstr ""
 
-#: lib/playonlinux.lib:907
+#: lib/playonlinux.lib:916
 #, sh-format
 msgid ""
 "Your kernel may be incompatible with running Win16 programs under Wine\\nSee "
@@ -1097,7 +1099,7 @@ msgstr "Pembatalan fungsi dikesan, melumpuhkan pelaporan pepijat"
 msgid "No enough space to download:\\n$URL ($neededSpace KB)"
 msgstr "Ruang tidak mencukupi untuk memuat turun:\\n$URL ($neededSpace KB)"
 
-#: lib/scripts.lib:528 lib/scripts.lib:811
+#: lib/scripts.lib:528 lib/scripts.lib:821
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr "Sila tunggu semasa $APPLICATION_TITLE memuat turun:"
@@ -1119,7 +1121,13 @@ msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 "Ralat ! Fail tidak sepadan\\n\\nSetempat : $LOCAL_MD5\\nPelayan : $SERVER_MD5"
 
-#: lib/scripts.lib:716
+#: lib/scripts.lib:671 lib/scripts.lib:679 lib/scripts.lib:687
+#: lib/scripts.lib:695 lib/scripts.lib:703
+#, sh-format
+msgid "Please wait while $APPLICATION_TITLE is handling archive..."
+msgstr ""
+
+#: lib/scripts.lib:726
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
@@ -1127,32 +1135,32 @@ msgstr ""
 "7z tidak dipasang, sila semak sama ada anda telah memasang 7zip dan cuba "
 "sekali lagi"
 
-#: lib/scripts.lib:723
+#: lib/scripts.lib:733
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr "Gagal mencari ${dest} dari ${archive}"
 
-#: lib/scripts.lib:727
+#: lib/scripts.lib:737
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr "Mengekstrak ${filename} dari ${archivename}"
 
-#: lib/scripts.lib:742
+#: lib/scripts.lib:752
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr "Saiz fail terekstrak tidak sepadan!"
 
-#: lib/scripts.lib:773
+#: lib/scripts.lib:783
 #, sh-format
 msgid "Copying ${filename}"
 msgstr "Menyalin ${filename}"
 
-#: lib/scripts.lib:786
+#: lib/scripts.lib:796
 #, sh-format
 msgid "File size does not match!"
 msgstr "Saiz fail tidak sepadan!"
 
-#: lib/scripts.lib:944
+#: lib/scripts.lib:954
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
@@ -1161,7 +1169,7 @@ msgstr ""
 "Maaf, $APPLICATION_TITLE $VERSION terlalu tua untuk diteruskan.\\"
 "n$APPLICATION_TITLE $NEEDED diperlukan."
 
-#: lib/scripts.lib:959
+#: lib/scripts.lib:969
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
@@ -1170,7 +1178,7 @@ msgstr ""
 "Amaran: Anda kini menjalankan $APPLICATION_TITLE $VERSION.\\"
 "n$APPLICATION_TITLE $NEEDED disarankan untuk diteruskan."
 
-#: lib/scripts.lib:990
+#: lib/scripts.lib:1000
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr "Profil $AUTHOR"
@@ -1375,23 +1383,23 @@ msgstr ""
 "Gagal menyambung !\\nSila pastikan daftar masuk dan kata laluan anda adalah "
 "betul."
 
-#: lib/wine.lib:388
+#: lib/wine.lib:389
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is scanning your hardware"
 msgstr "Sila tunggu semasa $APPLICATION_TITLE mengimbas perkakasan anda"
 
-#: lib/wine.lib:394
+#: lib/wine.lib:395
 #, sh-format
 msgid "Select the main videocard to report:"
 msgstr "Pilih kad video utama untuk laporan:"
 
-#: lib/wine.lib:540
+#: lib/wine.lib:541
 #, sh-format
 msgid ""
 "Starting 64-bit process $EXEFILE is not supported in 32-bit virtual drives"
 msgstr ""
 
-#: lib/wine.lib:578
+#: lib/wine.lib:579
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
@@ -1400,7 +1408,7 @@ msgstr ""
 "Wine kelihatan mengalami kerosakan\\n\\nJika program masih berjalan, abaikan "
 "mesej ini"
 
-#: lib/wine.lib:623
+#: lib/wine.lib:624
 #, sh-format
 msgid ""
 "This is an installer for an update or an addon;\\nPlease install "
@@ -1409,57 +1417,57 @@ msgstr ""
 "Ini adalah pemasang untuk kemaskini atau tambahan;\\nSila pasang "
 "$TITLE_REQUIRED dahulu"
 
-#: lib/wine.lib:682
+#: lib/wine.lib:683
 #, sh-format
 msgid "Unable to find version: "
 msgstr "Tidak boleh cari versi: "
 
-#: lib/wine.lib:688 lib/wine.lib:689
+#: lib/wine.lib:689 lib/wine.lib:690
 #, sh-format
 msgid "Downloading Wine: "
 msgstr "Memuat turun Wine: "
 
-#: lib/wine.lib:698
+#: lib/wine.lib:699
 #, sh-format
 msgid "The download seems to have failed."
 msgstr "Muat turun kelihatan telah mengalami kegagalan."
 
-#: lib/wine.lib:700
+#: lib/wine.lib:701
 #, sh-format
 msgid "Extracting Wine..."
 msgstr "Mengekstrak Wine..."
 
-#: lib/wine.lib:896
+#: lib/wine.lib:897
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr "Tulis-ganti (biasanya berfungsi, tetapi tiada jaminan)"
 
-#: lib/wine.lib:897
+#: lib/wine.lib:898
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
 msgstr "Padam (kandungan pemacu maya akan hilang)"
 
-#: lib/wine.lib:898
+#: lib/wine.lib:899
 #, sh-format
 msgid "Abort installation"
 msgstr "Henti paksa pemasangan"
 
-#: lib/wine.lib:911
+#: lib/wine.lib:912
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr "Pemacu maya sasaran $PREFNAME sudah wujud:"
 
-#: lib/wine.lib:927
+#: lib/wine.lib:928
 #, sh-format
 msgid "User abort"
 msgstr "Pengguna henti paksa"
 
-#: lib/wine.lib:1092 lib/wine.lib:1122
+#: lib/wine.lib:1093 lib/wine.lib:1123
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "Sila tunggu semasa $SOFTNAME dipasang..."
 
-#: lib/wine.lib:1096 lib/wine.lib:1125
+#: lib/wine.lib:1097 lib/wine.lib:1126
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
@@ -1468,17 +1476,17 @@ msgstr ""
 "Berhati-hati! Ia akan matikan proses pemasangan. Jika ia masih belum "
 "selesai, anda perlu pasang semula $SOFTNAME"
 
-#: lib/wine.lib:1096 lib/wine.lib:1125
+#: lib/wine.lib:1097 lib/wine.lib:1126
 #, sh-format
 msgid "Install is done"
 msgstr "Pemasangan selesai"
 
-#: lib/wine.lib:1129 lib/wine.lib:1130
+#: lib/wine.lib:1130 lib/wine.lib:1131
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr "Tekan maju hanya bila proses pemasangan telah selesai"
 
-#: lib/wine.lib:1138
+#: lib/wine.lib:1139
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr "Sila tunggu semasa $APPLICATION_TITLE mensimulasi but semula"

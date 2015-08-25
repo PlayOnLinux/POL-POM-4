@@ -9,6 +9,11 @@
 * POL_System_find_file: really pick the shallowest file
 * fix "debbuger" typo
 * POL_SetupWindow_VMS: mention that the expected answer units are megabytes
+* Try to make instructions to rerun a program in debug mode more obvious (#5104)
+* Some GetRegValue fixing/hardening
+* Remove spurious .lnk files from user desktop for all architectures during POL_Shortcut calls (#4200)
+* Add waiting messages to POL_System_unzip & friends
+* Deprecate Set_WineWindowTitle that no longer works with Wine 1.5.16+, and breaks Set_Desktop (#5118)
 
 # 4.2.8
 

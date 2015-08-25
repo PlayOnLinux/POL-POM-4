@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2015-07-13 19:00+0200\n"
+"POT-Creation-Date: 2015-08-17 19:00+0200\n"
 "PO-Revision-Date: 2015-02-23 12:51+0000\n"
 "Last-Translator: Микола Ткач <Stuartlittle1970@gmail.com>\n"
 "Language-Team: ua_UA.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-07-14 05:14+0000\n"
-"X-Generator: Launchpad (build 17628)\n"
+"X-Launchpad-Export-Date: 2015-08-18 05:14+0000\n"
+"X-Generator: Launchpad (build 17690)\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
@@ -399,9 +399,10 @@ msgid "$APPLICATION_TITLE Application Configurator"
 msgstr "Налаштування додатку $APPLICATION_TITLE"
 
 #: bash/installpolpackages:29 bash/killall:29 bash/read_pc_cd:39
-#: bash/read_pc_cd:73 bash/read_pc_cd:103 bash/winebash:27
-#: lib/setupwindow.lib:439 lib/wine.lib:1014 lib/wine.lib:1092
-#: lib/wine.lib:1122
+#: bash/read_pc_cd:73 bash/read_pc_cd:103 bash/winebash:27 lib/scripts.lib:674
+#: lib/scripts.lib:682 lib/scripts.lib:690 lib/scripts.lib:698
+#: lib/scripts.lib:706 lib/setupwindow.lib:439 lib/wine.lib:1015
+#: lib/wine.lib:1034 lib/wine.lib:1093 lib/wine.lib:1123
 #, sh-format
 msgid "Please wait..."
 msgstr "Будь ласка, зачекайте..."
@@ -757,10 +758,10 @@ msgstr "$APPLICATION_TITLE налагоджувач запускається..."
 
 #: bash/run_app:118
 #, sh-format
-msgid "$PACKAGE crashed.\\nClick on debug link to get more details."
+msgid ""
+"$PACKAGE crashed.\\nSelect its shortcut and click on \"Debug\" in the side "
+"panel to get more details."
 msgstr ""
-"$PACKAGE припинив свою роботу.\\nНатисніть \"Налагодження\" (\"Debug\"), щоб "
-"взнати подробиці."
 
 #: bash/run_app:120
 #, sh-format
@@ -860,7 +861,7 @@ msgid "Unable to install XQuartz! You must install it to use wine properly."
 msgstr ""
 
 #: bash/uninstall:31 bash/uninstall:65 bash/uninstall:68 bash/uninstall:75
-#: lib/wine.lib:866
+#: lib/wine.lib:867
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
 msgstr "Деінсталятор $APPLICATION_TITLE"
@@ -880,7 +881,7 @@ msgstr "Для продовження клацніть Далі."
 msgid "This wizard will help you to uninstall: "
 msgstr "Цей майстер допоможе Вам вилучити програму: "
 
-#: bash/uninstall:65 lib/wine.lib:866
+#: bash/uninstall:65 lib/wine.lib:867
 #, sh-format
 msgid "Uninstalling..."
 msgstr "Вилучення..."
@@ -949,7 +950,7 @@ msgstr ""
 "адресою: www.$POL_DNS"
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:933 lib/wine.lib:972
+#: lib/wine.lib:934 lib/wine.lib:973
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr "Будь ласка, зачекайте, поки створюється віртуальний диск..."
@@ -1005,17 +1006,17 @@ msgstr ""
 msgid "External library"
 msgstr "Зовнішня бібліотека"
 
-#: lib/playonlinux.lib:635
+#: lib/playonlinux.lib:645
 #, sh-format
 msgid "Making shortcut..."
 msgstr "Створення ярлика..."
 
-#: lib/playonlinux.lib:762
+#: lib/playonlinux.lib:771
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
 msgstr "Ви бажаєте вилучити віртуальний диск:"
 
-#: lib/playonlinux.lib:872
+#: lib/playonlinux.lib:881
 #, sh-format
 msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
@@ -1024,7 +1025,7 @@ msgstr ""
 "Цей файл розташований на диску з файловою системою FAT32.\\nЗ-за цього Wine "
 "може не працювати.\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:873
+#: lib/playonlinux.lib:882
 #, sh-format
 msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
@@ -1033,7 +1034,7 @@ msgstr ""
 "Цей файл розташований на диску з файловою системою NTFS.\\nЗ-за цього Wine "
 "може не працювати.\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:874
+#: lib/playonlinux.lib:883
 #, sh-format
 msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
@@ -1042,7 +1043,7 @@ msgstr ""
 "Цей файл розташований на файловій системі у користувацькому просторі "
 "(FUSE).\\nЗ-за цього Wine може не працювати.\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:875
+#: lib/playonlinux.lib:884
 #, sh-format
 msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
@@ -1051,7 +1052,7 @@ msgstr ""
 "Цей файл розташований на диску, примонтованому без прав на виконання.\\nЗ-за "
 "цього Wine може не працювати.\\n\\n$FilePath"
 
-#: lib/playonlinux.lib:904
+#: lib/playonlinux.lib:913
 #, sh-format
 msgid ""
 "Your Linux kernel may not be configured to run Win16 programs under Wine\\"
@@ -1060,7 +1061,7 @@ msgstr ""
 "Ваше ядро ​​Linux не може бути сконфігуровано для запуску програм Win16 під "
 "Wine\\nДивіться $EXPLANATION_URL"
 
-#: lib/playonlinux.lib:907
+#: lib/playonlinux.lib:916
 #, sh-format
 msgid ""
 "Your kernel may be incompatible with running Win16 programs under Wine\\nSee "
@@ -1109,7 +1110,7 @@ msgid "No enough space to download:\\n$URL ($neededSpace KB)"
 msgstr ""
 "Невистачає вільного місця для завантаження :\\n$URL ($neededSpace KБ)"
 
-#: lib/scripts.lib:528 lib/scripts.lib:811
+#: lib/scripts.lib:528 lib/scripts.lib:821
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr "Будь ласка, зачекайте поки стягується $APPLICATION_TITLE:"
@@ -1132,7 +1133,13 @@ msgstr ""
 "Помилка! Файли не збігаються\\n\\nЛокальний: $LOCAL_MD5\\nНа сервері : "
 "$SERVER_MD5"
 
-#: lib/scripts.lib:716
+#: lib/scripts.lib:671 lib/scripts.lib:679 lib/scripts.lib:687
+#: lib/scripts.lib:695 lib/scripts.lib:703
+#, sh-format
+msgid "Please wait while $APPLICATION_TITLE is handling archive..."
+msgstr ""
+
+#: lib/scripts.lib:726
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
@@ -1140,32 +1147,32 @@ msgstr ""
 "7z не встановлений, будь ласка, переконайтеся що 7zip встановлений й "
 "спробуйте знову"
 
-#: lib/scripts.lib:723
+#: lib/scripts.lib:733
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr "Не вдалося розташувати ${dest} з ${archive}"
 
-#: lib/scripts.lib:727
+#: lib/scripts.lib:737
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr "Витягування ${filename} з ${archivename}"
 
-#: lib/scripts.lib:742
+#: lib/scripts.lib:752
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr "Розмір витягнутого файлу не збігається!"
 
-#: lib/scripts.lib:773
+#: lib/scripts.lib:783
 #, sh-format
 msgid "Copying ${filename}"
 msgstr "Копіювання ${filename}"
 
-#: lib/scripts.lib:786
+#: lib/scripts.lib:796
 #, sh-format
 msgid "File size does not match!"
 msgstr "Розмір файлу не збігається!"
 
-#: lib/scripts.lib:944
+#: lib/scripts.lib:954
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
@@ -1174,7 +1181,7 @@ msgstr ""
 "Нажаль, $APPLICATION_TITLE $VERSION надто застарів, й продовжити неможна.\\"
 "nПотрібен $APPLICATION_TITLE $NEEDED."
 
-#: lib/scripts.lib:959
+#: lib/scripts.lib:969
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
@@ -1183,7 +1190,7 @@ msgstr ""
 "Увага: Ви запускаєте $APPLICATION_TITLE $VERSION.\\nДля того, щоб "
 "продовжити, рекомендовано $APPLICATION_TITLE $NEEDED."
 
-#: lib/scripts.lib:990
+#: lib/scripts.lib:1000
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr "$AUTHOR профіль"
@@ -1382,24 +1389,24 @@ msgstr ""
 "Не вдалося під’єднатися!\\n\\nБудь ласкаа, переконайтеся, що ім’я "
 "користувача та пароль правильні."
 
-#: lib/wine.lib:388
+#: lib/wine.lib:389
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is scanning your hardware"
 msgstr ""
 "Будь ласка, зачекайте поки $APPLICATION_TITLE вивчає Ваше обладнання."
 
-#: lib/wine.lib:394
+#: lib/wine.lib:395
 #, sh-format
 msgid "Select the main videocard to report:"
 msgstr "Виберіть основну відеокартку для звіту:"
 
-#: lib/wine.lib:540
+#: lib/wine.lib:541
 #, sh-format
 msgid ""
 "Starting 64-bit process $EXEFILE is not supported in 32-bit virtual drives"
 msgstr ""
 
-#: lib/wine.lib:578
+#: lib/wine.lib:579
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
@@ -1408,7 +1415,7 @@ msgstr ""
 "Схоже, Wine перервала роботу.\\n\\nЯкщо Ваша програма працює, просто не "
 "звертайте уваги на це повідомлення."
 
-#: lib/wine.lib:623
+#: lib/wine.lib:624
 #, sh-format
 msgid ""
 "This is an installer for an update or an addon;\\nPlease install "
@@ -1417,57 +1424,57 @@ msgstr ""
 "Це встановлювач для оновлення або доповнення;\\nБудь ласка, спочатку "
 "встановіть $TITLE_REQUIRED."
 
-#: lib/wine.lib:682
+#: lib/wine.lib:683
 #, sh-format
 msgid "Unable to find version: "
 msgstr "Не вдалося знайти версію: "
 
-#: lib/wine.lib:688 lib/wine.lib:689
+#: lib/wine.lib:689 lib/wine.lib:690
 #, sh-format
 msgid "Downloading Wine: "
 msgstr "Завантаження Wine: "
 
-#: lib/wine.lib:698
+#: lib/wine.lib:699
 #, sh-format
 msgid "The download seems to have failed."
 msgstr "Схоже, завантаження не вдалося."
 
-#: lib/wine.lib:700
+#: lib/wine.lib:701
 #, sh-format
 msgid "Extracting Wine..."
 msgstr "Витягування Wine..."
 
-#: lib/wine.lib:896
+#: lib/wine.lib:897
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr "Перезаписати (зазвичай працює, але не гарантовано)"
 
-#: lib/wine.lib:897
+#: lib/wine.lib:898
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
 msgstr "Стерти (вміст віртуального диска буде знищено)"
 
-#: lib/wine.lib:898
+#: lib/wine.lib:899
 #, sh-format
 msgid "Abort installation"
 msgstr "Скасувати встановлення"
 
-#: lib/wine.lib:911
+#: lib/wine.lib:912
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr "Цільовий віртуальний диск $PREFNAME вже існує:"
 
-#: lib/wine.lib:927
+#: lib/wine.lib:928
 #, sh-format
 msgid "User abort"
 msgstr "Операцію скасовано користувачем"
 
-#: lib/wine.lib:1092 lib/wine.lib:1122
+#: lib/wine.lib:1093 lib/wine.lib:1123
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr "Будь ласка, зачекайте поки $SOFTNAME встановиться..."
 
-#: lib/wine.lib:1096 lib/wine.lib:1125
+#: lib/wine.lib:1097 lib/wine.lib:1126
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
@@ -1476,17 +1483,17 @@ msgstr ""
 "Будьте обережні!! Це вб’є процес встановлення. Якщо він не був закінчений, "
 "Вам доведеться перевстановити $SOFTNAME"
 
-#: lib/wine.lib:1096 lib/wine.lib:1125
+#: lib/wine.lib:1097 lib/wine.lib:1126
 #, sh-format
 msgid "Install is done"
 msgstr "Встановлення закінчено"
 
-#: lib/wine.lib:1129 lib/wine.lib:1130
+#: lib/wine.lib:1130 lib/wine.lib:1131
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr "Натисніть далі лише коли процес встановлення буде закінчено"
 
-#: lib/wine.lib:1138
+#: lib/wine.lib:1139
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr ""

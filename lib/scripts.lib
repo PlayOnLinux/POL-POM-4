@@ -389,11 +389,11 @@ POL_Shortcut()
 		fi
 
 		# Desktop
-		if [ ! "$(POL_Config_Read NO_DESKTOP_ICON)" = "TRUE" ]; then
+		CleanLnkDesktop
+		if [ "$(POL_Config_Read NO_DESKTOP_ICON)" != "TRUE" ]; then
 			if [ "$POL_OS" = "Mac" ]; then
 				POL_SetupWindow_AutoApp "$ICON_FILENAME"
 			else
-
 				make_desktop_shortcut "$iconPath" "$ICON_FILENAME" "$DESKTOP" "$PLAYONLINUX/playonlinux --run \"$ICON_FILENAME\"" "$binary_name" "$Categories"
 			fi
 		fi
@@ -417,6 +417,7 @@ POL_Call()
 	POL_Debug_Message "Calling $1"
 	if [ ! "$1" = "" ]
 	then
+	        # Caution, some scripts (POL_SP2_Extract at least) depend on this variable (!!)
 		OLD_PC_DIR="$PWD"
 		cd "$POL_USER_ROOT/tmp/"
 		# Local overriding mechanism
@@ -668,32 +669,42 @@ POL_unbase64()
 POL_System_unzip ()
 {
 	POL_Debug_Message "Starting unzip $@"
+	POL_SetupWindow_wait "$(eval_gettext 'Please wait while $APPLICATION_TITLE is handling archive...')" "$TITLE"
 	unzip "$@" || POL_Debug_Fatal "POL_System_unzip failed with error $?!"
 	POL_Debug_Message "unzip ok"
+	POL_SetupWindow_wait "$(eval_gettext 'Please wait...')" "$TITLE"
 }
 POL_System_7z ()
 {
 	POL_Debug_Message "Starting 7z $@"
+	POL_SetupWindow_wait "$(eval_gettext 'Please wait while $APPLICATION_TITLE is handling archive...')" "$TITLE"
 	7z "$@" || POL_Debug_Fatal "POL_System_7z failed with error $?!"
 	POL_Debug_Message "7z ok"
+	POL_SetupWindow_wait "$(eval_gettext 'Please wait...')" "$TITLE"
 }
 POL_System_tar ()
 {
 	POL_Debug_Message "Starting tar $@"
+	POL_SetupWindow_wait "$(eval_gettext 'Please wait while $APPLICATION_TITLE is handling archive...')" "$TITLE"
 	tar "$@" || POL_Debug_Fatal "POL_System_tar failed with error $?!"
 	POL_Debug_Message "tar ok"
+	POL_SetupWindow_wait "$(eval_gettext 'Please wait...')" "$TITLE"
 }
 POL_System_cabextract ()
 {
 	POL_Debug_Message "Starting cabextract $@"
+	POL_SetupWindow_wait "$(eval_gettext 'Please wait while $APPLICATION_TITLE is handling archive...')" "$TITLE"
 	cabextract "$@" || POL_Debug_Fatal "POL_System_cabextract failed with error $?!"
 	POL_Debug_Message "cabextract ok"
+	POL_SetupWindow_wait "$(eval_gettext 'Please wait...')" "$TITLE"
 }
 POL_System_unrar ()
 {
 	POL_Debug_Message "Starting unrar $@"
+	POL_SetupWindow_wait "$(eval_gettext 'Please wait while $APPLICATION_TITLE is handling archive...')" "$TITLE"
 	unrar "$@" || POL_Debug_Fatal "POL_System_unrar failed with error $?!"
 	POL_Debug_Message "unrar ok"
+	POL_SetupWindow_wait "$(eval_gettext 'Please wait...')" "$TITLE"
 }
 POL_System_ExtractSingleFile ()
 {
