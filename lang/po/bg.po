@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: Radoslav Ivanov <reckku@gmail.com>\n"
-"POT-Creation-Date: 2015-08-17 19:00+0200\n"
+"POT-Creation-Date: 2015-08-24 19:00+0200\n"
 "PO-Revision-Date: 2015-05-05 19:54+0000\n"
 "Last-Translator: Радослав Иванов <reckku@gmail.com>\n"
 "Language-Team: Svetoslav Stefanov <lfu.project@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-08-18 05:13+0000\n"
+"X-Launchpad-Export-Date: 2015-08-25 05:29+0000\n"
 "X-Generator: Launchpad (build 17690)\n"
 "X-Poedit-Country: BULGARIA\n"
 "X-Poedit-Language: Bulgarian\n"
@@ -402,9 +402,9 @@ msgid "$APPLICATION_TITLE Application Configurator"
 msgstr "Настройка на програмата за $APPLICATION_TITLE"
 
 #: bash/installpolpackages:29 bash/killall:29 bash/read_pc_cd:39
-#: bash/read_pc_cd:73 bash/read_pc_cd:103 bash/winebash:27 lib/scripts.lib:674
-#: lib/scripts.lib:682 lib/scripts.lib:690 lib/scripts.lib:698
-#: lib/scripts.lib:706 lib/setupwindow.lib:439 lib/wine.lib:1015
+#: bash/read_pc_cd:73 bash/read_pc_cd:103 bash/winebash:27 lib/scripts.lib:675
+#: lib/scripts.lib:683 lib/scripts.lib:691 lib/scripts.lib:699
+#: lib/scripts.lib:707 lib/setupwindow.lib:439 lib/wine.lib:1015
 #: lib/wine.lib:1034 lib/wine.lib:1093 lib/wine.lib:1123
 #, sh-format
 msgid "Please wait..."
@@ -521,7 +521,7 @@ msgstr "Ако не знаете, демаркирайте всички"
 msgid "What would you like to do before installation?"
 msgstr "Какво желаете да направите преди инсталацията?"
 
-#: bash/manual_install:203 lib/scripts.lib:468
+#: bash/manual_install:203 lib/scripts.lib:469
 #, sh-format
 msgid "Please make your choice"
 msgstr "Мола, направете своя избор"
@@ -1105,47 +1105,47 @@ msgstr ""
 "Не е намерена програма: $BINARY\\nИнсталирахте ли програмата в стандартната "
 "ѝ директория?"
 
-#: lib/scripts.lib:427
+#: lib/scripts.lib:428
 #, sh-format
 msgid "Function override detected, disabling bug reporting"
 msgstr ""
 "Засечена е функция за презапис, деактивиране на докладването за грешки"
 
-#: lib/scripts.lib:526 lib/scripts.lib:589
+#: lib/scripts.lib:527 lib/scripts.lib:590
 #, sh-format
 msgid "No enough space to download:\\n$URL ($neededSpace KB)"
 msgstr "Няма достатъчно място за изтегляне:\\n$URL ($neededSpace кБ)"
 
-#: lib/scripts.lib:528 lib/scripts.lib:821
+#: lib/scripts.lib:529 lib/scripts.lib:822
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr "Моля, изчакайте, докато $APPLICATION_TITLE се изтегли:"
 
-#: lib/scripts.lib:530 lib/scripts.lib:595
+#: lib/scripts.lib:531 lib/scripts.lib:596
 #, sh-format
 msgid "An error happened during download."
 msgstr "Възникна грешка по време на изтеглянето."
 
-#: lib/scripts.lib:530 lib/scripts.lib:548 lib/scripts.lib:595
-#: lib/scripts.lib:611
+#: lib/scripts.lib:531 lib/scripts.lib:549 lib/scripts.lib:596
+#: lib/scripts.lib:612
 #, sh-format
 msgid "Do you want to retry?"
 msgstr "Искате ли да опитате отново?"
 
-#: lib/scripts.lib:548 lib/scripts.lib:611
+#: lib/scripts.lib:549 lib/scripts.lib:612
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 "Грешка! Несъответствие във файловете\\n\\nНаличен: $LOCAL_MD5\\nНа сървър: "
 "$SERVER_MD5"
 
-#: lib/scripts.lib:671 lib/scripts.lib:679 lib/scripts.lib:687
-#: lib/scripts.lib:695 lib/scripts.lib:703
+#: lib/scripts.lib:672 lib/scripts.lib:680 lib/scripts.lib:688
+#: lib/scripts.lib:696 lib/scripts.lib:704
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is handling archive..."
 msgstr ""
 
-#: lib/scripts.lib:726
+#: lib/scripts.lib:727
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
@@ -1153,32 +1153,32 @@ msgstr ""
 "Не е инсталирана 7z, моля, проверете дали имате инсталирана 7zip и опитайте "
 "отново"
 
-#: lib/scripts.lib:733
+#: lib/scripts.lib:734
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr "Неуспех при откриването на ${dest} от ${archive}"
 
-#: lib/scripts.lib:737
+#: lib/scripts.lib:738
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr "Разархивиране на ${filename} от ${archivename}"
 
-#: lib/scripts.lib:752
+#: lib/scripts.lib:753
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr "Размера на разархивирания файл не съответства!"
 
-#: lib/scripts.lib:783
+#: lib/scripts.lib:784
 #, sh-format
 msgid "Copying ${filename}"
 msgstr "Копиране на ${filename}"
 
-#: lib/scripts.lib:796
+#: lib/scripts.lib:797
 #, sh-format
 msgid "File size does not match!"
 msgstr "Размера на файла на съответства!"
 
-#: lib/scripts.lib:954
+#: lib/scripts.lib:955
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
@@ -1187,7 +1187,7 @@ msgstr ""
 "Съжалавяаме, $APPLICATION_TITLE $VERSION е твърде стара версия, за да "
 "продължи.\\n Изисква се $APPLICATION_TITLE $NEEDED."
 
-#: lib/scripts.lib:969
+#: lib/scripts.lib:970
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
@@ -1196,7 +1196,7 @@ msgstr ""
 "Внимание: Изпълнена е $APPLICATION_TITLE $VERSION.\\n Препоръчителна е "
 "$APPLICATION_TITLE $NEEDED, за да се продължи."
 
-#: lib/scripts.lib:1000
+#: lib/scripts.lib:1001
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr "Профил на $AUTHOR"
