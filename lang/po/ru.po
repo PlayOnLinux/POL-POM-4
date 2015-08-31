@@ -6,14 +6,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
-"POT-Creation-Date: 2015-08-17 19:00+0200\n"
+"POT-Creation-Date: 2015-08-24 19:00+0200\n"
 "PO-Revision-Date: 2014-06-27 12:47+0000\n"
 "Last-Translator: Ilya Gorbachevsky <igorbachevsky@gmail.com>\n"
 "Language-Team: gnome-cyr@gnome.org\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2015-08-18 05:14+0000\n"
+"X-Launchpad-Export-Date: 2015-08-25 05:29+0000\n"
 "X-Generator: Launchpad (build 17690)\n"
 "Language: ru\n"
 
@@ -402,9 +402,9 @@ msgid "$APPLICATION_TITLE Application Configurator"
 msgstr "Настройка приложения $APPLICATION_TITLE"
 
 #: bash/installpolpackages:29 bash/killall:29 bash/read_pc_cd:39
-#: bash/read_pc_cd:73 bash/read_pc_cd:103 bash/winebash:27 lib/scripts.lib:674
-#: lib/scripts.lib:682 lib/scripts.lib:690 lib/scripts.lib:698
-#: lib/scripts.lib:706 lib/setupwindow.lib:439 lib/wine.lib:1015
+#: bash/read_pc_cd:73 bash/read_pc_cd:103 bash/winebash:27 lib/scripts.lib:675
+#: lib/scripts.lib:683 lib/scripts.lib:691 lib/scripts.lib:699
+#: lib/scripts.lib:707 lib/setupwindow.lib:439 lib/wine.lib:1015
 #: lib/wine.lib:1034 lib/wine.lib:1093 lib/wine.lib:1123
 #, sh-format
 msgid "Please wait..."
@@ -516,7 +516,7 @@ msgstr "Если Вы не знаете, что нужно выбрать, сн�
 msgid "What would you like to do before installation?"
 msgstr "Что Вы хотите сделать перед установкой?"
 
-#: bash/manual_install:203 lib/scripts.lib:468
+#: bash/manual_install:203 lib/scripts.lib:469
 #, sh-format
 msgid "Please make your choice"
 msgstr "Пожалуйста, сделайте свой выбор"
@@ -1096,47 +1096,47 @@ msgstr ""
 "Исполняемый файл не найден: $BINARY\\nУбедитесь, что выбрана папка установки "
 "программы по умолчанию."
 
-#: lib/scripts.lib:427
+#: lib/scripts.lib:428
 #, sh-format
 msgid "Function override detected, disabling bug reporting"
 msgstr ""
 
-#: lib/scripts.lib:526 lib/scripts.lib:589
+#: lib/scripts.lib:527 lib/scripts.lib:590
 #, sh-format
 msgid "No enough space to download:\\n$URL ($neededSpace KB)"
 msgstr ""
 "Недостаточно свободного места для загрузки :\\n$URL ($neededSpace KБ)"
 
-#: lib/scripts.lib:528 lib/scripts.lib:821
+#: lib/scripts.lib:529 lib/scripts.lib:822
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr "Пожалуйста, подождите пока скачивается $APPLICATION_TITLE:"
 
-#: lib/scripts.lib:530 lib/scripts.lib:595
+#: lib/scripts.lib:531 lib/scripts.lib:596
 #, sh-format
 msgid "An error happened during download."
 msgstr "Во время загрузки произошла ошибка."
 
-#: lib/scripts.lib:530 lib/scripts.lib:548 lib/scripts.lib:595
-#: lib/scripts.lib:611
+#: lib/scripts.lib:531 lib/scripts.lib:549 lib/scripts.lib:596
+#: lib/scripts.lib:612
 #, sh-format
 msgid "Do you want to retry?"
 msgstr "Хотите попробовать еще раз?"
 
-#: lib/scripts.lib:548 lib/scripts.lib:611
+#: lib/scripts.lib:549 lib/scripts.lib:612
 #, sh-format
 msgid "Error ! Files mismatch\\n\\nLocal : $LOCAL_MD5\\nServer : $SERVER_MD5"
 msgstr ""
 "Ошибка! Файлы не совпадают\\n\\nЛокальный: $LOCAL_MD5\\nНа сервере : "
 "$SERVER_MD5"
 
-#: lib/scripts.lib:671 lib/scripts.lib:679 lib/scripts.lib:687
-#: lib/scripts.lib:695 lib/scripts.lib:703
+#: lib/scripts.lib:672 lib/scripts.lib:680 lib/scripts.lib:688
+#: lib/scripts.lib:696 lib/scripts.lib:704
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is handling archive..."
 msgstr ""
 
-#: lib/scripts.lib:726
+#: lib/scripts.lib:727
 #, sh-format
 msgid ""
 "7z not installed, please check that you have 7zip installed and try again"
@@ -1144,32 +1144,32 @@ msgstr ""
 "7z не установлен, пожалуйста, убедитесь что 7zip установлен и попробуйте "
 "снова"
 
-#: lib/scripts.lib:733
+#: lib/scripts.lib:734
 #, sh-format
 msgid "Failed to locate ${dest} from ${archive}"
 msgstr "Не удалось разместить ${dest} из ${archive}"
 
-#: lib/scripts.lib:737
+#: lib/scripts.lib:738
 #, sh-format
 msgid "Extracting ${filename} from ${archivename}"
 msgstr "Извлечение ${filename} из ${archivename}"
 
-#: lib/scripts.lib:752
+#: lib/scripts.lib:753
 #, sh-format
 msgid "Extracted file size does not match!"
 msgstr "Размер извлечённого файла не сходится!"
 
-#: lib/scripts.lib:783
+#: lib/scripts.lib:784
 #, sh-format
 msgid "Copying ${filename}"
 msgstr "Копирование ${filename}"
 
-#: lib/scripts.lib:796
+#: lib/scripts.lib:797
 #, sh-format
 msgid "File size does not match!"
 msgstr "Размер файла не сходится!"
 
-#: lib/scripts.lib:954
+#: lib/scripts.lib:955
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
@@ -1178,7 +1178,7 @@ msgstr ""
 "К сожалению, $APPLICATION_TITLE $VERSION слишком устарело, и продолжить "
 "нельзя.\\nТребуется $APPLICATION_TITLE $NEEDED."
 
-#: lib/scripts.lib:969
+#: lib/scripts.lib:970
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
@@ -1187,7 +1187,7 @@ msgstr ""
 "Внимание: Вы запускаете $APPLICATION_TITLE $VERSION.\\nДля того, чтобы "
 "продолжить, рекомендуется $APPLICATION_TITLE $NEEDED."
 
-#: lib/scripts.lib:1000
+#: lib/scripts.lib:1001
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr "$AUTHOR профиль"
