@@ -52,10 +52,12 @@ then
 	usage
 elif [ "$1" = "-b" -o "$1" = "--browse" ]
 then
-	FILE=$(select_file "$(eval_gettext 'Choose a package to install')" '' 0 0 1 "$(eval_gettext 'PlayOnLinux package manager')")
-	if [ ! "$FILE" = "" ]
+	POL_SetupWindow_Init
+	POL_SetupWindow_browse "$(eval_gettext 'Choose a package to install')" "$(eval_gettext 'PlayOnLinux package manager')" '' '*.pol'
+	POL_SetupWindow_Close
+	if [ -n "$APP_ANSWER" ]
 	then
-		exec bash "$PLAYONLINUX/playonlinux-pkg" -i "$FILE" -g
+		exec bash "$PLAYONLINUX/playonlinux-pkg" -i "$APP_ANSWER" -g
 	fi
 elif [ "$1" = "-e" -o "$1" = "--extract" ]
 then
