@@ -15,6 +15,7 @@
 * Add waiting messages to POL_System_unzip & friends
 * Deprecate Set_WineWindowTitle that no longer works with Wine 1.5.16+, and breaks Set_Desktop (#5118)
 * Fix playonlinux-pkg -b (broken since PlayOnLinux 4.0)
+* MacOS 10.11 support
 
 # 4.2.8
 
