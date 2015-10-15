@@ -1,5 +1,6 @@
 # 4.2.10
 
+* Silence POL_Notice_IsAck when ack_notices file doesn't exist
 
 # 4.2.9
 
