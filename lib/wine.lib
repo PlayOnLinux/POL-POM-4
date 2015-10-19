@@ -214,16 +214,15 @@ Set_SoundDriver ()
 {
 	# Set the sound driver
 	# Usage: Set_SoundDriver [Driver]
+	# Use an empty string parameter to disable sound
 	# Disabled in Mac OS
 	POL_Debug_Message "Setting wine SoundDriver $@"
 	[ -z "$WINEPREFIX" ] && POL_Debug_Fatal "WINEPREFIX not set"
 
-	if [ -n "$1" ]; then
-		if [ "$POL_OS" = "Linux" ]; then
-			POL_Wine_UpdateRegistryWinePair 'Drivers' 'Audio' "$1"
-		else
-			POL_Debug_Message "Set_SoundDriver disabled on $POL_OS"
-		fi
+	if [ "$POL_OS" = "Linux" ]; then
+		POL_Wine_UpdateRegistryWinePair 'Drivers' 'Audio' "$1"
+	else
+		POL_Debug_Message "Set_SoundDriver disabled on $POL_OS"
 	fi
 }
 

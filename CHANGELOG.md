@@ -1,6 +1,7 @@
 # 4.2.10
 
 * Silence POL_Notice_IsAck when ack_notices file doesn't exist
+* Allow Set_SoundDriver '' to disable sound
 
 # 4.2.9
 
