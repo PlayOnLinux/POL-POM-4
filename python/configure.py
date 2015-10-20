@@ -142,7 +142,10 @@ class Onglets(wx.Notebook):
 
     def evt_killall(self, event):
         self.winebash("wineserver -k")
-
+        
+    def evt_control(self, event):
+        self.winebash("control")
+        
     def evt_config(self, event):
         subprocess.Popen(["bash", Variables.playonlinux_rep+"/configurations/configurators/"+self.s_title])
 
@@ -290,6 +293,14 @@ class Onglets(wx.Notebook):
         self.uninstall_texte.SetPosition((self.uninstall_texte.GetPosition()[0]+(105-self.wineboot_texte.GetSize()[0])/2,self.uninstall_texte.GetPosition()[1]))
         self.uninstall_texte.SetFont(self.caption_font)
 
+        self.control_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/winecfg.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
+        self.control = wx.BitmapButton(self.panelWine, id=109, bitmap=self.control_image,pos=(30, 346), size = (self.control_image.GetWidth()+5, self.control_image.GetHeight()+5))
+        self.control_texte = wx.StaticText(self.panelWine, -1, _("Systemsettings"), (34,452), style=wx.ALIGN_CENTER)
+        self.control_texte.Wrap(110)
+        self.control_texte.SetPosition((self.control_texte.GetPosition()[0]+(105-self.control_texte.GetSize()[0])/2,self.control_texte.GetPosition()[1]))
+
+        self.control_texte.SetFont(self.caption_font)
+
 
         wx.EVT_BUTTON(self, 100, self.evt_winecfg)
         wx.EVT_BUTTON(self, 101, self.evt_regedit)
@@ -300,6 +311,7 @@ class Onglets(wx.Notebook):
         wx.EVT_BUTTON(self, 106, self.evt_config)
         wx.EVT_BUTTON(self, 107, self.evt_rep)
         wx.EVT_BUTTON(self, 108, self.evt_uninstall)
+        wx.EVT_BUTTON(self, 109, self.evt_control)
 
 
     def Packages(self, nom):
@@ -661,7 +673,7 @@ class Onglets(wx.Notebook):
 
 class MainWindow(wx.Frame):
     def __init__(self,parent,id,title,shortcut, isPrefix = False):
-        wx.Frame.__init__(self, parent, -1, title, size = (800, 455+Variables.windows_add_size), style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX)
+        wx.Frame.__init__(self, parent, -1, title, size = (800, 555+Variables.windows_add_size), style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX)
         self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
         self.SetTitle(_('{0} configuration').format(os.environ["APPLICATION_TITLE"]))
         #self.panelFenp = wx.Panel(self, -1)
