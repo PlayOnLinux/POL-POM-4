@@ -113,10 +113,6 @@ class Onglets(wx.Notebook):
     def evt_winecfg(self, event):
         self.winebash("winecfg")
 
-    def evt_uninstall(self, event):
-        wx.MessageBox(_("Warning:\n\nThis tool is for advanced users.\nTo uninstall cleanly a program with {0}, you must delete the virtual drive associated").format(os.environ["APPLICATION_TITLE"]),os.environ["APPLICATION_TITLE"])
-        self.winebash("uninstaller")
-
     def evt_regedit(self, event):
         self.winebash("regedit")
 
@@ -263,7 +259,6 @@ class Onglets(wx.Notebook):
         self.updatep_texte.SetFont(self.caption_font)
 
 
-
         self.cmd_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/console.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
         self.cmd = wx.BitmapButton(self.panelWine, id=103, bitmap=self.cmd_image,pos=(30, 196), size = (self.cmd_image.GetWidth()+5, self.cmd_image.GetHeight()+5))
         self.cmd_texte = wx.StaticText(self.panelWine, -1, _("Command prompt"), (32,302), style=wx.ALIGN_CENTER)
@@ -286,16 +281,9 @@ class Onglets(wx.Notebook):
         self.killall_texte.SetPosition((self.killall_texte.GetPosition()[0]+(105-self.killall_texte.GetSize()[0])/2,self.killall_texte.GetPosition()[1]))
         self.killall_texte.SetFont(self.caption_font)
 
-        self.uninstall_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/wine-uninstaller.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
-        self.uninstall = wx.BitmapButton(self.panelWine, id=108, bitmap=self.uninstall_image,pos=(438, 196), size = (self.wineboot_image.GetWidth()+5, self.uninstall_image.GetHeight()+5))
-        self.uninstall_texte = wx.StaticText(self.panelWine, -1, _("Wine uninstaller"), (440,302), style=wx.ALIGN_CENTER)
-        self.uninstall_texte.Wrap(110)
-        self.uninstall_texte.SetPosition((self.uninstall_texte.GetPosition()[0]+(105-self.wineboot_texte.GetSize()[0])/2,self.uninstall_texte.GetPosition()[1]))
-        self.uninstall_texte.SetFont(self.caption_font)
-
-        self.control_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/winecfg.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
-        self.control = wx.BitmapButton(self.panelWine, id=109, bitmap=self.control_image,pos=(30, 346), size = (self.control_image.GetWidth()+5, self.control_image.GetHeight()+5))
-        self.control_texte = wx.StaticText(self.panelWine, -1, _("Systemsettings"), (34,452), style=wx.ALIGN_CENTER)
+        self.control_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/control.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
+        self.control = wx.BitmapButton(self.panelWine, id=108, bitmap=self.control_image,pos=(438, 196), size = (self.control_image.GetWidth()+5, self.control_image.GetHeight()+5))
+        self.control_texte = wx.StaticText(self.panelWine, -1, _("Systemsettings"), (440,302), style=wx.ALIGN_CENTER)
         self.control_texte.Wrap(110)
         self.control_texte.SetPosition((self.control_texte.GetPosition()[0]+(105-self.control_texte.GetSize()[0])/2,self.control_texte.GetPosition()[1]))
 
@@ -310,8 +298,7 @@ class Onglets(wx.Notebook):
         wx.EVT_BUTTON(self, 105, self.evt_killall)
         wx.EVT_BUTTON(self, 106, self.evt_config)
         wx.EVT_BUTTON(self, 107, self.evt_rep)
-        wx.EVT_BUTTON(self, 108, self.evt_uninstall)
-        wx.EVT_BUTTON(self, 109, self.evt_control)
+        wx.EVT_BUTTON(self, 108, self.evt_control)
 
 
     def Packages(self, nom):
@@ -673,7 +660,7 @@ class Onglets(wx.Notebook):
 
 class MainWindow(wx.Frame):
     def __init__(self,parent,id,title,shortcut, isPrefix = False):
-        wx.Frame.__init__(self, parent, -1, title, size = (800, 555+Variables.windows_add_size), style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX)
+        wx.Frame.__init__(self, parent, -1, title, size = (800, 455+Variables.windows_add_size), style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX)
         self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
         self.SetTitle(_('{0} configuration').format(os.environ["APPLICATION_TITLE"]))
         #self.panelFenp = wx.Panel(self, -1)
