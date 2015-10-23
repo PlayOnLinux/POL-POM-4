@@ -283,7 +283,7 @@ class Onglets(wx.Notebook):
 
         self.control_image = wx.Image( Variables.playonlinux_env+"/resources/images/configure/control.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
         self.control = wx.BitmapButton(self.panelWine, id=108, bitmap=self.control_image,pos=(438, 196), size = (self.control_image.GetWidth()+5, self.control_image.GetHeight()+5))
-        self.control_texte = wx.StaticText(self.panelWine, -1, _("Systemsettings"), (440,302), style=wx.ALIGN_CENTER)
+        self.control_texte = wx.StaticText(self.panelWine, -1, _("Control panel"), (440,302), style=wx.ALIGN_CENTER)
         self.control_texte.Wrap(110)
         self.control_texte.SetPosition((self.control_texte.GetPosition()[0]+(105-self.control_texte.GetSize()[0])/2,self.control_texte.GetPosition()[1]))
 
