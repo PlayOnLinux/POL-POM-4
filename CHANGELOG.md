@@ -2,6 +2,8 @@
 
 * Silence POL_Notice_IsAck when ack_notices file doesn't exist
 * Allow Set_SoundDriver '' to disable sound
+* Add in the wineprefix configuration tab for Wine: Systemsettings (Control Center)
+* Remove in the wineprefix configuration tab for Wine: Wine Uninstaller
 
 # 4.2.9
 
