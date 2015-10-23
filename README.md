@@ -2,7 +2,7 @@ POL-POM-4
 =========
 
 PlayOnLinux 4 repository
-
+Note: PlayOnLinux 5 is currently under development. Please clone POL-POM-5 repository if you want to contribute
 
 What is PlayOnLinux?
 =====================
