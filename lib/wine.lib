@@ -1077,6 +1077,34 @@ EOF
 	POL_Wine regedit "$POL_USER_ROOT/tmp/del-app-dll-override.reg"
 	rm "$POL_USER_ROOT/tmp/del-app-dll-override.reg"
 }
+POL_WineStaging_RedirectDLL()
+{
+    # Redirect DLLs wine-staging feature
+    # https://github.com/wine-compholio/wine-staging/wiki/DLL-Redirects
+    local SOURCE="$1"
+    local TARGET="$2"
+    POL_Wine_UpdateRegistryWinePair 'DllRedirects' "$SOURCE" "$TARGET"
+}
+POL_WineStaging_DelRedirectDLL()
+{
+    local SOURCE="$1"
+    POL_Wine_UpdateRegistryWinePair 'DllRedirects' "$SOURCE" 'default'
+}
+POL_WineStaging_RedirectDLL_App()
+{
+    # App-specific DLL redirect
+    local APP="$1"
+    local SOURCE="$2"
+    local TARGET="$3"
+    POL_Wine_UpdateRegistryWinePair "AppDefaults\\$APP\\DllRedirects" "$SOURCE" "$TARGET"
+}
+POL_WineStaging_DelRedirectDLL_App()
+{
+    # App-specific DLL redirect
+    local APP="$1"
+    local SOURCE="$2"
+    POL_Wine_UpdateRegistryWinePair "AppDefaults\\$APP\\DllRedirects" "$SOURCE" 'default'
+}
 POL_Wine_WaitBefore ()
 {
 	# Lock bash commands until wine is exited
