@@ -4,9 +4,9 @@
 * Allow Set_SoundDriver '' to disable sound
 * Add in the wineprefix configuration tab for Wine: Control panel
 * Remove in the wineprefix configuration tab for Wine: Wine Uninstaller
-* Add support for Wine-staging DLL redirects (POL_WineStaging_RedirectDLL,
-  POL_WineStaging_DelRedirectDLL, POL_WineStaging_RedirectDLL_App,
-  POL_WineStaging_DelRedirectDLL_App) (#5163)
+* Add support for Wine-staging DLL redirects (POL_Wine_RedirectDLL,
+  POL_Wine_DelRedirectDLL, POL_Wine_RedirectDLL_App,
+  POL_Wine_DelRedirectDLL_App) (#5163)
 
 # 4.2.9
 
