@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX/APLU <pol-gettext@mulx.net>\n"
-"POT-Creation-Date: 2015-09-07 00:43:49+02:00\n"
+"POT-Creation-Date: 2015-10-27 12:38:39+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -351,6 +351,7 @@ msgstr ""
 
 #: PlayOnLinux_Scripts/3D_Train_Studio_:37
 #: PlayOnLinux_Scripts/Alone_In_The_Dark___The_New_Nightmare_:39
+#: PlayOnLinux_Scripts/AndreaMosaic_:34
 #: PlayOnLinux_Scripts/Apple_AirPort_Utility_:30
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Tiberium_Wars__Kane_Edition__:123
 #: PlayOnLinux_Scripts/Command_And_Conquer___Red_Alert_3_:79
@@ -365,8 +366,10 @@ msgstr ""
 #: PlayOnLinux_Scripts/GOG.com___Temple_of_Elemental_Evil_patch_CO8_Modpack_7_:53
 #: PlayOnLinux_Scripts/Google_Picasa_3.9_:48
 #: PlayOnLinux_Scripts/League_Of_Legends_:65
+#: PlayOnLinux_Scripts/Little_Fighter_2_v2.0a_:44
 #: PlayOnLinux_Scripts/POL_GoG_setup_:31
-#: PlayOnLinux_Scripts/Photomatix_Pro_5_:32 PlayOnLinux_Scripts/Rage_:114
+#: PlayOnLinux_Scripts/Photomatix_Pro_5_:32
+#: PlayOnLinux_Scripts/Pronote_2015_:39 PlayOnLinux_Scripts/Rage_:114
 #: PlayOnLinux_Scripts/Reshade_Image_Enlarger_:41
 #: PlayOnLinux_Scripts/S.T.A.L.K.E.R.__Call_of_Pripyat_:40
 #: PlayOnLinux_Scripts/S.T.A.L.K.E.R.__Clear_Sky_:40
@@ -379,7 +382,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Matrix__Path_of_Neo_Update_2_:23
 #: PlayOnLinux_Scripts/Toontown_Online_:25
 #: PlayOnLinux_Scripts/Watchtower_Library_2014_:44
-#: PlayOnLinux_Scripts/Watchtower_library_:43
+#: PlayOnLinux_Scripts/Watchtower_library_:43 PlayOnLinux_Scripts/WowApp_:47
 #: PlayOnLinux_Scripts/iMindMap_6_:31 PlayOnLinux_Scripts/iMindMap_7_:31
 #: PlayOnLinux_Scripts/iTunes_10_:29
 #, sh-format
@@ -461,6 +464,11 @@ msgid ""
 "click NEXT through IE install, as you usually would."
 msgstr ""
 
+#: PlayOnLinux_Scripts/Age_Of_Empires_III_:37
+#, sh-format
+msgid "Please select the setup file"
+msgstr ""
+
 #: PlayOnLinux_Scripts/Age_of_Empires_II___The_Age_of_Kings_:66
 #, sh-format
 msgid "Do you want to install the 2.0a Patch?"
@@ -483,7 +491,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind___Bloodmoon_:26
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_III___Morrowind___Tribunal_:26
 #: PlayOnLinux_Scripts/The_Elder_Scrolls_IV___Oblivion_Patch_1.2.0416_:26
-#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:30 lib/wine.lib:624
+#: PlayOnLinux_Scripts/X3___Terran_Conflict_Patch_3.2_:30 lib/wine.lib:623
 #, sh-format
 msgid ""
 "This is an installer for an update or an addon;\\nPlease install "
@@ -563,6 +571,21 @@ msgstr ""
 msgid "You dont have to install DirectX or use GLSetup."
 msgstr ""
 
+#: PlayOnLinux_Scripts/AndreaMosaic_:33
+#, sh-format
+msgid "Please be sure to use the Portable version of AndreaMosaic!"
+msgstr ""
+
+#: PlayOnLinux_Scripts/AndreaMosaic_:41
+#, sh-format
+msgid "Do you want to try the Beta version?"
+msgstr ""
+
+#: PlayOnLinux_Scripts/AndreaMosaic_:71
+#, sh-format
+msgid "License"
+msgstr ""
+
 #: PlayOnLinux_Scripts/Anno_1602_:41 PlayOnLinux_Scripts/EVE_online_:96
 #: PlayOnLinux_Scripts/EVE_online_:124
 #: PlayOnLinux_Scripts/Escape_From_Monkey_Island_:39
@@ -580,8 +603,8 @@ msgstr ""
 #: bash/killall:29 bash/read_pc_cd:39 bash/read_pc_cd:73 bash/read_pc_cd:103
 #: bash/winebash:27 lib/scripts.lib:675 lib/scripts.lib:683
 #: lib/scripts.lib:691 lib/scripts.lib:699 lib/scripts.lib:707
-#: lib/setupwindow.lib:439 lib/wine.lib:1015 lib/wine.lib:1034
-#: lib/wine.lib:1093 lib/wine.lib:1123
+#: lib/setupwindow.lib:439 lib/wine.lib:1014 lib/wine.lib:1033
+#: lib/wine.lib:1120 lib/wine.lib:1150
 #, sh-format
 msgid "Please wait..."
 msgstr ""
@@ -1571,6 +1594,13 @@ msgstr ""
 msgid "Dedicated Server"
 msgstr ""
 
+#: PlayOnLinux_Scripts/GOG.com___Legend_of_Grimrock_2_:34
+#, sh-format
+msgid ""
+"At the end of the install progres there will appear few error messages; just "
+"ignore them!"
+msgstr ""
+
 #: PlayOnLinux_Scripts/GOG.com___Magrunner__Dark_Pulse_:21
 #, sh-format
 msgid ""
@@ -1835,6 +1865,7 @@ msgid "Please select the game language"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Google_SketchUp_:43 PlayOnLinux_Scripts/Hearthstone_:29
+#: PlayOnLinux_Scripts/Heroes_of_the_Storm_:30
 #, sh-format
 msgid "What language do you want to install?"
 msgstr ""
@@ -1983,12 +2014,12 @@ msgstr ""
 msgid "Registering libraries, please wait\\n(It can take a while)"
 msgstr ""
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:50
+#: PlayOnLinux_Scripts/League_Of_Legends_:50 PlayOnLinux_Scripts/WowApp_:32
 #, sh-format
 msgid "glxinfo is not installed. Please install mesa-utils package"
 msgstr ""
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:53
+#: PlayOnLinux_Scripts/League_Of_Legends_:53 PlayOnLinux_Scripts/WowApp_:35
 #, sh-format
 msgid ""
 "Warning! S3TC compression is not available on your system.\\n\\nIf you have "
@@ -2021,11 +2052,12 @@ msgid "North America"
 msgstr ""
 
 #: PlayOnLinux_Scripts/League_Of_Legends_:76
+#: PlayOnLinux_Scripts/Little_Fighter_2_v2.0a_:50
 #, sh-format
 msgid "Select installer to download:"
 msgstr ""
 
-#: PlayOnLinux_Scripts/League_Of_Legends_:109
+#: PlayOnLinux_Scripts/League_Of_Legends_:109 PlayOnLinux_Scripts/WowApp_:66
 #, sh-format
 msgid ""
 "Warning: You must not tick the checkbox \"Run $TITLE\" when setup is done"
@@ -2041,6 +2073,12 @@ msgstr ""
 msgid ""
 "If you get connection errors when attempting to login, try disabling "
 "tcp_timestamps in the kernel."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Little_Fighter_2_v2.0a_:33
+#, sh-format
+msgid ""
+"$APPLICATION_TITLE equal or superior to 4.1.4 is required to install $TITLE"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Mass_Effect_:48
@@ -2648,7 +2686,7 @@ msgid ""
 "To continue, PlayOnLinux needs to remount your CD-ROM with unhide option."
 msgstr ""
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:16 lib/wine.lib:899
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:16 lib/wine.lib:898
 #, sh-format
 msgid "Abort installation"
 msgstr ""
@@ -2673,7 +2711,7 @@ msgstr ""
 msgid "The program needs access to ptrace() to proceed:"
 msgstr ""
 
-#: PlayOnLinux_Scripts/POL_Test_ptrace_:28 lib/wine.lib:928
+#: PlayOnLinux_Scripts/POL_Test_ptrace_:28 lib/wine.lib:927
 #, sh-format
 msgid "User abort"
 msgstr ""
@@ -2903,7 +2941,7 @@ msgid ""
 "not have this issue."
 msgstr ""
 
-#: PlayOnLinux_Scripts/Red_Faction_:87 PlayOnLinux_Scripts/Terraria_:73
+#: PlayOnLinux_Scripts/Red_Faction_:87 PlayOnLinux_Scripts/Terraria_:74
 #, sh-format
 msgid ""
 "If the game crashes at startup, open a terminal and type:\\necho 0|sudo tee /"
@@ -3156,7 +3194,7 @@ msgstr ""
 msgid "Download on Steam Store"
 msgstr ""
 
-#: PlayOnLinux_Scripts/Terraria_:56
+#: PlayOnLinux_Scripts/Terraria_:57
 #, sh-format
 msgid ""
 "Install Terraria via Steam.  Once Terraria has fully downloaded, press the "
@@ -3962,7 +4000,7 @@ msgid "Use another version of Wine"
 msgstr ""
 
 #: bash/manual_install:139 bash/manual_install:191 bash/polconfigurator:105
-#: python/configure.py:232 python/mainwindow.py:584
+#: python/configure.py:231 python/mainwindow.py:584
 #, sh-format
 msgid "Configure Wine"
 msgstr ""
@@ -4119,7 +4157,7 @@ msgstr ""
 msgid "is not an icon extension"
 msgstr ""
 
-#: bash/polconfigurator:106 python/configure.py:240 python/mainwindow.py:588
+#: bash/polconfigurator:106 python/configure.py:239 python/mainwindow.py:588
 #, sh-format
 msgid "Registry Editor"
 msgstr ""
@@ -4315,7 +4353,7 @@ msgid "Unable to install XQuartz! You must install it to use wine properly."
 msgstr ""
 
 #: bash/uninstall:31 bash/uninstall:65 bash/uninstall:68 bash/uninstall:75
-#: lib/wine.lib:867
+#: lib/wine.lib:866
 #, sh-format
 msgid "$APPLICATION_TITLE Uninstaller"
 msgstr ""
@@ -4335,7 +4373,7 @@ msgstr ""
 msgid "This wizard will help you to uninstall: "
 msgstr ""
 
-#: bash/uninstall:65 lib/wine.lib:867
+#: bash/uninstall:65 lib/wine.lib:866
 #, sh-format
 msgid "Uninstalling..."
 msgstr ""
@@ -4395,7 +4433,7 @@ msgid ""
 msgstr ""
 
 #: lib/deprecated.lib:87 lib/deprecated.lib:100 lib/deprecated.lib:121
-#: lib/wine.lib:934 lib/wine.lib:973
+#: lib/wine.lib:933 lib/wine.lib:972
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
 msgstr ""
@@ -4787,220 +4825,210 @@ msgid ""
 "valid."
 msgstr ""
 
-#: lib/wine.lib:389
+#: lib/wine.lib:388
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is scanning your hardware"
 msgstr ""
 
-#: lib/wine.lib:395
+#: lib/wine.lib:394
 #, sh-format
 msgid "Select the main videocard to report:"
 msgstr ""
 
-#: lib/wine.lib:541
+#: lib/wine.lib:540
 #, sh-format
 msgid ""
 "Starting 64-bit process $EXEFILE is not supported in 32-bit virtual drives"
 msgstr ""
 
-#: lib/wine.lib:579
+#: lib/wine.lib:578
 #, sh-format
 msgid ""
 "Wine seems to have crashed\\n\\nIf your program is running, just ignore this "
 "message"
 msgstr ""
 
-#: lib/wine.lib:683
+#: lib/wine.lib:682
 #, sh-format
 msgid "Unable to find version: "
 msgstr ""
 
-#: lib/wine.lib:689 lib/wine.lib:690
+#: lib/wine.lib:688 lib/wine.lib:689
 #, sh-format
 msgid "Downloading Wine: "
 msgstr ""
 
-#: lib/wine.lib:699
+#: lib/wine.lib:698
 #, sh-format
 msgid "The download seems to have failed."
 msgstr ""
 
-#: lib/wine.lib:701
+#: lib/wine.lib:700
 #, sh-format
 msgid "Extracting Wine..."
 msgstr ""
 
-#: lib/wine.lib:897
+#: lib/wine.lib:896
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
 msgstr ""
 
-#: lib/wine.lib:898
+#: lib/wine.lib:897
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
 msgstr ""
 
-#: lib/wine.lib:912
+#: lib/wine.lib:911
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
 msgstr ""
 
-#: lib/wine.lib:1093 lib/wine.lib:1123
+#: lib/wine.lib:1120 lib/wine.lib:1150
 #, sh-format
 msgid "Please wait while $SOFTNAME is installed..."
 msgstr ""
 
-#: lib/wine.lib:1097 lib/wine.lib:1126
+#: lib/wine.lib:1124 lib/wine.lib:1153
 #, sh-format
 msgid ""
 "Be careful! This will kill install process. If it is not finished, you will "
 "have to reinstall $SOFTNAME"
 msgstr ""
 
-#: lib/wine.lib:1097 lib/wine.lib:1126
+#: lib/wine.lib:1124 lib/wine.lib:1153
 #, sh-format
 msgid "Install is done"
 msgstr ""
 
-#: lib/wine.lib:1130 lib/wine.lib:1131
+#: lib/wine.lib:1157 lib/wine.lib:1158
 #, sh-format
 msgid "Press next only when the installation process is finished"
 msgstr ""
 
-#: lib/wine.lib:1139
+#: lib/wine.lib:1166
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is simulating a reboot"
 msgstr ""
 
-#: python/configure.py:117
-#, python-brace-format
-msgid ""
-"Warning:\n"
-"\n"
-"This tool is for advanced users.\n"
-"To uninstall cleanly a program with {0}, you must delete the virtual drive "
-"associated"
-msgstr ""
-
-#: python/configure.py:198 python/configure.py:713
+#: python/configure.py:197 python/configure.py:712
 msgid "General"
 msgstr ""
 
-#: python/configure.py:201
+#: python/configure.py:200
 msgid "Make a new shortcut from this virtual drive"
 msgstr ""
 
-#: python/configure.py:202
+#: python/configure.py:201
 msgid "Name"
 msgstr ""
 
-#: python/configure.py:203
+#: python/configure.py:202
 msgid "Wine version"
 msgstr ""
 
-#: python/configure.py:204
+#: python/configure.py:203
 msgid "Debug flags"
 msgstr ""
 
-#: python/configure.py:206
+#: python/configure.py:205
 msgid "Virtual drive"
 msgstr ""
 
-#: python/configure.py:208
+#: python/configure.py:207
 msgid "Arguments"
 msgstr ""
 
-#: python/configure.py:212
+#: python/configure.py:211
 msgid "Run configuration wizard"
 msgstr ""
 
-#: python/configure.py:249
+#: python/configure.py:248
 msgid "Windows reboot"
 msgstr ""
 
-#: python/configure.py:257
+#: python/configure.py:256
 msgid "Repair virtual drive"
 msgstr ""
 
-#: python/configure.py:266
+#: python/configure.py:264
 msgid "Command prompt"
 msgstr ""
 
-#: python/configure.py:273
+#: python/configure.py:271
 msgid "Task manager"
 msgstr ""
 
-#: python/configure.py:281
+#: python/configure.py:279
 msgid "Kill processes"
 msgstr ""
 
-#: python/configure.py:288
-msgid "Wine uninstaller"
+#: python/configure.py:286
+msgid "Control panel"
 msgstr ""
 
-#: python/configure.py:313
+#: python/configure.py:312
 msgid ""
 "Be careful! Installing one of these components can break your virtual drive."
 msgstr ""
 
-#: python/configure.py:335 python/install.py:289 python/install.py:293
+#: python/configure.py:334 python/install.py:289 python/install.py:293
 #: python/mainwindow.py:244 python/mainwindow.py:384
 msgid "Install"
 msgstr ""
 
-#: python/configure.py:398
+#: python/configure.py:397
 msgid "Open program's directory"
 msgstr ""
 
-#: python/configure.py:421
+#: python/configure.py:420
 msgid "Open virtual drive's directory"
 msgstr ""
 
-#: python/configure.py:565
+#: python/configure.py:564
 msgid "GLSL Support"
 msgstr ""
 
-#: python/configure.py:566
+#: python/configure.py:565
 msgid "Direct Draw Renderer"
 msgstr ""
 
-#: python/configure.py:567
+#: python/configure.py:566
 msgid "Video memory size"
 msgstr ""
 
-#: python/configure.py:568
+#: python/configure.py:567
 msgid "Offscreen rendering mode"
 msgstr ""
 
-#: python/configure.py:569
+#: python/configure.py:568
 msgid "Render target mode lock"
 msgstr ""
 
-#: python/configure.py:570
+#: python/configure.py:569
 msgid "Multisampling"
 msgstr ""
 
-#: python/configure.py:571
+#: python/configure.py:570
 msgid "Strict Draw Ordering"
 msgstr ""
 
-#: python/configure.py:581
+#: python/configure.py:580
 msgid "Mouse warp override"
 msgstr ""
 
-#: python/configure.py:583
+#: python/configure.py:582
 msgid "Open a shell"
 msgstr ""
 
-#: python/configure.py:584
+#: python/configure.py:583
 msgid "Run a .exe file in this virtual drive"
 msgstr ""
 
-#: python/configure.py:585
+#: python/configure.py:584
 msgid "Command to exec before running the program"
 msgstr ""
 
-#: python/configure.py:595
+#: python/configure.py:594
 msgid ""
 "Warning:\n"
 "\n"
@@ -5009,52 +5037,52 @@ msgid ""
 "Are you sure you want to continue?"
 msgstr ""
 
-#: python/configure.py:606
+#: python/configure.py:605
 msgid ""
 "Be careful!\n"
 "If you change "
 msgstr ""
 
-#: python/configure.py:666 python/mainwindow.py:973 python/mainwindow.py:975
+#: python/configure.py:665 python/mainwindow.py:973 python/mainwindow.py:975
 #, python-brace-format
 msgid "{0} configuration"
 msgstr ""
 
-#: python/configure.py:674
+#: python/configure.py:673
 msgid "Please select a program or a virtual drive to configure"
 msgstr ""
 
-#: python/configure.py:693 python/configure.py:696 python/options.py:279
+#: python/configure.py:692 python/configure.py:695 python/options.py:279
 msgid "New"
 msgstr ""
 
-#: python/configure.py:694 python/configure.py:697 python/mainwindow.py:245
+#: python/configure.py:693 python/configure.py:696 python/mainwindow.py:245
 #: python/mainwindow.py:385 python/mainwindow.py:604 python/options.py:206
 msgid "Remove"
 msgstr ""
 
-#: python/configure.py:715
+#: python/configure.py:714
 msgid "Install components"
 msgstr ""
 
-#: python/configure.py:716 python/mainwindow.py:365
+#: python/configure.py:715 python/mainwindow.py:365
 msgid "Display"
 msgstr ""
 
-#: python/configure.py:717
+#: python/configure.py:716
 msgid "Miscellaneous"
 msgstr ""
 
-#: python/configure.py:745
+#: python/configure.py:744
 msgid "This virtual drive is protected"
 msgstr ""
 
-#: python/configure.py:747
+#: python/configure.py:746
 #, python-brace-format
 msgid "Are you sure you want to delete {0} virtual drive ?"
 msgstr ""
 
-#: python/configure.py:754
+#: python/configure.py:753
 #, python-brace-format
 msgid "Are you sure you want to delete {0} ?"
 msgstr ""
