@@ -44,7 +44,7 @@ clean:
 	$(RM) ./ChangeLog
 
 build:
-	$(CC) ./src/check_direct_rendering.c -o ./bin/check_dd
+	$(CC) ./src/check_direct_rendering.c -o ./bin/playonlinux-check_dd
 	$(PYTHON) ./python/*.py
 	$(PYTHON) ./python/lib/*.py
 	echo -e '#!/bin/bash\n${sharedir}/playonlinux/playonlinux "$$@"\nexit 0' > ./bin/playonlinux

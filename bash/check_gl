@@ -41,18 +41,24 @@ Check_OpenGL()
 		chmod +x "$POL_USER_ROOT/tmp/check_dd_$1"
 		message="$("$POL_USER_ROOT/tmp/check_dd_$1")"
 		out="$?"
-		
-		if [ "$out" = "0" ]
-		then
-			$cmd "$message"
-			exit 0
-		else
-			$cmdW "$message"
-			exit 2
-		fi
+	# When bz2 version is not presented (was installed on specific platform)
+	# use on site compiled check_dd version
+	elif [ -e "/usr/libexec/playonlinux-check_dd" ]
+	then
+		message="$("/usr/libexec/playonlinux-check_dd")"
+		out="$?"
 	else
 		$cmdW "check_dd_$1 missing, test skipped"
 		exit 0
+	fi
+
+	if [ "$out" = "0" ]
+	then
+		$cmd "$message"
+		exit 0
+	else
+		$cmdW "$message"
+		exit 2
 	fi
 }
 cd /tmp
