@@ -32,6 +32,8 @@ CFLAGS += -lGL -lX11
 
 sharedir := $(DESTDIR)$(PREFIX)/share
 bindir := $(DESTDIR)$(PREFIX)/bin
+execdir := $(DESTDIR)$(PREFIX)/libexec
+
 
 all: build
 
@@ -54,6 +56,7 @@ build:
 
 install:
 	install -d $(bindir)
+	install -d $(execdir)
 	install -d $(sharedir)/pixmaps
 	install -d $(sharedir)/applications
 	install -d $(sharedir)/playonlinux/bin
@@ -65,6 +68,7 @@ install:
 	cp ./etc/playonlinux16.png $(sharedir)/pixmaps/playonlinux16.png
 	cp ./etc/playonlinux32.png $(sharedir)/pixmaps/playonlinux32.png
 	cp ./bin/{playonlinux,playonlinux-pkg} $(bindir)/
+	cp ./bin/playonlinux-check_dd $(execdir)/
 	cp ./{playonlinux*,README.md,TRANSLATORS,CHANGELOG.md,LICENCE} $(sharedir)/playonlinux/
 	cp -R ./{bash,etc,lang,lib,plugins,python,resources,tests} $(sharedir)/playonlinux/
 
