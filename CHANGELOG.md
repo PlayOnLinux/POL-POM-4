@@ -7,6 +7,7 @@
 * Add support for Wine-staging DLL redirects (POL_Wine_RedirectDLL,
   POL_Wine_DelRedirectDLL, POL_Wine_RedirectDLL_App,
   POL_Wine_DelRedirectDLL_App) (#5163)
+* Fix POL_System_cpmv log message
 
 # 4.2.9
 
