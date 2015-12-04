@@ -179,7 +179,7 @@ Set_WineVersion_Assign ()
 	
 	# Usage: Set_WineVersion_Assign [VERSION] [SHORTCUT]
 	
-	prefixold="$WINEPREFIX"
+	local prefixold="$WINEPREFIX"
 	POL_Debug_Warning "Function deprecated !"
 	export WINEPREFIX="$POL_USER_ROOT/wineprefix/$(POL_Shortcut_GetPrefix "$2")"
 	POL_Wine_SetVersionPrefix "$1"
@@ -204,7 +204,7 @@ fonts_to_prefix ()
 Use_WineVersion()
 {
 	# Set the good wineversion in PATH
-	# No longuer needed, use POL_WINEVERSION variable before calling POL_Wine
+	# No longer needed, use POL_WINEVERSION variable before calling POL_Wine
 	# Usage: Use_WineVersion [VERSION]
 	POL_Debug_Warning "Function is deprecated. Use export WINEVERSION instead"
 	export POL_WINEVERSION="$1"
@@ -224,28 +224,15 @@ POL_SetupWindow_make_shortcut()
 	# Usage: POL_SetupWindow_make_shortcut [Prefix name] [Program's directory] [Program's file] [POL Website icon] [Name of the sortcut] [Leave empty] [Argument]
 	
 	POL_Debug_Warning "Deprecated function! Use POL_Shortcut"
-
-	creer_lanceur_base "$@"
-	if [ ! "$(POL_Config_Read NO_DESKTOP_ICON)" = "TRUE" ] 
-	then
-	if [ "$POL_OS" = "Mac" ] # Ouai, la c'est complètement différent sous linux et sous mac
-	then
-		if [ "$5" = "" ]
-		then
-			POL_SetupWindow_AutoApp "$1" "$1"
-		else
-			POL_SetupWindow_AutoApp "$5" "$1"
-		fi
-	
+	local PREFIX="$(POL_Wine_GetPrefixFromPath "$WINEPREFIX")"
+	if [ "$1" = "$PREFIX" ]; then
+	    POL_Shortcut "$2/$3" "$4" "$5" "$7"
 	else
-
-		if [ -f "$POL_USER_ROOT/icones/full_size/$NOMICONE_" ]; then # L'icone existe...
-			iconPath="$POL_USER_ROOT/icones/full_size/$NOMICONE_"
-		else
-			iconPath="$PLAYONLINUX/etc/playonlinux.png"
-		fi
-		make_desktop_shortcut "$iconPath" "$NOMICONE_" "$DESKTOP" "$PLAYONLINUX/playonlinux --run \"$NOMICONE_\"" "$NOMICONE_"
-	fi
+	    # Are there real use cases?
+	    POL_Debug_Warning "Temporarily set prefix to $1 as requested"
+	    POL_Wine_SelectPrefix "$1"
+	    POL_Shortcut "$2/$3" "$4" "$5" "$7"
+	    POL_Wine_SelectPrefix "$PREFIX"
 	fi
 }
 
@@ -253,73 +240,18 @@ POL_SetupWindow_auto_shortcut()
 {
 	# Make a shortcut into PlayOnLinux, easier using than POL_SetupWindow_make_shortcut
 	# Use POL_Shortcut
-	# Usage: POL_SetupWindow_make_shortcut [Prefix name] [Program's binary file] [Name of the sortcut] [POL Website icon] [Argument]
+	# Usage: POL_SetupWindow_auto_shortcut [Prefix name] [Program's binary file] [Name of the shortcut] [POL Website icon] [Argument]
 	
-	POL_Debug_Warning "POL_SetupWindow_auto_shortcut is deprecated"
-	Binaire="$2"
-	SpecialArg="$5"
-	
-	if [ "$3" = "" ]
-	then
-		NOMICONE_="$1"
+	POL_Debug_Warning "Deprecated function! Use POL_Shortcut"
+	local PREFIX="$(POL_Wine_GetPrefixFromPath "$WINEPREFIX")"
+	if [ "$1" = "$PREFIX" ]; then
+	    POL_Shortcut "$2" "$3" "$4" "$5"
 	else
-		NOMICONE_="$3"
-	fi
-	
-	mkdir -p "$POL_USER_ROOT/icones/32"
-	mkdir -p "$POL_USER_ROOT/icones/full_size"
-	
-	ICON_WEB_NAME="$4"
-	ICON_OK=0
-
-	## On chope le dossier du binaire
-	cd "$POL_USER_ROOT/wineprefix/$1" || POL_SetupError "Prefixe $1 does not exists"
-	cd drive_c || POL_SetupError "drive_c folder does not exists"
-	binary_path=$(find ./ -iname "$Binaire" | tail -n 1)
-	binary_dir=$(dirname "$binary_path")
-	Binaire=$(basename "$binary_path")
-	[ "$binary_dir" = "" ] && POL_SetupError "Can't find $Binaire"
-
-	if [ -n "$ICON_WEB_NAME" ]; then
-		if [ ! "$OFFLINE" = "1" ]; then # On peut le télécharger...
-			$POL_WGET "$SITE/icones/$ICON_WEB_NAME" -O- > "$POL_USER_ROOT/icones/full_size/$NOMICONE_" || rm "$POL_USER_ROOT/icones/full_size/$NOMICONE_"  # On prend l'icone full size
-		fi
-		
-		if [ -f "$POL_USER_ROOT/icones/full_size/$NOMICONE_" ]; then
-			convert -resize 32 "$POL_USER_ROOT/icones/full_size/$NOMICONE_" "$POL_USER_ROOT/icones/32/$NOMICONE_" # On fabrique l'icone 32*32
-			ICON_OK=1
-		fi
-	elif [ "$ICON_OK" -ne 1 ]; then # Pas d'incone sur le web => Création à partir de l'exe...
-		echo "No internet icon..."
-		
-		POL_ExtractIcon "$POL_USER_ROOT/wineprefix/$1/drive_c/$binary_dir/$Binaire" "$POL_USER_ROOT/icones/32/$NOMICONE_"
-			
-		# On ne crée pas d'icone "full_size", parce que les résolutions des icones windows ne sont pas suffisantes tout le temps.
-		# Pour verifier la taille des icones, il faudrait utiliser "identify", mais ce programme n'est pas toujours fournis.
-	fi
-
-	## On génère le binaire 
-	echo "#!/bin/bash" > "$POL_USER_ROOT/shortcuts/$NOMICONE_"
-	echo "[ \"\$PLAYONLINUX\" = \"\" ] && exit 0" >> "$POL_USER_ROOT/shortcuts/$NOMICONE_"
-	echo "source \"\$PLAYONLINUX/lib/sources\"" >> "$POL_USER_ROOT/shortcuts/$NOMICONE_"
-	echo "export WINEPREFIX=\"$POL_USER_ROOT/wineprefix/$1\"" >> "$POL_USER_ROOT/shortcuts/$NOMICONE_"
-	echo "export WINEDEBUG=\"-all\"" >> "$POL_USER_ROOT/shortcuts/$NOMICONE_"
-	echo "cd \"$POL_USER_ROOT/wineprefix/$1/drive_c/$binary_dir\"" >> "$POL_USER_ROOT/shortcuts/$NOMICONE_"
-	echo "POL_Wine \"$Binaire\" $SpecialArg \$@" >> "$POL_USER_ROOT/shortcuts/$NOMICONE_"
-	chmod +x "$POL_USER_ROOT/shortcuts/$NOMICONE_"
-	if [ ! "$(POL_Config_Read NO_DESKTOP_ICON)" = "TRUE" ] 
-	then
-	if [ "$POL_OS" = "Mac" ]
-	then
-		POL_SetupWindow_AutoApp "$3" "$1"
-	else
-		if [ -f "$POL_USER_ROOT/icones/full_size/$NOMICONE_" ]; then # L'icone existe...
-			iconPath="$POL_USER_ROOT/icones/full_size/$NOMICONE_"
-		else
-			iconPath="$PLAYONLINUX/etc/playonlinux.png"
-		fi
-		make_desktop_shortcut "$iconPath" "$NOMICONE_" "$DESKTOP" "$PLAYONLINUX/playonlinux --run \"$NOMICONE_\""
-	fi
+	    # Are there real use cases?
+	    POL_Debug_Warning "Temporarily set prefix to $1 as requested"
+	    POL_Wine_SelectPrefix "$1"
+	    POL_Shortcut "$2" "$3" "$4" "$5"
+	    POL_Wine_SelectPrefix "$PREFIX"
 	fi
 }
 POL_SetupWindow_shortcut()
@@ -344,75 +276,6 @@ POL_SetupError()
 
 
 
-creer_lanceur_base ()
-{
-	# Needed for POL_SetupWindow_make_shortcut
-	# Usage: POL_SetupWindow_make_shortcut [Prefix name] [Program's directory] [Program's file] [POL Website icon] [Name of the sortcut] [Leave empty] [Argument]
-	
-	# 1 = Wineprefix
-	# 2 = Repertoire
-	# 3 = Binaire
-	# 4 = Icone (png ou xpm)
-	# 5 = Nom de l'icône
-	# 6 = Ignoré (question de compatibilité avec les versions < 2.0)
-	# 7 = Eventuel argument
-
-	Binaire="$3"
-	SpecialArg="$7"
-
-	if [ "$5" = "" ]
-	then
-		NOMICONE_="$1"
-	else
-		NOMICONE_="$5"
-	fi
-	
-	mkdir -p "$POL_USER_ROOT/icones/32"
-	mkdir -p "$POL_USER_ROOT/icones/full_size"
-	
-	ICON_WEB_NAME="$4"
-	ICON_OK=0
-
-	
-	# Création de l'icone.
-	
-	# Cas 1 : le nom de l'icone est donné.
-	if [ -n "$ICON_WEB_NAME" ]; then
-		if [ ! "$OFFLINE" = "1" ]; then # On peut le télécharger...
-			$POL_WGET "$SITE/icones/$ICON_WEB_NAME" -O "$POL_USER_ROOT/icones/full_size/$NOMICONE_" # On prend l'icone full size
-		fi
-		
-		if [ -f "$POL_USER_ROOT/icones/full_size/$NOMICONE_" ]; then
-			convert -resize 32 "$POL_USER_ROOT/icones/full_size/$NOMICONE_" "$POL_USER_ROOT/icones/32/$NOMICONE_" # On fabrique l'icone 32*32
-			ICON_OK=1
-		fi
-	elif [ "$ICON_OK" -ne 1 ]; then # Pas d'incone sur le web => Création à partir de l'exe...
-		echo "No iternet icon..."
-		
-		mkdir -p "$POL_USER_ROOT/tmp/win32Icon"
-		wrestool -x "$POL_USER_ROOT/wineprefix/$1/drive_c/$2/$Binaire" -o "$POL_USER_ROOT/tmp/win32Icon" -t14
-		
-		cd "$POL_USER_ROOT/tmp/win32Icon"
-		win32IconName=$(ls -S *.ico | head -n 1)
-		if [ -f "$win32IconName" ]; then # L'ico est créé
-			convert ICO:"$win32IconName" -resize 32 PNG:"$POL_USER_ROOT/icones/32/$NOMICONE_" # On fabrique l'icone 32*32
-		fi # Si non : icone play on linux.
-
-		rm -r "$POL_USER_ROOT/tmp/win32Icon"
-		
-		# On ne crée pas d'icone "full_size", parce que les résolutions des icones windows ne sont pas suffisantes tout le temps.
-		# Pour verifier la taille des icones, il faudrait utiliser "identify", mais ce programme n'est pas toujours fournis.
-	fi
-	
-	echo "#!/bin/bash" > "$POL_USER_ROOT/shortcuts/$NOMICONE_"
-	echo "[ \"\$PLAYONLINUX\" = \"\" ] && exit 0" >> "$POL_USER_ROOT/shortcuts/$NOMICONE_"
-	echo "source \"\$PLAYONLINUX/lib/sources\"" >> "$POL_USER_ROOT/shortcuts/$NOMICONE_"
-	echo "export WINEPREFIX=\"$POL_USER_ROOT/wineprefix/$1\"" >> "$POL_USER_ROOT/shortcuts/$NOMICONE_"
-	echo "export WINEDEBUG=\"-all\"" >> "$POL_USER_ROOT/shortcuts/$NOMICONE_"
-	echo "cd \"$POL_USER_ROOT/wineprefix/$1/drive_c/$2\"" >> "$POL_USER_ROOT/shortcuts/$NOMICONE_"
-	echo "POL_Wine \"$Binaire\" $SpecialArg \$@" >> "$POL_USER_ROOT/shortcuts/$NOMICONE_"
-	chmod +x "$POL_USER_ROOT/shortcuts/$NOMICONE_"
-}
 POL_SetupWindow_get_local_icon ()
 {
 	# Get a local icon (.local folder) and assign it to a shortcut
