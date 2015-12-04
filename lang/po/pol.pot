@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX/APLU <pol-gettext@mulx.net>\n"
-"POT-Creation-Date: 2015-11-25 19:01:08+01:00\n"
+"POT-Creation-Date: 2015-12-04 19:00:36+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -248,10 +248,11 @@ msgstr ""
 #: PlayOnLinux_Scripts/Deadpool_The_Game_:47 PlayOnLinux_Scripts/Diablo_II_:57
 #: PlayOnLinux_Scripts/Dragon_Age_2___DLC_:40
 #: PlayOnLinux_Scripts/Dreamweaver_8_:22 PlayOnLinux_Scripts/EVE_online_:87
-#: PlayOnLinux_Scripts/ElsterFormular_:43 PlayOnLinux_Scripts/FEZ__Steam__:49
-#: PlayOnLinux_Scripts/FL_Studio_10_:33 PlayOnLinux_Scripts/Far_Cry_2_:80
-#: PlayOnLinux_Scripts/Flash_8_:22 PlayOnLinux_Scripts/Flash_MX_:22
-#: PlayOnLinux_Scripts/Google_SketchUp_:95
+#: PlayOnLinux_Scripts/ElsterFormular_:43
+#: PlayOnLinux_Scripts/Entropia_Universe_:30
+#: PlayOnLinux_Scripts/FEZ__Steam__:49 PlayOnLinux_Scripts/FL_Studio_10_:33
+#: PlayOnLinux_Scripts/Far_Cry_2_:80 PlayOnLinux_Scripts/Flash_8_:22
+#: PlayOnLinux_Scripts/Flash_MX_:22 PlayOnLinux_Scripts/Google_SketchUp_:95
 #: PlayOnLinux_Scripts/Guild_Wars_2_:79 PlayOnLinux_Scripts/Half_Life_2_:108
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_One_:88
 #: PlayOnLinux_Scripts/Half_Life_2___Episode_Two_:88
@@ -265,6 +266,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Microsoft_Excel_Viewer_2003_:34
 #: PlayOnLinux_Scripts/Microsoft_Money_2005_:37
 #: PlayOnLinux_Scripts/Microsoft_Office_2010_:46
+#: PlayOnLinux_Scripts/Microsoft_Office_2013_:37
 #: PlayOnLinux_Scripts/Microsoft_Word_Viewer_2003_:35
 #: PlayOnLinux_Scripts/Monkey_Island_2_Special_Edition_:79
 #: PlayOnLinux_Scripts/Mount_and_Blade___Warband_:41
@@ -2157,11 +2159,13 @@ msgid ""
 msgstr ""
 
 #: PlayOnLinux_Scripts/Microsoft_Office_2010_:64
+#: PlayOnLinux_Scripts/Microsoft_Office_2013_:57
 #, sh-format
 msgid "The 64bits version is not compatible! Sorry"
 msgstr ""
 
 #: PlayOnLinux_Scripts/Microsoft_Office_2010_:96
+#: PlayOnLinux_Scripts/Microsoft_Office_2013_:89
 #, sh-format
 msgid ""
 "$TITLE has been installed successfully\\n\\nIf an installation Windows "
@@ -3013,20 +3017,6 @@ msgstr ""
 msgid "The launcher can still self update after installation"
 msgstr ""
 
-#: PlayOnLinux_Scripts/RollerCoaster_Tycoon_3_:47
-#, sh-format
-msgid ""
-"Choose Detailed Installation for Media Player Codec Pack to avoid a useless "
-"systray icon."
-msgstr ""
-
-#: PlayOnLinux_Scripts/RollerCoaster_Tycoon_3_:59
-#, sh-format
-msgid ""
-"The RCT3 installer will start when you click Next. Do not attempt to "
-"register your game."
-msgstr ""
-
 #: PlayOnLinux_Scripts/Rome_Total_War__Gold_Edition__:72
 #, sh-format
 msgid ""
@@ -3623,22 +3613,11 @@ msgstr ""
 msgid "Your browser will pop, download patch from it and uncompress it please"
 msgstr ""
 
-#: PlayOnLinux_Scripts/World_Of_Tanks_:56
+#: PlayOnLinux_Scripts/World_Of_Tanks_:40
 #, sh-format
 msgid ""
 "Which region version of World of Tanks would you like to install? Note: "
 "Korea not supported on this installation."
-msgstr ""
-
-#: PlayOnLinux_Scripts/World_Of_Tanks_:66
-#, sh-format
-msgid ""
-"Attention:After installation is complete, the patcher will load. After, go "
-"to the top right of the patcher and click the wrench, Then Un-check the box "
-"for \"Allow Torrent\", if this is not done the patcher will crash after 1 "
-"minuite. When finished with this, please close the patcher before logging in "
-"or finish updating to complete the installation. After this, you can run "
-"\"$TITLE\" when setup is done"
 msgstr ""
 
 #: PlayOnLinux_Scripts/World_Of_Warcraft_:51
@@ -4594,7 +4573,7 @@ msgstr ""
 msgid "No enough space to download:\\n$URL ($neededSpace KB)"
 msgstr ""
 
-#: lib/scripts.lib:529 lib/scripts.lib:822
+#: lib/scripts.lib:529 lib/scripts.lib:821
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
 msgstr ""
@@ -4631,31 +4610,31 @@ msgstr ""
 msgid "Extracted file size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:784
+#: lib/scripts.lib:783
 #, sh-format
 msgid "Copying ${filename}"
 msgstr ""
 
-#: lib/scripts.lib:797
+#: lib/scripts.lib:796
 #, sh-format
 msgid "File size does not match!"
 msgstr ""
 
-#: lib/scripts.lib:955
+#: lib/scripts.lib:954
 #, sh-format
 msgid ""
 "Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\n"
 "$APPLICATION_TITLE $NEEDED is required."
 msgstr ""
 
-#: lib/scripts.lib:970
+#: lib/scripts.lib:969
 #, sh-format
 msgid ""
 "Warning: You are running $APPLICATION_TITLE $VERSION.\\n$APPLICATION_TITLE "
 "$NEEDED is recommended to continue."
 msgstr ""
 
-#: lib/scripts.lib:1001
+#: lib/scripts.lib:1000
 #, sh-format
 msgid "$AUTHOR profile"
 msgstr ""

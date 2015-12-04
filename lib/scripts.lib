@@ -767,13 +767,12 @@ POL_System_cpmv ()
     local dest="$2"
 
     local filename=`basename "$file"`
-	#local szpid
     case "$op" in
         cp)
-            POL_Debug_Message "Copying single file : \"$archive\", \"$file\", \"$dest\""
+            POL_Debug_Message "Copying single file : \"$file\", \"$dest\""
             ;;
         mv)
-            POL_Debug_Message "Moving single file : \"$archive\", \"$file\", \"$dest\""
+            POL_Debug_Message "Moving single file : \"$file\", \"$dest\""
             ;;
         *)
             POL_Debug_Fatal "POL_System_cpmv: bad operation `$op`"
