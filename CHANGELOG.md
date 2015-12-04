@@ -7,6 +7,8 @@
 * Add support for Wine-staging DLL redirects (POL_Wine_RedirectDLL,
   POL_Wine_DelRedirectDLL, POL_Wine_RedirectDLL_App,
   POL_Wine_DelRedirectDLL_App) (#5163)
+* Reimplement deprecated functions POL_SetupWindow_make_shortcut and
+  POL_SetupWindow_auto_shortcut using POL_Shortcut for consistency
 
 # 4.2.9
 
