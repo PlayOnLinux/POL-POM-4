@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX/APLU <pol-gettext@mulx.net>\n"
-"POT-Creation-Date: 2015-12-06 19:00:53+01:00\n"
+"POT-Creation-Date: 2015-12-07 19:00:54+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -246,6 +246,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Brink_:66 PlayOnLinux_Scripts/Brink_:79
 #: PlayOnLinux_Scripts/Dark_Messiah_Of_Might_And_Magic_:65
 #: PlayOnLinux_Scripts/Deadpool_The_Game_:47 PlayOnLinux_Scripts/Diablo_II_:57
+#: PlayOnLinux_Scripts/Diablo_II___Lord_Of_Destruction_:47
 #: PlayOnLinux_Scripts/Dragon_Age_2___DLC_:40
 #: PlayOnLinux_Scripts/Dreamweaver_8_:22 PlayOnLinux_Scripts/EVE_online_:87
 #: PlayOnLinux_Scripts/ElsterFormular_:43
@@ -486,6 +487,7 @@ msgstr ""
 #: PlayOnLinux_Scripts/Assassin_s_Creed_Patch_1.02_:32
 #: PlayOnLinux_Scripts/Bioshock_Patch_1.1_:34
 #: PlayOnLinux_Scripts/Command_And_Conquer_3___Tiberium_Wars__Kane_Edition__Patch_1.09_:35
+#: PlayOnLinux_Scripts/Diablo_II___Lord_Of_Destruction_:28
 #: PlayOnLinux_Scripts/GOG.com___Advent_Rising__Advent_Revising_patch_:29
 #: PlayOnLinux_Scripts/GOG.com___Heroes_of_Might_and_Magic_3_HD_mod_:43
 #: PlayOnLinux_Scripts/GOG.com___Outcast__High_resolution_patch_:33
@@ -1258,6 +1260,21 @@ msgid ""
 "sudo tee /proc/sys/kernel/yama/ptrace_scope"
 msgstr ""
 
+#: PlayOnLinux_Scripts/Diablo_II___Lord_Of_Destruction_:39
+#, sh-format
+msgid "When the installer will ask you for PlayDisc, click NEXT."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Diablo_II___Lord_Of_Destruction_:41
+#, sh-format
+msgid "When the installer will ask you for Expansion Disc, click NEXT."
+msgstr ""
+
+#: PlayOnLinux_Scripts/Diablo_II___Lord_Of_Destruction_:43
+#, sh-format
+msgid "Click NEXT when the installation will finish"
+msgstr ""
+
 #: PlayOnLinux_Scripts/Diagnostic_Tools_:20
 #, sh-format
 msgid "Scanning your hardware..."
@@ -1799,7 +1816,7 @@ msgid ""
 "if you want."
 msgstr ""
 
-#: PlayOnLinux_Scripts/GOG.com___RollerCoaster_Tycoon_3_:27
+#: PlayOnLinux_Scripts/GOG.com___RollerCoaster_Tycoon_3_:25
 #, sh-format
 msgid ""
 "At the end of the installation process you will get a few runtime errors, "
