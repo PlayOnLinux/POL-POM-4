@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PlayOnLinux\n"
 "Report-Msgid-Bugs-To: MulX/APLU <pol-gettext@mulx.net>\n"
-"POT-Creation-Date: 2015-12-25 19:00:38+01:00\n"
+"POT-Creation-Date: 2015-12-26 19:00:51+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2810,6 +2810,41 @@ msgstr ""
 #: PlayOnLinux_Scripts/POL_Wine_InstallCDROM_:27
 #, sh-format
 msgid "Now you can go back to the $TITLE installation window to continue"
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_innoextract_:14
+#, sh-format
+msgid "POL_innoextract failed: INSTALLER_FILE not set."
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_innoextract_:17
+#, sh-format
+msgid "POL_innoextract failed: TEMP_DIR not set."
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_innoextract_:20
+#, sh-format
+msgid "POL_innoextract failed: INSTALL_PATH not set."
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_innoextract_:26
+#, sh-format
+msgid ""
+"Could not find innoextract binary. Install the \"innoextract\" package or "
+"see http://constexpr.org/innoextract for more information on how to install, "
+"then run the script again."
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_innoextract_:31
+#, sh-format
+msgid "Extracting game files..."
+msgstr ""
+
+#: PlayOnLinux_Scripts/POL_innoextract_:57
+#, sh-format
+msgid ""
+"Failed to extract files. Is innoextract is up to date and the input file "
+"valid?"
 msgstr ""
 
 #: PlayOnLinux_Scripts/PatternMaker_7.5_:36
