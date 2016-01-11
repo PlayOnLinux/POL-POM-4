@@ -179,7 +179,7 @@ POL_SetupWindow_download ()
 
 	local FILENAME
 	[ -n "$4" ] && FILENAME="$4" || FILENAME="$PWD/"
-	local Result="$(echo "$POL_COOKIE	POL_SetupWindow_download	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	$(POL_Untab "$FILENAME")" | ncns "$POL_HOST" "$POL_PORT")"
+	Result="$(echo "$POL_COOKIE	POL_SetupWindow_download	$$	$(POL_Untab "$1")	$(POL_Untab "$2")	$3	$(POL_Untab "$FILENAME")" | ncns "$POL_HOST" "$POL_PORT")"
 	# FIXME: Result should send 'fail' if the download has failed. Maybe we could catch it
 }
 
