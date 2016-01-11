@@ -1,4 +1,5 @@
 # 4.2.11
+* Fix POL_SetupWindow_download clobbering $FILENAME
 
 # 4.2.10
 
