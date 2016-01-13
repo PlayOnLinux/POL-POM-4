@@ -59,11 +59,13 @@ install:
 	install -d $(execdir)
 	install -d $(sharedir)/pixmaps
 	install -d $(sharedir)/applications
+	install -d $(sharedir)/appdata
 	install -d $(sharedir)/playonlinux/bin
 	install -d $(sharedir)/man/man1
 	$(GZIP) -c ./doc/playonlinux-pkg.1 > $(sharedir)/man/man1/playonlinux-pkg.1.gz
 	$(GZIP) -c ./doc/playonlinux.1 > $(sharedir)/man/man1/playonlinux.1.gz
 	cp ./etc/PlayOnLinux.desktop $(sharedir)/applications/PlayOnLinux.desktop
+	cp ./etc/PlayOnLinux.appdata.xml $(sharedir)/appdata/PlayOnLinux.appdata.xml
 	cp ./etc/playonlinux.png $(sharedir)/pixmaps/playonlinux.png
 	cp ./etc/playonlinux16.png $(sharedir)/pixmaps/playonlinux16.png
 	cp ./etc/playonlinux32.png $(sharedir)/pixmaps/playonlinux32.png
