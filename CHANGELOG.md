@@ -1,5 +1,6 @@
 # 4.2.11
 * Fix POL_SetupWindow_download clobbering $FILENAME
+* Fix small typo in first use "send report" message
 
 # 4.2.10
 
