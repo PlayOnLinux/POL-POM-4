@@ -53,6 +53,8 @@ build:
 	echo -e '#!/bin/bash\n${sharedir}/playonlinux/playonlinux-pkg "$$@"\nexit 0' > ./bin/playonlinux-pkg
 	chmod +x ./bin/playonlinux
 	chmod +x ./bin/playonlinux-pkg
+	sed -i 's/\(\["DEBIAN_PACKAGE"\]\s*=\s*\)"FALSE"/\1"TRUE"/' \
+		./python/lib/Variables.py
 
 install:
 	install -d $(bindir)
@@ -62,6 +64,7 @@ install:
 	install -d $(sharedir)/appdata
 	install -d $(sharedir)/playonlinux/bin
 	install -d $(sharedir)/man/man1
+	install -d $(sharedir)/locale
 	$(GZIP) -c ./doc/playonlinux-pkg.1 > $(sharedir)/man/man1/playonlinux-pkg.1.gz
 	$(GZIP) -c ./doc/playonlinux.1 > $(sharedir)/man/man1/playonlinux.1.gz
 	cp ./etc/PlayOnLinux.desktop $(sharedir)/applications/PlayOnLinux.desktop
@@ -72,7 +75,8 @@ install:
 	cp ./bin/{playonlinux,playonlinux-pkg} $(bindir)/
 	cp ./bin/playonlinux-check_dd $(execdir)/
 	cp ./{playonlinux*,README.md,TRANSLATORS,CHANGELOG.md,LICENCE} $(sharedir)/playonlinux/
-	cp -R ./{bash,etc,lang,lib,plugins,python,resources,tests} $(sharedir)/playonlinux/
+	cp -R ./{bash,etc,lib,plugins,python,resources,tests} $(sharedir)/playonlinux/
+	cp -R ./lang/locale/* $(sharedir)/locale/
 
 changelog:
 	(GIT_DIR=.git git log > .changelog.tmp && mv .changelog.tmp ChangeLog; rm -f .changelog.tmp) || (touch ChangeLog; echo 'git directory not found: installing possibly empty changelog.' >&2)
