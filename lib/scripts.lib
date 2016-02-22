@@ -315,6 +315,7 @@ POL_Shortcut()
 	BINARY="$1"
 	SpecialArg="$4"
 	Categories="$5"
+	BIN_PATH="$6"
 	if [ "$2" = "" ]
 	then
 		ICON_FILENAME="$1"
@@ -328,14 +329,20 @@ POL_Shortcut()
 	ICON_WEB_NAME="$3"
 	ICON_OK=0
 
-	local binary_path="$(POL_System_find_file "$BINARY")"
-	local binary_dir="$(dirname "$binary_path")"
-	local binary_name="$(basename "$binary_path")"
+	if [ -z "$BIN_PATH" ]; then
+		local binary_path="$(POL_System_find_file "$BINARY")"
+		local binary_dir="$WINEPREFIX/drive_c/$(dirname "$binary_path")"
+	else
+		local binary_path="$BIN_PATH/$BINARY"
+		local binary_dir="$(dirname "$binary_path")"
+	fi
 
-	[ -z "$binary_dir" ] && POL_Debug_Fatal "Can't find $BINARY"
+	local binary_name="$(basename "$binary_path")"
+	local target="$binary_dir/$binary_name"
+
+	[ "$binary_dir" = "$WINEPREFIX/drive_c/" ] && POL_Debug_Fatal "Can't find $BINARY"
 	POL_Debug_Message "Looking for <${BINARY}>, found <${binary_path}>"
 
-	local target="$WINEPREFIX/drive_c/$binary_dir/$binary_name"
 	[[ "$target" =~ \.lnk$ ]] && target="$(winepath -u "$(strings "$target"|tail -n 1)")"
 
 	if [ -n "$ICON_WEB_NAME" ]; then
@@ -364,10 +371,10 @@ POL_Shortcut()
 		[ -n "$LOGTITLE" ] && echo "#POL_Log=$LOGTITLE"
 		[ -n "$SCRIPTID" ] && echo "#ScriptID=$SCRIPTID"
 		if [[ "$binary_name" =~ \.(lnk|bat|cmd)$ ]]; then
-			echo "cd \"$(dirname "$target")\""
-			echo "POL_Wine start.exe /wait /unix \"\$WINEPREFIX/drive_c/$binary_dir/$binary_name\" $SpecialArg \"\$@\""
+			echo "cd \"$binary_path\""
+			echo "POL_Wine start.exe /wait /unix \"\$target\" $SpecialArg \"\$@\""
 		else
-			echo "cd \"$WINEPREFIX/drive_c/$binary_dir\""
+			echo "cd \"$binary_path\""
 			echo "POL_Wine \"$binary_name\" $SpecialArg \"\$@\""
 		fi) > "$POL_USER_ROOT/shortcuts/$ICON_FILENAME"
 		chmod +x "$POL_USER_ROOT/shortcuts/$ICON_FILENAME"
