@@ -371,10 +371,10 @@ POL_Shortcut()
 		[ -n "$LOGTITLE" ] && echo "#POL_Log=$LOGTITLE"
 		[ -n "$SCRIPTID" ] && echo "#ScriptID=$SCRIPTID"
 		if [[ "$binary_name" =~ \.(lnk|bat|cmd)$ ]]; then
-			echo "cd \"$binary_path\""
+			echo "cd \"$binary_dir\""
 			echo "POL_Wine start.exe /wait /unix \"\$target\" $SpecialArg \"\$@\""
 		else
-			echo "cd \"$binary_path\""
+			echo "cd \"$binary_dir\""
 			echo "POL_Wine \"$binary_name\" $SpecialArg \"\$@\""
 		fi) > "$POL_USER_ROOT/shortcuts/$ICON_FILENAME"
 		chmod +x "$POL_USER_ROOT/shortcuts/$ICON_FILENAME"
