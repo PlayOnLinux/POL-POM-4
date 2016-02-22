@@ -727,11 +727,13 @@ POL_SetupWindow_shortcut_creator()
 		[ "$APP_ANSWER" = "$LNG_FINISH" ] && break
 
 		local EXE_FILE
+		local EXE_PATH
 		if [ "$APP_ANSWER" = "$LNG_BROWSE" ]
 		then
 			cd $WINEPREFIX/drive_c
 			POL_SetupWindow_browse "$(eval_gettext "Please choose a file for $APPLICATION_TITLE to make a shortcut")" "$TITLE"
 			EXE_FILE="$(basename "$APP_ANSWER")"
+			EXE_PATH="$(dirname "$APP_ANSWER")"
 		else
 			EXE_FILE="$APP_ANSWER"
 		fi
@@ -767,7 +769,7 @@ POL_SetupWindow_shortcut_creator()
 					break
 				fi
 			done
-			POL_Shortcut "$EXE_FILE" "$SUGGEST"
+			POL_Shortcut "$EXE_FILE" "$SUGGEST" "" "" "" "$EXE_PATH"
 			echo "POL_Shortcut \"$EXE_FILE\" \"$SUGGEST\"" >> "$POL_USER_ROOT/tmp/shortcuts"
 		fi
 	done
