@@ -49,7 +49,7 @@ build:
 	$(CC) ./src/check_direct_rendering.c -o ./bin/playonlinux-check_dd
 	$(PYTHON) ./python/*.py
 	$(PYTHON) ./python/lib/*.py
-	echo -e '#!/bin/bash\n${sharedir}/playonlinux/playonlinux "$$@"\nexit 0' > ./bin/playonlinux
+	echo -e '#!/bin/bash\nGDK_BACKEND=x11 ${sharedir}/playonlinux/playonlinux "$$@"\nexit 0' > ./bin/playonlinux
 	echo -e '#!/bin/bash\n${sharedir}/playonlinux/playonlinux-pkg "$$@"\nexit 0' > ./bin/playonlinux-pkg
 	chmod +x ./bin/playonlinux
 	chmod +x ./bin/playonlinux-pkg
