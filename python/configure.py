@@ -577,11 +577,16 @@ class Onglets(wx.Notebook):
         self.txtMisc = wx.StaticText(self.panelMisc, -1, _(nom), (10,10), wx.DefaultSize)
         self.txtMisc.SetFont(self.fontTitle)
 
-        self.AddMiscElement(_("Mouse warp override"),"MouseWarpOverride",["Enabled","Disabled","Force"],["enable","disable","force"],1)
-        self.AddMiscButton("","folder",2)
-        self.AddMiscButton(_("Open a shell"),"shell",3)
-        self.AddMiscButton(_("Run a .exe file in this virtual drive"),"exerun",4)
-        self.AddMiscLongText(_("Command to exec before running the program"),"pre_run",5)
+        i=1
+        self.AddMiscElement(_("Mouse warp override"),"MouseWarpOverride",["Enabled","Disabled","Force"],["enable","disable","force"],i)
+        i+=1
+        self.AddMiscButton("","folder",i)
+        i+=1
+        self.AddMiscButton(_("Open a shell"),"shell",i)
+        i+=1
+        self.AddMiscButton(_("Run a .exe file in this virtual drive"),"exerun",i)
+        i+=1
+        self.AddMiscLongText(_("Command to exec before running the program"),"pre_run",i)
 
         self.AddPage(self.panelMisc, nom)
 
