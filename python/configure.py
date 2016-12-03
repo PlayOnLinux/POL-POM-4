@@ -541,7 +541,7 @@ class Onglets(wx.Notebook):
             content = ""
 
         self.display_elements[shortname] = wx.TextCtrl(self.display_elements[shortname+"_panel"], 400+num, content, size=wx.Size(448,68), pos=(2,2), style=Variables.widget_borders|wx.TE_MULTILINE)
-        wx.EVT_TEXT(self, 405,  self.edit_shortcut)
+        wx.EVT_TEXT(self, 400+num,  self.edit_shortcut)
 
     def edit_shortcut(self, event):
         content = self.display_elements["pre_run"].GetValue().encode("utf-8","replace")
