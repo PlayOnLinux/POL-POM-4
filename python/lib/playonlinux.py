@@ -224,7 +224,7 @@ def keynat(string):
             r.append(c.lower())
     return r
 
-def open_folder(software):
+def open_folder(software, cmd="xdg-open"):
     read = open(Variables.playonlinux_rep+"shortcuts/"+software,"r").readlines()
 
     if not len(read):
@@ -244,7 +244,7 @@ def open_folder(software):
         if(os.environ["POL_OS"] == "Mac"):
             subprocess.call(["open", AppDir])
         else:
-            subprocess.call(["xdg-open", AppDir])
+            subprocess.call([cmd, AppDir])
 
 def open_folder_prefix(software):
     AppDir = os.environ["POL_USER_ROOT"]+"/wineprefix/"+software

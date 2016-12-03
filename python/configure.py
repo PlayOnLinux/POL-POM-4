@@ -395,6 +395,11 @@ class Onglets(wx.Notebook):
             self.general_elements["arguments"].SetValue(playonlinux.getArgs(self.s_title))
 
             self.display_elements["folder_button"].SetLabel(_("Open program's directory"))
+            if not playonlinux.GetSettings("OPEN_IN", self.s_prefix):
+                self.display_elements["open_in"].SetValue("xdg-open")
+            else:
+                self.display_elements["open_in"].SetValue(playonlinux.GetSettings("OPEN_IN", self.s_prefix))
+
             if(os.path.exists(Variables.playonlinux_rep+"configurations/configurators/"+self.s_title)):
                 self.configurator_title.Show()
                 self.configurator_button.Show()
@@ -471,7 +476,7 @@ class Onglets(wx.Notebook):
         param = event.GetId()
         if(param == 402):
             if(self.s_isPrefix == False):
-                playonlinux.open_folder(self.s_title)
+                playonlinux.open_folder(self.s_title, self.display_elements["open_in"].GetValue().encode("utf-8","replace"))
             else:
                 playonlinux.open_folder_prefix(self.s_prefix)
         if(param == 403):
@@ -531,6 +536,15 @@ class Onglets(wx.Notebook):
 
         wx.EVT_BUTTON(self, 400+num,  self.misc_button)
 
+    def AddMiscChamp(self, title, shortname, value, num):
+        self.display_elements[shortname+"_text"] = wx.StaticText(self.panelMisc, -1, title,pos=(15,24+num*40))
+        self.display_elements[shortname] = wx.TextCtrl(self.panelMisc, 400+num, value, pos=(95,19+num*40), size=(420,25))
+        wx.EVT_TEXT(self, 400+num, self.set_open_in)
+
+    def set_open_in(self, event):
+        new_open_in = self.display_elements["open_in"].GetValue()
+        playonlinux.SetSettings('OPEN_IN', new_open_in, self.s_prefix)
+
     def AddMiscLongText(self, title, shortname, num):
         self.display_elements[shortname+"_text"] = wx.StaticText(self.panelMisc, -1, title,pos=(15,19+num*40))
         self.display_elements[shortname+"_panel"] = wx.Panel(self.panelMisc, -1, size=wx.Size(450,70),pos=(20,44+num*40))
@@ -541,7 +555,7 @@ class Onglets(wx.Notebook):
             content = ""
 
         self.display_elements[shortname] = wx.TextCtrl(self.display_elements[shortname+"_panel"], 400+num, content, size=wx.Size(448,68), pos=(2,2), style=Variables.widget_borders|wx.TE_MULTILINE)
-        wx.EVT_TEXT(self, 405,  self.edit_shortcut)
+        wx.EVT_TEXT(self, 400+num,  self.edit_shortcut)
 
     def edit_shortcut(self, event):
         content = self.display_elements["pre_run"].GetValue().encode("utf-8","replace")
@@ -577,11 +591,18 @@ class Onglets(wx.Notebook):
         self.txtMisc = wx.StaticText(self.panelMisc, -1, _(nom), (10,10), wx.DefaultSize)
         self.txtMisc.SetFont(self.fontTitle)
 
-        self.AddMiscElement(_("Mouse warp override"),"MouseWarpOverride",["Enabled","Disabled","Force"],["enable","disable","force"],1)
-        self.AddMiscButton("","folder",2)
-        self.AddMiscButton(_("Open a shell"),"shell",3)
-        self.AddMiscButton(_("Run a .exe file in this virtual drive"),"exerun",4)
-        self.AddMiscLongText(_("Command to exec before running the program"),"pre_run",5)
+        i=1
+        self.AddMiscElement(_("Mouse warp override"),"MouseWarpOverride",["Enabled","Disabled","Force"],["enable","disable","force"],i)
+        i+=1
+        self.AddMiscButton("","folder",i)
+        i+=1
+        self.AddMiscChamp(_("Open in..."),"open_in","",i)
+        i+=1
+        self.AddMiscButton(_("Open a shell"),"shell",i)
+        i+=1
+        self.AddMiscButton(_("Run a .exe file in this virtual drive"),"exerun",i)
+        i+=1
+        self.AddMiscLongText(_("Command to exec before running the program"),"pre_run",i)
 
         self.AddPage(self.panelMisc, nom)
 
