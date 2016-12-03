@@ -704,7 +704,10 @@ class MainWindow(wx.Frame):
 
     def GoToAppDir(self, event):
         self.game_exec = self.GetSelectedProgram()
-        playonlinux.open_folder(self.game_exec)
+        if not playonlinux.GetSettings("OPEN_IN", playonlinux.getPrefix(self.game_exec)):
+            playonlinux.open_folder(self.game_exec)
+        else:
+            playonlinux.open_folder(self.game_exec, playonlinux.GetSettings("OPEN_IN", playonlinux.getPrefix(self.game_exec)))
 
     def ChangeIcon(self, event):
         self.IconDir = Variables.homedir+"/.local/share/icons/"
