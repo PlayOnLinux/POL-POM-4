@@ -122,7 +122,7 @@ class PanelManager(wx.aui.AuiManager):
         name = self.SavePerspective().split("=")
         name = name[1].split(";")
         name = name[0]
-        return name 
+        return name
 
     def getPerspective(self):
         return self.SavePerspective().replace(self._getPerspectiveName(),"PERSPECTIVE_NAME")
@@ -222,8 +222,8 @@ class MainWindow(wx.Frame):
 
         ## List game
         self.list_game = wx.TreeCtrl(self, 105, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT)
-        self.list_game.SetSpacing(0);
-        self.list_game.SetIndent(5);
+        self.list_game.SetSpacing(0)
+        self.list_game.SetIndent(5)
         self.list_game.SetImageList(self.images)
         self.menu_gauche = wx.Panel(self,-1)
 
@@ -343,15 +343,15 @@ class MainWindow(wx.Frame):
 
         self.last_string = ""
 
-        self.sb = wx.StatusBar(self, -1 )
+        self.sb = wx.StatusBar(self, -1)
         self.sb.SetFieldsCount(2)
         self.sb.SetStatusWidths([self.GetSize()[0], -1])
         self.sb.SetStatusText("", 0)
 
         if(os.environ["POL_OS"] == "Mac"):
-            hauteur = 2;
+            hauteur = 2
         else:
-            hauteur = 6;
+            hauteur = 6
         self.jauge_update = wx.Gauge(self.sb, -1, 100, (self.GetSize()[0]-100, hauteur), size=(100,16))
         self.jauge_update.Pulse()
         self.jauge_update.Hide()
@@ -393,13 +393,13 @@ class MainWindow(wx.Frame):
                 # wxpython 2.8 does not support AddStretchableSpace(). This is a dirty workaround for this.
                 self.dirtyHack = wx.StaticText(self.toolbar)
                 self.SpaceHack = True
-                self.toolbar.AddControl( self.dirtyHack ) 
+                self.toolbar.AddControl(self.dirtyHack)
                 self.UpdateSearchHackSize()
 
         try:
-                self.toolbar.AddControl( self.searchbox , _("Search")) 
+                self.toolbar.AddControl(self.searchbox , _("Search"))
         except:
-                self.toolbar.AddControl( self.searchbox ) 
+                self.toolbar.AddControl(self.searchbox)
                 self.searchbox.SetDescriptiveText(_("Search"))
 
 
@@ -447,11 +447,11 @@ class MainWindow(wx.Frame):
         wx.EVT_TREE_SEL_CHANGED(self, 105, self.Select)
 
         # Support
-        wx.EVT_MENU(self, 400,  self.runSupport)
-        wx.EVT_MENU(self, 401,  self.runSupport)
-        wx.EVT_MENU(self, 402,  self.runSupport)
-        wx.EVT_MENU(self, 403,  self.runSupport)
-        wx.EVT_MENU(self, 404,  self.runSupport)
+        wx.EVT_MENU(self, 400, self.runSupport)
+        wx.EVT_MENU(self, 401, self.runSupport)
+        wx.EVT_MENU(self, 402, self.runSupport)
+        wx.EVT_MENU(self, 403, self.runSupport)
+        wx.EVT_MENU(self, 404, self.runSupport)
         
         # PlayOnLinux main timer
         self.timer = wx.Timer(self, 1)
@@ -477,7 +477,7 @@ class MainWindow(wx.Frame):
         wx.EVT_MENU(self, 235, self.RKill)
         wx.EVT_MENU(self, 236, self.ReadMe)
         self.Bind(wx.EVT_SIZE, self.ResizeWindow)
-        self._mgr.restorePosition()   
+        self._mgr.restorePosition()
 
     def ResizeWindow(self, e):
         self.UpdateGaugePos()
@@ -490,9 +490,9 @@ class MainWindow(wx.Frame):
 
     def UpdateGaugePos(self):
         if(os.environ["POL_OS"] == "Mac"):
-            hauteur = 2;
+            hauteur = 2
         else:
-            hauteur = 6;
+            hauteur = 6
         self.jauge_update.SetPosition((self.GetSize()[0]-100, hauteur))
 
     def SetupWindowTimer_SendToGui(self, recvData):
@@ -513,10 +513,9 @@ class MainWindow(wx.Frame):
         else:
             self.SetupWindow_TimerRestart(10)
 
-        if(self.SetupWindowTimer_action != None):                           
+        if(self.SetupWindowTimer_action != None):
             return gui_server.readAction(self)
-            
-           
+
     def TimerAction(self, event):
         self.StatusRead()
         
@@ -635,7 +634,7 @@ class MainWindow(wx.Frame):
             subprocess.Popen(["bash", Variables.playonlinux_rep+"/plugins/"+plugin+"/scripts/menu", game_exec])
         except :
             pass
-            
+
     def runSupport(self, event):
         urlId = event.GetId()-400
         urlPrefix = "http://www."+os.environ["POL_DNS"]+"/en"
@@ -730,11 +729,11 @@ class MainWindow(wx.Frame):
     def Select(self, event):
         game_exec = self.GetSelectedProgram()
         self.read = open(Variables.playonlinux_rep+"shortcuts/"+game_exec,"r").readlines()
-        self.i = 0;
-        self.wine_present = False;
+        self.i = 0
+        self.wine_present = False
         while(self.i < len(self.read)):
             if("wine " in self.read[self.i]):
-                self.wine_present = True;
+                self.wine_present = True
             self.i += 1
 
         self.generate_menu(game_exec)
@@ -756,7 +755,7 @@ class MainWindow(wx.Frame):
         self.menuElem = {}
         self.menuImage = {}
 
-        i = 0;
+        i = 0
         self.menuGaucheAddTitle("pol_title", os.environ["APPLICATION_TITLE"], i)
         i+=1
         self.menuGaucheAddLink("pol_prgm_install", _("Install a program"), i,Variables.playonlinux_env+"/resources/images/menu/add.png",self.InstallMenu)
@@ -886,9 +885,9 @@ class MainWindow(wx.Frame):
         root = self.list_game.AddRoot("")
         self.i = 0
         if(self.iconSize <= 32):
-            self.iconFolder = "32";
+            self.iconFolder = "32"
         else:
-            self.iconFolder = "full_size";
+            self.iconFolder = "full_size"
         for game in self.games: #METTRE EN 32x32
             if(self.searchbox.GetValue().encode("utf-8","replace").lower() in game.lower()):
                 if(not os.path.isdir(Variables.playonlinux_rep+"/shortcuts/"+game)):
@@ -1103,8 +1102,8 @@ class MainWindow(wx.Frame):
         self.registeredPid = pids
 
         if(playonlinux.GetSettings("DONT_ASK_BEFORE_CLOSING") == "TRUE" or self.registeredPid == [] or wx.YES == wx.MessageBox(_('Are you sure you want to close all {0} windows?').format(os.environ["APPLICATION_TITLE"]).decode("utf-8","replace"),os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
-            self.SizeToSave = self.GetSize();
-            self.PositionToSave = self.GetPosition();
+            self.SizeToSave = self.GetSize()
+            self.PositionToSave = self.GetPosition()
             # Save size and position
             playonlinux.SetSettings("MAINWINDOW_WIDTH",str(self.SizeToSave[0]))
             playonlinux.SetSettings("MAINWINDOW_HEIGHT",str(self.SizeToSave[1]-Variables.windows_add_playonmac*56))
