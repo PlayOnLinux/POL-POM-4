@@ -6,7 +6,7 @@ echo "-------------------"
 echo ""
 if [ "$PLAYONLINUX" = "" ]
 then
-echo "Ce script doit être executé dans PlayOnLinux."
+echo "This script must be executed in PlayOnLinux."
 read ok
 exit 0
 fi
