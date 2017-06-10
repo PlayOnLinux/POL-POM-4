@@ -479,13 +479,13 @@ class Onglets(wx.Notebook):
                 playonlinux.open_folder(self.s_title, self.display_elements["open_in"].GetValue().encode("utf-8","replace"))
             else:
                 playonlinux.open_folder_prefix(self.s_prefix)
-        if(param == 403):
+        if(param == 404):
             if(self.s_isPrefix == False):
                 subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/POL_Command", self.s_title.encode('utf-8','replace'), "POL_OpenShell", self.s_title.encode('utf-8','replace')])
             else:
                 subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/POL_Command", "--prefix", self.s_prefix.encode('utf-8','replace'), "POL_OpenShell"])
 
-        if(param == 404):
+        if(param == 405):
             self.FileDialog = wx.FileDialog(self)
             self.FileDialog.SetDirectory("~")
             self.supported_files = "All|*.exe;*.EXE;*.msi;*.MSI\
@@ -538,7 +538,7 @@ class Onglets(wx.Notebook):
 
     def AddMiscChamp(self, title, shortname, value, num):
         self.display_elements[shortname+"_text"] = wx.StaticText(self.panelMisc, -1, title,pos=(15,24+num*40))
-        self.display_elements[shortname] = wx.TextCtrl(self.panelMisc, 400+num, value, pos=(95,19+num*40), size=(420,25))
+        self.display_elements[shortname] = wx.TextCtrl(self.panelMisc, 400+num, value, pos=(245,19+num*40), size=(270,25))
         wx.EVT_TEXT(self, 400+num, self.set_open_in)
 
     def set_open_in(self, event):
@@ -591,18 +591,12 @@ class Onglets(wx.Notebook):
         self.txtMisc = wx.StaticText(self.panelMisc, -1, _(nom), (10,10), wx.DefaultSize)
         self.txtMisc.SetFont(self.fontTitle)
 
-        i=1
-        self.AddMiscElement(_("Mouse warp override"),"MouseWarpOverride",["Enabled","Disabled","Force"],["enable","disable","force"],i)
-        i+=1
-        self.AddMiscButton("","folder",i)
-        i+=1
-        self.AddMiscChamp(_("Open in..."),"open_in","",i)
-        i+=1
-        self.AddMiscButton(_("Open a shell"),"shell",i)
-        i+=1
-        self.AddMiscButton(_("Run a .exe file in this virtual drive"),"exerun",i)
-        i+=1
-        self.AddMiscLongText(_("Command to exec before running the program"),"pre_run",i)
+        self.AddMiscElement(_("Mouse warp override"),"MouseWarpOverride",["Enabled","Disabled","Force"],["enable","disable","force"],1)
+        self.AddMiscButton("","folder",2)
+        self.AddMiscChamp(_("Open directory using command"),"open_in","",3)
+        self.AddMiscButton(_("Open a shell"),"shell",4)
+        self.AddMiscButton(_("Run a .exe file in this virtual drive"),"exerun",5)
+        self.AddMiscLongText(_("Command to exec before running the program"),"pre_run",6)
 
         self.AddPage(self.panelMisc, nom)
 
