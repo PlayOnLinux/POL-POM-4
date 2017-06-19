@@ -28,8 +28,6 @@ GZIP = gzip
 PREFIX ?= /usr
 DESTDIR ?= # root dir
 
-CFLAGS += -lGL -lX11
-
 sharedir := $(DESTDIR)$(PREFIX)/share
 bindir := $(DESTDIR)$(PREFIX)/bin
 execdir := $(DESTDIR)$(PREFIX)/libexec
@@ -46,7 +44,7 @@ clean:
 	$(RM) ./ChangeLog
 
 build:
-	$(CC) ./src/check_direct_rendering.c -o ./bin/playonlinux-check_dd
+	$(CC) ./src/check_direct_rendering.c -o ./bin/playonlinux-check_dd -lGL -lX11
 	$(PYTHON) ./python/*.py
 	$(PYTHON) ./python/lib/*.py
 	echo -e '#!/bin/bash\nGDK_BACKEND=x11 ${sharedir}/playonlinux/playonlinux "$$@"\nexit 0' > ./bin/playonlinux
