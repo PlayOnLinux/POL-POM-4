@@ -658,7 +658,7 @@ POL_Wine_InstallVersion()
 	# Install a wineversion
 	# Usage: POL_Wine_InstallVersion [VERSION]
 	[ ! "$1" = "" ] && export POL_WINEVERSION="$1"
-	[ ! "$2" = "" ] && export POL_WINEDISTRIBUTION="$2" || export POL_WINEDISTRIBUTION="staging"
+	[ ! "$2" = "" ] && export POL_WINEDISTRIBUTION="$2" || export POL_WINEDISTRIBUTION="upstream"
 
 	if [[ "$POL_WINEVERSION" == *"-staging"* ]]; then
 	    POL_WINEVERSION="${POL_WINEVERSION/-staging/}"
