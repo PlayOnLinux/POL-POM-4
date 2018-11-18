@@ -44,14 +44,8 @@ class Download(threading.Thread):
 
     def download(self):
         try:
-            print("url test")
-            print(self.url)
-            print(self.local)
             urllib.urlretrieve(self.url, self.local, reporthook = self.onHook)
-            print("done")
         except Exception as e:
-            print("Error")
-            print(e)
             self.failed = True
         self.finished = True
 
