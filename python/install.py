@@ -178,13 +178,13 @@ class InstallWindow(wx.Frame):
 
         #self.cats_icons[name].Bind(wx.EVT_LEFT_DOWN, 2000+iid, self.AddApps)
         
-        self.cats_links[name].SetColours(wx.Colour(0,0,0), wx.Colour(0,0,0), wx.Colour(0,0,0))
+        self.cats_links[name].SetColours(playonlinux.get_foreground_colour(),playonlinux.get_foreground_colour(),playonlinux.get_foreground_hover_colour())
         self.cats_links[name].AutoBrowse(False)
         self.cats_links[name].UpdateLink(True)
         self.cats_links[name].SetUnderlines(False, False, False)
         
         self.cats_links[name].SetFont(self.fontText)
-        self.cats_links[name].SetBackgroundColour((255,255,255))
+        self.cats_links[name].SetBackgroundColour(playonlinux.get_background_colour())
         
     def __init__(self,parent,id,title):
         wx.Frame.__init__(self, parent, -1, title, size = (800, 550+Variables.windows_add_size), style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX)
@@ -202,7 +202,7 @@ class InstallWindow(wx.Frame):
 
         # Categories
         self.panelButton = wx.Panel(self.panelFenp, -1, size=(802,69), pos=(-1,-1),style=Variables.widget_borders)
-        self.panelButton.SetBackgroundColour((255,255,255))
+        self.panelButton.SetBackgroundColour(playonlinux.get_background_colour())
 
         if(os.environ["POL_OS"] == "Mac"):
             self.fontText = wx.Font(10, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL,False, "", wx.FONTENCODING_DEFAULT)
@@ -299,14 +299,14 @@ class InstallWindow(wx.Frame):
         self.install_button.Enable(False)
 
         self.new_panel = wx.Panel(self.panelItems, -1, pos=(740-160,113-71), style=Variables.widget_borders, size=self.new_size)
-        self.new_panel.SetBackgroundColour((255,255,255))
+        self.new_panel.SetBackgroundColour(playonlinux.get_background_colour())
         self.animation = wx.animate.GIFAnimationCtrl(self.new_panel, -1, Variables.playonlinux_env+"/resources/images/install/wait_mini.gif", (90,100))
         self.animation.Hide()
         self.new_panel.Hide()
 
 
         self.manualInstall = wx.lib.hyperlink.HyperLinkCtrl(self.panelFenp, 111, _("Install a non-listed program"), pos=(10,515))
-        self.manualInstall.SetColours(wx.Colour(0,0,0),wx.Colour(0,0,0),wx.Colour(0,0,0))
+        self.manualInstall.SetColours(playonlinux.get_foreground_colour(),playonlinux.get_foreground_colour(),playonlinux.get_foreground_hover_colour())
         self.manualInstall.AutoBrowse(False)
         self.manualInstall.UpdateLink(True)
         

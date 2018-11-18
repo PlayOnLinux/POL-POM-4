@@ -6,6 +6,18 @@
 import Variables, os, string
 import subprocess, shlex, pipes, wx
 
+def get_foreground_colour():
+    return wx.SystemSettings.GetColour( wx.SYS_COLOUR_BTNTEXT )
+
+def get_foreground_hover_colour():
+    return wx.SystemSettings.GetColour( wx.SYS_COLOUR_3DHILIGHT )
+
+def get_background_colour():
+    return wx.SystemSettings.GetColour( wx.SYS_COLOUR_BACKGROUND )
+
+def get_background_test_colour():
+    return wx.Colour(90,90,222)
+
 def winpath(script, path):
     #path=os.path.realpath(path)
     if(path[0] != "/"):
@@ -56,6 +68,8 @@ def GetSettings(setting, prefix='_POL_'):
         cfile = Variables.playonlinux_rep+"/playonlinux.cfg"
     elif(prefix == "_EXT_"):
         cfile = Variables.playonlinux_rep+"/extensions.cfg"
+    elif(prefix == "_SHV_"):
+	cfile = Variables.playonlinux_rep+"/shelves.cfg"
     else:
         cfile = Variables.playonlinux_rep+"/wineprefix/"+prefix+"/playonlinux.cfg"
 
@@ -84,6 +98,8 @@ def SetSettings(setting, value, prefix='_POL_'):
         cfile = Variables.playonlinux_rep+"/playonlinux.cfg"
     elif(prefix == "_EXT_"):
         cfile = Variables.playonlinux_rep+"/extensions.cfg"
+    elif(prefix == "_SHV_"):
+	cfile = Variables.playonlinux_rep+"/shelves.cfg"
     else:
         cfile = Variables.playonlinux_rep+"/wineprefix/"+prefix+"/playonlinux.cfg"
 
@@ -92,35 +108,42 @@ def SetSettings(setting, value, prefix='_POL_'):
     except:
         pass
     else:
-        i = 0
-        line = []
-        found = False
-        while(i < len(fichier)):
-            fichier[i] = fichier[i].replace("\n","")
-            if(setting+"=" in fichier[i]):
-                line.append(setting+"="+value)
-                found = True
-            else:
-                line.append(fichier[i])
-            i += 1
-        if(found == False):
-            line.append(setting+"="+value)
+	if(prefix == "_SHV_"):
+	    fichier = open(cfile,"w")
+	    fichier.write(value)
+	    fichier.close()
+	else:
+	    i = 0
+	    line = []
+	    found = False
+	    while(i < len(fichier)):
+		fichier[i] = fichier[i].replace("\n","")
+		if(setting+"=" in fichier[i]):
+		    line.append(setting+"="+value)
+		    found = True
+		else:
+		    line.append(fichier[i])
+		i += 1
+	    if(found == False):
+		line.append(setting+"="+value)
 
-        try:
-            fichier_write = open(cfile,"w")
-        except IOError:
-            pass
-        else:
-            i = 0
-            while(i < len(line)): # On ecrit
-                fichier_write.write(line[i]+"\n")
-                i+=1
+	    try:
+		fichier_write = open(cfile,"w")
+	    except IOError:
+		pass
+	    else:
+		i = 0
+		while(i < len(line)): # On ecrit
+		    fichier_write.write(line[i]+"\n")
+		    i+=1
 
 def DeleteSettings(setting, prefix='_POL_'):
     if(prefix == "_POL_"):
         cfile = Variables.playonlinux_rep+"/playonlinux.cfg"
     elif(prefix == "_EXT_"):
         cfile = Variables.playonlinux_rep+"/extensions.cfg"
+    elif(prefix == "_SHV_"):
+	cfile = Variables.playonlinux_rep+"/shelves.cfg"
     else:
         cfile = Variables.playonlinux_rep+"/wineprefix/"+prefix+"/playonlinux.cfg"
 
@@ -129,17 +152,17 @@ def DeleteSettings(setting, prefix='_POL_'):
     line = []
     found = False
     while(i < len(fichier)):
-        fichier[i] = fichier[i].replace("\n","")
-        if(setting+"=" not in fichier[i]):
-            line.append(fichier[i])
-        i += 1
+	fichier[i] = fichier[i].replace("\n","")
+	if(setting+"=" not in fichier[i]):
+	    line.append(fichier[i])
+	i += 1
 
     fichier_write = open(cfile,"w")
 
     i = 0
     while(i < len(line)): # On ecrit
-        fichier_write.write(line[i]+"\n")
-        i+=1
+	fichier_write.write(line[i]+"\n")
+	i+=1
 
 
 def getLog(game):
@@ -393,6 +416,8 @@ def Get_Drives():
     pref.sort()
     return pref
 
+def Get_Shelves():
+    return open(os.environ["POL_USER_ROOT"]+"/shelves.cfg").readlines()
 
 def SetWinePrefix(game, prefix):
     cfile = Variables.playonlinux_rep+"shortcuts/"+game
@@ -452,3 +477,15 @@ def POL_Open(arg):
 
 def POL_Error(message):
     wx.MessageBox(message,_("{0} error").format(os.environ["APPLICATION_TITLE"]))
+
+def SetMenuBitmap(menuitem, path):
+    if(os.path.exists(path)):
+	bitmap = wx.Bitmap(path)
+	menuitem.SetBitmap(bitmap)
+
+def AddMenuItem(parent, menuId, label, pathtobitmap):
+    newMenuItem = wx.MenuItem(parent, menuId, label)
+    if(os.path.exists(pathtobitmap)):
+	SetMenuBitmap(newMenuItem, pathtobitmap)
+    parent.AppendItem(newMenuItem)
+    return newMenuItem
