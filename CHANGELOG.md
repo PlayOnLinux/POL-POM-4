@@ -1,3 +1,7 @@
+# 4.3
+* Various fix on OSX
+* Phoenicis (POL 5) winebuild compatibility. POL 4 winebuilds will be deprecated. (See https://github.com/PhoenicisOrg/phoenicis-winebuild)
+
 # 4.2.11
 * Fix POL_SetupWindow_download clobbering $FILENAME
 * Fix small typo in first use "send report" message
@@ -138,11 +142,11 @@
 * Corefonts are now managed as any other POL_Call package. (Debian.lib is consequently no longer needed)
 * Removing installation process of missing gecko and mono at startup. It should not happen anymore
 * Cleaner way to save panel position
-* Fix a bug in GetSettings() where the value contain the equal ('=') character 
+* Fix a bug in GetSettings() where the value contain the equal ('=') character
 * PlayOnMac does no longer need a reboot after installing XQuartz
 * PlayOnMac does no longer popup a warning before xterm is installed
-* Removing IRC 
-* Icones install can now be bigger than 22x22 
+* Removing IRC
+* Icones install can now be bigger than 22x22
 
 # 4.2.2
 
@@ -161,7 +165,7 @@
   (http://www.playonlinux.com/en/topic-10442-New_Warning_Message_on_startup.html)
 * wine-mono download support
 * Fix POL_SetupWindow_message typo (not enough video memory message) (#2790)
-* POL_LoadVar_Device: refacto POL_DetectVideoCards; 
+* POL_LoadVar_Device: refacto POL_DetectVideoCards;
   Let user choose when there's more than one known videocard present
 * Add link to download page in side panel when version is not up-to-date (#2677)
   Not sure it's visible enough, could be improved.
@@ -176,11 +180,11 @@
   scripts in $POL_USER_ROOT/configurations/function_overrides/ override function
   scripts by the same name. This feature disables bug reporting.
 * Fix website login when username contains spaces (#3573)
-* "Run an .exe in this virtual disk" sets current directory to program's 
+* "Run an .exe in this virtual disk" sets current directory to program's
   directory (#1855)
 * fix "wineserver not found" in interactive use of POL_Wine_Direct3D /
   POL_Wine_X11Drv / POL_Wine_DirectSound / POL_Wine_DirectInput
-* Remove use of os.system() from mainwindow.py and configure.py 
+* Remove use of os.system() from mainwindow.py and configure.py
   (less overhead, less quoting nightmare)
 * Add missing POL_Wine_AutoSetVersionEnv before wineserver calls
 
@@ -276,7 +280,7 @@
 
 # 4.1.5
 
-* POL_Debug_* cookie forgotten 
+* POL_Debug_* cookie forgotten
 * Bug in update process
 
 # 4.1.4
@@ -287,7 +291,7 @@
 * Clickable links on install window
 * Better (and clearer) debug windows
 * Small fix for OSX 10.8
-* NEW: PlayOnLinux --run supports extensions! 
+* NEW: PlayOnLinux --run supports extensions!
 * POL_Shortcut_Document : Researches
 * New POL_SetupWindow_browse GUI
 * POL_SetupWindow_browse supports filters
@@ -334,7 +338,7 @@
 # 4.1.1
 
 Fixes to critial problem
-* Removing optirun support which makes wine hang 
+* Removing optirun support which makes wine hang
 * UTF8 problem with files association
 
 # 4.1.0
@@ -360,7 +364,7 @@ Fixes to critial problem
 * Local var problems
 * POL_Lnk_Read to read .lnk files
 * New screenshot system
-* Bugfix 
+* Bugfix
 * Arch problem
 * Pre run command should not be shown for prefixes
 * Fix TRANSLATORS files, some names did not appear.
@@ -411,7 +415,7 @@ Fixes to critial problem
 * Bug 732 : text color
 * Writting POL_WGET everywhere
 * unset WINEARCH
-* When installing a patched Wine, deploy Gecko for the non-patched version 
+* When installing a patched Wine, deploy Gecko for the non-patched version
 * Report "patched Wine version" in prefix logs only when it's true
 * POL_ExtractIcon, POL_ExtractBiggestIcon: can also extract icons from .ico files
 * Removed dependency upon curl by posting to pastebin with wget (bug #670)
@@ -450,7 +454,7 @@ Fixes to critial problem
   recreated if user choose to delete it)
 * Title in IRC close confirm box
 * wineprefixcreate should no longer exist!
-  POL needs to run it on OLD POL versions, 
+  POL needs to run it on OLD POL versions,
   but should NOT run in on recent ones.
 * Bugfix in requiredversion
 * SelectPrefix make the directory
@@ -485,7 +489,7 @@ Fixes to critial problem
 * Title on dialog boxes
 * OpenGL detection
 * Removing Offline POL (no longer supported)
-* rm "*" message removed (Don't worry, it was controled) 
+* rm "*" message removed (Don't worry, it was controled)
 * POL_Shortcut(): Possibly to use path instead of executable
 * POL_Shortcut_InsertBeforeWine: made sure the commands are not interpreted
   before insertion. Even \n is no longer interpreted, to insert several lines,
@@ -569,7 +573,7 @@ Fixes to critial problem
 * POL_Functions fixed.
 * Update of Capture.
 * Variouses fixes.
-	
+
 # 4.0.2
 
 * External shortcuts fixed.
@@ -701,8 +705,8 @@ Fixes to critial problem
 	* playonlinux-cmd
 	* playonlinux-pkg
 	* Plugins: Capture
-* Removing some unused files plus cleaning some files. 
-* Update copyright header. 
+* Removing some unused files plus cleaning some files.
+* Update copyright header.
 
 # 3.8.1
 
@@ -740,7 +744,7 @@ Fixes to critial problem
 * Added POL_SetupWindow_auto_shortcut which will replace POL_SetupWindow_make_shortcut
 * Added POL_SetupError function
 * install.py is fully compatible with offline mode plugin
-* Some bugs corrected in wine version management 
+* Some bugs corrected in wine version management
 
 # 3.7.6
 
@@ -821,7 +825,7 @@ Fixes to critial problem
 
 # 3.2
 
-* PlayOnLinux's game configurator is remade. 
+* PlayOnLinux's game configurator is remade.
 * The scriptor has the possibility to make a configurator for each script in ~/.PlayOnLinux/configurations/configurators/script_name
 * The irc chat is removed
 * GLSL bug corrected
@@ -835,13 +839,13 @@ Fixes to critial problem
 
 # 3.1.2
 
-* PlayOnLinux install menu is faster 
+* PlayOnLinux install menu is faster
 * Low connection can read the descriptions
 
 # 3.1.1
 
 * Description box in install menu has become an html box. Now, it's possible to underline or bold words in the description of a game.
-* Descriptions are downloaded when the user clic on the name of the game, and no more when PlayOnLinux repositories are refreshed. 
+* Descriptions are downloaded when the user clic on the name of the game, and no more when PlayOnLinux repositories are refreshed.
 * Users can edit the description of a game on the website when they send a script.
 * PlayOnLinux repositories refreshing has become faster
 * A bug corrected in folders like "Applications Data". Now, it has the same name for every languages do avoid problems.
@@ -878,7 +882,7 @@ Fixes to critial problem
 * New GUIs
 * POL is is .po files
 * New wine version support GUI
-* Minor corrections in IRC 
+* Minor corrections in IRC
 * A lot of new fonction
 * Use_WineVersion function
 
@@ -913,18 +917,18 @@ Fixes to critial problem
 # 2.6
 
 * A lot of improvement in IRC chat
-* An Option GUI 
+* An Option GUI
 * A lot of settings added
 
-# 2.5 
+# 2.5
 
-* IRC Chat integrated 
+* IRC Chat integrated
 * Lynx dependances does exists any more
 * Install menu bug fixed
 
 # 2.3
 
-* New install menu 
+* New install menu
 * Lot of bugs fixed
 
 # 2.2.1
@@ -939,7 +943,7 @@ Fixes to critial problem
 * New menu more user friendly
 * Autorun automated installer
 * Community and workonlinux doesn't exists anymore
-* Ask_For_cdrom improved 
+* Ask_For_cdrom improved
 * Fixed bugs in package manager
 * Lot of translations
 * Lot of commands translated in english
@@ -953,7 +957,7 @@ Fixes to critial problem
 * Hungarian translation
 * .pol package manager
 * A new logo
-* LiveInstall is called "Manual installation" 
+* LiveInstall is called "Manual installation"
 * Bug corrected in icons installation
 * Wine GIT in wineversion menu
 
@@ -1002,7 +1006,7 @@ Fixes to critial problem
 
 # 2.0.2
 
-* Wine GIT added 
+* Wine GIT added
 * Wine Booster 2 Added
 
 # 2.0.1
