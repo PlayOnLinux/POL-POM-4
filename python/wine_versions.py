@@ -18,7 +18,7 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-import wxversion, os, getopt, sys, urllib, signal, socket, codecs, string, shutil, time, urllib, urllib2
+import wxversion, os, getopt, sys, urllib, signal, socket, codecs, string, shutil, time, urllib, urllib2, json
 import subprocess
 import wx, wx.animate
 
@@ -125,34 +125,42 @@ class getVersions(threading.Thread):
         self.thread_running = True
         while(self.thread_running):
             if(self.thread_message == "get"):
-                wfolder = os_pref+"-"+self.architecture
                 try :
+                    url = os.environ["WINE_SITE"]
+                    wfolder = "-".join([os_pref, self.architecture])
 
-                    url = os.environ["WINE_SITE"]+"/"+wfolder+".lst"
-                    
-                    #print(url)
-        
+
                     req = urllib2.Request(url, None, {'User-Agent': Variables.userAgent})
                     handle = urllib2.urlopen(req, timeout = 5)
                     time.sleep(1)
-                    available_versions = handle.read()
-                    available_versions = string.split(available_versions,"\n")
-
-                    self.i = 0
+                    available_distributions = json.loads(handle.read())
                     self.versions_ = []
-                    while(self.i < len(available_versions) - 1):
-                        informations = string.split(available_versions[self.i], ";")
-                        version = informations[1]
-                        package = informations[0]
-                        sha1sum = informations[2]
-                        if(not os.path.exists(Variables.playonlinux_rep+"/wine/"+wfolder+"/"+version)):
-                            self.versions_.append(version)
-                        self.i += 1
+                    for distribution in available_distributions:
+                        if(distribution["name"] == "-".join(["upstream", os_pref, self.architecture])):
+                            for package in distribution["packages"]:
+                                version = package["version"]
+                                packageUrl = package["url"]
+                                sha1sum = package["sha1sum"]
+                                if(not os.path.exists(Variables.playonlinux_rep+"/wine/"+wfolder+"/"+version)):
+                                    self.versions_.append(version)
+                                else:
+                                    print("Directory: %s exists" % (Variables.playonlinux_rep+"/wine/"+wfolder+"/"+version))
+                        elif(distribution["name"] == "-".join(["staging", os_pref, self.architecture])):
+                            for package in distribution["packages"]:
+                                version = package["version"]
+                                if(not os.path.exists(Variables.playonlinux_rep+"/wine/"+wfolder+"/"+version+"-staging")):
+                                    self.versions_.append(version+"-staging")
+                                else:
+                                    print("Directory: %s exists" % (Variables.playonlinux_rep+"/wine/"+wfolder+"/"+version+"-staging"))
+                        else:
+                            print(distribution["name"] + " does not match")
+
+                    self.versions_.sort(key=keynat)
                     self.versions_.reverse()
                     self.versions = self.versions_[:]
-
                     self.thread_message = "Ok"
-                except :
+                except Exception, e:
+                    print(e)
                     time.sleep(1)
                     self.thread_message = "Err"
                     self.versions = ["Wine packages website is unavailable"]
@@ -197,14 +205,14 @@ class Onglets(wx.Notebook):
         self.list_ver_installed[arch].SetSpacing(0);
         wx.StaticText(self.panelFenp[arch], -1, _("Installed Wine versions: "),(395,10))
         wx.StaticText(self.panelFenp[arch], -1, _("Available Wine versions: "),(5,10))
-        
+
         if(os.environ["POL_OS"] == "Mac"):
             self.button_rm[arch] = wx.Button(self.panelFenp[arch], 108+add, "<", pos=(333, 175), size=(50,30))
             self.button_in[arch] = wx.Button(self.panelFenp[arch], 109+add, ">", pos=(333, 125), size=(50,30))
         else:
             self.button_rm[arch] = wx.Button(self.panelFenp[arch], 108+add, "<", pos=(340, 175), size=(50,30))
             self.button_in[arch] = wx.Button(self.panelFenp[arch], 109+add, ">", pos=(340, 125), size=(50,30))
-            
+
         self.button_rm[arch].Enable(False)
         self.button_in[arch].Enable(False)
         self.AddPage(self.panelFenp[arch], _("Wine versions")+" ("+arch+")", imageId=0)
@@ -334,7 +342,7 @@ class MainWindow(wx.Frame):
             message += "\n" + _('This version is CURRENTLY IN USE')
         if(wx.YES == wx.MessageBox(message.decode("utf-8","replace"), os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
             shutil.rmtree(Variables.playonlinux_rep+"/wine/"+os_pref+"-"+arch+"/"+version)
-            
+
     def install32(self, event):
         self.install_common(event, "x86")
 
@@ -395,7 +403,7 @@ class MainWindow(wx.Frame):
 
         root2 = self.onglets.list_ver_installed[arch].AddRoot("")
         wfolder = os_pref+"-"+arch
-        
+
         used_version = self.checkVersionUse(arch) # Get the set of wine version used by wineprefix
 
         installed_versions = os.listdir(Variables.playonlinux_rep+"/wine/"+wfolder)

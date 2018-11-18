@@ -15,7 +15,7 @@
 
 # You should have received a copy of the GNU General Public License along
 # with this program; if not, write to the Free Software Foundation, Inc.,
-# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 # wine.lib
 # --------
@@ -513,7 +513,7 @@ POL_Wine ()
 		NoErrors="True"
 		shift
 	fi
-	
+
 	if [ ! "$(POL_Config_Read NO_FSCHECK)" = "TRUE" ]; then
 		if [ "$1" = "start" ]; then
 			if [ "$2" = "/unix" ]; then
@@ -569,7 +569,7 @@ POL_Wine ()
 			errors=$?
 		fi
 	else
-		# FIXME 
+		# FIXME
 		$BEFORE_WINE $(POL_Config_Read BEFORE_WINE) wine "$@"  2> "$WINEPREFIX/playonlinux.log" > "$WINEPREFIX/playonlinux.log"
 		errors=$?
 	fi
@@ -597,7 +597,7 @@ POL_Wine_SelectPrefix()
 	else
 		touch "$WINEPREFIX/playonlinux.cfg" 2> /dev/null
 	fi
-	
+
 	## In fact it's a bad idea
 	#if [ "$(POL_Config_PrefixRead ARCH)" = "x86" ]; then ## Comme ca, pas de conflits
 	#	export WINEARCH=win32
@@ -658,6 +658,19 @@ POL_Wine_InstallVersion()
 	# Install a wineversion
 	# Usage: POL_Wine_InstallVersion [VERSION]
 	[ ! "$1" = "" ] && export POL_WINEVERSION="$1"
+	[ ! "$2" = "" ] && export POL_WINEDISTRIBUTION="$2" || export POL_WINEDISTRIBUTION="staging"
+
+	if [[ "$POL_WINEVERSION" == *"-staging"* ]]; then
+	    POL_WINEVERSION="${POL_WINEVERSION/-staging/}"
+			POL_WINEDISTRIBUTION="staging"
+	else
+			POL_WINEVERSION_INSTALL="$POL_WINEVERSION"
+	fi
+
+	if [ "$POL_WINEDISTRIBUTION" == "staging" ]; then
+		POL_WINEVERSION_INSTALL="$POL_WINEVERSION-staging"
+	fi
+
 	[ "$POL_WINEVERSION" = "" ] && POL_Debug_Fatal "No POL_WINEVERSION set"
 	[ "$POL_ARCH" = "" ] && POL_System_SetArch "auto"
 	POL_Debug_Message "Installing wine version path: $POL_WINEVERSION, $POL_ARCH"
@@ -670,7 +683,15 @@ POL_Wine_InstallVersion()
 	touch "$WINEDIR/installing"
 	if [ ! -e "$WINEDIR/$POL_WINEVERSION" ]
 	then
-		WINE_ADDRESS=$($POL_WGET "$WINE_SITE/$WINE_SECTION.lst" -O- | grep ";$POL_WINEVERSION;" | tail -n 1 | cut -d ";" -f1)
+		POL_Debug_Message "Wine site: $WINE_SITE"
+		echo $POL_WGET "$WINE_SITE" -O-
+		WINEDATA="$($POL_WGET "$WINE_SITE" -O- |jq -r ".[] | select(.name==\"$POL_WINEDISTRIBUTION-$ARCH_PREFIX-$POL_ARCH\") | .packages | .[] | select(.version==\"$POL_WINEVERSION\")")"
+		POL_Debug_Message "Winebuild data: $WINEDATA"
+
+		WINE_ADDRESS="$(echo "$WINEDATA" | jq '.url' -r)"
+		POL_Debug_Message "Wine address found: $WINE_ADDRESS"
+		#WINE_ADDRESS=$($POL_WGET "$WINE_SITE/$WINE_SECTION.lst" -O- | grep ";$POL_WINEVERSION;" | tail -n 1 | cut -d ";" -f1)
+
 		if [ "$WINE_ADDRESS" = "" ] && [ "$POL_ARCH" = "amd64" ]
 		then
 			POL_Debug_Warning "Wine $1 amd64 does not exist. Switching to x86"
@@ -685,11 +706,12 @@ POL_Wine_InstallVersion()
 			fi
 
 			cd "$POL_USER_ROOT/tmp"
-			POL_SetupWindow_download "$(eval_gettext "Downloading Wine: ")$POL_WINEVERSION" "$TITLE" "$WINE_SITE/$WINE_SECTION/$WINE_ADDRESS"
+			filename="$PWD/PlayOnLinux-wine-$POL_WINEVERSION-$POL_WINEDISTRIBUTION-$ARCH_PREFIX-$POL_ARCH.tar.gz"
+			POL_SetupWindow_download "$(eval_gettext "Downloading Wine: ")$POL_WINEVERSION" "$TITLE" "$WINE_ADDRESS"
 			POL_SetupWindow_wait_next_signal "$(eval_gettext "Downloading Wine: ")$POL_WINEVERSION" "$TITLE"
 			sleep 1
-			sha1=$($POL_WGET "$WINE_SITE/$WINE_SECTION/$WINE_ADDRESS.sha1" -O- | awk '{print $1}')
-			sha1_file=$(shasum "./$WINE_ADDRESS" | awk '{print $1}')
+			sha1="$(echo "$WINEDATA" | jq '.sha1sum' -r)"
+			sha1_file=$(shasum "$filename" | awk '{print $1}')
 			echo "Server sha1 : $sha1"
 			echo "Client sha1 : $sha1_file"
 
@@ -698,16 +720,19 @@ POL_Wine_InstallVersion()
 				POL_SetupWindow_message "$(eval_gettext 'The download seems to have failed.')" "$TITLE"
 			else
 				POL_SetupWindow_wait "$(eval_gettext 'Extracting Wine...')" "$TITLE"
-				bash "$PLAYONLINUX/playonlinux-pkg" -i "$PWD/$WINE_ADDRESS"
+				mkdir -p "$POL_USER_ROOT/wine/$ARCH_PREFIX-$POL_ARCH/$POL_WINEVERSION_INSTALL"
+				cd "$POL_USER_ROOT/wine/$ARCH_PREFIX-$POL_ARCH/$POL_WINEVERSION_INSTALL"
+				tar -xvf "$filename"
 			fi
-			rm "$WINE_ADDRESS"
-			POL_Wine_Install_resources gecko "$POL_WINEVERSION" "$POL_ARCH"
-			POL_Wine_Install_resources mono "$POL_WINEVERSION" "$POL_ARCH"
+			rm "$filename"
+			# POL_Wine_Install_resources gecko "$POL_WINEVERSION" "$POL_ARCH"
+			# POL_Wine_Install_resources mono "$POL_WINEVERSION" "$POL_ARCH"
 		fi
 	fi
 	rm "$WINEDIR/installing"
-	
+
 }
+
 POL_Wine_InstallCDROM()
 {
 	POL_Wine_InstallCDROMCustom "$1" "$CDROM"
@@ -753,7 +778,7 @@ POL_Wine_Install_resources()
 		resourceamd64="$(cut -d ';' -f3 <<< $found)"
 		md5x86="$(cut -d ';' -f4 <<< $found)"
 		md5amd64="$(cut -d ';' -f5 <<< $found)"
-		
+
 		cd "$resource_dir"
 		if [ "$resourcex86" ]; then
 			if [ -e "$resourcex86" ]; then
@@ -763,7 +788,7 @@ POL_Wine_Install_resources()
 				POL_Download "$(resource_download_url $resource x86 $resourcex86)" "$md5x86"
 			fi
 		fi
-		
+
 		if [ "$arch" = "amd64" ]; then
 			if [ "$resourceamd64" ]; then
 				if [ -e "$resourceamd64" ]; then
@@ -832,6 +857,8 @@ POL_Wine_SetVersionEnv()
 		 		POL_Wine_InstallVersion "$POL_WINEVERSION"
 			fi
 			export PATH="$WINEDIR/$POL_WINEVERSION/bin/:$PATH"
+			export DYLD_FALLBACK_LIBRARY_PATH="$WINEDIR/$POL_WINEVERSION/lib/"
+			export FREETYPE_PROPERTIES="truetype:interpreter-version=35"
 			export LD_LIBRARY_PATH="$WINEDIR/$POL_WINEVERSION/lib/:$WINEDIR/$POL_WINEVERSION/lib64/:$LD_LIBRARY_PATH"
 			[ "$POL_OS" = "FreeBSD" ] && export LD_32_LIBRARY_PATH="$WINEDIR/$POL_WINEVERSION/lib/:$LD_32_LIBRARY_PATH"
 		fi
@@ -886,7 +913,7 @@ POL_Wine_PrefixCreate()
 	else
 		POL_Debug_Message "No version specified. Using system version ($(wine --version))"
 	fi
-	
+
 	POL_Debug_Message "Creating prefix ($POL_WINEVERSION)..."
 	[ "$POL_ARCH" = "" ] && POL_System_SetArch "auto"
 	[ "$WINEPREFIX" = "" ] && POL_Debug_Fatal "WINEPREFIX is not set!"
@@ -951,10 +978,10 @@ POL_Wine_PrefixCreate()
 				fi
 				POL_Debug_Message "Setting WINEARCH to $WINEARCH"
 			fi
-			
+
 			wine wineboot
 			POL_Debug_InitPrefix
-			
+
 			if [ -e "$WINEPREFIX/drive_c/windows/syswow64" ] # It is a 64 bits prefix
 			then
 				POL_Config_PrefixWrite "ARCH" "amd64"
@@ -973,9 +1000,9 @@ POL_Wine_PrefixCreate()
 			POL_Config_PrefixWrite "ARCH" "$POL_ARCH"
 			POL_Config_PrefixWrite "VERSION" "$POL_WINEVERSION"
 			POL_Wine_AutoSetVersionEnv
-			
+
 			POL_Debug_InitPrefix
-			
+
 			which wineprefixcreate && [ "$(POL_MD5_file "$(which wineprefixcreate)")" != "5c0ee90682746e811698a53415b4765d" ] && [ ! "$(which wineprefixcreate | grep $APPLICATION_TITLE)" = "" ] && wine wineprefixcreate
 			wine wineboot
 		fi
@@ -1110,28 +1137,28 @@ POL_Wine_WaitBefore ()
 	# Lock bash commands until wine is exited
 	# Usage : POL_Wine_WaitBefore [Program title] (--allow-kill)
 	SOFTNAME="$1"
-	if [ "$2" = "--allow-kill" ] 
+	if [ "$2" = "--allow-kill" ]
 	then
 		allowKill="true"
 	else
 		allowKill="false"
 	fi
-	
+
 	[ "$1" = "" ] && message="$(eval_gettext "Please wait...")" || message="$(eval_gettext 'Please wait while $SOFTNAME is installed...')"
-	
+
 	if [ "$allowKill" = "true" ]
 	then
 		POL_SetupWindow_wait_button "$message" "$TITLE" "$(eval_gettext 'Install is done')" "wineserver -k" "$(eval_gettext 'Be careful! This will kill install process. If it is not finished, you will have to reinstall $SOFTNAME')"
 	else
 		POL_SetupWindow_wait "$message" "$TITLE"
 	fi
-	
+
 }
 POL_Wine_WaitExit ()
 {
 	# Lock bash commands until wine is exited
 	# Usage : POL_Wine_WaitExit (--force-input) [Program title] (--allow-kill)
-	if [ "$1" = "--force-input" ] 
+	if [ "$1" = "--force-input" ]
 	then
 		forceInput="true"
 		shift
@@ -1140,13 +1167,13 @@ POL_Wine_WaitExit ()
 	fi
 
 	SOFTNAME="$1"
-	if [ "$2" = "--allow-kill" ] 
+	if [ "$2" = "--allow-kill" ]
 	then
 		allowKill="true"
 	else
 		allowKill="false"
 	fi
-	
+
 	[ "$1" = "" ] && message="$(eval_gettext "Please wait...")" || message="$(eval_gettext 'Please wait while $SOFTNAME is installed...')"
 	if [ "$allowKill" = "true" ]
 	then
@@ -1177,11 +1204,11 @@ POL_Wine_GetPrefixFromPath ()
 }
 POL_Wine_GetBaseName()
 {
-	perl -e '$release=$ARGV[0]; $release =~ s/^([0-9]+\.[0-9]+(\.[0-9]+)?(-rc[0-9]+)?)-?.*$/$1/; print "$release\n"' "$1"	
+	perl -e '$release=$ARGV[0]; $release =~ s/^([0-9]+\.[0-9]+(\.[0-9]+)?(-rc[0-9]+)?)-?.*$/$1/; print "$release\n"' "$1"
 }
 POL_Wine_GetPatchName()
 {
-	perl -e '$release=$ARGV[0]; $release =~ s/^[0-9]+\.[0-9]+(\.[0-9]+)?(-rc[0-9]+)?-?//; print "$release\n"' "$1"	
+	perl -e '$release=$ARGV[0]; $release =~ s/^[0-9]+\.[0-9]+(\.[0-9]+)?(-rc[0-9]+)?-?//; print "$release\n"' "$1"
 }
 POL_Lnk_Read()
 {

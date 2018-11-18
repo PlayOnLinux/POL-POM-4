@@ -18,7 +18,6 @@ os.environ["PLAYONLINUX"] = os.path.realpath(os.path.realpath(__file__)+"/../../
 os.environ["SITE"] = "http://repository.playonlinux.com"
 os.environ["VERSION"] = "4.2.12"
 os.environ["POL_ID"] = str(random.randint(1, 100000000))
-os.environ["WINE_SITE"] = "http://wine.playonlinux.com/binaries"
 os.environ["GECKO_SITE"] = "http://wine.playonlinux.com/gecko"
 os.environ["MONO_SITE"] = "http://wine.playonlinux.com/mono"
 homedir = os.environ["HOME"]
@@ -33,25 +32,27 @@ if os.environ["POL_OS"] == "Mac":
     os.environ["PLAYONMAC"] = os.environ["PLAYONLINUX"]
     os.environ["POL_USER_ROOT"] = os.environ["HOME"]+"/Library/PlayOnMac/"
     os.environ["APPLICATION_TITLE"] = "PlayOnMac"
+    os.environ["WINE_SITE"] = "https://phoenicis.playonlinux.com/index.php/wine?os=darwin"
     os.environ["POL_DNS"] = "playonmac.com"
     windows_add_size = 20;
     windows_add_playonmac = 1;
     widget_borders = wx.SIMPLE_BORDER
     os_name = "darwin"
-    os.environ["POL_WGET"] = "wget --prefer-family=IPv4 -q"
+    os.environ["POL_WGET"] = "wget --prefer-family=IPv4 -q --no-check-certificate"
 
 # Variables PlayOnLinux
 if os.environ["POL_OS"] == "Linux":
     os.environ["POL_USER_ROOT"] = os.environ["HOME"]+"/.PlayOnLinux/"
     os.environ["APPLICATION_TITLE"] = "PlayOnLinux"
     os.environ["POL_DNS"] = "playonlinux.com"
+    os.environ["WINE_SITE"] = "https://phoenicis.playonlinux.com/index.php/wine?os=linux"
     if playonlinux.VersionLower(wx.VERSION_STRING, "3.0.0"):
         windows_add_size = 0
         windows_add_playonmac = 0
     else:
         windows_add_size = 25
         windows_add_playonmac = 0
-        
+
     widget_borders = wx.RAISED_BORDER
     os_name = "linux"
     try:
@@ -64,10 +65,11 @@ if os.environ["POL_OS"] == "Linux":
             os.environ["POL_WGET"] = "env LD_LIBRARY_PATH=\"\" wget -q"
         else:
             os.environ["POL_WGET"] = "env LD_LIBRARY_PATH=\"\" wget --prefer-family=IPv4 -q"
-            
+
 if os.environ["POL_OS"] == "FreeBSD":
     os.environ["POL_USER_ROOT"] = os.environ["HOME"]+"/.PlayOnBSD/"
     os.environ["APPLICATION_TITLE"] = "PlayOnBSD"
+    os.environ["WINE_SITE"] = "https://phoenicis.playonlinux.com/index.php/wine?os=freebsd"
     os.environ["POL_DNS"] = "playonlinux.com"
     windows_add_size = 0
     windows_add_playonmac = 0
@@ -77,14 +79,14 @@ if os.environ["POL_OS"] == "FreeBSD":
         os.environ["POL_WGET"] = "wget -q"
     else:
         os.environ["POL_WGET"] = "wget --prefer-family=IPv4 -q"
-        
-        
+
+
 os.environ["POL_CURL"] = "curl"
 
 archi = string.split(os.environ["MACHTYPE"], "-")
 archi = archi[0]
 
-if archi == "x86_64" and os.environ["POL_OS"] == "Linux":
+if archi == "x86_64":
     os.environ["AMD64_COMPATIBLE"] = "True"
 else:
     os.environ["AMD64_COMPATIBLE"] = "False"
@@ -134,7 +136,7 @@ try:
     os.environ["LD_32_PATH_ORIGIN"] = os.environ["LD_32_LIBRARY_PATH"]
 except KeyError:
     os.environ["LD_32_PATH_ORIGIN"] = ""
-    
+
 os.environ["DYLDPATH_ORIGIN"] = os.environ["DYLD_LIBRARY_PATH"]
 
 playonlinux_env = os.environ["PLAYONLINUX"]

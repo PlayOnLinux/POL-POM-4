@@ -24,13 +24,13 @@
 
 source "$PLAYONLINUX/lib/sources" 
 
-export XQUARTZ_VERSION="2.7.7"
+export XQUARTZ_VERSION="2.7.11"
 
 
 install_x11()
 {
 
-	XQuartzUrl="http://xquartz.macosforge.org/downloads/SL/XQuartz-$XQUARTZ_VERSION.dmg"
+	XQuartzUrl="http://dl.bintray.com/xquartz/downloads/XQuartz-$XQUARTZ_VERSION.dmg"
 	FilePrefix="XQuartz"
 		
 	STEP_TITLE="XQuartz"

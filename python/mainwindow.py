@@ -87,7 +87,7 @@ class POLWeb(threading.Thread):
                     self.sendPercentage(int(line))
                 except ValueError:
                     pass
-  
+
             self.updating = False
             if(playonlinux.VersionLower(os.environ["VERSION"],self.WebVersion)):
                 self.sendToStatusBar(_('An updated version of {0} is available').format(os.environ["APPLICATION_TITLE"])+" ("+self.WebVersion+")",False)
@@ -116,8 +116,8 @@ class PanelManager(wx.aui.AuiManager):
     def __init__(self, frame):
         wx.aui.AuiManager.__init__(self, frame)
         self.startPerspective = self.SavePerspective()
-        
-        
+
+
     def _getPerspectiveName(self):
         name = self.SavePerspective().split("=")
         name = name[1].split(";")
@@ -126,15 +126,15 @@ class PanelManager(wx.aui.AuiManager):
 
     def getPerspective(self):
         return self.SavePerspective().replace(self._getPerspectiveName(),"PERSPECTIVE_NAME")
-        
+
     def savePosition(self):
         playonlinux.SetSettings("PANEL_PERSPECTIVE", self.getPerspective())
-        
+
     def restorePosition(self):
         self.startPerspective = self.SavePerspective()
-       
+
         self.Update()
-        
+
         try:
             setting = playonlinux.GetSettings("PANEL_PERSPECTIVE")
             if(setting.count("Actions") < 2 or setting.count("dock_size") < 2 or not "PERSPECTIVE_NAME" in setting):
@@ -143,19 +143,19 @@ class PanelManager(wx.aui.AuiManager):
                 setting = setting.replace("PERSPECTIVE_NAME",self._getPerspectiveName())
                 if(setting != ""):
                      self.LoadPerspective(setting)
-        
+
         except wx._core.PyAssertionError:
             self.LoadPerspective(self.startPerspective)
-        
-        
+
+
         self.Update()
-         
+
     def AddPane(self, data, settings):
         wx.aui.AuiManager.AddPane(self, data, settings)
-        
+
     def Destroy(self):
         self.savePosition()
-        
+
 class MainWindow(wx.Frame):
     def __init__(self,parent,id,title):
 
@@ -171,7 +171,7 @@ class MainWindow(wx.Frame):
         self.updater = POLWeb()
         self.updater.start()
 
-        # These lists contain the dock links and images 
+        # These lists contain the dock links and images
         self.menuElem = {}
         self.menuImage = {}
 
@@ -230,9 +230,9 @@ class MainWindow(wx.Frame):
         self._mgr = PanelManager(self)
         self._mgr.AddPane(self.list_game, wx.CENTER)
         self._mgr.AddPane(self.menu_gauche, wx.aui.AuiPaneInfo().Name('Actions').Caption('Actions').Left().BestSize((200,400)).Floatable(True).CloseButton(False).TopDockable(False).BottomDockable(False))
-        
-         
-        
+
+
+
         self.filemenu = wx.Menu()
         ### On MacOS X, preference is always on the main menu
         if(os.environ["POL_OS"] == "Mac"):
@@ -275,7 +275,7 @@ class MainWindow(wx.Frame):
 
         self.expertmenu.Append(108, _("Run a local script"))
         self.expertmenu.Append(109, _("{0} console").format(os.environ["APPLICATION_TITLE"]))
-        
+
         self.expertmenu.Append(115, _('Close all {0} software').format(os.environ["APPLICATION_TITLE"]))
         self.expertmenu.AppendSeparator()
 
@@ -337,7 +337,7 @@ class MainWindow(wx.Frame):
 
         self.option_item_p = wx.MenuItem(self.pluginsmenu, 214, _("Plugin manager"))
         self.option_item_p.SetBitmap(wx.Bitmap(Variables.playonlinux_env+"/etc/onglet/package-x-generic.png"))
-        
+
         self.pluginsmenu.AppendItem(self.option_item_p)
 
 
@@ -370,7 +370,7 @@ class MainWindow(wx.Frame):
         self.menubar.Append(self.help_menu, "&Help")
 
         #self.menubar.Append(self.help_menu, _("About"))
-        
+
         self.SetMenuBar(self.menubar)
         iconSize = (32,32)
 
@@ -386,7 +386,7 @@ class MainWindow(wx.Frame):
         self.toolbar.AddSeparator()
         self.toolbar.AddLabelTool(121, _("Configure"), wx.Bitmap(Variables.playonlinux_env+"/resources/images/toolbar/configure.png"))
 
-        try: 
+        try:
                 self.toolbar.AddStretchableSpace()
                 self.SpaceHack = False
         except:
@@ -452,14 +452,14 @@ class MainWindow(wx.Frame):
         wx.EVT_MENU(self, 402, self.runSupport)
         wx.EVT_MENU(self, 403, self.runSupport)
         wx.EVT_MENU(self, 404, self.runSupport)
-        
+
         # PlayOnLinux main timer
         self.timer = wx.Timer(self, 1)
         self.Bind(wx.EVT_TIMER, self.TimerAction, self.timer)
         self.timer.Start(1000)
         self.Timer_LastShortcutList = None
         self.Timer_LastIconList = None
-  
+
         # SetupWindow timer. The server is in another thread and GUI must be run from the main thread
         self.SetupWindowTimer = wx.Timer(self, 2)
         self.Bind(wx.EVT_TIMER, self.SetupWindowAction, self.SetupWindowTimer)
@@ -482,7 +482,7 @@ class MainWindow(wx.Frame):
     def ResizeWindow(self, e):
         self.UpdateGaugePos()
         self.UpdateSearchHackSize()
-       
+
     def UpdateSearchHackSize(self):
         if(self.SpaceHack == True):
             self.dirtyHack.SetLabel("")
@@ -500,7 +500,7 @@ class MainWindow(wx.Frame):
         while(self.SetupWindowTimer_action != None):
             time.sleep(0.1)
         self.SetupWindowTimer_action = recvData
-        
+
     def SetupWindow_TimerRestart(self, time):
         if(time != self.SetupWindowTimer_delay):
             self.SetupWindowTimer.Stop()
@@ -518,7 +518,7 @@ class MainWindow(wx.Frame):
 
     def TimerAction(self, event):
         self.StatusRead()
-        
+
         # We read shortcut folder to see if it has to be rescanned
         currentShortcuts = os.path.getmtime(Variables.playonlinux_rep+"/shortcuts")
         currentIcons = os.path.getmtime(Variables.playonlinux_rep+"/icones/32")
@@ -572,7 +572,7 @@ class MainWindow(wx.Frame):
                 self.installFrame.Refresh()
             except:
                 pass
-                
+
         if(self.updater.sendAlertStr != self.sendAlertStr):
             wx.MessageBox(self.updater.sendAlertStr, os.environ["APPLICATION_TITLE"], wx.OK|wx.CENTER, self)
             self.sendAlertStr = self.updater.sendAlertStr
@@ -648,26 +648,26 @@ class MainWindow(wx.Frame):
             url = urlPrefix+"/forums.html"
         if(urlId == 4):
             url = urlPrefix+"/bugs.html"
-        
+
         if(urlId == 5):
             if(os.environ["POL_OS"] == "Mac"):
                 url = "https://twitter.com/PlayOnMac"
             else:
                 url = "https://twitter.com/PlayOnLinux"
-                
+
         if(urlId == 6):
             if(os.environ["POL_OS"] == "Mac"):
                 url = "http://plus.google.com/u/0/105992880311102680198"
             else:
                 url = "https://plus.google.com/+playonlinux"
-            
+
         if(urlId == 7):
             if(os.environ["POL_OS"] == "Mac"):
                 url = "https://www.facebook.com/playonmac"
             else:
                 url = "https://www.facebook.com/playonlinux"
-            
-        
+
+
         playonlinux.POL_Open(url)
 
     def iconDisplay(self, event):
@@ -779,13 +779,13 @@ class MainWindow(wx.Frame):
             self.menuGaucheAddLink("pol_prgm_kill", _("Close"), i,Variables.playonlinux_env+"/resources/images/menu/media-playback-stop.png",self.RKill)
             i+=1
             self.menuGaucheAddLink("pol_prgm_rundebug", _("Debug"), i,Variables.playonlinux_env+"/resources/images/menu/bug.png",self.RunDebug)
-            
+
             game_exec = self.GetSelectedProgram()
             game_log = playonlinux.getLog(game_exec)
             if(game_log):
                 i+=1
                 self.menuGaucheAddLink("pol_prgm_reportproblem", _("Send a feedback"), i,Variables.playonlinux_env+"/resources/images/menu/bug.png",self.sendfeedback)
-                
+
             i+=1
             self.menuGaucheAddLink("pol_prgm_configure", _("Configure"), i,Variables.playonlinux_env+"/resources/images/menu/run.png",self.Configure)
             i+=1
@@ -860,8 +860,8 @@ class MainWindow(wx.Frame):
         #self.menuElem[id].SetNormalColour(wx.Colour(0,0,0))
         #self.menuElem[id].SetVisitedColour(wx.Colour(0,0,0))
         #self.menuElem[id].SetHoverColour(wx.Colour(100,100,100))
-        
-            
+
+
         if(evt != None):
             wx.lib.hyperlink.EVT_HYPERLINK_LEFT(self, 10000+pos, evt)
 
@@ -874,12 +874,12 @@ class MainWindow(wx.Frame):
     def Reload(self, event):
         self.games = os.listdir(Variables.playonlinux_rep+"shortcuts/")
         self.games.sort(key=str.upper)
-        
+
         try:
             self.games.remove(".DS_Store")
         except:
             pass
-            
+
         self.list_game.DeleteAllItems()
         self.images.RemoveAll()
         root = self.list_game.AddRoot("")
@@ -903,7 +903,7 @@ class MainWindow(wx.Frame):
                         self.images.Add(self.bitmap)
                     except:
                         pass
-                    
+
                     item = self.list_game.AppendItem(root, game, self.i)
                     self.i += 1
         self.generate_menu(None)
@@ -1020,7 +1020,7 @@ class MainWindow(wx.Frame):
 
     def GetSelectedProgram(self):
         return self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8","replace")
-        
+
     def Run(self, event, s_debug=False):
 
         game_exec = self.GetSelectedProgram()
@@ -1109,7 +1109,7 @@ class MainWindow(wx.Frame):
             playonlinux.SetSettings("MAINWINDOW_HEIGHT",str(self.SizeToSave[1]-Variables.windows_add_playonmac*56))
             playonlinux.SetSettings("MAINWINDOW_X",str(self.PositionToSave[0]))
             playonlinux.SetSettings("MAINWINDOW_Y",str(self.PositionToSave[1]))
-           
+
             self._mgr.Destroy()
 
             self.POLDie()
@@ -1147,7 +1147,7 @@ class PlayOnLinuxApp(wx.App):
 
         subprocess.call(["bash", Variables.playonlinux_env+"/bash/startup"])
         self.systemCheck()
-        
+
         for f in  sys.argv[1:]:
             self.MacOpenFile(f)
             if(".exe" in f or ".EXE" in f):
@@ -1165,7 +1165,7 @@ class PlayOnLinuxApp(wx.App):
         # Gui Server
         self.POLServer = gui_server.gui_server(self.frame)
         self.POLServer.start()
-        
+
         i = 0
         while(os.environ["POL_PORT"] == "0"):
             time.sleep(0.01)
@@ -1173,12 +1173,12 @@ class PlayOnLinuxApp(wx.App):
                  wx.MessageBox(_("{0} is not able to start PlayOnLinux Setup Window server.").format(os.environ["APPLICATION_TITLE"]),_("Error"))
                  os._exit(0)
                  break
-            i+=1 
+            i+=1
         subprocess.Popen(["bash", Variables.playonlinux_env + "/bash/startup_after_server"])
-   
+
         self.SetTopWindow(self.frame)
         self.frame.Show(True)
-        
+
         return True
 
     def _executableFound(self, executable):
@@ -1263,7 +1263,7 @@ class PlayOnLinuxApp(wx.App):
         self.singleCheckFatal("convert", package="ImageMagick")
         self.singleCheckFatal("wget", package="Wget")
         self.singleCheckFatal("curl", package="cURL")
-        
+
         self.singleCheckFatal("gpg", package="GnuPG")
 
         # FIXME: now that PoL can use a range of terminal emulators, xterm is no longer
@@ -1275,10 +1275,11 @@ class PlayOnLinuxApp(wx.App):
         self.singleCheck("wrestool", package="icoutils")
         self.singleCheck("wine", package="Wine")
         self.singleCheck("unzip", package="InfoZIP")
+        self.singleCheck("jq", package="jq")
         self.singleCheck("7z", package="P7ZIP full")  # p7zip-full on Debian
         if(os.environ["POL_OS"] == "FreeBSD"):
             self.singleCheck("gsed", package="GNU Sed")
-            
+
     def BringWindowToFront(self):
         try: # it's possible for this event to come when the frame is closed
             self.GetTopWindow().Raise()
@@ -1314,7 +1315,7 @@ class PlayOnLinuxApp(wx.App):
                 subprocess.Popen(["bash", Variables.playonlinux_env + "/bash/playonlinux-pkg", "-i", filename])
         else:
             playonlinux.open_document(filename,file_extension.lower())
- 
+
     def MacOpenURL(self, url):
         if(os.environ["POL_OS"] == "Mac" and not "playonmac://" in url):
             wx.MessageBox(_("You are trying to open a script design for {0}! It might not work as expected").format("PlayOnLinux or PlayOnBSD"), os.environ["APPLICATION_TITLE"])
@@ -1322,7 +1323,7 @@ class PlayOnLinuxApp(wx.App):
             wx.MessageBox(_("You are trying to open a script design for {0}! It might not work as expected").format("PlayOnMac or PlayOnBSD"), os.environ["APPLICATION_TITLE"])
         if(os.environ["POL_OS"] == "FreeBSD" and not "playonbsd://" in url):
             wx.MessageBox(_("You are trying to open a script design for {0}! It might not work as expected").format("PlayOnMac or PlayOnLinux"), os.environ["APPLICATION_TITLE"])
-            
+
         subprocess.Popen(["bash", Variables.playonlinux_env + "/bash/playonlinux-url_handler", url])
 
     def MacReopenApp(self):

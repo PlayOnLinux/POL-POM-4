@@ -17,7 +17,6 @@ search_python () {
 		next_python "python2.7"
 		next_python "python2.6"
 		next_python "python2"
-		next_python "/usr/bin/python"
 		next_python "none"
 	
 		if [ "$POL_PYTHON" = "none" ]; then
