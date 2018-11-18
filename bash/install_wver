@@ -22,8 +22,8 @@ source "$PLAYONLINUX/lib/sources"
 
 POL_SetupWindow_Init
 [ "$2" = "" ] && POL_System_SetArch "auto" || POL_System_SetArch "$2"
-[ "$3" = "" ] && distribution = "upstream" || distribution = "$3"
-version=$1
+[ "$3" = "" ] && distribution = "upstream" || distribution="$3"
+version="$1"
 TITLE="Wine $version ($2) installer"
 POL_SetupWindow_free_presentation "Wine $1" "$(eval_gettext "This wizard will help you to install Wine: ")$version ($2)	 $(eval_gettext 'on the $APPLICATION_TITLE environment.')"
 POL_Wine_InstallVersion "$1" "$3"
