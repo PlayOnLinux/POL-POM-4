@@ -24,6 +24,7 @@ CFLAGS ?= -O2
 CC = gcc $(CFLAGS)
 PYTHON = python2 -m py_compile
 GZIP = gzip
+SHELL := /bin/bash
 
 PREFIX ?= /usr
 DESTDIR ?= # root dir
