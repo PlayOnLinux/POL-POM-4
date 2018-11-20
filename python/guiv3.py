@@ -123,7 +123,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.titre = wx.StaticText(self.header, -1, "",pos=(20,30), size=(340,356),style=wx.ST_NO_AUTORESIZE)
         self.titre.SetForegroundColour((0,0,0)) # For dark themes
 
-        self.texteP = wx.StaticText(self.MainPanel, -1, "",pos=(5,50))
+        self.texteP = wx.StaticText(self.MainPanel, -1, "",pos=(5,50),size=(340, 500))
         self.texteP.SetForegroundColour((0,0,0)) # For dark themes
 
         self.titreP = wx.StaticText(self.MainPanel, -1,"",pos=(5,5), size=(340,356))
