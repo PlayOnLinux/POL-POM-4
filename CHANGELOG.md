@@ -1,3 +1,7 @@
+# 4.3.3
+* Linux: Fix HDPI support
+* Compatibility with OSX < Mojave
+
 # 4.3
 * Various fix on OSX
 * Phoenicis (POL 5) winebuild compatibility. POL 4 winebuilds will be deprecated. (See https://github.com/PhoenicisOrg/phoenicis-winebuild)

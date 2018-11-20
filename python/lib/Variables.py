@@ -4,6 +4,7 @@
 
 import os, random, sys, string
 import wx, lib.playonlinux as playonlinux
+from lib.dpiFetcher import dpiFetcher
 
 # Un ptit check
 try:
@@ -16,7 +17,7 @@ except:
 os.environ["POL_PORT"] = "0"
 os.environ["PLAYONLINUX"] = os.path.realpath(os.path.realpath(__file__)+"/../../../")
 os.environ["SITE"] = "http://repository.playonlinux.com"
-os.environ["VERSION"] = "4.3.2"
+os.environ["VERSION"] = "4.3.3"
 os.environ["POL_ID"] = str(random.randint(1, 100000000))
 os.environ["GECKO_SITE"] = "http://wine.playonlinux.com/gecko"
 os.environ["MONO_SITE"] = "http://wine.playonlinux.com/mono"
@@ -50,7 +51,7 @@ if os.environ["POL_OS"] == "Linux":
         windows_add_size = 0
         windows_add_playonmac = 0
     else:
-        windows_add_size = 25
+        windows_add_size = dpiFetcher().fetch_extra_pixel()
         windows_add_playonmac = 0
 
     widget_borders = wx.RAISED_BORDER

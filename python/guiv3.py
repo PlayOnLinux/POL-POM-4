@@ -23,7 +23,7 @@ import subprocess, shlex, signal
 import lib.Variables as Variables
 import lib.lng, lib.playonlinux as playonlinux
 lib.lng.Lang()
-urllib.URLopener.version = Variables.userAgent # Arg ... 
+urllib.URLopener.version = Variables.userAgent # Arg ...
 
 class Download(threading.Thread):
     def __init__(self, url, local):
@@ -83,7 +83,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         if(Arg3 == "protect"):
             self.ProtectedWindow = True
         self.oldfichier = ""
-        
+
         self.make_gui()
 
         wx.EVT_CLOSE(self, self.Cancel)
@@ -101,7 +101,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.panel = wx.Panel(self, -1, pos=(0,0), size=((520, 398+Variables.windows_add_size)))
         self.header = wx.Panel(self.panel, -1, style=Variables.widget_borders, size=(522,65))
         self.header.SetBackgroundColour((255,255,255))
-        self.footer = wx.Panel(self.panel, -1, size=(522,45), pos=(-1,358), style=Variables.widget_borders)
+        self.footer = wx.Panel(self.panel, -1, size=(522,45), pos=(-1,358))
 
         # Panels
         self.MainPanel = wx.Panel(self.panel, -1, pos=(150,0), size=(370,356))
@@ -135,7 +135,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
 
         # Buttons
-        
+
 
         if(os.environ["POL_OS"] != "Mac"):
             self.CancelButton = wx.Button(self.footer, wx.ID_CANCEL, _("Cancel"), pos=(430,0),size=(85,37))
@@ -143,11 +143,11 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         else:
             self.CancelButton = wx.Button(self.footer, wx.ID_CANCEL, _("Cancel"), pos=(420,-3),size=(85,37))
             self.NextButton = wx.Button(self.footer, wx.ID_FORWARD, _("Next"), pos=(330,-3),size=(85,37))
-   
+
         if(self.ProtectedWindow == True):
             self.CancelButton.Enable(False)
-   
-            
+
+
         self.InfoScript = wx.StaticBitmap(self.footer, -1, wx.Bitmap(os.environ['PLAYONLINUX']+"/resources/images/setups/about.png"), pos=(10,8))
         self.InfoScript.Hide()
         self.script_ID = 0
@@ -165,8 +165,8 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
             self.YesButton = wx.Button(self.footer, wx.ID_YES, _("Yes"), pos=(340,0), size=(85,37))
         else:
             self.NoButton = wx.Button(self.footer, wx.ID_NO, _("No"), pos=(420,-3),size=(85,37))
-            self.YesButton = wx.Button(self.footer, wx.ID_YES, _("Yes"), pos=(330,-3), size=(85,37))           
-        
+            self.YesButton = wx.Button(self.footer, wx.ID_YES, _("Yes"), pos=(330,-3), size=(85,37))
+
         self.browse = wx.Button(self.panel, 103, _("Browse"), size=(130,40))
         self.browse_text = wx.StaticText(self.panel, -1, "")
         self.browse_image = wx.StaticBitmap(self.panel, -1, wx.Bitmap(os.environ['PLAYONLINUX']+"/etc/playonlinux.png"))
@@ -186,16 +186,16 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.gauge = wx.Gauge(self.panel, -1, 50, size=(375, 20))
         self.WaitButton = wx.Button(self.panel, 310, "", size=(250,25))
 
-        
-        
+
+
         self.animation = wx.StaticBitmap(self.panel, -1, self.GetLoaderFromAngle(1), (228,170))
         self.current_angle = 1
-    
+
         self.images = wx.ImageList(22, 22)
         self.MenuGames = wx.TreeCtrl(self.panel, 111, style=wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT|Variables.widget_borders, pos=(25,105),size=(460,220))
         self.MenuGames.SetImageList(self.images)
         self.MenuGames.SetSpacing(0)
-        
+
 
         # Login
         self.login = wx.StaticText(self.panel, -1, _("Login: "),pos=(20,120),size=(460,20))
@@ -223,19 +223,19 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.Result = ""
         self.animation.Show()
         self.footer.Hide()
-        
+
         # Set the timer
         self.timer = wx.Timer(self, 3)
         self.Bind(wx.EVT_TIMER, self.TimerAction, self.timer)
         self.timer.Start(100)
         self.Timer_downloading = False
         self.Timer_animate = True
-        
+
     def GetLoaderFromAngle(self, angle):
         if(angle >= 1 and angle <= 12):
             image = wx.Image(Variables.playonlinux_env+"/resources/images/setups/wait/"+str(angle)+".png")
         return image.ConvertToBitmap()
-        
+
     def Destroy_all(self):
         self.footer.Show()
         self.Result = None
@@ -280,13 +280,13 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.debugZone.Hide()
         self.Refresh()
 
-        
+
     def getResult(self):
         if(self.Result == None):
             return False
         else:
             return self.Result
-            
+
     def TimerAction(self, event):
         ## If the setup window is downloading a file, it is a good occasion to update the progress bar
         if(self.Timer_downloading == True):
@@ -298,12 +298,12 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
                 # may be -1 on older FTP servers which do not return a file size in response to a retrieval request
                 if self.downloader.taille_fichier >= 0:
                     self.gauge.SetRange(self.downloader.taille_fichier)
-                
+
                     try:
                         self.gauge.SetValue(downloaded)
                     except wx._core.PyAssertionError:
                         pass
-                    
+
                     tailleFichierB = self.downloader.taille_fichier / 1048576.0
                     tailleFichierN = str(round(tailleFichierB, 1))
                 else:
@@ -322,7 +322,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         if(self.Timer_animate == True):
             self.current_angle = ((self.current_angle + 1) % 12)
             self.animation.SetBitmap(self.GetLoaderFromAngle(self.current_angle + 1))
-            
+
     ### Theses methods command the window. There are called directly by the server
     def POL_SetupWindow_message(self, message, title):
         self.Destroy_all()
@@ -347,7 +347,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
 
         wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release)
         self.DrawImage()
-    
+
     def POL_SetupWindow_SetID(self, script_id):
         self.InfoScript.Show()
         self.script_ID = script_id
@@ -407,7 +407,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.texte_bis.Show()
         self.SendBash()
 
-    def POL_SetupWindow_download(self, message, title, url, localfile): 
+    def POL_SetupWindow_download(self, message, title, url, localfile):
         self.Destroy_all()
         self.DrawDefault(message, title)
         self.space = message.count("\\n")+1
@@ -436,20 +436,20 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         self.DrawDefault(message, title)
 
         self.NextButton.Enable(False)
-        
+
         self.space = message.count("\\n")+1
         self.gauge.SetPosition((70,95+self.space*16))
         self.gauge.Show()
-        
+
         self.DrawCancel()
         self.DrawNext()
         self.NextButton.Enable(False)
         self.SendBash()
-        
+
     def POL_SetupWindow_wait_b(self, message, title, button_value, command, alert):
-        self.POL_SetupWindow_wait(message, title)    
+        self.POL_SetupWindow_wait(message, title)
         self.WaitButton.Show()
-        self.WaitButton.SetLabel(button_value) 
+        self.WaitButton.SetLabel(button_value)
         self.space = message.count("\\n")+1
         self.WaitButton.SetPosition((135,115+self.space*16))
         self.Bind(wx.EVT_BUTTON, lambda event:
@@ -667,7 +667,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
             self.texte_panel.SetLabel(open(filetoread,"r").read())
         except:
             self.texte_panel.SetLabel("E. File not found")
-            
+
         self.texte_panel.Wrap(400)
         self.texte_panel.Show()
 
@@ -749,7 +749,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
             self.release_yes(event)
         else:
             self.release_no(event)
-        
+
     def release_login(self, event):
         self.SendBash(self.loginbox.GetValue().encode("utf-8","replace")+"~"+self.passbox.GetValue().encode("utf-8","replace"))
         self.NextButton.Enable(False)
@@ -781,7 +781,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
             self.SendBash("Ok")
         self.NextButton.Enable(False)
 
-    def release_menugame(self,event):     
+    def release_menugame(self,event):
         self.SendBash(self.MenuGames.GetItemText(self.MenuGames.GetSelection()).encode("utf-8","replace"))
         self.NextButton.Enable(False)
 
@@ -837,7 +837,7 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
     def add_menu_icons(self, items, cut, icon_list, icon_folder):
         elements = items.split(cut)
         icons = icon_list.split(cut)
-        
+
         #self.games.sort()
         self.images.RemoveAll()
         self.MenuGames.DeleteAllItems()
@@ -876,12 +876,12 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
         if(self.FileDialog.GetPath() != ""):
             filePath = self.FileDialog.GetPath().encode("utf-8","replace")
             filePathBaseName = filePath.split("/")[filePath.count("/")]
-            self.champ.SetValue(filePath) 
+            self.champ.SetValue(filePath)
             self.NextButton.Enable(True)
             self.browse_text.Show()
             self.browse_text.SetLabel(filePathBaseName)
             self.browse_text.SetPosition(((520-self.browse_text.GetSize()[0])/2,180))
-            
+
             if(".exe" in filePathBaseName and os.path.getsize(filePath) <= 30*1024*1024):
                 try:
                     tmpPath = os.environ['POL_USER_ROOT']+"/tmp/browse"+self.bash_pid+".png"
@@ -896,11 +896,11 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
                     browse_image = wx.Image(os.environ['PLAYONLINUX']+"/etc/playonlinux.png")
             else:
                 browse_image = wx.Image(os.environ['PLAYONLINUX']+"/etc/playonlinux.png")
-            
+
             if(browse_image.GetWidth() >= 48):
                 browse_image.Rescale(48,48,wx.IMAGE_QUALITY_HIGH)
             browse_image = browse_image.ConvertToBitmap()
-    
+
             self.browse_image.SetBitmap(browse_image)
             self.browse_image.SetPosition(((520-self.browse_image.GetSize()[0])/2,220))
             self.browse_image.Show()
@@ -937,4 +937,3 @@ class POL_SetupFrame(wx.Frame): #fenêtre principale
             self.MenuGames.Show()
             self.Menu.Hide()
         self.Refresh()
-
