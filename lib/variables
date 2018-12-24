@@ -15,9 +15,9 @@
 
 # You should have received a copy of the GNU General Public License along
 # with this program; if not, write to the Free Software Foundation, Inc.,
-# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-## 
+##
 ## Hack for El Capitain
 [ ! "$WRITE_LD" = "" ] && export LD_LIBRARY_PATH="$WRITE_LD"
 [ ! "$WRITE_DYLD" = "" ] && export DYLD_LIBRARY_PATH="$WRITE_DYLD"
@@ -72,8 +72,8 @@ fi
 which shasum > /dev/null 2> /dev/null || shasum () { sha1sum "$@"; }
 
 
-if [ "$POL_OS" == "Linux" ] 
-then 
+if [ "$POL_OS" == "Linux" ]
+then
 	export POL_LANG="$(echo "$LANG" | cut -d\_ -f 1)"
 	export MD5_COMMAND="md5sum"
 	export SED="sed"
@@ -85,9 +85,9 @@ then
 	export MD5_COMMAND="md5"
 	export SED="sed"
 fi
-	
-if [ "$POL_OS" == "FreeBSD" ] 
-then 
+
+if [ "$POL_OS" == "FreeBSD" ]
+then
 	export POL_LANG="$(echo "$LANG" | cut -d\_ -f 1)"
 	export MD5_COMMAND="md5"
 	export SED="gsed"
@@ -104,6 +104,7 @@ export POL_ARCH="$POL_USER_ARCH"
 # Miscellaneous stuff
 export IGNORE_ICON_DIR="false"
 export GNUPGHOME="$REPERTOIRE/gpg"
+
 
 # Drivers issue
 [ "$(POL_Config_pRead FIX_DRI_PATH)" = "TRUE" ] && [ "$POL_OS" = "Linux" ] && export LIBGL_DRIVERS_PATH="/usr/lib/dri/:/usr/lib64/dri/:/usr/lib32/dri/"

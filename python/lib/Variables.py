@@ -120,6 +120,8 @@ if os.environ["POL_OS"] == "Mac":
     os.environ["PATH"] = os.environ["PLAYONLINUX"]+"/../unix/wine/bin:" + os.environ["PLAYONLINUX"]+"/../unix/image_magick/bin:" + os.environ["PLAYONLINUX"]+"/../unix/tools/bin/:" + os.environ["PATH"]
 
     os.environ["WRITE_LD"] =  os.environ["PLAYONLINUX"]+"/../unix/image_magick/lib:"+ os.environ["PLAYONLINUX"]+"/../unix/tools/lib/ld:/opt/X11/lib/:" + os.environ["LD_LIBRARY_PATH"]
+    os.environ["DYLD_FALLBACK_LIBRARY_PATH"] =  os.environ["PLAYONLINUX"]+"/../wine/lib"
+    os.environ["FREETYPE_PROPERTIES"]="truetype:interpreter-version=35"
 
     os.environ["WRITE_DYLD"] = os.environ["PLAYONLINUX"]+"/../unix/tools/lib/dyld:" + os.environ["PLAYONLINUX"]+"/../unix/image_magick/lib:"+ os.environ["DYLD_LIBRARY_PATH"]
 else:

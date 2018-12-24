@@ -6,6 +6,7 @@
   This should solve display issues on many cases: HDPI and alternative windows manager: (see https://www.playonlinux.com/en/topic-16188-Visual_error_with_KDE.html)
 * macOS: Remove XQuartz installation
 * macOS: Bundle an up-to-date wine version
+* macOS: Use native terminal instead of xterm
 
 # 4.3.3
 * Linux: Fix HDPI support
