@@ -681,7 +681,7 @@ POL_Wine_InstallVersion()
 	WINE_SECTION="$ARCH_PREFIX-$POL_ARCH"
 	WINEDIR="$POL_USER_ROOT/wine/$WINE_SECTION"
 	touch "$WINEDIR/installing"
-	if [ ! -e "$WINEDIR/$POL_WINEVERSION" ]
+	if [ ! -e "$WINEDIR/$POL_WINEVERSION_INSTALL" ]
 	then
 		POL_Debug_Message "Wine site: $WINE_SITE"
 		echo $POL_WGET "$WINE_SITE" -O-
