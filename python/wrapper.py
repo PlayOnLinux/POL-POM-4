@@ -20,7 +20,7 @@
 # PlayOnLinux wrapper
 encoding = 'utf-8'
 
-import os, getopt, sys, urllib, signal, string, time, webbrowser, gettext, locale, sys, subprocess, signal
+import os, time, sys, subprocess, signal
 
 try :
     os.environ["POL_OS"]
@@ -34,9 +34,9 @@ if(os.environ["POL_OS"] == "Linux"):
 
 import wx
 import lib.lng as lng
-import lib.playonlinux as playonlinux, lib.Variables as Variables
-import guiv3 as gui, install, options, wine_versions as wver, sp, configure, threading, debug, gui_server
-
+import lib.Variables as Variables
+import threading, debug
+from setupwindow import gui_server
 
 
 class MainWindow(wx.Frame):

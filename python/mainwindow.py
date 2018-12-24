@@ -44,7 +44,8 @@ import wx, wx.aui
 import wx.lib.hyperlink
 import lib.lng as lng
 import lib.playonlinux as playonlinux, lib.Variables as Variables
-import options, wine_versions as wver, configure, threading, debug, gui_server
+import options, wine_versions as wver, configure, threading, debug
+from setupwindow import gui_server
 from install.InstallWindow import InstallWindow
 
 

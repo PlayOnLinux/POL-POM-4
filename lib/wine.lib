@@ -857,7 +857,8 @@ POL_Wine_SetVersionEnv()
 		 		POL_Wine_InstallVersion "$POL_WINEVERSION"
 			fi
 			export PATH="$WINEDIR/$POL_WINEVERSION/bin/:$PATH"
-			export DYLD_FALLBACK_LIBRARY_PATH="$WINEDIR/$POL_WINEVERSION/lib/"
+			[ "$POL_OS" = "Mac" ] && export DYLD_FALLBACK_LIBRARY_PATH="$WINEDIR/$POL_WINEVERSION/lib/"
+			[ "$POL_OS" = "Mac" ] && export DYLD_LIBRARY_PATH="/usr/lib/"
 			export FREETYPE_PROPERTIES="truetype:interpreter-version=35"
 			export LD_LIBRARY_PATH="$WINEDIR/$POL_WINEVERSION/lib/:$WINEDIR/$POL_WINEVERSION/lib64/:$LD_LIBRARY_PATH"
 			[ "$POL_OS" = "FreeBSD" ] && export LD_32_LIBRARY_PATH="$WINEDIR/$POL_WINEVERSION/lib/:$LD_32_LIBRARY_PATH"
