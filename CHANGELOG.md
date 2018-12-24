@@ -4,6 +4,8 @@
 * Begining of using wx box sizers instead of absolute positioning.
   Most of the windows are now resizable
   This should solve display issues on many cases: HDPI and alternative windows manager: (see https://www.playonlinux.com/en/topic-16188-Visual_error_with_KDE.html)
+* macOS: Remove XQuartz installation
+* macOS: Bundle an up-to-date wine version
 
 # 4.3.3
 * Linux: Fix HDPI support

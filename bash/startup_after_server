@@ -15,14 +15,14 @@
 
 # You should have received a copy of the GNU General Public License along
 # with this program; if not, write to the Free Software Foundation, Inc.,
-# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 # This is the startup script (after POL server)
 
 [ "$PLAYONLINUX" = "" ] && exit 0
 [ "$POL_PORT" = "0" ] && exit 1 # I need the server here
 
-source "$PLAYONLINUX/lib/sources" 
+source "$PLAYONLINUX/lib/sources"
 
 export XQUARTZ_VERSION="2.7.11"
 
@@ -32,15 +32,15 @@ install_x11()
 
 	XQuartzUrl="http://dl.bintray.com/xquartz/downloads/XQuartz-$XQUARTZ_VERSION.dmg"
 	FilePrefix="XQuartz"
-		
+
 	STEP_TITLE="XQuartz"
-	
+
 	XQuartz_Message="$(eval_gettext "PlayOnMac needs to install XQuartz to work properly.")"
 	XQuartz_Message2="$(eval_gettext "PlayOnMac will help you to simplify this step")"
 	POL_SetupWindow_free_presentation "$STEP_TITLE" "$XQuartz_Message\n\n$XQuartz_Message2"
-		
+
 	POL_SetupWindow_menu_num "$XQuartz_Message" "$STEP_TITLE" "$(eval_gettext "Please download XQuartz for me")~$(eval_gettext "I've downloaded the file by myself") ($FilePrefix-$XQUARTZ_VERSION.dmg)~$(eval_gettext "Don't install XQuartz for the moment")" "~"
-	
+
 	if [ "$APP_ANSWER" = "0" ]
 	then
 		cd "$POL_USER_ROOT/tmp/"
@@ -53,7 +53,7 @@ install_x11()
 		cd "$(dirname "$APP_ANSWER")"
 		got_xquartz="true"
 	fi
-	
+
 	if [ "$got_xquartz" = "true" ]
 	then
 		POL_SetupWindow_wait_next_signal "$(eval_gettext "Installing XQuartz...")" "$STEP_TITLE"
@@ -64,12 +64,12 @@ install_x11()
 		done
 		/System/Library/CoreServices/Installer.app/Contents/MacOS/Installer /Volumes/$FilePrefix-$XQUARTZ_VERSION/$FilePrefix.pkg
 		umount /Volumes/$FilePrefix-$XQUARTZ_VERSION
-		
+
 		POL_SetupWindow_message "$(eval_gettext "XQuartz has been installed.")" "$STEP_TITLE"
 		launchctl load "/Library/LaunchAgents/org.macosforge.xquartz.startx.plist"
-		
+
 	fi
-	
+
 
 	if [ ! -e "/Applications/Utilities/XQuartz.app" ] && [ ! "$OSX_VERSION" = "11" ]
 	then
@@ -83,22 +83,3 @@ install_x11()
 
 # Plugins
 install_plugins
-
-installXQuartz="false"
-if [ "$POL_OS" = "Mac" ]; then
-	if [ ! -e "/Applications/Utilities/XQuartz.app" -a "$OSX_VERSION" != "11" ]; then
-		installXQuartz="true"
-	fi
-	if [ "$OSX_VERSION" = "11" -a "$OSX_SUB_VERSION" -gt "4" ] || [ "$OSX_VERSION" = "12" -a "$OSX_SUB_VERSION" -gt "1" ]; then
-		XVERSION="$(cat "/Applications/Utilities/XQuartz.app/Contents/Info.plist" | grep -A1 "<key>CFBundleShortVersionString</key>" | tail -n1 | cut -d '>' -f2 | cut -d '<' -f1)"
-		if VersionLower "$XVERSION" "2.7.4"; then
-			installXQuartz="true"
-		fi
-	fi
-fi 
-
-if [ "$installXQuartz" = "true" ]; then
-	POL_SetupWindow_Init --protect
-	install_x11
-	POL_SetupWindow_Close
-fi
