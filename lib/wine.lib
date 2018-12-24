@@ -661,19 +661,19 @@ POL_Wine_InstallVersion()
 	[ ! "$2" = "" ] && export POL_WINEDISTRIBUTION="$2" || export POL_WINEDISTRIBUTION="upstream"
 
 	if [[ "$POL_WINEVERSION" == *"-staging"* ]]; then
-	    POL_WINEVERSION="${POL_WINEVERSION/-staging/}"
+	    local pol_wineversion="${POL_WINEVERSION/-staging/}"
 			POL_WINEDISTRIBUTION="staging"
 	else
-			POL_WINEVERSION_INSTALL="$POL_WINEVERSION"
+			local pol_wineversion_install="$POL_WINEVERSION"
 	fi
 
 	if [ "$POL_WINEDISTRIBUTION" == "staging" ]; then
-		POL_WINEVERSION_INSTALL="$POL_WINEVERSION-staging"
+		local pol_wineversion_install="$POL_WINEVERSION-staging"
 	fi
 
-	[ "$POL_WINEVERSION" = "" ] && POL_Debug_Fatal "No POL_WINEVERSION set"
+	[ "$pol_wineversion" = "" ] && POL_Debug_Fatal "No POL_WINEVERSION set"
 	[ "$POL_ARCH" = "" ] && POL_System_SetArch "auto"
-	POL_Debug_Message "Installing wine version path: $POL_WINEVERSION_INSTALL, $POL_ARCH"
+	POL_Debug_Message "Installing wine version path: $pol_wineversion_install, $POL_ARCH"
 	[ "$POL_OS" = "Mac" ] && ARCH_PREFIX="darwin"
 	[ "$POL_OS" = "FreeBSD" ] && ARCH_PREFIX="freebsd"
 	[ "$POL_OS" = "Linux" ] && ARCH_PREFIX="linux"
@@ -681,7 +681,7 @@ POL_Wine_InstallVersion()
 	WINE_SECTION="$ARCH_PREFIX-$POL_ARCH"
 	WINEDIR="$POL_USER_ROOT/wine/$WINE_SECTION"
 	touch "$WINEDIR/installing"
-	if [ ! -e "$POL_USER_ROOT/wine/$ARCH_PREFIX-$POL_ARCH/$POL_WINEVERSION_INSTALL" ]
+	if [ ! -e "$POL_USER_ROOT/wine/$ARCH_PREFIX-$POL_ARCH/$pol_wineversion_install" ]
 	then
 		POL_Debug_Message "Wine site: $WINE_SITE"
 		echo $POL_WGET "$WINE_SITE" -O-
@@ -690,7 +690,7 @@ POL_Wine_InstallVersion()
 
 		WINE_ADDRESS="$(echo "$WINEDATA" | jq '.url' -r)"
 		POL_Debug_Message "Wine address found: $WINE_ADDRESS"
-		#WINE_ADDRESS=$($POL_WGET "$WINE_SITE/$WINE_SECTION.lst" -O- | grep ";$POL_WINEVERSION;" | tail -n 1 | cut -d ";" -f1)
+		#WINE_ADDRESS=$($POL_WGET "$WINE_SITE/$WINE_SECTION.lst" -O- | grep ";$pol_wineversion;" | tail -n 1 | cut -d ";" -f1)
 
 		if [ "$WINE_ADDRESS" = "" ] && [ "$POL_ARCH" = "amd64" ]
 		then
@@ -700,15 +700,15 @@ POL_Wine_InstallVersion()
 		else
 			if [ "$WINE_ADDRESS" = "" ]
 			then
-				POL_Debug_Error "$(eval_gettext "Unable to find version: ")$POL_WINEVERSION"
+				POL_Debug_Error "$(eval_gettext "Unable to find version: ")$pol_wineversion"
 				POL_SetupWindow_Close
 				exit
 			fi
 
 			cd "$POL_USER_ROOT/tmp"
-			filename="$PWD/PlayOnLinux-wine-$POL_WINEVERSION-$POL_WINEDISTRIBUTION-$ARCH_PREFIX-$POL_ARCH.tar.gz"
-			POL_SetupWindow_download "$(eval_gettext "Downloading Wine: ")$POL_WINEVERSION" "$TITLE" "$WINE_ADDRESS"
-			POL_SetupWindow_wait_next_signal "$(eval_gettext "Downloading Wine: ")$POL_WINEVERSION" "$TITLE"
+			filename="$PWD/PlayOnLinux-wine-$pol_wineversion-$POL_WINEDISTRIBUTION-$ARCH_PREFIX-$POL_ARCH.tar.gz"
+			POL_SetupWindow_download "$(eval_gettext "Downloading Wine: ")$pol_wineversion" "$TITLE" "$WINE_ADDRESS"
+			POL_SetupWindow_wait_next_signal "$(eval_gettext "Downloading Wine: ")$pol_wineversion" "$TITLE"
 			sleep 1
 			sha1="$(echo "$WINEDATA" | jq '.sha1sum' -r)"
 			sha1_file=$(shasum "$filename" | awk '{print $1}')
@@ -720,13 +720,13 @@ POL_Wine_InstallVersion()
 				POL_SetupWindow_message "$(eval_gettext 'The download seems to have failed.')" "$TITLE"
 			else
 				POL_SetupWindow_wait "$(eval_gettext 'Extracting Wine...')" "$TITLE"
-				mkdir -p "$POL_USER_ROOT/wine/$ARCH_PREFIX-$POL_ARCH/$POL_WINEVERSION_INSTALL"
-				cd "$POL_USER_ROOT/wine/$ARCH_PREFIX-$POL_ARCH/$POL_WINEVERSION_INSTALL"
+				mkdir -p "$POL_USER_ROOT/wine/$ARCH_PREFIX-$POL_ARCH/$pol_wineversion_install"
+				cd "$POL_USER_ROOT/wine/$ARCH_PREFIX-$POL_ARCH/$pol_wineversion_install"
 				tar -xvf "$filename"
 			fi
 			rm "$filename"
-			# POL_Wine_Install_resources gecko "$POL_WINEVERSION" "$POL_ARCH"
-			# POL_Wine_Install_resources mono "$POL_WINEVERSION" "$POL_ARCH"
+			# POL_Wine_Install_resources gecko "$pol_wineversion" "$POL_ARCH"
+			# POL_Wine_Install_resources mono "$pol_wineversion" "$POL_ARCH"
 		fi
 	fi
 	rm "$WINEDIR/installing"
