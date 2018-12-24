@@ -686,7 +686,7 @@ POL_Wine_InstallVersion()
 	then
 		POL_Debug_Message "Wine site: $WINE_SITE"
 		echo $POL_WGET "$WINE_SITE" -O-
-		WINEDATA="$($POL_WGET "$WINE_SITE" -O- |jq -r ".[] | select(.name==\"$POL_WINEDISTRIBUTION-$ARCH_PREFIX-$POL_ARCH\") | .packages | .[] | select(.version==\"$POL_WINEVERSION\")")"
+		WINEDATA="$($POL_WGET "$WINE_SITE" -O- |jq -r ".[] | select(.name==\"$POL_WINEDISTRIBUTION-$ARCH_PREFIX-$POL_ARCH\") | .packages | .[] | select(.version==\"$pol_wineversion\")")"
 		POL_Debug_Message "Winebuild data: $WINEDATA"
 
 		WINE_ADDRESS="$(echo "$WINEDATA" | jq '.url' -r)"
