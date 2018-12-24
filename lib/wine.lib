@@ -668,7 +668,7 @@ POL_Wine_InstallVersion()
 	fi
 
 	if [ "$POL_WINEDISTRIBUTION" == "staging" ]; then
-		local pol_wineversion_install="$POL_WINEVERSION-staging"
+		local pol_wineversion_install="$pol_wineversion-staging"
 	fi
 
 	[ "$pol_wineversion" = "" ] && POL_Debug_Fatal "No POL_WINEVERSION set"
