@@ -44,7 +44,8 @@ import wx, wx.aui
 import wx.lib.hyperlink
 import lib.lng as lng
 import lib.playonlinux as playonlinux, lib.Variables as Variables
-import options, configure, threading, debug
+import options, threading, debug
+from configurewindow import ConfigureWindow
 from wine_versions import WineVersionsWindow as wver
 from setupwindow import gui_server
 from install.InstallWindow import InstallWindow
@@ -992,10 +993,10 @@ class MainWindow(wx.Frame):
 
         except:
             if (game_exec == ""):
-                self.configureFrame = configure.MainWindow(self, -1, _("{0} configuration").format(
+                self.configureFrame = ConfigureWindow.ConfigureWindow(self, -1, _("{0} configuration").format(
                     os.environ["APPLICATION_TITLE"]), "default", True)
             else:
-                self.configureFrame = configure.MainWindow(self, -1, _("{0} configuration").format(
+                self.configureFrame = ConfigureWindow.ConfigureWindow(self, -1, _("{0} configuration").format(
                     os.environ["APPLICATION_TITLE"]), game_exec.decode("utf-8", "replace"), False)
 
             self.configureFrame.Center(wx.BOTH)
