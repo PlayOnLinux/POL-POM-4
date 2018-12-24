@@ -18,15 +18,16 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-import os, sys, string, subprocess
-import wx, time
-#from subprocess import Popen,PIPE
+import os
+import subprocess
 
-import wine_versions
-import lib.playonlinux as playonlinux
-import lib.wine as wine
+import wx
+
 import lib.Variables as Variables
-import lib.lng as lng
+import lib.playonlinux as playonlinux
+
+
+# from subprocess import Popen,PIPE
 
 class MainWindow(wx.Frame):
     def __init__(self,parent,id,title,logcheck="/dev/null",logtype=None):

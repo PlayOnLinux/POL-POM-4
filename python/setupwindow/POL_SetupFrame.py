@@ -43,7 +43,7 @@ class POL_SetupFrame(PlayOnLinuxWindow):
     def __init__(self, parent, title, POL_SetupWindowID, Arg1, Arg2, Arg3):
         PlayOnLinuxWindow.__init__(self, None, -1, title=title,
                                    style=wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX | wx.RESIZE_BORDER,
-                                   size=(520, 410))
+                                   size=(520, 410 + Variables.windows_add_size))
         self.bash_pid = int(POL_SetupWindowID)
         self.last_time = int(round(time.time() * 1000))
         self.ProtectedWindow = False

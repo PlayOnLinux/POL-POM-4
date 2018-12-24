@@ -35,8 +35,8 @@ if os.environ["POL_OS"] == "Mac":
     os.environ["APPLICATION_TITLE"] = "PlayOnMac"
     os.environ["WINE_SITE"] = "https://phoenicis.playonlinux.com/index.php/wine?os=darwin"
     os.environ["POL_DNS"] = "playonmac.com"
-    windows_add_size = 20;
-    windows_add_playonmac = 1;
+    windows_add_size = 20
+    windows_add_playonmac = 1
     widget_borders = wx.SIMPLE_BORDER
     os_name = "darwin"
     os.environ["POL_WGET"] = "wget --prefer-family=IPv4 -q --no-check-certificate"
