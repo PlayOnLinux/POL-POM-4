@@ -17,7 +17,7 @@ except:
 os.environ["POL_PORT"] = "0"
 os.environ["PLAYONLINUX"] = os.path.realpath(os.path.realpath(__file__)+"/../../../")
 os.environ["SITE"] = "http://repository.playonlinux.com"
-os.environ["VERSION"] = "4.3.3"
+os.environ["VERSION"] = "4.3.4"
 os.environ["POL_ID"] = str(random.randint(1, 100000000))
 os.environ["GECKO_SITE"] = "http://wine.playonlinux.com/gecko"
 os.environ["MONO_SITE"] = "http://wine.playonlinux.com/mono"

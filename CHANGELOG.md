@@ -1,3 +1,10 @@
+# 4.3.4
+* Fixed some bugs in the wineversion process
+* Begining of code cleaning and refactoring
+* Begining of using wx box sizers instead of absolute positioning.
+  Most of the windows are now resizable
+  This should solve display issues on many cases: HDPI and alternative windows manager: (see https://www.playonlinux.com/en/topic-16188-Visual_error_with_KDE.html)
+
 # 4.3.3
 * Linux: Fix HDPI support
 * Compatibility with OSX < Mojave
@@ -11,7 +18,6 @@
 * Fix small typo in first use "send report" message
 
 # 4.2.10
-
 * Silence POL_Notice_IsAck when ack_notices file doesn't exist
 * Allow Set_SoundDriver '' to disable sound
 * Add in the wineprefix configuration tab for Wine: Control panel
@@ -24,7 +30,6 @@
   POL_SetupWindow_auto_shortcut using POL_Shortcut for consistency
 
 # 4.2.9
-
 * Fixed a bug in the user agent used in urllib that would make it look like an attack to paranoid eyes (and filters) (#5072)
 * Try to improve general installation instructions
 * Update About's copyright years span (let's make it look like we're still working on the project ;) ) Many more could be updated though
