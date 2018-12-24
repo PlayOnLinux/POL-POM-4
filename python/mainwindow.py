@@ -44,7 +44,8 @@ import wx, wx.aui
 import wx.lib.hyperlink
 import lib.lng as lng
 import lib.playonlinux as playonlinux, lib.Variables as Variables
-import options, wine_versions as wver, configure, threading, debug
+import options, configure, threading, debug
+from wine_versions import WineVersionsWindow as wver
 from setupwindow import gui_server
 from install.InstallWindow import InstallWindow
 
@@ -1035,8 +1036,8 @@ class MainWindow(wx.Frame):
             self.wversion.Show()
             self.wversion.SetFocus()
         except:
-            self.wversion = wver.MainWindow(None, -1,
-                                            _('{0} wine versions manager').format(os.environ["APPLICATION_TITLE"]))
+            self.wversion = wver.WineVersionsWindow(None, -1,
+                                                    _('{0} wine versions manager').format(os.environ["APPLICATION_TITLE"]))
             self.wversion.Center(wx.BOTH)
             self.wversion.Show(True)
 

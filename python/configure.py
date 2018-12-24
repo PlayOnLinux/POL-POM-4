@@ -18,14 +18,13 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-import os, sys, string, stat, shutil
-import wx, time, shlex, subprocess
+import os, stat, shutil
+import wx, shlex, subprocess
 
-import wine_versions
 import lib.playonlinux as playonlinux
 import lib.wine as wine
 import lib.Variables as Variables
-import lib.lng as lng
+
 
 class PackageList():
     def __init__(self):
