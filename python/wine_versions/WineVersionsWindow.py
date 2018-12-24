@@ -124,22 +124,13 @@ class WineVersionsWindow(wx.Frame):
         if (os.environ["AMD64_COMPATIBLE"] == "True"):
             reload64 = os.listdir(Variables.playonlinux_rep + "/wine/" + fetchUserOS() + "-amd64")
         if (self.download32.thread_message == "Ok" or self.download32.thread_message == "Err"):
-            self.onglets.waitPanel["x86"].Hide()
             self.WriteVersion()
             self.download32.thread_message = "Wait"
 
-        else:
-            if (self.download32.thread_message != "Wait"):
-                self.onglets.waitPanel["x86"].Show()
-
         if (os.environ["AMD64_COMPATIBLE"] == "True"):
             if (self.download64.thread_message == "Ok" or self.download64.thread_message == "Err"):
-                self.onglets.waitPanel["amd64"].Hide()
                 self.WriteVersion("amd64")
                 self.download64.thread_message = "Wait"
-            else:
-                if (self.download64.thread_message != "Wait"):
-                    self.onglets.waitPanel["amd64"].Show()
 
         if (os.environ["AMD64_COMPATIBLE"] == "True"):
             if (reload64 != self.oldreload64):

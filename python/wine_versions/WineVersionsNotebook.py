@@ -33,25 +33,30 @@ class WineVersionsNotebook(wx.Notebook):
         installedWineVersionsSizer = wx.BoxSizer(wx.VERTICAL)
         installedWineVersionsPanel.SetSizer(installedWineVersionsSizer)
         self.boxSizers[arch].Add(installedWineVersionsPanel, 3, wx.EXPAND)
+        installedWineVersionsSizer.AddSpacer(10)
         installedWineVersionsSizer.Add(wx.StaticText(installedWineVersionsPanel, -1, _("Installed Wine versions: ")), 0)
+        installedWineVersionsSizer.AddSpacer(10)
         self.installedWineVersionsTreeSelector[arch] = wx.TreeCtrl(installedWineVersionsPanel, 107 + self.calculateEventDelta(arch),
                                                                    style=wx.TR_HIDE_ROOT | wx.TR_FULL_ROW_HIGHLIGHT | Variables.widget_borders)
         self.installedWineVersionsTreeSelector[arch].SetImageList(self.imagesapps_i[arch])
         self.installedWineVersionsTreeSelector[arch].SetSpacing(0)
         installedWineVersionsSizer.Add(self.installedWineVersionsTreeSelector[arch], 1, wx.EXPAND)
+        installedWineVersionsSizer.AddSpacer(10)
 
     def _createAvailableWineVersionsPanel(self, arch):
         availableWineVersionsPanel = wx.Panel(self.panels[arch] , -1)
         availableWineVersionsSizer = wx.BoxSizer(wx.VERTICAL)
         availableWineVersionsPanel.SetSizer(availableWineVersionsSizer)
         self.boxSizers[arch].Add(availableWineVersionsPanel, 3, wx.EXPAND)
+        availableWineVersionsSizer.AddSpacer(10)
         availableWineVersionsSizer.Add(wx.StaticText(availableWineVersionsPanel, -1, _("Available Wine versions: "), (5, 10)), 0)
-
+        availableWineVersionsSizer.AddSpacer(10)
         self.availableWineVersionsTreeSelector[arch] = wx.TreeCtrl(availableWineVersionsPanel, 106 + self.calculateEventDelta(arch),
                                                                    style=wx.TR_HIDE_ROOT | wx.TR_FULL_ROW_HIGHLIGHT | Variables.widget_borders,
                                                                    size=(320, 300), pos=(10, 35))
         self.availableWineVersionsTreeSelector[arch].SetImageList(self.imagesapps[arch])
         self.availableWineVersionsTreeSelector[arch].SetSpacing(0)
+        availableWineVersionsSizer.AddSpacer(10)
         availableWineVersionsSizer.Add(self.availableWineVersionsTreeSelector[arch], 1, wx.EXPAND)
 
     def _createButtonPanel(self, arch):
@@ -81,14 +86,10 @@ class WineVersionsNotebook(wx.Notebook):
         self.imagesapps[arch] = wx.ImageList(22, 22)
         self.imagesapps_i[arch] = wx.ImageList(22, 22)
 
+        self.boxSizers[arch].AddSpacer(10)
         self._createAvailableWineVersionsPanel(arch)
         self._createButtonPanel(arch)
         self._createInstalledWineVersionsPanel(arch)
-
-
-
-
-        self.waitPanel[arch] = wx.Panel(self.panels[arch], -1, pos=(10, 505), size=(100, 100))
-
+        self.boxSizers[arch].AddSpacer(10)
 
         self.AddPage(self.panels[arch], _("Wine versions") + " (" + arch + ")", imageId=0)
