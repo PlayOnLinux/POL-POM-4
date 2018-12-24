@@ -244,8 +244,7 @@ class InstallWindow(PlayOnLinuxWindow):
         buttonsSizer.AddSpacer(10)
 
     def __init__(self, parent, id, title):
-        PlayOnLinuxWindow.__init__(self, parent, -1, title, size=(850, 550 + Variables.windows_add_size),
-                                   style=wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX | wx.MAXIMIZE_BOX)
+        PlayOnLinuxWindow.__init__(self, parent, -1, title, size=(850, 550))
         self.cats_icons = {}
         self.cats_links = {}
 
