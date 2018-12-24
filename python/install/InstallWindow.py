@@ -274,13 +274,8 @@ class InstallWindow(PlayOnLinuxWindow):
         self.openMin = False
         self.images_cat = wx.ImageList(22, 22)
 
-
-        self.star_x = 0
-        self.stars = 0
-
         self.installButton.Enable(False)
 
-        # self.AddApps()
 
         # wx.EVT_TREE_SEL_CHANGED(self, 105, self.AddApps)
         wx.EVT_TREE_SEL_CHANGED(self, 106, self.AppsDetails)
@@ -302,12 +297,12 @@ class InstallWindow(PlayOnLinuxWindow):
         except AttributeError:
             self.lasthtml_content = ""
 
-        if (self.lasthtml_content != self.descriptionFetcher.htmlContent):
+        if self.lasthtml_content != self.descriptionFetcher.htmlContent:
             self.SetImg(self.descriptionFetcher.miniature)
             self.descriptionFetcher.miniature = self.descriptionFetcher.miniature_defaut
 
             self.lasthtml_content = self.descriptionFetcher.htmlContent
-            if (self.descriptionFetcher.htmlContent == "###WAIT###"):
+            if self.descriptionFetcher.htmlContent == "###WAIT###":
                 self.animation.Show()
                 self.animation.Play()
                 self.descriptionLoaderPanel.Show()
@@ -322,12 +317,10 @@ class InstallWindow(PlayOnLinuxWindow):
                 self.descriptionContentHtmlBox.SetPage(self.descriptionFetcher.htmlContent)
             self.Layout()
 
-        if (self.stars != self.descriptionFetcher.stars):
-            self.showStars(self.descriptionFetcher.stars)
-            self.stars = self.descriptionFetcher.stars
+        self.showStars(self.descriptionFetcher.stars)
 
-        if (self.openMin == True):
-            if (self.descriptionFetcher.med_miniature != None):
+        if self.openMin == True:
+            if self.descriptionFetcher.med_miniature != None:
                 self.miniatureWindow = MiniatureWindow(None, -1,
                                                        self.appsList.GetItemText(self.appsList.GetSelection()),
                                                        self.descriptionFetcher.med_miniature)
@@ -363,35 +356,30 @@ class InstallWindow(PlayOnLinuxWindow):
         else:
             InstallApplication = self.appsList.GetItemText(self.appsList.GetSelection())
 
-        if (InstallApplication == "about:creator"):
-            self.EasterEgg = sp.egg(None, -1, "PlayOnLinux Conceptor")
-            self.EasterEgg.Show()
-            self.EasterEgg.Center(wx.BOTH)
-        else:
-            if (os.path.exists(Variables.playonlinux_rep + "/configurations/listes/search")):
-                content = codecs.open(Variables.playonlinux_rep + "/configurations/listes/search", "r",
-                                      "utf-8").read().split("\n")
-                found = False
-                for line in content:
-                    split = line.split("~")
-                    if (split[0] == InstallApplication):
-                        found = True
-                        break;
-                if (found == True):
-                    if (len(split) <= 1):
-                        self.UpdatePol(self)
-                    else:
-                        if (split[1] == "1"):
-                            wx.MessageBox(_(
-                                "This program is currently in testing.\n\nIt might not work as expected. Your feedback, positive or negative, is specially important to improve this installer."),
-                                _("Please read this"))
-                        if (split[2] == "1"):
-                            wx.MessageBox(_(
-                                "This program contains a protection against copy (DRM) incompatible with emulation.\nThe only workaround is to use a \"no-cd\" patch, but since those can also be used for piracy purposes we won't give any support on this matter."),
-                                _("Please read this"))
+        if os.path.exists(Variables.playonlinux_rep + "/configurations/listes/search"):
+            content = codecs.open(Variables.playonlinux_rep + "/configurations/listes/search", "r",
+                                  "utf-8").read().split("\n")
+            found = False
+            for line in content:
+                split = line.split("~")
+                if (split[0] == InstallApplication):
+                    found = True
+                    break;
+            if (found == True):
+                if (len(split) <= 1):
+                    self.UpdatePol(self)
+                else:
+                    if (split[1] == "1"):
+                        wx.MessageBox(_(
+                            "This program is currently in testing.\n\nIt might not work as expected. Your feedback, positive or negative, is specially important to improve this installer."),
+                            _("Please read this"))
+                    if (split[2] == "1"):
+                        wx.MessageBox(_(
+                            "This program contains a protection against copy (DRM) incompatible with emulation.\nThe only workaround is to use a \"no-cd\" patch, but since those can also be used for piracy purposes we won't give any support on this matter."),
+                            _("Please read this"))
 
-            subprocess.Popen(
-                ["bash", Variables.playonlinux_env + "/bash/install", InstallApplication.encode("utf-8", "replace")])
+        subprocess.Popen(
+            ["bash", Variables.playonlinux_env + "/bash/install", InstallApplication.encode("utf-8", "replace")])
 
         self.Destroy()
         return
@@ -399,21 +387,21 @@ class InstallWindow(PlayOnLinuxWindow):
     def search(self, event):
         self.apps = codecs.open(Variables.playonlinux_rep + "/configurations/listes/search", 'r', "utf-8")
         self.apps = self.apps.readlines()
-        self.j = 0;
+        self.j = 0
         while (self.j < len(self.apps)):
             self.apps[self.j] = self.apps[self.j].replace("\n", "")
             self.j += 1
 
-        self.j = 0;
-        self.k = 0;
+        self.j = 0
+        self.k = 0
         self.user_search = self.searchbox.GetValue()
         self.search_result = []
 
         while (self.j < len(self.apps)):
             if (string.lower(self.user_search) in string.lower(self.apps[self.j])):
                 self.search_result.append(self.apps[self.j])
-                self.k = self.k + 1;
-            self.j = self.j + 1;
+                self.k = self.k + 1
+            self.j = self.j + 1
 
         if (len(self.user_search) < 2 or "~" in self.user_search):
             self.search_result = []
@@ -428,7 +416,7 @@ class InstallWindow(PlayOnLinuxWindow):
             self.DelApps()
 
     def EraseDetails(self):
-        self.descriptionContentHtmlBox.SetValue("");
+        self.descriptionContentHtmlBox.SetValue("")
 
     def AppsDetails(self, event):
         self.installButton.Enable(True)
@@ -514,7 +502,6 @@ class InstallWindow(PlayOnLinuxWindow):
 
     def AddApps(self, event, noevent=False):
         self.searchbox.SetValue("")
-        # self.cat_selected=self.list_cat.GetItemText(self.list_cat.GetSelection()).encode("utf-8","replace")
         if (noevent == False):
             if (event.GetId() >= 3000):
                 self.cat_selected = event.GetId() - 3000
