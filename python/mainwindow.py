@@ -22,6 +22,8 @@ encoding = 'utf-8'
 import os, getopt, sys, urllib, signal, string, time, webbrowser, gettext, locale, sys
 import shlex, subprocess, signal
 
+from install.InstallWindow import InstallWindow
+
 try :
     os.environ["POL_OS"]
 except :
@@ -36,7 +38,7 @@ import wx, wx.aui
 import wx.lib.hyperlink
 import lib.lng as lng
 import lib.playonlinux as playonlinux, lib.Variables as Variables
-import guiv3 as gui, install, options, wine_versions as wver, sp, configure, threading, debug, gui_server
+import guiv3 as gui, install, options, wine_versions as wver, configure, threading, debug, gui_server
 
 # This thread manage updates
 class POLWeb(threading.Thread):
@@ -543,35 +545,19 @@ class MainWindow(wx.Frame):
         else:
             self.jauge_update.Hide()
 
-        if(self.updater.updating == True):
-            self.sb.Show()
-            try:
-                self.installFrame.panelItems.Hide()
-                self.installFrame.panelManual.Hide()
-                self.installFrame.panelWait.Show()
-                self.installFrame.manualInstall.Raise()
-                try:
-                    if(self.playing == False):
-                        self.installFrame.animation_wait.Play()
-                        self.playing = True
-                except:
-                    self.playing = False
-            except:
-                pass
-        else:
-            self.sb.Hide()
-            try:
-                if(self.installFrame.currentPanel == 1):
-                    self.installFrame.panelManual.Show()
-                else:
-                    self.installFrame.panelItems.Show()
-                    self.installFrame.manualInstall.Raise()
-                self.installFrame.panelWait.Hide()
-                self.installFrame.animation_wait.Stop()
-                self.playing = False
+        try:
+            if(self.updater.updating == True):
+                self.sb.Show()
+                ## TODO: Refactor
+                self.installFrame.setWaitState(True)
+            else:
+                self.sb.Hide()
+                self.installFrame.setWaitState(False)
                 self.installFrame.Refresh()
-            except:
-                pass
+        except wx._core.PyDeadObjectError:
+            pass
+        except AttributeError: # FIXME: Install Frame is not opened
+            pass
 
         if(self.updater.sendAlertStr != self.sendAlertStr):
             wx.MessageBox(self.updater.sendAlertStr, os.environ["APPLICATION_TITLE"], wx.OK|wx.CENTER, self)
@@ -1005,7 +991,7 @@ class MainWindow(wx.Frame):
             self.installFrame.Show(True)
             self.installFrame.SetFocus()
         except:
-            self.installFrame = install.InstallWindow(self, -1, _('{0} install menu').format(os.environ["APPLICATION_TITLE"]))
+            self.installFrame = InstallWindow(self, -1, _('{0} install menu').format(os.environ["APPLICATION_TITLE"]))
             self.installFrame.Center(wx.BOTH)
             self.installFrame.Show(True)
 
