@@ -56,8 +56,8 @@ class WineVersionsNotebook(wx.Notebook):
                                                                    size=(320, 300), pos=(10, 35))
         self.availableWineVersionsTreeSelector[arch].SetImageList(self.imagesapps[arch])
         self.availableWineVersionsTreeSelector[arch].SetSpacing(0)
-        availableWineVersionsSizer.AddSpacer(10)
         availableWineVersionsSizer.Add(self.availableWineVersionsTreeSelector[arch], 1, wx.EXPAND)
+        availableWineVersionsSizer.AddSpacer(10)
 
     def _createButtonPanel(self, arch):
         buttonsPanel = wx.Panel(self.panels[arch] , -1)
