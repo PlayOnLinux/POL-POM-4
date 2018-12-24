@@ -17,7 +17,11 @@ class iLang(object):
         else:
             languages = os.listdir(Variables.playonlinux_env+'/lang/locale')
 
-        langid = wx.LANGUAGE_DEFAULT
+        if(os.environ["POL_OS"] == "Mac"):
+            langid = wx.Locale().FindLanguageInfo(os.environ["RLANG"]).Language
+        else:
+            langid = wx.LANGUAGE_DEFAULT
+
         if(os.environ["DEBIAN_PACKAGE"] == "TRUE"):
             localedir = "/usr/share/locale"
         else:

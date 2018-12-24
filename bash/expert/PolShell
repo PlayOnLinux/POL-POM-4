@@ -15,11 +15,24 @@
 
 # You should have received a copy of the GNU General Public License along
 # with this program; if not, write to the Free Software Foundation, Inc.,
-# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA. 
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 [ "$PLAYONLINUX" = "" ] && exit 0
 source "$PLAYONLINUX/lib/sources"
 
-POL_Internal_SetXQuartzDisplay
+if [ "$POL_OS" = "Mac" ]; then
+   cat << EOF > /tmp/playOnMacOpenTerminal
+#!/bin/bash
+export PLAYONLINUX="$PLAYONLINUX"
+source "\$PLAYONLINUX/lib/sources"
+$(export)
+
+"\$PLAYONLINUX/bash/polshell"
+EOF
+   chmod +x /tmp/playOnMacOpenTerminal
+   open -b com.apple.terminal /tmp/playOnMacOpenTerminal
+   exit 0
+fi
+
 [ "$DEBIAN_PACKAGE" = "FALSE" ] && TITLEADD="-T $APPLICATION_TITLE"
 "$POL_TERM" $TITLEADD -e "$PLAYONLINUX/bash/polshell"
