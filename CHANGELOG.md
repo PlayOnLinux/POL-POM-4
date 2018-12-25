@@ -7,6 +7,7 @@
 * macOS: Remove XQuartz installation
 * macOS: Bundle an up-to-date wine version
 * macOS: Use native terminal instead of xterm
+* macOS: Fix localization
 
 # 4.3.3
 * Linux: Fix HDPI support
