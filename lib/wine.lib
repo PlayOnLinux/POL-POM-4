@@ -862,6 +862,10 @@ POL_Wine_SetVersionEnv()
 			export LD_LIBRARY_PATH="$WINEDIR/$POL_WINEVERSION/lib/:$WINEDIR/$POL_WINEVERSION/lib64/:$LD_LIBRARY_PATH"
 			[ "$POL_OS" = "FreeBSD" ] && export LD_32_LIBRARY_PATH="$WINEDIR/$POL_WINEVERSION/lib/:$LD_32_LIBRARY_PATH"
 		fi
+	else
+		if [ "$POL_OS" = "Mac" ]; then
+			[ "$DYLD_FALLBACK_LIBRARY_PATH" = "" ] && export DYLD_FALLBACK_LIBRARY_PATH="$RESOURCEPATH/unix/wine/lib/"
+		fi
 	fi
 	cd "$OLDPATH"
 }
