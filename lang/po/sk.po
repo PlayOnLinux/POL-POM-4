@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
 "POT-Creation-Date: 2015-08-31 19:00+0200\n"
-"PO-Revision-Date: 2013-12-11 12:41+0000\n"
-"Last-Translator: Michal Lelek <kozodoj@azet.sk>\n"
+"PO-Revision-Date: 2019-05-20 09:22+0200\n"
+"Last-Translator: Jose Riha <jose1711@gmail.com>\n"
 "Language-Team: sk_SK.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -235,6 +235,8 @@ msgid ""
 "Please give the more details as you can, otherwise, it will be very "
 "difficult to help you"
 msgstr ""
+"Prosím, poskytnite čo najviac informácií. V opačnom prípade bude "
+"veľmi náročné vám pomôcť"
 
 #: bash/bug_report:37
 #, sh-format
@@ -250,6 +252,8 @@ msgid ""
 "Your $APPLICATION_TITLE version is not up to date.\\nYou must update "
 "$APPLICATION_TITLE before sending a bug report.\\nThank you"
 msgstr ""
+"Vaša aplikácia $APPLICATION_TITLE nie je aktuálna.\\Pred zaslaním hlásenia "
+"musíte $APPLICATION_TITLE aktualizovať.\\nĎakujeme"
 
 #: bash/bug_report:47
 #, sh-format
@@ -280,7 +284,7 @@ msgstr "Ručná inštalácia"
 #: bash/bug_report:55 bash/run_exe:24
 #, sh-format
 msgid "Automatic installation"
-msgstr ""
+msgstr "Automatická inštalácia"
 
 #: bash/bug_report:66
 #, sh-format
@@ -300,12 +304,12 @@ msgstr "Prepáčte, potrebujeme podrobný popis."
 #: bash/bug_report:101
 #, sh-format
 msgid "Thank you !\\n\\nYour report has been sent."
-msgstr ""
+msgstr "Ďakujeme!\\n\\nVaše hlásenie bolo odoslané."
 
 #: bash/create_prefix:26
 #, sh-format
 msgid "Virtual drive creator"
-msgstr ""
+msgstr "Vytvorenie virtuálnej jednotky"
 
 #: bash/create_prefix:29
 #, sh-format
@@ -317,7 +321,7 @@ msgstr ""
 #: bash/create_prefix:31 bash/manual_install:169
 #, sh-format
 msgid "What kind of virtual drive do you want to create"
-msgstr ""
+msgstr "Aký typ virtuálnej jednotky si želáte vytvoriť"
 
 #: bash/create_prefix:55
 #, sh-format
@@ -325,6 +329,7 @@ msgid ""
 "(If this list is empty, please install a wine version with wine version "
 "manager)"
 msgstr ""
+"(Ak je tento zoznam prázdny, nainštalujte, prosím, verziu wine prostredníctvom správcu wine verzií)"
 
 #: bash/create_prefix:55 bash/manual_install:156
 #, sh-format
@@ -347,6 +352,7 @@ msgstr "Spustiť miestny skript"
 msgid ""
 "This wizard will help you to run an unofficial $APPLICATION_TITLE Script."
 msgstr ""
+"Tento sprievodca vám pomôže pri spustení neoficiálneho skriptu pre $APLICATION_TITLE."
 
 #: bash/expert/Executer:29
 #, sh-format
@@ -391,7 +397,7 @@ msgstr "$APPLICATION_TITLE konfigurátor aplikácie"
 #: lib/wine.lib:1034 lib/wine.lib:1093 lib/wine.lib:1123
 #, sh-format
 msgid "Please wait..."
-msgstr ""
+msgstr "Čakajte, prosím..."
 
 #: bash/killall:26
 #, sh-format
@@ -412,7 +418,7 @@ msgstr "Prosím, zvoľte program na zbalenie"
 #: bash/make_shortcut:35
 #, sh-format
 msgid "Creating shortcut..."
-msgstr ""
+msgstr "Vytváram odkaz..."
 
 #: bash/make_shortcut:37
 #, sh-format
@@ -427,7 +433,7 @@ msgstr "Kopíruje sa virtuálna jednotka"
 #: bash/manual_install:52
 #, sh-format
 msgid "Autorun"
-msgstr ""
+msgstr "Automatické spustenie (autorun)"
 
 #: bash/manual_install:52
 #, sh-format
@@ -613,7 +619,7 @@ msgstr "Čistí sa..."
 #: bash/polconfigurator:35
 #, sh-format
 msgid "Killing programs in the virtual drive..."
-msgstr ""
+msgstr "Zabíjanie programov vo virtuálnej jednotke..."
 
 #: bash/polconfigurator:86
 #, sh-format
@@ -696,17 +702,17 @@ msgstr ""
 #: bash/read_pc_cd:34
 #, sh-format
 msgid "Eject a PC CD-ROM"
-msgstr ""
+msgstr "Vysunúť PC CD-ROM"
 
 #: bash/read_pc_cd:34
 #, sh-format
 msgid "Read a PC CD-ROM"
-msgstr ""
+msgstr "Prečítať PC CD-ROM"
 
 #: bash/read_pc_cd:34
 #, sh-format
 msgid "What do you want to do?"
-msgstr ""
+msgstr "Čo si želáte robiť?"
 
 #: bash/read_pc_cd:38
 #, sh-format
@@ -718,12 +724,12 @@ msgstr ""
 #: bash/read_pc_cd:51
 #, sh-format
 msgid "Please choose a CD-ROM"
-msgstr ""
+msgstr "Prosím, vyberte CD-ROM"
 
 #: bash/read_pc_cd:97
 #, sh-format
 msgid "Please choose a CD-ROM to eject"
-msgstr ""
+msgstr "Prosím, vyberte CD-ROM, ktorú si prajete vysunúť"
 
 #: bash/run_app:85
 #, sh-format
@@ -745,7 +751,7 @@ msgstr ""
 #: bash/run_app:120
 #, sh-format
 msgid "$PACKAGE crashed."
-msgstr ""
+msgstr "$PACKAGE havaroval."
 
 #: bash/run_exe:33
 #, sh-format
@@ -888,12 +894,12 @@ msgstr ""
 #: bash/update_git:31
 #, sh-format
 msgid "Do you want to update and restart $APPLICATION_TITLE?"
-msgstr ""
+msgstr "Želáte si aktualizovať a reštartovať $APPLICATION_TITLE?"
 
 #: bash/update_git:37
 #, sh-format
 msgid "Already up-to-date."
-msgstr ""
+msgstr "Už je aktuálne."
 
 #: lib/debug.lib:128
 #, sh-format
@@ -965,7 +971,7 @@ msgstr ""
 #: lib/playonlinux.lib:372
 #, sh-format
 msgid "External library"
-msgstr ""
+msgstr "Externá knižnica"
 
 #: lib/playonlinux.lib:645
 #, sh-format
@@ -1054,7 +1060,7 @@ msgstr ""
 #: lib/scripts.lib:527 lib/scripts.lib:590
 #, sh-format
 msgid "No enough space to download:\\n$URL ($neededSpace KB)"
-msgstr ""
+msgstr "Nedostatok miesta pre stiahnutie:\\n$URL ($neededSpace KB)"
 
 #: lib/scripts.lib:529 lib/scripts.lib:822
 #, sh-format
@@ -1064,13 +1070,13 @@ msgstr "Prosím, čakajte, kým $APPLICATION_TITLE nestiahne:"
 #: lib/scripts.lib:531 lib/scripts.lib:596
 #, sh-format
 msgid "An error happened during download."
-msgstr ""
+msgstr "Počas sťahovania došlo k chybe."
 
 #: lib/scripts.lib:531 lib/scripts.lib:549 lib/scripts.lib:596
 #: lib/scripts.lib:612
 #, sh-format
 msgid "Do you want to retry?"
-msgstr ""
+msgstr "Chcete to skúsiť ešte raz?"
 
 #: lib/scripts.lib:549 lib/scripts.lib:612
 #, sh-format
@@ -1134,7 +1140,7 @@ msgstr ""
 #: lib/scripts.lib:1001
 #, sh-format
 msgid "$AUTHOR profile"
-msgstr ""
+msgstr "$AUTHOR profil"
 
 #: lib/setupwindow.lib:95
 #, sh-format
@@ -1253,7 +1259,7 @@ msgstr "Použiť demo verziu Steam Store"
 #: lib/setupwindow.lib:609
 #, sh-format
 msgid "Use Desura Store version"
-msgstr ""
+msgstr "Použiť verziu na Desura Store"
 
 #: lib/setupwindow.lib:610
 #, sh-format
@@ -1273,7 +1279,7 @@ msgstr ""
 #: lib/setupwindow.lib:614
 #, sh-format
 msgid "Use a setup file in my computer"
-msgstr "Použiť inštalačný súbor z ,ôjho počítača"
+msgstr "Použiť inštalačný súbor z môjho počítača"
 
 #: lib/setupwindow.lib:615
 #, sh-format
@@ -1383,27 +1389,27 @@ msgstr "Rozbaľuje sa Wine..."
 #: lib/wine.lib:897
 #, sh-format
 msgid "Overwrite (usually works, no guarantee)"
-msgstr ""
+msgstr "Prepísať (zvyčajne funguje, bez záruk)"
 
 #: lib/wine.lib:898
 #, sh-format
 msgid "Erase (virtual drive content will be lost)"
-msgstr ""
+msgstr "Vymazať (obsah virtuálnej jednotky bude stratený)"
 
 #: lib/wine.lib:899
 #, sh-format
 msgid "Abort installation"
-msgstr ""
+msgstr "Zrušiť inštaláciu"
 
 #: lib/wine.lib:912
 #, sh-format
 msgid "The target virtual drive $PREFNAME already exists:"
-msgstr ""
+msgstr "Cieľová virtuálna jednotka $PREFNAME už existuje:"
 
 #: lib/wine.lib:928
 #, sh-format
 msgid "User abort"
-msgstr ""
+msgstr "Zrušené používateľom"
 
 #: lib/wine.lib:1093 lib/wine.lib:1123
 #, sh-format
@@ -1690,7 +1696,7 @@ msgstr "Súhlasím"
 
 #: python/guiv3.py:179
 msgid "Don't remind me anymore"
-msgstr ""
+msgstr "Toto už nepripomínať"
 
 #: python/guiv3.py:180
 msgid "Show virtual drives"
@@ -1808,7 +1814,7 @@ msgstr ""
 
 #: python/install.py:577
 msgid "Attention!"
-msgstr ""
+msgstr "Upozornenie!"
 
 #: python/install.py:577
 msgid ""
@@ -1839,7 +1845,7 @@ msgstr "{0} chyba"
 
 #: python/mainwindow.py:76
 msgid "{0} website is unavailable. Please check your connection"
-msgstr ""
+msgstr "Stránka {0} nie je dostupná. Prosím, skontrolujte pripojenie k internetu"
 
 #: python/mainwindow.py:78
 msgid "Refreshing {0}"
@@ -1903,35 +1909,35 @@ msgstr "Správca zásuvných modulov"
 
 #: python/mainwindow.py:294
 msgid "Supported software"
-msgstr ""
+msgstr "Podporovaný softvér"
 
 #: python/mainwindow.py:295
 msgid "News"
-msgstr ""
+msgstr "Novinky"
 
 #: python/mainwindow.py:296
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentácia"
 
 #: python/mainwindow.py:297
 msgid "Forums"
-msgstr ""
+msgstr "Fóra"
 
 #: python/mainwindow.py:298
 msgid "Bugs"
-msgstr ""
+msgstr "Chyby"
 
 #: python/mainwindow.py:300
 msgid "Twitter"
-msgstr ""
+msgstr "Twitter"
 
 #: python/mainwindow.py:301
 msgid "Google+"
-msgstr ""
+msgstr "Google+"
 
 #: python/mainwindow.py:302
 msgid "Facebook"
-msgstr ""
+msgstr "Facebook"
 
 #: python/mainwindow.py:306
 msgid "About {0}"
@@ -1955,7 +1961,7 @@ msgstr "Zásuvné moduly"
 
 #: python/mainwindow.py:369
 msgid "Support"
-msgstr ""
+msgstr "Podpora"
 
 #: python/mainwindow.py:381 python/mainwindow.py:777
 msgid "Close"
@@ -1999,7 +2005,7 @@ msgstr "Aktualizovať GIT"
 
 #: python/mainwindow.py:769
 msgid "Update instructions"
-msgstr ""
+msgstr "Návod na aktualizáciu"
 
 #: python/mainwindow.py:779
 msgid "Debug"
@@ -2007,7 +2013,7 @@ msgstr "Ladenie"
 
 #: python/mainwindow.py:785
 msgid "Send a feedback"
-msgstr ""
+msgstr "Poskytnúť odozvu"
 
 #: python/mainwindow.py:790
 msgid "Create a shortcut"
@@ -2044,7 +2050,7 @@ msgstr "Virtuálna jednotka priradená k {0} ({1}) už neexistuje."
 
 #: python/mainwindow.py:1102
 msgid "Are you sure you want to close all {0} windows?"
-msgstr ""
+msgstr "Naozaj si želáte zavrieť všetky {0} okná?"
 
 #: python/mainwindow.py:1124
 msgid "Run your Windows programs on "
@@ -2267,7 +2273,7 @@ msgstr "Naozaj chcete vymazať wine {0}?"
 
 #: python/wine_versions.py:334
 msgid "This version is CURRENTLY IN USE"
-msgstr ""
+msgstr "Táto verzia sa AKTUÁLNE POUŽÍVA"
 
 #: python/wrapper.py:135
 msgid "{0} is not able to start POL_SetupWindow_server."
