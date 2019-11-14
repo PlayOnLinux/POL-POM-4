@@ -8,22 +8,22 @@ msgstr ""
 "Project-Id-Version: playonlinux\n"
 "Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
 "POT-Creation-Date: 2015-08-31 19:00+0200\n"
-"PO-Revision-Date: 2014-08-05 10:47+0000\n"
-"Last-Translator: Einar Svensen <Unknown>\n"
+"PO-Revision-Date: 2019-07-19 11:01+0200\n"
+"Last-Translator: Imre Kristoffer Eilertsen <imreeil42@gmail.com>\n"
 "Language-Team: Norwegian Bokmal <nb@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2015-09-01 05:12+0000\n"
-"X-Generator: Launchpad (build 17690)\n"
+"X-Generator: Poedit 2.2.3\n"
+"Language: nb\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
-msgstr "Hvilke programmer ønsker du å bruke endringen på"
+msgstr "Hvilke programmer ønsker du å benytte endringen på?"
 
 #: Capture plugin:3
-msgid ""
-"This plugin wil allow you to capture you applications under PlayOnLinux"
+msgid "This plugin wil allow you to capture you applications under PlayOnLinux"
 msgstr ""
 "Dette programtillegget vil tillate opptak av dine applikaskjoner på "
 "PlayOnLinux"
@@ -34,7 +34,7 @@ msgstr "Opptaksmeny (OpenGL)"
 
 #: Capture plugin:5
 msgid "Capture menu (not OpenGL)"
-msgstr "Opptaksmeny (not OpenGL)"
+msgstr "Opptaksmeny (ikke OpenGL)"
 
 #: Capture plugin:6
 msgid "Begin the capture of an application"
@@ -54,8 +54,8 @@ msgid ""
 "Press Next then click on the window\\nyou want to capture.\\nCapture will "
 "start automatically after 5 seconds.\\nOnly video will be captured."
 msgstr ""
-"Trykk Neste, deretter trykk på det vinduet\\ndu vill starte opptak av.\\"
-"nOpptak startes automatisk etter 5 sekunder.\\nBare video vill bli tatt opp."
+"Trykk Neste, deretter trykk på det vinduet\\ndu vill starte opptak av."
+"\\nOpptak startes automatisk etter 5 sekunder.\\nBare video vil bli tatt opp."
 
 #: Capture plugin:10
 msgid "Capture will begin..."
@@ -75,19 +75,19 @@ msgstr "Opptak pågår..."
 
 #: Capture plugin:14
 msgid "Choose an action to perform"
-msgstr "Velg handlig"
+msgstr "Velg en handling å utføre"
 
 #: Capture plugin:15
 msgid "Please choose a PID capture file to play"
-msgstr "Velg PID opptaksfil for avspilling"
+msgstr "Velg PID-opptaksfil for avspilling"
 
 #: Capture plugin:16
 msgid "Please choose an OGV capture file to play"
-msgstr "Velg OGV opptaksfil for avspilling"
+msgstr "Velg OGV-opptaksfil for avspilling"
 
 #: Capture plugin:17
 msgid "Please choose a capture file to convert"
-msgstr "Velg opptaksfil som skal konverteres"
+msgstr "Velg en opptaksfil som skal konverteres"
 
 #: Capture plugin:18
 msgid "You must choose a capture to read"
@@ -117,40 +117,34 @@ msgid ""
 "Ubuntu users must add the MEDIBUNTU repository\\nfor this conversion format "
 "to work properly."
 msgstr ""
-"Ubuntu brukere må legge til MEDIBUNTU\\nfor at denne konverteringen skal "
+"Ubuntu-brukere må legge til MEDIBUNTU\\nfor at denne konverteringen skal "
 "fungere skikkelig."
 
 #: Capture plugin:24
 msgid "Choose the video format for conversion"
-msgstr "Velg video format for konvertering"
+msgstr "Velg videoformat for konvertering"
 
 #: Capture plugin:25
 msgid ""
 "Define your encoding options for pass 1 \\n (leave defaults if you do not "
 "know what to do)"
 msgstr ""
-"Definer dine kode instillinger for pass 1\\n (la stå standar hvis du ikke "
-"vet hva du skal gjøre)."
 
 #: Capture plugin:26
 msgid ""
 "Define your encoding options for pass 2 \\n (leave defaults if you do not "
 "know what to do)"
 msgstr ""
-"Definer dine kode instillinger for pass 2\\n (la stå standar hvis du ikke "
-"vet hva du skal gjøre)."
 
 #: Capture plugin:27
 msgid ""
 "Define your encoding options \\n (leave defaults if you do not know what to "
 "do)"
 msgstr ""
-"Definer dine kode instillinger\\n (la stå standar hvis du ikke vet hva du "
-"skal gjøre)."
 
 #: Capture plugin:28
 msgid "Please wait while your video is being encoded..."
-msgstr "Vent litt... Videoen din blir nå konvertert"
+msgstr "Vennligst vent mens videoen din blir kodet …"
 
 #: Capture plugin:29
 msgid "Conversion done"
@@ -186,23 +180,23 @@ msgstr "Du har ikke valgt et spill"
 
 #: Advanced Wine Configuration Plugin:10
 msgid "Choose DirectDraw Renderer Mode?"
-msgstr "Velg DirectDraw rendrings modus?"
+msgstr ""
 
 #: Advanced Wine Configuration Plugin:11
 msgid "Activate GLSL Support?"
-msgstr "Aktivere GLSL støtte?"
+msgstr "Vil du skru på GLSL-støtte?"
 
 #: Advanced Wine Configuration Plugin:13
 msgid "Choose Offscreen Rendering Mode?"
-msgstr "Vleg Offscreen renderings modus?"
+msgstr "Vil du velge rendringsmodus for ting som skjer utenfor skjermen?"
 
 #: Advanced Wine Configuration Plugin:14
 msgid "Choose Render Target Lock Mode?"
-msgstr ""
+msgstr "Vil du velge rendringsmållåsemodus?"
 
 #: Advanced Wine Configuration Plugin:15
 msgid "Activate Multisampling support?"
-msgstr ""
+msgstr "Vil du skru på flersamplingsstøtte?"
 
 #: Advanced Wine Configuration Plugin:16
 msgid "Activate the mouse warp override?"
@@ -210,7 +204,7 @@ msgstr ""
 
 #: Advanced Wine Configuration Plugin:17
 msgid "Optimisation done"
-msgstr ""
+msgstr "Optimaliseringen er utført"
 
 #: Detour plugin:3
 msgid ""
@@ -228,7 +222,7 @@ msgstr "Operasjon fullført"
 #: bash/bug_report:32
 #, sh-format
 msgid "Report a bug"
-msgstr ""
+msgstr "Rapporter en feil"
 
 #: bash/bug_report:37
 #, sh-format
@@ -254,7 +248,7 @@ msgstr ""
 #: bash/bug_report:47
 #, sh-format
 msgid "I have a problem with a software"
-msgstr ""
+msgstr "Jeg har et problem med en programvare"
 
 #: bash/bug_report:47
 #, sh-format
@@ -264,7 +258,7 @@ msgstr ""
 #: bash/bug_report:47
 #, sh-format
 msgid "What kind of problem do you have?"
-msgstr ""
+msgstr "Hva slags problem har du?"
 
 #: bash/bug_report:51
 #, sh-format
@@ -275,12 +269,12 @@ msgstr ""
 #: bash/manual_install:106 bash/manual_install:191
 #, sh-format
 msgid "Manual installation"
-msgstr ""
+msgstr "Manuell installasjon"
 
 #: bash/bug_report:55 bash/run_exe:24
 #, sh-format
 msgid "Automatic installation"
-msgstr ""
+msgstr "Automatisk installasjon"
 
 #: bash/bug_report:66
 #, sh-format
@@ -300,12 +294,12 @@ msgstr ""
 #: bash/bug_report:101
 #, sh-format
 msgid "Thank you !\\n\\nYour report has been sent."
-msgstr ""
+msgstr "Tusen takk!\\n\\nRapporten din har blitt sendt inn."
 
 #: bash/create_prefix:26
 #, sh-format
 msgid "Virtual drive creator"
-msgstr ""
+msgstr "Oppretter for virtuelle harddisker"
 
 #: bash/create_prefix:29
 #, sh-format
@@ -329,18 +323,18 @@ msgstr ""
 #: bash/create_prefix:55 bash/manual_install:156
 #, sh-format
 msgid "Which version of Wine would you like to use?"
-msgstr ""
+msgstr "Hvilken versjon av Wine vil du bruke?"
 
 #: bash/create_prefix:63
 #, sh-format
 msgid "Choose the name of the virtual drive"
-msgstr ""
+msgstr "Velg et navn for den virtuelle harddisken"
 
 #: bash/expert/Executer:22 bash/expert/Executer:27 bash/expert/Executer:29
 #: python/mainwindow.py:276
 #, sh-format
 msgid "Run a local script"
-msgstr ""
+msgstr "Kjør et lokalt skript"
 
 #: bash/expert/Executer:27
 #, sh-format
@@ -356,23 +350,23 @@ msgstr ""
 #: bash/expert/Executer:38
 #, sh-format
 msgid "Error!"
-msgstr ""
+msgstr "Feil!"
 
 #: bash/expert/Executer:38
 #, sh-format
 msgid "File not found!"
-msgstr ""
+msgstr "Filen ble ikke funnet!"
 
 #: bash/install:27 bash/install:29 python/install.py:458 python/install.py:460
 #: python/install.py:580
 #, sh-format
 msgid "Please read this"
-msgstr ""
+msgstr "Vennligst les dette"
 
 #: bash/install_wver:27
 #, sh-format
 msgid "This wizard will help you to install Wine: "
-msgstr ""
+msgstr "Denne veiviseren vil hjelpe deg med å installere Wine: "
 
 #: bash/install_wver:27
 #, sh-format
@@ -402,17 +396,17 @@ msgstr ""
 #: bash/make_shortcut:25
 #, sh-format
 msgid "$APPLICATION_TITLE shortcut creator"
-msgstr ""
+msgstr "$APPLICATION_TITLE-snarveisoppretter"
 
 #: bash/make_shortcut:30
 #, sh-format
 msgid "Please choose a software to package"
-msgstr ""
+msgstr "Vennligst velg en programvare som du vil pakke inn"
 
 #: bash/make_shortcut:35
 #, sh-format
 msgid "Creating shortcut..."
-msgstr ""
+msgstr "Oppretter snarveien …"
 
 #: bash/make_shortcut:37
 #, sh-format
@@ -422,12 +416,12 @@ msgstr ""
 #: bash/make_shortcut:57
 #, sh-format
 msgid "Copying virtual drive"
-msgstr ""
+msgstr "Kopierer den virtuelle harddisken"
 
 #: bash/manual_install:52
 #, sh-format
 msgid "Autorun"
-msgstr ""
+msgstr "Autokjør"
 
 #: bash/manual_install:52
 #, sh-format
@@ -451,12 +445,12 @@ msgstr ""
 #: bash/manual_install:103
 #, sh-format
 msgid "Edit or update an existing application"
-msgstr ""
+msgstr "Rediger eller oppdater et eksisterende program"
 
 #: bash/manual_install:106
 #, sh-format
 msgid "What would you like to do?"
-msgstr ""
+msgstr "Hva vil du gjøre?"
 
 #: bash/manual_install:117
 #, sh-format
@@ -468,63 +462,63 @@ msgstr ""
 #: bash/manual_install:126
 #, sh-format
 msgid "Please choose a program"
-msgstr ""
+msgstr "Vennligst velg et program"
 
 #: bash/manual_install:138
 #, sh-format
 msgid "Use another version of Wine"
-msgstr ""
+msgstr "Bruk en annen versjon av Wine"
 
 #: bash/manual_install:139 bash/manual_install:191 bash/polconfigurator:105
 #: python/configure.py:232 python/mainwindow.py:584
 #, sh-format
 msgid "Configure Wine"
-msgstr ""
+msgstr "Sett opp Wine"
 
 #: bash/manual_install:140
 #, sh-format
 msgid "Install some libraries"
-msgstr ""
+msgstr "Installer noen biblioteker"
 
 #: bash/manual_install:143
 #, sh-format
 msgid "If you don't know, unselect all"
-msgstr ""
+msgstr "Hvis du ikke vet, avvelg alle"
 
 #: bash/manual_install:143
 #, sh-format
 msgid "What would you like to do before installation?"
-msgstr ""
+msgstr "Hva vil du gjøre før installasjonen?"
 
 #: bash/manual_install:203 lib/scripts.lib:469
 #, sh-format
 msgid "Please make your choice"
-msgstr ""
+msgstr "Vennligst gjør valget ditt"
 
 #: bash/manual_install:230
 #, sh-format
 msgid "Looking for runnable CD-ROMs"
-msgstr ""
+msgstr "Leter etter kjørbare CD-ROMer"
 
 #: bash/manual_install:253
 #, sh-format
 msgid "Select another file"
-msgstr ""
+msgstr "Velg en annen fil"
 
 #: bash/manual_install:261
 #, sh-format
 msgid "Please choose a way to install your program"
-msgstr ""
+msgstr "Vennligst velg en måte å installere programmet ditt på"
 
 #: bash/manual_install:270
 #, sh-format
 msgid "Please select the install file to run."
-msgstr ""
+msgstr "Vennligst velg installasjonsfilen som skal kjøres."
 
 #: bash/manual_install:282
 #, sh-format
 msgid "You must choose a file!"
-msgstr ""
+msgstr "Du må velge en fil!"
 
 #: bash/manual_install:288
 #, sh-format
@@ -534,124 +528,124 @@ msgstr ""
 #: bash/playonlinux-pkg:27
 #, sh-format
 msgid "Usage: "
-msgstr ""
+msgstr "Bruksområde: "
 
 #: bash/playonlinux-pkg:29
 #, sh-format
 msgid "\tChoose a file"
-msgstr ""
+msgstr "\tVelg en fil"
 
 #: bash/playonlinux-pkg:31
 #, sh-format
 msgid "\tExtract the package"
-msgstr ""
+msgstr "\tUtvinn pakken"
 
 #: bash/playonlinux-pkg:33
 #, sh-format
 msgid "\tInstall the package"
-msgstr ""
+msgstr "\tInstaller pakken"
 
 #: bash/playonlinux-pkg:35
 #, sh-format
 msgid "\tShow this message"
-msgstr ""
+msgstr "\tVis denne meldingen"
 
 #: bash/playonlinux-pkg:38
 #, sh-format
 msgid "$APPLICATION_TITLE package manager: "
-msgstr ""
+msgstr "$APPLICATION_TITLE-pakkebehandler: "
 
 #: bash/playonlinux-pkg:55
 #, sh-format
 msgid "Choose a package to install"
-msgstr ""
+msgstr "Velg en pakke å installere"
 
 #: bash/playonlinux-pkg:55
 #, sh-format
 msgid "PlayOnLinux package manager"
-msgstr ""
+msgstr "PlayOnLinux-pakkebehandler"
 
 #: bash/playonlinux-pkg:69
 #, sh-format
 msgid "Unable to find the file: "
-msgstr ""
+msgstr "Klarte ikke å finne filen: "
 
 #: bash/playonlinux-pkg:75 bash/playonlinux-pkg:96 bash/playonlinux-pkg:107
 #: bash/playonlinux-pkg:112
 #, sh-format
 msgid " isn't a valid PlayOnLinux package!"
-msgstr ""
+msgstr " er ikke en fyldig PlayOnLinux-pakke!"
 
 #: bash/playonlinux-pkg:75 bash/playonlinux-pkg:90 bash/playonlinux-pkg:96
 #: bash/playonlinux-pkg:107 bash/playonlinux-pkg:112
 #, sh-format
 msgid "This file: "
-msgstr ""
+msgstr "Denne filen: "
 
 #: bash/playonlinux-pkg:90
 #, sh-format
 msgid " does not exist!"
-msgstr ""
+msgstr " finnes ikke!"
 
 #: bash/playonlinux-pkg:103
 #, sh-format
 msgid "Extracting: "
-msgstr ""
+msgstr "Utvinner: "
 
 #: bash/playonlinux-pkg:115
 #, sh-format
 msgid "Running..."
-msgstr ""
+msgstr "Kjører …"
 
 #: bash/playonlinux-pkg:119
 #, sh-format
 msgid "Cleaning..."
-msgstr ""
+msgstr "Rydder …"
 
 #: bash/polconfigurator:35
 #, sh-format
 msgid "Killing programs in the virtual drive..."
-msgstr ""
+msgstr "Avslutter programmer i den virtuelle disken …"
 
 #: bash/polconfigurator:86
 #, sh-format
 msgid "Icon selection"
-msgstr ""
+msgstr "Ikonvalg"
 
 #: bash/polconfigurator:86
 #, sh-format
 msgid "Please select an icon file"
-msgstr ""
+msgstr "Vennligst velg en ikonfil"
 
 #: bash/polconfigurator:93
 #, sh-format
 msgid "Bad file extension"
-msgstr ""
+msgstr "Dårlig filtype"
 
 #: bash/polconfigurator:93
 #, sh-format
 msgid "is not an icon extension"
-msgstr ""
+msgstr "er ikke en ikonfiltype"
 
 #: bash/polconfigurator:106 python/configure.py:240 python/mainwindow.py:588
 #, sh-format
 msgid "Registry Editor"
-msgstr ""
+msgstr "Registerredigering"
 
 #: bash/polconfigurator:107
 #, sh-format
 msgid "Kill all prefix processes"
-msgstr ""
+msgstr "Avslutt alle mappesystemprosesser"
 
 #: bash/polconfigurator:108
 #, sh-format
 msgid "Update wineprefix"
-msgstr ""
+msgstr "Oppdater Wine-mappesystem"
 
 #: bash/polconfigurator:109
 #, sh-format
 msgid "Simulate Windows reboot"
-msgstr ""
+msgstr "Etterlign Windows-omstart"
 
 #: bash/polconfigurator:110
 #, sh-format
@@ -666,22 +660,22 @@ msgstr ""
 #: bash/polconfigurator:113
 #, sh-format
 msgid "Change the icon"
-msgstr ""
+msgstr "Endre ikonet"
 
 #: bash/polconfigurator:114
 #, sh-format
 msgid "Use WineTricks"
-msgstr ""
+msgstr "Benytt WineTricks"
 
 #: bash/polconfigurator:134
 #, sh-format
 msgid "Please choose an action to perform"
-msgstr ""
+msgstr "Vennligst velg en handling å utføre"
 
 #: bash/read_pc_cd:25
 #, sh-format
 msgid "PC CD-ROM reader"
-msgstr ""
+msgstr "PC CD-ROM-leser"
 
 #: bash/read_pc_cd:33
 #, sh-format
@@ -694,17 +688,17 @@ msgstr ""
 #: bash/read_pc_cd:34
 #, sh-format
 msgid "Eject a PC CD-ROM"
-msgstr ""
+msgstr "Ta ut en PC CD-ROM"
 
 #: bash/read_pc_cd:34
 #, sh-format
 msgid "Read a PC CD-ROM"
-msgstr ""
+msgstr "Les en PC CD-ROM"
 
 #: bash/read_pc_cd:34
 #, sh-format
 msgid "What do you want to do?"
-msgstr ""
+msgstr "Hva vil du gjøre?"
 
 #: bash/read_pc_cd:38
 #, sh-format
@@ -716,22 +710,22 @@ msgstr ""
 #: bash/read_pc_cd:51
 #, sh-format
 msgid "Please choose a CD-ROM"
-msgstr ""
+msgstr "Vennligst velg en CD-ROM"
 
 #: bash/read_pc_cd:97
 #, sh-format
 msgid "Please choose a CD-ROM to eject"
-msgstr ""
+msgstr "Vennligst velg en CD-ROM å ta ut"
 
 #: bash/run_app:85
 #, sh-format
 msgid "Please choose a software to run"
-msgstr ""
+msgstr "Vennligst velg en programvare å kjøre"
 
 #: bash/run_app:115
 #, sh-format
 msgid "$APPLICATION_TITLE debugger is starting..."
-msgstr ""
+msgstr "$APPLICATION_TITLE-feilsøkeren starter opp …"
 
 #: bash/run_app:118
 #, sh-format
@@ -743,12 +737,12 @@ msgstr ""
 #: bash/run_app:120
 #, sh-format
 msgid "$PACKAGE crashed."
-msgstr ""
+msgstr "$PACKAGE krasjet."
 
 #: bash/run_exe:33
 #, sh-format
 msgid "Waiting XQuartz to be installed"
-msgstr ""
+msgstr "Venter på at XQuartz blir installert"
 
 #: bash/run_exe:70
 #, sh-format
@@ -776,7 +770,7 @@ msgstr ""
 #: bash/run_exe:98
 #, sh-format
 msgid "What is the name of you program?"
-msgstr ""
+msgstr "Hva er navnet på programmet ditt?"
 
 #: bash/run_exe:111
 #, sh-format
@@ -796,37 +790,37 @@ msgstr ""
 #: bash/startup_after_server:42
 #, sh-format
 msgid "Don't install XQuartz for the moment"
-msgstr ""
+msgstr "Ikke installer XQuartz for øyeblikket"
 
 #: bash/startup_after_server:42
 #, sh-format
 msgid "I've downloaded the file by myself"
-msgstr ""
+msgstr "Jeg har lastet ned filen selv"
 
 #: bash/startup_after_server:42
 #, sh-format
 msgid "Please download XQuartz for me"
-msgstr ""
+msgstr "Vennligst last ned XQuartz for meg"
 
 #: bash/startup_after_server:47
 #, sh-format
 msgid "Downloading XQuartz"
-msgstr ""
+msgstr "Laster ned XQuartz"
 
 #: bash/startup_after_server:52
 #, sh-format
 msgid "Where is"
-msgstr ""
+msgstr "Hvor er"
 
 #: bash/startup_after_server:59
 #, sh-format
 msgid "Installing XQuartz..."
-msgstr ""
+msgstr "Installerer XQuartz …"
 
 #: bash/startup_after_server:68
 #, sh-format
 msgid "XQuartz has been installed."
-msgstr ""
+msgstr "XQuartz har blitt installert."
 
 #: bash/startup_after_server:76
 #, sh-format
@@ -842,37 +836,37 @@ msgstr ""
 #: bash/uninstall:39
 #, sh-format
 msgid "Please select a program to uninstall"
-msgstr ""
+msgstr "Vennligst velg et program som skal avinstalleres"
 
 #: bash/uninstall:50
 #, sh-format
 msgid "Click Next to continue."
-msgstr ""
+msgstr "Klikk Neste for å fortsette."
 
 #: bash/uninstall:50
 #, sh-format
 msgid "This wizard will help you to uninstall: "
-msgstr ""
+msgstr "Veiviseren vil hjelpe deg med å avinstallere: "
 
 #: bash/uninstall:65 lib/wine.lib:867
 #, sh-format
 msgid "Uninstalling..."
-msgstr ""
+msgstr "Avinstallerer …"
 
 #: bash/uninstall:68
 #, sh-format
 msgid " has been uninstalled successfully."
-msgstr ""
+msgstr " har blitt vellykket avinstallert."
 
 #: bash/uninstall:75
 #, sh-format
 msgid "Cannot find the shortcut"
-msgstr ""
+msgstr "Kan ikke finne snarveien"
 
 #: bash/update_git:25
 #, sh-format
 msgid "$APPLICATION_TITLE auto-updater"
-msgstr ""
+msgstr "$APPLICATION_TITLE-autooppdaterer"
 
 #: bash/update_git:27
 #, sh-format
@@ -887,7 +881,7 @@ msgstr ""
 #: bash/update_git:37
 #, sh-format
 msgid "Already up-to-date."
-msgstr ""
+msgstr "Allerede oppdatert."
 
 #: lib/debug.lib:128
 #, sh-format
@@ -901,8 +895,8 @@ msgstr ""
 #, sh-format
 msgid ""
 "$APPLICATION_TITLE has encountered an error. If the program you are "
-"installing does not work correctly, it might be the cause of the problem.\\"
-"nVisit www.$POL_DNS to get further information"
+"installing does not work correctly, it might be the cause of the problem."
+"\\nVisit www.$POL_DNS to get further information"
 msgstr ""
 
 #: lib/debug.lib:155
@@ -917,7 +911,7 @@ msgstr ""
 #: lib/wine.lib:934 lib/wine.lib:973
 #, sh-format
 msgid "Please wait while the virtual drive is being created..."
-msgstr ""
+msgstr "Vennligst vent mens den virtuelle harddisken blir opprettet …"
 
 #: lib/deprecated.lib:431
 #, sh-format
@@ -959,17 +953,17 @@ msgstr ""
 #: lib/playonlinux.lib:372
 #, sh-format
 msgid "External library"
-msgstr ""
+msgstr "Eksternt bibliotek"
 
 #: lib/playonlinux.lib:645
 #, sh-format
 msgid "Making shortcut..."
-msgstr ""
+msgstr "Lager snarveien …"
 
 #: lib/playonlinux.lib:771
 #, sh-format
 msgid "Do you want to delete the virtual drive:"
-msgstr ""
+msgstr "Vil du slette den virtuelle harddisken:"
 
 #: lib/playonlinux.lib:881
 #, sh-format
@@ -977,6 +971,8 @@ msgid ""
 "The following file is located on a FAT32 filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
+"Den følgende filen ligger i et FAT32-filsystem.\\nDen kan hindre Wine fra å "
+"fungere\\n\\n$FilePath"
 
 #: lib/playonlinux.lib:882
 #, sh-format
@@ -984,6 +980,8 @@ msgid ""
 "The following file is located on a NTFS filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
+"Den følgende filen ligger i et NTFS-filsystem.\\nDen kan hindre Wine fra å "
+"fungere\\n\\n$FilePath"
 
 #: lib/playonlinux.lib:883
 #, sh-format
@@ -991,6 +989,8 @@ msgid ""
 "The following file is located on a fuse filesystem.\\nIt might prevent wine "
 "from working\\n\\n$FilePath"
 msgstr ""
+"Den følgende filen ligger i et NTFS-filsystem.\\nDen kan hindre Wine fra å "
+"fungere\\n\\n$FilePath"
 
 #: lib/playonlinux.lib:884
 #, sh-format
@@ -998,12 +998,14 @@ msgid ""
 "The following file is located on a noexec mounted filesystem.\\nIt might "
 "prevent wine from working\\n\\n$FilePath"
 msgstr ""
+"Den følgende filen ligger i et «noexec»-montert -filsystem.\\nDen kan hindre "
+"Wine fra å fungere\\n\\n$FilePath"
 
 #: lib/playonlinux.lib:913
 #, sh-format
 msgid ""
-"Your Linux kernel may not be configured to run Win16 programs under Wine\\"
-"nSee $EXPLANATION_URL"
+"Your Linux kernel may not be configured to run Win16 programs under Wine"
+"\\nSee $EXPLANATION_URL"
 msgstr ""
 
 #: lib/playonlinux.lib:916
@@ -1016,22 +1018,22 @@ msgstr ""
 #: lib/plugins.lib:63
 #, sh-format
 msgid "Checking plugin: "
-msgstr ""
+msgstr "Sjekker tillegg: "
 
 #: lib/plugins.lib:85
 #, sh-format
 msgid "New: "
-msgstr ""
+msgstr "Ny: "
 
 #: lib/plugins.lib:85
 #, sh-format
 msgid "Updating plugin. Previous: "
-msgstr ""
+msgstr "Oppdaterer tillegget. Forrige: "
 
 #: lib/plugins.lib:99
 #, sh-format
 msgid "Installing plugin: "
-msgstr ""
+msgstr "Installerer tillegg: "
 
 #: lib/scripts.lib:356
 #, sh-format
@@ -1048,23 +1050,23 @@ msgstr ""
 #: lib/scripts.lib:527 lib/scripts.lib:590
 #, sh-format
 msgid "No enough space to download:\\n$URL ($neededSpace KB)"
-msgstr ""
+msgstr "Ikke nok plass til å laste ned:\\n$URL ($neededSpace KB)"
 
 #: lib/scripts.lib:529 lib/scripts.lib:822
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is downloading:"
-msgstr ""
+msgstr "Vennligst vent mens $APPLICATION_TITLE lastes ned:"
 
 #: lib/scripts.lib:531 lib/scripts.lib:596
 #, sh-format
 msgid "An error happened during download."
-msgstr ""
+msgstr "En feil oppstod under nedlastning."
 
 #: lib/scripts.lib:531 lib/scripts.lib:549 lib/scripts.lib:596
 #: lib/scripts.lib:612
 #, sh-format
 msgid "Do you want to retry?"
-msgstr ""
+msgstr "Vil du prøve på nytt?"
 
 #: lib/scripts.lib:549 lib/scripts.lib:612
 #, sh-format
@@ -1096,23 +1098,23 @@ msgstr ""
 #: lib/scripts.lib:753
 #, sh-format
 msgid "Extracted file size does not match!"
-msgstr ""
+msgstr "Den utvinnede filstørrelsen samsvarer ikke!"
 
 #: lib/scripts.lib:784
 #, sh-format
 msgid "Copying ${filename}"
-msgstr ""
+msgstr "Kopierer ${filename}"
 
 #: lib/scripts.lib:797
 #, sh-format
 msgid "File size does not match!"
-msgstr ""
+msgstr "Filstørrelsene samsvarer ikke!"
 
 #: lib/scripts.lib:955
 #, sh-format
 msgid ""
-"Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
-"n$APPLICATION_TITLE $NEEDED is required."
+"Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\n"
+"$APPLICATION_TITLE $NEEDED is required."
 msgstr ""
 
 #: lib/scripts.lib:970
@@ -1125,37 +1127,37 @@ msgstr ""
 #: lib/scripts.lib:1001
 #, sh-format
 msgid "$AUTHOR profile"
-msgstr ""
+msgstr "$AUTHOR-profil"
 
 #: lib/setupwindow.lib:95
 #, sh-format
 msgid " on your computer."
-msgstr ""
+msgstr " på PC-en din."
 
 #: lib/setupwindow.lib:95
 #, sh-format
 msgid " will be installed in: "
-msgstr ""
+msgstr " vil bli installert i: "
 
 #: lib/setupwindow.lib:95
 #, sh-format
 msgid "Click Next to start"
-msgstr ""
+msgstr "Klikk Neste for å begynne"
 
 #: lib/setupwindow.lib:95
 #, sh-format
 msgid "This installation program is provided by: "
-msgstr ""
+msgstr "Dette installasjonsprogrammet blir levert av: "
 
 #: lib/setupwindow.lib:95
 #, sh-format
 msgid "This program was created by: "
-msgstr ""
+msgstr "Dette programmet ble laget av: "
 
 #: lib/setupwindow.lib:95
 #, sh-format
 msgid "This wizard will help you install "
-msgstr ""
+msgstr "Denne veiviseren vil hjelpe deg med å installere "
 
 #: lib/setupwindow.lib:95
 #, sh-format
@@ -1165,27 +1167,27 @@ msgstr ""
 #: lib/setupwindow.lib:328
 #, sh-format
 msgid "Where is mounted your CD-ROM?"
-msgstr ""
+msgstr "Hvor er CD-ROM-en din montert?"
 
 #: lib/setupwindow.lib:329 python/install.py:222
 #, sh-format
 msgid "Other"
-msgstr ""
+msgstr "Annet"
 
 #: lib/setupwindow.lib:330 python/install.py:290 python/install.py:294
 #, sh-format
 msgid "Refresh"
-msgstr ""
+msgstr "Oppdater"
 
 #: lib/setupwindow.lib:388
 #, sh-format
 msgid "Reading your device"
-msgstr ""
+msgstr "Leser inn enheten din"
 
 #: lib/setupwindow.lib:403
 #, sh-format
 msgid "Error: Unable to find the CD-ROM!"
-msgstr ""
+msgstr "Feil: Kunne ikke finne CD-ROMen!"
 
 #: lib/setupwindow.lib:417
 #, sh-format
@@ -1211,7 +1213,7 @@ msgstr ""
 #: lib/setupwindow.lib:568 lib/setupwindow.lib:719
 #, sh-format
 msgid "Scanning the virtual drive ..."
-msgstr ""
+msgstr "Skanner den virtuelle harddisken …"
 
 #: lib/setupwindow.lib:582
 #, sh-format
@@ -1221,7 +1223,7 @@ msgstr ""
 #: lib/setupwindow.lib:591
 #, sh-format
 msgid "Video card does not have enough memory"
-msgstr ""
+msgstr "Videokortet har ikke nok minne"
 
 #: lib/setupwindow.lib:592
 #, sh-format
@@ -1233,67 +1235,67 @@ msgstr ""
 #: lib/setupwindow.lib:607
 #, sh-format
 msgid "Use Steam Store version"
-msgstr ""
+msgstr "Bruk Steam Store-versjonen"
 
 #: lib/setupwindow.lib:608
 #, sh-format
 msgid "Use Steam Store demo version"
-msgstr ""
+msgstr "Bruk Steam Store-demoversjonen"
 
 #: lib/setupwindow.lib:609
 #, sh-format
 msgid "Use Desura Store version"
-msgstr ""
+msgstr "Bruk Desura Store-versjonen"
 
 #: lib/setupwindow.lib:610
 #, sh-format
 msgid "Use Desura Store demo version"
-msgstr ""
+msgstr "Bruk Desura Store-demoversjonen"
 
 #: lib/setupwindow.lib:611
 #, sh-format
 msgid "Use Origin Store version"
-msgstr ""
+msgstr "Bruk Origin Store-versjonen"
 
 #: lib/setupwindow.lib:612
 #, sh-format
 msgid "Use Origin Store demo version"
-msgstr ""
+msgstr "Bruk Origin Store-demoversjonen"
 
 #: lib/setupwindow.lib:614
 #, sh-format
 msgid "Use a setup file in my computer"
-msgstr ""
+msgstr "Bruk en oppsettsfil som er på PC-en min"
 
 #: lib/setupwindow.lib:615
 #, sh-format
 msgid "Use CD-ROM(s)"
-msgstr ""
+msgstr "Bruk CD-ROM(er)"
 
 #: lib/setupwindow.lib:616
 #, sh-format
 msgid "Use DVD-ROM(s)"
-msgstr ""
+msgstr "Bruk DVD-ROM(er)"
 
 #: lib/setupwindow.lib:617
 #, sh-format
 msgid "Download the program"
-msgstr ""
+msgstr "Last ned programmet"
 
 #: lib/setupwindow.lib:682
 #, sh-format
 msgid "Please choose an installation method"
-msgstr ""
+msgstr "Vennligst velg en installasjonsmetode"
 
 #: lib/setupwindow.lib:712
 #, sh-format
 msgid "I don't want to make another shortcut"
-msgstr ""
+msgstr "Jeg vil ikke lage en annen snarvei"
 
 #: lib/setupwindow.lib:713 python/guiv3.py:170
 #, sh-format
 msgid "Browse"
-msgstr ""
+msgstr "Bla"
 
 #: lib/setupwindow.lib:763
 #, sh-format
@@ -1303,12 +1305,12 @@ msgstr ""
 #: lib/website.lib:29
 #, sh-format
 msgid "Connect to your $APPLICATION_TITLE account"
-msgstr ""
+msgstr "Koble til $APPLICATION_TITLE-kontoen din"
 
 #: lib/website.lib:127
 #, sh-format
 msgid "Connecting..."
-msgstr ""
+msgstr "Kobler til..."
 
 #: lib/website.lib:132
 #, sh-format
@@ -1350,22 +1352,22 @@ msgstr ""
 #: lib/wine.lib:683
 #, sh-format
 msgid "Unable to find version: "
-msgstr ""
+msgstr "Klarte ikke å finne versjonen: "
 
 #: lib/wine.lib:689 lib/wine.lib:690
 #, sh-format
 msgid "Downloading Wine: "
-msgstr ""
+msgstr "Laster ned Wine: "
 
 #: lib/wine.lib:699
 #, sh-format
 msgid "The download seems to have failed."
-msgstr ""
+msgstr "Nedlastningen ser ut til å ha mislyktes."
 
 #: lib/wine.lib:701
 #, sh-format
 msgid "Extracting Wine..."
-msgstr ""
+msgstr "Utvinner Wine …"
 
 #: lib/wine.lib:897
 #, sh-format
@@ -1380,7 +1382,7 @@ msgstr ""
 #: lib/wine.lib:899
 #, sh-format
 msgid "Abort installation"
-msgstr ""
+msgstr "Om installasjon"
 
 #: lib/wine.lib:912
 #, sh-format
@@ -1390,7 +1392,7 @@ msgstr ""
 #: lib/wine.lib:928
 #, sh-format
 msgid "User abort"
-msgstr ""
+msgstr "Brukeravbrytelse"
 
 #: lib/wine.lib:1093 lib/wine.lib:1123
 #, sh-format
@@ -1407,7 +1409,7 @@ msgstr ""
 #: lib/wine.lib:1097 lib/wine.lib:1126
 #, sh-format
 msgid "Install is done"
-msgstr ""
+msgstr "Installasjonen er ferdig"
 
 #: lib/wine.lib:1130 lib/wine.lib:1131
 #, sh-format
@@ -1430,7 +1432,7 @@ msgstr ""
 
 #: python/configure.py:198 python/configure.py:713
 msgid "General"
-msgstr ""
+msgstr "Generell"
 
 #: python/configure.py:201
 msgid "Make a new shortcut from this virtual drive"
@@ -1438,51 +1440,51 @@ msgstr ""
 
 #: python/configure.py:202
 msgid "Name"
-msgstr ""
+msgstr "Navn"
 
 #: python/configure.py:203
 msgid "Wine version"
-msgstr ""
+msgstr "Wine-versjon"
 
 #: python/configure.py:204
 msgid "Debug flags"
-msgstr ""
+msgstr "Feilsøkingsflagg"
 
 #: python/configure.py:206
 msgid "Virtual drive"
-msgstr ""
+msgstr "Virtuell harddisk"
 
 #: python/configure.py:208
 msgid "Arguments"
-msgstr ""
+msgstr "Argumenter"
 
 #: python/configure.py:212
 msgid "Run configuration wizard"
-msgstr ""
+msgstr "Kjør oppsettsveiviseren"
 
 #: python/configure.py:249
 msgid "Windows reboot"
-msgstr ""
+msgstr "Windows-omstart"
 
 #: python/configure.py:257
 msgid "Repair virtual drive"
-msgstr ""
+msgstr "Reparer den virtuelle harddisken"
 
 #: python/configure.py:266
 msgid "Command prompt"
-msgstr ""
+msgstr "Ledetekst"
 
 #: python/configure.py:273
 msgid "Task manager"
-msgstr ""
+msgstr "Oppgavebehandler"
 
 #: python/configure.py:281
 msgid "Kill processes"
-msgstr ""
+msgstr "Avslutt prosesser"
 
 #: python/configure.py:288
 msgid "Wine uninstaller"
-msgstr ""
+msgstr "Wine-avinstallatør"
 
 #: python/configure.py:313
 msgid ""
@@ -1492,19 +1494,19 @@ msgstr ""
 #: python/configure.py:335 python/install.py:289 python/install.py:293
 #: python/mainwindow.py:244 python/mainwindow.py:384
 msgid "Install"
-msgstr ""
+msgstr "Installer"
 
 #: python/configure.py:398
 msgid "Open program's directory"
-msgstr ""
+msgstr "Åpne programmets mappe"
 
 #: python/configure.py:421
 msgid "Open virtual drive's directory"
-msgstr ""
+msgstr "Åpne den virtuelle harddiskens mappe"
 
 #: python/configure.py:565
 msgid "GLSL Support"
-msgstr ""
+msgstr "GLSL-støtte"
 
 #: python/configure.py:566
 msgid "Direct Draw Renderer"
@@ -1512,11 +1514,11 @@ msgstr ""
 
 #: python/configure.py:567
 msgid "Video memory size"
-msgstr ""
+msgstr "Videominne-størrelse"
 
 #: python/configure.py:568
 msgid "Offscreen rendering mode"
-msgstr ""
+msgstr "Rendringsmodus for ting som skjer utenfor skjermen"
 
 #: python/configure.py:569
 msgid "Render target mode lock"
@@ -1524,7 +1526,7 @@ msgstr ""
 
 #: python/configure.py:570
 msgid "Multisampling"
-msgstr ""
+msgstr "Flersampling"
 
 #: python/configure.py:571
 msgid "Strict Draw Ordering"
@@ -1536,7 +1538,7 @@ msgstr ""
 
 #: python/configure.py:583
 msgid "Open a shell"
-msgstr ""
+msgstr "Åpne et ledetekstvindu"
 
 #: python/configure.py:584
 msgid "Run a .exe file in this virtual drive"
@@ -1560,10 +1562,12 @@ msgid ""
 "Be careful!\n"
 "If you change "
 msgstr ""
+"Vær forsiktig!\n"
+"Dersom du endrer på "
 
 #: python/configure.py:666 python/mainwindow.py:973 python/mainwindow.py:975
 msgid "{0} configuration"
-msgstr ""
+msgstr "{0}-oppsett"
 
 #: python/configure.py:674
 msgid "Please select a program or a virtual drive to configure"
@@ -1571,28 +1575,28 @@ msgstr ""
 
 #: python/configure.py:693 python/configure.py:696 python/options.py:279
 msgid "New"
-msgstr ""
+msgstr "Nye"
 
 #: python/configure.py:694 python/configure.py:697 python/mainwindow.py:245
 #: python/mainwindow.py:385 python/mainwindow.py:604 python/options.py:206
 msgid "Remove"
-msgstr ""
+msgstr "Fjern"
 
 #: python/configure.py:715
 msgid "Install components"
-msgstr ""
+msgstr "Installer komponenter"
 
 #: python/configure.py:716 python/mainwindow.py:365
 msgid "Display"
-msgstr ""
+msgstr "Vis"
 
 #: python/configure.py:717
 msgid "Miscellaneous"
-msgstr ""
+msgstr "Diverse"
 
 #: python/configure.py:745
 msgid "This virtual drive is protected"
-msgstr ""
+msgstr "Denne virtuelle disken er beskyttet"
 
 #: python/configure.py:747
 msgid "Are you sure you want to delete {0} virtual drive ?"
@@ -1605,27 +1609,27 @@ msgstr ""
 #: python/debug.py:40 python/mainwindow.py:282 python/mainwindow.py:948
 #: python/mainwindow.py:1038 python/wrapper.py:76
 msgid "{0} debugger"
-msgstr ""
+msgstr "{0}-feilsøker"
 
 #: python/debug.py:51
 msgid "Please select a debug file"
-msgstr ""
+msgstr "Vennligst velg en feilsøkingsfil"
 
 #: python/debug.py:80
 msgid "Locate this logfile"
-msgstr ""
+msgstr "Finn plasseringen til denne loggfilen"
 
 #: python/debug.py:105
 msgid "The file is named : {0}"
-msgstr ""
+msgstr "Filens navn er: {0}"
 
 #: python/debug.py:203 python/debug.py:266
 msgid "Virtual drives"
-msgstr ""
+msgstr "Virtuelle harddisker"
 
 #: python/debug.py:231
 msgid "Report a problem about {0}"
-msgstr ""
+msgstr "Meld inn et problem om {0}"
 
 #: python/debug.py:265
 msgid "Install scripts"
@@ -1641,126 +1645,126 @@ msgstr ""
 
 #: python/guiv3.py:117
 msgid "{0} Wizard"
-msgstr ""
+msgstr "{0}-veiviser"
 
 #: python/guiv3.py:141 python/guiv3.py:144 python/install.py:288
 #: python/install.py:292 python/options.py:375
 msgid "Cancel"
-msgstr ""
+msgstr "Avbrytt"
 
 #: python/guiv3.py:142 python/guiv3.py:145
 msgid "Next"
-msgstr ""
+msgstr "Neste"
 
 #: python/guiv3.py:164 python/guiv3.py:167
 msgid "No"
-msgstr ""
+msgstr "Nei"
 
 #: python/guiv3.py:165 python/guiv3.py:168
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
 
 #: python/guiv3.py:178
 msgid "I Agree"
-msgstr ""
+msgstr "Jeg godtar"
 
 #: python/guiv3.py:179
 msgid "Don't remind me anymore"
-msgstr ""
+msgstr "Ikke minn meg på det noe mer"
 
 #: python/guiv3.py:180
 msgid "Show virtual drives"
-msgstr ""
+msgstr "Vis virtuelle harddisker"
 
 #: python/guiv3.py:201
 msgid "Login: "
-msgstr ""
+msgstr "Brukernavn: "
 
 #: python/guiv3.py:202
 msgid "Password: "
-msgstr ""
+msgstr "Passord: "
 
 #: python/guiv3.py:205
 msgid "Register"
-msgstr ""
+msgstr "Registrer"
 
 #: python/guiv3.py:312
 msgid "MB downloaded"
-msgstr ""
+msgstr "MB lastet ned"
 
 #: python/guiv3.py:312
 msgid "of"
-msgstr ""
+msgstr "av"
 
 #: python/guiv3.py:809 python/mainwindow.py:1171 python/mainwindow.py:1201
 #: python/mainwindow.py:1215 python/mainwindow.py:1224
 #: python/mainwindow.py:1236 python/mainwindow.py:1248 python/wrapper.py:135
 msgid "Error"
-msgstr ""
+msgstr "Feil"
 
 #: python/guiv3.py:809
 msgid "You cannot close this window"
-msgstr ""
+msgstr "Du kan ikke lukke dette vinduet"
 
 #: python/install.py:115 python/install.py:117
 msgid "No description"
-msgstr ""
+msgstr "Ingen beskrivelse"
 
 #: python/install.py:214
 msgid "Accessories"
-msgstr ""
+msgstr "Tilbehør"
 
 #: python/install.py:215
 msgid "Development"
-msgstr ""
+msgstr "Utvikling"
 
 #: python/install.py:216
 msgid "Education"
-msgstr ""
+msgstr "Utdanning"
 
 #: python/install.py:217
 msgid "Games"
-msgstr ""
+msgstr "Spill"
 
 #: python/install.py:218
 msgid "Graphics"
-msgstr ""
+msgstr "Grafikk"
 
 #: python/install.py:219 python/mainwindow.py:288 python/options.py:383
 msgid "Internet"
-msgstr ""
+msgstr "Internett"
 
 #: python/install.py:220
 msgid "Multimedia"
-msgstr ""
+msgstr "Multimedia"
 
 #: python/install.py:221
 msgid "Office"
-msgstr ""
+msgstr "Kontor"
 
 #: python/install.py:223
 msgid "Patches"
-msgstr ""
+msgstr "Patcher"
 
 #: python/install.py:256
 msgid "Include:"
-msgstr ""
+msgstr "Inkluder:"
 
 #: python/install.py:262
 msgid "Testing"
-msgstr ""
+msgstr "Tester"
 
 #: python/install.py:267
 msgid "No-cd needed"
-msgstr ""
+msgstr "«No-CD» er påkrevd"
 
 #: python/install.py:274
 msgid "Commercial"
-msgstr ""
+msgstr "Kommersiell"
 
 #: python/install.py:308
 msgid "Install a non-listed program"
-msgstr ""
+msgstr "Installer et program som ikke er ført opp"
 
 #: python/install.py:458
 msgid ""
@@ -1780,7 +1784,7 @@ msgstr ""
 
 #: python/install.py:577
 msgid "Attention!"
-msgstr ""
+msgstr "Oppmerksomhet!"
 
 #: python/install.py:577
 msgid ""
@@ -1803,11 +1807,11 @@ msgstr ""
 
 #: python/lib/playonlinux.py:27
 msgid "There is nothing installed to run .{0} files."
-msgstr ""
+msgstr "Det er ikke blitt installert noe som kan kjøre .{0}-filer."
 
 #: python/lib/playonlinux.py:454
 msgid "{0} error"
-msgstr ""
+msgstr "{0} feil"
 
 #: python/mainwindow.py:76
 msgid "{0} website is unavailable. Please check your connection"
@@ -1815,200 +1819,200 @@ msgstr ""
 
 #: python/mainwindow.py:78
 msgid "Refreshing {0}"
-msgstr ""
+msgstr "Oppfrisker {0}"
 
 #: python/mainwindow.py:93 python/mainwindow.py:95
 msgid "An updated version of {0} is available"
-msgstr ""
+msgstr "En oppdatert versjon av {0} er tilgjengelig"
 
 #: python/mainwindow.py:243 python/mainwindow.py:380 python/mainwindow.py:775
 msgid "Run"
-msgstr ""
+msgstr "Kjør"
 
 #: python/mainwindow.py:247
 msgid "Donate"
-msgstr ""
+msgstr "Doner"
 
 #: python/mainwindow.py:248
 msgid "Exit"
-msgstr ""
+msgstr "Avslutt"
 
 #: python/mainwindow.py:252
 msgid "Small icons"
-msgstr ""
+msgstr "Små ikoner"
 
 #: python/mainwindow.py:253
 msgid "Medium icons"
-msgstr ""
+msgstr "Mellomstore ikoner"
 
 #: python/mainwindow.py:254
 msgid "Large icons"
-msgstr ""
+msgstr "Store ikoner"
 
 #: python/mainwindow.py:255
 msgid "Very large icons"
-msgstr ""
+msgstr "Veldig store ikoner"
 
 #: python/mainwindow.py:267
 msgid "Manage Wine versions"
-msgstr ""
+msgstr "Behandle Wine-versjoner"
 
 #: python/mainwindow.py:272
 msgid "Read a PC CD-Rom"
-msgstr ""
+msgstr "Les inn en PC CD-ROM"
 
 #: python/mainwindow.py:277
 msgid "{0} console"
-msgstr ""
+msgstr "{0}-konsoll"
 
 #: python/mainwindow.py:279
 msgid "Close all {0} software"
-msgstr ""
+msgstr "Avslutt alle {0}-programvarer"
 
 #: python/mainwindow.py:289 python/options.py:387
 msgid "File associations"
-msgstr ""
+msgstr "Filutvidelser"
 
 #: python/mainwindow.py:290 python/mainwindow.py:338
 msgid "Plugin manager"
-msgstr ""
+msgstr "Tilleggsbehandler"
 
 #: python/mainwindow.py:294
 msgid "Supported software"
-msgstr ""
+msgstr "Støttet programvare"
 
 #: python/mainwindow.py:295
 msgid "News"
-msgstr ""
+msgstr "Nyheter"
 
 #: python/mainwindow.py:296
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentasjon"
 
 #: python/mainwindow.py:297
 msgid "Forums"
-msgstr ""
+msgstr "Forumer"
 
 #: python/mainwindow.py:298
 msgid "Bugs"
-msgstr ""
+msgstr "Programfeil"
 
 #: python/mainwindow.py:300
 msgid "Twitter"
-msgstr ""
+msgstr "Twitter"
 
 #: python/mainwindow.py:301
 msgid "Google+"
-msgstr ""
+msgstr "Google+"
 
 #: python/mainwindow.py:302
 msgid "Facebook"
-msgstr ""
+msgstr "Facebook"
 
 #: python/mainwindow.py:306
 msgid "About {0}"
-msgstr ""
+msgstr "Om {0}"
 
 #: python/mainwindow.py:364
 msgid "File"
-msgstr ""
+msgstr "Fil"
 
 #: python/mainwindow.py:366
 msgid "Tools"
-msgstr ""
+msgstr "Verktøy"
 
 #: python/mainwindow.py:367 python/mainwindow.py:761
 msgid "Settings"
-msgstr ""
+msgstr "Instillinger"
 
 #: python/mainwindow.py:368 python/options.py:386
 msgid "Plugins"
-msgstr ""
+msgstr "Programtillegg"
 
 #: python/mainwindow.py:369
 msgid "Support"
-msgstr ""
+msgstr "Hjelp"
 
 #: python/mainwindow.py:381 python/mainwindow.py:777
 msgid "Close"
-msgstr ""
+msgstr "Lukk"
 
 #: python/mainwindow.py:387 python/mainwindow.py:788 python/options.py:207
 msgid "Configure"
-msgstr ""
+msgstr "Konfigurer"
 
 #: python/mainwindow.py:400 python/mainwindow.py:403
 msgid "Search"
-msgstr ""
+msgstr "Søk"
 
 #: python/mainwindow.py:592
 msgid "Open the application's directory"
-msgstr ""
+msgstr "Åpne programmets mappe"
 
 #: python/mainwindow.py:596 python/mainwindow.py:796
 msgid "Read the manual"
-msgstr ""
+msgstr "Les manualen"
 
 #: python/mainwindow.py:600
 msgid "Set the icon"
-msgstr ""
+msgstr "Velg ikonet"
 
 #: python/mainwindow.py:608
 msgid "Close this application"
-msgstr ""
+msgstr "Avslutt dette programmet"
 
 #: python/mainwindow.py:626
 msgid "No manual found for {0}"
-msgstr ""
+msgstr "Ingen bruksanvisning for {0} ble funnet"
 
 #: python/mainwindow.py:759
 msgid "Install a program"
-msgstr ""
+msgstr "Installer et program"
 
 #: python/mainwindow.py:766
 msgid "Update GIT"
-msgstr ""
+msgstr "Oppdater GIT"
 
 #: python/mainwindow.py:769
 msgid "Update instructions"
-msgstr ""
+msgstr "Oppdateringsinstruksjoner"
 
 #: python/mainwindow.py:779
 msgid "Debug"
-msgstr ""
+msgstr "Feilsøk"
 
 #: python/mainwindow.py:785
 msgid "Send a feedback"
-msgstr ""
+msgstr "Send inn tilbakemelding"
 
 #: python/mainwindow.py:790
 msgid "Create a shortcut"
-msgstr ""
+msgstr "Lag en snarvei"
 
 #: python/mainwindow.py:792
 msgid "Open the directory"
-msgstr ""
+msgstr "Åpne mappen"
 
 #: python/mainwindow.py:799
 msgid "Uninstall"
-msgstr ""
+msgstr "Avinstaller"
 
 #: python/mainwindow.py:921 python/mainwindow.py:992 python/mainwindow.py:999
 #: python/mainwindow.py:1044
 msgid "Please select a program."
-msgstr ""
+msgstr "Vennligst velg et program."
 
 #: python/mainwindow.py:929 python/mainwindow.py:931 python/mainwindow.py:933
 msgid "{0} settings"
-msgstr ""
+msgstr "{0}-innstillinger"
 
 #: python/mainwindow.py:1006
 msgid "{0} install menu"
-msgstr ""
+msgstr "{0}-installasjonsmeny"
 
 #: python/mainwindow.py:1015
 msgid "{0} wine versions manager"
-msgstr ""
+msgstr "{0}-Wine-versjonsbehandler"
 
 #: python/mainwindow.py:1046
 msgid "The virtual drive associated with {0} ({1}) does no longer exists."
@@ -2016,11 +2020,11 @@ msgstr ""
 
 #: python/mainwindow.py:1102
 msgid "Are you sure you want to close all {0} windows?"
-msgstr ""
+msgstr "Er du sikker på at du vil lukke alle {0} vinduer?"
 
 #: python/mainwindow.py:1124
 msgid "Run your Windows programs on "
-msgstr ""
+msgstr "Kjør Windows-programmer på "
 
 #: python/mainwindow.py:1125
 msgid ""
@@ -2030,7 +2034,7 @@ msgstr ""
 
 #: python/mainwindow.py:1126
 msgid "Developer and Website: "
-msgstr ""
+msgstr "Utvikler og nettsted: "
 
 #: python/mainwindow.py:1127
 msgid "Scriptors: "
@@ -2038,23 +2042,23 @@ msgstr ""
 
 #: python/mainwindow.py:1128
 msgid "Packager: "
-msgstr ""
+msgstr "Innpakker: "
 
 #: python/mainwindow.py:1129
 msgid "Icons:"
-msgstr ""
+msgstr "Ikoner:"
 
 #: python/mainwindow.py:1130
 msgid "The following people contributed to this program: "
-msgstr ""
+msgstr "De følgende personene bidro til dette programmet: "
 
 #: python/mainwindow.py:1131
 msgid "Translations:"
-msgstr ""
+msgstr "Oversettelser:"
 
 #: python/mainwindow.py:1132
 msgid "Read TRANSLATORS file"
-msgstr ""
+msgstr "Les TRANSLATORS-filen"
 
 #: python/mainwindow.py:1171
 msgid "{0} is not able to start PlayOnLinux Setup Window server."
@@ -2062,19 +2066,19 @@ msgstr ""
 
 #: python/mainwindow.py:1192
 msgid "{0} cannot find {1}"
-msgstr ""
+msgstr "{0} kunne ikke finne {1}"
 
 #: python/mainwindow.py:1194
 msgid " (from {2})"
-msgstr ""
+msgstr " (fra {2})"
 
 #: python/mainwindow.py:1197
 msgid "You need to install it to continue"
-msgstr ""
+msgstr "Du må installere den for å fortsette"
 
 #: python/mainwindow.py:1199
 msgid "You should install it to use {0}"
-msgstr ""
+msgstr "Du burde installere det for å kunne bruke {0}"
 
 #: python/mainwindow.py:1215
 msgid "{0} is not supposed to be run as root. Sorry"
@@ -2132,59 +2136,59 @@ msgstr ""
 
 #: python/options.py:128
 msgid "Set a proxy"
-msgstr ""
+msgstr "Velg en mellomtjener"
 
 #: python/options.py:131
 msgid "Proxy address"
-msgstr ""
+msgstr "Mellomtjeneradresse"
 
 #: python/options.py:134
 msgid "Proxy port"
-msgstr ""
+msgstr "Mellomtjenerport"
 
 #: python/options.py:137
 msgid "Proxy login"
-msgstr ""
+msgstr "Mellomtjenerbrukernavn"
 
 #: python/options.py:140
 msgid "Proxy password"
-msgstr ""
+msgstr "Mellomtjenerpassord"
 
 #: python/options.py:187
 msgid "Installed plugins"
-msgstr ""
+msgstr "Installerte programtillegg"
 
 #: python/options.py:205
 msgid "Add"
-msgstr ""
+msgstr "Legg til"
 
 #: python/options.py:208 python/options.py:336
 msgid "Enable"
-msgstr ""
+msgstr "Slå på"
 
 #: python/options.py:209
 msgid "Choose a plugin"
-msgstr ""
+msgstr "Velg et tillegg"
 
 #: python/options.py:262
 msgid "What is the extension?"
-msgstr ""
+msgstr "Hva er filtypen?"
 
 #: python/options.py:274
 msgid "Assigned program"
-msgstr ""
+msgstr "Tilegnet program"
 
 #: python/options.py:276
 msgid "Delete"
-msgstr ""
+msgstr "Slett"
 
 #: python/options.py:304
 msgid "Are you sure you want to install: "
-msgstr ""
+msgstr "Er du sikker på at du vil installere: "
 
 #: python/options.py:312
 msgid "Are you sure you want to delete: "
-msgstr "Er du sikker på at du vill slette: "
+msgstr "Er du sikker på at du vil slette: "
 
 #: python/options.py:333
 msgid "Disable"
@@ -2200,15 +2204,15 @@ msgstr "Du må restarte {0} for at endringene skal ha effekt."
 
 #: python/wine_versions.py:198
 msgid "Installed Wine versions: "
-msgstr "Installerte  Wine versjoner: "
+msgstr "Installerte Wine-versjoner: "
 
 #: python/wine_versions.py:199
 msgid "Available Wine versions: "
-msgstr "Tilgjengelige Wine versjoner: "
+msgstr "Tilgjengelige Wine-versjoner: "
 
 #: python/wine_versions.py:210
 msgid "Wine versions"
-msgstr "Wine versjoner"
+msgstr "Wine-versjoner"
 
 #: python/wine_versions.py:332
 msgid "Are you sure you want to delete wine {0}?"
@@ -2216,7 +2220,7 @@ msgstr "Er du sikker på at du vill slette wine {0}?"
 
 #: python/wine_versions.py:334
 msgid "This version is CURRENTLY IN USE"
-msgstr ""
+msgstr "Denne versjonen er FOR ØYEBLIKKET I BRUK"
 
 #: python/wrapper.py:135
 msgid "{0} is not able to start POL_SetupWindow_server."
