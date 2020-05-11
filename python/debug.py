@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 # Copyright (C) 2009 Pâris Quentin
@@ -57,7 +57,7 @@ class MainWindow(wx.Frame):
         self.images = wx.ImageList(16, 16)
 
         self.list_game = wx.TreeCtrl(self.splitter, 900, size = wx.DefaultSize, style=wx.TR_HIDE_ROOT)
-        wx.EVT_TREE_SEL_CHANGED(self, 900, self.analyseLog)
+        self.Bind(wx.EVT_TREE_SEL_CHANGED, self.analyseLog, id=900)
 
 
         self.list_game.SetSpacing(0);
@@ -85,8 +85,9 @@ class MainWindow(wx.Frame):
             self.HideLogFile()
         else:
             self.analyseReal(logtype,logcheck)
-        wx.EVT_BUTTON(self,101,self.locate)
-        wx.EVT_BUTTON(self,102,self.bugReport)
+        self.Bind(wx.EVT_BUTTON,self.locate,id=101)
+        self.Bind(wx.EVT_BUTTON,self.bugReport,id=102)
+        self.Bind(wx.EVT_CLOSE,self.app_Close)
 
         #self.log_reader.SetDefaultStyle(wx.TextAttr(font=wx.Font(13,wx.FONTFAMILY_DEFAULT,wx.FONTSTYLE_NORMAL,wx.FONTWEIGHT_NORMAL)))
 
@@ -124,7 +125,7 @@ class MainWindow(wx.Frame):
             line=line[0:200]
             leng=200
 
-        self.log_reader.AppendText(line.decode('utf-8','replace'))
+        self.log_reader.AppendText(line)
 
         self.bold = wx.Font(wx.NORMAL_FONT.GetPointSize(), wx.FONTFAMILY_DEFAULT, wx.NORMAL, wx.BOLD)
 
@@ -195,7 +196,7 @@ class MainWindow(wx.Frame):
 
     def OnFocus(self, event):
         if self.need_redisplay:
-            print 'Need to redisplay log'
+            print('Need to redisplay log')
             self.initLogDisplay()
 
     def analyseLog(self, event):
@@ -326,3 +327,7 @@ class MainWindow(wx.Frame):
 
     def apply_settings(self, event):
         self.Destroy()
+
+    def Destroy(self):
+        self.timer.Stop()
+        return super().Destroy()

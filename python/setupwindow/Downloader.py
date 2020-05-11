@@ -1,5 +1,5 @@
 import threading
-import urllib
+import urllib.request
 
 class Downloader(threading.Thread):
     def __init__(self, url, local):
@@ -20,7 +20,7 @@ class Downloader(threading.Thread):
 
     def download(self):
         try:
-            urllib.urlretrieve(self.url, self.local, reporthook = self.onHook)
+            urllib.request.urlretrieve(self.url, self.local, reporthook = self.onHook)
         except Exception as e:
             self.failed = True
         self.finished = True

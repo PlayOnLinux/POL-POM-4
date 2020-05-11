@@ -1,5 +1,4 @@
 import os
-import string
 
 from lib import Variables
 
@@ -26,7 +25,7 @@ def GetWineVersion(game):
         version = "System"
     else:
         version = line.replace("PATH=", "").replace("\"", "").replace(Variables.playonlinux_rep, "").replace("//", "/")
-        version = string.split(version, "/")
+        version = version.split("/")
         version = version[1]
 
     return version

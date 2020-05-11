@@ -1,8 +1,8 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 # Copyright (C) 2007-2010 PlayOnLinux Team
 # Copyright (C) 2011 - Quentin PARIS
 
-import os, random, sys, string
+import os, random, sys
 import wx, lib.playonlinux as playonlinux
 from lib.dpiFetcher import dpiFetcher
 
@@ -10,7 +10,7 @@ from lib.dpiFetcher import dpiFetcher
 try:
     os.environ["POL_OS"]
 except:
-    print "ERROR ! Please define POL_OS environment var first."
+    print("ERROR ! Please define POL_OS environment var first.")
     os._exit(1)
 
 # Variables mixte 1
@@ -84,7 +84,7 @@ if os.environ["POL_OS"] == "FreeBSD":
 
 os.environ["POL_CURL"] = "curl"
 
-archi = string.split(os.environ["MACHTYPE"], "-")
+archi = os.environ["MACHTYPE"].split("-")
 archi = archi[0]
 
 if archi == "x86_64":

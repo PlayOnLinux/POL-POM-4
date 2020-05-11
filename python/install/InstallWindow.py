@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 # Copyright (C) 2008 Pâris Quentin
@@ -19,13 +19,12 @@
 
 import codecs
 import os
-import string
 import subprocess
 
 import wx
-import wx.animate
+import wx.adv
 import wx.html
-import wx.lib.hyperlink
+import wx.lib.agw.hyperlink
 from wx.lib.ClickableHtmlWindow import PyClickableHtmlWindow
 
 import lib.Variables as Variables
@@ -46,7 +45,7 @@ class InstallWindow(PlayOnLinuxWindow):
         self.cats_icons[name] = wx.BitmapButton(self.installWindowHeader, 2000 + iid, wx.Bitmap(icon), (0, 0),
                                                 style=wx.NO_BORDER)
 
-        self.cats_links[name] = wx.lib.hyperlink.HyperLinkCtrl(self.installWindowHeader, 3000 + iid, name, pos=(0, 52))
+        self.cats_links[name] = wx.lib.agw.hyperlink.HyperLinkCtrl(self.installWindowHeader, 3000 + iid, name, pos=(0, 52))
         mataille = self.cats_links[name].GetSize()[0]
 
         mataille2 = self.cats_icons[name].GetSize()[0]
@@ -55,8 +54,8 @@ class InstallWindow(PlayOnLinuxWindow):
         self.cats_links[name].SetPosition((espace * iid + (espace - mataille / 1.3) / 2, 47))
         self.cats_icons[name].SetPosition((image_pos, offset))
 
-        wx.lib.hyperlink.EVT_HYPERLINK_LEFT(self, 3000 + iid, self.AddApps)
-        wx.EVT_BUTTON(self, 2000 + iid, self.AddApps)
+        self.Bind(wx.lib.agw.hyperlink.EVT_HYPERLINK_LEFT, self.AddApps, id=3000 + iid)
+        self.Bind(wx.EVT_BUTTON, self.AddApps, id=2000 + iid)
 
         self.cats_links[name].SetColours(wx.Colour(0, 0, 0), wx.Colour(0, 0, 0), wx.Colour(0, 0, 0))
         self.cats_links[name].AutoBrowse(False)
@@ -116,9 +115,9 @@ class InstallWindow(PlayOnLinuxWindow):
         self.installWindowBodySizer.Add(self.panelWait, 1, wx.EXPAND)
         self.panelWait.Hide()
         ## FIXME: Remove those magic numbers
-        self.animation_wait = wx.animate.GIFAnimationCtrl(self.panelWait, -1,
-                                                          Variables.playonlinux_env + "/resources/images/install/wait.gif",
-                                                          ((800 - 128) / 2, (550 - 128) / 2 - 71))
+        self.animation_wait = wx.adv.AnimationCtrl(self.panelWait, -1,
+                                                   pos=((800 - 128) / 2, (550 - 128) / 2 - 71))
+        self.animation_wait.LoadFile(Variables.playonlinux_env + "/resources/images/install/wait.gif")
         self.percentageText = wx.StaticText(self.panelWait, -1, "", ((800 - 30) / 2, (550 - 128) / 2 + 128 + 10 - 71),
                                             wx.DefaultSize)
         self.percentageText.SetFont(self.fontTitle)
@@ -202,7 +201,8 @@ class InstallWindow(PlayOnLinuxWindow):
 
         self.descriptionLoaderPanel = wx.Panel(appDescriptionPanel, -1, style=Variables.widget_borders)
         self.descriptionLoaderPanel.SetBackgroundColour((255, 255, 255))
-        self.animation = wx.animate.GIFAnimationCtrl(self.descriptionLoaderPanel, -1, Variables.playonlinux_env + "/resources/images/install/wait_mini.gif", (90, 100))
+        self.animation = wx.adv.AnimationCtrl(self.descriptionLoaderPanel, -1, pos=(90, 100))
+        self.animation.LoadFile(Variables.playonlinux_env + "/resources/images/install/wait_mini.gif")
         self.animation.Hide()
         self.descriptionLoaderPanel.Hide()
 
@@ -227,7 +227,7 @@ class InstallWindow(PlayOnLinuxWindow):
         self.cancelButton = wx.Button(buttonsPanel, wx.ID_CLOSE, _("Cancel"))
         self.installButton = wx.Button(buttonsPanel, wx.ID_APPLY, _("Install"))
         self.updateButton = wx.Button(buttonsPanel, wx.ID_REFRESH, _("Refresh"))
-        self.manualInstall = wx.lib.hyperlink.HyperLinkCtrl(buttonsPanel, 111, _("Install a non-listed program"))
+        self.manualInstall = wx.lib.agw.hyperlink.HyperLinkCtrl(buttonsPanel, 111, _("Install a non-listed program"))
         self.manualInstall.SetColours(wx.Colour(0, 0, 0), wx.Colour(0, 0, 0), wx.Colour(0, 0, 0))
         self.manualInstall.AutoBrowse(False)
         self.manualInstall.UpdateLink(True)
@@ -277,18 +277,18 @@ class InstallWindow(PlayOnLinuxWindow):
 
 
         # wx.EVT_TREE_SEL_CHANGED(self, 105, self.AddApps)
-        wx.EVT_TREE_SEL_CHANGED(self, 106, self.AppsDetails)
-        wx.EVT_BUTTON(self, wx.ID_CLOSE, self.closeapp)
-        wx.EVT_BUTTON(self, wx.ID_APPLY, self.installapp)
-        wx.EVT_BUTTON(self, wx.ID_REFRESH, self.UpdatePol)
-        wx.EVT_CLOSE(self, self.closeapp)
-        wx.EVT_TREE_ITEM_ACTIVATED(self, 106, self.installapp)
-        wx.EVT_TEXT(self, 110, self.search)
-        wx.lib.hyperlink.EVT_HYPERLINK_LEFT(self, 111, self.manual)
+        self.Bind(wx.EVT_TREE_SEL_CHANGED, self.AppsDetails, id=106)
+        self.Bind(wx.EVT_BUTTON, self.closeapp, id=wx.ID_CLOSE)
+        self.Bind(wx.EVT_BUTTON, self.installapp, id=wx.ID_APPLY)
+        self.Bind(wx.EVT_BUTTON, self.UpdatePol, id=wx.ID_REFRESH)
+        self.Bind(wx.EVT_CLOSE, self.closeapp)
+        self.Bind(wx.EVT_TREE_ITEM_ACTIVATED, self.installapp, id=106)
+        self.Bind(wx.EVT_TEXT, self.search, id=110)
+        self.Bind(wx.lib.agw.hyperlink.EVT_HYPERLINK_LEFT, self.manual, id=111)
 
-        wx.EVT_CHECKBOX(self, 401, self.CheckBoxReload)
-        wx.EVT_CHECKBOX(self, 402, self.CheckBoxReload)
-        wx.EVT_CHECKBOX(self, 403, self.CheckBoxReload)
+        self.Bind(wx.EVT_CHECKBOX, self.CheckBoxReload, id=401)
+        self.Bind(wx.EVT_CHECKBOX, self.CheckBoxReload, id=402)
+        self.Bind(wx.EVT_CHECKBOX, self.CheckBoxReload, id=403)
 
     def TimerAction(self, event):
         try:
@@ -339,7 +339,7 @@ class InstallWindow(PlayOnLinuxWindow):
         starWidth = 20
         self.panelStars.DestroyChildren()
 
-        for i in xrange(int(stars)):
+        for i in range(int(stars)):
             wx.StaticBitmap(self.panelStars, -1,
                             wx.Bitmap(Variables.playonlinux_env + "/etc/star.png"),
                             (i * starWidth, 0), wx.DefaultSize)
@@ -378,7 +378,7 @@ class InstallWindow(PlayOnLinuxWindow):
                             _("Please read this"))
 
         subprocess.Popen(
-            ["bash", Variables.playonlinux_env + "/bash/install", InstallApplication.encode("utf-8", "replace")])
+            ["bash", Variables.playonlinux_env + "/bash/install", InstallApplication])
 
         self.Destroy()
         return
@@ -397,14 +397,14 @@ class InstallWindow(PlayOnLinuxWindow):
         self.search_result = []
 
         while (self.j < len(self.apps)):
-            if (string.lower(self.user_search) in string.lower(self.apps[self.j])):
+            if (self.user_search.lower() in self.apps[self.j].lower()):
                 self.search_result.append(self.apps[self.j])
                 self.k = self.k + 1
             self.j = self.j + 1
 
         if (len(self.user_search) < 2 or "~" in self.user_search):
             self.search_result = []
-        self.user_search_cut = string.split(self.user_search, ":")
+        self.user_search_cut = self.user_search.split(":")
         if (len(self.user_search_cut) > 1):
             if (self.user_search_cut[0] == "get" and self.user_search_cut[1].isdigit()):
                 self.search_result.append(self.user_search)
@@ -431,7 +431,7 @@ class InstallWindow(PlayOnLinuxWindow):
         self.DelApps()
         self.root_apps = self.appsList.AddRoot("")
         self.i = 0
-        array.sort(key=unicode.upper)
+        array.sort(key=str.upper)
         for app in array:
             app_array = app.split("~")
             appname = app_array[0]
@@ -454,7 +454,7 @@ class InstallWindow(PlayOnLinuxWindow):
 
             if (show == True):
                 self.icon_look_for = Variables.playonlinux_rep + "/configurations/icones/" + appname
-                if (os.path.exists(self.icon_look_for.encode('utf-8', 'ignore'))):
+                if (os.path.exists(self.icon_look_for)):
                     try:
                         bitmap = wx.Image(self.icon_look_for)
                         bitmap.Rescale(22, 22, wx.IMAGE_QUALITY_HIGH)
@@ -464,7 +464,7 @@ class InstallWindow(PlayOnLinuxWindow):
                         pass
                 else:
                     self.imagesapps.Add(wx.Bitmap(Variables.playonlinux_env + "/etc/playonlinux22.png"))
-                itemId = self.appsList.AppendItem(self.root_apps, appname.encode('utf-8', 'ignore'), self.i)
+                itemId = self.appsList.AppendItem(self.root_apps, appname, self.i)
                 if testing == 1:
                     # (255,255,214) is web site color for beta, but it's not very visible next to plain white,
                     # and red is the color of danger
@@ -541,3 +541,7 @@ class InstallWindow(PlayOnLinuxWindow):
                 self.apps[self.j] = self.apps[self.j].replace("\n", "")
                 self.j += 1
             self.WriteApps(self.apps)
+
+    def Destroy(self):
+        self.timer.Stop()
+        super().Destroy()

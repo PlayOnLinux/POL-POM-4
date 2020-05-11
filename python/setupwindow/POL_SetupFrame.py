@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding:utf-8 -*-
 
 # Copyright (C) 2008 Pâris Quentin
@@ -22,19 +22,18 @@ import signal
 import subprocess
 
 import os
-import string
 import time
-import urllib
-import urlparse
+import urllib.request
+import urllib.parse
 import wx
-import wx.animate
+import wx.adv
 
 import lib.Variables as Variables
 import lib.lng
 import lib.playonlinux as playonlinux
 
 lib.lng.Lang()
-urllib.URLopener.version = Variables.userAgent  # Arg ...
+urllib.request.URLopener.version = Variables.userAgent  # Arg ...
 
 from ui.PlayOnLinuxWindow import PlayOnLinuxWindow
 from setupwindow.Downloader import Downloader
@@ -71,7 +70,7 @@ class POL_SetupFrame(PlayOnLinuxWindow):
 
         self._createUI()
 
-        wx.EVT_CLOSE(self, self.Cancel)
+        self.Bind(wx.EVT_CLOSE, self.Cancel)
 
     def _createHeader(self):
         self.header = wx.Panel(self, -1, size=(522, 65))
@@ -102,7 +101,7 @@ class POL_SetupFrame(PlayOnLinuxWindow):
         self.InfoScript.Hide()
         self.script_ID = 0
         self.InfoScript.Bind(wx.EVT_LEFT_DOWN, self.InfoClick)
-        self.InfoScript.SetCursor(wx.StockCursor(wx.CURSOR_HAND))
+        self.InfoScript.SetCursor(wx.Cursor(wx.CURSOR_HAND))
         self.footerSizer.Add(self.InfoScript, 0, wx.EXPAND)
 
         self.DebugScript = wx.StaticBitmap(self.footer, -1,
@@ -110,7 +109,7 @@ class POL_SetupFrame(PlayOnLinuxWindow):
         self.DebugScript.Hide()
         self.script_LOGTITLE = None
         self.DebugScript.Bind(wx.EVT_LEFT_DOWN, self.DebugClick)
-        self.DebugScript.SetCursor(wx.StockCursor(wx.CURSOR_HAND))
+        self.DebugScript.SetCursor(wx.Cursor(wx.CURSOR_HAND))
         self.footerSizer.Add(self.DebugScript, 0, wx.EXPAND)
 
 
@@ -220,17 +219,17 @@ class POL_SetupFrame(PlayOnLinuxWindow):
         self.password = wx.StaticText(self.contentPanel, -1, _("Password: "), pos=(20, 70), size=(460, 20))
         self.loginbox = wx.TextCtrl(self.contentPanel, -1, "", size=(250, 22), pos=(200, 35))
         self.passbox = wx.TextCtrl(self.contentPanel, -1, "", size=(250, 22), pos=(200, 65), style=wx.TE_PASSWORD)
-        self.register = wx.HyperlinkCtrl(self.contentPanel, 303, _("Register"), "", pos=(20, 100))
+        self.register = wx.adv.HyperlinkCtrl(self.contentPanel, 303, _("Register"), "", pos=(20, 100))
         self.register.SetNormalColour(wx.Colour(0, 0, 0))
 
         # Fixed Events
-        wx.EVT_BUTTON(self, wx.ID_YES, self.release_yes)
-        wx.EVT_BUTTON(self, wx.ID_NO, self.release_no)
-        wx.EVT_BUTTON(self, wx.ID_CANCEL, self.Cancel)
-        wx.EVT_BUTTON(self, 103, self.Parcourir)
-        wx.EVT_CHECKBOX(self, 302, self.agree)
-        wx.EVT_CHECKBOX(self, 304, self.switch_menu)
-        wx.EVT_HYPERLINK(self, 303, self.POL_register)
+        self.Bind(wx.EVT_BUTTON, self.release_yes, id=wx.ID_YES)
+        self.Bind(wx.EVT_BUTTON, self.release_no, id=wx.ID_NO)
+        self.Bind(wx.EVT_BUTTON, self.Cancel, id=wx.ID_CANCEL)
+        self.Bind(wx.EVT_BUTTON, self.Parcourir, id=103)
+        self.Bind(wx.EVT_CHECKBOX, self.agree, id=302)
+        self.Bind(wx.EVT_CHECKBOX, self.switch_menu, id=304)
+        self.Bind(wx.adv.EVT_HYPERLINK, self.POL_register, id=303)
 
         # Debug Window
         self.debugImage = wx.StaticBitmap(self.contentPanel, -1, wx.Bitmap(
@@ -350,23 +349,23 @@ class POL_SetupFrame(PlayOnLinuxWindow):
 
         self.DrawCancel()
         self.DrawNext()
-        wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release)
+        self.Bind(wx.EVT_BUTTON, self.release, id=wx.ID_FORWARD)
 
     def POL_SetupWindow_free_presentation(self, message, titre):
         self.resetSetupWindow()
         self.contentPanel.Hide()
         self.presentationPanel.Show()
-        self.titreP.SetLabel(titre.decode("utf8", "replace"))
+        self.titreP.SetLabel(titre)
         self.titreP.Wrap(280)
 
-        self.texteP.SetLabel(message.decode("utf8", "replace").replace("\\n", "\n").replace("\\t", "\t"))
+        self.texteP.SetLabel(message.replace("\\n", "\n").replace("\\t", "\t"))
         self.texteP.Wrap(360)
         self.texteP.Show()
 
         self.DrawCancel()
         self.DrawNext()
 
-        wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release)
+        self.Bind(wx.EVT_BUTTON, self.release, id=wx.ID_FORWARD)
         self.DrawImage()
         self.Layout()
 
@@ -410,8 +409,8 @@ class POL_SetupFrame(PlayOnLinuxWindow):
 
         self.DrawCancel()
         self.DrawNext()
-        wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_champ)
-        wx.EVT_TEXT_ENTER(self, 400, self.release_champ)
+        self.Bind(wx.EVT_BUTTON, self.release_champ, id=wx.ID_FORWARD)
+        self.Bind(wx.EVT_TEXT_ENTER, self.release_champ, id=400)
         self.Layout()
 
     def POL_Debug(self, message, title, value):
@@ -498,7 +497,7 @@ class POL_SetupFrame(PlayOnLinuxWindow):
         self.DrawDefault(message, title)
 
         self.space = message.count("\\n") + 1
-        self.areaList = string.split(liste, cut)
+        self.areaList = liste.split(cut)
 
         self.Menu.SetPosition((20, 5 + self.space * 16))
 
@@ -511,11 +510,11 @@ class POL_SetupFrame(PlayOnLinuxWindow):
         self.DrawNext()
 
         if (numtype == False):
-            wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_menu)
-            wx.EVT_LISTBOX_DCLICK(self, 104, self.release_menu)
+            self.Bind(wx.EVT_BUTTON, self.release_menu, id=wx.ID_FORWARD)
+            self.Bind(wx.EVT_LISTBOX_DCLICK, self.release_menu, id=104)
         else:
-            wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_menu_num)
-            wx.EVT_LISTBOX_DCLICK(self, 104, self.release_menu_num)
+            self.Bind(wx.EVT_BUTTON, self.release_menu_num, id=wx.ID_FORWARD)
+            self.Bind(wx.EVT_LISTBOX_DCLICK, self.release_menu_num, id=104)
         self.Layout()
 
     def POL_SetupWindow_browse(self, message, title, value, directory, supportedfiles):
@@ -544,7 +543,7 @@ class POL_SetupFrame(PlayOnLinuxWindow):
         self.DrawCancel()
         self.DrawNext()
 
-        wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_login)
+        self.Bind(wx.EVT_BUTTON, self.release_login, id=wx.ID_FORWARD)
         self.Layout()
 
     def POL_SetupWindow_textbox_multiline(self, message, title, value):
@@ -559,7 +558,7 @@ class POL_SetupFrame(PlayOnLinuxWindow):
 
         self.DrawCancel()
         self.DrawNext()
-        wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_bigchamp)
+        self.Bind(wx.EVT_BUTTON, self.release_bigchamp, id=wx.ID_FORWARD)
         self.Layout()
 
     def POL_SetupWindow_checkbox_list(self, message, title, liste, cut):
@@ -570,7 +569,7 @@ class POL_SetupFrame(PlayOnLinuxWindow):
         self.space = message.count("\\n") + 1
 
         self.scrolled_panel.SetPosition((20, 5 + self.space * 16))
-        self.areaList = string.split(liste, cut)
+        self.areaList = liste.split(cut)
 
         # We have to destroy all previous items (catching exception in case one is already destroyed)
         self.i = 0
@@ -594,7 +593,7 @@ class POL_SetupFrame(PlayOnLinuxWindow):
         self.DrawCancel()
         self.DrawNext()
         self.separator = cut
-        wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_checkboxes)
+        self.Bind(wx.EVT_BUTTON, self.release_checkboxes, id=wx.ID_FORWARD)
         self.Layout()
 
     def POL_SetupWindow_shortcut_list(self, message, title):
@@ -609,8 +608,8 @@ class POL_SetupFrame(PlayOnLinuxWindow):
 
         self.DrawCancel()
         self.DrawNext()
-        wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_menugame)
-        wx.EVT_TREE_ITEM_ACTIVATED(self, 111, self.release_menugame)
+        self.Bind(wx.EVT_BUTTON, self.release_menugame, id=wx.ID_FORWARD)
+        self.Bind(wx.EVT_TREE_ITEM_ACTIVATED, self.release_menugame, id=111)
         self.Layout()
 
     def POL_SetupWindow_icon_menu(self, message, title, items, cut, icon_folder, icon_list):
@@ -625,8 +624,8 @@ class POL_SetupFrame(PlayOnLinuxWindow):
 
         self.DrawCancel()
         self.DrawNext()
-        wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_menugame)
-        wx.EVT_TREE_ITEM_ACTIVATED(self, 111, self.release_menugame)
+        self.Bind(wx.EVT_BUTTON, self.release_menugame, id=wx.ID_FORWARD)
+        self.Bind(wx.EVT_TREE_ITEM_ACTIVATED, self.release_menugame, id=111)
         self.Layout()
 
     def POL_SetupWindow_prefix_selector(self, message, title):
@@ -654,9 +653,9 @@ class POL_SetupFrame(PlayOnLinuxWindow):
         self.DrawCancel()
         self.DrawNext()
 
-        wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_menuprefixes)
-        wx.EVT_TREE_ITEM_ACTIVATED(self, 111, self.release_menuprefixes)
-        wx.EVT_LISTBOX_DCLICK(self, 104, self.release_menuprefixes)
+        self.Bind(wx.EVT_BUTTON, self.release_menuprefixes, id=wx.ID_FORWARD)
+        self.Bind(wx.EVT_TREE_ITEM_ACTIVATED, self.release_menuprefixes, id=111)
+        self.Bind(wx.EVT_LISTBOX_DCLICK, self.release_menuprefixes, id=104)
 
         self.PCheckBox.Show()
         self.Layout()
@@ -670,7 +669,7 @@ class POL_SetupFrame(PlayOnLinuxWindow):
 
         self.DrawCancel()
         self.DrawNext()
-        wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release_notice)
+        self.Bind(wx.EVT_BUTTON, self.release_notice, id=wx.ID_FORWARD)
         self.Layout()
 
     def POL_SetupWindow_licence(self, message, title, licence_file):
@@ -694,7 +693,7 @@ class POL_SetupFrame(PlayOnLinuxWindow):
         self.DrawCancel()
         self.DrawNext()
         self.NextButton.Enable(False)
-        wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release)
+        self.Bind(wx.EVT_BUTTON, self.release, id=wx.ID_FORWARD)
         self.Layout()
 
     def POL_SetupWindow_file(self, message, title, filetoread):
@@ -715,7 +714,7 @@ class POL_SetupFrame(PlayOnLinuxWindow):
 
         self.DrawCancel()
         self.DrawNext()
-        wx.EVT_BUTTON(self, wx.ID_FORWARD, self.release)
+        self.Bind(wx.EVT_BUTTON, self.release, id=wx.ID_FORWARD)
         self.Layout()
 
     def POL_register(self, event):
@@ -726,7 +725,7 @@ class POL_SetupFrame(PlayOnLinuxWindow):
         self.Layout()
 
     def RunCommand(self, event, command, confirm):
-        if (confirm == "0" or wx.YES == wx.MessageBox(confirm.decode("utf-8", "replace"),
+        if (confirm == "0" or wx.YES == wx.MessageBox(confirm,
                                                       os.environ["APPLICATION_TITLE"],
                                                       style=wx.YES_NO | wx.ICON_QUESTION)):
             subprocess.Popen(shlex.split(command))
@@ -777,7 +776,7 @@ class POL_SetupFrame(PlayOnLinuxWindow):
             if (self.item_check[i].IsChecked() == True):
                 send.append(self.areaList[i])
             i += 1
-        self.SendBash(string.join(send, self.separator))
+        self.SendBash(self.separator.join(send))
         self.NextButton.Enable(False)
 
     def release_yes(self, event):
@@ -796,16 +795,15 @@ class POL_SetupFrame(PlayOnLinuxWindow):
 
     def release_login(self, event):
         self.SendBash(
-            self.loginbox.GetValue().encode("utf-8", "replace") + "~" + self.passbox.GetValue().encode("utf-8",
-                                                                                                       "replace"))
+            self.loginbox.GetValue() + "~" + self.passbox.GetValue())
         self.NextButton.Enable(False)
 
     def release_champ(self, event):
-        self.SendBash(self.champ.GetValue().encode("utf-8", "replace"))
+        self.SendBash(self.champ.GetValue())
         self.NextButton.Enable(False)
 
     def release_bigchamp(self, event):
-        self.SendBashT(self.bigchamp.GetValue().replace("\n", "\\n").encode("utf-8", "replace"))
+        self.SendBashT(self.bigchamp.GetValue().replace("\n", "\\n"))
         self.NextButton.Enable(False)
 
     def release_menu(self, event):
@@ -828,12 +826,12 @@ class POL_SetupFrame(PlayOnLinuxWindow):
         self.NextButton.Enable(False)
 
     def release_menugame(self, event):
-        self.SendBash(self.MenuGames.GetItemText(self.MenuGames.GetSelection()).encode("utf-8", "replace"))
+        self.SendBash(self.MenuGames.GetItemText(self.MenuGames.GetSelection()))
         self.NextButton.Enable(False)
 
     def release_menuprefixes(self, event):
         if (self.PCheckBox.IsChecked() == False):  # Alors il faut renvoyer le prefix
-            self.SendBash("1~" + self.MenuGames.GetItemText(self.MenuGames.GetSelection()).encode("utf-8", "replace"))
+            self.SendBash("1~" + self.MenuGames.GetItemText(self.MenuGames.GetSelection()))
         else:
             self.SendBash("2~" + self.areaList[self.Menu.GetSelection()])
 
@@ -917,7 +915,7 @@ class POL_SetupFrame(PlayOnLinuxWindow):
         self.FileDialog.SetDirectory(self.directory)
         self.FileDialog.ShowModal()
         if (self.FileDialog.GetPath() != ""):
-            filePath = self.FileDialog.GetPath().encode("utf-8", "replace")
+            filePath = self.FileDialog.GetPath()
             filePathBaseName = filePath.split("/")[filePath.count("/")]
             self.champ.SetValue(filePath)
             self.NextButton.Enable(True)
@@ -958,7 +956,7 @@ class POL_SetupFrame(PlayOnLinuxWindow):
             # * in a perfect world this should be removed and the
             # client be always responsible for providing the filename
             # it wants/expects
-            self.chemin = urlparse.urlsplit(url)[2]
+            self.chemin = urllib.parse.urlsplit(url)[2]
             self.nomFichier = self.chemin.split('/')[-1]
             self.local = localB + self.nomFichier
         else:
@@ -980,3 +978,7 @@ class POL_SetupFrame(PlayOnLinuxWindow):
             self.MenuGames.Show()
             self.Menu.Hide()
         self.Refresh()
+
+    def Destroy(self):
+        self.timer.Stop()
+        return super().Destroy()

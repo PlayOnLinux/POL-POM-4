@@ -1,5 +1,5 @@
-#!/usr/bin/python
-# -*- coding:Utf-8 -*-
+#!/usr/bin/python3
+# -*- coding:utf-8 -*-
 
 # Copyright (C) 2008 Pâris Quentin
 # This program is free software; you can redistribute it and/or modify
@@ -20,12 +20,12 @@ import os
 import random
 import socket
 import string
-import thread
+import _thread as thread
 import threading
 import time
 import wx
 
-from POL_SetupFrame import POL_SetupFrame
+from .POL_SetupFrame import POL_SetupFrame
 
 
 class gui_server(threading.Thread):
@@ -37,20 +37,20 @@ class gui_server(threading.Thread):
         # This dictionary will contain every created setup window
         self.parent = parent
 
-    def GenCookie(self, length=20, chars=string.letters + string.digits):
+    def GenCookie(self, length=20, chars=string.ascii_letters + string.digits):
         return ''.join([random.SystemRandom().choice(chars) for i in range(length)])
 
     def handler(self, connection, addr):
         self.temp = ""
         while True:
-            self.tempc = connection.recv(2048)
+            self.tempc = connection.recv(2048).decode()
 
             self.temp += self.tempc
             if "\n" in self.tempc:
                 break
 
         self.result = self.interact(self.temp.replace("\n", ""))
-        connection.send(self.result)
+        connection.send(self.result.encode())
         try:
             connection.shutdown(1)
             connection.close()
@@ -59,7 +59,7 @@ class gui_server(threading.Thread):
 
     def initServer(self):
         if (self._port >= 30020):
-            print _("Error: Unable to reserve a valid port")
+            print(_("Error: Unable to reserve a valid port"))
             wx.MessageBox(_("Error: Unable to reserve a valid port"), os.environ["APPLICATION_TITLE"])
             os._exit(0)
 
@@ -69,7 +69,7 @@ class gui_server(threading.Thread):
             self.acceptor.listen(10)
             os.environ["POL_PORT"] = str(self._port)
             os.environ["POL_COOKIE"] = self.GenCookie()
-        except socket.error, msg:
+        except socket.error as msg:
             self._port += 1
             self.initServer()
 
@@ -112,8 +112,8 @@ class gui_server(threading.Thread):
         while self._running:
             try:
                 self.connection, self.addr = self.acceptor.accept()
-            except socket.error as (errno, msg):
-                if errno == 4:  # Interrupted system call
+            except socket.error as e:
+                if e.errno == 4:  # Interrupted system call
                     continue
 
             thread.start_new_thread(self.handler, (self.connection, self.addr))
@@ -122,7 +122,7 @@ class gui_server(threading.Thread):
 ## FIXME: To be refactored
 def readAction(object):
     if (object.SetupWindowTimer_action[0] != os.environ["POL_COOKIE"]):
-        print "Bad cookie!"
+        print("Bad cookie!")
         object.SetupWindowTimer_action = None
         return False
 

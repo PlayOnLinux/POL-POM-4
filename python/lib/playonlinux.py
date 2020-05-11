@@ -1,10 +1,12 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 # Copyright (C) 2007-2010 PlayOnLinux Team
 
-import Variables, os, string
+from . import Variables
+import os
 import subprocess, shlex, pipes, wx
+import natsort
 
 def winpath(script, path):
     #path=os.path.realpath(path)
@@ -27,7 +29,7 @@ def open_document(path, ext):
         wx.MessageBox(_("There is nothing installed to run .{0} files.").format(ext),os.environ["APPLICATION_TITLE"], wx.OK)
     else:
         try:
-            subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/run_app", script.encode("utf-8","replace"), winpath(script.encode("utf-8","replace"), path.encode("utf-8","replace"))])
+            subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/run_app", script, winpath(script, path)])
         except:
             subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/run_app", script, winpath(script, path)])
 
@@ -46,7 +48,7 @@ def GetWineVersion(game):
         version = "System"
     else:
         version=line.replace("PATH=","").replace("\"","").replace(Variables.playonlinux_rep,"").replace("//","/")
-        version = string.split(version,"/")
+        version = version.split("/")
         version = version[1]
 
     return(version)
@@ -73,9 +75,9 @@ def GetSettings(setting, prefix='_POL_'):
             break
         i += 1
     try:
-        line = string.split(line,"=")
+        line = line.split("=")
         del line[0]
-        return(string.join(line,"="))
+        return("=".join(line))
     except:
         return("")
 
@@ -152,7 +154,7 @@ def getLog(game):
     for line in fichier:
         line = line.replace("\n","")
         if('#POL_Log=' in line):
-            line = string.split(line,"=")
+            line = line.split("=")
             return(line[1])
     return None
 
@@ -255,8 +257,8 @@ def open_folder_prefix(software):
             subprocess.call(["xdg-open", AppDir])
 
 def VersionLower(version1, version2):
-    version1 = string.split(version1, "-")
-    version2 = string.split(version2, "-")
+    version1 = version1.split("-")
+    version2 = version2.split("-")
 
     try:
         if(version1[1] != ""):
@@ -276,11 +278,11 @@ def VersionLower(version1, version2):
         else:
             return False
 
-    version1 = [ int(digit) for digit in string.split(version1[0],".") ]
+    version1 = [ int(digit) for digit in version1[0].split(".") ]
     while len(version1) < 3:
         version1.append(0)
 
-    version2 = [ int(digit) for digit in string.split(version2[0],".") ]
+    version2 = [ int(digit) for digit in version2[0].split(".") ]
     while len(version2) < 3:
         version2.append(0)
 
@@ -303,15 +305,15 @@ def convertVersionToInt(version): # Code par MulX en Bash, adapte en python par 
     #rajouter pour les vesions de dev -> la version stable peut sortir
     #les personnes qui utilise la version de dev sont quand même informé d'une MAJ
     #ex 3.8.1 < 3.8.2-dev < 3.8.2
-    print "Deprecated !"
+    print("Deprecated !")
     if("dev" in version or "beta" in version or "alpha" in version or "rc" in version):
-        version = string.split(version,"-")
+        version = version.split("-")
         version = version[0]
         versionDev = -5
     else:
         versionDev = 0
 
-    version_s = string.split(version,".")
+    version_s = version.split(".")
     #on fait des maths partie1 elever au cube et multiplier par 1000
     try:
         versionP1 = int(version_s[0])*int(version_s[0])*int(version_s[0])*1000
@@ -332,7 +334,7 @@ def getPrefix(shortcut): # Get prefix name from shortcut
         return ""
 
     fichier = open(os.environ["POL_USER_ROOT"]+"/shortcuts/"+shortcut,'r').read()
-    fichier = string.split(fichier,"\n")
+    fichier = fichier.split("\n")
     i = 0
     while(i < len(fichier)):
         if("export WINEPREFIX=" in fichier[i]):
@@ -340,9 +342,9 @@ def getPrefix(shortcut): # Get prefix name from shortcut
         i += 1
 
     try:
-        prefix = string.split(fichier[i],"\"")
+        prefix = fichier[i].split("\"")
         prefix = prefix[1].replace("//","/")
-        prefix = string.split(prefix,"/")
+        prefix = prefix.split("/")
 
         if(os.environ["POL_OS"] == "Mac"):
             index_of_dotPOL = prefix.index("PlayOnMac")
@@ -361,7 +363,7 @@ def getArgs(shortcut): # Get prefix name from shortcut
         return ""
 
     fichier = open(os.environ["POL_USER_ROOT"]+"/shortcuts/"+shortcut,'r').read()
-    fichier = string.split(fichier,"\n")
+    fichier = fichier.split("\n")
     i = 0
     while(i < len(fichier)):
         if("POL_Wine " in fichier[i]):
@@ -380,7 +382,7 @@ def getArgs(shortcut): # Get prefix name from shortcut
 
 def Get_versions(arch='x86'):
     installed_versions = os.listdir(Variables.playonlinux_rep+"/wine/"+Variables.os_name+"-"+arch+"/")
-    installed_versions.sort(key=keynat)
+    installed_versions.sort(key=natsort.natsort_keygen())
     installed_versions.reverse()
     try:
         installed_versions.remove("installed")
