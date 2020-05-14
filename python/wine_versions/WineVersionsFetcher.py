@@ -2,10 +2,10 @@ import json
 import os
 import threading
 import time
-import urllib2
+import urllib.request
+import natsort
 
 from lib import Variables
-from lib.playonlinux import keynat
 from wine_versions.WineVersionsTools import fetchUserOS
 
 class WineVersionFetcher(threading.Thread):
@@ -28,8 +28,8 @@ class WineVersionFetcher(threading.Thread):
                     wfolder = "-".join([fetchUserOS(), self.architecture])
 
 
-                    req = urllib2.Request(url, None, {'User-Agent': Variables.userAgent})
-                    handle = urllib2.urlopen(req, timeout = 5)
+                    req = urllib.request.Request(url, None, {'User-Agent': Variables.userAgent})
+                    handle = urllib.request.urlopen(req, timeout = 5)
                     time.sleep(1)
                     available_distributions = json.loads(handle.read())
                     self.versions_ = []
@@ -53,11 +53,11 @@ class WineVersionFetcher(threading.Thread):
                         else:
                             print(distribution["name"] + " does not match")
 
-                    self.versions_.sort(key=keynat)
+                    self.versions_.sort(key=natsort.natsort_keygen())
                     self.versions_.reverse()
                     self.versions = self.versions_[:]
                     self.thread_message = "Ok"
-                except Exception, e:
+                except Exception as e:
                     print(e)
                     time.sleep(1)
                     self.thread_message = "Err"

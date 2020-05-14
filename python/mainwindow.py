@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 # Copyright (C) 2008 Pâris Quentin
@@ -22,26 +22,20 @@ encoding = 'utf-8'
 import os
 import shlex
 import signal
-import string
 import subprocess
 import sys
 import time
-import urllib
+import urllib.parse
 import webbrowser
 
 try:
     os.environ["POL_OS"]
 except:
-    print "ERROR ! Please define POL_OS environment var first."
+    print("ERROR ! Please define POL_OS environment var first.")
     os._exit(1)
 
-if (os.environ["POL_OS"] != "Mac"):
-    import wxversion
-
-    wxversion.ensureMinimal('2.8')
-
-import wx, wx.aui
-import wx.lib.hyperlink
+import wx, wx.aui, wx.adv
+import wx.lib.agw.hyperlink
 import lib.lng as lng
 import lib.playonlinux as playonlinux, lib.Variables as Variables
 import options, threading, debug
@@ -98,7 +92,7 @@ class POLWeb(threading.Thread):
             self.updating = True
             exe = ['bash', Variables.playonlinux_env + "/bash/pol_update_list"]
 
-            p = subprocess.Popen(exe, stdout=subprocess.PIPE, bufsize=1,
+            p = subprocess.Popen(exe, stdout=subprocess.PIPE, bufsize=1, universal_newlines=True,
                                  preexec_fn=lambda: os.setpgid(os.getpid(), os.getpid()))
 
             for line in iter(p.stdout.readline, ''):
@@ -342,8 +336,8 @@ class MainWindow(wx.Frame):
                         self.bitmap = wx.Bitmap(Variables.playonlinux_env + "/etc/playonlinux16.png")
 
                     self.plugin_item.SetBitmap(self.bitmap)
-                    self.pluginsmenu.AppendItem(self.plugin_item)
-                    wx.EVT_MENU(self, 300 + self.j, self.run_plugin)
+                    self.pluginsmenu.Append(self.plugin_item)
+                    self.Bind(wx.EVT_MENU, self.run_plugin, id=300 + self.j)
                     self.plugin_list.append(files[self.i])
                     self.j += 1
             self.i += 1
@@ -354,7 +348,7 @@ class MainWindow(wx.Frame):
         self.option_item_p = wx.MenuItem(self.pluginsmenu, 214, _("Plugin manager"))
         self.option_item_p.SetBitmap(wx.Bitmap(Variables.playonlinux_env + "/etc/onglet/package-x-generic.png"))
 
-        self.pluginsmenu.AppendItem(self.option_item_p)
+        self.pluginsmenu.Append(self.option_item_p)
 
         self.last_string = ""
 
@@ -392,18 +386,18 @@ class MainWindow(wx.Frame):
         self.toolbar = self.CreateToolBar(wx.TB_TEXT)
         self.toolbar.SetToolBitmapSize(iconSize)
         self.searchbox = wx.SearchCtrl(self.toolbar, 124, style=wx.RAISED_BORDER)
-        self.playTool = self.toolbar.AddLabelTool(wx.ID_OPEN, _("Run"), wx.Bitmap(
+        self.playTool = self.toolbar.AddTool(wx.ID_OPEN, _("Run"), wx.Bitmap(
             Variables.playonlinux_env + "/resources/images/toolbar/play.png"))
-        self.stopTool = self.toolbar.AddLabelTool(123, _("Close"), wx.Bitmap(
+        self.stopTool = self.toolbar.AddTool(123, _("Close"), wx.Bitmap(
             Variables.playonlinux_env + "/resources/images/toolbar/stop.png"))
 
         self.toolbar.AddSeparator()
-        self.toolbar.AddLabelTool(wx.ID_ADD, _("Install"),
+        self.toolbar.AddTool(wx.ID_ADD, _("Install"),
                                   wx.Bitmap(Variables.playonlinux_env + "/resources/images/toolbar/install.png"))
-        self.removeTool = self.toolbar_remove = self.toolbar.AddLabelTool(wx.ID_DELETE, _("Remove"), wx.Bitmap(
+        self.removeTool = self.toolbar_remove = self.toolbar.AddTool(wx.ID_DELETE, _("Remove"), wx.Bitmap(
             Variables.playonlinux_env + "/resources/images/toolbar/delete.png"))
         self.toolbar.AddSeparator()
-        self.toolbar.AddLabelTool(121, _("Configure"),
+        self.toolbar.AddTool(121, _("Configure"),
                                   wx.Bitmap(Variables.playonlinux_env + "/resources/images/toolbar/configure.png"))
 
         try:
@@ -424,53 +418,53 @@ class MainWindow(wx.Frame):
 
         self.toolbar.Realize()
         self.Reload(self)
-        wx.EVT_MENU(self, wx.ID_OPEN, self.Run)
-        wx.EVT_MENU(self, 123, self.RKill)
+        self.Bind(wx.EVT_MENU, self.Run, id=wx.ID_OPEN)
+        self.Bind(wx.EVT_MENU, self.RKill, id=123)
 
-        wx.EVT_MENU(self, wx.ID_ADD, self.InstallMenu)
-        wx.EVT_MENU(self, wx.ID_ABOUT, self.About)
-        wx.EVT_MENU(self, wx.ID_EXIT, self.ClosePol)
-        wx.EVT_MENU(self, wx.ID_DELETE, self.UninstallGame)
+        self.Bind(wx.EVT_MENU, self.InstallMenu, id=wx.ID_ADD)
+        self.Bind(wx.EVT_MENU, self.About, id=wx.ID_ABOUT)
+        self.Bind(wx.EVT_MENU, self.ClosePol, id=wx.ID_EXIT)
+        self.Bind(wx.EVT_MENU, self.UninstallGame, id=wx.ID_DELETE)
 
         # Display
-        wx.EVT_MENU(self, 501, self.iconDisplay)
-        wx.EVT_MENU(self, 502, self.iconDisplay)
-        wx.EVT_MENU(self, 503, self.iconDisplay)
-        wx.EVT_MENU(self, 504, self.iconDisplay)
+        self.Bind(wx.EVT_MENU, self.iconDisplay, id=501)
+        self.Bind(wx.EVT_MENU, self.iconDisplay, id=502)
+        self.Bind(wx.EVT_MENU, self.iconDisplay, id=503)
+        self.Bind(wx.EVT_MENU, self.iconDisplay, id=504)
 
         # Expert
-        wx.EVT_MENU(self, 101, self.Reload)
-        wx.EVT_MENU(self, 107, self.WineVersion)
-        wx.EVT_MENU(self, 108, self.Executer)
-        wx.EVT_MENU(self, 109, self.PolShell)
-        wx.EVT_MENU(self, 110, self.BugReport)
-        wx.EVT_MENU(self, 112, self.POLOnline)
-        wx.EVT_MENU(self, 113, self.PCCd)
-        wx.EVT_MENU(self, 115, self.killall)
-        wx.EVT_MENU(self, 121, self.Configure)
-        wx.EVT_MENU(self, 122, self.Package)
-        wx.EVT_TEXT(self, 124, self.Reload)
+        self.Bind(wx.EVT_MENU, self.Reload, id=101)
+        self.Bind(wx.EVT_MENU, self.WineVersion, id=107)
+        self.Bind(wx.EVT_MENU, self.Executer, id=108)
+        self.Bind(wx.EVT_MENU, self.PolShell, id=109)
+        self.Bind(wx.EVT_MENU, self.BugReport, id=110)
+        self.Bind(wx.EVT_MENU, self.POLOnline, id=112)
+        self.Bind(wx.EVT_MENU, self.PCCd, id=113)
+        self.Bind(wx.EVT_MENU, self.killall, id=115)
+        self.Bind(wx.EVT_MENU, self.Configure, id=121)
+        self.Bind(wx.EVT_MENU, self.Package, id=122)
+        self.Bind(wx.EVT_TEXT, self.Reload, id=124)
 
         # Options
-        wx.EVT_MENU(self, 210, self.Options)
-        wx.EVT_MENU(self, 211, self.Options)
-        wx.EVT_MENU(self, 212, self.Options)
-        wx.EVT_MENU(self, 213, self.Options)
-        wx.EVT_MENU(self, 214, self.Options)
-        wx.EVT_MENU(self, 215, self.Options)
+        self.Bind(wx.EVT_MENU, self.Options, id=210)
+        self.Bind(wx.EVT_MENU, self.Options, id=211)
+        self.Bind(wx.EVT_MENU, self.Options, id=212)
+        self.Bind(wx.EVT_MENU, self.Options, id=213)
+        self.Bind(wx.EVT_MENU, self.Options, id=214)
+        self.Bind(wx.EVT_MENU, self.Options, id=215)
 
-        wx.EVT_MENU(self, 216, self.donate)
+        self.Bind(wx.EVT_MENU, self.donate, id=216)
 
-        wx.EVT_CLOSE(self, self.ClosePol)
-        wx.EVT_TREE_ITEM_ACTIVATED(self, 105, self.Run)
-        wx.EVT_TREE_SEL_CHANGED(self, 105, self.Select)
+        self.Bind(wx.EVT_CLOSE, self.ClosePol)
+        self.Bind(wx.EVT_TREE_ITEM_ACTIVATED, self.Run, id=105)
+        self.Bind(wx.EVT_TREE_SEL_CHANGED, self.Select, id=105)
 
         # Support
-        wx.EVT_MENU(self, 400, self.runSupport)
-        wx.EVT_MENU(self, 401, self.runSupport)
-        wx.EVT_MENU(self, 402, self.runSupport)
-        wx.EVT_MENU(self, 403, self.runSupport)
-        wx.EVT_MENU(self, 404, self.runSupport)
+        self.Bind(wx.EVT_MENU, self.runSupport, id=400)
+        self.Bind(wx.EVT_MENU, self.runSupport, id=401)
+        self.Bind(wx.EVT_MENU, self.runSupport, id=402)
+        self.Bind(wx.EVT_MENU, self.runSupport, id=403)
+        self.Bind(wx.EVT_MENU, self.runSupport, id=404)
 
         # PlayOnLinux main timer
         self.timer = wx.Timer(self, 1)
@@ -487,14 +481,14 @@ class MainWindow(wx.Frame):
         self.SetupWindowTimer_delay = 100
 
         # Pop-up menu for game list: beginning
-        wx.EVT_TREE_ITEM_MENU(self, 105, self.RMBInGameList)
-        wx.EVT_MENU(self, 230, self.RWineConfigurator)
-        wx.EVT_MENU(self, 231, self.RRegistryEditor)
-        wx.EVT_MENU(self, 232, self.GoToAppDir)
-        wx.EVT_MENU(self, 233, self.ChangeIcon)
-        wx.EVT_MENU(self, 234, self.UninstallGame)
-        wx.EVT_MENU(self, 235, self.RKill)
-        wx.EVT_MENU(self, 236, self.ReadMe)
+        self.Bind(wx.EVT_TREE_ITEM_MENU, self.RMBInGameList, id=105)
+        self.Bind(wx.EVT_MENU, self.RWineConfigurator, id=230)
+        self.Bind(wx.EVT_MENU, self.RRegistryEditor, id=231)
+        self.Bind(wx.EVT_MENU, self.GoToAppDir, id=232)
+        self.Bind(wx.EVT_MENU, self.ChangeIcon, id=233)
+        self.Bind(wx.EVT_MENU, self.UninstallGame, id=234)
+        self.Bind(wx.EVT_MENU, self.RKill, id=235)
+        self.Bind(wx.EVT_MENU, self.ReadMe, id=236)
         self.Bind(wx.EVT_SIZE, self.ResizeWindow)
         self._mgr.restorePosition()
 
@@ -571,7 +565,7 @@ class MainWindow(wx.Frame):
                 self.sb.Hide()
                 self.installFrame.setWaitState(False)
                 self.installFrame.Refresh()
-        except wx._core.PyDeadObjectError:
+        except RuntimeError:
             pass
         except AttributeError:  # FIXME: Install Frame is not opened
             pass
@@ -867,11 +861,11 @@ class MainWindow(wx.Frame):
             pass
 
         if (url == None):
-            self.menuElem[id] = wx.lib.hyperlink.HyperLinkCtrl(self.menu_gauche, 10000 + pos, text,
+            self.menuElem[id] = wx.lib.agw.hyperlink.HyperLinkCtrl(self.menu_gauche, 10000 + pos, text,
                                                                pos=(35, 15 + pos * 20))
             self.menuElem[id].AutoBrowse(False)
         else:
-            self.menuElem[id] = wx.lib.hyperlink.HyperLinkCtrl(self.menu_gauche, 10000 + pos, text,
+            self.menuElem[id] = wx.lib.agw.hyperlink.HyperLinkCtrl(self.menu_gauche, 10000 + pos, text,
                                                                pos=(35, 15 + pos * 20))
             self.menuElem[id].setURL(url)
 
@@ -883,7 +877,7 @@ class MainWindow(wx.Frame):
         # self.menuElem[id].SetHoverColour(wx.Colour(100,100,100))
 
         if (evt != None):
-            wx.lib.hyperlink.EVT_HYPERLINK_LEFT(self, 10000 + pos, evt)
+            self.Bind(wx.lib.agw.hyperlink.EVT_HYPERLINK_LEFT, evt, id=10000 + pos)
 
     def donate(self, event):
         if (os.environ["POL_OS"] == "Mac"):
@@ -909,7 +903,7 @@ class MainWindow(wx.Frame):
         else:
             self.iconFolder = "full_size"
         for game in self.games:  # METTRE EN 32x32
-            if (self.searchbox.GetValue().encode("utf-8", "replace").lower() in game.lower()):
+            if (self.searchbox.GetValue().lower() in game.lower()):
                 if (not os.path.isdir(Variables.playonlinux_rep + "/shortcuts/" + game)):
                     if (os.path.exists(Variables.playonlinux_rep + "/icones/" + self.iconFolder + "/" + game)):
                         file_icone = Variables.playonlinux_rep + "/icones/" + self.iconFolder + "/" + game
@@ -997,7 +991,7 @@ class MainWindow(wx.Frame):
                     os.environ["APPLICATION_TITLE"]), "default", True)
             else:
                 self.configureFrame = ConfigureWindow.ConfigureWindow(self, -1, _("{0} configuration").format(
-                    os.environ["APPLICATION_TITLE"]), game_exec.decode("utf-8", "replace"), False)
+                    os.environ["APPLICATION_TITLE"]), game_exec, False)
 
             self.configureFrame.Center(wx.BOTH)
             self.configureFrame.Show(True)
@@ -1043,7 +1037,7 @@ class MainWindow(wx.Frame):
             self.wversion.Show(True)
 
     def GetSelectedProgram(self):
-        return self.list_game.GetItemText(self.list_game.GetSelection()).encode("utf-8", "replace")
+        return self.list_game.GetItemText(self.list_game.GetSelection())
 
     def Run(self, event, s_debug=False):
 
@@ -1086,7 +1080,7 @@ class MainWindow(wx.Frame):
         game_log = str(playonlinux.getLog(game_exec))
         if game_log:
             playonlinux.POL_Open(
-                "http://www." + os.environ["POL_DNS"] + "/repository/feedback.php?script=" + urllib.quote_plus(
+                "http://www." + os.environ["POL_DNS"] + "/repository/feedback.php?script=" + urllib.parse.quote_plus(
                     game_log))
 
     def POLDie(self):
@@ -1116,7 +1110,7 @@ class MainWindow(wx.Frame):
         os._exit(63)  # Restart code
 
     def ForceClose(self, signal, frame):  # Catch SIGINT
-        print "\nCtrl+C pressed. Killing all processes..."
+        print("\nCtrl+C pressed. Killing all processes...")
         self.POLDie()
 
     def ClosePol(self, event):
@@ -1128,13 +1122,12 @@ class MainWindow(wx.Frame):
                 pids.append(pid)
             except OSError:
                 pid_exists = False
-            print "Registered PID: %d (%s)" % (pid, 'Present' if pid_exists else 'Missing')
+            print("Registered PID: %d (%s)" % (pid, 'Present' if pid_exists else 'Missing'))
         self.registeredPid = pids
 
         if (playonlinux.GetSettings(
                 "DONT_ASK_BEFORE_CLOSING") == "TRUE" or self.registeredPid == [] or wx.YES == wx.MessageBox(
-                _('Are you sure you want to close all {0} windows?').format(os.environ["APPLICATION_TITLE"]).decode(
-                        "utf-8", "replace"), os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
+                _('Are you sure you want to close all {0} windows?').format(os.environ["APPLICATION_TITLE"]), os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
             self.SizeToSave = self.GetSize()
             self.PositionToSave = self.GetPosition()
             # Save size and position
@@ -1149,7 +1142,7 @@ class MainWindow(wx.Frame):
         return None
 
     def About(self, event):
-        self.aboutBox = wx.AboutDialogInfo()
+        self.aboutBox = wx.adv.AboutDialogInfo()
         if (os.environ["POL_OS"] != "Mac"):
             self.aboutBox.SetIcon(wx.Icon(Variables.playonlinux_env + "/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
 
@@ -1170,7 +1163,12 @@ class MainWindow(wx.Frame):
             self.aboutBox.SetWebSite("http://www.playonmac.com")
         else:
             self.aboutBox.SetWebSite("http://www.playonlinux.com")
-        wx.AboutBox(self.aboutBox)
+        wx.adv.AboutBox(self.aboutBox)
+
+    def Destroy(self):
+        self.timer.Stop()
+        self.SetupWindowTimer.Stop()
+        return super().Destroy()
 
 
 class PlayOnLinuxApp(wx.App):
@@ -1296,7 +1294,7 @@ class PlayOnLinuxApp(wx.App):
             if (playonlinux.GetSettings("SEND_REPORT") == ""):
                 if (wx.YES == wx.MessageBox(_(
                         'Do you want to help {0} to make a compatibility database?\n\nIf you click yes, the following things will be sent to us anonymously the first time you run a Windows program:\n\n- Your graphic card model\n- Your OS version\n- If graphic drivers are installed or not.\n\n\nThese information will be very precious for us to help people.').format(
-                        os.environ["APPLICATION_TITLE"]).decode("utf-8", "replace"), os.environ["APPLICATION_TITLE"],
+                        os.environ["APPLICATION_TITLE"]), os.environ["APPLICATION_TITLE"],
                                             style=wx.YES_NO | wx.ICON_QUESTION)):
                     playonlinux.SetSettings("SEND_REPORT", "TRUE")
                 else:
@@ -1333,7 +1331,7 @@ class PlayOnLinuxApp(wx.App):
             pass
 
     def MacOpenFile(self, filename):
-        file_extension = string.split(filename, ".")
+        file_extension = filename.split(".")
         file_extension = file_extension[len(file_extension) - 1]
         if (file_extension == "desktop"):  # Un raccourcis Linux
             content = open(filename, "r").readlines()
@@ -1358,8 +1356,7 @@ class PlayOnLinuxApp(wx.App):
 
         elif (file_extension == "pol" or file_extension == "POL"):
             if (wx.YES == wx.MessageBox(
-                    _('Are you sure you want to  want to install {0} package?').format(filename).decode("utf-8",
-                                                                                                        "replace"),
+                    _('Are you sure you want to  want to install {0} package?').format(filename),
                     os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
                 subprocess.Popen(["bash", Variables.playonlinux_env + "/bash/playonlinux-pkg", "-i", filename])
         else:
@@ -1399,7 +1396,7 @@ def handleSigchld(number, frame):
 setSigchldHandler()
 lng.Lang()
 
-wx.Log_EnableLogging(False)
+wx.Log.EnableLogging(False)
 
 app = PlayOnLinuxApp(redirect=False)
 app.MainLoop()

@@ -1,11 +1,10 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 import unittest
 #import lib.playonlinux as playonlinux
-import string
 
 def VersionLower(version1, version2):
-    version1 = string.split(version1, "-")
-    version2 = string.split(version2, "-")
+    version1 = version1.split("-")
+    version2 = version2.split("-")
 
     try:
         if(version1[1] != ""):
@@ -25,8 +24,8 @@ def VersionLower(version1, version2):
         else:
             return False
 
-    version1 = [ int(digit) for digit in string.split(version1[0],".") ]
-    version2 = [ int(digit) for digit in string.split(version2[0],".") ]
+    version1 = [ int(digit) for digit in version1[0].split(".") ]
+    version2 = [ int(digit) for digit in version2[0].split(".") ]
 
     if(version1[0] < version2[0]):
         return True

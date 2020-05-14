@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 # Copyright (C) 2009 Pâris Quentin
@@ -19,7 +19,7 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 from asyncore import dispatcher
-import wxversion, os, subprocess, getopt, sys, urllib, signal, socket, string
+import os, subprocess, getopt, sys, urllib.request, signal, socket
 import wx, time, re
 import webbrowser, shutil
 import threading, time, codecs
@@ -45,15 +45,15 @@ class getPlugins(threading.Thread):
             if(self.thread_message == "get"):
                 try :
                     url = 'http://mulx.playonlinux.com/wine/linux-i386/LIST'
-                    req = urllib2.Request(url)
-                    handle = urllib2.urlopen(req)
+                    req = urllib.request.Request(url)
+                    handle = urllib.request.urlopen(req)
                     time.sleep(1)
                     available_versions = handle.read()
-                    available_versions = string.split(available_versions,"\n")
+                    available_versions = available_versions.split("\n")
                     self.i = 0
                     self.versions_ = []
                     while(self.i < len(available_versions) - 1):
-                        informations = string.split(available_versions[self.i], ";")
+                        informations = available_versions[self.i].split(";")
                         version = informations[1]
                         package = informations[0]
                         sha1sum = informations[2]
@@ -140,7 +140,7 @@ class Onglets(wx.Notebook):
         self.ProxyTxtPass = wx.StaticText(self.panelInternet, -1, _("Proxy password"), (10,240), wx.DefaultSize)
         self.ProxyPass = wx.TextCtrl(self.panelInternet, -1, proxy_settings["PROXY_PASS"], pos=(20,260),size=(300,27), style=wx.TE_PASSWORD)
         self.AddPage(self.panelInternet, nom, imageId=2)
-        wx.EVT_CHECKBOX(self, 120, self.proxy_enable)
+        self.Bind(wx.EVT_CHECKBOX, self.proxy_enable, id=120)
         self.proxy_enable(self)
 
     def proxy_enable(self, event):
@@ -212,13 +212,13 @@ class Onglets(wx.Notebook):
 
         self.AddPage(self.panelPlugins, nom, imageId=5)
 
-        wx.EVT_TREE_SEL_CHANGED(self, 220, self.choose_plugin)
+        self.Bind(wx.EVT_TREE_SEL_CHANGED, self.choose_plugin, id=220)
 
-        wx.EVT_BUTTON(self, 214, self.disable)
-        wx.EVT_BUTTON(self, 213, self.enable)
-        wx.EVT_BUTTON(self, 212, self.setup_plug)
-        wx.EVT_BUTTON(self, wx.ID_REMOVE, self.delete_plug)
-        wx.EVT_BUTTON(self, wx.ID_ADD, self.add_plug)
+        self.Bind(wx.EVT_BUTTON, self.disable, id=214)
+        self.Bind(wx.EVT_BUTTON, self.enable, id=213)
+        self.Bind(wx.EVT_BUTTON, self.setup_plug, id=212)
+        self.Bind(wx.EVT_BUTTON, self.delete_plug, id=wx.ID_REMOVE)
+        self.Bind(wx.EVT_BUTTON, self.add_plug, id=wx.ID_ADD)
 
     def generateExts(self):
         self.list_ext.DeleteAllItems()
@@ -227,7 +227,7 @@ class Onglets(wx.Notebook):
         self.exts.sort()
         for line in self.exts:
             line = line.replace("\n","")
-            line = string.split(line,"=")
+            line = line.split("=")
             liner = "Line %s" % i
             self.list_ext.InsertStringItem(i, liner)
             self.list_ext.SetStringItem(i, 0, line[0])
@@ -249,8 +249,8 @@ class Onglets(wx.Notebook):
         self.app_installed.Show()
         self.delete_ext.Show()
 
-        self.app_selected = string.split(self.exts[event.m_itemIndex],"=")[1]
-        self.ext_selected = string.split(self.exts[event.m_itemIndex],"=")[0]
+        self.app_selected = self.exts[event.m_itemIndex].split("=")[1]
+        self.ext_selected = self.exts[event.m_itemIndex].split("=")[0]
 
         self.app_installed.SetValue(self.app_selected.replace("\n","").replace("\r",""))
 
@@ -285,10 +285,10 @@ class Onglets(wx.Notebook):
 
         self.generateExts()
         self.AddPage(self.panelExt, nom, imageId=6)
-        wx.EVT_LIST_ITEM_SELECTED(self, 500, self.editExt)
-        wx.EVT_COMBOBOX(self, 501, self.reditExt)
-        wx.EVT_BUTTON(self, 502, self.delExt)
-        wx.EVT_BUTTON(self, 503, self.newExt)
+        self.Bind(wx.EVT_LIST_ITEM_SELECTED, self.editExt, id=500)
+        self.Bind(wx.EVT_COMBOBOX, self.reditExt, id=501)
+        self.Bind(wx.EVT_BUTTON, self.delExt, id=502)
+        self.Bind(wx.EVT_BUTTON, self.newExt, id=503)
 
     def setup_plug(self, event):
         self.current_plugin = self.pluginlist.GetItemText(self.pluginlist.GetSelection())
@@ -301,15 +301,15 @@ class Onglets(wx.Notebook):
         self.FileDialog.SetWildcard("POL Packages (*.pol)|*.pol")
         result = self.FileDialog.ShowModal()
         if(result == wx.ID_OK and self.FileDialog.GetPath() != ""):
-            if(wx.YES == wx.MessageBox(_("Are you sure you want to install: ").decode("utf-8","replace")+self.FileDialog.GetPath()+"?",os.environ["APPLICATION_TITLE"] ,style=wx.YES_NO | wx.ICON_QUESTION)):
-                subprocess.call(["bash", Variables.playonlinux_env+"/playonlinux-pkg", "-i", self.FileDialog.GetPath().encode("utf-8","replace")])
+            if(wx.YES == wx.MessageBox(_("Are you sure you want to install: ")+self.FileDialog.GetPath()+"?",os.environ["APPLICATION_TITLE"] ,style=wx.YES_NO | wx.ICON_QUESTION)):
+                subprocess.call(["bash", Variables.playonlinux_env+"/playonlinux-pkg", "-i", self.FileDialog.GetPath()])
                 self.LoadPlugins()
         self.FileDialog.Destroy()
 
     def delete_plug(self, event):
         self.current_plugin = self.pluginlist.GetItemText(self.pluginlist.GetSelection())
         self.plugin_path = Variables.playonlinux_rep+"/plugins/"+self.current_plugin
-        if(wx.YES == wx.MessageBox(_("Are you sure you want to delete: ").decode("utf-8","replace")+self.current_plugin+"?", os.environ["APPLICATION_TITLE"],style=wx.YES_NO | wx.ICON_QUESTION)):
+        if(wx.YES == wx.MessageBox(_("Are you sure you want to delete: ")+self.current_plugin+"?", os.environ["APPLICATION_TITLE"],style=wx.YES_NO | wx.ICON_QUESTION)):
             shutil.rmtree(self.plugin_path)
             self.LoadPlugins()
     def disable(self, event):
@@ -367,7 +367,7 @@ class Onglets(wx.Notebook):
 
 class MainWindow(wx.Frame):
     def __init__(self,parent,id,title,onglet):
-        wx.Frame.__init__(self, parent, -1, title, size = (505, 550), style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX)
+        wx.Frame.__init__(self, parent, -1, title, size = (505, 550), style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX | wx.RESIZE_BORDER)
         self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
         self.panelFenp = wx.Panel(self, -1)
         self.panels_buttons = wx.Panel(self.panelFenp, -1)
@@ -393,8 +393,8 @@ class MainWindow(wx.Frame):
 
         self.panelFenp.SetSizer(self.sizer)
         self.panelFenp.SetAutoLayout(True)
-        wx.EVT_BUTTON(self, wx.ID_APPLY, self.apply_settings)
-        wx.EVT_BUTTON(self, wx.ID_CLOSE, self.app_Close)
+        self.Bind(wx.EVT_BUTTON, self.apply_settings, id=wx.ID_APPLY)
+        self.Bind(wx.EVT_BUTTON, self.app_Close, id=wx.ID_CLOSE)
 
     def app_Close(self, event):
         self.Destroy()

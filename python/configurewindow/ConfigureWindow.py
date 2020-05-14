@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 # Copyright (C) 2009 Pâris Quentin
@@ -71,8 +71,8 @@ class ConfigureWindow(wx.Frame):
             self.AddPrefix = wx.Button(self.prefixPanel, 1001, _("New"), pos=(0, 0), size=(95, 25))
             self.DelPrefix = wx.Button(self.prefixPanel, 1002, _("Remove"), pos=(100, 0), size=(95, 25))
 
-        wx.EVT_BUTTON(self, 1001, self.NewPrefix)
-        wx.EVT_BUTTON(self, 1002, self.DeletePrefix)
+        self.Bind(wx.EVT_BUTTON, self.NewPrefix, id=1001)
+        self.Bind(wx.EVT_BUTTON, self.DeletePrefix, id=1002)
 
 
         self.list_game.SetSpacing(0)
@@ -91,7 +91,7 @@ class ConfigureWindow(wx.Frame):
         self.list_software()
 
         self.onglets.panelGeneral.Bind(wx.EVT_LEFT_UP, self.onglets.ReleaseTyping)
-        wx.EVT_TREE_SEL_CHANGED(self, 900, self.change_program_to_selection)
+        self.Bind(wx.EVT_TREE_SEL_CHANGED, self.change_program_to_selection, id=900)
 
         self.timer = wx.Timer(self, 1)
         self.Bind(wx.EVT_TIMER, self.AutoReload, self.timer)
@@ -112,15 +112,15 @@ class ConfigureWindow(wx.Frame):
             if(self.onglets.s_prefix == "default"):
                 wx.MessageBox(_("This virtual drive is protected"), os.environ["APPLICATION_TITLE"])
             else:
-                if(wx.YES == wx.MessageBox(_("Are you sure you want to delete {0} virtual drive ?").format(self.onglets.s_prefix.encode("utf-8","replace")).decode("utf-8","replace"), os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
+                if(wx.YES == wx.MessageBox(_("Are you sure you want to delete {0} virtual drive ?").format(self.onglets.s_prefix), os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
                     mylist = os.listdir(Variables.playonlinux_rep+"/shortcuts")
                     for element in mylist:
                         if(playonlinux.getPrefix(element).lower() == self.onglets.s_prefix.lower()):
                             subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/uninstall", "--non-interactive", element])
                     self._delete_directory(Variables.playonlinux_rep+"/wineprefix/"+self.onglets.s_prefix)
         else:
-            if(wx.YES == wx.MessageBox(_("Are you sure you want to delete {0} ?").format(self.onglets.s_title.encode("utf-8","replace")).decode("utf-8","replace"), os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
-                subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/uninstall", "--non-interactive", self.onglets.s_title.encode('utf-8', 'replace')])
+            if(wx.YES == wx.MessageBox(_("Are you sure you want to delete {0} ?").format(self.onglets.s_title), os.environ["APPLICATION_TITLE"], style=wx.YES_NO | wx.ICON_QUESTION)):
+                subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/uninstall", "--non-interactive", self.onglets.s_title])
 
         self.onglets.s_isPrefix = True
         self.change_program("default",True)
@@ -150,7 +150,7 @@ class ConfigureWindow(wx.Frame):
                     # To speed up the process, only modify metadata when necessary
                     attr = os.lstat(fullpath)
                     if attr.st_mode & needed_dir_rights != needed_dir_rights:
-                        print "%s rights need fixing" % fullpath
+                        print("%s rights need fixing" % fullpath)
                         os.chmod(fullpath, needed_dir_rights)
 
             # Alright, now we should be able to proceed
@@ -295,9 +295,9 @@ class ConfigureWindow(wx.Frame):
         self.list_game.ExpandAll()
         try:
             if(self.onglets.s_isPrefix == True):
-                self.list_game.SelectItem(self.prefixes_item[self.onglets.s_prefix.encode("utf-8","replace")])
+                self.list_game.SelectItem(self.prefixes_item[self.onglets.s_prefix])
             else:
-                self.list_game.SelectItem(self.games_item[self.onglets.s_title.encode("utf-8","replace")])
+                self.list_game.SelectItem(self.games_item[self.onglets.s_title])
         except:
             self.onglets.s_isPrefix = True
             self.change_program("default",True)
@@ -308,3 +308,7 @@ class ConfigureWindow(wx.Frame):
 
     def apply_settings(self, event):
         self.Destroy()
+
+    def Destroy(self):
+        self.timer.Stop()
+        return super().Destroy()

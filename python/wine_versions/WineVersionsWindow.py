@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 # Copyright (C) 2007 Pâris Quentin
@@ -23,7 +23,7 @@ import shutil
 import subprocess
 
 import wx
-import wx.animate
+import natsort
 
 import lib.Variables as Variables
 import lib.lng
@@ -104,17 +104,17 @@ class WineVersionsWindow(wx.Frame):
 
         # self.button = wx.Button(self.panels_buttons, wx.ID_CLOSE, _("Close"), pos=(510, 5), size=wx.DefaultSize)
 
-        wx.EVT_BUTTON(self, wx.ID_CLOSE, self.closeapp)
-        wx.EVT_CLOSE(self, self.closeapp)
-        wx.EVT_TREE_SEL_CHANGED(self, 106, self.unselect32)
-        wx.EVT_TREE_SEL_CHANGED(self, 107, self.unselect32)
-        wx.EVT_BUTTON(self, 108, self.delete32)
-        wx.EVT_BUTTON(self, 109, self.install32)
+        self.Bind(wx.EVT_BUTTON, self.closeapp, id=wx.ID_CLOSE)
+        self.Bind(wx.EVT_CLOSE, self.closeapp)
+        self.Bind(wx.EVT_TREE_SEL_CHANGED, self.unselect32, id=106)
+        self.Bind(wx.EVT_TREE_SEL_CHANGED, self.unselect32, id=107)
+        self.Bind(wx.EVT_BUTTON, self.delete32, id=108)
+        self.Bind(wx.EVT_BUTTON, self.install32, id=109)
 
-        wx.EVT_TREE_SEL_CHANGED(self, 206, self.unselect64)
-        wx.EVT_TREE_SEL_CHANGED(self, 207, self.unselect64)
-        wx.EVT_BUTTON(self, 208, self.delete64)
-        wx.EVT_BUTTON(self, 209, self.install64)
+        self.Bind(wx.EVT_TREE_SEL_CHANGED, self.unselect64, id=206)
+        self.Bind(wx.EVT_TREE_SEL_CHANGED, self.unselect64, id=207)
+        self.Bind(wx.EVT_BUTTON, self.delete64, id=208)
+        self.Bind(wx.EVT_BUTTON, self.install64, id=209)
 
         self.Bind(wx.EVT_TIMER, self.AutoReload, self.timer)
         self.timer.Start(200)
@@ -170,12 +170,12 @@ class WineVersionsWindow(wx.Frame):
 
     def delete_common(self, event, arch):
         version = self.onglets.installedWineVersionsTreeSelector[arch].GetItemText(
-            self.onglets.installedWineVersionsTreeSelector[arch].GetSelection()).encode("utf-8", "replace")
+            self.onglets.installedWineVersionsTreeSelector[arch].GetSelection())
         used_version = self.checkVersionUse(arch)  # Get the set of wine version used by wineprefix
         message = _('Are you sure you want to delete wine {0}?').format(version)
         if version in used_version:
             message += "\n" + _('This version is CURRENTLY IN USE')
-        if (wx.YES == wx.MessageBox(message.decode("utf-8", "replace"), os.environ["APPLICATION_TITLE"],
+        if (wx.YES == wx.MessageBox(message, os.environ["APPLICATION_TITLE"],
                                     style=wx.YES_NO | wx.ICON_QUESTION)):
             shutil.rmtree(Variables.playonlinux_rep + "/wine/" + fetchUserOS() + "-" + arch + "/" + version)
 
@@ -183,8 +183,7 @@ class WineVersionsWindow(wx.Frame):
         self.install_common(event, "x86")
 
     def install_common(self, event, arch):
-        install = self.onglets.availableWineVersionsTreeSelector[arch].GetItemText(self.onglets.availableWineVersionsTreeSelector[arch].GetSelection()).encode("utf-8",
-                                                                                                               "replace")
+        install = self.onglets.availableWineVersionsTreeSelector[arch].GetItemText(self.onglets.availableWineVersionsTreeSelector[arch].GetSelection())
         subprocess.Popen(["bash", Variables.playonlinux_env + "/bash/install_wver", install, arch])
 
     def unselect64(self, event):
@@ -246,7 +245,7 @@ class WineVersionsWindow(wx.Frame):
         used_version = self.checkVersionUse(arch)  # Get the set of wine version used by wineprefix
 
         installed_versions = os.listdir(Variables.playonlinux_rep + "/wine/" + wfolder)
-        installed_versions.sort(key=playonlinux.keynat)
+        installed_versions.sort(key=natsort.natsort_keygen())
         installed_versions.reverse()
         self.i = 0
         self.j = 0
@@ -282,3 +281,7 @@ class WineVersionsWindow(wx.Frame):
             self.download64.thread_running = False
 
         self.Destroy()
+
+    def Destroy(self):
+        self.timer.Stop()
+        return super().Destroy()

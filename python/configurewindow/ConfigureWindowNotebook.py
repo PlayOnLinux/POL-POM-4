@@ -23,13 +23,13 @@ class ConfigureWindowNotebook(wx.Notebook):
         self.changing = True
 
     def winebash(self, command, new_env=None):
-        args = shlex.split(command.encode("utf-8", "replace"))
+        args = shlex.split(command)
         if (self.s_isPrefix == True):
             subprocess.Popen(["bash", Variables.playonlinux_env + "/bash/winebash", "--prefix",
-                              self.s_prefix.encode('utf-8', 'replace')] + args, env=new_env)
+                              self.s_prefix] + args, env=new_env)
         else:
             subprocess.Popen(
-                ["bash", Variables.playonlinux_env + "/bash/winebash", self.s_title.encode('utf-8', 'replace')] + args,
+                ["bash", Variables.playonlinux_env + "/bash/winebash", self.s_title] + args,
                 env=new_env)
 
     def evt_winecfg(self, event):
@@ -74,10 +74,10 @@ class ConfigureWindowNotebook(wx.Notebook):
 
             if self.s_isPrefix == False:
                 subprocess.Popen(["bash", Variables.playonlinux_env + "/bash/installpolpackages",
-                                  self.s_title.encode('utf-8', 'replace'), selectedPackage])
+                                  self.s_title, selectedPackage])
             else:
                 subprocess.Popen(["bash", Variables.playonlinux_env + "/bash/installpolpackages", "--prefix",
-                                  self.s_prefix.encode('utf-8', 'replace'), selectedPackage])
+                                  self.s_prefix, selectedPackage])
 
     def AddGeneralChamp(self, title, shortname, value, num):
         self.general_elements[shortname + "_text"] = wx.StaticText(self.panelGeneral, -1, title,
@@ -147,13 +147,13 @@ class ConfigureWindowNotebook(wx.Notebook):
         self.configurator_title.SetFont(self.fontTitle)
         self.configurator_button = wx.Button(self.panelGeneral, 106, _("Run configuration wizard"), pos=(15, 324))
 
-        wx.EVT_TEXT(self, 202, self.setname)
-        wx.EVT_TEXT(self, 206, self.setargs)
-        wx.EVT_TEXT(self, 204, self.setwinedebug)
+        self.Bind(wx.EVT_TEXT, self.setname, id=202)
+        self.Bind(wx.EVT_TEXT, self.setargs, id=206)
+        self.Bind(wx.EVT_TEXT, self.setwinedebug, id=204)
 
-        wx.EVT_COMBOBOX(self, 203, self.assign)
-        wx.EVT_COMBOBOX(self, 205, self.assignPrefix)
-        wx.EVT_BUTTON(self, 601, self.Parent.Parent.Parent.WineVersion)
+        self.Bind(wx.EVT_COMBOBOX, self.assign, id=203)
+        self.Bind(wx.EVT_COMBOBOX, self.assignPrefix, id=205)
+        self.Bind(wx.EVT_BUTTON, self.Parent.Parent.Parent.WineVersion, id=601)
 
     def Wine(self, nom):
         self.panelWine = wx.Panel(self, -1)
@@ -247,15 +247,15 @@ class ConfigureWindowNotebook(wx.Notebook):
 
         self.control_texte.SetFont(self.caption_font)
 
-        wx.EVT_BUTTON(self, 100, self.evt_winecfg)
-        wx.EVT_BUTTON(self, 101, self.evt_regedit)
-        wx.EVT_BUTTON(self, 102, self.evt_wineboot)
-        wx.EVT_BUTTON(self, 103, self.evt_cmd)
-        wx.EVT_BUTTON(self, 104, self.evt_taskmgr)
-        wx.EVT_BUTTON(self, 105, self.evt_killall)
-        wx.EVT_BUTTON(self, 106, self.evt_config)
-        wx.EVT_BUTTON(self, 107, self.evt_rep)
-        wx.EVT_BUTTON(self, 108, self.evt_control)
+        self.Bind(wx.EVT_BUTTON, self.evt_winecfg, id=100)
+        self.Bind(wx.EVT_BUTTON, self.evt_regedit, id=101)
+        self.Bind(wx.EVT_BUTTON, self.evt_wineboot, id=102)
+        self.Bind(wx.EVT_BUTTON, self.evt_cmd, id=103)
+        self.Bind(wx.EVT_BUTTON, self.evt_taskmgr, id=104)
+        self.Bind(wx.EVT_BUTTON, self.evt_killall, id=105)
+        self.Bind(wx.EVT_BUTTON, self.evt_config, id=106)
+        self.Bind(wx.EVT_BUTTON, self.evt_rep, id=107)
+        self.Bind(wx.EVT_BUTTON, self.evt_control, id=108)
 
     def Packages(self, nom):
         self.panelPackages = wx.Panel(self, -1)
@@ -292,9 +292,9 @@ class ConfigureWindowNotebook(wx.Notebook):
         self.PackageButton = wx.Button(self.panelPackages, 98, _("Install"), pos=(20 + 530 - 150, 345), size=(150, 30))
         self.PackageButton.Disable()
 
-        wx.EVT_TREE_SEL_CHANGED(self, 99, self.package_selected)
-        wx.EVT_TREE_ITEM_ACTIVATED(self, 99, self.install_package)
-        wx.EVT_BUTTON(self, 98, self.install_package)
+        self.Bind(wx.EVT_TREE_SEL_CHANGED, self.package_selected, id=99)
+        self.Bind(wx.EVT_TREE_ITEM_ACTIVATED, self.install_package, id=99)
+        self.Bind(wx.EVT_BUTTON, self.install_package, id=98)
 
         self.AddPage(self.panelPackages, nom)
 
@@ -308,22 +308,22 @@ class ConfigureWindowNotebook(wx.Notebook):
     def change_Direct3D_settings(self, param):
         if (self.s_isPrefix == False):
             subprocess.Popen(
-                ["bash", Variables.playonlinux_env + "/bash/POL_Command", self.s_title.encode('utf-8', 'replace'),
-                 "POL_Wine_Direct3D", param, self.display_elements[param].GetValue().encode('utf-8', 'replace')])
+                ["bash", Variables.playonlinux_env + "/bash/POL_Command", self.s_title,
+                 "POL_Wine_Direct3D", param, self.display_elements[param].GetValue()])
         else:
             subprocess.Popen(["bash", Variables.playonlinux_env + "/bash/POL_Command", "--prefix",
-                              self.s_prefix.encode('utf-8', 'replace'), "POL_Wine_Direct3D", param,
-                              self.display_elements[param].GetValue().encode('utf-8', 'replace')])
+                              self.s_prefix, "POL_Wine_Direct3D", param,
+                              self.display_elements[param].GetValue()])
 
     def change_DirectInput_settings(self, param):
         if (self.s_isPrefix == False):
             subprocess.Popen(
-                ["bash", Variables.playonlinux_env + "/bash/POL_Command", self.s_title.encode('utf-8', 'replace'),
-                 "POL_Wine_DirectInput", param, self.display_elements[param].GetValue().encode('utf-8', 'replace')])
+                ["bash", Variables.playonlinux_env + "/bash/POL_Command", self.s_title,
+                 "POL_Wine_DirectInput", param, self.display_elements[param].GetValue()])
         else:
             subprocess.Popen(["bash", Variables.playonlinux_env + "/bash/POL_Command", "--prefix",
-                              self.s_prefix.encode('utf-8', 'replace'), "POL_Wine_DirectInput", param,
-                              self.display_elements[param].GetValue().encode('utf-8', 'replace')])
+                              self.s_prefix, "POL_Wine_DirectInput", param,
+                              self.display_elements[param].GetValue()])
 
     def get_current_settings(self, param):
         self.display_elements[param].SetValue(self.settings[param])
@@ -373,7 +373,7 @@ class ConfigureWindowNotebook(wx.Notebook):
                 self.configurator_title.Hide()
                 self.configurator_button.Hide()
             self.configurator_title.SetLabel(
-                "{0} specific configuration".format(self.s_title.encode('utf-8', 'replace')))
+                "{0} specific configuration".format(self.s_title))
             self.display_elements["pre_run_panel"].Show()
             self.display_elements["pre_run_text"].Show()
         else:
@@ -445,17 +445,17 @@ class ConfigureWindowNotebook(wx.Notebook):
         if (param == 402):
             if (self.s_isPrefix == False):
                 playonlinux.open_folder(self.s_title,
-                                        self.display_elements["open_in"].GetValue().encode("utf-8", "replace"))
+                                        self.display_elements["open_in"].GetValue())
             else:
                 playonlinux.open_folder_prefix(self.s_prefix)
         if (param == 404):
             if (self.s_isPrefix == False):
                 subprocess.Popen(
-                    ["bash", Variables.playonlinux_env + "/bash/POL_Command", self.s_title.encode('utf-8', 'replace'),
-                     "POL_OpenShell", self.s_title.encode('utf-8', 'replace')])
+                    ["bash", Variables.playonlinux_env + "/bash/POL_Command", self.s_title,
+                     "POL_OpenShell", self.s_title])
             else:
                 subprocess.Popen(["bash", Variables.playonlinux_env + "/bash/POL_Command", "--prefix",
-                                  self.s_prefix.encode('utf-8', 'replace'), "POL_OpenShell"])
+                                  self.s_prefix, "POL_OpenShell"])
 
         if (param == 405):
             self.FileDialog = wx.FileDialog(self)
@@ -466,22 +466,22 @@ class ConfigureWindowNotebook(wx.Notebook):
             self.FileDialog.SetWildcard(self.supported_files)
             self.FileDialog.ShowModal()
             if (self.FileDialog.GetPath() != ""):
-                filename = self.FileDialog.GetPath().encode("utf-8", "replace")
+                filename = self.FileDialog.GetPath()
                 dirname = os.path.dirname(filename)
                 if (self.s_isPrefix == True):
                     subprocess.Popen(["bash", Variables.playonlinux_env + "/bash/POL_Command", "--prefix",
-                                      self.s_prefix.encode('utf-8', 'replace'), "POL_AutoWine", filename], cwd=dirname)
+                                      self.s_prefix, "POL_AutoWine", filename], cwd=dirname)
                 else:
                     subprocess.Popen(["bash", Variables.playonlinux_env + "/bash/POL_Command",
-                                      self.s_title.encode('utf-8', 'replace'), "POL_AutoWine", filename], cwd=dirname)
+                                      self.s_title, "POL_AutoWine", filename], cwd=dirname)
 
         if (param == 201):
             if (self.s_isPrefix == False):
                 subprocess.Popen(["bash", Variables.playonlinux_env + "/bash/POL_Command", "--init",
-                                  self.s_title.encode('utf-8', 'replace'), "POL_SetupWindow_shortcut_creator"])
+                                  self.s_title, "POL_SetupWindow_shortcut_creator"])
             else:
                 subprocess.Popen(["bash", Variables.playonlinux_env + "/bash/POL_Command", "--init", "--prefix",
-                                  self.s_prefix.encode('utf-8', 'replace'), "POL_SetupWindow_shortcut_creator"])
+                                  self.s_prefix, "POL_SetupWindow_shortcut_creator"])
 
     def AddDisplayElement(self, title, shortname, elements, wine, num):
         elements.insert(0, "Default")
@@ -494,7 +494,7 @@ class ConfigureWindowNotebook(wx.Notebook):
                                                        pos=(300, 17 + num * 40), size=elemsize)
         self.display_elements[shortname].AppendItems(wine)
         self.display_elements[shortname].SetValue(wine[0])
-        wx.EVT_COMBOBOX(self, 300 + num, self.change_settings)
+        self.Bind(wx.EVT_COMBOBOX, self.change_settings, id=300 + num)
 
     def AddMiscElement(self, title, shortname, elements, wine, num):
         elements.insert(0, "Default")
@@ -506,20 +506,20 @@ class ConfigureWindowNotebook(wx.Notebook):
                                                        pos=(300, 17 + num * 40), size=elemsize)
         self.display_elements[shortname].AppendItems(wine)
         self.display_elements[shortname].SetValue(wine[0])
-        wx.EVT_COMBOBOX(self, 400 + num, self.change_settings)
+        self.Bind(wx.EVT_COMBOBOX, self.change_settings, id=400 + num)
 
     def AddMiscButton(self, title, shortname, num):
         self.display_elements[shortname + "_button"] = wx.Button(self.panelMisc, 400 + num, "", pos=(15, 19 + num * 40),
                                                                  size=(500, 30))
         self.display_elements[shortname + "_button"].SetLabel(title)
 
-        wx.EVT_BUTTON(self, 400 + num, self.misc_button)
+        self.Bind(wx.EVT_BUTTON, self.misc_button, id=400 + num)
 
     def AddMiscChamp(self, title, shortname, value, num):
         self.display_elements[shortname + "_text"] = wx.StaticText(self.panelMisc, -1, title, pos=(15, 24 + num * 40))
         self.display_elements[shortname] = wx.TextCtrl(self.panelMisc, 400 + num, value, pos=(245, 19 + num * 40),
                                                        size=(270, 25))
-        wx.EVT_TEXT(self, 400 + num, self.set_open_in)
+        self.Bind(wx.EVT_TEXT, self.set_open_in, id=400 + num)
 
     def set_open_in(self, event):
         new_open_in = self.display_elements["open_in"].GetValue()
@@ -538,10 +538,10 @@ class ConfigureWindowNotebook(wx.Notebook):
         self.display_elements[shortname] = wx.TextCtrl(self.display_elements[shortname + "_panel"], 400 + num, content,
                                                        size=wx.Size(448, 68), pos=(2, 2),
                                                        style=Variables.widget_borders | wx.TE_MULTILINE)
-        wx.EVT_TEXT(self, 400 + num, self.edit_shortcut)
+        self.Bind(wx.EVT_TEXT, self.edit_shortcut, id=400 + num)
 
     def edit_shortcut(self, event):
-        content = self.display_elements["pre_run"].GetValue().encode("utf-8", "replace")
+        content = self.display_elements["pre_run"].GetValue()
         open(os.environ["POL_USER_ROOT"] + "/configurations/pre_shortcut/" + self.s_title, 'w').write(content)
 
     def AddGeneralButton(self, title, shortname, num):
@@ -549,7 +549,7 @@ class ConfigureWindowNotebook(wx.Notebook):
                                                                  pos=(15, 9 + num * 40), size=(520, 30))
         self.general_elements[shortname + "_button"].SetLabel(title)
 
-        wx.EVT_BUTTON(self, 200 + num, self.misc_button)
+        self.Bind(wx.EVT_BUTTON, self.misc_button, id=200 + num)
 
     def Display(self, nom):
         self.display_elements = {}

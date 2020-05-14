@@ -44,7 +44,7 @@ class PackageList:
                     broken = True
                     break
 
-            except IndexError, e:  # Index error : There is no ':' in the line, so the content of the line is the package we want to install. No need to continue
+            except IndexError as e:  # Index error : There is no ':' in the line, so the content of the line is the package we want to install. No need to continue
                 broken = True
                 break
 
@@ -56,6 +56,6 @@ class PackageList:
     def getNameFromPackageLine(package):
         try:
             realName = package.split(":")[1].replace("POL_Install_", "")
-        except IndexError, e:
+        except IndexError as e:
             realName = package.replace("POL_Install_", "")
         return realName

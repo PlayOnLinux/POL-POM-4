@@ -1,9 +1,10 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 # Copyright (C) 2007-2010 PlayOnLinux Team
 
-import Variables, os, string
+from . import Variables
+import os
 
 
 def LoadRegValues(prefix, values):
@@ -25,7 +26,7 @@ def LoadRegValues(prefix, values):
         for element in values:
             if(element in line):
                 line = line.replace("\"","").rstrip("\\0") # workaround for Wine bug #37575
-                line = string.split(line, "=")
+                line = line.split("=")
                 line = line[1]
                 result[element] = line
                 found = True

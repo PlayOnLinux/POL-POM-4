@@ -1,10 +1,10 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 import wx
-import wxversion
-import gettext, Variables as Variables, os
-import locale, string
+import gettext, os
+from . import Variables
+import locale
 
 class Lang(object):
     def __init__(self):

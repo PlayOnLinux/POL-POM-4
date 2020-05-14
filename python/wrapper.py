@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python3
 # -*- coding: utf-8 -*-
 
 # Copyright (C) 2008 Pâris Quentin
@@ -25,12 +25,8 @@ import os, time, sys, subprocess, signal
 try :
     os.environ["POL_OS"]
 except :
-    print "ERROR ! Please define POL_OS environment var first."
+    print("ERROR ! Please define POL_OS environment var first.")
     os._exit(1)
-
-if(os.environ["POL_OS"] == "Linux"):
-    import wxversion
-    wxversion.ensureMinimal('2.8')
 
 import wx
 import lib.lng as lng
@@ -94,8 +90,12 @@ class MainWindow(wx.Frame):
         return False
 
     def ForceClose(self, signal, frame): # Catch SIGINT
-        print "\nCtrl+C pressed. Killing all processes..."
+        print("\nCtrl+C pressed. Killing all processes...")
         self.POLDie()
+
+    def Destroy(self):
+        self.SetupWindowTimer.Stop()
+        return super().Destroy()
 
    
 class Program(threading.Thread):
@@ -107,7 +107,7 @@ class Program(threading.Thread):
         def run(self):
                 self.running = True
                 self.chaine = ""
-                print "Script started "+sys.argv[1]
+                print("Script started "+sys.argv[1])
                 for arg in sys.argv[2:]:
                         self.chaine+=" \""+arg+"\""
                 self.proc = subprocess.Popen("bash \""+sys.argv[1]+"\""+self.chaine, shell=True)

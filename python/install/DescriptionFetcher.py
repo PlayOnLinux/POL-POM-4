@@ -1,4 +1,4 @@
-import threading, time, string, os, urllib2
+import threading, time, os, urllib.request
 import lib.Variables as Variables
 
 class DescriptionFetcher(threading.Thread):
@@ -28,7 +28,7 @@ class DescriptionFetcher(threading.Thread):
                 time.sleep(0.5)
                 self.getDescription_bis = self.getDescription
                 self.med_miniature = None
-                self.cut = string.split(self.getDescription,":")
+                self.cut = self.getDescription.split(":")
                 if(self.cut[0] == "get"):
                     self.miniature = self.miniature_defaut
                     # Description
@@ -38,14 +38,14 @@ class DescriptionFetcher(threading.Thread):
                     # Miniatures
                     try :
                         url = os.environ["SITE"]+'/V4_data/repository/screenshot.php?id='+self.getDescription.replace(" ","%20")
-                        req = urllib2.Request(url)
-                        handle = urllib2.urlopen(req)
+                        req = urllib.request.Request(url)
+                        handle = urllib.request.urlopen(req)
                         screenshot_id=handle.read()
 
                         if(screenshot_id != "0"):
                             url_s1 = 'http://www.playonlinux.com/images/apps/min/'+screenshot_id
-                            req = urllib2.Request(url_s1)
-                            handle = urllib2.urlopen(req)
+                            req = urllib.request.Request(url_s1)
+                            handle = urllib.request.urlopen(req)
 
                             open(Variables.playonlinux_rep+"/tmp/min"+screenshot_id,"w").write(handle.read())
                             self.miniature = Variables.playonlinux_rep+"/tmp/min"+screenshot_id
@@ -53,8 +53,8 @@ class DescriptionFetcher(threading.Thread):
                         else:
                             try:
                                 url = os.environ["SITE"]+'/V2_data/miniatures/'+self.getDescription.replace(" ","%20")
-                                req = urllib2.Request(url)
-                                handle = urllib2.urlopen(req)
+                                req = urllib.request.Request(url)
+                                handle = urllib.request.urlopen(req)
 
                                 open(Variables.playonlinux_rep+"/tmp/min","w").write(handle.read())
                                 self.miniature = Variables.playonlinux_rep+"/tmp/min"
@@ -69,8 +69,8 @@ class DescriptionFetcher(threading.Thread):
                     # Description
                     try :
                         url = os.environ["SITE"]+'/V4_data/repository/get_description.php?id='+self.getDescription.replace(" ","%20")
-                        req = urllib2.Request(url)
-                        handle = urllib2.urlopen(req)
+                        req = urllib.request.Request(url)
+                        handle = urllib.request.urlopen(req)
                         self.htmlContent = handle.read()
                         if("<i>No description</i>" in self.htmlContent):
                             self.htmlContent = "<i>"+_("No description")+"</i>"
@@ -84,8 +84,8 @@ class DescriptionFetcher(threading.Thread):
                         if(screenshot_id != 0):
                             try:
                                 url_s2 = 'http://www.playonlinux.com/images/apps/med/'+screenshot_id
-                                req = urllib2.Request(url_s2)
-                                handle = urllib2.urlopen(req)
+                                req = urllib.request.Request(url_s2)
+                                handle = urllib.request.urlopen(req)
                                 open(Variables.playonlinux_rep+"/tmp/med"+screenshot_id,"w").write(handle.read())
 
                                 self.med_miniature = Variables.playonlinux_rep+"/tmp/med"+screenshot_id
@@ -99,8 +99,8 @@ class DescriptionFetcher(threading.Thread):
                     # Stars
                     try :
                         url = os.environ["SITE"]+'/V4_data/repository/stars.php?n='+self.getDescription.replace(" ","%20")
-                        req = urllib2.Request(url)
-                        handle = urllib2.urlopen(req)
+                        req = urllib.request.Request(url)
+                        handle = urllib.request.urlopen(req)
                         self.stars = handle.read()
                     except :
                         self.stars = "0"
