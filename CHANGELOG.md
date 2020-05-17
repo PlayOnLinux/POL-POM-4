@@ -1,3 +1,6 @@
+# 4.4
+* Python 3 support 
+
 # 4.3.4
 * Fixed some bugs in the wineversion process
 * Begining of code cleaning and refactoring
