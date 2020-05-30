@@ -269,7 +269,7 @@ class ConfigureWindowNotebook(wx.Notebook):
 
         self.Menu = wx.TreeCtrl(self.panelPackages, 99, pos=(15, 75), size=(530, 260),
                                 style=wx.TR_HIDE_ROOT | wx.TR_FULL_ROW_HIGHLIGHT | Variables.widget_borders)
-        self.Menu.SetSpacing(0);
+        #self.Menu.SetSpacing(0);
         self.Menu.SetImageList(self.imagePackages)
         self.imagePackages.RemoveAll()
 

@@ -39,7 +39,7 @@ class WineVersionsNotebook(wx.Notebook):
         self.installedWineVersionsTreeSelector[arch] = wx.TreeCtrl(installedWineVersionsPanel, 107 + self.calculateEventDelta(arch),
                                                                    style=wx.TR_HIDE_ROOT | wx.TR_FULL_ROW_HIGHLIGHT | Variables.widget_borders)
         self.installedWineVersionsTreeSelector[arch].SetImageList(self.imagesapps_i[arch])
-        self.installedWineVersionsTreeSelector[arch].SetSpacing(0)
+        #self.installedWineVersionsTreeSelector[arch].SetSpacing(0)
         installedWineVersionsSizer.Add(self.installedWineVersionsTreeSelector[arch], 1, wx.EXPAND)
         installedWineVersionsSizer.AddSpacer(10)
 
@@ -55,7 +55,7 @@ class WineVersionsNotebook(wx.Notebook):
                                                                    style=wx.TR_HIDE_ROOT | wx.TR_FULL_ROW_HIGHLIGHT | Variables.widget_borders,
                                                                    size=(320, 300), pos=(10, 35))
         self.availableWineVersionsTreeSelector[arch].SetImageList(self.imagesapps[arch])
-        self.availableWineVersionsTreeSelector[arch].SetSpacing(0)
+        #self.availableWineVersionsTreeSelector[arch].SetSpacing(0)
         availableWineVersionsSizer.Add(self.availableWineVersionsTreeSelector[arch], 1, wx.EXPAND)
         availableWineVersionsSizer.AddSpacer(10)
 

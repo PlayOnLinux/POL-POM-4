@@ -240,7 +240,7 @@ class MainWindow(wx.Frame):
 
         ## List game
         self.list_game = wx.TreeCtrl(self, 105, style=wx.TR_HIDE_ROOT | wx.TR_FULL_ROW_HIGHLIGHT)
-        self.list_game.SetSpacing(0)
+        #self.list_game.SetSpacing(0)
         self.list_game.SetIndent(5)
         self.list_game.SetImageList(self.images)
         self.menu_gauche = wx.Panel(self, -1)

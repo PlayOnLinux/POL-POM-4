@@ -60,7 +60,7 @@ class MainWindow(wx.Frame):
         self.Bind(wx.EVT_TREE_SEL_CHANGED, self.analyseLog, id=900)
 
 
-        self.list_game.SetSpacing(0);
+        #self.list_game.SetSpacing(0);
         self.list_game.SetImageList(self.images)
 
 

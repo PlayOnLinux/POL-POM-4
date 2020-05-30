@@ -212,7 +212,7 @@ class POL_SetupFrame(PlayOnLinuxWindow):
                                      style=wx.TR_HIDE_ROOT | wx.TR_FULL_ROW_HIGHLIGHT | Variables.widget_borders,
                                      pos=(25, 25), size=(460, 220))
         self.MenuGames.SetImageList(self.images)
-        self.MenuGames.SetSpacing(0)
+        #self.MenuGames.SetSpacing(0)
 
         # Login
         self.login = wx.StaticText(self.contentPanel, -1, _("Login: "), pos=(20, 40), size=(460, 20))

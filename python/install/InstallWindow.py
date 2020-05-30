@@ -183,7 +183,7 @@ class InstallWindow(PlayOnLinuxWindow):
         self.appsList = wx.TreeCtrl(self.appNavigationPanel, 106,
                                     style=wx.TR_HIDE_ROOT | wx.TR_FULL_ROW_HIGHLIGHT | Variables.widget_borders)
         self.appsList.SetImageList(self.imagesapps)
-        self.appsList.SetSpacing(0)
+        #self.appsList.SetSpacing(0)
 
         self.appNavigationSizer.AddSpacer(10)
         self.appNavigationSizer.Add(self.appsList, 4, wx.EXPAND, 5)
