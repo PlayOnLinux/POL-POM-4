@@ -333,7 +333,7 @@ class InstallWindow(PlayOnLinuxWindow):
 
     def manual(self, event):
         self.live = 1
-        self.installapp(self)
+        self.installapp(event)
 
     def showStars(self, stars):
         starWidth = 20

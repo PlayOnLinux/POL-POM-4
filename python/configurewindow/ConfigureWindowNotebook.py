@@ -467,6 +467,8 @@ class ConfigureWindowNotebook(wx.Notebook):
             self.FileDialog.ShowModal()
             if (self.FileDialog.GetPath() != ""):
                 filename = self.FileDialog.GetPath()
+                if not os.path.isfile(filename):
+                    return
                 dirname = os.path.dirname(filename)
                 if (self.s_isPrefix == True):
                     subprocess.Popen(["bash", Variables.playonlinux_env + "/bash/POL_Command", "--prefix",
