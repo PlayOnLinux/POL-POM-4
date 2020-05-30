@@ -187,7 +187,7 @@ class Onglets(wx.Notebook):
         self.txtPlugin = wx.StaticText(self.panelPlugins, -1, _("Installed plugins"), size=wx.DefaultSize)
         self.txtPlugin.SetFont(self.fontTitle)
         self.pluginlist = wx.TreeCtrl(self.panelPlugins, 220, style=Variables.widget_borders|wx.TR_HIDE_ROOT|wx.TR_FULL_ROW_HIGHLIGHT)
-        self.pluginlist.SetSpacing(0)
+        #self.pluginlist.SetSpacing(0)
 
         self.pluginImgList = wx.ImageList(16,16)
 
@@ -229,9 +229,9 @@ class Onglets(wx.Notebook):
             line = line.replace("\n","")
             line = line.split("=")
             liner = "Line %s" % i
-            self.list_ext.InsertStringItem(i, liner)
-            self.list_ext.SetStringItem(i, 0, line[0])
-            self.list_ext.SetStringItem(i, 1, line[1])
+            self.list_ext.InsertItem(i, liner)
+            self.list_ext.SetItem(i, 0, line[0])
+            self.list_ext.SetItem(i, 1, line[1])
             i += 1
         self.app_installed_text.Hide()
         self.app_installed.Hide()
@@ -249,8 +249,9 @@ class Onglets(wx.Notebook):
         self.app_installed.Show()
         self.delete_ext.Show()
 
-        self.app_selected = self.exts[event.m_itemIndex].split("=")[1]
-        self.ext_selected = self.exts[event.m_itemIndex].split("=")[0]
+        ind = event.GetIndex()
+        self.app_selected = self.list_ext.GetItem(ind,1).GetText()
+        self.ext_selected = self.list_ext.GetItem(ind,0).GetText()
 
         self.app_installed.SetValue(self.app_selected.replace("\n","").replace("\r",""))
 

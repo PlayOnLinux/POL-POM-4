@@ -51,7 +51,7 @@ if os.environ["POL_OS"] == "Linux":
         windows_add_size = 0
         windows_add_playonmac = 0
     else:
-        windows_add_size = dpiFetcher().fetch_extra_pixel()
+        windows_add_size = dpiFetcher().fetch_extra_pixel()+60
         windows_add_playonmac = 0
 
     widget_borders = wx.RAISED_BORDER

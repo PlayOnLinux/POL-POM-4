@@ -269,7 +269,7 @@ class ConfigureWindowNotebook(wx.Notebook):
 
         self.Menu = wx.TreeCtrl(self.panelPackages, 99, pos=(15, 75), size=(530, 260),
                                 style=wx.TR_HIDE_ROOT | wx.TR_FULL_ROW_HIGHLIGHT | Variables.widget_borders)
-        self.Menu.SetSpacing(0);
+        #self.Menu.SetSpacing(0);
         self.Menu.SetImageList(self.imagePackages)
         self.imagePackages.RemoveAll()
 
@@ -467,6 +467,8 @@ class ConfigureWindowNotebook(wx.Notebook):
             self.FileDialog.ShowModal()
             if (self.FileDialog.GetPath() != ""):
                 filename = self.FileDialog.GetPath()
+                if not os.path.isfile(filename):
+                    return
                 dirname = os.path.dirname(filename)
                 if (self.s_isPrefix == True):
                     subprocess.Popen(["bash", Variables.playonlinux_env + "/bash/POL_Command", "--prefix",

@@ -75,7 +75,7 @@ class ConfigureWindow(wx.Frame):
         self.Bind(wx.EVT_BUTTON, self.DeletePrefix, id=1002)
 
 
-        self.list_game.SetSpacing(0)
+        #self.list_game.SetSpacing(0)
         self.list_game.SetImageList(self.images)
 
 
