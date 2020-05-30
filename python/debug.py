@@ -38,7 +38,7 @@ class MainWindow(wx.Frame):
 
         wx.Frame.__init__(self, parent, -1, title, size = (810, 600+Variables.windows_add_size), style = wx.CLOSE_BOX | wx.CAPTION | wx.MINIMIZE_BOX)
         self.SetIcon(wx.Icon(Variables.playonlinux_env+"/etc/playonlinux.png", wx.BITMAP_TYPE_ANY))
-        self.SetTitle(_('{0} debugger').format(os.environ["APPLICATION_TITLE"]))
+        self.SetTitle(title)
         #self.panelFenp = wx.Panel(self, -1)
 
         self.prefixes_item = {}
@@ -79,7 +79,7 @@ class MainWindow(wx.Frame):
         self.log_reader = wx.TextCtrl(self.panelText, 100, "", size=wx.Size(590,500), pos=(2,2), style=Variables.widget_borders|wx.TE_RICH2|wx.TE_READONLY|wx.TE_MULTILINE)
         self.log_reader.Bind(wx.EVT_SET_FOCUS, self.OnFocus)
         self.openTextEdit = wx.Button(self.panelNotEmpty, 101, _("Locate this logfile"), size=(400,30), pos=(70,512))
-        self.reportProblem = wx.Button(self.panelNotEmpty, 102, "", size=(400,30), pos=(70,552))
+        self.reportProblem = wx.Button(self.panelNotEmpty, 102, _("Bug report"), size=(400,30), pos=(70,552))
 
         if(logcheck == "/dev/null"):
             self.HideLogFile()
@@ -95,7 +95,8 @@ class MainWindow(wx.Frame):
         new_env = os.environ
         new_env["LOGTITLE"] = self.logname
         subprocess.Popen(["bash", Variables.playonlinux_env+"/bash/bug_report"], env=new_env)
-        self.reportProblem.Enable(False)
+        # Doesn't work if cancel on POL Window : need to find another way ...
+        #self.reportProblem.Enable(False)
 
     def locate(self, event):
         if(self.logtype == 0):
