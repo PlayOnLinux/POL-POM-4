@@ -26,7 +26,7 @@ Few games are compatible with GNU/Linux at the moment and it certainly is a fact
 Here is a non-exhaustive list of the interesting points to know:
 * You don’t have to own a [Microsoft Windows](https://en.wikipedia.org/wiki/Microsoft_Windows) license to use PlayOnLinux.
 * PlayOnLinux is based on [Wine](https://www.winehq.org/), and so profits from all its features yet it keeps the user from having to deal with its complexity.
-* PlayOnLinux is free software.
+* PlayOnLinux is [free software](https://en.wikipedia.org/wiki/Free_software).
 * PlayOnLinux uses [Bash](https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29) and [Python](https://en.wikipedia.org/wiki/Python_(programming_language)).
 
 Nevertheless, PlayOnLinux has some bugs, as every piece of software:
