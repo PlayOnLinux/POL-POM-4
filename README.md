@@ -21,10 +21,10 @@ PlayOnLinux is a piece of software which allows you to easily install and use nu
 Few games are compatible with GNU/Linux at the moment and it certainly is a factor preventing the migration to this system. PlayOnLinux brings a cost-free, accessible and efficient solution to this problem.
 
 
-# What are PlayOnLinux's features?
+# What are PlayOnLinux’s features?
 
 Here is a non-exhaustive list of the interesting points to know:
-* You don't have to own a Windows license to use PlayOnLinux.
+* You don’t have to own a Windows license to use PlayOnLinux.
 * PlayOnLinux is based on [Wine](https://www.winehq.org/), and so profits from all its features yet it keeps the user from having to deal with its complexity.
 * PlayOnLinux is free software.
 * PlayOnLinux uses [Bash](https://en.wikipedia.org/wiki/Bash_%28Unix_shell%29) and [Python](https://en.wikipedia.org/wiki/Python_(programming_language)).
