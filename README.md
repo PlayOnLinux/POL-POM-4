@@ -6,8 +6,9 @@ PlayOnLinux and PlayOnMac 4 allows you to install and use non-native application
 
 Supported operating systems:
 
-* Linux
-* Mac OSX
+* GNU/Linux
+* Mac OS X
+* macOS
 
 Supported engines:
 
