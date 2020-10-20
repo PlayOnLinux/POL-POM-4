@@ -11,22 +11,22 @@ msgstr ""
 "Project-Id-Version: pol\n"
 "Report-Msgid-Bugs-To: Tinou\n"
 "POT-Creation-Date: 2015-08-31 19:00+0200\n"
-"PO-Revision-Date: 2014-04-23 13:35+0000\n"
+"PO-Revision-Date: 2020-10-20 18:09+0200\n"
 "Last-Translator: Adam Maćkowiak <Unknown>\n"
 "Language-Team: pl_PL.UTF-8 <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Launchpad-Export-Date: 2015-09-01 05:12+0000\n"
-"X-Generator: Launchpad (build 17690)\n"
+"X-Generator: Poedit 2.3\n"
+"Language: pl\n"
 
 #: Capture plugin:2, Detour plugin:4
 msgid "Which application do you want to apply the modification to?"
 msgstr "Do jakiej aplikacji chcesz wykonać modyfikacje?"
 
 #: Capture plugin:3
-msgid ""
-"This plugin wil allow you to capture you applications under PlayOnLinux"
+msgid "This plugin wil allow you to capture you applications under PlayOnLinux"
 msgstr "Wtyczka umożliwia przechwytywanie obrazu z aplikacji pod PlayOnLinux"
 
 #: Capture plugin:4
@@ -56,8 +56,8 @@ msgid ""
 "start automatically after 5 seconds.\\nOnly video will be captured."
 msgstr ""
 "Proszę wcisnąć Dalej, następnie kliknąć\\nw okno programu, które chcesz "
-"przechwycić.\\nNagrywanie rozpocznie się automatycznie po 5 sekundach.\\"
-"nNagrany zostanie wyłącznie obraz."
+"przechwycić.\\nNagrywanie rozpocznie się automatycznie po 5 sekundach."
+"\\nNagrany zostanie wyłącznie obraz."
 
 #: Capture plugin:10
 msgid "Capture will begin..."
@@ -309,7 +309,7 @@ msgstr "Dokładny opis jest wymagany."
 #: bash/bug_report:101
 #, sh-format
 msgid "Thank you !\\n\\nYour report has been sent."
-msgstr ""
+msgstr "Dziękujemy !\\n\\nTwoje zgłoszenie zostało wysłane."
 
 #: bash/create_prefix:26
 #, sh-format
@@ -458,6 +458,9 @@ msgid ""
 "all the tools\\n\\nWarning: We are unable to guarantee that your application "
 "will work perfectly."
 msgstr ""
+"Witamy w kreatorze instalacji ręcznej $APPLICATION_TITLE.\\n\\nKreator ten "
+"pozwoli Ci zainstalować każdy program w $APPLICATION_TITLE\\n\\nUwaga: Nie "
+"możemy zagwarantować, że twoja aplikacja będzie działać poprawnie."
 
 #: bash/manual_install:102
 #, sh-format
@@ -707,8 +710,8 @@ msgid ""
 "tool ONLY if you CD-ROM is a hybride CD-ROM (Compatible with Windows and "
 "MacOS), and if you are not able to see the Windows part"
 msgstr ""
-"Dzięki temu narzędzi twój Mac będzie w stanie przeczytać część CD-ROMu\\"
-"nprzeznaczonego dla komputerów PC.\\n\\nUżyj tego narzędzia TYLKO jeżeli "
+"Dzięki temu narzędzi twój Mac będzie w stanie przeczytać część CD-ROMu"
+"\\nprzeznaczonego dla komputerów PC.\\n\\nUżyj tego narzędzia TYLKO jeżeli "
 "posiadasz hybrydowy CD-ROM (kompatybilny z Windows i MacOS)\\ni tylko wtedy "
 "gdy nie jesteś w stanie zobaczyć części dla Windowsa."
 
@@ -762,16 +765,18 @@ msgid ""
 "$PACKAGE crashed.\\nSelect its shortcut and click on \"Debug\" in the side "
 "panel to get more details."
 msgstr ""
+"$PACKAGE uległ awarii.\\nZaznacz jego skrót i kliknij \"Debuguj\" w panelu "
+"bocznym aby poznać szczegóły."
 
 #: bash/run_app:120
 #, sh-format
 msgid "$PACKAGE crashed."
-msgstr "$PACKAGE zawiesił się."
+msgstr "$PACKAGE uległ awarii."
 
 #: bash/run_exe:33
 #, sh-format
 msgid "Waiting XQuartz to be installed"
-msgstr ""
+msgstr "Oczekiwanie na instalację XQuartz"
 
 #: bash/run_exe:70
 #, sh-format
@@ -815,12 +820,12 @@ msgstr "Instalacja zakończona"
 #: bash/startup_after_server:38
 #, sh-format
 msgid "PlayOnMac needs to install XQuartz to work properly."
-msgstr ""
+msgstr "PlayOnMac wymaga zainstalowania XQuartz do poprawnego działania."
 
 #: bash/startup_after_server:39
 #, sh-format
 msgid "PlayOnMac will help you to simplify this step"
-msgstr ""
+msgstr "PlayOnMac pomoże ci uprościć ten krok"
 
 #: bash/startup_after_server:42
 #, sh-format
@@ -861,6 +866,8 @@ msgstr "XQuartz został zainstalowany."
 #, sh-format
 msgid "Unable to install XQuartz! You must install it to use wine properly."
 msgstr ""
+"Nie udało się zainstalować XQuartz! Jest on wymagany do poprawnego działania "
+"Wine."
 
 #: bash/uninstall:31 bash/uninstall:65 bash/uninstall:68 bash/uninstall:75
 #: lib/wine.lib:867
@@ -933,12 +940,12 @@ msgstr ""
 #, sh-format
 msgid ""
 "$APPLICATION_TITLE has encountered an error. If the program you are "
-"installing does not work correctly, it might be the cause of the problem.\\"
-"nVisit www.$POL_DNS to get further information"
+"installing does not work correctly, it might be the cause of the problem."
+"\\nVisit www.$POL_DNS to get further information"
 msgstr ""
 "$APPLICATION_TITLE napotkał na błąd. Jeśli program, który jest instalowany "
-"nie działa prawidłowo, to może być przyczyną problemu.\\n Odwiedź "
-"www.$POL_DNS w celu uzyskania dalszych informacji"
+"nie działa prawidłowo, to może być przyczyną problemu.\\n Odwiedź www."
+"$POL_DNS w celu uzyskania dalszych informacji"
 
 #: lib/debug.lib:155
 #, sh-format
@@ -980,9 +987,9 @@ msgid ""
 "valid\\n\\nPlayOnLinux has not approved this script and will not be "
 "responsible from it.\\nPlease ensure you know what you are doing !"
 msgstr ""
-"Ostrzeżenie!\\n\\nSygnatura tego skryptu NIE jest prawidłowa\\n\\"
-"nPlayOnLinux nie zaakceptował tego skryptu nie będzie odpowiedzialny za jego "
-"błędne działanie.\\nKontynuuj tylko jeśli wiesz co robisz."
+"Ostrzeżenie!\\n\\nSygnatura tego skryptu NIE jest prawidłowa\\n"
+"\\nPlayOnLinux nie zaakceptował tego skryptu nie będzie odpowiedzialny za "
+"jego błędne działanie.\\nKontynuuj tylko jeśli wiesz co robisz."
 
 #: lib/playonlinux.lib:349 lib/playonlinux.lib:372
 #, sh-format
@@ -996,8 +1003,8 @@ msgid ""
 "valid\\n\\n$APPLICATION_TITLE has not approved this script and will not be "
 "responsible from it.\\nPlease ensure you know what you are doing!"
 msgstr ""
-"Ostrzeżenie!\\n\\nSygnatura tego skryptu NIE jest prawidłowa\\n\\"
-"n$APPLICATION_TITLE nie zaakceptował tego skryptu nie będzie odpowiedzialny "
+"Ostrzeżenie!\\n\\nSygnatura tego skryptu NIE jest prawidłowa\\n\\n"
+"$APPLICATION_TITLE nie zaakceptował tego skryptu nie będzie odpowiedzialny "
 "za jego błędne działanie.\\nKontynuuj tylko jeśli wiesz co robisz."
 
 #: lib/playonlinux.lib:372
@@ -1054,9 +1061,11 @@ msgstr ""
 #: lib/playonlinux.lib:913
 #, sh-format
 msgid ""
-"Your Linux kernel may not be configured to run Win16 programs under Wine\\"
-"nSee $EXPLANATION_URL"
+"Your Linux kernel may not be configured to run Win16 programs under Wine"
+"\\nSee $EXPLANATION_URL"
 msgstr ""
+"Jądro twojego linuksa może nie być skonfigurowane do uruchamiania programów "
+"Win16 w Wine\\nSee $EXPLANATION_URL"
 
 #: lib/playonlinux.lib:916
 #, sh-format
@@ -1064,6 +1073,8 @@ msgid ""
 "Your kernel may be incompatible with running Win16 programs under Wine\\nSee "
 "$EXPLANATION_URL"
 msgstr ""
+"Jądro twojego linuksa może być niekompatybilne z aplikacjami Win16 "
+"uruchamianymi w Wine\\nSee $EXPLANATION_URL"
 
 #: lib/plugins.lib:63
 #, sh-format
@@ -1131,7 +1142,7 @@ msgstr ""
 #: lib/scripts.lib:696 lib/scripts.lib:704
 #, sh-format
 msgid "Please wait while $APPLICATION_TITLE is handling archive..."
-msgstr ""
+msgstr "Proszę czekać, $APPLICATION_TITLE wypakowuje archiwum..."
 
 #: lib/scripts.lib:727
 #, sh-format
@@ -1169,11 +1180,11 @@ msgstr "Rozmiar pliku nie zgadza się!"
 #: lib/scripts.lib:955
 #, sh-format
 msgid ""
-"Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\"
-"n$APPLICATION_TITLE $NEEDED is required."
+"Sorry, $APPLICATION_TITLE $VERSION is too old to continue.\\n"
+"$APPLICATION_TITLE $NEEDED is required."
 msgstr ""
-"$APPLICATION_TITLE $VERSION jest zbyt stary aby kontynuować.\\"
-"n$APPLICATION_TITLE $NEEDED jest wymagany."
+"$APPLICATION_TITLE $VERSION jest zbyt stary aby kontynuować.\\n"
+"$APPLICATION_TITLE $NEEDED jest wymagany."
 
 #: lib/scripts.lib:970
 #, sh-format
@@ -1285,7 +1296,7 @@ msgstr "Wyszukiwanie wirtualnego dysku twardego..."
 #: lib/setupwindow.lib:582
 #, sh-format
 msgid "How much memory (in MB) does your graphics board have?"
-msgstr ""
+msgstr "Ile pamięci (w MB) posiada twoja karta graficzna?"
 
 #: lib/setupwindow.lib:591
 #, sh-format
@@ -1369,7 +1380,7 @@ msgstr "Przeglądaj"
 #: lib/setupwindow.lib:763
 #, sh-format
 msgid "A shortcut by that name already exists, overwrite?"
-msgstr ""
+msgstr "Skrót o tej nazwie już istnieje, zastąpić go?"
 
 #: lib/website.lib:29
 #, sh-format
@@ -1403,6 +1414,8 @@ msgstr "Wybierz główną kartę graficzną którą wine ma zgłaszać grom"
 msgid ""
 "Starting 64-bit process $EXEFILE is not supported in 32-bit virtual drives"
 msgstr ""
+"Uruchamianie procesów 64-bitowych $EXEFILE nie jest obsługiwane w 32-"
+"bitowych dyskach wirtualnych"
 
 #: lib/wine.lib:579
 #, sh-format
@@ -1638,6 +1651,11 @@ msgid ""
 "Wine version is changed.\n"
 "Are you sure you want to continue?"
 msgstr ""
+"Uwaga:\n"
+"\n"
+"Każda uruchomiona aplikacja znajdująca się na tym dysku wirtualnym zostanie "
+"zatrzymana przed zmianą wersji Wine.\n"
+"Czy chcesz kontynuować?"
 
 #: python/configure.py:606
 msgid ""
@@ -1752,7 +1770,7 @@ msgstr "Zgadzam się"
 
 #: python/guiv3.py:179
 msgid "Don't remind me anymore"
-msgstr ""
+msgstr "Nie przypominaj mi więcej"
 
 #: python/guiv3.py:180
 msgid "Show virtual drives"
@@ -1875,7 +1893,7 @@ msgstr ""
 
 #: python/install.py:577
 msgid "Attention!"
-msgstr ""
+msgstr "Uwaga!"
 
 #: python/install.py:577
 msgid ""
@@ -1887,6 +1905,13 @@ msgid ""
 "piracy and as such, we will not offer any support for issues resulting from "
 "using this option."
 msgstr ""
+"Włączając tę opcję, możesz instalować programy używające systemu zarządzania "
+"prawami cyfrowymi (DRM), ale nie są one wspierane przez {0} i mogą wymagać "
+"obejścia.\n"
+"\n"
+"Funkcja ta nie powinna być interpretowana jako ukryte lub domniemane "
+"przyzwolenie na piractwo i nie będziemy oferować żadnego wsparcia w "
+"kwestiach wynikających z korzystania z tej opcji."
 
 #: python/install.py:580
 msgid ""
@@ -1976,23 +2001,23 @@ msgstr "Menedżer wtyczek"
 
 #: python/mainwindow.py:294
 msgid "Supported software"
-msgstr ""
+msgstr "Obsługiwane oprogramowanie"
 
 #: python/mainwindow.py:295
 msgid "News"
-msgstr ""
+msgstr "Aktualności"
 
 #: python/mainwindow.py:296
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentacja"
 
 #: python/mainwindow.py:297
 msgid "Forums"
-msgstr ""
+msgstr "Fora dyskusyjne"
 
 #: python/mainwindow.py:298
 msgid "Bugs"
-msgstr ""
+msgstr "Błędy"
 
 #: python/mainwindow.py:300
 msgid "Twitter"
@@ -2028,7 +2053,7 @@ msgstr "Wtyczki"
 
 #: python/mainwindow.py:369
 msgid "Support"
-msgstr ""
+msgstr "Wsparcie"
 
 #: python/mainwindow.py:381 python/mainwindow.py:777
 msgid "Close"
@@ -2080,7 +2105,7 @@ msgstr "Debuguj"
 
 #: python/mainwindow.py:785
 msgid "Send a feedback"
-msgstr ""
+msgstr "Wyślij zgłoszenie"
 
 #: python/mainwindow.py:790
 msgid "Create a shortcut"
@@ -2117,7 +2142,7 @@ msgstr "Wirtualny dysk twardy związany z {0} ({1}) nie istnieje."
 
 #: python/mainwindow.py:1102
 msgid "Are you sure you want to close all {0} windows?"
-msgstr ""
+msgstr "Czy na pewno chcesz zamknąć wszystkie {0} okna?"
 
 #: python/mainwindow.py:1124
 msgid "Run your Windows programs on "
@@ -2342,7 +2367,7 @@ msgstr "Jesteś pewien ze chcesz usunąć Wine {0}?"
 
 #: python/wine_versions.py:334
 msgid "This version is CURRENTLY IN USE"
-msgstr ""
+msgstr "Ta wersja jest obecnie w użyciu"
 
 #: python/wrapper.py:135
 msgid "{0} is not able to start POL_SetupWindow_server."
