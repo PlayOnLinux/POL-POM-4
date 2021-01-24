@@ -678,7 +678,6 @@ POL_Wine_InstallVersion() {
 
     WINE_ADDRESS="$(echo "$WINEDATA" | jq '.url' -r)"
     POL_Debug_Message "Wine address found: $WINE_ADDRESS"
-    #WINE_ADDRESS=$($POL_WGET "$WINE_SITE/$WINE_SECTION.lst" -O- | grep ";$pol_wineversion;" | tail -n 1 | cut -d ";" -f1)
 
     if [ "$WINE_ADDRESS" = "" ] && [ "$POL_ARCH" = "amd64" ]; then
       POL_Debug_Warning "Wine $1 amd64 does not exist. Switching to x86"
@@ -697,7 +696,8 @@ POL_Wine_InstallVersion() {
       fi
 
       cd "$POL_USER_ROOT/tmp"
-      filename="$PWD/PlayOnLinux-wine-$pol_wineversion-$POL_WINEDISTRIBUTION-$ARCH_PREFIX-$site_arch.tar.gz"
+      filename="$PWD/$(basename "$WINE_ADDRESS")"
+      echo "Local file name: $filename"
       POL_SetupWindow_download "$(eval_gettext "Downloading Wine: ")$pol_wineversion" "$TITLE" "$WINE_ADDRESS"
       POL_SetupWindow_wait_next_signal "$(eval_gettext "Downloading Wine: ")$pol_wineversion" "$TITLE"
       sleep 1
@@ -706,7 +706,7 @@ POL_Wine_InstallVersion() {
       echo "Server sha1 : $sha1"
       echo "Client sha1 : $sha1_file"
 
-      if [ ! "$sha1" = "$sha1_file" ] && [[ $OSX_VERSION -lt 19 ]]; then
+      if [ ! "$sha1" = "$sha1_file" ]; then
         POL_SetupWindow_message "$(eval_gettext 'The download seems to have failed.')" "$TITLE"
       else
         POL_SetupWindow_wait "$(eval_gettext 'Extracting Wine...')" "$TITLE"

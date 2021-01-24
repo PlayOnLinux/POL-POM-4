@@ -38,29 +38,31 @@ lib.lng.Lang()
 class WineVersionsWindow(wx.Frame):
     def on_available_wine_versions_downloaded(self, versions_per_architecture):
         for architecture in versions_per_architecture:
-            available_versions = []
-            for version in versions_per_architecture[architecture]:
-                available_versions.append(version["name"])
+            if architecture in fetch_supported_archs():
+                available_versions = []
+                for version in versions_per_architecture[architecture]:
+                    available_versions.append(version["name"])
 
-            available_versions.sort(key=natsort.natsort_keygen())
-            available_versions.reverse()
-            available_versions = available_versions[:]
+                available_versions.sort(key=natsort.natsort_keygen())
+                available_versions.reverse()
+                available_versions = available_versions[:]
 
-            for version in available_versions:
-                wx.CallAfter(self.notebook.add_available_version, architecture, version)
+                for version in available_versions:
+                    wx.CallAfter(self.notebook.add_available_version, architecture, version)
 
     def on_installed_wine_versions_downloaded(self, versions_per_architecture):
         for architecture in versions_per_architecture:
-            installed_versions = []
-            for version in versions_per_architecture[architecture]:
-                installed_versions.append(version["name"])
+            if architecture in fetch_supported_archs():
+                installed_versions = []
+                for version in versions_per_architecture[architecture]:
+                    installed_versions.append(version["name"])
 
-            installed_versions.sort(key=natsort.natsort_keygen())
-            installed_versions.reverse()
-            installed_versions = installed_versions[:]
+                installed_versions.sort(key=natsort.natsort_keygen())
+                installed_versions.reverse()
+                installed_versions = installed_versions[:]
 
-            for version in installed_versions:
-                wx.CallAfter(self.notebook.add_installed_version, architecture, version)
+                for version in installed_versions:
+                    wx.CallAfter(self.notebook.add_installed_version, architecture, version)
 
     def handle_error(self, error):
         print(error)
