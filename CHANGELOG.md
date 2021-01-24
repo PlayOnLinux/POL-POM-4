@@ -1,3 +1,6 @@
+# 4.4.2 
+* Refactored wine version window 
+
 # 4.4
 * Python 3 support 
 
