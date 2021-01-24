@@ -31,6 +31,14 @@ build_user_state_directory
 # Cleaning tmp directory
 clean_tmp
 
+# Mac OS Catalina: Remove legacy wine versions
+if [[ "$OSX_VERSION" -ge 19 ]]; then
+    if [[ ! -e "$POL_USER_ROOT/wine/darwin-x86-legacy" ]]; then
+        [[ -e "$POL_USER_ROOT/wine/darwin-x86" ]] && mv "$POL_USER_ROOT/wine/darwin-x86" "$POL_USER_ROOT/wine/darwin-x86-legacy"
+        mkdir -p "$POL_USER_ROOT/wine/darwin-x86-legacy"
+    fi
+fi
+
 ### Operations below are background asynchronous tasks
 
 (

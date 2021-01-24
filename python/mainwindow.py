@@ -254,7 +254,7 @@ class MainWindow(wx.Frame):
         self.filemenu = wx.Menu()
         ### On MacOS X, preference is always on the main menu
         if (os.environ["POL_OS"] == "Mac"):
-            prefItem = self.filemenu.Append(wx.ID_PREFERENCES, text="&Preferences")
+            prefItem = self.filemenu.Append(wx.ID_PREFERENCES, _("&Preferences"))
             self.Bind(wx.EVT_MENU, self.Options, prefItem)
 
         ### File menu

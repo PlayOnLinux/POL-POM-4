@@ -21,6 +21,7 @@
 ## Hack for El Capitain
 [ ! "$WRITE_LD" = "" ] && export LD_LIBRARY_PATH="$WRITE_LD"
 [ ! "$WRITE_DYLD" = "" ] && export DYLD_LIBRARY_PATH="$WRITE_DYLD"
+[ ! "$WRITE_DYLD_FALLBACK_LIBRARY_PATH" = "" ] && export DYLD_FALLBACK_LIBRARY_PATH="$WRITE_DYLD_FALLBACK_LIBRARY_PATH"
 
 # This is just a copy of function in playonlinux, but we need it earlier
 [ "$POL_OS" = "Mac" ] && export LANG="$RLANG"

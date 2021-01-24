@@ -10,22 +10,10 @@ def fetchUserOS():
     else:
         return "freebsd"
 
-def GetWineVersion(game):
-    cfile = Variables.playonlinux_rep + "shortcuts/" + game
-    fichier = open(cfile, "r").readlines()
-    i = 0
-    line = ""
-    while (i < len(fichier)):
-        fichier[i] = fichier[i].replace("\n", "")
-        if ("PATH=" in fichier[i] and "WineVersions" in fichier[i]):
-            line = fichier[i].replace("//", "/")
-        i += 1
+def architecture_is_supported(architecture_name):
+    return True ## FIXME
 
-    if line == "":
-        version = "System"
-    else:
-        version = line.replace("PATH=", "").replace("\"", "").replace(Variables.playonlinux_rep, "").replace("//", "/")
-        version = version.split("/")
-        version = version[1]
-
-    return version
+def fetch_supported_archs():
+    for available_arch in ["x86", "x86on64", "amd64"]:
+        if architecture_is_supported(available_arch):
+            yield available_arch
