@@ -278,11 +278,11 @@ def VersionLower(version1, version2):
         else:
             return False
 
-    version1 = [ int(digit) for digit in version1[0].split(".")[:3] ]
+    version1 = [ int(digit) for digit in version1[0].split(".") if digit.isnumeric() ]
     while len(version1) < 3:
         version1.append(0)
 
-    version2 = [ int(digit) for digit in version2[0].split(".")[:3] ]
+    version2 = [ int(digit) for digit in version2[0].split(".") if digit.isnumeric() ]
     while len(version2) < 3:
         version2.append(0)
 
