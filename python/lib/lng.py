@@ -18,12 +18,15 @@ class iLang(object):
             languages = os.listdir(Variables.playonlinux_env+'/lang/locale')
 
         if(os.environ["POL_OS"] == "Mac"):
-            wxLocale = wx.Locale().FindLanguageInfo(os.environ["RLANG"])
+            try:
+                wxLocale = wx.Locale().FindLanguageInfo(os.environ["RLANG"])
 
-            if wxLocale is not None:
-                langid = wx.Locale().FindLanguageInfo(os.environ["RLANG"]).Language
-            else:
-                langid = wx.LANGUAGE_DEFAULT
+                if wxLocale is not None:
+                    langid = wx.Locale().FindLanguageInfo(os.environ["RLANG"]).Language
+                else:
+                    langid = wx.LANGUAGE_DEFAULT
+            except:
+                langid = wx.LANGUAGE_DEFAULT 
         else:
             langid = wx.LANGUAGE_DEFAULT
 
