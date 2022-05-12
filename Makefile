@@ -20,9 +20,18 @@
 # DESTDIR -- Where you want to install
 #
 
-CFLAGS ?= -O2
+ifeq ($(shell uname -s),Darwin)
+    CFLAGS ?= -O2 -I/opt/X11/include
+    LFLAGS ?= -L/opt/X11/lib -lGL -lX11
+    PYTHON = python2.7 -m py_compile
+    SED = sed -i '' -e
+else
+    CFLAGS ?= -O2 
+    CFLAGS ?= -lGL -lX11
+    PYTHON = python2 -m py_compile
+    SED = sed -i
+endif
 CC = gcc $(CFLAGS)
-PYTHON = python2 -m py_compile
 GZIP = gzip
 SHELL := /bin/bash
 
@@ -45,14 +54,14 @@ clean:
 	$(RM) ./ChangeLog
 
 build:
-	$(CC) ./src/check_direct_rendering.c -o ./bin/playonlinux-check_dd -lGL -lX11
+	$(CC) ./src/check_direct_rendering.c -o ./bin/playonlinux-check_dd $(LFLAGS)
 	$(PYTHON) ./python/*.py
 	$(PYTHON) ./python/lib/*.py
 	echo -e '#!/bin/bash\nGDK_BACKEND=x11 ${sharedir}/playonlinux/playonlinux "$$@"\nexit 0' > ./bin/playonlinux
 	echo -e '#!/bin/bash\n${sharedir}/playonlinux/playonlinux-pkg "$$@"\nexit 0' > ./bin/playonlinux-pkg
 	chmod +x ./bin/playonlinux
 	chmod +x ./bin/playonlinux-pkg
-	sed -i 's/\(\["DEBIAN_PACKAGE"\]\s*=\s*\)"FALSE"/\1"TRUE"/' \
+	$(SED) 's/\(\["DEBIAN_PACKAGE"\]\s*=\s*\)"FALSE"/\1"TRUE"/' \
 		./python/lib/Variables.py
 
 install:
@@ -81,3 +90,4 @@ changelog:
 	(GIT_DIR=.git git log > .changelog.tmp && mv .changelog.tmp ChangeLog; rm -f .changelog.tmp) || (touch ChangeLog; echo 'git directory not found: installing possibly empty changelog.' >&2)
 
 .PHONY: all clean build install changelog
+
