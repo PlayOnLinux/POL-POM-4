@@ -27,7 +27,7 @@ ifeq ($(shell uname -s),Darwin)
     SED = sed -i '' -e
 else
     CFLAGS ?= -O2 
-    CFLAGS ?= -lGL -lX11
+    LFLAGS ?= -lGL -lX11
     PYTHON = python2 -m py_compile
     SED = sed -i
 endif
