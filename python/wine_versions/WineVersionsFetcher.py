@@ -18,10 +18,13 @@ class WineVersionFetcher():
 
     def _sync_fetch_all_available_wine_versions(self, callback, error):
         wine_version_url = "https://phoenicis.playonlinux.com/index.php/wine?os=%s" % self.operating_system
-        print("Donwloading %s " % wine_version_url)
+        print("Downloading %s " % wine_version_url)
         try:
             request = urllib.request.Request(wine_version_url, None, {'User-Agent': Variables.userAgent})
-            handle = urllib.request.urlopen(request, timeout=5)
+            if self.operating_system == 'darwin':
+                handle = urllib.request.urlopen(request, cafile='../../lib/python3.8/certifi/cacert.pem', timeout=5)
+            else:
+                handle = urllib.request.urlopen(request, timeout=5)
             callback(self._convert_phoenicis_wine_versions_to_v4(json.load(handle)))
         except Exception as e:
             error(traceback.format_exc())
