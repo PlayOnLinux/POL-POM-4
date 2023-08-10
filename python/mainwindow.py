@@ -27,6 +27,7 @@ import sys
 import time
 import urllib.parse
 import webbrowser
+import shtil
 
 try:
     os.environ["POL_OS"]
