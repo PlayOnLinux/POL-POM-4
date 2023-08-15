@@ -989,7 +989,7 @@ POL_Wine_PrefixCreate() {
 
       POL_Debug_InitPrefix
 
-      command -v wineprefixcreate && [ "$(POL_MD5_file "$(which wineprefixcreate)")" != "5c0ee90682746e811698a53415b4765d" ] && [ ! "$(which wineprefixcreate | grep $APPLICATION_TITLE)" = "" ] && wine wineprefixcreate
+      command -v wineprefixcreate && [ "$(POL_MD5_file "$(command -v wineprefixcreate)")" != "5c0ee90682746e811698a53415b4765d" ] && [ ! "$(command -v wineprefixcreate | grep $APPLICATION_TITLE)" = "" ] && wine wineprefixcreate
       wine wineboot
     fi
   fi
