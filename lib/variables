@@ -31,7 +31,7 @@ POL_Config_pRead (){ cat "$POL_USER_ROOT/playonlinux.cfg" 2> /dev/null | grep "^
 alias find="find -H"
 
 ### Security feature
-[ "$(which sudo)" ] && sudo -k 2> /dev/null
+[ "$(command -v sudo)" ] && sudo -k 2> /dev/null
 
 ### Terminal
 # User override, must support -T to set title and -e to run a command
@@ -53,7 +53,7 @@ fi
 export POL_TERM
 
 ### Desktop
-[ "$(which xdg-user-dir)" ] && export DESKTOP="$(xdg-user-dir DESKTOP)" || export DESKTOP="$HOME/Desktop"
+[ "$(command -v xdg-user-dir)" ] && export DESKTOP="$(xdg-user-dir DESKTOP)" || export DESKTOP="$HOME/Desktop"
 
 ### Override ~/.wgetrc
 export WGETRC="$POL_USER_ROOT/configurations/wgetrc"
@@ -70,7 +70,7 @@ else
 	eval_gettext() { printf "$@"; }
 fi
 
-which shasum > /dev/null 2> /dev/null || shasum () { sha1sum "$@"; }
+command -v shasum > /dev/null 2> /dev/null || shasum () { sha1sum "$@"; }
 
 
 if [ "$POL_OS" == "Linux" ]

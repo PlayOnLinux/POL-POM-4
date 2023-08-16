@@ -916,16 +916,16 @@ POL_Sudo()
 		fi
 		if [ "$POL_OS" = "Linux" ]; then
 			# Now, we detect what sudo to use
-			if which gksudo; then
+			if command -v gksudo; then
 				SUDO_COMMAND="gksudo --"
 				unset gksudo
-			elif which gksu; then
+			elif command -v gksu; then
 				SUDO_COMMAND="gksu --"
 				unset gksu
-			elif which kdesu; then
+			elif command -v kdesu; then
 				SUDO_COMMAND="kdesu --"
 				unset kdesu
-			elif which sudo; then
+			elif command -v sudo; then
 				SUDO_COMMAND="$POL_TERM -e sudo"
 				unset sudo
 			else

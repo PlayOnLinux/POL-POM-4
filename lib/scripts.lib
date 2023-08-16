@@ -737,7 +737,7 @@ POL_System_ExtractSingleFile ()
     local archivename=`basename "$archive"`
     local filename=`basename "$file"`
     local szpid
-    local szip=`which 7z`
+    local szip=`command -v 7z`
 
     POL_Debug_Message "Extracting single file : \"$archive\", \"$file\", \"$dest\""
 

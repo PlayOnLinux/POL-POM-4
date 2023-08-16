@@ -989,13 +989,13 @@ POL_Wine_PrefixCreate() {
 
       POL_Debug_InitPrefix
 
-      which wineprefixcreate && [ "$(POL_MD5_file "$(which wineprefixcreate)")" != "5c0ee90682746e811698a53415b4765d" ] && [ ! "$(which wineprefixcreate | grep $APPLICATION_TITLE)" = "" ] && wine wineprefixcreate
+      command -v wineprefixcreate && [ "$(POL_MD5_file "$(command -v wineprefixcreate)")" != "5c0ee90682746e811698a53415b4765d" ] && [ ! "$(command -v wineprefixcreate | grep $APPLICATION_TITLE)" = "" ] && wine wineprefixcreate
       wine wineboot
     fi
   fi
 
   # Make sure that .reg files are created
-  if which wineserver; then
+  if command -v wineserver; then
     wineserver -w
   else
     POL_Debug_Message "Warning, wineserver not found"
