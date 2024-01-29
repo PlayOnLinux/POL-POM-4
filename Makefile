@@ -61,7 +61,7 @@ build:
 	echo -e '#!/bin/bash\n${sharedir}/playonlinux/playonlinux-pkg "$$@"\nexit 0' > ./bin/playonlinux-pkg
 	echo -e '#!/bin/bash\n${sharedir}/playonlinux/playonlinux-bash "$$@"\nexit 0' > ./bin/playonlinux-bash
 	echo -e '#!/bin/bash\n${sharedir}/playonlinux/playonlinux-shell "$$@"\nexit 0' > ./bin/playonlinux-shell
-	echo -e '#!/bin/bash\n${sharedir}/playonlinux/playonlinux-shell "$$@"\nexit 0' > ./bin/playonlinux-url_handler
+	echo -e '#!/bin/bash\n${sharedir}/playonlinux/playonlinux-url_handler "$$@"\nexit 0' > ./bin/playonlinux-url_handler
 	chmod +x ./bin/playonlinux
 	chmod +x ./bin/playonlinux-pkg
 	chmod +x ./bin/playonlinux-bash
