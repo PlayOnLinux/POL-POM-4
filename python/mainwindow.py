@@ -1215,11 +1215,8 @@ class PlayOnLinuxApp(wx.App):
         return True
 
     def _executableFound(self, executable):
-        devnull = open('/dev/null', 'wb')
         try:
-            executable_path = shutil.which(executable)
-            returncode = subprocess.call(executable_path, stdout=devnull)
-            return (returncode == 0)
+            return (shutil.which(executable) is not None)
         except:
             return False
 
