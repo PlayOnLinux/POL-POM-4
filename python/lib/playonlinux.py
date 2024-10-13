@@ -5,7 +5,7 @@
 
 from . import Variables
 import os
-import subprocess, shlex, pipes, wx
+import subprocess, shlex, wx
 import natsort
 
 def winpath(script, path):
@@ -373,7 +373,7 @@ def getArgs(shortcut): # Get prefix name from shortcut
     try:
         args = shlex.split(fichier[i])[2:-1]
         #print args
-        args = " ".join([ pipes.quote(x) for x in args])
+        args = " ".join([ shlex.quote(x) for x in args])
         #print args
     except:
         args = ""
@@ -432,7 +432,7 @@ def writeArgs(game, args):
                 old_string = shlex.split(fichier[i])
                 new_string = shlex.split(str(args))
                 new_string = old_string[0:2] + new_string
-                new_string = " ".join([ pipes.quote(x) for x in new_string])
+                new_string = " ".join([ shlex.quote(x) for x in new_string])
 
                 new_string = new_string+' "$@"'
                 line.append(new_string)
