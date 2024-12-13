@@ -706,13 +706,15 @@ class MainWindow(wx.Frame):
 
     def ChangeIcon(self, event):
         self.IconDir = Variables.homedir + "/.local/share/icons/"
-        self.SupprotedIconExt = "All|*.xpm;*.XPM;*.png;*.PNG;*.ico;*.ICO;*.jpg;*.JPG;*.jpeg;*.JPEG;*.bmp;*.BMP\
-        \|XPM (*.xpm)|*.xpm;*.XPM\
-        \|PNG (*.png)|*.png;*.PNG\
-        \|ICO (*.ico)|*.ico;*.ICO\
-        \|JPG (*.jpg)|*.jpg;*.JPG\
-        \|BMP (*.bmp)|*.bmp;*.BMP\
-        \|JPEG (*.jpeg)|*.jpeg;*JPEG"
+        self.SupprotedIconExt = (
+            "All|*.xpm;*.XPM;*.png;*.PNG;*.ico;*.ICO;*.jpg;*.JPG;*.jpeg;*.JPEG;*.bmp;*.BMP|"
+            "XPM (*.xpm)|*.xpm;*.XPM|"
+            "PNG (*.png)|*.png;*.PNG|"
+            "ICO (*.ico)|*.ico;*.ICO|"
+            "JPG (*.jpg)|*.jpg;*.JPG|"
+            "BMP (*.bmp)|*.bmp;*.BMP|"
+            "JPEG (*.jpeg)|*.jpeg;*.JPEG"
+        )
         self.IconDialog = wx.FileDialog(self, "Choose a icon file", self.IconDir, "", self.SupprotedIconExt,
                                         wx.OPEN | wx.FD_PREVIEW)
         if self.IconDialog.ShowModal() == wx.ID_OK:
