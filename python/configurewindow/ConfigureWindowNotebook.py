@@ -461,8 +461,8 @@ class ConfigureWindowNotebook(wx.Notebook):
             self.FileDialog = wx.FileDialog(self)
             self.FileDialog.SetDirectory("~")
             self.supported_files = "All|*.exe;*.EXE;*.msi;*.MSI\
-            \|Windows executable (*.exe)|*.exe;*.EXE\
-            \|Windows install file (*.msi)|*.msi;*MSI"
+            |Windows executable (*.exe)|*.exe;*.EXE\
+            |Windows install file (*.msi)|*.msi;*MSI"
             self.FileDialog.SetWildcard(self.supported_files)
             self.FileDialog.ShowModal()
             if (self.FileDialog.GetPath() != ""):
