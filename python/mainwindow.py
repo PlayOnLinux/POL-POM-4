@@ -1302,6 +1302,7 @@ class PlayOnLinuxApp(wx.App):
                     playonlinux.SetSettings("SEND_REPORT", "FALSE")
 
         #### Other import checks
+        self.singleCheckFatal("node", package="nodejs") # Added check for node, so the default is not netcat
         self.singleCheckFatal("nc", package="Netcat")
         self.singleCheckFatal("tar")
         self.singleCheckFatal("cabextract")
