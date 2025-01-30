@@ -59,8 +59,14 @@ build:
 	$(PYTHON) ./python/lib/*.py
 	echo -e '#!/bin/bash\nGDK_BACKEND=x11 ${sharedir}/playonlinux/playonlinux "$$@"\nexit 0' > ./bin/playonlinux
 	echo -e '#!/bin/bash\n${sharedir}/playonlinux/playonlinux-pkg "$$@"\nexit 0' > ./bin/playonlinux-pkg
+	echo -e '#!/bin/bash\n${sharedir}/playonlinux/playonlinux-bash "$$@"\nexit 0' > ./bin/playonlinux-bash
+	echo -e '#!/bin/bash\n${sharedir}/playonlinux/playonlinux-shell "$$@"\nexit 0' > ./bin/playonlinux-shell
+	echo -e '#!/bin/bash\n${sharedir}/playonlinux/playonlinux-url_handler "$$@"\nexit 0' > ./bin/playonlinux-url_handler
 	chmod +x ./bin/playonlinux
 	chmod +x ./bin/playonlinux-pkg
+	chmod +x ./bin/playonlinux-bash
+	chmod +x ./bin/playonlinux-shell
+	chmod +x ./bin/playonlinux-url_handler
 	$(SED) 's/\(\["DEBIAN_PACKAGE"\]\s*=\s*\)"FALSE"/\1"TRUE"/' \
 		./python/lib/Variables.py
 
@@ -80,7 +86,7 @@ install:
 	cp ./etc/playonlinux.png $(sharedir)/pixmaps/playonlinux.png
 	cp ./etc/playonlinux16.png $(sharedir)/pixmaps/playonlinux16.png
 	cp ./etc/playonlinux32.png $(sharedir)/pixmaps/playonlinux32.png
-	cp ./bin/{playonlinux,playonlinux-pkg} $(bindir)/
+	cp ./bin/{playonlinux,playonlinux-pkg,playonlinux-bash,playonlinux-shell,playonlinux-url_handler} $(bindir)/
 	cp ./bin/playonlinux-check_dd $(execdir)/
 	cp ./{playonlinux*,README.md,TRANSLATORS,CHANGELOG.md,LICENCE} $(sharedir)/playonlinux/
 	cp -R ./{bash,etc,lib,plugins,python,resources,tests} $(sharedir)/playonlinux/
