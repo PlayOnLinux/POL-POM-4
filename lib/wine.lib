@@ -519,7 +519,7 @@ POL_Wine() {
   fi
 
   if [ ! "$WINEMENUBUILDER_ALERT" ]; then
-    POL_Debug_Message "Notice: PlayOnLinux deliberately disables winemenubuilder. See http://www.playonlinux.com/fr/page-26-Winemenubuilder.html"
+    POL_Debug_Message "Notice: PlayOnLinux deliberately disables winemenubuilder."
     WINEMENUBUILDER_ALERT="Done"
   fi
   if [ "$1" = "regedit" -a ! "$2" = "" ]; then
