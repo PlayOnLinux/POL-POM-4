@@ -33,7 +33,6 @@ import lib.lng
 import lib.playonlinux as playonlinux
 
 lib.lng.Lang()
-urllib.request.URLopener.version = Variables.userAgent  # Arg ...
 
 from ui.PlayOnLinuxWindow import PlayOnLinuxWindow
 from setupwindow.Downloader import Downloader
