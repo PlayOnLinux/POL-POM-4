@@ -17,7 +17,9 @@ class PackageList:
         return self.available_packages
 
     def getCutList(self):
-        clist = self.available_packages.split("\n")
+        clist = []
+        for key in self.available_packages:
+            clist.append(key)
         flist = []
         for key in clist:
             if ("POL_Install" in key):
